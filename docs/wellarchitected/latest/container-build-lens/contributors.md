@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  The following have written, reviewed, and contributed to the AWS Well-Architected Container Build Lens. 
 +  Joe Mann – Partner Solutions Architect, Redhat 

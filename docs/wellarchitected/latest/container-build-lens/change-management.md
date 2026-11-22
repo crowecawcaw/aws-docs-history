@@ -1,7 +1,6 @@
 
 
 # Change management
-<a name="change-management"></a>
 
 
 | CONTAINER\_BUILD\_REL\_04: How do I cascade updates to a parent or base image? | 

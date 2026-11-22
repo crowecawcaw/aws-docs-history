@@ -1,7 +1,6 @@
 
 
 # Review
-<a name="review"></a>
 
 
 | CONTAINER\_BUILD\_PERF\_03: How do you make sure to get consistent results for your target images? | 

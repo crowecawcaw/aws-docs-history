@@ -1,7 +1,6 @@
 
 
 # Prepare
-<a name="prepare"></a>
 
 
 | CONTAINER\_BUILD\_OPS\_01: How do you manage the lifecycle of your containers and images? | 

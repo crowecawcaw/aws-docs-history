@@ -1,7 +1,6 @@
 
 
 # Identity and access management
-<a name="identity-and-access-management"></a>
 
 
 | CONTAINER\_BUILD\_SEC\_01: How do you ensure that your container images are using least privilege identity? | 

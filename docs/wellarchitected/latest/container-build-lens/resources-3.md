@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-3"></a>
 
  This section provides companion material for the Container Build Lens with respect to the performance efficiency pillar. 
 

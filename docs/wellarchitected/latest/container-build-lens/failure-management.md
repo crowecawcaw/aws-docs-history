@@ -1,7 +1,6 @@
 
 
 # Failure management
-<a name="failure-management"></a>
 
 
 | CONTAINER\_BUILD\_REL\_05: How do you monitor the health of a container? | 

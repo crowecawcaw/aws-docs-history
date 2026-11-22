@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices"></a>
 
  Operational excellence is defined by the ability to run and monitor your systems to ensure they are delivering the business value as intended. Further, it can continuously improve support processes and procedures throughout the lifetime of the system. Operational excellence with regard to your containers and container images is no different. As your application evolves and matures, you must update your container images and running containers to provide additional features to your customers. With these updates and new container deployments, you must have the right mechanisms in place to validate that your workload is attaining its intended business goals. These mechanisms include container health checks and the collection of container logs external to the container. The following guidance is in addition to the best practice guidance laid out by the [Operational Excellence Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/welcome.html). 
 

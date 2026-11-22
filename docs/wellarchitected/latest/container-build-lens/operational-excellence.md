@@ -1,7 +1,6 @@
 
 
 # Operational excellence pillar
-<a name="operational-excellence"></a>
 
  The operational excellence pillar includes the ability to run and monitor systems to deliver business value and to improve supporting processes and procedures. 
 

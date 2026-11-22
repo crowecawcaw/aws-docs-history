@@ -1,7 +1,6 @@
 
 
 # Sustainability pillar
-<a name="sustainability-pillar"></a>
 
  The sustainability pillar focuses on environmental sustainability. 
 

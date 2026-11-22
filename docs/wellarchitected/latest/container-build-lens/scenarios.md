@@ -1,7 +1,6 @@
 
 
 # Scenarios
-<a name="scenarios"></a>
 
  This section includes a set of customer use cases, applications for AWS features and services, reporting requirements, data structures, testing protocols, and workloads. 
 

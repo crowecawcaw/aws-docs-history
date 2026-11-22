@@ -1,7 +1,6 @@
 
 
 # Foundations
-<a name="foundations"></a>
 
 
 | CONTAINER\_BUILD\_REL\_01: How do you limit the amount of CPU and memory a container consumes? | 

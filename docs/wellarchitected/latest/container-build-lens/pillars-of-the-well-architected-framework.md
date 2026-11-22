@@ -1,7 +1,6 @@
 
 
 # Pillars of the Well-Architected Framework
-<a name="pillars-of-the-well-architected-framework"></a>
 
  This section describes the AWS Well-Architected Container Build Lens in the context of the six pillars of the Well-Architected Framework. Each pillar describes a set of definitions, key topics, and considerations that are relevant when building and designing containerized applications in the cloud. These include design principles, definitions, best practices, evaluation questions, considerations, key services, and useful links. 
 

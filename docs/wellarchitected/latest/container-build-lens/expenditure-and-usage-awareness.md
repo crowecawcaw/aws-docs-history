@@ -1,7 +1,6 @@
 
 
 # Expenditure and usage awareness
-<a name="expenditure-and-usage-awareness"></a>
 
 
 | CONTAINER\_BUILD\_COST\_02: How do you design your container build process to avoid unnecessary cost? | 

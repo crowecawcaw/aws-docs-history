@@ -1,7 +1,6 @@
 
 
 # Improving performance for container image build process
-<a name="improving-performance-for-container-image-build-process"></a>
 
 It is important for an organization to deliver applications and services at high velocity, evolving and improving products at a faster pace than organizations using traditional software development and infrastructure management processes. This speed enables organizations to serve their customers better and compete more effectively in the market. 
 
@@ -17,6 +16,8 @@ It is important for an organization to deliver applications and services at high
 +  You want to use prebuilt images that include many of the packages that your container is dependent upon to speed up the build process. 
 
 ![Reference architecture diagram of improving the build pipeline performance of continerized applications](https://docs.aws.amazon.com/wellarchitected/latest/container-build-lens/images/improving-performance-containerized-app-build-pipeline.png)
+
+*Figure 4. Improving the build pipeline performance of containerized applications*
 
 
 

@@ -1,7 +1,6 @@
 
 
 # Securing containerized build pipelines
-<a name="securing-containerized-build-pipelines"></a>
 
 A build pipeline is the process of creating a runnable and deployable artifact from the application source code. One of the steps towards adopting the use of container technologies, is updating the build pipeline to include the relevant steps for building containerized applications. When doing so, security measures should be considered for the build pipeline itself. This scenario suggests an architecture for creating a container build pipeline while handling various types of security aspects of the build pipeline itself, which are relevant to containers. 
 
@@ -14,6 +13,8 @@ All the security measures, controls, and tasks in this scenario come *in additio
  The following reference architecture diagram shows a containerized build pipeline with its steps. 
 
 ![Reference architecture diagram of continuous integration pipeline for containerized applications](https://docs.aws.amazon.com/wellarchitected/latest/container-build-lens/images/continuous-integration-pipeline-containerized-apps.png)
+
+*Figure 2. Continuous integration pipeline for containerized applications*
 
 
 

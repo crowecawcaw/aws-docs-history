@@ -1,7 +1,6 @@
 
 
 # Hardware patterns
-<a name="hardware-patterns"></a>
 
 
 | CONTAINER\_BUILD\_SUSTAINABILITY\_02: How do you support your containerized application to run on energy-efficient hardware? | 

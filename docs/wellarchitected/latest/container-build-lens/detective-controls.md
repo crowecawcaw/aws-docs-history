@@ -1,7 +1,6 @@
 
 
 # Detective controls
-<a name="detective-controls"></a>
 
 
 | CONTAINER\_BUILD\_SEC\_03: How do you detect and address vulnerabilities within your container image? | 

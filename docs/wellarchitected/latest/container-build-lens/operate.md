@@ -1,7 +1,6 @@
 
 
 # Operate
-<a name="operate"></a>
 
 
 | CONTAINER\_BUILD\_OPS\_02: How do you know whether your containerized workload is achieving its business goals? | 

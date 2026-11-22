@@ -1,7 +1,6 @@
 
 
 # Selection
-<a name="selection"></a>
 
 
 | CONTAINER\_BUILD\_PERF\_01: How do you reduce the size of your container image? | 
