@@ -1,7 +1,6 @@
 
 
 # Module 2: Add Amplify authentication
-<a name="module-2"></a>
 
 ## Overview
 <a name="overview"></a>

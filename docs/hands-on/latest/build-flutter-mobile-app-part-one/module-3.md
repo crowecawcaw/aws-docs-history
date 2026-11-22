@@ -1,7 +1,6 @@
 
 
 # Module 3: Add API
-<a name="module-3"></a>
 
 ## Overview
 <a name="overview"></a>
