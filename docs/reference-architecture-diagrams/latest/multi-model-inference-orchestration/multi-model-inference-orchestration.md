@@ -1,7 +1,6 @@
 
 
 # Multi-Model Inference Workflow Orchestration
-<a name="multi-model-inference-orchestration"></a>
 
 Publication date: **March 28, 2022 ([Diagram history](#diagram-history))**
 
