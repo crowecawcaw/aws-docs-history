@@ -1,7 +1,6 @@
 
 
 # Use the Log4j SSM Document to discover occurrences in Accelerate
-<a name="acc-lm-log4j"></a>
 
 The Log4j AWS Systems Manager document (SSM document) assists you with searching for the Apache Log4j2 library within ingested workloads. The automation document provides a report of the Process ID of the Java application(s) that the Log4j2 library is active in.
 

@@ -1,7 +1,6 @@
 
 
 # AMS self-service reports dashboards
-<a name="ssr-dashboards"></a>
 
 AMS self-service reports offers two dashboards: [Resource Tagger dashboard](#resource-tagger-dashboard) and [Security Config Rules dashboard](#sec-config-dashboard).
 

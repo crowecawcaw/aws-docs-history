@@ -1,7 +1,6 @@
 
 
 # Creating a service request in Accelerate
-<a name="creating-a-sr"></a>
 
 To create a service request, follow these steps:
 

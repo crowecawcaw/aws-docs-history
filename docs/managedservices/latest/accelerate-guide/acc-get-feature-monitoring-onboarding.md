@@ -1,7 +1,6 @@
 
 
 # Onboarding Accelerate monitoring
-<a name="acc-get-feature-monitoring-onboarding"></a>
 
 Monitoring is enabled by default for all new resources except Amazon EC2 instances. You can start monitoring your Amazon EC2 instances by tagging your instances.
 

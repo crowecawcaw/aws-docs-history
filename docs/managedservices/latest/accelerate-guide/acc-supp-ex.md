@@ -1,7 +1,6 @@
 
 
 # Incident reports, service requests, and billing questions in AMS Accelerate
-<a name="acc-supp-ex"></a>
 
 With AMS Accelerate, you can request help with operational issues and requests at any time through the AWS Support Center in the AWS Management Console. AMS Accelerate operations engineers are available to respond to your incidents and service requests round-the-clock, with response time Service Level Agreements (SLAs) for the [service](https://s3.amazonaws.com/ams.contract.docs/AWSManagedServicesSLA.pdf). AMS Accelerate operations engineers proactively notify you of important alerts and questions using the same mechanisms.
 

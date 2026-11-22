@@ -1,7 +1,6 @@
 
 
 # Patch report (daily)
-<a name="daily-patch-report"></a>
 
 **Topics**
 + [Instance details summary for AMS patching](#instance-details-summary-po)

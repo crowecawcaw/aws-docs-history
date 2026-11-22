@@ -1,7 +1,6 @@
 
 
 # Creating additional CloudWatch alarms for Accelerate
-<a name="acc-mem-create-cw-alarms"></a>
 
 You can create additional CloudWatch alarms for AMS Accelerate using custom CloudWatch metrics and alarms for Amazon EC2 instances.
 

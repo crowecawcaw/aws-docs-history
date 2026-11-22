@@ -1,7 +1,6 @@
 
 
 # Cost estimator in AMS Resource Scheduler
-<a name="resource-scheduler-cost-est"></a>
 
 In order to track cost savings, AMS Resource Scheduler features a component that hourly calculates the estimated cost savings for Amazon EC2 and Amazon RDS resources that are managed by scheduler. This cost savings data is then published as a CloudWatch metric (`AMS/ResourceScheduler`) to help you track it. The cost savings estimator only estimates savings on instance running hours. It does not account any other cost, such as data transfer costs associated with a resource.
 

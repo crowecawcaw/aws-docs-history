@@ -1,7 +1,6 @@
 
 
 # Standard controls in AMS Accelerate
-<a name="acc-sec-stand-controls"></a>
 
 The following are the standard controls in AMS:
 

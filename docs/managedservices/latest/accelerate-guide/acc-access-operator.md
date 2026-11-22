@@ -1,7 +1,6 @@
 
 
 # How AMS accesses your account
-<a name="acc-access-operator"></a>
 
 AMS Accelerate operators can access your account console and instances, in certain circumstances.
 

@@ -1,7 +1,6 @@
 
 
 # Patch with hooks
-<a name="acc-p-hooks"></a>
 
 You can configure AMS patching to run operating-system (OS) level commands before and after patching, using AMS patch hooks. Use AMS patch hooks to run SSM Command documents to stop a service before patching and then start the service after patching, or to run commands to confirm that your application is healthy after patching.
 

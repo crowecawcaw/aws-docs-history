@@ -1,7 +1,6 @@
 
 
 # Service request management in Accelerate
-<a name="service-request-management"></a>
 
 **Topics**
 + [When to use a service request for Accelerate](when-to-use-sr.md)

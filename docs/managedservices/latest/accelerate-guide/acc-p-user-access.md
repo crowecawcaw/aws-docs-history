@@ -1,7 +1,6 @@
 
 
 # Creating an IAM role for on-demand patching of AMS Accelerate
-<a name="acc-p-user-access"></a>
 
 After your account is onboarded to AMS Accelerate patching, AMS Accelerate deploys a managed policy, **amspatchmanagedpolicy**. This policy contains the required permissions for on-demand patching using the AMS automation document `AWSManagedServices-PatchInstance`. To use this automation document, the account administrator creates a IAM role for users. Follow these steps:
 

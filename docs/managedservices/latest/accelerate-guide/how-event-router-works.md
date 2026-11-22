@@ -1,7 +1,6 @@
 
 
 # Using Amazon EventBridge Managed Rules in AMS
-<a name="how-event-router-works"></a>
 
  AMS Accelerate uses Amazon EventBridge Managed Rules. A Managed Rule is a unique type of rule that is directly linked to AMS. These rules match incoming events and send them to targets for processing. Managed Rules are predefined by AMS and include event patterns that are required by the service to manage customer accounts, and unless defined otherwise, only the owning service can utilize these Managed Rules. 
 

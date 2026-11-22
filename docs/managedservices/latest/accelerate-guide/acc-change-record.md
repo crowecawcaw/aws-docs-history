@@ -1,7 +1,6 @@
 
 
 # Tracking changes in your AMS Accelerate accounts
-<a name="acc-change-record"></a>
 
 **Important**  
 The Change Record service is deprecated as of July 1, 2025.  
@@ -149,7 +148,7 @@ datetime > '2021/01/01' AND datetime < '2021/01/10'
 #### `ams_access_session_query_v1`
 <a name="ams-access-session-query-v1"></a>
 
-```
+```yaml
 Name: ams_access_session_query_v1
 
 Description: >-
@@ -229,7 +228,7 @@ InsightsQueryString: |-
 #### `ams_events_query_v1`
 <a name="ams-events-query-v1"></a>
 
-```
+```yaml
 ams_events_query_v1.yaml
 /*
   The query provides list of events to track write actions for all AMS changes.
@@ -270,7 +269,7 @@ ORDER BY eventtime
 #### `ams_instance_access_sessions_query_v1`
 <a name="ams-instance-access-sessions-query-v1"></a>
 
-```
+```yaml
 ams_instance_access_sessions_query_v1
 /*
   The query provides list of AMS Instance accesses during specific time range.
@@ -307,7 +306,7 @@ ORDER BY eventtime
 #### `ams_privilege_escalation_events_query_v1`
 <a name="ams-privilege-escalation-events-query-v1"></a>
 
-```
+```yaml
 ams_privilege_escalation_events_query_v1.yaml
 /*
   The query provides list of events that can directly or potentially lead to a privilege escalation.
@@ -380,7 +379,7 @@ ORDER BY eventtime
 #### `ams_resource_events_query_v1`
 <a name="ams-resource-events-query-v1"></a>
 
-```
+```yaml
 Name: ams_resource_events_query_v1
 
 Description: >-
@@ -453,7 +452,7 @@ InsightsQueryString: |-
 #### `ams_session_events_query_v1`
 <a name="ams-session-events-query-v1"></a>
 
-```
+```yaml
 Name: ams_session_events_query_v1
 
 Description: >-
@@ -519,7 +518,7 @@ InsightsQueryString: |-
 #### `ams_session_ids_by_requester_v1`
 <a name="ams-session-ids-by-requester-v1"></a>
 
-```
+```yaml
 Name: ams_session_ids_by_requester_v1
 
 Description: >-

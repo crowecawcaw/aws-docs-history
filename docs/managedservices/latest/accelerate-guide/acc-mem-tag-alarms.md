@@ -1,7 +1,6 @@
 
 
 # Accelerate Alarm Manager
-<a name="acc-mem-tag-alarms"></a>
 
 AMS Accelerate applies alarms to your AWS resources using the tag-based Alarm Manager to implement a baseline monitoring strategy and ensure that all your AWS resources are monitored and protected. By integrating with the tag-based Alarm Manager, you can customize the configuration of your AWS resources based on their type, platform, and other tags, to ensure the resources are monitored. Alarm Manager is deployed to your Accelerate account during onboarding.
 

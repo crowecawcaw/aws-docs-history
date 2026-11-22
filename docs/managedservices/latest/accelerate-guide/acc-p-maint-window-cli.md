@@ -1,7 +1,6 @@
 
 
 # Create a maintenance window with the Systems Manager command line interface (CLI) for AMS Accelerate
-<a name="acc-p-maint-window-cli"></a>
 
 To create an AMS Accelerate maintenance window with the command line interface:
 

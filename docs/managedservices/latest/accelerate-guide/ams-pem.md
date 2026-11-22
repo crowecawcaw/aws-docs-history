@@ -1,7 +1,6 @@
 
 
 # Planned event management in AWS Managed Services
-<a name="ams-pem"></a>
 
 AWS Managed Services (AMS) planned event management (PEM) is an AMS service offering. PEM engages, coordinates, and assists during customer events and projects using AMS services. The PEM assists in coordinating a set of related activities that align with the agreed scope and timeline of the PEM event or project.
 

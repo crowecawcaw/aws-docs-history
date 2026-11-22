@@ -1,7 +1,6 @@
 
 
 # Tagging in AMS Accelerate
-<a name="acc-tagging"></a>
 
 Most Accelerate features (patching, backup, monitoring) use *tags* and *configuration profiles* to decide which of your resources to manage, what actions to apply, and when to apply them. Tags are labels that you apply to resources. Configuration profiles contain rules based on those tags.
 

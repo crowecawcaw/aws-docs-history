@@ -1,7 +1,6 @@
 
 
 # How continuity management works in AMS
-<a name="ug-automated-or-manual"></a>
 
  AMS backup plans define how frequently your data is backed up and the retention policy for your backups. AMS backup vaults keep your backup data organized. Once a resource is associated with a backup plan, [compatible resources](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource) are incrementally backed up. The first backup is a full copy and subsequent backups capture incremental changes. Depending on the resource and AMS backup plan selected, [Point-in-time restore (PITR)](https://docs.aws.amazon.com/aws-backup/latest/devguide/point-in-time-recovery.html) allows you to rewind your resources by selecting a time for your recovery. To get started with AMS Backup Management, simply select an AMS backup plan and tag your resources.
 

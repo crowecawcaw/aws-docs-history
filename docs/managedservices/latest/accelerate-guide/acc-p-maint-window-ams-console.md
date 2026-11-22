@@ -1,7 +1,6 @@
 
 
 # Create a recurring "Patch Tuesday" maintenance window from the AMS console (recommended)
-<a name="acc-p-maint-window-ams-console"></a>
 
 Microsoft releases patches for its operating systems on the second Tuesday of each month, also know as Patch Tuesday. It is common to schedule patching for both Windows and Linux instances relative to Patch Tuesday. To schedule recurring patch maintenance windows on the first or second weekends after Patch Tuesday, visit the AMS console and follow these steps:
 

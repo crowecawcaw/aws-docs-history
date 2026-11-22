@@ -1,7 +1,6 @@
 
 
 # Configuring tags for EC2 instances in Accelerate
-<a name="acc-tag-req-ins-config"></a>
 
 AMS Accelerate manages agents on your Amazon EC2 instances, such as the SSM agent and the CloudWatch agent. For more information about this service offering, see [Automated instance configuration in AMS Accelerate](acc-inst-auto-config.md)
 

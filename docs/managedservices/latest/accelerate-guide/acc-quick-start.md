@@ -1,7 +1,6 @@
 
 
 # (Optional) Quick Start template in Accelerate
-<a name="acc-quick-start"></a>
 
 The Quick Start template automates the deployment and configuration of AMS Resource Tagger in Accelerate-enabled AWS accounts. This template saves time and effort compared to manual setup. Use this template as-is to define monitoring, patching, and backup basics in one account. Or, use it as a StackSet to apply settings across Organizations Units to standardise settings for multiple accounts.
 

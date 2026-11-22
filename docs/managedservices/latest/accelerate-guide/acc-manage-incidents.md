@@ -1,7 +1,6 @@
 
 
 # Incident management in AMS Accelerate
-<a name="acc-manage-incidents"></a>
 
 In AMS Accelerate, you use the **AWS Support Center Console** to file incident reports. Incidents are AWS service performance issues that impact your managed environment, as determined by AMS Accelerate or you. Incidents identified by the AMS Accelerate team are first received as *events* (a change in system state captured by monitoring). If a configured threshold is breached, the event triggers an alarm, also called an alert. The AMS Accelerate operations team determines if the event is non-impacting, or an incident (a service interruption or degradation), or a problem (the underlying root cause of one or more incidents).
 

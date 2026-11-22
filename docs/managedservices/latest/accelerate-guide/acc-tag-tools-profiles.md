@@ -1,7 +1,6 @@
 
 
 # Resource Tagger Configuration Profiles in AMS Accelerate
-<a name="acc-tag-tools-profiles"></a>
 
 Configuration profiles help ensure that tags are applied uniformly to resources throughout the lifetime of the resources.
 
@@ -10,7 +9,7 @@ Configuration profiles help ensure that tags are applied uniformly to resources 
 
 A configuration profile is a JSON object with the following structure:
 
-```
+```json
 {
    "Options": {
       "ReadOnly": false

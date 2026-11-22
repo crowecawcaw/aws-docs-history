@@ -1,7 +1,6 @@
 
 
 # Managing tags for backups in Accelerate
-<a name="acc-tag-req-backup"></a>
 
 AMS Accelerate manages the backing up of supported resources. For more information about this service offering, see [Continuity management in AMS Accelerate](acc-backup.md).
 

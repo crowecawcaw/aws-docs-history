@@ -1,7 +1,6 @@
 
 
 # Escalation path
-<a name="acc-escalation-path"></a>
 
  AMS supports customers with Incident Management and Service Request Management, 24 hours a day, 7 days a week, 365 days a year; in accordance with the AMS Service level Agreement applied to the account.
 

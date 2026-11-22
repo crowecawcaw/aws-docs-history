@@ -1,7 +1,6 @@
 
 
 # Data retention policy
-<a name="data-retention-policy"></a>
 
 AMS SSR has a data retention policy per report after the period reported, the data is cleared out and no longer available.
 

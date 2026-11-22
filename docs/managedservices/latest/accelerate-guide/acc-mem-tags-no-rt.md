@@ -1,7 +1,6 @@
 
 
 # Accelerate tags without Resource Tagger
-<a name="acc-mem-tags-no-rt"></a>
 
 The tag-based Alarm Manager manages the lifecycle of per-resource CloudWatch alarms; however, it requires that the managed resources have specific tags defined by AMS Accelerate. AMS Accelerate provides a default configuration profile that assumes that your tags have been applied by Resource Tagger.
 

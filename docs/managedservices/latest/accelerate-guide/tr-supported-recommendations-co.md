@@ -1,7 +1,6 @@
 
 
 # Compute Optimizer recommendations supported by Trusted Remediator
-<a name="tr-supported-recommendations-co"></a>
 
 The following table lists the supported Compute Optimizer recommendations, SSM automation documents, preconfigured parameters, and the expected outcome of the automation documents. Review the expected outcome to help you understand possible risks based on your business requirements before you enable an SSM automation document for check remediation.
 

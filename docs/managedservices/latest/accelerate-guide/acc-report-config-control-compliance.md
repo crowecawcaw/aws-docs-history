@@ -1,7 +1,6 @@
 
 
 # AWS Config Control Compliance report
-<a name="acc-report-config-control-compliance"></a>
 
 The AWS Config Control Compliance report provides an in-depth look at resource and AWS Config rule compliance of AMS accounts, You filter the report by Config Rule Severity to prioritize the most critical findings. The following table lists the data provided by this report:
 

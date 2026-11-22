@@ -1,7 +1,6 @@
 
 
 # Other Security Hub controls in Accelerate
-<a name="acc-other-controls"></a>
 
 The following compensating controls are available in Accelerate.
 

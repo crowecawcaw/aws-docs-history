@@ -1,7 +1,6 @@
 
 
 # Infrastructure security monitoring in AMS
-<a name="acc-sec-infra-sec"></a>
 
 When you onboard to AMS Accelerate, AWS deploys the following AWS Config baseline infrastructure and set of rules, AMS Accelerate uses these rules to monitor your accounts.
 + **AWS Config service-linked role**: AMS Accelerate deploys the service-linked role named **AWSServiceRoleForConfig**, which is used by AWS Config to query the status of other AWS services. The **AWSServiceRoleForConfig** service-linked role trusts the AWS Config service to assume the role. The permissions policy for the **AWSServiceRoleForConfig** role contains read-only and write-only permissions on AWS Config resources and read-only permissions for resources in other services that AWS Config supports. If you already have a role configured with AWS Config Recorder, AMS Accelerate validates that the existing role has an AWS Config managed-policy attached. If not, AMS Accelerate replaces the role with the service-linked role **AWSServiceRoleForConfig**.

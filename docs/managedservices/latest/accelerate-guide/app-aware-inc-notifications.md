@@ -1,7 +1,6 @@
 
 
 # Application aware incident notifications in AMS
-<a name="app-aware-inc-notifications"></a>
 
 Use application aware automated incident notifications to customize your communication experience for support cases that AMS creates on your behalf. When you use this feature, AMS retrieves custom workload preferences from [AWS Service Catalog AppRegistry](https://docs.aws.amazon.com/servicecatalog/latest/arguide/intro-app-registry.html) to enrich your AMS incident communications with metadata about your applications and to customize the severity of support cases created by AMS on your behalf. To use this feature, you must first onboard to AWS Service Catalog AppRegistry.
 

@@ -1,7 +1,6 @@
 
 
 # Notification settings in Accelerate
-<a name="acc-notifications"></a>
 
 Communications between you and AMS occur for many reasons:
 + Events created by monitoring alerts

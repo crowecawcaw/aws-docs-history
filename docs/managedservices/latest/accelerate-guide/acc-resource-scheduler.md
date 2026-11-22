@@ -1,7 +1,6 @@
 
 
 # Cost optimization with AMS Resource Scheduler
-<a name="acc-resource-scheduler"></a>
 
 The AMS Resource Scheduler on AWS solution helps you reduce your AWS and AMS costs by stopping resources that are not in use and starting resources when capacity is needed. For example, you can use AMS Resource Scheduler on AWS in a development environment to automatically stop instances outside of business hours every day. If you leave all of your instances running at full utilization, this solution can result in reducing the instance utilization, which reduces overall cost based on the schedules you configure.
 

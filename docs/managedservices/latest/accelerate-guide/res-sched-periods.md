@@ -1,7 +1,6 @@
 
 
 # Working with periods and schedules in AWS Managed Services Resource Scheduler
-<a name="res-sched-periods"></a>
 
 You can use AMS Resource Scheduler to add, update, or delete schedules or periods in AMS Accelerate accounts.
 

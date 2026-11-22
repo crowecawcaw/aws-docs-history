@@ -1,7 +1,6 @@
 
 
 # Billing questions for AMS Accelerate
-<a name="acc-billing-questions"></a>
 
 To submit a billing-related question, complete the following steps:
 

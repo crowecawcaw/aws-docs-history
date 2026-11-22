@@ -1,7 +1,6 @@
 
 
 # Customer Security Risk Management process
-<a name="acc-sec-csrm-process"></a>
 
 The AMS Accelerate Customer Security Risk Management (CSRM) process helps to clearly identify and communicate risks to the right owners. This process minimizes the security risks in your environment and reduces ongoing operational overhead for identified risks.
 

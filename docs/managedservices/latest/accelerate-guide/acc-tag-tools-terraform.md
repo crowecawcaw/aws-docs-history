@@ -1,7 +1,6 @@
 
 
 # Using Terraform to create tags for AMS Accelerate
-<a name="acc-tag-tools-terraform"></a>
 
 If you don't want to use AMS Accelerate Resource Tagger, you can apply your own tags using Terraform. However, if you don't want to use Resource Tagger because of its drift from your Terraform definitions, there is a way for you to use the Resource Tagger and ignore the drift it causes; see [Configuring Terraform to ignore Resource Tagger tags](acc-rt-using.md#acc-rt-ignore-tags).
 

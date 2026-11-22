@@ -1,7 +1,6 @@
 
 
 # Tags in AMS Accelerate
-<a name="acc-tag-intro"></a>
 
 **Contents**
 + [What are tags?](#acc-tag-what-is)

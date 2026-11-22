@@ -1,7 +1,6 @@
 
 
 # Trusted Remediator reports
-<a name="trusted-remediator-reports"></a>
 
 **Topics**
 + [Trusted Remediator Remediation Summary report](#trusted-remediator-summary)

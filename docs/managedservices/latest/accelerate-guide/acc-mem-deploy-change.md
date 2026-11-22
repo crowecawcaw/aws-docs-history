@@ -1,7 +1,6 @@
 
 
 # Deploying Accelerate alarm configuration changes
-<a name="acc-mem-deploy-change"></a>
 
 After you finish a customization, you need to deploy it, either with AppConfig or CloudFormation.
 

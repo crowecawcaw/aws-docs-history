@@ -1,7 +1,6 @@
 
 
 # Aggregated reports
-<a name="aggregated-reports"></a>
 
 Aggregated self-service reporting (SSR) provides you a view of existing self-service reports aggregated at the organization level, cross-account. This gives you visibility into key operational metrics, like patch compliance, backup coverage, and incidents, across all the accounts under AMS management within your AWS Organizations.
 

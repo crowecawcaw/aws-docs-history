@@ -1,7 +1,6 @@
 
 
 # AWS Identity and Access Management in AMS Accelerate
-<a name="acc-sec-iam"></a>
 
 AWS Identity and Access Management is a web service that helps you securely control access to AWS resources. You use IAM to control who is authenticated (signed in) and authorized (has permissions) to use resources. During AMS Accelerate onboarding, you are responsible for creating cross-account IAM administrator roles within each of your managed accounts.
 

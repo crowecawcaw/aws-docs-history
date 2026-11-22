@@ -1,7 +1,6 @@
 
 
 # Create a maintenance window from the Systems Manager console for AMS Accelerate
-<a name="acc-p-maint-window-console"></a>
 
 To create an AMS Accelerate maintenance window from the Systems Manager console, follow these steps:
 

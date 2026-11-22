@@ -1,7 +1,6 @@
 
 
 # Tag your resources to apply AMS backup plans
-<a name="acc-backup-assign-plan-resources"></a>
 
 To assign resources to an AMS backup plan, tag the resource with the plan’s tag key-value pair. You can use AMS Resource Tagger to apply the AMS backup plans to a subset of your resources or for all supported resources in your account. If you want to use an alternate method to apply tags to your resources, such as AWS CloudFormation or Terraform, then turn off Resource Tagger so that it doesn’t compete with your chosen tagging method. For more information, see [Preventing Resource Tagger from modifying resources](acc-rt-using.md#acc-rt-preventing-rt-changes).
 

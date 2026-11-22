@@ -1,7 +1,6 @@
 
 
 # Submitting an incident for Accelerate
-<a name="submitting-an-incident"></a>
 
 To report an incident using Support Center, refer to the support documentation: [ Creating a support case](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#creating-a-support-case)
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring and updating an Accelerate incident
-<a name="mon-and-update-an-incident"></a>
 
 You can update, monitor, and review incident reports and service requests, both called *cases*, by using Support Center, or programmatically using the Support API, [`DescribeCases`](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCases.html) operation.
 

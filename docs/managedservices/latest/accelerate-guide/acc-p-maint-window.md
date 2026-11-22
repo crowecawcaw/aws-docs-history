@@ -1,7 +1,6 @@
 
 
 # Create a patch maintenance window in AMS
-<a name="acc-p-maint-window"></a>
 
 A patch maintenance window runs AMS patch automations on a set schedule for targeted Amazon EC2 instances. Targets are defined by a tag or tags for a group of instances. You can set schedules based on days and times around Patch Tuesday, or you can define a schedule using a *cron expression*. For more information, see [Reference: Cron and rate expressions for Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) in the *AWS Systems Manager User Guide*. Before patching, AMS creates a snapshot of each instance's root volume. If AMS detects that patching impacts the instance's health, or if you notify AMS of application impact from patching, then AMS uses this snapshot to restore the root volume to a pre-patch state.
 

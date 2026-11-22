@@ -1,7 +1,6 @@
 
 
 # Remediation logs in Trusted Remediator
-<a name="tr-logging"></a>
 
 Trusted Remediator creates logs in JSON format and uploads them to Amazon Simple Storage Service The log files are uploaded to an S3 bucket created by AMS and named `ams-trusted-remediator-{your-account-id}-logs`. AMS creates the S3 bucket in the Delegated Administrator account. You can import the log files into Quick to generate customized remediation reports.
 

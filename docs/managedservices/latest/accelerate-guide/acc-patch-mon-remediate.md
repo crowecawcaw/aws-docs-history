@@ -1,7 +1,6 @@
 
 
 # Understand patch notifications and patch failures in AMS Accelerate
-<a name="acc-patch-mon-remediate"></a>
 
 **Important**  
 Beginning February 1, 2025, AMS customers will no longer receive notifications for empty Patch Maintenance Windows in their managed accounts.

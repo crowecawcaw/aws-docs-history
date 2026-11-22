@@ -1,7 +1,6 @@
 
 
 # Alerts from baseline monitoring in AMS
-<a name="monitoring-default-metrics"></a>
 
 Learn about AMS Accelerate monitoring defaults. For more information, see [Monitoring and event management in AMS Accelerate](acc-mon-event-mgmt.md).
 

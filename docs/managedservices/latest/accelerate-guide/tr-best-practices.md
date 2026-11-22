@@ -1,7 +1,6 @@
 
 
 # Best practices in Trusted Remediator
-<a name="tr-best-practices"></a>
 
 The following are best practices to help you use Trusted Remediator:
 + If you're unsure about the remedation results, start with manual execution mode. Sometimes, applying automated execution for remediations from the start might cause unexpected results.

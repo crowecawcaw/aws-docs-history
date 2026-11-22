@@ -1,7 +1,6 @@
 
 
 # Getting Started with AMS Accelerate
-<a name="getting-started-acc"></a>
 
 If you do not have AWS Managed Services (AMS) operating an account already, start by contacting an Amazon Web Services (AWS) sales representative using our [AWS Managed Services - Contact Sales](https://pages.awscloud.com/AWS-Managed-Services.html) page.
 

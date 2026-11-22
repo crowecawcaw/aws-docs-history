@@ -1,7 +1,6 @@
 
 
 # Response to root user activity
-<a name="sir-root-user"></a>
 
 The  [root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) is the superuser within your AWS account. Note that AMS monitors root usage. It's a best practice to use the root user only for the few tasks that require it, such as to change your account settings, activate AWS Identity and Access Management (IAM) access to billing and cost management, change your root password, and turn on multi-factor authentication (MFA). For more information, see  [Tasks that require root user credentials](https://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html#aws_tasks-that-require-root).
 

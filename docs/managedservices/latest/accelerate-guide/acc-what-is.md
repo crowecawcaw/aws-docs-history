@@ -1,7 +1,6 @@
 
 
 # Using the AMS Accelerate operations plan
-<a name="acc-what-is"></a>
 
 AMS Accelerate is the AMS operations plan that can operate AWS infrastructure supporting workloads. Whether your workloads are already in an AWS account or you're planning to migrate new ones, you can benefit from AMS Accelerate operational services such as monitoring and alerting, incident management, security management, and backup management, without going through a new migration, experiencing downtime, or changing how you use AWS. AMS Accelerate also offers an optional patch add-on for EC2 based workloads that require regular patching.
 

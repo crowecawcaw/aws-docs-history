@@ -1,7 +1,6 @@
 
 
 # Step 3. Onboarding AMS features with default policies
-<a name="acc-get-feature-config"></a>
 
 In this stage, you onboard AMS features with default policies. These include adding Amazon EC2 instances and configuring monitoring, backup, AWS Config remediation, and patch (if applicable, AMS Patch Orchestrator is an add-on that you must specifically request) according to your preferences. You can do this yourself, or request that AMS onboards features based on your inputs. To request help from AMS, create a service request and provide all the required inputs to complete the task. Remember that service requests are not resolved immediately.
 

@@ -1,7 +1,6 @@
 
 
 # Customized findings responses
-<a name="custom-findings-responses"></a>
 
 You can choose how you want AMS Accelerate to respond to some findings (non-compliant Config rules). You can configure AMS to respond to findings it by remediating the finding, asking for your approval to remediate, or just reporting to you in your next Monthly Business Review (MBR). You can change the default responses for AMS Accelerate Config rules. To see the rules, go to [Configuration Compliance > Table of rules](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/acc-sec-compliance.html) or download the rules table as a ZIP file [ams\_config\_rules.zip](samples/ams_config_rules.zip).
 

@@ -1,7 +1,6 @@
 
 
 # Recover
-<a name="sir-recover"></a>
 
 AMS partners with you to restore systems to normal operation, confirm that the systems are functioning normally, and (as applicable) remediate vulnerabilities to prevent similar incidents.
 

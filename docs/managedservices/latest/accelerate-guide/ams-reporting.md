@@ -1,7 +1,6 @@
 
 
 # Reports and options
-<a name="ams-reporting"></a>
 
 AWS Managed Services (AMS) collates data from various native AWS services to provide value-added reports on major AMS offerings.
 

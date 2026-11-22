@@ -1,7 +1,6 @@
 
 
 # Internal API operations
-<a name="internal-apis"></a>
 
 If you monitor API operations, you might see calls to the following internal-only operations:
 + `GetDashboardUrl`

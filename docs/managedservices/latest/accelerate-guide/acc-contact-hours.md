@@ -1,7 +1,6 @@
 
 
 # Contact hours
-<a name="acc-contact-hours"></a>
 
 You can contact AMS Accelerate for different reasons at different times.
 

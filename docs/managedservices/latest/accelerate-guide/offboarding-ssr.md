@@ -1,7 +1,6 @@
 
 
 # Offboard from SSR
-<a name="offboarding-ssr"></a>
 
 To offboard from the SSR service, create a service request (SR) through the AMS console. After you submit the SR, an AMS operations engineers helps you offboard from SSR. In the SR, provide the reason for that you want to offboard.
 

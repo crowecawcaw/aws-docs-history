@@ -1,7 +1,6 @@
 
 
 # Self-service reports
-<a name="self-service-reporting"></a>
 
 AWS Managed Services (AMS) self-service reports (SSR) is a feature that collects data from various native AWS services and provides access to reports on major AMS offerings. SSR provides information that you can use to support operations, configuration management, asset management, security management, and compliance.
 

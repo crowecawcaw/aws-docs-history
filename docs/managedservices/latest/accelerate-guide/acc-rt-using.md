@@ -1,7 +1,6 @@
 
 
 # Resource Tagger use cases in AMS Accelerate
-<a name="acc-rt-using"></a>
 
 This section lists commonly performed actions with Resource Tagger.
 
@@ -10,7 +9,7 @@ This section lists commonly performed actions with Resource Tagger.
 
 All tags applied by Resource Tagger have the key prefix **ams:rt:.** For example, the following tag definition results in a tag with key **ams:rt:sampleKey** and value **sampleValue**. All tags with this prefix are treated as being part of Resource Tagger.
 
-```
+```json
 {
 	"Key": "sampleKey",
 	"Value": "sampleValue"
@@ -62,7 +61,7 @@ Resource Tagger stops at this point, and does not make any changes to your resou
 
 You can enable the read-only mode by modifying the customer configuration profile to include the **ReadOnly** key in the **Options** block. For example, the following configuration profile snippet shows how this might look:
 
-```
+```json
 {
     "Options": {
         "ReadOnly": true
@@ -85,7 +84,7 @@ For more on the **Options** setting, see [Syntax and structure](acc-tag-tools-pr
 
 The following example profile document specifies that all Windows EC2 instances that are part of a stack-\* CloudFormation stack be managed by AMS Accelerate; however, explicitly excludes a particular EC2 instance with ID i-00000000000000001.
 
-```
+```json
 {
     "AWS::EC2::Instance": {
         "AMSMonitoringWindows": {
@@ -131,7 +130,7 @@ While you can't modify the default configuration profile, you can provide overri
 
 For example, consider the following default configuration document:
 
-```
+```json
 {
 	"AWS::EC2::Instance": {
 		"AMSManagedBlock1": {
@@ -150,7 +149,7 @@ For example, consider the following default configuration document:
 
 To change the tag value applied here from `SampleValueA` to `SampleValueB`, and have the tag applied to all instances, not just Windows instances, you would provide the following customization configuration profile:
 
-```
+```json
 {
 	"AWS::EC2::Instance": {
 		"AMSManagedBlock1": {
@@ -177,7 +176,7 @@ You can disable a default configuration rule by adding a configuration block wit
 
 For example, if the following configuration were present in the default configuration profile:
 
-```
+```json
 {
 	"AWS::EC2::Instance": {
 		"AMSManagedBlock1": {
@@ -196,7 +195,7 @@ For example, if the following configuration were present in the default configur
 
 You could disable this tagging rule by including the following in your customization configuration profile:
 
-```
+```json
 {
 	"AWS::EC2::Instance": {
 		"AMSManagedBlock1": {
@@ -218,7 +217,7 @@ Any tags prefixed with **ams:rt** are removed by Resource Tagger if the tags do 
 
 For example: if a **Linux** instance has the following tags:
 
-```
+```json
 "Tags": [{
     "Key": "ams:rt:MyOwnTag",
     "Value": true
@@ -230,7 +229,7 @@ For example: if a **Linux** instance has the following tags:
 
 And you deploy the following Resource Tagger configuration profile:
 
-```
+```json
 {
     "AWS::EC2::Instance": {
         "AMSMonitoringWindows": {
@@ -249,7 +248,7 @@ And you deploy the following Resource Tagger configuration profile:
 
 Resource Tagger reacts to the new configuration changes, and the only tag on the instance becomes:
 
-```
+```json
  "Tags": [{
      "Key": "myTag",
      "Value": true

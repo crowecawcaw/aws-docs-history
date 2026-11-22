@@ -1,7 +1,6 @@
 
 
 # Billing Charges Details report
-<a name="reporting-billing-details"></a>
 
 AWS Managed Services (AMS) Billing Charges Details report provides details about AMS billing charges with linked accounts and respective AWS services, including:
 + AMS service-level charges, uplift percentages, account-level AMS service tiers and AMS fees.

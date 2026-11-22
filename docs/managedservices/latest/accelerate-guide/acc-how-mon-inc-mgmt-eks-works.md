@@ -1,7 +1,6 @@
 
 
 # How monitoring and incident management for Amazon EKS works in AMS Accelerate
-<a name="acc-how-mon-inc-mgmt-eks-works"></a>
 
 **Generation:** As part of onboarding monitoring and incident management for EKS, AMS configures baseline monitoring for the Amazon EKS clusters that you selected in your managed account. AMS uses a combination of Amazon Managed Service for Prometheus alert manager rules and Amazon CloudWatch event rules to configure baseline monitoring. An AMS-configured Prometheus server in your cluster scrapes and remote-writes your Prometheus metrics to an Amazon Managed Service for Prometheus endpoint in the same Region. The baseline monitoring configuration generates an alert when a Prometheus alert manager rule is triggered or a CloudWatch event is generated.
 

@@ -1,7 +1,6 @@
 
 
 # Trusted Remediator integration with Quick
-<a name="tr-qs-integration"></a>
 
 You can integrate the Trusted Remediator logs stored in Amazon S3 with Quick to build customized remediation report. Quick integration is optional. This feature allows you to use the logs to build custom reporting dashboards. To obtain on-request reports for Trusted Remediator, contact your CSDM. For more information on available Trusted Remediator reports, see [Trusted Remediator reports](trusted-remediator-reports.md). 
 

@@ -1,7 +1,6 @@
 
 
 # Create `aws_managedservices_onboarding_role` with CloudFormation for Accelerate
-<a name="acc-onb-create-roles-with-cf"></a>
 
 You can create the AWS Identity and Access Management role, `aws_managedservices_onboarding_role`, with CloudFormation from the AWS Management Console. Or, you can use commands from AWS CloudShell to deploy the role. 
 

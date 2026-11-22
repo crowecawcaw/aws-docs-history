@@ -1,7 +1,6 @@
 
 
 # Get started with Trusted Remediator in AMS
-<a name="tr-gs"></a>
 
 Trusted Remediator is available in AMS at no additional charge. Trusted Remediator supports single account and multi-account configurations.
 

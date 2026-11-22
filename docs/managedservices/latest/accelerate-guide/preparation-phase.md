@@ -1,7 +1,6 @@
 
 
 # Prepare
-<a name="preparation-phase"></a>
 
 As the threat landscape evolves, AMS continues to expand detection and response capabilities. As new detections are added, AMS incorporates the alerts from these new detections into the detection and response platform. AMS security responders are trained to investigate and partner with you throughout the Security Incident Response lifecycle.
 

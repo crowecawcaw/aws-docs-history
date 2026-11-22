@@ -1,7 +1,6 @@
 
 
 # Baseline alerts in monitoring and incident management for Amazon EKS in AMS Accelerate
-<a name="acc-baseline-eks-alerts"></a>
 
  After verifying the alerts, AMS enables the following alerts for Amazon EKS and then engages in monitoring and incident management for your selected Amazon EKS clusters. The response time Service Level Agreements (SLAs) and Service Level Objectives (SLOs) are dependent on your selected account Service Tier (Plus, Premium). For more information, see [Incident reports and service requests in AMS Accelerate](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/acc-supp-ex.html). 
 

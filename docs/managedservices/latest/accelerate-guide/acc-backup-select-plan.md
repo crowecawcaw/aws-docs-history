@@ -1,7 +1,6 @@
 
 
 # Select an AMS backup plan
-<a name="acc-backup-select-plan"></a>
 
 AMS provides three different backup plans with a fourth backup plan to minimize cost during onboarding. To select an AMS backup plan for each supported resource, tag the resource with the plan’s associated tag. As you onboard to Accelerate, AMS will work with you to identify the backup plan that best fits your needs.
 

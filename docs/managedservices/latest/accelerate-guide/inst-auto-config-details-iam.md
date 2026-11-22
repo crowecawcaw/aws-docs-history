@@ -1,7 +1,6 @@
 
 
 # IAM permissions change details
-<a name="inst-auto-config-details-iam"></a>
 
 Each managed instance must have an AWS Identity and Access Management role that includes the following managed policies:
 + arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
@@ -17,7 +16,7 @@ Each managed instance must have an AWS Identity and Access Management role that 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

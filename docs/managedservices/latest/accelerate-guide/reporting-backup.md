@@ -1,7 +1,6 @@
 
 
 # AMS Backup reports
-<a name="reporting-backup"></a>
 
 **Topics**
 + [Backup Job Success / Failure report](#reporting-backup-success-failure)

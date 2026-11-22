@@ -1,7 +1,6 @@
 
 
 # Contain
-<a name="sir-contain"></a>
 
 AMS's approach to containment is partnership with you. You understand your business and the workload impacts that might occur from containment activities, such as network isolation, IAM user or role de-provisioning, instance re-building, and so forth.
 

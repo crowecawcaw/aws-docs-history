@@ -1,7 +1,6 @@
 
 
 # Tag management tools for Accelerate
-<a name="acc-tag-tools"></a>
 
 **Contents**
 + [Accelerate Resource Tagger](acc-resource-tagger.md)

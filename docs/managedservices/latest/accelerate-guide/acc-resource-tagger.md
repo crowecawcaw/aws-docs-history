@@ -1,7 +1,6 @@
 
 
 # Accelerate Resource Tagger
-<a name="acc-resource-tagger"></a>
 
  With Resource Tagger, you can specify rules to govern how AWS resources are tagged in your account. While onboarding an account, AMS Accelerate deploys your tagging policy to ensure resources within your managed accounts are tagged. 
 

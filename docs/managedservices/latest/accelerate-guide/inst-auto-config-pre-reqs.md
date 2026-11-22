@@ -1,7 +1,6 @@
 
 
 # Prerequisites for automated instance configuration in Accelerate
-<a name="inst-auto-config-pre-reqs"></a>
 
 These conditions must be met to enable AMS Accelerate to perform the previously described automated actions on managed instances.
 

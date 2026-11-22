@@ -1,7 +1,6 @@
 
 
 # Using CloudFormation to deploy Accelerate configuration changes
-<a name="acc-mem-deploy-change-cfn"></a>
 
 If you wish to deploy your `CustomerManagedAlarms` configuration profile using CloudFormation, you can use the following CloudFormation templates. Put your desired JSON configuration in the `AMSAlarmManagerConfigurationVersion.Content` field.
 

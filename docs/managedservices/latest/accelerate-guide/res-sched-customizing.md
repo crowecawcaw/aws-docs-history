@@ -1,7 +1,6 @@
 
 
 # Customizing AMS Resource Scheduler
-<a name="res-sched-customizing"></a>
 
 When onboarded, AMS Resource Scheduler is deployed as a CloudFormation stack, with name `ams-resource-scheduler`, in the primary AWS region for your AMS Accelerate account. You can configure the properties of AMS Resource Scheduler based on your preferences through CloudFormation stack parameters and performing a stack update. For information on updating CloudFormation stacks, see [Updating stacks directly](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-direct.html).
 

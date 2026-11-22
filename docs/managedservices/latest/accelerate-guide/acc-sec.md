@@ -1,7 +1,6 @@
 
 
 # Security management in AMS Accelerate
-<a name="acc-sec"></a>
 
 AWS Managed Services uses multiple controls to protect your information assets and to help you keep your AWS infrastructure secure. AMS Accelerate maintains a library of AWS Config Rules and remediation actions to ensure that all your accounts comply with industry standards for security and operational integrity. AWS Config Rules continuously tracks the configuration change among your recorded resources. If a change violates any rule conditions, AMS reports its findings, and allows you to remediate violations automatically or by request, according to the severity of the violation. AWS Config Rules facilitate compliance with standards set by: the Center for Internet Security (CIS), the National Institute of Standards and Technology (NIST) Cloud Security Framework (CSF), the Health Insurance Portability and Accountability Act (HIPAA), and the Payment Card Industry (PCI) Data Security Standard (DSS).
 

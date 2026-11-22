@@ -1,7 +1,6 @@
 
 
 # Analyze
-<a name="sir-analyze"></a>
 
 After a security event is identified and reported, the next step is to analyze whether the reported event is a false positive or a real incident. AMS uses automation and manual investigative techniques to handle security events. The analysis includes investigation of logs from different detection sources such as network traffic logs, host logs,CloudTrail events, AWS service logs and so on. The analysis also looks for patterns that show an anomalous behavior by correlation.
 

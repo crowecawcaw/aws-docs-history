@@ -1,7 +1,6 @@
 
 
 # Accelerate Alarm Manager configuration profiles
-<a name="acc-mem-config"></a>
 
 When your account is onboarded to AMS Accelerate, two JSON documents, called configuration profiles, are deployed in your account with AWS AppConfig (see [What is AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html)). Both profile documents reside in the Alarm Manager application and in the AMS Accelerate infrastructure environment.
 

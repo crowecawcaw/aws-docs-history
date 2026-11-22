@@ -1,7 +1,6 @@
 
 
 # Why and when AMS accesses your account
-<a name="access-justification"></a>
 
 AMS Accelerate (Accelerate) operators can access your account console and instances, in certain circumstances, for managing your resources. These access events are documented in your AWS CloudTrail (CloudTrail) logs. For details on how to review activity in your account by the AMS Accelerate Operations team and AMS Accelerate automation, see [Tracking changes in your AMS Accelerate accounts](acc-change-record.md).
 

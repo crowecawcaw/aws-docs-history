@@ -1,7 +1,6 @@
 
 
 # Customer-provided tags in Accelerate
-<a name="acc-tag-cust-provided"></a>
 
 **What are customer-provided tags?**
 

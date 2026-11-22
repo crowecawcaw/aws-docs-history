@@ -1,7 +1,6 @@
 
 
 # CloudWatch configuration change details
-<a name="inst-auto-config-details-cw"></a>
 
 Additional detail on the CloudWatch configuration.
 + CloudWatch configuration file location on the instance:

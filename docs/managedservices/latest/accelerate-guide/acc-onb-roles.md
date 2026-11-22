@@ -1,7 +1,6 @@
 
 
 # The template to create AMS roles
-<a name="acc-onb-roles"></a>
 
 The following AMS role grants permissions to your AMS cloud architect (CA). The following zip file contains Terraform code and CloudFormation template that simplifies creating the IAM role, permissions policy, and trust policy. For more information, consult with your CA.
 

@@ -1,7 +1,6 @@
 
 
 # How monitoring works
-<a name="how-monitoring-works"></a>
 
 See the following graphics on monitoring architecture in AWS Managed Services (AMS).
 
@@ -48,7 +47,7 @@ You can configure AMS monitoring to group together alerts from the same EC2 inst
 ### Alert notification
 <a name="how-mon-works-alert-notes"></a>
 
-As a part of the alert processing, based on the impact analysis, AWS Managed Services (AMS) creates an incident and initiates the incident management process for remediation, when impact can be determined. If impact can't be determined, then AMS sends an alert notification to the email address associated with your account through a service notification. In some scenarios, this alert notification isn't sent. For example, if the infrastructure-related checks are passing for a high CPU utilization alert, then an alert notification isn't sent to you. For more information, see the diagram on AMS monitoring architecture for alert handling process in [How monitoring works](#how-monitoring-works).
+As a part of the alert processing, based on the impact analysis, AWS Managed Services (AMS) creates an incident and initiates the incident management process for remediation, when impact can be determined. If impact can't be determined, then AMS sends an alert notification to the email address associated with your account through a service notification. In some scenarios, this alert notification isn't sent. For example, if the infrastructure-related checks are passing for a high CPU utilization alert, then an alert notification isn't sent to you. For more information, see the diagram on AMS monitoring architecture for alert handling process in [How monitoring works](how-monitoring-works.md).
 
 ## Tag-based alert notification
 <a name="how-mon-works-alert-notes-tags"></a>

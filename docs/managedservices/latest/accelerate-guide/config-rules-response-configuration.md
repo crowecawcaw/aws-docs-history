@@ -1,7 +1,6 @@
 
 
 # AMS Config Rules Response Configuration report
-<a name="config-rules-response-configuration"></a>
 
 The AMS Config Rules Response Configuration report provides an in-depth look at how you currently have Accelerate configured to respond to non-compliant AMS config rules. For more information on how to change the response for AMS config rules, see [AMS Accelerate Customized findings responses](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/custom-findings-responses.html). 
 

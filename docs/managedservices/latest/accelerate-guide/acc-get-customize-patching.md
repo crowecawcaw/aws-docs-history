@@ -1,7 +1,6 @@
 
 
 # Customize patching in Accelerate
-<a name="acc-get-customize-patching"></a>
 
 Patching ensures that your software is up-to-date and meets your compliance policies.
 

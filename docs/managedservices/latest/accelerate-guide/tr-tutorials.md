@@ -1,7 +1,6 @@
 
 
 # Configure remediation tutorials
-<a name="tr-tutorials"></a>
 
 The following tutorials provide examples of creating common remediations in Trusted Remediator
 

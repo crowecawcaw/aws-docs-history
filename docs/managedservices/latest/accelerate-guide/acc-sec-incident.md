@@ -1,7 +1,6 @@
 
 
 # Incident response in Accelerate
-<a name="acc-sec-incident"></a>
 
 Upon receiving an alert, the AMS team uses automated and manual remediations to bring the resources back to a healthy state. If remediation fails, AMS starts the incident management process to collaborate with your team. You can change the baselines by updating the default configuration in a configuration file.
 

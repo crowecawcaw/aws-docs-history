@@ -1,7 +1,6 @@
 
 
 # What is incident management?
-<a name="what-is-incident-mgmt"></a>
 
 Incident management is the process AMS uses to record, act on, communicate progress of, and provide notification of, active incidents.
 

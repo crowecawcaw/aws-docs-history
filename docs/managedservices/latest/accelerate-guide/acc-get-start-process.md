@@ -1,7 +1,6 @@
 
 
 # Account onboarding process for Accelerate
-<a name="acc-get-start-process"></a>
 
 Onboarding an account into AMS Accelerate has four stages.
 

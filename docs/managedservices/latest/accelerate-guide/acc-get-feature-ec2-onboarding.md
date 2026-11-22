@@ -1,7 +1,6 @@
 
 
 # Onboarding EC2 instances to Accelerate
-<a name="acc-get-feature-ec2-onboarding"></a>
 
 EC2 instances are onboarded to AMS Accelerate through a process called Automated Instance Configuration, which ensures that each instance is writing the correct logs and emitting the correct metrics for AMS to properly manage the instance. You should onboard all of your EC2 intances, unless you specifically want AMS to ignore some. Automated Instance Configuration requires that specific conditions are met that enable AMS to configure the instance (for details see [Prerequisites for automated instance configuration in Accelerate](inst-auto-config-pre-reqs.md)). The most important condition is that the AWS Systems Manager agent (SSM agent) needs to be installed on each Amazon EC2 instance that you want AMS to manage for you. For more information on SSM agent, see [Working with SSM agent](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent.html). 
 

@@ -1,7 +1,6 @@
 
 
 # When to use a service request for Accelerate
-<a name="when-to-use-sr"></a>
 
 The following examples describe a service request. After you submit a service request, the AMS Accelerate team works with you to resolve the request per your AMS SLA.
 + AMS or AWS general guidance

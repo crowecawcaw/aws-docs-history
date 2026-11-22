@@ -1,7 +1,6 @@
 
 
 # Configuration compliance in Accelerate
-<a name="acc-sec-compliance"></a>
 
 AMS Accelerate helps you configure your resources to high standards for security and operational integrity, and comply with the following industry standards:
 + Center for Internet Security (CIS)

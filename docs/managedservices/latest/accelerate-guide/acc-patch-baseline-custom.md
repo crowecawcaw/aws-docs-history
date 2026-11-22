@@ -1,7 +1,6 @@
 
 
 # Custom patch baseline with AMS Accelerate
-<a name="acc-patch-baseline-custom"></a>
 
 To use a custom patch baseline with AMS Accelerate, first make sure that you have a patch group, and then create the custom baseline.
 

@@ -1,7 +1,6 @@
 
 
 # Create a patch maintenance window using CloudFormation for AMS Accelerate
-<a name="acc-p-maint-window-cfn"></a>
 
 To create an AMS Accelerate patch maintenance window using AWS CloudFormation, first log into your Accelerate account and select the AWS Region where your target instances reside. Then follow these steps on the [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/):
 

@@ -1,7 +1,6 @@
 
 
 # Data protection in Accelerate
-<a name="acc-sec-data-protect"></a>
 
 AMS Accelerate leverages native AWS services such as Amazon GuardDuty, Amazon Macie (optionally), and other internal proprietary tools and processes, to continuously monitor your managed accounts. After an alarm triggers, AMS Accelerate assumes responsibility for the initial triage and response to the alarm. AMS response processes are based on NIST standards. AMS Accelerate regularly tests response processes using Security Incident Response Simulation with you to align your workflow with existing customer security response programs.
 

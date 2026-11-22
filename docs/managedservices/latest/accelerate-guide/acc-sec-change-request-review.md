@@ -1,7 +1,6 @@
 
 
 # Change request security reviews
-<a name="acc-sec-change-request-review"></a>
 
 The AWS Managed Services change request review process ensures that AMS performs a security review of the requested changes as they are implemented on your behalf in your account.
 

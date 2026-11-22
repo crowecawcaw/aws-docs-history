@@ -1,7 +1,6 @@
 
 
 # Disabling the default Accelerate alarm configuration
-<a name="acc-mem-disable-default-config"></a>
 
 AMS Accelerate provides the default configuration profile in your account based on the baseline alarms. However, this default configuration can be disabled by overriding any of the alarm definitions. You can disable a default configuration rule by overriding the **ConfigurationID** of the rule in your customization configuration profile and specifying the enabled field with a value of false.
 

@@ -1,7 +1,6 @@
 
 
 # Execution mode decision workflow
-<a name="tr-ex-mode-workflow"></a>
 
 There are multiple levels to configure execution mode for your resources and each Trusted Advisor check. The following diagram shows how Trusted Remediator decides which execution mode to use based on your configurations:
 

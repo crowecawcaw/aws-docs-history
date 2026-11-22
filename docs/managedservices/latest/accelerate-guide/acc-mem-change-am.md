@@ -1,7 +1,6 @@
 
 
 # Changing the Accelerate alarm configuration
-<a name="acc-mem-change-am"></a>
 
 To add or update new alarm definitions, you can either deploy configuration document [Using CloudFormation to deploy Accelerate configuration changes](acc-mem-deploy-change-cfn.md), or invoke the [CreateHostedConfigurationVersion](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateHostedConfigurationVersion.html) API.
 

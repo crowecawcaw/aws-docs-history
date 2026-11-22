@@ -1,7 +1,6 @@
 
 
 # AMS host management reports
-<a name="ams-host-man"></a>
 
 **Topics**
 + [SSM Agent Coverage report](#reportintg-ssm-coverage)

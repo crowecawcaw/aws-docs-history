@@ -1,7 +1,6 @@
 
 
 # Offboard from Monitoring and Incident Management for Amazon EKS in AMS Accelerate
-<a name="acc-mon-inc-mgmt-eks-offboarding"></a>
 
 Notify your cloud service delivery manager (CSDM) with account IDs and cluster names to start the offboarding process. After you offboard, alert processing, metric storage, and metric querying are suspended and metrics are deleted in accordance with the default [ Amazon Managed Service for Prometheus data retention policies](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP_quotas.html).
 

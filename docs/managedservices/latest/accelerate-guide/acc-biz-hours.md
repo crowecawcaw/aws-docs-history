@@ -1,7 +1,6 @@
 
 
 # Business hours
-<a name="acc-biz-hours"></a>
 
 
 | Feature | AMS Accelerate |   | Premium Tier | 

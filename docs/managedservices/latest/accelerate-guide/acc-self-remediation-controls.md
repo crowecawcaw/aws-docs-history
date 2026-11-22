@@ -1,7 +1,6 @@
 
 
 # Self-remediation Security Hub controls in Accelerate
-<a name="acc-self-remediation-controls"></a>
 
 The following self-remediation controls are available in Accelerate.
 

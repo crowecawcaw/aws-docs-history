@@ -1,7 +1,6 @@
 
 
 # Responding to an AMS Accelerate-generated service request
-<a name="respond-ams-gen-sr"></a>
 
 AMS Accelerate proactively monitors your resources; for more information, see  [Monitoring and event management in AMS Accelerate](acc-mon-event-mgmt.md). Sometimes AMS Accelerate creates a service request, or service notification for you, typically if action on your part is required to resolve a service request. In that case, the AMS Accelerate team sends a notification to the contact you have provided for the account. You respond to this service request in the same way as any other case—usually through the Support Center, though in some cases, email or phone correspondence is required.
 

@@ -1,7 +1,6 @@
 
 
 # Step 4. Customize features in Accelerate
-<a name="acc-get-customize"></a>
 
 In this stage, you have already onboarded monitoring, patching, and backup with default policies. Now you have the opportunity to customize policies to suit your needs.
 

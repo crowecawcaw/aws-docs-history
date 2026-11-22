@@ -1,7 +1,6 @@
 
 
 # Monitoring and updating a service request for Accelerate
-<a name="mon-and-update-a-sr"></a>
 
 To monitor a case, incident or service request, using Support Center, follow these steps.
 

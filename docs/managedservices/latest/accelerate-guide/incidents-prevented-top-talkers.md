@@ -1,7 +1,6 @@
 
 
 # Incidents Prevented and Monitoring Top Talkers reports
-<a name="incidents-prevented-top-talkers"></a>
 
 **Topics**
 + [Incidents prevented report](#incidents-prevented)

@@ -1,7 +1,6 @@
 
 
 # Onboarding AMS Resource Scheduler
-<a name="res-sched-onboarding"></a>
 
 Your account is not automatically onboarded to AMS Resource Scheduler when your account is onboarded to the AMS Accelerate operations plan. However, as part of account onboarding to the AMS Accelerate operation plan, or anytime after, you can request your Cloud Service Delivery Manager (CSDM) to onboard the account to AMS Resource Scheduler. Once your CSDM onboards the account, a CloudFormation stack containing AMS Resource Scheduler resources with default configuration, is automatically provisioned into your account. 
 

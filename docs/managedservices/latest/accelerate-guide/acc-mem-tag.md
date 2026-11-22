@@ -1,7 +1,6 @@
 
 
 # Accelerate Alarm Manager tags
-<a name="acc-mem-tag"></a>
 
 By default, when you onboard with AMS Accelerate, your configuration is deployed to AWS AppConfig, defining an alarm baseline for your resources. The alarm definitions are applied only to resources with the **ams:rt:\*** tags. We recommend that these tags be applied using the [Accelerate Resource Tagger](acc-resource-tagger.md): you set up a basic Resource Tagger configuration in order to let AMS Accelerate know which resources you want managed.
 

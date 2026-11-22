@@ -1,7 +1,6 @@
 
 
 # AMS Accelerate patch baseline
-<a name="acc-patch-baseline"></a>
 
 A patch baseline defines which patches are approved for installation on your instances. You can specify approved or rejected patches one by one. You can also create auto-approval rules to specify that certain types of updates (for example, critical updates) should be automatically approved. The rejected list overrides both the rules and the approve list.
 

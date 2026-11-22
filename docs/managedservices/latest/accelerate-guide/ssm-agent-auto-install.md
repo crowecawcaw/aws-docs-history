@@ -1,7 +1,6 @@
 
 
 # SSM Agent automatic installation
-<a name="ssm-agent-auto-install"></a>
 
 **Important**  
 SSM Agent automatic installation doesn’t support the Asia Pacific (Malaysia) Region.

@@ -1,7 +1,6 @@
 
 
 # Using AMS Resource Scheduler
-<a name="res-sched-using-periods"></a>
 
 How to use AMS Resource Scheduler periods in AMS Accelerate accounts.
 
@@ -28,7 +27,7 @@ Attach the following policy to the appropriate IAM entity (user, group or role) 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Monitoring in Accelerate
-<a name="acc-tag-req-mon"></a>
 
 AMS Accelerate monitors supported resources for health, availability, and reliability. For more information about this service offering, see [Monitoring and event management in AMS Accelerate](acc-mon-event-mgmt.md).
 

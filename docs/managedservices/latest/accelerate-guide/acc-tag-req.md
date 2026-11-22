@@ -1,7 +1,6 @@
 
 
 # Customer-managed tags in Accelerate
-<a name="acc-tag-req"></a>
 
 Certain tags are required to trigger various AMS Accelerate actions.
 

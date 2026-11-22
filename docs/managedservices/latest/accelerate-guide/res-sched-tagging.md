@@ -1,7 +1,6 @@
 
 
 # Tagging resources for AMS Resource Scheduler
-<a name="res-sched-tagging"></a>
 
 Tagging resources for AMS Resource Scheduler.
 
