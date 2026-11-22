@@ -1,7 +1,6 @@
 
 
 # ROSAAmazonEBSCSIDriverOperatorPolicy
-<a name="ROSAAmazonEBSCSIDriverOperatorPolicy"></a>
 
 **Description**: Allows the OpenShift Amazon EBS Container Storage Interface (CSI) Driver Operator to install and maintain the Amazon EBS CSI driver on a Red Hat OpenShift Service on AWS (ROSA) cluster. The Amazon EBS CSI driver allows ROSA clusters to manage the lifecycle of Amazon EBS volumes for persistent volumes.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ROSAAmazonEBSCSIDriverOperatorPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

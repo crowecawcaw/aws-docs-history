@@ -1,7 +1,6 @@
 
 
 # AWSTransformCustomManageTransformations
-<a name="AWSTransformCustomManageTransformations"></a>
 
 **Description**: Enables the management of transformation resources and execution of transformations in AWS Transform custom.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSTransformCustomManageTransformations-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonBraketJobsExecutionPolicy
-<a name="AmazonBraketJobsExecutionPolicy"></a>
 
 **Description**: Grants access to AWS services and resources necessary for executing an Amazon Braket Job including S3, Cloudwatch, IAM and Braket
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonBraketJobsExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

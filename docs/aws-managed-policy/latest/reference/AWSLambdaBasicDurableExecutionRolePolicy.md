@@ -1,7 +1,6 @@
 
 
 # AWSLambdaBasicDurableExecutionRolePolicy
-<a name="AWSLambdaBasicDurableExecutionRolePolicy"></a>
 
 **Description**: Provides write permissions to CloudWatch Logs and read/write permissions to durable execution APIs used by Lambda durable functions
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSLambdaBasicDurableExecutionRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

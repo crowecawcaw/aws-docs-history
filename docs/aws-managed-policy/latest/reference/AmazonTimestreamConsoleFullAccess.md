@@ -1,7 +1,6 @@
 
 
 # AmazonTimestreamConsoleFullAccess
-<a name="AmazonTimestreamConsoleFullAccess"></a>
 
 **Description**: Provides full access to manage Amazon Timestream using the AWS Management Console. Note that this policy also grants permissions for certain KMS operations, and operations to manage your saved queries. If using Customer managed CMK, please refer to documentation for additional permissions needed.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonTimestreamConsoleFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

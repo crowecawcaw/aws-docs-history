@@ -1,7 +1,6 @@
 
 
 # AWSDataExchangeServiceRolePolicyForLicenseManagement
-<a name="AWSDataExchangeServiceRolePolicyForLicenseManagement"></a>
 
 **Description**: Allows AWS Data Exchange to access AWS services and Resources used or managed by AWS Data Exchange for license management.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDataExchangeServiceRolePolicyForLicenseManagement-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

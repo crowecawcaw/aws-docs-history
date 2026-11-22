@@ -1,7 +1,6 @@
 
 
 # LakeFormationDataAccessServiceRolePolicy
-<a name="LakeFormationDataAccessServiceRolePolicy"></a>
 
 **Description**: Policy to grant temporary data access to Lake Formation resources
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="LakeFormationDataAccessServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

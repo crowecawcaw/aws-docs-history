@@ -1,7 +1,6 @@
 
 
 # AWSPartnerCentralSandboxFullAccess
-<a name="AWSPartnerCentralSandboxFullAccess"></a>
 
 **Description**: Provides necessary access for developer testing in the Sandbox catalog.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSPartnerCentralSandboxFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

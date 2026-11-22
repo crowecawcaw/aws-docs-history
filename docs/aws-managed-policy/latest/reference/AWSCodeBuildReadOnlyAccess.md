@@ -1,7 +1,6 @@
 
 
 # AWSCodeBuildReadOnlyAccess
-<a name="AWSCodeBuildReadOnlyAccess"></a>
 
 **Description**: Provides read only access to AWS CodeBuild via the AWS Management Console. Also attach AmazonS3ReadOnlyAccess to provide access to download build artifacts.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCodeBuildReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Statement" : [
     {

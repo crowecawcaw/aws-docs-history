@@ -1,7 +1,6 @@
 
 
 # AWSStepFunctionsConsoleFullAccess
-<a name="AWSStepFunctionsConsoleFullAccess"></a>
 
 **Description**: An access policy for providing a user/role/etc access to the AWS StepFunctions console. For a full console experience, in addition to this policy, a user may need iam:PassRole permission on other IAM roles that can be assumed by the service.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSStepFunctionsConsoleFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

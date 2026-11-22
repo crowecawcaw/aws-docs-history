@@ -1,7 +1,6 @@
 
 
 # AmazonDataZoneDomainExecutionRolePolicy
-<a name="AmazonDataZoneDomainExecutionRolePolicy"></a>
 
 **Description**: Default policy for the Amazon DataZone's DomainExecutionRole service role. This role is used by Amazon DataZone to catalog, discover, govern, share, and analyze data in the Amazon DataZone domain.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDataZoneDomainExecutionRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

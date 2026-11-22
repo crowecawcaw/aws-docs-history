@@ -1,7 +1,6 @@
 
 
 # AWSBudgetsActions\_RolePolicyForResourceAdministrationWithSSM
-<a name="AWSBudgetsActions_RolePolicyForResourceAdministrationWithSSM"></a>
 
 **Description**: This policy gives permissions to control AWS resources. For example, to start and stop EC2 or RDS instances by executing AWS Systems Manager (SSM) scripts.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBudgetsActions_RolePolicyForResourceAdministrationWithSSM-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

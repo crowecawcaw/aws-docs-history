@@ -1,7 +1,6 @@
 
 
 # AWSConnector
-<a name="AWSConnector"></a>
 
 **Description**: Enables broad read/write access to ALL EC2 objects, read/write access to S3 buckets starting with 'import-to-ec2-', and the ability to list all S3 buckets, for the AWS Connector to import VMs on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSConnector-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSThinkboxAssetServerPolicy
-<a name="AWSThinkboxAssetServerPolicy"></a>
 
 **Description**: This policy grants the AWS Portal Asset Server the necessary permissions required for normal operation.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSThinkboxAssetServerPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

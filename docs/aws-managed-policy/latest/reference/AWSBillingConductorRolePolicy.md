@@ -1,7 +1,6 @@
 
 
 # AWSBillingConductorRolePolicy
-<a name="AWSBillingConductorRolePolicy"></a>
 
 **Description**: Provides AWS Billing Conductor access to manage billing groups and related resources
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBillingConductorRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

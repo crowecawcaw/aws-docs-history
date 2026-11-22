@@ -1,7 +1,6 @@
 
 
 # AWSHealth\_EventProcessorServiceRolePolicy
-<a name="AWSHealth_EventProcessorServiceRolePolicy"></a>
 
 **Description**: Allows AWS Health to enable the Health event processor feature.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSHealth_EventProcessorServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

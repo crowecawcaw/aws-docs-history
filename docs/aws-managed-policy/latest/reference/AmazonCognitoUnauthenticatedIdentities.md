@@ -1,7 +1,6 @@
 
 
 # AmazonCognitoUnauthenticatedIdentities
-<a name="AmazonCognitoUnauthenticatedIdentities"></a>
 
 **Description**: This policy defines the set of permissions allowed for unauthenticated identities for Cognito Identity Pools. This does not need to be attached to your unauth role, as Cognito Identity Service will automatically include it as a scoped down policy when creating credentials. The privileges to temporarily access other AWS resources through the enhanced flow will now be defined by the intersection of the role associated with the identity of the unauthenticated user provided by a service, and the privileges given in this managed policy that is owned by Cognito.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonCognitoUnauthenticatedIdentities-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonPersonalizeFullAccess
-<a name="AmazonPersonalizeFullAccess"></a>
 
 **Description**: Provides full access to Amazon Personalize via the AWS Management Console and SDK. Also provides select access to related services (e.g., S3, CloudWatch).
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonPersonalizeFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

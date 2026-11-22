@@ -1,7 +1,6 @@
 
 
 # AWSFaultInjectionSimulatorSSMAccess
-<a name="AWSFaultInjectionSimulatorSSMAccess"></a>
 
 **Description**: This policy grants the Fault Injection Simulator Service permission in SSM and other required services to perform FIS actions.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSFaultInjectionSimulatorSSMAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

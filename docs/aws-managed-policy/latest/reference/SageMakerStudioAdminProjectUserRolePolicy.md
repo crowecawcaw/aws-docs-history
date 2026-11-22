@@ -1,7 +1,6 @@
 
 
 # SageMakerStudioAdminProjectUserRolePolicy
-<a name="SageMakerStudioAdminProjectUserRolePolicy"></a>
 
 **Description**: This IAM policy grants an IAM role full access to AWS Glue Data Catalog (metadata) and Amazon S3 (actual data) for data lake operations, with access scoped by account, and role tags.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SageMakerStudioAdminProjectUserRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

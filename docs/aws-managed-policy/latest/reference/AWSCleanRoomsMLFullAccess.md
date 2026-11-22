@@ -1,7 +1,6 @@
 
 
 # AWSCleanRoomsMLFullAccess
-<a name="AWSCleanRoomsMLFullAccess"></a>
 
 **Description**: Allows full access to AWS Clean Rooms ML resources and access to related AWS services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCleanRoomsMLFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

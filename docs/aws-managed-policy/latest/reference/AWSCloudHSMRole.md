@@ -1,7 +1,6 @@
 
 
 # AWSCloudHSMRole
-<a name="AWSCloudHSMRole"></a>
 
 **Description**: Default policy for the AWS CloudHSM service role.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCloudHSMRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSMigrationHubOrchestratorPlugin
-<a name="AWSMigrationHubOrchestratorPlugin"></a>
 
 **Description**: Provides limited access to Amazon Simple Storage Service, AWS Secrets Manager and Plugin related actions for AWS Migration Hub Orchestrator.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMigrationHubOrchestratorPlugin-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

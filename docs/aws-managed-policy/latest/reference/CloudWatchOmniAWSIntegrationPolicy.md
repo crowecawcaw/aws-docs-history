@@ -1,7 +1,6 @@
 
 
 # CloudWatchOmniAWSIntegrationPolicy
-<a name="CloudWatchOmniAWSIntegrationPolicy"></a>
 
 **Description**: Provides permissions required by CloudWatch Omni to discover and read AWS resource topology
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchOmniAWSIntegrationPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

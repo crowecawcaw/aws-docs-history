@@ -1,7 +1,6 @@
 
 
 # AWSIoTDeviceDefenderPublishFindingsToSNSMitigationAction
-<a name="AWSIoTDeviceDefenderPublishFindingsToSNSMitigationAction"></a>
 
 **Description**: Provides messages publish access to SNS topic for execution of PUBLISH\_FINDING\_TO\_SNS mitigation action
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTDeviceDefenderPublishFindingsToSNSMitigationAction-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

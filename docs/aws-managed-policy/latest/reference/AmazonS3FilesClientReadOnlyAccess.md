@@ -1,7 +1,6 @@
 
 
 # AmazonS3FilesClientReadOnlyAccess
-<a name="AmazonS3FilesClientReadOnlyAccess"></a>
 
 **Description**: Provides read only client access to an S3 Files file system.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonS3FilesClientReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

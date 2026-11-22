@@ -1,7 +1,6 @@
 
 
 # AWSQuicksightAthenaAccess
-<a name="AWSQuicksightAthenaAccess"></a>
 
 **Description**: Quicksight access to Athena API and S3 buckets used for Athena query results
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuicksightAthenaAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

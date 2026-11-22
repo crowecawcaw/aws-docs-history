@@ -1,7 +1,6 @@
 
 
 # AWSMigrationHubRefactorSpacesFullAccess
-<a name="AWSMigrationHubRefactorSpacesFullAccess"></a>
 
 **Description**: Grants full access to AWS MigrationHub Refactor Spaces, AWS MigrationHub Refactor Spaces console features and other related AWS services except permissions required for AWS Lambda and AWS Resource Access Manager as they can be scoped down based on tags.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMigrationHubRefactorSpacesFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonRekognitionCustomLabelsFullAccess
-<a name="AmazonRekognitionCustomLabelsFullAccess"></a>
 
 **Description**: This policy specifies rekognition and s3 permissions required by Amazon Rekognition Custom Labels feature.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRekognitionCustomLabelsFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

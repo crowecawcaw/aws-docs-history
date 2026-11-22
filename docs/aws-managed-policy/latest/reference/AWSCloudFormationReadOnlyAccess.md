@@ -1,7 +1,6 @@
 
 
 # AWSCloudFormationReadOnlyAccess
-<a name="AWSCloudFormationReadOnlyAccess"></a>
 
 **Description**: Provides access to AWS CloudFormation via the AWS Management Console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCloudFormationReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

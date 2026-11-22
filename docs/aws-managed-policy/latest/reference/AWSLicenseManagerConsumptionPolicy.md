@@ -1,7 +1,6 @@
 
 
 # AWSLicenseManagerConsumptionPolicy
-<a name="AWSLicenseManagerConsumptionPolicy"></a>
 
 **Description**: Provides permissions to allow access to the AWS License Manager API actions required to consume upon licenses that the user has entitlements.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSLicenseManagerConsumptionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : {

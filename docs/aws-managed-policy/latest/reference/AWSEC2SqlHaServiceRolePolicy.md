@@ -1,7 +1,6 @@
 
 
 # AWSEC2SqlHaServiceRolePolicy
-<a name="AWSEC2SqlHaServiceRolePolicy"></a>
 
 **Description**: EC2 SQL High Availability service permissions to detect standby/passive instances
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSEC2SqlHaServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

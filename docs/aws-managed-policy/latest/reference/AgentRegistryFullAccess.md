@@ -1,7 +1,6 @@
 
 
 # AgentRegistryFullAccess
-<a name="AgentRegistryFullAccess"></a>
 
 **Description**: Provides full access to AWS Agent Registry
 
@@ -16,20 +15,20 @@ You can attach `AgentRegistryFullAccess` to your users, groups, and roles.
 <a name="AgentRegistryFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 06, 2026, 18:12 UTC 
-+ **Edited time:** August 31, 2026, 17:07 UTC
++ **Edited time:** November 20, 2026, 20:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AgentRegistryFullAccess`
 
 ## Policy version
 <a name="AgentRegistryFullAccess-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AgentRegistryFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -38,6 +37,14 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : "agent-registry:*",
       "Resource" : "arn:aws:agent-registry:*:*:*"
+    },
+    {
+      "Sid" : "AgentRegistryPublicDiscoveryAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "agent-discovery:SearchPublicRecords"
+      ],
+      "Resource" : "*"
     },
     {
       "Sid" : "AgentRegistryPassRoleAccess",
@@ -65,12 +72,15 @@ The policy's default version is the version that defines the permissions for the
       "Sid" : "AllowGetResourceOauth2TokenForOauthBasedSynchronization",
       "Effect" : "Allow",
       "Action" : [
-        "bedrock-agentcore:GetResourceOauth2Token"
+        "bedrock-agentcore:GetResourceOauth2Token",
+        "bedrock-agentcore:GetWorkloadAccessTokenForUserId",
+        "bedrock-agentcore:CompleteResourceTokenAuth"
       ],
       "Resource" : [
         "arn:aws:bedrock-agentcore:*:*:credential-provider/*",
         "arn:aws:bedrock-agentcore:*:*:workload-identity-directory/*",
-        "arn:aws:bedrock-agentcore:*:*:token-vault/*/oauth2credentialprovider/*"
+        "arn:aws:bedrock-agentcore:*:*:token-vault/*/oauth2credentialprovider/*",
+        "arn:aws:bedrock-agentcore:*:*:token-vault/default"
       ]
     },
     {

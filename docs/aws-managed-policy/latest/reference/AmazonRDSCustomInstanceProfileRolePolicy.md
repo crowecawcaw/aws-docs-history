@@ -1,7 +1,6 @@
 
 
 # AmazonRDSCustomInstanceProfileRolePolicy
-<a name="AmazonRDSCustomInstanceProfileRolePolicy"></a>
 
 **Description**: Allows Amazon RDS Custom to perform various automation actions and database management tasks through an EC2 instance profile.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRDSCustomInstanceProfileRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

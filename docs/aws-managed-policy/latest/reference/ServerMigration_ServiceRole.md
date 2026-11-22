@@ -1,7 +1,6 @@
 
 
 # ServerMigration\_ServiceRole
-<a name="ServerMigration_ServiceRole"></a>
 
 **Description**: Permissions to allow the AWS Server Migration Service to migrate VMs to EC2: allows the Server Migration Service to place the migrated resources into the customer's EC2 account.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ServerMigration_ServiceRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

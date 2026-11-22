@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerCapacityReservationServiceRolePolicy
-<a name="AmazonSageMakerCapacityReservationServiceRolePolicy"></a>
 
 **Description**: This policy grants permissions to Amazon SageMaker Capacity Reservations to publish CloudWatch metrics into customer accounts for utilization visibility.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerCapacityReservationServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

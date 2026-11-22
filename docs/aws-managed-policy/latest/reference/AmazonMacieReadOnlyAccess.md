@@ -1,7 +1,6 @@
 
 
 # AmazonMacieReadOnlyAccess
-<a name="AmazonMacieReadOnlyAccess"></a>
 
 **Description**: Provides readonly access to Amazon Macie.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonMacieReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

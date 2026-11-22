@@ -1,7 +1,6 @@
 
 
 # AWSIPAMOutboundServiceRolePolicy
-<a name="AWSIPAMOutboundServiceRolePolicy"></a>
 
 **Description**: Grants permissions to request web identity tokens for outbound federation
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIPAMOutboundServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

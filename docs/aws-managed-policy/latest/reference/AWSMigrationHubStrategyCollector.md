@@ -1,7 +1,6 @@
 
 
 # AWSMigrationHubStrategyCollector
-<a name="AWSMigrationHubStrategyCollector"></a>
 
 **Description**: Grants permissions to allow communication with the AWS Migration Hub Strategy Recommendations service, read/write access to S3 buckets related to the service, Amazon API Gateway access to upload logs and metrics to AWS, AWS Secrets Manager access to fetch credentials, and any related services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMigrationHubStrategyCollector-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

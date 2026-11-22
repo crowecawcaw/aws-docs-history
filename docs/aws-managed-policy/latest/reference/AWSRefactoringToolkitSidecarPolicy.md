@@ -1,7 +1,6 @@
 
 
 # AWSRefactoringToolkitSidecarPolicy
-<a name="AWSRefactoringToolkitSidecarPolicy"></a>
 
 **Description**: This policy is intended to be used by Amazon ECS Tasks created for testing applications in AWS using the AWS Toolkit for .NET Refactoring extension for Microsoft Visual Studio. The policy grants access to download application artifacts from Amazon S3, communicate the status of the Task using AWS Systems Manager, and other required services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSRefactoringToolkitSidecarPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonEC2RoleforAWSCodeDeployLimited
-<a name="AmazonEC2RoleforAWSCodeDeployLimited"></a>
 
 **Description**: Provides EC2 limited access to S3 bucket to download revision. This role is needed by the CodeDeploy agent on EC2 instances. 
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEC2RoleforAWSCodeDeployLimited-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

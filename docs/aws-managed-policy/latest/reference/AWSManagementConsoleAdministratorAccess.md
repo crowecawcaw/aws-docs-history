@@ -1,7 +1,6 @@
 
 
 # AWSManagementConsoleAdministratorAccess
-<a name="AWSManagementConsoleAdministratorAccess"></a>
 
 **Description**: Provides full access to configure and customize the AWS Management Console
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSManagementConsoleAdministratorAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

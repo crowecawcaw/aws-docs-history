@@ -1,7 +1,6 @@
 
 
 # AWSElasticBeanstalkEKSImageBuild
-<a name="AWSElasticBeanstalkEKSImageBuild"></a>
 
 **Description**: Permissions needed by Elastic Beanstalk to build container images on behalf of customer.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticBeanstalkEKSImageBuild-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

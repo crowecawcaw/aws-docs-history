@@ -1,7 +1,6 @@
 
 
 # CostOptimizationHubReadOnlyAccess
-<a name="CostOptimizationHubReadOnlyAccess"></a>
 
 **Description**: This managed policy provides read-only access to Cost Optimization Hub.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CostOptimizationHubReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

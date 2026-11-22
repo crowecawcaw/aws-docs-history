@@ -1,7 +1,6 @@
 
 
 # AmazonLookoutEquipmentReadOnlyAccess
-<a name="AmazonLookoutEquipmentReadOnlyAccess"></a>
 
 **Description**: Provides read only access to Amazon Lookout for Equipments
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonLookoutEquipmentReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

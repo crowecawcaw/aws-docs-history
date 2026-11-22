@@ -1,7 +1,6 @@
 
 
 # AWSMigrationHubOrchestratorConsoleFullAccess
-<a name="AWSMigrationHubOrchestratorConsoleFullAccess"></a>
 
 **Description**: Provides limited access to AWS Migration Hub, AWS Application Discovery Service, Amazon Simple Storage Service and AWS Secrets Manager. This policy also grants full access to AWS Migration Hub Orchestrator service.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMigrationHubOrchestratorConsoleFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

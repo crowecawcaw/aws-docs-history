@@ -1,7 +1,6 @@
 
 
 # AWSApplicationMigrationVCenterClientPolicy
-<a name="AWSApplicationMigrationVCenterClientPolicy"></a>
 
 **Description**: This policy allows installing and using the AWS VCenter Client, which is used with AWS Application Migration Service (MGN) to migrate external servers to AWS. Attach this policy to your IAM users or roles whose credentials you provide when installing the AWS VCenter Client.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSApplicationMigrationVCenterClientPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

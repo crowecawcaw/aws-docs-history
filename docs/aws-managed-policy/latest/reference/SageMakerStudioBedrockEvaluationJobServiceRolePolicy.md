@@ -1,7 +1,6 @@
 
 
 # SageMakerStudioBedrockEvaluationJobServiceRolePolicy
-<a name="SageMakerStudioBedrockEvaluationJobServiceRolePolicy"></a>
 
 **Description**: Allows Amazon Bedrock to access Amazon Bedrock models and datasets for evaluation jobs in SageMaker Studio.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SageMakerStudioBedrockEvaluationJobServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

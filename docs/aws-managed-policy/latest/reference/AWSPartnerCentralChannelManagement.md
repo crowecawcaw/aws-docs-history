@@ -1,7 +1,6 @@
 
 
 # AWSPartnerCentralChannelManagement
-<a name="AWSPartnerCentralChannelManagement"></a>
 
 **Description**: Provides necessary access for channel management activities.
 
@@ -16,20 +15,20 @@ You can attach `AWSPartnerCentralChannelManagement` to your users, groups, and r
 <a name="AWSPartnerCentralChannelManagement-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 19, 2025, 16:34 UTC 
-+ **Edited time:** November 13, 2026, 17:37 UTC
++ **Edited time:** November 20, 2026, 21:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSPartnerCentralChannelManagement`
 
 ## Policy version
 <a name="AWSPartnerCentralChannelManagement-version"></a>
 
-**Policy version:** v8 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSPartnerCentralChannelManagement-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -51,7 +50,11 @@ The policy's default version is the version that defines the permissions for the
         "partnercentral:AcceptChannelHandshake",
         "partnercentral:RejectChannelHandshake",
         "partnercentral:CancelChannelHandshake",
-        "partnercentral:ListChannelHandshakes"
+        "partnercentral:ListChannelHandshakes",
+        "partnercentral:CreateChannelContract",
+        "partnercentral:CancelChannelContract",
+        "partnercentral:GetChannelContract",
+        "partnercentral:ListChannelContracts"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -84,7 +87,8 @@ The policy's default version is the version that defines the permissions for the
       ],
       "Resource" : [
         "arn:aws:partnercentral:*:*:catalog/*/program-management-account/*",
-        "arn:aws:partnercentral:*:*:catalog/*/channel-handshake/*"
+        "arn:aws:partnercentral:*:*:catalog/*/channel-handshake/*",
+        "arn:aws:partnercentral:*:*:catalog/*/channel-contract/*"
       ],
       "Condition" : {
         "StringEquals" : {
@@ -163,6 +167,34 @@ The policy's default version is the version that defines the permissions for the
         "q:GetConversation",
         "q:ListConversations",
         "q:PassRequest"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "Support",
+      "Effect" : "Allow",
+      "Action" : [
+        "support:CreateCase",
+        "support:DescribeCases",
+        "support:DescribeCommunications",
+        "support:DescribeAttachment",
+        "support:AddCommunicationToCase",
+        "support:ResolveCase",
+        "support:AddAttachmentsToSet",
+        "support:SearchForCases",
+        "support:DescribeServices",
+        "support:DescribeCreateCaseOptions"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SupportConsole",
+      "Effect" : "Allow",
+      "Action" : [
+        "support-console:GetAccountState",
+        "support-console:GetAccountGovCloudEnabled",
+        "support-console:CheckSubscription",
+        "support-console:GetBanner"
       ],
       "Resource" : "*"
     }

@@ -1,7 +1,6 @@
 
 
 # AmazonRedshiftQueryEditorV2NoSharing
-<a name="AmazonRedshiftQueryEditorV2NoSharing"></a>
 
 **Description**: Grants the ability to work with Amazon Redshift Query Editor V2 without sharing resources. The granted principal can only read, update and delete its own resources but cannot share them. This policy also grants access to other required services. This includes permissions to list the Amazon Redshift clusters and manage the Query Editor V2 secrets of the principal in AWS Secrets Manager.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRedshiftQueryEditorV2NoSharing-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

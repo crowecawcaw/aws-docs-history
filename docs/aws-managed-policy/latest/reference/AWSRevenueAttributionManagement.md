@@ -1,7 +1,6 @@
 
 
 # AWSRevenueAttributionManagement
-<a name="AWSRevenueAttributionManagement"></a>
 
 **Description**: Provides necessary access for revenue attribution management activities.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSRevenueAttributionManagement-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

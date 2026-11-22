@@ -1,7 +1,6 @@
 
 
 # AmazonRoute53DomainsFullAccess
-<a name="AmazonRoute53DomainsFullAccess"></a>
 
 **Description**: Provides full access to all Route53 Domains actions and Create Hosted Zone to allow Hosted Zone creation as part of domain registrations.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRoute53DomainsFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

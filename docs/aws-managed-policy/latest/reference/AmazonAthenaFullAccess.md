@@ -1,7 +1,6 @@
 
 
 # AmazonAthenaFullAccess
-<a name="AmazonAthenaFullAccess"></a>
 
 **Description**: Provide full access to Amazon Athena and scoped access to the dependencies needed to enable querying, writing results, and data management.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonAthenaFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSMigrationHubRefactorSpaces-SSMAutomationPolicy
-<a name="AWSMigrationHubRefactorSpaces-SSMAutomationPolicy"></a>
 
 **Description**: Use in the IAM service role passed to the SSM Automation document AWSRefactorSpaces-CreateResources to grant permissions required to run the automation. The policy grants read/write access to EC2 tags in order to track automation progress. When the Refactor Spaces environment's network bridge is enabled, the automation also adds the environment's security group to the EC2 instance to permit traffic from other Refactor Spaces services in the environment. The policy also grants access to the Application Migration Service's post launch actions SSM parameters.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMigrationHubRefactorSpaces-SSMAutomationPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

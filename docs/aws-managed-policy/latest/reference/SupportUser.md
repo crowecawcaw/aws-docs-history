@@ -1,7 +1,6 @@
 
 
 # SupportUser
-<a name="SupportUser"></a>
 
 **Description**: This policy grants permissions to troubleshoot and resolve issues in an AWS account. This policy also enables the user to contact AWS support to create and manage cases.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SupportUser-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

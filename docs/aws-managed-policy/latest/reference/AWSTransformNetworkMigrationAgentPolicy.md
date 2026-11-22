@@ -1,7 +1,6 @@
 
 
 # AWSTransformNetworkMigrationAgentPolicy
-<a name="AWSTransformNetworkMigrationAgentPolicy"></a>
 
 **Description**: Grants permissions for AWS Transform to deploy and configure network infrastructure including VPCs, Transit Gateways, and route tables for network migration
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSTransformNetworkMigrationAgentPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

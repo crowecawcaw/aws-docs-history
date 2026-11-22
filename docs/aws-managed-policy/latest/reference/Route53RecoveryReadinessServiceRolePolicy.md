@@ -1,7 +1,6 @@
 
 
 # Route53RecoveryReadinessServiceRolePolicy
-<a name="Route53RecoveryReadinessServiceRolePolicy"></a>
 
 **Description**: Service Linked Role Policy for Route 53 Recovery Readiness
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="Route53RecoveryReadinessServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

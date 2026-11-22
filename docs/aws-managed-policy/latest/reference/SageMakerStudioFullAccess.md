@@ -1,7 +1,6 @@
 
 
 # SageMakerStudioFullAccess
-<a name="SageMakerStudioFullAccess"></a>
 
 **Description**: This policy provides full access to Amazon SageMaker Unified Studio via the Amazon SageMaker management console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SageMakerStudioFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

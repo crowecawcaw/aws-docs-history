@@ -1,7 +1,6 @@
 
 
 # AIDevOpsAgentFullAccess
-<a name="AIDevOpsAgentFullAccess"></a>
 
 **Description**: Provides full access to Amazon DevOps Agent via the AWS Management Console
 
@@ -16,20 +15,20 @@ You can attach `AIDevOpsAgentFullAccess` to your users, groups, and roles.
 <a name="AIDevOpsAgentFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: March 26, 2026, 03:42 UTC 
-+ **Edited time:** June 26, 2026, 23:57 UTC
++ **Edited time:** November 20, 2026, 22:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AIDevOpsAgentFullAccess`
 
 ## Policy version
 <a name="AIDevOpsAgentFullAccess-version"></a>
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AIDevOpsAgentFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -39,6 +38,11 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "aidevops:AllowVendedLogDeliveryForResource",
         "aidevops:AssociateService",
+        "aidevops:BatchCreateAccessProfileAssignment",
+        "aidevops:BatchDeleteAccessProfileAssignment",
+        "aidevops:BatchDeleteAccessProfileEntitlement",
+        "aidevops:BatchPutAccessProfileEntitlement",
+        "aidevops:CreateAccessProfile",
         "aidevops:CreateAccessToken",
         "aidevops:CreateAgentSpace",
         "aidevops:CreateAsset",
@@ -49,6 +53,7 @@ The policy's default version is the version that defines the permissions for the
         "aidevops:CreateOneTimeLoginSession",
         "aidevops:CreatePrivateConnection",
         "aidevops:CreateTrigger",
+        "aidevops:DeleteAccessProfile",
         "aidevops:DeleteAgentSpace",
         "aidevops:DeleteAsset",
         "aidevops:DeleteAssetFile",
@@ -64,6 +69,7 @@ The policy's default version is the version that defines the permissions for the
         "aidevops:DiscoverTopology",
         "aidevops:EnableOperatorApp",
         "aidevops:EndChatForCase",
+        "aidevops:GetAccessProfile",
         "aidevops:GetAccessToken",
         "aidevops:GetAccountUsage",
         "aidevops:GetAgentSpace",
@@ -78,6 +84,9 @@ The policy's default version is the version that defines the permissions for the
         "aidevops:GetService",
         "aidevops:GetTrigger",
         "aidevops:InitiateChatForCase",
+        "aidevops:ListAccessProfileAssignments",
+        "aidevops:ListAccessProfileEntitlements",
+        "aidevops:ListAccessProfiles",
         "aidevops:ListAccessTokens",
         "aidevops:ListAgentSpaces",
         "aidevops:ListAssetFiles",
@@ -106,6 +115,8 @@ The policy's default version is the version that defines the permissions for the
         "aidevops:SendMessage",
         "aidevops:TagResource",
         "aidevops:UntagResource",
+        "aidevops:UpdateAccessProfile",
+        "aidevops:UpdateAccessProfilesOrder",
         "aidevops:UpdateAgentSpace",
         "aidevops:UpdateApprovalAction",
         "aidevops:UpdateAsset",

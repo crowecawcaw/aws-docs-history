@@ -1,7 +1,6 @@
 
 
 # AWSElasticBeanstalkEKSTagging
-<a name="AWSElasticBeanstalkEKSTagging"></a>
 
 **Description**: Permissions needed to pass through tags to resources created by EKS Controllers
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticBeanstalkEKSTagging-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

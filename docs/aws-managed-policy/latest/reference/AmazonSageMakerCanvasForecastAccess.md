@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerCanvasForecastAccess
-<a name="AmazonSageMakerCanvasForecastAccess"></a>
 
 **Description**: This policy grants permissions commonly needed to use SageMaker Canvas with Amazon Forecast.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerCanvasForecastAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

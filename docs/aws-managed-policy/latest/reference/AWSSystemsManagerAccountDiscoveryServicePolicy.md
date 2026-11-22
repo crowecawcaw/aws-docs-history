@@ -1,7 +1,6 @@
 
 
 # AWSSystemsManagerAccountDiscoveryServicePolicy
-<a name="AWSSystemsManagerAccountDiscoveryServicePolicy"></a>
 
 **Description**: Grants AWS Systems Manager (SSM) permission to discover AWS account information.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSystemsManagerAccountDiscoveryServicePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

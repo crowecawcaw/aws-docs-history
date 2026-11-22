@@ -1,7 +1,6 @@
 
 
 # AWSPanoramaGreengrassGroupRolePolicy
-<a name="AWSPanoramaGreengrassGroupRolePolicy"></a>
 
 **Description**: Allows an AWS Lambda function on an AWS Panorama Appliance to manage resources in Panorama, upload logs and metrics to Amazon CloudWatch, and to manage objects in buckets created for use with Panorama.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSPanoramaGreengrassGroupRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

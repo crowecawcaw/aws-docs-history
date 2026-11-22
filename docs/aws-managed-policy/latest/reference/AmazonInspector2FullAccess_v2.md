@@ -1,7 +1,6 @@
 
 
 # AmazonInspector2FullAccess\_v2
-<a name="AmazonInspector2FullAccess_v2"></a>
 
 **Description**: Provides full access to Amazon Inspector and access to other related services such as organizations with restrictive organizational access.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonInspector2FullAccess_v2-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

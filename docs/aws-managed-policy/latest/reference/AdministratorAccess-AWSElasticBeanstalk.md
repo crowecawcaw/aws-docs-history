@@ -1,7 +1,6 @@
 
 
 # AdministratorAccess-AWSElasticBeanstalk
-<a name="AdministratorAccess-AWSElasticBeanstalk"></a>
 
 **Description**: Grants account administrative permissions. Explicitly allows developers and administrators to gain direct access to resources they need to manage AWS Elastic Beanstalk applications
 
@@ -16,20 +15,20 @@ You can attach `AdministratorAccess-AWSElasticBeanstalk` to your users, groups, 
 <a name="AdministratorAccess-AWSElasticBeanstalk-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: January 22, 2021, 19:36 UTC 
-+ **Edited time:** May 19, 2026, 20:12 UTC
++ **Edited time:** November 18, 2026, 15:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AdministratorAccess-AWSElasticBeanstalk`
 
 ## Policy version
 <a name="AdministratorAccess-AWSElasticBeanstalk-version"></a>
 
-**Policy version:** v10 (default)
+**Policy version:** v11 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AdministratorAccess-AWSElasticBeanstalk-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -246,6 +245,11 @@ The policy's default version is the version that defines the permissions for the
     },
     {
       "Effect" : "Allow",
+      "Action" : "iam:SimulatePrincipalPolicy",
+      "Resource" : "arn:aws:iam::*:role/*"
+    },
+    {
+      "Effect" : "Allow",
       "Action" : "iam:PassRole",
       "Resource" : "arn:aws:iam::*:role/*",
       "Condition" : {
@@ -257,7 +261,10 @@ The policy's default version is the version that defines the permissions for the
             "autoscaling.amazonaws.com",
             "elasticloadbalancing.amazonaws.com",
             "ecs.amazonaws.com",
-            "cloudformation.amazonaws.com"
+            "cloudformation.amazonaws.com",
+            "eks.amazonaws.com",
+            "pods.eks.amazonaws.com",
+            "codebuild.amazonaws.com"
           ]
         }
       }

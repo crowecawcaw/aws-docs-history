@@ -1,7 +1,6 @@
 
 
 # AWSOutpostsAuthorizeServerPolicy
-<a name="AWSOutpostsAuthorizeServerPolicy"></a>
 
 **Description**: This policy grants permissions that allow you to install an Outpost server on your on-premises network.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSOutpostsAuthorizeServerPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonEKSVPCResourceController
-<a name="AmazonEKSVPCResourceController"></a>
 
 **Description**: Policy used by VPC Resource Controller to manage ENI and IPs for worker nodes.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEKSVPCResourceController-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

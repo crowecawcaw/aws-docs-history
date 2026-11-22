@@ -1,7 +1,6 @@
 
 
 # AWSIPAMServiceRolePolicy
-<a name="AWSIPAMServiceRolePolicy"></a>
 
 **Description**: Allows VPC IP Address Manager to access VPC resources and integrate with AWS Organizations on your behalf.
 
@@ -16,20 +15,20 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSIPAMServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: November 30, 2021, 19:08 UTC 
-+ **Edited time:** October 15, 2026, 15:57 UTC
++ **Edited time:** November 19, 2026, 17:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSIPAMServiceRolePolicy`
 
 ## Policy version
 <a name="AWSIPAMServiceRolePolicy-version"></a>
 
-**Policy version:** v13 (default)
+**Policy version:** v14 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSIPAMServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -122,6 +121,17 @@ The policy's default version is the version that defines the permissions for the
         "ec2:CreateDhcpOptions",
         "ec2:AssociateDhcpOptions",
         "ec2:DeleteDhcpOptions"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "IPAMRoute53IpGuardrailPolicyActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "route53:CreateIpGuardrailPolicy",
+        "route53:GetIpGuardrailPolicy",
+        "route53:UpdateIpGuardrailPolicy",
+        "route53:DeleteIpGuardrailPolicy"
       ],
       "Resource" : "*"
     }

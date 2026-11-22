@@ -1,7 +1,6 @@
 
 
 # AWSPrivateMarketplaceAdminFullAccess
-<a name="AWSPrivateMarketplaceAdminFullAccess"></a>
 
 **Description**: Provides full access to all administrative actions for an AWS Private Marketplace.
 
@@ -16,20 +15,20 @@ You can attach `AWSPrivateMarketplaceAdminFullAccess` to your users, groups, and
 <a name="AWSPrivateMarketplaceAdminFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 27, 2018, 16:32 UTC 
-+ **Edited time:** February 12, 2026, 18:01 UTC
++ **Edited time:** November 18, 2026, 21:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSPrivateMarketplaceAdminFullAccess`
 
 ## Policy version
 <a name="AWSPrivateMarketplaceAdminFullAccess-version"></a>
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSPrivateMarketplaceAdminFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -137,6 +136,37 @@ The policy's default version is the version that defines the permissions for the
         "organizations:ListDelegatedAdministrators"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "PrivateMarketplaceBuyerApprovalPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:ListAgreementApprovals",
+        "aws-marketplace:GetAgreementApproval",
+        "aws-marketplace:GetAgreementRequest",
+        "aws-marketplace:GetAgreementRequestTerms",
+        "aws-marketplace:AcceptAgreementApproval",
+        "aws-marketplace:RejectAgreementApproval"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "PrivateMarketplaceProcurementPortalPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "invoicing:ListProcurementPortalPreferences",
+        "invoicing:GetProcurementPortalPreference",
+        "invoicing:CreateProcurementPortalPreference",
+        "invoicing:PutProcurementPortalPreference",
+        "invoicing:ListProcurementPortals",
+        "invoicing:ListProcurementPortalSuppliers"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     }
   ]
 }

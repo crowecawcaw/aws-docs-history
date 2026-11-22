@@ -1,7 +1,6 @@
 
 
 # AwsGlueSessionUserRestrictedNotebookPolicy
-<a name="AwsGlueSessionUserRestrictedNotebookPolicy"></a>
 
 **Description**: Provides permissions that allows users to create and use only the notebook sessions that are associated with the user. This policy also includes permissions to explicitly allow users to pass a restricted Glue session role.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AwsGlueSessionUserRestrictedNotebookPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

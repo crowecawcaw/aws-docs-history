@@ -1,7 +1,6 @@
 
 
 # AWSSDMPServiceRolePolicy
-<a name="AWSSDMPServiceRolePolicy"></a>
 
 **Description**: Allow SDMP to create and manage resources on behalf of the customer.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSDMPServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

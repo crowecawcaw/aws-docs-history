@@ -1,7 +1,6 @@
 
 
 # SageMakerStudioAdminIAMDefaultExecutionPolicy
-<a name="SageMakerStudioAdminIAMDefaultExecutionPolicy"></a>
 
 **Description**: Administrative execution policy for using IAM roles with SageMaker Unified Studio. Allows admins to provision, manage and access resources in your account (excluding access to data resources) for IAM-based usage of SageMaker Unified Studio.
 
@@ -16,20 +15,20 @@ You can attach `SageMakerStudioAdminIAMDefaultExecutionPolicy` to your users, gr
 <a name="SageMakerStudioAdminIAMDefaultExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 18, 2025, 17:19 UTC 
-+ **Edited time:** November 14, 2026, 00:07 UTC
++ **Edited time:** November 17, 2026, 21:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMDefaultExecutionPolicy`
 
 ## Policy version
 <a name="SageMakerStudioAdminIAMDefaultExecutionPolicy-version"></a>
 
-**Policy version:** v29 (default)
+**Policy version:** v30 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="SageMakerStudioAdminIAMDefaultExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -1229,7 +1228,8 @@ The policy's default version is the version that defines the permissions for the
       "Condition" : {
         "StringLike" : {
           "ram:ResourceShareName" : [
-            "DataZone*"
+            "DataZone*",
+            "LakeFormation-*"
           ]
         }
       }
@@ -1434,9 +1434,31 @@ The policy's default version is the version that defines the permissions for the
       "Sid" : "S3TablesList",
       "Effect" : "Allow",
       "Action" : [
-        "s3tables:ListTableBuckets"
+        "s3tables:ListTableBuckets",
+        "s3tables:GetTableBucket"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "S3TablesProjectCatalogPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3tables:CreateNamespace",
+        "s3tables:CreateTableBucket",
+        "s3tables:DeleteNamespace",
+        "s3tables:DeleteTableBucket",
+        "s3tables:DeleteTableBucketPolicy",
+        "s3tables:GetNamespace",
+        "s3tables:GetTableBucketPolicy",
+        "s3tables:ListNamespaces",
+        "s3tables:ListTables",
+        "s3tables:ListTagsForResource",
+        "s3tables:PutTableBucketEncryption",
+        "s3tables:PutTableBucketPolicy",
+        "s3tables:TagResource",
+        "s3tables:UntagResource"
+      ],
+      "Resource" : "arn:aws:s3tables:*:*:bucket/amazon-sagemaker*"
     },
     {
       "Sid" : "SystemTablesRead",

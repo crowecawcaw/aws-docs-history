@@ -1,7 +1,6 @@
 
 
 # KeyspacesCDCServiceRolePolicy
-<a name="KeyspacesCDCServiceRolePolicy"></a>
 
 **Description**: Grants the required permissions to Amazon Keyspaces for Change Data Capture
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="KeyspacesCDCServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

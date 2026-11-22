@@ -1,7 +1,6 @@
 
 
 # AWSIoTDeviceDefenderEnableIoTLoggingMitigationAction
-<a name="AWSIoTDeviceDefenderEnableIoTLoggingMitigationAction"></a>
 
 **Description**: Provides access for enabling IoT logging for execution of ENABLE\_IOT\_LOGGING mitigation action
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTDeviceDefenderEnableIoTLoggingMitigationAction-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

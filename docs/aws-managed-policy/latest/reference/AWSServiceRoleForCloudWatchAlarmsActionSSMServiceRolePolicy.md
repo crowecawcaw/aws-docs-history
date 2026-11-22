@@ -1,7 +1,6 @@
 
 
 # AWSServiceRoleForCloudWatchAlarmsActionSSMServiceRolePolicy
-<a name="AWSServiceRoleForCloudWatchAlarmsActionSSMServiceRolePolicy"></a>
 
 **Description**: Provides access to Systems Manager resources used by CloudWatch Alarms
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceRoleForCloudWatchAlarmsActionSSMServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

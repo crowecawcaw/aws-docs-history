@@ -1,7 +1,6 @@
 
 
 # AmazonSSMManagedInstanceCore
-<a name="AmazonSSMManagedInstanceCore"></a>
 
 **Description**: The policy for Amazon EC2 Role to enable AWS Systems Manager service core functionality.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSSMManagedInstanceCore-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

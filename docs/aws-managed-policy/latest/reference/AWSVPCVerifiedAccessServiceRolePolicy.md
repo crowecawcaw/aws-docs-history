@@ -1,7 +1,6 @@
 
 
 # AWSVPCVerifiedAccessServiceRolePolicy
-<a name="AWSVPCVerifiedAccessServiceRolePolicy"></a>
 
 **Description**: Policy to enable AWS Verified Access service to provision endpoints on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSVPCVerifiedAccessServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

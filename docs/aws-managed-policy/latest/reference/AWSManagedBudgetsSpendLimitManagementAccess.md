@@ -1,7 +1,6 @@
 
 
 # AWSManagedBudgetsSpendLimitManagementAccess
-<a name="AWSManagedBudgetsSpendLimitManagementAccess"></a>
 
 **Description**: Grants the AWS Budgets service permissions to attach and detach Service Control Policies and manage accounts in an AWS Organization to enforce spend limit guardrails on member accounts.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSManagedBudgetsSpendLimitManagementAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

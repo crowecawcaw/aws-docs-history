@@ -1,7 +1,6 @@
 
 
 # AWSBackupServiceRolePolicyForScans
-<a name="AWSBackupServiceRolePolicyForScans"></a>
 
 **Description**: Provides AWS Backup permission to perform malware scans on your AWS Backup Recovery Points
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBackupServiceRolePolicyForScans-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

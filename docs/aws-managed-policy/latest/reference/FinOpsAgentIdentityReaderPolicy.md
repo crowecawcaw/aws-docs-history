@@ -1,7 +1,6 @@
 
 
 # FinOpsAgentIdentityReaderPolicy
-<a name="FinOpsAgentIdentityReaderPolicy"></a>
 
 **Description**: Provides permissions required by AWS FinOps Agent to read IAM Identity Center user and group information and check group membership for agent access
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="FinOpsAgentIdentityReaderPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

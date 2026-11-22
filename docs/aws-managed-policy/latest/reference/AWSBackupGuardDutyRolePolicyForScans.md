@@ -1,7 +1,6 @@
 
 
 # AWSBackupGuardDutyRolePolicyForScans
-<a name="AWSBackupGuardDutyRolePolicyForScans"></a>
 
 **Description**: Provides GuardDuty permission to read your AWS Backup Recovery Points for malware scans
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBackupGuardDutyRolePolicyForScans-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

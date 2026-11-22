@@ -1,7 +1,6 @@
 
 
 # AIDevOpsOrganizationsAccessPolicy
-<a name="AIDevOpsOrganizationsAccessPolicy"></a>
 
 **Description**: Provides permissions required by the AWS DevOps Agent to read your organization's structure and to manage the CloudFormation StackSets it creates to deploy roles to your member accounts.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AIDevOpsOrganizationsAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

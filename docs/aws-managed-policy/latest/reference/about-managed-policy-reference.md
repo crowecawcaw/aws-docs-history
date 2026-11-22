@@ -1,7 +1,6 @@
 
 
 # What are AWS managed policies?
-<a name="about-managed-policy-reference"></a>
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed to provide permissions for many common use cases. They make it easier for you to get started with assigning permissions to users, groups, and roles than if you had to write the policies yourself. 
 

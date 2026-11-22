@@ -1,7 +1,6 @@
 
 
 # AmazonFSxFullAccess
-<a name="AmazonFSxFullAccess"></a>
 
 **Description**: Provides full access to Amazon FSx and access to related AWS services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonFSxFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

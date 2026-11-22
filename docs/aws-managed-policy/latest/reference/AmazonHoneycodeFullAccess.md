@@ -1,7 +1,6 @@
 
 
 # AmazonHoneycodeFullAccess
-<a name="AmazonHoneycodeFullAccess"></a>
 
 **Description**: Provides full access to Honeycode via the AWS Management Console and the SDK.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonHoneycodeFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

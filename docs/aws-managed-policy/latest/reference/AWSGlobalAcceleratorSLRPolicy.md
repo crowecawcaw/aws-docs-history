@@ -1,7 +1,6 @@
 
 
 # AWSGlobalAcceleratorSLRPolicy
-<a name="AWSGlobalAcceleratorSLRPolicy"></a>
 
 **Description**: Policy granting permissions to AWS Global Accelerator to manage EC2 Elastic Network Interfaces and Security Groups. 
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSGlobalAcceleratorSLRPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

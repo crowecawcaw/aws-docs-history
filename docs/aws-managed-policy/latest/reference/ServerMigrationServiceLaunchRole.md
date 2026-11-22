@@ -1,7 +1,6 @@
 
 
 # ServerMigrationServiceLaunchRole
-<a name="ServerMigrationServiceLaunchRole"></a>
 
 **Description**: Permissions to allow the AWS Server Migration Service to create and update relevant AWS resources into the customer's AWS account for launching migrated servers and applications.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ServerMigrationServiceLaunchRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

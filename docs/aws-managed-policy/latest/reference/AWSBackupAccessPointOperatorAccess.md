@@ -1,7 +1,6 @@
 
 
 # AWSBackupAccessPointOperatorAccess
-<a name="AWSBackupAccessPointOperatorAccess"></a>
 
 **Description**: This policy grants users permissions to create and manage backup access points for accessing backup data in recovery points through S3 access points.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBackupAccessPointOperatorAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

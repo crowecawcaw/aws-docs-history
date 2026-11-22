@@ -1,7 +1,6 @@
 
 
 # AWSEC2SqlHaInstancePolicy
-<a name="AWSEC2SqlHaInstancePolicy"></a>
 
 **Description**: Amazon EC2 instance permissions to allow EC2 SQL High Availability service to detect instance high availability state through EC2 instance profile.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSEC2SqlHaInstancePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

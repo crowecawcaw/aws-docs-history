@@ -1,7 +1,6 @@
 
 
 # AWSDataExchangeServiceRolePolicyForOrganizationDiscovery
-<a name="AWSDataExchangeServiceRolePolicyForOrganizationDiscovery"></a>
 
 **Description**: Allows AWS Data Exchange to read data about your AWS Organization to determine eligibility for AWS Data Exchange data grants license distribution.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDataExchangeServiceRolePolicyForOrganizationDiscovery-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

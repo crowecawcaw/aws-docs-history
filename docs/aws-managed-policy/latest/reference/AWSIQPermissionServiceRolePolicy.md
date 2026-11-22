@@ -1,7 +1,6 @@
 
 
 # AWSIQPermissionServiceRolePolicy
-<a name="AWSIQPermissionServiceRolePolicy"></a>
 
 **Description**: Allows AWS IQ to manage the role assumed by AWS IQ experts.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIQPermissionServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

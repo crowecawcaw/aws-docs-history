@@ -1,7 +1,6 @@
 
 
 # AWSSupportAppReadOnlyAccess
-<a name="AWSSupportAppReadOnlyAccess"></a>
 
 **Description**: Provides read-only access to the AWS Support App.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSupportAppReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

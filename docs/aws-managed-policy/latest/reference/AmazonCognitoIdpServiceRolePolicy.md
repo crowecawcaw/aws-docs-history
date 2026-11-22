@@ -1,7 +1,6 @@
 
 
 # AmazonCognitoIdpServiceRolePolicy
-<a name="AmazonCognitoIdpServiceRolePolicy"></a>
 
 **Description**: Enables access to AWS services and Resources used or managed by Amazon Cognito User Pools
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonCognitoIdpServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

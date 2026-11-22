@@ -1,7 +1,6 @@
 
 
 # AIOpsReadOnlyAccess
-<a name="AIOpsReadOnlyAccess"></a>
 
 **Description**: Grants ReadOnly permissions to the Amazon AI Operations service and its required resources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AIOpsReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

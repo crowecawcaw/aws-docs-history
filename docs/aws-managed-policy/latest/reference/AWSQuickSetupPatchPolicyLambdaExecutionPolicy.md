@@ -1,7 +1,6 @@
 
 
 # AWSQuickSetupPatchPolicyLambdaExecutionPolicy
-<a name="AWSQuickSetupPatchPolicyLambdaExecutionPolicy"></a>
 
 **Description**: Grants permissions to manage State Manager associations for automated cleanup operations when Quick Setup configurations are deleted.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSetupPatchPolicyLambdaExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

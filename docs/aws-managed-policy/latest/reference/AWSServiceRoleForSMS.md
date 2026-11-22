@@ -1,7 +1,6 @@
 
 
 # AWSServiceRoleForSMS
-<a name="AWSServiceRoleForSMS"></a>
 
 **Description**: Provides access to AWS services and resources necessary to migrate service instances into AWS including EC2, S3 and Cloudformation.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceRoleForSMS-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

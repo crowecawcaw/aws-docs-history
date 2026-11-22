@@ -1,7 +1,6 @@
 
 
 # AmazonECSTaskExecutionRolePolicy
-<a name="AmazonECSTaskExecutionRolePolicy"></a>
 
 **Description**: Provides access to other AWS service resources that are required to run Amazon ECS tasks
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonECSTaskExecutionRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

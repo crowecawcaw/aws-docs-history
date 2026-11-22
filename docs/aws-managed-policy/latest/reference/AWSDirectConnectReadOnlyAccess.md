@@ -1,7 +1,6 @@
 
 
 # AWSDirectConnectReadOnlyAccess
-<a name="AWSDirectConnectReadOnlyAccess"></a>
 
 **Description**: Provides read only access to AWS Direct Connect via the AWS Management Console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDirectConnectReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

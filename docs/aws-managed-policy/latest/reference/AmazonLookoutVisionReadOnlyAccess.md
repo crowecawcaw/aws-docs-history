@@ -1,7 +1,6 @@
 
 
 # AmazonLookoutVisionReadOnlyAccess
-<a name="AmazonLookoutVisionReadOnlyAccess"></a>
 
 **Description**: Provides read only access to Amazon Lookout for Vision and scoped access to required dependencies.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonLookoutVisionReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

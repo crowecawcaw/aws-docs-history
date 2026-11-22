@@ -1,7 +1,6 @@
 
 
 # SageMakerStudioUserIAMDefaultExecutionPolicy
-<a name="SageMakerStudioUserIAMDefaultExecutionPolicy"></a>
 
 **Description**: Execution policy for using IAM roles with SageMaker Unified Studio. Allows users to access resources in the local account (excluding access to data resources) for IAM-based usage of SageMaker Unified Studio.
 
@@ -16,20 +15,20 @@ You can attach `SageMakerStudioUserIAMDefaultExecutionPolicy` to your users, gro
 <a name="SageMakerStudioUserIAMDefaultExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 18, 2025, 17:19 UTC 
-+ **Edited time:** November 14, 2026, 00:07 UTC
++ **Edited time:** November 18, 2026, 17:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioUserIAMDefaultExecutionPolicy`
 
 ## Policy version
 <a name="SageMakerStudioUserIAMDefaultExecutionPolicy-version"></a>
 
-**Policy version:** v33 (default)
+**Policy version:** v35 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="SageMakerStudioUserIAMDefaultExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -526,6 +525,19 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : "*"
     },
     {
+      "Sid" : "LfFilters",
+      "Effect" : "Allow",
+      "Action" : [
+        "lakeformation:GetResourceLFTags",
+        "lakeformation:CreateDataCellsFilter",
+        "lakeformation:GetDataCellsFilter",
+        "lakeformation:ListDataCellsFilter",
+        "lakeformation:UpdateDataCellsFilter",
+        "lakeformation:DeleteDataCellsFilter"
+      ],
+      "Resource" : "*"
+    },
+    {
       "Sid" : "SQLWorkBench",
       "Effect" : "Allow",
       "Action" : [
@@ -632,7 +644,11 @@ The policy's default version is the version that defines the permissions for the
         "s3:GetAccessGrantsInstance",
         "s3:GetAccessGrantsInstanceForPrefix",
         "s3:GetDataAccess",
-        "s3:List*"
+        "s3:List*",
+        "s3:GetBucketLocation",
+        "s3:GetAccountPublicAccessBlock",
+        "s3:GetBucketPublicAccessBlock",
+        "s3:GetEncryptionConfiguration"
       ],
       "Resource" : "*"
     },
@@ -1464,6 +1480,42 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
+      "Sid" : "RamRead",
+      "Effect" : "Allow",
+      "Action" : [
+        "ram:GetResourceShareInvitations",
+        "ram:ListResources"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "RamViaLf",
+      "Effect" : "Allow",
+      "Action" : "ram:*ResourceShare*",
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "lakeformation.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "RamAccept",
+      "Effect" : "Allow",
+      "Action" : "ram:AcceptResourceShareInvitation",
+      "Resource" : "arn:*:ram:*:*:resource-share-invitation/*",
+      "Condition" : {
+        "StringLike" : {
+          "ram:ResourceShareName" : [
+            "LakeFormation*",
+            "DataZoneS3AG*"
+          ]
+        }
+      }
+    },
+    {
       "Sid" : "SSOInstanceReadOnlyPermissions",
       "Effect" : "Allow",
       "Action" : [
@@ -1498,6 +1550,15 @@ The policy's default version is the version that defines the permissions for the
           "aws:ViaAWSService" : "true"
         }
       }
+    },
+    {
+      "Sid" : "S3TablesList",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3tables:ListTableBuckets",
+        "s3tables:GetTableBucket"
+      ],
+      "Resource" : "*"
     }
   ]
 }

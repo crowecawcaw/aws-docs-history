@@ -1,7 +1,6 @@
 
 
 # AIDevOpsConstellationAccessPolicy
-<a name="AIDevOpsConstellationAccessPolicy"></a>
 
 **Description**: Provides permissions required by the AWS DevOps Agent to coordinate with AgentSpaces connected through Agent Space Constellation.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AIDevOpsConstellationAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSServiceRoleForCodeWhispererPolicy
-<a name="AWSServiceRoleForCodeWhispererPolicy"></a>
 
 **Description**: This role grants permissions to CodeWhisperer to access data in your account to calculate billing, provides access to create and access security reports in Amazon CodeGuru, and emit data to CloudWatch.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceRoleForCodeWhispererPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

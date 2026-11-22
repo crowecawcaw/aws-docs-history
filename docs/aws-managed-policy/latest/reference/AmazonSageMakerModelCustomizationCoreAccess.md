@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerModelCustomizationCoreAccess
-<a name="AmazonSageMakerModelCustomizationCoreAccess"></a>
 
 **Description**: Grants permissions for SageMaker model customization workflows including serverless training, custom reward function for reinforcement learning, model evaluation, and deployment to SageMaker or Bedrock endpoints.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerModelCustomizationCoreAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

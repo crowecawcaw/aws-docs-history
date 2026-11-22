@@ -1,7 +1,6 @@
 
 
 # CloudWatchEventsBuiltInTargetExecutionAccess
-<a name="CloudWatchEventsBuiltInTargetExecutionAccess"></a>
 
 **Description**: Allows built-in targets in Amazon CloudWatch Events to perform EC2 actions on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchEventsBuiltInTargetExecutionAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

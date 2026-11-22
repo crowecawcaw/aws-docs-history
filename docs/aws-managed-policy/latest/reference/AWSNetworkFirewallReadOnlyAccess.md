@@ -1,7 +1,6 @@
 
 
 # AWSNetworkFirewallReadOnlyAccess
-<a name="AWSNetworkFirewallReadOnlyAccess"></a>
 
 **Description**: Provides read-only access to AWS Network Firewall resources via the AWS Management Console, CLI, and SDKs. This policy allows users to view and monitor firewall configurations, policies, rule groups, and associated resources, without the ability to make changes.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSNetworkFirewallReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonBedrockMantleInferenceAccess
-<a name="AmazonBedrockMantleInferenceAccess"></a>
 
 **Description**: Provides read and inference creation access to Amazon Bedrock Mantle
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonBedrockMantleInferenceAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

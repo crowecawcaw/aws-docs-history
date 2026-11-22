@@ -1,7 +1,6 @@
 
 
 # AWSTrustedAdvisorServiceRolePolicy
-<a name="AWSTrustedAdvisorServiceRolePolicy"></a>
 
 **Description**: Access for the AWS Trusted Advisor Service to help reduce cost, increase performance, and improve security of your AWS environment.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSTrustedAdvisorServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

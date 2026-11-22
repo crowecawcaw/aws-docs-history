@@ -1,7 +1,6 @@
 
 
 # AWSDeepRacerDefaultMultiUserAccess
-<a name="AWSDeepRacerDefaultMultiUserAccess"></a>
 
 **Description**: DeepRacer MultiUser Default user access to use deepracer in multi-user mode
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDeepRacerDefaultMultiUserAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSBudgetsActionsWithAWSResourceControlAccess
-<a name="AWSBudgetsActionsWithAWSResourceControlAccess"></a>
 
 **Description**: Provides full access to AWS Budgets Actions including using Budgets Actions to control states of running AWS resources via AWS Management Console
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBudgetsActionsWithAWSResourceControlAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

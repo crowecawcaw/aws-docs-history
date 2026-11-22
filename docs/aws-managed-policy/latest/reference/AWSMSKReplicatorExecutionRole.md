@@ -1,7 +1,6 @@
 
 
 # AWSMSKReplicatorExecutionRole
-<a name="AWSMSKReplicatorExecutionRole"></a>
 
 **Description**: Grants permissions to Amazon MSK Replicator to replicate data between MSK Clusters.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMSKReplicatorExecutionRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSBackupServiceRolePolicyForS3Backup
-<a name="AWSBackupServiceRolePolicyForS3Backup"></a>
 
 **Description**: Policy containing permissions necessary for AWS Backup to backup data in any S3 bucket. This includes read access to all S3 objects and any decrypt access for all KMS keys.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBackupServiceRolePolicyForS3Backup-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

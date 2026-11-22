@@ -1,7 +1,6 @@
 
 
 # AWSPartnerLedSupportReadOnlyAccess
-<a name="AWSPartnerLedSupportReadOnlyAccess"></a>
 
 **Description**: This policy can be used to grant read-only access to APIs that can read service metadata for services in your AWS account. You can use this policy to provide your partners in the Partner-Led Support Program with access to the services specified in the permissions details section below.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSPartnerLedSupportReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Statement" : [
     {

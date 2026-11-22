@@ -1,7 +1,6 @@
 
 
 # AmazonPrometheusFullAccess
-<a name="AmazonPrometheusFullAccess"></a>
 
 **Description**: Grants full access to AWS Managed Prometheus resources
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonPrometheusFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

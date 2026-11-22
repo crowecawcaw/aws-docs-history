@@ -1,7 +1,6 @@
 
 
 # CostOptimizationHubAdminAccess
-<a name="CostOptimizationHubAdminAccess"></a>
 
 **Description**: This managed policy provides admin access to Cost Optimization Hub.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CostOptimizationHubAdminAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

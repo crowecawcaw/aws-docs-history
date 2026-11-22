@@ -1,7 +1,6 @@
 
 
 # AmazonS3OutpostsFullAccess
-<a name="AmazonS3OutpostsFullAccess"></a>
 
 **Description**: Provides full access to Amazon S3 on Outposts via the AWS Management Console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonS3OutpostsFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

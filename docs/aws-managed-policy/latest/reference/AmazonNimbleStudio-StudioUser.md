@@ -1,7 +1,6 @@
 
 
 # AmazonNimbleStudio-StudioUser
-<a name="AmazonNimbleStudio-StudioUser"></a>
 
 **Description**: This policy grants access to Amazon Nimble Studio resources associated with the studio user and related studio resources in other services. Attach this policy to the User role associated with your studio.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonNimbleStudio-StudioUser-json"></a>
 
-```
+```json
 {
   "Statement" : [
     {

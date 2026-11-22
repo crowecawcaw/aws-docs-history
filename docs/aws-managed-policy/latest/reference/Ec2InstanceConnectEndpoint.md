@@ -1,7 +1,6 @@
 
 
 # Ec2InstanceConnectEndpoint
-<a name="Ec2InstanceConnectEndpoint"></a>
 
 **Description**: EC2 Instance Connect endpoint policy to manage EC2 Instance Connect endpoints created by the customer
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="Ec2InstanceConnectEndpoint-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSCloudShellFullAccess
-<a name="AWSCloudShellFullAccess"></a>
 
 **Description**: Grants using AWS CloudShell with all features
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCloudShellFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

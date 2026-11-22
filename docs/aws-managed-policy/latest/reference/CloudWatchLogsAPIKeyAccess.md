@@ -1,7 +1,6 @@
 
 
 # CloudWatchLogsAPIKeyAccess
-<a name="CloudWatchLogsAPIKeyAccess"></a>
 
 **Description**: Grants permissions to call CloudWatch Logs using API key authentication.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchLogsAPIKeyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSLakeFormationCrossAccountManager
-<a name="AWSLakeFormationCrossAccountManager"></a>
 
 **Description**: Provides cross account access to Glue resources via Lake Formation. Also grants read access to other required services such as organizations and resource access manager
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSLakeFormationCrossAccountManager-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

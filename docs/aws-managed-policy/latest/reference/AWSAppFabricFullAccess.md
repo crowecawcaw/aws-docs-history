@@ -1,7 +1,6 @@
 
 
 # AWSAppFabricFullAccess
-<a name="AWSAppFabricFullAccess"></a>
 
 **Description**: Provides full access to the AWS AppFabric service and read only access to dependent services such as S3, Kinesis, KMS.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSAppFabricFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

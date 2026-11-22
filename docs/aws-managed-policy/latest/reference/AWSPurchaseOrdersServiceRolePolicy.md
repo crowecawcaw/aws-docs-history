@@ -1,7 +1,6 @@
 
 
 # AWSPurchaseOrdersServiceRolePolicy
-<a name="AWSPurchaseOrdersServiceRolePolicy"></a>
 
 **Description**: Grants permissions to view and modify purchase orders on billing console
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSPurchaseOrdersServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

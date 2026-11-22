@@ -1,7 +1,6 @@
 
 
 # AmazonMachineLearningRoleforRedshiftDataSourceV3
-<a name="AmazonMachineLearningRoleforRedshiftDataSourceV3"></a>
 
 **Description**: Allows Machine Learning to configure and use your Redshift Clusters and S3 Staging Locations for Redshift Data Source.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonMachineLearningRoleforRedshiftDataSourceV3-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSBatchServiceRole
-<a name="AWSBatchServiceRole"></a>
 
 **Description**: Policy for AWS Batch service role which allows access to related services including EC2, Autoscaling, EC2 Container service and Cloudwatch Logs.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBatchServiceRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonEC2ImageReferencesAccessPolicy
-<a name="AmazonEC2ImageReferencesAccessPolicy"></a>
 
 **Description**: Provides read-only access to scan all supported resource types for relevant data when using DescribeImageReferences.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEC2ImageReferencesAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

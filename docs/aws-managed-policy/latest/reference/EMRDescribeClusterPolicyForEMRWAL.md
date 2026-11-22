@@ -1,7 +1,6 @@
 
 
 # EMRDescribeClusterPolicyForEMRWAL
-<a name="EMRDescribeClusterPolicyForEMRWAL"></a>
 
 **Description**: This policy grants read-only permissions that allow the WAL service for Amazon EMR to find and return the status of a cluster
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="EMRDescribeClusterPolicyForEMRWAL-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonVPCReachabilityAnalyzerPathComponentReadPolicy
-<a name="AmazonVPCReachabilityAnalyzerPathComponentReadPolicy"></a>
 
 **Description**: This policy is attached to the role IAMRoleForReachabilityAnalyzerCrossAccountResourceAccess. This role is deployed to the member accounts in an organization when the management account enables trusted access for Reachability Analyzer. It provides permissions to view resources from across your organization using the Reachability Analyzer console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonVPCReachabilityAnalyzerPathComponentReadPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

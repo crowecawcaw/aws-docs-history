@@ -1,7 +1,6 @@
 
 
 # AWSAppRunnerServicePolicyForECRAccess
-<a name="AWSAppRunnerServicePolicyForECRAccess"></a>
 
 **Description**: AWS App Runner service policy that grants read permissions to Amazon ECR resources in the customer's account. Use it in a role that is passed to App Runner when creating or updating an App Runner service.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSAppRunnerServicePolicyForECRAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

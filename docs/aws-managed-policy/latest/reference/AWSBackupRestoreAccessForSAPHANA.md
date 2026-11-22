@@ -1,7 +1,6 @@
 
 
 # AWSBackupRestoreAccessForSAPHANA
-<a name="AWSBackupRestoreAccessForSAPHANA"></a>
 
 **Description**: Provides AWS Backup permission to restore a backup of SAP HANA on Amazon EC2
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBackupRestoreAccessForSAPHANA-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

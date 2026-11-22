@@ -1,7 +1,6 @@
 
 
 # AWSCodeBuildDeveloperAccess
-<a name="AWSCodeBuildDeveloperAccess"></a>
 
 **Description**: Provides access to AWS CodeBuild via the AWS Management Console, but does not allow CodeBuild project administration. Also attach AmazonS3ReadOnlyAccess to provide access to download build artifacts.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCodeBuildDeveloperAccess-json"></a>
 
-```
+```json
 {
   "Statement" : [
     {

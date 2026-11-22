@@ -1,7 +1,6 @@
 
 
 # AWSEC2CapacityManagerServiceRolePolicy
-<a name="AWSEC2CapacityManagerServiceRolePolicy"></a>
 
 **Description**: Allows EC2 Capacity Manager to manage capacity resources and integrate with AWS Organizations on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSEC2CapacityManagerServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

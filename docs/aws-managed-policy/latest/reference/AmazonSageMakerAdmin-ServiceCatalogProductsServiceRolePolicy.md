@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy
-<a name="AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy"></a>
 
 **Description**: Service role policy used by the AWS service Catalog service to provision products from Amazon SageMaker portfolio of products. Grants permissions to a set of related services including CodePipeline, CodeBuild, CodeCommit, Glue, CloudFormation, etc,.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

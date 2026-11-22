@@ -1,7 +1,6 @@
 
 
 # NetworkSecurityDirectorServiceLinkedRolePolicy
-<a name="NetworkSecurityDirectorServiceLinkedRolePolicy"></a>
 
 **Description**: Provides permissions for the AWS Shield network security director service linked role to assess specified environments.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="NetworkSecurityDirectorServiceLinkedRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

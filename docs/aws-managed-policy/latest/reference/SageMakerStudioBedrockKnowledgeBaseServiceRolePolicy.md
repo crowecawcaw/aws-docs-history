@@ -1,7 +1,6 @@
 
 
 # SageMakerStudioBedrockKnowledgeBaseServiceRolePolicy
-<a name="SageMakerStudioBedrockKnowledgeBaseServiceRolePolicy"></a>
 
 **Description**: Allows Amazon Bedrock Knowledge Bases to access Amazon Bedrock models and data sources in SageMaker Studio.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SageMakerStudioBedrockKnowledgeBaseServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

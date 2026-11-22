@@ -1,7 +1,6 @@
 
 
 # AmazonBedrockStudioPermissionsBoundary
-<a name="AmazonBedrockStudioPermissionsBoundary"></a>
 
 **Description**: Defines the maximum permissions of IAM roles that Amazon Bedrock Studio creates for operating Amazon Bedrock Studio resources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonBedrockStudioPermissionsBoundary-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

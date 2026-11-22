@@ -1,7 +1,6 @@
 
 
 # AWSKeyManagementServiceCustomKeyStoresServiceRolePolicy
-<a name="AWSKeyManagementServiceCustomKeyStoresServiceRolePolicy"></a>
 
 **Description**: Enables access to AWS services and resources required for AWS KMS custom key stores
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSKeyManagementServiceCustomKeyStoresServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

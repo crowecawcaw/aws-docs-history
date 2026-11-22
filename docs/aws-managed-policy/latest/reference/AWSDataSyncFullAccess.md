@@ -1,7 +1,6 @@
 
 
 # AWSDataSyncFullAccess
-<a name="AWSDataSyncFullAccess"></a>
 
 **Description**: Provides full access to AWS DataSync and minimal access to its dependencies
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDataSyncFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

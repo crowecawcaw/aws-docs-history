@@ -1,7 +1,6 @@
 
 
 # AmazonAppFlowFullAccess
-<a name="AmazonAppFlowFullAccess"></a>
 
 **Description**: Provides full access to Amazon AppFlow and access to AWS services supported as flow source or destination (S3 and Redshift). Also provides access to KMS for encryption
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonAppFlowFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

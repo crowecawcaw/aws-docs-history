@@ -1,7 +1,6 @@
 
 
 # AmazonFISServiceRolePolicy
-<a name="AmazonFISServiceRolePolicy"></a>
 
 **Description**: Policy to enable AWS FIS to manage monitoring and resource selection for experiments.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonFISServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

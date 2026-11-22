@@ -1,7 +1,6 @@
 
 
 # AWSElasticBeanstalkRoleWorkerTier
-<a name="AWSElasticBeanstalkRoleWorkerTier"></a>
 
 **Description**: (Elastic Beanstalk operations role) Allows a worker environment tier to create an Amazon DynamoDB table and an Amazon SQS queue.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticBeanstalkRoleWorkerTier-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

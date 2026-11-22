@@ -1,7 +1,6 @@
 
 
 # AWSAppRunnerReadOnlyAccess
-<a name="AWSAppRunnerReadOnlyAccess"></a>
 
 **Description**: Grants permissions to list and view details about App Runner resources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSAppRunnerReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

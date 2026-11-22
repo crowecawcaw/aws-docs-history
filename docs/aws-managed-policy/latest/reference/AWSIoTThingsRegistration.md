@@ -1,7 +1,6 @@
 
 
 # AWSIoTThingsRegistration
-<a name="AWSIoTThingsRegistration"></a>
 
 **Description**: This policy allows users to register things at bulk using AWS IoT StartThingRegistrationTask API
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTThingsRegistration-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonDataZonePreviewConsoleFullAccess
-<a name="AmazonDataZonePreviewConsoleFullAccess"></a>
 
 **Description**: Provides full access to the Preview release of Amazon DataZone via the AWS Management Console. Also provides select access to other related services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDataZonePreviewConsoleFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

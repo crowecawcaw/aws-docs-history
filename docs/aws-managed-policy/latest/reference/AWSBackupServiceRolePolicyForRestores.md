@@ -1,7 +1,6 @@
 
 
 # AWSBackupServiceRolePolicyForRestores
-<a name="AWSBackupServiceRolePolicyForRestores"></a>
 
 **Description**: Provides AWS Backup permission to perform restores on your behalf across AWS services. This policy includes permissions to create and delete AWS resources, such as EBS volumes, RDS instances, and EFS file systems, which are part of the restore process.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBackupServiceRolePolicyForRestores-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # CloudWatchReadOnlyAccess
-<a name="CloudWatchReadOnlyAccess"></a>
 
 **Description**: Provides read only access to CloudWatch.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

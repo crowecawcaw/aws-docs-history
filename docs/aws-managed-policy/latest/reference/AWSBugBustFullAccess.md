@@ -1,7 +1,6 @@
 
 
 # AWSBugBustFullAccess
-<a name="AWSBugBustFullAccess"></a>
 
 **Description**: This IAM policy grants users full access to the AWS BugBust console
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBugBustFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

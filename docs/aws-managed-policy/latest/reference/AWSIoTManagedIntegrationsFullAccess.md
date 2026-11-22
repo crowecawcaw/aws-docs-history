@@ -1,7 +1,6 @@
 
 
 # AWSIoTManagedIntegrationsFullAccess
-<a name="AWSIoTManagedIntegrationsFullAccess"></a>
 
 **Description**: Provides full access to managed integrations for AWS IoT Device Management and related services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTManagedIntegrationsFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

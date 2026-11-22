@@ -1,7 +1,6 @@
 
 
 # AWSImportExportFullAccess
-<a name="AWSImportExportFullAccess"></a>
 
 **Description**: Provides read and write access to the jobs created under the AWS account.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSImportExportFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

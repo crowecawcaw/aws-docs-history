@@ -1,7 +1,6 @@
 
 
 # AmazonNimbleStudio-StudioAdmin
-<a name="AmazonNimbleStudio-StudioAdmin"></a>
 
 **Description**: This policy grants access to Amazon Nimble Studio resources associated with the studio admin and related studio resources in other services. Attach this policy to the Admin role associated with your studio.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonNimbleStudio-StudioAdmin-json"></a>
 
-```
+```json
 {
   "Statement" : [
     {

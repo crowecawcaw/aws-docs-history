@@ -1,7 +1,6 @@
 
 
 # IVSReadOnlyAccess
-<a name="IVSReadOnlyAccess"></a>
 
 **Description**: Provides read-only access to IVS Low-Latency and Real-Time streaming APIs
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="IVSReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

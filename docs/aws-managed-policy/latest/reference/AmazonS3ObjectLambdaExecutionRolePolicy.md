@@ -1,7 +1,6 @@
 
 
 # AmazonS3ObjectLambdaExecutionRolePolicy
-<a name="AmazonS3ObjectLambdaExecutionRolePolicy"></a>
 
 **Description**: Provides AWS Lambda functions permissions to interact with Amazon S3 Object Lambda. Also grants Lambda permissions to write to CloudWatch Logs.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonS3ObjectLambdaExecutionRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

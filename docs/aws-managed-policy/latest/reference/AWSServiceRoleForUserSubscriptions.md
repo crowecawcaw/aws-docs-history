@@ -1,7 +1,6 @@
 
 
 # AWSServiceRoleForUserSubscriptions
-<a name="AWSServiceRoleForUserSubscriptions"></a>
 
 **Description**: Provides access to the User Subscriptions service to your Identity Center resources to automatically update your subscriptions.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceRoleForUserSubscriptions-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSVendorInsightsVendorFullAccess
-<a name="AWSVendorInsightsVendorFullAccess"></a>
 
 **Description**: Provides full access for creating and managing the Vendor Insights resources
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSVendorInsightsVendorFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

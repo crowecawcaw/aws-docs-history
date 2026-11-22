@@ -1,7 +1,6 @@
 
 
 # AWSElasticLoadBalancingServiceRolePolicy
-<a name="AWSElasticLoadBalancingServiceRolePolicy"></a>
 
 **Description**: Service Linked Role Policy for AWS Elastic Load Balancing Control Plane
 
@@ -16,20 +15,20 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSElasticLoadBalancingServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: September 19, 2017, 22:19 UTC 
-+ **Edited time:** October 13, 2026, 19:47 UTC
++ **Edited time:** November 17, 2026, 22:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSElasticLoadBalancingServiceRolePolicy`
 
 ## Policy version
 <a name="AWSElasticLoadBalancingServiceRolePolicy-version"></a>
 
-**Policy version:** v15 (default)
+**Policy version:** v16 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSElasticLoadBalancingServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -75,6 +74,25 @@ The policy's default version is the version that defines the permissions for the
         "outposts:GetOutpostInstanceTypes"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "NLBSecretsManagerAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "secretsmanager:RotateSecret",
+        "secretsmanager:PutSecretValue",
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:UpdateSecretVersionStage",
+        "secretsmanager:DeleteSecret"
+      ],
+      "Resource" : [
+        "arn:aws:secretsmanager:*:*:secret:elasticloadbalancing-nlb!*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     }
   ]
 }

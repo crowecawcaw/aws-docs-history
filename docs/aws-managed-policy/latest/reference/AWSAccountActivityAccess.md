@@ -1,7 +1,6 @@
 
 
 # AWSAccountActivityAccess
-<a name="AWSAccountActivityAccess"></a>
 
 **Description**: Allows users to access the Account Activity page.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSAccountActivityAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonRoute53RecoveryClusterFullAccess
-<a name="AmazonRoute53RecoveryClusterFullAccess"></a>
 
 **Description**: Provides full access to Amazon Route 53 Recovery Cluster
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRoute53RecoveryClusterFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

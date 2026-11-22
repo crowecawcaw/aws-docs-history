@@ -1,7 +1,6 @@
 
 
 # AWSMarketplaceDeploymentServiceRolePolicy
-<a name="AWSMarketplaceDeploymentServiceRolePolicy"></a>
 
 **Description**: Allows AWS Marketplace to create and manage seller deployment parameters for the products that you subscribe to on AWS Marketplace.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMarketplaceDeploymentServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

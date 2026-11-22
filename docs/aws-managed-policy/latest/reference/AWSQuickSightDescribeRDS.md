@@ -1,7 +1,6 @@
 
 
 # AWSQuickSightDescribeRDS
-<a name="AWSQuickSightDescribeRDS"></a>
 
 **Description**: Allow QuickSight to describe the RDS resources
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSightDescribeRDS-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

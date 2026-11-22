@@ -1,7 +1,6 @@
 
 
 # AmazonCloudWatchRUMServiceRolePolicy
-<a name="AmazonCloudWatchRUMServiceRolePolicy"></a>
 
 **Description**: Grants permission to Amazon CloudWatch RUM Service to publish monitoring data to other relevant AWS services
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonCloudWatchRUMServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

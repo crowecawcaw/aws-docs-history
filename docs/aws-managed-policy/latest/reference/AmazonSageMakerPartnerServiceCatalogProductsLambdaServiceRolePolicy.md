@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerPartnerServiceCatalogProductsLambdaServiceRolePolicy
-<a name="AmazonSageMakerPartnerServiceCatalogProductsLambdaServiceRolePolicy"></a>
 
 **Description**: Service role policy used by the AWS Lambda within the AWS ServiceCatalog provisioned products from Amazon SageMaker portfolio of products. Grants permissions to a set of related services including Secrets Manager and others.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerPartnerServiceCatalogProductsLambdaServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

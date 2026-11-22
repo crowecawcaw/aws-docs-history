@@ -1,7 +1,6 @@
 
 
 # AmazonEMRCleanupPolicy
-<a name="AmazonEMRCleanupPolicy"></a>
 
 **Description**: Allows the actions that EMR requires to terminate and delete AWS EC2 resources if the EMR Service role has lost that ability.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEMRCleanupPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

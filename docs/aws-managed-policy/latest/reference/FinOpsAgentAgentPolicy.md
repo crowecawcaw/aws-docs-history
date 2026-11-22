@@ -1,7 +1,6 @@
 
 
 # FinOpsAgentAgentPolicy
-<a name="FinOpsAgentAgentPolicy"></a>
 
 **Description**: Provides permissions required by the AWS FinOps Agent to perform cost analysis and spot cost saving opportunity on customer AWS resources.
 
@@ -16,20 +15,20 @@ You can attach `FinOpsAgentAgentPolicy` to your users, groups, and roles.
 <a name="FinOpsAgentAgentPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: June 03, 2026, 19:57 UTC 
-+ **Edited time:** October 02, 2026, 18:27 UTC
++ **Edited time:** November 20, 2026, 02:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/FinOpsAgentAgentPolicy`
 
 ## Policy version
 <a name="FinOpsAgentAgentPolicy-version"></a>
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="FinOpsAgentAgentPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -168,7 +167,143 @@ The policy's default version is the version that defines the permissions for the
         "cost-optimization-hub:ListEnrollmentStatuses",
         "cost-optimization-hub:GetPreferences",
         "billing:GetBillingPreferences",
-        "billing:ListBillingViewSegments"
+        "billing:ListBillingViewSegments",
+        "ce:ListCostCategoryResourceAssociations",
+        "ce:ListTagsForResource",
+        "bcm-data-exports:GetExport",
+        "bcm-data-exports:ListExports",
+        "cur:DescribeReportDefinitions",
+        "billing:GetBillingData",
+        "billing:GetBillingDetails",
+        "billing:GetBillingNotifications",
+        "billing:GetContractInformation",
+        "billing:GetIAMAccessPreference",
+        "billing:GetSellerOfRecord",
+        "billingconductor:ListTagsForResource",
+        "budgets:DescribeBudgetAction",
+        "budgets:DescribeBudgetActionHistories",
+        "budgets:ListTagsForResource",
+        "invoicing:GetInvoiceCorrection",
+        "invoicing:GetInvoiceEmailDeliveryPreferences",
+        "invoicing:GetInvoicePDF",
+        "invoicing:ListInvoiceCorrections",
+        "invoicing:ListProcurementPortalSuppliers",
+        "invoicing:ListProcurementPortals",
+        "invoicing:ListTagsForResource",
+        "purchase-orders:GetPurchaseOrder",
+        "purchase-orders:ListPurchaseOrderInvoices",
+        "purchase-orders:ListPurchaseOrders",
+        "purchase-orders:ListTagsForResource",
+        "purchase-orders:ViewPurchaseOrders",
+        "freetier:GetAccountActivity",
+        "freetier:GetAccountPlanState",
+        "freetier:GetFreeTierAlertPreference",
+        "freetier:ListAccountActivities",
+        "mapcredits:ListAssociatedPrograms",
+        "mapcredits:ListQuarterCredits",
+        "mapcredits:ListQuarterSpend",
+        "account:GetRegionOptStatus",
+        "account:ListRegions",
+        "consolidatedbilling:GetAccountBillingRole",
+        "consolidatedbilling:ListLinkedAccounts",
+        "organizations:DescribeOrganizationalUnit",
+        "organizations:ListAWSServiceAccessForOrganization",
+        "organizations:ListChildren",
+        "organizations:ListOrganizationalUnitsForParent",
+        "organizations:ListParents",
+        "organizations:ListRoots",
+        "application-autoscaling:DescribeScalableTargets",
+        "application-autoscaling:DescribeScalingPolicies",
+        "ec2:DescribeAddresses",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeNatGateways",
+        "ec2:DescribeReservedInstances",
+        "ec2:DescribeSnapshots",
+        "ec2:DescribeVpcEndpoints",
+        "lambda:GetFunctionConfiguration",
+        "dynamodb:DescribeContinuousBackups",
+        "dynamodb:DescribeTable",
+        "dynamodb:ListTables",
+        "elasticache:DescribeCacheClusters",
+        "elasticache:DescribeReplicationGroups",
+        "elasticache:DescribeReservedCacheNodes",
+        "elasticache:DescribeSnapshots",
+        "memorydb:DescribeClusters",
+        "memorydb:DescribeSnapshots",
+        "rds:DescribeDBClusterSnapshots",
+        "rds:DescribeDBEngineVersions",
+        "rds:DescribeDBSnapshots",
+        "rds:DescribeReservedDBInstances",
+        "redshift:DescribeClusterSnapshots",
+        "redshift:DescribeClusters",
+        "redshift:DescribeReservedNodes",
+        "sagemaker:DescribeEndpoint",
+        "sagemaker:DescribeEndpointConfig",
+        "sagemaker:DescribeNotebookInstance",
+        "sagemaker:ListApps",
+        "sagemaker:ListDomains",
+        "sagemaker:ListEndpointConfigs",
+        "sagemaker:ListEndpoints",
+        "sagemaker:ListNotebookInstances",
+        "workspaces:DescribeWorkspaces",
+        "workspaces:DescribeWorkspacesConnectionStatus",
+        "ram:GetResourceShares",
+        "resource-explorer-2:GetIndex",
+        "resource-explorer-2:ListIndexes",
+        "resource-explorer-2:Search",
+        "tag:GetResources",
+        "logs:DescribeLogGroups",
+        "logs:DescribeSubscriptionFilters"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "StorageResourceReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:GetBucketLocation",
+        "s3:GetBucketVersioning",
+        "s3:GetIntelligentTieringConfiguration",
+        "s3:GetInventoryConfiguration",
+        "s3:GetLifecycleConfiguration",
+        "s3:GetReplicationConfiguration",
+        "s3:GetStorageLensConfiguration",
+        "s3:ListAllMyBuckets"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AwsOrgsScopedAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "organizations:ListDelegatedAdministrators"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "organizations:ServicePrincipal" : [
+            "finops-agent.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "BCMDataHubQueryAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "bcm-data-hub:ListDatasets",
+        "bcm-data-hub:GetDataset",
+        "bcm-data-hub:GetDatasetSchema",
+        "bcm-data-hub:StartQueryExecution",
+        "bcm-data-hub:GetQueryExecution",
+        "bcm-data-hub:GetQueryExecutionResults",
+        "bcm-data-hub:CancelQueryExecution",
+        "bcm-data-hub:ListQueryExecutions"
       ],
       "Resource" : "*"
     },
@@ -186,8 +321,8 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : "arn:aws:events:*:*:rule/*",
       "Condition" : {
         "StringEquals" : {
-          "events:ManagedBy" : "finops-agent.amazonaws.com",
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "events:ManagedBy" : "finops-agent.amazonaws.com"
         }
       }
     },

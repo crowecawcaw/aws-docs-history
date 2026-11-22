@@ -1,7 +1,6 @@
 
 
 # AWSAuditManagerAdministratorAccess
-<a name="AWSAuditManagerAdministratorAccess"></a>
 
 **Description**: Provides administrative access to enable or disable AWS Audit Manager, update settings, and manage assessments, controls, and frameworks
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSAuditManagerAdministratorAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

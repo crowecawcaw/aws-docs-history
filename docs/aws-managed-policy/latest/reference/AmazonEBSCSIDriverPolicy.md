@@ -1,7 +1,6 @@
 
 
 # AmazonEBSCSIDriverPolicy
-<a name="AmazonEBSCSIDriverPolicy"></a>
 
 **Description**: IAM Policy that allows the CSI driver service account to make calls to related services such as EC2 on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEBSCSIDriverPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

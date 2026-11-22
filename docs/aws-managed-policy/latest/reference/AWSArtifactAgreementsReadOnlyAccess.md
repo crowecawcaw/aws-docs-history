@@ -1,7 +1,6 @@
 
 
 # AWSArtifactAgreementsReadOnlyAccess
-<a name="AWSArtifactAgreementsReadOnlyAccess"></a>
 
 **Description**: This policy grants read-only access to list the AWS Artifact service agreements and to download the accepted agreements.. It also includes permissions to list as well as describe the organization details. Additionally, the policy provides the ability to check if the required service-linked role exists.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSArtifactAgreementsReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

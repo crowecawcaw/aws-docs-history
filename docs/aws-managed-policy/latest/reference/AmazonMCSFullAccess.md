@@ -1,7 +1,6 @@
 
 
 # AmazonMCSFullAccess
-<a name="AmazonMCSFullAccess"></a>
 
 **Description**: Provide full access to Amazon Managed Apache Cassandra Service
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonMCSFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

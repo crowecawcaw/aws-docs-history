@@ -1,7 +1,6 @@
 
 
 # Route53PrivateHealthChecksServiceRolePolicy
-<a name="Route53PrivateHealthChecksServiceRolePolicy"></a>
 
 **Description**: Allows Amazon Route 53 health checks to describe subnets in your VPC. Helps Amazon Route 53 health checks determine whether IPv6 should be enabled for a customer's resource.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="Route53PrivateHealthChecksServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

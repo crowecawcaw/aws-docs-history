@@ -1,7 +1,6 @@
 
 
 # AmazonAugmentedAIIntegratedAPIAccess
-<a name="AmazonAugmentedAIIntegratedAPIAccess"></a>
 
 **Description**: Provides access to perform all operations Amazon Augmented AI resources, including FlowDefinitions, HumanTaskUis and HumanLoops. Also provides access to those operations of services that are integrated with Amazon Augmented AI. 
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonAugmentedAIIntegratedAPIAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

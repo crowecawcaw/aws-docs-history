@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerTrainingPlanCreateAccess
-<a name="AmazonSageMakerTrainingPlanCreateAccess"></a>
 
 **Description**: This Amazon Managed Policy provides the necessary permissions to create and manage SageMaker Training Plans. It allows users to create Training Plans and Reserved Capacities, describe existing Training Plans, and perform search and listing operations.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerTrainingPlanCreateAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

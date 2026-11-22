@@ -1,7 +1,6 @@
 
 
 # AWSResourceAccessManagerServiceRolePolicy
-<a name="AWSResourceAccessManagerServiceRolePolicy"></a>
 
 **Description**: Policy containing Read-only AWS Resource Access Manager access to customers' Organizations structure. It also contains IAM permissions to self-delete the role.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSResourceAccessManagerServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

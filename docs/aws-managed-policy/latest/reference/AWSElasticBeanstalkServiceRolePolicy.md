@@ -1,7 +1,6 @@
 
 
 # AWSElasticBeanstalkServiceRolePolicy
-<a name="AWSElasticBeanstalkServiceRolePolicy"></a>
 
 **Description**: AWS Elastic Beanstalk Service Linked Role policy which grants permissions to create & manage resources (i.e.: AutoScaling, EC2, S3, CloudFormation, ELB, etc.) on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticBeanstalkServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

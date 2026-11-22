@@ -1,7 +1,6 @@
 
 
 # SageMakerStudioProjectProvisioningRolePolicy
-<a name="SageMakerStudioProjectProvisioningRolePolicy"></a>
 
 **Description**: Amazon SageMaker Studio uses this policy to provision and manage resources in your account.
 
@@ -16,20 +15,20 @@ You can attach `SageMakerStudioProjectProvisioningRolePolicy` to your users, gro
 <a name="SageMakerStudioProjectProvisioningRolePolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: November 20, 2024, 21:58 UTC 
-+ **Edited time:** November 13, 2026, 20:07 UTC
++ **Edited time:** November 17, 2026, 21:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/SageMakerStudioProjectProvisioningRolePolicy`
 
 ## Policy version
 <a name="SageMakerStudioProjectProvisioningRolePolicy-version"></a>
 
-**Policy version:** v85 (default)
+**Policy version:** v86 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="SageMakerStudioProjectProvisioningRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -104,14 +103,16 @@ The policy's default version is the version that defines the permissions for the
         "cloudformation:ValidateTemplate",
         "codecommit:ListRepositories",
         "eks:DescribeCluster",
+        "eks:ListPodIdentityAssociations",
         "elasticmapreduce:*SecurityConfiguration",
         "glue:DescribeConnectionType",
         "glue:ListConnectionTypes",
         "glue:*GlueIdentityCenterConfiguration",
         "iam:ListPolicies",
         "logs:DescribeLogGroups",
+        "organizations:DescribeOrganization",
         "ram:GetResourceShare*",
-        "ram:ListResources",
+        "ram:ListResource*",
         "redshift-data:DescribeStatement",
         "redshift-data:GetStatementResult",
         "redshift-serverless:ListNamespaces",
@@ -265,7 +266,14 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : [
         "arn:aws:iam::*:role/datazone*",
         "arn:aws:iam::*:role/AmazonBedrock*",
-        "arn:aws:iam::*:role/BedrockStudio*"
+        "arn:aws:iam::*:role/BedrockStudio*",
+        "arn:aws:iam::*:role/service-role/AmazonSageMakerAdminIAMExecutionRole*",
+        "arn:aws:iam::*:role/service-role/AmazonSageMakerUserIAMExecutionRole*",
+        "arn:aws:iam::*:role/AmazonSageMakerAdminIAMExecutionRole*",
+        "arn:aws:iam::*:role/AmazonSageMakerUserIAMExecutionRole*",
+        "arn:aws:iam::*:role/SageMakerStudioQueryExecutionRole",
+        "arn:aws:iam::*:role/service-role/AmazonSageMakerQueryExecution",
+        "arn:aws:iam::*:role/datazone_s3tables_*"
       ]
     },
     {
@@ -1237,18 +1245,6 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
-      "Sid" : "GetRole",
-      "Effect" : "Allow",
-      "Action" : [
-        "iam:GetRole"
-      ],
-      "Resource" : [
-        "arn:aws:iam::*:role/SageMakerStudioQueryExecutionRole",
-        "arn:aws:iam::*:role/service-role/AmazonSageMakerQueryExecution",
-        "arn:aws:iam::*:role/datazone_s3tables_*"
-      ]
-    },
-    {
       "Sid" : "S3tPassConn",
       "Effect" : "Allow",
       "Action" : [
@@ -1471,21 +1467,6 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : [
         "arn:aws:ec2:*:*:security-group/*"
       ]
-    },
-    {
-      "Sid" : "SGRevoke",
-      "Effect" : "Allow",
-      "Action" : [
-        "ec2:RevokeSecurityGroupIngress"
-      ],
-      "Resource" : [
-        "arn:aws:ec2:*:*:security-group/*"
-      ],
-      "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false"
-        }
-      }
     },
     {
       "Sid" : "TagEc2",
@@ -2618,7 +2599,8 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "ec2:DeleteSecurityGroup",
-        "ec2:DeleteTags"
+        "ec2:DeleteTags",
+        "ec2:RevokeSecurityGroupIngress"
       ],
       "Resource" : "arn:aws:ec2:*:*:security-group/*",
       "Condition" : {
@@ -2964,12 +2946,16 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "ram:AcceptResourceShareInvitation",
         "ram:DeleteResourceShare",
+        "ram:DisassociateResourceShare",
         "ram:TagResource"
       ],
       "Resource" : "*",
       "Condition" : {
         "StringLike" : {
-          "ram:ResourceShareName" : "DataZone*"
+          "ram:ResourceShareName" : [
+            "DataZone*",
+            "LakeFormation-*"
+          ]
         }
       }
     },
@@ -2990,7 +2976,10 @@ The policy's default version is the version that defines the permissions for the
           ]
         },
         "StringLike" : {
-          "ram:ResourceShareName" : "DataZone*"
+          "ram:ResourceShareName" : [
+            "DataZone*",
+            "LakeFormation-*"
+          ]
         }
       }
     },
@@ -3022,12 +3011,30 @@ The policy's default version is the version that defines the permissions for the
         "emr-containers:DescribeVirtualCluster",
         "emr-containers:DescribeManagedEndpoint",
         "emr-containers:TagResource",
-        "emr-containers:UntagResource"
+        "emr-containers:UntagResource",
+        "eks:DeletePodIdentityAssociation"
       ],
       "Resource" : "*",
       "Condition" : {
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "EksPodIdentity",
+      "Effect" : "Allow",
+      "Action" : [
+        "eks:CreatePodIdentityAssociation",
+        "eks:TagResource"
+      ],
+      "Resource" : [
+        "arn:aws:eks:*:*:cluster/*",
+        "arn:aws:eks:*:*:podidentityassociation/*"
+      ],
+      "Condition" : {
+        "Null" : {
+          "aws:RequestTag/AmazonDataZoneProject" : "false"
         }
       }
     },

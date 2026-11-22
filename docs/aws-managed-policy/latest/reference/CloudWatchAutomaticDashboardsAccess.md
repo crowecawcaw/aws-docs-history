@@ -1,7 +1,6 @@
 
 
 # CloudWatchAutomaticDashboardsAccess
-<a name="CloudWatchAutomaticDashboardsAccess"></a>
 
 **Description**: Provides access to the non-CloudWatch APIs used to display CloudWatch Automatic Dashboards, including the contents of objects such as Lambda functions
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchAutomaticDashboardsAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

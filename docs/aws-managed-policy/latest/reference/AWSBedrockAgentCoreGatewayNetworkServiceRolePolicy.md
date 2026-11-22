@@ -1,7 +1,6 @@
 
 
 # AWSBedrockAgentCoreGatewayNetworkServiceRolePolicy
-<a name="AWSBedrockAgentCoreGatewayNetworkServiceRolePolicy"></a>
 
 **Description**: Allows Bedrock AgentCore Gateway to managed VPC Lattice resources on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBedrockAgentCoreGatewayNetworkServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmplifyBackendDeployFullAccess
-<a name="AmplifyBackendDeployFullAccess"></a>
 
 **Description**: Provides Amplify full access permissions to deploy Amplify backend resources (AWS AppSync, Amazon Cognito, Amazon S3 and other related services) via the AWS Cloud Development Kit (AWS CDK)
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmplifyBackendDeployFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

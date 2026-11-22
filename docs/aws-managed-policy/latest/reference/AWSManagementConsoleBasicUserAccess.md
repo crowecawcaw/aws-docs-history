@@ -1,7 +1,6 @@
 
 
 # AWSManagementConsoleBasicUserAccess
-<a name="AWSManagementConsoleBasicUserAccess"></a>
 
 **Description**: Grants access to essential AWS Management Console features and user experience (UX) capabilities for non-administrative users.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSManagementConsoleBasicUserAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

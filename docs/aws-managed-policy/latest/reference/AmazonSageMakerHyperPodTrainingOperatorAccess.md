@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerHyperPodTrainingOperatorAccess
-<a name="AmazonSageMakerHyperPodTrainingOperatorAccess"></a>
 
 **Description**: This policy provides administrative permissions required to set up the SageMaker HyperPod training operator. It enables access to Amazon SageMaker HyperPod and EKS add-ons. The policy includes permissions to describe the SageMaker HyperPod resources in your account.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerHyperPodTrainingOperatorAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

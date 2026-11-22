@@ -1,7 +1,6 @@
 
 
 # AIDevOpsOperatorAppAccessPolicy
-<a name="AIDevOpsOperatorAppAccessPolicy"></a>
 
 **Description**: Provides access to use the AWS DevOps operator web app for an Agent Space.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AIDevOpsOperatorAppAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

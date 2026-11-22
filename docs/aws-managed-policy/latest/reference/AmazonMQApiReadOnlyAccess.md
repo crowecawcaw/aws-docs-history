@@ -1,7 +1,6 @@
 
 
 # AmazonMQApiReadOnlyAccess
-<a name="AmazonMQApiReadOnlyAccess"></a>
 
 **Description**: Provides read only access to AmazonMQ via our API/SDK.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonMQApiReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

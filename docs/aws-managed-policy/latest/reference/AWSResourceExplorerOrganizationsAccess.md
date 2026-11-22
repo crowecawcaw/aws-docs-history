@@ -1,7 +1,6 @@
 
 
 # AWSResourceExplorerOrganizationsAccess
-<a name="AWSResourceExplorerOrganizationsAccess"></a>
 
 **Description**: This policy grants administrative permissions to Resource Explorer and grants read-only permissions to other AWS services to support this access. The AWS Organizations administrator needs these permissions to setup and manage multi-account search in the console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSResourceExplorerOrganizationsAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

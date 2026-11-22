@@ -1,7 +1,6 @@
 
 
 # AssuranceOperatorPolicy
-<a name="AssuranceOperatorPolicy"></a>
 
 **Description**: Provides full access to AWS Assurance environments and read-only access to IAM Identity Center user details
 
@@ -16,20 +15,20 @@ You can attach `AssuranceOperatorPolicy` to your users, groups, and roles.
 <a name="AssuranceOperatorPolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: October 21, 2026, 15:17 UTC 
-+ **Edited time:** November 06, 2026, 16:37 UTC
++ **Edited time:** November 18, 2026, 20:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/AssuranceOperatorPolicy`
 
 ## Policy version
 <a name="AssuranceOperatorPolicy-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AssuranceOperatorPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -115,6 +114,14 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : [
         "arn:aws:identitystore::*:identitystore/*",
         "arn:aws:identitystore:::user/*"
+      ]
+    },
+    {
+      "Sid" : "SSOUserAccess",
+      "Effect" : "Allow",
+      "Action" : "sso:DescribeInstance",
+      "Resource" : [
+        "arn:aws:sso:::instance/*"
       ]
     }
   ]

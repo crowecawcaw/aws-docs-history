@@ -1,7 +1,6 @@
 
 
 # AmazonODBFullAccess
-<a name="AmazonODBFullAccess"></a>
 
 **Description**: Provides full access to resources in Oracle Database@AWS
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonODBFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

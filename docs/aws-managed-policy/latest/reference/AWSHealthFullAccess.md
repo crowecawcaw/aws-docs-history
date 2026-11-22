@@ -1,7 +1,6 @@
 
 
 # AWSHealthFullAccess
-<a name="AWSHealthFullAccess"></a>
 
 **Description**: Allows full access to the AWS Health Apis and Notifications and the Personal Health Dashboard
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSHealthFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

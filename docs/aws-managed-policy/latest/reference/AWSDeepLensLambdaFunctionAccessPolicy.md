@@ -1,7 +1,6 @@
 
 
 # AWSDeepLensLambdaFunctionAccessPolicy
-<a name="AWSDeepLensLambdaFunctionAccessPolicy"></a>
 
 **Description**: This policy specifies permissions required by DeepLens Administrative lambda functions that run on a DeepLens device
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDeepLensLambdaFunctionAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

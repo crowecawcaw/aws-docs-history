@@ -1,7 +1,6 @@
 
 
 # AWSElementalMediaConvertFullAccess
-<a name="AWSElementalMediaConvertFullAccess"></a>
 
 **Description**: Provides full access to AWS Elemental MediaConvert via the AWS Management Console and SDK.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElementalMediaConvertFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

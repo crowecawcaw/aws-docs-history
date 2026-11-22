@@ -1,7 +1,6 @@
 
 
 # AWSQuickSightAssetBundleImportPolicy
-<a name="AWSQuickSightAssetBundleImportPolicy"></a>
 
 **Description**: Provides the set of permissions required to perform QuickSight Asset Bundle Import Operations
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSightAssetBundleImportPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

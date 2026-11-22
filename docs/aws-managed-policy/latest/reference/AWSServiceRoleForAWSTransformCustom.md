@@ -1,7 +1,6 @@
 
 
 # AWSServiceRoleForAWSTransformCustom
-<a name="AWSServiceRoleForAWSTransformCustom"></a>
 
 **Description**: Allows AWS Transform Custom to publish CloudWatch metrics to your account on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceRoleForAWSTransformCustom-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

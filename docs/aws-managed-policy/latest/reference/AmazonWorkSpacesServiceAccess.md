@@ -1,7 +1,6 @@
 
 
 # AmazonWorkSpacesServiceAccess
-<a name="AmazonWorkSpacesServiceAccess"></a>
 
 **Description**: Provides customer account access to AWS WorkSpaces service for launching a Workspace.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonWorkSpacesServiceAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

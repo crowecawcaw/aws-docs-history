@@ -1,7 +1,6 @@
 
 
 # AWSServiceRoleForCloudWatchMetrics\_DbPerfInsightsServiceRolePolicy
-<a name="AWSServiceRoleForCloudWatchMetrics_DbPerfInsightsServiceRolePolicy"></a>
 
 **Description**: Allows CloudWatch to access RDS Performance Insights metrics on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceRoleForCloudWatchMetrics_DbPerfInsightsServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSPartnerProServeToolsOrganizationReaderIndividualContributor
-<a name="AWSPartnerProServeToolsOrganizationReaderIndividualContributor"></a>
 
 **Description**: Provides read access to organizational assessments with ability to manage own assessments.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSPartnerProServeToolsOrganizationReaderIndividualContributor-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

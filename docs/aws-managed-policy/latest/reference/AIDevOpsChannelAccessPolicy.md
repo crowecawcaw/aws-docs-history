@@ -1,7 +1,6 @@
 
 
 # AIDevOpsChannelAccessPolicy
-<a name="AIDevOpsChannelAccessPolicy"></a>
 
 **Description**: Provide access to chat and manage investigations through AWS DevOps Agent for your AgentSpaces
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AIDevOpsChannelAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

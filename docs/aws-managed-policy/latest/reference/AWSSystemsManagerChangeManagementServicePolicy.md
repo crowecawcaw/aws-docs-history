@@ -1,7 +1,6 @@
 
 
 # AWSSystemsManagerChangeManagementServicePolicy
-<a name="AWSSystemsManagerChangeManagementServicePolicy"></a>
 
 **Description**: Provides access to AWS resources managed or used by the AWS Systems Manager change management framework.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSystemsManagerChangeManagementServicePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

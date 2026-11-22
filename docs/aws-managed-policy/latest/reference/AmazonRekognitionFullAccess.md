@@ -1,7 +1,6 @@
 
 
 # AmazonRekognitionFullAccess
-<a name="AmazonRekognitionFullAccess"></a>
 
 **Description**: Access to all Amazon Rekognition APIs
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRekognitionFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

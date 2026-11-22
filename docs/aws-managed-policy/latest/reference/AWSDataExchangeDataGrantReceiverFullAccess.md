@@ -1,7 +1,6 @@
 
 
 # AWSDataExchangeDataGrantReceiverFullAccess
-<a name="AWSDataExchangeDataGrantReceiverFullAccess"></a>
 
 **Description**: Gives Data Grant receiver access to AWS Data Exchange actions using the AWS Management Console and SDK.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDataExchangeDataGrantReceiverFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

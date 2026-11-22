@@ -1,7 +1,6 @@
 
 
 # AWSCloudFrontVPCOriginServiceRolePolicy
-<a name="AWSCloudFrontVPCOriginServiceRolePolicy"></a>
 
 **Description**: Allows CloudFront to manage EC2 Elastic Network Interfaces and Security Groups on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCloudFrontVPCOriginServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

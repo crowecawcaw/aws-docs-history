@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerPartnerServiceCatalogProductsApiGatewayServiceRolePolicy
-<a name="AmazonSageMakerPartnerServiceCatalogProductsApiGatewayServiceRolePolicy"></a>
 
 **Description**: Service role policy used by the AWS APIGateway within the AWS ServiceCatalog provisioned products from Amazon SageMaker portfolio of products. Grants permissions to a set of related services including Lambda and others.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerPartnerServiceCatalogProductsApiGatewayServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

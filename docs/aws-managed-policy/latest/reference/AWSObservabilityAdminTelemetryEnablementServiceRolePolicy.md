@@ -1,7 +1,6 @@
 
 
 # AWSObservabilityAdminTelemetryEnablementServiceRolePolicy
-<a name="AWSObservabilityAdminTelemetryEnablementServiceRolePolicy"></a>
 
 **Description**: Provides access to manage AWS Config recorder resource and telemetry settings on AWS resources including logs, metrics.
 
@@ -16,20 +15,20 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSObservabilityAdminTelemetryEnablementServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: August 01, 2025, 18:04 UTC 
-+ **Edited time:** November 13, 2026, 21:27 UTC
++ **Edited time:** November 19, 2026, 22:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSObservabilityAdminTelemetryEnablementServiceRolePolicy`
 
 ## Policy version
 <a name="AWSObservabilityAdminTelemetryEnablementServiceRolePolicy-version"></a>
 
-**Policy version:** v17 (default)
+**Policy version:** v18 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSObservabilityAdminTelemetryEnablementServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -842,6 +841,55 @@ The policy's default version is the version that defines the permissions for the
         "cloudtrail:CreateServiceLinkedChannel"
       ],
       "Resource" : "arn:aws:cloudtrail:*:*:channel/aws-service-channel/application-signals/*"
+    },
+    {
+      "Sid" : "TelemetryOperationsForNetworkFirewallLoggingConfigurations",
+      "Effect" : "Allow",
+      "Action" : [
+        "network-firewall:DescribeLoggingConfiguration",
+        "network-firewall:UpdateLoggingConfiguration"
+      ],
+      "Resource" : "arn:aws:network-firewall:*:*:firewall/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "TelemetryOperationsForNetworkFirewallLogs",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:CreateLogDelivery",
+        "logs:GetLogDelivery",
+        "logs:ListLogDeliveries"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:CalledViaLast" : "network-firewall.amazonaws.com",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "TelemetryOperationsForEventsManagement",
+      "Effect" : "Allow",
+      "Action" : [
+        "events:PutRule",
+        "events:PutTargets",
+        "events:RemoveTargets",
+        "events:DescribeRule",
+        "events:ListTargetsByRule",
+        "events:TagResource",
+        "events:DeleteRule"
+      ],
+      "Resource" : "arn:aws:events:*:*:rule/aws-events-managed-omni-rule",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     }
   ]
 }

@@ -1,7 +1,6 @@
 
 
 # AWSElasticDisasterRecoveryStagingAccountPolicy
-<a name="AWSElasticDisasterRecoveryStagingAccountPolicy"></a>
 
 **Description**: This policy allows read-only access to AWS Elastic Disaster Recovery (DRS) resources such as source servers and jobs. It also allows creating a converted snapshot and sharing that EBS snapshot with a specific account.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticDisasterRecoveryStagingAccountPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

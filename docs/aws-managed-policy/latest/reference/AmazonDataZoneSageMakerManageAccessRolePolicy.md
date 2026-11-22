@@ -1,7 +1,6 @@
 
 
 # AmazonDataZoneSageMakerManageAccessRolePolicy
-<a name="AmazonDataZoneSageMakerManageAccessRolePolicy"></a>
 
 **Description**: The AmazonDataZoneSageMakerManageAccessRolePolicy policy grants Amazon DataZone the permissions required to grant user access to various resources in the SageMaker environment.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDataZoneSageMakerManageAccessRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

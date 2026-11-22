@@ -1,7 +1,6 @@
 
 
 # AWSApplicationAutoscalingNeptuneClusterPolicy
-<a name="AWSApplicationAutoscalingNeptuneClusterPolicy"></a>
 
 **Description**: Policy granting permissions to Application Auto Scaling to access Amazon Neptune and Amazon CloudWatch.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSApplicationAutoscalingNeptuneClusterPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

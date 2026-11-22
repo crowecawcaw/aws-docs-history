@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerCanvasSMDataScienceAssistantAccess
-<a name="AmazonSageMakerCanvasSMDataScienceAssistantAccess"></a>
 
 **Description**: Provides permissions for Amazon SageMaker Canvas to use the SageMaker Data Science Assistant service. The Data Science Assistant currently uses both Amazon SageMaker and Amazon Q Developer to process user prompts.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerCanvasSMDataScienceAssistantAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerCanvasAIServicesAccess
-<a name="AmazonSageMakerCanvasAIServicesAccess"></a>
 
 **Description**: Provides permissions for Amazon SageMaker Canvas to use AI services to support ready to use AI solutions. This policy will add more mutating permissions for services as Amazon SageMaker Canvas adds support.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerCanvasAIServicesAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

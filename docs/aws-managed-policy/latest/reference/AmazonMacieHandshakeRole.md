@@ -1,7 +1,6 @@
 
 
 # AmazonMacieHandshakeRole
-<a name="AmazonMacieHandshakeRole"></a>
 
 **Description**: Grants permission to create the service-linked role of Amazon Macie.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonMacieHandshakeRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

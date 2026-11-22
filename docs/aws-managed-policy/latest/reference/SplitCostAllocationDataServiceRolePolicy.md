@@ -1,7 +1,6 @@
 
 
 # SplitCostAllocationDataServiceRolePolicy
-<a name="SplitCostAllocationDataServiceRolePolicy"></a>
 
 **Description**: Allows split cost allocation data to retrieve AWS Organizations information, if applicable, and collect telemetry data for the split cost allocation data services that the customer has opted in to.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SplitCostAllocationDataServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

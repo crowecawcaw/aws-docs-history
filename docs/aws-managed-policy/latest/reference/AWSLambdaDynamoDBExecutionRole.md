@@ -1,7 +1,6 @@
 
 
 # AWSLambdaDynamoDBExecutionRole
-<a name="AWSLambdaDynamoDBExecutionRole"></a>
 
 **Description**: Provides list and read access to DynamoDB streams and write permissions to CloudWatch logs.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSLambdaDynamoDBExecutionRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

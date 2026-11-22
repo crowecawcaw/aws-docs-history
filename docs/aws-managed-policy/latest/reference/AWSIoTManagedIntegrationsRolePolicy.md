@@ -1,7 +1,6 @@
 
 
 # AWSIoTManagedIntegrationsRolePolicy
-<a name="AWSIoTManagedIntegrationsRolePolicy"></a>
 
 **Description**: Provides managed integrations for AWS IoT Device Management permission to publish logs and metrics on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTManagedIntegrationsRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

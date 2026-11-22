@@ -1,7 +1,6 @@
 
 
 # AWSPartnerCentralAccountManagementServiceRolePolicy
-<a name="AWSPartnerCentralAccountManagementServiceRolePolicy"></a>
 
 **Description**: Allows AWS Partner Central to access and manage your partner account resources, including partner account details and business plans, on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSPartnerCentralAccountManagementServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

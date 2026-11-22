@@ -1,7 +1,6 @@
 
 
 # AmazonECSInfrastructureRolePolicyForManagedInstances
-<a name="AmazonECSInfrastructureRolePolicyForManagedInstances"></a>
 
 **Description**: Provides ECS access to create and manage EC2 managed resources
 
@@ -16,20 +15,20 @@ You can attach `AmazonECSInfrastructureRolePolicyForManagedInstances` to your us
 <a name="AmazonECSInfrastructureRolePolicyForManagedInstances-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: September 26, 2025, 18:04 UTC 
-+ **Edited time:** October 22, 2026, 21:27 UTC
++ **Edited time:** November 20, 2026, 17:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonECSInfrastructureRolePolicyForManagedInstances`
 
 ## Policy version
 <a name="AmazonECSInfrastructureRolePolicyForManagedInstances-version"></a>
 
-**Policy version:** v13 (default)
+**Policy version:** v14 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AmazonECSInfrastructureRolePolicyForManagedInstances-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -172,7 +171,8 @@ The policy's default version is the version that defines the permissions for the
           "ec2:CreateAction" : [
             "CreateFleet",
             "CreateLaunchTemplate",
-            "RunInstances"
+            "RunInstances",
+            "CreateVolume"
           ]
         }
       }

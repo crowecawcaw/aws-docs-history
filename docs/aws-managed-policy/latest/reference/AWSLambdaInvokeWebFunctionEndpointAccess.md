@@ -1,7 +1,6 @@
 
 
 # AWSLambdaInvokeWebFunctionEndpointAccess
-<a name="AWSLambdaInvokeWebFunctionEndpointAccess"></a>
 
 **Description**: Grants permission to invoke AWS Lambda Web function endpoints.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSLambdaInvokeWebFunctionEndpointAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

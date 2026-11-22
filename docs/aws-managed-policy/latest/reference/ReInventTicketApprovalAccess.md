@@ -1,7 +1,6 @@
 
 
 # ReInventTicketApprovalAccess
-<a name="ReInventTicketApprovalAccess"></a>
 
 **Description**: Grants an IAM role or user full access to view re:Invent pass charge details and approve billing to their AWS accounts
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ReInventTicketApprovalAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

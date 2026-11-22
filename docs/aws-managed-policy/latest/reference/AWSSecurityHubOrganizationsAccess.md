@@ -1,7 +1,6 @@
 
 
 # AWSSecurityHubOrganizationsAccess
-<a name="AWSSecurityHubOrganizationsAccess"></a>
 
 **Description**: Grants permission to enable and manage AWS Security Hub within an organization. Includes enabling the service across the organization, and determining the delegated administrator account for the service.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSecurityHubOrganizationsAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

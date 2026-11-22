@@ -1,7 +1,6 @@
 
 
 # MigrationHubServiceRolePolicy
-<a name="MigrationHubServiceRolePolicy"></a>
 
 **Description**: Allows Migration Hub to call Application Discovery Service on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="MigrationHubServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSIQContractServiceRolePolicy
-<a name="AWSIQContractServiceRolePolicy"></a>
 
 **Description**: Used by AWS IQ to execute payment requests on behalf of a customer
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIQContractServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

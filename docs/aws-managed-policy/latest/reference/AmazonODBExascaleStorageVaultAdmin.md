@@ -1,7 +1,6 @@
 
 
 # AmazonODBExascaleStorageVaultAdmin
-<a name="AmazonODBExascaleStorageVaultAdmin"></a>
 
 **Description**: Provides administrative access to manage Exascale storage vault resources in Oracle Database@AWS.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonODBExascaleStorageVaultAdmin-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

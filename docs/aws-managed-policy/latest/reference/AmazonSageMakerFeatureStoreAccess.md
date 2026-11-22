@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerFeatureStoreAccess
-<a name="AmazonSageMakerFeatureStoreAccess"></a>
 
 **Description**: Provides permissions required to enable the offline store for an Amazon SageMaker FeatureStore feature group.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerFeatureStoreAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

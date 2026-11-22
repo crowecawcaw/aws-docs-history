@@ -1,7 +1,6 @@
 
 
 # AWSSecretsManagerClientReadOnlyAccess
-<a name="AWSSecretsManagerClientReadOnlyAccess"></a>
 
 **Description**: Provides access to retrieve and describe secrets from Secrets Manager. This policy also allows decrypting KMS keys for Secrets Manager secrets.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSecretsManagerClientReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

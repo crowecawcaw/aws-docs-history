@@ -1,7 +1,6 @@
 
 
 # AWSCodeDeployRole
-<a name="AWSCodeDeployRole"></a>
 
 **Description**: Provides CodeDeploy service access to expand tags and interact with Auto Scaling on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCodeDeployRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

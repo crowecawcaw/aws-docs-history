@@ -1,7 +1,6 @@
 
 
 # SageMakerStudioBedrockFlowServiceRolePolicy
-<a name="SageMakerStudioBedrockFlowServiceRolePolicy"></a>
 
 **Description**: Allows Amazon Bedrock Flows to access Amazon Bedrock models and other resources attached to a flow in SageMaker Studio.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SageMakerStudioBedrockFlowServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

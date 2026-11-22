@@ -1,7 +1,6 @@
 
 
 # AmazonEKSLocalOutpostClusterPolicy
-<a name="AmazonEKSLocalOutpostClusterPolicy"></a>
 
 **Description**: This policy provides permissions to EKS local cluster's control-plane instances running in your account to manage resources on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEKSLocalOutpostClusterPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

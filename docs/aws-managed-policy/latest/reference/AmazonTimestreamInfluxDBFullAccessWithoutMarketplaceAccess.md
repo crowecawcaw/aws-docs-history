@@ -1,7 +1,6 @@
 
 
 # AmazonTimestreamInfluxDBFullAccessWithoutMarketplaceAccess
-<a name="AmazonTimestreamInfluxDBFullAccessWithoutMarketplaceAccess"></a>
 
 **Description**: Provides administrative access to manage Amazon Timestream InfluxDB instances and parameter groups except marketplace operations.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonTimestreamInfluxDBFullAccessWithoutMarketplaceAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

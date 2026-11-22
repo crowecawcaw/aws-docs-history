@@ -1,7 +1,6 @@
 
 
 # AmazonBedrockMarketplaceAccess
-<a name="AmazonBedrockMarketplaceAccess"></a>
 
 **Description**: Provides limited access to Amazon Bedrock Marketplace as well as to related services that are required by it
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonBedrockMarketplaceAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

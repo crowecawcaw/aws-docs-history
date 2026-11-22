@@ -1,7 +1,6 @@
 
 
 # AmazonSSMAutomationRole
-<a name="AmazonSSMAutomationRole"></a>
 
 **Description**: Provides permissions for EC2 Automation service to execute activities defined within Automation documents
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSSMAutomationRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

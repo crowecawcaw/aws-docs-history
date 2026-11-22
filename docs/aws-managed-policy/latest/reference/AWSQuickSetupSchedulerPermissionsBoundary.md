@@ -1,7 +1,6 @@
 
 
 # AWSQuickSetupSchedulerPermissionsBoundary
-<a name="AWSQuickSetupSchedulerPermissionsBoundary"></a>
 
 **Description**: The AWSQuickSetupSchedulerPermissionsBoundary policy defines the list of permissions that are permitted in an IAM role created by Quick Setup. Quick Setup uses a role created with this policy to enable and configure scheduled operations on Amazon EC2 instances and other resources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSetupSchedulerPermissionsBoundary-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSStorageGatewayServiceRolePolicy
-<a name="AWSStorageGatewayServiceRolePolicy"></a>
 
 **Description**: Service-linked role used by AWS Storage Gateway to enable integration of other AWS services with Storage Gateway.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSStorageGatewayServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

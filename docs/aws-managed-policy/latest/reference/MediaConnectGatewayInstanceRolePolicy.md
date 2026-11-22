@@ -1,7 +1,6 @@
 
 
 # MediaConnectGatewayInstanceRolePolicy
-<a name="MediaConnectGatewayInstanceRolePolicy"></a>
 
 **Description**: This policy grants permission to register MediaConnect Gateway Instances to a MediaConnect Gateway.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="MediaConnectGatewayInstanceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

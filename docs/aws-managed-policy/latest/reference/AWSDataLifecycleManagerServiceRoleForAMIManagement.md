@@ -1,7 +1,6 @@
 
 
 # AWSDataLifecycleManagerServiceRoleForAMIManagement
-<a name="AWSDataLifecycleManagerServiceRoleForAMIManagement"></a>
 
 **Description**: Provides appropriate permissions to AWS Data Lifecycle Manager to take actions on AWS resources for AMI Management 
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDataLifecycleManagerServiceRoleForAMIManagement-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

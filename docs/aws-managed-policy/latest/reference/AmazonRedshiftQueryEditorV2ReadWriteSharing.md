@@ -1,7 +1,6 @@
 
 
 # AmazonRedshiftQueryEditorV2ReadWriteSharing
-<a name="AmazonRedshiftQueryEditorV2ReadWriteSharing"></a>
 
 **Description**: Grants the ability to work with Amazon Redshift Query Editor V2 with sharing of resources. The granted principal can read, write and share its own resources. The granted principal can read and update the resources shared with its team. This policy also grants access to other required services. This includes permissions to list the Amazon Redshift clusters and manage the Query Editor V2 secrets of the principal in AWS Secrets Manager.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRedshiftQueryEditorV2ReadWriteSharing-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

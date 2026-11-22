@@ -1,7 +1,6 @@
 
 
 # AmazonTimestreamInfluxDBServiceRolePolicy
-<a name="AmazonTimestreamInfluxDBServiceRolePolicy"></a>
 
 **Description**: Provides full administrative access to create, update, delete and list Amazon Timestream InfluxDB instances and create and list parameter groups. Please refer to documentation for additional permissions needed.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonTimestreamInfluxDBServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

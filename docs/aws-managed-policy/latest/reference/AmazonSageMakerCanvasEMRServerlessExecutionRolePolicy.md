@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy
-<a name="AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy"></a>
 
 **Description**: This policy grants permissions to Amazon EMR Serverless for services such as S3, used by Amazon SageMaker Canvas for large data processing.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

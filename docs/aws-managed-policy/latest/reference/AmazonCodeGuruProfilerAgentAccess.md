@@ -1,7 +1,6 @@
 
 
 # AmazonCodeGuruProfilerAgentAccess
-<a name="AmazonCodeGuruProfilerAgentAccess"></a>
 
 **Description**: Provides access required by Amazon CodeGuru Profiler agent.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonCodeGuruProfilerAgentAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

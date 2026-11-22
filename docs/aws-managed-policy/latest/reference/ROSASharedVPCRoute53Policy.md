@@ -1,7 +1,6 @@
 
 
 # ROSASharedVPCRoute53Policy
-<a name="ROSASharedVPCRoute53Policy"></a>
 
 **Description**: Allows the Red Hat OpenShift Service on AWS (ROSA) installer to configure Route53 records. Intended to be used on a shared VPC.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ROSASharedVPCRoute53Policy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

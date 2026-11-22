@@ -1,7 +1,6 @@
 
 
 # AWSBatchServiceEventTargetRole
-<a name="AWSBatchServiceEventTargetRole"></a>
 
 **Description**: Policy to enable CloudWatch Event Target for AWS Batch Job Submission
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBatchServiceEventTargetRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

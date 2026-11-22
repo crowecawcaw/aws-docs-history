@@ -1,7 +1,6 @@
 
 
 # AmazonDataZoneProjectDeploymentPermissionsBoundary
-<a name="AmazonDataZoneProjectDeploymentPermissionsBoundary"></a>
 
 **Description**: Amazon DataZone creates IAM roles that it uses for deploying data analytics projects. DataZone uses this policy when creating these roles to define the boundary of their permissions.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDataZoneProjectDeploymentPermissionsBoundary-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

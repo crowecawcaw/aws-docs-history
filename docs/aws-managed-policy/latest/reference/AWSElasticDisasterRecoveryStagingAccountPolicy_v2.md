@@ -1,7 +1,6 @@
 
 
 # AWSElasticDisasterRecoveryStagingAccountPolicy\_v2
-<a name="AWSElasticDisasterRecoveryStagingAccountPolicy_v2"></a>
 
 **Description**: This policy is used by AWS Elastic Disaster Recovery (DRS) to recover source servers into a separate target account and to allow failing back. We do not recommend that you attach this policy to your IAM users or roles.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticDisasterRecoveryStagingAccountPolicy_v2-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

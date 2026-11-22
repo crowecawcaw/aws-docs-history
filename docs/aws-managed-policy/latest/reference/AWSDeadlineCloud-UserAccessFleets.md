@@ -1,7 +1,6 @@
 
 
 # AWSDeadlineCloud-UserAccessFleets
-<a name="AWSDeadlineCloud-UserAccessFleets"></a>
 
 **Description**: Provides user workstation access to AWS Deadline Cloud fleets with limited Read-Only permissions to call other necessary services. Attach this policy to the user role associated with your studio.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDeadlineCloud-UserAccessFleets-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

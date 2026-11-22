@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerModelRegistryFullAccess
-<a name="AmazonSageMakerModelRegistryFullAccess"></a>
 
 **Description**: This is a new managed policy for Model Registry in Sagemaker. This policy is a standalone policy that can be attached to the user role to access Model Registry related functionalities in Sagemaker.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerModelRegistryFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

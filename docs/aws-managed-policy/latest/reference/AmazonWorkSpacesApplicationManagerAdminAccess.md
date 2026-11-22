@@ -1,7 +1,6 @@
 
 
 # AmazonWorkSpacesApplicationManagerAdminAccess
-<a name="AmazonWorkSpacesApplicationManagerAdminAccess"></a>
 
 **Description**: Provides administrator access for packaging an application in Amazon WorkSpaces Application Manager.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonWorkSpacesApplicationManagerAdminAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

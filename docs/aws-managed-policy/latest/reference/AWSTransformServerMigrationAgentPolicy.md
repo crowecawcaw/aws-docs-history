@@ -1,7 +1,6 @@
 
 
 # AWSTransformServerMigrationAgentPolicy
-<a name="AWSTransformServerMigrationAgentPolicy"></a>
 
 **Description**: Grants permissions for AWS Transform to perform server migration operations including replication, testing, and cutover using AWS Application Migration Service
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSTransformServerMigrationAgentPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSElasticBeanstalkRoleCWL
-<a name="AWSElasticBeanstalkRoleCWL"></a>
 
 **Description**: (Elastic Beanstalk operations role) Allows an environment to manage Amazon CloudWatch Logs log groups.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticBeanstalkRoleCWL-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

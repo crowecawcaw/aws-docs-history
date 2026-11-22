@@ -1,7 +1,6 @@
 
 
 # AWSManagedServiceAccessManagementAccess
-<a name="AWSManagedServiceAccessManagementAccess"></a>
 
 **Description**: Grants permissions to manage Service Control Policies (SCPs) in AWS Organizations for the AWS Managed Service Access Management service. Includes permissions to list, create, update, and attach SCPs scoped to policies tagged with ManagedBy=service-access.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSManagedServiceAccessManagementAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

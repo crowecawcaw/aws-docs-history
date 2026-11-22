@@ -1,7 +1,6 @@
 
 
 # AWSCleanRoomsReadOnlyAccess
-<a name="AWSCleanRoomsReadOnlyAccess"></a>
 
 **Description**: Allows read-only access to AWS Clean Rooms resources and read-only access to related AWS Glue and Amazon CloudWatch Logs resources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCleanRoomsReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

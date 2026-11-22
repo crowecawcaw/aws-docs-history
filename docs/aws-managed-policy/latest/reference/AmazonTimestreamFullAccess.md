@@ -1,7 +1,6 @@
 
 
 # AmazonTimestreamFullAccess
-<a name="AmazonTimestreamFullAccess"></a>
 
 **Description**: Provides full access to Amazon Timestream. Note that this policy also grants certain KMS operation access. If using Customer managed CMK, please refer to documentation for additional permissions needed.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonTimestreamFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

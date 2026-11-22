@@ -1,7 +1,6 @@
 
 
 # AmazonBedrockExternalWebSearchFullAccess
-<a name="AmazonBedrockExternalWebSearchFullAccess"></a>
 
 **Description**: Provides full access to Amazon Bedrock Web Search, including retrieval of content from external websites outside the AWS network boundary.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonBedrockExternalWebSearchFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonVPCNetworkAccessAnalyzerFullAccessPolicy
-<a name="AmazonVPCNetworkAccessAnalyzerFullAccessPolicy"></a>
 
 **Description**: Provides permissions to describe AWS resources, run Network Access Analyzer, and create or delete tags on Network Insights Access Scope and Network Insights Access Scope Analysis.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonVPCNetworkAccessAnalyzerFullAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

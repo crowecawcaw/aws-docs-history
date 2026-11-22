@@ -1,7 +1,6 @@
 
 
 # AmazonEC2ContainerServiceEventsRole
-<a name="AmazonEC2ContainerServiceEventsRole"></a>
 
 **Description**: Policy to enable CloudWatch Events for EC2 Container Service
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEC2ContainerServiceEventsRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

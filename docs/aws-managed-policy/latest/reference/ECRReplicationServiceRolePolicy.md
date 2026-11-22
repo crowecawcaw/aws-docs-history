@@ -1,7 +1,6 @@
 
 
 # ECRReplicationServiceRolePolicy
-<a name="ECRReplicationServiceRolePolicy"></a>
 
 **Description**: Enables access to AWS services and Resources used or managed by ECR Replication
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ECRReplicationServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

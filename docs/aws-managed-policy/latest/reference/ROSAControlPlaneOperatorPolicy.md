@@ -1,7 +1,6 @@
 
 
 # ROSAControlPlaneOperatorPolicy
-<a name="ROSAControlPlaneOperatorPolicy"></a>
 
 **Description**: Allows Red Hat OpenShift Service on AWS (ROSA) control plane to manage ROSA cluster Amazon EC2 and Amazon Route 53 resources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ROSAControlPlaneOperatorPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

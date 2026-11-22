@@ -1,7 +1,6 @@
 
 
 # AmazonInspector2ServiceRolePolicy
-<a name="AmazonInspector2ServiceRolePolicy"></a>
 
 **Description**: Grants Amazon Inspector access to AWS services needed to perform security assessments
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonInspector2ServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

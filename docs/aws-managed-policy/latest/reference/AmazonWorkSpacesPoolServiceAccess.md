@@ -1,7 +1,6 @@
 
 
 # AmazonWorkSpacesPoolServiceAccess
-<a name="AmazonWorkSpacesPoolServiceAccess"></a>
 
 **Description**: This policy provides AWS WorkSpaces service access to required customer account resources for launching Workspaces Pools
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonWorkSpacesPoolServiceAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

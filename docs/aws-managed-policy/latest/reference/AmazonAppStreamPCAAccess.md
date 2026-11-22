@@ -1,7 +1,6 @@
 
 
 # AmazonAppStreamPCAAccess
-<a name="AmazonAppStreamPCAAccess"></a>
 
 **Description**: Amazon AppStream 2.0 access to AWS Certificate Manager Private CA in customer accounts for certificate-based authentication
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonAppStreamPCAAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

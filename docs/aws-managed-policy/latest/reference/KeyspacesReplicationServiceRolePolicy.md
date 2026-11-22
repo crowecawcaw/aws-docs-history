@@ -1,7 +1,6 @@
 
 
 # KeyspacesReplicationServiceRolePolicy
-<a name="KeyspacesReplicationServiceRolePolicy"></a>
 
 **Description**: Permissions required by Keyspaces for cross-region data replication
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="KeyspacesReplicationServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

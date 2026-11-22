@@ -1,7 +1,6 @@
 
 
 # AWSElasticBeanstalkRoleSNS
-<a name="AWSElasticBeanstalkRoleSNS"></a>
 
 **Description**: (Elastic Beanstalk operations role) Allows an environment to enable Amazon SNS topic integration.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticBeanstalkRoleSNS-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

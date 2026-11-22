@@ -1,7 +1,6 @@
 
 
 # AWSGlueDataBrewServiceRole
-<a name="AWSGlueDataBrewServiceRole"></a>
 
 **Description**: This policy grants permission to glue to perform action on user's glue data catalog, this policy also provides permission to ec2 actions to allow glue to create ENI to connect to resources in the VPC, also allow glue to access registered data in lakeformation and permission to access user's cloudwatch 
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSGlueDataBrewServiceRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

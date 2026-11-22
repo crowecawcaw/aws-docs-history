@@ -1,7 +1,6 @@
 
 
 # AWSProtonServiceGitSyncServiceRolePolicy
-<a name="AWSProtonServiceGitSyncServiceRolePolicy"></a>
 
 **Description**: Policy which allows AWS Proton to sync your service, environment and component definitions from your git repository to AWS Proton.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSProtonServiceGitSyncServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

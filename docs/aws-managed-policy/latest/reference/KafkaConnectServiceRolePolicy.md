@@ -1,7 +1,6 @@
 
 
 # KafkaConnectServiceRolePolicy
-<a name="KafkaConnectServiceRolePolicy"></a>
 
 **Description**: This policy grants Kafka Connect permission to manage AWS resources on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="KafkaConnectServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

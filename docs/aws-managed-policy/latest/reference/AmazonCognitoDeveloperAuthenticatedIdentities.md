@@ -1,7 +1,6 @@
 
 
 # AmazonCognitoDeveloperAuthenticatedIdentities
-<a name="AmazonCognitoDeveloperAuthenticatedIdentities"></a>
 
 **Description**: Provides access to Amazon Cognito APIs to support developer authenticated identities from your authentication backend.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonCognitoDeveloperAuthenticatedIdentities-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

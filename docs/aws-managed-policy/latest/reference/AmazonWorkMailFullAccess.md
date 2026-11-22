@@ -1,7 +1,6 @@
 
 
 # AmazonWorkMailFullAccess
-<a name="AmazonWorkMailFullAccess"></a>
 
 **Description**: Provides full access to WorkMail, Directory Service, SES, EC2 and read access to KMS metadata.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonWorkMailFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

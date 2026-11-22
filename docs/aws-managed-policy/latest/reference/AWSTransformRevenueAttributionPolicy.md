@@ -1,7 +1,6 @@
 
 
 # AWSTransformRevenueAttributionPolicy
-<a name="AWSTransformRevenueAttributionPolicy"></a>
 
 **Description**: Enables the AWS Transform service to manage customer revenue attribution for incentives.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSTransformRevenueAttributionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

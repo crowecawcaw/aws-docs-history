@@ -1,7 +1,6 @@
 
 
 # AmazonMSKFullAccess
-<a name="AmazonMSKFullAccess"></a>
 
 **Description**: Provide full access to Amazon MSK and other required permissions for its dependencies.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonMSKFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

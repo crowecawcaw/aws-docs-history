@@ -1,7 +1,6 @@
 
 
 # BedrockAgentCoreRuntimeInstancesInstanceRolePolicy
-<a name="BedrockAgentCoreRuntimeInstancesInstanceRolePolicy"></a>
 
 **Description**: Default policy for the instance role of instances managed by Bedrock AgentCore Runtime Instances.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="BedrockAgentCoreRuntimeInstancesInstanceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

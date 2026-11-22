@@ -1,7 +1,6 @@
 
 
 # AWSSystemsManagerEnableExplorerExecutionPolicy
-<a name="AWSSystemsManagerEnableExplorerExecutionPolicy"></a>
 
 **Description**: This policy grants administrative permissions for enabling Explorer, a capability of AWS Systems Manager. This includes permissions to update related Systems Manager service settings, and to create a service-linked role for Systems Manager.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSystemsManagerEnableExplorerExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

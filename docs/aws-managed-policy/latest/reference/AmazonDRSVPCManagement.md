@@ -1,7 +1,6 @@
 
 
 # AmazonDRSVPCManagement
-<a name="AmazonDRSVPCManagement"></a>
 
 **Description**: Provides access to manage VPC settings for Amazon managed customer configurations
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDRSVPCManagement-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

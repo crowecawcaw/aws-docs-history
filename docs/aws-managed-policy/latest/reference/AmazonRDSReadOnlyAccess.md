@@ -1,7 +1,6 @@
 
 
 # AmazonRDSReadOnlyAccess
-<a name="AmazonRDSReadOnlyAccess"></a>
 
 **Description**: Provides read only access to Amazon RDS via the AWS Management Console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRDSReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

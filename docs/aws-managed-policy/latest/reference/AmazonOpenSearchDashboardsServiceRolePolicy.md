@@ -1,7 +1,6 @@
 
 
 # AmazonOpenSearchDashboardsServiceRolePolicy
-<a name="AmazonOpenSearchDashboardsServiceRolePolicy"></a>
 
 **Description**: Provides access to Amazon OpenSearch Dashboards Service to access other AWS services such as CloudWatch on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonOpenSearchDashboardsServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

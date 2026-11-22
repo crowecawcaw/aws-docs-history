@@ -1,7 +1,6 @@
 
 
 # AmazonConnectCampaignsServiceLinkedRolePolicy
-<a name="AmazonConnectCampaignsServiceLinkedRolePolicy"></a>
 
 **Description**: Policy for Amazon Connect Campaigns service linked role
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonConnectCampaignsServiceLinkedRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

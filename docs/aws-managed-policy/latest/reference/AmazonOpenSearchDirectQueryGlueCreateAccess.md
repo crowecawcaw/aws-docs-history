@@ -1,7 +1,6 @@
 
 
 # AmazonOpenSearchDirectQueryGlueCreateAccess
-<a name="AmazonOpenSearchDirectQueryGlueCreateAccess"></a>
 
 **Description**: Allows OpenSearch DirectQuery Service to access AWS Glue APIs for creating resources on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonOpenSearchDirectQueryGlueCreateAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

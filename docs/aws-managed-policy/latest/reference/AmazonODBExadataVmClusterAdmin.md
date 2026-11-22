@@ -1,7 +1,6 @@
 
 
 # AmazonODBExadataVmClusterAdmin
-<a name="AmazonODBExadataVmClusterAdmin"></a>
 
 **Description**: Provides administrative access to manage Exadata VM cluster resources in Oracle Database@AWS.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonODBExadataVmClusterAdmin-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

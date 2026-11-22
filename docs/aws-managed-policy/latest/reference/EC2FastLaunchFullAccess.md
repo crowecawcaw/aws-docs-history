@@ -1,7 +1,6 @@
 
 
 # EC2FastLaunchFullAccess
-<a name="EC2FastLaunchFullAccess"></a>
 
 **Description**: This policy grants full access to EC2 Fast Launch actions
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="EC2FastLaunchFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonRDSEnhancedMonitoringRole
-<a name="AmazonRDSEnhancedMonitoringRole"></a>
 
 **Description**: Provides access to Cloudwatch for RDS Enhanced Monitoring
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRDSEnhancedMonitoringRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

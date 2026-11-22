@@ -1,7 +1,6 @@
 
 
 # AWSQuickSightSecretsManagerWritePolicy
-<a name="AWSQuickSightSecretsManagerWritePolicy"></a>
 
 **Description**: Policy used by QuickSight to create secrets in AWS Secrets Manager and to attach resource policies on existing QuickSight secrets.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSightSecretsManagerWritePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

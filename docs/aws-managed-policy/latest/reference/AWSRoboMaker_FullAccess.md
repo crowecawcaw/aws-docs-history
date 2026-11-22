@@ -1,7 +1,6 @@
 
 
 # AWSRoboMaker\_FullAccess
-<a name="AWSRoboMaker_FullAccess"></a>
 
 **Description**: Provides full access to AWS RoboMaker via the AWS Management Console and SDK. Also provides select access to related services (e.g., S3, IAM).
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSRoboMaker_FullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

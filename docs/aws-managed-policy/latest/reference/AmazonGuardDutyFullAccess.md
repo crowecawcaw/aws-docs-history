@@ -1,7 +1,6 @@
 
 
 # AmazonGuardDutyFullAccess
-<a name="AmazonGuardDutyFullAccess"></a>
 
 **Description**: Provides full access to use Amazon GuardDuty.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonGuardDutyFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

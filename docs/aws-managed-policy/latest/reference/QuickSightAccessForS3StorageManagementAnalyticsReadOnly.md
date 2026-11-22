@@ -1,7 +1,6 @@
 
 
 # QuickSightAccessForS3StorageManagementAnalyticsReadOnly
-<a name="QuickSightAccessForS3StorageManagementAnalyticsReadOnly"></a>
 
 **Description**: Policy used by QuickSight team to access customer data produced by S3 Storage Management Analytics.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="QuickSightAccessForS3StorageManagementAnalyticsReadOnly-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

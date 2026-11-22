@@ -1,7 +1,6 @@
 
 
 # AmazonDMSRedshiftS3Role
-<a name="AmazonDMSRedshiftS3Role"></a>
 
 **Description**: Provides access to manage S3 settings for Redshift endpoints for DMS.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDMSRedshiftS3Role-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

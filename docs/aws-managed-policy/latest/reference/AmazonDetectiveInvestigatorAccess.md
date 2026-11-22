@@ -1,7 +1,6 @@
 
 
 # AmazonDetectiveInvestigatorAccess
-<a name="AmazonDetectiveInvestigatorAccess"></a>
 
 **Description**: Provides investigator access to Amazon Detective service and scoped access to the console UI dependencies. This policy grants permission to dive into Detective for investigation purposes and limited write access to Guardduty.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDetectiveInvestigatorAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

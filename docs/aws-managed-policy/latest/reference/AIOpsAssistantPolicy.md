@@ -1,7 +1,6 @@
 
 
 # AIOpsAssistantPolicy
-<a name="AIOpsAssistantPolicy"></a>
 
 **Description**: Provides ReadOnly permissions required by the Amazon AI Operations Assistant to do analysis on customer AWS resources during investigations.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AIOpsAssistantPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

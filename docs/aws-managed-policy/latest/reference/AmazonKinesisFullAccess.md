@@ -1,7 +1,6 @@
 
 
 # AmazonKinesisFullAccess
-<a name="AmazonKinesisFullAccess"></a>
 
 **Description**: Provides full access to all streams via the AWS Management Console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonKinesisFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

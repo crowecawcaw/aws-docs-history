@@ -1,7 +1,6 @@
 
 
 # AWSTrustedAdvisorPriorityFullAccess
-<a name="AWSTrustedAdvisorPriorityFullAccess"></a>
 
 **Description**: Provides full access to AWS Trusted Advisor Priority. This policy also enables the user to add Trusted Advisor as a trusted service with AWS Organizations and to specify delegated administrator accounts for Trusted Advisor Priority.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSTrustedAdvisorPriorityFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

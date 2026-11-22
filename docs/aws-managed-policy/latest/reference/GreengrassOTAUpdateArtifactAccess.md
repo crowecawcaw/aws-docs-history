@@ -1,7 +1,6 @@
 
 
 # GreengrassOTAUpdateArtifactAccess
-<a name="GreengrassOTAUpdateArtifactAccess"></a>
 
 **Description**: Provides read access to the Greengrass OTA Update artifacts in all Greengrass regions
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="GreengrassOTAUpdateArtifactAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

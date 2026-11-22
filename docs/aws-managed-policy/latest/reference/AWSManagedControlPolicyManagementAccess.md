@@ -1,7 +1,6 @@
 
 
 # AWSManagedControlPolicyManagementAccess
-<a name="AWSManagedControlPolicyManagementAccess"></a>
 
 **Description**: Grants AWS permission to manage organization control policies for AWS managed accounts
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSManagedControlPolicyManagementAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : {

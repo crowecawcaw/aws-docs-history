@@ -1,7 +1,6 @@
 
 
 # AWSQuickSetupEnableDHMCExecutionPolicy
-<a name="AWSQuickSetupEnableDHMCExecutionPolicy"></a>
 
 **Description**: This policy grants permissions that allow principals to run the AWSQuickSetupType-EnableDHMC Automation runbook, which enables Default Host Management Configuration.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSetupEnableDHMCExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # ResourceGroupsandTagEditorReadOnlyAccess
-<a name="ResourceGroupsandTagEditorReadOnlyAccess"></a>
 
 **Description**: Provides access to use Resource Groups and Tag Editor, but does not allow editing of tags via the Tag Editor.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ResourceGroupsandTagEditorReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

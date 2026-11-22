@@ -1,7 +1,6 @@
 
 
 # AmazonLexReplicationPolicy
-<a name="AmazonLexReplicationPolicy"></a>
 
 **Description**: Allows Amazon Lex to replicate Lex resources across regions on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonLexReplicationPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

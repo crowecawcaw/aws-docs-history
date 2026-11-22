@@ -1,7 +1,6 @@
 
 
 # WAFV2LoggingServiceRolePolicy
-<a name="WAFV2LoggingServiceRolePolicy"></a>
 
 **Description**: This policy creates a service-linked role that allows AWS WAF to write logs to Amazon Kinesis Data Firehose.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="WAFV2LoggingServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

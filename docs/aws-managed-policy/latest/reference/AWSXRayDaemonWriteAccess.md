@@ -1,7 +1,6 @@
 
 
 # AWSXRayDaemonWriteAccess
-<a name="AWSXRayDaemonWriteAccess"></a>
 
 **Description**: Allow the AWS X-Ray Daemon to relay raw trace segments data to the service's API and retrieve sampling data (rules, targets, etc.) to be used by the X-Ray SDK.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSXRayDaemonWriteAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

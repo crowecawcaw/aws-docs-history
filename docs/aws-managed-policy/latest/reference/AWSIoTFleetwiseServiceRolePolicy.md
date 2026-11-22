@@ -1,7 +1,6 @@
 
 
 # AWSIoTFleetwiseServiceRolePolicy
-<a name="AWSIoTFleetwiseServiceRolePolicy"></a>
 
 **Description**: Grants permissions to AWS Resources and metaData used or managed by AWSIoTFleetwise for auxiliary features
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTFleetwiseServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

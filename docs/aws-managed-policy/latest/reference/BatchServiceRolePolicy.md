@@ -1,7 +1,6 @@
 
 
 # BatchServiceRolePolicy
-<a name="BatchServiceRolePolicy"></a>
 
 **Description**: Provides access for the AWS Batch service to manage the required resources, including Amazon EC2 and Amazon ECS resources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="BatchServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

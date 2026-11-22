@@ -1,7 +1,6 @@
 
 
 # AWSGlueServiceNotebookRole
-<a name="AWSGlueServiceNotebookRole"></a>
 
 **Description**: Policy for AWS Glue service role which allows customer to manage notebook server
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSGlueServiceNotebookRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

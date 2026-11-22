@@ -1,7 +1,6 @@
 
 
 # Billing
-<a name="Billing"></a>
 
 **Description**: Grants permissions for billing and cost management. This includes viewing account usage and viewing and modifying budgets and payment methods.
 
@@ -16,20 +15,20 @@ You can attach `Billing` to your users, groups, and roles.
 <a name="Billing-details"></a>
 + **Type**: Job function policy 
 + **Creation time**: November 10, 2016, 17:33 UTC 
-+ **Edited time:** October 26, 2026, 17:07 UTC
++ **Edited time:** November 20, 2026, 22:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/job-function/Billing`
 
 ## Policy version
 <a name="Billing-version"></a>
 
-**Policy version:** v31 (default)
+**Policy version:** v32 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="Billing-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -140,6 +139,7 @@ The policy's default version is the version that defines the permissions for the
         "mapcredits:ListQuarterSpend",
         "mapcredits:ListAssociatedPrograms",
         "mapcredits:ListQuarterCredits",
+        "payments:CreateConnectedAccount",
         "payments:CreateFinancingApplication",
         "payments:CreatePaymentInstrument",
         "payments:DeletePaymentInstrument",
@@ -149,6 +149,7 @@ The policy's default version is the version that defines the permissions for the
         "payments:GetFinancingOption",
         "payments:GetPaymentInstrument",
         "payments:GetPaymentStatus",
+        "payments:ListConnectedAccounts",
         "payments:ListFinancingApplications",
         "payments:ListFinancingLines",
         "payments:ListFinancingLineWithdrawals",
@@ -207,6 +208,15 @@ The policy's default version is the version that defines the permissions for the
         "billing:ListContractualInvestmentSummaries"
       ],
       "Resource" : "arn:aws:billing::*:contract/*"
+    },
+    {
+      "Sid" : "ConnectedAccountAdministration",
+      "Effect" : "Allow",
+      "Action" : [
+        "payments:DeleteConnectedAccount",
+        "payments:GetConnectedAccount"
+      ],
+      "Resource" : "arn:aws:payments::*:connectedaccount/*"
     }
   ]
 }

@@ -1,7 +1,6 @@
 
 
 # AWSSupportPlansServiceRolePolicy
-<a name="AWSSupportPlansServiceRolePolicy"></a>
 
 **Description**: Allows AWS Support Plans to read and update AWS resources used to manage your account's Support Plan on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSupportPlansServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

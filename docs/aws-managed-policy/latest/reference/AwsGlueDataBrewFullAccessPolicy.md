@@ -1,7 +1,6 @@
 
 
 # AwsGlueDataBrewFullAccessPolicy
-<a name="AwsGlueDataBrewFullAccessPolicy"></a>
 
 **Description**: Provides full access to AWS Glue DataBrew via the AWS Management Console. Also provides select access to related services (e.g., S3, KMS, Glue).
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AwsGlueDataBrewFullAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

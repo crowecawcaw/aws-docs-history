@@ -1,7 +1,6 @@
 
 
 # AWSCloud9Administrator
-<a name="AWSCloud9Administrator"></a>
 
 **Description**: Provides administrator access to AWS Cloud9.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCloud9Administrator-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSPanoramaSageMakerRolePolicy
-<a name="AWSPanoramaSageMakerRolePolicy"></a>
 
 **Description**: Allows Amazon SageMaker to manage objects in buckets created for use with AWS Panorama.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSPanoramaSageMakerRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

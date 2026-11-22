@@ -1,7 +1,6 @@
 
 
 # AWSMarketplaceSellerProductsFullAccess
-<a name="AWSMarketplaceSellerProductsFullAccess"></a>
 
 **Description**: Provides sellers full access to AWS Marketplace Management Products page and other AWS services such as AMI management.
 
@@ -16,20 +15,20 @@ You can attach `AWSMarketplaceSellerProductsFullAccess` to your users, groups, a
 <a name="AWSMarketplaceSellerProductsFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: July 02, 2019, 21:06 UTC 
-+ **Edited time:** October 22, 2026, 17:47 UTC
++ **Edited time:** November 20, 2026, 05:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSMarketplaceSellerProductsFullAccess`
 
 ## Policy version
 <a name="AWSMarketplaceSellerProductsFullAccess-version"></a>
 
-**Policy version:** v16 (default)
+**Policy version:** v18 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSMarketplaceSellerProductsFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -50,7 +49,8 @@ The policy's default version is the version that defines the permissions for the
         "aws-marketplace:DescribeChangeSet",
         "aws-marketplace:StartChangeSet",
         "aws-marketplace:CancelChangeSet",
-        "aws-marketplace:DescribeEntity"
+        "aws-marketplace:DescribeEntity",
+        "aws-marketplace:StartAssessment"
       ],
       "Resource" : "arn:aws:aws-marketplace:*:*:AWSMarketplace*/*"
     },
@@ -115,7 +115,21 @@ The policy's default version is the version that defines the permissions for the
         "aws-marketplace:UntagResource",
         "aws-marketplace:ListTagsForResource"
       ],
-      "Resource" : "arn:aws:aws-marketplace:*:*:AWSMarketplace*/*"
+      "Resource" : [
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace*/*",
+        "arn:aws:aws-marketplace:*:*:DeploymentConfiguration:catalogs/AWSMarketplace/*"
+      ]
+    },
+    {
+      "Sid" : "DeploymentConfigurationManagement",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:StartDeploymentConfigurationJob",
+        "aws-marketplace:GetDeploymentConfigurationJob",
+        "aws-marketplace:ListDeploymentConfigurationJobs",
+        "aws-marketplace:GetDeploymentConfiguration"
+      ],
+      "Resource" : "arn:aws:aws-marketplace:*:*:DeploymentConfiguration:catalogs/AWSMarketplace/*"
     },
     {
       "Sid" : "ResourceSharingAccess",
@@ -193,6 +207,34 @@ The policy's default version is the version that defines the permissions for the
           ]
         }
       }
+    },
+    {
+      "Sid" : "Support",
+      "Effect" : "Allow",
+      "Action" : [
+        "support:CreateCase",
+        "support:DescribeCases",
+        "support:DescribeCommunications",
+        "support:DescribeAttachment",
+        "support:AddCommunicationToCase",
+        "support:ResolveCase",
+        "support:AddAttachmentsToSet",
+        "support:SearchForCases",
+        "support:DescribeServices",
+        "support:DescribeCreateCaseOptions"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SupportConsole",
+      "Effect" : "Allow",
+      "Action" : [
+        "support-console:GetAccountState",
+        "support-console:GetAccountGovCloudEnabled",
+        "support-console:CheckSubscription",
+        "support-console:GetBanner"
+      ],
+      "Resource" : "*"
     }
   ]
 }

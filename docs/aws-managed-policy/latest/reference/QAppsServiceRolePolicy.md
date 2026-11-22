@@ -1,7 +1,6 @@
 
 
 # QAppsServiceRolePolicy
-<a name="QAppsServiceRolePolicy"></a>
 
 **Description**: Grants permissions to AWS services and Resources used or managed by Amazon Q Apps.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="QAppsServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

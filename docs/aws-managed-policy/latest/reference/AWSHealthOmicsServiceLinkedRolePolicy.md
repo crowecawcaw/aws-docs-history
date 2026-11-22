@@ -1,7 +1,6 @@
 
 
 # AWSHealthOmicsServiceLinkedRolePolicy
-<a name="AWSHealthOmicsServiceLinkedRolePolicy"></a>
 
 **Description**: Managed Policy For Amazon HealthOmics Service Linked Role
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSHealthOmicsServiceLinkedRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

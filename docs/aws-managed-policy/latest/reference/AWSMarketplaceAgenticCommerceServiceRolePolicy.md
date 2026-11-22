@@ -1,7 +1,6 @@
 
 
 # AWSMarketplaceAgenticCommerceServiceRolePolicy
-<a name="AWSMarketplaceAgenticCommerceServiceRolePolicy"></a>
 
 **Description**: Allows AWS Marketplace to process AgentCore payments for AWS Marketplace products in Amazon Bedrock AgentCore. AWS Marketplace reads product and offer details, creates and accepts purchase agreements on your behalf, and records your usage for billing.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMarketplaceAgenticCommerceServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

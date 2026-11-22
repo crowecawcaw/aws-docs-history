@@ -1,7 +1,6 @@
 
 
 # AWSElasticBeanstalkReadOnly
-<a name="AWSElasticBeanstalkReadOnly"></a>
 
 **Description**: Grants read-only permissions. Explicitly allows operators to gain direct access to retrieve information about resources related to AWS Elastic Beanstalk applications.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticBeanstalkReadOnly-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

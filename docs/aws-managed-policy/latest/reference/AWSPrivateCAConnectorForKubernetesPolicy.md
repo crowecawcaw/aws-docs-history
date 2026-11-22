@@ -1,7 +1,6 @@
 
 
 # AWSPrivateCAConnectorForKubernetesPolicy
-<a name="AWSPrivateCAConnectorForKubernetesPolicy"></a>
 
 **Description**: Grants essential permissions for the AWS Private CA Connector for Kubernetes.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSPrivateCAConnectorForKubernetesPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

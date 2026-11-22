@@ -1,7 +1,6 @@
 
 
 # AmazonChimeTranscriptionServiceLinkedRolePolicy
-<a name="AmazonChimeTranscriptionServiceLinkedRolePolicy"></a>
 
 **Description**: Allows Amazon Chime to access Amazon Transcribe and Amazon Transcribe Medical on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonChimeTranscriptionServiceLinkedRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

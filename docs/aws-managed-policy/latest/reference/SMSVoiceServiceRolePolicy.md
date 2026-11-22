@@ -1,7 +1,6 @@
 
 
 # SMSVoiceServiceRolePolicy
-<a name="SMSVoiceServiceRolePolicy"></a>
 
 **Description**: Allows SMSVoice to publish metrics to CloudWatch on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SMSVoiceServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

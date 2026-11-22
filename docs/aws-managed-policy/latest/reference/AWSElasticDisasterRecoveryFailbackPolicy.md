@@ -1,7 +1,6 @@
 
 
 # AWSElasticDisasterRecoveryFailbackPolicy
-<a name="AWSElasticDisasterRecoveryFailbackPolicy"></a>
 
 **Description**: This policy allows using the Elastic Disaster Recovery Failback Client, which is used to failback Recovery Instances back to your original source infrastructure. We do not recommend that you attach this policy to your IAM users or roles.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticDisasterRecoveryFailbackPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

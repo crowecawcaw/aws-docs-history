@@ -1,7 +1,6 @@
 
 
 # AWSDMSServerlessServiceRolePolicy
-<a name="AWSDMSServerlessServiceRolePolicy"></a>
 
 **Description**: Grants AWS DMS Serverless permissions to create and manage DMS resources in your account on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDMSServerlessServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

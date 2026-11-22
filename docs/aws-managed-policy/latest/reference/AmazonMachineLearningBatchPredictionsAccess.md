@@ -1,7 +1,6 @@
 
 
 # AmazonMachineLearningBatchPredictionsAccess
-<a name="AmazonMachineLearningBatchPredictionsAccess"></a>
 
 **Description**: Grants users permission to request Amazon Machine Learning batch predictions.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonMachineLearningBatchPredictionsAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

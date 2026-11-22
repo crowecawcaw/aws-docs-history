@@ -1,7 +1,6 @@
 
 
 # AWSLambdaExecute
-<a name="AWSLambdaExecute"></a>
 
 **Important**  
 The `AWSLambdaExecute` managed policy is on the path to deprecation, and no longer recommended for use with AWS Lambda. Instead, use [`AWSLambdaBasicExecutionRole`](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSLambdaBasicExecutionRole.html). When the IAM service eventually deprecates the policy, you won't be able to attach it to a role. However, you can attach an existing role to a resource even if that role uses the deprecated policy.
@@ -32,7 +31,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSLambdaExecute-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSQuickSightElasticsearchPolicy
-<a name="AWSQuickSightElasticsearchPolicy"></a>
 
 **Description**: Provides access to Amazon Elasticsearch resources from Amazon QuickSight
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSightElasticsearchPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

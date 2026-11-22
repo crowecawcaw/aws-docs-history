@@ -1,7 +1,6 @@
 
 
 # AmazonMWAAServerlessServiceRolePolicy
-<a name="AmazonMWAAServerlessServiceRolePolicy"></a>
 
 **Description**: Provides access to Amazon Airflow Serverless Service to manage networking for your workflows and access other AWS services on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonMWAAServerlessServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

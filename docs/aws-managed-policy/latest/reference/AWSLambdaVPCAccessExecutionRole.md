@@ -1,7 +1,6 @@
 
 
 # AWSLambdaVPCAccessExecutionRole
-<a name="AWSLambdaVPCAccessExecutionRole"></a>
 
 **Description**: Provides minimum permissions for a Lambda function to execute while accessing a resource within a VPC - create, describe, delete network interfaces and write permissions to CloudWatch Logs. 
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSLambdaVPCAccessExecutionRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSThinkboxAWSPortalWorkerPolicy
-<a name="AWSThinkboxAWSPortalWorkerPolicy"></a>
 
 **Description**: This policy grants the Deadline Workers in AWS Portal the necessary permissions required for normal operation.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSThinkboxAWSPortalWorkerPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

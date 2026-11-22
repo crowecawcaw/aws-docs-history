@@ -1,7 +1,6 @@
 
 
 # AWSServiceRoleForAWSTransform
-<a name="AWSServiceRoleForAWSTransform"></a>
 
 **Description**: This Service-Linked Role provides AWS Transform with the ability to provide usage information.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceRoleForAWSTransform-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

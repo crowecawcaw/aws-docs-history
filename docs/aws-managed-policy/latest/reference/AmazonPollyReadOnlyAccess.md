@@ -1,7 +1,6 @@
 
 
 # AmazonPollyReadOnlyAccess
-<a name="AmazonPollyReadOnlyAccess"></a>
 
 **Description**: Grants read-only access to Amazon Polly resources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonPollyReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

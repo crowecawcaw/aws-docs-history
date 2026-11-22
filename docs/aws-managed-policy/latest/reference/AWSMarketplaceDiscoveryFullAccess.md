@@ -1,7 +1,6 @@
 
 
 # AWSMarketplaceDiscoveryFullAccess
-<a name="AWSMarketplaceDiscoveryFullAccess"></a>
 
 **Description**: Provides full access to the AWS Marketplace Discovery API for searching and retrieving product and pricing information.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMarketplaceDiscoveryFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

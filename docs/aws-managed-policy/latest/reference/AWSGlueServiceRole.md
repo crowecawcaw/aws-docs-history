@@ -1,7 +1,6 @@
 
 
 # AWSGlueServiceRole
-<a name="AWSGlueServiceRole"></a>
 
 **Description**: Policy for AWS Glue service role which allows access to related services including EC2, S3, and Cloudwatch Logs
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSGlueServiceRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

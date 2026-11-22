@@ -1,7 +1,6 @@
 
 
 # AmazonInspector2AgentlessServiceRolePolicy
-<a name="AmazonInspector2AgentlessServiceRolePolicy"></a>
 
 **Description**: Grants Amazon Inspector access to AWS services needed to perform agent-less security assessments
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonInspector2AgentlessServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

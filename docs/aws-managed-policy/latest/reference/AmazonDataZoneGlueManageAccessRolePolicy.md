@@ -1,7 +1,6 @@
 
 
 # AmazonDataZoneGlueManageAccessRolePolicy
-<a name="AmazonDataZoneGlueManageAccessRolePolicy"></a>
 
 **Description**: The policy grants permissions to allow Amazon DataZone to enable publishing and access grants to data.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDataZoneGlueManageAccessRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

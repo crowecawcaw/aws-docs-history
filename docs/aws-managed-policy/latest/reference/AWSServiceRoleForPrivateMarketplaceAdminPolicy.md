@@ -1,7 +1,6 @@
 
 
 # AWSServiceRoleForPrivateMarketplaceAdminPolicy
-<a name="AWSServiceRoleForPrivateMarketplaceAdminPolicy"></a>
 
 **Description**: Provides permissions to describe and update Private Marketplace resources and describe AWS Organizations
 
@@ -16,20 +15,20 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSServiceRoleForPrivateMarketplaceAdminPolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: February 14, 2024, 22:28 UTC 
-+ **Edited time:** February 14, 2024, 22:28 UTC
++ **Edited time:** November 18, 2026, 21:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForPrivateMarketplaceAdminPolicy`
 
 ## Policy version
 <a name="AWSServiceRoleForPrivateMarketplaceAdminPolicy-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSServiceRoleForPrivateMarketplaceAdminPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -94,6 +93,18 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : [
         "*"
       ]
+    },
+    {
+      "Sid" : "PrivateMarketplaceSimplifiedAccessPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:GetAgreementRequest",
+        "aws-marketplace:GetAgreementRequestTerms",
+        "aws-marketplace:GetAgreementApproval",
+        "aws-marketplace:AcceptAgreementApproval",
+        "aws-marketplace:RejectAgreementApproval"
+      ],
+      "Resource" : "*"
     }
   ]
 }

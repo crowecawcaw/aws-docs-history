@@ -1,7 +1,6 @@
 
 
 # AWSNetworkManagerServiceRolePolicy
-<a name="AWSNetworkManagerServiceRolePolicy"></a>
 
 **Description**: Allow NetworkManager to access resources associated with your Global Networks
 
@@ -16,20 +15,20 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSNetworkManagerServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: December 03, 2019, 14:03 UTC 
-+ **Edited time:** November 12, 2026, 21:57 UTC
++ **Edited time:** November 18, 2026, 21:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSNetworkManagerServiceRolePolicy`
 
 ## Policy version
 <a name="AWSNetworkManagerServiceRolePolicy-version"></a>
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSNetworkManagerServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -137,7 +136,10 @@ The policy's default version is the version that defines the permissions for the
         "organizations:ListRoots",
         "organizations:DescribeOrganizationalUnit",
         "organizations:ListPolicies",
-        "organizations:DescribeResourcePolicy"
+        "organizations:DescribeResourcePolicy",
+        "networkmanager:ListAttachmentNatConfigurations",
+        "ec2:GetTransitGatewayAttachmentNatConfiguration",
+        "directconnect:ListVirtualInterfaceRoutes"
       ],
       "Effect" : "Allow",
       "Resource" : "*"

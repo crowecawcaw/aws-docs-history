@@ -1,7 +1,6 @@
 
 
 # CloudWatchLogsCrossAccountSharingConfiguration
-<a name="CloudWatchLogsCrossAccountSharingConfiguration"></a>
 
 **Description**: Provides capabilities to manage Observability Access Manager links and establish sharing of CloudWatch Logs resources
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchLogsCrossAccountSharingConfiguration-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

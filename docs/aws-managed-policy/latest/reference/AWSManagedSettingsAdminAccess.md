@@ -1,7 +1,6 @@
 
 
 # AWSManagedSettingsAdminAccess
-<a name="AWSManagedSettingsAdminAccess"></a>
 
 **Description**: Grants full administrative access to AWS account settings management. This policy allows owners to view and modify account information, billing, payments, tax registration, identity management, organization policies, budgets, cost analysis, and workspace notifications. Intended for workspace owners who need complete administrative access over account configuration and member management. The policy does not grant access to compute, storage, networking, or other infrastructure services unrelated to account settings.
 
@@ -16,20 +15,20 @@ You can attach `AWSManagedSettingsAdminAccess` to your users, groups, and roles.
 <a name="AWSManagedSettingsAdminAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: July 22, 2026, 01:27 UTC 
-+ **Edited time:** October 22, 2026, 22:57 UTC
++ **Edited time:** November 18, 2026, 18:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSManagedSettingsAdminAccess`
 
 ## Policy version
 <a name="AWSManagedSettingsAdminAccess-version"></a>
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSManagedSettingsAdminAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -346,19 +345,33 @@ The policy's default version is the version that defines the permissions for the
       "Sid" : "ActivateAdvancedManagedRoleAccess",
       "Effect" : "Allow",
       "Action" : [
-        "iam:GetRole",
         "iam:CreateRole",
         "iam:AttachRolePolicy",
         "iam:DeleteRole",
-        "iam:ListAttachedRolePolicies",
         "iam:DetachRolePolicy",
-        "iam:ListRolePolicies",
         "iam:DeleteRolePolicy"
       ],
       "Resource" : [
         "arn:aws:iam::*:role/managed/*",
         "arn:aws:iam::*:role/ManagedAccountAdmin",
         "arn:aws:iam::*:role/AccountFullAccessRole"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:CalledViaLast" : "account.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "ActivateAdvancedManagedRoleReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:GetRole",
+        "iam:ListAttachedRolePolicies",
+        "iam:ListRolePolicies"
+      ],
+      "Resource" : [
+        "arn:aws:iam::*:role/*"
       ],
       "Condition" : {
         "StringEquals" : {

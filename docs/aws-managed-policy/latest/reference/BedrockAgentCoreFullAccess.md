@@ -1,7 +1,6 @@
 
 
 # BedrockAgentCoreFullAccess
-<a name="BedrockAgentCoreFullAccess"></a>
 
 **Description**: Provides full access to Bedrock AgentCore as well as limited access to related services
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="BedrockAgentCoreFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

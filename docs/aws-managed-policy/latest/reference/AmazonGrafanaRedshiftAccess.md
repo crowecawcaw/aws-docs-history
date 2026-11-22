@@ -1,7 +1,6 @@
 
 
 # AmazonGrafanaRedshiftAccess
-<a name="AmazonGrafanaRedshiftAccess"></a>
 
 **Description**: This policy grants scoped access to Amazon Redshift and the dependencies needed to use the Amazon Redshift plugin in Amazon Grafana.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonGrafanaRedshiftAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

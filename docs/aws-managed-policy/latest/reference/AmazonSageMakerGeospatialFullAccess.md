@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerGeospatialFullAccess
-<a name="AmazonSageMakerGeospatialFullAccess"></a>
 
 **Description**: This policy grants permissions that allow full access to Amazon SageMaker Geospatial through the AWS Management Console and SDK.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerGeospatialFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

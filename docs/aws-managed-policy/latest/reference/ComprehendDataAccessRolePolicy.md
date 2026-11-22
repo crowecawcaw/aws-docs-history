@@ -1,7 +1,6 @@
 
 
 # ComprehendDataAccessRolePolicy
-<a name="ComprehendDataAccessRolePolicy"></a>
 
 **Description**: Policy for AWS Comprehend service role which allows access to S3 resources for data access
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ComprehendDataAccessRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : {

@@ -1,7 +1,6 @@
 
 
 # AWSCodeDeployRoleForECS
-<a name="AWSCodeDeployRoleForECS"></a>
 
 **Description**: Provides CodeDeploy service wide access to perform an ECS blue/green deployment on your behalf. Grants full access to support services, such as full access to read all S3 objects, invoke all Lambda functions, publish to all SNS topics within the account and update all ECS services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCodeDeployRoleForECS-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

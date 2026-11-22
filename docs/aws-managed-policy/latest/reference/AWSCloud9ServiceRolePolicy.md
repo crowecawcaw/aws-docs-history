@@ -1,7 +1,6 @@
 
 
 # AWSCloud9ServiceRolePolicy
-<a name="AWSCloud9ServiceRolePolicy"></a>
 
 **Description**: Service Linked Role Policy for AWS Cloud9
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCloud9ServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSSupportAccess
-<a name="AWSSupportAccess"></a>
 
 **Description**: Allows users to access the AWS Support Center.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSupportAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

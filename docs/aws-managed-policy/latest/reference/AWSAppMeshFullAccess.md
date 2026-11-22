@@ -1,7 +1,6 @@
 
 
 # AWSAppMeshFullAccess
-<a name="AWSAppMeshFullAccess"></a>
 
 **Description**: Provides full access to the AWS App Mesh APIs and Management Console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSAppMeshFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

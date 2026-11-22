@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerHyperPodObservabilityAdminAccess
-<a name="AmazonSageMakerHyperPodObservabilityAdminAccess"></a>
 
 **Description**: This policy provides administrative privileges required for setting up SageMaker HyperPod observability. It enables access to Amazon Managed Prometheus, Amazon Managed Grafana and EKS Addons. The policy also includes broad access to Grafana HTTP APIs through ServiceAccountTokens across all Amazon Managed Grafana workspaces in your account.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerHyperPodObservabilityAdminAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

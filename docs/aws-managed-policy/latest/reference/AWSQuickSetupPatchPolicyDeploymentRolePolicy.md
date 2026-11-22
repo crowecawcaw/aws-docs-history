@@ -1,7 +1,6 @@
 
 
 # AWSQuickSetupPatchPolicyDeploymentRolePolicy
-<a name="AWSQuickSetupPatchPolicyDeploymentRolePolicy"></a>
 
 **Description**: Provides permissions that allow Quick Setup to create resources associated with a patch policy configuration.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSetupPatchPolicyDeploymentRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

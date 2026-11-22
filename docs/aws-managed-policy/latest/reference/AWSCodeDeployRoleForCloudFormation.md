@@ -1,7 +1,6 @@
 
 
 # AWSCodeDeployRoleForCloudFormation
-<a name="AWSCodeDeployRoleForCloudFormation"></a>
 
 **Description**: Provides CodeDeploy service access to invoke Lambda function on your behalf to perform blue/green deployment through CloudFormation.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCodeDeployRoleForCloudFormation-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

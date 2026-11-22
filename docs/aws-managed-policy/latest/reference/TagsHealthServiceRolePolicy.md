@@ -1,7 +1,6 @@
 
 
 # TagsHealthServiceRolePolicy
-<a name="TagsHealthServiceRolePolicy"></a>
 
 **Description**: Provides read-only access to the AWS Resource Groups Tagging API for the Tags Health service-linked role.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="TagsHealthServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

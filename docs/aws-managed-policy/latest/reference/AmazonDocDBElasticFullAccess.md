@@ -1,7 +1,6 @@
 
 
 # AmazonDocDBElasticFullAccess
-<a name="AmazonDocDBElasticFullAccess"></a>
 
 **Description**: Provides full access to Amazon DocumentDB Elastic Clusters and other required permissions for its dependencies including EC2, KMS, SecretsManager, CloudWatch and IAM.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDocDBElasticFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

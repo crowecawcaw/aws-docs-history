@@ -1,7 +1,6 @@
 
 
 # AIOpsConsoleAdminPolicy
-<a name="AIOpsConsoleAdminPolicy"></a>
 
 **Description**: Grants full access to Amazon AI Operations service and its required permissions via AWS console. It also includes permissions to use identity-aware console sessions.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AIOpsConsoleAdminPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

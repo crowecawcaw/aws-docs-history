@@ -1,7 +1,6 @@
 
 
 # AWSSecurityHubV2ServiceRolePolicy
-<a name="AWSSecurityHubV2ServiceRolePolicy"></a>
 
 **Description**: This policy allows Security Hub to manage AWS Config rules and Security Hub resources in your organization and on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSecurityHubV2ServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

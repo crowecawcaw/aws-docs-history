@@ -1,7 +1,6 @@
 
 
 # AWSLambdaENIManagementAccess
-<a name="AWSLambdaENIManagementAccess"></a>
 
 **Description**: Provides minimum permissions for a Lambda function to manage ENIs (create, describe, delete) used by a VPC-enabled Lambda Function.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSLambdaENIManagementAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

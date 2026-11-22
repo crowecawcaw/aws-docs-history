@@ -1,7 +1,6 @@
 
 
 # AWSGreengrassFullAccess
-<a name="AWSGreengrassFullAccess"></a>
 
 **Description**: This policy gives full access to the AWS Greengrass configuration, management and deployment actions
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSGreengrassFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

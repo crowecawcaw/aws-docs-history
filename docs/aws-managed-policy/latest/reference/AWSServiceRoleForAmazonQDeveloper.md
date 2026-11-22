@@ -1,7 +1,6 @@
 
 
 # AWSServiceRoleForAmazonQDeveloper
-<a name="AWSServiceRoleForAmazonQDeveloper"></a>
 
 **Description**: This Service Linked Role provides Amazon Q Developer ability to provide usage information.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceRoleForAmazonQDeveloper-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

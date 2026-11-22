@@ -1,7 +1,6 @@
 
 
 # AWSIoTDeviceTesterForGreengrassFullAccess
-<a name="AWSIoTDeviceTesterForGreengrassFullAccess"></a>
 
 **Description**: Allows AWS IoT Device Tester to run the AWS Greengrass qualification suite by allowing access to related services including Lambda, IoT, API Gateway, IAM
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTDeviceTesterForGreengrassFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

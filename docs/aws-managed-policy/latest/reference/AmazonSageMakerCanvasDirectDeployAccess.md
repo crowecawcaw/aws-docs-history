@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerCanvasDirectDeployAccess
-<a name="AmazonSageMakerCanvasDirectDeployAccess"></a>
 
 **Description**: Allows Amazon SageMaker Canvas to create, manage and view endpoint details for endpoints created through Canvas. Allows Amazon SageMaker Canvas to retrieve endpoint invocation metrics from CloudWatch.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerCanvasDirectDeployAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

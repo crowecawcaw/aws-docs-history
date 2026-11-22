@@ -1,7 +1,6 @@
 
 
 # AWSGrafanaWorkspacePermissionManagement
-<a name="AWSGrafanaWorkspacePermissionManagement"></a>
 
 **Description**: Provides only the ability to update user and group permissions for AWS Grafana workspaces.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSGrafanaWorkspacePermissionManagement-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

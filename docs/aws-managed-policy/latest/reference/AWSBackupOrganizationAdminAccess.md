@@ -1,7 +1,6 @@
 
 
 # AWSBackupOrganizationAdminAccess
-<a name="AWSBackupOrganizationAdminAccess"></a>
 
 **Description**: This policy is for backup administators who use cross-account backup management to manage backups for the organization.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBackupOrganizationAdminAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

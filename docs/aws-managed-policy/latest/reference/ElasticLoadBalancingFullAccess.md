@@ -1,7 +1,6 @@
 
 
 # ElasticLoadBalancingFullAccess
-<a name="ElasticLoadBalancingFullAccess"></a>
 
 **Description**: Provides full access to Amazon ElasticLoadBalancing, and limited access to other services necessary to provide ElasticLoadBalancing features.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ElasticLoadBalancingFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

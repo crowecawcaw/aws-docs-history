@@ -1,7 +1,6 @@
 
 
 # AmazonElasticFileSystemClientReadOnlyAccess
-<a name="AmazonElasticFileSystemClientReadOnlyAccess"></a>
 
 **Description**: Provides read only client access to an Amazon EFS file system
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonElasticFileSystemClientReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

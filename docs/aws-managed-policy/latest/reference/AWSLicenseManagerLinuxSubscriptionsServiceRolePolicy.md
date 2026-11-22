@@ -1,7 +1,6 @@
 
 
 # AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy
-<a name="AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy"></a>
 
 **Description**: Allows AWS License Manager Linux Subscriptions Service to manage resources on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

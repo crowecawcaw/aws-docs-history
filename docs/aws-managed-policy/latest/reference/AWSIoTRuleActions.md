@@ -1,7 +1,6 @@
 
 
 # AWSIoTRuleActions
-<a name="AWSIoTRuleActions"></a>
 
 **Description**: Allows access to all AWS services supported in AWS IoT Rule Actions
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTRuleActions-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : {

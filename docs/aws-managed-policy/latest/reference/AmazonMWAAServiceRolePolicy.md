@@ -1,7 +1,6 @@
 
 
 # AmazonMWAAServiceRolePolicy
-<a name="AmazonMWAAServiceRolePolicy"></a>
 
 **Description**: The Service Linked Role used by Amazon Managed Workflows for Apache Airflow.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonMWAAServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

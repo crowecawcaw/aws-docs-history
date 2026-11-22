@@ -1,7 +1,6 @@
 
 
 # AWSSSODirectoryAdministrator
-<a name="AWSSSODirectoryAdministrator"></a>
 
 **Description**: Administrator access for SSO Directory
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSSODirectoryAdministrator-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AppIntegrationsServiceLinkedRolePolicy
-<a name="AppIntegrationsServiceLinkedRolePolicy"></a>
 
 **Description**: Allows AppIntegrations to manage AppFlow resources and publish CloudWatch metric data on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AppIntegrationsServiceLinkedRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

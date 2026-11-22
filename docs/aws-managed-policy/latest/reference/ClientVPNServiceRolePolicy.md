@@ -1,7 +1,6 @@
 
 
 # ClientVPNServiceRolePolicy
-<a name="ClientVPNServiceRolePolicy"></a>
 
 **Description**: Policy to enable AWS Client VPN to manage your Client VPN endpoints.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ClientVPNServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

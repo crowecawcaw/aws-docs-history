@@ -1,7 +1,6 @@
 
 
 # AWSSecurityIncidentResponseTriageServiceRolePolicy
-<a name="AWSSecurityIncidentResponseTriageServiceRolePolicy"></a>
 
 **Description**: Provides access to AWS Security Incident Response to continuously monitor your environment for security threats, tune security services to reduce alert noise, and gather information to investigate potential incidents.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSecurityIncidentResponseTriageServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

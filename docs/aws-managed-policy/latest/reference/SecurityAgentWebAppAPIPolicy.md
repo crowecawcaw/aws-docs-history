@@ -1,7 +1,6 @@
 
 
 # SecurityAgentWebAppAPIPolicy
-<a name="SecurityAgentWebAppAPIPolicy"></a>
 
 **Description**: Provides permissions for authenticated users to access the Security Agent Web Application for configuring and executing automated security penetration tests. This policy enables users to manage pentests, view findings, monitor test execution, and interact with AWS resources required for security testing operations.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SecurityAgentWebAppAPIPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

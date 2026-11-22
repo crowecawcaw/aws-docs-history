@@ -1,7 +1,6 @@
 
 
 # AWSElasticDisasterRecoveryFailbackInstallationPolicy
-<a name="AWSElasticDisasterRecoveryFailbackInstallationPolicy"></a>
 
 **Description**: You can attach the AWSElasticDisasterRecoveryFailbackInstallationPolicy policy to your IAM identities. This policy allows installing the Elastic Disaster Recovery Failback Client, which is used to failback Recovery Instances back to your original source infrastructure. Attach this policy to your IAM users or roles whose credentials you provide when running the Elastic Disaster Recovery Failback Client.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticDisasterRecoveryFailbackInstallationPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

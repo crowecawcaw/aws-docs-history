@@ -1,7 +1,6 @@
 
 
 # AWSNetworkFirewallServiceRolePolicy
-<a name="AWSNetworkFirewallServiceRolePolicy"></a>
 
 **Description**: Allow AWSNetworkFirewall to create and manage necessary resources for your Firewalls.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSNetworkFirewallServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

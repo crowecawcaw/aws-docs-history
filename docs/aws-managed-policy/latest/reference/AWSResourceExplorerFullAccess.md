@@ -1,7 +1,6 @@
 
 
 # AWSResourceExplorerFullAccess
-<a name="AWSResourceExplorerFullAccess"></a>
 
 **Description**: This policy grants administrative permissions to access Resource Explorer resources and grants read-only permissions to other AWS services to support this access.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSResourceExplorerFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSFinSpaceServiceRolePolicy
-<a name="AWSFinSpaceServiceRolePolicy"></a>
 
 **Description**: Policy to enable access to AWS service and Resources used or managed by Amazon FinSpace
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSFinSpaceServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

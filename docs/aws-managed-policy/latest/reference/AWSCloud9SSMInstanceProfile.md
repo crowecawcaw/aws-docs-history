@@ -1,7 +1,6 @@
 
 
 # AWSCloud9SSMInstanceProfile
-<a name="AWSCloud9SSMInstanceProfile"></a>
 
 **Description**: This policy will be used to attach a role on a InstanceProfile which will allow Cloud9 to use the SSM Session Manager to connect to the instance
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCloud9SSMInstanceProfile-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

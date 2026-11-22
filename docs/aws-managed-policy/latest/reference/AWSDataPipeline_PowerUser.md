@@ -1,7 +1,6 @@
 
 
 # AWSDataPipeline\_PowerUser
-<a name="AWSDataPipeline_PowerUser"></a>
 
 **Description**: Provides full access to Data Pipeline, list access for S3, DynamoDB, Redshift, RDS, SNS, and IAM roles, and passRole access for default Roles.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDataPipeline_PowerUser-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

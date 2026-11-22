@@ -1,7 +1,6 @@
 
 
 # AWSTransformInfrastructureExecutorAccessBatch
-<a name="AWSTransformInfrastructureExecutorAccessBatch"></a>
 
 **Description**: Grants developers execution role the permissions needed to execute AWS Transform Continuous Modernization CLI/agent to run assessments/transformations using AWS Batch, including uploading source code, retrieving results, monitoring Batch job status, reading logs, and managing transformation schedules.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSTransformInfrastructureExecutorAccessBatch-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

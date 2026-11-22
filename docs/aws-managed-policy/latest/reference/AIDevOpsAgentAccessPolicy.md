@@ -1,7 +1,6 @@
 
 
 # AIDevOpsAgentAccessPolicy
-<a name="AIDevOpsAgentAccessPolicy"></a>
 
 **Description**: Provides permissions required by the AWS DevOps Agent to conduct investigations and perform analysis on customer AWS resources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AIDevOpsAgentAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

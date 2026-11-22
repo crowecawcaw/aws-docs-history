@@ -1,7 +1,6 @@
 
 
 # AWSElasticBeanstalkWebTier
-<a name="AWSElasticBeanstalkWebTier"></a>
 
 **Description**: Provide the instances in your web server environment access to upload log files to Amazon S3. 
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticBeanstalkWebTier-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

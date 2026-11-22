@@ -1,7 +1,6 @@
 
 
 # AWSDeepRacerServiceRolePolicy
-<a name="AWSDeepRacerServiceRolePolicy"></a>
 
 **Description**: Allows DeepRacer to create required resources and call AWS services on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDeepRacerServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

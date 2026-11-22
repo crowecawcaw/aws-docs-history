@@ -1,7 +1,6 @@
 
 
 # AWSMigrationHubOrchestratorInstanceRolePolicy
-<a name="AWSMigrationHubOrchestratorInstanceRolePolicy"></a>
 
 **Description**: This policy needs to be attached for SAP and MGN migrated instance for our service to orchestrate instances by downloading scripts from S3 and to fetch secret values inside EC2 instance.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMigrationHubOrchestratorInstanceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

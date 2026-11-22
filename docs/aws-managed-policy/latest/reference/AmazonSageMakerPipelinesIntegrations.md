@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerPipelinesIntegrations
-<a name="AmazonSageMakerPipelinesIntegrations"></a>
 
 **Description**: This Amazon Managed Policy grants permissions commonly needed for use with Callback steps and Lambda steps in SageMaker Model Building Pipelines. It is added to the AmazonSageMaker-ExecutionRole that can be created when setting up SageMaker Studio. It can also be attached to any other role that will be used for authoring or executing pipelines.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerPipelinesIntegrations-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

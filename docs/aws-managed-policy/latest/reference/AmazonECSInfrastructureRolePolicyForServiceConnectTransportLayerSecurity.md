@@ -1,7 +1,6 @@
 
 
 # AmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity
-<a name="AmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity"></a>
 
 **Description**: Provides administrative access to Private Certificate Authority, AWS Secrets Manager and other AWS services required to manage ECS Service Connect TLS features on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerHyperPodInferenceGatewayAccess
-<a name="AmazonSageMakerHyperPodInferenceGatewayAccess"></a>
 
 **Description**: This policy provides the permissions required to set up and operate the SageMaker HyperPod inference gateway. It enables the gateway to manage AWS Certificate Manager (ACM) certificates for TLS termination when deploying and serving inference workloads on HyperPod clusters.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerHyperPodInferenceGatewayAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonDMSCloudWatchLogsRole
-<a name="AmazonDMSCloudWatchLogsRole"></a>
 
 **Description**: Provides access to upload DMS replication logs to cloudwatch logs in customer account.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDMSCloudWatchLogsRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

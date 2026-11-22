@@ -1,7 +1,6 @@
 
 
 # AmazonAPIGatewayInvokeFullAccess
-<a name="AmazonAPIGatewayInvokeFullAccess"></a>
 
 **Description**: Provides full access to invoke APIs in Amazon API Gateway.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonAPIGatewayInvokeFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonEventBridgeSchedulerFullAccess
-<a name="AmazonEventBridgeSchedulerFullAccess"></a>
 
 **Description**: The AmazonEventBridgeSchedulerFullAccess managed policy grants permissions to use all EventBridge Scheduler actions for schedules, and schedule groups.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEventBridgeSchedulerFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

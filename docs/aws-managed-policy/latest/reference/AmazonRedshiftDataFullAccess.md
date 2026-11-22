@@ -1,7 +1,6 @@
 
 
 # AmazonRedshiftDataFullAccess
-<a name="AmazonRedshiftDataFullAccess"></a>
 
 **Description**: This policy provides full access to Amazon Redshift Data APIs. This policy also grants scoped access to other required services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRedshiftDataFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

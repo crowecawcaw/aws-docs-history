@@ -1,7 +1,6 @@
 
 
 # AWSQuickSetupSSMDeploymentS3BucketRolePolicy
-<a name="AWSQuickSetupSSMDeploymentS3BucketRolePolicy"></a>
 
 **Description**: This policy grants permissions for listing all S3 buckets in an account; and for managing and retrieving information about specific buckets in the principal account that are managed through AWS CloudFormation templates.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSetupSSMDeploymentS3BucketRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

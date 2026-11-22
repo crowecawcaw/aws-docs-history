@@ -1,7 +1,6 @@
 
 
 # AWSMarketplaceFullAccess
-<a name="AWSMarketplaceFullAccess"></a>
 
 **Description**: Provides the ability to subscribe and unsubscribe to AWS Marketplace software, allows users to manage Marketplace software instances from the Marketplace 'Your Software' page, and provides administrative access to EC2.
 
@@ -16,20 +15,20 @@ You can attach `AWSMarketplaceFullAccess` to your users, groups, and roles.
 <a name="AWSMarketplaceFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: February 11, 2015, 17:21 UTC 
-+ **Edited time:** September 11, 2026, 16:27 UTC
++ **Edited time:** November 19, 2026, 15:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSMarketplaceFullAccess`
 
 ## Policy version
 <a name="AWSMarketplaceFullAccess-version"></a>
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSMarketplaceFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -60,10 +59,43 @@ The policy's default version is the version that defines the permissions for the
         "ec2:StartInstances",
         "ec2:StopInstances",
         "ec2:TerminateInstances",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeRegions",
+        "servicequotas:ListServiceQuotas",
+        "cloudwatch:GetMetricStatistics",
         "license-manager:ListReceivedLicenses",
         "payments:ListPaymentProgramStatus"
       ],
       "Resource" : "*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "servicequotas:GetServiceQuota",
+      "Resource" : [
+        "arn:aws:servicequotas:*:*:ec2/*",
+        "arn:aws:servicequotas:*:*:vpc/*"
+      ]
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:DeleteStack",
+        "cloudformation:DescribeStackEvents"
+      ],
+      "Resource" : "arn:aws:cloudformation:*:*:stack/AgentModeDeployment*/*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:RevokeSecurityGroupEgress"
+      ],
+      "Resource" : "arn:aws:ec2:*:*:security-group/*",
+      "Condition" : {
+        "StringLike" : {
+          "aws:ResourceTag/aws:cloudformation:stack-name" : "AgentModeDeployment*"
+        }
+      }
     },
     {
       "Effect" : "Allow",

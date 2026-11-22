@@ -1,7 +1,6 @@
 
 
 # AmazonODBExascaleVmClusterAdmin
-<a name="AmazonODBExascaleVmClusterAdmin"></a>
 
 **Description**: Provides administrative access to manage Exascale VM cluster resources in Oracle Database@AWS.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonODBExascaleVmClusterAdmin-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

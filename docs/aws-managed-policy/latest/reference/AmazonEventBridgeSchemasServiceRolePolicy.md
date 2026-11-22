@@ -1,7 +1,6 @@
 
 
 # AmazonEventBridgeSchemasServiceRolePolicy
-<a name="AmazonEventBridgeSchemasServiceRolePolicy"></a>
 
 **Description**: Grants permissions to Managed Rules created by Amazon EventBridge schemas.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEventBridgeSchemasServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

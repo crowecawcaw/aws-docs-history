@@ -1,7 +1,6 @@
 
 
 # AmazonDataZoneFullUserAccess
-<a name="AmazonDataZoneFullUserAccess"></a>
 
 **Description**: Provides full access to Amazon DataZone, but does not allow the management of domains, users, or associated accounts.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDataZoneFullUserAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

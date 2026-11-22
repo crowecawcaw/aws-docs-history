@@ -1,7 +1,6 @@
 
 
 # AWSManagedSettingsReadOnlyAccess
-<a name="AWSManagedSettingsReadOnlyAccess"></a>
 
 **Description**: Grants team members read-only access to AWS Settings, including workspace and owner information, team membership, plan and spend summary. It does not grant permissions to modify workspace configuration or to manage billing and payments.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSManagedSettingsReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

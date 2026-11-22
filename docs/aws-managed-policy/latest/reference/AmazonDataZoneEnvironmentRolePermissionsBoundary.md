@@ -1,7 +1,6 @@
 
 
 # AmazonDataZoneEnvironmentRolePermissionsBoundary
-<a name="AmazonDataZoneEnvironmentRolePermissionsBoundary"></a>
 
 **Description**: Amazon DataZone creates IAM roles for Environments to perform data analytics actions, and uses this policy when creating these roles to define the boundary of their permissions.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDataZoneEnvironmentRolePermissionsBoundary-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSDeviceFarmServiceRolePolicy
-<a name="AWSDeviceFarmServiceRolePolicy"></a>
 
 **Description**: Grant permissions to AWS Device Farm to call EC2 Network APIs on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDeviceFarmServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

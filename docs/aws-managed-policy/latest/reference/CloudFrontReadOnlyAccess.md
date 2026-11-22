@@ -1,7 +1,6 @@
 
 
 # CloudFrontReadOnlyAccess
-<a name="CloudFrontReadOnlyAccess"></a>
 
 **Description**: Provides access to CloudFront distribution configuration information and list distributions via the AWS Management Console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudFrontReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

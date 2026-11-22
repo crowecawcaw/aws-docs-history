@@ -1,7 +1,6 @@
 
 
 # AWSDirectConnectServiceRolePolicy
-<a name="AWSDirectConnectServiceRolePolicy"></a>
 
 **Description**: Provides AWS Direct Connect permission to create and manage AWS resources on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDirectConnectServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSApplicationAutoScalingCustomResourcePolicy
-<a name="AWSApplicationAutoScalingCustomResourcePolicy"></a>
 
 **Description**: Policy granting permissions to Application Auto Scaling to access APIGateway and CloudWatch for custom resource scaling
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSApplicationAutoScalingCustomResourcePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

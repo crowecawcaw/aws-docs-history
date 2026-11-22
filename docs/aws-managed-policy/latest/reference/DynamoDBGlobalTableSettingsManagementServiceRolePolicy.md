@@ -1,7 +1,6 @@
 
 
 # DynamoDBGlobalTableSettingsManagementServiceRolePolicy
-<a name="DynamoDBGlobalTableSettingsManagementServiceRolePolicy"></a>
 
 **Description**: Permissions required by DynamoDB to manage global table replica settings
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="DynamoDBGlobalTableSettingsManagementServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

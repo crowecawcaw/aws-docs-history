@@ -1,7 +1,6 @@
 
 
 # AWSApplicationDiscoveryAgentlessCollectorAccess
-<a name="AWSApplicationDiscoveryAgentlessCollectorAccess"></a>
 
 **Description**: Allows Application Discovery Service Agentless Collectors to auto update, register, and communicate with Application Discovery Service
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSApplicationDiscoveryAgentlessCollectorAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

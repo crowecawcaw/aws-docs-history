@@ -1,7 +1,6 @@
 
 
 # AWSMigrationHubRefactorSpacesServiceRolePolicy
-<a name="AWSMigrationHubRefactorSpacesServiceRolePolicy"></a>
 
 **Description**: Provides access to AWS Resources managed or used by AWS Migration Hub Refactor Spaces.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMigrationHubRefactorSpacesServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

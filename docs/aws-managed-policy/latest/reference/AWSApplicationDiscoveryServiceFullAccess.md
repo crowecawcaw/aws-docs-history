@@ -1,7 +1,6 @@
 
 
 # AWSApplicationDiscoveryServiceFullAccess
-<a name="AWSApplicationDiscoveryServiceFullAccess"></a>
 
 **Description**: Provides full access to view and tag Configuration Items maintained by the AWS Application Discovery Service 
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSApplicationDiscoveryServiceFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSIoTWirelessDataAccess
-<a name="AWSIoTWirelessDataAccess"></a>
 
 **Description**: Allows the associated identity data access to AWS IoT Wireless devices.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTWirelessDataAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

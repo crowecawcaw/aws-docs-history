@@ -1,7 +1,6 @@
 
 
 # AWS-SSM-RemediationAutomation-OperationalAccountAdministrationRolePolicy
-<a name="AWS-SSM-RemediationAutomation-OperationalAccountAdministrationRolePolicy"></a>
 
 **Description**: Provides permissions for operational accounts to Remediate unmanaged nodes by providing Organisation specific permissions required by SSM automation to pull the list of member accounts within a root of an Organisation to trigger cross-account cross-region execution by allowing assuming Execution roles in target account/region.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWS-SSM-RemediationAutomation-OperationalAccountAdministrationRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

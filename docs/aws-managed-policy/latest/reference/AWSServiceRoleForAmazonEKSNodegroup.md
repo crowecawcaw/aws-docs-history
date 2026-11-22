@@ -1,7 +1,6 @@
 
 
 # AWSServiceRoleForAmazonEKSNodegroup
-<a name="AWSServiceRoleForAmazonEKSNodegroup"></a>
 
 **Description**: Permissions required for managing nodegroups in the customer's account. These policies related to management of the following resources: AutoscalingGroups, SecurityGroups, LaunchTemplates and InstanceProfiles.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceRoleForAmazonEKSNodegroup-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

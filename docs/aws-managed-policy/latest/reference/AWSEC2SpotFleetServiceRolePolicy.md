@@ -1,7 +1,6 @@
 
 
 # AWSEC2SpotFleetServiceRolePolicy
-<a name="AWSEC2SpotFleetServiceRolePolicy"></a>
 
 **Description**: Allows EC2 Spot Fleet to launch and manage spot fleet instances
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSEC2SpotFleetServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

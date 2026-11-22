@@ -1,7 +1,6 @@
 
 
 # AWSMarketplaceAmiIngestion
-<a name="AWSMarketplaceAmiIngestion"></a>
 
 **Description**: Allows AWS Marketplace to copy your Amazon Machine Images (AMIs) in order to list them on AWS Marketplace
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMarketplaceAmiIngestion-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

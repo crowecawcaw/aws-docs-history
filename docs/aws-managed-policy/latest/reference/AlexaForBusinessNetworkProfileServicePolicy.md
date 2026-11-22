@@ -1,7 +1,6 @@
 
 
 # AlexaForBusinessNetworkProfileServicePolicy
-<a name="AlexaForBusinessNetworkProfileServicePolicy"></a>
 
 **Description**: This policy enables Alexa for Business to perform automated tasks scheduled by your network profiles.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AlexaForBusinessNetworkProfileServicePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSQuickSetupStartSSMAssociationsExecutionPolicy
-<a name="AWSQuickSetupStartSSMAssociationsExecutionPolicy"></a>
 
 **Description**: This policy grants permissions that allow principals to run the AWSQuickSetupType-StartSSMAssociations Automation runbook, which starts State Manager Associations.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSetupStartSSMAssociationsExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

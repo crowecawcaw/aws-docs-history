@@ -1,7 +1,6 @@
 
 
 # AmazonEKSComputePolicy
-<a name="AmazonEKSComputePolicy"></a>
 
 **Description**: Policy attached to the EKS Cluster Role that grants permissions to manage the cluster's compute resources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEKSComputePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

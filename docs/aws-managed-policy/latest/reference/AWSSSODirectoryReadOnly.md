@@ -1,7 +1,6 @@
 
 
 # AWSSSODirectoryReadOnly
-<a name="AWSSSODirectoryReadOnly"></a>
 
 **Description**: ReadOnly access for SSO Directory
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSSODirectoryReadOnly-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

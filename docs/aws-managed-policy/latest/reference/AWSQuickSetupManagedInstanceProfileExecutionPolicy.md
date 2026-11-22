@@ -1,7 +1,6 @@
 
 
 # AWSQuickSetupManagedInstanceProfileExecutionPolicy
-<a name="AWSQuickSetupManagedInstanceProfileExecutionPolicy"></a>
 
 **Description**: This policy grants administrative permissions that allow Systems Manager to create a default IAM instance profile for the Quick Setup capability and attach it to Amazon EC2 instances that don't already have an instance. profile attached.
 
@@ -16,20 +15,20 @@ You can attach `AWSQuickSetupManagedInstanceProfileExecutionPolicy` to your user
 <a name="AWSQuickSetupManagedInstanceProfileExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 15, 2024, 21:51 UTC 
-+ **Edited time:** October 27, 2026, 15:57 UTC
++ **Edited time:** November 18, 2026, 09:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSQuickSetupManagedInstanceProfileExecutionPolicy`
 
 ## Policy version
 <a name="AWSQuickSetupManagedInstanceProfileExecutionPolicy-version"></a>
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSQuickSetupManagedInstanceProfileExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -94,6 +93,7 @@ The policy's default version is the version that defines the permissions for the
         "StringEquals" : {
           "iam:PassedToService" : [
             "ec2.amazonaws.com",
+            "ec2.amazonaws.com.cn",
             "ssm.amazonaws.com"
           ]
         }

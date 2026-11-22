@@ -1,7 +1,6 @@
 
 
 # WAFLoggingServiceRolePolicy
-<a name="WAFLoggingServiceRolePolicy"></a>
 
 **Description**: Creating SLR to write customer's logs to a firehose stream
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="WAFLoggingServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

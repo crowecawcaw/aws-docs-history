@@ -1,7 +1,6 @@
 
 
 # SecurityAudit
-<a name="SecurityAudit"></a>
 
 **Description**: The security audit template grants access to read security configuration metadata. It is useful for software that audits the configuration of an AWS account.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SecurityAudit-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

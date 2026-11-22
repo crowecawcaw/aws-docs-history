@@ -1,7 +1,6 @@
 
 
 # AWSWellArchitectedOrganizationsServiceRolePolicy
-<a name="AWSWellArchitectedOrganizationsServiceRolePolicy"></a>
 
 **Description**: Allows Well-Architected to access Organizations on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSWellArchitectedOrganizationsServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

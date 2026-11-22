@@ -1,7 +1,6 @@
 
 
 # MultiPartyApprovalReadOnlyAccess
-<a name="MultiPartyApprovalReadOnlyAccess"></a>
 
 **Description**: Provides read-only access to Multi-party approval. This policy also includes related read permission to AWS Organizations and AWS IAM Identity for approval teams and identity sources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="MultiPartyApprovalReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

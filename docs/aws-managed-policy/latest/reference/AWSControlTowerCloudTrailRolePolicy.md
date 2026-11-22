@@ -1,7 +1,6 @@
 
 
 # AWSControlTowerCloudTrailRolePolicy
-<a name="AWSControlTowerCloudTrailRolePolicy"></a>
 
 **Description**: AWS Control Tower enables AWS CloudTrail as a best practice and provides this role to AWS CloudTrail. AWS CloudTrail assumes this role to create and publish CloudTrail logs
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSControlTowerCloudTrailRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

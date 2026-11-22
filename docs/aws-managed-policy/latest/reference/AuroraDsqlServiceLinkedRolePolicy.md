@@ -1,7 +1,6 @@
 
 
 # AuroraDsqlServiceLinkedRolePolicy
-<a name="AuroraDsqlServiceLinkedRolePolicy"></a>
 
 **Description**: Policy for Amazon Aurora DSQL Service Linked Role
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AuroraDsqlServiceLinkedRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

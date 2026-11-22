@@ -1,7 +1,6 @@
 
 
 # CostOptimizationHubServiceRolePolicy
-<a name="CostOptimizationHubServiceRolePolicy"></a>
 
 **Description**: Allows Cost Optimization Hub to retrieve organization information and collect optimization-related data and metadata.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CostOptimizationHubServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSFinOpsAgentServiceRolePolicy
-<a name="AWSFinOpsAgentServiceRolePolicy"></a>
 
 **Description**: Provides AWS FinOps Agent access to billing, cost management, usage, optimization, and resource configuration capabilities to generate cost and savings insights, and allows it to manage its own Amazon EventBridge rules for configured workflows.
 
@@ -16,20 +15,20 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSFinOpsAgentServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: October 20, 2026, 16:07 UTC 
-+ **Edited time:** October 20, 2026, 16:07 UTC
++ **Edited time:** November 20, 2026, 01:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSFinOpsAgentServiceRolePolicy`
 
 ## Policy version
 <a name="AWSFinOpsAgentServiceRolePolicy-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSFinOpsAgentServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -238,7 +237,7 @@ The policy's default version is the version that defines the permissions for the
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringLikeIfExists" : {
+        "StringEquals" : {
           "organizations:ServicePrincipal" : [
             "finops-agent.amazonaws.com"
           ]
@@ -488,6 +487,21 @@ The policy's default version is the version that defines the permissions for the
           "events:ManagedBy" : "finops-agent.amazonaws.com"
         }
       }
+    },
+    {
+      "Sid" : "BCMDataHubQueryAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "bcm-data-hub:ListDatasets",
+        "bcm-data-hub:GetDataset",
+        "bcm-data-hub:GetDatasetSchema",
+        "bcm-data-hub:StartQueryExecution",
+        "bcm-data-hub:GetQueryExecution",
+        "bcm-data-hub:GetQueryExecutionResults",
+        "bcm-data-hub:CancelQueryExecution",
+        "bcm-data-hub:ListQueryExecutions"
+      ],
+      "Resource" : "*"
     },
     {
       "Sid" : "EventBridgeManagedRuleManagementReadPermissions",

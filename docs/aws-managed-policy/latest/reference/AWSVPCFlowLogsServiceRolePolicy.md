@@ -1,7 +1,6 @@
 
 
 # AWSVPCFlowLogsServiceRolePolicy
-<a name="AWSVPCFlowLogsServiceRolePolicy"></a>
 
 **Description**: Provides permissions to control service managed resources and call APIs necessary for log field enrichment on behalf of customers.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSVPCFlowLogsServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

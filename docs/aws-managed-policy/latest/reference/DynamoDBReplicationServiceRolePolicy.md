@@ -1,7 +1,6 @@
 
 
 # DynamoDBReplicationServiceRolePolicy
-<a name="DynamoDBReplicationServiceRolePolicy"></a>
 
 **Description**: Permissions required by DynamoDB for cross-region data replication
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="DynamoDBReplicationServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

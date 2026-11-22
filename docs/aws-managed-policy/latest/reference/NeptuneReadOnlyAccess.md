@@ -1,7 +1,6 @@
 
 
 # NeptuneReadOnlyAccess
-<a name="NeptuneReadOnlyAccess"></a>
 
 **Description**: Provides read only access to Amazon Neptune. Note that this policy also grants access to Amazon RDS resources. For more information, see https://aws.amazon.com/neptune/faqs/.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="NeptuneReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

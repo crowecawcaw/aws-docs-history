@@ -1,7 +1,6 @@
 
 
 # AWSDeadlineCloud-FleetWorker
-<a name="AWSDeadlineCloud-FleetWorker"></a>
 
 **Description**: Provides AWS Deadline Cloud workers with access to run tasks on a farm.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDeadlineCloud-FleetWorker-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonS3ExpressReadOnlyAccess
-<a name="AmazonS3ExpressReadOnlyAccess"></a>
 
 **Description**: Provides read only access to S3Express operations for S3 directory buckets.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonS3ExpressReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

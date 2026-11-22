@@ -1,7 +1,6 @@
 
 
 # AmazonDetectiveOrganizationsAccess
-<a name="AmazonDetectiveOrganizationsAccess"></a>
 
 **Description**: Provides Organizations access to manage Delegated administrator for Amazon Detective and scoped access to the console UI dependencies. This also grants permission to create a service-linked role for Detective.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDetectiveOrganizationsAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

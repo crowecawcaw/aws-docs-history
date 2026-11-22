@@ -1,7 +1,6 @@
 
 
 # CloudWatchActionsEC2Access
-<a name="CloudWatchActionsEC2Access"></a>
 
 **Description**: Provides read-only access to CloudWatch alarms and metrics as well as EC2 metadata. Provides access to Stop, Terminate and Reboot EC2 instances.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchActionsEC2Access-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

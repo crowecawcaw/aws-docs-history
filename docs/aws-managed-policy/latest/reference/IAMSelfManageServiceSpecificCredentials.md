@@ -1,7 +1,6 @@
 
 
 # IAMSelfManageServiceSpecificCredentials
-<a name="IAMSelfManageServiceSpecificCredentials"></a>
 
 **Description**: Allows an IAM user to manage their own Service Specific Credentials.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="IAMSelfManageServiceSpecificCredentials-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

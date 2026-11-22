@@ -1,7 +1,6 @@
 
 
 # CloudWatchApplicationSignalsFullAccess
-<a name="CloudWatchApplicationSignalsFullAccess"></a>
 
 **Description**: Provide full access to CloudWatch Application Signals service and scoped access to the dependencies needed to use and operate this service.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchApplicationSignalsFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

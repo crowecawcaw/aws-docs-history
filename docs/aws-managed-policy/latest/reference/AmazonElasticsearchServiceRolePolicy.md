@@ -1,7 +1,6 @@
 
 
 # AmazonElasticsearchServiceRolePolicy
-<a name="AmazonElasticsearchServiceRolePolicy"></a>
 
 **Description**: Allow Amazon Elasticsearch Service to access other AWS services such as EC2 Networking APIs on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonElasticsearchServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

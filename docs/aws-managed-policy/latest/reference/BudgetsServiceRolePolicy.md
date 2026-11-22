@@ -1,7 +1,6 @@
 
 
 # BudgetsServiceRolePolicy
-<a name="BudgetsServiceRolePolicy"></a>
 
 **Description**: Allows Budgets to verify access to Billing Views shared across account boundaries.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="BudgetsServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

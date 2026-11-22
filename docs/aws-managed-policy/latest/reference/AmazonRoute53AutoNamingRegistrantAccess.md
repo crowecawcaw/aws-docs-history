@@ -1,7 +1,6 @@
 
 
 # AmazonRoute53AutoNamingRegistrantAccess
-<a name="AmazonRoute53AutoNamingRegistrantAccess"></a>
 
 **Description**: Provides registrant level access to Route 53 Auto Naming actions.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRoute53AutoNamingRegistrantAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

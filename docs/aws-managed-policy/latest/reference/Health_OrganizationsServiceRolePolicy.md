@@ -1,7 +1,6 @@
 
 
 # Health\_OrganizationsServiceRolePolicy
-<a name="Health_OrganizationsServiceRolePolicy"></a>
 
 **Description**: AWS Health policy to enable Organizational View feature
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="Health_OrganizationsServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

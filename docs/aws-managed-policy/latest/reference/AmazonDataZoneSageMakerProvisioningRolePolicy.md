@@ -1,7 +1,6 @@
 
 
 # AmazonDataZoneSageMakerProvisioningRolePolicy
-<a name="AmazonDataZoneSageMakerProvisioningRolePolicy"></a>
 
 **Description**: The AmazonDataZoneSageMakerProvisioningRolePolicy policy grants Amazon DataZone the permissions required to interoperate with Amazon SageMaker.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDataZoneSageMakerProvisioningRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonDataZoneBedrockModelManagementPolicy
-<a name="AmazonDataZoneBedrockModelManagementPolicy"></a>
 
 **Description**: Provides permissions to manage Amazon Bedrock model access, including creating, tagging and deleting application inference profiles.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDataZoneBedrockModelManagementPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

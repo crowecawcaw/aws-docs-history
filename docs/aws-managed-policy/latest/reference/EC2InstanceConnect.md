@@ -1,7 +1,6 @@
 
 
 # EC2InstanceConnect
-<a name="EC2InstanceConnect"></a>
 
 **Description**: Allows customers to call EC2 Instance Connect to publish ephemeral keys to their EC2 instances and connect via ssh or the EC2 Instance Connect CLI.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="EC2InstanceConnect-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # ServerMigrationServiceRoleForInstanceValidation
-<a name="ServerMigrationServiceRoleForInstanceValidation"></a>
 
 **Description**: Permissions to allow the AWS SMS to run used data validation script and send script success/failure back to SMS
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ServerMigrationServiceRoleForInstanceValidation-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

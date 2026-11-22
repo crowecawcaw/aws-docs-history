@@ -1,7 +1,6 @@
 
 
 # AWSFMAdminFullAccess
-<a name="AWSFMAdminFullAccess"></a>
 
 **Description**: Full access for AWS FM Administrator
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSFMAdminFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

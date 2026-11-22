@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerPartnerAppsFullAccess
-<a name="AmazonSageMakerPartnerAppsFullAccess"></a>
 
 **Description**: Enables Amazon SageMaker partner app users to access applications, list available applications, launch application web UIs, and connect via the application SDK.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerPartnerAppsFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

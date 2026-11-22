@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerSpacesControllerPolicy
-<a name="AmazonSageMakerSpacesControllerPolicy"></a>
 
 **Description**: Grants Systems Manager activation, session management, and KMS key operations permissions required for the SageMaker Spaces Addon to enable secure remote access to EKS SageMaker Spaces.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerSpacesControllerPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

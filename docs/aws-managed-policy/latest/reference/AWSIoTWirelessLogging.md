@@ -1,7 +1,6 @@
 
 
 # AWSIoTWirelessLogging
-<a name="AWSIoTWirelessLogging"></a>
 
 **Description**: Allows the associated identity to create Amazon CloudWatch Logs groups and stream logs to the groups.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTWirelessLogging-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

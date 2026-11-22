@@ -1,7 +1,6 @@
 
 
 # AWSNetworkFirewallIGWServiceRolePolicy
-<a name="AWSNetworkFirewallIGWServiceRolePolicy"></a>
 
 **Description**: Allows AWS Network Firewall to manage resources required for IGW Firewall on your behalf. Example of such resources include elastic IP addresses for network address translation.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSNetworkFirewallIGWServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

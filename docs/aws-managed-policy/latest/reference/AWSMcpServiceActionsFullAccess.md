@@ -1,7 +1,6 @@
 
 
 # AWSMcpServiceActionsFullAccess
-<a name="AWSMcpServiceActionsFullAccess"></a>
 
 **Description**: Provides full access to all MCP service actions. This policy does not grant access to the actions taken by the MCP, only the MCP actions themselves.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMcpServiceActionsFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

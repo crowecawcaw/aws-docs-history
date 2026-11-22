@@ -1,7 +1,6 @@
 
 
 # AWSBackupServiceLinkedRolePolicyForBackupTest
-<a name="AWSBackupServiceLinkedRolePolicyForBackupTest"></a>
 
 **Description**: Provides AWS Backup permission to create backups on your behalf across AWS services
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBackupServiceLinkedRolePolicyForBackupTest-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

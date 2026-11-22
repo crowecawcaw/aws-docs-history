@@ -1,7 +1,6 @@
 
 
 # AWSECRPullThroughCache\_ServiceRolePolicy
-<a name="AWSECRPullThroughCache_ServiceRolePolicy"></a>
 
 **Description**: Enables access to AWS services and resources used or managed by AWS ECR pull through cache
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSECRPullThroughCache_ServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

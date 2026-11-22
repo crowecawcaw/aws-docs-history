@@ -1,7 +1,6 @@
 
 
 # AWSMarketplaceSubsidiaryAuthorizationServiceRolePolicy
-<a name="AWSMarketplaceSubsidiaryAuthorizationServiceRolePolicy"></a>
 
 **Description**: Enables AWS Marketplace to share Subsidiary Authorization entities across AWS accounts on the customer's behalf using AWS Resource Access Manager.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMarketplaceSubsidiaryAuthorizationServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

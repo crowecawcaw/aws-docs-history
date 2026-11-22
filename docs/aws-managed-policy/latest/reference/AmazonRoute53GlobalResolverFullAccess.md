@@ -1,7 +1,6 @@
 
 
 # AmazonRoute53GlobalResolverFullAccess
-<a name="AmazonRoute53GlobalResolverFullAccess"></a>
 
 **Description**: Provides full access to retrieve, list, create, update, and delete all Amazon Route 53 Global Resolver resources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRoute53GlobalResolverFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

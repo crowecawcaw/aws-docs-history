@@ -1,7 +1,6 @@
 
 
 # SignInLocalDevelopmentAccess
-<a name="SignInLocalDevelopmentAccess"></a>
 
 **Description**: Provides permissions for programmatic access to AWS through the AWS Sign-in service, including OAuth2 token creation for developer tools and applications.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SignInLocalDevelopmentAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

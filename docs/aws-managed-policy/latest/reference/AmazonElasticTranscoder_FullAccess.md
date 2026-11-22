@@ -1,7 +1,6 @@
 
 
 # AmazonElasticTranscoder\_FullAccess
-<a name="AmazonElasticTranscoder_FullAccess"></a>
 
 **Description**: Grants users full access to Elastic Transcoder and the access to associated services that is required for full Elastic Transcoder functionality.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonElasticTranscoder_FullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

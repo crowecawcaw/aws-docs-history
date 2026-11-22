@@ -1,7 +1,6 @@
 
 
 # AWSCleanRoomsFullAccessNoQuerying
-<a name="AWSCleanRoomsFullAccessNoQuerying"></a>
 
 **Description**: Allows full access to AWS Clean Rooms resources except for querying in a collaboration and access to related AWS services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCleanRoomsFullAccessNoQuerying-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

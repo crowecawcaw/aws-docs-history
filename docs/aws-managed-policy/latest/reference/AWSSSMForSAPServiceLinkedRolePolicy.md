@@ -1,7 +1,6 @@
 
 
 # AWSSSMForSAPServiceLinkedRolePolicy
-<a name="AWSSSMForSAPServiceLinkedRolePolicy"></a>
 
 **Description**: Provides AWS Systems Manager for SAP with the permissions needed to manage and integrate SAP software with AWS.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSSMForSAPServiceLinkedRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

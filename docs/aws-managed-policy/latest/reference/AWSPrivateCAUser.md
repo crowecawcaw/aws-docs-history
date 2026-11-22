@@ -1,7 +1,6 @@
 
 
 # AWSPrivateCAUser
-<a name="AWSPrivateCAUser"></a>
 
 **Description**: Provides certificate user access to AWS Private Certificate Authority
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSPrivateCAUser-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

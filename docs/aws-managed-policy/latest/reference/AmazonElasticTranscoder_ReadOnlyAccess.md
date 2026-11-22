@@ -1,7 +1,6 @@
 
 
 # AmazonElasticTranscoder\_ReadOnlyAccess
-<a name="AmazonElasticTranscoder_ReadOnlyAccess"></a>
 
 **Description**: Grants users read-only access to Elastic Transcoder and list access to related services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonElasticTranscoder_ReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

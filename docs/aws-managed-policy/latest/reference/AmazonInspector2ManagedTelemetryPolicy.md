@@ -1,7 +1,6 @@
 
 
 # AmazonInspector2ManagedTelemetryPolicy
-<a name="AmazonInspector2ManagedTelemetryPolicy"></a>
 
 **Description**: Grants permissions to communicate with Inspector2 Telemetry Channel
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonInspector2ManagedTelemetryPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

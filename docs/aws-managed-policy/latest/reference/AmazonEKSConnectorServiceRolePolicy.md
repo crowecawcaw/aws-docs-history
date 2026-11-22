@@ -1,7 +1,6 @@
 
 
 # AmazonEKSConnectorServiceRolePolicy
-<a name="AmazonEKSConnectorServiceRolePolicy"></a>
 
 **Description**: This policy allows Amazon EKS to manage AWS resources for EKS connector
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEKSConnectorServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

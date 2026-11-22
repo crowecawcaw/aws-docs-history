@@ -1,7 +1,6 @@
 
 
 # AWSIoTOTAUpdate
-<a name="AWSIoTOTAUpdate"></a>
 
 **Description**: Allows access to create AWS IoT Job and describe the AWS code signer job
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTOTAUpdate-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : {

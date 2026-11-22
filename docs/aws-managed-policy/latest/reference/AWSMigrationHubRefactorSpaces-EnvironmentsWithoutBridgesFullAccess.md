@@ -1,7 +1,6 @@
 
 
 # AWSMigrationHubRefactorSpaces-EnvironmentsWithoutBridgesFullAccess
-<a name="AWSMigrationHubRefactorSpaces-EnvironmentsWithoutBridgesFullAccess"></a>
 
 **Description**: Grants full access to AWS Migration Hub Refactor Spaces and other AWS related services except AWS Transit Gateway and EC2 security groups not required when using environments without a network bridge. This policy also excludes permissions required for AWS Lambda and AWS Resource Access Manager as they can be scoped down based on tags.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMigrationHubRefactorSpaces-EnvironmentsWithoutBridgesFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

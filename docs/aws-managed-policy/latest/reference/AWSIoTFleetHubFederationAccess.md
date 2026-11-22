@@ -1,7 +1,6 @@
 
 
 # AWSIoTFleetHubFederationAccess
-<a name="AWSIoTFleetHubFederationAccess"></a>
 
 **Description**: Federation access for IoT Fleet Hub applications
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTFleetHubFederationAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

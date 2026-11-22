@@ -1,7 +1,6 @@
 
 
 # AWSBillingReadOnlyAccess
-<a name="AWSBillingReadOnlyAccess"></a>
 
 **Description**: Allows users to view bills on the Billing Console.
 
@@ -16,20 +15,20 @@ You can attach `AWSBillingReadOnlyAccess` to your users, groups, and roles.
 <a name="AWSBillingReadOnlyAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 27, 2020, 20:08 UTC 
-+ **Edited time:** October 26, 2026, 17:07 UTC
++ **Edited time:** November 20, 2026, 21:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSBillingReadOnlyAccess`
 
 ## Policy version
 <a name="AWSBillingReadOnlyAccess-version"></a>
 
-**Policy version:** v29 (default)
+**Policy version:** v30 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSBillingReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -98,6 +97,7 @@ The policy's default version is the version that defines the permissions for the
         "payments:GetFinancingOption",
         "payments:GetPaymentInstrument",
         "payments:GetPaymentStatus",
+        "payments:ListConnectedAccounts",
         "payments:ListFinancingApplications",
         "payments:ListFinancingLines",
         "payments:ListFinancingLineWithdrawals",
@@ -127,6 +127,14 @@ The policy's default version is the version that defines the permissions for the
         "billing:ListContractualInvestmentSummaries"
       ],
       "Resource" : "arn:aws:billing::*:contract/*"
+    },
+    {
+      "Sid" : "ConnectedAccountReadOnly",
+      "Effect" : "Allow",
+      "Action" : [
+        "payments:GetConnectedAccount"
+      ],
+      "Resource" : "arn:aws:payments::*:connectedaccount/*"
     }
   ]
 }

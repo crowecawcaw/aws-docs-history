@@ -1,7 +1,6 @@
 
 
 # MemoryDBServiceRolePolicy
-<a name="MemoryDBServiceRolePolicy"></a>
 
 **Description**: This policy allows MemoryDB to manage AWS resources on your behalf as necessary for managing your resources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="MemoryDBServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

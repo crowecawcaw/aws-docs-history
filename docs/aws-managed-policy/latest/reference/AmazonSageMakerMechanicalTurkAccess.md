@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerMechanicalTurkAccess
-<a name="AmazonSageMakerMechanicalTurkAccess"></a>
 
 **Description**: Provides access to create Amazon Augmented AI FlowDefinition resources against any Workteam.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerMechanicalTurkAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

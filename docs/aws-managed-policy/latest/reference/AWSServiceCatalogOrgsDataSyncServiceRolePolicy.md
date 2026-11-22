@@ -1,7 +1,6 @@
 
 
 # AWSServiceCatalogOrgsDataSyncServiceRolePolicy
-<a name="AWSServiceCatalogOrgsDataSyncServiceRolePolicy"></a>
 
 **Description**: A Service Linked Role Policy for AWS ServiceCatalog to sync with AWS Organizations organization structure
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceCatalogOrgsDataSyncServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

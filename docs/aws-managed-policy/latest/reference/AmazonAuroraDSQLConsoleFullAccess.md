@@ -1,7 +1,6 @@
 
 
 # AmazonAuroraDSQLConsoleFullAccess
-<a name="AmazonAuroraDSQLConsoleFullAccess"></a>
 
 **Description**: Provides console full administrative access to Aurora DSQL
 
@@ -16,20 +15,20 @@ You can attach `AmazonAuroraDSQLConsoleFullAccess` to your users, groups, and ro
 <a name="AmazonAuroraDSQLConsoleFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: December 03, 2024, 15:36 UTC 
-+ **Edited time:** May 13, 2026, 18:57 UTC
++ **Edited time:** November 18, 2026, 17:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonAuroraDSQLConsoleFullAccess`
 
 ## Policy version
 <a name="AmazonAuroraDSQLConsoleFullAccess-version"></a>
 
-**Policy version:** v16 (default)
+**Policy version:** v17 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AmazonAuroraDSQLConsoleFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -66,7 +65,8 @@ The policy's default version is the version that defines the permissions for the
         "dsql:DeleteStream",
         "dsql:GetStream",
         "dsql:ListStreams",
-        "dsql:UpdateStream"
+        "dsql:UpdateStream",
+        "dsql:AllowVendedLogDeliveryForResource"
       ],
       "Resource" : "*"
     },

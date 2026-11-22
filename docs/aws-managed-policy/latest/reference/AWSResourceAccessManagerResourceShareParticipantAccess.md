@@ -1,7 +1,6 @@
 
 
 # AWSResourceAccessManagerResourceShareParticipantAccess
-<a name="AWSResourceAccessManagerResourceShareParticipantAccess"></a>
 
 **Description**: Provides access to AWS Resource Access Manager APIs needed by a resource share participant.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSResourceAccessManagerResourceShareParticipantAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

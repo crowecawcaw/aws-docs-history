@@ -1,7 +1,6 @@
 
 
 # AmazonInspectorReadOnlyAccess
-<a name="AmazonInspectorReadOnlyAccess"></a>
 
 **Description**: Provides read only access to Amazon Inspector.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonInspectorReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

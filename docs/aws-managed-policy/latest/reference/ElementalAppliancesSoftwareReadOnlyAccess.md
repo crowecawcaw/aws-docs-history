@@ -1,7 +1,6 @@
 
 
 # ElementalAppliancesSoftwareReadOnlyAccess
-<a name="ElementalAppliancesSoftwareReadOnlyAccess"></a>
 
 **Description**: Read-only access to view Elemental Appliances and Software quotes and orders
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ElementalAppliancesSoftwareReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

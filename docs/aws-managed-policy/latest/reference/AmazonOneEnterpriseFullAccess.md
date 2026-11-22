@@ -1,7 +1,6 @@
 
 
 # AmazonOneEnterpriseFullAccess
-<a name="AmazonOneEnterpriseFullAccess"></a>
 
 **Description**: This policy grants administrative permissions that allow access to all Amazon One Enterprise resources and operations.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonOneEnterpriseFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # CloudWatchOmniDomainAccessPolicy
-<a name="CloudWatchOmniDomainAccessPolicy"></a>
 
 **Description**: Provides permissions required to manage CloudWatch Omni domain access.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchOmniDomainAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

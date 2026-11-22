@@ -1,7 +1,6 @@
 
 
 # EC2ImageBuilderExecutionPolicy
-<a name="EC2ImageBuilderExecutionPolicy"></a>
 
 **Description**: Grants permissions that allow EC2 Image Builder to call AWS services on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="EC2ImageBuilderExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

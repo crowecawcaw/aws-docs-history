@@ -1,7 +1,6 @@
 
 
 # BedrockAgentCoreRuntimeInstancesOperatorRolePolicy
-<a name="BedrockAgentCoreRuntimeInstancesOperatorRolePolicy"></a>
 
 **Description**: Provides access to create and manage compute and associated resources for Bedrock AgentCore Runtime Instances
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="BedrockAgentCoreRuntimeInstancesOperatorRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

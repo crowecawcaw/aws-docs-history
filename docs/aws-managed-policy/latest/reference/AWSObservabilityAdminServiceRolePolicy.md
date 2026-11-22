@@ -1,7 +1,6 @@
 
 
 # AWSObservabilityAdminServiceRolePolicy
-<a name="AWSObservabilityAdminServiceRolePolicy"></a>
 
 **Description**: Provides access to manage AWS Config Configuration Recorder, manage AWS Config Configuration Aggregator, create AWS Config Service Linked Role for Configuration Recorder functionality, consume recorder configuration data, and read AWS Organizations data for organizational features.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSObservabilityAdminServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

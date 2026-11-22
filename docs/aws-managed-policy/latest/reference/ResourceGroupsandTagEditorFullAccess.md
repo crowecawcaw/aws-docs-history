@@ -1,7 +1,6 @@
 
 
 # ResourceGroupsandTagEditorFullAccess
-<a name="ResourceGroupsandTagEditorFullAccess"></a>
 
 **Description**: Provides full access to Resource Groups and Tag Editor.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ResourceGroupsandTagEditorFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSIotRoboRunnerReadOnly
-<a name="AWSIotRoboRunnerReadOnly"></a>
 
 **Description**: This policy grants permissions that allow read-only access to AWS Iot RoboRunner.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIotRoboRunnerReadOnly-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

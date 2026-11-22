@@ -1,7 +1,6 @@
 
 
 # AWSXrayReadOnlyAccess
-<a name="AWSXrayReadOnlyAccess"></a>
 
 **Description**: AWS X-Ray read only managed policy
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSXrayReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

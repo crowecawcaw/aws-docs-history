@@ -1,7 +1,6 @@
 
 
 # AWSResourceGroupsReadOnlyAccess
-<a name="AWSResourceGroupsReadOnlyAccess"></a>
 
 **Description**: This is the read only policy for AWS Resource Groups
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSResourceGroupsReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

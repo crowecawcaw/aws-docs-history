@@ -1,7 +1,6 @@
 
 
 # AWSCODAServiceRolePolicy
-<a name="AWSCODAServiceRolePolicy"></a>
 
 **Description**: Allows AWS CODA to monitor the deployment of delegations on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCODAServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

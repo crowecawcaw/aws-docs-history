@@ -1,7 +1,6 @@
 
 
 # AWSWAFConsoleFullAccess
-<a name="AWSWAFConsoleFullAccess"></a>
 
 **Description**: Provides full access to AWS WAF via the AWS Management Console. Note that this policy also grants permissions to list and update Amazon CloudFront distributions, permissions to view load balancers on AWS Elastic Load Balancing, permissions to view Amazon API Gateway REST APIs and stages, permissions to list and view Amazon CloudWatch metrics, and permissions to view regions enabled within the account.
 
@@ -16,20 +15,20 @@ You can attach `AWSWAFConsoleFullAccess` to your users, groups, and roles.
 <a name="AWSWAFConsoleFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: April 06, 2020, 18:38 UTC 
-+ **Edited time:** July 01, 2026, 04:12 UTC
++ **Edited time:** November 19, 2026, 17:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSWAFConsoleFullAccess`
 
 ## Policy version
 <a name="AWSWAFConsoleFullAccess-version"></a>
 
-**Policy version:** v22 (default)
+**Policy version:** v23 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSWAFConsoleFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -420,6 +419,58 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "bedrock-agentcore:GatewayListResourcesForWebACL",
         "bedrock-agentcore:ListGateways"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowListActionsForObservabilityAdmin",
+      "Effect" : "Allow",
+      "Action" : [
+        "observabilityadmin:ListTelemetryRules",
+        "observabilityadmin:GetTelemetryEvaluationStatus"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowListConnectedAccountsForPayments",
+      "Effect" : "Allow",
+      "Action" : [
+        "payments:ListConnectedAccounts"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowGetConnectedAccountForPayments",
+      "Effect" : "Allow",
+      "Action" : [
+        "payments:GetConnectedAccount"
+      ],
+      "Resource" : "arn:aws:payments::*:connectedaccount/*"
+    },
+    {
+      "Sid" : "AllowMarketplaceAgreementActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:SearchAgreements",
+        "aws-marketplace:ListEntitlementDetails"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowListRolesForAISecurity",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:ListRoles"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowApexQueryActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "apex:GetStatistics",
+        "apex:GetStatisticsTimeSeries",
+        "apex:Search"
       ],
       "Resource" : "*"
     }

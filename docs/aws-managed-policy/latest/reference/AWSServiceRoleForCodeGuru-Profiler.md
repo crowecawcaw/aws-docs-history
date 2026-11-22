@@ -1,7 +1,6 @@
 
 
 # AWSServiceRoleForCodeGuru-Profiler
-<a name="AWSServiceRoleForCodeGuru-Profiler"></a>
 
 **Description**: A service-linked role required for Amazon CodeGuru Profiler to send notifications on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceRoleForCodeGuru-Profiler-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

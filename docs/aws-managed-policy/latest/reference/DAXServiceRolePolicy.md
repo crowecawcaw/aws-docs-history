@@ -1,7 +1,6 @@
 
 
 # DAXServiceRolePolicy
-<a name="DAXServiceRolePolicy"></a>
 
 **Description**: This policy allows DAX to create and manage Network interface, Security group, Subnet and Vpc on behalf of customer
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="DAXServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

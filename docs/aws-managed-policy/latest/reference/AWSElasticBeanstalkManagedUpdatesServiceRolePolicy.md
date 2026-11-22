@@ -1,7 +1,6 @@
 
 
 # AWSElasticBeanstalkManagedUpdatesServiceRolePolicy
-<a name="AWSElasticBeanstalkManagedUpdatesServiceRolePolicy"></a>
 
 **Description**: AWS Elastic Beanstalk Service Role policy that grants limited permissions to managed updates.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticBeanstalkManagedUpdatesServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

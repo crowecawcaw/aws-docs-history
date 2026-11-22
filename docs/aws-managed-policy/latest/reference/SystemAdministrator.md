@@ -1,7 +1,6 @@
 
 
 # SystemAdministrator
-<a name="SystemAdministrator"></a>
 
 **Description**: Grants full access permissions necessary for resources required for application and development operations.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SystemAdministrator-json"></a>
 
-```
+```json
 {
   "Statement" : [
     {

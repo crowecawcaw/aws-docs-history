@@ -1,7 +1,6 @@
 
 
 # AmazonOpenSearchIngestionServiceRolePolicy
-<a name="AmazonOpenSearchIngestionServiceRolePolicy"></a>
 
 **Description**: Allows Amazon OpenSearch Ingestion Service to access other AWS services on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonOpenSearchIngestionServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

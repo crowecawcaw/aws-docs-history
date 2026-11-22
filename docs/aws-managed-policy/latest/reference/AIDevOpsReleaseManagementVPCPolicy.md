@@ -1,7 +1,6 @@
 
 
 # AIDevOpsReleaseManagementVPCPolicy
-<a name="AIDevOpsReleaseManagementVPCPolicy"></a>
 
 **Description**: Provides permissions for AWS DevOps Agent to create and manage network interfaces in your VPC so that release management agents can access private resources
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AIDevOpsReleaseManagementVPCPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonDevOpsGuruOrganizationsAccess
-<a name="AmazonDevOpsGuruOrganizationsAccess"></a>
 
 **Description**: Provide access to enable and manage Amazon DevOps Guru within an organization.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDevOpsGuruOrganizationsAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # CloudTrailServiceRolePolicy
-<a name="CloudTrailServiceRolePolicy"></a>
 
 **Description**: Permission policy for CloudTrail ServiceLinkedRole
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudTrailServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

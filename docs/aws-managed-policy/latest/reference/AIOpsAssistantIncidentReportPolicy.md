@@ -1,7 +1,6 @@
 
 
 # AIOpsAssistantIncidentReportPolicy
-<a name="AIOpsAssistantIncidentReportPolicy"></a>
 
 **Description**: Provides permissions required by the Amazon AI Operations Assistant to generate incident report of the investigation.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AIOpsAssistantIncidentReportPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

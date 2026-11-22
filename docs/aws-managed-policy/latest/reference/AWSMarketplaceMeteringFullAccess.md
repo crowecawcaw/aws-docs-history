@@ -1,7 +1,6 @@
 
 
 # AWSMarketplaceMeteringFullAccess
-<a name="AWSMarketplaceMeteringFullAccess"></a>
 
 **Description**: Provides full access to AWS Marketplace Metering.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMarketplaceMeteringFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

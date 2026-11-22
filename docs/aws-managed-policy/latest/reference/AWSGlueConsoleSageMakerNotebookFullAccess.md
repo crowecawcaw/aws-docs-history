@@ -1,7 +1,6 @@
 
 
 # AWSGlueConsoleSageMakerNotebookFullAccess
-<a name="AWSGlueConsoleSageMakerNotebookFullAccess"></a>
 
 **Description**: Provides full access to AWS Glue via the AWS Management Console and access to sagemaker notebook instances.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSGlueConsoleSageMakerNotebookFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

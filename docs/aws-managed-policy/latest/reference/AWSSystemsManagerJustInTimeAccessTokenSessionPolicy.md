@@ -1,7 +1,6 @@
 
 
 # AWSSystemsManagerJustInTimeAccessTokenSessionPolicy
-<a name="AWSSystemsManagerJustInTimeAccessTokenSessionPolicy"></a>
 
 **Description**: The managed policy AWSSystemsManagerJustInTimeAccessTokenSessionPolicy allows Systems Manager to apply scoped down permissions to a just-in-time node access session once it is started.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSystemsManagerJustInTimeAccessTokenSessionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

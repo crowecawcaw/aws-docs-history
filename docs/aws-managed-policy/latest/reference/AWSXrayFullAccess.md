@@ -1,7 +1,6 @@
 
 
 # AWSXrayFullAccess
-<a name="AWSXrayFullAccess"></a>
 
 **Description**: AWS X-Ray full access managed policy
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSXrayFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

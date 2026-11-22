@@ -1,7 +1,6 @@
 
 
 # AWSIoTConfigReadOnlyAccess
-<a name="AWSIoTConfigReadOnlyAccess"></a>
 
 **Description**: This policy gives read only access to the AWS IoT configuration actions
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTConfigReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSEC2VssSnapshotPolicy
-<a name="AWSEC2VssSnapshotPolicy"></a>
 
 **Description**: This policy is attached to the IAM role that's attached to your Amazon EC2 Windows Instances to enable the Amazon EC2 VSS solution to create and add tags to Amazon Machine Images (AMI) and EBS Snapshots.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSEC2VssSnapshotPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonEKSDashboardConsoleReadOnly
-<a name="AmazonEKSDashboardConsoleReadOnly"></a>
 
 **Description**: Provides read only access to view the dashboard in the Amazon EKS console. The dashboard aggregates information about multiple clusters and related resources using AWS Organizations.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEKSDashboardConsoleReadOnly-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

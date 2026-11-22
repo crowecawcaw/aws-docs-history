@@ -1,7 +1,6 @@
 
 
 # AmazonRDSCustomServiceRolePolicy
-<a name="AmazonRDSCustomServiceRolePolicy"></a>
 
 **Description**: Allows Amazon RDS Custom to manage AWS resources on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRDSCustomServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

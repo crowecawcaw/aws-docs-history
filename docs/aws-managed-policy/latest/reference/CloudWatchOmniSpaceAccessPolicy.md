@@ -1,7 +1,6 @@
 
 
 # CloudWatchOmniSpaceAccessPolicy
-<a name="CloudWatchOmniSpaceAccessPolicy"></a>
 
 **Description**: Provides access to manage CloudWatch Omni spaces, view Applications Telemetry, and other Observability and Monitoring features through the new CloudWatch Omni Product
 
@@ -16,20 +15,20 @@ You can attach `CloudWatchOmniSpaceAccessPolicy` to your users, groups, and role
 <a name="CloudWatchOmniSpaceAccessPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: September 22, 2026, 01:47 UTC 
-+ **Edited time:** November 11, 2026, 01:27 UTC
++ **Edited time:** November 19, 2026, 23:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/CloudWatchOmniSpaceAccessPolicy`
 
 ## Policy version
 <a name="CloudWatchOmniSpaceAccessPolicy-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="CloudWatchOmniSpaceAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -52,6 +51,7 @@ The policy's default version is the version that defines the permissions for the
         "cloudwatch:StopTelemetryQuery",
         "cloudwatch:GetTelemetryQueryResults",
         "cloudwatch:GetRecords",
+        "cloudwatch:GetProfileRecords",
         "cloudwatch:GetMetricData",
         "cloudwatch:ListMetrics",
         "cloudwatch:GetContextGraph",
@@ -84,6 +84,11 @@ The policy's default version is the version that defines the permissions for the
         "cloudwatch:ListOmniThreads",
         "cloudwatch:DeleteOmniThread",
         "cloudwatch:StartOmniThreadSession",
+        "cloudwatch:CreateOmniAgentAsset",
+        "cloudwatch:GetOmniAgentAsset",
+        "cloudwatch:UpdateOmniAgentAsset",
+        "cloudwatch:ListOmniAgentAssets",
+        "cloudwatch:DeleteOmniAgentAsset",
         "cloudwatch:SubmitFeedback",
         "cloudwatch:CreateIntegration",
         "cloudwatch:UpdateIntegration",
@@ -93,6 +98,7 @@ The policy's default version is the version that defines the permissions for the
         "cloudwatch:InvokeIntegration",
         "cloudwatch:GetIntelligenceConfiguration",
         "cloudwatch:PutIntelligenceConfiguration",
+        "cloudwatch:PutRecords",
         "cloudwatch:TagResource",
         "cloudwatch:UntagResource",
         "cloudwatch:ListTagsForResource",
@@ -124,7 +130,8 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:cloudwatch:*:*:alert/*",
         "arn:aws:cloudwatch:*:*:view/*",
         "arn:aws:cloudwatch:*:*:integration/*",
-        "arn:aws:cloudwatch:*:*:dataset/*"
+        "arn:aws:cloudwatch:*:*:dataset/*",
+        "arn:aws:cloudwatch:*:*:omni-agent-asset/*"
       ]
     },
     {
@@ -317,6 +324,255 @@ The policy's default version is the version that defines the permissions for the
           "iam:AWSServiceName" : "config.amazonaws.com"
         }
       }
+    },
+    {
+      "Sid" : "AzureVendedReadOutboundWebIdentityFederation",
+      "Effect" : "Allow",
+      "Action" : "iam:GetOutboundWebIdentityFederationInfo",
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AzureVendedGetDatasetIntegration",
+      "Effect" : "Allow",
+      "Action" : "observabilityadmin:GetDatasetIntegration",
+      "Resource" : "arn:aws:observabilityadmin:*:*:dataset-integration/default",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AzureVendedCreateAndListConnectors",
+      "Effect" : "Allow",
+      "Action" : [
+        "observabilityadmin:CreateConnector",
+        "observabilityadmin:ListConnectors"
+      ],
+      "Resource" : "arn:aws:observabilityadmin:*:*:connector/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AzureVendedPassConnectorRole",
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : "arn:aws:iam::*:role/*",
+      "Condition" : {
+        "ArnLike" : {
+          "iam:AssociatedResourceArn" : "arn:aws:observabilityadmin:*:*:connector/*"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "iam:PassedToService" : "observabilityadmin.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AzureVendedConnectorAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "observabilityadmin:GetConnector",
+        "observabilityadmin:DeleteConnector",
+        "observabilityadmin:ListResourcesByConnector",
+        "observabilityadmin:PutConnectorTelemetryManifest",
+        "observabilityadmin:GetConnectorTelemetryManifest",
+        "observabilityadmin:GetConnectorTelemetrySetup"
+      ],
+      "Resource" : "arn:aws:observabilityadmin:*:*:connector/azure/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AzureVendedListTelemetryPipelines",
+      "Effect" : "Allow",
+      "Action" : "observabilityadmin:ListTelemetryPipelines",
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AzureVendedCreateTelemetryPipeline",
+      "Effect" : "Allow",
+      "Action" : "observabilityadmin:CreateTelemetryPipeline",
+      "Resource" : "arn:aws:observabilityadmin:*:*:telemetry-pipeline/*",
+      "Condition" : {
+        "Null" : {
+          "aws:TagKeys" : "true"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "observabilityadmin:SourceType" : "cloudwatch_connector"
+        }
+      }
+    },
+    {
+      "Sid" : "AzureVendedManageTelemetryPipelines",
+      "Effect" : "Allow",
+      "Action" : [
+        "observabilityadmin:UpdateTelemetryPipeline",
+        "observabilityadmin:GetTelemetryPipeline",
+        "observabilityadmin:DeleteTelemetryPipeline",
+        "observabilityadmin:StartTelemetryPipelineRefresh"
+      ],
+      "Resource" : "arn:aws:observabilityadmin:*:*:telemetry-pipeline/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AzureVendedLogGroupManagement",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:CreateLogGroup",
+        "logs:PutRetentionPolicy",
+        "logs:DeleteRetentionPolicy"
+      ],
+      "Resource" : "arn:aws:logs:*:*:log-group:/az/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AzureVendedPassPipelineWriterRole",
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : "arn:aws:iam::*:role/*",
+      "Condition" : {
+        "ArnLike" : {
+          "iam:AssociatedResourceArn" : "arn:aws:observabilityadmin:*:*:telemetry-pipeline/*"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "iam:PassedToService" : "telemetry-pipelines.observabilityadmin.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AzureVendedListTelemetryEnrichments",
+      "Effect" : "Allow",
+      "Action" : "observabilityadmin:ListThirdPartyTelemetryEnrichments",
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AzureVendedStartTelemetryEnrichment",
+      "Effect" : "Allow",
+      "Action" : "observabilityadmin:StartThirdPartyTelemetryEnrichment",
+      "Resource" : "arn:aws:observabilityadmin:*:*:telemetry-enrichments/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AzureVendedManageTelemetryEnrichments",
+      "Effect" : "Allow",
+      "Action" : [
+        "observabilityadmin:GetThirdPartyTelemetryEnrichment",
+        "observabilityadmin:StopThirdPartyTelemetryEnrichment"
+      ],
+      "Resource" : "arn:aws:observabilityadmin:*:*:telemetry-enrichments/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AzureResourceContextDiscovery",
+      "Effect" : "Allow",
+      "Action" : "config:ListConnectors",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AzureResourceContextRead",
+      "Effect" : "Allow",
+      "Action" : "config:GetConnector",
+      "Resource" : "arn:aws:config:*:*:connector/azure/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AzureResourceContextConnectorCreation",
+      "Effect" : "Allow",
+      "Action" : "config:PutConnector",
+      "Resource" : "arn:aws:config:*:*:connector/azure/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AzureResourceContextServiceLinkedRole",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/thirdparty.config.amazonaws.com/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "iam:AWSServiceName" : "thirdparty.config.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AzureResourceContextEnablement",
+      "Effect" : "Allow",
+      "Action" : "config:PutThirdPartyServiceLinkedConfigurationRecorder",
+      "Resource" : "arn:aws:config:*:*:configuration-recorder/*",
+      "Condition" : {
+        "Bool" : {
+          "aws:ViaAWSService" : "true"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "config:ConfigurationRecorderServicePrincipal" : [
+            "azure.cloudwatch.amazonaws.com",
+            "azure.telemetry-enrichment.observabilityadmin.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "AzureResourceContextDisablement",
+      "Effect" : "Allow",
+      "Action" : "config:DeleteServiceLinkedConfigurationRecorder",
+      "Resource" : "arn:aws:config:*:*:configuration-recorder/*",
+      "Condition" : {
+        "Bool" : {
+          "aws:ViaAWSService" : "true"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "config:ConfigurationRecorderServicePrincipal" : [
+            "azure.cloudwatch.amazonaws.com",
+            "azure.telemetry-enrichment.observabilityadmin.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "AzureTraceReadiness",
+      "Effect" : "Allow",
+      "Action" : "xray:GetTraceSegmentDestination",
+      "Resource" : "*"
     },
     {
       "Sid" : "AgentCoreEvaluator",
@@ -554,6 +810,85 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : "sns:ListTopics",
       "Resource" : "*"
+    },
+    {
+      "Sid" : "PartnerIntegrationRoleFromTemplate",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateRole",
+        "iam:PutRolePolicy"
+      ],
+      "Resource" : "arn:aws:iam::*:role/service-role/CloudWatchExternalAgentIntegration-*",
+      "Condition" : {
+        "ArnLike" : {
+          "iam:RoleTemplateARN" : "arn:aws:iam::aws:role-template/cloudwatch.amazonaws.com/CloudWatchExternalAgentIntegrationRoleTemplate:*"
+        },
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "cloudwatch.amazonaws.com"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "PartnerIntegrationRoleTemplateRead",
+      "Effect" : "Allow",
+      "Action" : "iam:GetRoleTemplateVersion",
+      "Resource" : "arn:aws:iam::aws:role-template/cloudwatch.amazonaws.com/CloudWatchExternalAgentIntegrationRoleTemplate:*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "cloudwatch.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "DevOpsAgentInvestigationRoleFromTemplate",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateRole",
+      "Resource" : "arn:aws:iam::*:role/service-role/CloudWatchOmniDevOpsAgentInvestigationRole-*",
+      "Condition" : {
+        "ArnLike" : {
+          "iam:RoleTemplateARN" : "arn:aws:iam::aws:role-template/cloudwatch.amazonaws.com/CloudWatchOmniDevOpsAgentInvestigationAccessRoleTemplate:*"
+        },
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "cloudwatch.amazonaws.com"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "DevOpsAgentInvestigationPolicyFromTemplate",
+      "Effect" : "Allow",
+      "Action" : "iam:AttachRolePolicy",
+      "Resource" : "arn:aws:iam::*:role/service-role/CloudWatchOmniDevOpsAgentInvestigationRole-*",
+      "Condition" : {
+        "ArnEquals" : {
+          "iam:PolicyARN" : "arn:aws:iam::aws:policy/service-role/CloudWatchOmniDevOpsAgentInvestigationServiceRolePolicy"
+        },
+        "ArnLike" : {
+          "iam:RoleTemplateARN" : "arn:aws:iam::aws:role-template/cloudwatch.amazonaws.com/CloudWatchOmniDevOpsAgentInvestigationAccessRoleTemplate:*"
+        },
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "cloudwatch.amazonaws.com"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "DevOpsAgentInvestigationRoleTemplateRead",
+      "Effect" : "Allow",
+      "Action" : "iam:GetRoleTemplateVersion",
+      "Resource" : "arn:aws:iam::aws:role-template/cloudwatch.amazonaws.com/CloudWatchOmniDevOpsAgentInvestigationAccessRoleTemplate:*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "cloudwatch.amazonaws.com"
+        }
+      }
     }
   ]
 }

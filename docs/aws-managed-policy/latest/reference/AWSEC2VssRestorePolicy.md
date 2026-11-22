@@ -1,7 +1,6 @@
 
 
 # AWSEC2VssRestorePolicy
-<a name="AWSEC2VssRestorePolicy"></a>
 
 **Description**: Grants Amazon EC2 and AWS SSM permissions to restore SQL Server database from application consistent snapshots created by AWS VSS.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSEC2VssRestorePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

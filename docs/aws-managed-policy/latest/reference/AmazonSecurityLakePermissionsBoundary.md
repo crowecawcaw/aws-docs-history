@@ -1,7 +1,6 @@
 
 
 # AmazonSecurityLakePermissionsBoundary
-<a name="AmazonSecurityLakePermissionsBoundary"></a>
 
 **Description**: Amazon Security Lake creates IAM roles for third-party custom sources to write data to a data lake and for third-party subscribers to consume data from a data lake, and uses this policy when creating these roles to define the boundary of their permissions.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSecurityLakePermissionsBoundary-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

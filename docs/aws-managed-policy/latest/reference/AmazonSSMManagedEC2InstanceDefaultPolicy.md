@@ -1,7 +1,6 @@
 
 
 # AmazonSSMManagedEC2InstanceDefaultPolicy
-<a name="AmazonSSMManagedEC2InstanceDefaultPolicy"></a>
 
 **Description**: This policy enables AWS Systems Manager functionality on EC2 instances.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSSMManagedEC2InstanceDefaultPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

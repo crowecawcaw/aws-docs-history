@@ -1,7 +1,6 @@
 
 
 # SSMQuickSetupRolePolicy
-<a name="SSMQuickSetupRolePolicy"></a>
 
 **Description**: Provides permissions to check Quick Setup configuration health, ensure consistent use of parameters and provisioned resources, and remediate resources when drift is detected.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SSMQuickSetupRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSTransformLandingZoneAgentPolicy
-<a name="AWSTransformLandingZoneAgentPolicy"></a>
 
 **Description**: Grants permissions for AWS Transform to set up AWS landing zones including account provisioning, organizational governance, and Control Tower configuration
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSTransformLandingZoneAgentPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

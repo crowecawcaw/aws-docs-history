@@ -1,7 +1,6 @@
 
 
 # CloudWatchInternetMonitorServiceRolePolicy
-<a name="CloudWatchInternetMonitorServiceRolePolicy"></a>
 
 **Description**: Allows Internet Monitor to access EC2, Workspaces, and CloudFront resources, and other required services on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchInternetMonitorServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

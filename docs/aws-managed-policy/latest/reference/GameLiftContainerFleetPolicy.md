@@ -1,7 +1,6 @@
 
 
 # GameLiftContainerFleetPolicy
-<a name="GameLiftContainerFleetPolicy"></a>
 
 **Description**: Grants the required permissions for compute actions in an Amazon GameLift container fleet, including access to dependencies such as Amazon S3.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="GameLiftContainerFleetPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

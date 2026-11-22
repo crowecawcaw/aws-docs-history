@@ -1,7 +1,6 @@
 
 
 # AWSBudgetsSpendLimitMemberRolePolicy
-<a name="AWSBudgetsSpendLimitMemberRolePolicy"></a>
 
 **Description**: Grants the AWS Budgets service permissions to describe, stop, and terminate resources in a member account to enforce spend limit actions.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBudgetsSpendLimitMemberRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

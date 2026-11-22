@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerCoreServiceRolePolicy
-<a name="AmazonSageMakerCoreServiceRolePolicy"></a>
 
 **Description**: Managed policy for Service Linked Role for Amazon SageMaker Core Services
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerCoreServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

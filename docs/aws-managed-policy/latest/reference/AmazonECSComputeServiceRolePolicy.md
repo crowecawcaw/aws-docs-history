@@ -1,7 +1,6 @@
 
 
 # AmazonECSComputeServiceRolePolicy
-<a name="AmazonECSComputeServiceRolePolicy"></a>
 
 **Description**: Policy to enable Amazon ECS Compute to manage your EC2 instances and related resources as part of ECS managed instances
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonECSComputeServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

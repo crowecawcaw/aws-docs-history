@@ -1,7 +1,6 @@
 
 
 # AWSStepFunctionsReadOnlyAccess
-<a name="AWSStepFunctionsReadOnlyAccess"></a>
 
 **Description**: An access policy for providing a user/role/etc read only access to the AWS StepFunctions service.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSStepFunctionsReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

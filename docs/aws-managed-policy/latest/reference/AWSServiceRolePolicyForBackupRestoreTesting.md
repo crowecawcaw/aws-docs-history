@@ -1,7 +1,6 @@
 
 
 # AWSServiceRolePolicyForBackupRestoreTesting
-<a name="AWSServiceRolePolicyForBackupRestoreTesting"></a>
 
 **Description**: This policy contains permissions for testing restores and for cleaning up resources created during tests.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceRolePolicyForBackupRestoreTesting-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

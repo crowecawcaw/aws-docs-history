@@ -1,7 +1,6 @@
 
 
 # IVSRecordToS3
-<a name="IVSRecordToS3"></a>
 
 **Description**: Service Linked Role to perform S3 PutObject to recording IVS live streams
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="IVSRecordToS3-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

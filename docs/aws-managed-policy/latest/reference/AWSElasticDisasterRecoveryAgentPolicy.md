@@ -1,7 +1,6 @@
 
 
 # AWSElasticDisasterRecoveryAgentPolicy
-<a name="AWSElasticDisasterRecoveryAgentPolicy"></a>
 
 **Description**: This policy allows using the AWS Replication Agent, which is used with AWS Elastic Disaster Recovery (DRS) to recover source servers to AWS. We do not recommend that you attach this policy to your IAM users or roles.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticDisasterRecoveryAgentPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

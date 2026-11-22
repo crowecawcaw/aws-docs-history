@@ -1,7 +1,6 @@
 
 
 # AmazonGuardDutyServiceRolePolicy
-<a name="AmazonGuardDutyServiceRolePolicy"></a>
 
 **Description**: Enable access to AWS Resources used or managed by Amazon Guard Duty
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonGuardDutyServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

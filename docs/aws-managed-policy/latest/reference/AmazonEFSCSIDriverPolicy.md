@@ -1,7 +1,6 @@
 
 
 # AmazonEFSCSIDriverPolicy
-<a name="AmazonEFSCSIDriverPolicy"></a>
 
 **Description**: Provides management access to EFS resources and read access to EC2
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEFSCSIDriverPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonGrafanaAthenaAccess
-<a name="AmazonGrafanaAthenaAccess"></a>
 
 **Description**: This policy grants access to Amazon Athena and the dependencies needed to enable querying and writing results to s3 from the Amazon Athena plugin in Amazon Grafana.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonGrafanaAthenaAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonEventBridgeSchedulerReadOnlyAccess
-<a name="AmazonEventBridgeSchedulerReadOnlyAccess"></a>
 
 **Description**: The AmazonEventBridgeSchedulerReadOnlyAccess managed policy grants read-only permissions to view details about your schedules and schedule groups
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEventBridgeSchedulerReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

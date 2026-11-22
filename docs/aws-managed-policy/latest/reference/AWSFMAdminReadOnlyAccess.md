@@ -1,7 +1,6 @@
 
 
 # AWSFMAdminReadOnlyAccess
-<a name="AWSFMAdminReadOnlyAccess"></a>
 
 **Description**: Read only access for AWS FM Administrator that allows monitoring AWS FM operations
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSFMAdminReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

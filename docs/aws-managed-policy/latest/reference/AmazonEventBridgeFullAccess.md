@@ -1,7 +1,6 @@
 
 
 # AmazonEventBridgeFullAccess
-<a name="AmazonEventBridgeFullAccess"></a>
 
 **Description**: Provides full access to Amazon EventBridge.
 
@@ -16,20 +15,20 @@ You can attach `AmazonEventBridgeFullAccess` to your users, groups, and roles.
 <a name="AmazonEventBridgeFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: July 11, 2019, 14:08 UTC 
-+ **Edited time:** February 12, 2026, 17:58 UTC
++ **Edited time:** November 19, 2026, 18:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonEventBridgeFullAccess`
 
 ## Policy version
 <a name="AmazonEventBridgeFullAccess-version"></a>
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AmazonEventBridgeFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -77,6 +76,18 @@ The policy's default version is the version that defines the permissions for the
         "secretsmanager:PutSecretValue"
       ],
       "Resource" : "arn:aws:secretsmanager:*:*:secret:events!*"
+    },
+    {
+      "Sid" : "SecretsManagerAccessForWebhookEvents",
+      "Effect" : "Allow",
+      "Action" : [
+        "secretsmanager:CreateSecret",
+        "secretsmanager:UpdateSecret",
+        "secretsmanager:DeleteSecret",
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:PutSecretValue"
+      ],
+      "Resource" : "arn:aws:secretsmanager:*:*:secret:events-webhook!*"
     },
     {
       "Sid" : "IAMPassRoleAccessForEventBridge",

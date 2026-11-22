@@ -1,7 +1,6 @@
 
 
 # EC2ApplicationStatusChecksServiceRolePolicy
-<a name="EC2ApplicationStatusChecksServiceRolePolicy"></a>
 
 **Description**: Enables EC2 to discover and manage resources related to EC2 Application Status Checks
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="EC2ApplicationStatusChecksServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

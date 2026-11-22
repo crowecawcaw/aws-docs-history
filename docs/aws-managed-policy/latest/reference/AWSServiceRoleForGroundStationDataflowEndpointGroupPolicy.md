@@ -1,7 +1,6 @@
 
 
 # AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy
-<a name="AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy"></a>
 
 **Description**: AWS GroundStation uses this service-linked role to invoke EC2 to find public IPv4 addresses
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

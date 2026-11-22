@@ -1,7 +1,6 @@
 
 
 # AmazonEMRServicePolicyForSessions
-<a name="AmazonEMRServicePolicyForSessions"></a>
 
 **Description**: Provides permissions to provision and manage Network Load Balancers, VPC endpoint services, and security groups required for Amazon EMR Spark Connect interactive sessions on EMR on EC2 clusters.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEMRServicePolicyForSessions-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

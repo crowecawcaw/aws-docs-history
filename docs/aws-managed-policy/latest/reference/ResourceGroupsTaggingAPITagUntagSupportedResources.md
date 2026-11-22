@@ -1,7 +1,6 @@
 
 
 # ResourceGroupsTaggingAPITagUntagSupportedResources
-<a name="ResourceGroupsTaggingAPITagUntagSupportedResources"></a>
 
 **Description**: Provides permissions to tag and untag all the resources supported by Resource Groups Tagging API. This policy also grants the permissions required to retrieve all tagged, or previously tagged, resources through the Resource Groups Tagging API.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ResourceGroupsTaggingAPITagUntagSupportedResources-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

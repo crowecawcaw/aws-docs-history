@@ -1,7 +1,6 @@
 
 
 # AWSIoTDeviceDefenderUpdateCACertMitigationAction
-<a name="AWSIoTDeviceDefenderUpdateCACertMitigationAction"></a>
 
 **Description**: Provides write access to IoT CA certificates for execution of UPDATE\_CA\_CERTIFICATE mitigation action
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTDeviceDefenderUpdateCACertMitigationAction-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

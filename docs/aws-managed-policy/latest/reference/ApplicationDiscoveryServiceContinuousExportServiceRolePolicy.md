@@ -1,7 +1,6 @@
 
 
 # ApplicationDiscoveryServiceContinuousExportServiceRolePolicy
-<a name="ApplicationDiscoveryServiceContinuousExportServiceRolePolicy"></a>
 
 **Description**: Enables access to AWS services and Resources used or managed by Application Discovery Service Continuous Export feature
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ApplicationDiscoveryServiceContinuousExportServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerTrainingSessionFullAccess
-<a name="AmazonSageMakerTrainingSessionFullAccess"></a>
 
 **Description**: Provides permissions for Amazon SageMaker training session execution roles to access data in Amazon S3, use customer managed AWS KMS keys, publish model packages, access public hub content, and manage Amazon VPC network interfaces.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerTrainingSessionFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

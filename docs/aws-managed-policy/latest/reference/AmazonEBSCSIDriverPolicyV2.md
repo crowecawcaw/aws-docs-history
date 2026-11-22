@@ -1,7 +1,6 @@
 
 
 # AmazonEBSCSIDriverPolicyV2
-<a name="AmazonEBSCSIDriverPolicyV2"></a>
 
 **Description**: IAM Policy that allows the EBS CSI driver service account to make calls to related services such as EC2 on your behalf. It limits the Amazon EBS CSI driver to only managing EBS volumes and snapshots that are tagged with the key ebs.csi.aws.com/cluster set to true. Volumes provisioned by the in-tree Kubernetes volume plugin (CSI-migrated volumes) are also supported through the kubernetes.io/created-for/pvc/name resource tag.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEBSCSIDriverPolicyV2-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

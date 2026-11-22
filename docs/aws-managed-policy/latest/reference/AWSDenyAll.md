@@ -1,7 +1,6 @@
 
 
 # AWSDenyAll
-<a name="AWSDenyAll"></a>
 
 **Description**: Deny all access.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDenyAll-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

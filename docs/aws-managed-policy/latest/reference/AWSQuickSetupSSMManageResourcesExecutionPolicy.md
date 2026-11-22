@@ -1,7 +1,6 @@
 
 
 # AWSQuickSetupSSMManageResourcesExecutionPolicy
-<a name="AWSQuickSetupSSMManageResourcesExecutionPolicy"></a>
 
 **Description**: This policy grants permissions that allow Systems Manager to create prerequisites such as IAM roles required for Systems Manager onboarding.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSetupSSMManageResourcesExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

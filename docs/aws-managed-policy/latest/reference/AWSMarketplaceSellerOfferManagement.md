@@ -1,7 +1,6 @@
 
 
 # AWSMarketplaceSellerOfferManagement
-<a name="AWSMarketplaceSellerOfferManagement"></a>
 
 **Description**: Provides sellers access to Offers and Agreements management activities.
 
@@ -16,20 +15,20 @@ You can attach `AWSMarketplaceSellerOfferManagement` to your users, groups, and 
 <a name="AWSMarketplaceSellerOfferManagement-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 19, 2024, 00:41 UTC 
-+ **Edited time:** October 27, 2026, 00:47 UTC
++ **Edited time:** November 20, 2026, 03:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSMarketplaceSellerOfferManagement`
 
 ## Policy version
 <a name="AWSMarketplaceSellerOfferManagement-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSMarketplaceSellerOfferManagement-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -131,6 +130,62 @@ The policy's default version is the version that defines the permissions for the
           "aws-marketplace:PartyType" : "Proposer"
         }
       }
+    },
+    {
+      "Sid" : "AWSMarketplaceAgreementContactsReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:GetAgreementContacts"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAllValues:StringEquals" : {
+          "aws-marketplace:AgreementType" : [
+            "PurchaseAgreement"
+          ]
+        },
+        "Null" : {
+          "aws-marketplace:AgreementType" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "MarketplaceEphemeralWriteS3Access",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:PutObject"
+      ],
+      "Resource" : [
+        "arn:aws:s3:::aws-partner-central-marketplace-ephemeral-writeonly-files/${aws:PrincipalAccount}/*"
+      ]
+    },
+    {
+      "Sid" : "Support",
+      "Effect" : "Allow",
+      "Action" : [
+        "support:CreateCase",
+        "support:DescribeCases",
+        "support:DescribeCommunications",
+        "support:DescribeAttachment",
+        "support:AddCommunicationToCase",
+        "support:ResolveCase",
+        "support:AddAttachmentsToSet",
+        "support:SearchForCases",
+        "support:DescribeServices",
+        "support:DescribeCreateCaseOptions"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SupportConsole",
+      "Effect" : "Allow",
+      "Action" : [
+        "support-console:GetAccountState",
+        "support-console:GetAccountGovCloudEnabled",
+        "support-console:CheckSubscription",
+        "support-console:GetBanner"
+      ],
+      "Resource" : "*"
     }
   ]
 }

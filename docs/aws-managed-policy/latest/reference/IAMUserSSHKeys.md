@@ -1,7 +1,6 @@
 
 
 # IAMUserSSHKeys
-<a name="IAMUserSSHKeys"></a>
 
 **Description**: Provides the ability for an IAM user to manage their own SSH keys.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="IAMUserSSHKeys-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

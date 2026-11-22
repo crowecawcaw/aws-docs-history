@@ -1,7 +1,6 @@
 
 
 # AmazonEKSLocalOutpostServiceRolePolicy
-<a name="AmazonEKSLocalOutpostServiceRolePolicy"></a>
 
 **Description**: Allows Amazon EKS Local to call AWS services on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEKSLocalOutpostServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

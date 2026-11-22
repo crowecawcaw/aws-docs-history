@@ -1,7 +1,6 @@
 
 
 # IAMAccessAdvisorReadOnly
-<a name="IAMAccessAdvisorReadOnly"></a>
 
 **Description**: This policy grants access to read all access information provided by IAM access advisor such as service last accessed information.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="IAMAccessAdvisorReadOnly-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

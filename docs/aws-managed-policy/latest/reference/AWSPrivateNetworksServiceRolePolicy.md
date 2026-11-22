@@ -1,7 +1,6 @@
 
 
 # AWSPrivateNetworksServiceRolePolicy
-<a name="AWSPrivateNetworksServiceRolePolicy"></a>
 
 **Description**: Allows AWS Private Networks Service to manage resources on behalf of the customer.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSPrivateNetworksServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

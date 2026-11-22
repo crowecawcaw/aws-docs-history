@@ -1,7 +1,6 @@
 
 
 # AWSServiceCatalogAppRegistryServiceRolePolicy
-<a name="AWSServiceCatalogAppRegistryServiceRolePolicy"></a>
 
 **Description**: Allows Service Catalog AppRegistry to manage Resource Groups on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceCatalogAppRegistryServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

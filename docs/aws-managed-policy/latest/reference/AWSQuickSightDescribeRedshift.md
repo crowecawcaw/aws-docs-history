@@ -1,7 +1,6 @@
 
 
 # AWSQuickSightDescribeRedshift
-<a name="AWSQuickSightDescribeRedshift"></a>
 
 **Description**: Allow QuickSight to describe Redshift resources
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSightDescribeRedshift-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonAPIGatewayPushToCloudWatchLogs
-<a name="AmazonAPIGatewayPushToCloudWatchLogs"></a>
 
 **Description**: Allows API Gateway to push logs to user's account.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonAPIGatewayPushToCloudWatchLogs-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

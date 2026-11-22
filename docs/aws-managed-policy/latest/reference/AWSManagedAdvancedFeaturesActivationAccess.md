@@ -1,7 +1,6 @@
 
 
 # AWSManagedAdvancedFeaturesActivationAccess
-<a name="AWSManagedAdvancedFeaturesActivationAccess"></a>
 
 **Description**: Grants AWS permission to activate advanced features for AWS managed accounts
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSManagedAdvancedFeaturesActivationAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : {

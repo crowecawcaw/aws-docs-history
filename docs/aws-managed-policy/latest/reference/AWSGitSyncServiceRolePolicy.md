@@ -1,7 +1,6 @@
 
 
 # AWSGitSyncServiceRolePolicy
-<a name="AWSGitSyncServiceRolePolicy"></a>
 
 **Description**: Policy which allows AWS Code Connections to sync content from your git repository
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSGitSyncServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

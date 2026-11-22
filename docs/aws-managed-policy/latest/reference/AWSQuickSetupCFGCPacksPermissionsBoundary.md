@@ -1,7 +1,6 @@
 
 
 # AWSQuickSetupCFGCPacksPermissionsBoundary
-<a name="AWSQuickSetupCFGCPacksPermissionsBoundary"></a>
 
 **Description**: The AWSQuickSetupCFGCPacksPermissionsBoundary policy defines the list of permissions that are permitted in an IAM role created by Quick Setup. Quick Setup uses a role created with this policy to deploy AWS Config conformance packs.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSetupCFGCPacksPermissionsBoundary-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

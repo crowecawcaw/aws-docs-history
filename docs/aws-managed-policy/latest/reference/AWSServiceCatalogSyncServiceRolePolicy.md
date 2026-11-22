@@ -1,7 +1,6 @@
 
 
 # AWSServiceCatalogSyncServiceRolePolicy
-<a name="AWSServiceCatalogSyncServiceRolePolicy"></a>
 
 **Description**: A Service Linked Role for AWS ServiceCatalog to sync Provisioning Artifacts from source repositories
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceCatalogSyncServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

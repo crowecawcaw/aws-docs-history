@@ -1,7 +1,6 @@
 
 
 # CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy
-<a name="CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy"></a>
 
 **Description**: You can't attach CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy to your IAM entities. This policy is attached to a service-linked role named AWSServiceRoleForNetworkFlowMonitor\_Topology, which generates topology snapshots of resources used by Network Flow Monitor in your account.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

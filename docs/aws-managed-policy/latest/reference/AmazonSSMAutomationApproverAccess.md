@@ -1,7 +1,6 @@
 
 
 # AmazonSSMAutomationApproverAccess
-<a name="AmazonSSMAutomationApproverAccess"></a>
 
 **Description**: Provides access to view automation executions and send approval decisions to automation waiting for approval
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSSMAutomationApproverAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

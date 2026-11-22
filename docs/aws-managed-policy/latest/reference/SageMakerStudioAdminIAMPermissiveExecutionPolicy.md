@@ -1,7 +1,6 @@
 
 
 # SageMakerStudioAdminIAMPermissiveExecutionPolicy
-<a name="SageMakerStudioAdminIAMPermissiveExecutionPolicy"></a>
 
 **Description**: Administrative execution policy for using IAM roles with SageMaker Unified Studio. Allows admins to provision, manage and access resources in the local account (including broad access to all APIs in data services like S3, Glue, CloudWatch Logs, and others) for IAM-based usage of SageMaker Unified Studio.
 
@@ -16,20 +15,20 @@ You can attach `SageMakerStudioAdminIAMPermissiveExecutionPolicy` to your users,
 <a name="SageMakerStudioAdminIAMPermissiveExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 18, 2025, 17:19 UTC 
-+ **Edited time:** November 14, 2026, 00:07 UTC
++ **Edited time:** November 17, 2026, 18:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMPermissiveExecutionPolicy`
 
 ## Policy version
 <a name="SageMakerStudioAdminIAMPermissiveExecutionPolicy-version"></a>
 
-**Policy version:** v26 (default)
+**Policy version:** v27 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="SageMakerStudioAdminIAMPermissiveExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -933,7 +932,8 @@ The policy's default version is the version that defines the permissions for the
       "Condition" : {
         "StringLike" : {
           "ram:ResourceShareName" : [
-            "DataZone*"
+            "DataZone*",
+            "LakeFormation-*"
           ]
         }
       }

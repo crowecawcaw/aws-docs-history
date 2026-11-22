@@ -1,7 +1,6 @@
 
 
 # ElastiCacheServiceRolePolicy
-<a name="ElastiCacheServiceRolePolicy"></a>
 
 **Description**: This policy allows ElastiCache to manage AWS resources on your behalf as necessary for managing your cache
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ElastiCacheServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

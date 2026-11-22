@@ -1,7 +1,6 @@
 
 
 # AWSBackupGatewayServiceRolePolicyForVirtualMachineMetadataSync
-<a name="AWSBackupGatewayServiceRolePolicyForVirtualMachineMetadataSync"></a>
 
 **Description**: Provides AWS BackupGateway permission to sync the metadata of Virtual Machines on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBackupGatewayServiceRolePolicyForVirtualMachineMetadataSync-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

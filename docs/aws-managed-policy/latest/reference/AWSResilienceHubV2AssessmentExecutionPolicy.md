@@ -1,7 +1,6 @@
 
 
 # AWSResilienceHubV2AssessmentExecutionPolicy
-<a name="AWSResilienceHubV2AssessmentExecutionPolicy"></a>
 
 **Description**: Allows AWS Resilience Hub to access resources in your account for resilience discovery, assessment, and management. This policy grants wildcarded read-only permissions that may include sensitive information in the output.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSResilienceHubV2AssessmentExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

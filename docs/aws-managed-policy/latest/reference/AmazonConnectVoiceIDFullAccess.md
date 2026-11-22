@@ -1,7 +1,6 @@
 
 
 # AmazonConnectVoiceIDFullAccess
-<a name="AmazonConnectVoiceIDFullAccess"></a>
 
 **Description**: Provides full access to Amazon Connect Voice ID
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonConnectVoiceIDFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSQuickSetupSSMDeploymentRolePolicy
-<a name="AWSQuickSetupSSMDeploymentRolePolicy"></a>
 
 **Description**: This policy grants administrative permssions that allow Quick Setup to create resources that are used during the Systems Manager onboarding process.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSetupSSMDeploymentRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

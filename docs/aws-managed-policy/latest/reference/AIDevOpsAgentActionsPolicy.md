@@ -1,7 +1,6 @@
 
 
 # AIDevOpsAgentActionsPolicy
-<a name="AIDevOpsAgentActionsPolicy"></a>
 
 **Description**: Provides elevated permissions required by the AWS DevOps Agent to perform operator-approved mutations or elevated actions on customer AWS resources during operational events.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AIDevOpsAgentActionsPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

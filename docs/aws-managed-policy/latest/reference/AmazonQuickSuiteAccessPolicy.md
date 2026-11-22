@@ -1,7 +1,6 @@
 
 
 # AmazonQuickSuiteAccessPolicy
-<a name="AmazonQuickSuiteAccessPolicy"></a>
 
 **Description**: Provides permissions for Amazon Quick Suite to manage its IAM Identity Center application, identity store users and groups, user subscriptions, and QuickSight resources on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonQuickSuiteAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

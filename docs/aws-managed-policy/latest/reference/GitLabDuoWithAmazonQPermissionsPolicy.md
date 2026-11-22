@@ -1,7 +1,6 @@
 
 
 # GitLabDuoWithAmazonQPermissionsPolicy
-<a name="GitLabDuoWithAmazonQPermissionsPolicy"></a>
 
 **Description**: This managed policy grants permission to connect with Amazon Q and utilize the features in the GitLab Duo with Amazon Q integration.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="GitLabDuoWithAmazonQPermissionsPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

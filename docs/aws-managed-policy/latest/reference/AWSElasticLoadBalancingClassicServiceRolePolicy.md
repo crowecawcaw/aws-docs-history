@@ -1,7 +1,6 @@
 
 
 # AWSElasticLoadBalancingClassicServiceRolePolicy
-<a name="AWSElasticLoadBalancingClassicServiceRolePolicy"></a>
 
 **Description**: Service Linked Role Policy for AWS Elastic Load Balancing Control Plane - Classic
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticLoadBalancingClassicServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

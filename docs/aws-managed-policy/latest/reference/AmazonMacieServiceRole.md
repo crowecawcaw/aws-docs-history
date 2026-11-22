@@ -1,7 +1,6 @@
 
 
 # AmazonMacieServiceRole
-<a name="AmazonMacieServiceRole"></a>
 
 **Description**: Grants Macie read-only access to resource dependencies in your account in order to enable data analysis.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonMacieServiceRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

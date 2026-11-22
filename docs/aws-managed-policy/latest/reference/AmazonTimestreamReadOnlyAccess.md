@@ -1,7 +1,6 @@
 
 
 # AmazonTimestreamReadOnlyAccess
-<a name="AmazonTimestreamReadOnlyAccess"></a>
 
 **Description**: Provides read only access to Amazon Timestream. Policy also provides permission to cancel any running query. If using Customer managed CMK, please refer to documentation for additional permissions needed.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonTimestreamReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSControlTowerAccountServiceRolePolicy
-<a name="AWSControlTowerAccountServiceRolePolicy"></a>
 
 **Description**: Allows AWS Control Tower to call AWS services that provide automated account configuration and centralized governance on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSControlTowerAccountServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSLambdaNetworkConnectorOperatorPolicy
-<a name="AWSLambdaNetworkConnectorOperatorPolicy"></a>
 
 **Description**: This policy grants permissions to create and administer ENI resources managed by the Lambda Network Connector
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSLambdaNetworkConnectorOperatorPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

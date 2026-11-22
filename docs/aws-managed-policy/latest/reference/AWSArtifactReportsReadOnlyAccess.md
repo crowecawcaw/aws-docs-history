@@ -1,7 +1,6 @@
 
 
 # AWSArtifactReportsReadOnlyAccess
-<a name="AWSArtifactReportsReadOnlyAccess"></a>
 
 **Description**: Provides read-only access to the AWS Artifact service reports.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSArtifactReportsReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

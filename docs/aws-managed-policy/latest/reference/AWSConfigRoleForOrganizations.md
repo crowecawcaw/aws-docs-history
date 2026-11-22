@@ -1,7 +1,6 @@
 
 
 # AWSConfigRoleForOrganizations
-<a name="AWSConfigRoleForOrganizations"></a>
 
 **Description**: Allows AWS Config to call read-only AWS Organizations APIs
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSConfigRoleForOrganizations-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

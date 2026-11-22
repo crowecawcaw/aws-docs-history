@@ -1,7 +1,6 @@
 
 
 # AmazonWorkspacesPCAAccess
-<a name="AmazonWorkspacesPCAAccess"></a>
 
 **Description**: This managed policy provides full administrative access to AWS Certificate Manager Private CA resources in your AWS account for certificate-based authentication.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonWorkspacesPCAAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

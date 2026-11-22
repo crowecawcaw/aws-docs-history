@@ -1,7 +1,6 @@
 
 
 # AWSGreengrassResourceAccessRolePolicy
-<a name="AWSGreengrassResourceAccessRolePolicy"></a>
 
 **Description**: Policy for AWS Greengrass service role which allows access to related services including AWS Lambda and AWS IoT thing shadows.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSGreengrassResourceAccessRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

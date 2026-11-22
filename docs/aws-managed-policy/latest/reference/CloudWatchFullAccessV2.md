@@ -1,7 +1,6 @@
 
 
 # CloudWatchFullAccessV2
-<a name="CloudWatchFullAccessV2"></a>
 
 **Description**: Provides full access to CloudWatch.
 
@@ -16,20 +15,20 @@ You can attach `CloudWatchFullAccessV2` to your users, groups, and roles.
 <a name="CloudWatchFullAccessV2-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 01, 2023, 11:32 UTC 
-+ **Edited time:** October 20, 2026, 18:57 UTC
++ **Edited time:** November 18, 2026, 15:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/CloudWatchFullAccessV2`
 
 ## Policy version
 <a name="CloudWatchFullAccessV2-version"></a>
 
-**Policy version:** v18 (default)
+**Policy version:** v20 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="CloudWatchFullAccessV2-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -52,51 +51,7 @@ The policy's default version is the version that defines the permissions for the
         "iam:GetPolicyVersion",
         "iam:GetRole",
         "oam:ListSinks",
-        "observabilityadmin:GetCentralizationRuleForOrganization",
-        "observabilityadmin:ListCentralizationRulesForOrganization",
-        "observabilityadmin:CreateCentralizationRuleForOrganization",
-        "observabilityadmin:UpdateCentralizationRuleForOrganization",
-        "observabilityadmin:DeleteCentralizationRuleForOrganization",
-        "observabilityadmin:StartTelemetryEvaluation",
-        "observabilityadmin:GetTelemetryEvaluationStatus",
-        "observabilityadmin:ListResourceTelemetry",
-        "observabilityadmin:StopTelemetryEvaluation",
-        "observabilityadmin:StartTelemetryEvaluationForOrganization",
-        "observabilityadmin:GetTelemetryEvaluationStatusForOrganization",
-        "observabilityadmin:ListResourceTelemetryForOrganization",
-        "observabilityadmin:StopTelemetryEvaluationForOrganization",
-        "observabilityadmin:CreateTelemetryRule",
-        "observabilityadmin:GetTelemetryRule",
-        "observabilityadmin:ListTelemetryRules",
-        "observabilityadmin:UpdateTelemetryRule",
-        "observabilityadmin:DeleteTelemetryRule",
-        "observabilityadmin:CreateTelemetryRuleForOrganization",
-        "observabilityadmin:GetTelemetryRuleForOrganization",
-        "observabilityadmin:ListTelemetryRulesForOrganization",
-        "observabilityadmin:UpdateTelemetryRuleForOrganization",
-        "observabilityadmin:DeleteTelemetryRuleForOrganization",
-        "observabilityadmin:GetTelemetryEnrichmentStatus",
-        "observabilityadmin:StartTelemetryEnrichment",
-        "observabilityadmin:StopTelemetryEnrichment",
-        "observabilityadmin:TagResource",
-        "observabilityadmin:UntagResource",
-        "observabilityadmin:ListTagsForResource",
-        "observabilityadmin:CreateTelemetryPipeline",
-        "observabilityadmin:GetTelemetryPipeline",
-        "observabilityadmin:UpdateTelemetryPipeline",
-        "observabilityadmin:DeleteTelemetryPipeline",
-        "observabilityadmin:ListTelemetryPipelines",
-        "observabilityadmin:TestTelemetryPipeline",
-        "observabilityadmin:ValidateTelemetryPipelineConfiguration",
-        "observabilityadmin:CreateS3TableIntegration",
-        "observabilityadmin:GetS3TableIntegration",
-        "observabilityadmin:ListS3TableIntegrations",
-        "observabilityadmin:DeleteS3TableIntegration",
-        "observabilityadmin:CreateDatasetIntegration",
-        "observabilityadmin:GetDatasetIntegration",
-        "observabilityadmin:ListDatasetIntegrations",
-        "observabilityadmin:UpdateDatasetIntegration",
-        "observabilityadmin:DeleteDatasetIntegration",
+        "observabilityadmin:*",
         "rum:*",
         "synthetics:*",
         "xray:*"
@@ -287,12 +242,55 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : "arn:aws:kms:*:*:key/*",
       "Condition" : {
         "StringLike" : {
-          "kms:ViaService" : "logs.*.amazonaws.com"
+          "kms:ViaService" : [
+            "logs.*.amazonaws.com",
+            "cloudwatch.*.amazonaws.com"
+          ]
         },
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
+    },
+    {
+      "Sid" : "ObservabilityAdminConnectorPassRolePermissions",
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:PassedToService" : "observabilityadmin.amazonaws.com"
+        },
+        "ArnLike" : {
+          "iam:AssociatedResourceArn" : "arn:aws:observabilityadmin:*:*:connector/*"
+        }
+      }
+    },
+    {
+      "Sid" : "ObservabilityAdminThirdPartyEnrichmentConfigRecorderPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "config:PutThirdPartyServiceLinkedConfigurationRecorder",
+        "config:DeleteServiceLinkedConfigurationRecorder"
+      ],
+      "Resource" : "arn:aws:config:*:*:configuration-recorder/*ConfigurationRecorderForCloudWatchTelemetryEnrichment*"
+    },
+    {
+      "Sid" : "ObservabilityAdminThirdPartyEnrichmentConfigSLRPermissions",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/config.amazonaws.com/AWSServiceRoleForConfig",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "config.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "ObservabilityAdminThirdPartyEnrichmentConfigConnectorRead",
+      "Effect" : "Allow",
+      "Action" : "config:GetConnector",
+      "Resource" : "arn:aws:config:*:*:connector/*"
     }
   ]
 }

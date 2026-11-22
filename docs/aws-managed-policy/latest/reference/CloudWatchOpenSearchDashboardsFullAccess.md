@@ -1,7 +1,6 @@
 
 
 # CloudWatchOpenSearchDashboardsFullAccess
-<a name="CloudWatchOpenSearchDashboardsFullAccess"></a>
 
 **Description**: This policy provides user access to create integration with OpenSearch to create, update, delete or view dashboards on the CloudWatch Logs console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchOpenSearchDashboardsFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

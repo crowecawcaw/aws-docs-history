@@ -1,7 +1,6 @@
 
 
 # AWSFaultInjectionSimulatorRDSAccess
-<a name="AWSFaultInjectionSimulatorRDSAccess"></a>
 
 **Description**: This policy grants the Fault Injection Simulator Service permission in RDS and other required services to perform FIS actions.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSFaultInjectionSimulatorRDSAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

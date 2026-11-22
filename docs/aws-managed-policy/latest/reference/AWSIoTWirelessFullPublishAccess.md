@@ -1,7 +1,6 @@
 
 
 # AWSIoTWirelessFullPublishAccess
-<a name="AWSIoTWirelessFullPublishAccess"></a>
 
 **Description**: Provides IoT Wireless full access to publish to IoT Rules Engine on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTWirelessFullPublishAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

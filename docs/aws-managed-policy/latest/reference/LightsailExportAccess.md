@@ -1,7 +1,6 @@
 
 
 # LightsailExportAccess
-<a name="LightsailExportAccess"></a>
 
 **Description**: AWS Lightsail service linked role policy which grants permissions to export resources
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="LightsailExportAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

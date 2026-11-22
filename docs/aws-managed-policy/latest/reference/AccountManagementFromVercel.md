@@ -1,7 +1,6 @@
 
 
 # AccountManagementFromVercel
-<a name="AccountManagementFromVercel"></a>
 
 **Description**: For use with accounts created through the Vercel Marketplace integration with AWS. Provides access to account management, notification, cost and usage analysis, and identity provider management.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AccountManagementFromVercel-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

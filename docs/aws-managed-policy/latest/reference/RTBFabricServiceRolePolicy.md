@@ -1,7 +1,6 @@
 
 
 # RTBFabricServiceRolePolicy
-<a name="RTBFabricServiceRolePolicy"></a>
 
 **Description**: A service-linked role required for AWS RTBFabric to create and manage your network interface resources and deliver metrics.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="RTBFabricServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

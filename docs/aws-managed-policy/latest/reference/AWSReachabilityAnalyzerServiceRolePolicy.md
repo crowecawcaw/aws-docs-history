@@ -1,7 +1,6 @@
 
 
 # AWSReachabilityAnalyzerServiceRolePolicy
-<a name="AWSReachabilityAnalyzerServiceRolePolicy"></a>
 
 **Description**: Allows VPC Reachability Analyzer to access AWS resources and integrate with AWS Organizations on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSReachabilityAnalyzerServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

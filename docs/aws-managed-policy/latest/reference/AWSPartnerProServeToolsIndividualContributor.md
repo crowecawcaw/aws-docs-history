@@ -1,7 +1,6 @@
 
 
 # AWSPartnerProServeToolsIndividualContributor
-<a name="AWSPartnerProServeToolsIndividualContributor"></a>
 
 **Description**: Provides access to create and manage own assessments in ProServe tools.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSPartnerProServeToolsIndividualContributor-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

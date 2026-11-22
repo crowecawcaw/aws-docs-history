@@ -1,7 +1,6 @@
 
 
 # AWSQuickSetupStartStopInstancesExecutionPolicy
-<a name="AWSQuickSetupStartStopInstancesExecutionPolicy"></a>
 
 **Description**: The managed policy AWSQuickSetupStartStopInstancesExecutionPolicy provides permissions for Quick Setup to start and stop Amazon EC2 instances on a schedule. This policy is used with the Quick Setup scheduler configuration type.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSetupStartStopInstancesExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

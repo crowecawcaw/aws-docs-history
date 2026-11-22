@@ -1,7 +1,6 @@
 
 
 # AWSWellArchitectedDiscoveryServiceRolePolicy
-<a name="AWSWellArchitectedDiscoveryServiceRolePolicy"></a>
 
 **Description**: Allows WellArchitected to access AWS services and resources that relate to WellArchitected resources on behalf of customers.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSWellArchitectedDiscoveryServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

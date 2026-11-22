@@ -1,7 +1,6 @@
 
 
 # ROSAKarpenterControllerPolicy
-<a name="ROSAKarpenterControllerPolicy"></a>
 
 **Description**: Provides permissions for the ROSA Karpenter controller to dynamically provision and manage EC2 instances for Red Hat OpenShift Service on AWS (ROSA) hosted control plane clusters. This includes EC2 fleet and instance lifecycle management, instance pricing queries, KMS operations for EBS volume encryption with customer-managed keys, and IAM instance profile management.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ROSAKarpenterControllerPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

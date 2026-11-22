@@ -1,7 +1,6 @@
 
 
 # CloudWatchNetworkMonitorServiceRolePolicy
-<a name="CloudWatchNetworkMonitorServiceRolePolicy"></a>
 
 **Description**: Allows CloudWatch Network Monitor to access and manage EC2 and VPC resources, publish data to CloudWatch and access other required services on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchNetworkMonitorServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

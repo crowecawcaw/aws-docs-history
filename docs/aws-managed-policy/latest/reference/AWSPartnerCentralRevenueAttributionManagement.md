@@ -1,7 +1,6 @@
 
 
 # AWSPartnerCentralRevenueAttributionManagement
-<a name="AWSPartnerCentralRevenueAttributionManagement"></a>
 
 **Description**: Provides necessary access for revenue attribution management activities.
 
@@ -16,20 +15,20 @@ You can attach `AWSPartnerCentralRevenueAttributionManagement` to your users, gr
 <a name="AWSPartnerCentralRevenueAttributionManagement-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: June 30, 2026, 19:12 UTC 
-+ **Edited time:** October 28, 2026, 13:47 UTC
++ **Edited time:** November 20, 2026, 04:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSPartnerCentralRevenueAttributionManagement`
 
 ## Policy version
 <a name="AWSPartnerCentralRevenueAttributionManagement-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSPartnerCentralRevenueAttributionManagement-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -95,6 +94,7 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "partnercentral:GetMarketplaceRevenueShare",
+        "partnercentral:UpdateMarketplaceRevenueShare",
         "partnercentral:GetMarketplaceRevenueShareAllocation",
         "partnercentral:UpdateMarketplaceRevenueShareAllocation"
       ],
@@ -239,6 +239,34 @@ The policy's default version is the version that defines the permissions for the
         "q:GetConversation",
         "q:ListConversations",
         "q:PassRequest"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "Support",
+      "Effect" : "Allow",
+      "Action" : [
+        "support:CreateCase",
+        "support:DescribeCases",
+        "support:DescribeCommunications",
+        "support:DescribeAttachment",
+        "support:AddCommunicationToCase",
+        "support:ResolveCase",
+        "support:AddAttachmentsToSet",
+        "support:SearchForCases",
+        "support:DescribeServices",
+        "support:DescribeCreateCaseOptions"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SupportConsole",
+      "Effect" : "Allow",
+      "Action" : [
+        "support-console:GetAccountState",
+        "support-console:GetAccountGovCloudEnabled",
+        "support-console:CheckSubscription",
+        "support-console:GetBanner"
       ],
       "Resource" : "*"
     }

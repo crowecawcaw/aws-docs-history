@@ -1,7 +1,6 @@
 
 
 # CustomerProfilesServiceLinkedRolePolicy
-<a name="CustomerProfilesServiceLinkedRolePolicy"></a>
 
 **Description**: Allows Amazon Connect Customer Profiles to access AWS services and resources on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CustomerProfilesServiceLinkedRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

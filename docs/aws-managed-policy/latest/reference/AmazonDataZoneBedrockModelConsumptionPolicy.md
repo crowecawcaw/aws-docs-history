@@ -1,7 +1,6 @@
 
 
 # AmazonDataZoneBedrockModelConsumptionPolicy
-<a name="AmazonDataZoneBedrockModelConsumptionPolicy"></a>
 
 **Description**: Provides permissions to consume Amazon Bedrock models, including invoking Amazon Bedrock application inference profile created for particular Amazon DataZone domain.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDataZoneBedrockModelConsumptionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

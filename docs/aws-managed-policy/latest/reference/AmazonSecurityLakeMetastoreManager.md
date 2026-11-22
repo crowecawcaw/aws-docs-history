@@ -1,7 +1,6 @@
 
 
 # AmazonSecurityLakeMetastoreManager
-<a name="AmazonSecurityLakeMetastoreManager"></a>
 
 **Description**: Policy for Amazon SecurityLake meta store manager lambda which allows the access to cloudwatch, S3, Glue and SQS.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSecurityLakeMetastoreManager-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

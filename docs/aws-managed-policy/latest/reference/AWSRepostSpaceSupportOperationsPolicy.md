@@ -1,7 +1,6 @@
 
 
 # AWSRepostSpaceSupportOperationsPolicy
-<a name="AWSRepostSpaceSupportOperationsPolicy"></a>
 
 **Description**: This policy allows the re:Post Space service to create, manage, and resolve Support cases that are created through the Space application.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSRepostSpaceSupportOperationsPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

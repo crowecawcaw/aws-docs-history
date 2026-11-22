@@ -1,7 +1,6 @@
 
 
 # AWSEC2CapacityReservationFleetRolePolicy
-<a name="AWSEC2CapacityReservationFleetRolePolicy"></a>
 
 **Description**: Allows EC2 CapacityReservation Fleet service to manage Capacity Reservations
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSEC2CapacityReservationFleetRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

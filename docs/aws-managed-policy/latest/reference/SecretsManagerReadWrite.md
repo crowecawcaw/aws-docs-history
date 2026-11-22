@@ -1,7 +1,6 @@
 
 
 # SecretsManagerReadWrite
-<a name="SecretsManagerReadWrite"></a>
 
 **Description**: Provides read/write access to AWS Secrets Manager via the AWS Management Console. Note: this exludes IAM actions, so combine with IAMFullAccess if rotation configuration is required.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SecretsManagerReadWrite-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

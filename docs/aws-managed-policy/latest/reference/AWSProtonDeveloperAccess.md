@@ -1,7 +1,6 @@
 
 
 # AWSProtonDeveloperAccess
-<a name="AWSProtonDeveloperAccess"></a>
 
 **Description**: Provides access to the AWS Proton APIs and Management Console, but does not allow administration of Proton templates or environments.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSProtonDeveloperAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

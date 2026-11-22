@@ -1,7 +1,6 @@
 
 
 # AWSLambdaServiceRolePolicy
-<a name="AWSLambdaServiceRolePolicy"></a>
 
 **Description**: Allows Lambda to describe and terminate managed instances from EC2 on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSLambdaServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

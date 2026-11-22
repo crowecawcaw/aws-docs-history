@@ -1,7 +1,6 @@
 
 
 # AmazonCodeGuruReviewerFullAccess
-<a name="AmazonCodeGuruReviewerFullAccess"></a>
 
 **Description**: Grants full access to Amazon CodeGuru Reviewer and scoped access to required dependencies.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonCodeGuruReviewerFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

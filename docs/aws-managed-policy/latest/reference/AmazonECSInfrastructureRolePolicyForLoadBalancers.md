@@ -1,7 +1,6 @@
 
 
 # AmazonECSInfrastructureRolePolicyForLoadBalancers
-<a name="AmazonECSInfrastructureRolePolicyForLoadBalancers"></a>
 
 **Description**: Provides access to other AWS service resources required to manage load balancers associated with ECS workloads on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonECSInfrastructureRolePolicyForLoadBalancers-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # EC2FleetTimeShiftableServiceRolePolicy
-<a name="EC2FleetTimeShiftableServiceRolePolicy"></a>
 
 **Description**: Policy granting permissions to EC2 Fleet to launch instances in the future.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="EC2FleetTimeShiftableServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

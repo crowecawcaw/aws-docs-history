@@ -1,7 +1,6 @@
 
 
 # AWSApplicationMigrationFullAccess
-<a name="AWSApplicationMigrationFullAccess"></a>
 
 **Description**: This policy provides permissions to all public APIs of AWS Application Migration Service (MGN), as well as permissions to read KMS key information. Attach this policy to your IAM users or roles.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSApplicationMigrationFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

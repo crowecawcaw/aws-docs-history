@@ -1,7 +1,6 @@
 
 
 # AmazonQLDBFullAccess
-<a name="AmazonQLDBFullAccess"></a>
 
 **Description**: Provides full access to Amazon QLDB via the service API.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonQLDBFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

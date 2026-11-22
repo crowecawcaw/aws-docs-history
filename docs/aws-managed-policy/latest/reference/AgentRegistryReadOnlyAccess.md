@@ -1,7 +1,6 @@
 
 
 # AgentRegistryReadOnlyAccess
-<a name="AgentRegistryReadOnlyAccess"></a>
 
 **Description**: Policy for ReadOnly access to AWS Agent Registry
 
@@ -16,20 +15,20 @@ You can attach `AgentRegistryReadOnlyAccess` to your users, groups, and roles.
 <a name="AgentRegistryReadOnlyAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 06, 2026, 18:12 UTC 
-+ **Edited time:** August 06, 2026, 18:12 UTC
++ **Edited time:** November 20, 2026, 20:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AgentRegistryReadOnlyAccess`
 
 ## Policy version
 <a name="AgentRegistryReadOnlyAccess-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AgentRegistryReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -38,16 +37,34 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "agent-registry:GetRegistry",
-        "agent-registry:ListRegistries",
         "agent-registry:GetRegistryRecord",
         "agent-registry:ListRegistryRecords",
         "agent-registry:ListDiscoverableRegistryRecords",
+        "agent-registry:SearchDiscoverableRegistryRecords",
         "agent-registry:GetDiscoverableRegistryRecord",
         "agent-registry:InvokeRegistryMcp",
-        "agent-registry:SearchDiscoverableRegistryRecords",
-        "agent-registry:ListTagsForResource"
+        "agent-registry:GetPublisher",
+        "agent-registry:ListPublisherAssociations"
       ],
       "Resource" : "arn:aws:agent-registry:*:*:*"
+    },
+    {
+      "Sid" : "AgentRegistryReadOnlyAccessNoResource",
+      "Effect" : "Allow",
+      "Action" : [
+        "agent-registry:ListRegistries",
+        "agent-registry:ListPublishers",
+        "agent-registry:ListTagsForResource"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AgentRegistryPublicDiscoveryAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "agent-discovery:SearchPublicRecords"
+      ],
+      "Resource" : "*"
     }
   ]
 }

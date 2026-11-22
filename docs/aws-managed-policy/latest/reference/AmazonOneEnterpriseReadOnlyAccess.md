@@ -1,7 +1,6 @@
 
 
 # AmazonOneEnterpriseReadOnlyAccess
-<a name="AmazonOneEnterpriseReadOnlyAccess"></a>
 
 **Description**: This policy grants read only permissions to all Amazon One Enterprise resources and operations.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonOneEnterpriseReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

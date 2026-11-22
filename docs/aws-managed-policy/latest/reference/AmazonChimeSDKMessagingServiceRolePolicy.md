@@ -1,7 +1,6 @@
 
 
 # AmazonChimeSDKMessagingServiceRolePolicy
-<a name="AmazonChimeSDKMessagingServiceRolePolicy"></a>
 
 **Description**: Allows Amazon Chime SDK Messaging to access AWS resources and enable messaging functionality
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonChimeSDKMessagingServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

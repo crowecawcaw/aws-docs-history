@@ -1,7 +1,6 @@
 
 
 # CloudHSMServiceRolePolicy
-<a name="CloudHSMServiceRolePolicy"></a>
 
 **Description**: Enables access to AWS resources used or managed by CloudHSM
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudHSMServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

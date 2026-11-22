@@ -1,7 +1,6 @@
 
 
 # AWSManagedServices\_ContactsServiceRolePolicy
-<a name="AWSManagedServices_ContactsServiceRolePolicy"></a>
 
 **Description**: Allows AWS Managed Services to read the values of the tags on AWS resources
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSManagedServices_ContactsServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSSystemsManagerJustInTimeNodeAccessRolePropagationPolicy
-<a name="AWSSystemsManagerJustInTimeNodeAccessRolePropagationPolicy"></a>
 
 **Description**: This policy allows Systems Manager to share a deny-access policy for just-in-time node access from the delegated administrator account to member accounts, and replicate the policy to multiple Regions.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSystemsManagerJustInTimeNodeAccessRolePropagationPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

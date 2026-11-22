@@ -1,7 +1,6 @@
 
 
 # AmazonMQServiceRolePolicy
-<a name="AmazonMQServiceRolePolicy"></a>
 
 **Description**: Service Linked Role Policy for AWS Amazon MQ
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonMQServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # EC2FastLaunchServiceRolePolicy
-<a name="EC2FastLaunchServiceRolePolicy"></a>
 
 **Description**: Policy grants ec2fastlaunch to prepare and manage preprovisioned snapshots in customer's account & publish related metrics.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="EC2FastLaunchServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

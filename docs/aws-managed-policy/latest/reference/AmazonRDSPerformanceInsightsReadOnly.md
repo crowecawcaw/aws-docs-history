@@ -1,7 +1,6 @@
 
 
 # AmazonRDSPerformanceInsightsReadOnly
-<a name="AmazonRDSPerformanceInsightsReadOnly"></a>
 
 **Description**: Read-Only policy for RDS Performance Insights
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRDSPerformanceInsightsReadOnly-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

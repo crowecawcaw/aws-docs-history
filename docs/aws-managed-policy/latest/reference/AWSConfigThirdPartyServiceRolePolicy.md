@@ -1,7 +1,6 @@
 
 
 # AWSConfigThirdPartyServiceRolePolicy
-<a name="AWSConfigThirdPartyServiceRolePolicy"></a>
 
 **Description**: Provides permissions for AWS Config to inventory and evaluate compliance of third-party cloud resources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSConfigThirdPartyServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

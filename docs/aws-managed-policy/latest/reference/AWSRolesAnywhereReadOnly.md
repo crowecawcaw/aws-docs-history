@@ -1,7 +1,6 @@
 
 
 # AWSRolesAnywhereReadOnly
-<a name="AWSRolesAnywhereReadOnly"></a>
 
 **Description**: Provides read-only permissions to IAM Roles Anywhere resources, including but not limited to: GetTrustAnchor, ListProfiles, GetCRL. There will be no other permissions for other services included in this policy.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSRolesAnywhereReadOnly-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

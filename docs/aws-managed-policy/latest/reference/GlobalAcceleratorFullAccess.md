@@ -1,7 +1,6 @@
 
 
 # GlobalAcceleratorFullAccess
-<a name="GlobalAcceleratorFullAccess"></a>
 
 **Description**: Allow GlobalAccelerator Users full Access to all APIs
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="GlobalAcceleratorFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

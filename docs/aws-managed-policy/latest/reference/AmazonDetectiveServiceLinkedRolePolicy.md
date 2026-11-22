@@ -1,7 +1,6 @@
 
 
 # AmazonDetectiveServiceLinkedRolePolicy
-<a name="AmazonDetectiveServiceLinkedRolePolicy"></a>
 
 **Description**: Allows Amazon Detective to make service calls on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDetectiveServiceLinkedRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

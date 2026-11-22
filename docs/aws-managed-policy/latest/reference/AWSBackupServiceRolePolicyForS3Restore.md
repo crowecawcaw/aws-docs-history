@@ -1,7 +1,6 @@
 
 
 # AWSBackupServiceRolePolicyForS3Restore
-<a name="AWSBackupServiceRolePolicyForS3Restore"></a>
 
 **Description**: Policy containing permissions necessary for AWS Backup to restore a S3 backup to a bucket. This includes read/write permissions to all S3 buckets, and permissions to GenerateDataKey and DescribeKey for all KMS keys.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBackupServiceRolePolicyForS3Restore-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

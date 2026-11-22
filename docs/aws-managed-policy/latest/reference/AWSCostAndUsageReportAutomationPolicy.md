@@ -1,7 +1,6 @@
 
 
 # AWSCostAndUsageReportAutomationPolicy
-<a name="AWSCostAndUsageReportAutomationPolicy"></a>
 
 **Description**: Grants permissions to to describe the organization of the account, create S3 buckets for the MAP program and apply tags to it, create a Cost and Usage Report, and describe Cost and Usage Report definitions.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCostAndUsageReportAutomationPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

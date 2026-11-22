@@ -1,7 +1,6 @@
 
 
 # AWSTransformInfrastructureExecutorAccessEC2
-<a name="AWSTransformInfrastructureExecutorAccessEC2"></a>
 
 **Description**: Grants developers execution role the permissions needed to execute AWS Transform Continuous Modernization CLI/agent to run assessments/transformations using EC2, including uploading source code, retrieving results, monitoring job status, reading logs, and managing transformation schedules.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSTransformInfrastructureExecutorAccessEC2-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

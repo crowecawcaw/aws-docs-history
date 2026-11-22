@@ -1,7 +1,6 @@
 
 
 # AmazonBraketServiceRolePolicy
-<a name="AmazonBraketServiceRolePolicy"></a>
 
 **Description**: Allows Amazon Braket to create and manage AWS resources on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonBraketServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

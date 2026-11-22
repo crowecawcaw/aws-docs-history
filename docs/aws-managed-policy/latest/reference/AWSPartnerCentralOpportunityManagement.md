@@ -1,7 +1,6 @@
 
 
 # AWSPartnerCentralOpportunityManagement
-<a name="AWSPartnerCentralOpportunityManagement"></a>
 
 **Description**: Provides necessary access for opportunity management activities.
 
@@ -16,20 +15,20 @@ You can attach `AWSPartnerCentralOpportunityManagement` to your users, groups, a
 <a name="AWSPartnerCentralOpportunityManagement-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 14, 2024, 19:09 UTC 
-+ **Edited time:** November 10, 2026, 03:17 UTC
++ **Edited time:** November 20, 2026, 03:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSPartnerCentralOpportunityManagement`
 
 ## Policy version
 <a name="AWSPartnerCentralOpportunityManagement-version"></a>
 
-**Policy version:** v13 (default)
+**Policy version:** v14 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSPartnerCentralOpportunityManagement-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -81,7 +80,13 @@ The policy's default version is the version that defines the permissions for the
         "partnercentral:StopResourceSnapshotJob",
         "partnercentral:SubmitOpportunity",
         "partnercentral:UpdateEngagementContext",
-        "partnercentral:UpdateOpportunity"
+        "partnercentral:UpdateOpportunity",
+        "partnercentral:SearchEngagements",
+        "partnercentral:ListEngagementGroups",
+        "partnercentral:SearchCustomerAccounts",
+        "partnercentral:GetCustomerAccountStatistics",
+        "partnercentral:StartCustomerAccountBulkJob",
+        "partnercentral:ListCustomerAccountBulkJobs"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -92,6 +97,49 @@ The policy's default version is the version that defines the permissions for the
           ]
         }
       }
+    },
+    {
+      "Sid" : "CustomerAccountManagement",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:CreateCustomerAccount",
+        "partnercentral:GetCustomerAccount",
+        "partnercentral:UpdateCustomerAccount",
+        "partnercentral:DeleteCustomerAccount"
+      ],
+      "Resource" : "arn:aws:partnercentral:*:*:catalog/*/customer-account/*",
+      "Condition" : {
+        "StringEquals" : {
+          "partnercentral:Catalog" : [
+            "AWS",
+            "Sandbox"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "CustomerAccountBulkJobAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:GetCustomerAccountBulkJob",
+        "partnercentral:ListCustomerAccountBulkJobResults",
+        "partnercentral:GetCustomerAccountBulkJobReportUrl"
+      ],
+      "Resource" : "arn:aws:partnercentral:*:*:catalog/*/customer-account-bulk-job/*",
+      "Condition" : {
+        "StringEquals" : {
+          "partnercentral:Catalog" : [
+            "AWS",
+            "Sandbox"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "PartnerCentralBulkFileUpload",
+      "Effect" : "Allow",
+      "Action" : "s3:PutObject",
+      "Resource" : "arn:aws:s3:::aws-partner-central-marketplace-ephemeral-writeonly-files/${aws:PrincipalAccount}/*"
     },
     {
       "Sid" : "ListingAWSMarketplaceEntities",
@@ -136,6 +184,41 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:partnercentral::*:catalog/AWS/ReportingData/Opportunity_V1/Dashboard/*",
         "arn:aws:partnercentral::*:catalog/AWS/ReportingData/Engagement_V1/Dashboard/*"
       ]
+    },
+    {
+      "Sid" : "PartnerReportingDataAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:GetPartnerReportingData"
+      ],
+      "Resource" : [
+        "arn:aws:partnercentral::*:catalog/AWS/ReportingData/Opportunity_V1/Dataset/*",
+        "arn:aws:partnercentral::*:catalog/AWS/ReportingData/Engagement_V1/Dataset/*"
+      ]
+    },
+    {
+      "Sid" : "PartnerDataSubscriptionAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:CreateDataSubscription",
+        "partnercentral:GetDataSubscription",
+        "partnercentral:DeleteDataSubscription",
+        "partnercentral:TagResource",
+        "partnercentral:UntagResource",
+        "partnercentral:ListTagsForResource"
+      ],
+      "Resource" : [
+        "arn:aws:partnercentral::*:catalog/AWS/ReportingData/Opportunity_V1/DataSubscription/*",
+        "arn:aws:partnercentral::*:catalog/AWS/ReportingData/Engagement_V1/DataSubscription/*"
+      ]
+    },
+    {
+      "Sid" : "PartnerDataSubscriptionList",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:ListDataSubscriptions"
+      ],
+      "Resource" : "arn:aws:partnercentral::*:catalog/AWS"
     },
     {
       "Sid" : "CollaborationChannelAccess",
@@ -194,7 +277,8 @@ The policy's default version is the version that defines the permissions for the
       ],
       "Resource" : [
         "arn:aws:partnercentral:*:*:catalog/*/opportunity/*",
-        "arn:aws:partnercentral:*:*:catalog/*/resource-snapshot-job/*"
+        "arn:aws:partnercentral:*:*:catalog/*/resource-snapshot-job/*",
+        "arn:aws:partnercentral:*:*:catalog/*/customer-account/*"
       ],
       "Condition" : {
         "StringEquals" : {
@@ -235,6 +319,34 @@ The policy's default version is the version that defines the permissions for the
           "aws:IsMcpServiceAction" : "true"
         }
       }
+    },
+    {
+      "Sid" : "Support",
+      "Effect" : "Allow",
+      "Action" : [
+        "support:CreateCase",
+        "support:DescribeCases",
+        "support:DescribeCommunications",
+        "support:DescribeAttachment",
+        "support:AddCommunicationToCase",
+        "support:ResolveCase",
+        "support:AddAttachmentsToSet",
+        "support:SearchForCases",
+        "support:DescribeServices",
+        "support:DescribeCreateCaseOptions"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SupportConsole",
+      "Effect" : "Allow",
+      "Action" : [
+        "support-console:GetAccountState",
+        "support-console:GetAccountGovCloudEnabled",
+        "support-console:CheckSubscription",
+        "support-console:GetBanner"
+      ],
+      "Resource" : "*"
     }
   ]
 }

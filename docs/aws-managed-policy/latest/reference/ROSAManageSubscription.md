@@ -1,7 +1,6 @@
 
 
 # ROSAManageSubscription
-<a name="ROSAManageSubscription"></a>
 
 **Description**: This policy provides the permissions required to manage the Red Hat OpenShift Service on AWS (ROSA) subscription.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ROSAManageSubscription-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

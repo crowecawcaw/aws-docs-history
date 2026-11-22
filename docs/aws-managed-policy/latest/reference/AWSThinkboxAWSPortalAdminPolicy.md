@@ -1,7 +1,6 @@
 
 
 # AWSThinkboxAWSPortalAdminPolicy
-<a name="AWSThinkboxAWSPortalAdminPolicy"></a>
 
 **Description**: This policy grants AWS Thinkbox's Deadline software full access to multiple AWS services as required for AWS Portal administration. This includes access to create arbitrary tags on several EC2 resource types.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSThinkboxAWSPortalAdminPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # DatabaseAdministrator
-<a name="DatabaseAdministrator"></a>
 
 **Description**: Grants full access permissions to AWS services and actions required to set up and configure AWS database services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="DatabaseAdministrator-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

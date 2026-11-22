@@ -1,7 +1,6 @@
 
 
 # AWSElementalMediaStoreFullAccess
-<a name="AWSElementalMediaStoreFullAccess"></a>
 
 **Description**: Provides full read and write access to all MediaStore APIs
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElementalMediaStoreFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

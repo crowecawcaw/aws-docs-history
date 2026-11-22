@@ -1,7 +1,6 @@
 
 
 # AmazonGrafanaCloudWatchAccess
-<a name="AmazonGrafanaCloudWatchAccess"></a>
 
 **Description**: This policy grants access to Amazon CloudWatch and the dependencies needed to use CloudWatch as a datasource within Amazon Managed Grafana.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonGrafanaCloudWatchAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

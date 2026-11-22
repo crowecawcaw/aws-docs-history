@@ -1,7 +1,6 @@
 
 
 # AWSTransformApplicationDeploymentPolicy
-<a name="AWSTransformApplicationDeploymentPolicy"></a>
 
 **Description**: Enables the AWS Transform service to deploy transformed .NET applications by creating and managing AWS resources. This policy grants permissions to provision infrastructure, manage compute resources, and configure deployment settings across various AWS services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSTransformApplicationDeploymentPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSServiceRoleForEC2ScheduledInstances
-<a name="AWSServiceRoleForEC2ScheduledInstances"></a>
 
 **Description**: Allows EC2 Scheduled Instances to launch and manage spot instances.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceRoleForEC2ScheduledInstances-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

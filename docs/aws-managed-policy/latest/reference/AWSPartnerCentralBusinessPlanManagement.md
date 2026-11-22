@@ -1,7 +1,6 @@
 
 
 # AWSPartnerCentralBusinessPlanManagement
-<a name="AWSPartnerCentralBusinessPlanManagement"></a>
 
 **Description**: Provides access to manage business plans and their attachments in AWS Partner Central, including read access to the Partner Central and AWS Marketplace reporting data behind business plan metrics
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSPartnerCentralBusinessPlanManagement-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

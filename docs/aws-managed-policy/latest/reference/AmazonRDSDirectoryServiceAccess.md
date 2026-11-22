@@ -1,7 +1,6 @@
 
 
 # AmazonRDSDirectoryServiceAccess
-<a name="AmazonRDSDirectoryServiceAccess"></a>
 
 **Description**: Allow RDS to access Directory Service Managed AD on behalf of the customer for domain-joined SQL Server DB instances.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRDSDirectoryServiceAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

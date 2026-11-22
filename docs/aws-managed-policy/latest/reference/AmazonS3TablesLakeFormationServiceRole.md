@@ -1,7 +1,6 @@
 
 
 # AmazonS3TablesLakeFormationServiceRole
-<a name="AmazonS3TablesLakeFormationServiceRole"></a>
 
 **Description**: This managed policy grants AWS Lake Formation permissions to act on all table buckets, namespaces, and tables within the account.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonS3TablesLakeFormationServiceRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

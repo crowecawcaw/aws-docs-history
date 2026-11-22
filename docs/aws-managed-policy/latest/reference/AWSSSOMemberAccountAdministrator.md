@@ -1,7 +1,6 @@
 
 
 # AWSSSOMemberAccountAdministrator
-<a name="AWSSSOMemberAccountAdministrator"></a>
 
 **Description**: Provides access within AWS SSO to manage AWS Organizations member accounts and cloud application
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSSOMemberAccountAdministrator-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # ElementalActivationsReadOnlyAccess
-<a name="ElementalActivationsReadOnlyAccess"></a>
 
 **Description**: Read-only access to the detailed list of purchased assets associated to the AWS account of the user
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ElementalActivationsReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

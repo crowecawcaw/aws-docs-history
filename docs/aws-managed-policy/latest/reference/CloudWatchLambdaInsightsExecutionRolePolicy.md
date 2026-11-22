@@ -1,7 +1,6 @@
 
 
 # CloudWatchLambdaInsightsExecutionRolePolicy
-<a name="CloudWatchLambdaInsightsExecutionRolePolicy"></a>
 
 **Description**: Policy required for the Lambda Insights Extension
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchLambdaInsightsExecutionRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSMarketplaceManageSubscriptions
-<a name="AWSMarketplaceManageSubscriptions"></a>
 
 **Description**: Provides the ability to subscribe and unsubscribe to AWS Marketplace software
 
@@ -16,20 +15,20 @@ You can attach `AWSMarketplaceManageSubscriptions` to your users, groups, and ro
 <a name="AWSMarketplaceManageSubscriptions-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: February 06, 2015, 18:40 UTC 
-+ **Edited time:** May 07, 2026, 16:42 UTC
++ **Edited time:** November 18, 2026, 17:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSMarketplaceManageSubscriptions`
 
 ## Policy version
 <a name="AWSMarketplaceManageSubscriptions-version"></a>
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSMarketplaceManageSubscriptions-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -102,6 +101,57 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
+      "Sid" : "AWSMarketplaceAgreementRequestAndApprovalAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:GetAgreementRequest",
+        "aws-marketplace:AcceptAgreementRequest",
+        "aws-marketplace:CancelAgreementRequest",
+        "aws-marketplace:GetAgreementRequestTerms",
+        "aws-marketplace:StartAgreementApprovals",
+        "aws-marketplace:GetAgreementRequestApprovalPlans",
+        "aws-marketplace:GetAgreementApproval"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAllValues:StringEquals" : {
+          "aws-marketplace:AgreementType" : [
+            "PurchaseAgreement"
+          ]
+        },
+        "Null" : {
+          "aws-marketplace:AgreementType" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "AWSMarketplaceAgreementRequestAndApprovalListAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:ListAgreementRequests",
+        "aws-marketplace:ListAgreementApprovals"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSMarketplaceAgreementContactsReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:GetAgreementContacts"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAllValues:StringEquals" : {
+          "aws-marketplace:AgreementType" : [
+            "PurchaseAgreement"
+          ]
+        },
+        "Null" : {
+          "aws-marketplace:AgreementType" : "false"
+        }
+      }
+    },
+    {
       "Sid" : "AWSMarketplaceChangeSetReadAccess",
       "Effect" : "Allow",
       "Action" : [
@@ -160,6 +210,14 @@ The policy's default version is the version that defines the permissions for the
           "aws-marketplace:PartyType" : "Acceptor"
         }
       }
+    },
+    {
+      "Sid" : "AWSMarketplaceDeploymentConfigurationReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:GetDeploymentConfiguration"
+      ],
+      "Resource" : "arn:aws:aws-marketplace:*:*:DeploymentConfiguration:catalogs/AWSMarketplace/*"
     }
   ]
 }

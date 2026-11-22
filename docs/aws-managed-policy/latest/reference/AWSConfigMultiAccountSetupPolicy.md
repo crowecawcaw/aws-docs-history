@@ -1,7 +1,6 @@
 
 
 # AWSConfigMultiAccountSetupPolicy
-<a name="AWSConfigMultiAccountSetupPolicy"></a>
 
 **Description**: Allows Config to call AWS services and deploy config resources across organization
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSConfigMultiAccountSetupPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

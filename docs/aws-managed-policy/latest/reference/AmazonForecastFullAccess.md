@@ -1,7 +1,6 @@
 
 
 # AmazonForecastFullAccess
-<a name="AmazonForecastFullAccess"></a>
 
 **Description**: Gives access to all actions for Amazon Forecast
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonForecastFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

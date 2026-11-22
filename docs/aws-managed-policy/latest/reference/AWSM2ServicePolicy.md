@@ -1,7 +1,6 @@
 
 
 # AWSM2ServicePolicy
-<a name="AWSM2ServicePolicy"></a>
 
 **Description**: Allows AWS M2 to manage AWS resources on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSM2ServicePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonSSMDirectoryServiceAccess
-<a name="AmazonSSMDirectoryServiceAccess"></a>
 
 **Description**: This policy allows SSM Agent to access Directory Service on behalf of the customer for domain-join the managed instance.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSSMDirectoryServiceAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSConfigUserAccess
-<a name="AWSConfigUserAccess"></a>
 
 **Description**: Provides access to use AWS Config, including searching by tags on resources, and reading all tags. This does not provide permission to configure AWS Config, which requires administrative privileges.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSConfigUserAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSCloudMapRegisterInstanceAccess
-<a name="AWSCloudMapRegisterInstanceAccess"></a>
 
 **Description**: Provides registrant level access to AWS Cloud Map actions.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCloudMapRegisterInstanceAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

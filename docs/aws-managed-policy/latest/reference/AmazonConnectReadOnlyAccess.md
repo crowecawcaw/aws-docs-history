@@ -1,7 +1,6 @@
 
 
 # AmazonConnectReadOnlyAccess
-<a name="AmazonConnectReadOnlyAccess"></a>
 
 **Description**: Grants permission to view the Amazon Connect instances in your AWS account.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonConnectReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

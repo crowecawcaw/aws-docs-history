@@ -1,7 +1,6 @@
 
 
 # AWSQuickSightTimestreamPolicy
-<a name="AWSQuickSightTimestreamPolicy"></a>
 
 **Description**: AWS QuickSight access to AWS Timestream APIs. Customers can attach this policy to AWS QuickSight role to allow retrieval of data and metadata.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSightTimestreamPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

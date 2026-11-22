@@ -1,7 +1,6 @@
 
 
 # AWSTransformSecretsManagerConnectorPolicy
-<a name="AWSTransformSecretsManagerConnectorPolicy"></a>
 
 **Description**: Enables the AWS Transform service to read a specified SecretsManager Secret in connection to specified KMS key. This policy grants permissions to read the specified secret value and decrypt it is the secret is encrypted
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSTransformSecretsManagerConnectorPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

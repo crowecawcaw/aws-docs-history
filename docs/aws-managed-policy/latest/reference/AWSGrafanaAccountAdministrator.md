@@ -1,7 +1,6 @@
 
 
 # AWSGrafanaAccountAdministrator
-<a name="AWSGrafanaAccountAdministrator"></a>
 
 **Description**: Provides access within Amazon Grafana to create and manage workspaces for the entire organization.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSGrafanaAccountAdministrator-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

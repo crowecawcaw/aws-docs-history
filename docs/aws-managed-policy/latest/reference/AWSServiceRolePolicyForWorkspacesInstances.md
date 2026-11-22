@@ -1,7 +1,6 @@
 
 
 # AWSServiceRolePolicyForWorkspacesInstances
-<a name="AWSServiceRolePolicyForWorkspacesInstances"></a>
 
 **Description**: This managed policy provides administrative access to Amazon WorkSpaces to manage EC2 instances in your AWS account
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceRolePolicyForWorkspacesInstances-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

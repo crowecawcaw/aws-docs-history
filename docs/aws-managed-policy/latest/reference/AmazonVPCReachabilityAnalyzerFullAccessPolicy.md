@@ -1,7 +1,6 @@
 
 
 # AmazonVPCReachabilityAnalyzerFullAccessPolicy
-<a name="AmazonVPCReachabilityAnalyzerFullAccessPolicy"></a>
 
 **Description**: Provides permissions to describe AWS resources, run Reachability Analyzer, and create or delete tags on Network Insights Path and Network Insights Analysis.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonVPCReachabilityAnalyzerFullAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

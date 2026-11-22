@@ -1,7 +1,6 @@
 
 
 # RDSCloudHsmAuthorizationRole
-<a name="RDSCloudHsmAuthorizationRole"></a>
 
 **Description**: Default policy for the Amazon RDS service role.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="RDSCloudHsmAuthorizationRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

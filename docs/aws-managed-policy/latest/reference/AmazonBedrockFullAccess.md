@@ -1,7 +1,6 @@
 
 
 # AmazonBedrockFullAccess
-<a name="AmazonBedrockFullAccess"></a>
 
 **Description**: Provides full access to Amazon Bedrock as well as limited access to related services that are required by it
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonBedrockFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSBackupServiceRolePolicyForItemRestores
-<a name="AWSBackupServiceRolePolicyForItemRestores"></a>
 
 **Description**: Policy containing permissions necessary for AWS Backup to restore individual items in a recovery point
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBackupServiceRolePolicyForItemRestores-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

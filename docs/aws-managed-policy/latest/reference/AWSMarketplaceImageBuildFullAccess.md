@@ -1,7 +1,6 @@
 
 
 # AWSMarketplaceImageBuildFullAccess
-<a name="AWSMarketplaceImageBuildFullAccess"></a>
 
 **Description**: Provides full access to AWS Marketplace Private Image Build Feature. In addition to create private images, it also provides permissions to add tags to images, launch and terminate ec2 instances.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMarketplaceImageBuildFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

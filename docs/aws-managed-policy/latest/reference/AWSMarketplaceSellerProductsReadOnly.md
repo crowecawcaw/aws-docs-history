@@ -1,7 +1,6 @@
 
 
 # AWSMarketplaceSellerProductsReadOnly
-<a name="AWSMarketplaceSellerProductsReadOnly"></a>
 
 **Description**: Provide sellers read-only access to AWS Marketplace Management Products page.
 
@@ -16,20 +15,20 @@ You can attach `AWSMarketplaceSellerProductsReadOnly` to your users, groups, and
 <a name="AWSMarketplaceSellerProductsReadOnly-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: July 02, 2019, 21:40 UTC 
-+ **Edited time:** February 12, 2026, 18:01 UTC
++ **Edited time:** November 21, 2026, 01:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSMarketplaceSellerProductsReadOnly`
 
 ## Policy version
 <a name="AWSMarketplaceSellerProductsReadOnly-version"></a>
 
-**Policy version:** v7 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AWSMarketplaceSellerProductsReadOnly-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -52,7 +51,20 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "aws-marketplace:ListTagsForResource"
       ],
-      "Resource" : "arn:aws:aws-marketplace:*:*:AWSMarketplace/*"
+      "Resource" : [
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace/*",
+        "arn:aws:aws-marketplace:*:*:DeploymentConfiguration:catalogs/AWSMarketplace/*"
+      ]
+    },
+    {
+      "Sid" : "DeploymentConfigurationRead",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:GetDeploymentConfigurationJob",
+        "aws-marketplace:ListDeploymentConfigurationJobs",
+        "aws-marketplace:GetDeploymentConfiguration"
+      ],
+      "Resource" : "arn:aws:aws-marketplace:*:*:DeploymentConfiguration:catalogs/AWSMarketplace/*"
     },
     {
       "Effect" : "Allow",
@@ -60,6 +72,30 @@ The policy's default version is the version that defines the permissions for the
         "aws-marketplace:GetResourcePolicy"
       ],
       "Resource" : "arn:aws:aws-marketplace:*:*:AWSMarketplace/*"
+    },
+    {
+      "Sid" : "Support",
+      "Effect" : "Allow",
+      "Action" : [
+        "support:DescribeCases",
+        "support:DescribeCommunications",
+        "support:DescribeAttachment",
+        "support:SearchForCases",
+        "support:DescribeServices",
+        "support:DescribeCreateCaseOptions"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SupportConsole",
+      "Effect" : "Allow",
+      "Action" : [
+        "support-console:GetAccountState",
+        "support-console:GetAccountGovCloudEnabled",
+        "support-console:CheckSubscription",
+        "support-console:GetBanner"
+      ],
+      "Resource" : "*"
     }
   ]
 }

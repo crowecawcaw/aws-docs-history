@@ -1,7 +1,6 @@
 
 
 # AmazonDataZoneRedshiftManageAccessRolePolicy
-<a name="AmazonDataZoneRedshiftManageAccessRolePolicy"></a>
 
 **Description**: This policy gives Amazon DataZone permissions to publish Amazon Redshift data to the catalog. It also gives Amazon DataZone permissions to grant access or revoke access to Amazon Redshift or Amazon Redshift Serverless published assets in the catalog.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDataZoneRedshiftManageAccessRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

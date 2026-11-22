@@ -1,7 +1,6 @@
 
 
 # AWSControlTowerIdentityCenterManagementPolicy
-<a name="AWSControlTowerIdentityCenterManagementPolicy"></a>
 
 **Description**: Provides permissions to manage the IAM Identity Center (IdC) resources in the member accounts enrolled with AWS Control Tower. The policy is attached to the AWSControlTowerAdmin role only if the customer has opted-into IAM IdC integration in their AWS Control Tower Landing Zone.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSControlTowerIdentityCenterManagementPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

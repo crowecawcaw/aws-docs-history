@@ -1,7 +1,6 @@
 
 
 # AWSApplicationDiscoveryAgentAccess
-<a name="AWSApplicationDiscoveryAgentAccess"></a>
 
 **Description**: Provides access for the Discovery Agent to register with AWS Application Discovery Service.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSApplicationDiscoveryAgentAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

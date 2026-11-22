@@ -1,7 +1,6 @@
 
 
 # AWSMigrationHubDiscoveryAccess
-<a name="AWSMigrationHubDiscoveryAccess"></a>
 
 **Description**: Policy allows AWSMigrationHubService to call AWSApplicationDiscoveryService on behalf of the customer.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSMigrationHubDiscoveryAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

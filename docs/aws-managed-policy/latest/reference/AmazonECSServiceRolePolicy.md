@@ -1,7 +1,6 @@
 
 
 # AmazonECSServiceRolePolicy
-<a name="AmazonECSServiceRolePolicy"></a>
 
 **Description**: Policy to enable Amazon ECS to manage your cluster.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonECSServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

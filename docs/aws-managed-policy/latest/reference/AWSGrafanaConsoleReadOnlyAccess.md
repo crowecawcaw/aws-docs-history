@@ -1,7 +1,6 @@
 
 
 # AWSGrafanaConsoleReadOnlyAccess
-<a name="AWSGrafanaConsoleReadOnlyAccess"></a>
 
 **Description**: Access to read only operations in Amazon Grafana.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSGrafanaConsoleReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

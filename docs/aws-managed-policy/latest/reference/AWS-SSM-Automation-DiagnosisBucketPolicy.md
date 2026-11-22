@@ -1,7 +1,6 @@
 
 
 # AWS-SSM-Automation-DiagnosisBucketPolicy
-<a name="AWS-SSM-Automation-DiagnosisBucketPolicy"></a>
 
 **Description**: Provides permissions to access the SSM Diagnosis S3 bucket for diagnosis and remediation of issues.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWS-SSM-Automation-DiagnosisBucketPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

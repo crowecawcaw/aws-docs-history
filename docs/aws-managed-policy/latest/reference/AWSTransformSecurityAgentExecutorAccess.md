@@ -1,7 +1,6 @@
 
 
 # AWSTransformSecurityAgentExecutorAccess
-<a name="AWSTransformSecurityAgentExecutorAccess"></a>
 
 **Description**: Grants AWS Transform (ATX) Continuous Modernization CLI/agent the permissions needed to invoke the AWS Security Agent service for automated code security reviews and remediation, including uploading scan artifacts and retrieving findings.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSTransformSecurityAgentExecutorAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

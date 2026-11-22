@@ -1,7 +1,6 @@
 
 
 # AccountAccessManagerServiceRolePolicy
-<a name="AccountAccessManagerServiceRolePolicy"></a>
 
 **Description**: Grants account access manager permissions to manage AWS account access
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AccountAccessManagerServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

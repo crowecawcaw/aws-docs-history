@@ -1,7 +1,6 @@
 
 
 # SageMakerStudioProjectUserRolePermissionsBoundary
-<a name="SageMakerStudioProjectUserRolePermissionsBoundary"></a>
 
 **Description**: Amazon SageMaker creates IAM roles for Projects users to perform data analytics, artificial intelligence, and machine learning actions, and uses this policy when creating these roles to define the boundary of their permissions.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SageMakerStudioProjectUserRolePermissionsBoundary-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

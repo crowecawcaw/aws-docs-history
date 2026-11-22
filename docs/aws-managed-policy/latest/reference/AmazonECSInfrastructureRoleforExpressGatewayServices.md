@@ -1,7 +1,6 @@
 
 
 # AmazonECSInfrastructureRoleforExpressGatewayServices
-<a name="AmazonECSInfrastructureRoleforExpressGatewayServices"></a>
 
 **Description**: These permissions enable Amazon ECS to automatically provision and manage the infrastructure components required for Express Gateway Services, including load balancing, security groups, SSL certificates, and auto scaling configurations.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonECSInfrastructureRoleforExpressGatewayServices-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

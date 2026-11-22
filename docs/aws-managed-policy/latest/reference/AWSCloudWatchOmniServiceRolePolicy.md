@@ -1,7 +1,6 @@
 
 
 # AWSCloudWatchOmniServiceRolePolicy
-<a name="AWSCloudWatchOmniServiceRolePolicy"></a>
 
 **Description**: Provides CloudWatch Omni access to manage AWS Config recorder resources, telemetry configurations, and supporting IAM roles for organization enablement.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCloudWatchOmniServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonEC2SpotFleetTaggingRole
-<a name="AmazonEC2SpotFleetTaggingRole"></a>
 
 **Description**: Allows EC2 Spot Fleet to request, terminate and tag Spot Instances on your behalf. 
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEC2SpotFleetTaggingRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

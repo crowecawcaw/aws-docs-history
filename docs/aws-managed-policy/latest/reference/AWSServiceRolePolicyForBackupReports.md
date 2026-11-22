@@ -1,7 +1,6 @@
 
 
 # AWSServiceRolePolicyForBackupReports
-<a name="AWSServiceRolePolicyForBackupReports"></a>
 
 **Description**: Provides AWS Backup permissions to create compliance reports on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceRolePolicyForBackupReports-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

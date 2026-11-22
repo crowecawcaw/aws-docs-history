@@ -1,7 +1,6 @@
 
 
 # OAMReadOnlyAccess
-<a name="OAMReadOnlyAccess"></a>
 
 **Description**: Provides Read Only access to CloudWatch Observability Access Manager
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="OAMReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

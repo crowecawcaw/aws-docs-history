@@ -1,7 +1,6 @@
 
 
 # CloudWatchNetworkFlowMonitorAgentPublishPolicy
-<a name="CloudWatchNetworkFlowMonitorAgentPublishPolicy"></a>
 
 **Description**: You can use this policy in IAM roles that are attached to Amazon EC2 and Amazon EKS instance resources to send telemetry reports (metrics) to a Network Flow Monitor endpoint.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchNetworkFlowMonitorAgentPublishPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

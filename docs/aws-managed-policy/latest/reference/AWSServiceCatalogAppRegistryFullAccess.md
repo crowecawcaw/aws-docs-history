@@ -1,7 +1,6 @@
 
 
 # AWSServiceCatalogAppRegistryFullAccess
-<a name="AWSServiceCatalogAppRegistryFullAccess"></a>
 
 **Description**: Provides full access to Service Catalog App Registry capabilities
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSServiceCatalogAppRegistryFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

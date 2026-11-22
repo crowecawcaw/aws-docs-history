@@ -1,7 +1,6 @@
 
 
 # AmazonESCognitoAccess
-<a name="AmazonESCognitoAccess"></a>
 
 **Description**: Provides limited access to the Amazon Cognito configuration service.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonESCognitoAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

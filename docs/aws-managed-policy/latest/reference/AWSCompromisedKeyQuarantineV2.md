@@ -1,7 +1,6 @@
 
 
 # AWSCompromisedKeyQuarantineV2
-<a name="AWSCompromisedKeyQuarantineV2"></a>
 
 **Description**: Denies access to certain actions, applied by the AWS team in the event that an IAM user's credentials have been compromised or exposed publicly. Do NOT remove this policy. Instead, please follow the instructions specified in the support case created for you regarding this event.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCompromisedKeyQuarantineV2-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

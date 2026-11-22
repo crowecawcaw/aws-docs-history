@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerHyperPodServiceRolePolicy
-<a name="AmazonSageMakerHyperPodServiceRolePolicy"></a>
 
 **Description**: This policy grants permissions to Amazon SageMaker HyperPod to related AWS services such as Amazon EKS, Amazon CloudWatch etc.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerHyperPodServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

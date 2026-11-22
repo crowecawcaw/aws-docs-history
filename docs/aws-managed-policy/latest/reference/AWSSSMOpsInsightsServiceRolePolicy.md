@@ -1,7 +1,6 @@
 
 
 # AWSSSMOpsInsightsServiceRolePolicy
-<a name="AWSSSMOpsInsightsServiceRolePolicy"></a>
 
 **Description**: Policy for Service Linked Role AWSServiceRoleForAmazonSSM\_OpsInsights
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSSMOpsInsightsServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

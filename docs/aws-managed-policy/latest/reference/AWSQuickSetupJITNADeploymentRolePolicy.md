@@ -1,7 +1,6 @@
 
 
 # AWSQuickSetupJITNADeploymentRolePolicy
-<a name="AWSQuickSetupJITNADeploymentRolePolicy"></a>
 
 **Description**: This policy allows Quick Setup to deploy the configuration type required to set up just-in-time node access.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSetupJITNADeploymentRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

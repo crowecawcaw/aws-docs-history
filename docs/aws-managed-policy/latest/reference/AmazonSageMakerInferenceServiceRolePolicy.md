@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerInferenceServiceRolePolicy
-<a name="AmazonSageMakerInferenceServiceRolePolicy"></a>
 
 **Description**: Managed policy for Service Linked Role for Amazon SageMaker Inference.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerInferenceServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

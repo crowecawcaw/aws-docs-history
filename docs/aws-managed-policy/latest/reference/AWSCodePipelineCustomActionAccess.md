@@ -1,7 +1,6 @@
 
 
 # AWSCodePipelineCustomActionAccess
-<a name="AWSCodePipelineCustomActionAccess"></a>
 
 **Description**: Provides access for custom actions to poll for jobs details (including temporary credentials) and report status updates to AWS CodePipeline.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCodePipelineCustomActionAccess-json"></a>
 
-```
+```json
 {
   "Statement" : [
     {

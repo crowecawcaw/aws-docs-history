@@ -1,7 +1,6 @@
 
 
 # AmazonBraketFullAccess
-<a name="AmazonBraketFullAccess"></a>
 
 **Description**: Provides full access to Amazon Braket via the AWS Management Console and SDK. Also provides access to related services (e.g., S3, logs).
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonBraketFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

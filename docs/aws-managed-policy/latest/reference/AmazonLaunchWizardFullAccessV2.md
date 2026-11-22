@@ -1,7 +1,6 @@
 
 
 # AmazonLaunchWizardFullAccessV2
-<a name="AmazonLaunchWizardFullAccessV2"></a>
 
 **Description**: Full access to AWS Launch wizard and other required services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonLaunchWizardFullAccessV2-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSLambdaSQSQueueExecutionRole
-<a name="AWSLambdaSQSQueueExecutionRole"></a>
 
 **Description**: Provides receive message, delete message, and read attribute access to SQS queues, and write permissions to CloudWatch logs.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSLambdaSQSQueueExecutionRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

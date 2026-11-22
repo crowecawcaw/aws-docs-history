@@ -1,7 +1,6 @@
 
 
 # AmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy
-<a name="AmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy"></a>
 
 **Description**: Managed Policy For Amazon Chime SDK MediaPipelines Service Linked Role
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

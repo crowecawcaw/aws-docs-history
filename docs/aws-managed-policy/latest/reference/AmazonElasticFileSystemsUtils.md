@@ -1,7 +1,6 @@
 
 
 # AmazonElasticFileSystemsUtils
-<a name="AmazonElasticFileSystemsUtils"></a>
 
 **Description**: Allows customers to use AWS Systems Manager to automatically manage Amazon EFS utilities (amazon-efs-utils) package on their EC2 instances, and use CloudWatchLog to get EFS file system mount success/failure notifications.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonElasticFileSystemsUtils-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

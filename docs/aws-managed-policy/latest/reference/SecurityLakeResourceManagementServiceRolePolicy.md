@@ -1,7 +1,6 @@
 
 
 # SecurityLakeResourceManagementServiceRolePolicy
-<a name="SecurityLakeResourceManagementServiceRolePolicy"></a>
 
 **Description**: Provides access to manage resources created by Security Lake.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SecurityLakeResourceManagementServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

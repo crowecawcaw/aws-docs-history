@@ -1,7 +1,6 @@
 
 
 # AWSAutoScalingPlansEC2AutoScalingPolicy
-<a name="AWSAutoScalingPlansEC2AutoScalingPolicy"></a>
 
 **Description**: Policy granting permissions to AWS Auto Scaling to periodically forecast capacity and generate scheduled scaling actions for Auto Scaling groups in a scaling plan
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSAutoScalingPlansEC2AutoScalingPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

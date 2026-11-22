@@ -1,7 +1,6 @@
 
 
 # AmazonEKSWorkerNodeMinimalPolicy
-<a name="AmazonEKSWorkerNodeMinimalPolicy"></a>
 
 **Description**: This policy allows Amazon EKS worker nodes to connect to Amazon EKS Clusters.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEKSWorkerNodeMinimalPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

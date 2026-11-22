@@ -1,7 +1,6 @@
 
 
 # AWSLambdaKinesisExecutionRole
-<a name="AWSLambdaKinesisExecutionRole"></a>
 
 **Description**: Provides list and read access to Kinesis streams and write permissions to CloudWatch logs.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSLambdaKinesisExecutionRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

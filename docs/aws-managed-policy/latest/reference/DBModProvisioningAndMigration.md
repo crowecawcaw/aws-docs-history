@@ -1,7 +1,6 @@
 
 
 # DBModProvisioningAndMigration
-<a name="DBModProvisioningAndMigration"></a>
 
 **Description**: Resource provisioning and data migration permissions for database connector used in database modernization
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="DBModProvisioningAndMigration-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

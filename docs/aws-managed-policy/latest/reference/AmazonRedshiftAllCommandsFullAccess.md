@@ -1,7 +1,6 @@
 
 
 # AmazonRedshiftAllCommandsFullAccess
-<a name="AmazonRedshiftAllCommandsFullAccess"></a>
 
 **Description**: This policy includes permissions to run SQL commands to copy, load, unload, query, and analyze data on Amazon Redshift. The policy also grants permissions to run select statements for related services, such as Amazon S3, Amazon CloudWatch logs, Amazon SageMaker, or AWS Glue.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRedshiftAllCommandsFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

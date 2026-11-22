@@ -1,7 +1,6 @@
 
 
 # AWSSystemsManagerJustInTimeAccessTokenPolicy
-<a name="AWSSystemsManagerJustInTimeAccessTokenPolicy"></a>
 
 **Description**: The managed policy AWSSystemsManagerJustInTimeAccessTokenPolicy allows Systems Manager to generate access tokens used for just-in-time node access.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSystemsManagerJustInTimeAccessTokenPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

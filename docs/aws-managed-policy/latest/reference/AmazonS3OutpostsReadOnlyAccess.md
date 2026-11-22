@@ -1,7 +1,6 @@
 
 
 # AmazonS3OutpostsReadOnlyAccess
-<a name="AmazonS3OutpostsReadOnlyAccess"></a>
 
 **Description**: Provides read only access to Amazon S3 on Outposts via the AWS Management Console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonS3OutpostsReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonEMRFullAccessPolicy\_v2
-<a name="AmazonEMRFullAccessPolicy_v2"></a>
 
 **Description**: Provides full access to Amazon EMR
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEMRFullAccessPolicy_v2-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

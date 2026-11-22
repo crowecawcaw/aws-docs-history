@@ -1,7 +1,6 @@
 
 
 # NeptuneGraphReadOnlyAccess
-<a name="NeptuneGraphReadOnlyAccess"></a>
 
 **Description**: Provides read only access to all Amazon Neptune Analytics resources along with read only permissions for dependent services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="NeptuneGraphReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

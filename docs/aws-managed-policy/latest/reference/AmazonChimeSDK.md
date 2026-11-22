@@ -1,7 +1,6 @@
 
 
 # AmazonChimeSDK
-<a name="AmazonChimeSDK"></a>
 
 **Description**: Provides access to Amazon Chime SDK operations
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonChimeSDK-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

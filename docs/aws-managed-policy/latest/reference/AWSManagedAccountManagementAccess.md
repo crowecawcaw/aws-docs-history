@@ -1,7 +1,6 @@
 
 
 # AWSManagedAccountManagementAccess
-<a name="AWSManagedAccountManagementAccess"></a>
 
 **Description**: Grants AWS permissions to update and maintain AWS managed roles for AWS managed accounts
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSManagedAccountManagementAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

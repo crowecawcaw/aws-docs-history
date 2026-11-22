@@ -1,7 +1,6 @@
 
 
 # AmazonElasticContainerRegistryPublicPowerUser
-<a name="AmazonElasticContainerRegistryPublicPowerUser"></a>
 
 **Description**: Provides full access to Amazon ECR Public repositories, but does not allow repository deletion or policy changes.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonElasticContainerRegistryPublicPowerUser-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

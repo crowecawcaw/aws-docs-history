@@ -1,7 +1,6 @@
 
 
 # AWSLambda\_FullAccess
-<a name="AWSLambda_FullAccess"></a>
 
 **Description**: Grants full access to AWS Lambda service, AWS Lambda console features, and other related AWS services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSLambda_FullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

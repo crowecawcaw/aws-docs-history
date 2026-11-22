@@ -1,7 +1,6 @@
 
 
 # AWSQuickSetupPatchPolicyTagManagementExecutionPolicy
-<a name="AWSQuickSetupPatchPolicyTagManagementExecutionPolicy"></a>
 
 **Description**: Grants permissions to track which instances are managed by Quick Setup patch policy configurations through automated tagging and inventory collection.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSetupPatchPolicyTagManagementExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

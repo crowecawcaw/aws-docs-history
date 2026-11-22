@@ -1,7 +1,6 @@
 
 
 # FMSServiceRolePolicy
-<a name="FMSServiceRolePolicy"></a>
 
 **Description**: Access policy to allow FM service linked role to perform FM-related actions on FM-managed resources within a customer AWS Organization account.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="FMSServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

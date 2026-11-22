@@ -1,7 +1,6 @@
 
 
 # AWSElasticBeanstalkMulticontainerDocker
-<a name="AWSElasticBeanstalkMulticontainerDocker"></a>
 
 **Description**: Provide the instances in your multicontainer Docker environment access to use the Amazon EC2 Container Service to manage container deployment tasks. 
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticBeanstalkMulticontainerDocker-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

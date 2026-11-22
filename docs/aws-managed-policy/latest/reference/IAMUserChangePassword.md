@@ -1,7 +1,6 @@
 
 
 # IAMUserChangePassword
-<a name="IAMUserChangePassword"></a>
 
 **Description**: Provides the ability for an IAM user to change their own password.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="IAMUserChangePassword-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

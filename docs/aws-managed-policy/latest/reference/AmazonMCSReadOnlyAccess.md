@@ -1,7 +1,6 @@
 
 
 # AmazonMCSReadOnlyAccess
-<a name="AmazonMCSReadOnlyAccess"></a>
 
 **Description**: Provide read only access to Amazon Managed Apache Cassandra Service
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonMCSReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

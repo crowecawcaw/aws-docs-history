@@ -1,7 +1,6 @@
 
 
 # NetworkSecurityManagerServiceRolePolicy
-<a name="NetworkSecurityManagerServiceRolePolicy"></a>
 
 **Description**: Access policy to allow NetworkSecurityManager service linked role to perform NetworkSecurityManager-related actions on NetworkSecurityManager-managed resources within a customer AWS account.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="NetworkSecurityManagerServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

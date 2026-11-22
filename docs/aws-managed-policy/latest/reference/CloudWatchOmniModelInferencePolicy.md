@@ -1,7 +1,6 @@
 
 
 # CloudWatchOmniModelInferencePolicy
-<a name="CloudWatchOmniModelInferencePolicy"></a>
 
 **Description**: Managed policy for customers to attach to CloudWatch Omni so that CloudWatch Omni features can make Bedrock Model Inference calls such as in Agent Playground or Evaluations
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchOmniModelInferencePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

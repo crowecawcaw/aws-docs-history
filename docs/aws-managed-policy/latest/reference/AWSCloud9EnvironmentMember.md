@@ -1,7 +1,6 @@
 
 
 # AWSCloud9EnvironmentMember
-<a name="AWSCloud9EnvironmentMember"></a>
 
 **Description**: Provides the ability to be invited into AWS Cloud9 shared development environments.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCloud9EnvironmentMember-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

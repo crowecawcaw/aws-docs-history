@@ -1,7 +1,6 @@
 
 
 # NovaActServiceRolePolicy
-<a name="NovaActServiceRolePolicy"></a>
 
 **Description**: This policy allows NovaAct to create and manage the necessary resources to operate the Nova Act agents.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="NovaActServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

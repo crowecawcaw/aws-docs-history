@@ -1,7 +1,6 @@
 
 
 # AmazonEKSServiceRolePolicy
-<a name="AmazonEKSServiceRolePolicy"></a>
 
 **Description**: A Service-Linked Role required for Amazon EKS to call AWS services on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEKSServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

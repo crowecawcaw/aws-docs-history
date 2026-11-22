@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerQuickSightVPCPolicy
-<a name="AmazonSageMakerQuickSightVPCPolicy"></a>
 
 **Description**: This policy will be used By SageMaker Unified Studios to create VPC related resources for QuickSight
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerQuickSightVPCPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

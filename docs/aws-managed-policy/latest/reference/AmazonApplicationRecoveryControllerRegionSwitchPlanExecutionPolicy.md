@@ -1,7 +1,6 @@
 
 
 # AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy
-<a name="AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy"></a>
 
 **Description**: Grants permissions to ARC Region switch for plan execution and plan evaluation.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

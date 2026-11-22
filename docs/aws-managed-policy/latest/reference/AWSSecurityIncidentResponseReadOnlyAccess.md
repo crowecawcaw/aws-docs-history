@@ -1,7 +1,6 @@
 
 
 # AWSSecurityIncidentResponseReadOnlyAccess
-<a name="AWSSecurityIncidentResponseReadOnlyAccess"></a>
 
 **Description**: Policy provides customers with Read-only permissions to all resources associated to the Security Incident Response service. Permission includes access to GetCaseAttachmentDownloadUrl as well for the ability to get case attachment download URLs.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSecurityIncidentResponseReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

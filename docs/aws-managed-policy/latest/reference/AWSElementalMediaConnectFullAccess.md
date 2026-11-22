@@ -1,7 +1,6 @@
 
 
 # AWSElementalMediaConnectFullAccess
-<a name="AWSElementalMediaConnectFullAccess"></a>
 
 **Description**: Provides full access to AWS Elemental MediaConnect resources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElementalMediaConnectFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSPanoramaApplianceServiceRolePolicy
-<a name="AWSPanoramaApplianceServiceRolePolicy"></a>
 
 **Description**: Allows an AWS Panorama Appliance to upload logs to Amazon CloudWatch, and to get objects from Amazon S3 access points created for use with AWS Panorama.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSPanoramaApplianceServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

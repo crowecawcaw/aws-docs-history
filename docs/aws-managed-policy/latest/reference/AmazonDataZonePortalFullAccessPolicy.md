@@ -1,7 +1,6 @@
 
 
 # AmazonDataZonePortalFullAccessPolicy
-<a name="AmazonDataZonePortalFullAccessPolicy"></a>
 
 **Description**: Provides full access to Amazon DataZone APIs
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDataZonePortalFullAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

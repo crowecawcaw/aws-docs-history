@@ -1,7 +1,6 @@
 
 
 # AWSQuickSetupEnableAREXExecutionPolicy
-<a name="AWSQuickSetupEnableAREXExecutionPolicy"></a>
 
 **Description**: This policy grants permissions that allow Systems Manager to run the AWSQuickSetupType-EnableAREX Automation runbook, which enables AWS Resource Explorer for use with Systems Manager.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSQuickSetupEnableAREXExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

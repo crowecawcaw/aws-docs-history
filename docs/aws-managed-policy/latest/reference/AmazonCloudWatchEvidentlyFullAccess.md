@@ -1,7 +1,6 @@
 
 
 # AmazonCloudWatchEvidentlyFullAccess
-<a name="AmazonCloudWatchEvidentlyFullAccess"></a>
 
 **Description**: Provides full only access to Amazon CloudWatch Evidently. Also provides access to related Amazon S3, Amazon SNS, Amazon CloudWatch, and other related services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonCloudWatchEvidentlyFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

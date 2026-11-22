@@ -1,7 +1,6 @@
 
 
 # MultiPartyApprovalFullAccess
-<a name="MultiPartyApprovalFullAccess"></a>
 
 **Description**: Provides full access to Multi-party approval. This policy also includes related permissions to AWS Organizations and AWS IAM Identity for managing approval teams and identity sources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="MultiPartyApprovalFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

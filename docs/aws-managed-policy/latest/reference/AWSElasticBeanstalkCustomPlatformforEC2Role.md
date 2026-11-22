@@ -1,7 +1,6 @@
 
 
 # AWSElasticBeanstalkCustomPlatformforEC2Role
-<a name="AWSElasticBeanstalkCustomPlatformforEC2Role"></a>
 
 **Description**: Provide the instance in your custom platform builder environment permission to launch EC2 instance, create EBS snapshot and AMI, stream logs to Amazon CloudWatch Logs, and store artifacts in Amazon S3.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticBeanstalkCustomPlatformforEC2Role-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

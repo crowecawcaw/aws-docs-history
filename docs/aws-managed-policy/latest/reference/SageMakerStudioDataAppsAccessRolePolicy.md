@@ -1,7 +1,6 @@
 
 
 # SageMakerStudioDataAppsAccessRolePolicy
-<a name="SageMakerStudioDataAppsAccessRolePolicy"></a>
 
 **Description**: Amazon SageMaker Studio uses this policy to access data apps shared with a user in the Amazon SageMaker Studio domain.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SageMakerStudioDataAppsAccessRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

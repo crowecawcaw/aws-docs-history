@@ -1,7 +1,6 @@
 
 
 # AmazonCodeGuruSecurityScanAccess
-<a name="AmazonCodeGuruSecurityScanAccess"></a>
 
 **Description**: Provides access required for working with Amazon CodeGuru Security scans.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonCodeGuruSecurityScanAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

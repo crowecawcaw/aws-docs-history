@@ -1,7 +1,6 @@
 
 
 # AmazonRedshiftFederatedAuthorization
-<a name="AmazonRedshiftFederatedAuthorization"></a>
 
 **Description**: This is an ease-of-use policy for running queries with Amazon Redshift Federated Authorization
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRedshiftFederatedAuthorization-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

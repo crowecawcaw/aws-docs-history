@@ -1,7 +1,6 @@
 
 
 # AWSAccountSettingsManagementRole
-<a name="AWSAccountSettingsManagementRole"></a>
 
 **Description**: Provides required permissions to manage an account for AWS applications.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSAccountSettingsManagementRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

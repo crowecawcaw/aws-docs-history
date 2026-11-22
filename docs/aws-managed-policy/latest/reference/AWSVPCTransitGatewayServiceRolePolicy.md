@@ -1,7 +1,6 @@
 
 
 # AWSVPCTransitGatewayServiceRolePolicy
-<a name="AWSVPCTransitGatewayServiceRolePolicy"></a>
 
 **Description**: Allow VPC Transit Gateway to create and manage necessary resources for your Transit Gateway VPC Attachments.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSVPCTransitGatewayServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

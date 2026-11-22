@@ -1,7 +1,6 @@
 
 
 # ResourceGroupsServiceRolePolicy
-<a name="ResourceGroupsServiceRolePolicy"></a>
 
 **Description**: Allows AWS Resource Groups to query the AWS services that own your resources to keep the group up-to-date
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ResourceGroupsServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

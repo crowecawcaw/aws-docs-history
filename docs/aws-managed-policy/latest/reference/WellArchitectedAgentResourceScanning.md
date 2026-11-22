@@ -1,7 +1,6 @@
 
 
 # WellArchitectedAgentResourceScanning
-<a name="WellArchitectedAgentResourceScanning"></a>
 
 **Description**: Grants the AWS Well-Architected Agent read-only access to AWS resource configurations, security settings, and operational data to generate optimization recommendations
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="WellArchitectedAgentResourceScanning-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

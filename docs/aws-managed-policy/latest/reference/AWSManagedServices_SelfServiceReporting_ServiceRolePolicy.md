@@ -1,7 +1,6 @@
 
 
 # AWSManagedServices\_SelfServiceReporting\_ServiceRolePolicy
-<a name="AWSManagedServices_SelfServiceReporting_ServiceRolePolicy"></a>
 
 **Description**: Allows Amazon's AWS Managed Service's Self Service Reporting feature to read AWS Organization data on your behalf to enable organization level aggregated reporting
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSManagedServices_SelfServiceReporting_ServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

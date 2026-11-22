@@ -1,7 +1,6 @@
 
 
 # SageMakerStudioProjectUserRolePolicy
-<a name="SageMakerStudioProjectUserRolePolicy"></a>
 
 **Description**: Amazon SageMaker Studio creates IAM roles for projects users to perform data analytics, artificial intelligence, and machine learning actions, and uses this policy when creating these roles to define the permissions.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SageMakerStudioProjectUserRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

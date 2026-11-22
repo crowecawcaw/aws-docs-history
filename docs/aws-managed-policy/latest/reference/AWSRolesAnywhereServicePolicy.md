@@ -1,7 +1,6 @@
 
 
 # AWSRolesAnywhereServicePolicy
-<a name="AWSRolesAnywhereServicePolicy"></a>
 
 **Description**: Allows IAM Roles Anywhere to publish service/usage metrics to CloudWatch and check the status of Private Certificate Authorities on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSRolesAnywhereServicePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

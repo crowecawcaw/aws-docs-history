@@ -1,7 +1,6 @@
 
 
 # AmazonAppStreamServiceAccess
-<a name="AmazonAppStreamServiceAccess"></a>
 
 **Description**: Default policy for Amazon AppStream service role. 
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonAppStreamServiceAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

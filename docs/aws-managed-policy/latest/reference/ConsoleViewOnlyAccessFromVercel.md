@@ -1,7 +1,6 @@
 
 
 # ConsoleViewOnlyAccessFromVercel
-<a name="ConsoleViewOnlyAccessFromVercel"></a>
 
 **Description**: For use with accounts created through the Vercel Marketplace integration with AWS. Provides access to view all resources for the services that are integrated with the Vercel Marketplace.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ConsoleViewOnlyAccessFromVercel-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonEventBridgeSchemasFullAccess
-<a name="AmazonEventBridgeSchemasFullAccess"></a>
 
 **Description**: Provides full access to Amazon EventBridge Schemas.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEventBridgeSchemasFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

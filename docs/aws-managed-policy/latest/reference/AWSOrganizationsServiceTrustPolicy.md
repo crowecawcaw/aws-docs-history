@@ -1,7 +1,6 @@
 
 
 # AWSOrganizationsServiceTrustPolicy
-<a name="AWSOrganizationsServiceTrustPolicy"></a>
 
 **Description**: A policy to allow AWS Organizations to share trust with other approved AWS services for the purpose of simplifying customer configuration.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSOrganizationsServiceTrustPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

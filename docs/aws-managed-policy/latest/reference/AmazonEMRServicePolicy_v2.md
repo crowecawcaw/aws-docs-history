@@ -1,7 +1,6 @@
 
 
 # AmazonEMRServicePolicy\_v2
-<a name="AmazonEMRServicePolicy_v2"></a>
 
 **Description**: This policy is used for the Amazon EMR Service Role and should NOT be used for any other IAM users or roles in your account. The policy grants permissions to create and manage resources associated with EMR and related services necessary for the operation of your EMR cluster.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEMRServicePolicy_v2-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

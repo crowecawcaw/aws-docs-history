@@ -1,7 +1,6 @@
 
 
 # AWSImageBuilderFullAccess
-<a name="AWSImageBuilderFullAccess"></a>
 
 **Description**: Provides full access to all AWS Image Builder actions and resource scoped access to related AWS services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSImageBuilderFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # MonitronServiceRolePolicy
-<a name="MonitronServiceRolePolicy"></a>
 
 **Description**: Policy for AWS Monitron service linked role granting access to required customer resources.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="MonitronServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

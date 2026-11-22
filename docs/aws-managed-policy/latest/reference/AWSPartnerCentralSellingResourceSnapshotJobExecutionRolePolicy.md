@@ -1,7 +1,6 @@
 
 
 # AWSPartnerCentralSellingResourceSnapshotJobExecutionRolePolicy
-<a name="AWSPartnerCentralSellingResourceSnapshotJobExecutionRolePolicy"></a>
 
 **Description**: Provides access to the ResourceSnapshotJob to read a resource and snapshot it in the target engagement.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSPartnerCentralSellingResourceSnapshotJobExecutionRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

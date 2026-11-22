@@ -1,7 +1,6 @@
 
 
 # ComputeOptimizerAutomationServiceRolePolicy
-<a name="ComputeOptimizerAutomationServiceRolePolicy"></a>
 
 **Description**: The ComputeOptimizerAutomationServiceRolePolicy managed policy is attached to a service-linked role that allows Compute Optimizer to perform actions on your behalf
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ComputeOptimizerAutomationServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

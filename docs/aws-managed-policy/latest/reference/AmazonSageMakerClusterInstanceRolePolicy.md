@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerClusterInstanceRolePolicy
-<a name="AmazonSageMakerClusterInstanceRolePolicy"></a>
 
 **Description**: This policy grants permissions commonly needed to use Amazon SageMaker Cluster.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerClusterInstanceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

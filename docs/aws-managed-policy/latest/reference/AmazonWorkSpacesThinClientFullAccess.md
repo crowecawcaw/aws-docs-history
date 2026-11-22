@@ -1,7 +1,6 @@
 
 
 # AmazonWorkSpacesThinClientFullAccess
-<a name="AmazonWorkSpacesThinClientFullAccess"></a>
 
 **Description**: Provides full access to Amazon WorkSpaces Thin Client as well as limited access to required related services
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonWorkSpacesThinClientFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

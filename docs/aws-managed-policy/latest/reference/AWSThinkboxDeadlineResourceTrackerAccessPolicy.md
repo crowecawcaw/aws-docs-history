@@ -1,7 +1,6 @@
 
 
 # AWSThinkboxDeadlineResourceTrackerAccessPolicy
-<a name="AWSThinkboxDeadlineResourceTrackerAccessPolicy"></a>
 
 **Description**: Grants permissions required for the operation of AWS Thinkbox's Deadline Resource Tracker. This includes full access to some EC2 actions, including DeleteFleets and CancelSpotFleetRequests.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSThinkboxDeadlineResourceTrackerAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

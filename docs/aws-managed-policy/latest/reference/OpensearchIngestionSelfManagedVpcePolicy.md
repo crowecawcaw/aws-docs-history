@@ -1,7 +1,6 @@
 
 
 # OpensearchIngestionSelfManagedVpcePolicy
-<a name="OpensearchIngestionSelfManagedVpcePolicy"></a>
 
 **Description**: Allows Amazon OpenSearch Ingestion to describe network resources and write service metrics to cloudwatch
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="OpensearchIngestionSelfManagedVpcePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

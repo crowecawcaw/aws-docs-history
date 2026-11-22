@@ -1,7 +1,6 @@
 
 
 # APIGatewayServiceRolePolicy
-<a name="APIGatewayServiceRolePolicy"></a>
 
 **Description**: Allows API Gateway to manage associated AWS Resources on behalf of the customer. 
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="APIGatewayServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

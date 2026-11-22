@@ -1,7 +1,6 @@
 
 
 # AWSCodePipeline\_ReadOnlyAccess
-<a name="AWSCodePipeline_ReadOnlyAccess"></a>
 
 **Description**: Provides read only access to AWS CodePipeline via the AWS Management Console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCodePipeline_ReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Statement" : [
     {

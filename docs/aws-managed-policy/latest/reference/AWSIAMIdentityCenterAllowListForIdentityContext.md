@@ -1,7 +1,6 @@
 
 
 # AWSIAMIdentityCenterAllowListForIdentityContext
-<a name="AWSIAMIdentityCenterAllowListForIdentityContext"></a>
 
 **Description**: Provides the list of actions that are allowed for roles assumed with the IAM Identity Center identity context. AWS Security Token Service (AWS STS) automatically attaches this policy to assumed roles. The identity context is passed as ProvidedContext.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIAMIdentityCenterAllowListForIdentityContext-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

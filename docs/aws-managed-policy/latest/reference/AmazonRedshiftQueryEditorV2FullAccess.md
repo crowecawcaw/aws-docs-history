@@ -1,7 +1,6 @@
 
 
 # AmazonRedshiftQueryEditorV2FullAccess
-<a name="AmazonRedshiftQueryEditorV2FullAccess"></a>
 
 **Description**: Grants full access to the Amazon Redshift Query Editor V2 operations and resources. This policy also grants access to other required services. This includes permissions to list the Amazon Redshift clusters, read keys and aliases in AWS KMS and manage the Query Editor V2 secrets in AWS Secrets Manager.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonRedshiftQueryEditorV2FullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

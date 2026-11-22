@@ -1,7 +1,6 @@
 
 
 # CloudWatch-CrossAccountAccess
-<a name="CloudWatch-CrossAccountAccess"></a>
 
 **Description**: Allows CloudWatch to assume CloudWatch-CrossAccountSharing roles in remote accounts on behalf of the current account in order to display data cross-account, cross-region
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatch-CrossAccountAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

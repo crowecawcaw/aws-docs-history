@@ -1,7 +1,6 @@
 
 
 # AWSApplicationMigrationFSxProxyVPCPolicy
-<a name="AWSApplicationMigrationFSxProxyVPCPolicy"></a>
 
 **Description**: Provides permissions to manage PrivateLink between AWS Application Migration Service and customer's FSx file system
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSApplicationMigrationFSxProxyVPCPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

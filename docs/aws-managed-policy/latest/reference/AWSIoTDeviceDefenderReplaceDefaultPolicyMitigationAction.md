@@ -1,7 +1,6 @@
 
 
 # AWSIoTDeviceDefenderReplaceDefaultPolicyMitigationAction
-<a name="AWSIoTDeviceDefenderReplaceDefaultPolicyMitigationAction"></a>
 
 **Description**: Provides write access to IoT policies for execution of REPLACE\_DEFAULT\_POLICY\_VERSION mitigation action
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIoTDeviceDefenderReplaceDefaultPolicyMitigationAction-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

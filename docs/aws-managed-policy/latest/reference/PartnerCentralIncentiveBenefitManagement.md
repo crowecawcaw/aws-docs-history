@@ -1,7 +1,6 @@
 
 
 # PartnerCentralIncentiveBenefitManagement
-<a name="PartnerCentralIncentiveBenefitManagement"></a>
 
 **Description**: Policy provides access to manage all the incentive benefits in AWS Partner Central.
 
@@ -16,20 +15,20 @@ You can attach `PartnerCentralIncentiveBenefitManagement` to your users, groups,
 <a name="PartnerCentralIncentiveBenefitManagement-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: February 11, 2026, 16:42 UTC 
-+ **Edited time:** October 28, 2026, 13:47 UTC
++ **Edited time:** November 20, 2026, 04:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/PartnerCentralIncentiveBenefitManagement`
 
 ## Policy version
 <a name="PartnerCentralIncentiveBenefitManagement-version"></a>
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="PartnerCentralIncentiveBenefitManagement-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -203,6 +202,34 @@ The policy's default version is the version that defines the permissions for the
           "aws:IsMcpServiceAction" : "true"
         }
       }
+    },
+    {
+      "Sid" : "Support",
+      "Effect" : "Allow",
+      "Action" : [
+        "support:CreateCase",
+        "support:DescribeCases",
+        "support:DescribeCommunications",
+        "support:DescribeAttachment",
+        "support:AddCommunicationToCase",
+        "support:ResolveCase",
+        "support:AddAttachmentsToSet",
+        "support:SearchForCases",
+        "support:DescribeServices",
+        "support:DescribeCreateCaseOptions"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SupportConsole",
+      "Effect" : "Allow",
+      "Action" : [
+        "support-console:GetAccountState",
+        "support-console:GetAccountGovCloudEnabled",
+        "support-console:CheckSubscription",
+        "support-console:GetBanner"
+      ],
+      "Resource" : "*"
     }
   ]
 }

@@ -1,7 +1,6 @@
 
 
 # AWSGrafanaWorkspacePermissionManagementV2
-<a name="AWSGrafanaWorkspacePermissionManagementV2"></a>
 
 **Description**: Provides ability to update IAM Identity Center (IdC) user and group permissions for Amazon Managed Grafana workspaces.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSGrafanaWorkspacePermissionManagementV2-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonDynamoDBFullAccesswithDataPipeline
-<a name="AmazonDynamoDBFullAccesswithDataPipeline"></a>
 
 **Description**: This policy is on a deprecation path. See documentation for guidance: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBPipeline.html. Provides full access to Amazon DynamoDB including Export/Import using AWS Data Pipeline via the AWS Management Console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDynamoDBFullAccesswithDataPipeline-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonCognitoIdpEmailServiceRolePolicy
-<a name="AmazonCognitoIdpEmailServiceRolePolicy"></a>
 
 **Description**: Allows Amazon Cognito User Pools service to use your SES identities for email sending
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonCognitoIdpEmailServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

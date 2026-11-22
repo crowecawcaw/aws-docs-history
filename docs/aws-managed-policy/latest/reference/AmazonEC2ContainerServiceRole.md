@@ -1,7 +1,6 @@
 
 
 # AmazonEC2ContainerServiceRole
-<a name="AmazonEC2ContainerServiceRole"></a>
 
 **Description**: Default policy for Amazon ECS service role.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEC2ContainerServiceRole-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

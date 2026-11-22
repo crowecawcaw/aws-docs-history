@@ -1,7 +1,6 @@
 
 
 # AmazonWorkSpacesAdmin
-<a name="AmazonWorkSpacesAdmin"></a>
 
 **Description**: Provides access to Amazon WorkSpaces administrative actions via AWS SDK and CLI.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonWorkSpacesAdmin-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

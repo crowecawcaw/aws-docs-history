@@ -1,7 +1,6 @@
 
 
 # AWSCloud9User
-<a name="AWSCloud9User"></a>
 
 **Description**: Provides permission to create AWS Cloud9 development environments and to manage owned environments.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCloud9User-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

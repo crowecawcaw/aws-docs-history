@@ -1,7 +1,6 @@
 
 
 # ServerMigrationConnector
-<a name="ServerMigrationConnector"></a>
 
 **Description**: Permissions to allow the AWS Server Migration Connector to migrate VMs to EC2. Allows communication with the AWS Server Migration Service, read/write access to S3 buckets starting with 'sms-b-' and 'import-to-ec2-' as well as the buckets used for AWS Server Migration Connector upgrade, AWS Server Migration Connector registration with AWS, and metrics upload to AWS.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="ServerMigrationConnector-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

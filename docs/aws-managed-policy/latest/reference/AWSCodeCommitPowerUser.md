@@ -1,7 +1,6 @@
 
 
 # AWSCodeCommitPowerUser
-<a name="AWSCodeCommitPowerUser"></a>
 
 **Description**: Provides full access to AWS CodeCommit repositories, but does not allow repository deletion.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCodeCommitPowerUser-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

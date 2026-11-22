@@ -1,7 +1,6 @@
 
 
 # AmazonNimbleStudio-LaunchProfileWorker
-<a name="AmazonNimbleStudio-LaunchProfileWorker"></a>
 
 **Description**: This policy grants access to resources needed by Nimble Studio Launch Profile workers. Attach this policy to EC2 instances created by Nimble Studio Builder.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonNimbleStudio-LaunchProfileWorker-json"></a>
 
-```
+```json
 {
   "Statement" : [
     {

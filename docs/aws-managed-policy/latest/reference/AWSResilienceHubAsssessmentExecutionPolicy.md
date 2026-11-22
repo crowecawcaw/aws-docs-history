@@ -1,7 +1,6 @@
 
 
 # AWSResilienceHubAsssessmentExecutionPolicy
-<a name="AWSResilienceHubAsssessmentExecutionPolicy"></a>
 
 **Description**: Policy for AWS Resilience Hub service role which allows access to other AWS services in order to execute assessment.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSResilienceHubAsssessmentExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

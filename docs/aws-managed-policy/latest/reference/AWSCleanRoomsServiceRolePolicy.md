@@ -1,7 +1,6 @@
 
 
 # AWSCleanRoomsServiceRolePolicy
-<a name="AWSCleanRoomsServiceRolePolicy"></a>
 
 **Description**: Allow AWS Clean Rooms to access other AWS services such as CloudWatch APIs on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCleanRoomsServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

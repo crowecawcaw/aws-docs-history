@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerCanvasBedrockAccess
-<a name="AmazonSageMakerCanvasBedrockAccess"></a>
 
 **Description**: This policy grants permissions to use Amazon Bedrock in SageMaker Canvas by providing access to downstream services such as S3.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerCanvasBedrockAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

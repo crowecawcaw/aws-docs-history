@@ -1,7 +1,6 @@
 
 
 # AWSSystemsManagerEnableConfigRecordingExecutionPolicy
-<a name="AWSSystemsManagerEnableConfigRecordingExecutionPolicy"></a>
 
 **Description**: Provides permissions for AWS Systems Manager Quick Setup to enable and configure AWS Config configuration recording.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSystemsManagerEnableConfigRecordingExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

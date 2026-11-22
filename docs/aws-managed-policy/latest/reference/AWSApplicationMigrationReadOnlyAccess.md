@@ -1,7 +1,6 @@
 
 
 # AWSApplicationMigrationReadOnlyAccess
-<a name="AWSApplicationMigrationReadOnlyAccess"></a>
 
 **Description**: This policy provides permissions to all read-only public APIs of Application Migration Service (MGN), as well as some read-only APIs of other AWS services that are required in order to make full read-only use of the MGN console. Attach this policy to your IAM users or roles.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSApplicationMigrationReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

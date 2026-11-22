@@ -1,7 +1,6 @@
 
 
 # AWSElasticBeanstalkRoleCore
-<a name="AWSElasticBeanstalkRoleCore"></a>
 
 **Description**: AWSElasticBeanstalkRoleCore (Elastic Beanstalk operations role) Allows core operation of a web service environment.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticBeanstalkRoleCore-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

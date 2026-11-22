@@ -1,7 +1,6 @@
 
 
 # AmazonESFullAccess
-<a name="AmazonESFullAccess"></a>
 
 **Description**: Provides full access to the Amazon ES configuration service.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonESFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

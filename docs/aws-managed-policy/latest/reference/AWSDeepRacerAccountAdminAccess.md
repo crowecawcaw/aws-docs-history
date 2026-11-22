@@ -1,7 +1,6 @@
 
 
 # AWSDeepRacerAccountAdminAccess
-<a name="AWSDeepRacerAccountAdminAccess"></a>
 
 **Description**: DeepRacer admin access to all actions including toggling between multiuser and single user mode.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDeepRacerAccountAdminAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

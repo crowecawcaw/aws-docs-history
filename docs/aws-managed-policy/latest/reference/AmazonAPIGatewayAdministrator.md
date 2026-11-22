@@ -1,7 +1,6 @@
 
 
 # AmazonAPIGatewayAdministrator
-<a name="AmazonAPIGatewayAdministrator"></a>
 
 **Description**: Provides full access to create/edit/delete APIs in Amazon API Gateway via the AWS Management Console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonAPIGatewayAdministrator-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

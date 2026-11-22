@@ -1,7 +1,6 @@
 
 
 # AmazonEC2ContainerRegistryPullOnly
-<a name="AmazonEC2ContainerRegistryPullOnly"></a>
 
 **Description**: Provides access to pull images from Amazon EC2 Container Registry repositories.
 
@@ -16,20 +15,20 @@ You can attach `AmazonEC2ContainerRegistryPullOnly` to your users, groups, and r
 <a name="AmazonEC2ContainerRegistryPullOnly-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: October 04, 2024, 16:58 UTC 
-+ **Edited time:** October 04, 2024, 16:58 UTC
++ **Edited time:** November 17, 2026, 21:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly`
 
 ## Policy version
 <a name="AmazonEC2ContainerRegistryPullOnly-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
 <a name="AmazonEC2ContainerRegistryPullOnly-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
@@ -42,6 +41,13 @@ The policy's default version is the version that defines the permissions for the
         "ecr:BatchImportUpstreamImage"
       ],
       "Resource" : "*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "signin:CreateBearerToken"
+      ],
+      "Resource" : "arn:aws:signin:*:*:service-principal/ecr.amazonaws.com"
     }
   ]
 }

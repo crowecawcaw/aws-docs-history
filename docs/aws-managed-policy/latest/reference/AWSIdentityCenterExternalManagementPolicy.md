@@ -1,7 +1,6 @@
 
 
 # AWSIdentityCenterExternalManagementPolicy
-<a name="AWSIdentityCenterExternalManagementPolicy"></a>
 
 **Description**: Provides access to manage IAM Identity Center users from an external provider.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSIdentityCenterExternalManagementPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

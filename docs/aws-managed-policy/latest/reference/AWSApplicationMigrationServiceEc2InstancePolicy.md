@@ -1,7 +1,6 @@
 
 
 # AWSApplicationMigrationServiceEc2InstancePolicy
-<a name="AWSApplicationMigrationServiceEc2InstancePolicy"></a>
 
 **Description**: This policy allows installing and using the AWS Replication Agent, which is used by AWS Application Migration Service (AWS MGN) to migrate source servers that run on EC2 (cross-Region or cross-AZ). An IAM role with this policy should be attached (as an EC2 Instance Profile) to the EC2 Instances.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSApplicationMigrationServiceEc2InstancePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

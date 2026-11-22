@@ -1,7 +1,6 @@
 
 
 # CloudWatchEventsServiceRolePolicy
-<a name="CloudWatchEventsServiceRolePolicy"></a>
 
 **Description**: Allow AWS CloudWatch to execute actions on your behalf configured through alarms and events.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchEventsServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

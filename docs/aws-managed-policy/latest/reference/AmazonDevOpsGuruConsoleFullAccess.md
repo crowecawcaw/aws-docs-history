@@ -1,7 +1,6 @@
 
 
 # AmazonDevOpsGuruConsoleFullAccess
-<a name="AmazonDevOpsGuruConsoleFullAccess"></a>
 
 **Description**: The policy grants full-access to the DevOps Guru console.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDevOpsGuruConsoleFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

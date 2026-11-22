@@ -1,7 +1,6 @@
 
 
 # VPCLatticeServicesInvokeAccess
-<a name="VPCLatticeServicesInvokeAccess"></a>
 
 **Description**: Provides access to invoking Amazon VPC Lattice services.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="VPCLatticeServicesInvokeAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

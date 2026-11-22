@@ -1,7 +1,6 @@
 
 
 # EC2InstanceProfileForImageBuilderECRContainerBuilds
-<a name="EC2InstanceProfileForImageBuilderECRContainerBuilds"></a>
 
 **Description**: EC2 Instance profile for building container images with EC2 Image Builder. This policy grants the user broad permissions to upload ECR images.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="EC2InstanceProfileForImageBuilderECRContainerBuilds-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

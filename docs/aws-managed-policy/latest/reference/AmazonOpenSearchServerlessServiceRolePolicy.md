@@ -1,7 +1,6 @@
 
 
 # AmazonOpenSearchServerlessServiceRolePolicy
-<a name="AmazonOpenSearchServerlessServiceRolePolicy"></a>
 
 **Description**: Allow Amazon OpenSearch Serverless to access other AWS services such as CloudWatch APIs on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonOpenSearchServerlessServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

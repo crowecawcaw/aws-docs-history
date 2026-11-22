@@ -1,7 +1,6 @@
 
 
 # SageMakerStudioAdminIAMConsolePolicy
-<a name="SageMakerStudioAdminIAMConsolePolicy"></a>
 
 **Description**: Provides initial administrative and individual setup privileges for Amazon SageMaker Unified Studio via the AWS Management Console and SDK. Allows launching of SageMaker Unified Studio Portal.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SageMakerStudioAdminIAMConsolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

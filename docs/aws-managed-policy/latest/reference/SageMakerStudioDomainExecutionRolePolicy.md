@@ -1,7 +1,6 @@
 
 
 # SageMakerStudioDomainExecutionRolePolicy
-<a name="SageMakerStudioDomainExecutionRolePolicy"></a>
 
 **Description**: This policy is used by Amazon SageMaker Studio to catalog, discover, govern, share, and analyze data in the Amazon SageMaker Studio domain.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="SageMakerStudioDomainExecutionRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

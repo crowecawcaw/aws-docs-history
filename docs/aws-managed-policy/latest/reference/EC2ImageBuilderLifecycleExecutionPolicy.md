@@ -1,7 +1,6 @@
 
 
 # EC2ImageBuilderLifecycleExecutionPolicy
-<a name="EC2ImageBuilderLifecycleExecutionPolicy"></a>
 
 **Description**: The EC2ImageBuilderLifecycleExecutionPolicy policy grants permissions for Image Builder to perform actions such as deprecate or delete Image Builder image resources and their underlying resources (AMIs, snapshots) to support automated rules for image lifecycle management tasks.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="EC2ImageBuilderLifecycleExecutionPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

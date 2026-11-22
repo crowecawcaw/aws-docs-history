@@ -1,7 +1,6 @@
 
 
 # FSxDeleteServiceLinkedRoleAccess
-<a name="FSxDeleteServiceLinkedRoleAccess"></a>
 
 **Description**: Allows Amazon FSx to delete its Service Linked Roles for Amazon S3 access
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="FSxDeleteServiceLinkedRoleAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

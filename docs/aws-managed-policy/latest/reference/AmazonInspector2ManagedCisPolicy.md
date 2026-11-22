@@ -1,7 +1,6 @@
 
 
 # AmazonInspector2ManagedCisPolicy
-<a name="AmazonInspector2ManagedCisPolicy"></a>
 
 **Description**: This is a managed policy that customer should attach to their roles to communicate with inspector service for CIS scans
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonInspector2ManagedCisPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerGroundTruthExecution
-<a name="AmazonSageMakerGroundTruthExecution"></a>
 
 **Description**: Provides access to AWS services that are required to run SageMaker GroundTruth Labeling job
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerGroundTruthExecution-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

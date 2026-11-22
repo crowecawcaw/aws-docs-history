@@ -1,7 +1,6 @@
 
 
 # AWSDeviceFarmFullAccess
-<a name="AWSDeviceFarmFullAccess"></a>
 
 **Description**: Provides full access to all AWS Device Farm operations.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDeviceFarmFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSBillingServiceRolePolicy
-<a name="AWSBillingServiceRolePolicy"></a>
 
 **Description**: Allows billing service to validate access to billing view data for derived billing views
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSBillingServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

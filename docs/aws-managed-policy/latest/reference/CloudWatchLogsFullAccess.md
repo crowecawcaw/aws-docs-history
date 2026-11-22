@@ -1,7 +1,6 @@
 
 
 # CloudWatchLogsFullAccess
-<a name="CloudWatchLogsFullAccess"></a>
 
 **Description**: Provides full access to CloudWatch Logs
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchLogsFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

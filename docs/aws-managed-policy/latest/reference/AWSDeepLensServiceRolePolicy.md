@@ -1,7 +1,6 @@
 
 
 # AWSDeepLensServiceRolePolicy
-<a name="AWSDeepLensServiceRolePolicy"></a>
 
 **Description**: Grants AWS DeepLens access to AWS services, resources and roles needed by DeepLens and its dependencies including IoT, S3, GreenGrass and AWS Lambda.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDeepLensServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

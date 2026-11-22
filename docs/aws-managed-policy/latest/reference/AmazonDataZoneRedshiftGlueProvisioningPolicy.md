@@ -1,7 +1,6 @@
 
 
 # AmazonDataZoneRedshiftGlueProvisioningPolicy
-<a name="AmazonDataZoneRedshiftGlueProvisioningPolicy"></a>
 
 **Description**: Amazon DataZone is a data management service that enables you to catalog, discover, govern, share, and analyze your data. With Amazon DataZone, you can share and access your data across accounts and supported regions. Amazon DataZone simplifies your experience across AWS services, including, but not limited to, Amazon Redshift, Amazon Athena, AWS Glue, and AWS Lake Formation.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonDataZoneRedshiftGlueProvisioningPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AWSZonalAutoshiftPracticeRunSLRPolicy
-<a name="AWSZonalAutoshiftPracticeRunSLRPolicy"></a>
 
 **Description**: Provides administrative access for ARC zonal shift practice runs, and access to CloudWatch alarm statuses to monitor practice runs.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSZonalAutoshiftPracticeRunSLRPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

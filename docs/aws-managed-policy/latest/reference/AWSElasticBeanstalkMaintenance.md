@@ -1,7 +1,6 @@
 
 
 # AWSElasticBeanstalkMaintenance
-<a name="AWSElasticBeanstalkMaintenance"></a>
 
 **Description**: AWS Elastic Beanstalk Service Role policy that grants limited permissions to update your resources on your behalf for maintenance purposes.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticBeanstalkMaintenance-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

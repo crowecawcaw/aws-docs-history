@@ -1,7 +1,6 @@
 
 
 # AWSCodeDeployRoleForLambdaLimited
-<a name="AWSCodeDeployRoleForLambdaLimited"></a>
 
 **Description**: Provides CodeDeploy service limited access to perform a Lambda deployment on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSCodeDeployRoleForLambdaLimited-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

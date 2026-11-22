@@ -1,7 +1,6 @@
 
 
 # AWSElasticDisasterRecoveryEc2InstancePolicy
-<a name="AWSElasticDisasterRecoveryEc2InstancePolicy"></a>
 
 **Description**: This policy allows installing and using the AWS Replication Agent, which is used by AWS Elastic Disaster Recovery (DRS) to recover source servers that run on EC2 (cross-region or cross-AZ). An IAM role with this policy should be attached (as an EC2 Instance Profile) to the EC2 Instances.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSElasticDisasterRecoveryEc2InstancePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

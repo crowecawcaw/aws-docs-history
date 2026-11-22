@@ -1,7 +1,6 @@
 
 
 # AWSSecurityIncidentResponseFullAccess
-<a name="AWSSecurityIncidentResponseFullAccess"></a>
 
 **Description**: Policy provides customers with Read and Write permissions to all resources associated to the Security Incident Response service.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSSecurityIncidentResponseFullAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

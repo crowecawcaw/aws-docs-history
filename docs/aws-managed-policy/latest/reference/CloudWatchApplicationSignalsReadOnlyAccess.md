@@ -1,7 +1,6 @@
 
 
 # CloudWatchApplicationSignalsReadOnlyAccess
-<a name="CloudWatchApplicationSignalsReadOnlyAccess"></a>
 
 **Description**: Provides read only access to CloudWatch Application Signals service and scoped access to the dependencies needed to use this service
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="CloudWatchApplicationSignalsReadOnlyAccess-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

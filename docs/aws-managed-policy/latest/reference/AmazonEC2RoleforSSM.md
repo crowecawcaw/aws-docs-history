@@ -1,7 +1,6 @@
 
 
 # AmazonEC2RoleforSSM
-<a name="AmazonEC2RoleforSSM"></a>
 
 **Description**: This policy will soon be deprecated. Please use AmazonSSMManagedInstanceCore policy to enable AWS Systems Manager service core functionality on EC2 instances. For more information see https://docs.aws.amazon.com/systems-manager/latest/userguide/setup-instance-profile.html
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonEC2RoleforSSM-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

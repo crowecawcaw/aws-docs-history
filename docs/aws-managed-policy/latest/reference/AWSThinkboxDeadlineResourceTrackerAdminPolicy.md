@@ -1,7 +1,6 @@
 
 
 # AWSThinkboxDeadlineResourceTrackerAdminPolicy
-<a name="AWSThinkboxDeadlineResourceTrackerAdminPolicy"></a>
 
 **Description**: Grants permissions required to create, destroy, and administer AWS Thinkbox's Deadline Resource Tracker.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSThinkboxDeadlineResourceTrackerAdminPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy
-<a name="AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy"></a>
 
 **Description**: Service role policy used by the AWS Glue within the AWS ServiceCatalog provisioned products from Amazon SageMaker portfolio of products. Grants permissions to a set of related services including Glue, S3 and others.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

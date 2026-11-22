@@ -1,7 +1,6 @@
 
 
 # AWSThinkboxDeadlineSpotEventPluginWorkerPolicy
-<a name="AWSThinkboxDeadlineSpotEventPluginWorkerPolicy"></a>
 
 **Description**: Grant permissions required for an EC2 instance running AWS Thinkbox Deadline Spot Event Plugin Worker software.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSThinkboxDeadlineSpotEventPluginWorkerPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

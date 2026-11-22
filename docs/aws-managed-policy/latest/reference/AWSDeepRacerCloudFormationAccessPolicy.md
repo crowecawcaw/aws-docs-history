@@ -1,7 +1,6 @@
 
 
 # AWSDeepRacerCloudFormationAccessPolicy
-<a name="AWSDeepRacerCloudFormationAccessPolicy"></a>
 
 **Description**: Allows CloudFormation to create and manage AWS stacks and resources on your behalf.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDeepRacerCloudFormationAccessPolicy-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [

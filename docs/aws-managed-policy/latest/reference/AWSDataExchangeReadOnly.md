@@ -1,7 +1,6 @@
 
 
 # AWSDataExchangeReadOnly
-<a name="AWSDataExchangeReadOnly"></a>
 
 **Description**: Grants read-only access to AWS Data Exchange and AWS Marketplace actions using the AWS Management Console and SDK.
 
@@ -29,7 +28,7 @@ The policy's default version is the version that defines the permissions for the
 ## JSON policy document
 <a name="AWSDataExchangeReadOnly-json"></a>
 
-```
+```json
 {
   "Version" : "2012-10-17",
   "Statement" : [
