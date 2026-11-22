@@ -1,7 +1,6 @@
 
 
 # File system metrics
-<a name="file-system-metrics"></a>
 
 Your Amazon FSx for NetApp ONTAP file system metrics are classified as either **File system metrics** or **Detailed file system metrics**.
 + **File system metrics** are aggregate performance and storage metrics for a single file system that take a single dimension, `FileSystemId`. These metrics measure network performance and storage capacity usage for your file system.

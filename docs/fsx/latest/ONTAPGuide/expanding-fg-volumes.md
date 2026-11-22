@@ -1,7 +1,6 @@
 
 
 # Expanding FlexGroup volumes
-<a name="expanding-fg-volumes"></a>
 
 You can add additional constituent volumes to your FlexGroup volume with the `volume expand` command in the ONTAP CLI. This is a best practice after adding high-availability (HA) pairs to your file system because it ensures that your FlexGroup volume stays balanced.
 

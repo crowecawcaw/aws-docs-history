@@ -1,7 +1,6 @@
 
 
 # Your volume has insufficient storage capacity
-<a name="low-volume-capacity"></a>
 
 If you are running out of space on your volumes, you can use the procedures shown here to diagnose and resolve the situation.
 

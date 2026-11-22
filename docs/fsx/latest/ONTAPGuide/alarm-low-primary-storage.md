@@ -1,7 +1,6 @@
 
 
 # Creating a storage capacity utilization alarm for your file system
-<a name="alarm-low-primary-storage"></a>
 
 We recommend that you do not exceed an average SSD storage capacity utilization of 80% on an ongoing basis. Occasional SSD storage utilization spikes above 80% are acceptable. Maintaining an average utilization under 80% provides you with enough capacity to increase your storage without encountering issues. The following procedure shows how to create a CloudWatch alarm that alerts you to when your file system's SSD storage utilization is approaching 80%. 
 

@@ -1,7 +1,6 @@
 
 
 # Using access points with AWS services
-<a name="using-access-points-with-aws-services"></a>
 
 You can use Amazon S3 access points attached to FSx for ONTAP volumes with AWS services that integrate with Amazon S3. This lets you analyze, process, and build Amazon S3-based applications on file data stored in FSx for ONTAP without copying it to an Amazon S3 bucket.
 

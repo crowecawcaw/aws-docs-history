@@ -1,7 +1,6 @@
 
 
 # Deleting snapshots
-<a name="manually-delete-snapshots"></a>
 
 Use the [**volume snapshot delete**](https://docs.netapp.com/us-en/ontap-cli-9131/volume-snapshot-delete.html) ONTAP CLI command to manually delete snapshots, replacing the following placeholder values with your data:
 + Replace {{`svm_name`}} with the name of the SVM that the volume is created on.

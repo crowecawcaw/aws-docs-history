@@ -1,7 +1,6 @@
 
 
 # Enabling cloud write mode
-<a name="cloud-write-mode"></a>
 
 Use the `volume modify` ONTAP CLI command to enable or disable cloud write mode for an existing volume. For more information, see [`volume modify`](https://docs.netapp.com/us-en/ontap-cli-9131/volume-modify.html) in the NetApp ONTAP Documentation Center.
 

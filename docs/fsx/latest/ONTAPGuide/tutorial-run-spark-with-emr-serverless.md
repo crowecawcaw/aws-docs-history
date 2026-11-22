@@ -1,7 +1,6 @@
 
 
 # Run Spark jobs using Amazon EMR Serverless
-<a name="tutorial-run-spark-with-emr-serverless"></a>
 
 Data engineering teams that run Spark workloads — for log processing, feature engineering, complex ETL, or scientific analysis — often have source data on an FSx for ONTAP volume written by on-premises ingestion pipelines, NFS or SMB data movers, or applications that mount the volume directly.
 
@@ -50,7 +49,7 @@ The job reads all CSV files under the input prefix, filters sentinel values that
 
 1. Save the following script to a file named `gsod_monthly.py`.
 
-   ```
+   ```python
    # gsod_monthly.py
    import sys
    from pyspark.sql import SparkSession
@@ -127,7 +126,7 @@ Amazon EMR Serverless assumes an IAM execution role when it runs your job. The r
 
 1. Save the following trust policy as `emr-trust-policy.json`. It allows Amazon EMR Serverless to assume the role.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17", 		 	 	 
        "Statement": [{
@@ -140,7 +139,7 @@ Amazon EMR Serverless assumes an IAM execution role when it runs your job. The r
 
 1. Save the following permissions policy as `emr-permissions.json`. Replace {{region}}, {{account-id}}, and {{access-point-name}} with your values.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17", 		 	 	 
        "Statement": [
@@ -221,7 +220,7 @@ Submit the job using the application ID and the execution role. The job reads th
 
 1. Save the job driver configuration as `job-driver.json`. Replace the placeholders.
 
-   ```
+   ```json
    {
        "sparkSubmit": {
            "entryPoint": "s3://{{access-point-alias}}/scripts/gsod_monthly.py",
@@ -236,7 +235,7 @@ Submit the job using the application ID and the execution role. The job reads th
 
 1. Save the following monitoring configuration as `job-config.json`. It sends driver and executor logs to CloudWatch Logs.
 
-   ```
+   ```json
    {
        "monitoringConfiguration": {
            "cloudWatchLoggingConfiguration": {

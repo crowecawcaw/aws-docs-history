@@ -1,7 +1,6 @@
 
 
 # Amazon FSx for NetApp ONTAP performance
-<a name="performance"></a>
 
 Following is an overview of Amazon FSx for NetApp ONTAP file system performance, with a discussion of the available performance and throughput options and useful performance tips.
 
@@ -11,6 +10,7 @@ Following is an overview of Amazon FSx for NetApp ONTAP file system performance,
 + [Impact of deployment type on performance](#deployment-type-performance)
 + [Impact of storage capacity on performance](#storage-capacity-and-performance)
 + [Impact of throughput capacity on performance](#impact-throughput-cap-performance)
++ [Availability by AWS Region](#perf-region-availability)
 + [Example: storage capacity and throughput capacity](#throughput-example-ontap)
 
 ## How performance is measured for FSx for ONTAP file systems
@@ -67,55 +67,30 @@ Write operations use twice as much network bandwidth as read operations. A write
 ## Impact of deployment type on performance
 <a name="deployment-type-performance"></a>
 
-You can create Single-AZ and Multi-AZ file systems with FSx for ONTAP. First-generation file systems (both Single-AZ and Multi-AZ) and second-generation Multi-AZ file systems are powered by one high-availability (HA) pair. Second-generation Single-AZ file systems are powered by up to 12 HA pairs. For more information, see [Managing high-availability (HA) pairs](HA-pairs.md). 
+You can create Single-AZ and Multi-AZ file systems with FSx for ONTAP. First-generation Single-AZ file systems and all Multi-AZ file systems are powered by one high-availability (HA) pair. Second- and third-generation Single-AZ file systems are powered by up to 12 HA pairs. For more information, see [Managing high-availability (HA) pairs](HA-pairs.md).
 
-FSx for ONTAP Multi-AZ and Single-AZ file systems provide consistent sub-millisecond file operation latencies with SSD storage and tens of milliseconds of latency with capacity pool storage. Additionally, file systems that meet the following requirements provide an NVMe read cache to reduce read latencies and increase IOPS for frequently-read data:
-+ Multi-AZ 1 and Multi-AZ 2 file systems
-+ Single-AZ 1 file systems created after November 28, 2022 with at least 2 GBps of throughput capacity
-+ Single-AZ 2 file systems with at least 6 GBps of throughput capacity per pair
+The following table shows the maximum throughput capacity that file systems can scale up to, per HA pair and per file system, by generation and deployment type.
+
+
+<table>
+<thead>
+  <tr><th></th><th></th><th colspan="2">Maximum per HA pair (MBps)</th><th></th><th colspan="2">Maximum per file system (MBps)</th></tr>
+  <tr><th>Generation</th><th>Deployment type</th><th>Read throughput</th><th>Write throughput</th><th>Maximum HA pairs</th><th>Read throughput</th><th>Write throughput</th></tr>
+</thead>
+<tbody>
+  <tr><td rowspan="2"><b>Third-generation</b></td><td>Single-AZ</td><td rowspan="2">18,432</td><td rowspan="2">4,500</td><td>12</td><td>221,184</td><td>54,000</td></tr>
+  <tr><td>Multi-AZ</td><td>1</td><td>18,432</td><td>4,500</td></tr>
+  <tr><td rowspan="2"><b>Second-generation</b></td><td>Single-AZ</td><td rowspan="2">6,144</td><td rowspan="2">2,048</td><td>12</td><td>73,728</td><td>24,576</td></tr>
+  <tr><td>Multi-AZ</td><td>1</td><td>6,144</td><td>2,048</td></tr>
+  <tr><td rowspan="2"><b>First-generation</b></td><td>Single-AZ</td><td rowspan="2">4,0961, 2</td><td>1,0001</td><td>1</td><td>4,0961, 2</td><td>1,0001</td></tr>
+  <tr><td>Multi-AZ</td><td>1,8001</td><td>1</td><td>4,0961, 2</td><td>1,8001</td></tr>
+</tbody>
+</table>
+
 
 **Note**  
-For second-generation file systems (Single-AZ 2 and Multi-AZ 2), using an NVMe cache can result in your workload achieving less total throughput for high-throughput or large I/O workloads. If you have a throughput-bound workload, we recommend disabling the NVMe cache. For more information, see [Managing the NVMe cache](nvme-cache.md).
-
-The following tables show the amount of throughput capacity that file systems can scale up to depending on factors such as the number of high availability (HA) pairs and AWS Regions availability. 
-
-------
-#### [ First-generation file systems ]
-
-These performance specifications apply to first-generation Single-AZ and Multi-AZ file systems. 
-
-
-**Maximum throughput from SSD storage per HA pair for first-generation file systems**  
-
-| **** | US East (Ohio) Region, US East (N. Virginia) Region, US West (Oregon) Region, and Europe (Ireland) | [ All other AWS Regions where FSx for ONTAP is available ](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) | 
-| --- |--- |--- |
-|  ****  |  **Read throughput (MBps)**  |  **Write throughput (MBps)**  |  **Read throughput (MBps)**  |  **Write throughput (MBps)**  | 
-| --- |--- |--- |--- |--- |
-| **Single-AZ** | 4,0961 | 1,000 | 2,048 | 750 | 
-| **Multi-AZ** | 4,0961 | 1,800 | 2,048 | 1,300 | 
-
-**Note**  
-1 To provision 4 GBps of throughput capacity, your file system must be configured with a minimum of 5,120 GiB of SSD storage capacity and 160,000 SSD IOPS.
-
-------
-#### [ Second-generation file systems ]
-
-These performance specifications apply to second-generation Single-AZ and Multi-AZ file systems. Generally, second-generation file systems can deliver the full provisioned throughout capacity for reads and up to a third of the provisioned throughput capacity for writes. The exception is the 6,144 MB/s option, which is listed in this table.
-
-
-**Maximum throughput from SSD storage per HA pair for second-generation file systems**  
-
-| **** | 
-| --- |
-|  ****  |  **Read throughput (MBps)**  |  **Write throughput (MBps)**  | 
-| --- |--- |--- |
-| **Single-AZ** | 6,1441 | 1,0241 | 
-| **Multi-AZ** | 6,144 | 2,048 | 
-
-**Note**  
-1 Per HA pair (up to 12). For more information, see [Managing high-availability (HA) pairs](HA-pairs.md). 
-
-------
+1 Varies by AWS Region. See [Availability by AWS Region](#perf-region-availability).  
+2 To provision 4 GBps of throughput capacity, your file system must be configured with a minimum of 5,120 GiB of SSD storage capacity and 160,000 SSD IOPS.
 
 ## Impact of storage capacity on performance
 <a name="storage-capacity-and-performance"></a>
@@ -129,7 +104,7 @@ By default, your file system's SSD storage provides up to the following levels o
 + Disk IOPS (IOPs per TiB of storage): 3,072
 
 **Note**  
-When decreasing SSD storage capacity on a second-generation file system, most workloads experience minimal performance impact. However, write-heavy workloads might experience a temporary performance degradation. You might also experience brief I/O pauses (up to 60 seconds) as client access is redirected to new disks.  
+When decreasing SSD storage capacity on a second-generation or third-generation file system, most workloads experience minimal performance impact. However, write-heavy workloads might experience a temporary performance degradation. You might also experience brief I/O pauses (up to 60 seconds) as client access is redirected to new disks.  
 To minimize performance impact, ensure that ongoing workloads don't consistently consume more than 50% CPU, 50% disk throughput, or 50% SSD IOPS before initiating an SSD decrease operation. For more information about decreasing SSD storage capacity, see [When to decrease SSD storage capacity](storage-capacity-and-IOPS.md#when-to-decrease-ssd-storage-capacity).
 
 ## Impact of throughput capacity on performance
@@ -139,164 +114,252 @@ Every Amazon FSx file system has a throughput capacity that you configure when t
 
 You can optionally provision a higher level of SSD IOPS when creating your file system. The maximum level of SSD IOPS that your file system can achieve is also dictated by your file system's throughput capacity, even when provisioning additional SSD IOPS.
 
-The following tables show the full set of specifications for throughput capacity, along with baseline and burst levels, and amount of memory for caching on the file server in the corresponding AWS Regions. 
+The following tables show the full set of specifications for throughput capacity, along with baseline and burst levels, and amount of memory for caching on the file server. Choose a deployment type, then find the table for your file system's generation.
 
 ------
-#### [ First-generation Single-AZ file system ]
+#### [ Single-AZ file systems ]
 
-These performance specifications apply to first-generation Single-AZ file systems created after November 28, 2022 in the specified AWS Regions. 
+**Third-generation file systems**
+
+These performance specifications apply to third-generation Single-AZ file systems, per HA pair.
 
 
-**Performance specifications for file systems in the following AWS Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland)**  
+**Performance specifications for third-generation Single-AZ file systems**  
 
-| FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | NVMe read caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* | 
+| FSx throughput capacity per HA pair (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* | 
 | --- |--- |--- |--- |--- |--- |--- |
 |  ****  |  **Baseline**  |  **Burst**  |  ****  |  ****  |  ****  |  **Baseline**  |  **Burst**  |  **Baseline**  |  **Burst**  | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 128 | 188 | 1,500 |  Tens of thousands baseline  | 16 | – | 128 | 1,250 | 6,000 |  40,000  | 
+| 384\*\* | 521 | 2,500 |  Hundreds of thousands baseline  | 16 | – | 384 | 3,125 | 15,000 | 120,000 | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 256 | 375 | 1,500 | 32 | – | 256 | 1,250 | 12,000 |  40,000  | 
+| 768\*\* | 1,042 | 3,333 | 32 | – | 768 | 3,125 | 30,000 | 120,000 | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 512 | 750 | 1,500 |  Hundreds of thousands baseline  | 64 | – | 512 | 1,250 | 20,000 | 40,000 | 
-| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 1,024 | 1,500 |  –  | 128 | – | 1,024 | 1,250 | 40,000 | – | 
+| 1,536 | 2,083 | 4,167 | 64 | 918 | 1,536 | 3,125 | 60,000 | 120,000 | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 2,048 | 3,125 |  –  | 256 | 1,900 | 2,048 |   –   | 80,000 | – | 
+| 3,072 | 4,167 | – | 128 | 1,868 | 3,072 | – | 120,000 | – | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 4,096 | 6,250 |  –  | 512 | 5,400 | 4,096 |  –  | 160,000 | – | 
+| 6,144 | 8,333 | – | 256 | 3,768 | 6,144 | – | 240,000 | – | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 12,288 | 16,667 | – | 512 | 7,536 | 12,288 | – | 480,000 | – | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 18,432 | 25,000 | – | 768 | 11,304 | 18,432 | – | 720,000 | – | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
 
-**Note**  
-\* Your SSD IOPS are only used when you access data that is not cached in your file server's in-memory cache or NVMe cache.
+**Second-generation file systems**
 
-These performance specifications apply to first-generation Single-AZ file systems in all other AWS Regions where FSx for ONTAP is available. 
-
-
-**Performance specifications for file systems in [ all other AWS Regions where FSx for ONTAP is available](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)**  
-
-| FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* | 
-| --- |--- |--- |--- |--- |--- |
-|  ****  |  **Baseline**  |  **Burst**  |  ****  |  ****  |  **Baseline**  |  **Burst**  |  **Baseline**  |  **Burst**  | 
-| --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 128 | 150 | 1,250 |  Tens of thousands baseline  | 16 | 128 | 600 | 6,000 |  18,750  | 
-| --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 256 | 300 | 1,250 | 32 | 256 | 600 | 12,000 |  18,750  | 
-| --- |--- |--- |--- |--- |--- |--- |--- |
-| 512 | 625 | 1,250 |  Hundreds of thousands baseline  | 64 | 512 | – | 18,750 | – | 
-| --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 1,024 | 1,500 |  –  | 128 | 1,024 |  –  | 40,000 | – | 
-| --- |--- |--- |--- |--- |--- |--- |--- |
-| 2,048 | 3,125 |  –  | 256 | 2,048 |  –  | 80,000 | – | 
-| --- |--- |--- |--- |--- |--- |--- |--- |
-
-**Note**  
-\* Your SSD IOPS are only used when you access data that is not cached in your file server's in-memory cache or NVMe cache.
-
-------
-#### [ Second-generation Single-AZ file system ]
-
-These performance specifications apply to second-generation Single-AZ file systems. 
+These performance specifications apply to second-generation Single-AZ file systems, per HA pair.
 
 
 **Performance specifications for second-generation Single-AZ file systems**  
 
+| FSx throughput capacity per HA pair (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* | 
+| --- |--- |--- |--- |--- |--- |--- |
+|  ****  |  **Baseline**  |  **Burst**  |  ****  |  ****  |  ****  |  **Baseline**  |  **Burst**  |  **Baseline**  |  **Burst**  | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 384\*\* | 781 | 3,750 |  Hundreds of thousands baseline  | 16 | – | 384 | 3,125 | 12,500 | 100,000 | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 768\*\* | 1,563 | 5,000 | 32 | – | 768 | 3,125 | 25,000 | 100,000 | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 1,536 | 3,125 | 6,250 | 64 | 918 | 1,536 | 3,125 | 50,000 | 100,000 | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 3,072 | 6,250 | – | 128 | 1,868 | 3,072 | – | 100,000 | – | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 6,144 | 12,500 | – | 256 | 3,736 | 6,144 | – | 200,000 | – | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
+
+**Note**  
+\*\* Second-generation and third-generation Single-AZ file systems support 384 and 768 MBps throughput capacities, but only with one HA pair. To add HA pairs, your file system must be configured with at least 1,536 MBps of throughput capacity per HA pair.
+
+**First-generation file systems**
+
+These performance specifications apply to first-generation Single-AZ file systems.
+
+
+**Performance specifications for first-generation Single-AZ file systems in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland) (file systems created after November 28, 2022)**  
+
 | FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* | 
 | --- |--- |--- |--- |--- |--- |--- |
 |  ****  |  **Baseline**  |  **Burst**  |  ****  |  ****  |  ****  |  **Baseline**  |  **Burst**  |  **Baseline**  |  **Burst**  | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 384\*\* | 781 | 3,750 |  Hundreds of thousands baseline  | 16 | – | 384 | 3,125 | 12,500 |  65,000  | 
+| 128 | 188 | 1,500 |  Tens of thousands baseline  | 16 | – | 128 | 1,250 | 6,000 | 40,000 | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 768\*\* | 1,563 | 5,000 | 32 | – | 768 | 3,125 | 25,000 |  65,000  | 
+| 256 | 375 | 1,500 | 32 | – | 256 | 1,250 | 12,000 | 40,000 | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 1,536 | 3,125 | 6,250 | 64 | – | 1,536 | 3,125 | 50,000 |  65,000  | 
+| 512 | 750 | 1,500 |  Hundreds of thousands baseline  | 64 | – | 512 | 1,250 | 20,000 | 40,000 | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 1,024 | 1,500 | – | 128 | – | 1,024 | 1,250 | 40,000 | – | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 3,072 | 6,250 | – | 128 | – | 3,072 | – | 100,000 | – | 
+| 2,048 | 3,125 | – | 256 | 3,800 | 2,048 | – | 80,000 | – | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 6,144 | 12,500 | – | 256 | 1,900 | 6,144 | – | 200,000 | – | 
+| 4,096 | 6,250 | – | 512 | 7,600 | 4,096 | – | 160,000 | – | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
 
-**Note**  
-\* Your SSD IOPS are only used when you access data that is not cached in your file server's in-memory cache or NVMe cache.  
-\*\* Second-generation Single-AZ file systems support 384 and 768 throughput capacities, but only with one HA pair. To add HA pairs, your file system must be configured with at least 1,536 MBps of throughput capacity.
+
+**Performance specifications for first-generation Single-AZ file systems in [All other AWS Regions where FSx for ONTAP is available](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)**  
+
+| FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* | 
+| --- |--- |--- |--- |--- |--- |--- |
+|  ****  |  **Baseline**  |  **Burst**  |  ****  |  ****  |  ****  |  **Baseline**  |  **Burst**  |  **Baseline**  |  **Burst**  | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 128 | 150 | 1,250 |  Tens of thousands baseline  | 16 | – | 128 | 600 | 6,000 | 18,750 | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 256 | 300 | 1,250 | 32 | – | 256 | 600 | 12,000 | 18,750 | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 512 | 625 | 1,250 |  Hundreds of thousands baseline  | 64 | – | 512 | – | 18,750 | – | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 1,024 | 1,500 | – | 128 | – | 1,024 | – | 40,000 | – | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 2,048 | 3,125 | – | 256 | 3,600 | 2,048 | – | 80,000 | – | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
 
 ------
-#### [ First-generation Multi-AZ file system ]
+#### [ Multi-AZ file systems ]
 
-These performance specifications apply to first-generation Multi-AZ file systems created after November 28, 2022 in the specified AWS Regions. 
+**Third-generation file systems**
+
+These performance specifications apply to third-generation Multi-AZ file systems, per HA pair.
 
 
-**Performance specifications for file systems in the following AWS Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland)**  
+**Performance specifications for third-generation Multi-AZ file systems**  
 
-| FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* | 
+| FSx throughput capacity per HA pair (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* | 
 | --- |--- |--- |--- |--- |--- |--- |
 |  ****  |  **Baseline**  |  **Burst**  |  ****  |  ****  |  ****  |  **Baseline**  |  **Burst**  |  **Baseline**  |  **Burst**  | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 128 | 188 | 1,500 |  Tens of thousands baseline  | 16 | 238 | 128 | 1,250 | 6,000 |  40,000  | 
+| 384 | 521 | 2,500 |  Hundreds of thousands baseline  | 16 | 205 | 384 | 3,125 | 15,000 | 120,000 | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 256 | 375 | 1,500 | 32 | 475 | 256 | 1,250 | 12,000 |  40,000  | 
+| 768 | 1,042 | 3,333 | 32 | 442 | 768 | 3,125 | 30,000 | 120,000 | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 512 | 750 | 1,500 |  Hundreds of thousands baseline  | 64 | 950 | 512 | 1,250 | 20,000 | 40,000 | 
-| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 1,024 | 1,500 |  –  | 128 | 1,900 | 1,024 |  1,250   | 40,000 | – | 
+| 1,536 | 2,083 | 4,167 | 64 | 918 | 1,536 | 3,125 | 60,000 | 120,000 | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 2,048 | 3,125 |  –  | 256 | 3,800 | 2,048 |   –   | 80,000 | – | 
+| 3,072 | 4,167 | – | 128 | 1,868 | 3,072 | – | 120,000 | – | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 4,096 | 6,250 |   –   | 512 | 7,600 | 4,096 |  –  | 160,000 | – | 
+| 6,144 | 8,333 | – | 256 | 3,736 | 6,144 | – | 240,000 | – | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
-
-**Note**  
-\* Your SSD IOPS are only used when you access data that is not cached in your file server's in-memory cache or NVMe cache.
-
-These performance specifications apply to first-generation Multi-AZ file systems in all other AWS Regions where FSx for ONTAP is available. 
-
-
-**Performance specifications for file systems in [ all other AWS Regions where FSx for ONTAP is available](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)**  
-
-| FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* | 
-| --- |--- |--- |--- |--- |--- |--- |
-|  ****  |  **Baseline**  |  **Burst**  |  ****  |  ****  |  ****  |  **Baseline**  |  **Burst**  |  **Baseline**  |  **Burst**  | 
-| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 128 | 150 | 1,250 |  Tens of thousands baseline  | 16 | 150 | 128 | 600 | 6,000 |  18,750  | 
-| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 256 | 300 | 1,250 | 32 | 300 | 256 | 600 | 12,000 |  18,750  | 
+| 12,288 | 16,667 | – | 512 | 7,536 | 12,288 | – | 480,000 | – | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 512 | 625 | 1,250 |  Hundreds of thousands baseline  | 64 | 600 | 512 | – | 18,750 | – | 
-| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 1,024 | 1,500 | – | 128 | 1,200 | 1,024 |  –  | 40,000 | – | 
-| --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 2,048 | 3,125 |  –  | 256 | 2,400 | 2,048 |  –  | 80,000 | – | 
+| 18,432 | 25,000 | – | 768 | 11,304 | 18,432 | – | 720,000 | – | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
 
-**Note**  
-\* Your SSD IOPS are only used when you access data that is not cached in your file server's in-memory cache or NVMe cache.
+**Second-generation file systems**
 
-------
-#### [ Second-generation Multi-AZ file systems ]
-
-These performance specifications apply to second-generation Multi-AZ file systems. 
+These performance specifications apply to second-generation Multi-AZ file systems, per HA pair.
 
 
 **Performance specifications for second-generation Multi-AZ file systems**  
 
+| FSx throughput capacity per HA pair (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* | 
+| --- |--- |--- |--- |--- |--- |--- |
+|  ****  |  **Baseline**  |  **Burst**  |  ****  |  ****  |  ****  |  **Baseline**  |  **Burst**  |  **Baseline**  |  **Burst**  | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 384 | 781 | 3,750 |  Hundreds of thousands baseline  | 16 | 205 | 384 | 3,125 | 12,500 | 100,000 | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 768 | 1,563 | 5,000 | 32 | 442 | 768 | 3,125 | 25,000 | 100,000 | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 1,536 | 3,125 | 6,250 | 64 | 918 | 1,536 | 3,125 | 50,000 | 100,000 | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 3,072 | 6,250 | – | 128 | 1,868 | 3,072 | – | 100,000 | – | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 6,144 | 12,500 | – | 256 | 3,736 | 6,144 | – | 200,000 | – | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
+
+**First-generation file systems**
+
+These performance specifications apply to first-generation Multi-AZ file systems.
+
+
+**Performance specifications for first-generation Multi-AZ file systems in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland) (file systems created after November 28, 2022)**  
+
 | FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* | 
 | --- |--- |--- |--- |--- |--- |--- |
 |  ****  |  **Baseline**  |  **Burst**  |  ****  |  ****  |  ****  |  **Baseline**  |  **Burst**  |  **Baseline**  |  **Burst**  | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 384 | 781 | 3,750 |  Hundreds of thousands baseline  | 16 | 237 | 384 | 3,125 | 12,500 |  65,000  | 
+| 128 | 188 | 1,500 |  Tens of thousands baseline  | 16 | 205 | 128 | 1,250 | 6,000 | 40,000 | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 768 | 1,563 | 5,000 | 32 | 474 | 768 | 3,125 | 25,000 |  65,000  | 
+| 256 | 375 | 1,500 | 32 | 442 | 256 | 1,250 | 12,000 | 40,000 | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 1,536 | 3,125 | 6,250 | 64 | 950 | 1,536 | 3,125 | 50,000 | 65,000 | 
+| 512 | 750 | 1,500 |  Hundreds of thousands baseline  | 64 | 918 | 512 | 1,250 | 20,000 | 40,000 | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 1,024 | 1,500 | – | 128 | 1,868 | 1,024 | 1,250 | 40,000 | – | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 3,072 | 6,250 | – | 128 | 1,900 | 3,072 |  –  | 100,000 | – | 
+| 2,048 | 3,125 | – | 256 | 3,736 | 2,048 | – | 80,000 | – | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
-| 6,144 | 12,500 |  –  | 256 | 3,800 | 6,144 |  –  | 200,000 | – | 
+| 4,096 | 6,250 | – | 512 | 7,472 | 4,096 | – | 160,000 | – | 
 | --- |--- |--- |--- |--- |--- |--- |--- |--- |
 
-**Note**  
-\* Your SSD IOPS are only used when you access data that is not cached in your file server's in-memory cache or NVMe cache.
+
+**Performance specifications for first-generation Multi-AZ file systems in [All other AWS Regions where FSx for ONTAP is available](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)**  
+
+| FSx throughput capacity (MBps) | Network throughput capacity (MBps) | Network IOPS | In-memory caching (GB) | NVMe caching (GB) | Disk throughput (MBps) | SSD drive IOPS \* | 
+| --- |--- |--- |--- |--- |--- |--- |
+|  ****  |  **Baseline**  |  **Burst**  |  ****  |  ****  |  ****  |  **Baseline**  |  **Burst**  |  **Baseline**  |  **Burst**  | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 128 | 150 | 1,250 |  Tens of thousands baseline  | 16 | 118 | 128 | 600 | 6,000 | 18,750 | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 256 | 300 | 1,250 | 32 | 268 | 256 | 600 | 12,000 | 18,750 | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 512 | 625 | 1,250 |  Hundreds of thousands baseline  | 64 | 536 | 512 | – | 18,750 | – | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 1,024 | 1,500 | – | 128 | 1,736 | 1,024 | – | 40,000 | – | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
+| 2,048 | 3,125 | – | 256 | 3,472 | 2,048 | – | 80,000 | – | 
+| --- |--- |--- |--- |--- |--- |--- |--- |--- |
 
 ------
+
+\* Your SSD IOPS are only used when you access data that is not cached in your file server's in-memory cache or NVMe cache.
+
+**Note**  
+For second- and third-generation file systems (Single-AZ 2, Multi-AZ 2, Single-AZ 3, and Multi-AZ 3), using an NVMe cache can result in your workload achieving less total throughput for high-throughput or large I/O workloads. If you have a throughput-bound workload, we recommend disabling the NVMe cache. For more information, see [Managing the NVMe cache](nvme-cache.md).
+
+## Availability by AWS Region
+<a name="perf-region-availability"></a>
+
+The following table shows the AWS Regions where each generation of FSx for ONTAP file systems is available.
+
+
+**FSx for ONTAP file system generations by AWS Region**  
+
+| AWS Region | First generation | Second generation | Third generation | 
+| --- | --- | --- | --- | 
+| US East (N. Virginia) | ✓\* | ✓ | ✓ | 
+| US East (Ohio) | ✓\* | ✓ | ✓ | 
+| US West (N. California) | ✓ | ✓ |  | 
+| US West (Oregon) | ✓\* | ✓ | ✓ | 
+| AWS GovCloud (US-East) | ✓ |  |  | 
+| AWS GovCloud (US-West) | ✓ | ✓ |  | 
+| Africa (Cape Town) | ✓ |  |  | 
+| Asia Pacific (Hong Kong) | ✓ |  |  | 
+| Asia Pacific (Tokyo) | ✓ | ✓ | ✓ | 
+| Asia Pacific (Seoul) | ✓ | ✓ |  | 
+| Asia Pacific (Osaka) | ✓ |  |  | 
+| Asia Pacific (Mumbai) | ✓ | ✓ |  | 
+| Asia Pacific (Hyderabad) | ✓ | ✓ |  | 
+| Asia Pacific (Singapore) | ✓ | ✓ |  | 
+| Asia Pacific (Sydney) | ✓ | ✓ |  | 
+| Asia Pacific (Jakarta) | ✓ |  |  | 
+| Asia Pacific (Melbourne) | ✓ |  |  | 
+| Asia Pacific (Malaysia) | ✓ |  |  | 
+| Asia Pacific (New Zealand) | ✓ |  |  | 
+| Asia Pacific (Taipei) | ✓ |  |  | 
+| Asia Pacific (Thailand) | ✓ |  |  | 
+| Canada (Central) | ✓ | ✓ |  | 
+| Canada West (Calgary) | ✓ |  |  | 
+| Europe (Frankfurt) | ✓ | ✓ |  | 
+| Europe (Zurich) | ✓ | ✓ |  | 
+| Europe (Stockholm) | ✓ | ✓ |  | 
+| Europe (Milan) | ✓ |  |  | 
+| Europe (Spain) | ✓ | ✓ | ✓ | 
+| Europe (Ireland) | ✓\* | ✓ | ✓ | 
+| Europe (London) | ✓ | ✓ |  | 
+| Europe (Paris) | ✓ |  |  | 
+| Israel (Tel Aviv) | ✓ |  |  | 
+| Mexico (Central) | ✓ |  |  | 
+| Middle East (UAE) | ✓ |  |  | 
+| Middle East (Bahrain) | ✓ |  |  | 
+| South America (São Paulo) | ✓ | ✓ |  | 
+
+\* In these AWS Regions, first-generation file systems created after November 28, 2022 scale up to 4,096 MBps of read throughput and 1,000 MBps (Single-AZ) or 1,800 MBps (Multi-AZ) of write throughput. In all other AWS Regions, first-generation file systems scale up to 2,048 MBps of read throughput and 750 MBps (Single-AZ) or 1,300 MBps (Multi-AZ) of write throughput.
 
 ## Example: storage capacity and throughput capacity
 <a name="throughput-example-ontap"></a>

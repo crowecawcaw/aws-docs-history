@@ -1,7 +1,6 @@
 
 
 # Understanding EMS alerts for Autonomous Ransomware Protection
-<a name="EMS-ARP"></a>
 
 You can use NetApp ONTAP's Events Management System (EMS) to monitor events related to ARP including potential attacks. For more information about ARP and how it detects attacks, see [How ARP works](ARP.md#how-ARP-works) and [What ARP looks for](ARP.md#ARP-detects). 
 

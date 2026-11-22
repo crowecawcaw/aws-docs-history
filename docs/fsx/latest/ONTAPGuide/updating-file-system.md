@@ -1,7 +1,6 @@
 
 
 # Updating file systems
-<a name="updating-file-system"></a>
 
 This topic explains which properties of an existing file system that you can update, and provides procedures to do so using the Amazon FSx console and CLI. You can update the following FSx for ONTAP file system properties using the Amazon FSx console, AWS CLI, and API:
 + **Automatic daily backups**. Turns automatic daily backups on or off, modifies the backup window and the backup retention period. For more information, see [Automatic daily backups](using-backups.md#automatic-backups).

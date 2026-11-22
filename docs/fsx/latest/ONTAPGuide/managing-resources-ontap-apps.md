@@ -1,7 +1,6 @@
 
 
 # Managing FSx for ONTAP resources using NetApp applications
-<a name="managing-resources-ontap-apps"></a>
 
 In addition to the AWS Management Console, AWS CLI, and AWS API and SDKs, you can also use these NetApp management tools and applications to manage your FSx for ONTAP resources:
 
@@ -35,7 +34,7 @@ Customers with existing NetApp products will have their NSS account leveled-up t
 NetApp Console (formerly NetApp BlueXP) is a unified control plane that simplifies management experiences for storage and data services across on-premises and cloud environments. NetApp Console provides a centralized user interface to manage, monitor, and automate ONTAP deployments in AWS and on premises. For more information, see the [NetApp Console documentation](https://docs.netapp.com/us-en/console-family/index.html) and the [Amazon FSx for NetApp ONTAP management](https://docs.netapp.com/us-en/storage-management-fsx-ontap/index.html) documentation.
 
 **Note**  
-NetApp Console isn't supported for second-generation file systems with more than one high-availability (HA) pair. 
+NetApp Console isn't supported for second-generation and third-generation file systems with more than one high-availability (HA) pair. 
 
 ### Using NetApp System Manager with NetApp Console
 <a name="netapp-sysmgr-bluexp"></a>
@@ -43,7 +42,7 @@ NetApp Console isn't supported for second-generation file systems with more than
 You can manage your Amazon FSx for NetApp ONTAP file systems using System Manager directly from NetApp Console. NetApp Console lets you use the same System Manager interface that you’re accustomed to using, so you can manage your hybrid multi-cloud infrastructure from a single control plane. You also have access to NetApp Console's other functionality. For more information, see the [Integrate ONTAP System Manager with NetApp Console](https://docs.netapp.com/us-en/ontap/concepts/sysmgr-integration-console-concept.html) topic in the NetApp ONTAP documentation. 
 
 **Note**  
-NetApp System Manager isn't supported for second-generation file systems with more than one HA pair.
+NetApp System Manager isn't supported for second-generation and third-generation file systems with more than one HA pair.
 
 ## Using the NetApp ONTAP CLI
 <a name="netapp-ontap-cli"></a>

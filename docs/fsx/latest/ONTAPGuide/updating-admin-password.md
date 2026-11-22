@@ -1,7 +1,6 @@
 
 
 # Updating the `fsxadmin` account password fails
-<a name="updating-admin-password"></a>
 
 When you update the password for the `fsxadmin` user, you may receive an error if it doesn't meet the password requirements set on the file system. You can view the password requirements by using the `security login role config show` ONTAP CLI or REST API command.
 

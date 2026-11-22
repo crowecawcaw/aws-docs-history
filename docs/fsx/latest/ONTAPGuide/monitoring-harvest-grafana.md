@@ -1,7 +1,6 @@
 
 
 # Monitoring FSx for ONTAP file systems using Harvest and Grafana
-<a name="monitoring-harvest-grafana"></a>
 
 NetApp Harvest is an open source tool for gathering performance and capacity metrics from ONTAP systems, and is compatible with FSx for ONTAP. You can use Harvest with Grafana for an open source monitoring solution.
 

@@ -1,7 +1,6 @@
 
 
 # Creating volumes
-<a name="creating-volumes"></a>
 
 You can create an FSx for ONTAP FlexVol or FlexGroup volume using the Amazon FSx console, the AWS CLI, and the Amazon FSx API, in addition to the NetApp ONTAP command line interface (CLI) and REST API.
 

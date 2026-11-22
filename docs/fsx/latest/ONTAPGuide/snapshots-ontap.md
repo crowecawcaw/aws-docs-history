@@ -1,7 +1,6 @@
 
 
 # Protecting your data with snapshots
-<a name="snapshots-ontap"></a>
 
 A *snapshot* is a read-only image of an Amazon FSx for NetApp ONTAP volume at a point in time. Snapshots offer protection against accidental deletion or modification of files in your volumes. With snapshots, your users can easily view and restore individual files or folders from an earlier snapshot to undo changes, recover deleted content, and compare file versions.
 

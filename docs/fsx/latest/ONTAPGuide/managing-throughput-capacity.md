@@ -1,7 +1,6 @@
 
 
 # Managing throughput capacity
-<a name="managing-throughput-capacity"></a>
 
 FSx for ONTAP configures throughput capacity when you create the file system. You can modify your file system's throughput capacity at any time. Keep in mind that your file system requires a specific configuration to achieve the maximum amount of throughput capacity. For example, to provision 4 GBps of throughput capacity for a first-generation file system, your file system requires a configuration with a minimum of 5,120 GiB of SSD storage capacity and 160,000 SSD IOPS. For more information, see [Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance).
 
@@ -36,8 +35,8 @@ For first-generation file systems, you can request a throughput capacity update 
 + If you submit a throughput capacity update while an SSD/IOPS update is in progress, the throughput capacity update request is accepted and queued to occur after the SSD/IOPS update. The throughput capacity update starts after SSD/IOPS is updated (new values are available) and during the optimization step. This typically takes less than 10 minutes.
 + If you submit a SSD/IOPS update while a throughput capacity update is in progress, the SSD/IOPS storage update request is accepted and queued to start after the throughput capacity update has completed (new throughput capacity is available). This typically takes 20 minutes.
 
-Consider the following points when requesting a throughput capacity update for second-generation file systems:
-+ You must wait a minimum of six hours between updating the throughput capacity for second-generation file systems.
+Consider the following points when requesting a throughput capacity update for second-generation and third-generation file systems:
++ You must wait a minimum of six hours between updating the throughput capacity for second-generation and third-generation file systems.
 + The throughput capacity cooldown period is shared with SSD/IOPS scaling.
 + Throughput capacity scaling and SSD/IOPS scaling can't be done simulatenously or queued while either is in progress.
 + You can't add high-availability (HA) pairs in conjunction with or while throughput capacity scaling or SSD/IOPS scaling are in progress. However, adding HA pairs doesn't share a cooldown with SSD/IOPS scaling and throughput capacity scaling. For more information, see [Adding high-availability (HA) pairs](adding-HA-pairs.md).

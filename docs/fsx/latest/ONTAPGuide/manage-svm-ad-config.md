@@ -1,7 +1,6 @@
 
 
 # Managing SVM Active Directory configurations
-<a name="manage-svm-ad-config"></a>
 
 This section describes how to use the AWS Management Console, AWS CLI, FSx API, and the ONTAP CLI to do the following:
 + Joining an existing SVM to an Active Directory

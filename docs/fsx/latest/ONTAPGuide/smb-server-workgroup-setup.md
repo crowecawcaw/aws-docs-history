@@ -1,7 +1,6 @@
 
 
 # Setting up an SMB server in a workgroup
-<a name="smb-server-workgroup-setup"></a>
 
 You can configure a Server Message Block (SMB) server in a workgroup as an alternative to joining an [SVM to a Microsoft Active Directory](ad-integration-ontap.md) when the Microsoft Active Directory domain infrastructure is not available. A workgroup is a peer-to-peer network that uses the SMB protocol, and has only local accounts and groups.
 

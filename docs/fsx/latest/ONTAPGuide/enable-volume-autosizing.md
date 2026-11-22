@@ -1,7 +1,6 @@
 
 
 # Enabling autosizing
-<a name="enable-volume-autosizing"></a>
 
 Volume autosizing so that the volume will automatically grow to a specified size when it reaches a used space threshold. You can do this for FlexVol volume types (the default volume type for FSx for ONTAP) using the [`volume autosize`](https://docs.netapp.com/us-en/ontap-cli-9111/volume-autosize.html) ONTAP CLI command.
 

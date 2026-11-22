@@ -1,7 +1,6 @@
 
 
 # Replicating your data using NetApp SnapMirror
-<a name="scheduled-replication"></a>
 
 You can use NetApp SnapMirror to schedule periodic replication of your FSx for ONTAP file system to or from a second file system. This capability is available for both in-Region and cross-Region deployments.
 

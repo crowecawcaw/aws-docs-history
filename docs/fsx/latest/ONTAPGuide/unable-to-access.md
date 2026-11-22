@@ -1,7 +1,6 @@
 
 
 # You can't access your file system
-<a name="unable-to-access"></a>
 
 This section describes issues and resolutions related to being unable to access your file system.
 

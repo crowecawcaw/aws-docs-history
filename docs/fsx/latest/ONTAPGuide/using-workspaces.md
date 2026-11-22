@@ -1,7 +1,6 @@
 
 
 # Using Amazon WorkSpaces with FSx for ONTAP
-<a name="using-workspaces"></a>
 
 FSx for ONTAP can be used with Amazon WorkSpaces to provide shared network-attached storage (NAS) or to store roaming profiles for Amazon WorkSpaces accounts. After connecting to an SMB file share with a WorkSpaces instance, the user can create and edit files on the file share.
 

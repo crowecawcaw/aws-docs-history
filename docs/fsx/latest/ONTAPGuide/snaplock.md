@@ -1,7 +1,6 @@
 
 
 # Protecting your data with SnapLock
-<a name="snaplock"></a>
 
 SnapLock is a feature that allows you to protect your files by transitioning them to a write once, read many (WORM) state, which prevents modification or deletion for a specified retention period. You can use SnapLock to meet regulatory compliance, to protect business-critical data from ransomware attacks, and to provide an additional layer of protection for your data against alteration or deletion.
 

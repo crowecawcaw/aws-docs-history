@@ -1,7 +1,6 @@
 
 
 # Configuring Active Directory authentication for ONTAP users
-<a name="set-up-ad-auth"></a>
 
 Use the ONTAP CLI to configure the use of Active Directory authentication for ONTAP file system and SVM users.
 

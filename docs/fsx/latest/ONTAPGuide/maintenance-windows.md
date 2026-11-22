@@ -1,7 +1,6 @@
 
 
 # Optimizing performance with Amazon FSx maintenance windows
-<a name="maintenance-windows"></a>
 
 As a fully-managed service, FSx for ONTAP regularly performs maintenance on and updates to your file system. This maintenance has no impact for most workloads. For workloads that are performance-sensitive, on rare occasions you may notice a brief (<60 seconds) impact on performance when maintenance is occurring; Amazon FSx enables you to use the maintenance window to control when any such potential maintenance activity occurs.
 

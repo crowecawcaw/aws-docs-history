@@ -1,7 +1,6 @@
 
 
 # Updating a tiering policy
-<a name="modify-volume-tiering-policy"></a>
 
 You can modify a volume's tiering policy using the AWS Management Console, AWS CLI and API, and the ONTAP CLI.
 

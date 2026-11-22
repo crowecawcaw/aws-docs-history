@@ -1,7 +1,6 @@
 
 
 # Your file system is in a `MISCONFIGURED` state
-<a name="file-system-in-misconfigured-state"></a>
 
 There are a number of potential causes for a file system to be in a `MISCONFIGURED` state, each with their own resolution, as follows.
 

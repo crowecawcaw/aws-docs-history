@@ -1,7 +1,6 @@
 
 
 # Copying backups within the same AWS account
-<a name="copying-backups-same-account"></a>
 
 You can copy volume backups on FSx for ONTAP file systems using the AWS Management Console, CLI, and API, as described in the following procedures.
 

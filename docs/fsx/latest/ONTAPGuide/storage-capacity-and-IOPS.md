@@ -1,11 +1,10 @@
 
 
 # File system storage capacity and IOPS
-<a name="storage-capacity-and-IOPS"></a>
 
-When you create an FSx for ONTAP file system, you specify the storage capacity of the SSD tier. For second-generation Single-AZ file systems, the storage capacity that you specify is spread evenly among the storage pools of each high-availability (HA) pair; these storage pools are called *aggregates*.
+When you create an FSx for ONTAP file system, you specify the storage capacity of the SSD tier. For second-generation and third-generation Single-AZ file systems, the storage capacity that you specify is spread evenly among the storage pools of each high-availability (HA) pair; these storage pools are called *aggregates*.
 
-For each GiB of SSD storage that you provision, Amazon FSx automatically provisions 3 SSD input/output operations per second (IOPS) for the file system, up to a maximum of 160,000 SSD IOPS per file system. For second-generation Single-AZ file systems, your SSD IOPS are spread evenly across each of your file system's aggregates. You have the option to specify a level of provisioned SSD IOPS above the automatic 3 SSD IOPS per GiB. For more information about the maximum number of SSD IOPS that you can provision for your FSx for ONTAP file system, see [Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance).
+For each GiB of SSD storage that you provision, Amazon FSx automatically provisions 3 SSD input/output operations per second (IOPS) for the file system, up to a maximum of 160,000 SSD IOPS per file system. For second-generation and third-generation Single-AZ file systems, your SSD IOPS are spread evenly across each of your file system's aggregates. You have the option to specify a level of provisioned SSD IOPS above the automatic 3 SSD IOPS per GiB. For more information about the maximum number of SSD IOPS that you can provision for your FSx for ONTAP file system, see [Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance).
 
 **Topics**
 + [Updating file system SSD storage and IOPS](#increase-primary-storage)
@@ -26,7 +25,7 @@ For each GiB of SSD storage that you provision, Amazon FSx automatically provisi
 ## Updating file system SSD storage and IOPS
 <a name="increase-primary-storage"></a>
 
-When you need additional storage for the active portion of your data set, you can increase the SSD storage capacity of your Amazon FSx for NetApp ONTAP file system. For second-generation file systems, you can even decrease SSD storage capacity to match your workload's changing storage needs. Use the Amazon FSx console, Amazon FSx API, or AWS Command Line Interface (AWS CLI) to increase or decrease the SSD storage capacity. For more information, see [Updating storage capacity and provisioned IOPS](increase-storage-capacity.md).
+When you need additional storage for the active portion of your data set, you can increase the SSD storage capacity of your Amazon FSx for NetApp ONTAP file system. For second-generation and third-generation file systems, you can even decrease SSD storage capacity to match your workload's changing storage needs. Use the Amazon FSx console, Amazon FSx API, or AWS Command Line Interface (AWS CLI) to increase or decrease the SSD storage capacity. For more information, see [Updating storage capacity and provisioned IOPS](increase-storage-capacity.md).
 
 ## When to increase SSD storage capacity
 <a name="when-to-increase-ssd-capacity"></a>
@@ -36,7 +35,7 @@ If you're running out of available SSD tier storage, we recommend that you incre
 To monitor the amount of free storage that's available on the file system, use the file system-level `StorageCapacity` and `StorageUsed` Amazon CloudWatch metrics. You can create a CloudWatch alarm on a metric and be notified when it drops below a specific threshold. For more information, see [Monitoring with Amazon CloudWatch](monitoring-cloudwatch.md).
 
 **Note**  
-We recommend that you don't exceed 80% SSD storage capacity utilization to ensure that data tiering, throughput scaling, and other maintenance activities function properly, and that there is capacity available for additional data. For second-generation file systems, this recommendation applies to both the average utilization across all of your file system's aggregates and to each individual aggregate. 
+We recommend that you don't exceed 80% SSD storage capacity utilization to ensure that data tiering, throughput scaling, and other maintenance activities function properly, and that there is capacity available for additional data. For second-generation and third-generation file systems, this recommendation applies to both the average utilization across all of your file system's aggregates and to each individual aggregate. 
 
 For more information about how a file system's SSD storage is used and how much SSD storage is reserved for file metadata and operating software, see [Choosing the right amount of file system SSD storage](managing-storage-capacity.md#choose-ssd-capacity).
 
@@ -67,7 +66,7 @@ For more information about pricing, see [Amazon FSx for NetApp ONTAP Pricing](ht
 ## When to decrease SSD storage capacity
 <a name="when-to-decrease-ssd-storage-capacity"></a>
 
- You might want to decrease your FSx for ONTAP second-generation file system's SSD storage capacity in scenarios such as the following: 
+ You might want to decrease your FSx for ONTAP second-generation or third-generation file system's SSD storage capacity in scenarios such as the following: 
 +  After completing project-based workloads where high-performance storage is no longer needed 
 +  After completing large-scale data migrations where temporary extra capacity was used to accelerate data ingestion 
 
@@ -95,7 +94,7 @@ For more information about pricing, see [Amazon FSx for NetApp ONTAP Pricing](ht
 Here are a few important items to consider when decreasing a file system's SSD storage capacity and provisioned IOPS:
 +  **Increasing storage capacity during a decrease operation** – You can increase SSD storage capacity of your file system even while a decrease operation is in progress. This flexibility allows you to ensure performance and availability in case any of your aggregates fill up during the decrease operation. If you increase SSD capacity to a size lower than the original capacity, Amazon FSx only adjusts the size of the newly requested (target) aggregate. However, if you increase the SSD capacity to a size greater than the original, Amazon FSx increases the size of both aggregates to match the new target value. For example, if you're decreasing storage capacity from 10,000 GiB to 5,000 GiB, and then request an increase to 7,000 GiB, only the target aggregate is increased to 7,000 GiB, resulting in a final SSD storage capacity of 7,000 GiB for your file system. But if you request an increase to 12,000 GiB, both aggregates are increased to 12,000 GiB. We suggest careful planning to avoid a scenario in which you have to increase SSD capacity to a size equal to or larger than the original SSD capacity. 
 + **Pausing SSD decrease** – Amazon FSx pauses an SSD decrease operation if you exceed 80% utilization on the new aggregate and automatically resumes the decrease operation once utilization falls below 80%.
-+ **(Second-generation Single-AZ file systems only) Storage capacity spread** – The new storage capacity or SSD IOPS that you select for your file system is spread evenly across each of your file system's aggregates.
++ **(Second-generation and third-generation Single-AZ file systems only) Storage capacity spread** – The new storage capacity or SSD IOPS that you select for your file system is spread evenly across each of your file system's aggregates.
 + **Patching during storage capacity decrease** – Amazon FSx aborts moving data for a volume if your file system is patched during an SSD decrease operation. As a result, you may lose progress on the SSD decrease operation if a patch occurs during the operation. Amazon FSx automatically restarts the `vol move` after the patch operation is complete.
 + **Provisioned IOPS modes** – For a provisioned IOPS change, you must specify one of the two IOPS modes:
   + **Automatic** mode – Amazon FSx automatically scales your SSD IOPS to maintain 3 provisioned SSD IOPS per GiB of SSD storage capacity, up to the maximum SSD IOPS for your file system configuration. When decreasing SSD capacity, your automatic SSD IOPS will scale down proportionally.
@@ -110,7 +109,7 @@ For more information about the maximum number of SSD IOPS that you can provision
 <a name="decreasing-limitations"></a>
 
 The following limitations apply while decreasing SSD storage capacity of your file system:
-+ **(Second-generation file systems only) Storage capacity decrease** – You can decrease the storage capacity only on second-generation file systems.
++ **(Second-generation and third-generation file systems only) Storage capacity decrease** – You can decrease the storage capacity only on second-generation and third-generation file systems.
 + **Storage capacity minimum decrease** – Each SSD storage capacity decrease must be a minimum of 9 percent of the file system's current SSD storage capacity. The decrease should also ensure that your file system's resulting SSD capacity does not exceed 80% utilization after the decrease operation. For example, if your file system has 10,000 GiB of storage capacity and 5,000 GiB of storage used, you can decrease storage capacity down to 6,251 GiB such that your SSD utilization remains under 80%. You can decrease SSD storage capacity down to the minimum supported size of 1,024 GiB per HA pair.
 + To decrease SSD storage capacity on file systems that contain one or more volumes with more than 50 TiB of storage used, you must provision at least 1,536 MB/s of throughput capacity per HA pair. If any volume contains more than 100 TiB of storage used, you must provision at least 3,072 MB/s of throughput capacity per HA pair. For volumes with more than 200 TiB of storage used, you must provision 6,144 MB/s of throughput capacity per HA pair.
 + **Time between updates** – After modifying SSD storage capacity, provisioned IOPS, or throughput capacity on a file system, you must wait at least six hours before modifying any of these configurations on the same file system again. This is sometimes referred to as a cooldown period.

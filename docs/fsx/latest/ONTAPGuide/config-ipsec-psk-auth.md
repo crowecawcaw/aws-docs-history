@@ -1,7 +1,6 @@
 
 
 # Configuring IPsec using PSK authentication
-<a name="config-ipsec-psk-auth"></a>
 
 If you are using PSK for authentication, the steps for configuring IPsec encryption on both FSx for ONTAP and the client are as follows:
 

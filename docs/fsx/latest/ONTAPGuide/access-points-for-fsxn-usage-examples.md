@@ -1,7 +1,6 @@
 
 
 # Using access points
-<a name="access-points-for-fsxn-usage-examples"></a>
 
 The following examples demonstrate how to use access points to access file data stored on an FSx for ONTAP volume using the S3 API. For a full list of the Amazon S3 API operations supported by access points attached to an FSx for ONTAP volume, see [Access point compatibility](access-points-for-fsxn-object-api-support.md). 
 

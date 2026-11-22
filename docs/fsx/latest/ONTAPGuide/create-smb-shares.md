@@ -1,7 +1,6 @@
 
 
 # Managing SMB shares
-<a name="create-smb-shares"></a>
 
 To manage SMB file shares on your Amazon FSx file system, you can use the Microsoft Windows Shared Folders GUI. The Shared Folders GUI provides a central location for managing all shared folders in your storage virtual machine (SVM). The following procedures detail how to create, update, and remove your file shares.
 

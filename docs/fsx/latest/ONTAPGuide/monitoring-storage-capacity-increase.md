@@ -1,7 +1,6 @@
 
 
 # Monitoring storage capacity and IOPS updates
-<a name="monitoring-storage-capacity-increase"></a>
 
 You can monitor the progress of an SSD storage capacity and IOPS update by using the Amazon FSx console, CLI, and API.
 

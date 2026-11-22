@@ -1,7 +1,6 @@
 
 
 # Restoring files from snapshots
-<a name="user-restore-all-clients"></a>
 
 Using the snapshots on your Amazon FSx file system, you can quickly restore previous versions of individual files or folders. 
 

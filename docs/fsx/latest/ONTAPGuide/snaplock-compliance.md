@@ -1,7 +1,6 @@
 
 
 # Understanding SnapLock Compliance
-<a name="snaplock-compliance"></a>
 
 This section describes use cases and considerations for the SnapLock Compliance retention mode. 
 

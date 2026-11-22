@@ -1,7 +1,6 @@
 
 
 # Use NetApp ONTAP Vscan with FSx for ONTAP
-<a name="using-vscan"></a>
 
 You can use NetApp ONTAP's Vscan feature to run supported third-party antivirus software. For more information, see the following resources for each of the supported solutions. 
 + Deep Instinct – [Vscan partner solutions](https://docs.netapp.com/us-en/ontap/antivirus/vscan-partner-solutions.html) and [Deep Instinct documentation1](https://portal.deepinstinct.com/pages/dikb)

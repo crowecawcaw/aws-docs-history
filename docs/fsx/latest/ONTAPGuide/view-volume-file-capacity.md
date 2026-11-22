@@ -1,7 +1,6 @@
 
 
 # Monitoring a volume's file capacity
-<a name="view-volume-file-capacity"></a>
 
 You can use either of the following methods to view the maximum number of files allowed and the number of files already used on a volume.
 + The CloudWatch volume metrics `FilesCapacity` and `FilesUsed`.

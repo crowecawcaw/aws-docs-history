@@ -1,7 +1,6 @@
 
 
 # Managing SVM Microsoft Active Directory configurations
-<a name="manage-svm-ad-config-secrets-manager"></a>
 
 You can join an SVM to Microsoft Active Directory or modify the Microsoft Active Directory configuration of an SVM that's already joined to Microsoft Active Directory. FSx for ONTAP integrates with AWS Secrets Manager to securely manage your domain join service account credentials.<a name="update-svm-ad-config-console"></a>
 

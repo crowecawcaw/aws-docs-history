@@ -1,7 +1,6 @@
 
 
 # Understanding the SnapLock retention period
-<a name="snaplock-retention"></a>
 
 When you create a SnapLock volume, you can set a default retention period for the volume, or you can set the retention period for write once, read many (WORM) files explicitly. During the retention period, you can't delete or modify WORM-protected files. The retention period is used to calculate the retention time. For example, if you transition a file to WORM on July 14, 2023 at midnight and set the retention period to five years, then the retention time would be until July 14, 2028 at midnight. 
 

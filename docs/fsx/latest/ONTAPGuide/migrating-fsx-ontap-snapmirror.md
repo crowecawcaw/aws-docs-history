@@ -1,7 +1,6 @@
 
 
 # Migrating to FSx for ONTAP using NetApp SnapMirror
-<a name="migrating-fsx-ontap-snapmirror"></a>
 
 You can migrate your NetApp ONTAP file systems to Amazon FSx for NetApp ONTAP using NetApp SnapMirror.
 
@@ -118,7 +117,7 @@ SnapMirror uses inter-cluster logical interfaces (LIFs), each with a unique IP a
                 inter_2    up/up  10.0.1.69/24
    ```
 **Note**  
-For second-generation Single-AZ file systems, there are two inter-cluster IP addresses for each high-availability (HA) pair. Save these values for later. 
+For second-generation and third-generation Single-AZ file systems, there are two inter-cluster IP addresses for each high-availability (HA) pair. Save these values for later. 
 
    Save the `inter_1` and `inter_2` IP addresses. They are referenced in the `FSx-Dest` as `dest_inter_1` and `dest_inter_2` and for `OnPrem-Source` as `source_inter_1` and `source_inter_2`.
 
@@ -127,7 +126,7 @@ For second-generation Single-AZ file systems, there are two inter-cluster IP add
 
 Establish a cluster peer relationship on the destination cluster by providing the inter-cluster IP addresses. You will also need to create a passphrase which you will need to enter in when you establish cluster peering on the source cluster.
 
-1. Set up peering on the destination cluster using the following command. For second-generation Single-AZ file systems, you'll need to provide each inter-cluster IP address. 
+1. Set up peering on the destination cluster using the following command. For second-generation and third-generation Single-AZ file systems, you'll need to provide each inter-cluster IP address. 
 
    ```
    FSx-Dest::> cluster peer create -address-family ipv4 -peer-addrs {{source_inter_1}},{{source_inter_2}}
@@ -137,7 +136,7 @@ Establish a cluster peer relationship on the destination cluster by providing th
    Notice: Now use the same passphrase in the "cluster peer create" command in the other cluster.
    ```
 
-1. Next, establish the cluster peer relationship on the source cluster. You’ll need to enter the passphrase you created above to authenticate. For second-generation Single-AZ file systems, you'll need to provide each inter-cluster IP address. 
+1. Next, establish the cluster peer relationship on the source cluster. You’ll need to enter the passphrase you created above to authenticate. For second-generation and third-generation Single-AZ file systems, you'll need to provide each inter-cluster IP address. 
 
    ```
    OnPrem-Source::> cluster peer create -address-family ipv4 -peer-addrs {{dest_inter_1}},{{dest_inter_2}}

@@ -1,7 +1,6 @@
 
 
 # Managing Amazon S3 access points
-<a name="access-points-for-fsxn-manage"></a>
 
 This section explains how to manage and use your Amazon S3 access points using the AWS Management Console, AWS Command Line Interface, or API.
 

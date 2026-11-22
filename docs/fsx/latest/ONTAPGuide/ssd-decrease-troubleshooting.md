@@ -1,7 +1,6 @@
 
 
 # Troubleshooting SSD decrease operation issues
-<a name="ssd-decrease-troubleshooting"></a>
 
 This section describes common issues and resolutions related to SSD capacity decrease operations.
 

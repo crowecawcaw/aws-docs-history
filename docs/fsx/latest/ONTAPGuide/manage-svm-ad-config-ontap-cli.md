@@ -1,7 +1,6 @@
 
 
 # Updating SVM Active Directory configurations using the NetApp CLI
-<a name="manage-svm-ad-config-ontap-cli"></a>
 
 You can use the NetApp ONTAP CLI to join and unjoin your SVM to an Active Directory, and to modify an existing SVM Active Directory configuration.
 

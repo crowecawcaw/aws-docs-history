@@ -1,7 +1,6 @@
 
 
 # Provisioning iSCSI for Windows
-<a name="mount-iscsi-windows"></a>
 
 FSx for ONTAP supports the iSCSI protocol. You need to provision iSCSI on both the Windows client and the SVM and volume in order to use the iSCSI protocol to transport data between clients and your file system. The iSCSI protocol is available on all file systems that have 6 or fewer [high-availability (HA) pairs](HA-pairs.md).
 

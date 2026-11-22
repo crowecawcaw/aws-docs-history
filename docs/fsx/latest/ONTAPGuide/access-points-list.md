@@ -1,7 +1,6 @@
 
 
 # Listing S3 access point attachments
-<a name="access-points-list"></a>
 
 This section explains how to list S3 access point using the AWS Management Console, AWS Command Line Interface, or REST API.
 

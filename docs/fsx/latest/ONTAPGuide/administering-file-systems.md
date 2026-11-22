@@ -1,7 +1,6 @@
 
 
 # Administering FSx for ONTAP resources
-<a name="administering-file-systems"></a>
 
 Using the AWS Management Console, AWS CLI, and ONTAP CLI and API, you can perform the following administrative actions for FSx for ONTAP resources:
 + Creating, listing, updating, and deleting file systems, storage virtual machines (SVMs), volumes, backups, and tags.

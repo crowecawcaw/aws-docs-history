@@ -1,7 +1,6 @@
 
 
 # Using Amazon Elastic Container Service with FSx for ONTAP
-<a name="mount-ontap-ecs-containers"></a>
 
 You can access your Amazon FSx for NetApp ONTAP file systems from an Amazon Elastic Container Service (Amazon ECS) Docker container on an Amazon EC2 Linux or Windows instance.
 

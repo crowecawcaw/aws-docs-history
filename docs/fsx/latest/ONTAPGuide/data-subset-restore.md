@@ -1,9 +1,8 @@
 
 
 # Restoring a subset of data
-<a name="data-subset-restore"></a>
 
-You can restore a subset of data from a backup while it is being restored to a new volume on second-generation file systems without having to wait until the entire backup data set has been fully restored.
+You can restore a subset of data from a backup while it is being restored to a new volume on second-generation and third-generation file systems without having to wait until the entire backup data set has been fully restored.
 
 The following procedure lists the steps to take when you need to recover a subset of data when restoring a backup, and can't wait for the entire restore to complete:
 

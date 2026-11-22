@@ -1,7 +1,6 @@
 
 
 # Mounting volumes on macOS clients
-<a name="attach-mac-client"></a>
 
 This section describes how to access data in your FSx for ONTAP file system with clients running the macOS operating system. Review the following requirements, regardless of the type of client you are using.
 
@@ -39,7 +38,7 @@ We recommend that you attach volumes to your Mac clients using the SMB protocol.
    sudo mount -t smbfs svm-01234567890abcde2.fs-01234567890abcde5.fsx.us-east-1.amazonaws.com:/C$ /fsx
    ```
 
-   You can also use the SVM's IP address instead of its DNS name. We recommend using the DNS name to mount clients to second-generation file systems because it helps ensure that your clients are balanced across your file system's high-availability (HA) pairs. 
+   You can also use the SVM's IP address instead of its DNS name. We recommend using the DNS name to mount clients to second-generation and third-generation file systems because it helps ensure that your clients are balanced across your file system's high-availability (HA) pairs. 
 
    ```
    sudo mount -t smbfs 198.51.100.10:/C$ /fsx
@@ -69,7 +68,7 @@ We recommend that you attach volumes to your Mac clients using the SMB protocol.
    sudo mount -t nfs -o nfsvers=4.1 svm-01234567890abdef0.fs-01234567890abcdef1.fsx.us-east-1.amazonaws.com:/vol1 /fsxontap
    ```
 
-   You can also use the SVM's IP address instead of its DNS name. We recommend using the DNS name to mount clients to second-generation file systems because it helps ensure that your clients are balanced across your file system's HA pairs. 
+   You can also use the SVM's IP address instead of its DNS name. We recommend using the DNS name to mount clients to second-generation and third-generation file systems because it helps ensure that your clients are balanced across your file system's HA pairs. 
 
    ```
    sudo mount -t nfs -o nfsvers=4.1 198.51.100.1:/vol1 /fsxontap
@@ -87,7 +86,7 @@ We recommend that you attach volumes to your Mac clients using the SMB protocol.
    sudo mount -t nfs svm-01234567890abdef0.fs-01234567890abcdef1.fsx.us-east-1.amazonaws.com:/vol1 /fsx
    ```
 
-   You can also use the SVM's IP address instead of its DNS name. We recommend using the DNS name to mount clients to second-generation file systems because it helps ensure that your clients are balanced across your file system's high-availability (HA) pairs. 
+   You can also use the SVM's IP address instead of its DNS name. We recommend using the DNS name to mount clients to second-generation and third-generation file systems because it helps ensure that your clients are balanced across your file system's high-availability (HA) pairs. 
 
    ```
    sudo mount -t nfs 198.51.100.1:/vol1 /fsx

@@ -1,7 +1,6 @@
 
 
 # Updating storage capacity and provisioned IOPS
-<a name="increase-storage-capacity"></a>
 
 You can increase or decrease a file system's SSD-based storage and the amount of provisioned SSD IOPS by using the Amazon FSx console, the AWS CLI, and the API.
 
@@ -32,7 +31,7 @@ For more information about the maximum number of SSD IOPS that you can provision
 
 1. Choose **Update**.
 **Note**  
-At the bottom of the prompt, a configuration preview is shown for your new SSD storage capacity and SSD IOPS. For second-generation file systems, the per-HA-pair value is also shown. 
+At the bottom of the prompt, a configuration preview is shown for your new SSD storage capacity and SSD IOPS. For second-generation and third-generation file systems, the per-HA-pair value is also shown. 
 
 ## To increase SSD storage capacity and provisioned IOPS for a file system (CLI)
 <a name="increase-storage-cli"></a>
@@ -80,7 +79,7 @@ For more information, see [AdministrativeAction](https://docs.aws.amazon.com/fsx
 
 1. Choose **Update**.
 **Note**  
-At the bottom of the prompt, a configuration preview is shown for your new SSD storage capacity and SSD IOPS. For second-generation file systems, the per-HA-pair value is also shown. 
+At the bottom of the prompt, a configuration preview is shown for your new SSD storage capacity and SSD IOPS. For second-generation and third-generation file systems, the per-HA-pair value is also shown. 
 
 ## To decrease SSD storage capacity and provisioned IOPS for a file system (CLI)
 <a name="decrease-storage-cli"></a>

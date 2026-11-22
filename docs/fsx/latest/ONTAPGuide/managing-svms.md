@@ -1,7 +1,6 @@
 
 
 # Managing FSx for ONTAP storage virtual machines
-<a name="managing-svms"></a>
 
 In FSx for ONTAP, volumes are hosted on virtual file servers called storage virtual machines (SVMs). An SVM is an isolated file server with its own administrative credentials and endpoints for administering and accessing data. When you access data in FSx for ONTAP, your clients and workstations mount a volume, SMB share, or iSCSI LUN hosted by an SVM using the SVM's endpoint (IP address).
 

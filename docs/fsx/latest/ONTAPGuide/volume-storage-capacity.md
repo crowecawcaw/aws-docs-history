@@ -1,7 +1,6 @@
 
 
 # Volume storage capacity
-<a name="volume-storage-capacity"></a>
 
 FSx for ONTAP volumes are virtual resources that you use for grouping data, determining how data is stored, and determining the type of access to your data. Volumes, like folders, don't consume file system storage capacity themselves. Only the data that's stored in a volume consumes SSD storage and, depending on the [volume's tiering policy](#data-tiering-policy), capacity pool storage. You set a volume's size when you create it, and you can change its size later. You can monitor and manage the storage capacity of your FSx for ONTAP volumes using the AWS Management Console, AWS CLI and API, and the ONTAP CLI.
 
@@ -86,7 +85,7 @@ For information on setting a volume's cloud retrieval policy, see [Updating a vo
 A file system's SSD storage capacity utilization determines how ONTAP manages the tiering behavior for all of your volumes. Based on a file system's SSD storage capacity usage, the following thresholds set the tiering behavior as described. For information about how to monitor the capacity utilization of a volume's SSD storage tier, see [Monitoring volume storage capacity](monitor-volume-storage-console.md). 
 
 **Note**  
-We recommend that you don't exceed 80% storage capacity utilization of your SSD storage tier. For second-generation file systems, this recommendation applies to both the total average utilization across all of your file system's aggregates and to the utilization of each individual aggregate. This ensures that tiering functions properly, and provides overhead for new data. If your SSD storage tier is consistently above 80% storage capacity utilization, you can increase your SSD storage tier's capacity. For more information, see [Updating file system SSD storage and IOPS](storage-capacity-and-IOPS.md#increase-primary-storage).
+We recommend that you don't exceed 80% storage capacity utilization of your SSD storage tier. For second-generation and third-generation file systems, this recommendation applies to both the total average utilization across all of your file system's aggregates and to the utilization of each individual aggregate. This ensures that tiering functions properly, and provides overhead for new data. If your SSD storage tier is consistently above 80% storage capacity utilization, you can increase your SSD storage tier's capacity. For more information, see [Updating file system SSD storage and IOPS](storage-capacity-and-IOPS.md#increase-primary-storage).
 
 FSx for ONTAP uses the following storage capacity thresholds to manage tiering on volumes:
 + **<=50% SSD storage tier utilization** – At this threshold, the SSD storage tier is considered to be underutilized, and only volumes that are using the **All** tiering policy have data tiered to capacity pool storage. Volumes with **Auto** and **Snapshot-only** policies don't tier data at this threshold.

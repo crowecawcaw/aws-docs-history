@@ -1,7 +1,6 @@
 
 
 # Troubleshooting I/O errors and NFS lock reclaim failures
-<a name="nfs-failover-issues"></a>
 
 This section describes issues related to I/O errors and NFS lock reclaim failures during failover events on FSx for ONTAP file systems and resolutions for each of them.
 

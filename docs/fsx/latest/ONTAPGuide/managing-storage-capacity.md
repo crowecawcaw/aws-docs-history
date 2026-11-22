@@ -1,7 +1,6 @@
 
 
 # Managing storage capacity
-<a name="managing-storage-capacity"></a>
 
 Amazon FSx for NetApp ONTAP provides a number of storage-related features you can use to manage storage capacity on your file system.
 
@@ -79,7 +78,7 @@ Random reads from the capacity pool tier are cached in the SSD tier, as long as 
 ### Recommended SSD capacity utilization
 <a name="ssd-utilization"></a>
 
-We recommend that you do not exceed 80% utilization of your SSD storage tier on an ongoing basis. For second-generation file systems, we additionally recommend that you don't exceed 80% utilization of any of your file system's aggregates on an ongoing basis. These recommendations is consistent with NetApp's recommendation for ONTAP. Because your file system’s SSD tier is also used for staging writes to, and for random reads from, the capacity pool tier, any sudden changes in access patterns can quickly cause the utilization of your SSD tier to increase.
+We recommend that you do not exceed 80% utilization of your SSD storage tier on an ongoing basis. For second-generation and third-generation file systems, we additionally recommend that you don't exceed 80% utilization of any of your file system's aggregates on an ongoing basis. These recommendations is consistent with NetApp's recommendation for ONTAP. Because your file system’s SSD tier is also used for staging writes to, and for random reads from, the capacity pool tier, any sudden changes in access patterns can quickly cause the utilization of your SSD tier to increase.
 
 At 90% SSD utilization, data read from the capacity pool tier is no longer cached on the SSD tier so that the remaining SSD capacity is preserved for any new data that is written to the file system. This causes repeat reads of the same data from the capacity pool tier to be read from capacity pool storage instead of being cached and read from the SSD tier, which can impact the throughput capacity your file system.
 

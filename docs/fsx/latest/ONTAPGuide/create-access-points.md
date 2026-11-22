@@ -1,7 +1,6 @@
 
 
 # Creating access points
-<a name="create-access-points"></a>
 
 **Important**  
 To attach an S3 access point to an FSx for ONTAP volume, the volume must be mounted (have a junction path). See [ONTAP documentation](https://docs.netapp.com/us-en/ontap/nfs-admin/mount-unmount-existing-volumes-nas-namespace-task.html) for more details.

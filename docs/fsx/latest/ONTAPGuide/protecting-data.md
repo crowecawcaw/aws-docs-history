@@ -1,7 +1,6 @@
 
 
 # Protecting your data
-<a name="protecting-data"></a>
 
 Beyond automatically replicating your file system's data to ensure [high durability](high-availability-AZ.md), with Amazon FSx you also have the following options that you can use to further protect your data:
 + Native Amazon FSx volume backups that support your backup retention and compliance needs within Amazon FSx.

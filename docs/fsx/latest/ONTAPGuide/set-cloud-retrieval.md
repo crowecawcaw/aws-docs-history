@@ -1,7 +1,6 @@
 
 
 # Updating a volume's cloud retrieval policy
-<a name="set-cloud-retrieval"></a>
 
 Use the `volume modify` ONTAP CLI command to set the cloud retrieval policy for an existing volume. For more information, see [`volume modify`](https://docs.netapp.com/us-en/ontap-cli-9111/volume-modify.html) in the NetApp ONTAP Documentation Center.
 

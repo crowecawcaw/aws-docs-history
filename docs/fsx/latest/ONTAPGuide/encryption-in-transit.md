@@ -1,7 +1,6 @@
 
 
 # Encrypting data in transit
-<a name="encryption-in-transit"></a>
 
 This topic explains the different options available for encrypting your file data while it is in-transit between an FSx for ONTAP file system and connected clients. It also provides guidance to help you choose which encryption method is best suited for your workflow.
 
@@ -83,6 +82,7 @@ The following table details the AWS Regions that Nitro-based encryption is avail
 | --- | --- | --- | 
 | First-generation file systems1 | Single-AZ 1, Multi-AZ 1 | US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Malaysia), Asia Pacific (New Zealand), Asia Pacific (Taipei), Asia Pacific (Thailand), Europe (Ireland), Mexico (Central) | 
 | Second-generation file systems | Single-AZ 2, Multi-AZ 2 | Nitro-based encryption is available in all AWS Regions where second-generation file systems are available. For more information, see [Availability by AWS Region](available-aws-regions.md). | 
+| Third-generation file systems | Single-AZ 3, Multi-AZ 3 | Nitro-based encryption is available in all AWS Regions where third-generation file systems are available. For more information, see [Availability by AWS Region](available-aws-regions.md). | 
 
 1 First-generation file systems created on or after November 28, 2022 support Nitro-based in-transit encryption in the listed AWS Regions.
 

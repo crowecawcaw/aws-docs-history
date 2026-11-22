@@ -1,7 +1,6 @@
 
 
 # Mounting volumes on Linux clients
-<a name="attach-linux-client"></a>
 
 We recommend that the volumes you want to mount with Linux clients have a security style setting of `UNIX`. For more information, see [Managing FSx for ONTAP volumes](managing-volumes.md).
 
@@ -38,13 +37,13 @@ By default, FSx for ONTAP NFS mounts are `hard` mounts. To ensure a smooth failo
    sudo mount -t nfs svm-01234567890abdef0.fs-01234567890abcdef1.fsx.us-east-1.amazonaws.com:/vol1 /fsx
    ```
 
-   You can also use the SVM's IP address instead of its DNS name. We recommend using the DNS name to mount clients to second-generation file systems because it helps ensure that your clients are balanced across your file system's high-availability (HA) pairs. 
+   You can also use the SVM's IP address instead of its DNS name. We recommend using the DNS name to mount clients to second-generation and third-generation file systems because it helps ensure that your clients are balanced across your file system's high-availability (HA) pairs. 
 
    ```
    sudo mount -t nfs 198.51.100.1:/vol1 /fsx
    ```
 **Note**  
-For second-generation file systems, the parallel NFS (pNFS) protocol is enabled by default and is used by default for any clients mounting volumes with NFS v4.1 or greater. 
+For second-generation and third-generation file systems, the parallel NFS (pNFS) protocol is enabled by default and is used by default for any clients mounting volumes with NFS v4.1 or greater. 
 
 ## Using /etc/fstab to mount automatically on instance reboot
 <a name="mount-fs-auto-mount-update-fstab"></a>

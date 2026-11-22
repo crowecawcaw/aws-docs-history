@@ -1,7 +1,6 @@
 
 
 # Monitoring storage efficiency savings
-<a name="view-storage-efficiency"></a>
 
  When enabled, you can see how much storage capacity you are saving in the Amazon FSx console, the Amazon CloudWatch console, and the ONTAP CLI.
 

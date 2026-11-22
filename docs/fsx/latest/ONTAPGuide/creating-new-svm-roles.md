@@ -1,7 +1,6 @@
 
 
 # Creating SVM roles
-<a name="creating-new-svm-roles"></a>
 
  Each SVM that you create has a default SVM administrator that's assigned the predefined `vsadmin` role. In addition to the set of [predefined SVM roles](roles-and-users.md#svm-admin-roles), you can create new SVM roles. If you need to create new roles for your SVM, use the `security login role create` ONTAP CLI command. This command is available for file system administrators with the `fsxadmin` role.
 

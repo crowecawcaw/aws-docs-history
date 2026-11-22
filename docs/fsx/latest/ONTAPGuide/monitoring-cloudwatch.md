@@ -1,7 +1,6 @@
 
 
 # Monitoring with Amazon CloudWatch
-<a name="monitoring-cloudwatch"></a>
 
 You can monitor file systems using Amazon CloudWatch, which collects and processes raw data from Amazon FSx for NetApp ONTAP into readable, near real-time metrics. These statistics are retained for a period of 15 months, so that you can access historical information to determine how your file system is performing. FSx for ONTAP metric data is automatically sent to CloudWatch at 1-minute periods by default. For more information about CloudWatch, see [What is Amazon CloudWatch?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) in the *Amazon CloudWatch User Guide*.
 
@@ -24,5 +23,5 @@ All CloudWatch metrics for FSx for ONTAP are published to the `AWS/FSx` namespac
 + [Accessing CloudWatch metrics](accessingmetrics.md)
 + [Monitoring in the Amazon FSx console](monitor-throughput-cloudwatch.md)
 + [File system metrics](file-system-metrics.md)
-+ [Second-generation file system metrics](so-file-system-metrics.md)
++ [Second-generation and third-generation file system metrics](so-file-system-metrics.md)
 + [Volume metrics](volume-metrics.md)

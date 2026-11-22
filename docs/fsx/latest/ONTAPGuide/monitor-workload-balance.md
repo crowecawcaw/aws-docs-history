@@ -1,7 +1,6 @@
 
 
 # Balancing workloads across HA pairs
-<a name="monitor-workload-balance"></a>
 
 If you have a file system with multiple high-availability (HA) pairs, then its throughput and storage are spread across each of your HA pairs. FSx for ONTAP automatically balances your files as they are written to your file system, but your workload data and I/O are no longer balanced once you add HA pairs. Additionally, in rare cases, your workload data or I/O could become unbalanced across your file system's existing HA pairs, which can impact your workload's overall performance. If your workload is ever imbalanced, you can rebalance it across each of your file system’s HA pairs (and their commensurate file servers and *aggregates*—the storage pools which make up your primary storage tier).
 
@@ -37,7 +36,7 @@ If you notice that your file server performance utilization is imbalanced—and 
 ## Mapping CloudWatch dimensions to ONTAP CLI and REST API resources
 <a name="map-dimensions-to-resources"></a>
 
-Your second-generation file system has Amazon CloudWatch metrics with the `FileServer` or `Aggregate` dimension. In order to further diagnose cases of imbalance, you need to map these dimension values to specific file servers (or *nodes*) and aggregates in the ONTAP CLI or REST API.
+Your second-generation or third-generation file system has Amazon CloudWatch metrics with the `FileServer` or `Aggregate` dimension. In order to further diagnose cases of imbalance, you need to map these dimension values to specific file servers (or *nodes*) and aggregates in the ONTAP CLI or REST API.
 + For file servers, each file server name maps to a file server (or node) name in ONTAP (for example, `FsxId01234567890abcdef-01`). Odd-numbered file servers are preferred file servers (that is, they service traffic unless the file system has failed over to the secondary file server), while even-numbered file servers are secondary file servers (that is, they serve traffic only when their partner is unavailable). Because of this, secondary file servers will typically show less utilization than preferred file servers.
 + For aggregates, each aggregate name maps to an aggregate in ONTAP (for example, `aggr1`). There is one aggregate for every HA pair, meaning aggregate `aggr1` is shared by file servers `FsxId01234567890abcdef-01` (the active file server) and `FsxId01234567890abcdef-02` (the secondary file server) in an HA pair, aggregate `aggr2` is shared by file servers `FsxId01234567890abcdef-03` and `FsxId01234567890abcdef-04`, and so on.
 

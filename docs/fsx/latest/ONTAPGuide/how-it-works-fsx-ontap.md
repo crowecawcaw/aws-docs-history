@@ -1,7 +1,6 @@
 
 
 # How Amazon FSx for NetApp ONTAP works
-<a name="how-it-works-fsx-ontap"></a>
 
 This topic introduces the major features of Amazon FSx for NetApp ONTAP file systems and how they work, with links to sections with in-depth descriptions, important implementation details, and step-by-step configuration procedures.
 
@@ -19,7 +18,7 @@ This topic introduces the major features of Amazon FSx for NetApp ONTAP file sys
 
 A file system is the primary FSx for ONTAP resource, analogous to an on-premises NetApp ONTAP cluster. You specify the solid state drive (SSD) storage capacity and throughput capacity for your file system, and choose an Amazon Virtual Private Cloud (VPC) where your file system is created. For more information, see [Managing FSx for ONTAP file systems](managing-file-systems.md).
 
-Your file system can have one to 12 high-availability (HA) pairs depending on its configuration. An HA pair is made up of two file servers in an active-standby configuration. First-generation FSx for ONTAP file systems and second-generation Multi-AZ file systems support one HA pair. Second-generation Single-AZ file systems support up to 12 HA pairs. For more information, see [Managing high-availability (HA) pairs](HA-pairs.md). 
+Your file system can have one to 12 high-availability (HA) pairs depending on its configuration. An HA pair is made up of two file servers in an active-standby configuration. First-generation FSx for ONTAP file systems support one HA pair, and second-generation and third-generation file systems support up to 12 HA pairs. For more information, see [Managing high-availability (HA) pairs](HA-pairs.md). 
 
 ## Storage virtual machines
 <a name="svm-resource"></a>
@@ -40,7 +39,7 @@ FSx for ONTAP volumes are thin provisioned, meaning that they only consume stora
 ## Storage tiers
 <a name="storage-tiers-intro"></a>
 
-An FSx for ONTAP file system has two *storage tiers*: primary storage and capacity pool storage. Primary storage is provisioned, scalable, high-performance SSD storage that’s purpose-built for the active portion of your data set. Capacity pool storage is a fully elastic storage tier that can scale to petabytes in size and is cost optimized for infrequently accessed data. Data that you write to your volumes consumes capacity on your storage tiers. For more information, see [FSx for ONTAP storage tiers](managing-storage-capacity.md#storage-tiers). You can increase the SSD storage capacity of your file system as your storage needs grow. On second-generation file systems, you can also decrease SSD storage capacity when your high-performance storage requirements change, allowing you to optimize storage costs. For more information, see [File system storage capacity and IOPS](storage-capacity-and-IOPS.md).
+An FSx for ONTAP file system has two *storage tiers*: primary storage and capacity pool storage. Primary storage is provisioned, scalable, high-performance SSD storage that’s purpose-built for the active portion of your data set. Capacity pool storage is a fully elastic storage tier that can scale to petabytes in size and is cost optimized for infrequently accessed data. Data that you write to your volumes consumes capacity on your storage tiers. For more information, see [FSx for ONTAP storage tiers](managing-storage-capacity.md#storage-tiers). You can increase the SSD storage capacity of your file system as your storage needs grow. On second-generation and third-generation file systems, you can also decrease SSD storage capacity when your high-performance storage requirements change, allowing you to optimize storage costs. For more information, see [File system storage capacity and IOPS](storage-capacity-and-IOPS.md).
 
 ### Data tiering
 <a name="data-tiering"></a>

@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon FSx for NetApp ONTAP
-<a name="monitoring_overview"></a>
 
 You can use the following services and tools to monitor Amazon FSx for NetApp ONTAP usage and activity:
 + **Amazon CloudWatch** – You can monitor file systems using Amazon CloudWatch, which automatically collects and processes raw data from FSx for ONTAP into readable metrics. These statistics are retained for a period of 15 months so that you can access historical information and see how your file system is performing. You can also set alarms based on your metrics over a specified time period and perform one or more actions based on the value of the metrics relative to thresholds that you specify.

@@ -1,7 +1,6 @@
 
 
 # Mounting volumes on Microsoft Windows clients
-<a name="attach-windows-client"></a>
 
 This section describes how to access data in your FSx for ONTAP file system with clients running the Microsoft Windows operating system. Review the following requirements, regardless of the type of client you are using.
 
@@ -45,7 +44,7 @@ To access an ONTAP storage volume using a Microsoft Windows client, you have to 
    net use Z: \\corp.example.com\group_share
    ```
 
-   You can also use the IP address of the SVM instead of its DNS name. We recommend using the DNS name to mount clients to second-generation file systems because it helps ensure that your clients are balanced across your file system's high-availability (HA) pairs. 
+   You can also use the IP address of the SVM instead of its DNS name. We recommend using the DNS name to mount clients to second-generation and third-generation file systems because it helps ensure that your clients are balanced across your file system's high-availability (HA) pairs. 
 
    ```
    net use Z: \\198.51.100.5\group_share

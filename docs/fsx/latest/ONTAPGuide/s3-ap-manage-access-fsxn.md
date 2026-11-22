@@ -1,7 +1,6 @@
 
 
 # Managing access point access
-<a name="s3-ap-manage-access-fsxn"></a>
 
 You can configure each S3 access point with distinct permissions and network controls that S3 applies for any request that is made using that access point. S3 access points support AWS Identity and Access Management (IAM) resource policies that you can use to control the use of the access point by resource, user, or other conditions. For an application or user to access files through an access point, both the access point and the underlying volume must permit the request. For more information, see [IAM access point policies](#access-points-for-fsxn-policies).
 

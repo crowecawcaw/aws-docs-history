@@ -1,7 +1,6 @@
 
 
 # Monitoring FSx for ONTAP API Calls with AWS CloudTrail
-<a name="logging-using-cloudtrail-win"></a>
 
 Amazon FSx is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon FSx. CloudTrail captures all Amazon FSx API calls for Amazon FSx for NetApp ONTAP as events. Captured calls include calls from the Amazon FSx console and from code calls to Amazon FSx API operations.
 

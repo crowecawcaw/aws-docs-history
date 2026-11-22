@@ -1,7 +1,6 @@
 
 
 # Your backups fail due to insufficient volume capacity
-<a name="backups-failing"></a>
 
 Automatic daily backups of your volume fails with the following message:
 

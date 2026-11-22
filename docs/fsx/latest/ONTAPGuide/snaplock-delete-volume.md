@@ -1,7 +1,6 @@
 
 
 # Deleting SnapLock volumes
-<a name="snaplock-delete-volume"></a>
 
 This section explains how to delete a SnapLock volume.
 

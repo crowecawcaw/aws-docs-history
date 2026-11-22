@@ -1,7 +1,6 @@
 
 
 # Working with Microsoft Active Directory in FSx for ONTAP
-<a name="ad-integration-ontap"></a>
 
 Amazon FSx works with Microsoft Active Directory to integrate with your existing environments. Active Directory is the Microsoft directory service that's used to store information about objects on the network, and to help administrators and users to find and use this information. These objects typically include shared resources, such as file servers and network user and computer accounts.
 

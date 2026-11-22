@@ -1,7 +1,6 @@
 
 
 # Using tags with Amazon FSx
-<a name="using-tags-fsx"></a>
 
 You can use tags to control access to Amazon FSx resources and to implement attribute-based access control (ABAC). To apply tags to Amazon FSx resources during creation, users must have certain AWS Identity and Access Management (IAM) permissions.
 
@@ -14,7 +13,7 @@ For users to tag resources on creation, they must have permission to use the act
 
 The following example policy allows users to create file systems and storage virtual machines (SVMs) and apply tags to them during creation in a specific AWS account.
 
-```
+```json
 {
   "Statement": [
     {
@@ -35,7 +34,7 @@ The following example policy allows users to create file systems and storage vir
 
 Similarly, the following policy allows users to create backups on a specific file system and apply any tags to the backup during backup creation.
 
-```
+```json
 {
   "Statement": [
     {
@@ -99,7 +98,7 @@ This policy allows the user to create a file system only when they tag it with a
 This policy allows users to create backups only of FSx for ONTAP volumes that are tagged with the key-value pair `key=Department`, `value=Finance`. The backup is created with the tag `Department=Finance`.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -136,7 +135,7 @@ This policy allows users to create backups only of FSx for ONTAP volumes that ar
 This policy allows users to create volumes that are tagged with `Department=Finance` only from backups that are tagged with `Department=Finance`.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -173,7 +172,7 @@ This policy allows users to create volumes that are tagged with `Department=Fina
 This policy allows a user to delete only file systems that are tagged with `Department=Finance`. If they create a final backup, then it must be tagged with `Department=Finance`.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -209,7 +208,7 @@ This policy allows a user to delete only file systems that are tagged with `Depa
 This policy allows a user to delete only volumes that are tagged with `Department=Finance`. If they create a final backup, then it must be tagged with `Department=Finance`.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

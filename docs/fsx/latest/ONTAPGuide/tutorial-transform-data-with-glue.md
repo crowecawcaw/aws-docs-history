@@ -1,7 +1,6 @@
 
 
 # Build ETL pipelines using AWS Glue
-<a name="tutorial-transform-data-with-glue"></a>
 
 Data engineering teams often have raw data landing on an FSx for ONTAP volume from applications, daily file drops, or partner integrations over NFS or SMB. Preparing that data for downstream analytics requires reading, transforming, enriching, or repartitioning it at scale, and making the curated output available to analysts and applications.
 
@@ -21,7 +20,7 @@ Before you begin, make sure you have the following:
 
   1. Save the following trust policy as `glue-trust-policy.json`. It allows AWS Glue to assume the role.
 
-     ```
+     ```json
      {
          "Version": "2012-10-17", 		 	 	 
          "Statement": [
@@ -36,7 +35,7 @@ Before you begin, make sure you have the following:
 
   1. Save the following permissions policy as `glue-permissions.json`. Replace `{{region}}`, `{{account-id}}`, and `{{access-point-name}}` with your values.
 
-     ```
+     ```json
      {
          "Version": "2012-10-17", 		 	 	 
          "Statement": [
@@ -114,7 +113,7 @@ The Amazon S3 access point must use an internet network origin. AWS Glue jobs ac
 
 The following PySpark script reads the raw taxi trip data from your FSx for ONTAP volume, applies transformations, and writes the results back to the volume. Save this script as `taxi_transform.py`.
 
-```
+```python
 import sys
 from awsglue.transforms import *
 from awsglue.utils import getResolvedOptions
@@ -247,7 +246,7 @@ aws glue start-crawler --name {{fsxn-taxi-transformed-crawler}}
 
 After the crawler completes, query the transformed data in Athena. The partitioned structure allows Athena to scan only the relevant partitions.
 
-```
+```sql
 -- Average cost per mile by time of day
 SELECT
     time_of_day,
@@ -259,7 +258,7 @@ GROUP BY time_of_day
 ORDER BY trip_count DESC
 ```
 
-```
+```sql
 -- Busiest pickup locations during morning rush
 SELECT
     PULocationID AS pickup_location,
@@ -289,7 +288,7 @@ To avoid ongoing charges, delete the resources you created in this tutorial.
 
 In the Athena query editor, drop the table created by the crawler:
 
-```
+```sql
 DROP TABLE IF EXISTS fsxn_taxi_demo.taxi_data_transformed;
 ```
 

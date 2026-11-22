@@ -1,7 +1,6 @@
 
 
 # Creating ONTAP users
-<a name="create-new-ontap-users"></a>
 
 **To create a new SVM or file system user (ONTAP CLI)**
 

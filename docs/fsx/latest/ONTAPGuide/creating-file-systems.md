@@ -1,7 +1,6 @@
 
 
 # Creating file systems
-<a name="creating-file-systems"></a>
 
 This section describes how to create an FSx for ONTAP file system using the Amazon FSx console, AWS CLI, or the Amazon FSx API. You can create a file system in a virtual private cloud (VPC) that you own, or in a VPC that another AWS account has shared with you. There are considerations when creating a Multi-AZ file system in a VPC in which you are a participant. These considerations are explained in this topic.
 
@@ -22,9 +21,9 @@ This procedure uses the **Standard create** creation option to create an FSx for
 
 1. In the **File system details** section, provide the following information: 
    + For **File system name - optional**, enter a name for your file system. It's easier to find and manage your file systems when you name them. You can use a maximum of 256 Unicode letters, white space, and numbers, plus these special characters: \+ - = . \_ : /
-   + For **Deployment type** choose **Multi-AZ 2**, **Single-AZ 2**, **Multi-AZ 1**, or **Single-AZ 1**. 
-     + **Multi-AZ** file systems replicate your data and support failover across multiple Availability Zones in the same AWS Region. Multi-AZ 1 is a first-generation FSx for ONTAP file system. Multi-AZ 2 is a second-generation file system. They both support one high-availability (HA) pair. 
-     + **Single-AZ** file systems replicate your data and offer automatic failover within a single Availability Zone. Single-AZ 1 is a first-generation FSx for ONTAP file system that supports one HA pair. Single-AZ 2 is a second-generation file system that supports up to 12 HA pairs. For more information, see [Managing high-availability (HA) pairs](HA-pairs.md). 
+   + For **Deployment type** choose **Multi-AZ 3**, **Single-AZ 3**, **Multi-AZ 2**, **Single-AZ 2**, **Multi-AZ 1**, or **Single-AZ 1**. 
+     + **Multi-AZ** file systems replicate your data and support failover across multiple Availability Zones in the same AWS Region. Multi-AZ 1 is a first-generation FSx for ONTAP file system, Multi-AZ 2 is a second-generation file system, and Multi-AZ 3 is a third-generation file system. They all support one high-availability (HA) pair. 
+     + **Single-AZ** file systems replicate your data and offer automatic failover within a single Availability Zone. Single-AZ 1 is a first-generation FSx for ONTAP file system that supports one HA pair. Single-AZ 2 is a second-generation file system and Single-AZ 3 is a third-generation file system. They both support up to 12 HA pairs. For more information, see [Managing high-availability (HA) pairs](HA-pairs.md). 
 
         For more information about deployment types, see [Availability, durability, and deployment options](high-availability-AZ.md).
 **Note**  

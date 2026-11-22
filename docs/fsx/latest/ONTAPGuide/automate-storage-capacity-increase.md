@@ -1,7 +1,6 @@
 
 
 # Updating storage capacity dynamically
-<a name="automate-storage-capacity-increase"></a>
 
 You can use the following solution to dynamically increase the SSD storage capacity of an FSx for ONTAP file system when the amount of used SSD storage capacity exceeds a threshold that you specify. This AWS CloudFormation template automatically deploys all of the components that are required to define the storage capacity threshold, the Amazon CloudWatch alarm based on this threshold, and the AWS Lambda function that increases the file system’s storage capacity.
 

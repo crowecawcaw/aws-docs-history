@@ -1,7 +1,6 @@
 
 
 # Your volume is in a `MISCONFIGURED` state
-<a name="misconfigured-volume"></a>
 
 There are a number of potential causes for an ONTAP volume to get into a `MISCONFIGURED` state, described in the following topics.
 

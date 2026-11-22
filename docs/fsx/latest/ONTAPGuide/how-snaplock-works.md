@@ -1,7 +1,6 @@
 
 
 # How SnapLock works
-<a name="how-snaplock-works"></a>
 
 SnapLock can help you meet regulatory and governance purposes by preventing your files from being deleted, changed, or renamed. When you create a SnapLock volume, you commit your files to write once, read many (WORM) storage and set retention periods for the data. Your files can be stored in a non-erasable, non-writable state for a designated period, or indefinitely. 
 

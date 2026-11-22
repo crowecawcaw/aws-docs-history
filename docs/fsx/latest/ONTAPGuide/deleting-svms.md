@@ -1,7 +1,6 @@
 
 
 # Deleting storage virtual machines (SVM)
-<a name="deleting-svms"></a>
 
 You can only delete an FSx for ONTAP SVM by using the Amazon FSx console, the AWS CLI, and API. Before you can delete an SVM, you must delete all non-root volumes attached to the SVM first.
 

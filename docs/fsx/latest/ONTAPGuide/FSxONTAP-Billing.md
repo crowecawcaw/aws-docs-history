@@ -1,7 +1,6 @@
 
 
 # AWS billing and usage reports for FSx for ONTAP
-<a name="FSxONTAP-Billing"></a>
 
 AWS provides two usage reports for FSx for ONTAP:
 + The AWS billing report is a high-level view of all activity for AWS services that you're using, including FSx for ONTAP.
@@ -60,6 +59,19 @@ The billing report includes the following usage types that apply to FSx for ONTA
 | Provisioned ONTAP Multi-AZ-2 SSD IOPS | IOPS-Month | The amount of provisioned SSD IOPS on a second-generation Multi-AZ FSx for ONTAP file system | 
 
 ------
+#### [ Third generation FSx for ONTAP file systems ]
+
+
+| Charge type | Units | Description | 
+| --- | --- | --- | 
+| ONTAP Single-AZ-3 SSD storage | GB-Month | The amount of SSD storage provisioned on a third-generation Single-AZ FSx for ONTAP file system | 
+| ONTAP Multi-AZ-3 SSD storage | GB-Month | The amount of SSD storage provisioned on a third-generation Multi-AZ FSx for ONTAP file system | 
+| ONTAP Single-AZ-3 throughput capacity | MBps-Month | The amount of throughput capacity provisioned on a third-generation Single-AZ FSx for ONTAP file system | 
+| ONTAP Multi-AZ-3 throughput capacity | MBps-Month | The amount of throughput capacity provisioned on a third-generation Multi-AZ FSx for ONTAP file system | 
+| Provisioned ONTAP Single-AZ-3 SSD IOPS | IOPS-Month | The amount of provisioned SSD IOPS on a third-generation Single-AZ FSx for ONTAP file system | 
+| Provisioned ONTAP Multi-AZ-3 SSD IOPS | IOPS-Month | The amount of provisioned SSD IOPS on a third-generation Multi-AZ FSx for ONTAP file system | 
+
+------
 #### [ All FSx for ONTAP filesystems ]
 
 
@@ -67,7 +79,6 @@ The billing report includes the following usage types that apply to FSx for ONTA
 | --- | --- | --- | 
 | ONTAP standard capacity pool storage | GB-Month | The amount of capacity pool storage used by the FSx for ONTAP file system. | 
 | ONTAP backup storage | GB-Month | The amount of storage capacity used for backups | 
-| SnapLock usage | GB-Month | The amount of storage capacity used by SnapLock volumes | 
 | Read requests to ONTAP standard capacity pool storage | Operations | The number of read requests made to standard capacity pool storage on an FSx for ONTAP file system | 
 | Write requests to ONTAP standard capacity pool storage | Operations | The number of write requests made to standard capacity pool storage on an FSx for ONTAP file system | 
 
@@ -125,15 +136,27 @@ The following table lists the FSx for ONTAP usages types that you can use to fil
 | {{region}}-ProvisionedSSDIOPS.MAZ2 | IOPS-Mo | The amount of SSD IOPS provisioned above 3 IOPS per GiB of SSD storage on a second-generation Multi-AZ FSx for ONTAP file system. | 
 
 ------
+#### [ Third generation FSx for ONTAP file systems ]
+
+
+| Usage Type | Units | Description | 
+| --- | --- | --- | 
+| {{region}}-Storage.SAZ\_2N3:SSD | GB-Month | The amount of SSD storage provisioned on a third-generation Single-AZ FSx for ONTAP file system. | 
+| {{region}}-Storage.MAZ3:SSD | GB-Month | The amount of SSD storage provisioned on a third-generation Multi-AZ FSx for ONTAP file system. | 
+| {{region}}-ThroughputCapacity.SAZ\_2N3 | MiBps-Mo | The amount of throughput capacity provisioned on a third-generation Single-AZ FSx for ONTAP file system. | 
+| {{region}}-ThroughputCapacity.MAZ3 | MiBps-Mo | The amount of throughput capacity provisioned on a third-generation Multi-AZ FSx for ONTAP file system. | 
+| {{region}}-ProvisionedSSDIOPS.SAZ\_2N3 | IOPS-Mo | The amount of SSD IOPS provisioned above 3 IOPS per GiB of SSD storage on a third-generation Single-AZ FSx for ONTAP file system. | 
+| {{region}}-ProvisionedSSDIOPS.MAZ3 | IOPS-Mo | The amount of SSD IOPS provisioned above 3 IOPS per GiB of SSD storage on a third-generation Multi-AZ FSx for ONTAP file system. | 
+
+------
 #### [ All FSx for ONTAP file systems ]
 
 
 | Usage Type | Units | Description | 
 | --- | --- | --- | 
-| {{region}}-Storage.SAZ\_2N:CPoolStd | GB-Mo | The amount of standard capacity pool storage used on a first or second generation Single-AZ FSx for ONTAP file system. | 
-| {{region}}-Storage.MAZ:CPoolStd | GB-Mo | The amount of standard capacity pool storage used on a first or second generation Multi-AZ FSx for ONTAP file system. | 
+| {{region}}-Storage.SAZ\_2N:CPoolStd | GB-Mo | The amount of standard capacity pool storage used on a first, second, or third generation Single-AZ FSx for ONTAP file system. | 
+| {{region}}-Storage.MAZ:CPoolStd | GB-Mo | The amount of standard capacity pool storage used on a first, second, or third generation Multi-AZ FSx for ONTAP file system. | 
 | {{region}}-BackupUsage | GB-Month | The amount of storage capacity used for backups. | 
-| {{region}}-SnaplockUsage | GB-Month | The amount of storage capacity used by SnapLock volumes. | 
 | {{region}}-Requests.SAZ\_2N:CPoolStdRd | Operations | The number of read requests made to standard capacity pool storage on a Single-AZ FSx for ONTAP file system. | 
 | {{region}}-Requests.SAZ\_2N:CPoolStdWr | Operations | The number of write requests made to standard capacity pool storage on a Single-AZ FSx for ONTAP file system. | 
 | {{region}}-Requests.MAZ:CPoolStdRd | Operations | The number of read requests made to standard capacity pool storage on a Multi-AZ FSx for ONTAP file system. | 

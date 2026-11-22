@@ -1,7 +1,6 @@
 
 
 # Responding to Autonomous Ransomware Protection alerts
-<a name="respond-ARP"></a>
 
 The following procedures explain how to use the ONTAP CLI to view Autonomous Ransomware Protection (ARP) alerts, generate attack reports, and take action on reports. For more information about how ARP detects and responds to attacks, see [What ARP looks for](ARP.md#ARP-detects) and [How to respond to a suspected attack with ARP](ARP.md#suspected-attack-ARP).
 

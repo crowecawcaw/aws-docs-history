@@ -1,7 +1,6 @@
 
 
 # Enabling SMB encryption of data in transit
-<a name="enable-smb-encryption"></a>
 
 By default, when you create an SVM, SMB encryption is turned off. You can either enable SMB encryption required on individual shares, or on an SVM, which turns it on for all shares on that SVM.
 

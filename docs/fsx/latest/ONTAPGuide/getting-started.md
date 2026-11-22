@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon FSx for NetApp ONTAP
-<a name="getting-started"></a>
 
 Learn how to get started using Amazon FSx for NetApp ONTAP. This getting started exercise includes the following steps.
 
@@ -36,7 +35,7 @@ To get started with AWS, you need an AWS account. There are two ways to sign up 
 ### Next step
 <a name="setting-up-next-step"></a>
 
-To get started using FSx for ONTAP see [Getting started with Amazon FSx for NetApp ONTAP](#getting-started) for instructions to create your Amazon FSx resources.
+To get started using FSx for ONTAP see [Getting started with Amazon FSx for NetApp ONTAP](getting-started.md) for instructions to create your Amazon FSx resources.
 
 ## Create an Amazon FSx for NetApp ONTAP file system
 <a name="getting-started-step1"></a>

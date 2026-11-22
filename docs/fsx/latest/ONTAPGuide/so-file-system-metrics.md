@@ -1,9 +1,8 @@
 
 
-# Second-generation file system metrics
-<a name="so-file-system-metrics"></a>
+# Second-generation and third-generation file system metrics
 
-The following metrics are provided for FSx for ONTAP second-generation file systems. For the metrics, a datapoint is emitted for each HA pair and for each aggregate (for storage utilization metrics).
+The following metrics are provided for FSx for ONTAP second-generation and third-generation file systems. For the metrics, a datapoint is emitted for each HA pair and for each aggregate (for storage utilization metrics).
 
 **Note**  
 If you have a file system with multiple HA pairs, you can also use the [single-HA pair file system metrics](file-system-metrics.md) and the [volume metrics](volume-metrics.md).

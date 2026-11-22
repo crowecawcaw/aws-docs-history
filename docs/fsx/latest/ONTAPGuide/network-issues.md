@@ -1,7 +1,6 @@
 
 
 # Troubleshooting network issues
-<a name="network-issues"></a>
 
 If you are experiencing network issues, you can use the procedures shown here to diagnose the problem.
 

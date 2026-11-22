@@ -1,7 +1,6 @@
 
 
 # Protecting your data with volume backups
-<a name="using-backups"></a>
 
 With FSx for ONTAP, you can protect your data by taking automatic daily backups and user-initiated backups of the volumes on your file system. Creating regular backups for your volumes is a best practice that helps support your data retention and compliance needs. You can restore volume backups to any existing FSx for ONTAP file system you have access to that is in the same AWS Region where the backup is stored. Working with Amazon FSx backups makes it is easy to create, view, restore, and delete backups of your volumes.
 
@@ -109,7 +108,7 @@ You restore backups stored in a logically air-gapped vault the same way you rest
 
 You can restore a volume backup to a new volume on a file system that is in the same AWS Region that the backup is stored in. To restore a backup to a file system that is located in a different AWS Region than the backup, you can copy that backup to that file system's AWS Region and then restore that backup copy. For more information, see [Copying backups within the same AWS account](copying-backups-same-account.md).
 
-When restoring a backup on FSx for ONTAP second-generation file systems, clients can mount and read data from a volume while it is being restored. Clients can mount the volume you are restoring and read the file data once Amazon FSx has loaded all the metadata onto the new volume and the volume reports a lifecycle status of `CREATED`. You can find a volume's lifecycle state on the [**Volumes detail**](viewing-volumes.md) page in the Amazon FSx console and in the response of the [describe-volumes](https://docs.aws.amazon.com/v2/documentation/api/latest/reference/fsx/describe-volumes.html) CLI command.
+When restoring a backup on FSx for ONTAP second-generation and third-generation file systems, clients can mount and read data from a volume while it is being restored. Clients can mount the volume you are restoring and read the file data once Amazon FSx has loaded all the metadata onto the new volume and the volume reports a lifecycle status of `CREATED`. You can find a volume's lifecycle state on the [**Volumes detail**](viewing-volumes.md) page in the Amazon FSx console and in the response of the [describe-volumes](https://docs.aws.amazon.com/v2/documentation/api/latest/reference/fsx/describe-volumes.html) CLI command.
 
 When reading data from a volume while it is being restored from a backup, if the data has not been downloaded onto the volume yet, you will incur read latencies of up to tens of milliseconds for the first access. These reads are cached in the SSD tier, and you can expect sub-millisecond read latencies for subsequent reads.
 
@@ -122,13 +121,13 @@ Amazon FSx does not support read access to data while a volume is being restored
 
 When restoring a backup, all data is initially written to the SSD storage tier. While the restore is in progress, data is tiered to the capacity pool storage in accordance with the [tiering policy](volume-storage-capacity.md#volume-data-tiering) of volume being restored. Since data is first written to the SSD tier, Amazon FSx will pause the restoration process if the file system runs out of SSD storage space. The restore automatically resumes as soon as sufficient SSD space becomes available to continue the process. If the restored volume's tiering policy is `All`, a periodic background process tiers the data to the capacity pool. If the restored volume's tiering policy is `Snapshot Only` or `Auto`, data is tiered to the capacity pool if the SSD utilization for the file system is greater than 50%, and the cooling rate is determined by the tiering policy’s cooling period.
 
-If your workload requires consistent sub-millisecond read latencies when restoring a backup to a new volume on second-generation file systems, we recommend that you set the volume’s tiering policy to `None` when initiating the restore, and then wait until all data has been fully downloaded onto the volume before you access it. All data will be loaded into SSD storage before you attempt to access it, providing you with consistent low-latency access to your data.
+If your workload requires consistent sub-millisecond read latencies when restoring a backup to a new volume on second-generation and third-generation file systems, we recommend that you set the volume’s tiering policy to `None` when initiating the restore, and then wait until all data has been fully downloaded onto the volume before you access it. All data will be loaded into SSD storage before you attempt to access it, providing you with consistent low-latency access to your data.
 
 For step-by-step instructions on how to restore a backup to a new volume, see [Restoring a backup to a new volume](to-restore-backups.md).
 
-On second-generation file systems you can also restore just a subset of data from a backup without having to wait for the entire restore operation to complete. Restoring just a subset of a backup's data enables you to resume operations faster in the event of accidental deletion, modification, or corruption of data. For more information, see [Restoring a subset of data](data-subset-restore.md).
+On second-generation and third-generation file systems you can also restore just a subset of data from a backup without having to wait for the entire restore operation to complete. Restoring just a subset of a backup's data enables you to resume operations faster in the event of accidental deletion, modification, or corruption of data. For more information, see [Restoring a subset of data](data-subset-restore.md).
 
-You can monitor the progress when restoring a backup on a second-generation file system in the AWS Management Console, AWS CLI, and API. For more information, see [Monitoring progress when restoring a backup](monitor-backup-restore.md).
+You can monitor the progress when restoring a backup on a second-generation or third-generation file system in the AWS Management Console, AWS CLI, and API. For more information, see [Monitoring progress when restoring a backup](monitor-backup-restore.md).
 
 **Note**  
 You can't create a volume snapshot or perform snapshot-based operations such as cloning, SnapMirror replication, and creating backups of a volume while it is being restored from a backup.

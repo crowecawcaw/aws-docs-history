@@ -1,7 +1,6 @@
 
 
 # Creating Amazon CloudWatch alarms to monitor Amazon FSx
-<a name="creating_alarms"></a>
 
 You can create a CloudWatch alarm that sends an Amazon Simple Notification Service (Amazon SNS) message when the alarm changes state. An alarm watches a single metric over a time period that you specify. If needed, the alarm then performs one or more actions based on the value of the metric relative to a given threshold over a number of time periods. The action is a notification sent to an Amazon SNS topic or an Auto Scaling policy.
 

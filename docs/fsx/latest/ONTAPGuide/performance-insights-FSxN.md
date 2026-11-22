@@ -1,7 +1,6 @@
 
 
 # Performance warnings and recommendations
-<a name="performance-insights-FSxN"></a>
 
 FSx for ONTAP displays a warning for CloudWatch metrics whenever one of these metrics has approached or crossed a predetermined threshold for multiple consecutive data points. These warnings provide you with actionable recommendations that you can use to optimize your file system's performance.
 

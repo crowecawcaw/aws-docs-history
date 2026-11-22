@@ -1,12 +1,11 @@
 
 
 # Updating throughput capacity
-<a name="increase-throughput-capacity"></a>
 
 You can modify a file system's throughput capacity using the Amazon FSx console, the AWS Command Line Interface (AWS CLI), or the Amazon FSx API.
 
 **Note**  
-You must wait a minimum of six hours between updating the throughput capacity for second-generation file systems.
+You must wait a minimum of six hours between updating the throughput capacity for second-generation and third-generation file systems.
 
 ## To modify a file system's throughput capacity (console)
 <a name="increase-throughput-console"></a>

@@ -1,7 +1,6 @@
 
 
 # Updating storage virtual machines (SVM)
-<a name="updating-svms"></a>
 
 You can update the following storage virtual machine (SVM) configuration properties using the Amazon FSx console, AWS CLI, and Amazon FSx API:
 + SVM administrative account password.

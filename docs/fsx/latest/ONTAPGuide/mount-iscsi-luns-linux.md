@@ -1,7 +1,6 @@
 
 
 # Provisioning iSCSI for Linux
-<a name="mount-iscsi-luns-linux"></a>
 
 FSx for ONTAP supports the iSCSI protocol. You need to provision iSCSI on both the Linux client and your file system in order to use the iSCSI protocol to transport data between clients and your file system. The iSCSI protocol is available on all file systems that have 6 or fewer [high-availability (HA) pairs](HA-pairs.md).
 

@@ -1,9 +1,8 @@
 
 
 # Availability, durability, and deployment options
-<a name="high-availability-AZ"></a>
 
-Amazon FSx for NetApp ONTAP uses Single-AZ and Multi-AZ deployment types. You can choose from four options: Single-AZ 1, Single-AZ 2, Multi-AZ 1, and Multi-AZ 2. This topic describes the availability and durability features of each deployment type to help you choose the one that is right for your workloads. For information on the service's availability SLA (Service Level Agreement), see [Amazon FSx Service Level Agreement](https://aws.amazon.com/fsx/sla/).
+Amazon FSx for NetApp ONTAP uses Single-AZ and Multi-AZ deployment types. You can choose from six options: Single-AZ 1, Single-AZ 2, Single-AZ 3, Multi-AZ 1, Multi-AZ 2, and Multi-AZ 3. This topic describes the availability and durability features of each deployment type to help you choose the one that is right for your workloads. For information on the service's availability SLA (Service Level Agreement), see [Amazon FSx Service Level Agreement](https://aws.amazon.com/fsx/sla/).
 
 **Topics**
 + [Choosing a file system deployment type](#choosing-deployment-type)
@@ -19,7 +18,7 @@ The availability and durability features of Single-AZ and Multi-AZ file system d
 ### Single-AZ deployment types
 <a name="single-az"></a>
 
-You can choose between Single-AZ 1 and Single-AZ 2 for your Single-AZ file system. Single-AZ 1 is a first-generation file system with one high-availability (HA) pair, whereas Single-AZ 2 is a second-generation file system with 1–12 HA pairs. For more information, see [Choosing a file system generation](#choose-generation).
+You can choose from Single-AZ 1, Single-AZ 2, and Single-AZ 3 for your Single-AZ file system. Single-AZ 1 is a first-generation file system with one high-availability (HA) pair, whereas Single-AZ 2 is a second-generation file system and Single-AZ 3 is a third-generation file system, both with 1–12 HA pairs. For more information, see [Choosing a file system generation](#choose-generation).
 
 When you create a Single-AZ file system, Amazon FSx automatically provisions one to twelve pairs of file servers in an active-standby configuration, with the active and standby file servers in each pair located in separate fault domains within a single Availability Zone in the AWS Region. During planned file system maintenance or an unplanned service disruption of any active file server, Amazon FSx automatically and independently fails over that high-availability (HA) pair to the standby file server, typically within a few seconds. During a failover, you continue to have access to your data without manual intervention.
 
@@ -35,7 +34,7 @@ The following diagram illustrates the architecture for an FSx for ONTAP Single-A
 ### Multi-AZ deployment types
 <a name="multi-az"></a>
 
-You can choose between Multi-AZ 1 and Multi-AZ 2 for your Multi-AZ file system. Multi-AZ 1 is a first-generation file system and Multi-AZ 2 is a second-generation file system. Both options have one HA pair. For more information, see [Choosing a file system generation](#choose-generation). 
+You can choose from Multi-AZ 1, Multi-AZ 2, and Multi-AZ 3 for your Multi-AZ file system. Multi-AZ 1 is a first-generation file system, Multi-AZ 2 is a second-generation file system, and Multi-AZ 3 is a third-generation file system. All three options have one HA pair. For more information, see [Choosing a file system generation](#choose-generation). 
 
 Multi-AZ file systems support all the availability and durability features of Single-AZ file systems. In addition, they are designed to provide continuous availability to data even when an Availability Zone is unavailable. Multi-AZ deployments have a single HA pair of file servers, the standby file server is deployed in a different Availability Zone from the active file server in the same AWS Region. Any changes written to your file system are synchronously replicated across Availability Zones to the standby.
 
@@ -47,7 +46,7 @@ Multi-AZ file systems are designed for use cases such as business-critical produ
 ## Choosing a file system generation
 <a name="choose-generation"></a>
 
-The following table illustrates the differences between first and second-generation Single-AZ and Multi-AZ FSx for ONTAP file systems.
+The following table illustrates the differences between first-generation, second-generation, and third-generation Single-AZ and Multi-AZ FSx for ONTAP file systems.
 
 
 
@@ -56,14 +55,14 @@ The following table illustrates the differences between first and second-generat
 
 <table>
 <thead>
-  <tr><th>Dimension</th><th>First-generation</th><th>Second-generation (single HA pair)</th><th>Second-generation (multi-pair)</th></tr>
+  <tr><th>Dimension</th><th>First-generation</th><th>Second-generation (single HA pair)</th><th>Third-generation (single HA pair)</th><th>Second-generation (multi-pair)</th><th>Third-generation (multi-pair)</th></tr>
 </thead>
 <tbody>
-  <tr><td>Deployment type</td><td>SINGLE_AZ_1<br />MULTI_AZ_1</td><td>SINGLE_AZ_2<br />MULTI_AZ_2</td><td>SINGLE_AZ_2</td></tr>
-  <tr><td>HA pairs</td><td colspan="2">1 HA pair</td><td>1–12 HA pairs</td></tr>
-  <tr><td>SSD storage</td><td>Minimum: 1 TiB<br />Maximum: 192 TiB</td><td>Minimum: 1 TiB<br />Maximum: 512 TiB</td><td>Minimum: 1 TiB (per HA pair)<br />Maximum: 512 TiB (per HA pair), up to 1 PiB (total)</td></tr>
-  <tr><td>SSD IOPS</td><td>Minimum: 3 IOPS/GIB of SSD<br />Maximum: 160,000</td><td>Minimum: 3 IOPS/GIB of SSD<br />Maximum: 200,000</td><td>Minimum: 3 IOPS/GIB of SSD<br />Maximum: 2,400,000 (200,000 per HA pair)</td></tr>
-  <tr><td>Throughput capacity</td><td>128 MBps; 256 MBps; 512 MBps; 1,024 MBps;2,048 MBps; 4,096 MBps</td><td>384 MBps; 768 MBps; 1,536 MBps; 3,072 MBps; 6,144 MBps</td><td> 1,536 MBps (per HA pair); 3,072 MBps (per HA pair); 6,144 MBps (per HA pair)</td></tr>
+  <tr><td>Deployment type</td><td>SINGLE_AZ_1<br />MULTI_AZ_1</td><td>SINGLE_AZ_2<br />MULTI_AZ_2</td><td>SINGLE_AZ_3<br />MULTI_AZ_3</td><td>SINGLE_AZ_2</td><td>SINGLE_AZ_3</td></tr>
+  <tr><td>HA pairs</td><td colspan="3">1 HA pair</td><td colspan="2">1–12 HA pairs</td></tr>
+  <tr><td>SSD storage</td><td>Minimum: 1 TiB<br />Maximum: 192 TiB</td><td colspan="2">Minimum: 1 TiB<br />Maximum: 512 TiB</td><td colspan="2">Minimum: 1 TiB (per HA pair)<br />Maximum: 512 TiB (per HA pair), up to 1 PiB (total)</td></tr>
+  <tr><td>SSD IOPS</td><td>Minimum: 3 IOPS/GIB of SSD<br />Maximum: 160,000</td><td>Minimum: 3 IOPS/GIB of SSD<br />Maximum: 200,000</td><td>Minimum: 3 IOPS/GIB of SSD<br />Maximum: 720,000</td><td>Minimum: 3 IOPS/GIB of SSD<br />Maximum: 2,400,000 (200,000 per HA pair)</td><td>Minimum: 3 IOPS/GIB of SSD<br />Maximum: 8,640,000 (720,000 per HA pair)</td></tr>
+  <tr><td>Throughput capacity</td><td>128 MBps; 256 MBps; 512 MBps; 1,024 MBps; 2,048 MBps; 4,096 MBps</td><td>384 MBps; 768 MBps; 1,536 MBps; 3,072 MBps; 6,144 MBps</td><td>384 MBps; 768 MBps; 1,536 MBps; 3,072 MBps; 6,144 MBps; 12,288 MBps; 18,432 MBps</td><td>1,536 MBps (per HA pair); 3,072 MBps (per HA pair); 6,144 MBps (per HA pair)</td><td>1,536 MBps (per HA pair); 3,072 MBps (per HA pair); 6,144 MBps (per HA pair); 12,288 MBps (per HA pair); 18,432 MBps (per HA pair)</td></tr>
 </tbody>
 </table>
 
@@ -81,7 +80,7 @@ Single-AZ and Multi-AZ file systems automatically fail over a given HA pair from
 + An Availability Zone outage occurs (Multi-AZ file systems only)
 
 **Note**  
-For second-generation file systems with multiple HA pairs, each HA pair's failover behavior is independent. If the preferred file server for one HA pair is unavailable, only that HA pair will fail over to its standby file server. 
+For second-generation and third-generation file systems with multiple HA pairs, each HA pair's failover behavior is independent. If the preferred file server for one HA pair is unavailable, only that HA pair will fail over to its standby file server. 
 
 When failing over from one file server to another, the new active file server automatically begins serving all file system read and write requests to that HA pair. For Multi-AZ file systems, when the preferred file server is fully recovered and becomes available, Amazon FSx automatically fails back to it, with failback usually completing in less than 60 seconds. For Single-AZ and Multi-AZ file systems, a failover typically completes in less than 60 seconds from the detection of the failure on the active file server to the promotion of the standby file server to active status. For NFS and SMB clients, failovers are transparent because the endpoint IP address that clients use to access your data remains the same, so Linux, Windows, and macOS applications resume file system operations without manual intervention. For the iSCSI and NVMe/TCP block storage protocols, failover transparency instead depends on client-side multipathing, which you must configure on the client so that it automatically fails over between your file servers.
 
@@ -119,7 +118,7 @@ The elastic network interfaces associated with your file system will have routes
 The following table summarizes the subnet, elastic network interface, and IP address resources for each of the FSx for ONTAP file system deployment types:
 
 
-|  | First-generation Single-AZ | Second-generation Single-AZ |  Multi-AZ | 
+|  | First-generation Single-AZ | Second-generation and third-generation Single-AZ |  Multi-AZ | 
 | --- | --- | --- | --- | 
 | Number of subnets | 1 | 1 | 2 | 
 | Number of elastic network interfaces | 2 | 2 per HA pair | 2 | 
