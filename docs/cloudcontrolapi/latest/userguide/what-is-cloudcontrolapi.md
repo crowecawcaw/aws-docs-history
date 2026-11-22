@@ -1,7 +1,6 @@
 
 
 # What is AWS Cloud Control API?
-<a name="what-is-cloudcontrolapi"></a>
 
 Use AWS Cloud Control API to create, read, update, delete, and list (CRUD-L) your cloud resources that belong to AWS and third-party services. With the Cloud Control API standardized set of application programming interfaces (APIs), you can perform CRUD-L operations on any supported resources in your AWS account. Using Cloud Control API, you won't have to generate code or scripts specific to each individual service responsible for those resources.
 

@@ -1,7 +1,6 @@
 
 
 # Using Cloud Control API resource types
-<a name="resource-types"></a>
 
 To use a resource type with AWS Cloud Control API, that resource type must be present and activated in your AWS account. Supported AWS resource types are public and always activated. You can choose to activate public resource types offered by third-party publishers as well through the AWS CloudFormation extension registry.
 
@@ -57,7 +56,7 @@ You can also use the AWS Command Line Interface (AWS CLI) to generate a list of 
 
   For example, the following command selects the first 100 public resource types that are fully mutable from the CloudFormation registry.
 
-  ```
+  ```bash
   $ aws cloudformation list-types \
       --type RESOURCE --visibility PUBLIC \
       --provisioning-type FULLY_MUTABLE --max-results 100
@@ -70,7 +69,7 @@ You can also use the AWS Command Line Interface (AWS CLI) to generate a list of 
 
   The following example returns details of the `AWS::Logs::LogGroup` resource type.
 
-  ```
+  ```bash
   $ aws cloudformation describe-type \
       --type RESOURCE --type-name AWS::Logs::LogGroup
   ```
@@ -108,7 +107,7 @@ For information about how to view an existing resource's current state, which in
 
   For example, the following command returns information about the `AWS::Logs::LogGroup` resource type.
 
-  ```
+  ```bash
   $ aws cloudformation describe-type \
       --type RESOURCE --type-name AWS::Logs::LogGroup
   ```
@@ -131,7 +130,7 @@ You can determine which operations a resource type supports by referring to the 
 
 For example, below is the `handlers` section of the resource type schema for the `AWS::Logs::LogGroup` resource type. This section shows that this resource type supports all five resource operations, and lists the permissions that each handler requires.
 
-```
+```json
   "handlers": {
     "create": {
       "permissions": [

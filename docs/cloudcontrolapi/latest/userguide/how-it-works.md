@@ -1,7 +1,6 @@
 
 
 # How Cloud Control API works
-<a name="how-it-works"></a>
 
 Cloud Control API provides you with centralized control over the resources in your AWS account and a consistent way of accessing and provisioning those resources. It provides a uniform programmatic interface for making calls directly to the various resource types available in your AWS account.
 

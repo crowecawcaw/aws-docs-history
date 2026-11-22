@@ -1,7 +1,6 @@
 
 
 # Discovering resources with AWS Cloud Control API
-<a name="resource-operations-list"></a>
 
 Use the `list-resources` command to discover the resources currently provisioned in your AWS account and AWS Region. This includes all resources of the specified resource type, regardless of whether they were provisioned through Cloud Control API, directly through the underlying service, or other mechanism (such as being part of an AWS CloudFormation stack).
 
@@ -11,13 +10,13 @@ The information returned for each resource includes:
 
 The follow example returns a list of `AWS::Logs::LogGroup` resources.
 
-```
+```bash
 $ aws cloudcontrol list-resources --type-name AWS::Logs::LogGroup
 ```
 
 Cloud Control API returns a list of the resources in your account of the specified resource type. For the example , `list-resources` returns the primary identifier and resource properties of all `AWS::Logs::LogGroup` resources in your account, regardless of whether they were provisioned by Cloud Control API. The returned information resembles the following, depending on the resources in your account.
 
-```
+```json
 {
   "TypeName": "AWS::Logs::LogGroup",
   "ResourceDescriptions":
@@ -36,13 +35,13 @@ Cloud Control API returns a list of the resources in your account of the specifi
 
 The follow example requests a list of `AWS::Kinesis::Stream` resources.
 
-```
+```bash
 $ aws cloudcontrol list-resources --type-name AWS::Kinesis::Stream
 ```
 
 For Kinesis streams, Cloud Control API returns the primary identifier of each stream, along with a *subset* of the resource properties. In this case, just a single property, `Name`. You could then use a stream's primary identifier with `get-resource` to request the resource's full current state.
 
-```
+```json
 {
     "TypeName": "AWS::Kinesis::Stream",
     "ResourceDescriptions": [

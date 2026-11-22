@@ -1,7 +1,6 @@
 
 
 # Creating a resource with AWS Cloud Control API
-<a name="resource-operations-create"></a>
 
 Use the `create-resource` command to create a resource.
 
@@ -16,7 +15,7 @@ The desired state that you specify must be valid against the resource type schem
 
 As an example, suppose you wanted to create an [`AWS::Logs::LogGroup`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) resource with a specific name and a retention policy of 90 days. As a first step, you must compose the desired state of the resource, formatted as JSON text.
 
-```
+```json
 {
   "LogGroupName": "CloudApiLogGroup",
   "RetentionInDays": 90
@@ -27,7 +26,7 @@ When you call the `create-resource` command, you can pass the desired state dire
 
 The following AWS Command Line Interface (AWS CLI) command creates the resource and specifies in the `desired-state` parameter that the `RetentionInDays` property of the resource is set to `90`, in addition to specifying the log group name.
 
-```
+```sh
 $ aws cloudcontrol create-resource --type-name AWS::Logs::LogGroup \
     --desired-state '{"LogGroupName": "CloudApiLogGroup", "RetentionInDays":90}'
 ```

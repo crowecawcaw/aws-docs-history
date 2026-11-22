@@ -1,7 +1,6 @@
 
 
 # Identifying resources with AWS Cloud Control API
-<a name="resource-identifier"></a>
 
 Every resource type has a property that is defined as its *primary identifier*. The value of this property must be unique for each resource of that type in a given AWS account and AWS Region. For example, many resource types include a `Name` property that must be unique for each resource of that type. In some cases, the primary identifier is defined as a combination of multiple properties that together form a unique identifier. By using this primary identifier, combined with the resource type, you can specify exactly which resource on which you want to perform resource operations such as `update-resource` or `delete-resource`.
 
@@ -15,22 +14,22 @@ To determine which resource property (or combination of properties) is the prima
 You can find the identifier *value* for a specific resource by using Cloud Control API commands. Each of the following commands returns a `ProgressEvent` object that contains the primary identifier of the specified resources:
 + 
 
-  ```
+  ```sh
   cancel-resource-request
   ```
 + 
 
-  ```
+  ```sh
   create-resource
   ```
 + 
 
-  ```
+  ```sh
   get-resource-request-status
   ```
 + 
 
-  ```
+  ```sh
   list-resource-requests
   ```
 
@@ -53,7 +52,7 @@ For example, given a database with a database name of `MyDatabase` and table nam
 
 For compound identifiers specified as JSON, property order is not required, as shown in the following example.
 
-```
+```json
 {
   "TableName": "MyTable",
   "DatabaseName": "MyDatabase"

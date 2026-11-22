@@ -1,7 +1,6 @@
 
 
 # Deleting a resource with AWS Cloud Control API
-<a name="resource-operations-delete"></a>
 
 Use the `delete-resource` command to delete an existing resource. You can delete the resource whether or not the resource was originally provisioned using Cloud Control API.
 
@@ -12,7 +11,7 @@ To update an existing resource, you must specify the resource's identifier. For 
 
 The follow example deletes an [`AWS::Logs::LogGroup`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) resource with the name of `CloudControlApiLogGroup`.
 
-```
+```bash
 $ aws cloudcontrol delete-resource \
     --type-name AWS::Logs::LogGroup --identifier CloudControlApiLogGroup
 ```

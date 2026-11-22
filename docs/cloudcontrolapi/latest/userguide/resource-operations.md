@@ -1,7 +1,6 @@
 
 
 # Cloud Control API resource operations
-<a name="resource-operations"></a>
 
 Use AWS Cloud Control API to do or other command verb construction create, read, update, remove, and list (-L) operations on resources in your AWS account.
 

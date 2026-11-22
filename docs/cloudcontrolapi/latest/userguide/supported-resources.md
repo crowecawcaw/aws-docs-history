@@ -1,7 +1,6 @@
 
 
 # Resource types that support Cloud Control API
-<a name="supported-resources"></a>
 
 The following table lists the public resource types published by AWS that currently support AWS Cloud Control API, organized by service. Each resource type name links to the corresponding reference topic for that resource type in the [Resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) section of the *AWS CloudFormation User Guide*.
 

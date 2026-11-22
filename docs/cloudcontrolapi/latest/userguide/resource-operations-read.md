@@ -1,7 +1,6 @@
 
 
 # Reading a resource with AWS Cloud Control API
-<a name="resource-operations-read"></a>
 
 Using a resource's primary identifier, you can call the `get-resource` command to retrieve detailed information about the resource. For information about retrieving a resource's primary identifier, see [Identifying resources with AWS Cloud Control API](resource-identifier.md).
 
@@ -9,6 +8,6 @@ The information returned by `get-resource` includes the resource's schema, which
 
 The following example returns the current state of an `AWS::Logs::LogGroup` resource named `LogGroupResourceExample`. For `AWS::Logs::LogGroup` resources, the name of a log group is its primary identifier.
 
-```
+```bash
 $ aws cloudcontrol get-resource --type-name AWS::Logs::LogGroup --identifier LogGroupResourceExample
 ```

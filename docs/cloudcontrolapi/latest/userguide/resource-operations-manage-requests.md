@@ -1,13 +1,12 @@
 
 
 # Managing resource operation requests with AWS Cloud Control API
-<a name="resource-operations-manage-requests"></a>
 
 Because resource operations are asynchronous, resource requests such as `create-resource` and `update-resource` return a `ProgressEvent` object that contains information about the current state of your resource create or update request.
 
 For example, a resource create request might initially return the following `ProgressEvent` object.
 
-```
+```json
 {
     "ProgressEvent": {
         "EventTime": "2021-08-09T18:17:15.219Z",
@@ -34,14 +33,14 @@ Resource operation requests expire after seven days.
 
 The following example returns active resource operation requests, but it filters out any resource create requests that are still in progress.
 
-```
+```bash
 $ aws cloudcontrol list-resource-requests --resource-request-status-filter \
     Operations=CREATE,OperationStatuses=IN_PROGRESS
 ```
 
 The information returned for each resource operation includes a request token that you can then use to track or cancel a resource operation request.
 
-```
+```json
 {
     "ResourceRequestStatusSummaries": [
         {
@@ -63,7 +62,7 @@ Use the `get-resource-request-status` command to track the progress of your reso
 
 See the following example.
 
-```
+```bash
 $ aws cloudcontrol get-resource-request-status \
     --request-token 5f40c577-3534-4b20-9599-0b0123456789
 ```
