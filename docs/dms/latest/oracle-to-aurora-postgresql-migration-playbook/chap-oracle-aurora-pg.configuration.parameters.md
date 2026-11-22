@@ -1,7 +1,6 @@
 
 
 # Oracle instance parameters and Amazon RDS parameter groups
-<a name="chap-oracle-aurora-pg.configuration.parameters"></a>
 
 With AWS DMS, you can configure Oracle instance parameters and Amazon RDS parameter groups to optimize database performance, security, and resource utilization. Oracle instance parameters control various aspects of an Oracle database instance, such as memory allocation, logging, and backup settings. Amazon RDS parameter groups act as a container for engine configuration values that can be applied to one or more Amazon RDS database instances.
 

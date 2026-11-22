@@ -1,7 +1,6 @@
 
 
 # Oracle composite indexes and PostgreSQL multi-column indexes
-<a name="chap-oracle-aurora-pg.tables.composite"></a>
 
 With AWS DMS, you can optimize query performance by creating composite indexes or multi-column indexes on your migrated databases. A composite index (Oracle) or multi-column index (PostgreSQL) is a database index created on multiple columns, allowing queries involving those columns to leverage the index for faster data retrieval.
 

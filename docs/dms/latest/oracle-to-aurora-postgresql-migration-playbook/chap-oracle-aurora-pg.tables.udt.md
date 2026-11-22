@@ -1,7 +1,6 @@
 
 
 # Oracle and PostgreSQL user-defined types
-<a name="chap-oracle-aurora-pg.tables.udt"></a>
 
 With AWS DMS, you can migrate user-defined types (UDTs) from Oracle and PostgreSQL databases to compatible target databases. UDTs extend the database’s built-in data types by providing a way to store complex data structures like objects or custom data types.
 

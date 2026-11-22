@@ -1,7 +1,6 @@
 
 
 # Oracle database hints and PostgreSQL DB query planning
-<a name="chap-oracle-aurora-pg.tuning.hints"></a>
 
 With AWS DMS, you can optimize query performance by using Oracle database hints and PostgreSQL query planning techniques. Oracle database hints provide instructions to the optimizer on how to execute a SQL statement, while PostgreSQL query planning involves analyzing the execution plan to identify and address performance bottlenecks.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon RDS on Outposts
-<a name="chap-oracle-aurora-pg.tools.rdsoutposts"></a>
 
 **Note**  
 Please note that this entire topic is related to Amazon Relational Database Service (Amazon RDS) and isn’t supported with Amazon Aurora.

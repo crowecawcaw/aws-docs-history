@@ -1,7 +1,6 @@
 
 
 # Oracle and PostgreSQL physical storage
-<a name="chap-oracle-aurora-pg.storage"></a>
 
 This section includes pages related to Oracle and PostgreSQL physical storage.
 

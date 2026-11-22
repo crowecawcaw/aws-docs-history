@@ -1,7 +1,6 @@
 
 
 # AWS Database Migration Service
-<a name="chap-oracle-aurora-pg.tools.awsdms"></a>
 
 The AWS Database Migration Service (AWS DMS) helps you migrate databases to AWS quickly and securely. The source database remains fully operational during the migration, minimizing downtime to applications that rely on the database. The AWS Database Migration Service can migrate your data to and from most widely-used commercial and open-source databases.
 

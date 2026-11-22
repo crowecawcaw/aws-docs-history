@@ -1,7 +1,6 @@
 
 
 # Oracle Log Miner and PostgreSQL logging options
-<a name="chap-oracle-aurora-pg.special.log"></a>
 
 With AWS DMS, you can migrate data from Oracle and PostgreSQL databases while maintaining transaction integrity by utilizing Oracle Log Miner and PostgreSQL logical replication capabilities. Oracle Log Miner provides access to redo log files, allowing you to capture data manipulation language (DML) and data definition language (DDL) changes made to Oracle databases. PostgreSQL logical replication streams write-ahead log (WAL) records, enabling data synchronization between primary and standby servers.
 

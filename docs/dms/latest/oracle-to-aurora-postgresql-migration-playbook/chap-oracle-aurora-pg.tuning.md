@@ -1,7 +1,6 @@
 
 
 # Oracle and PostgreSQL performance tuning
-<a name="chap-oracle-aurora-pg.tuning"></a>
 
 This section provides pages related to Oracle and PostgreSQL performance tuning topics.
 

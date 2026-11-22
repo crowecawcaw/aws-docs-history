@@ -1,7 +1,6 @@
 
 
 # Oracle index-organized table and PostgreSQL cluster table
-<a name="chap-oracle-aurora-pg.tables.iot"></a>
 
 With AWS DMS, you can migrate data from Oracle index-organized tables and PostgreSQL cluster tables to target databases. An Oracle index-organized table stores data values in a B-tree index structure, providing excellent performance for queries involving primary key ranges. A PostgreSQL cluster table clusters related rows on disk by rewriting the table using an index, improving performance on queries that retrieve data from indexed columns.
 

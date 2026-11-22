@@ -1,7 +1,6 @@
 
 
 # Oracle UTL\_MAIL or UTL\_SMTP and PostgreSQL Scheduled Lambda with Amazon SES
-<a name="chap-oracle-aurora-pg.sql.mail"></a>
 
 With AWS DMS, you can configure email notifications for migration tasks using Oracle `UTL_MAIL` or `UTL_SMTP` and PostgreSQL scheduled Lambda with Amazon Simple Email Service (Amazon SES). `UTL_MAIL` and `UTL_SMTP` are Oracle database packages that provide an interface to send emails, while scheduled Lambda with Amazon SES allows sending emails from a PostgreSQL database using AWS Lambda and Amazon SES.
 

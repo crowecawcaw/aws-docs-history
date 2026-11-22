@@ -1,7 +1,6 @@
 
 
 # Oracle DBMS\_SQL package and PostgreSQL dynamic execution
-<a name="chap-oracle-aurora-pg.sql.dynamic"></a>
 
 With AWS DMS, you can dynamically construct and execute SQL statements at runtime in your source and target databases. The Oracle `DBMS_SQL` package and PostgreSQL dynamic execution feature provide interfaces for building SQL statements, binding values to placeholders, and processing query results dynamically. These capabilities are essential when writing database applications that must customize queries based on user input or runtime conditions.
 

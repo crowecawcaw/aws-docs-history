@@ -1,7 +1,6 @@
 
 
 # Special Oracle features and future PostgreSQL content
-<a name="chap-oracle-aurora-pg.special"></a>
 
 This section provides reference pages for special Oracle features and PostgreSQL current equivalents, alternatives, and future features.
 

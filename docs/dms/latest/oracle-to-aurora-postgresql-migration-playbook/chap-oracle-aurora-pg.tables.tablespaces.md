@@ -1,7 +1,6 @@
 
 
 # Oracle and PostgreSQL tablespaces and data files
-<a name="chap-oracle-aurora-pg.tables.tablespaces"></a>
 
 With AWS DMS, you can migrate data between different database platforms, including Oracle and PostgreSQL, while maintaining the integrity of tablespaces and data files. Tablespaces in Oracle and PostgreSQL are logical storage units that group related data files, allowing for better management and administration of database objects. Data files are the physical files on disk that store the actual data.
 

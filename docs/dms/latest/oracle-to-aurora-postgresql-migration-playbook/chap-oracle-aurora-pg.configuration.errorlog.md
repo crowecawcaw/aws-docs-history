@@ -1,7 +1,6 @@
 
 
 # Oracle Alert Log and PostgreSQL error log
-<a name="chap-oracle-aurora-pg.configuration.errorlog"></a>
 
 With AWS DMS, you can capture and analyze database logs to monitor migration tasks and troubleshoot issues. The Oracle Alert Log and PostgreSQL error log provide detailed information about database events, errors, and warnings during the migration process.
 

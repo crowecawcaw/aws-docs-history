@@ -1,7 +1,6 @@
 
 
 # Oracle and PostgreSQL tables and indexes
-<a name="chap-oracle-aurora-pg.tables"></a>
 
 This section provides reference pages for Oracle and PostgreSQL tables and indexes.
 

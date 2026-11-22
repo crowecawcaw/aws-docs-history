@@ -1,7 +1,6 @@
 
 
 # Oracle and PostgreSQL security
-<a name="chap-oracle-aurora-pg.security"></a>
 
 This section includes pages about Oracle and PostgreSQL security-related topics.
 

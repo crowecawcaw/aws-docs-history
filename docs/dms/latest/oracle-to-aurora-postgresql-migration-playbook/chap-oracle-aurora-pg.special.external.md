@@ -1,7 +1,6 @@
 
 
 # Oracle external tables and PostgreSQL integration with Amazon S3
-<a name="chap-oracle-aurora-pg.special.external"></a>
 
 With AWS DMS, you can migrate data from on-premises databases to Amazon S3 by creating Oracle external tables or integrating PostgreSQL with Amazon S3. Oracle external tables provide access to data stored in Amazon S3, treating objects as records in a table. PostgreSQL integration with Amazon S3 lets you query data directly from Amazon S3 using the SQL/PostgreSQL interface.
 

@@ -1,7 +1,6 @@
 
 
 # Oracle and Aurora for PostgreSQL upgrades
-<a name="chap-oracle-aurora-pg.configuration.upgrades"></a>
 
 With AWS DMS, you can upgrade your Oracle and Aurora PostgreSQL databases to newer versions with minimal downtime. The Oracle and Aurora PostgreSQL upgrades feature facilitates seamless database upgrades by creating a new database instance with the desired version, migrating data from the old instance, and redirecting applications to the new instance. This capability is crucial for organizations that need to stay current with the latest database software releases for security, performance, and compatibility reasons.
 

@@ -1,7 +1,6 @@
 
 
 # Oracle Flashback Table and Amazon Aurora PostgreSQL snapshots
-<a name="chap-oracle-aurora-pg.hadr.snapshots"></a>
 
 With AWS DMS, you can migrate databases between different database platforms or versions by capturing consistent data snapshots from the source database and applying them to the target database. Oracle Flashback Table and Amazon Aurora PostgreSQL snapshots provide point-in-time backups of the source database, enabling migration with minimal downtime.
 

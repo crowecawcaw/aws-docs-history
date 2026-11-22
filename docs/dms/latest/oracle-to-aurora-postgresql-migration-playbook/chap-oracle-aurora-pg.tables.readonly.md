@@ -1,7 +1,6 @@
 
 
 # Oracle read-only tables and partitions and PostgreSQL Aurora replicas
-<a name="chap-oracle-aurora-pg.tables.readonly"></a>
 
 With AWS DMS, you can migrate data from Oracle databases to Amazon Aurora PostgreSQL-Compatible Edition with minimal downtime by leveraging Oracle read-only tables and partitions for ongoing replication, and PostgreSQL Aurora replicas for read scaling. Oracle read-only tables and partitions facilitate ongoing replication from an Oracle source database, while PostgreSQL Aurora replicas provide read scaling for the migrated Aurora PostgreSQL database.
 

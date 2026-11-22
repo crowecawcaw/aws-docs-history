@@ -1,7 +1,6 @@
 
 
 # Oracle Resource Manager and PostgreSQL dedicated Amazon Aurora clusters
-<a name="chap-oracle-aurora-pg.special.dedicated"></a>
 
 With AWS DMS, you can migrate data from an Oracle database to a PostgreSQL-compatible Amazon Aurora database cluster. Oracle Resource Manager helps manage Oracle database migration by allowing you to deploy data pump jobs for migrating schemas and data from an Oracle database. PostgreSQL dedicated Amazon Aurora clusters provide a PostgreSQL-compatible relational database built for the cloud, enabling you to scale database resources up or down based on your needs.
 

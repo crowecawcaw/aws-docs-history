@@ -1,7 +1,6 @@
 
 
 # SQL and PL/SQL
-<a name="chap-oracle-aurora-pg.sql"></a>
 
 This section provides reference pages to Oracle and PostgreSQL functions, statements, and other commands.
 

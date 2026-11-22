@@ -1,7 +1,6 @@
 
 
 # Oracle DBMS\_RANDOM and PostgreSQL RANDOM function
-<a name="chap-oracle-aurora-pg.sql.random"></a>
 
 With AWS DMS, you can generate random numbers or randomly select data for various purposes, such as testing, sampling, or introducing randomness in your applications. Oracle `DBMS_RANDOM` and PostgreSQL `RANDOM` function provide methods to generate random numbers or randomly select data from a specified dataset.
 

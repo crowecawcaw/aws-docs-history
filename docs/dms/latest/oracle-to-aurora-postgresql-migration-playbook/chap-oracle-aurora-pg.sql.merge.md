@@ -1,7 +1,6 @@
 
 
 # MERGE statement
-<a name="chap-oracle-aurora-pg.sql.merge"></a>
 
 With AWS DMS, you can perform Oracle `MERGE` statements and the PostgreSQL equivalent to conditionally insert, update, or delete rows in a target table based on the results of a join with a source table.
 

@@ -1,7 +1,6 @@
 
 
 # Oracle multitenant and PostgreSQL database architecture
-<a name="chap-oracle-aurora-pg.special.multitenant"></a>
 
 With AWS DMS, you can migrate data from Oracle multitenant databases and PostgreSQL databases to AWS. Oracle multitenant architecture refers to the capability of hosting multiple pluggable databases within a single container database. PostgreSQL utilizes a traditional database architecture where each database instance operates independently.
 

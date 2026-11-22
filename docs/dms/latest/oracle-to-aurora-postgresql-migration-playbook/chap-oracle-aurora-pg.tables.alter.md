@@ -1,7 +1,6 @@
 
 
 # Oracle unused columns and PostgreSQL ALTER TABLE statement
-<a name="chap-oracle-aurora-pg.tables.alter"></a>
 
 With AWS DMS, you can identify and analyze unused columns in Oracle databases and migrate data to PostgreSQL. Oracle unused columns is a feature that scans Oracle database schemas to detect columns that are not being used by applications or queries. You can modify the structure of an existing table in a PostgreSQL database by using the `ALTER TABLE` statement. `ALTER TABLE` lets you add, remove, or modify columns and constraints in a table after it has been created.
 

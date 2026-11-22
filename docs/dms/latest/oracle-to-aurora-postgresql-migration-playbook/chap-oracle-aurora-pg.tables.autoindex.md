@@ -1,7 +1,6 @@
 
 
 # Oracle automatic indexing and self-managed PostgreSQL
-<a name="chap-oracle-aurora-pg.tables.autoindex"></a>
 
 With AWS DMS, you can migrate databases to Amazon Aurora PostgreSQL with the self-managed PostgreSQL option or Oracle databases with the automatic indexing feature. Self-managed PostgreSQL provides more control over database configurations and settings, while automatic indexing optimizes indexes for Oracle databases automatically.
 

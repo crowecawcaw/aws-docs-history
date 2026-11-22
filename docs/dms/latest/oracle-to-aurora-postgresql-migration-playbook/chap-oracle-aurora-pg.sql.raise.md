@@ -1,7 +1,6 @@
 
 
 # Oracle DBMS\_OUTPUT and PostgreSQL RAISE
-<a name="chap-oracle-aurora-pg.sql.raise"></a>
 
 Oracle’s `DBMS_OUTPUT` and PostgreSQL’s `RAISE` are utilities that let you display status information and handle errors during the migration process.
 

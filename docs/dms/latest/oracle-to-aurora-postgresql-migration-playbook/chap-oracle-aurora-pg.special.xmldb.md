@@ -1,7 +1,6 @@
 
 
 # Oracle XML DB and PostgreSQL XML type and functions
-<a name="chap-oracle-aurora-pg.special.xmldb"></a>
 
 With AWS DMS, you can migrate data from Oracle XML DB and PostgreSQL XML type and functions to other database engines supported by AWS. Oracle XML DB provides the ability to store and manage XML data in an Oracle database, while PostgreSQL XML type and functions offer similar capabilities for working with XML data in a PostgreSQL database.
 

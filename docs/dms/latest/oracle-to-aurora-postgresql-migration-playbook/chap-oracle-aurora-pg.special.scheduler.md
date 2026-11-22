@@ -1,7 +1,6 @@
 
 
 # Oracle DBMS\_SCHEDULER and PostgreSQL scheduled Lambda
-<a name="chap-oracle-aurora-pg.special.scheduler"></a>
 
 With AWS DMS, you can schedule and automate database tasks using Oracle DBMS\_SCHEDULER and PostgreSQL scheduled Lambda. Oracle DBMS\_SCHEDULER is a job scheduler that allows defining and executing recurring or one-time jobs. PostgreSQL scheduled Lambda lets you invoke AWS Lambda functions on a schedule.
 

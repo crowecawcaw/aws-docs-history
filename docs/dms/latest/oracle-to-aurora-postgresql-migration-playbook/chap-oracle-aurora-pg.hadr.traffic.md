@@ -1,7 +1,6 @@
 
 
 # Oracle Traffic Director and Amazon RDS Proxy for Amazon Aurora PostgreSQL
-<a name="chap-oracle-aurora-pg.hadr.traffic"></a>
 
 With AWS DMS, you can migrate Oracle Traffic Director to Amazon RDS Proxy for PostgreSQL to modernize your applications. Oracle Traffic Director is a web server that distributes client requests across origin servers, while Amazon RDS Proxy for PostgreSQL is a fully managed proxy for PostgreSQL databases.
 

@@ -1,7 +1,6 @@
 
 
 # Overall Oracle and PostgreSQL indexes summary
-<a name="chap-oracle-aurora-pg.tables.indexes"></a>
 
 With AWS DMS, you can assess the indexing strategies of your Oracle and PostgreSQL databases before migrating them to a new environment. Overall Oracle and PostgreSQL indexes summary provides a comprehensive analysis of the indexes in your source databases, including their types, usage statistics, and potential redundancies.
 

@@ -1,7 +1,6 @@
 
 
 # Oracle and PostgreSQL views
-<a name="chap-oracle-aurora-pg.special.views"></a>
 
 With AWS DMS, you can create database views on source and target databases to simplify data access and transformation during migration. Views are virtual tables that derive their data from one or more underlying base tables or views. They provide a logical representation of data without duplicating or moving the base data.
 

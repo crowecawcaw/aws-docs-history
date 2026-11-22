@@ -1,7 +1,6 @@
 
 
 # AWS SCT action code index
-<a name="chap-oracle-aurora-pg.tools.actioncode"></a>
 
 The following table shows the icons we use to describe the automation levels of AWS Schema Conversion Tool (AWS SCT) and AWS Database Migration Service (AWS DMS).
 

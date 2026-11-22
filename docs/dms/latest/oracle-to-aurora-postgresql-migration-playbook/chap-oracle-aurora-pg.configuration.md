@@ -1,7 +1,6 @@
 
 
 # Oracle and PostgreSQL configuration
-<a name="chap-oracle-aurora-pg.configuration"></a>
 
 This section provides pages about Oracle and PostgreSQL configuration topics.
 

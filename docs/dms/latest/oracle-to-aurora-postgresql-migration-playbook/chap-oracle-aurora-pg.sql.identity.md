@@ -1,7 +1,6 @@
 
 
 # Oracle identity columns and PostgreSQL SERIAL type
-<a name="chap-oracle-aurora-pg.sql.identity"></a>
 
 With AWS DMS, you can migrate databases that utilize identity columns or auto-incrementing primary keys across different database engines. Oracle databases use identity columns to automatically generate unique sequential values for primary keys, while PostgreSQL databases employ the `SERIAL` pseudo-type for the same purpose.
 

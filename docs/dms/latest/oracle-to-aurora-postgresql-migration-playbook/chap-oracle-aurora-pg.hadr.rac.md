@@ -1,7 +1,6 @@
 
 
 # Oracle Real Application Clusters and PostgreSQL Aurora architecture
-<a name="chap-oracle-aurora-pg.hadr.rac"></a>
 
 With AWS DMS, you can migrate your on-premises Oracle Real Application Clusters (RAC) and PostgreSQL databases to Amazon Aurora, a fully managed relational database service. Oracle RAC provides scalability and high availability by allowing multiple instances to access a single database. Similarly, Amazon Aurora PostgreSQL clusters consist of a writer instance and multiple reader instances, enabling read scaling and failover support.
 

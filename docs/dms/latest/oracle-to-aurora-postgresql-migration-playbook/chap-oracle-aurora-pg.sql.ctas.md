@@ -1,7 +1,6 @@
 
 
 # CREATE TABLE AS SELECT statement
-<a name="chap-oracle-aurora-pg.sql.ctas"></a>
 
 With AWS DMS, you can create a new table in a target database by selecting data from one or more tables in a source database using the Oracle and PostgreSQL `CREATE TABLE AS SELECT` statement. This statement defines a new table by querying data from existing tables, providing a way to replicate table structures and data from a source to a target database.
 

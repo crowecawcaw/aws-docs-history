@@ -1,7 +1,6 @@
 
 
 # Oracle virtual columns and PostgreSQL views and functions
-<a name="chap-oracle-aurora-pg.tables.virtual"></a>
 
 With AWS DMS, you can replicate data from an Oracle database to a PostgreSQL database while creating PostgreSQL views and functions that mimic Oracle’s virtual columns. Oracle virtual columns let you create columns that derive values from other columns or expressions. PostgreSQL lacks a direct equivalent, but you can use views and functions to achieve similar functionality.
 

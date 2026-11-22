@@ -1,7 +1,6 @@
 
 
 # Oracle Data Pump and PostgreSQL pg\_dump and pg\_restore
-<a name="chap-oracle-aurora-pg.hadr.datapump"></a>
 
 With AWS DMS, you can migrate data from source databases to target databases using Oracle Data Pump and PostgreSQL pg\_dump and pg\_restore. Oracle Data Pump is a utility for transferring data between Oracle databases, while PostgreSQL pg\_dump and pg\_restore create a backup of a PostgreSQL database.
 

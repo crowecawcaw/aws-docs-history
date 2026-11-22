@@ -1,7 +1,6 @@
 
 
 # Oracle bitmap indexes and PostgreSQL bitmap
-<a name="chap-oracle-aurora-pg.tables.bitmap"></a>
 
 With AWS DMS, you can efficiently migrate databases utilizing Oracle bitmap indexes for optimized query performance. Oracle bitmap indexes are data structures that improve the efficiency of data filtering operations on tables with low cardinality columns.
 

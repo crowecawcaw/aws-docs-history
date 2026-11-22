@@ -1,7 +1,6 @@
 
 
 # Oracle and PostgreSQL monitoring
-<a name="chap-oracle-aurora-pg.monitoring"></a>
 
 This section provides information about Oracle V$ views and the data dictionary and PostgreSQL system catalog and the statistics collector.
 

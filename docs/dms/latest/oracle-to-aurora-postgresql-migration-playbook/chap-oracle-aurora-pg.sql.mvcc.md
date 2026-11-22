@@ -1,7 +1,6 @@
 
 
 # Multi-Version Concurrency Control
-<a name="chap-oracle-aurora-pg.sql.mvcc"></a>
 
 With AWS DMS, you can implement Multi-Version Concurrency Control (MVCC) to manage concurrent access to data during database migrations. MVCC is a concurrency control method that maintains multiple versions of database objects, allowing readers and writers to access the data simultaneously without blocking or causing conflicts.
 

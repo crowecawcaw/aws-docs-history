@@ -1,7 +1,6 @@
 
 
 # Inline views
-<a name="chap-oracle-aurora-pg.special.inlineviews"></a>
 
 With AWS DMS, you can create and use inline views to streamline data transformations during migration tasks. An inline view is a subquery that acts as a virtual table, allowing you to combine and manipulate data from multiple sources without creating a persistent database object.
 

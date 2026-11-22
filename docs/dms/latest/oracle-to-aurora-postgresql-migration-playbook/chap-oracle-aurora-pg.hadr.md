@@ -1,7 +1,6 @@
 
 
 # Oracle and PostgreSQL high availability and disaster recovery
-<a name="chap-oracle-aurora-pg.hadr"></a>
 
 This section includes pages about Oracle and PostgreSQL high availability and disaster recovery capabilities.
 

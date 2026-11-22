@@ -1,7 +1,6 @@
 
 
 # Oracle table partitioning and PostgreSQL partitions and table inheritance
-<a name="chap-oracle-aurora-pg.storage.partition"></a>
 
 With AWS DMS, you can migrate partitioned Oracle tables and implement partitioning strategies in PostgreSQL, leveraging its table inheritance capabilities. Partitioning is a data management technique that divides large tables into smaller, more manageable segments called partitions. PostgreSQL supports partitioning through table inheritance, where child tables inherit the structure and constraints of a parent table.
 

@@ -1,7 +1,6 @@
 
 
 # Oracle and PostgreSQL table statistics
-<a name="chap-oracle-aurora-pg.tuning.statistics"></a>
 
 With AWS DMS, you can analyze table statistics for your Oracle and PostgreSQL databases to optimize query performance and storage utilization. Table statistics provide information about the data distribution and storage characteristics of database tables, including row counts, data sizes, and index usage.
 
