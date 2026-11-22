@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Migration Hub Orchestrator and interface VPC endpoints (AWS PrivateLink)
-<a name="vpc-interface-endpoints"></a>
 
 You can establish a private connection between your VPC and Migration Hub Orchestrator by creating an *interface VPC endpoint*. Interface endpoints are powered by AWS PrivateLink. With AWS PrivateLink, you can privately access Migration Hub Orchestrator API operations without an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate with Migration Hub Orchestrator API operations. Traffic between your VPC and Migration Hub Orchestrator stays within the Amazon network. 
 

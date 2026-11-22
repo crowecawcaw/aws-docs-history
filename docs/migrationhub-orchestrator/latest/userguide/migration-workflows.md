@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Migration workflows for Migration Hub Orchestrator
-<a name="migration-workflows"></a>
 
 Migration workflows are created using templates. The predefined templates provided by Migration Hub Orchestrator offer automation capabilities and facilitate the migration of your on-premises servers and applications to AWS. A template consists of one or more step groups that contain at least one step each. You can create a migration workflow with one of the predefined templates, or with a custom template that you can create.
 

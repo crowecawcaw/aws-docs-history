@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Replatform applications to Amazon ECS template
-<a name="replatform-to-ecs"></a>
 
 You can use the *Replatform applications to Amazon ECS* template in Migration Hub Orchestrator to replatform your .NET and Java applications to containers. The applications can be sourced from EC2 instances or application artifacts that are uploaded to Amazon S3. You can deploy containerized applications on Amazon Elastic Container Service (Amazon ECS) on AWS Fargate using one application per container or with multiple applications in a single container.
 
@@ -58,7 +57,7 @@ The following permissions must also be added to the IAM role used by your instan
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -189,7 +188,7 @@ Your user or role must have the required permissions to use this template. You c
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

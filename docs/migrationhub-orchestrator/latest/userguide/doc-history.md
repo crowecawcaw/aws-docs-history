@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Document history for Migration Hub Orchestrator
-<a name="doc-history"></a>
 
 The following table describes the documentation releases for AWS Migration Hub Orchestrator. For more information about updates to the Migration Hub Orchestrator plugin, see [Version history](version-history.md).
 

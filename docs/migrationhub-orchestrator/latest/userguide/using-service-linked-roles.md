@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Using service-linked roles for Migration Hub Orchestrator
-<a name="using-service-linked-roles"></a>
 
 Migration Hub Orchestrator uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Migration Hub Orchestrator. Service-linked roles are predefined by Migration Hub Orchestrator and include all of the permissions that the service requires to call other AWS services on your behalf. 
 

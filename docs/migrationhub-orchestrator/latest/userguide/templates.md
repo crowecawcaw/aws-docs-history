@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Migration Hub Orchestrator templates
-<a name="templates"></a>
 
 Migration Hub Orchestrator offers the following templates to configure your migration workflows:
 + **Migrate SAP NetWeaver applications to AWS** – A template to migrate SAP NetWeaver-based applications (S/4HANA, BW4HANA, and ECC on HANA) running on SAP HANA database to AWS.

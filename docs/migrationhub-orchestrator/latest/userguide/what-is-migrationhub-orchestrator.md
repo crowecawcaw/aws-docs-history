@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # What is AWS Migration Hub Orchestrator?
-<a name="what-is-migrationhub-orchestrator"></a>
 
 AWS Migration Hub Orchestrator simplifies and automates the migration of servers and enterprise applications to AWS. You can get started quickly through the predefined workflow templates which are built leveraging the migration experience of AWS which also adhere to best practices. You can also use Migration Hub Orchestrator to automate the error-prone manual tasks involved in the migration process and orchestrate the related migration tools from start to finish in the Migration Hub Orchestrator console.
 

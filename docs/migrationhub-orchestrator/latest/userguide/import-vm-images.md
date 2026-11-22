@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Import virtual machine images to AWS template
-<a name="import-vm-images"></a>
 
 You can use the *Import virtual machine images to AWS* template to convert existing images to Amazon Machine Images (AMI) for Amazon EC2. 
 

@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Configure User Notifications for Migration Hub Orchestrator status change events
-<a name="event-bridge-notifications"></a>
 
 You can configure AWS User Notifications to send notifications in response to status changes that occur in Migration Hub Orchestrator. User Notifications uses EventBridge to send notifications about events from AWS services to the AWS Management Console Notifications Center and your chosen delivery channels. For more information about Migration Hub Orchestrator events in EventBridge, see [Migration Hub Orchestrator events in EventBridge](event-bridge.md).
 
@@ -13,7 +12,7 @@ When you are creating a notification configuration, you can specify an **Advance
 The following JSON samples can be used as advanced filters for your notification configurations to support common use cases.
 + Receive a notification when a workflow fails:
 
-  ```
+  ```json
   {
     "detail": {
       "$or": [
@@ -33,7 +32,7 @@ The following JSON samples can be used as advanced filters for your notification
   ```
 + Receive a notification when a workflow’s step changes:
 
-  ```
+  ```json
   {
     "detail": {
       "resourceType": [
@@ -44,7 +43,7 @@ The following JSON samples can be used as advanced filters for your notification
   ```
 + Receive a notification when a workflow requires manual input:
 
-  ```
+  ```json
   {
     "detail": {
       "status": [

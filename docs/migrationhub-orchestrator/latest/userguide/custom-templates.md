@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Custom templates for Migration Hub Orchestrator
-<a name="custom-templates"></a>
 
 You can customize the templates provided by AWS Migration Hub Orchestrator for your use case and save them for reuse. You must first use a template provided by Migration Hub Orchestrator to create a migration workflow. Once the migration workflow is created, you can proceed with making customizations to the workflow.
 

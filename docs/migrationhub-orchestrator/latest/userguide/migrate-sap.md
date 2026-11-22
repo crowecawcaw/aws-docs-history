@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Migrate SAP NetWeaver based applications and SAP HANA databases to AWS
-<a name="migrate-sap"></a>
 
 With this template, you can automate the migration of your SAP NetWeaver based applications along with SAP HANA databases, or SAP HANA databases only to AWS.
 

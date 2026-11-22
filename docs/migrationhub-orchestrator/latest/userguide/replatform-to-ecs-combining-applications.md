@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Combining multiple applications in one container
-<a name="replatform-to-ecs-combining-applications"></a>
 
 If you are combining multiple applications from your source server to one container, there are additional requirements for the workflow. You can specify this option when you are configuring your workflow for the template **Combine applications in one container** in [Completing the required steps](replatform-to-ecs.md#replatform-to-ecs-complete-steps).
 
@@ -251,7 +250,7 @@ if __name__=="__main__":
 
 The following example demonstrates running the script with the required parameters:
 
-```
+```python
 python3 combine_applications.py --region {{us-west-2}} \
     --workflow_id {{mw-abc123}} \
     --s3_output_path s3://{{bucket-name}}/application-transformation/{{mw-abc123}}/CombinedApplications \

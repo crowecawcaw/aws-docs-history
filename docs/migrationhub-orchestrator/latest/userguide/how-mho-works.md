@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # How AWS Migration Hub Orchestrator works
-<a name="how-mho-works"></a>
 
 You can simplify and automate the migration of your on-premises servers and applications to AWS Cloud using AWS Migration Hub Orchestrator.
 
