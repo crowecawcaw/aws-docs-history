@@ -1,7 +1,6 @@
 
 
 # Creating exports with billing views
-<a name="dataexports-create-billing-view"></a>
 
 When you sign in as a bill transfer account using billing transfer, or as a management account using AWS Billing Conductor, you can create an export based on your AWS managed billing views (billing groups and billing transfer views).
 

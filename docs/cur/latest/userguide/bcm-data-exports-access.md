@@ -1,7 +1,6 @@
 
 
 # Identity and access management for Data Exports
-<a name="bcm-data-exports-access"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use Billing resources. IAM is an AWS service that you can use with no additional charge.
 
@@ -55,7 +54,7 @@ Allow IAM user to have full access to CUR 2.0 exports in Data Exports.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -104,7 +103,7 @@ Allow IAM user to have full access to CUR 2.0 and Billing Group Billing View.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -136,7 +135,7 @@ If you want an IAM role to have access to a specific billing group, you can add 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

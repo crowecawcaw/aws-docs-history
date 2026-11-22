@@ -1,7 +1,6 @@
 
 
 # Viewing and managing data exports
-<a name="dataexports-manage"></a>
 
 To view details about your exports, use the **Data Exports** page in the AWS Billing and Cost Management console. To view your export files, use the S3 console link for your Amazon S3 bucket on the **Data Exports** page. To view your export dashboards, use the QuickSight link on the **Data Exports** page, or go directly to the QuickSight console and find your dashboard.
 

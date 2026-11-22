@@ -1,7 +1,6 @@
 
 
 # FOCUS 1.0 with AWS columns conformance gaps
-<a name="table-dictionary-focus-1-0-aws-conformance"></a>
 
 The following table provides all of the conformance gaps that might exist in an export of the FOCUS 1.0 with AWS columns table. A particular conformance gap will not apply to your export if you're not receiving cost and usage data for the related scenario.
 

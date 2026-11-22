@@ -1,7 +1,6 @@
 
 
 # Data dictionary
-<a name="data-dictionary"></a>
 
 Cost and Usage Reports contain details about your usage. The following sections list and describe a subset of columns that you see in your report, and the corresponding definitions.
 

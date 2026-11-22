@@ -1,7 +1,6 @@
 
 
 # Method two: Create an export of CUR 2.0 with its new schema
-<a name="data-exports-migrate-two"></a>
 
 You can create an export of CUR 2.0 with its new schema of nested columns and additional columns. However, you’ll need to adjust your current data pipeline to process these new columns. You do this using the console, the AWS API, or SDK.
 

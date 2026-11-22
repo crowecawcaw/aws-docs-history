@@ -1,7 +1,6 @@
 
 
 # General troubleshooting
-<a name="troubleshooting-data-exports"></a>
 
 **Topics**
 + [Why is my export unhealthy?](#dataexports-unhealthy-export)

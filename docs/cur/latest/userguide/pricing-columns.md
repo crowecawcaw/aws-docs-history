@@ -1,7 +1,6 @@
 
 
 # Pricing details
-<a name="pricing-columns"></a>
 
 Columns under the **pricing** header in AWS Cost and Usage Reports contain the prices for a line item. The pricing columns are based off of the AWS Price List Service API. AWS Price List Service API doesn't include Spot Instances, products in AWS Marketplace, upfront annual subscription fees (`Fee`), and monthly recurring fees (`RIFee`). The columns include but are not limited to the following:
 

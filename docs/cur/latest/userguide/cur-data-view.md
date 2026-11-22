@@ -1,7 +1,6 @@
 
 
 # Configuring Cost and Usage Reports using Billing Conductor
-<a name="cur-data-view"></a>
 
 You can create pro forma AWS Cost and Usage Reports (AWS CUR) for each billing group that you create in Billing Conductor. The pro forma AWS CUR has the same file format, granularity, and columns as the standard AWS CUR. Pro forma contains the most comprehensive set of cost and usage data available for a given period of time. For more information about Billing Conductor, see the [*Billing Conductor User Guide*](https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html).
 

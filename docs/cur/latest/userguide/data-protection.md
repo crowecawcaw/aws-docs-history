@@ -1,7 +1,6 @@
 
 
 # Data protection in Data Exports
-<a name="data-protection"></a>
 
 Learn how the AWS shared responsibility model applies to data protection in Data Exports.
 

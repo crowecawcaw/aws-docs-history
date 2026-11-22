@@ -1,7 +1,6 @@
 
 
 # Using Cost and Usage Reports for AWS Organizations
-<a name="cur-consolidated-billing"></a>
 
 In AWS Organizations, both management accounts and member accounts can create Cost and Usage Reports. The IAM policies that allow or restrict the ability to create a report are the same for both types of accounts.
 

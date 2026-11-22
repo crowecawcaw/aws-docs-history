@@ -1,7 +1,6 @@
 
 
 # Understanding unused reservation costs
-<a name="unused-reservation-costs"></a>
 
 You can use AWS Cost and Usage Reports (AWS CUR) to understand unused RI costs. The following four scenarios show how.
 

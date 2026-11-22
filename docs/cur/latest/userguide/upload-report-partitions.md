@@ -1,7 +1,6 @@
 
 
 # Uploading your report partitions
-<a name="upload-report-partitions"></a>
 
 To query your Cost and Usage Reports data, you need to upload the data into your Athena table. You must do this for each new AWS CUR report that AWS delivers to you.<a name="upload-partitions"></a>
 

@@ -1,7 +1,6 @@
 
 
 # Deleting exports
-<a name="dataexports-delete"></a>
 
 You can use the **Data Exports** page in the AWS Billing and Cost Management console to delete your exports.
 

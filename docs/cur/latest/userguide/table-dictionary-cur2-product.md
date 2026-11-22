@@ -1,7 +1,6 @@
 
 
 # Product columns
-<a name="table-dictionary-cur2-product"></a>
 
 Product columns contain data about the product that is being charged in the line item.
 

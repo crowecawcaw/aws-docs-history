@@ -1,7 +1,6 @@
 
 
 # Using split cost allocation data with Amazon CloudWatch Container Insights
-<a name="split-cost-allocation-data-cloudwatch"></a>
 
 Splitting the cost data for Amazon EKS requires that you collect and store metrics from your clusters, including memory and CPU usage. Amazon CloudWatch Container Insights can be used for this purpose.
 

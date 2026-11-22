@@ -1,7 +1,6 @@
 
 
 # Cost category columns
-<a name="table-dictionary-cur2-cost-category"></a>
 
 Cost category columns contain data about cost categories that apply to the line item. Note that you don’t need to select this column if you selected the Tags column because resource tags are also included under the Tags column.
 

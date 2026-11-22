@@ -1,7 +1,6 @@
 
 
 # Creating a cost and usage dashboard
-<a name="dataexports-create-dashboard"></a>
 
 You can visualize your billing and cost management data by deploying a pre-built Cost and Usage Dashboard powered by Amazon QuickSight.
 

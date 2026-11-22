@@ -1,7 +1,6 @@
 
 
 # Cost optimization recommendations columns
-<a name="table-dictionary-cor-columns"></a>
 
 
 | Column name | Description | Data type | Null value allowed | 

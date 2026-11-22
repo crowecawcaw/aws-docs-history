@@ -1,7 +1,6 @@
 
 
 # Line item details
-<a name="Lineitem-columns"></a>
 
 Columns under the **lineItem** header in AWS Cost and Usage Reports are static fields that appear in all Cost and Usage Reports. They cover all of the cost and usage information for your usage. This includes the following columns:
 
@@ -133,7 +132,7 @@ The amount of usage that you incurred, in normalized units, for size-flexible RI
 ### lineItem/Operation
 <a name="Lineitem-details-O-Operation"></a>
 
-The specific AWS operation covered by this line item. This describes the specific usage of the line item. For example, a value of `RunInstances` indicates the operation of an Amazon EC2 instance.
+The specific AWS operation covered by this line item. This describes the specific usage of the line item. For example, a value of `RunInstances` indicates the operation of an Amazon EC2 instance. A value of `S3Prefix` identifies a line item that allocates Amazon S3 bucket cost to a prefix.
 
 ## P
 <a name="Lineitem-details-P"></a>
@@ -149,7 +148,7 @@ The code of the product measured. For example, Amazon EC2 is the product code fo
 ### lineItem/ResourceId
 <a name="Lineitem-details-R-ResourceId"></a>
 
-(Optional) If you chose to include individual resource IDs in your report, this column contains the ID of the resource that you provisioned. For example, an Amazon S3 storage bucket, an Amazon EC2 compute instance, or an Amazon RDS database can each have a resource ID. This field is blank for usage types that aren't associated with an instantiated host, such as data transfers and API requests, and line item types such as discounts, credits, and taxes. The following table shows a list of resource identifiers for common AWS services.
+(Optional) If you chose to include individual resource IDs in your report, this column contains the ID of the resource that you provisioned. For example, an Amazon S3 storage bucket, an Amazon EC2 compute instance, or an Amazon RDS database can each have a resource ID. This field is blank for usage types that aren't associated with an instantiated host, such as data transfers and API requests, and line item types such as discounts, credits, and taxes. On `S3Prefix` line items, this column is the prefix ARN, in the form `arn:aws:s3:region:account-id:prefix/bucket-name/prefix-path`; on the unattributed line item, it is the bucket name. The following table shows a list of resource identifiers for common AWS services.
 
 
 **AWS resource identifiers**  
@@ -221,4 +220,4 @@ The start date and time for the line item in UTC, inclusive. The format is `YYYY
 ### lineItem/UsageType
 <a name="Lineitem-details-U-UsageType"></a>
 
-The usage details of the line item. For example, `USW2-BoxUsage:m2.2xlarge` describes an M2 High Memory Double Extra Large instance in the US West (Oregon) Region.
+The usage details of the line item. For example, `USW2-BoxUsage:m2.2xlarge` describes an M2 High Memory Double Extra Large instance in the US West (Oregon) Region. The value `S3PrefixTimedStorage-Byte` describes Amazon S3 storage allocated to a prefix, and `S3PrefixRequests` describes Tier 1 and Tier 2 requests allocated to a prefix.

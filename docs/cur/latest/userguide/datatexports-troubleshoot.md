@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="datatexports-troubleshoot"></a>
 
 As you use Data Exports or Cost and Usage Reports (CUR), you might encounter certain issues or challenges that require troubleshooting. Use this troubleshooting section for recommendations that help you to resolve common problems quickly and efficiently.
 

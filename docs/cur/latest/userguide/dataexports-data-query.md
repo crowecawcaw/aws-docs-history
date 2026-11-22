@@ -1,7 +1,6 @@
 
 
 # Data query–SQL query and table configurations
-<a name="dataexports-data-query"></a>
 
 Data Exports enables you to write SQL queries (column selections, row filtering, column aliasing) that are executed against the tables provided–CUR 2.0, for example. Each table might also have table configurations that alter the data contained within the table. For example, with CUR 2.0, you can specify a configuration to choose a time granularity of hourly, daily, or monthly, or a configuration to add cost and usage data at resource-level granularity.
 

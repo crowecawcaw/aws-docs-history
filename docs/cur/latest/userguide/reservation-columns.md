@@ -1,7 +1,6 @@
 
 
 # Reservation details
-<a name="reservation-columns"></a>
 
 Columns under the **reservation** header in AWS Cost and Usage Reports provide details about reserved resources.
 

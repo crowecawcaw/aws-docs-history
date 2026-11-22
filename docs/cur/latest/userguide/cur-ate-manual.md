@@ -1,7 +1,6 @@
 
 
 # Setting up Athena manually
-<a name="cur-ate-manual"></a>
 
 We strongly recommend that you use the AWS CloudFormation template to create your table instead of creating it yourself. The provided SQL query creates a table that covers only a single month of data, but the AWS CloudFormation template creates a table that can include multiple months and that updates automatically. For more information on how to set up the AWS CloudFormation template, see [Setting up Athena using CloudFormation templates](use-athena-cf.md).
 

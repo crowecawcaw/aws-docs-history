@@ -1,7 +1,6 @@
 
 
 # Creating a standard export
-<a name="dataexports-create-standard"></a>
 
 You can create a standard data export that you can analyze using other processing tools (Amazon Athena, for example).
 
@@ -35,9 +34,9 @@ Exporting the Carbon emissions table requires the IAM permission `sustainability
 Including resource IDs creates individual line items for each of your resources. This might increase the size of your export significantly, based on your AWS usage.  
 Selecting resource ID will add a Tag column containing data about users, accounts, cost categories, and resources when you create a new report. You can deselect the columns to avoid redundant information.
 
-      1. Select **Split cost allocation data** to include detailed cost and usage for shared resources (Amazon ECS and Amazon EKS).
+      1. Select **Split cost allocation data** to include detailed cost and usage for shared resources. For more information, see [Understanding split cost allocation data](https://docs.aws.amazon.com/cur/latest/userguide/split-cost-allocation-data.html).
 **Note**  
-Including split cost allocation data creates individual line items for each of your resources (that is, ECS tasks and Kubernetes pods). This might increase the size of your Cost and Usage Report significantly, based on your AWS usage.
+Including split cost allocation data creates individual line items for the resources that share a cost, such as ECS tasks, Kubernetes pods, and instances using a NAT gateway. This can significantly increase report size. To estimate additional line items, see [Understanding split cost allocation data](https://docs.aws.amazon.com/cur/latest/userguide/split-cost-allocation-data.html).
 
       1. Select **Include Capacity reservation data** to include the Capacity reservation columns and row-level granularity in the export.
 **Note**  

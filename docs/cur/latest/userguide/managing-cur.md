@@ -1,7 +1,6 @@
 
 
 # Viewing and managing reports
-<a name="managing-cur"></a>
 
 To view information about your Cost and Usage Report, use the Billing and Cost Management console. To view your report’s files, you can use the Amazon S3 console.
 

@@ -1,7 +1,6 @@
 
 
 # Using Data Exports with AWS Organizations
-<a name="dataexports-organizations"></a>
 
 Data Exports can work with AWS Organizations so that management accounts can generate exports with data for all accounts in your organization. Member accounts can also create data exports, but these exports only contain the billing and cost management data for that specific member account. The settings that control whether the management account receives data for all member accounts varies across the Data Exports tables. Refer to the following sections for information about how it is determined whether to include member account data for each table.
 + [Cost and usage report 2.0 (CUR 2.0)](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-organizations)

@@ -1,7 +1,6 @@
 
 
 # Understanding legacy billing reports
-<a name="legacy-reports"></a>
 
 This section describes legacy billing reports offered outside of AWS Data Exports and AWS Cost and Usage Reports. These pages are available for reference. But, we recommend you use AWS Data Exports because these reporting methods will be unavailable at a later date.
 

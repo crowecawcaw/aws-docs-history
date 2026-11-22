@@ -1,7 +1,6 @@
 
 
 # Data Exports table dictionary
-<a name="dataexports-table-dictionary"></a>
 
 Data Exports provides several tables that you can query when creating an export.
 

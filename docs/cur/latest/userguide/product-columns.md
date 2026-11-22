@@ -1,7 +1,6 @@
 
 
 # Product details
-<a name="product-columns"></a>
 
 The **product** columns provide metadata about the product that incurred the expense, and the line item. The product columns are dynamic, and their visibility in Cost and Usage Reports depends on the usage of product in the billing period. The pricing columns are based off of the AWS Price List Service API. AWS Price List Service API doesn't include Spot Instances, products in AWS Marketplace, upfront annual subscription fees (`Fee`), and monthly recurring fees (`RIFee`).
 

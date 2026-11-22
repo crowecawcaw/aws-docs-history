@@ -1,7 +1,6 @@
 
 
 # FOCUS 1.0 with AWS columns
-<a name="table-dictionary-focus-1-0-aws-columns"></a>
 
 
 | Column name | Description | Data type | Null value allowed | 

@@ -1,7 +1,6 @@
 
 
 # Cost and Usage Report (CUR) 2.0
-<a name="table-dictionary-cur2"></a>
 
 The CUR 2.0 table provides the same information as Cost and Usage Reports (CUR) with a few improvements.
 
@@ -28,6 +27,7 @@ CUR 2.0 has the following table configurations:
 | INCLUDE\_SPLIT\_COST\_ALLOCATION\_DATA | This configuration adds split cost allocation data and columns (split\_line\_item\_\*) to the CUR 2.0 table. This data indicates how the usage of certain AWS resources can be allocated to different business units or teams.<br />Enabling this configuration can add additional rows and columns which show how an EC2 instance can be allocated to different containers running in that instance. For more information, see [Understanding split cost allocation data](https://docs.aws.amazon.com/cur/latest/userguide/split-cost-allocation-data.html). | TRUE, FALSE | 
 | INCLUDE\_CAPACITY\_RESERVATION\_DATA | **Note:** This configuration only adds data in the new columns starting November 1, 2025.<br />Enabling this configuration changes the cost and usage line items in the CUR 2.0 table to have resource-level granularity when an instance usage is split across multiple capacity reservations or used partially in a capacity reservationin an hour. This also adds 3 new columns to the table schema, which show how an EC2 instance is launched in a capacity reservation.  | TRUE, FALSE | 
 | INCLUDE\_IAM\_PRINCIPAL\_DATA | **Note:** This configuration only adds data in the new columns starting April 8, 2026.<br />Enabling this configuration causes the CUR 2.0 table to include caller identity (IAM principal) allocation data for Amazon Bedrock model inference costs. This adds the line\_item\_iam\_principal column to the table schema, which contains the AWS IAM principal ARN of the caller making Bedrock inference requests. When IAM principal tags are activated as cost allocation tags, those tags also appear in the tags column with the iamPrincipal/ prefix (e.g., iamPrincipal/department, iamPrincipal/cost-center). Enabling this configuration can increase the number of CUR rows and file size. | TRUE, FALSE | 
+| INCLUDE\_STANDARDIZED\_COST\_AND\_RATE | When you enable this configuration, 14 columns with the prefix cost\_analytics\_ are added to the Cost and Usage Report (CUR) 2.0 table schema. These columns show the cost and rate for billed, list, contracted, effective, public equivalent billed, public equivalent effective, and public On-Demand charges for each line item, so you can compare costs consistently across pricing models. | TRUE, FALSE | 
 | INCLUDE\_MANUAL\_DISCOUNT\_COMPATIBILITY | **Note:** This configuration only applies to AWS customers who have onboarded to the Discount Automation program where discounts are computed automatically.<br />This configuration changes the discounts in the CUR 2.0 table to appear as when they were added "manually" to the CUR, usually as separate line items, and removes two columns from the schema ("discount" and "total\_discount"). | TRUE, FALSE | 
 
 ## AWS Organizations support
@@ -46,8 +46,9 @@ For more information, see [Consolidated billing for AWS Organizations](https://d
 ## CUR 2.0 column groups
 <a name="cur2-column-groups"></a>
 
-There are 125 possible columns in the CUR 2.0 table, grouped as follows:
+The CUR 2.0 table has more than 100 columns, depending on your table configuration. The columns are grouped as follows:
 + **Bill:** Data about your bill for the billing period.
++ **Cost analytics:** Data about the standardized cost and rate that apply to the line item.
 + **Cost category:** Data about cost categories that apply to the line item.
 + **Capacity reservation:** Data about capacity reservation that applies to the line item.
 + **Discount:** Data about any discounts you are receiving.
@@ -59,5 +60,4 @@ There are 125 possible columns in the CUR 2.0 table, grouped as follows:
 + **Resource tags:** Data about resource tags that apply to the line item.
 + **Savings plan:** Data about savings plans that apply to the line item.
 + **Split line item:** Data about split cost allocation for another line item.
-+ **Capacity Reservation:** Data about capacity reservation that applies to the line item.
 + **Tags:** Data about user, account, cost category and resource tags.

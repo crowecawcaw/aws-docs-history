@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Cost and Usage Reports
-<a name="troubleshooting"></a>
 
 Use the following topics to help you troubleshoot common issues with Cost and Usage Reports.
 

@@ -1,7 +1,6 @@
 
 
 # Using Detailed Billing Reports
-<a name="detailed-billing"></a>
 
 **Important**  
 The Detailed Billing Reports feature is unavailable for new customers as of July 8, 2019.

@@ -1,7 +1,6 @@
 
 
 # Example of split cost allocation data
-<a name="example-split-cost-allocation-data"></a>
 
 The purpose of the following example is to show you how split cost allocation data is calculated by computing the cost of individual Amazon ECS services, tasks in Amazon ECS clusters, and Kubernetes namespace and pods in Amazon EKS clusters. The rates used throughout the example are for illustrative purposes only.
 

@@ -1,7 +1,6 @@
 
 
 # Savings plan columns
-<a name="table-dictionary-cur2-savings-plan"></a>
 
 Saving Plan columns contain data about savings plans that apply to the line item.
 

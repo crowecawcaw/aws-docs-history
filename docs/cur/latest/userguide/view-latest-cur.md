@@ -1,7 +1,6 @@
 
 
 # Viewing the latest report version
-<a name="view-latest-cur"></a>
 
 AWS updates your Cost and Usage Report at least once a day until your charges are finalized. When you create a report, you can choose to create new report versions or overwrite the existing report version with every update.
 

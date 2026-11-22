@@ -1,7 +1,6 @@
 
 
 # Processing data exports
-<a name="dataexports-processing"></a>
 
 In the following sections, you'll find information about processing your data exports.
 

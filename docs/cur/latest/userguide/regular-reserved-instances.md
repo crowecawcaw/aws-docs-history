@@ -1,7 +1,6 @@
 
 
 # Understanding your reservation line items
-<a name="regular-reserved-instances"></a>
 
 RIs provide you a significant discount compared to On-Demand Instance pricing. RIs aren't physical instances. They're a billing discount applied to the use of On-Demand Instances in your account. These On-Demand Instances must match certain attributes to benefit from the billing discount. 
 

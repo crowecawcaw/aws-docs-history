@@ -1,12 +1,14 @@
 
 
 # Document history
-<a name="doc-history"></a>
 
 The following table describes the documentation for this release of AWS Data Exports.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Support for AWS PCS Slurm jobs in split cost allocation data](https://docs.aws.amazon.com/cur/latest/userguide/split-cost-allocation-data.html) | Split cost allocation data now supports AWS PCS Slurm jobs, so you can allocate costs to individual Slurm jobs, queues, and accounts. | November 17, 2026 | 
+| [Split cost allocation data now supports Amazon S3](https://docs.aws.amazon.com/cur/latest/userguide/split-cost-allocation-data.html#split-cost-allocation-data-s3) | Split cost allocation data now supports Amazon S3. You can allocate a bucket's storage and request costs to the prefixes in the bucket, using prefix metrics published by S3 Storage Lens. | November 17, 2026 | 
+| [Split cost allocation data for networking](https://docs.aws.amazon.com/cur/latest/userguide/split-cost-allocation-data.html#split-cost-allocation-data-networking) | Split cost allocation data now supports networking flexible cost allocation. Your reports show supported NAT gateway, Amazon EC2 instance, and VPC peering connection charges by the resource that generated the usage. | November 13, 2026 | 
 | [Support for Capacity Reservation in Data exports](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) | Data exports now supports information about the capacity reservation that applies to a given line item. | November 13, 2025 | 
 | [Support for Kubernetes labels in split cost allocation data for Amazon EKS](https://docs.aws.amazon.com/cur/latest/userguide/split-cost-allocation-data-kubernetes-labels.html) | Split cost allocation data now supports Kubernetes labels as cost allocation tags for Amazon EKS clusters. | October 27, 2025 | 
 | [Added GPU support in split cost allocation data for Amazon EKS](https://docs.aws.amazon.com/cur/latest/userguide/split-cost-allocation-data.html) | Split cost allocation data now includes GPU resource reservation data, enabling customers to track costs for GPU-accelerated workloads. | September 1, 2025 | 

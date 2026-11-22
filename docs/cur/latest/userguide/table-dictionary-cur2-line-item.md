@@ -1,7 +1,6 @@
 
 
 # Line item columns
-<a name="table-dictionary-cur2-line-item"></a>
 
 Line item columns contain data about cost, usage, type of usage, pricing rates, product name, and more. 
 
@@ -22,9 +21,9 @@ Line item columns contain data about cost, usage, type of usage, pricing rates, 
 | line\_item\_net\_unblended\_rate | The actual after-discount rate that you're paying for the line item. This column is only included in your report when your account has a discount in the applicable billing period. | string | 
 | line\_item\_normalization\_factor | As long as the instance has shared tenancy, AWS can apply all Regional Linux or Unix Amazon EC2 and Amazon RDS RI discounts to all instance sizes in an instance family and AWS Region. This also applies to RI discounts for member accounts in an organization. All new and existing Amazon EC2 and Amazon RDS size-flexible RIs are sized according to a normalization factor, based on the instance size. | double | 
 | line\_item\_normalized\_usage\_amount | The amount of usage that you incurred, in normalized units, for size-flexible RIs. The **NormalizedUsageAmount** is equal to **UsageAmount** multiplied by **NormalizationFactor**. | double | 
-| line\_item\_operation | The specific AWS operation covered by this line item. This describes the specific usage of the line item. For example, a value of RunInstances indicates the operation of an Amazon EC2 instance. | string | 
+| line\_item\_operation | The specific AWS operation covered by this line item. This describes the specific usage of the line item. For example, a value of RunInstances indicates the operation of an Amazon EC2 instance. A value of S3Prefix identifies a line item that allocates Amazon S3 bucket cost to a prefix. | string | 
 | line\_item\_product\_code | The code of the product measured. For example, Amazon EC2 is the product code for Amazon Elastic Compute Cloud. | string | 
-| line\_item\_resource\_id | **Table configuration:** Added by: INCLUDE RESOURCES<br />(Optional) If you chose to include individual resource IDs in your report, this column contains the ID of the resource that you provisioned. For example, an Amazon S3 storage bucket, an Amazon EC2 compute instance, or an Amazon RDS database can each have a resource ID. This field is blank for usage types that aren't associated with an instantiated host, such as data transfers and API requests, and line item types such as discounts, credits, and taxes. | string | 
+| line\_item\_resource\_id | **Table configuration:** Added by: INCLUDE RESOURCES<br />(Optional) If you chose to include individual resource IDs in your report, this column contains the ID of the resource that you provisioned. For example, an Amazon S3 storage bucket, an Amazon EC2 compute instance, or an Amazon RDS database can each have a resource ID. This field is blank for usage types that aren't associated with an instantiated host, such as data transfers and API requests, and line item types such as discounts, credits, and taxes. On `S3Prefix` line items, this column is the prefix ARN, in the form `arn:aws:s3:region:account-id:prefix/bucket-name/prefix-path`; on the unattributed line item, it is the bucket name. | string | 
 | line\_item\_tax\_type | The type of tax that AWS applied to this line item. | string | 
 | line\_item\_unblended\_cost | The UnblendedCost is the UnblendedRate multiplied by the UsageAmount. | double | 
 | line\_item\_unblended\_rate | In consolidated billing for accounts using AWS Organizations, the unblended rate is the rate associated with an individual account's service usage.<br />For Amazon EC2 and Amazon RDS line items that have an RI discount applied to them, the `UnblendedRate` is `0`. Line items with an RI discount have a `LineItemType` of `DiscountedUsage`. | string | 

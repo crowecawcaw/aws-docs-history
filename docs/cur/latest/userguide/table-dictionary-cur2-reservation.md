@@ -1,7 +1,6 @@
 
 
 # Reservation columns
-<a name="table-dictionary-cur2-reservation"></a>
 
 Reservation columns contain data about a reservation that applies to the line item.
 

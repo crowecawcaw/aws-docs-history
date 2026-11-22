@@ -1,7 +1,6 @@
 
 
 # Cost optimization recommendations (from Cost Optimization Hub)
-<a name="table-dictionary-cor"></a>
 
 The cost optimization recommendations table contains your cost optimization recommendations from Cost Optimization Hub. Cost Optimization Hub recommendations are consolidated from AWS Compute Optimizer and consist of over 15 types of optimizations, such as resource rightsizing, idle resource deletion, Savings Plans, and Reserved Instances. For more detailed information, see [Cost Optimization Hub](https://docs.aws.amazon.com/cost-management/latest/userguide/cost-optimization-hub.html) in the *AWS Cost Management User Guide*.
 

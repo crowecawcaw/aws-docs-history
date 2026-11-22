@@ -1,7 +1,6 @@
 
 
 # Cost Categories details
-<a name="cost-categories-columns"></a>
 
 You can use the **Cost Category** columns in AWS Cost and Usage Reports to find information about the specific line items categorized by the Cost Categories feature. Cost Category columns are automatically populated when you create a Cost Category and categorization rule. These columns include user-defined Cost Category names as the column headers, and corresponding Cost Category values. Examples include the following:
 

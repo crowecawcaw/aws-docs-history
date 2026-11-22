@@ -1,7 +1,6 @@
 
 
 # Editing export tags
-<a name="dataexports-edit-export-tags"></a>
 
 You can use the **Data Exports** page in the AWS Billing and Cost Management console to edit your export tags.
 

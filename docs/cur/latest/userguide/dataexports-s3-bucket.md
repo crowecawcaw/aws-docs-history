@@ -1,7 +1,6 @@
 
 
 # Setting up an Amazon S3 bucket for data exports
-<a name="dataexports-s3-bucket"></a>
 
 To receive and store your data exports, you must have an Amazon S3 bucket in your AWS account or in a designated destination AWS account. When creating an export in the console, if you want the export in your own bucket, you can select an existing S3 bucket that you own, or you can create a new bucket. In either case, you need to review and confirm the application of the following default S3 bucket policy. If you want your export to be delivered to a bucket owned by another AWS account, you can specify the bucket owner and the bucket name during the Data Exports creation process. Editing the bucket policy or changing the S3 bucket owner after you’ve created an export may prevent Data Exports from delivering your exports. Storing the exports data in any S3 bucket is billed at standard Amazon S3 rates. For more information, see [Quotas and restrictions](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-quotas.html).
 

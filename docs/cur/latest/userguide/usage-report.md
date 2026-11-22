@@ -1,7 +1,6 @@
 
 
 # Downloading an AWS Usage Report
-<a name="usage-report"></a>
 
 **Important**  
 On September 15, 2023, the AWS Usage Report will no longer provide access to usage data older than March 1, 2019. To access such usage data, download historical usage and save it locally before September 15, 2023. The AWS Usage Report feature will be unavailable at a later date. We recommend that you use AWS Cost and Usage Reports instead.

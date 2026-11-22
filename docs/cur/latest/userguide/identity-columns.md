@@ -1,7 +1,6 @@
 
 
 # Identity details
-<a name="identity-columns"></a>
 
 Columns under the **identity** header in AWS Cost and Usage Reports are static fields that appear in all Cost and Usage Reports.
 

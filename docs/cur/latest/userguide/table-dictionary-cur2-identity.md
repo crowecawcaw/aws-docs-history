@@ -1,7 +1,6 @@
 
 
 # Identity columns
-<a name="table-dictionary-cur2-identity"></a>
 
 Identity columns contain data to identify a line item.
 

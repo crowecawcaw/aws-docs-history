@@ -1,7 +1,6 @@
 
 
 # Cost and usage dashboard
-<a name="table-dictionary-cur-dashboard"></a>
 
 The SQL table name for cost and usage dashboard is `COST_AND_USAGE_DASHBOARD`.
 

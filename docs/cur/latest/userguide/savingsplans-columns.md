@@ -1,7 +1,6 @@
 
 
 # Savings Plans details
-<a name="savingsplans-columns"></a>
 
 The **SavingsPlan** columns in AWS Cost and Usage Reports provide details about the Savings Plans. For more information about Savings Plans, see [What are Savings Plans?](https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html) in the *Savings Plans User Guide*.
 

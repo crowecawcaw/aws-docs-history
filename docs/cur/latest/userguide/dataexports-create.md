@@ -1,7 +1,6 @@
 
 
 # Creating data exports
-<a name="dataexports-create"></a>
 
 You can use the **Data Exports** page in the Billing and Cost Management console to create data exports of three different types: standard exports, cost and usage dashboard exports, and legacy exports.
 

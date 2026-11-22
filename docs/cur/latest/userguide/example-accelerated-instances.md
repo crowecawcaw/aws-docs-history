@@ -1,7 +1,6 @@
 
 
 # Example of split cost allocation data for accelerated instances
-<a name="example-accelerated-instances"></a>
 
 The purpose of the following example is to show you how split cost allocation data is calculated by computing the cost of Kubernetes namespace and pods in Amazon EKS clusters. The rates used throughout the example are for illustrative purposes only.
 
@@ -13,7 +12,7 @@ You have the following usage in a single hour:
 Split cost allocation data normalizes the cost per resource based on a relative ratio of GPU:(cpu: memory) of 9:1. This implies that a unit of GPU costs 9x as much as a unit of CPU and memory. CPU and memory are then assigned a weight of 9:1. For a non-accelerated EC2 instance, the current default behavior will be adopted which is cpu: memory weight defaults to 9:1.
 
 ## Step 1: Compute the unit cost
-<a name="w2aac32c21c13c31c11"></a>
+<a name="w2aac34c21c13c23c11"></a>
 
 Based on the cpu and memory resources on the EC2 instance and using the ratio of mentioned above, Split Cost Allocation data first calculates the unit cost per GPU, vCPU-hr and GB-hr.
 
@@ -49,7 +48,7 @@ Based on the cpu and memory resources on the EC2 instance and using the ratio of
 | Instance 1 | p3.16xlarge | 64 | 8 |  | 488 | $10 | $0.05 | $0.50 | 0.005 | 
 
 ## Step 2: Calculate allocated and unused capacity
-<a name="w2aac32c21c13c31c13"></a>
+<a name="w2aac34c21c13c23c13"></a>
 
 Allocated Capacity  
 The GPU, vcpu and Memory allocated to the Kubernetes Pod from the parent EC2 Instance, defined as the Maximum of (reserved, used) capacity
@@ -90,7 +89,7 @@ In this example, the instance has CPU over subscription, attributed to Pod 2 tha
 | \*\*\* |  | 64 | 32 | 66 | 8 | 8 | 8 | 488 | 488 | 488 | 
 
 ## Step 3: Compute the split usage and utilization ratios
-<a name="w2aac32c21c13c31c15"></a>
+<a name="w2aac34c21c13c23c15"></a>
 
 Split usage ratio  
 The percentage of CPU or memory used by the Kubernetes pod compared to the overall CPU or memory available on the EC2 instance.
@@ -137,7 +136,7 @@ The percentage of CPU or memory used by the Kubernetes Pod compared to the overa
 |  |  | 1 | 0 | 1 | 0 | 1 | 1 | 
 
 ## Step 4: Compute the split cost and unused costs
-<a name="w2aac32c21c13c31c17"></a>
+<a name="w2aac34c21c13c23c17"></a>
 
 Split Cost  
 The pay per use cost allocation of the EC2 Instance cost based on allocated CPU and memory usage by the Kubernetes Pods

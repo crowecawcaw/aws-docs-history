@@ -1,7 +1,6 @@
 
 
 # Carbon emissions columns
-<a name="carbon-emissions-columns"></a>
 
 
 | Column name | Description | Data type | Null value allowed | 

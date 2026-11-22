@@ -1,7 +1,6 @@
 
 
 # Using Kubernetes labels for cost allocation in EKS
-<a name="split-cost-allocation-data-kubernetes-labels"></a>
 
 Split cost allocation data supports Kubernetes labels as cost allocation tags for Amazon EKS clusters. While these labels are automatically imported as user-defined cost allocation tags, they require activation at the management account level. Once activated, you can use them to attribute pod-level costs in your Cost and Usage Reports (CUR) using custom attributes such as cost center, application, business unit, and environment.
 

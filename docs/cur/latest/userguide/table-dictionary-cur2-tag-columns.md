@@ -1,7 +1,6 @@
 
 
 # Tags Column
-<a name="table-dictionary-cur2-tag-columns"></a>
 
 Tags column contains data about user, account, cost category and resource tags that apply to the line item. If you select this column, you need not select Resource tags and Cost category columns in your CUR 2.0.
 
@@ -34,7 +33,7 @@ AWS uses the following prefixes to distinguish between different tag sources:
 
 Consider a scenario where multiple tagging mechanisms use the same tag keys. Here's how AWS handles them:
 
-```
+```json
 {
   "resourceTags/department": "teamA", 
   "resourceTags/appName": "app1", 

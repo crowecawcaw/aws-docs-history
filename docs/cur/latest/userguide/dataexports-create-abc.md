@@ -1,7 +1,6 @@
 
 
 # Configuring Cost and Usage Reports 2.0 using AWS Billing Conductor
-<a name="dataexports-create-abc"></a>
 
 With AWS Billing Conductor, you can create pro forma AWS Cost and Usage Report (AWS CUR) 2.0 for each billing group. These pro forma reports use the same file format, granularity, and columns as the standard AWS CUR 2.0, providing the most comprehensive cost and usage data available for a given time period.
 

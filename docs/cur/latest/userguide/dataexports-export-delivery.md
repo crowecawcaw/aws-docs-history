@@ -1,7 +1,6 @@
 
 
 # Understanding export delivery
-<a name="dataexports-export-delivery"></a>
 
 In the following sections, you'll find information about your export delivery.
 + **Export S3 parent directory structure:** How export data is structured in the S3 directory to which your export is delivered to.
@@ -28,11 +27,7 @@ The following is an example of an S3 file path:
 The `Manifest.json` metadata file for the query is stored in the following S3 file path:  
 `s3://<bucket-name>/<prefix>/<export-name>/metadata/<partition>/<export-name>-Manifest.json`  
 The `Manifest.json` file is updated each time the export is refreshed. A new `Manifest.json` file is created for each new partition created by the export. For CUR 2.0, this means a new `Manifest.json` file is generated when a new billing period begins.  
-Manifest files contain the following information:  
-+ All of the columns that are included in the export.
-+ A list of the export files and their file path. We recommend identifying which files to ingest by programmatically reading this list.
-+ The time period covered by the export.
-+ A section called `additionalOutputFiles` that lists the additional files that are delivered if you have Athena or Amazon Redshift integration.
+For more information about the fields in the manifest file, see [Data Exports manifest file reference](dataexports-manifest.md).  
 The `Manifest.json` is only delivered once all of the export data files have been delivered to S3.
 
 ## Export refreshing

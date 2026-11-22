@@ -1,7 +1,6 @@
 
 
 # Monitoring your size flexible reservations for Amazon EC2
-<a name="monitor-flexible-reservation"></a>
 
 Amazon EC2 Reserved Instances that apply to a Region provide Availability Zone flexibility and instance size flexibility. Reserved Instances that provide Availability Zone flexibility provide a discount on usage in any Availability Zone in the Region. Reserved Instances that provide instance size flexibility provide a discount on usage, regardless of instance size in that family. Size flexible Reserved Instances apply to the smallest instance sizes first. For more information, see [How Reserved Instances are applied](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/apply_ri.html) in the *Amazon EC2 User Guide*.
 

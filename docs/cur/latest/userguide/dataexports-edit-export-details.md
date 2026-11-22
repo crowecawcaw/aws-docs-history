@@ -1,7 +1,6 @@
 
 
 # Editing export details
-<a name="dataexports-edit-export-details"></a>
 
 You can use the **Data Exports** page in the AWS Billing and Cost Management console to edit your export details.
 

@@ -1,7 +1,6 @@
 
 
 # Editing your Cost and Usage Reports configuration
-<a name="edit-cur"></a>
 
 You can use the **Cost and Usage Reports** page in the Billing and Cost Management console to edit Cost and Usage Reports.
 

@@ -1,7 +1,6 @@
 
 
 # Legacy Cost and Usage Reports
-<a name="cur-overview"></a>
 
 This section provides information on the Legacy Cost and Usage Reports feature.
 
