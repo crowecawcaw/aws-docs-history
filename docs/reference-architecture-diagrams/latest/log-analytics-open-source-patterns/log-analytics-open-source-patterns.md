@@ -1,7 +1,6 @@
 
 
 # Log Analytics with Open Source Patterns
-<a name="log-analytics-open-source-patterns"></a>
 
 Publication date: **December 13, 2022 ([Diagram history](#diagram-history))**
 
