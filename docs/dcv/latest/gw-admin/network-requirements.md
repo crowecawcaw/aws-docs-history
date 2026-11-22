@@ -1,7 +1,6 @@
 
 
 # Amazon DCV Connection Gateway network requirements
-<a name="network-requirements"></a>
 
 Amazon DCV Connection Gateway is usually installed on dedicated hosts, separate from Amazon DCV server machines. As depicted in the [high-level overview](what-is-gw.md#how-gw-works), the Connection Gateway must have network connectivity with the other components: the Clients, the Amazon DCV server hosts, the Session Resolver, and the Web Resources Server.
 

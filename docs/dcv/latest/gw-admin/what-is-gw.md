@@ -1,7 +1,6 @@
 
 
 # What is Amazon DCV Connection Gateway?
-<a name="what-is-gw"></a>
 
 **Note**  
 Amazon DCV was previously known as NICE DCV.

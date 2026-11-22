@@ -1,7 +1,6 @@
 
 
 # Understanding Connection Gateway activity logs
-<a name="logs"></a>
 
 The Amazon DCV Connection Gateway logs its activities to a log file. Log files are useful for monitoring the state of the Connection Gateway and can be used to troubleshoot problems. This section introduces the log file used by the Amazon DCV Connection Gateway and describes how to configure all the aspects related to logging, such as location, verbosity, size, and rotation.
 

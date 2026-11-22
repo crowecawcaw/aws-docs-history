@@ -1,7 +1,6 @@
 
 
 # Starting the Connection Gateway
-<a name="manage-start"></a>
 
 Manually start the Connection Gateway service using the command line.
 

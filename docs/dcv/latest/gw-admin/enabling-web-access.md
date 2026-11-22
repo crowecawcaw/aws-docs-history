@@ -1,7 +1,6 @@
 
 
 # Enabling Web Access
-<a name="enabling-web-access"></a>
 
 ## Configuring Web Resources
 <a name="configuring-resources"></a>

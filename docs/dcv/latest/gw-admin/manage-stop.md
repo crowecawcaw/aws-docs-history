@@ -1,7 +1,6 @@
 
 
 # Stopping the Connection Gateway
-<a name="manage-stop"></a>
 
 Manually stop the Connection Gateway service using the command line.
 

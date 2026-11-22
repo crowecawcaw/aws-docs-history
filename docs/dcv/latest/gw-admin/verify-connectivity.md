@@ -1,7 +1,6 @@
 
 
 # Verifying the Connection Gateway connectivity
-<a name="verify-connectivity"></a>
 
 Let's assume that the Connection Gateway host is associated with a DNS name, for instance `dcv.gateway.domain`, and it is listening on TCP port `8443` and UDP port `8443`. We can use the `nc` command to test the connectivity of our gateway.
 

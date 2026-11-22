@@ -1,7 +1,6 @@
 
 
 # Checking the status of the Connection Gateway
-<a name="manage-status"></a>
 
 To Check the status of the Connection Gateway service using the command line.
 

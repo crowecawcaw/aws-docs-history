@@ -1,7 +1,6 @@
 
 
 # Installing the Amazon DCV Connection Gateway
-<a name="setting-up-installing"></a>
 
 This section describes how to install the latest version of the Amazon DCV Connection Gateway on a Linux host. You can use multiple hosts to improve scalability and performance. For more information, see [Scaling the Amazon DCV Connection Gateway](scaling.md).
 

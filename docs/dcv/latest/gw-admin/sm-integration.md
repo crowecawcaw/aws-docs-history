@@ -1,7 +1,6 @@
 
 
 # Integrating Connection Gateway with Session Manager
-<a name="sm-integration"></a>
 
 Amazon DCV Connection Gateway can be used in conjunction with Amazon DCV Session Manager, which manages Amazon DCV server hosts and provides a Session Resolver end-point. The simplified [high-level overview](what-is-gw.md#how-gw-works) becomes:
 

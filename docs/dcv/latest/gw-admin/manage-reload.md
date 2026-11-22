@@ -1,7 +1,6 @@
 
 
 # Reloading the Connection Gateway configuration
-<a name="manage-reload"></a>
 
 To reload the configuration of the Connection Gateway using the command line.
 

@@ -1,7 +1,6 @@
 
 
 # Setting up a Session Resolver
-<a name="session-resolver"></a>
 
 The *Session Resolver* is the component responsible for mapping *Session IDs* to a destination host running the Amazon DCV server. The logic of this mapping is specific to how each customer designs and plans to use its infrastructure.
 
@@ -43,7 +42,7 @@ The `SessionId` field normally would just return the same ID that was provided a
 
 Example session resolver python implementation 
 
-```
+```python
 from flask import Flask, request
 import json
 

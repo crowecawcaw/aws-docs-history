@@ -1,7 +1,6 @@
 
 
 # Setting up the Amazon DCV Connection Gateway
-<a name="setting-up"></a>
 
 Setting up Amazon DCV Connection Gateway involves installing the Connection Gateway package, ensuring that it properly resolves session IDs and forwards DCV connections to the Amazon DCV server hosts.
 
