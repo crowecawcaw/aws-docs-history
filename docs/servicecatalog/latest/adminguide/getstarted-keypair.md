@@ -1,13 +1,12 @@
 
 
 # Step 2: Create a key pair
-<a name="getstarted-keypair"></a>
 
 To enable your end users to launch the product that is based on the sample template for this tutorial, you must create an Amazon EC2 key pair. A key pair is a combination of a public key that is used to encrypt data and a private key that is used to decrypt data. For more information about key pairs, ensure you are signed into the AWS console and then review [Amazon EC2 Key Pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon EC2 User Guide*.
 
 The CloudFormation template for this tutorial, `development-environment.template`, includes the `KeyName` parameter:
 
-```
+```json
 . . .
   "Parameters" : {
     "KeyName": {

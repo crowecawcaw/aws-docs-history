@@ -1,7 +1,6 @@
 
 
 # Step 6: Add a launch constraint to assign an IAM role
-<a name="getstarted-launchconstraint"></a>
 
  A launch constraint designates an IAM role that AWS Service Catalog assumes when an end user launches a product. 
 
@@ -40,7 +39,7 @@ Using a launch constraint allows you follow the IAM best practice of keeping end
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

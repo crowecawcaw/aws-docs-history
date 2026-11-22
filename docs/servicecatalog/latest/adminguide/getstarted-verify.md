@@ -1,7 +1,6 @@
 
 
 # Step 8: Test the end user experience
-<a name="getstarted-verify"></a>
 
 To verify the end user can successfully access the end user console view and launch your product, sign in to AWS as the end user and perform those tasks.
 

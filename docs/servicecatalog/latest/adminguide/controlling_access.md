@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management in AWS Service Catalog
-<a name="controlling_access"></a>
 
 Access to AWS Service Catalog requires credentials. Those credentials must have permission to access AWS resources, such as a AWS Service Catalog portfolio or product. AWS Service Catalog integrates with AWS Identity and Access Management (IAM) to enable you to grant AWS Service Catalog administrators the permissions they need to create and manage products, and to grant AWS Service Catalog end users the permissions they need to launch products and manage provisioned products. These policies are either created and managed by AWS or individually by administrators and end users. To control access, you attach these policies to users, groups, and roles that you use with AWS Service Catalog.
 

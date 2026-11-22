@@ -1,7 +1,6 @@
 
 
 # Resolving failed resource disassociations when deleting a product
-<a name="product-delete-exception"></a>
 
 If your prior attempt to [delete a product](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/productmgmt-delete.html) failed due to resource disassociation exceptions, review the list of exceptions and their resolutions below. 
 

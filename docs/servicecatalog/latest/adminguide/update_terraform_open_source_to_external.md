@@ -1,7 +1,6 @@
 
 
 # Updating existing Terraform Open Source products and provisioned products to the External product type
-<a name="update_terraform_open_source_to_external"></a>
 
 To continue support of HashiCorp technologies, as a result of the recent licensing changes to Terraform, AWS Service Catalog changed any previous references of *Terraform Open Source* to *External*. The External product type includes support for Terraform Community Edition, previously known as Terraform Open Source. AWS Service Catalog no longer supports Terraform Open Source as a valid product type for any *new* products or provisioned products. You can only update or terminate existing Terraform Open Source resources, including product versions and provisioned products.
 

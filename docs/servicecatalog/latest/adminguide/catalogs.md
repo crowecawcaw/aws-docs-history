@@ -1,7 +1,6 @@
 
 
 # Managing Catalogs
-<a name="catalogs"></a>
 
 AWS Service Catalog provides an interface for managing portfolios, products, and constraints from an administrator console.
 

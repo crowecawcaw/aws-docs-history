@@ -1,7 +1,6 @@
 
 
 # AWS Service Catalog Tag Update Constraints
-<a name="constraints-resourceupdate"></a>
 
 **Note**  
 AWS Service Catalog does not support tag update constraints for Terraform Open Source products.

@@ -1,7 +1,6 @@
 
 
 # Console branding preferences
-<a name="console-branding"></a>
 
 AWS Service Catalog allows administrators to specify console branding preferences for accounts. Administrators can use console branding to specify a company name, logo image, and a primary and secondary (accent) color for a variety of site components. These branding preferences are visible to both administrators and end-users when using the console. 
 

@@ -1,7 +1,6 @@
 
 
 # Getting started with a Terraform product
-<a name="getstarted-Terraform"></a>
 
 AWS Service Catalog enables quick, self-service provisioning with governance for your [ HashiCorp Terraform](https://developer.hashicorp.com/terraform/intro/terraform-editions) configurations within AWS. You can use AWS Service Catalog as a single tool to organize, govern, and distribute your Terraform configurations at scale within AWS. AWS Service Catalog supports Terraform across several key features, including cataloging of standardized and pre-approved Terraform templates, access control, versioning, tagging, and sharing to other AWS accounts. In AWS Service Catalog, your end users see a simple list of products and versions they have access to, and can then deploy those products in a single action. 
 

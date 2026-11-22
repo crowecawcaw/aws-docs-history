@@ -1,7 +1,6 @@
 
 
 # Syncing products to template files from GitHub, GitHub Enterprise, or Bitbucket
-<a name="git-synced-sc-products"></a>
 
 AWS Service Catalog allows you to sync products to template files that are managed through external repository provider. AWS Service Catalog refers to products with this type of template connection as *Git-synced* products. Repository options include GitHub, GitHub Enterprise, or Bitbucket. After you authorize your AWS account with an external repository account, you can create new AWS Service Catalog products or update existing products to sync to a template file in the repository. When changes are made to the template file and committed in the repository (for example, using git-push), AWS Service Catalog automatically detects the changes and creates a new product version (artifact). 
 
@@ -24,7 +23,7 @@ You can use the following AWS Identity and Access Management (IAM) policy as a t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -215,4 +214,6 @@ In the AWS CodeConnections API or AWS CLI, run the `$ aws codestar-connections d
 ## Syncing Terraform products to template files from GitHub, GitHub Enterprise, or Bitbucket
 <a name="git-synced-Terraform"></a>
 
-When creating a Git-synced product using a Terraform configuration file, the file path only accepts the tar.gz format. Terraform folder formats are not accepted in the file path. 
+When creating a Git-synced product using a Terraform configuration file, the template file path must point to a single file in the repository, such as `terraform/s3-bucket.tar.gz`. A folder path, such as `terraform/`, is not accepted. The supported file format depends on the product type:
++ For Terraform Open Source and Terraform Cloud products, the file must be a tar.gz file, and the file name must end in `.tar.gz`.
++ For External products, AWS Service Catalog does not check the file format. Use a format that your engine can process. For example, the Terraform Reference Engine for AWS Service Catalog accepts only `.tar.gz` files, while a custom engine might accept a `.zip` file. For more information, see [External Engines for AWS Service Catalog](external-engine.md).

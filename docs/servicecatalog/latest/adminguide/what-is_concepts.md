@@ -1,7 +1,6 @@
 
 
 # Overview of Service Catalog
-<a name="what-is_concepts"></a>
 
 As you get started with Service Catalog, you'll benefit from understanding its components and the initial workflows for administrators and end users.
 

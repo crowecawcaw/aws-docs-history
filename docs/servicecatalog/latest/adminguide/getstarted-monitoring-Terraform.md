@@ -1,7 +1,6 @@
 
 
 # Step 10: Monitoring Terraform provisioning operations
-<a name="getstarted-monitoring-Terraform"></a>
 
 If you want to monitor provisioning operations, you can review Amazon CloudWatch logs and AWS Step Functions for any provisioning workflow. 
 

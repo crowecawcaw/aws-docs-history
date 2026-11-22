@@ -1,7 +1,6 @@
 
 
 # External Engines for AWS Service Catalog
-<a name="external-engine"></a>
 
 In AWS Service Catalog, *external engines* are represented through an `EXTERNAL` product type. The `EXTERNAL` product type allows for the integration of third-party provisioning engines, such as Terraform. You can use external engines to extend the capabilities of Service Catalog beyond the native AWS CloudFormation templates, enabling the use of other instructure as code (IaC) tools.
 

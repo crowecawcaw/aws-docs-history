@@ -1,7 +1,6 @@
 
 
 # Deleting products using the AWS CLI
-<a name="product-delete-cli"></a>
 
 AWS Service Catalog allows you to use the [AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) (AWS CLI) to delete products from your portfolio. The AWS CLI is an open source tool that enables you to interact with AWS services using commands in your command-line shell. The AWS Service Catalog force-delete function requires an [AWS CLI alias](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-alias.html), which is a shortcut you can create in the AWS CLI to shorten commands or scripts that you frequently use. 
 

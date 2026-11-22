@@ -1,7 +1,6 @@
 
 
 # Tutorial: Identifying User Resource Allocation
-<a name="provisioned-products-tutorial"></a>
 
 You can identify the user who provisioned a product and resources associated with the product using the AWS Service Catalog console. This tutorial helps translate this example to your own specific provisioned products. 
 
@@ -29,7 +28,7 @@ To manage all provisioned products for the account, you need `AWSServiceCatalogA
 
 1. Use the provisioned product ID to identify the AWS CloudTrail record that corresponds to this launch and identify the requesting user (typically, you enter an email address during federation). In this example, it is "steve".
 
-   ```
+   ```json
    {
      "eventVersion":"1.03","userIdentity":
      {

@@ -1,7 +1,6 @@
 
 
 # Step 7: Grant end user access
-<a name="getstarted-deploy-Terraform"></a>
 
 After applying the launch constraint to your HashiCorp Terraform product, you are ready to grant access to end users in the spoke account.
 

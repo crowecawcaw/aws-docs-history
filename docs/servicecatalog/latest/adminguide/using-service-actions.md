@@ -1,7 +1,6 @@
 
 
 # AWS Service Catalog Service Actions
-<a name="using-service-actions"></a>
 
 **Note**  
 AWS Service Catalog does not support service actions for Terraform Open Source or Terraform Cloud products.
@@ -46,7 +45,7 @@ End users must have the necessary permissions to view and perform specific servi
 
 ****  
 
-   ```
+   ```json
    {
    	"Version":"2012-10-17",		 	 	 
    	"Statement": [

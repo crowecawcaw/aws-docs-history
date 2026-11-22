@@ -1,7 +1,6 @@
 
 
 # Prerequisite: Configure your Terraform provisioning engine
-<a name="getstarted-terraform-engine"></a>
 
 As a prerequisite to creating Terraform products in AWS Service Catalog, you must install and configure a provisioning engine in your Service Catalog administrator account (hub account). The provisioning engine is required for both Terraform Community Edition products (using the External product type) and Terraform Cloud products (using the Terraform Cloud product type). 
 

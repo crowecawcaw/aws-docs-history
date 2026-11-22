@@ -1,7 +1,6 @@
 
 
 # Managing Products
-<a name="catalogs_products"></a>
 
 You can create products, update products by creating a new version based on an updated template, and group products together into portfolios to distribute them to users.
 

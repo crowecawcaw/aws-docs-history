@@ -1,7 +1,6 @@
 
 
 # AWS Service Catalog Template Constraints
-<a name="catalogs_constraints_template-constraints"></a>
 
 **Note**  
 AWS Service Catalog does not support template constraints for Terraform Open Source or Terraform Cloud products. 

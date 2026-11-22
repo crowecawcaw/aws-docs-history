@@ -1,7 +1,6 @@
 
 
 # Granting Access to Users
-<a name="catalogs_portfolios_users"></a>
 
 Give users access to portfolios through groups or roles. The best way to provide portfolio access for many users is to put the users in an IAM group and grant access to that group. That way you can simply add and remove users from the group to manage portfolio access. For more information, see [IAM users and groups](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html) in the *IAM User Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # Getting started with an CloudFormation product
-<a name="getstarted-CFN"></a>
 
  You can get started with AWS Service Catalog by using one of the well-architected product templates in the Getting Started Library or by following the steps in the getting started tutorial. 
 

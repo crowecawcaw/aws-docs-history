@@ -1,7 +1,6 @@
 
 
 # Adding Constraints
-<a name="portfoliomgmt-constraints"></a>
 
 You should add constraints to control how users engage with products. For more information about the types of constraints that AWS Service Catalog supports, see [Using AWS Service Catalog Constraints](constraints.md). 
 

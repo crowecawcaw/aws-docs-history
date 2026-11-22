@@ -1,7 +1,6 @@
 
 
 # AWS Service Catalog API Overview
-<a name="service-catalog-api-overview"></a>
 
 **Benefits of Using the Service Catalog API**
 

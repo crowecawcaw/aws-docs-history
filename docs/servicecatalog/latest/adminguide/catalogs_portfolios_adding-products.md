@@ -1,7 +1,6 @@
 
 
 # Adding products to portfolios
-<a name="catalogs_portfolios_adding-products"></a>
 
  You can add products to any number of portfolios. When a product is updated, all of the portfolios (including shared portfolios) that contain the product automatically receive the new version. 
 

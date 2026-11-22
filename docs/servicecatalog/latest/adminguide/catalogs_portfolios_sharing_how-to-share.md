@@ -1,7 +1,6 @@
 
 
 # Sharing a Portfolio
-<a name="catalogs_portfolios_sharing_how-to-share"></a>
 
 To enable a AWS Service Catalog administrator for another AWS account to distribute your products to end users, share your AWS Service Catalog portfolio with them using either account-to-account sharing or AWS Organizations.
 

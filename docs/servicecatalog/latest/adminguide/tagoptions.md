@@ -1,7 +1,6 @@
 
 
 # AWS Service Catalog TagOption Library
-<a name="tagoptions"></a>
 
 To allow administrators to easily manage tags on provisioned products, AWS Service Catalog provides a TagOption library. A TagOption is a key-value pair managed in AWS Service Catalog. It is not an AWS tag, but serves as a template for creating an AWS tag based on the TagOption.
 

@@ -1,7 +1,6 @@
 
 
 # Using TagOptions with AWS Organizations tag policies
-<a name="tagoption-policies"></a>
 
 This topic provides a brief overview of tag policies for AWS Organizations and TagOptions for AWS Service Catalog. It also suggests how to prevent tagging conflicts when using both features simultaneously.
 

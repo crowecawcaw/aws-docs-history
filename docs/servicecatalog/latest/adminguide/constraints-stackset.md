@@ -1,7 +1,6 @@
 
 
 # AWS Service Catalog Stack Set Constraints
-<a name="constraints-stackset"></a>
 
 **Note**  
 AWS Service Catalog does not support stack set constraints for Terraform Open Source products.

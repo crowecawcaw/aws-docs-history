@@ -1,7 +1,6 @@
 
 
 # Adding Confused Deputy to your Terraform provisioning engine
-<a name="confused-deputy-TRFM-engine"></a>
 
 ## Confused Deputy context keys on the endpoints to restrict access for `lambda:Invoke` operations
 <a name="confused-deputy-TRFM-lambda"></a>
@@ -13,7 +12,7 @@ The parameter parser Lambda function created by AWS Service Catalog-provided eng
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -40,7 +39,7 @@ For example, you can restrict your engine to only allow requests that originate 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -76,7 +75,7 @@ The provisioning operation intake Amazon SQS queues created by AWS Service Catal
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -121,7 +120,7 @@ For example, you can restrict your engine to only allow requests that originate 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

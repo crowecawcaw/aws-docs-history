@@ -1,7 +1,6 @@
 
 
 # Creating Products
-<a name="productmgmt-cloudresource"></a>
 
  You create products from the **Products** page in the AWS Service Catalog administrator console. 
 

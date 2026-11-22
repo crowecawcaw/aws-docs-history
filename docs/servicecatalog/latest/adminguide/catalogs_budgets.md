@@ -1,7 +1,6 @@
 
 
 # Managing Budgets
-<a name="catalogs_budgets"></a>
 
 You can use AWS Budgets to track your service costs and usage within AWS Service Catalog. You can associate budgets with AWS Service Catalog products and portfolios.
 
@@ -44,7 +43,7 @@ To allow users to create budgets, you must also allow users to view billing info
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

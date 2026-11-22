@@ -1,7 +1,6 @@
 
 
 # Step 1: Download the CloudFormation template
-<a name="getstarted-template"></a>
 
  You can use CloudFormation templates to configure and provision portfolios and products. These templates are text files that can be formatted in JSON or YAML and describe the resources that you want to provision. For more information, see [Template Formats](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html) in the *CloudFormation User Guide*. You can use the AWS CloudFormation editor or a text editor of your choice to create and save templates. In this tutorial, we provide a simple template, so you can get started. The template launches a single Linux instance that's configured for SSH access. 
 
@@ -18,7 +17,7 @@ The sample template provided for this tutorial, `development-environment.templat
 
 The text of the sample template follows:
 
-```
+```json
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
 

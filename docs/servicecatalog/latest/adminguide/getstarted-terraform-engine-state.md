@@ -1,7 +1,6 @@
 
 
 # Managing the Terraform Open Source product state file
-<a name="getstarted-terraform-engine-state"></a>
 
 Every Terraform Open Source provisioned product has a **single-state file**. There is a 1:1 relationship between the provisioned product and its state file. The files are stored in an Amazon S3 bucket named `sc-terraform-engine-state-${AWS::AccountId}-${AWS::Region}`. The state file is saved under the `AccountID` or `ProvisionedProductID` object key. 
 

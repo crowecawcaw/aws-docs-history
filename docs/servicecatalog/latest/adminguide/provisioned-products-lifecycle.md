@@ -1,7 +1,6 @@
 
 
 # Managing Terraform Open Source product status errors
-<a name="provisioned-products-lifecycle"></a>
 
 Terraform Open Source `ProvisionProduct` failures are routed to the `TAINTED` state, allowing each provisioned product to proceed to `UpdateProvisionedProduct`. When this occurs:
 + `UpdateProvisionedProduct` does **not** make an attempt to update or correct tags, or to create or modify a resource group.

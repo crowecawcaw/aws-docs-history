@@ -1,7 +1,6 @@
 
 
 # Managing TagOptions
-<a name="tagoptions-manage"></a>
 
 As an administrator, you can perform the following actions to manage TagOptions in the TagOptions library:
 + Create and delete

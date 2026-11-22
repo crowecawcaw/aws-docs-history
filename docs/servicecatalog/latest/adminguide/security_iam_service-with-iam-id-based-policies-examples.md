@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS Service Catalog
-<a name="security_iam_service-with-iam-id-based-policies-examples"></a>
 
 **Topics**
 + [Console access for end users](#permissions-end-users-console)
@@ -51,7 +50,7 @@ The following policy allows full read and write access to provisioned products a
 
 ****  
 
-```
+```json
 {  
    "Version":"2012-10-17",		 	 	 
    "Statement":[  
@@ -80,7 +79,7 @@ This policy is functionally equivalent to the following policy:
 
 ****  
 
-```
+```json
 {  
    "Version":"2012-10-17",		 	 	 
    "Statement":[  
@@ -109,7 +108,7 @@ The following policy restricts access to read and write operations to only the p
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -153,7 +152,7 @@ The first policy allows the user access to write operations on the provisioned p
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -187,7 +186,7 @@ The first policy allows the user access to write operations on the provisioned p
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

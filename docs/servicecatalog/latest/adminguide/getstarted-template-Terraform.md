@@ -1,7 +1,6 @@
 
 
 # Step 1: Terraform configuration file download
-<a name="getstarted-template-Terraform"></a>
 
  You can use a Terraform configuration file to create and provision HashiCorp Terraform products. These configurations are plain text files and describe the resources that you want to provision. You can use the text editor of your choice to create, update, and save configurations. For product creation, you must upload Terraform configurations as a **tar.gz file**. In this tutorial, AWS Service Catalog provides a simple configuration file so you can get started. The configuration creates an Amazon S3 bucket. 
 
@@ -15,7 +14,7 @@ AWS Service Catalog provides a sample [`simple-s3-bucket.tar.gz`](https://github
 
 The text of the sample configuration file follows:
 
-```
+```json
 variable "bucket_name" {
   type = string
 }

@@ -1,7 +1,6 @@
 
 
 # Grant permissions to AWS Service Catalog administrators
-<a name="getstarted-iamadmin"></a>
 
 As a catalog administrator, you require access to the AWS Service Catalog administrator console view and IAM permissions that allow you to perform tasks such as the following:
 + Creating and managing portfolios
@@ -34,7 +33,7 @@ You, or an administrator who manages your IAM permissions, must attach policies 
 
    1.  Copy the following example policy, and paste it in **Policy Document**: 
 
-      ```
+      ```json
       {
           "Version": "2012-10-17",		 	 	 
           "Statement": [

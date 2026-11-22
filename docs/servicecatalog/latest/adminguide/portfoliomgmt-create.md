@@ -1,7 +1,6 @@
 
 
 # Creating and Deleting Portfolios
-<a name="portfoliomgmt-create"></a>
 
 Use the **Portfolios** page to create and delete portfolios. 
 

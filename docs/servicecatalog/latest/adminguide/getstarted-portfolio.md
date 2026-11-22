@@ -1,7 +1,6 @@
 
 
 # Step 3: Create a portfolio
-<a name="getstarted-portfolio"></a>
 
 To provide users with products, begin by creating a portfolio for those products.
 

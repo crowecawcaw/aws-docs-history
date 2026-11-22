@@ -1,7 +1,6 @@
 
 
 # Getting Started Library
-<a name="getstarted-library"></a>
 
  AWS Service Catalog provides a Getting Started Library of well-architected product templates so you can get started quickly. You can copy any of the products in our Getting Started Library portfolios to your own account, then customize them to suit your needs. 
 

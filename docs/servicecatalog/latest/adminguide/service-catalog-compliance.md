@@ -1,7 +1,6 @@
 
 
 # Compliance Validation for AWS Service Catalog
-<a name="service-catalog-compliance"></a>
 
 Third-party auditors assess the security and compliance of AWS Service Catalog as part of multiple AWS compliance programs, including the following:
 + System and Organization Controls (SOC)

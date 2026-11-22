@@ -1,7 +1,6 @@
 
 
 # AWS Service Catalog AutoTags
-<a name="autotags"></a>
 
 **Note**  
 AWS Service Catalog does not support AutoTags for Terraform Open Source products. 

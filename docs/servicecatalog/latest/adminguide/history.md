@@ -1,7 +1,6 @@
 
 
 # Document History
-<a name="history"></a>
 
 The following table describes the important changes to the documentation for AWS Service Catalog. For notification about updates to this documentation, you can subscribe to an RSS feed.
 + **API version**: 2014-11-12
@@ -9,11 +8,11 @@ The following table describes the important changes to the documentation for AWS
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [Quota for AWS Organizations access](#history) | AWS Service Catalog now documents the quota of 15,000 accounts per organization for AWS Organizations access. For more information, see [AWS Service Catalog default service quotas](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/limits.html#orgs). | October 5, 2026 | 
-| [Security IAM update](#history) | The `AWSServiceCatalogEndUserFullAccess` managed policy now includes the `cloudformation:UntagResource` permission. For more information about AWS managed policies for AWS Service Catalog, see [AWS managed policies for AWS Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/security-iam-awsmanpol.html#security-iam-awsmanpol-updates). | August 4, 2026 | 
-| [Security IAM update](#history) | The `AWSServiceCatalogAdminFullAccess` managed policy now includes the `cloudformation:UntagResource` permission. For more information about AWS managed policies for AWS Service Catalog, see [AWS managed policies for AWS Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/security-iam-awsmanpol.html#security-iam-awsmanpol-updates). | August 4, 2026 | 
-| [External Engines for AWS Service Catalog](#history) | AWS Service Catalog adds new documentation for external engines. External engines are represented through an `EXTERNAL` product type. The `EXTERNAL` product type allows for the integration of third-party provisioning engines, such as Terraform. You can use external engines to extend the capabilities of Service Catalog beyond the native AWS CloudFormation templates, enabling the use of other instructure as code (IaC) tools. For more information, see [External Engines for AWS Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/external-engine.html). | May 16, 2024 | 
-| [Security IAM update](#history) | AWS Service Catalog updates the `AWSServiceCatalogSyncServiceRolePolicy` policy to change `codestar-connections` to `codeconnections`. For more information, see [AWS managed policies for AWS Service Catalog AppRegistry](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/security-iam-awsmanpol.html#security-iam-awsmanpol-updates). | May 7, 2024 | 
+| [Quota for AWS Organizations access](history.md) | AWS Service Catalog now documents the quota of 15,000 accounts per organization for AWS Organizations access. For more information, see [AWS Service Catalog default service quotas](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/limits.html#orgs). | October 5, 2026 | 
+| [Security IAM update](history.md) | The `AWSServiceCatalogEndUserFullAccess` managed policy now includes the `cloudformation:UntagResource` permission. For more information about AWS managed policies for AWS Service Catalog, see [AWS managed policies for AWS Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/security-iam-awsmanpol.html#security-iam-awsmanpol-updates). | August 4, 2026 | 
+| [Security IAM update](history.md) | The `AWSServiceCatalogAdminFullAccess` managed policy now includes the `cloudformation:UntagResource` permission. For more information about AWS managed policies for AWS Service Catalog, see [AWS managed policies for AWS Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/security-iam-awsmanpol.html#security-iam-awsmanpol-updates). | August 4, 2026 | 
+| [External Engines for AWS Service Catalog](history.md) | AWS Service Catalog adds new documentation for external engines. External engines are represented through an `EXTERNAL` product type. The `EXTERNAL` product type allows for the integration of third-party provisioning engines, such as Terraform. You can use external engines to extend the capabilities of Service Catalog beyond the native AWS CloudFormation templates, enabling the use of other instructure as code (IaC) tools. For more information, see [External Engines for AWS Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/external-engine.html). | May 16, 2024 | 
+| [Security IAM update](history.md) | AWS Service Catalog updates the `AWSServiceCatalogSyncServiceRolePolicy` policy to change `codestar-connections` to `codeconnections`. For more information, see [AWS managed policies for AWS Service Catalog AppRegistry](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/security-iam-awsmanpol.html#security-iam-awsmanpol-updates). | May 7, 2024 | 
 
 ## Earlier Updates
 <a name="document-history-archive"></a>
