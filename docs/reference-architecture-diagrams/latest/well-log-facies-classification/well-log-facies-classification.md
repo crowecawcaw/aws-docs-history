@@ -1,7 +1,6 @@
 
 
 # Well Log Facies Classification Using Machine Learning
-<a name="well-log-facies-classification"></a>
 
 Publication date: **September 16, 2022 ([Diagram history](#diagram-history))**
 
