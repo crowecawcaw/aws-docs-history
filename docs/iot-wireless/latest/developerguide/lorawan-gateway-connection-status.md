@@ -1,7 +1,6 @@
 
 
 # Connect your LoRaWAN gateway and verify its connection status
-<a name="lorawan-gateway-connection-status"></a>
 
 Before you can check the gateway connection status, you must have already added your gateway and connected it to AWS IoT Core for LoRaWAN. For information about how to add your gateway, see [Add a gateway to AWS IoT Core for LoRaWAN](lorawan-onboard-gateway-add.md).
 
@@ -52,7 +51,7 @@ To check the connection status using the console, navigate to the [**Gateways**]
 
 To check the connection status using the API, use the `GetWirelessGatewayStatistics` API. This API doesn't have a request body and only contains a response body that shows whether the gateway is connected and when the last uplink was received.
 
-```
+```JSON
 HTTP/1.1 200
 Content-type: application/json
 

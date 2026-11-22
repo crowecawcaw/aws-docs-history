@@ -1,7 +1,6 @@
 
 
 # Create a network analyzer configuration
-<a name="network-analyzer-create"></a>
 
 Before you can monitor your wireless gateways or wireless devices, you must create a network analyzer configuration. When creating the configuration, you only need to specify a configuration name. You can customize your configuration settings and add the resources that you want to monitor to your configuration even after it's created. The configuration settings determine the trace messaging information that you'll receive for those resources.
 
@@ -86,7 +85,7 @@ When you create your configuration, you must specify a name. For example, the fo
 
   Running this command displays the ARN and ID of your network analyzer configuration.
 
-  ```
+  ```JSON
   {
       "Arn": "arn:aws:iotwireless:us-east-1:123456789012:NetworkAnalyzerConfiguration/12345678-a1b2-3c45-67d8-e90fa1b2c34d",
       "Id": "12345678-a1b2-3c45-67d8-e90fa1b2c34d"
@@ -107,7 +106,7 @@ To customize the configuration settings, use the `trace-content` parameter. To a
 
   The following example shows the output of running the command:
 
-  ```
+  ```JSON
   {
       "Arn": "arn:aws:iotwireless:us-east-1:123456789012:NetworkAnalyzerConfiguration/12345678-a1b2-3c45-67d8-e90fa1b2c34d",
       "Id": "12345678-a1b2-3c45-67d8-e90fa1b2c34d"
@@ -123,7 +122,7 @@ aws iotwireless list-network-analyzer-configurations
 
 Running this command displays all the network analyzer configurations in your AWS account. You can also use the `max-results` parameter to specify how many configurations you want to display. The following shows the output of running this command.
 
-```
+```JSON
 {
    "NetworkAnalyzerConfigurationList": [ 
       { 

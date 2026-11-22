@@ -1,7 +1,6 @@
 
 
 # Debug and troubleshoot your multicast groups and FUOTA tasks using network analyzer
-<a name="lorawan-network-analyzer-fuota"></a>
 
 The wireless resources that you can monitor include LoRaWAN devices, LoRaWAN gateways, and multicast groups. You can also use network analyzer to debug and troubleshoot any issues with your FUOTA task. You can also monitor and track messages related to setup, data transmission, and status query when the FUOTA task is in progress. 
 

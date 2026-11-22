@@ -1,7 +1,6 @@
 
 
 # WebSocket messages and status codes
-<a name="network-analyzer-messages-status"></a>
 
 After you've created a presigned request, you can use the request URL with your WebSocket library, , or a library that's suited to your programming language, to make requests to the service. For more information about how you can generate this presigned request, see [Generate a presigned request with the WebSocket library](network-analyzer-generate-request.md).
 

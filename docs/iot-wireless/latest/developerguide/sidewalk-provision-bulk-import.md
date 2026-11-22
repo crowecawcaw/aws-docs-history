@@ -1,7 +1,6 @@
 
 
 # Provisioning Sidewalk devices using import tasks
-<a name="sidewalk-provision-bulk-import"></a>
 
 This section shows how you can provision Sidewalk devices in bulk using the AWS IoT console, or the AWS IoT Core for Amazon Sidewalk API operations, or the AWS CLI. The following sections explain how to bulk provision your Sidewalk devices.
 
@@ -58,7 +57,7 @@ The CSV file that's contained in an Amazon S3 bucket that you specify for the im
 
 This JSON file shows a sample CSV file format.
 
-```
+```JSON
 smsn
 1C1A10B0AC0A200C012BBAC2CBB1B21CB12C0CA2AC1C1BB22CAA01C1B0B01122
 B122C2B1121BACA2221001AC1B22012AAC11112C11C2A100C1C2B012A1100C10

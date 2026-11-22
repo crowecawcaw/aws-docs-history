@@ -1,7 +1,6 @@
 
 
 # Create FUOTA task and provide firmware image
-<a name="lorawan-fuota-create-task"></a>
 
 To update the firmware of your LoRaWAN devices, first create a FUOTA task and provide the digitally signed firmware image you want to use for the update. You can then add your devices and multicast groups to the task and schedule a FUOTA session. When the session starts, AWS IoT Core for LoRaWAN sets up a fragmentation session and your end devices collect the fragments, reconstruct the image, and apply the new firmware. For information about the FUOTA process, see [FUOTA process overview](lorawan-fuota-mc-process.md).
 
@@ -119,7 +118,7 @@ where:
 
 **Contents of input.json**
 
-```
+```JSON
 {   
    "Description":{{ "FUOTA task to update firmware of devices in multicast group."}},
    "FirmwareUpdateImage": "S3:/{{firmware_bucket/firmware_image}}

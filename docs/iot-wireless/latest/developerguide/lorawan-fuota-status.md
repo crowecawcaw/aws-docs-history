@@ -1,7 +1,6 @@
 
 
 # Monitor and troubleshoot your FUOTA task and devices
-<a name="lorawan-fuota-status"></a>
 
 After you have provisioned the wireless devices and created any multicast groups that you might want to use, you can start a FUOTA session by performing the following steps.
 

@@ -1,7 +1,6 @@
 
 
 # How to use AWS IoT Core for LoRaWAN public network support
-<a name="lorawan-roaming-use"></a>
 
 To use Everynet's public network support, you enable certain roaming parameters when creating the service profile. In this beta release, these parameters are available when you use the AWS IoT Wireless API, or the AWS CLI. The following sections show the parameters you must enable, and how to enable public network using the AWS CLI.
 
@@ -56,7 +55,7 @@ To enable roaming when creating a service profile, use the [CreateServiceProfile
 
      Running this command returns the ARN and ID of the service profile as output.
 
-     ```
+     ```JSON
      {
          "Arn": "arn:aws:iotwireless:{{us-east-1}}:{{123456789012}}:ServiceProfile/{{12345678-a1b2-3c45-67d8-e90fa1b2c34d}}",
          "Id": "{{12345678-a1b2-3c45-67d8-e90fa1b2c34d}}"
@@ -85,7 +84,7 @@ To view the roaming parameters that you enabled, use the [GetServiceProfile](htt
 
      Running this command returns the service profile details as output, including the values for roaming parameters, `RaAllowed` and `PrAllowed`.
 
-     ```
+     ```JSON
      {
          "Arn": "arn:aws:iotwireless:{{us-east-1}}:{{123456789012}}:ServiceProfile/{{12345678-a1b2-3c45-67d8-e90fa1b2c34d}}",
          "Id": {{"12345678-a1b2-3c45-67d8-e90fa1b2c34d"}},
@@ -128,7 +127,7 @@ If you haven't already onboarded your devices, you specify this service profile 
 
      **Contents of createdevice.json**
 
-     ```
+     ```JSON
      {
          "Name": {{"DeviceA"}},  
          "Type": LoRaWAN,
@@ -148,7 +147,7 @@ If you haven't already onboarded your devices, you specify this service profile 
 
      The output of running this command produces the ARN and ID of the wireless device as output.
 
-     ```
+     ```JSON
      {
          "Arn": "arn:aws:iotwireless:{{us-east-1:123456789012}}:WirelessDevice/{{1ffd32c8-8130-4194-96df-622f072a315f}}",
          "Id": "{{1ffd32c8-8130-4194-96df-622f072a315f}}"
@@ -209,7 +208,7 @@ You can queue and send downlink messages to your devices from the console, or by
 **Note**  
 In some cases, even if you receive the `MessageId`, packets can get dropped. For information about troubleshooting such scenarios and resolving them, see [Troubleshoot downlink message queue errors](lorawan-downlink-queue.md#lorawan-downlink-queue-troubleshoot).
 
-     ```
+     ```JSON
      {
          MessageId: {{"6011dd36-0043d6eb-0072-0008"}}
      }

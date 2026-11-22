@@ -1,7 +1,6 @@
 
 
 # View import task and device onboarding status
-<a name="sidewalk-bulk-provision-status"></a>
 
 Your wireless device import tasks and Sidewalk devices that you've added to the task can have one of the following status messages. You'll see these messages displayed in the AWS IoT console, or when you use any of the AWS IoT Wireless API operations or AWS CLI commands to retrieve information about these tasks and their devices.
 

@@ -1,7 +1,6 @@
 
 
 # View format of uplink messages sent from LoRaWAN devices
-<a name="lorawan-uplink-metadata-format"></a>
 
 To faciliate seamless connection between your LoRaWAN devices and the cloud, you can use AWS IoT Core for LoRaWAN. The AWS IoT Core for LoRaWAN service provides secure and reliable data exchange between your LoRaWAN devices and AWS IoT Core. It acts as a bridge, translating the LoRaWAN protocol into MQTT messages that can be seamlessly ingested by AWS IoT Core. You can use this capability in applications, such as real-time data processing, device state management, and integration with other AWS services. 
 
@@ -51,7 +50,7 @@ In the metadata, the field:
 + `Battery` indicates the battery level reported by the device. It ranges from 0 to 255. 0 indicates that the device is connected to an external power source. 1 and 254 are the minimum and maximum battery levels. A value of 255 indicates that the device cannot measure the battery level.
 + `Margin` represents the demodulation SNR (signal-to-noise ratio) in dB rounded to the nearest integer value. It ranges from -32 to \+31.
 
-```
+```JSON
 {
     "WirelessDeviceId": "5b58245e-146c-4c30-9703-0ca942e3ff35", 
     "PayloadData": "Cc48AAAAAAAAAAA=",    
@@ -100,7 +99,7 @@ You can also connect to the public network instead of your own private LoRaWAN g
 **Note**  
 The uplink message will mention `PublicGateways` to indicate that it's received from the public network and not a private LoRaWAN gateway.
 
-```
+```JSON
 {
     "WirelessDeviceId": "5b58245e-146c-4c30-9703-0ca942e3ff35", 
     "PayloadData": "Cc48AAAAAAAAAAA=",    
@@ -149,7 +148,7 @@ If you want to exclude the gateway metadata information from your uplink metadat
 
 In this case, you won't see the `Gateways` section in the uplink metadata, as illustrated in the following example.
 
-```
+```JSON
 {  
     "WirelessDeviceId": "0d9a439b-e77a-4573-a791-49d5c0f4db95",
     "PayloadData": "AAAAAAAA8=",

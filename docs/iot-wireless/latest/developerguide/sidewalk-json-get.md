@@ -1,7 +1,6 @@
 
 
 # Obtain device JSON files for provisioning
-<a name="sidewalk-json-get"></a>
 
 After you've added your Sidewalk device to AWS IoT Core for Amazon Sidewalk, download the JSON file that contains the information required to provision your end device. You can retrieve this information using the AWS IoT console or the AWS CLI. For more information about how to provision the device, see [Provisioning and registering your end device](https://docs.sidewalk.amazon/provisioning/) in the *Amazon Sidewalk documentation*.
 
@@ -18,7 +17,7 @@ To obtain the JSON file for provisioning your Sidewalk device:
 
    A `certificate.json` file will be downloaded that contains the required information for provisioning your end device. The following shows a sample JSON file. It contains the device certificates, private keys, the Sidewalk manufacturing serial number (SMSN), and the `DeviceTypeID`.
 
-   ```
+   ```JSON
    {
      "p256R1": "{{grg8izXoVvQ86cPVm0GMyWuZYHEBbbH ... DANKkOKoNT3bUGz+/f/pyTE+xMRdIUBZ1Bw==}}",
      "eD25519": "{{grg8izXoVvQ86cPVm0GMyWuZYHEBbbHD ... UiZmntHiUr1GfkTOFMYqRB+Aw==}}",
@@ -100,7 +99,7 @@ The API will then return information about the device matching the specified ide
 
 The following shows an example of running the command using the CLI:
 
-```
+```JSON
 aws iotwireless get-wireless-device --identifier-type WirelessDeviceId \ 
     --identifier {{"23456789-abcd-0123-bcde-fabc012345678"}} > {{wireless_device.json}}
 ```
@@ -109,7 +108,7 @@ Running this command returns the device details, device certificates, private ke
 
 **`GetWirelessDevice` API response (Contents of `{{wireless_device.json}}`)**
 
-```
+```JSON
 {
     "Arn": "arn:aws:iotwireless:{{us-east-1}}:{{123456789012}}:WirelessDevice/{{23456789-abcd-0123-bcde-fabc012345678}}",
     "Description": "{{test-description}}",

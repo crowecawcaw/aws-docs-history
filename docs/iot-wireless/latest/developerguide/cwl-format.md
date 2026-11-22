@@ -1,7 +1,6 @@
 
 
 # View CloudWatch AWS IoT Wireless log entries
-<a name="cwl-format"></a>
 
 After you've configured logging for AWS IoT Wireless as described in [Create logging role and policy for AWS IoT Wireless monitoring](create-logging-role-policy.md) and written some log entries, you can view the log entries in the CloudWatch console by performing the following steps.
 
@@ -63,7 +62,7 @@ The log entries for your wireless gateway resource can be classified based on th
 The LoRa Basics Station running on your gateway periodically sends a request to the Configuration and Update Server (CUPS) for updates. For this event type, if you set log level to `INFO` when configuring the CLI for your wireless gateway resource, then in the logs:
   + If the event is successful, you'll see log messages that have a `logLevel` of `INFO`. The messages will include details about the CUPS response sent to your gateway and the gateway details. Following shows an example of this log entry. For more information about the `logLevel` and other fields in the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources).
 
-    ```
+    ```JSON
     {
         "timestamp": "2021-05-13T16:56:08.853Z",
         "resource": "WirelessGateway",
@@ -77,7 +76,7 @@ The LoRa Basics Station running on your gateway periodically sends a request to 
     ```
   + If there is an error, you'll see log entries that have a `logLevel` of `ERROR`, and the messages will include details about the error. Examples of when an error can occur for the `CUPS_Request` event include: missing CUPS CRC, mismatch in the gateway's TC Uri with AWS IoT Core for LoRaWAN, missing `IoTWirelessGatewayCertManagerRole`, or not able to obtain wireless gateway record. Following example shows a missing CRC log entry. To resolve the error, check your gateway setup to verify that you've entered the correct CUPS CRC.
 
-    ```
+    ```JSON
     {
         "timestamp": "2021-05-13T16:56:08.853Z",
         "resource": "WirelessGateway",
@@ -95,7 +94,7 @@ The LoRa Basics Station running on your gateway periodically sends a request to 
 These log entries will help you check whether your wireless gateway presented the correct certificate for authenticating connection to AWS IoT. For this event type, if you set log level to `INFO` when configuring the CLI for your wireless gateway resource, then in the logs:
   + If the event is successful, you'll see log messages that have a `logLevel` of `INFO`. The messages will include details about the Certificate ID and the Wireless gateway identifier. Following shows an example of this log entry. For more information about the `logLevel` and other fields in the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources).
 
-    ```
+    ```JSON
     {
         "resource": "WirelessGateway",
         "wirelessGatewayId": "5da85cc8-3361-4c79-8be3-3360fb87abda",
@@ -108,7 +107,7 @@ These log entries will help you check whether your wireless gateway presented th
     ```
   + If there is an error, you'll see log entries that have a `logLevel` of `ERROR`, and the messages will include details about the error. Examples of when an error can occur for the `Certificate` event include an invalid Certificate ID, wireless gateway identifier, or a mismatch between the wireless gateway identifier and the Certificate ID. Following example shows an `ERROR` due to invalid wireless gateway identifier. To resolve the error, check the gateway identifiers.
 
-    ```
+    ```json
     {
         "resource": "WirelessGateway",
         "wirelessGatewayId": "5da85cc8-3361-4c79-8be3-3360fb87abda",
@@ -140,7 +139,7 @@ When you add a LoRaWAN device and connect it to AWS IoT Core for LoRaWAN, before
   For this event type, if you set log level to `INFO` when configuring the CLI for your wireless gateway resource, then in the logs:
   + If the event is successful, you'll see log messages that have a `logLevel` of `INFO`. The messages will include details about the status of your join or rejoin request. Following shows an example of this log entry. For more information about the `logLevel` and other fields in the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources).
 
-    ```
+    ```JSON
     {
         "timestamp": "2021-05-13T16:56:08.853Z",
         "resource": "WirelessDevice",
@@ -154,7 +153,7 @@ When you add a LoRaWAN device and connect it to AWS IoT Core for LoRaWAN, before
     ```
   + If there is an error, you'll see log entries that have a `logLevel` of `ERROR`, and the messages will include details about the error. Examples of when an error can occur for the `Join` and `Rejoin` events include invalid LoRaWAN region setting, or invalid Message Integrity Code (MIC) check. Following example shows a join error due to MIC check. To resolve the error, check whether you've entered the correct root keys.
 
-    ```
+    ```json
     {
         "timestamp": "2020-11-24T01:46:50.883481989Z",
         "resource": "WirelessDevice",
@@ -174,7 +173,7 @@ The event type `Uplink_Data` is used for messages that are generated by AWS IoT 
   For this event type, if you set log level to `INFO` when configuring the CLI for your wireless devices, then in the logs, you'll see: 
   + If the event is successful, you'll see log messages that have a `logLevel` of `INFO`. The messages will include details about the status of the uplink or downlink message that was sent and the wireless device identifier. Following shows an example of this log entry for a Sidewalk device. For more information about the `logLevel` and other fields in the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources).
 
-    ```
+    ```JSON
     {
         "resource": "WirelessDevice",
         "wirelessDeviceId": "5371db88-d63d-481a-868a-e54b6431845d",
@@ -187,7 +186,7 @@ The event type `Uplink_Data` is used for messages that are generated by AWS IoT 
     ```
   + If there is an error, you'll see log entries that have a `logLevel` of `ERROR`, and the messages will include details about the error, which will help you resolve it. Examples of when an error can occur for the `Registration` event include: authentication issues, invalid or too many requests, unable to encrypt or decrypt the payload, or unable to find the wireless device using the specified ID. Following example shows a permission error encountered while processing a message.
 
-    ```
+    ```json
     {
         "resource": "WirelessDevice",
         "wirelessDeviceId": "cb4c087c-1be5-4990-8654-ccf543ee9fff",
@@ -210,7 +209,7 @@ These log entries will help you monitor the status of any Sidewalk devices that 
 
   Following shows an example for a log message with log level of `INFO`. For more information about the `logLevel` and other fields in the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources).
 
-  ```
+  ```JSON
   {
       "resource": "WirelessDevice",
       "wirelessDeviceId": "8d0b2775-e19b-4b2a-a351-cb8a2734a504",
@@ -233,7 +232,7 @@ This section shows some of the sample log entries for your FUOTA tasks that you'
 For the `Fuota` event type, if you set log level to `INFO` when configuring the CLI for your FUOTA task, then in the logs, you'll see: 
 + If the event is successful, you'll see log messages that have a `logLevel` of `INFO`. The messages will include details about the FUOTA task and the FUOTA task identifier. The following example shows a log entry when a FUOTA task file transmission has started. For more information about the `logLevel` and other fields in the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources).
 
-  ```
+  ```JSON
   {
       "resource": "FuotaTask",
       "fuotaTaskId": "01a23cde-5678-4a5b-ab1d-33456808ecb2",
@@ -246,7 +245,7 @@ For the `Fuota` event type, if you set log level to `INFO` when configuring the 
 
   The following example shows another log entry when a status change occurs to a FUOTA task.
 
-  ```
+  ```JSON
   {
       "resource": "FuotaTask",
       "fuotaTaskId": "01a23cde-5678-4a5b-ab1d-33456808ecb2",
@@ -258,7 +257,7 @@ For the `Fuota` event type, if you set log level to `INFO` when configuring the 
   ```
 + If there is an error, you'll see log entries that have a `logLevel` of `ERROR`, and the messages will include details about the error, which will help you resolve it. Examples of when an error can occur for the `Fuota` event include insufficient memory or the device is not ready. For more information about the different FUOTA statuses and how to troubleshoot them, see [Monitor and troubleshoot your FUOTA task and devices](lorawan-fuota-status.md).
 
-  ```
+  ```JSON
   {
     "resource": "FuotaTask",
     "fuotaTaskId": "01a23cde-5678-4a5b-ab1d-33456808ecb2",

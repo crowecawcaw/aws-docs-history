@@ -1,7 +1,6 @@
 
 
 # Configure resource logging for AWS IoT Wireless resources
-<a name="configure-resource-logging"></a>
 
 By default, if you create the IAM role, `IoTWirelessLogsRole`, as described in [Create logging role and policy for AWS IoT Wireless monitoring](create-logging-role-policy.md), you'll see CloudWatch logs in the AWS Management Console that have a default log level of `ERROR`. To change the default log level for all your resources or for specific resources, you can configure the logging settings.
 
@@ -55,7 +54,7 @@ You can use the following API actions to configure logging of resources. The tab
 
 You've learned how to create a logging role to log your AWS IoT Wireless resources. By default, logs have a log level of `ERROR`, so if you want to see only error information, go to [View CloudWatch AWS IoT Wireless log entries](cwl-format.md) to monitor your wireless resources by viewing the log entries.
 
-If you want more information in the log entries, you can configure the default log level for your resources or for different event types, such as setting the log level to `INFO`. For information about configuring logging for your resources, see [Configure resource logging for AWS IoT Wireless resources](#configure-resource-logging).
+If you want more information in the log entries, you can configure the default log level for your resources or for different event types, such as setting the log level to `INFO`. For information about configuring logging for your resources, see [Configure resource logging for AWS IoT Wireless resources](configure-resource-logging.md).
 
 ### How to configure logging using the AWS CLI
 <a name="configure-logging-api-how"></a>
@@ -71,7 +70,7 @@ You can also perform this procedure with the API by using the methods in the AWS
 
 1. By default, all resources have log level set to `ERROR`. To set the default log levels, or log levels by resource types for all resources in your account, use the [**update-log-levels-by-resource-types**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotwireless/update-log-levels-by-resource-types.html) command. The following example shows how you can create a JSON file, `Input.json`, and provide it as an input to the CLI command. You can use this command to selectively disable logging or override the default log level for specific types of resources and events.
 
-   ```
+   ```JSON
    {
        "DefaultLogLevel": "INFO",
        "FuotaTaskLogOptions":
@@ -158,7 +157,7 @@ The log level you want to use for individual resource types and events. These lo
 
    If you want to remove the log options for wireless devices and wireless gateways, run the following command.
 
-   ```
+   ```JSON
    {
        "DefaultLogLevel":"DISABLED",
        "WirelessDeviceLogOptions": [],
@@ -176,7 +175,7 @@ The **get-log-levels-by-resource-types** command can't directly retrieve the log
 
    When you run the following command, it returns the latest logging information you specified with **update-log-levels-by-resource-types**. For example, if you remove the wireless device and FUOTA task log options, then running the **get-log-levels-by-resource-types** will return these values as `null`.
 
-   ```
+   ```JSON
    {
        "DefaultLogLevel": "INFO",
        "WirelessDeviceLogOptions": null,

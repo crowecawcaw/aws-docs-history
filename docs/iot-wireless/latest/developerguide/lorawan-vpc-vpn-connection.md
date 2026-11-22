@@ -1,7 +1,6 @@
 
 
 # Use VPN to connect LoRa gateways to your AWS account
-<a name="lorawan-vpc-vpn-connection"></a>
 
 To connect your gateways on premises to your AWS account, you can use either a Site-to-Site VPN connection or a Client VPN endpoint.
 

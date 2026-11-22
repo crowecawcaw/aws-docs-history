@@ -1,7 +1,6 @@
 
 
 # Bulk provisioning devices with AWS IoT Core for Amazon Sidewalk
-<a name="sidewalk-bulk-provisioning"></a>
 
 You can use bulk provisioning to onboard a large number of end devices to AWS IoT Core for Amazon Sidewalk in bulk. Bulk provisioning is useful especially when you manufacture a large number of devices in a factory and want to onboard these devices to AWS IoT. For more information about manufacturing devices, see [Manufacturing Amazon Sidewalk devices](https://docs.sidewalk.amazon/manufacturing/) in the *Amazon Sidewalk documentation*.
 

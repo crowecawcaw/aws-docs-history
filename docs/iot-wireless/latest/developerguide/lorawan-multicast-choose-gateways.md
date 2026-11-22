@@ -1,7 +1,6 @@
 
 
 # Choose participating gateways to receive multicast downlink messages
-<a name="lorawan-multicast-choose-gateways"></a>
 
 A multicast group that consists of multiple devices can have the devices associated with multiple gateways. When a downlink message is sent to the multicast group, it will be sent to all the gateways that are associated with the devices in the group. This can potentially lead to the message that the device receives getting corrupted, such as when a device is in the vicinity of two gateways and receives the same multicast downlink from both gateways at the same time.
 
@@ -55,7 +54,7 @@ The following shows the contents of the {{`input.json`}} file.
 
 **Contents of {{`input.json`}}**
 
-```
+```JSON
 {
     "LoRaWAN": {
     "DlClass": "ClassB",

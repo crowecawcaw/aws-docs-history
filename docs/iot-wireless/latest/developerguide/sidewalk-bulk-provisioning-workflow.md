@@ -1,7 +1,6 @@
 
 
 # Amazon Sidewalk bulk provisioning workflow
-<a name="sidewalk-bulk-provisioning-workflow"></a>
 
 The following sections show you key concepts of bulk provisioning and how it works. The steps that are involved in bulk provisioning include:
 
@@ -32,7 +31,7 @@ When a Sidewalk end device joins the Sidewalk network, it must be provisioned wi
 
 The following shows a sample JSON file that contains the device certificates and the private keys. For more information, see [Obtain device JSON files for provisioning](sidewalk-json-get.md).
 
-```
+```JSON
 {
   "p256R1": "{{grg8izXoVvQ86cPVm0GMyWuZYHEBbbH ... DANKkOKoNT3bUGz+/f/pyTE+xMRdIUBZ1Bw==}}",
   "eD25519": "{{grg8izXoVvQ86cPVm0GMyWuZYHEBbbHD ... UiZmntHiUr1GfkTOFMYqRB+Aw==}}",
@@ -99,7 +98,7 @@ The following procedure illustrates the different steps in the bulk provisioning
 
    The CM manufactures the devices and generates control logs. The CM also provides you a CSV file that contains a list of devices to be manufactured and their Sidewalk manufacturing serial numbers (SMSN). The following code shows a sample control log. It contains the serial numbers of the device, the APID, and the public device certificates.
 
-   ```
+   ```JSON
    {
        "controlLogs": [
        {

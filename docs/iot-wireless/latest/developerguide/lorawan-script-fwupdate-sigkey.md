@@ -1,7 +1,6 @@
 
 
 # (Optional) Generate the firmware update file and signature
-<a name="lorawan-script-fwupdate-sigkey"></a>
 
 The steps in this procedure are optional and depend on the gateway you're using. Gateway manufacturers provide their own firmware update in the form of an update file or a script and Basics Station runs this script in the background. In this case, you'll most likely find the firmware update file in the release notes of the gateway you're using. You can then use that update file or script instead and proceed to [Upload the firmware file to an Amazon S3 bucket and add an IAM role](lorawan-upload-firmware-s3bucket.md).
 

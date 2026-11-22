@@ -1,7 +1,6 @@
 
 
 # Add necessary IAM role for network analyzer
-<a name="network-analyzer-iam"></a>
 
 When you use network analyzer, you must grant a user permission to use the API operations [UpdateNetworkAnalyzerConfiguration](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_UpdateNetworkAnalyzerConfiguration.html) and [GetNetworkAnalyzerConfiguration](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetNetworkAnalyzerConfiguration.html) to access network analyzer resources. The following shows the IAM policies that you use to grant permissions.
 
@@ -27,7 +26,7 @@ Create the following IAM policy by going to the [Create policy](https://console.
   The following shows the policy **IoTWirelessNetworkAnalyzerPolicy** that you created. For more information about creating a policy, see [Create IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create).  
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -49,7 +48,7 @@ To configure more fine-grained access control, you must add the wireless gateway
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -74,7 +73,7 @@ To grant a user permission to use network analyzer but not to use any wireless g
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Enable notifications for Sidewalk device registration state events
-<a name="iot-sidewalk-device-events"></a>
 
 Device registration state events publish event notifications when there is a change in the device registration state, such as when a Sidewalk device has been provisioned or registered. The events provide you information about the different states that the device goes through from when it's provisioned to when it has been registered.
 
@@ -58,7 +57,7 @@ You can't use the wildcard character `#` to subscribe to the reserved topics. Fo
 
 After you enable notifications for device registration state events, event notifications are published over MQTT with a JSON payload. These events contain the following example payload:
 
-```
+```JSON
 {    
     "eventId": "string", 
     "eventType": "provisioned|registered", 

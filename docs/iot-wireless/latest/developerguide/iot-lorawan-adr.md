@@ -1,7 +1,6 @@
 
 
 # Using adaptive data rate (ADR) with AWS IoT Core for LoRaWAN
-<a name="iot-lorawan-adr"></a>
 
 To optimize the device transmission power consumption while making sure that messages from the end devices are received at the gateways, AWS IoT Core for LoRaWAN uses adaptive data rate. Adaptive data rate instructs the end devices to optimize the data rate, transmission power, and the number of retransmissions while attempting to reduce the error rate of the packets received at the gateways. For example, if your end device is located close to the gateways, adaptive data rate reduces the transmission power and increases the data rate. 
 
@@ -37,7 +36,7 @@ aws iotwireless create-service-profile \
 
 Running this command generates an ID and an Amazon Resource Name (ARN) for the service profile.
 
-```
+```JSON
 {
     "Arn": "arn:aws:iotwireless:us-east-1:123456789012:ServiceProfile/12345678-a1b2-3c45-67d8-e90fa1b2c34d",
     "Id": "12345678-a1b2-3c45-67d8-e90fa1b2c34d"
@@ -52,7 +51,7 @@ aws iotwireless get-service-profile --id {{"12345678-a1b2-3c45-67d8-e90fa1b2c34d
 
 Running this command generates the values for the service profile parameters.
 
-```
+```JSON
 {
     "Arn": "arn:aws:iotwireless:us-east-1:651419225604:ServiceProfile/12345678-a1b2-3c45-67d8-e90fa1b2c34d",
     "Id": "12345678-a1b2-3c45-67d8-e90fa1b2c34d",

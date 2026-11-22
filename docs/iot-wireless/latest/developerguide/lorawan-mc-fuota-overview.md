@@ -1,7 +1,6 @@
 
 
 # Firmware update over-the-air (FUOTA) for AWS IoT Core for LoRaWAN
-<a name="lorawan-mc-fuota-overview"></a>
 
 Use Firmware Updates Over-The-Air (FUOTA) to deploy firmware updates to AWS IoT Core for LoRaWAN devices.
 

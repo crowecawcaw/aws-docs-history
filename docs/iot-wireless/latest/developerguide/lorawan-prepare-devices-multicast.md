@@ -1,7 +1,6 @@
 
 
 # Prepare devices for multicast and FUOTA configuration
-<a name="lorawan-prepare-devices-multicast"></a>
 
 When you add your wireless device to AWS IoT Core for LoRaWAN, you can prepare your wireless device for multicast setup and FUOTA configuration by using the console or the CLI. If you're performing this configuration for the first time, we recommend that you use the console. To manage your multicast group and add or remove a number of devices from your group, we recommend using the CLI to manage a large number of resources.
 
@@ -73,7 +72,7 @@ where:
 
 **Contents of input.json**
 
-```
+```JSON
 {
     "Description": "My LoRaWAN wireless device"
     "DestinationName": "IoTWirelessDestination"

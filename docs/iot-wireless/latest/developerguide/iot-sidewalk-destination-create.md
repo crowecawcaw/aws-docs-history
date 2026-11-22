@@ -1,7 +1,6 @@
 
 
 # Create a destination for your Sidewalk device
-<a name="iot-sidewalk-destination-create"></a>
 
 You can add a destination to your account for AWS IoT Core for Amazon Sidewalk either from the using the [Destinations hub](https://console.aws.amazon.com/iot/home#/wireless/destinations) or using the `CreateDestination`. When creating your destination, specify:
 + A unique name for the destination to use for your Sidewalk end device.
@@ -53,7 +52,7 @@ aws iotwireless create-destination --name {{SidewalkDestination}} \
 
 Running this command returns the destination details, which include the Amazon Resource Name (ARN) and the destination name.
 
-```
+```JSON
 {
     "Arn": "arn:aws:iotwireless:{{us-east-1}}:{{123456789012}}:Destination/{{SidewalkDestination}}",
     "Name": "{{SidewalkDestination}}"

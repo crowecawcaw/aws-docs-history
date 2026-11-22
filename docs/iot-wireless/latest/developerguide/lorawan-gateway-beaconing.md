@@ -1,7 +1,6 @@
 
 
 # Configure beaconing for your LoRaWAN gateways
-<a name="lorawan-gateway-beaconing"></a>
 
 If you onboard class B wireless devices to AWS IoT Core for LoRaWAN, the devices receive downlink messages in scheduled time slots. The devices open these slots based on time-synchronized beacons that are transmitted by the gateway. For your gateways to transmit these time-synchronous beacons, you can use AWS IoT Core for LoRaWAN to configure certain beaconing-related parameters for the gateways.
 
@@ -22,7 +21,7 @@ The following example shows how you configure these parameters for the gateway. 
 **Note**  
 The beaconing parameters aren't available when you add your gateway to AWS IoT Core for LoRaWAN using the AWS IoT console.
 
-```
+```JSON
 aws iotwireless create-wireless-gateway \
     --name "{{myLoRaWANGateway}}" \        
     --cli-input-json {{file://input.json}}
@@ -32,7 +31,7 @@ The following shows the contents of the `input.json` file.
 
 **Contents of input.json**
 
-```
+```JSON
 { 
     "Description": {{"My LoRaWAN gateway"}},
     "LoRaWAN": {

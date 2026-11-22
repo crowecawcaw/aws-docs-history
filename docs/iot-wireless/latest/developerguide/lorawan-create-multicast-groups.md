@@ -1,7 +1,6 @@
 
 
 # Create multicast groups and add devices to the group
-<a name="lorawan-create-multicast-groups"></a>
 
 You can create multicast groups by using the console or the CLI. If you're creating your multicast group for the first time, we recommend that you use the console to add your multicast group. When you want to manage your multicast group and add or remove devices from your group, you can use the CLI.
 
@@ -102,7 +101,7 @@ Alternatively, you can specify default session parameters, such as the downlink 
 
    **Contents of input.json**
 
-   ```
+   ```JSON
    {   
       "Description": "Multicast group to send downlink payload and perform FUOTA.",
       "LoRaWAN": { 
@@ -140,7 +139,7 @@ Alternatively, you can specify default session parameters, such as the downlink 
 
      **Contents of input.json**
 
-     ```
+     ```JSON
      {
           "QueryString":"DeviceProfileName: MyWirelessDevice AND DeviceProfileId: d6d8ef8e-7045-496d-b3f4-ebcaa1d564bf",
           "Tags": [

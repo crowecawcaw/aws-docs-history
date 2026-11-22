@@ -1,7 +1,6 @@
 
 
 # Use AWS IoT Core for LoRaWAN metrics
-<a name="iot-lorawan-metrics"></a>
 
 Use AWS IoT Core for LoRaWAN metrics to monitor the health of your LoRaWAN resources in a dashboard view. It provides information about the connectivity of your devices with the cloud, how they are functioning, and whether they are operating within specifications. These metrics can be aggregated to provide historical and up-to-the-minute view of data and trends for your resources.
 
@@ -54,7 +53,7 @@ You'll see data flowing through the dashboard and displayed for your resources i
 
 To activate summary metrics and see data flowing through the dashboard, use the [`UpdateMetricConfiguration`](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_UpdateMetricConfiguration.html) API operation or the [`update-metric-configuration`](https://docs.aws.amazon.com/cli/latest/reference/iotwireless/update-metric-configuration.html) CLI command. The following code shows a sample request body.
 
-```
+```JSON
 {
     "SummaryMetricQueries": [
         {
@@ -77,7 +76,7 @@ To activate summary metrics and see data flowing through the dashboard, use the 
 
 After you've activated summary metrics, you can use the [`GetMetrics`](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetMetrics.html) API operation or the [`get-metrics`](https://docs.aws.amazon.com/cli/latest/reference/iotwireless/get-metrics.html) CLI command.
 
-```
+```JSON
 {
   "SummaryMetric": {
       "Status": Disabled        
@@ -87,7 +86,7 @@ After you've activated summary metrics, you can use the [`GetMetrics`](https://d
 
 You can then use the [`GetMetricConfiguration`](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetMetricConfiguration.html) API operation or the [`get-metric-configuration`](https://docs.aws.amazon.com/cli/latest/reference/iotwireless/get-metric-configuration.html) CLI command to view the metric configuration status. The following shows a sample response.
 
-```
+```JSON
 {
   "SummaryMetric": {
       "Status": Disabled

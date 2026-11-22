@@ -1,7 +1,6 @@
 
 
 # Perform firmware update over-the-air (FUOTA) for LoRaWAN devices and multicast groups
-<a name="lorawan-multicast-fuota"></a>
 
 Efficient firmware updates are crucial for maintaining the performance and security of IoT devices in the field. AWS IoT Core for LoRaWAN supports multicast firmware over-the-air (FUOTA) update feature that streamlines the process of updating firmware on multiple LoRaWAN devices simultaneously.
 

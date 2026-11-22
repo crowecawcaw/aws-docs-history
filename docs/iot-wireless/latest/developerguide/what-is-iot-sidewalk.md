@@ -1,7 +1,6 @@
 
 
 # What is AWS IoT Core for Amazon Sidewalk?
-<a name="what-is-iot-sidewalk"></a>
 
 With AWS IoT Core for Amazon Sidewalk, you can onboard your Amazon Sidewalk end devices to AWS IoT and manage and monitor them. It also manages the destinations that send device data to other AWS services.
 

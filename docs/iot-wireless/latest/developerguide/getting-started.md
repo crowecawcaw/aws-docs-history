@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS IoT Wireless
-<a name="getting-started"></a>
 
 You can get started with AWS IoT Wireless by signing up for an AWS account and following the steps to create an IAM user. After you've signed up, you can then use the AWS Management Console, the AWS IoT Wireless API, or the AWS CLI to onboard your Sidewalk and LoRaWAN devices and gateways. When onboarding your devices, consider how to describe and tag your resources to help you identify them more easily.
 
@@ -36,7 +35,7 @@ To use the AWS CLI and boto3 as described in the next section, you must use a Py
 
 To check whether you’ve already installed Python and Python3-pip, run the following commands. If running these commands return the version, it means that Python and Python3-pip have been installed correctly.
 
-```
+```python
 python3 -V
 pip3 --version
 ```
@@ -82,7 +81,7 @@ The following steps show you how to configure boto3 (AWS SDK for Python). Before
 **Note**  
 `awscli` version `1.26.6` requires PyYAML version that's 3.10 or later, but not later than 5.5.
 
-   ```
+   ```python
    python3 -m pip install botocore-{{version}}-py3-none-any.whl
    python3 -m pip install boto3-{{version}}-py3-none-any.whl
    ```

@@ -1,7 +1,6 @@
 
 
 # Event notifications for wireless resources
-<a name="iot-wireless-events-notifications"></a>
 
 You can use the AWS Management Console or AWS IoT Wireless API operations to notify you of events for your Sidewalk devices, and your LoRaWAN devices and gateways. For information about event notifications and how to enable them, see [Event notifications for AWS IoT Wireless](iot-wireless-events.md) and [Enable events for wireless resources](iot-wireless-control-events.md).
 

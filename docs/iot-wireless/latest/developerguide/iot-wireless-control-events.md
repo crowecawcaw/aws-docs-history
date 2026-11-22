@@ -1,7 +1,6 @@
 
 
 # Enable events for wireless resources
-<a name="iot-wireless-control-events"></a>
 
 Before subscribers to the reserved topics can receive messages, you must enable event notifications. To do this, you can use the AWS Management Console, or the AWS IoT Wireless API or AWS CLI.
 
@@ -77,7 +76,7 @@ aws iotwireless update-event-configuration-by-resource-types \
 
 **Contents of input.json**
 
-```
+```JSON
 {   
    "DeviceRegistrationState": { 
       "Sidewalk": { 
@@ -113,7 +112,7 @@ aws iotwireless update-resource-event-configuration \
 
 **Contents of input.json**
 
-```
+```JSON
 {  
    "Join": { 
       "LoRaWAN": { 

@@ -1,7 +1,6 @@
 
 
 # Tagging your AWS IoT Wireless resources
-<a name="tagging-iotwireless"></a>
 
 To help you manage and organize your devices, gateways, destinations, and profiles, you can optionally assign your own metadata to each of these resources in the form of tags. This section describes tags and shows you how to create them. AWS IoT Wireless doesn't have billing groups, and uses the same billing groups as AWS IoT Core. For more information, see [Billing groups](https://docs.aws.amazon.com/iot/latest/developerguide/tagging-iot-billing-groups.html) in the *AWS IoT Core documentation*.
 
@@ -75,7 +74,7 @@ The following example policy applies two tag-based restrictions. An IAM user res
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -124,7 +123,7 @@ The following example policy applies two tag-based restrictions. An IAM user res
 
 You can also specify multiple tag values for a given tag key by enclosing them in a list, like this: 
 
-```
+```JSON
 "StringEquals" : {
               "aws:ResourceTag/env" : ["dev", "test"]
 }

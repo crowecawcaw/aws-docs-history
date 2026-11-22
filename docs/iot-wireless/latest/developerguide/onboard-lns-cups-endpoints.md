@@ -1,7 +1,6 @@
 
 
 # Onboard AWS IoT Core for LoRaWAN data plane API endpoints
-<a name="onboard-lns-cups-endpoints"></a>
 
 AWS IoT Core for LoRaWAN data plane endpoints consist of the following endpoints. You get these endpoints when adding your gateway to AWS IoT Core for LoRaWAN. For more information, see [Add a gateway to AWS IoT Core for LoRaWAN](lorawan-onboard-gateway-add.md).
 + 

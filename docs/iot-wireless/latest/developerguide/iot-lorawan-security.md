@@ -1,7 +1,6 @@
 
 
 # Data and transport security with AWS IoT Core for LoRaWAN
-<a name="iot-lorawan-security"></a>
 
 AWS IoT Core for LoRaWAN uses the following methods to secure the data and communication between LoRaWAN devices, gateways, and AWS IoT Core for LoRaWAN:
 + The security best practices that devices follow when communicating with LoRaWAN gateways, as described in the whitepaper [LoRaWAN Security](https://lora-alliance.org/sites/default/files/2019-05/lorawan_security_whitepaper.pdf).

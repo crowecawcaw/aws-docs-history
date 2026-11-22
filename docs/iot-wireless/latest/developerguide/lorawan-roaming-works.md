@@ -1,7 +1,6 @@
 
 
 # How LoRaWAN public network support works
-<a name="lorawan-roaming-works"></a>
 
 AWS IoT Core for LoRaWAN supports the passive roaming feature, according to the LoRa Alliance specification. With passive roaming, the roaming process is entirely transparent to the end device. End devices that roam outside the home network can connect to gateways in that network and exchange uplink and downlink data using the application server. The devices stay connected to the home network throughout the entire roaming process.
 

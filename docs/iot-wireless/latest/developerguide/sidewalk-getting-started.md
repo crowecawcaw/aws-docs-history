@@ -1,7 +1,6 @@
 
 
 # Get started using AWS IoT Core for Amazon Sidewalk
-<a name="sidewalk-getting-started"></a>
 
 This section shows you how to get started with connecting your Sidewalk end devices to AWS IoT Core for Amazon Sidewalk. It explains how you can connect an end device to Amazon Sidewalk and pass messages between them. You'll also learn about the Sidewalk sample application and an overview of how to perform sensor monitoring using AWS IoT Core for Amazon Sidewalk. The sample application provides you with a dashboard to view and monitor changes to the sensor temperature.
 

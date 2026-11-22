@@ -1,7 +1,6 @@
 
 
 # Create logging role and policy for AWS IoT Wireless monitoring
-<a name="create-logging-role-policy"></a>
 
 The following shows how to create a logging role for your AWS IoT Wireless resources. After you create the logging role and policy, you can configure logging for your resources.
 
@@ -35,7 +34,7 @@ In the confirmation message displayed after you ran the previous step, choose th
 
 1. In **Policy Document**, change the `Principal` property to look like this example.
 
-   ```
+   ```json
    "Principal": { 
        "Service": "iotwireless.amazonaws.com" 
    },
@@ -44,7 +43,7 @@ In the confirmation message displayed after you ran the previous step, choose th
    After you change the `Principal` property, the complete policy document should look like this example.  
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -75,7 +74,7 @@ The following shows the role policy document.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -99,7 +98,7 @@ The following shows the trust policy for logging only AWS IoT Wireless activity.
 
 ****  
 
-```
+```json
 {
      "Version":"2012-10-17",		 	 	 
       "Statement": [

@@ -1,7 +1,6 @@
 
 
 # AWS IoT Wireless identity-based policy examples
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, IAM users and roles don't have permission to create or modify AWS IoT Wireless resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the IAM users or groups that require those permissions.
 
@@ -43,7 +42,7 @@ You don't need to allow minimum console permissions for users that are making ca
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -85,7 +84,7 @@ You can use conditions in your identity-based policy to control access to AWS Io
 
 ****  
 
-```
+```json
 {
  "Version":"2012-10-17",		 	 	 
  "Statement": [{

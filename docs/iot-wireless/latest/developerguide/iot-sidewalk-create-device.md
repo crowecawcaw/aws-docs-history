@@ -1,7 +1,6 @@
 
 
 # Add your device to AWS IoT Core for Amazon Sidewalk
-<a name="iot-sidewalk-create-device"></a>
 
 Before creating a wireless device, first create a device profile. Device profiles define the device capabilities and other parameters for your Sidewalk devices. A single device profile can be associated with multiple devices.
 

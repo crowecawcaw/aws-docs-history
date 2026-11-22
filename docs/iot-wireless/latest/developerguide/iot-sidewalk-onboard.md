@@ -1,7 +1,6 @@
 
 
 # Connecting to AWS IoT Core for Amazon Sidewalk
-<a name="iot-sidewalk-onboard"></a>
 
 This section shows you how to onboard your Sidewalk end device and then connect your device to the Sidewalk network. It describes the steps that you perform in the onboarding tutorial, as mentioned in [Introduction to onboarding your Sidewalk devices](sidewalk-getting-started.md#sidewalk-gs-workflow). You'll learn how to onboard devices by using the AWS IoT console and the AWS IoT Core for Amazon Sidewalk API operations. You'll also learn about the AWS CLI commands that perform these operations.
 

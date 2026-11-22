@@ -1,7 +1,6 @@
 
 
 # Generate a presigned request with the WebSocket library
-<a name="network-analyzer-generate-request"></a>
 
 The following shows how you to generate a presigned request so that you can use the WebSocket library to send requests to the service,.
 
@@ -12,7 +11,7 @@ To use the WebSocket protocol to call network analyzer, attach the following pol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

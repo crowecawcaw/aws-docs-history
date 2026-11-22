@@ -1,7 +1,6 @@
 
 
 # Schedule a downlink message for your multicast group
-<a name="lorawan-multicast-schedule-downlink"></a>
 
 After you've successfully added devices to your multicast group, you can start a multicast session and configure a downlink message to be sent to those devices. The downlink message must be scheduled within 48 hours and the start time for the multicast must be at least 30 minutes later than the current time.
 

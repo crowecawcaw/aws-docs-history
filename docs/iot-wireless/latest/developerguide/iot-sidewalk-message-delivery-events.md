@@ -1,7 +1,6 @@
 
 
 # Enable notifications for message delivery status events
-<a name="iot-sidewalk-message-delivery-events"></a>
 
 Message delivery status events publish event notifications about the status of messages that are exchanged between your Sidewalk devices and AWS IoT Wireless. Event notifications are published for both downlink messages that are sent from AWS IoT Wireless to the Sidewalk device, and uplink messages that are sent from your device to AWS IoT Wireless.
 
@@ -64,7 +63,7 @@ After you enable notifications for message delivery status events, event message
 **Success events**  
 The following shows the payload format when the event is a success.
 
-```
+```JSON
 {
     "eventId": "string",
     "eventType": "success",
@@ -100,7 +99,7 @@ The Sidewalk wrapper that contains the status code for success messages, sequenc
 **Error events**  
 The following shows the payload format when the event indicates that an error occurred.
 
-```
+```JSON
 {
     "eventId": "string",
     "eventType": "error" ,

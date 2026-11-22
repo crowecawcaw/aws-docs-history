@@ -1,7 +1,6 @@
 
 
 # Update gateway firmware using CUPS service with AWS IoT Core for LoRaWAN
-<a name="lorawan-update-firmware"></a>
 
 The [LoRa Basics Station](https://doc.sm.tc/station/) software that runs on your gateway provides credential management and firmware update interface using the Configuration and Update Server (CUPS) protocol. The CUPS protocol is an efficient mechanism that provides secure firmware update delivery with ECDSA signatures. It enables over-the-air (OTA) firmware updates, allowing you to remotely manage and upgrade the software on your LoRaWAN gateways without physically accessing them.
 

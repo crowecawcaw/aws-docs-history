@@ -1,7 +1,6 @@
 
 
 # AWS IoT Wireless API operations
-<a name="iot-wireless-api-reference"></a>
 
 You can perform the following additional API operations when onboarding your LoRaWAN or Sidewalk end devices, or when creating an import task for provisioning Sidewalk end devices in bulk.
 
@@ -27,13 +26,13 @@ You can use the [`ListDeviceProfiles`](https://docs.aws.amazon.com/iot-wireless/
 
 To filter the list to display only LoRaWAN or Sidewalk device profiles, set the `Type` when running the API. Following shows an example CLI command:
 
-```
+```JSON
 aws iotwireless list-device-profiles --wireless-device-type "Sidewalk"
 ```
 
 Running this command returns a list of device profiles that you added, including their profile identifier and Amazon Resource Name (ARN). To retrieve additional details about a specific profile, use the `GetDeviceProfile` API.
 
-```
+```JSON
 {
     "DeviceProfileList": [
         {
@@ -58,7 +57,7 @@ You can delete your device profiles using the [`DeleteDeviceProfile`](https://do
 **Warning**  
 Deletion actions can't be undone. The device profile will be permanently removed from your AWS account.
 
-```
+```JSON
 aws iotwireless delete-device-profile --name "{{SidewalkProfile}}"
 ```
 
@@ -109,13 +108,13 @@ To list wireless devices in your AWS account that you added to AWS IoT Wireless,
 
 The following shows an example of running this command:
 
-```
+```JSON
 aws iotwireless list-wireless-devices --wireless-device-type Sidewalk
 ```
 
 Running this command returns a list of devices that you added, including their profile identifier and the Amazon Resource Name (ARN). To retrieve additional details about a specific device, use the [`GetWirelessDevice`](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetWirelessDevice.html) API operation.
 
-```
+```JSON
 {
     "WirelessDeviceList": [
         {
@@ -179,7 +178,7 @@ To delete your wireless devices, pass the `WirelessDeviceID` of the devices you 
 
 The following shows an example command:
 
-```
+```JSON
 aws iotwireless delete-wireless-device --id "{{23456789-abcd-0123-bcde-fabc012345678}}"
 ```
 
@@ -210,7 +209,7 @@ aws iotwireless get-destination --name {{SidewalkDestination}}
 
 Running this command returns the parameters of your destination.
 
-```
+```JSON
 {
     "Arn": "arn:aws:iotwireless:{{us-east-1}}:{{123456789012}}:Destination/IoTWirelessDestination",
     "Name": "{{SidewalkDestination}}",
@@ -237,13 +236,13 @@ Use the [`ListDestinations`](https://docs.aws.amazon.com/iot-wireless/latest/api
 
 The following shows an example CLI command:
 
-```
+```JSON
 aws iotwireless list-destinations --wireless-device-type "Sidewalk"
 ```
 
 Running this command returns a list of destinations that you added, including their Amazon Resource Name (ARN). To retrieve additional details about a specific destination, use the `GetDestination` API.
 
-```
+```JSON
 {
     "DestinationList": [
         {
@@ -271,7 +270,7 @@ To delete your destination, pass the name of the destination to be deleted as in
 **Warning**  
 Deletion actions can't be undone. The destination will be permanently removed from your AWS account.
 
-```
+```JSON
 aws iotwireless delete-destination --name "{{SidewalkDestination}}"
 ```
 
@@ -304,7 +303,7 @@ aws iotwireless list-devices-for-wireless-device-import-task --id {{e2a5995e-743
 
 Running this command returns your import task information and device onboarding status.
 
-```
+```JSON
 {
    "DestinationName": "{{SidewalkDestination}}",
    "ImportedWirelessDeviceList": [ 
@@ -348,7 +347,7 @@ aws iotwireless get-wireless-device-import-task --Id {{"e2a5995e-743b-41f2-a1e4-
 
 The following code shows a sample response from the command.
 
-```
+```JSON
 {
 
                 "Arn": "arn:aws:iotwireless:us-east-1:123456789012:ImportTask
@@ -399,13 +398,13 @@ aws iotwireless update-wireless-device-import task \
 
 Use the `ListWirelessDeviceImportTasks` API or the `list-imported-wireless-device-tasks` CLI command to list import tasks in your AWS account. The following shows an example CLI command.
 
-```
+```JSON
 aws iotwireless list-wireless-device-import-tasks
 ```
 
 Running this command returns a list of import tasks that you created. The list includes their Amazon S3 CSV files and the IAM role that was specified, the import task ID, and summary information of the device onboarding status.
 
-```
+```JSON
 {
    "WirelessDeviceImportTaskList": [
       {
@@ -451,7 +450,7 @@ If you attempt to create another import task that includes the serial number of 
 
 The following shows an example CLI command:
 
-```
+```JSON
 aws iotwireless delete-import-task --Id "{{e2a5995e-743b-41f2-a1e4-3ca6a5c5249f}}"
 ```
 

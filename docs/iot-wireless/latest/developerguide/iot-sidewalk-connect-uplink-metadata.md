@@ -1,7 +1,6 @@
 
 
 # Connect your Sidewalk device and view uplink metadata format
-<a name="iot-sidewalk-connect-uplink-metadata"></a>
 
 In this tutorial, you'll use the MQTT test client to test the connectivity and see messages exhanged between your end device and the AWS Cloud. To receive messages, in the MQTT test client, subscribe to the topic specified when creating the IoT rule for your destination. You can also send a downlink message from AWS IoT Core for Amazon Sidewalk to your device using the `SendDataToWirelessDevice` API operation. You can verify that the message was delivered by enabling the message delivery status event notification.
 
@@ -22,7 +21,7 @@ aws iotwireless send-data-to-wireless-device \
 
 Following shows a sample output of running this command, which is an ID of the downlink message sent to the device.
 
-```
+```JSON
 {
     MessageId: {{"6011dd36-0043d6eb-0072-0008"}}
 }
@@ -40,7 +39,7 @@ If you specified a topic name when creating your destination, you can subscribe 
 
 The following example shows the format of the uplink messages that are sent from Sidewalk devices to AWS IoT. The `WirelessMetadata` contains metadata about the message request.
 
-```
+```JSON
 {
    "PayloadData":{{"ZjRlNjY1ZWNlNw=="}},
    "WirelessDeviceId":{{"8d5c87d8-3ec0-428d-9028-ab9daaf33704"}},   

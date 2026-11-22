@@ -1,7 +1,6 @@
 
 
 # Add a gateway to AWS IoT Core for LoRaWAN
-<a name="lorawan-onboard-gateway-add"></a>
 
 You can add your gateway to AWS IoT Core for LoRaWAN by using the console or the CLI. 
 
@@ -98,7 +97,7 @@ The following example creates a wireless LoRaWAN device gateway. You can also pr
 **Note**  
 You can also perform this procedure with the API by using the methods in the AWS API that correspond to the CLI commands shown here. 
 
-```
+```JSON
 aws iotwireless create-wireless-gateway \
     --lorawan GatewayEui="a1b2c3d4567890ab",RfRegion="US915" \
     --name "myFirstLoRaWANGateway" \
@@ -167,7 +166,7 @@ aws iotwireless get-service-endpoint --service-type CUPS
 
 The following shows an output of running the command.
 
-```
+```JSON
 {
     "ServiceType": "CUPS",
     "ServiceEndpoint": "https://{{ABCDEFGHIJKLMN}}.cups.lorawan.{{us-east-1}}.amazonaws.com:443",
@@ -197,7 +196,7 @@ aws iotwireless associate-wireless-gateway-with-certificate \
 
 Running this command returns the `IotCertificateId`, which is the ID of the certificate that you associated with the gateway. The following shows an output of running the command, where the `IotCertificateId` is the ID of the certificate, such as `{{abc1234d55ef32101a34434bb123cba2a011b2cdefa6bb5cee1a221b4567ab12}}`.
 
-```
+```JSON
 {
     "IotCertificateId": "{{<CertificateId>}}"
 }

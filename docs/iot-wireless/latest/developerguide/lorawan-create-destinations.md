@@ -1,7 +1,6 @@
 
 
 # Add destinations to AWS IoT Core for LoRaWAN
-<a name="lorawan-create-destinations"></a>
 
 AWS IoT Core for LoRaWAN destinations describe the AWS IoT rule that processes a device's data for use by AWS services.
 
@@ -85,7 +84,7 @@ When you use the console to add a destination, AWS IoT Core for LoRaWAN automati
 1. In the editor, delete any content from the editor and paste this policy document.  
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -129,7 +128,7 @@ When you use the console to add a destination, AWS IoT Core for LoRaWAN automati
 
 1. In **Policy Document**, change the `Principal` property to look like this example.
 
-   ```
+   ```json
    "Principal": { 
        "Service": "iotwireless.amazonaws.com" 
    },
@@ -138,7 +137,7 @@ When you use the console to add a destination, AWS IoT Core for LoRaWAN automati
    After you change the `Principal` property, the complete policy document should look like this example.  
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

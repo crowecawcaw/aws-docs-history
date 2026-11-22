@@ -1,7 +1,6 @@
 
 
 # Provision Sidewalk devices in bulk
-<a name="sidewalk-bulk-provision-how"></a>
 
 This section shows how you can provision Sidewalk devices in bulk to AWS IoT Core for Amazon Sidewalk using the AWS IoT console and the AWS CLI.
 
@@ -78,7 +77,7 @@ To upload devices in bulk by providing the CSV file in an S3 bucket, use the [`S
 
   The following command shows an example of creating an import task:
 
-  ```
+  ```JSON
   aws iotwireless start-wireless-device-import-task \ 
       --cli-input-json "{{file://task.json}}"
   ```
@@ -103,7 +102,7 @@ To upload devices in bulk by providing the CSV file in an S3 bucket, use the [`S
 
   Running this command returns an ID and ARN for the import task.
 
-  ```
+  ```JSON
   {    
       "Arn": "arn:aws:iotwireless:{{us-east-1}}:{{123456789012}}:ImportTask/{{a1b234c5-67ef-21a2-a1b2-3cd4e5f6789a}}"
       "Id": {{"a1b234c5-67ef-21a2-a1b2-3cd4e5f6789a"}}
@@ -118,7 +117,7 @@ To provision devices individually using their SMSN, use the [`StartSingleWireles
 
   The following command shows an example of creating an import task:
 
-  ```
+  ```JSON
   aws iotwireless start-single-wireless-device-import-task \ 
       --destination-name {{sidewalk_destination}} \
       --positioning {{Enabled}} \
@@ -133,7 +132,7 @@ To provision devices individually using their SMSN, use the [`StartSingleWireles
 
   Running this command returns an ID and ARN for the import task.
 
-  ```
+  ```JSON
   {
       "Arn": "arn:aws:iotwireless:{{us-east-1}}:{{123456789012}}:ImportTask/{{e2a5995e-743b-41f2-a1e4-3ca6a5c5249f}}"    
       "Id": {{"e2a5995e-743b-41f2-a1e4-3ca6a5c5249f"}}

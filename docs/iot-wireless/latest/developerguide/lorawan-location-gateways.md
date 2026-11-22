@@ -1,7 +1,6 @@
 
 
 # Configuring the position of LoRaWAN gateways
-<a name="lorawan-location-gateways"></a>
 
 When you add your gateway to AWS IoT Core for LoRaWAN, you can specify the static position data. If you've activated Amazon Location Service maps, the position data is displayed on an Amazon Location map. 
 
@@ -64,7 +63,7 @@ The following shows the contents of the `{{gatewayposition.json}}` file.
 
 **Contents of gatewayposition.json**
 
-```
+```JSON
 { 
      "type": "Point",
      "coordinates": {{[33.3318, -22.2155, 13.123]}},
@@ -89,7 +88,7 @@ aws iotwireless get-resource-position \
 
 Running this command displays the position information of your wireless gateway as a GeoJSON payload. You'll see information about the position coordinates, the type of position information, and additional properties, such as the timestamp which corresponds to the last known position of the gateway.
 
-```
+```JSON
 {
     {
     "type": "Point",

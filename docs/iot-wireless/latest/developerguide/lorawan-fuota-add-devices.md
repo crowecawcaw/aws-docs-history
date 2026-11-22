@@ -1,7 +1,6 @@
 
 
 # Add devices and multicast groups and schedule FUOTA session
-<a name="lorawan-fuota-add-devices"></a>
 
 After you've created a FUOTA task, you can add devices to your task for which you want to update the firmware. After your devices have been added successfully to the FUOTA task, you can schedule a FUOTA session to update the device firmware. 
 + If you have only a small number of devices, you can add those devices directly to your FUOTA task.

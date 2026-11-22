@@ -1,7 +1,6 @@
 
 
 # Monitor and troubleshoot your multicast groups
-<a name="lorawan-multicast-status"></a>
 
 After you've added devices and created your multicast group, open the AWS Management Console. Navigate to the [Multicast groups](https://console.aws.amazon.com/iot/home#/wireless/multicastGroups) page of the AWS IoT console and choose the multicast group you created to view its details. You'll see information about the multicast group, the number of devices that have been added, and device status details. You can use the status information to track progress of your multicast session and troubleshoot any errors.
 

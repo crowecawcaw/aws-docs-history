@@ -1,7 +1,6 @@
 
 
 # Add your device profile and Sidewalk end device
-<a name="iot-sidewalk-add-device"></a>
 
 This section shows how you can create a device profile. It also shows how you can use the AWS IoT console and the AWS CLI to add your Sidewalk end device to AWS IoT Core for Amazon Sidewalk.
 
@@ -83,7 +82,7 @@ If you want to associate your Sidewalk device with an AWS IoT thing, use the [`A
 
 The following command shows an example of creating a Sidewalk device:
 
-```
+```JSON
 aws iotwireless create-wireless-device \ 
      --cli-input-json "{{file://device.json}}"
 ```
@@ -105,7 +104,7 @@ The following shows the contents of the file `device.json`.
 
 Running this command returns the device ID and Amazon Resource Name (ARN) as output.
 
-```
+```JSON
 {
     "Arn": "arn:aws:iotwireless:{{us-east-1}}:{{123456789012}}:WirelessDevice/{{23456789-abcd-0123-bcde-fabc012345678}}",
     "Id": {{"23456789-abcd-0123-bcde-fabc012345678"}}

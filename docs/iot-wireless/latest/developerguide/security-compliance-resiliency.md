@@ -1,7 +1,6 @@
 
 
 # Infrastructure security and compliance validation
-<a name="security-compliance-resiliency"></a>
 
 The following sections provide information about these key security concepts for AWS IoT Wireless.
 

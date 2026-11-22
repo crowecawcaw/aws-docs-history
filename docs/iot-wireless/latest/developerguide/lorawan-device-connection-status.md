@@ -1,7 +1,6 @@
 
 
 # Connect your LoRaWAN device and verify its connection status
-<a name="lorawan-device-connection-status"></a>
 
 Before you can check the device connection status, you must have already added your device and connected it to AWS IoT Core for LoRaWAN. For information about how to add your device, see [Add your wireless device to AWS IoT Core for LoRaWAN](lorawan-end-devices-add.md).
 
@@ -12,7 +11,7 @@ After you've added your device, refer to your device's user manual to learn how 
 
 The following code shows the payload received at the destination for your wireless device. It shows a sample payload when using your own private LoRaWAN gateway, and when you use a public network. It also shows the payload format if you exclude the gateway metadata information. The following shows a sample payload.
 
-```
+```JSON
 HTTP/1.1 200
 Content-type: application/json
 
@@ -38,7 +37,7 @@ Content-type: application/json
 
 This example uses a private LoRaWAN gateway to show the gateway metadata information in the uplink message. The metadata consists of the gateway EUI, SNR (signal to noise ratio), and RSSI (Received signal to strength indicator). These values can help you determine the strength of your gateway channel and whether to switch to a stronger channel.
 
-```
+```JSON
 {
     "MessageId": "d8374454-f361-4907-9f3f-ca53233bb281",
     "WirelessDeviceId": "d7c96c47-6058-46d6-a033-c67d28c2243c",
@@ -85,7 +84,7 @@ You can also connect to the public network instead of your own private LoRaWAN g
 **Note**  
 The uplink message will mention `PublicGateways` to indicate that it's received from the public network and not a private LoRaWAN gateway.
 
-```
+```JSON
 {
     "MessageId": "d8374454-f361-4907-9f3f-ca53233bb281",
     "WirelessDeviceId": "d7c96c47-6058-46d6-a033-c67d28c2243c",
@@ -134,7 +133,7 @@ If you want to exclude the gateway metadata information from your uplink metadat
 
 In this case, you won't see the `Gateways` section in the uplink metadata, as illustrated in the following example.
 
-```
+```JSON
 {
     "MessageId": "d8374454-f361-4907-9f3f-ca53233bb281",
     "WirelessDeviceId": "d7c96c47-6058-46d6-a033-c67d28c2243c",

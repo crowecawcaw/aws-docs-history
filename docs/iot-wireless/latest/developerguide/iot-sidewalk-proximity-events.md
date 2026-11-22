@@ -1,7 +1,6 @@
 
 
 # Enable notifications for Sidewalk proximity events
-<a name="iot-sidewalk-proximity-events"></a>
 
 Proximity events publish event notifications when AWS IoT receives a beacon from the Sidewalk device. When your Sidewalk device approaches Amazon Sidewalk, beacons that are sent from your device are filtered by Amazon Sidewalk at regular intervals and received by AWS IoT Wireless. AWS IoT Wireless then notifies you of these events when a beacon is received.
 
@@ -56,7 +55,7 @@ You can't use the wildcard character `#` to subscribe to the reserved topics. Fo
 
 After you enable notifications for proximity events, event messages are published over MQTT with a JSON payload. These events contain the following example payload:
 
-```
+```JSON
 {    
     "eventId": "string", 
     "eventType": "beacon_discovered|beacon_lost",
