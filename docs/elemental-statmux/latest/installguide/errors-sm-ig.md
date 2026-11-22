@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Install Error Messages
-<a name="errors-sm-ig"></a>
 
 During install, you might see the error message `Hardware and license validation failed` at the command line. The table below provides a list of possible problems and causes that might result in this error.
 

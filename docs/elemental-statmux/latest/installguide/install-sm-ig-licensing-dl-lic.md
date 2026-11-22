@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Step c: Download Licenses from the AWS Elemental User Community
-<a name="install-sm-ig-licensing-dl-lic"></a>
 
 1. Follow the instructions in [Downloading AWS Elemental Statmux Software](detailed-dl-sm-ig.md) to get to the **Order Detail** page on the [AWS Elemental Support Center Activations](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/activations).
 
