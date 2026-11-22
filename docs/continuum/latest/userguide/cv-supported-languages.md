@@ -1,7 +1,6 @@
 
 
 # Supported languages and source files
-<a name="cv-supported-languages"></a>
 
 AWS Continuum selects source files for code vulnerability scans by their file extensions. A scan needs at least one supported source file outside the excluded folders across the selected repositories.
 

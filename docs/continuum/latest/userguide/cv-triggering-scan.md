@@ -1,7 +1,6 @@
 
 
 # Triggering a scan
-<a name="cv-triggering-scan"></a>
 
 When you create an environment, AWS Continuum starts the first scan, even if you select **Manual only**. Use the scan frequency to control recurring scans. By default, AWS Continuum scans your code every day. If you select **Manual only**, AWS Continuum doesn't run automatic recurring scans. You can also queue a scan manually from the console.
 

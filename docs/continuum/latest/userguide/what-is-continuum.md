@@ -1,7 +1,6 @@
 
 
 # What is AWS Continuum?
-<a name="what-is-continuum"></a>
 
 AWS Continuum helps enterprises defend against security exposures at machine speed. AWS Continuum continuously prioritizes security exposures, correlating vulnerabilities, threats, and exploit activity. It automatically remediates high-priority exposures based on business risk.
 

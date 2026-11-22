@@ -1,7 +1,6 @@
 
 
 # Connecting an Amazon EKS cluster to AWS Continuum
-<a name="cv-onboard-eks-cluster"></a>
 
 For read-only Kubernetes inventory collection, connect your Amazon EKS cluster to AWS Continuum. The onboarding takes about 10 minutes for each cluster. This task requires Amazon EKS administrator permissions and `kubectl` cluster-admin access. If you don't have these permissions, ask your administrator to perform these steps or grant you the required access.
 
@@ -68,7 +67,7 @@ The authentication mode changes in one direction only. Run the following command
 
 The following AWS Command Line Interface (AWS CLI) command updates the cluster configuration. Replace {{region}} with your AWS Region and {{cluster}} with your cluster name:
 
-```
+```bash
 PROMPT> aws eks update-cluster-config \
     --region {{region}} \
     --name {{cluster}} \
@@ -84,7 +83,7 @@ Complete this procedure one time for each cluster. Before you begin, create the 
 
 Map the reader IAM role to the Kubernetes group by running the following AWS CLI command. Replace {{region}}, {{cluster}}, {{account-id}}, and {{collector-id}} with your values:
 
-```
+```bash
 PROMPT> aws eks create-access-entry \
     --region {{region}} \
     --cluster-name {{cluster}} \
@@ -102,7 +101,7 @@ Complete this procedure one time for each cluster. This procedure requires `kube
 
 Apply the following Kubernetes RBAC YAML manifest with `kubectl`:
 
-```
+```bash
 PROMPT> kubectl apply -f - <<'EOF'
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -201,7 +200,7 @@ You grant read-only RBAC one time. The AWS Continuum collector never uses `kubec
 
 From a cluster-admin context, confirm that the reader group can list nodes and replica sets but cannot list Secrets. The following `kubectl` commands return `yes` for nodes and replica sets, and `no` for Secrets:
 
-```
+```bash
 PROMPT> kubectl auth can-i list nodes --as-group=continuum:readers --as=continuum-check
 yes
 

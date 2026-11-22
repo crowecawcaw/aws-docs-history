@@ -1,7 +1,6 @@
 
 
 # Viewing generated patches
-<a name="cv-viewing-patches"></a>
 
 Review generated patches to understand the proposed code changes before you apply them. You can download available patches in the AWS Continuum console and check their delivery to your code sources.
 

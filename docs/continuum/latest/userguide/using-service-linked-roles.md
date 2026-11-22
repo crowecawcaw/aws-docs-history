@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for AWS Continuum
-<a name="using-service-linked-roles"></a>
 
 AWS Continuum uses AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to AWS Continuum. Service-linked roles are predefined by AWS Continuum and include all the permissions that the service requires to call other AWS services on your behalf.
 
@@ -50,7 +49,7 @@ If you monitor API calls, you might see calls to Tiros APIs. Tiros is a service 
 
 The role is configured with the following permissions policy.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

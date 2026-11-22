@@ -1,7 +1,6 @@
 
 
 # Encryption at rest in AWS Continuum
-<a name="encryption-at-rest"></a>
 
 By default, AWS Continuum encrypts all of your data at rest using AWS owned encryption keys. You don't need to configure anything for this default encryption.
 
@@ -76,7 +75,7 @@ Replace the following placeholder values in the policy:
 + `MyRole` – The IAM role you use to call AWS Continuum
 + `us-east-1` – The AWS Region where you use AWS Continuum
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -152,7 +151,7 @@ Replace the following placeholder values in the policy:
 + `MyRole` – The IAM role you use to call AWS Continuum
 + `us-east-1` – The AWS Region where you use AWS Continuum
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

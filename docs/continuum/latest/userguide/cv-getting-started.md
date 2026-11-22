@@ -1,7 +1,6 @@
 
 
 # Getting started with code vulnerabilities
-<a name="cv-getting-started"></a>
 
 AWS Continuum scans your code sources for security vulnerabilities.
 
@@ -135,7 +134,7 @@ Use each configured prefix exactly, including any trailing slash. If you omit th
 
 Replace {{bucket-name}} with the bucket used by your integration. Replace {{code-prefix}} with the **Source code base path** value. Replace {{context-prefix}} with the **Knowledge documents base path** value.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -175,7 +174,7 @@ Replace {{bucket-name}} with the bucket used by your integration. Replace {{code
 
 Use the following trust policy so that the AWS Continuum service principal, `continuum.amazonaws.com`, can assume the role with an external ID. Replace {{external-id}} with the external ID that you enter when creating the integration. Save the policy as `trust-policy.json`.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -204,7 +203,7 @@ If a command fails, resolve the error before continuing. If `create-role` return
 
 1. Create the role with the required path.
 
-   ```
+   ```bash
    aws iam create-role \
        --role-name ContinuumIntegrationRole \
        --path /continuum/integrations/ \
@@ -215,7 +214,7 @@ If a command fails, resolve the error before continuing. If `create-role` return
 
 1. Attach the bucket permissions as an inline policy.
 
-   ```
+   ```bash
    aws iam put-role-policy \
        --role-name ContinuumIntegrationRole \
        --policy-name ContinuumIntegrationAccess \
@@ -226,7 +225,7 @@ If a command fails, resolve the error before continuing. If `create-role` return
 
 1. Verify that the role's Amazon Resource Name (ARN) includes `role/continuum/integrations/`.
 
-   ```
+   ```bash
    aws iam get-role \
        --role-name ContinuumIntegrationRole \
        --query 'Role.Arn' \
@@ -235,7 +234,7 @@ If a command fails, resolve the error before continuing. If `create-role` return
 
    The output has the following format, where {{account-id}} is your AWS account ID and {{role-name}} is the role name that you used in the commands:
 
-   ```
+   ```text
    arn:aws:iam::{{account-id}}:role/continuum/integrations/{{role-name}}
    ```
 

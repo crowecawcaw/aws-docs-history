@@ -1,7 +1,6 @@
 
 
 # Code vulnerabilities
-<a name="code-vulnerabilities"></a>
 
 Continuum for code vulnerabilities is a feature of AWS Continuum that discovers, validates, prioritizes, and recommends remediation for code vulnerabilities.
 

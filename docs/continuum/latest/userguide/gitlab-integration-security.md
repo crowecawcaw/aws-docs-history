@@ -1,7 +1,6 @@
 
 
 # Security for GitLab integrations in AWS Continuum
-<a name="gitlab-integration-security"></a>
 
 A GitLab integration gives AWS Continuum an access token for a GitLab group or project on GitLab.com or on a self-managed GitLab instance. AWS Continuum uses the token to read the source code that it scans, and to open merge requests that contain generated patches. This topic describes the security controls that AWS Continuum applies to GitLab integrations and the actions that you are responsible for.
 
