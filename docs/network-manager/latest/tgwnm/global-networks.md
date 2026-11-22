@@ -1,7 +1,6 @@
 
 
 # Global networks in AWS Global Networks for Transit Gateways
-<a name="global-networks"></a>
 
 A global network in AWS Global Networks for Transit Gateways is a container for your network objects. When you create a global network, you create only the framework of the global network itself. You'll then further define this network by adding network objects to it, such as 
 + transit gateways.

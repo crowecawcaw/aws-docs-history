@@ -1,7 +1,6 @@
 
 
 # Route Analyzer for AWS Network Manager
-<a name="route-analyzer"></a>
 
 With AWS Global Networks for Transit Gateways, you can use the Route Analyzer to perform an analysis of the routes in your transit gateway route tables. Through AWS Network Manager, Route Analyzer analyzes the routing path between a specified source and destination, and returns information about the connectivity between components. You can use the Route Analyzer to do the following:
 + Verify that the transit gateway route table configuration will work as expected before you start sending traffic.

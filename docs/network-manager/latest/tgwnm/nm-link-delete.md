@@ -1,7 +1,6 @@
 
 
 # Delete a link using AWS Network Manager
-<a name="nm-link-delete"></a>
 
 You can delete the link between two devices without deleting the devices.
 

@@ -1,7 +1,6 @@
 
 
 # View global network CloudWatch metrics
-<a name="viewing-metrics"></a>
 
 There are various options for viewing CloudWatch metrics for your global network, including the following:
 + Viewing metrics for the global network and filtering by transit gateway

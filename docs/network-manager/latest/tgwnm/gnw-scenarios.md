@@ -1,7 +1,6 @@
 
 
 # AWS Global Networks for Transit Gateways scenarios
-<a name="gnw-scenarios"></a>
 
 The following are common use cases and scenarios for using AWS Global Networks for Transit Gateways to manage your transit gateways.
 

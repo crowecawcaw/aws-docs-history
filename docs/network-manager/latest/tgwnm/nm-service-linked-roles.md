@@ -1,7 +1,6 @@
 
 
 # AWS Global Networks for Transit Gateways service-linked roles
-<a name="nm-service-linked-roles"></a>
 
 AWS Global Networks for Transit Gateways uses service-linked roles for the permissions that it requires to call other AWS services on your behalf. These service-linked roles are not propagated to your AWS Organizations management account.
 

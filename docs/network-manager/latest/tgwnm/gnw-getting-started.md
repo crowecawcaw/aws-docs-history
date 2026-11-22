@@ -1,7 +1,6 @@
 
 
 # Get started with AWS Global Networks for Transit Gateways
-<a name="gnw-getting-started"></a>
 
 The following tasks help you become familiar with AWS Global Networks for Transit Gateways. For more information about how AWS Global Networks for Transit Gateways works, see [How AWS Global Networks for Transit Gateways works](how-gnw-works.md).
 

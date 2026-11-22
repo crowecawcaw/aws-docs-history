@@ -1,7 +1,6 @@
 
 
 # Log AWS Global Networks for Transit Gateways API calls using AWS CloudTrail
-<a name="nm-logging-using-cloudtrail"></a>
 
 AWS Global Networks for Transit Gateways works with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in global networks. CloudTrail captures all API calls for global network as events. The calls that are captured include calls from the Network Manager console and code calls to the global API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Global Networks. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine what request was made to global networks, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 

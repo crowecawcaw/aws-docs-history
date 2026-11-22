@@ -1,7 +1,6 @@
 
 
 # Access transit gateway network dashboards using AWS Network Manager
-<a name="nm-monitoring-console"></a>
 
 he AWS Network Manager console provides a group of dashboards for AWS Global Networks for Transit Gateways, allowing you to view and monitor your network of transit gateways. Dashboards include information about network resources, their geographic locations, the network topology, and the logical network associations. If you want to view the dashboards for a specific transit gateway, see [Access transit gateway dashboards using AWS Network Manager](nm-visualize-tgw.md). 
 

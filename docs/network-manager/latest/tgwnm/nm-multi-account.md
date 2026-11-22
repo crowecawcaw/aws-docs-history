@@ -1,7 +1,6 @@
 
 
 # Multi-account in AWS Global Networks for Transit Gateways
-<a name="nm-multi-account"></a>
 
 With AWS Global Networks for Transit Gateways, you can manage, monitor, and view dashboards of global network resources from multiple AWS accounts associated with a single organization using AWS Network Manager. For more information about setting up multi-account, see [Manage multiple accounts in global networks using AWS Organizations](#tgw-nm-multi) below.
 
@@ -25,7 +24,7 @@ To enable multi-account access in the global networks console, you first enable 
  We strongly recommended that you use the global networks console for enabling multi-account settings with global networks, because the console automatically creates all required roles and permissions for multi-account access. Choosing an alternative approach requires an advanced level of expertise, and opens the multi-account set up for your global network to be more prone to error.
 Multi-account is not available in the AWS GovCloud (US-West) and the AWS GovCloud (US-East) Regions.
 
-With multi-account support, you can create a single global network for any of your AWS accounts, and then register transit gateways from those accounts using the global networks console. Multi-account is supported in all AWS Regions where global networks is supported. For more information about multi-account, see [Multi-account in AWS Global Networks for Transit Gateways](#nm-multi-account).
+With multi-account support, you can create a single global network for any of your AWS accounts, and then register transit gateways from those accounts using the global networks console. Multi-account is supported in all AWS Regions where global networks is supported. For more information about multi-account, see [Multi-account in AWS Global Networks for Transit Gateways](nm-multi-account.md).
 
 ### Trusted access
 <a name="nm-multi-trust"></a>

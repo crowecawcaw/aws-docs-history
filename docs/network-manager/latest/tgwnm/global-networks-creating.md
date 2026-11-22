@@ -1,7 +1,6 @@
 
 
 # Create a global network using AWS Network Manager
-<a name="global-networks-creating"></a>
 
 Create a global network.
 

@@ -1,7 +1,6 @@
 
 
 # Manage IAM multi-account role deployments in an AWS global network
-<a name="nm-multi-manage-iam"></a>
 
 The **IAM role deployments status** section displays the current role deployments status for all member accounts set up in your account. 
 + **Member account ID ** — The account ID for the account set up in AWS Organizations. This includes member accounts and members that have been registered as delegated administrators.

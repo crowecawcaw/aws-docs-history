@@ -1,7 +1,6 @@
 
 
 # Monitor devices using AWS Network Manager
-<a name="nm-devices-monitoring"></a>
 
 Monitor device Amazon CloudWatch events on the Network Manager Monitoring page. 
 

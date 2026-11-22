@@ -1,7 +1,6 @@
 
 
 # Create a site using AWS Network Manager
-<a name="creating-a-site"></a>
 
 Create a site to represent the physical location of your network. Location information is used in the Network Manager transit gateway dashboards.
 

@@ -1,7 +1,6 @@
 
 
 # Perform a route analysis
-<a name="working-with-route-analyzer"></a>
 
 Perform a route analysis of your AWS global network. You can only use Route Analyzer using the AWS Global Networks for Transit Gateways console.
 

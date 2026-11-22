@@ -1,7 +1,6 @@
 
 
 # Deregister a transit gateway using AWS Network Manager
-<a name="deregister-tgw"></a>
 
 Deregister a transit gateway from a global network using either the Network Manager console or using the CLI. Once deregistered, you can re-register this transit gateway with the same global network or with a different global network.
 

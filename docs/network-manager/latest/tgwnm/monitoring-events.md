@@ -1,7 +1,6 @@
 
 
 # Monitor your global network using EventBridge
-<a name="monitoring-events"></a>
 
 Amazon EventBridge delivers a near-real-time stream of system events that describe changes in your resources. Using simple rules that you can quickly set up, you can match events and route them to one or more target functions or streams. For more information, see the *[Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/)*.
 
@@ -22,7 +21,7 @@ An IAM principal in your account, such as an IAM user, must have sufficient perm
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -115,7 +114,7 @@ Topology change events occur when there have been changes to the resources in yo
 ### A transit gateway in the global network was deleted (TGW-DELETED)
 <a name="tgw-delete"></a>
 
-```
+```json
 {"version":"0",
 "id":"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
 "detail-type":"Network Manager Topology Change",
@@ -137,7 +136,7 @@ Topology change events occur when there have been changes to the resources in yo
 ### A VPN connection was created for a transit gateway (VPN-CONNECTION-CREATED)
 <a name="vpn-tgw-create"></a>
 
-```
+```json
 {
 "version":"0",
 "id":"7636f496-ba9f-b1cc-22a6-8c90bbca8540",
@@ -169,7 +168,7 @@ Topology change events occur when there have been changes to the resources in yo
 ### A VPN connection was deleted on a transit gateway (VPN-CONNECTION-DELETED)
 <a name="vpn-tgw-delete"></a>
 
-```
+```json
 {
 "version":"0",
 "id":"877fe5fd-4c95-1553-84ef-cfa271121081",
@@ -251,7 +250,7 @@ Topology change events occur when there have been changes to the resources in yo
 ### A VPC was attached to a transit gateway (VPC-ATTACHMENT-CREATED)
 <a name="vpc-tgw-attach"></a>
 
-```
+```json
 {
 "version":"0",
 "id":"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -278,7 +277,7 @@ Topology change events occur when there have been changes to the resources in yo
 ### A VPC attachment was deleted from a transit gateway (VPC-ATTACHMENT-DELETED)
 <a name="vpc-attach-tgw-delete"></a>
 
-```
+```json
 {
   "account": "123456789012",
   "region": "us-west-2",
@@ -305,7 +304,7 @@ Topology change events occur when there have been changes to the resources in yo
 ### An Direct Connect gateway was attached to a transit gateway (DXGW-ATTACHMENT-CREATED)
 <a name="dx-gateway-attach"></a>
 
-```
+```json
 {
 "version":"0",
 "id":"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -331,7 +330,7 @@ Topology change events occur when there have been changes to the resources in yo
 ### An Direct Connect gateway was detached from a transit gateway (DXGW-ATTACHMENT-DELETED)
 <a name="dx-gateway-detach"></a>
 
-```
+```json
 {
 "version":"0",
 "id":"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -358,7 +357,7 @@ Topology change events occur when there have been changes to the resources in yo
 ### A transit gateway peering connection attachment was created (TGW\_PEERING\_CREATED)
 <a name="tgw-peering-attach"></a>
 
-```
+```json
 {
 "version":"0",
 "id":"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -385,7 +384,7 @@ Topology change events occur when there have been changes to the resources in yo
 ### A transit gateway peering connection was deleted (TGW-PEERING-DELETED)
 <a name="tgw-peering-delete"></a>
 
-```
+```json
 {
 "version":"0",
 "id":"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -412,7 +411,7 @@ Topology change events occur when there have been changes to the resources in yo
 ### A transit gateway Connect attachment was created for a transit gateway (CONNECT\_ATTACHMENT\_CREATED)
 <a name="connect-attachment-create"></a>
 
-```
+```json
 {
 "version":"0",
 "id":"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -440,7 +439,7 @@ Topology change events occur when there have been changes to the resources in yo
 ### A transit gateway Connect attachment was deleted for a transit gateway (CONNECT\_ATTACHMENT\_DELETED)
 <a name="connect-attachment-delete"></a>
 
-```
+```json
 {
 "version":"0",
 "id":"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -466,7 +465,7 @@ Topology change events occur when there have been changes to the resources in yo
 ### A transit gateway Connect peer was created in a Connect attachment (TGW-CONNECT-PEER-CREATED)
 <a name="tgw-connect-peer-created"></a>
 
-```
+```json
 { 
 "version": "0", 
 "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", 
@@ -522,7 +521,7 @@ Topology change events occur when there have been changes to the resources in yo
 ### A Network Firewall attachment was created (NETWORK-FIREWALL-ATTACHMENT-CREATED)
 <a name="vpc-firewall-attach"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -551,7 +550,7 @@ Topology change events occur when there have been changes to the resources in yo
 ### A Network Firewall attachment was deleted (NETWORK-FIREWALL-ATTACHMENT-DELETED)
 <a name="vpc-firewall-delete"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -590,7 +589,7 @@ Routing update events occur when there have been changes to the transit gateway 
 ### A transit gateway attachment's route table changed (CONNECT\_PEER\_DELETED)
 <a name="tgw-route-changed"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "437f664b-cc6c-ccb8-b322-2c185ebe0c10",
@@ -617,7 +616,7 @@ Routing update events occur when there have been changes to the transit gateway 
 ### A route was created in a transit gateway route table (TGW-ROUTE-INSTALLED)
 <a name="tgw-route-created"></a>
 
-```
+```json
 { 
 "version": "0", 
 "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", 
@@ -659,7 +658,7 @@ Routing update events occur when there have been changes to the transit gateway 
 ### A route was deleted in a transit gateway route table gateway (TGW-ROUTE-UNINSTALLED)
 <a name="tgw-route-uninstall"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -708,7 +707,7 @@ Status update events occur when there have been changes to the status of the con
 ### A VPN tunnel's IPsec session went down (VPN-CONNECTION-IPSEC-DOWN)
 <a name="vpn-connection-ipsec-down"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -736,7 +735,7 @@ Status update events occur when there have been changes to the status of the con
 ### A VPN tunnel's IPsec session went up (after being down) (VPN-CONNECTION-IPSEC-UP)
 <a name="vpn-connection-ipsec-up"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -764,7 +763,7 @@ Status update events occur when there have been changes to the status of the con
 ### A VPN tunnel's BGP session went down (VPN-CONNECTION-BGP-DOWN)
 <a name="vpn-connection-bgp-down"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -793,7 +792,7 @@ Status update events occur when there have been changes to the status of the con
 ### A VPN tunnel's BGP session went up (after being down) (VPN-CONNECTION-BGP-ESTABLISH)
 <a name="vpn-connection-bgp-establish"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -822,7 +821,7 @@ Status update events occur when there have been changes to the status of the con
 ### A Connect peer (GRE tunnel) BGP session went down (CONNECT\_PEER\_BGP\_DOWN)
 <a name="tgw-connect-peer-bgp-down"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -848,7 +847,7 @@ Status update events occur when there have been changes to the status of the con
 ### A Connect peer (GRE tunnel) BGP session went up after being down) (CONNECT\_PEER\_BGP\_UP)
 <a name="tgw-connect-peer-bgp-up"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",

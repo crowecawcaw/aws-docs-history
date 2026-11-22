@@ -1,7 +1,6 @@
 
 
 # What is AWS Global Networks for Transit Gateways?
-<a name="what-are-global-networks"></a>
 
 AWS Global Networks for Transit Gateways enables you to create one or more global networks and then centrally manage those global networks across AWS accounts, Regions, and on-premises locations. 
 

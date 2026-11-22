@@ -1,7 +1,6 @@
 
 
 # Multi-account access roles for AWS Global Networks for Transit Gateways
-<a name="nm-custom-multi-role"></a>
 
 AWS Global Networks for Transit Gateways uses CloudFormation StackSets to deploy and manage the following two custom IAM roles in AWS Organizations member accounts to support multi-account permissions. These two roles are deployed to every member account in the organization when `AWSServiceAccess` is enabled (trusted access). For more information about multi-account, see [Manage multiple accounts in global networks using AWS Organizations](nm-multi-account.md#tgw-nm-multi).
 
@@ -45,7 +44,7 @@ The `IAMRoleForAWSNetworkManagerCrossAccountResourceAccess` IAM policy role, bas
 
 The following is an example of the administrator role template.
 
-```
+```json
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Enables admin cross account resource access through switch role
 
@@ -73,7 +72,7 @@ Resources:
 
 The following is the read-only role template.
 
-```
+```json
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Enables read only cross account resource access through switch role
 Resources:
@@ -118,7 +117,7 @@ This policy enables administrator permission for the delegated administrator and
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -414,7 +413,7 @@ This policy enables read-only permission for the delegated administrator and man
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

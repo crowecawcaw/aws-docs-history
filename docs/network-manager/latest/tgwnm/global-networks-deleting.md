@@ -1,7 +1,6 @@
 
 
 # Delete a global network using AWS Network Manager
-<a name="global-networks-deleting"></a>
 
 Delete a global network framework. You cannot delete a global network if there are any network objects in the global network, including transit gateways, links, devices, and sites. You must first deregister or delete the network objects.
 

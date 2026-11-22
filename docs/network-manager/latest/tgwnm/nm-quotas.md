@@ -1,7 +1,6 @@
 
 
 # AWS Global Networks for Transit Gateways Quotas
-<a name="nm-quotas"></a>
 
 Your AWS account has the quotas shown in the following table for AWS Global Networks for Transit Gateways.
 

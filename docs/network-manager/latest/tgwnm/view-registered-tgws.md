@@ -1,7 +1,6 @@
 
 
 # View registered transit gateways using AWS Network Manager
-<a name="view-registered-tgws"></a>
 
 View a transit gateway registered with your AWS global network using either the Network Manager console or using the CLI. 
 

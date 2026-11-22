@@ -1,7 +1,6 @@
 
 
 # Disassociate a customer gateway using AWS Network Manager
-<a name="nm-cgw-diasssociate"></a>
 
 You can disassociate a customer gateway from a device or link using the Network Manager console on either of the following pages:
 + On the **Transit gateways** page

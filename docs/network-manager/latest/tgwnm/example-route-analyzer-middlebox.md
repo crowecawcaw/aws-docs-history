@@ -1,7 +1,6 @@
 
 
 # Example: Route analysis with a middlebox configuration
-<a name="example-route-analyzer-middlebox"></a>
 
 If you've configured a VPC to act as a middlebox appliance for inspecting traffic that flows to other parts of your network, you can indicate the location of the appliance in the route analysis. In the following example, the transit gateway has two VPC attachments and a VPN attachment. VPC A runs a firewall appliance (middlebox) that inspects the traffic that flows between the VPN connection and VPC B.
 

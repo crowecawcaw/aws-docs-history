@@ -1,7 +1,6 @@
 
 
 # View VPNs using AWS Network Manager
-<a name="nm-devices-vpns"></a>
 
 The VPNs page displays a list of your VPN connections for a device. 
 

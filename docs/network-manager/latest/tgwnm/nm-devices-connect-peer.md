@@ -1,7 +1,6 @@
 
 
 # Associate or disassociate a Connect peer using AWS Network Manager
-<a name="nm-devices-connect-peer"></a>
 
 Associate or disassociate a Connect peer device link association in your AWS global network.
 

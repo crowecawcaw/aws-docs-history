@@ -1,7 +1,6 @@
 
 
 # Delete a connection using AWS Network Manager
-<a name="deleting-a-connection"></a>
 
 If you no longer need a connection, you can delete it.
 

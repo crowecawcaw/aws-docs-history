@@ -1,7 +1,6 @@
 
 
 # Enable trusted access in an AWS global network
-<a name="nm-enable-trusted"></a>
 
 Enabling trust is a one-time task that deploys the required service-linked roles (SLRs) and custom Identity and Access Management (IAM) roles to all accounts in your organization that can be assumed by the management account or [delegated administrators](nm-delegate-admin.md) for access across multiple accounts. For more information about trusted access, see [Trusted access](nm-multi-account.md#nm-multi-trust).
 

@@ -1,7 +1,6 @@
 
 
 # Register an administrator for multi-account in an AWS global network
-<a name="nm-delegate-admin"></a>
 
 Use the AWS Global Networks for Transit Gateways console to register delegated administrators. You can register up to ten delegated administrators. Delegated administrators can assume the SLR and IAM roles deployed while enabling trusted access for access across multiple accounts. For more information about delegated administrators, see [Delegated administrators](nm-multi-account.md#nm-how-it-works-delegate). 
 

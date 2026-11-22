@@ -1,7 +1,6 @@
 
 
 # Update a connection using AWS Network Manager
-<a name="updating-a-connection"></a>
 
 You can update the information for an existing connection.
 

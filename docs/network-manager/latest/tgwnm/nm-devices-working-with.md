@@ -1,7 +1,6 @@
 
 
 # View device details using AWS Network Manager
-<a name="nm-devices-working-with"></a>
 
 View details about a device. On the device details page you can access tabs:
 +  **Overview**

@@ -1,7 +1,6 @@
 
 
 # Associate or disassociate an on-premises link using AWS Network Manager
-<a name="nm-devices-onprem"></a>
 
 Associate or disassociate an on-premises device link association in your AWS global network.
 

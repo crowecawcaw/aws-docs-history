@@ -1,7 +1,6 @@
 
 
 # Transit gateway registrations in AWS Global Networks for Transit Gateways
-<a name="tgw-registrations"></a>
 
 You can register your existing transit gateways with a global network. Any transit gateway attachments (such as VPCs, VPN connections, and Direct Connect gateways) are automatically included in your global network. 
 

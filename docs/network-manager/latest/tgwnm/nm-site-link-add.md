@@ -1,7 +1,6 @@
 
 
 # Add a link using AWS Network Manager
-<a name="nm-site-link-add"></a>
 
 Add a link to associated a device with a site. 
 

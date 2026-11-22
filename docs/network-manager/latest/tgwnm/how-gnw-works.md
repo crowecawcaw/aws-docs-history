@@ -1,7 +1,6 @@
 
 
 # How AWS Global Networks for Transit Gateways works
-<a name="how-gnw-works"></a>
 
 To use global networks for transit gateways, you first create a *global network* to represent your network. Initially, the global network is empty. You then register your existing transit gateways and define your on-premises resources in the global network. This enables you to visualize and monitor your AWS resources and your on-premises networks through the global networks dashboard on the AWS Network Manager console.
 

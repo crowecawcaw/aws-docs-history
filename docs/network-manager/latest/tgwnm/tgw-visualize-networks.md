@@ -1,7 +1,6 @@
 
 
 # AWS Global Networks for Transit Gateways dashboards
-<a name="tgw-visualize-networks"></a>
 
 The AWS Network Manager console uses dashboard visualizations to help you view and monitor all aspects of your transit gateway networks and transit gateways. Some of the dashboards include:
 + World maps that pinpoint where your network resources, such as edge locations, devices, and attachments, are located.

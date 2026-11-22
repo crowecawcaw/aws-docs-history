@@ -1,7 +1,6 @@
 
 
 # View site details using AWS Network Manager
-<a name="nm-sites-view"></a>
 
 View details about a core network site using the Network Manager console. 
 
