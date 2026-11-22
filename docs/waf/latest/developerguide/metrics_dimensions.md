@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Viewing metrics and dimensions
-<a name="metrics_dimensions"></a>
 
 Metrics are grouped first by the service namespace, and then by the various dimension combinations within each namespace. AWS Firewall Manager doesn't record metrics.
 + The AWS WAF namespace is `AWS/WAFV2`

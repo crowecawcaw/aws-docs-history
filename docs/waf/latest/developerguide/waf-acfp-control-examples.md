@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS WAF Fraud Control account creation fraud prevention (ACFP) examples
-<a name="waf-acfp-control-examples"></a>
 
 This section shows example configurations that satisfy common use cases for the AWS WAF Fraud Control account creation fraud prevention (ACFP) implementations. 
 

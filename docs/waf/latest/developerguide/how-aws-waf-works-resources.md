@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Resources that you can protect with AWS WAF
-<a name="how-aws-waf-works-resources"></a>
 
 You can use an AWS WAF protection pack (web ACL) to protect global or regional resource types. You do this by associating the protection pack (web ACL) with the resources that you want to protect. The protection pack (web ACL) and any AWS WAF resources that it uses must be located in the Region where the associated resource is located. For Amazon CloudFront distributions, this is set to US East (N. Virginia).
 

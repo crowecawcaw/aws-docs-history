@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS WAF quotas
-<a name="limits"></a>
 
 **Note**  
 This is the latest version of AWS WAF. For AWS WAF Classic, see [AWS WAF Classic](classic-waf-chapter.md).

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using protection packs (web ACLs) with rules and rule groups in AWS WAF
-<a name="web-acl-processing"></a>
 
 This section introduces how protection packs (web ACLs) and web ACLs work with rules and rule groups.
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Adjusting rule statement settings in AWS WAF
-<a name="waf-rule-statement-fields"></a>
 
 This section describes the settings that you can specify in rule statements that inspect a component of the web request. For information on usage, see the individual rule statements at [Using match rule statements in AWS WAF](waf-rule-statements-match.md). 
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # How to use the integration `getToken`
-<a name="waf-js-challenge-api-get-token"></a>
 
 This section explains how to use the `getToken` operation.
 

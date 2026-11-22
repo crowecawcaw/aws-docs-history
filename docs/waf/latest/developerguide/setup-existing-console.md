@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Getting started with AWS WAF using the standard console experience
-<a name="setup-existing-console"></a>
 
 The AWS WAF console guides you through the process of configuring AWS WAF to block or allow web requests based on criteria that you specify, such as the IP addresses that the requests originate from or values in the requests. In this step, you create a protection pack (web ACL). For more information about AWS WAF protection packs (web ACLs), see [Configuring protection in AWS WAF](web-acl.md).
 

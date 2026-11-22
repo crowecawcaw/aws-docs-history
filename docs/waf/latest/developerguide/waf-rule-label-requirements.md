@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Label syntax and naming requirements in AWS WAF
-<a name="waf-rule-label-requirements"></a>
 
 This section explains how to construct and match against an AWS WAF label.
 

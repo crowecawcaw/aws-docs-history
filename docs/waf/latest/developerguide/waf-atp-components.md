@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS WAF ATP components
-<a name="waf-atp-components"></a>
 
 The primary components of AWS WAF Fraud Control account takeover prevention (ATP) are the following: 
 + **`AWSManagedRulesATPRuleSet`** – The rules in this AWS Managed Rules rule group detect, label, and handle various types of account takeover activity. The rule group inspects HTTP `POST` web requests that clients send to the specified login endpoint. For protected CloudFront distributions, the rule group also inspects the responses that the distribution sends back to these requests. For a list of the rule group's rules, see [AWS WAF Fraud Control account takeover prevention (ATP) rule group](aws-managed-rule-groups-atp.md). You include this rule group in your protection pack (web ACL) using a managed rule group reference statement. For information about using this rule group, see [Adding the ATP managed rule group to your protection pack (web ACL)](waf-atp-rg-using.md). 

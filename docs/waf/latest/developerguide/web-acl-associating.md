@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Associating protection with an AWS resource
-<a name="web-acl-associating"></a>
 
 ------
 #### [ Using the new console ]

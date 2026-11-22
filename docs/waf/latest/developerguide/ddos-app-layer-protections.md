@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Protecting the application layer (layer 7) with AWS Shield Advanced and AWS WAF
-<a name="ddos-app-layer-protections"></a>
 
 This page explains how Shield Advanced and AWS WAF work together to protect resources at the application layer (layer 7).
 

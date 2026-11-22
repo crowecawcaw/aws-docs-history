@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using logical rule statements in AWS WAF
-<a name="waf-rule-statements-logical"></a>
 
 This section explains what a logical rule statement is and how it works.
 

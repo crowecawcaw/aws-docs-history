@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Intelligent threat integration and AWS Managed Rules
-<a name="waf-application-integration-with-AMRs"></a>
 
 This section explains how the intelligent threat integration APIs work with the AWS Managed Rules rule groups.
 

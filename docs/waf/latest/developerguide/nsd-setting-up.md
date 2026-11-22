@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Setting up your account to use AWS Shield network security director
-<a name="nsd-setting-up"></a>
 
 **Note**  
 The AWS Shield network security director public preview has now ended and the console is no longer accessible. For more information about AWS Shield network security director, contact [AWS Support](https://aws.amazon.com/premiumsupport) or an [AWS Sales Representative](https://aws.amazon.com/contact-us/sales-support/). 
@@ -56,7 +55,7 @@ The delegated administrator account requires specific IAM permissions to manage 
 
 **Required IAM policy for AWS Shield network security director delegated administrator:**
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [

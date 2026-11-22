@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using AWS WAF with Amazon CloudFront
-<a name="cloudfront-features"></a>
 
 Learn how to use AWS WAF with Amazon CloudFront features.
 
@@ -87,6 +86,8 @@ Flat-rate pricing plans include the following AWS services and features for a si
 + TLS certificate
 + Serverless edge compute
 + Amazon S3 storage credits each month
+
+Flat-rate pricing plans don't include the targeted protection level of the Bot Control managed rule group. For more information about the protection levels, see [Protection levels](aws-managed-rule-groups-bot.md#aws-managed-rule-groups-bot-prot-levels). 
 
 Plans are available in Free, Pro, Business, and Premium tiers to match your application's needs. Plans do not need an annual commitment to get the best available rates. Start with the Free plan and upgrade to access more capabilities and larger usage allowances.
 

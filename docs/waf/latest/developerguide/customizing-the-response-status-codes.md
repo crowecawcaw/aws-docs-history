@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Supported status codes for custom responses
-<a name="customizing-the-response-status-codes"></a>
 
 This section lists the status codes that you can use in a custom response. For detailed information about HTTP status codes, see [Status Codes](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes) by the Internet Engineering Task Force (IETF) and [List of HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) on Wikipedia.
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # IP sets and regex pattern sets in AWS WAF
-<a name="waf-referenced-set-managing"></a>
 
 This section introduces the topics of IP sets and regex pattern sets.
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Data protection and logging for AWS WAF protection pack (web ACL) traffic
-<a name="waf-data-protection-and-logging"></a>
 
 This section explains the data logging, collection, and protection options that you can use with AWS WAF. The options are the following: 
 + **Logging** – You can configure your protection pack (web ACL) to send logs for web request traffic to a logging destination of your choice. You can configure field redaction and filtering for this choice. Logging uses the data that's available after any data protection setting are applied. 

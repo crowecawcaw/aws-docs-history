@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # CAPTCHA and Challenge in AWS WAF
-<a name="waf-captcha-and-challenge"></a>
 
 This section explains how CAPTCHA and Challenge work with AWS WAF.
 

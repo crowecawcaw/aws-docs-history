@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Deleting a protection pack (web ACL)
-<a name="web-acl-deleting"></a>
 
 This section provides procedures for deleting protection packs (web ACLs) through the AWS console. 
 

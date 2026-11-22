@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Choosing and configuring Bot Control for your use case
-<a name="waf-bot-control-use-cases"></a>
 
 Bot Control protects against a range of automated threats. The right configuration depends on what you're protecting and what threats you face. Use this topic to choose the right protection level and configure Bot Control for common application scenarios.
 
@@ -68,7 +67,7 @@ For most production web applications, we recommend targeted protection. For guid
 | Client application integration SDKs | Not required | Strongly recommended | 
 
 **Checking your rule group version**  
-The Bot Control managed rule group is updated over time with new detection capabilities. Check which version you are currently using and whether a newer static version is available. Newer versions include additional detections that can increase your coverage against new bot threats. You can review the available versions and their changes in the [AWS Managed Rules changelog](aws-managed-rule-groups-changelog.md).
+The Bot Control managed rule group is updated over time with new detection capabilities. Check which version you are currently using and whether a newer static version is available. Newer versions include additional detections that can increase your coverage against new bot threats. You can review the available versions and their changes in the [AWS Managed Rules changelog](aws-managed-rule-groups-changelog.md). To always use the newest version without manual upgrades, choose the `LATEST` version. For more information about `LATEST`, see [LATEST version for the Bot Control managed rule group](waf-managed-rule-groups-versioning-latest.md).
 
 ## How Bot Control detection works
 <a name="waf-bot-control-how-it-protects"></a>

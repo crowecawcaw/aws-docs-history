@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Viewing the automatic application layer DDoS mitigation configuration for a resource
-<a name="view-automatic-app-layer-response-configuration"></a>
 
 You can view the automatic application layer DDoS mitigation configuration for a resource in the **Protected resources** page and in the individual protections pages. 
 

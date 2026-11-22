@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Configuring protection in AWS WAF
-<a name="web-acl"></a>
 
 This page explains what protection packs (web ACLs) are and how they work.
 
@@ -47,6 +46,7 @@ The following are examples of the temporary inconsistencies that you might notic
 + [Editing a protection pack (web ACL) in AWS WAF](web-acl-editing.md)
 + [Managing rule group behavior](web-acl-rule-group-settings.md)
 + [Associating or disassociating protection with an AWS resource](web-acl-associating-aws-resource.md)
++ [Enabling security analytics for a protection pack (web ACL)](web-acl-security-analytics-enabling.md)
 + [Using protection packs (web ACLs) with rules and rule groups in AWS WAF](web-acl-processing.md)
 + [Setting the protection pack (web ACL) default action in AWS WAF](web-acl-default-action.md)
 + [Considerations for managing body inspection in AWS WAF](web-acl-setting-body-inspection-limit.md)

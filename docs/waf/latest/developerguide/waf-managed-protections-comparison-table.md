@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Options for intelligent threat mitigation in AWS WAF
-<a name="waf-managed-protections-comparison-table"></a>
 
 This section provides a detailed comparison of the options for implementing intelligent threat mitigation. 
 

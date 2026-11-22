@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Associating or disassociating protection with an AWS resource
-<a name="web-acl-associating-aws-resource"></a>
 
 You can use AWS WAF to create the following associations between protection packs (web ACLs) and your resources: 
 + Associate a regional protection pack (web ACL) with any of the regional resources listed below. For this option, the protection pack (web ACL) must be in the same region as your resource. 

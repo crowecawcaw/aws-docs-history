@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS Shield detection logic for infrastructure layer threats (layer 3 and layer 4)
-<a name="ddos-event-detection-infrastructure"></a>
 
 This page explains how event detection works for the infrastructure (network and transport) layers.
 

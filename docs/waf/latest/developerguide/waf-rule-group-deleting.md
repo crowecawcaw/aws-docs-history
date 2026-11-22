@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Deleting a rule group
-<a name="waf-rule-group-deleting"></a>
 
 Follow the guidance in this section to delete a rule group.
 

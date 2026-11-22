@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS WAF rule groups
-<a name="waf-rule-groups"></a>
 
 This section explains what a rule group is and how it works.
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Migrating a protection pack (web ACL): additional considerations
-<a name="waf-migrating-procedure-additional"></a>
 
 Review your new protection pack (web ACL) and consider the options available to you in the new AWS WAF to be sure that the configuration is as efficient as possible and that it's using the latest available security options. 
 

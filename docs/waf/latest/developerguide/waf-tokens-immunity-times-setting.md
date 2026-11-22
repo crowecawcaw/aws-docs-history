@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Where to set the AWS WAF token immunity times
-<a name="waf-tokens-immunity-times-setting"></a>
 
 You can set the immunity times in your protection pack (web ACL) and in your rules that use the Challenge and CAPTCHA rule actions. 
 

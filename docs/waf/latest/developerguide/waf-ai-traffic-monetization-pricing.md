@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Pricing configuration
-<a name="waf-ai-traffic-monetization-pricing"></a>
 
 ## Base price
 <a name="waf-ai-traffic-monetization-base-price"></a>
@@ -52,7 +51,7 @@ To avoid inadvertently blocking human visitors, use the Monetize action only on 
 **Example: Monetize only bot traffic using Bot Control labels**  
 The following rule configuration uses Bot Control to classify traffic first, then applies the Monetize action only to requests labeled as bots:
 
-```
+```JSON
 {
   "Name": "MonetizeBotTrafficOnly",
   "Priority": 5,

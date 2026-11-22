@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # IP reputation rule groups
-<a name="aws-managed-rule-groups-ip-rep"></a>
 
 IP reputation rule groups block requests based on their source IP address. 
 

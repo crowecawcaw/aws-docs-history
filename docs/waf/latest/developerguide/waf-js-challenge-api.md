@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using the intelligent threat JavaScript API
-<a name="waf-js-challenge-api"></a>
 
 This section provides instructions for using the intelligent threat JavaScript API in your client application.
 

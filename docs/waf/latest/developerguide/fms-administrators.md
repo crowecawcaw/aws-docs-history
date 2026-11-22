@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using AWS Firewall Manager administrators
-<a name="fms-administrators"></a>
 
 This page explains what Firewall Manager administrators are and defines related terms.
 

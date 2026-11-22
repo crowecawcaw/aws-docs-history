@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Associating a health check with your resource protected by Shield Advanced
-<a name="associate-health-check"></a>
 
 The following procedure shows how to associate an Amazon Route 53 health check with a protected resource. 
 

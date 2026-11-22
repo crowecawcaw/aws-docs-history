@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Label match rule statement
-<a name="waf-rule-statement-type-label-match"></a>
 
 This section explains what a label match statement is and how it works.
 

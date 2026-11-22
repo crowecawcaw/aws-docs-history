@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Configuring application layer (layer 7) DDoS protections with AWS WAF
-<a name="ddos-get-started-web-acl-rbr"></a>
 
 This page provides instructions for configuring application layer protections with AWS WAF web ACLs. 
 

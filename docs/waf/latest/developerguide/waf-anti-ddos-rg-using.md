@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Adding the Anti-DDoS managed rule group to your protection pack (web ACL)
-<a name="waf-anti-ddos-rg-using"></a>
 
 This section explains how to add and configure the `AWSManagedRulesAntiDDoSRuleSet` rule group.
 

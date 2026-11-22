@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Types of token labels in AWS WAF
-<a name="waf-tokens-labeling"></a>
 
 This section describes the labels that AWS WAF token management adds to web requests. For general information about labels, see [Web request labeling in AWS WAF](waf-labels.md).
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using AWS CloudFormation with automatic application layer DDoS mitigation
-<a name="manage-automatic-mitigation-in-cfn"></a>
 
 This page explains how to use CloudFormation to manage your protections and AWS WAF web ACLs. 
 

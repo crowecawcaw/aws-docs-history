@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Deployments for versioned AWS Managed Rules rule groups
-<a name="waf-managed-rule-groups-deployments"></a>
 
 This section introduces how AWS deploys updates to AWS Managed Rules rule groups.
 
@@ -21,5 +20,6 @@ This section applies only to AWS Managed Rules rule groups that are versioned. T
 + [Release candidate deployments for AWS Managed Rules](waf-managed-rule-groups-deployments-release-candidate.md)
 + [Static version deployments for AWS Managed Rules](waf-managed-rule-groups-deployments-static-version.md)
 + [Default version deployments for AWS Managed Rules](waf-managed-rule-groups-deployments-default-version.md)
++ [LATEST version updates for AWS Managed Rules](waf-managed-rule-groups-deployments-latest-version.md)
 + [Exception deployments for AWS Managed Rules](waf-managed-rule-groups-deployments-exceptions.md)
 + [Default deployment rollbacks for AWS Managed Rules](waf-managed-rule-groups-deployments-default-rollbacks.md)

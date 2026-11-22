@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Web ACL capacity units (WCUs) in AWS WAF
-<a name="aws-waf-capacity-units"></a>
 
 This section explains what web ACL capacity units (WCUs) are and how they work.
 

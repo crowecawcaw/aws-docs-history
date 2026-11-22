@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Viewing health check association status in Shield Advanced
-<a name="health-check-association-status"></a>
 
 You can see the status of the health check that's associated with a protection on the AWS WAF & Shield console **Protected resources** page and on the details page of each resource. 
 + **Healthy** – The health check is available and is reporting healthy.

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using the AWS Firewall Manager policy scope
-<a name="policy-scope"></a>
 
 This page explains what the Firewall Manager policy scope is and how it works. 
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS WAF ACFP components
-<a name="waf-acfp-components"></a>
 
 The primary components of AWS WAF Fraud Control account creation fraud prevention (ACFP) are the following: 
 + **`AWSManagedRulesACFPRuleSet`** – The rules in this AWS Managed Rules rule group detect, label, and handle various types of fraudulent account creation activity. The rule group inspects HTTP `GET` text/html requests that clients send to the specified account registration endpoint and `POST` web requests that clients send to the specified account sign-up endpoint. For protected CloudFront distributions, the rule group also inspects the responses that the distribution sends back to account creation requests. For a list of this rule group's rules, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](aws-managed-rule-groups-acfp.md). You include this rule group in your protection pack (web ACL) using a managed rule group reference statement. For information about using this rule group, see [Adding the ACFP managed rule group to your web ACL](waf-acfp-rg-using.md). 

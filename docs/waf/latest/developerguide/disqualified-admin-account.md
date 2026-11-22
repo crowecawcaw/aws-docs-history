@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Disqualifying changes to a Firewall Manager administrator account
-<a name="disqualified-admin-account"></a>
 
 Some changes to an administrator account can disqualify it from remaining an administrator account. 
 

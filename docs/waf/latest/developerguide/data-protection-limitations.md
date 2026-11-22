@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Data protection limitations
-<a name="data-protection-limitations"></a>
 
 The following are limitations to consider when using data protection.
 

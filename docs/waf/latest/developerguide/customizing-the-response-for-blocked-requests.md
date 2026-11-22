@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Sending custom responses for Block actions
-<a name="customizing-the-response-for-blocked-requests"></a>
 
 This section explains how to instruct AWS WAF to send a custom HTTP response back to the client for rule actions or protection pack (web ACL) default actions that are set to Block. For more information about rule actions, see [Using rule actions in AWS WAF](waf-rule-action.md). For more information about default protection pack (web ACL) actions, see [Setting the protection pack (web ACL) default action in AWS WAF](web-acl-default-action.md).
 

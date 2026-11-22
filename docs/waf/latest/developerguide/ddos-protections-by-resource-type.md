@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # List of resources that AWS Shield Advanced protects
-<a name="ddos-protections-by-resource-type"></a>
 
 This section provides information about Shield Advanced protections for each resource type. 
 

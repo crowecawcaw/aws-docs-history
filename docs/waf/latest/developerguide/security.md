@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Security in your use of the AWS WAF service
-<a name="security"></a>
 
 This section explains how the shared responsibility model applies to AWS WAF.
 

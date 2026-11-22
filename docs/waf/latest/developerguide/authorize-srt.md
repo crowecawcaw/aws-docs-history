@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Setting up AWS Shield Response Team (SRT) support for DDoS event response
-<a name="authorize-srt"></a>
 
 This page provides instructions for setting up Shield Response Team (SRT) support.
 

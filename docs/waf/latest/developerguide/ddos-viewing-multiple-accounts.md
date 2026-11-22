@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Viewing Shield Advanced events across multiple AWS accounts with AWS Firewall Manager and AWS Security Hub CSPM
-<a name="ddos-viewing-multiple-accounts"></a>
 
 You can use AWS Firewall Manager and AWS Security Hub CSPM to manage and monitor AWS Shield Advanced protected resources across multiple accounts. 
 

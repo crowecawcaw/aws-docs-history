@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # List of factors that affect application layer event detection and mititgation with Shield Advanced
-<a name="ddos-app-layer-detection-mitigation"></a>
 
 This section describes the factors that affect the detection and mitigation of application layer events by Shield Advanced. 
 

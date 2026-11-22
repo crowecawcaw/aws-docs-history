@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using Amazon VPC network access control list (ACL) policies with Firewall Manager
-<a name="network-acl-policies"></a>
 
 This section covers how AWS Firewall Manager network ACL policies work and provides guidance for using them. For guidance creating a network ACL policy using the console, see [Creating a network ACL policy](create-policy.md#creating-firewall-manager-policy-network-acl).
 

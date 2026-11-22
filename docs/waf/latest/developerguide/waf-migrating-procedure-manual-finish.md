@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Migrating a protection pack (web ACL): manual follow-up
-<a name="waf-migrating-procedure-manual-finish"></a>
 
 After the automated migration is complete, review the newly created protection pack (web ACL) and fill in the components that the migration doesn't bring over for you. The following procedure covers the aspects of protection pack (web ACL) management that the migration doesn't handle. For the list, see [Migration caveats and limitations](waf-migrating-caveats.md).
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # List of fields in AWS Shield Advanced event summaries
-<a name="ddos-event-summaries"></a>
 
 This page lists and defines the fields in Shield Advanced event summaries.
 

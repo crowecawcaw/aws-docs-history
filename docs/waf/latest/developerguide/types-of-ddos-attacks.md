@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Examples of DDoS attacks
-<a name="types-of-ddos-attacks"></a>
 
 AWS Shield Advanced provides expanded protection against many types of attacks. 
 

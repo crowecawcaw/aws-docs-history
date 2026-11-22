@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Monitoring AWS WAF, AWS Firewall Manager, and AWS Shield Advanced
-<a name="monitoring_overview"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of your services. 
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Disabling logging for an AWS WAF policy in Firewall Manager
-<a name="waf-policies-disabling-logging"></a>
 
 The following procedure describes how to disable logging for an AWS WAF policy in the Firewall Manager console.
 

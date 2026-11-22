@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # CAPTCHA and Challenge actions in the logs and metrics
-<a name="waf-captcha-and-challenge-logs-metrics"></a>
 
 This section explains how AWS WAF handles logging and metrics for the CAPTCHA and Challenge actions.
 

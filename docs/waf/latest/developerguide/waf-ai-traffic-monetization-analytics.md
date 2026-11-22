@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Revenue analytics
-<a name="waf-ai-traffic-monetization-analytics"></a>
 
 ## Revenue dashboard
 <a name="waf-ai-traffic-monetization-revenue-dashboard"></a>

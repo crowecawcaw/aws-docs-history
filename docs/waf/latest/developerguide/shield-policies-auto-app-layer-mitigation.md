@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using Automatic application layer DDoS mitigation with Firewall Manager Shield Advanced policies
-<a name="shield-policies-auto-app-layer-mitigation"></a>
 
 This page explains how Automatic application layer DDoS mitigation works with Firewall Manager.
 

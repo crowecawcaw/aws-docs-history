@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS Managed Rules for AWS WAF
-<a name="aws-managed-rule-groups"></a>
 
 This section explains what AWS Managed Rules for AWS WAF is.
 

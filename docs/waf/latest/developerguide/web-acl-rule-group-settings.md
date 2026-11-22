@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Managing rule group behavior
-<a name="web-acl-rule-group-settings"></a>
 
 This section describes your options for modifying how you use a rule group in your protection pack (web ACL). This information applies to all rule group types. After you add a rule group to a protection pack (web ACL), you can override the actions of the individual rules in the rule group to Count or to any other valid rule action setting. You can also override the rule group's resulting action to Count, which has no effect on how the rules are evaluated inside the rule group. 
 

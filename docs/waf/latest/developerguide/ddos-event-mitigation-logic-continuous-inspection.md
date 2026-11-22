@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS Shield mitigation logic for CloudFront and Route 53
-<a name="ddos-event-mitigation-logic-continuous-inspection"></a>
 
 This page explains how Shield DDoS mitigation continually inspects traffic for CloudFront and Route 53. These services operate from a globally distributed network of AWS edge locations that provide you with broad access to Shield’s DDoS mitigation capacity and deliver your application from infrastructure that's closer to your end users. 
 

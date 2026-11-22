@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using your rule group in a protection pack (web ACL)
-<a name="waf-rule-group-using"></a>
 
 To use a rule group in a protection pack (web ACL), you add it to the protection pack (web ACL) in a rule group reference statement. 
 

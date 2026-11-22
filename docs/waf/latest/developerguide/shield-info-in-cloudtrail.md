@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS Shield Advanced information in CloudTrail
-<a name="shield-info-in-cloudtrail"></a>
 
 AWS Shield Advanced supports logging the following actions as events in CloudTrail log files:
 + [ListAttacks](https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_ListAttacks.html)

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Testing and tuning high-level steps
-<a name="web-acl-testing-high-level"></a>
 
 This section provides a checklist of the steps for testing changes to your web ACL, including any rules or rule groups that it uses. 
 
@@ -21,6 +20,8 @@ Perform these steps first in a test environment, then in production.
 **Prepare for testing**
 
    Prepare your monitoring environment, switch your new AWS WAF protections to count mode for testing, and create any resource associations that you need. 
+
+   To monitor your protection packs (web ACLs) across AWS Regions with security analytics, enable security analytics in the analytics configuration of each protection pack (web ACL). For more information, see [Enabling security analytics for a protection pack (web ACL)](web-acl-security-analytics-enabling.md). 
 
    See [Preparing for testing your AWS WAF protections](web-acl-testing-prep.md). 
 

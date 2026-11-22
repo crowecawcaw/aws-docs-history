@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS WAF rules that add labels
-<a name="waf-rule-label-add"></a>
 
 In almost all rules, you can define labels and AWS WAF will apply them to any matching request. 
 

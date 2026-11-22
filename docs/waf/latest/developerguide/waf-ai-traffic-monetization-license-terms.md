@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Communicating license terms to AI agents
-<a name="waf-ai-traffic-monetization-license-terms"></a>
 
 AI traffic monetization tells agents how much to pay but not what they're allowed to do with the content. To communicate machine-readable usage terms, you can use RSL (Really Simple Licensing) – an open standard for machine-readable content licensing.
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS Firewall Manager integration with AWS Security Hub CSPM
-<a name="fms-findings"></a>
 
 This page explains how to use Firewall Manager and Security Hub CSPM together.
 

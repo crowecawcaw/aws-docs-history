@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # How Firewall Manager remediates noncompliant managed network ACLs
-<a name="network-acls-remediation"></a>
 
 This section describes how Firewall Manager remediates its managed network ACLs when they're out of compliance with the policy. Firewall Manager only remediates managed network ACLs—with the `FMManaged` tag set to `true`. For network ACLs that aren't managed by Firewall Manager, see [Initial network ACL management](network-acls-initialization.md).
 

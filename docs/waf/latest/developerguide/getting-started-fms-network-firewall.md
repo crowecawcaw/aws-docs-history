@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Setting up AWS Firewall Manager​ AWS Network Firewall policies
-<a name="getting-started-fms-network-firewall"></a>
 
 To use AWS Firewall Manager to enable an AWS Network Firewall firewall across your organization, perform the following steps in sequence. For information about Firewall Manager Network Firewall policies, see [Using AWS Network Firewall policies in Firewall Manager](network-firewall-policies.md).
 

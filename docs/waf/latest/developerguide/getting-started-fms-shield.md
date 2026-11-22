@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Setting up AWS Firewall Manager​ AWS Shield Advanced policies
-<a name="getting-started-fms-shield"></a>
 
 You can use AWS Firewall Manager to enable AWS Shield Advanced protections across your organization. 
 

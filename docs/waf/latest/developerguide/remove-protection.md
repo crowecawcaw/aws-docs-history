@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Removing AWS Shield Advanced protection from an AWS resource
-<a name="remove-protection"></a>
 
 You can remove AWS Shield Advanced protection from any of your AWS resources at any time. 
 
@@ -32,5 +31,5 @@ The preceding steps remove AWS Shield Advanced protection from specific AWS reso
 <a name="remove-cloudwatch-ddos"></a>
 
 To remove a CloudWatch alarm from your Shield Advanced protections, do one of the following:
-+ Delete the protection as described in [Removing AWS Shield Advanced protection from an AWS resource](#remove-protection). Be sure to select the check box next to **Also delete related DDoSDetection alarm**.
++ Delete the protection as described in [Removing AWS Shield Advanced protection from an AWS resource](remove-protection.md). Be sure to select the check box next to **Also delete related DDoSDetection alarm**.
 + Delete the alarm using the CloudWatch console. The name of the alarm to delete starts with **DDoSDetectedAlarmForProtection**.

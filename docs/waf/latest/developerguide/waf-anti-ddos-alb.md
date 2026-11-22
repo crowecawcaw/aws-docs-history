@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Resource-level DDoS protection for Application Load Balancers
-<a name="waf-anti-ddos-alb"></a>
 
 **Resource level DDoS protection** adds immediate defense to Application Load Balancers without incurring charges of deploying AWS WAF managed rule groups. This standard tier of Anti-DDoS protection uses AWS threat intelligence and traffic pattern analysis to protect Application Load Balancers. To identify known malicous sources, Anti-DDoS protection performs on-host filtering of both direct client IP addresses and X-Forwarded-For (XFF) headers. After a known malicious source is identified, protection is activated through one of two modes:
 

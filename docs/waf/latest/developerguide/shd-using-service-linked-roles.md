@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using service-linked roles for Shield Advanced
-<a name="shd-using-service-linked-roles"></a>
 
 This section explains how to use service-linked roles to give Shield Advanced access to resources in your AWS account.
 

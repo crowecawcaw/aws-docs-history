@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Migrating AWS WAF Classic Web ACLs in Firewall Manager
-<a name="migrate-waf-classic-fms"></a>
 
 There are two scenarios where Firewall Manager might use AWS WAF Classic WebACLs:
 

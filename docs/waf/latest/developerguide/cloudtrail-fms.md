@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS Firewall Manager information in CloudTrail
-<a name="cloudtrail-fms"></a>
 
 AWS Firewall Manager supports logging the following actions as events in CloudTrail log files:
 + [AssociateAdminAccount](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_AssociateAdminAccount.html)

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AI traffic monetization
-<a name="waf-ai-traffic-monetization"></a>
 
 AI traffic monetization enables content and API providers to charge AI bots and agents for access to protected resources directly at the edge. When a client requests a monetized resource, AWS WAF returns an HTTP 402 Payment Required response containing pricing and accepted payment networks. The client submits a signed payment authorization on their payment network of choice, AWS WAF verifies it, fetches the content, integrates with third-party facilitator services for settling the payment on-chain, and serves the response.
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using pre-parse text transformations in AWS WAF
-<a name="waf-rule-statement-preparse-transformation"></a>
 
 Pre-parse text transformations normalize the raw query string before AWS WAF parses it into individual query arguments. These transformations address parser differential attacks and HTTP Parameter Pollution (HPP), where attackers encode or manipulate query string delimiters to bypass inspection rules.
 

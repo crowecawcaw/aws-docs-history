@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Deleting a custom managed list in Firewall Manager
-<a name="deleting-custom-managed-list"></a>
 
 You can delete custom managed lists. You can't edit or delete lists that Firewall Manager manages. 
 

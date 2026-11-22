@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # How AWS Firewall Manager works with IAM
-<a name="fms-security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Firewall Manager, learn what IAM features are available to use with Firewall Manager.
 

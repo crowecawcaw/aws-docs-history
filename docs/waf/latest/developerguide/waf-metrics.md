@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS WAF metrics and dimensions
-<a name="waf-metrics"></a>
 
 AWS WAF reports metrics once a minute. AWS WAF provides metrics and dimensions in the `AWS/WAFV2` namespace. 
 

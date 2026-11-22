@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Static version deployments for AWS Managed Rules
-<a name="waf-managed-rule-groups-deployments-static-version"></a>
 
 When AWS determines that a release candidate provides valuable changes to the rule group, AWS deploys a new static version for the rule group based on the release candidate. This deployment doesn't change the default version of the rule group. 
 
@@ -23,6 +22,8 @@ The following diagram depicts the creation of the new static version from the re
 
 
 After deployment, the new static version is available for you to test and to use in your protections if you want to. You can review new and updated rule actions and descriptions in the rule group's rule listings at [AWS Managed Rules rule groups list](aws-managed-rule-groups-list.md). 
+
+If you use the `LATEST` version of the AWS WAF Bot Control managed rule group, AWS also updates `LATEST` to point to the new static version, and your protection pack (web ACL) starts using the new version. For more information about `LATEST` updates, see [LATEST version updates for AWS Managed Rules](waf-managed-rule-groups-deployments-latest-version.md). 
 
 A static version is immutable after deployment, and only changes when AWS expires it. For information about version life cycles, see [Using versioned managed rule groups in AWS WAF](waf-managed-rule-groups-versioning.md).
 

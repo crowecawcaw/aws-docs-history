@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Bot Control example: Creating an exception for a blocked user agent
-<a name="waf-bot-control-example-user-agent-exception"></a>
 
 If traffic from some non-browser user agents is being erroneously blocked, you can create an exception by setting the offending AWS WAF Bot Control rule `SignalNonBrowserUserAgent` to Count and then combining the rule's labeling with your exception criteria. 
 

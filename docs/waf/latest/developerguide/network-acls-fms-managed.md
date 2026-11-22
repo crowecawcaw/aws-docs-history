@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using network ACL rules and tagging in Firewall Manager
-<a name="network-acls-fms-managed"></a>
 
 This section describes the network ACL policy rule specifications and the network ACLs that are managed by Firewall Manager. 
 

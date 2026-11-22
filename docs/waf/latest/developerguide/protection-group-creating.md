@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Creating a Shield Advanced protection group
-<a name="protection-group-creating"></a>
 
 **To create a protection group**
 

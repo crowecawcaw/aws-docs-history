@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Data protection exceptions
-<a name="data-protection-exceptions"></a>
 
 When enabled, data protection will apply to the fields it is enabled on, including `RuleMatchDetails` and `rateBasedRuleList`. However, there are instances when you may want to include the protected data and content in `RuleMatchDetails` and `rateBasedRuleList` for troubleshooting and visibility purposes. In these scenarios, you can specify exceptions to the data protection for that field.
 + **`ExcludeRuleMatchDetails`**: If you specify this exception for a specific field, `RuleMatchDetails` will show the value of the field and won't be in scope for data protection. 

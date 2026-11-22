@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Adding the ACFP managed rule group to your web ACL
-<a name="waf-acfp-rg-using"></a>
 
 This section explains how to add and configure the `AWSManagedRulesACFPRuleSet` rule group.
 

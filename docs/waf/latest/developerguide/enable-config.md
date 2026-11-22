@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Enabling AWS Config for using Firewall Manager
-<a name="enable-config"></a>
 
 To use Firewall Manager, you must enable AWS Config. 
 

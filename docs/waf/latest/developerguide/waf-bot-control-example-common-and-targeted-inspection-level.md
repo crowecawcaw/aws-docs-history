@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Bot Control example: Using two statements to limit the use of the targeted inspection level
-<a name="waf-bot-control-example-common-and-targeted-inspection-level"></a>
 
 As a cost optimization, you can use two AWS WAF Bot Control managed rule group statements in your protection pack (web ACL), with separate inspection levels and scoping. For instance, you could scope the targeted inspection level statement only to more sensitive application endpoints.
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Creating a protection pack (web ACL) in AWS WAF
-<a name="web-acl-creating"></a>
 
 ------
 #### [ Using the new console ]
@@ -35,6 +34,8 @@ Using more than 1,500 WCUs in a protection pack (web ACL) incurs costs beyond th
 1. Choose the category of AWS resource that you want to associate with this protection pack (web ACL), either Amazon CloudFront distributions or Regional resources. For more information, see [Associating or disassociating protection with an AWS resource](web-acl-associating-aws-resource.md). 
 
 1. Under **Choose initial protections,** select your preferred protection level: **Recommended**, **Essentials**, or **You build it**. 
+
+1. (Optional) Under **Targeted bot control**, select **Enable Targeted bot control** to add the Bot Control managed rule group at the targeted protection level with the recommended settings. Then review the action for each bot confidence level. This section is available for the CloudFront scope only, and isn't available if you select **You build it**. For more information about the setting, see [Turning on Targeted bot control in the console](waf-bot-control-targeted-console.md). 
 
 1. (Optional) If you choose **You build it**, build your rules.
 

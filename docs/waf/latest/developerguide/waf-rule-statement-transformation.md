@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using text transformations in AWS WAF
-<a name="waf-rule-statement-transformation"></a>
 
 This section explains how to provide transformations for AWS WAF to apply before inspecting the request.
 

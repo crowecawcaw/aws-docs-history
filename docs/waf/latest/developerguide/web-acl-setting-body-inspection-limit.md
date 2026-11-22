@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Considerations for managing body inspection in AWS WAF
-<a name="web-acl-setting-body-inspection-limit"></a>
 
 The body inspection size limit is the maximum request body size that AWS WAF can inspect. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection. 
 + For Application Load Balancer and AWS AppSync, the limit is fixed at 8 KB (8,192 bytes).

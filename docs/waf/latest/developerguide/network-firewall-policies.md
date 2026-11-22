@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using AWS Network Firewall policies in Firewall Manager
-<a name="network-firewall-policies"></a>
 
 This section explains how to use AWS Network Firewall policies with Firewall Manager.
 

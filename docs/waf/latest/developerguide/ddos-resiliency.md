@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Building basic DDoS resilient architectures with Shield Advanced
-<a name="ddos-resiliency"></a>
 
 This page explains Distributed Denial of Service (DDoS) resiliency and introduces two example architectures.
 

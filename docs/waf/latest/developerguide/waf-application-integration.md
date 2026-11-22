@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Client application integrations in AWS WAF
-<a name="waf-application-integration"></a>
 
 This section explains how to use the intelligent threat integration APIs and JavaScript CAPTCHA integration API with your AWS WAF features. 
 

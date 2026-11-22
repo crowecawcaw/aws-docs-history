@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Rate-based rule caveats in AWS WAF
-<a name="waf-rule-statement-type-rate-based-caveats"></a>
 
 This section lists the caveats for using rate-based rules.
 

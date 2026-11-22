@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Setting the protection pack (web ACL) default action in AWS WAF
-<a name="web-acl-default-action"></a>
 
 This section explains how protection pack (web ACL) default actions work.
 

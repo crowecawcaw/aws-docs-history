@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Deciding whether to subscribe to AWS Shield Advanced and apply additional protections
-<a name="ddos-advanced-summary-deciding"></a>
 
 Review the scenarios in this section for help deciding which accounts to subscribe to AWS Shield Advanced and where to apply additional protections. With Shield Advanced, you pay one monthly subscription fee for all accounts created under a consolidated billing account, plus usage fees based on GB of data transferred out. For information about Shield Advanced pricing, see [AWS Shield Advanced Pricing](https://aws.amazon.com/shield/pricing/).
 

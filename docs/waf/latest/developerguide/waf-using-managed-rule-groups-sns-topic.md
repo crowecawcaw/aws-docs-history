@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Getting notified of new versions and updates to a managed rule group
-<a name="waf-using-managed-rule-groups-sns-topic"></a>
 
 This section explains how to receive Amazon SNS notifications of new versions and updates.
 

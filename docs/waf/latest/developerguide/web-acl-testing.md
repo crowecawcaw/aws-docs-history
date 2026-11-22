@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Testing and tuning your AWS WAF protections
-<a name="web-acl-testing"></a>
 
 This section provides guidance for testing and tuning your AWS WAF protection packs (web ACLs), rules, rule groups, IP sets, and regex pattern sets.
 

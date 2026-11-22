@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # What are AWS WAF, AWS Shield Advanced, AWS Shield network security director and AWS Firewall Manager?
-<a name="what-is-aws-waf"></a>
 
 You can use [AWS WAF](waf-chapter.md), [AWS Shield](shield-chapter.md), and [AWS Firewall Manager](fms-chapter.md) together to create a comprehensive security solution. AWS WAF is a web application firewall that you can use to monitor web requests that your end users send to your applications and to control access to your content. Shield Advanced provides protection against distributed denial of service (DDoS) attacks for AWS resources, at the network and transport layers (layer 3 and 4) and the application layer (layer 7). AWS Firewall Manager provides management of protections like AWS WAF and Shield Advanced across accounts and resources, even as new resources are added. 
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using AWS Firewall Manager policies
-<a name="working-with-policies"></a>
 
 AWS Firewall Manager provides the following types of policies. For each policy type, you define the: 
 + **AWS WAF** **policy** – Firewall Manager supports AWS WAF and AWS WAF Classic policies. For both versions, you define which resources are protected by the policy. 

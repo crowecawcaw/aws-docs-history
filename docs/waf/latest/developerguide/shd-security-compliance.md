@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Validating compliance in Shield
-<a name="shd-security-compliance"></a>
 
 This section explains your compliance responsibility when using AWS Shield.
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Changing the action used for automatic application layer DDoS mitigation
-<a name="change-action-of-automatic-app-layer-response"></a>
 
 You can change the action that Shield Advanced uses for its application layer automatic response in multiple locations in the console:
 + **Automatic mitigation configuration** – Change the action when you configure automatic mitigation for your resource. For the procedure, see the preceding section [Enabling and disabling automatic application layer DDoS mitigation](enable-disable-automatic-app-layer-response.md).

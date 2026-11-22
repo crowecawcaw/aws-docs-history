@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using application integration SDKs with ACFP
-<a name="waf-acfp-with-tokens"></a>
 
 We highly recommend implementing the application integration SDKs, for the most efficient use of the ACFP rule group. 
 + **Complete rule group functionality** – The ACFP rule `SignalClientHumanInteractivityAbsentLow` only works with tokens that are populated by the application integrations. This rule detects and manages abnormal human interactivity with the application page. The application integration SDKs can detect normal human interactivity through mouse movements, key presses, and other measurements. The interstitials that are sent by the rule actions CAPTCHA and Challenge can't provide this type of data. 

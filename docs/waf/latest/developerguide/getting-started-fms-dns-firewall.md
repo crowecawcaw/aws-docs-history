@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Setting up AWS Firewall Manager​ DNS Firewall policies
-<a name="getting-started-fms-dns-firewall"></a>
 
 To use AWS Firewall Manager to enable Amazon Route 53 Resolver DNS Firewall across your organization, perform the following steps in sequence. For information about Firewall Manager DNS Firewall policies, see [Using Amazon Route 53 Resolver DNS Firewall policies in Firewall Manager](dns-firewall-policies.md).
 

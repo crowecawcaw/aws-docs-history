@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Creating a Firewall Manager administrator account
-<a name="fms-creating-administrators"></a>
 
 The following procedure describes how to create a Firewall Manager administrator account using the Firewall Manager console.
 
@@ -30,8 +29,8 @@ Only an organization's managment account can create Firewall Manager administrat
 
      For **Accounts and organizational units**, choose the options as follows:
      + If you want to apply policies to all accounts or organizational units in your organization, choose **Include all accounts under my AWS organization**. 
-     + If you want to apply policies only to specific accounts or accounts that are in specific AWS Organizations organizational units (OUs), choose **Include only the specified accounts and organizational units**, and then add the accounts and OUs that you want to include. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time. 
-     + If you want to apply policies to all but a specific set of accounts or AWS Organizations organizational units (OUs), choose **Exclude the specified accounts and organizational units, and include all others**, and then add the accounts and OUs that you want to exclude. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time. 
+     + If you want to apply policies only to specific accounts or accounts that are in specific AWS Organizations organizational units (OUs), choose **Include only the specified accounts and organizational units**, and then add the accounts and OUs that you want to include. Specifying an OU is the equivalent of specifying all accounts that are directly in the OU, including accounts that are added to the OU at a later time. Firewall Manager doesn't include accounts in any child OUs of the specified OU. 
+     + If you want to apply policies to all but a specific set of accounts or AWS Organizations organizational units (OUs), choose **Exclude the specified accounts and organizational units, and include all others**, and then add the accounts and OUs that you want to exclude. Specifying an OU is the equivalent of specifying all accounts that are directly in the OU, including accounts that are added to the OU at a later time. Firewall Manager doesn't exclude accounts in any child OUs of the specified OU. 
 
      For **Regions**, choose the options as follows:
      + If you want to allow the administrator to perform actions in all available Regions, choose **Include all Regions**. 
@@ -45,4 +44,4 @@ To include a Region that is disabled by default, you must enable the Region for 
 
 1. Choose **Create administrator account** to create the administrator account. Upon creation, Firewall Manager calls AWS Organizations to see if the administrator is already a delegated administrator for your organization. If not, Firewall Manager will designate the account as a delegated administrator. For information about delegated administrators in Organizations see [AWS Organizations terminology and concepts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html) in the *AWS Organizations User Guide*.
 
-If you apply **Restricted** administrative scope, Firewall Manager automatically evaluates any new resources against your settings. For example, if you include only specific accounts, Firewall Manager doesn't apply the policy to any new accounts. As another example, if you include an OU, when you add an account to the OU or to any of its child OUs, Firewall Manager automatically includes the account within the administrative scope.
+If you apply **Restricted** administrative scope, Firewall Manager automatically evaluates any new resources against your settings. For example, if you include only specific accounts, Firewall Manager doesn't apply the policy to any new accounts. As another example, if you include an OU, when you add an account directly to that OU, Firewall Manager automatically includes the account within the administrative scope. Firewall Manager doesn't automatically include accounts that you add to the OU's child OUs.

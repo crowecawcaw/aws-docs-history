@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Automatic SDK integration for CloudFront distributions
-<a name="waf-challenge-javascript-sdk-injection"></a>
 
 Several AWS WAF protections rely on client-side signals that the AWS WAF JavaScript SDK collects in the browser. These protections include the targeted protection level of Bot Control and the AWS WAF Fraud Control managed rule groups.
 
@@ -53,6 +52,8 @@ No metric or log field records whether CloudFront inserted the tag into a respon
 <a name="waf-challenge-javascript-sdk-injection-enabling"></a>
 
 In the console, you turn this on from any qualifying managed rule group. Add or edit the rule group in a CloudFront web ACL. Then, under **Automatic SDK integration**, select **Enable automatic SDK integration**. For Bot Control, the setting is in the same panel where you set the inspection level and machine learning.
+
+You can also turn on automatic SDK integration when you use the **Targeted bot control** setting to configure Bot Control at the targeted protection level for a CloudFront web ACL. For more information about the setting, see [Turning on Targeted bot control in the console](waf-bot-control-targeted-console.md).
 
 Through the API, add the `ChallengeJavascriptSdkInjection` setting to the `AssociationConfig` of the web ACL, using the `CLOUDFRONT` map key. The configuration object is empty. The following example shows the setting in a `CreateWebACL` or `UpdateWebACL` request.
 

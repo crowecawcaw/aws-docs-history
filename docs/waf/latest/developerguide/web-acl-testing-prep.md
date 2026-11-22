@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Preparing for testing your AWS WAF protections
-<a name="web-acl-testing-prep"></a>
 
 This section describes how to get set up to test and tune your AWS WAF protections. 
 

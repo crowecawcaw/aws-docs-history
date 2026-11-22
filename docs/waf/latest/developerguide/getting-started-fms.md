@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Setting up AWS Firewall Manager​ AWS WAF policies
-<a name="getting-started-fms"></a>
 
 To use AWS Firewall Manager to enable AWS WAF rules across your organization, perform the following steps in sequence. 
 

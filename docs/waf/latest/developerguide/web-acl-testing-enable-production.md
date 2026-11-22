@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Enabling your protections in production
-<a name="web-acl-testing-enable-production"></a>
 
 This section provides instructions for enabling your tuned protections in production.
 

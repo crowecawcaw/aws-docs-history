@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Example – Challenging clients whose token came from a different type of network
-<a name="waf-bot-control-example-token-provenance"></a>
 
 A client that passes an AWS WAF challenge receives a token, and then presents the token with its later requests. Some bots take advantage of this by solving the challenge in one place and sending their traffic from another. For example, a bot can acquire tokens from a data center and then present them from residential proxy IP addresses. Those addresses belong to the same internet providers as your real users. Each request arrives with a valid token from an IP address that looks like a real user's. Neither the token nor the address identifies the bot.
 
@@ -24,7 +23,7 @@ Use the CAPTCHA or Block action in your rule. In this scenario, the client's tok
 
 The following rule applies the CAPTCHA action to requests that have the `high` label. The rule must run after the Bot Control managed rule group, so that the label is available to match against. A real user who has changed networks can continue after solving the puzzle. A bot operator who moves tokens between networks must solve a puzzle for each token.
 
-```
+```json
 {
     "Name": "CaptchaTokenNetworkMismatchHigh",
     "Priority": 10,
@@ -47,7 +46,7 @@ The following rule applies the CAPTCHA action to requests that have the `high` l
 
 To block these clients instead of challenging them, combine the label with another Bot Control signal to increase your confidence that the client is automated. The following rule blocks requests that have the `high` label and whose token also indicates an automated browser.
 
-```
+```json
 {
     "Name": "BlockAutomatedTokenNetworkMismatch",
     "Priority": 11,

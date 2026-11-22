@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Infrastructure security in AWS Shield
-<a name="shd-infrastructure-security"></a>
 
 This section explains how AWS Shield isolates service traffic.
 

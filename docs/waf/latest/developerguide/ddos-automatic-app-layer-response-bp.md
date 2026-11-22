@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Best practices for using automatic application layer DDoS mitigation
-<a name="ddos-automatic-app-layer-response-bp"></a>
 
 Adhere to the guidance provided in this section when you use automatic mitigation.
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Examples of the traffic overview dashboards for protection packs (web ACLs)
-<a name="web-acl-dashboards-screenshots"></a>
 
 This section shows example screens of the traffic overview dashboards for protection packs (web ACLs). 
 

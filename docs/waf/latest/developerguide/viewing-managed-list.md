@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Viewing a managed list in Firewall Manager
-<a name="viewing-managed-list"></a>
 
 **To view an application list or protocol list**
 

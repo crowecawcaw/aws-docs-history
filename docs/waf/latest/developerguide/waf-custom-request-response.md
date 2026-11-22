@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Customized web requests and responses in AWS WAF
-<a name="waf-custom-request-response"></a>
 
 This section explains how to add custom web request and response handling behavior to your AWS WAF rule actions and default protection pack (web ACL) actions. Your custom settings apply whenever the action they're attached to applies. 
 

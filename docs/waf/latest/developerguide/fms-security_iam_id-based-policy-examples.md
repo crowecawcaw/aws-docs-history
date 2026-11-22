@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Identity-based policy examples for AWS Firewall Manager
-<a name="fms-security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Firewall Manager resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -45,7 +44,7 @@ To ensure that users and roles can still use the Firewall Manager console, also 
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -92,7 +91,7 @@ The following is an example policy that grants permissions for the `fms:Get`,`fm
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

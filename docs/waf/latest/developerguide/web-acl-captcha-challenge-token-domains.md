@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Configuring CAPTCHA, challenge, and tokens in AWS WAF
-<a name="web-acl-captcha-challenge-token-domains"></a>
 
 You can configure options in your protection pack (web ACL) for the rules that use the CAPTCHA or Challenge rule actions and for the application integration SDKs that manage silent client challenges for AWS WAF managed protections. 
 

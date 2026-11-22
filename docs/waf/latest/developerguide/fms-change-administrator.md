@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Changing the default Firewall Manager administrator account
-<a name="fms-change-administrator"></a>
 
 The following procedure describes how to change the default Firewall Manager administrator account. 
 

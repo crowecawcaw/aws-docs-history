@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Identity-based policy examples for AWS Shield
-<a name="shd-security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Shield resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -61,7 +60,7 @@ This example shows how you might create a policy that allows you to see DDoS att
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -97,7 +96,7 @@ This example shows how you might create a policy that allows you to see DDoS att
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -144,7 +143,7 @@ The following is an example policy that grants permissions for the `shield:ListP
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -172,7 +171,7 @@ The following policy grants users read-only access to Shield and associated reso
 
 ****  
 
-```
+```json
 {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -225,7 +224,7 @@ The following policy lets users perform any Shield operation, perform any operat
 
 ****  
 
-```
+```json
 {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

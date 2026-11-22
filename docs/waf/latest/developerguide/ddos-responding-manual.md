@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Manually mitigating an application layer DDoS attack
-<a name="ddos-responding-manual"></a>
 
 This page provides instructions for manually mitigating an application layer DDoS attack.
 

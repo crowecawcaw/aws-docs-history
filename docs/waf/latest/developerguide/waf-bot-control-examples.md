@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS WAF Bot Control examples
-<a name="waf-bot-control-examples"></a>
 
 This section shows example configurations that satisfy a variety of common use cases for AWS WAF Bot Control implementations. 
 

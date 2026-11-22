@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Updates before 2018
-<a name="doc-history-early-changes"></a>
 
 The following table describes important changes in each release of the *AWS WAF Developer Guide* that were made before 2018.
 

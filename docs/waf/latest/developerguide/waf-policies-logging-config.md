@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Logging for an AWS WAF policy
-<a name="waf-policies-logging-config"></a>
 
 You can enable centralized logging for your AWS WAF policies to get detailed information about traffic that's analyzed by your web ACL within your organization. AWS Firewall Manager supports this option for AWS WAFV2, not for AWS WAF Classic.
 
@@ -17,6 +16,10 @@ If the policy has web ACL retrofitting enabled, Firewall Manager doesn't overrid
 
 **Note**  
 Only modify or disable logging for Firewall Manager policies through the Firewall Manager interface. If you use AWS WAF to update or delete the logging configuration of a web ACL that's managed by Firewall Manager, Firewall Manager won't detect the change automatically. If you have used AWS WAF, you can manually prompt an update to the Firewall Manager AWS WAF policy by re-evaluating the policy's rule in AWS Config. To do this, in the AWS Config console, locate the AWS Config rule for the Firewall Manager policy and select the re-evaluate action. 
+
+**Note**  
+When you enable logging for an AWS WAF policy, Firewall Manager creates a temporary web ACL in each in-scope account. This verifies the logging configuration. Firewall Manager automatically creates and deletes this verification web ACL as part of the logging setup process. In accounts that are close to the web ACL quota, this temporary web ACL might cause the account to temporarily exceed its web ACL quota.  
+If you encounter errors when enabling logging on a policy, consider requesting a web ACL quota increase for the affected accounts. You can also reduce the number of existing web ACLs before enabling logging.
 
 **Topics**
 + [Logging destinations](waf-policies-logging-destinations.md)

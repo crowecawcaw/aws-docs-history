@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Overriding rule group actions in AWS WAF
-<a name="web-acl-rule-group-override-options"></a>
 
 This section explains how to override rule group actions.
 

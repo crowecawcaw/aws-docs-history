@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Making HTTPS requests to AWS WAF or Shield Advanced
-<a name="waf-api-making-requests"></a>
 
 AWS WAF and Shield Advanced requests are HTTPS requests, as defined by [RFC 2616](https://datatracker.ietf.org/doc/html/rfc2616). Like any HTTP request, a request to AWS WAF or Shield Advanced contains a request method, a URI, request headers, and a request body. The response contains an HTTP status code, response headers, and sometimes a response body.
 

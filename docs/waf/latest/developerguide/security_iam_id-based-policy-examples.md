@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Identity-based policy examples for AWS WAF
-<a name="security_iam_id-based-policy-examples"></a>
 
 This section provides identity-based policy examples for AWS WAF.
 
@@ -46,12 +45,47 @@ You don't need to allow minimum console permissions for users that are making ca
 
 To ensure that users and roles can use the AWS WAF console, also attach at least the AWS WAF `AWSWAFConsoleReadOnlyAccess` AWS managed policy to the entities. For information about this managed policy, see [AWS managed policy: AWSWAFConsoleReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWAFConsoleReadOnlyAccess). For more information about attaching a managed policy to a user, see [Adding permissions to a user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*.
 
+### Console-only APIs
+<a name="waf-security-iam-console-only-apis"></a>
+
+You can access security analytics for your protection packs (web ACLs) across AWS Regions in the console. To allow or deny specific actions, specify the following API permissions in an IAM policy. 
+
+
+| Action | Description | 
+| --- | --- | 
+| apex:GetStatistics | Grants permission to retrieve aggregate statistics over AWS WAFv2 request logs within a specified time window. | 
+| apex:GetStatisticsTimeSeries | Grants permission to retrieve time-bucketed statistics over AWS WAFv2 request logs within a specified time window. | 
+| apex:Search | Grants permission to search individual AWS WAFv2 request log records within a specified time window. | 
+
+The following JSON policy grants access to security analytics in the console.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "apex:GetStatistics",
+                "apex:GetStatisticsTimeSeries",
+                "apex:Search"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+The IAM actions for security analytics are console-only and don't support resource-level permissions, so specify `"Resource": "*"` in the policy.
+
+For information about security analytics, see [Security analytics for protection packs (web ACLs)](web-acl-security-analytics.md).
+
 ## Allow users to view their own permissions
 <a name="security_iam_id-based-policy-examples-view-own-permissions"></a>
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -185,7 +219,7 @@ This policy grants the following permissions to the account 444455556666:
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -230,7 +264,7 @@ The following policy lets users perform any AWS WAF operation through the consol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -270,7 +304,7 @@ The following policy lets users perform any AWS WAF operation through the CLI on
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -297,7 +331,7 @@ The following policy lets users perform any AWS WAF operation through the consol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

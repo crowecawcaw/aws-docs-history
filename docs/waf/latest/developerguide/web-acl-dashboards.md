@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Traffic overview dashboards for protection packs (web ACLs)
-<a name="web-acl-dashboards"></a>
 
 This section describes the protection pack (web ACL) traffic overview dashboards in the AWS WAF console. After you associate a protection pack (web ACL) with one or more AWS resources and enable metrics for the protection pack (web ACL), you can access summaries of the web traffic that the protection pack (web ACL) evaluates by going to the protection pack (web ACL)'s **Traffic overview** tab in the AWS WAF console. The dashboards include near real-time summaries of the Amazon CloudWatch metrics that AWS WAF collects when it evaluates your application web traffic, including specialized AI bot and agent activity analysis.
 

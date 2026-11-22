@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Blocking requests that don't have a valid AWS WAF token
-<a name="waf-tokens-block-missing-tokens"></a>
 
 This section explains how to block login requests that are missing their tokens when using the AWS WAF mobile SDK.
 

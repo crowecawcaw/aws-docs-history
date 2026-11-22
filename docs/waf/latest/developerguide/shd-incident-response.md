@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Logging and monitoring in Shield
-<a name="shd-incident-response"></a>
 
 This section explains how to use AWS tools for monitoring and responding to events in AWS Shield.
 

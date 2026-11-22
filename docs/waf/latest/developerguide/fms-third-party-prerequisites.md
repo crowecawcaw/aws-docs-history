@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Subscribing in the AWS Marketplace and configuring third-party settings for Firewall Manager third-party policies
-<a name="fms-third-party-prerequisites"></a>
 
 Complete the following prerequisites to set up Firewall Manager third-party firewall policies.
 

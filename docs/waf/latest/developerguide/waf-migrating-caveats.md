@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Migration caveats and limitations
-<a name="waf-migrating-caveats"></a>
 
 The migration only handles protection pack (web ACL) configurations, and the protection pack (web ACL) migration doesn't bring over all settings exactly as you have them in AWS WAF Classic. Some configuration items require manual configuration in AWS WAF (v2). A few things don't map exactly between the two versions, and you'll need to decide how you want to configure the functionality in AWS WAF (v2). Some settings, like the protection pack (web ACL)'s associations with AWS resources, are disabled initially in the new version so you can add them when you're ready. 
 

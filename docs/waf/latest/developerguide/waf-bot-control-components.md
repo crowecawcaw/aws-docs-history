@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS WAF Bot Control components
-<a name="waf-bot-control-components"></a>
 
 The main components of a Bot Control implementation are the following:
 + **`AWSManagedRulesBotControlRuleSet`** – The Bot Control managed rule group whose rules detect and handle various categories of bots. This rule group add labels to web requests that it detects as bot traffic. 

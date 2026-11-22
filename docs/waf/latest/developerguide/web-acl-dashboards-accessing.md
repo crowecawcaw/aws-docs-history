@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Viewing the dashboards for a protection pack (web ACL)
-<a name="web-acl-dashboards-accessing"></a>
 
 Follow the procedure in this section to access the protection pack (web ACL) dashboards and set the data filtering criteria. If you recently associated a protection pack (web ACL) with an AWS resource, you might need to wait a few minutes for data to become available in the dashboards.
 

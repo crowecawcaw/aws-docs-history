@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Migrating a protection pack (web ACL) from AWS WAF Classic to AWS WAF
-<a name="waf-migrating-procedure"></a>
 
 The automated migration carries over most of your AWS WAF Classic protection pack (web ACL) configuration, leaving some things that you need to handle manually.
 

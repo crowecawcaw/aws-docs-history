@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using common security group policies with Firewall Manager
-<a name="security-group-policies-common"></a>
 
 This page explains how Firewall Manager common security group policies work.
 

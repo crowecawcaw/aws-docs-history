@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # CAPTCHA puzzle examples
-<a name="waf-captcha-puzzle-examples"></a>
 
 A typical visual CAPTCHA puzzle requires interaction to show that the user can comprehend and interact with one or more images. 
 

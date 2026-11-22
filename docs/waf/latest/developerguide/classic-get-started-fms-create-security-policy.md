@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Step 4: Create and apply an AWS Firewall Manager AWS WAF Classic policy
-<a name="classic-get-started-fms-create-security-policy"></a>
 
 **Warning**  
 AWS WAF Classic is is going through a planned end-of-life process. Refer to your AWS Health dashboard for the milestones and dates specific to your Region.

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Setting up AWS Shield Advanced
-<a name="getting-started-ddos"></a>
 
 This tutorial walks you through getting started with AWS Shield Advanced using the Shield Advanced console. 
 

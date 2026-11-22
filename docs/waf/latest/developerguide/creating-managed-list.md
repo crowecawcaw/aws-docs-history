@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Creating a custom managed list in Firewall Manager
-<a name="creating-managed-list"></a>
 
 Follow these procedures to create a custom managed application list or custom managed protocol list.
 

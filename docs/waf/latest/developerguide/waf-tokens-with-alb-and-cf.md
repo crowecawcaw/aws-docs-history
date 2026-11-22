@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Required configuration for Application Load Balancers that are CloudFront origins
-<a name="waf-tokens-with-alb-and-cf"></a>
 
 Read this section if you associate your protection pack (web ACL) to an Application Load Balancer and you deploy the Application Load Balancer as the origin for a CloudFront distribution.
 

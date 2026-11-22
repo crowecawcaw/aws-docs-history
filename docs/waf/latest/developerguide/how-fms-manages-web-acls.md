@@ -5,9 +5,11 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Web ACL management for AWS WAF policies
-<a name="how-fms-manages-web-acls"></a>
 
-Firewall Manager creates and manages web ACLs for in-scope resources according to your configuration settings and general policy management. 
+Firewall Manager, or its successor Network Security Manager, creates and manages web ACLs for in-scope resources according to your configuration settings and general policy management. 
+
+**Note**  
+Network Security Manager is the successor to Firewall Manager. Whenever this document mentions Firewall Manager, Network Security Manager's capabilities are similar to those described for Firewall Manager.
 
 **Note**  
 If a resource that's configured with [advanced automatic application layer DDoS mitigation](ddos-automatic-app-layer-response.md) by another Firewall Manager Shield policy comes into scope of an AWS WAF policy, where the web ACL on the resource was created by that Firewall Manager Shield policy, Firewall Manager will be unable to apply the AWS WAF policy protections to the resource and will mark the resource noncompliant.  
@@ -18,7 +20,7 @@ Policy configuration setting that specifies how Firewall Manager manages web ACL
 
 When this is enabled, when an account comes into policy scope, Firewall Manager automatically creates a web ACL in the account only if at least one resource will use the web ACL. 
 
-Additionally, when you enable management of unassociated web ACLs, at policy creation, Firewall Manager performs a one-time cleanup of unassociated web ACLs in your account. During this cleanup, Firewall Manager skips any web ACLs that you've modified after their creation, for example, if you added a rule group to the web ACL or modified its settings. The cleanup process can take several hours. If a resource leaves policy scope after Firewall Manager creates a web ACL, Firewall Manager disassociates the resource from the web ACL, but won't clean up the unassociated web ACL. Firewall Manager only cleans up unassociated web ACLs when you first enable management of unassociated web ACLs in a policy.
+Additionally, when you enable management of unassociated web ACLs, Firewall Manager performs a one-time cleanup of unassociated web ACLs in your account. During this cleanup, Firewall Manager skips any web ACLs that you've modified after their creation, for example, if you added a rule group to the web ACL or modified its settings. The cleanup process can take several hours. If a resource leaves policy scope after Firewall Manager creates a web ACL, Firewall Manager disassociates the resource from the web ACL, but won't clean up the unassociated web ACL. Firewall Manager only cleans up unassociated web ACLs when you first enable management of unassociated web ACLs in a policy.
 
 In the API, this setting is `optimizeUnassociatedWebACL` in the [SecurityServicePolicyData](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html) data type. Example: `\"optimizeUnassociatedWebACL\":false`
 

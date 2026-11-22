@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Sharing a rule group
-<a name="waf-rule-group-sharing"></a>
 
 You can share a rule group with other acccounts, for use by those accounts. 
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Contacting the SRT for help with a suspected DDoS event
-<a name="ddos-srt-contacting"></a>
 
 You can contact the SRT in one of the following ways: 
 

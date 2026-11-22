@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Grouping your AWS Shield Advanced protections
-<a name="ddos-protection-groups"></a>
 
 Use protection groups to create logical collections of your protected resources and manage their protections as a group. For information about managing resource protections, see [Editing AWS Shield Advanced protections](manage-protection.md). 
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Visibility into DDoS events with Shield Advanced
-<a name="ddos-viewing-events"></a>
 
 AWS Shield provides visibility into the following categories of events and event activities: 
 + **Global** – All customers can access an aggregated view of global threat activity over the last two weeks. You can see this information under the **Getting Started** and **Global threat dashboard** pages of the AWS Shield console. For more information, see [Viewing AWS Shield global and account activity](ddos-standard-event-visibility.md).

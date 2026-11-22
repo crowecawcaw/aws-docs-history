@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using Firewall Manager managed lists
-<a name="working-with-managed-lists"></a>
 
 This section explains what managed lists are and how to use them.
 

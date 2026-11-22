@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Dynamic label interpolation
-<a name="waf-dynamic-label-interpolation"></a>
 
 Dynamic label interpolation lets you embed label values directly in custom request headers, custom response headers, and custom response bodies using `${namespace:}` syntax. AWS WAF resolves each placeholder at evaluation time against the labels attached to the request, so you don't have to write a separate rule for each label value.
 

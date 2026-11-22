@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Working with the updated console experience
-<a name="working-with-console"></a>
 
  AWS WAF offers 2 options for using the console:
 

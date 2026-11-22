@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Sending protection pack (web ACL) traffic logs to an Amazon Simple Storage Service bucket
-<a name="logging-s3"></a>
 
 This topic provides information for sending your protection pack (web ACL) traffic logs to an Amazon S3 bucket. 
 
@@ -99,7 +98,7 @@ When you set the permissions listed below, you might see errors in your AWS Clou
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -151,7 +150,7 @@ If the user creating the log owns the bucket, the service automatically attaches
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -208,7 +207,7 @@ For example, the following bucket policy allows AWS account `111122223333` to pu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "AWSLogDeliveryWrite20150319",

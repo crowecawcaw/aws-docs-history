@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Request components in AWS WAF
-<a name="waf-rule-statement-fields-list"></a>
 
 This section describes the components of the web request that you can specify for inspection. You specify the request component for match rule statements that look for patterns inside the web request. These types of statements include string match, regex match, size constraint, and SQL injection attack statements. For information on how to use these request component settings, see the individual rule statements at [Using match rule statements in AWS WAF](waf-rule-statements-match.md)
 

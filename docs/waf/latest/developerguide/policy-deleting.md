@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Deleting an AWS Firewall Manager policy
-<a name="policy-deleting"></a>
 
 You can delete a Firewall Manager policy by performing the following steps.
 

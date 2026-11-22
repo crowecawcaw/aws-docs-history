@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Creating an AWS Firewall Manager policy
-<a name="create-policy"></a>
 
 The steps for creating a policy vary between the different policy types. Make sure to use the procedure for the type of policy that you need.
 

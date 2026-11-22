@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Payment networks and settlement
-<a name="waf-ai-traffic-monetization-payment"></a>
 
 You choose how to receive payments in your MonetizationConfig. You have two settlement options: settle to your own crypto wallet addresses that you configure with `CryptoConfig`, or settle through a connected account with a third-party payment provider (such as Stripe) that you configure with `ConnectedAccountConfigs`. In either case, AWS is not a party to or in the flow of funds for any payment you receive. With self-managed wallets, payments settle directly to the wallet addresses you configure. With a connected account, per-network deposit addresses are provisioned on your behalf and you don't manage wallet addresses yourself.
 

@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # How Firewall Manager manages your firewall subnets
-<a name="fms-manage-firewall-subnets"></a>
 
 This section explains how Firewall Manager manages your firewall subnets.
 

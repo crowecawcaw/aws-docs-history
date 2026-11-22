@@ -5,7 +5,6 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Enabling automatic application layer DDoS mitigation
-<a name="ddos-automatic-app-layer-response-config"></a>
 
 This page explains how to configure Shield Advanced to automatically respond to application layer attacks.
 

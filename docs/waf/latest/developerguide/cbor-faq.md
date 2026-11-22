@@ -5,9 +5,8 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # FAQs on supported protocols
-<a name="cbor-faq"></a>
 
- The AWS Firewall Manager service is adding SDK support for the [ Smithy RPC v2 CBOR ](https://smithy.io/2.0/additional-specs/protocols/smithy-rpc-v2.html) protocol in addition to the existing [AWS JSON ](https://smithy.io/2.0/aws/protocols/aws-json-1_0-protocol.html) protocol. The Smithy RPC v2 CBOR protocol is more performant than AWS JSON for most workloads. AWS SDKs will prioritize the protocol that is the most performant for each language. 
+ The AWS Firewall Manager service, and the AWS Shield service are adding SDK support for the [ Smithy RPC v2 CBOR ](https://smithy.io/2.0/additional-specs/protocols/smithy-rpc-v2.html) protocol in addition to the existing [AWS JSON ](https://smithy.io/2.0/aws/protocols/aws-json-1_0-protocol.html) protocol. The Smithy RPC v2 CBOR protocol is more performant than AWS JSON for most workloads. AWS SDKs will prioritize the protocol that is the most performant for each language. 
 
 ## What are the AWS JSON and Smithy RPC v2 CBOR protocols, and how do they differ?
 <a name="cbor-faq-what-are-protocols"></a>
@@ -32,6 +31,8 @@ You can now use the updated experience to access AWS WAF functionality anywhere 
 + AWS SDK for Swift
 + AWS SDK for Kotlin
 
+ Starting 2026-11-10, the SDKs listed above will use the Smithy RPC v2 CBOR protocol for the AWS Shield service. 
+
 ## What are the risks of enabling the Smithy RPC v2 CBOR protocol?
 <a name="cbor-faq-risks"></a>
 
@@ -41,6 +42,8 @@ You can now use the updated experience to access AWS WAF functionality anywhere 
 <a name="cbor-faq-compatibility-issues"></a>
 
  To use the AWS JSON protocol, downgrade your SDK to a version released before 2026-10-06. 
+
+ To use the AWS JSON protocol with the AWS Shield service, downgrade your SDK to a version released before 2026-11-10. 
 
 ## What AWS Regions support the Smithy RPC v2 CBOR protocol?
 <a name="cbor-faq-region-support"></a>
