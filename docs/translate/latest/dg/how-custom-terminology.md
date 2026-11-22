@@ -1,7 +1,6 @@
 
 
 # Customizing your translations with custom terminology
-<a name="how-custom-terminology"></a>
 
 Use custom terminologies along with your translation requests to make sure that your brand names, character names, model names, and other unique content get translated to the desired result.
 

@@ -1,7 +1,6 @@
 
 
 # Creating a custom terminology
-<a name="creating-custom-terminology"></a>
 
 You define custom terminology by creating a terminology file. Amazon Translate supports CSV, TSV, or TMX file formats. Each entry in the file contains the source term and the equivalent (translated) term for each target language.
 
@@ -26,7 +25,7 @@ The following example shows a terminology file in TMX format. A TMX file uses an
 
 **TMX (Translation Memory eXchange) **
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
  <tmx version="1.4">
   <header

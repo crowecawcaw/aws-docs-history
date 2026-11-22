@@ -1,7 +1,6 @@
 
 
 # Document history for Amazon Translate
-<a name="doc-history"></a>
 
 The following table describes the documentation for this release of Amazon Translate.
 
@@ -53,4 +52,4 @@ The following table describes the documentation for this release of Amazon Trans
 | [New feature](https://docs.aws.amazon.com/translate/latest/dg/what-is.html) | Amazon Translate adds [HIPAA](https://www.hhs.gov/hipaa/for-professionals/privacy/index.html) compliance. For more information, see [Compliance](https://docs.aws.amazon.com/translate/latest/dg/what-is-limits.html#what-is-compliance). | October 25, 2018 | 
 | [New feature](https://docs.aws.amazon.com/translate/latest/dg/what-is.html) | Amazon Translate adds multiple new languages for translation: Chinese (Tradition), Czech, Italian, Japanese, Russian, and Turkish. For a list of languages that Amazon Translate supports, see [Supported languages](https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html). | July 17, 2018 | 
 | [New feature](https://docs.aws.amazon.com/translate/latest/dg/how-it-works.html) | Amazon Translate adds support for automatic source language detection. For more information, see [ How Amazon Translate works](https://docs.aws.amazon.com/translate/latest/dg/how-it-works.html). | April 4, 2018 | 
-| [New guide](#doc-history) | This is the first release of the *Amazon Translate Developer Guide*. | November 29, 2017 | 
+| [New guide](doc-history.md) | This is the first release of the *Amazon Translate Developer Guide*. | November 29, 2017 | 

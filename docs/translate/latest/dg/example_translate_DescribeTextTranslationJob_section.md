@@ -1,7 +1,6 @@
 
 
 # Use `DescribeTextTranslationJob` with an AWS SDK
-<a name="example_translate_DescribeTextTranslationJob_section"></a>
 
 The following code examples show how to use `DescribeTextTranslationJob`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Translate#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.Translate;
@@ -92,7 +91,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/xl8#code-examples). 
 
-```
+```sap-abap
     "Gets the properties associated with an asynchronous batch translation job."
     "Includes properties such as name, ID, status, source and target languages, and input/output Amazon Simple Storage Service (Amazon S3) buckets."
     TRY.

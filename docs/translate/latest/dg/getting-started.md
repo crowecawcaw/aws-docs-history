@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Translate
-<a name="getting-started"></a>
 
 The easiest way to get started with Amazon Translate is to use the console to translate some text. You can also try out the API operations from the command line. You can also install one of the AWS SDKs to use the Amazon Translate API operations.
 

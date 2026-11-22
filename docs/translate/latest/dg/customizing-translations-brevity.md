@@ -1,7 +1,6 @@
 
 
 # Using brevity in Amazon Translate
-<a name="customizing-translations-brevity"></a>
 
 When translating between languages, there are times when the translation output is longer (in character count) than desired. Longer output can cause a problem in some scenarios (such as captions, subtitles, headlines, or form fields), if there is no space for extra characters. 
 

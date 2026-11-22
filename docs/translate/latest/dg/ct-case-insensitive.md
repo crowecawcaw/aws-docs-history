@@ -1,7 +1,6 @@
 
 
 # Case-insensitive matching
-<a name="ct-case-insensitive"></a>
 
 Amazon Translate matches the source terms in your custom terminology regardless of letter case. When a source term in your terminology file matches text in the input document – ignoring differences in capitalization – Amazon Translate applies the corresponding target term. You don't need to create separate entries for the uppercase, lowercase, or mixed-case forms of a source term.
 

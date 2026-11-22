@@ -1,7 +1,6 @@
 
 
 # What is Amazon Translate?
-<a name="what-is"></a>
 
 Amazon Translate is a text translation service that uses advanced machine learning technologies to provide high-quality translation on demand. You can use Amazon Translate to translate unstructured text documents or to build applications that work in multiple languages. See [Supported languages and language codes](what-is-languages.md) for information about the languages that Amazon Translate supports.
 

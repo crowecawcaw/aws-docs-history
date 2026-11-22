@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for Amazon Translate
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Amazon Translate resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An IAM administrator must create IAM policies that grant permission to perform specific API operations on the specific resources that they need. The administrator must then attach those policies to the users or roles that require those permissions.
 
@@ -40,7 +39,7 @@ You also need permissions for the actions shown in the following policy. These p
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -69,7 +68,7 @@ You don't need to allow minimum console permissions for users that are making ca
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -157,7 +156,7 @@ To call the `ImportTerminology` operation with a customer managed key, add the f
 
 ****  
 
-```
+```json
 {
     "Id": "key-consolepolicy-3",
     "Version":"2012-10-17",		 	 	 
@@ -192,7 +191,7 @@ To call the `GetTerminology` operation for a custom terminology that was importe
 
 ****  
 
-```
+```json
 {
     "Id": "key-consolepolicy-3",
     "Version":"2012-10-17",		 	 	 
@@ -225,7 +224,7 @@ To use customer managed keys with all custom terminologies operations, add the f
 
 ****  
 
-```
+```json
 {
     "Id": "key-consolepolicy-3",
     "Version":"2012-10-17",		 	 	 

@@ -1,7 +1,6 @@
 
 
 # Getting batch translation results
-<a name="async-results"></a>
 
 Once the job's status is `COMPLETED` or `COMPLETED_WITH_ERROR`, your output documents are available in the Amazon S3 folder you specified. The output document names match the input document names, with the addition of the target language code as a prefix. For instance, if you translated a document called `mySourceText.txt` into French, the output document will be called `fr.mySourceText.txt`.
 
@@ -11,7 +10,7 @@ Each batch translation job also generates an auxiliary file that contains inform
 
 The following is an example of a batch translation auxiliary file.
 
-```
+```json
 {
   "sourceLanguageCode": "en",
   "targetLanguageCode": "fr",

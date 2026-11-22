@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon Translate
-<a name="monitoring-translate"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon Translate and your solutions. AWS provides various tools that you can use to monitor Amazon Translate. You can configure some of these tools to monitor your solutions for you. We recommend that you automate monitoring tasks as much as possible.
 

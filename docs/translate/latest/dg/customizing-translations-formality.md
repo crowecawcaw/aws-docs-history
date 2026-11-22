@@ -1,7 +1,6 @@
 
 
 # Setting formality in Amazon Translate
-<a name="customizing-translations-formality"></a>
 
 You can optionally specify the desired level of *formality* for translations to supported target languages. The formality setting controls the level of formal language usage (also known as [honorifics](https://en.wikipedia.org/wiki/Honorifics_(linguistics)) or [register](https://en.wikipedia.org/wiki/Register_(sociolinguistics)#Register_as_formality_scale)) in the translation output. The formality setting is available for real-time translation and asynchronous batch processing.
 

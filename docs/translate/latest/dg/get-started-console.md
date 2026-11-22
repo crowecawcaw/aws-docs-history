@@ -1,7 +1,6 @@
 
 
 # Getting started (console)
-<a name="get-started-console"></a>
 
 The easiest way to get started with Amazon Translate is to use the console to translate some text. You can translate up to 10,000 bytes of text using the console. If you haven't reviewed the concepts and terminology in [How Amazon Translate works](how-it-works.md), we recommend that you do so before proceeding.
 

@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon Translate jobs using an AWS SDK
-<a name="example_translate_Scenario_GettingStarted_section"></a>
 
 The following code example shows how to:
 + Start an asynchronous batch translation job.
@@ -14,7 +13,7 @@ The following code example shows how to:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/xl8#code-examples). 
 
-```
+```sap-abap
     DATA lo_inputdataconfig  TYPE REF TO /aws1/cl_xl8inputdataconfig.
     DATA lo_outputdataconfig TYPE REF TO /aws1/cl_xl8outputdataconfig.
     DATA lt_targetlanguagecodes TYPE /aws1/cl_xl8tgtlanguagecodes00=>tt_targetlanguagecodestrlist.

@@ -1,7 +1,6 @@
 
 
 # Viewing, updating, and deleting tags associated with a resource
-<a name="tagging-existingtags"></a>
 
 You can view, update or delete the tags associated with a `Parallel data` or `Custom terminology` resource.
 

@@ -1,7 +1,6 @@
 
 
 # Guidelines and quotas
-<a name="what-is-limits"></a>
 
 The following sections contain information about Amazon Translate guidelines and quotas.
 

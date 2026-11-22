@@ -1,7 +1,6 @@
 
 
 # Supported languages and language codes
-<a name="what-is-languages"></a>
 
 Amazon Translate provides translation between a source language (the input language) and a target language (the output language). A source language-target language combination is known as a *language pair*.
 

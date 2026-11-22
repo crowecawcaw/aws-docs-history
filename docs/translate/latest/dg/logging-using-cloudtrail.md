@@ -1,7 +1,6 @@
 
 
 # Logging Amazon Translate API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon Translate is integrated with AWS CloudTrail, a service that provides a record of actions taken by an IAM entity or AWS service in Amazon Translate. CloudTrail captures all API calls for Amazon Translate as events. This includes calls from the Amazon Translate console and code calls to the Amazon Translate API operations. If you create a CloudTrail trail, you can enable continuous delivery of CloudTrail events, including events for Amazon Translate, to an Amazon Simple Storage Service (Amazon S3) bucket. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. You can use the information collected by CloudTrail to determine the request that was made to Amazon Translate, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
@@ -38,7 +37,7 @@ A *trail* is a configuration that enables delivery of events as log files to an 
 
 The following example shows a CloudTrail log entry that demonstrates the `TranslateText` action.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {

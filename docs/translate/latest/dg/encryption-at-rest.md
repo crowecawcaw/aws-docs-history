@@ -1,7 +1,6 @@
 
 
 # Encryption at rest
-<a name="encryption-at-rest"></a>
 
 For the batch translation jobs that you run with Amazon Translate, your translation input and output are both encrypted at rest. However, the encryption method is different for each.
 

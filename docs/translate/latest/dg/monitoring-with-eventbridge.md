@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon Translate events with Amazon EventBridge
-<a name="monitoring-with-eventbridge"></a>
 
 Amazon Translate integrates with Amazon EventBridge to notify you about changes that affect your translation jobs and parallel data resources. Events from AWS services are delivered to EventBridge in near real time. You can write simple rules to indicate which events are of interest to you, and what automated actions to take when an event matches a rule. For example, actions that can be automatically started include:
 + Invoking an AWS Lambda function
@@ -22,7 +21,7 @@ The following are example events from Amazon Translate.
 
 You run batch translation jobs by using the Amazon Translate console or the [StartTextTranslationJob](https://docs.aws.amazon.com/translate/latest/APIReference/API_StartTextTranslationJob.html) operation. Amazon Translate sends events when these jobs are complete, either successfully or unsuccessfully. These events resemble the following example.
 
-```
+```json
 {
  "version": "0", 
  "id": "CWE-event-id", 
@@ -52,7 +51,7 @@ When you use Amazon Translate to create or update a parallel data resource, it s
 
 You create parallel data resources by using the Amazon Translate console or the [CreateParallelData](https://docs.aws.amazon.com/translate/latest/APIReference/API_CreateParallelData.html) operation. When you do this, Amazon Translate sends an event like the following.
 
-```
+```json
 {
  "version": "0", 
  "id": "CWE-event-id", 
@@ -76,7 +75,7 @@ Values for the `status` attribute are:
 
 You update parallel data resources by using the Amazon Translate console or the [UpdateParallelData](https://docs.aws.amazon.com/translate/latest/APIReference/API_UpdateParallelData.html) operation. When you do this, Amazon Translate sends an event like the following.
 
-```
+```json
 {
  "version": "0", 
  "id": "CWE-event-id", 

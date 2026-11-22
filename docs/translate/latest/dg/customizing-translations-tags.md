@@ -1,7 +1,6 @@
 
 
 # Using do-not-translate in Amazon Translate
-<a name="customizing-translations-tags"></a>
 
 For HTML content, you can add do-not-translate tags to text that you don't want to translate. This feature is available for the console and API operations. 
 

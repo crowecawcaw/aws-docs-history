@@ -1,7 +1,6 @@
 
 
 # How Amazon Translate works
-<a name="how-it-works"></a>
 
 Use the Amazon Translate service to translate content from a source language (the language of the input content) to a target language (the language that you select for the translation output). In a batch job, you can translate files from one or more source languages to one or more target languages. For more information about supported languages, see [Supported languages and language codes](what-is-languages.md).
 

@@ -1,7 +1,6 @@
 
 
 # Using custom terminologies
-<a name="using-ct"></a>
 
 To use a Custom Terminology when translating text with the [TranslateText](https://docs.aws.amazon.com/translate/latest/APIReference/API_TranslateText.html) operation, include the optional `TerminologyNames` parameter. 
 
@@ -30,7 +29,7 @@ This uses the selected Custom Terminology to translate this text as "Avez-vous d
 
 The following example shows how to use the same terminology file in Python.
 
-```
+```python
 import boto3
      
 translate = boto3.client(service_name='translate')

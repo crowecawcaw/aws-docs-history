@@ -1,7 +1,6 @@
 
 
 # Use `TranslateText` with an AWS SDK or CLI
-<a name="example_translate_TranslateText_section"></a>
 
 The following code examples show how to use `TranslateText`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `TranslateText`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Translate#code-examples). 
 
-```
+```csharp
     using System;
     using System.IO;
     using System.Threading.Tasks;
@@ -127,7 +126,7 @@ The following code examples show how to use `TranslateText`.
 **Tools for PowerShell V4**  
 **Example 1: Converts the specified English text to French. The text to convert can also be passed as the -Text parameter.**  
 
-```
+```powershell
 "Hello World" | ConvertTo-TRNTargetLanguage -SourceLanguageCode en -TargetLanguageCode fr
 ```
 +  For API details, see [TranslateText](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -135,7 +134,7 @@ The following code examples show how to use `TranslateText`.
 **Tools for PowerShell V5**  
 **Example 1: Converts the specified English text to French. The text to convert can also be passed as the -Text parameter.**  
 
-```
+```powershell
 "Hello World" | ConvertTo-TRNTargetLanguage -SourceLanguageCode en -TargetLanguageCode fr
 ```
 +  For API details, see [TranslateText](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -146,7 +145,7 @@ The following code examples show how to use `TranslateText`.
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/xl8#code-examples). 
 
-```
+```sap-abap
     "Translates input text from the source language to the target language."
     TRY.
         oo_result = lo_xl8->translatetext(      "oo_result is returned for testing purposes."

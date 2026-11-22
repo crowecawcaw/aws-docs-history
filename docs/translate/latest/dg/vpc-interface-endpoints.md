@@ -1,7 +1,6 @@
 
 
 # Amazon Translate and interface VPC endpoints (AWS PrivateLink)
-<a name="vpc-interface-endpoints"></a>
 
 You can establish a private connection between your VPC and Amazon Translate by creating an *interface VPC endpoint*. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink), a technology that enables you to privately access Amazon Translate APIs without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate with Amazon Translate APIs. Traffic between your VPC and Amazon Translate does not leave the Amazon network. 
 

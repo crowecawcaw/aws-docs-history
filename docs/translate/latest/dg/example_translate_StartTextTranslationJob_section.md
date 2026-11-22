@@ -1,7 +1,6 @@
 
 
 # Use `StartTextTranslationJob` with an AWS SDK
-<a name="example_translate_StartTextTranslationJob_section"></a>
 
 The following code examples show how to use `StartTextTranslationJob`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Translate#code-examples). 
 
-```
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -96,7 +95,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/xl8#code-examples). 
 
-```
+```sap-abap
     "Starts an asynchronous batch translation job."
     "Use batch translation jobs to translate large volumes of text across multiple documents at once."
 

@@ -1,7 +1,6 @@
 
 
 # Viewing and managing your parallel data in Amazon Translate
-<a name="customizing-translations-parallel-data-managing"></a>
 
 You can view all of the parallel data resources that you have added to Amazon Translate, and you can access detailed summaries for each one. As your translation requirements change, you can refine your translation output by updating your parallel data.
 

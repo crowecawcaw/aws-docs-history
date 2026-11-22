@@ -1,7 +1,6 @@
 
 
 # Use `ListTextTranslationJobs` with an AWS SDK
-<a name="example_translate_ListTextTranslationJobs_section"></a>
 
 The following code examples show how to use `ListTextTranslationJobs`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `ListTextTranslationJobs`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Translate#code-examples). 
 
-```
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -87,7 +86,7 @@ The following code examples show how to use `ListTextTranslationJobs`.
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/xl8#code-examples). 
 
-```
+```sap-abap
     "Gets a list of the batch translation jobs that you have submitted."
 
     DATA lo_filter TYPE REF TO /aws1/cl_xl8textxlationjobfilt.

@@ -1,7 +1,6 @@
 
 
 # Adding your parallel data to Amazon Translate
-<a name="customizing-translations-parallel-data-adding"></a>
 
 To add parallel data to Amazon Translate, you import a parallel data input file from Amazon S3. Afterwards, you can use the parallel data to customize the output produced by a batch translation job.
 
@@ -51,7 +50,7 @@ Use a KMS key that is managed in AWS KMS in a different AWS account. If you choo
 
 If Amazon Translate generates any errors or warnings while processing your input file, the console provides an error file that you can download to review the error messages. The contents of this file resemble the following example:
 
-```
+```json
 {
   "summary": {
     "record_error_count": 1,

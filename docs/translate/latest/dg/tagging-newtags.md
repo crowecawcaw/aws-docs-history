@@ -1,7 +1,6 @@
 
 
 # Tagging a new resource
-<a name="tagging-newtags"></a>
 
 You can add tags to a **ParallelData** or **Custom Terminology** resource when you create it.
 

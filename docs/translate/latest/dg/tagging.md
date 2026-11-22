@@ -1,7 +1,6 @@
 
 
 # Tagging your resources
-<a name="tagging"></a>
 
 A tag is metadata that you can associate with an Amazon Translate resource. A tag consists of a key-value pair. You can add tags to **Parallel Data** and **Custom Terminology** resources.
 

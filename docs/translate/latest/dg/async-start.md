@@ -1,7 +1,6 @@
 
 
 # Running a batch translation job
-<a name="async-start"></a>
 
 You can run a batch translation job by using the Amazon Translate console, the AWS CLI, or the Amazon Translate API.
 

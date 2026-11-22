@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon Translate
-<a name="security-iam-awsmanpol"></a>
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
 
@@ -26,7 +25,7 @@ This policy grants full access to Amazon Translate resources, the Amazon Compreh
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -61,7 +60,7 @@ This policy grants permission to access the Amazon Translate API operations that
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
     "Statement": [
