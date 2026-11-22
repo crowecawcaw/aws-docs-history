@@ -1,7 +1,7 @@
 
 
 # Aurora MySQL database engine updates 2023-07-31 (version 3.04.0) , compatible with MySQL 8.0.28)
-<a name="AuroraMySQL.Updates.3040"></a><a name="3.04.0"></a><a name="3.04.0"></a>
+<a name="3.04.0"></a><a name="3.04.0"></a>
 
  **Version:** 3.04.0 
 

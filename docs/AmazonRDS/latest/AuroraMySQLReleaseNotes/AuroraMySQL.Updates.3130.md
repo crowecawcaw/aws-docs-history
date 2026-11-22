@@ -1,7 +1,7 @@
 
 
 # Aurora MySQL database engine updates 2026-08-27 (version 3.13.0, compatible with MySQL 8.0.45)
-<a name="AuroraMySQL.Updates.3130"></a><a name="3130"></a><a name="3.13.0"></a>
+<a name="3130"></a><a name="3.13.0"></a>
 
 **Version:** 3.13.0
 

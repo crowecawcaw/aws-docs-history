@@ -1,7 +1,6 @@
 
 
 # Aurora MySQL database engine updates: 2016-01-11 (version 1.5) (Deprecated)
-<a name="AuroraMySQL.Updates.20160111"></a>
 
 **Version:** 1.5
 

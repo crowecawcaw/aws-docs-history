@@ -1,7 +1,6 @@
 
 
 # Aurora MySQL database engine updates: 2016-04-06 (version 1.6) (Deprecated)
-<a name="AuroraMySQL.Updates.20160406"></a>
 
 **Version:** 1.6
 
@@ -23,7 +22,7 @@ This update includes the following improvements:
 
   To get the Aurora version, use one of the following queries:
 
-  ```
+  ```sql
   select AURORA_VERSION();
   select @@aurora_version;
   show variables like '%version';
@@ -34,7 +33,7 @@ This update includes the following improvements:
 
   To get the lock manager memory usage metric, use one of the following queries:
 
-  ```
+  ```sql
   show global status where variable_name in ('aurora_lockmgr_memory_used');
   select * from INFORMATION_SCHEMA.GLOBAL_STATUS where variable_name in ('aurora_lockmgr_memory_used');
   ```

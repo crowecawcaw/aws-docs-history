@@ -1,7 +1,7 @@
 
 
 # Aurora MySQL 8.4.7
-<a name="AuroraMySQL.Updates.847"></a><a name="8.4.7"></a>
+<a name="8.4.7"></a>
 
 **Version:** 8.4.7
 

@@ -1,7 +1,7 @@
 
 
 # Aurora MySQL database engine updates 2024-07-09 (version 2.12.3, compatible with MySQL 5.7.44) - RDS Extended Support version
-<a name="AuroraMySQL.Updates.2123"></a><a name="2123"></a><a name="2.12.3"></a>
+<a name="2123"></a><a name="2.12.3"></a>
 
 **Version:** 2.12.3
 

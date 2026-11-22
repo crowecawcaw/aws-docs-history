@@ -1,7 +1,7 @@
 
 
 # Aurora MySQL 8.4.10
-<a name="AuroraMySQL.Updates.8410"></a><a name="8410"></a><a name="8.4.10"></a>
+<a name="8410"></a><a name="8.4.10"></a>
 
 **Version:** 8.4.10
 
@@ -35,9 +35,16 @@ For more information about patch releases and how to apply them, see [About patc
 
 Below are the improvements made compared to Aurora MySQL 8.4.8, see [Aurora MySQL 8.4.8 Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.Updates.848.html).
 
+#### Security fixes
+<a name="AuroraMySQL.Updates.8410.SecurityFixes"></a>
+
+This release includes fixes for the following high severity CVEs. Each CVE ID links to its record on the CVE website:
++ [CVE-2026-9547](https://www.cve.org/CVERecord?id=CVE-2026-9547)
+
 #### Availability improvements
 <a name="AuroraMySQL.Updates.8410.AvailabilityImprovements"></a>
 + Fixed an issue with improper handling of empty responses during connection loss with storage nodes.
++ Fixed an issue where a race between the binary log dump and purge threads could cause repeated database restarts on DB clusters with Enhanced binlog enabled.
 
 #### General improvements
 <a name="AuroraMySQL.Updates.8410.GeneralImprovements"></a>

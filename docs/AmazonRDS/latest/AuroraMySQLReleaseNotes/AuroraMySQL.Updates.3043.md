@@ -1,7 +1,7 @@
 
 
 # Aurora MySQL database engine updates 2024-06-26 (version 3.04.3, compatible with MySQL 8.0.28)
-<a name="AuroraMySQL.Updates.3043"></a><a name="3.04.3"></a><a name="3.04.3"></a>
+<a name="3.04.3"></a><a name="3.04.3"></a>
 
 **Version:** 3.04.3
 
@@ -50,7 +50,7 @@ This release includes all community CVE fixes up to and including MySQL 8.0.28. 
 + Fixed an issue that can cause a DB instance to restart when the local storage on the DB instance reaches full capacity.
 + Fixed an issue where the Performance Schema wasn't enabled when Performance Insights automated management was turned on for db.t4g.medium and db.t4g.large DB instances.
 + Fixed an issue during zero-downtime patching (ZDP) that prevents a DB instance from closing client connections upon reaching the customer-configured of either `wait_timeout` or `interactive_timeout`.
-+ Fixed an issue where a `SELECT` query on an Aurora reader instance might fail with the error table doesn't exist when the table has at least one full-text search (FTS) index and a `TRUNCATE` statement is being run on the Aurora writer DB instance.
++ Fixed an issue where a `SELECT` query on an Aurora reader instance might fail with the error `table doesn't exist` when the table has at least one full-text search (FTS) index and a `TRUNCATE` statement is being run on the Aurora writer DB instance.
 
 **Upgrades and migrations:**
 + Fixed an issue that causes upgrades or migrations to fail when the target Aurora MySQL DB engine version is 3.04.0 or higher. This occurs when the `lower_case_table_names` DB cluster parameter is set to `1`, and MySQL database collation is incompatible with lowercase table names.

@@ -1,7 +1,7 @@
 
 
 # Aurora MySQL database engine updates 2024-03-07 (version 3.06.0) (Deprecated)
-<a name="AuroraMySQL.Updates.3060"></a><a name="3.06.0"></a><a name="3.06.0"></a>
+<a name="3.06.0"></a><a name="3.06.0"></a>
 
 **Version:** 3.06.0
 
@@ -64,7 +64,7 @@ The following CVE fixes are included in this release:
 + Added the `Aurora_lockmgr_memory_used` and `Aurora_lockmgr_buffer_pool_memory_used` metrics to track the lock manager's memory usage. For more information, see [Aurora MySQL global status variables](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.ParameterGroups.html#AuroraMySQL.Reference.GlobalStatusVars) in the *Amazon Aurora User Guide*.
 + Fixed an issue where small read replica instances can experience increased replication lag after upgrading from Aurora MySQL versions lower than 2.11.\*.
 + Fixed an issue that can cause duplicate key errors for `AUTO_INCREMENT` columns using descending indices after a snapshot restore, backtrack, or database cloning operation.
-+ Fixed an issue where a `SELECT` query on an Aurora reader instance might fail with the error table doesn't exist when the table has at least one full-text search (FTS) index and a `TRUNCATE` statement is being run on the Aurora writer DB instance.
++ Fixed an issue where a `SELECT` query on an Aurora reader instance might fail with the error `table doesn't exist` when the table has at least one full-text search (FTS) index and a `TRUNCATE` statement is being run on the Aurora writer DB instance.
 + Fixed an issue that can cause an incomplete result set when running queries involving `LEFT JOIN` or `RIGHT JOIN` operations using the hash join algorithm with parallel query.
 
 **Upgrades and migrations:**

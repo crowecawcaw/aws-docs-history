@@ -1,11 +1,11 @@
 
 
 # Database engine updates for Amazon Aurora MySQL version 8.4
-<a name="AuroraMySQL.Updates.84Updates"></a>
 
 The following are database engine updates for Amazon Aurora MySQL version 8.4.
 
 **Topics**<a name="aurora_84_updates"></a>
++ [Aurora MySQL 8.4.12](AuroraMySQL.Updates.8412.md)
 + [Aurora MySQL 8.4.10](AuroraMySQL.Updates.8410.md)
 + [Aurora MySQL 8.4.8](AuroraMySQL.Updates.848.md)
 + [Aurora MySQL 8.4.7](AuroraMySQL.Updates.847.md)
@@ -16,13 +16,13 @@ The following are database engine updates for Amazon Aurora MySQL version 8.4.
 
 This patching model applies only to Aurora MySQL version 8.4. Aurora MySQL version 8.4 delivers critical stability and security fixes for a minor version as patch releases. A patch release doesn't change the engine version that you see in the AWS Management Console or the Amazon RDS API. For example, a cluster on 8.4.7.1 still shows the engine version `8.4.mysql_aurora.8.4.7`. To check the patch level that a DB instance runs, use the following query:
 
-```
+```sql
 SELECT @@aurora_version;
 ```
 
 Aurora doesn't apply patches to existing clusters automatically. When a patch is available, a `system-update` pending maintenance action appears for your cluster. You can apply it immediately or during your next maintenance window. On the AWS Management Console, choose **Maintenance & backups**, and then find the action under **Pending maintenance**. To apply the patch with the AWS CLI, use the following command. Replace {{cluster-arn}} with the ARN of your DB cluster:
 
-```
+```bash
 aws rds apply-pending-maintenance-action \
     --resource-identifier {{cluster-arn}} \
     --apply-action system-update \

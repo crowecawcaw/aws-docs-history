@@ -1,7 +1,7 @@
 
 
 # Aurora MySQL database engine updates 2024-03-15 (version 3.04.2, compatible with MySQL 8.0.28)
-<a name="AuroraMySQL.Updates.3042"></a><a name="3.04.2"></a><a name="3.04.2"></a>
+<a name="3.04.2"></a><a name="3.04.2"></a>
 
 **Version:** 3.04.2
 
@@ -54,7 +54,7 @@ The following CVE fixes are included in this release:
 + Fixed an issue where small read replica instances can experience increased replication lag after upgrading from Aurora MySQL versions lower than 2.11.\*.
 + Fixed an issue that can cause duplicate key errors for `AUTO_INCREMENT` columns using descending indices after a snapshot restore, backtrack, or database cloning operation.
 + Fixed an issue that can cause modifications of the `table_open_cache` database parameter not to take effect until the DB instance is restarted.
-+ Fixed an issue where the reader DB instance is unable to open a table, with ERROR 1146. This issue occurs when running certain types of online Data Definition Language (DDL) statements while the `INPLACE` algorithm is being used on the writer DB instance.
++ Fixed an issue where the reader DB instance is unable to open a table, with `ERROR 1146`. This issue occurs when running certain types of online Data Definition Language (DDL) statements while the `INPLACE` algorithm is being used on the writer DB instance.
 + Fixed an issue to avoid an instance restart during Aurora serverless scaling when the internal monitoring process erroneously submits duplicate scaling requests.
 + Fixed an issue that can cause a database restart when connected binary log (binlog) consumers are using duplicate binlog replication server IDs.
 

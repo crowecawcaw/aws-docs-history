@@ -1,7 +1,6 @@
 
 
 # Aurora MySQL database engine updates 2019-05-09 (version 1.19.1) (Deprecated)
-<a name="AuroraMySQL.Updates.1191"></a>
 
 **Version:** 1.19.1
 

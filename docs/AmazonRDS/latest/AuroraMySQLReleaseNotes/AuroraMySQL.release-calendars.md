@@ -1,7 +1,6 @@
 
 
 # Release calendars for Amazon Aurora MySQL
-<a name="AuroraMySQL.release-calendars"></a>
 
 The release calendars on this page can help you plan your major and minor version upgrades. For more information on Amazon Aurora upgrades, versioning, and lifecycle, see [Amazon Aurora versions](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.VersionPolicy.html). 
 
@@ -59,13 +58,14 @@ Amazon RDS Extended Support charges apply only to certain minor versions after a
 
 | Aurora MySQL version | Aurora MySQL release date | Aurora MySQL end of standard support date | 
 | --- | --- | --- | 
+|  **8.4.12** (Compatible with Community MySQL 8.4.12) | November 20, 2026 | May 31, 2028 | 
 |  **8.4.10** (Compatible with Community MySQL 8.4.10) | October 26, 2026 | April 30, 2028 | 
 |  **8.4.8** (Compatible with Community MySQL 8.4.8) | September 3, 2026 | March 31, 2028 | 
 |  **8.4.7** (Compatible with Community MySQL 8.4.7) | May 21, 2026 | November 30, 2027 | 
 |  **3.14** (Compatible with Community MySQL 8.0.46) | October 26, 2026 | April 30, 2028 | 
 |  **3.13** (Compatible with Community MySQL 8.0.45) | August 27, 2026 | August 27, 2027 | 
 |  **3.12** (Compatible with Community MySQL 8.0.44) | February 17, 2026 | February 17, 2027 | 
-|  **3.11** (Compatible with Community MySQL 8.0.43) | November 13, 2025 | November 13, 2026 | 
+|  **3.11** (Compatible with Community MySQL 8.0.43) | November 13, 2025 | December 31, 2026 | 
 |  **3.10** (Compatible with Community MySQL 8.0.42) (LTS) | July 31, 2025 | April 30, 2028 | 
 |  **3.09** (Compatible with Community MySQL 8.0.40) | May 14, 2025 | August 31, 2026 | 
 |  **3.08** (Compatible with Community MySQL 8.0.39) | November 18, 2024 | August 31, 2026 | 

@@ -1,7 +1,6 @@
 
 
 # Database engine updates for Amazon Aurora MySQL version 3
-<a name="AuroraMySQL.Updates.30Updates"></a>
 
 The following are database engine updates for Amazon Aurora MySQL version 3.
 

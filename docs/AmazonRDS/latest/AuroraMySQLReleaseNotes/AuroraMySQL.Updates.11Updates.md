@@ -1,7 +1,6 @@
 
 
 # Database engine updates for Amazon Aurora MySQL version 1 (Deprecated)
-<a name="AuroraMySQL.Updates.11Updates"></a>
 
 The following are Amazon Aurora version 1 database engine updates:<a name="aurora_1x_updates"></a>
 + [Aurora MySQL database engine updates 2021-09-30 (version 1.23.4) (Deprecated)](AuroraMySQL.Updates.1234.md)

@@ -1,7 +1,7 @@
 
 
 # Aurora MySQL database engine updates 2022-04-15 (version 3.01.1) (Deprecated)
-<a name="AuroraMySQL.Updates.3011"></a><a name="3011"></a><a name="3.01.1"></a>
+<a name="3011"></a><a name="3.01.1"></a>
 
  **Version:** 3.01.1 
 

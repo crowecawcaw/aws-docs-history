@@ -1,7 +1,6 @@
 
 
 # MySQL bugs fixed by Aurora MySQL database engine updates
-<a name="AuroraMySQL.Updates.MySQLBugs"></a>
 
 The following sections identify MySQL bugs that have been fixed by Aurora MySQL database engine updates.
 

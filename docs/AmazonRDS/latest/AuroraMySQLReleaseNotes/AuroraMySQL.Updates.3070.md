@@ -1,7 +1,7 @@
 
 
 # Aurora MySQL database engine updates 2024-06-04 (version 3.07.0) (Deprecated)
-<a name="AuroraMySQL.Updates.3070"></a><a name="3.07.0"></a><a name="3.07.0"></a>
+<a name="3.07.0"></a><a name="3.07.0"></a>
 
 **Version:** 3.07.0
 
@@ -57,7 +57,7 @@ This release includes all community CVE fixes up to and including MySQL 8.0.36. 
 + Fixed an issue where the [wait/io/redo\_log\_flush](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/ams-waits.io-auredologflush.html) event wasn't shown in the Performance Schema [wait event summary tables](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-wait-summary-tables.html).
 + Fixed an issue that can cause duplicate key errors for `AUTO_INCREMENT` columns using descending indices after a snapshot restore, backtrack, or database cloning operation.
 + Fixed an issue that can cause a writer DB instance to restart when a reader DB instance using write forwarding runs a Data Manipulation Language (DML) statement that contains a timestamp value and the ` time_zone` database parameter is set to `UTC`.
-+ Fixed an issue where a `SELECT` query on an Aurora reader instance might fail with the error table doesn't exist when the table has at least one full-text search (FTS) index and a `TRUNCATE` statement is being run on the Aurora writer DB instance.
++ Fixed an issue where a `SELECT` query on an Aurora reader instance might fail with the error `table doesn't exist` when the table has at least one full-text search (FTS) index and a `TRUNCATE` statement is being run on the Aurora writer DB instance.
 + Fixed an issue that, in rare cases, causes zero-downtime patching (ZDP) to fail.
 + Fixed an issue that can cause an incomplete result set when running queries involving `LEFT JOIN` or `RIGHT JOIN` operations using the hash join algorithm with parallel query.
 
