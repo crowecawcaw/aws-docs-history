@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Managing an existing on-call schedule in Incident Manager
-<a name="incident-manager-on-call-schedule-manage"></a>
 
 Use the content in this section to help you work with on-call schedules you have already created.
 

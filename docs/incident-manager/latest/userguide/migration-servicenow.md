@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Migrating to ServiceNow
-<a name="migration-servicenow"></a>
 
 ServiceNow [Incident Management](https://www.servicenow.com/docs/bundle/zurich-it-service-management/page/product/incident-management/concept/c_IncidentManagement.html) is a core ITSM module designed to restore normal service operations after unplanned interruptions while minimizing business impact. Like Incident Manager, ServiceNow Incident Management provides a structured, automated system to view, investigate, and resolve IT incidents, with features such as automated prioritization, and built-in escalation processes.
 

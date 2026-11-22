@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Incident lifecycle in Incident Manager
-<a name="incident-lifecycle"></a>
 
 AWS Systems Manager Incident Manager provides a step-by-step framework based on best practices to identify and react to incidents, such as service outages or security threats. The primary focus of Incident Manager is to help restore affected services or applications to normal as quickly as possible through a complete incident lifecycle management solution. 
 

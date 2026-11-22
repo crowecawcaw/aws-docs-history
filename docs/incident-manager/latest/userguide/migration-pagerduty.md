@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Migrating to PagerDuty
-<a name="migration-pagerduty"></a>
 
 [PagerDuty](https://support.pagerduty.com/main/docs/introduction) is an incident management platform that helps organizations detect, respond to, and even prevent incidents. Like Incident Manager, PagerDuty provides a central location where operations teams tackle critical work related to AWS resources, reducing customer impact.
 

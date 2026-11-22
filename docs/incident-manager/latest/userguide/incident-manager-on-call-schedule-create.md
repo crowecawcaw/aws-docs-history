@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Creating an on-call schedule and rotation in Incident Manager
-<a name="incident-manager-on-call-schedule-create"></a>
 
 Create an on-call schedule with one or more rotations of contacts to engage to respond to incidents during their shifts.
 

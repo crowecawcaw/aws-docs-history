@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Using migration runbooks for OpsCenter
-<a name="migration-opscenter-runbooks"></a>
 
 This guide provides step-by-step instructions for migrating your Amazon CloudWatch alarms and Amazon EventBridge rules from AWS Systems Manager Incident Manager to AWS Systems Manager OpsCenter using automated migration runbooks.
 

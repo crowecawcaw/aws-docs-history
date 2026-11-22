@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Working with shared contacts and response plans in Incident Manager
-<a name="sharing"></a>
 
 With contact sharing, as a contact owner, you can share contact information, escalation plans, and engagements with other AWS accounts or within an AWS organization. 
 

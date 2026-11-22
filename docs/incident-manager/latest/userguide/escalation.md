@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Creating an escalation plan for responder engagement in Incident Manager
-<a name="escalation"></a>
 
 AWS Systems Manager Incident Manager provides escalation paths through your defined contacts or on-call schedules, collectively known as *escalation channels*. You can pull multiple escalation channels into an incident at the same time. If the designated contacts in the escalation channel don't respond, Incident Manager escalates to the next set of contacts. You can also choose if a plan stops escalating once a user acknowledges the engagement. You can add escalation plans to a response plan so escalation automatically starts at the beginning of an incident. You can also add escalation plans to an active incident.
 

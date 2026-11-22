@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Monitoring metrics in Incident Manager with Amazon CloudWatch
-<a name="incident-manager-metrics"></a>
 
 Incident Manager provides aggregate metrics that you can monitor in Amazon CloudWatch. You can use these metrics to identify incident and response plan trends.
 

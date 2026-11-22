@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Cleaning up Incident Manager Resources
-<a name="migration-cleanup"></a>
 
 If you are no longer using AWS Systems Manager Incident Manager, we recommend you clean up the remaining Incident Manager resources. This will fully offboard you from the service and prevent any ongoing charges. Please refer to the [AWS Systems Manager pricing page](https://aws.amazon.com/systems-manager/pricing/) for more details.
 

@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Creating and integrating chat channels for responders in Incident Manager
-<a name="chat"></a>
 
 Incident Manager, a tool in AWS Systems Manager, gives incident responders the ability to communicate directly through *chat channels* during an incident. A *chat channel* is a chat room that you set up in [Amazon Q Developer in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/). You then connect this channel to a response plan in Incident Manager.
 
@@ -44,7 +43,7 @@ After you create the topic, you edit it to update its access policy.
 
 1. Add the following statement to the policy's **Statement** array:
 
-   ```
+   ```json
    {
        "Sid": "IncidentManagerSNSPublishingPermissions",
        "Effect": "Allow",
@@ -158,20 +157,20 @@ For channels in Slack and Microsoft Teams, Incident Manager enables responders t
 
 To run commands in an active incident's chat channel, use the following format. Replace {{cli-options}} with any options to be included for a command.
 
-```
+```bash
 @aws ssm-incidents {{cli-options}}
 ```
 
 For example:
 
-```
+```bash
 @aws ssm-incidents start-incident --response-plan-arn arn:aws:ssm-incidents::111122223333:response-plan/test-response-plan-chat --region us-east-2
 ```
 
-```
+```bash
 @aws ssm-incidents create-timeline-event --event-data "\"example timeline event"\" --event-time 2023-03-31 T20:30:00.000  --event-type Custom Event --incident-record-arn arn:aws:ssm-incidents::111122223333:incident-record/MyResponsePlanChat/98c397e6-7c10-aa10-9b86-f199aEXAMPLE
 ```
 
-```
+```bash
 @aws ssm-incidents list-incident-records
 ```

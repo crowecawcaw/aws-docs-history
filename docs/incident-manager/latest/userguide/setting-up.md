@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Setting up AWS Systems Manager Incident Manager
-<a name="setting-up"></a>
 
 We recommend setting up AWS Systems Manager Incident Manager in the account that you use to manage your operations. Before you use Incident Manager for the first time, complete the following tasks:
 

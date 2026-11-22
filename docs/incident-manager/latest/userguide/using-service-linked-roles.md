@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Using service-linked roles for Incident Manager
-<a name="using-service-linked-roles"></a>
 
 AWS Systems Manager Incident Manager uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Incident Manager. Service-linked roles are predefined by Incident Manager and include all the permissions that the service requires to call other AWS services on your behalf. 
 

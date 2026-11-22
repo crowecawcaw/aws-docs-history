@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Exporting Incident Manager data
-<a name="export-data"></a>
 
 This topic describes how to use a Python script to export incident records and post-incident analyses from AWS Systems Manager Incident Manager. The script exports data to structured JSON files for further analysis or archival purposes.
 

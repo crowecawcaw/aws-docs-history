@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Cross-service confused deputy prevention in Incident Manager
-<a name="cross-service-confused-deputy-prevention"></a>
 
 The confused deputy problem is an information security issue that occurs when an entity without permission to perform an action calls a more-privileged entity to perform the action. This can allow malicious actors to run commands or modify resources they otherwise would not have permission to run or access.
 
@@ -20,7 +19,7 @@ In the following trust policy example, we use the `aws:SourceArn` condition key 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

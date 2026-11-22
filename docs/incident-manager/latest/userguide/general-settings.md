@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Configuring replication sets and Findings in Incident Manager
-<a name="general-settings"></a>
 
 After you have completed the Incident Manager Get prepared wizard, you can manage certain options on the **Settings** page. These options include your replication set, tags applied to the replication set, and the Findings feature.
 

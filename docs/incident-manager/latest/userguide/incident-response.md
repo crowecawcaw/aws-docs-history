@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Preparing for incidents in Incident Manager
-<a name="incident-response"></a>
 
 Planning for an incident begins long before the incident lifecycle. As the following illustration shows, before starting to respond to incidents, you get prepared by setting up chat channels, creating escalation plans, specifying contacts, and determining the Automation runbooks to use in incident response. Then, use a response plan that specifies how monitoring occurs and whether responses are automated. After remediation is complete, you can analyze the incident and incident response to further refine your response plan for future incidents. 
 

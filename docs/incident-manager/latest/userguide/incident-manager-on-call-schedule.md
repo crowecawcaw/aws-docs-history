@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Managing responder rotations with on-call schedules in Incident Manager
-<a name="incident-manager-on-call-schedule"></a>
 
 An on-call schedule in Incident Manager defines who is notified when an incident occurs that requires operator intervention. An on-call schedule consists of one or more rotations you create for the schedule. Each rotation can include up to 30 contacts.
 

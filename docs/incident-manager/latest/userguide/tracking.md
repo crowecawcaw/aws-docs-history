@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Viewing incident details in the Incident Manager console
-<a name="tracking"></a>
 
 AWS Systems Manager Incident Manager tracks your incidents from the moment they're detected to resolution and through post-incident analysis. You can find all incidents on the **Incident list** page in the Incident Manager console, with links directly to the **Incident details**. 
 

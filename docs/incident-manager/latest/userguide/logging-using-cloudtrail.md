@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Logging AWS Systems Manager Incident Manager API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Systems Manager Incident Manager is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for Incident Manager as events. The calls captured include calls from the Incident Manager console and code calls to the Incident Manager API operations. Using the information collected by CloudTrail, you can determine the request that was made to Incident Manager, the IP address from which the request was made, when it was made, and additional details.
 
@@ -39,7 +38,7 @@ An event represents a single request from any source and includes information ab
 
 The following example shows a CloudTrail log entry that demonstrates the `StartIncident` action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

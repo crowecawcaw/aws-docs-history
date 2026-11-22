@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Troubleshooting AWS Systems Manager Incident Manager identity and access
-<a name="security_iam_troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with Incident Manager and IAM.
 

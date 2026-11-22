@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Troubleshooting AWS Systems Manager Incident Manager
-<a name="troubleshooting"></a>
 
 If you encounter issues while using AWS Systems Manager Incident Manager, you can use the following information to resolve them according to our best practices. If the issues you encounter are outside the scope of the following information, or if they persist after you've tried to resolve them, contact [AWS Support](https://aws.amazon.com/premiumsupport/).
 
@@ -23,7 +22,7 @@ If you encounter issues while using AWS Systems Manager Incident Manager, you ca
 **Problem 3**: The secrets doesn't have a resource-based policy attached that allows access to the Incident Manager service principal, `ssm-incidents.amazonaws.com`.
 + **Solution**: Create or update the resource-based policy for the secret and include the following permission:
 
-  ```
+  ```json
   {
       "Effect": "Allow",
       "Principal": {

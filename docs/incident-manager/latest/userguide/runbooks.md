@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Integrating Systems Manager Automation runbooks in Incident Manager for incident remediation
-<a name="runbooks"></a>
 
 You can use runbooks from [AWS Systems Manager Automation](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation.html), a tool in AWS Systems Manager, to automate common application and infrastructure tasks in your AWS Cloud environment.
 
@@ -59,7 +58,7 @@ The second statement allows the Runbook service role to assume a role in another
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

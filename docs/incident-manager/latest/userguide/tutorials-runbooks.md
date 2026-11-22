@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Tutorial: Using Systems Manager Automation runbooks with Incident Manager
-<a name="tutorials-runbooks"></a>
 
 You can use [AWS Systems Manager Automation](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation.html) runbooks to simplify common maintenance, deployment, and remediation tasks for AWS services. In this tutorial, you'll create a custom runbook to automate an incident response in Incident Manager. The scenario for this tutorial involves an Amazon CloudWatch alarm assigned to an Amazon EC2 metric. When the instance enters a state that triggers the alarm, Incident Manager automatically performs the following tasks:
 
@@ -171,7 +170,7 @@ Use the following tutorial to create an AWS Identity and Access Management (IAM)
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

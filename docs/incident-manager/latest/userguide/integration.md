@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Product and service integrations with Incident Manager
-<a name="integration"></a>
 
 Incident Manager, a tool in AWS Systems Manager, integrates with the following products, services, and tools.
 

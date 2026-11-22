@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Tutorial: Managing security incidents in Incident Manager
-<a name="tutorials-security"></a>
 
 You can use AWS Security Hub CSPM, Amazon EventBridge, and Incident Manager together to identify and manage security incidents in your AWS hosted-applications. This tutorial walks you through configuring an EventBridge rule that creates an incident based on Security Hub CSPM automatically sent findings.
 

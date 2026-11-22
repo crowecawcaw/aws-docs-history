@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Migrating to Jira Service Management
-<a name="migration-jira"></a>
 
 [Jira Service Management (JSM)](https://www.atlassian.com/software/jira/service-management/features/itsm#incident-management) is an IT service management (ITSM) solution that helps teams receive, track, manage, and resolve employee and customer requests through multiple channels including email, chat, help centers, and widgets. Built on the Jira platform, Jira Service Management enables teams across an organization - from development to IT to HR - to intake requests, respond to alerts and incidents, deploy changes, track assets, surface knowledge, and automate workflows. Jira Service Management includes incident management capabilities such as on-call scheduling, alerting, major incident management, change management and blameless post mortem (PIR) features designed for DevOps workflows, leveraging existing CI/CD pipelines and automation to reduce manual effort.
 

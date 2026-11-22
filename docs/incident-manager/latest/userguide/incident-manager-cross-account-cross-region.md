@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Managing incidents across AWS accounts and Regions in Incident Manager
-<a name="incident-manager-cross-account-cross-region"></a>
 
 You can configure Incident Manager, a tool in AWS Systems Manager, to work with multiple AWS Regions and accounts. This section describes cross-Region and cross-account best practices, set up steps, and known limitations. 
 

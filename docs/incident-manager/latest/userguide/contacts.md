@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Creating and configuring contacts in Incident Manager
-<a name="contacts"></a>
 
 AWS Systems Manager Incident Manager contacts are responders to incidents. A contact can have multiple channels that Incident Manager can engage during an incident. You can define a contact's engagement plan to describe how and when Incident Manager engages the contact.
 

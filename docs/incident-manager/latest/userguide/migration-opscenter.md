@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Migrating to AWS Systems Manager OpsCenter
-<a name="migration-opscenter"></a>
 
 This guide helps you understand key differences between Incident Manager and OpsCenter to decide if OpsCenter fits your operational needs and provides ways to migrate to OpsCenter from AWS Systems Manager Incident Manager.
 

@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Identifying potential causes of incidents from other services as "findings" in Incident Manager
-<a name="findings"></a>
 
 In Incident Manager, a *finding* is information about an AWS CodeDeploy deployments or AWS CloudFormation stack update that occurred around the time of an incident, and that involved one or more resources likely related to the incident. Each finding can be examined as a potential cause of the incident. Information about these potential causes is added to the **Incident details** page for an incident. With information about these deployments and changes readily at hand, responders don't need to manually search for this information. This lessens the time needed to evaluate potential causes, which can reduce the mean time to recover (MTTR) from an incident.
 

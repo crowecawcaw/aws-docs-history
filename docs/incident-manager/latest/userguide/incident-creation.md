@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Creating incidents automatically or manually in Incident Manager
-<a name="incident-creation"></a>
 
 Incident Manager, a tool in AWS Systems Manager, helps you manage and quickly respond to incidents. You can configure Amazon CloudWatch and Amazon EventBridge to automatically create incidents based on CloudWatch alarms and EventBridge events. You can also create incidents manually on the incident list page or by using the [StartIncident](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_StartIncident.html) API action from the AWS CLI or the AWS SDK. Incident Manager deduplicates incidents created from the same CloudWatch alarm or EventBridge event into the same incident.
 
@@ -195,7 +194,7 @@ The following IAM policy provides the necessary permissions for manually startin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

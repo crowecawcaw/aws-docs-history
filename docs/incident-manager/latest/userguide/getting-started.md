@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Getting started with Incident Manager
-<a name="getting-started"></a>
 
 This section walks through **Get prepared** in the Incident Manager console. You're required to complete **Get prepared** in the console before you can use it for incident management. The wizard walks you through setting up your replication set, at least one contact and one escalation plan, and your first response plan. The following guides will help you understand Incident Manager and the incident lifecycle:
 + [What Is AWS Systems Manager Incident Manager?](what-is-incident-manager.md)

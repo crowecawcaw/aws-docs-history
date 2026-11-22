@@ -3,7 +3,6 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 
 
 # Creating and configuring response plans in Incident Manager
-<a name="response-plans"></a>
 
 Response plans let you plan for how to respond to an incident that impacts your users. A response plan works as a template that includes information about who to engage, the expected severity of the event, automatic runbooks to initiate, and metrics to monitor. 
 
