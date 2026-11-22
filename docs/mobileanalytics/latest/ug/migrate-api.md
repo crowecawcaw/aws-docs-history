@@ -1,7 +1,6 @@
 
 
 # Migrating to the Amazon Pinpoint API
-<a name="migrate-api"></a>
 
 After April 30, 2018, the Mobile Analytics REST API will automatically redirect requests to the Amazon Pinpoint API. Events that your application reports to Mobile Analytics are automatically sent to Amazon Pinpoint.
 
@@ -37,7 +36,7 @@ The following examples demonstrate the JSON attributes that you can parse when y
 
 **Example Session Start Event**  
 
-```
+```json
 {
   "application_key": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
   "account_id": "111122223333",
@@ -70,7 +69,7 @@ The following examples demonstrate the JSON attributes that you can parse when y
 
 **Example Monetization Event**  
 
-```
+```json
 {
   "application_key": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
   "account_id": "111122223333",

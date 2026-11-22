@@ -1,7 +1,6 @@
 
 
 # Migrating to Amazon Pinpoint in the AWS Mobile SDKs or JavaScript Library
-<a name="migrate-sdk"></a>
 
 After April 30, 2018, the Amazon Mobile Analytics client in the AWS Mobile SDKs will no longer be updated, and support for existing versions of the client will no longer be offered.
 
@@ -114,7 +113,7 @@ Your app now includes a cloud configuration file that connects it to the backend
 
 1. In the `PinpointAnalytics` object, replace the value for `AppID` with the ID that you got from the Amazon Pinpoint console.
 
-   ```
+   ```json
    . . .
    "PinpointAnalytics": {
      "Default": {
