@@ -1,7 +1,6 @@
 
 
 # Siemens Industrial Edge on AWS
-<a name="siemens-industrial-edge"></a>
 
 Publication date: **May 13, 2024 ([Diagram history](#sie-diagram-history))**
 
