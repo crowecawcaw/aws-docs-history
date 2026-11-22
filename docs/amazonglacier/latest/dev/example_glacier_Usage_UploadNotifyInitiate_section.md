@@ -7,7 +7,6 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/).
 
 # Archive a file to Amazon Glacier, get notifications, and initiate a job using an AWS SDK
-<a name="example_glacier_Usage_UploadNotifyInitiate_section"></a>
 
 The following code example shows how to:
 + Create an Amazon Glacier vault.
@@ -22,7 +21,7 @@ The following code example shows how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glacier#code-examples). 
 Create a class that wraps Amazon Glacier operations.  
 
-```
+```python
 import argparse
 import logging
 import os
@@ -192,7 +191,7 @@ class GlacierWrapper:
 ```
 Call functions on the wrapper class to create a vault and upload a file, then configure the vault to publish notifications and initiate a job to retrieve the archive.  
 
-```
+```python
 def upload_demo(glacier, vault_name, topic_arn):
     """
     Shows how to:

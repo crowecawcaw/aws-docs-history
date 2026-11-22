@@ -7,7 +7,6 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/).
 
 # Retrieving Vault Metadata in Amazon Glacier Using the AWS Command Line Interface
-<a name="retrieving-vault-info-cli"></a>
 
 This example shows how to retrieve vault information and metadata in Amazon Glacier (Amazon Glacier) using the AWS Command Line Interface (AWS CLI).
 
@@ -32,7 +31,7 @@ This example shows how to retrieve vault information and metadata in Amazon Glac
      ```
    + To get a list of Amazon Glacier vaults on the configured account, use the `list-vaults` command. Replace {{123456789012}} with your AWS account ID.
 
-     ```
+     ```cmd
      aws glacier list-vaults --account-id {{123456789012}}
      ```
    + To see the current configuration data for the AWS CLI, use the `aws configure list` command.

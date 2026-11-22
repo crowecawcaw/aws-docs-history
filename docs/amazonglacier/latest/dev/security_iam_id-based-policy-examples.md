@@ -7,7 +7,6 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/).
 
 # Identity-based policy examples for Amazon Glacier
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Amazon Glacier resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -22,7 +21,7 @@ The following is an example policy that grants permissions for three Amazon Glac
 
 ****  
 
-```
+```json
       {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -78,7 +77,7 @@ The Amazon Glacier console provides an integrated environment for you to create 
 
 ****  
 
-```
+```json
          {
                "Version":"2012-10-17",		 	 	 
                "Statement": [
@@ -116,7 +115,7 @@ For more information, see [Adding permissions to a user](https://docs.aws.amazon
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

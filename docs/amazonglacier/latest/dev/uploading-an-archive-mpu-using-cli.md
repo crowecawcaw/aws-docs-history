@@ -7,7 +7,6 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/).
 
 # Uploading Large Archives by Using the AWS CLI
-<a name="uploading-an-archive-mpu-using-cli"></a>
 
 You can upload an archive in Amazon Glacier (Amazon Glacier) by using the AWS Command Line Interface (AWS CLI). To improve the upload experience for larger archives, Amazon Glacier provides several API operations to support multipart uploads. By using these API operations, you can upload archives in parts. These parts can be uploaded independently, in any order, and in parallel. If a part upload fails, you need to upload only that part again, not the entire archive. You can use multipart uploads for archives from 1 byte to about 40,000 gibibytes (GiB) in size. 
 
@@ -36,7 +35,7 @@ For more information about Amazon Glacier multipart uploads, see [Uploading Larg
      ```
    + To get a list of Amazon Glacier vaults on the configured account, use the `list-vaults` command. Replace {{123456789012}} with your AWS account ID.
 
-     ```
+     ```cmd
      aws glacier list-vaults --account-id {{123456789012}}
      ```
    + To see the current configuration data for the AWS CLI, use the `aws configure list` command.
@@ -166,7 +165,7 @@ The final command's `--range` parameter value is smaller because the final part 
 
 1. Run `checksum.py` to calculate the SHA256 tree hash. The following hash may not match your output.
 
-   ```
+   ```bash
    $ python3 checksum.py
    $ 3d760edb291bfc9d90d35809243de092aea4c47b308290ad12d084f69988ae0c
    ```

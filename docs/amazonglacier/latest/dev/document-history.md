@@ -7,17 +7,16 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/).
 
 # Document History
-<a name="document-history"></a>
 + **Current product version:** 2012-06-01
 
 The following table describes the important changes in each release of the *Amazon Glacier Developer Guide* from July 5, 2018, onward. For notification about updates to this documentation, you can subscribe to an RSS feed.
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [Improved start times for Standard restore requests made through S3 Batch Operations](#document-history) | Standard retrievals for restore requests that are made through S3 Batch Operations now can start within minutes. For more information, see [Archive Retrieval Options](https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive-two-steps.html#api-downloading-an-archive-two-steps-retrieval-options). | August 9, 2023 | 
-| [Amazon S3 supports higher restore request rates for S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive](#document-history) | Amazon S3 supports restore requests at a rate of up to 1,000 transactions per second, per AWS account for the S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive storage classes. | November 15, 2022 | 
-| [Amazon Glacier name change](#document-history) | Amazon Glacier is now Amazon Glacier to better reflect Glacier's integration with Amazon S3. | November 20, 2018 | 
-| [Updates now available over RSS](#document-history) | You can now subscribe to an RSS feed to receive notifications about updates to the Amazon Glacier Developer Guide guide. | July 5, 2018 | 
+| [Improved start times for Standard restore requests made through S3 Batch Operations](document-history.md) | Standard retrievals for restore requests that are made through S3 Batch Operations now can start within minutes. For more information, see [Archive Retrieval Options](https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive-two-steps.html#api-downloading-an-archive-two-steps-retrieval-options). | August 9, 2023 | 
+| [Amazon S3 supports higher restore request rates for S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive](document-history.md) | Amazon S3 supports restore requests at a rate of up to 1,000 transactions per second, per AWS account for the S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive storage classes. | November 15, 2022 | 
+| [Amazon Glacier name change](document-history.md) | Amazon Glacier is now Amazon Glacier to better reflect Glacier's integration with Amazon S3. | November 20, 2018 | 
+| [Updates now available over RSS](document-history.md) | You can now subscribe to an RSS feed to receive notifications about updates to the Amazon Glacier Developer Guide guide. | July 5, 2018 | 
 
 ## Earlier Updates
 <a name="document-history-earlier"></a>

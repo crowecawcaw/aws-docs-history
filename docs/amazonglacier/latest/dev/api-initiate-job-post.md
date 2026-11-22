@@ -7,7 +7,6 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/).
 
 # Initiate Job (POST jobs)
-<a name="api-initiate-job-post"></a>
 
 This operation initiates the following types of Amazon Glacier (Amazon Glacier) jobs: 
 + `archive-retrieval`— Retrieve an archive
@@ -25,7 +24,7 @@ This operation initiates the following types of Amazon Glacier (Amazon Glacier) 
 
 Retrieving an archive or a vault inventory are asynchronous operations that require you to initiate a job. Once started, job cannot be cancelled. Retrieval is a two-step process:
 
-1. Initiate a retrieval job by using the [Initiate Job (POST jobs)](#api-initiate-job-post) operation.
+1. Initiate a retrieval job by using the [Initiate Job (POST jobs)](api-initiate-job-post.md) operation.
 **Important**  
 A data retrieval policy can cause your initiate retrieval job request to fail with a `PolicyEnforcedException`. For more information about data retrieval policies, see [Amazon Glacier Data Retrieval Policies](data-retrieval-policy.md). For more information about the `PolicyEnforcedException` exception, see [Error Responses](api-error-responses.md).
 

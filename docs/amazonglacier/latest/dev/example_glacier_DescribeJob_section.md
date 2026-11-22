@@ -7,7 +7,6 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/).
 
 # Use `DescribeJob` with an AWS SDK or CLI
-<a name="example_glacier_DescribeJob_section"></a>
 
 The following code examples show how to use `DescribeJob`.
 
@@ -49,7 +48,7 @@ For more information, see [Downloading a Vault Inventory in Amazon Glacier](http
 **Tools for PowerShell V4**  
 **Example 1: Returns details of the specified job. When the job completes successfully the Read-GCJobOutput cmdlet can be used to retrieve the contents of the job (an archive or inventory list) to the local file system.**  
 
-```
+```powershell
 Get-GLCJob -VaultName myvault -JobId "op1x...JSbthM"
 ```
 **Output:**  
@@ -82,7 +81,7 @@ VaultARN                     : arn:aws:glacier:us-west-2:012345678912:vaults/tes
 **Tools for PowerShell V5**  
 **Example 1: Returns details of the specified job. When the job completes successfully the Read-GCJobOutput cmdlet can be used to retrieve the contents of the job (an archive or inventory list) to the local file system.**  
 
-```
+```powershell
 Get-GLCJob -VaultName myvault -JobId "op1x...JSbthM"
 ```
 **Output:**  
@@ -118,7 +117,7 @@ VaultARN                     : arn:aws:glacier:us-west-2:012345678912:vaults/tes
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glacier#code-examples). 
 
-```
+```python
 class GlacierWrapper:
     """Encapsulates Amazon S3 Glacier API operations."""
 
