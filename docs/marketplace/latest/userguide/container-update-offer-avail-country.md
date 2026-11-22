@@ -1,21 +1,26 @@
 
 
 # Updating container product availability by country in AWS Marketplace
-<a name="container-update-offer-avail-country"></a>
 
 As an AWS Marketplace seller, you can change the countries in which your container product can be offered and subscribed to. For more information, see [Countries](regions-and-countries.md#product-countries). The following procedure shows you how to update your container product availability by country.
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and sign in to your seller account.
+**To update availability by country**
 
-1. From the [**Server Products**](https://aws.amazon.com/marketplace/management/products/server) page, select the container product that you want to modify.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. From the **Request changes** dropdown list, select **Update public offer**, and then select **Update availability by country**.
+1. Choose the product.
 
-1. Select one of the following options: 
-   + **All countries** – Available in all supported countries.
-   + **All countries with exclusions** – Available in all supported countries except in selected countries.
-   + **Allowlisted countries only** – Available for buyers to purchase only in the countries you specify.
+1. Choose the **Procurement** tab.
 
-1. Choose **Submit** to submit your request for review.
+1. On the **Public offer** card, choose **Update**, and then choose **Update availability by country**.
 
-1. Verify that the **Requests** tab shows the **Request status** as **Under review**. When the request completes, the status will update to **Succeeded** or **Failed**. 
+   The **Update** menu appears after your public offer is released.
+
+1. On the **Update availability by country** page, under **Offer availability by country**, choose one of the following options:
+   + **All countries** – Buyers in all countries can purchase your product.
+   + **All countries with exclusions** – For **Excluded countries**, choose the countries where buyers can't purchase your product.
+   + **Allowlisted countries only** – For **Allowlisted countries**, choose the countries where buyers can purchase your product.
+
+1. Choose **Submit**.
+
+Your change request appears on the offer's **Requests log** tab. To open the offer, choose the link under **Offer ID** on the **Public offer** card of the **Procurement** tab. Its status moves from **Under review** to **Update in progress**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While a request is in progress, the **Update** menu on the **Public offer** card is unavailable.

@@ -1,10 +1,5 @@
 
 
-# Step 5: Configure refund policy
-<a name="configure-refund-policy"></a>
+# Specifying your refund policy
 
- Though you're not required to offer refunds, you must file an official refund policy with AWS Marketplace. 
-
-1. Enter a refund policy.
-
-1.  Choose **Next** to move to the next step in the wizard. 
+You aren't required to offer refunds, but you must file an official refund policy with AWS Marketplace. You enter it on the **Specify refund policy** page when you create your public offer. For the procedure, see [Creating and publishing your listing](create-new-listing.md).

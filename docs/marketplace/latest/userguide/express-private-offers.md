@@ -1,7 +1,6 @@
 
 
 # Express private offers
-<a name="express-private-offers"></a>
 
 Express private offers is a capability in AWS Marketplace that automates private offer generation for your SaaS Contract and SaaS Contract with Consumption Pricing products. By configuring rate cards with predefined pricing and qualification criteria, you can enable buyers to receive automated private offers for standard deals, while more custom requests are automatically routed to your sales team.
 

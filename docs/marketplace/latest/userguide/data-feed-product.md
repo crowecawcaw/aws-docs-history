@@ -1,9 +1,10 @@
 
 
 # Product data feed
-<a name="data-feed-product"></a>
 
 This data feed provides information about all products you've created as the seller of record and all products you're authorized to resell.
+
+RTB Fabric module products appear in this data feed in the same way as SaaS products.
 
 Product data is mutable. This means that when you change the value for one of the following fields, a new record is created in the data feed with a different value for `valid_from` field. For more information about the data feed history columns, see [Historization of the data](data-feed-details.md#data-feed-historization). 
 

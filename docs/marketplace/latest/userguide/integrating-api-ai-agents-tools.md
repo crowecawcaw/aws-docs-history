@@ -1,7 +1,6 @@
 
 
 # Integrating API-based AI agent products
-<a name="integrating-api-ai-agents-tools"></a>
 
 ## API-based AI agent products guidelines
 <a name="api-ai-agents-guidelines"></a>
@@ -28,10 +27,10 @@ AWS Marketplace continuously monitors products to verify compliance. If your pro
 | Category | Guidelines | 
 | --- | --- | 
 | API and agent functionality | All the APIs should be functional and respond back appropriately. If you are listing an Agent, the solution must demonstrate autonomous capabilities by operating without explicit external commands or constant human inputs. | 
-| API access and authentication | The customer should be able to subscribe to your listing and retrieve API Keys or follow the steps to generate the OAuth token. | 
+| API access and authentication | For the **Registration with seller** access model, make sure that buyers can subscribe to your listing, and then retrieve API keys or follow your steps to generate an OAuth token.<br />For Agentic Commerce products, buyers don't subscribe or receive API keys. If a request has no payment, your endpoint must return HTTP 402 and a signed x402 quote. If a request carries a valid payment token, your endpoint must serve the request. For more information, see [Verifying payment tokens](agentic-commerce-verify-payment-tokens.md). | 
 | Architecture guidelines | [Follow Architecture guidelines for more details.](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-guidelines.html#saas-architecture) | 
 | Customer information requirements | [Follow Customer information requirements for more details.](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-guidelines.html#saas-customer-information) | 
-| Key management | Vendors should provide the customers ability to invalidate/rotate keys. Vendors should also have an mechanism to invalidate keys once the customer unsubscribes from the listing. | 
+| Key management | Vendors should provide the customers ability to invalidate/rotate keys. Vendors should also have an mechanism to invalidate keys once the customer unsubscribes from the listing.<br />For Agentic Commerce products, there are no customer keys to manage. Instead, keep the public key source for your quote-signing key (a JWKS URL or an AWS Key Management Service (AWS KMS) key) reachable by AWS Marketplace, and rotate the key on a regular schedule. For more information, see [Configuring your quote-signing key](agentic-commerce-signing-key.md). | 
 | MCP server requirements (if applicable) | For MCP Server, vendors should provide remote MCP configuration details alongside any prerequisite or environment variables for set up. | 
 | Product setup | [Follow Product setup guidelines for more details.](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-guidelines.html#saas-guidelines-setup) | 
 | Product usage | [Follow Product usage guidelines for more details.](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-guidelines.html#saas-product-usage) | 
@@ -48,18 +47,24 @@ Integrating your product with AWS Marketplace is one step in listing an API-base
 For information about integrating your product based on different pricing models, see the following topics:
 + For information about subscription-based products, see [Integrating your SaaS subscription or Pay-As-You-Go product with AWS Marketplace](saas-integrate-subscription.md).
 + For information about contract-based products, see [Integrating your SaaS contract product with AWS Marketplace](saas-integrate-contract.md).
-+ For information about contract with pay-as-you-go products, see [Integrating your SaaS contract-based product with AWS Marketplace](saas-integrate-contract-with-pay.md).
++ For information about contract with pay-as-you-go products, see [Integrating your SaaS contract with consumption product with AWS Marketplace](saas-integrate-contract-with-pay.md).
+
+**Note**  
+These integrations don't apply to Agentic Commerce products. AWS Marketplace meters each verified payment for you, so don't call `BatchMeterUsage` or `MeterUsage` for Agentic Commerce requests. For more information, see [Listing Agentic Commerce products](agentic-commerce-products.md).
 
 ### Customer onboarding
 <a name="customer-onboarding"></a>
 
-#### Redirect to Website fulfillment
+**Note**  
+Customer onboarding doesn't apply to Agentic Commerce products. Buyers don't register on your website, so you don't call `ResolveCustomer`, and there are no buyer-specific parameters to deliver with `PutDeploymentParameter`.
+
+#### Redirect to your website fulfillment
 <a name="redirect-website-fulfillment"></a>
 
 When customers subscribe to your product through AWS Marketplace, they access the product in your AWS environment. After subscribing, we direct customers to your product's website to register their account and configure the product.
-+ Learn about onboarding customers using Redirect to Website fulfillment in [Onboarding customers to your SaaS product through AWS Marketplace](saas-product-customer-setup.md).
++ Learn about onboarding customers using **Redirect to your website** fulfillment in [Onboarding customers to your SaaS product through AWS Marketplace](saas-product-customer-setup.md).
 
-#### QuickLaunch fulfillment
+#### Quick Launch fulfillment
 <a name="quicklaunch-fulfillment"></a>
 
 When customers subscribe to your product through AWS Marketplace, they receive an API key or OAuth credentials to make calls to your API endpoint or MCP server. The process works as follows:
@@ -68,7 +73,7 @@ When customers subscribe to your product through AWS Marketplace, they receive a
 + You use the **PutDeploymentParameter** API to store the API key or OAuth credentials in the customer's AWS Secrets Manager.
 + If you store one parameter in the case of API keys, call the `PutDeploymentParameter` API with the `secretString` parameter being a string. If you store more than one parameter in the case of OAuth credentials, provide a JSON string with key-value pairs in the `secretString` parameter as shown below:
 
-  ```
+  ```json
   {
     "Client Id": "{{12345}}",
     "Client Secret": "{{12345}}",
@@ -76,7 +81,7 @@ When customers subscribe to your product through AWS Marketplace, they receive a
   }
   ```
 
-Learn more about QuickLaunch fulfillment in these resources:
+Learn more about Quick Launch fulfillment in these resources:
 + Learn about **PutDeploymentParameter** API in [AWS Marketplace Deployment API](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_Operations_AWS_Marketplace_Deployment_Service.html)
 + Find customer onboarding instructions in [Onboarding customers to your SaaS product through AWS Marketplace](saas-product-customer-setup.md)
 
@@ -105,7 +110,7 @@ The following steps describe how a buyer onboards to your dynamic endpoint produ
 
 The following example shows the JSON `secretString` format for delivering endpoint parameters through `PutDeploymentParameter`:
 
-```
+```json
 {
   "parameters": {
     "tenantId": "wkf10640",
@@ -119,6 +124,8 @@ Each key in the `parameters` object must match a `{paramName}` placeholder in yo
 
 **Note**  
 Deliver authentication credentials (API keys or OAuth tokens) in a separate `PutDeploymentParameter` call with an expiration date that reflects your credential rotation policy. Do not combine endpoint parameters and credentials in the same call.
+
+**Best practices for dynamic endpoint parameters**
 + Set `expirationDate` to `9999-12-31T23:59:59Z` for stable endpoint parameters such as tenant IDs and Regions that do not rotate. Do not use this value for authentication credentials. Set credential expiration to match your rotation policy (for example, 90 days or 1 year).
 + For public listings, if you add new parameters to an existing endpoint after launch, provide a default value for each new parameter. This ensures existing buyers receive a working URL without requiring re-registration.
 + To update a parameter value for an existing buyer (for example, during a tenant migration), call `PutDeploymentParameter` again with the updated JSON payload. The fulfillment page picks up the new value on the next page load.
@@ -128,6 +135,9 @@ Deliver authentication credentials (API keys or OAuth tokens) in a separate `Put
 
 This following section outlines the process of integrating with the AWS Marketplace Metering Service or AWS Marketplace Entitlement Service, used to ensure that your billing and reporting for customer usage of your products is accurate.
 + To learn more about accessing AWS Marketplace APIs, see [Accessing the AWS Marketplace Metering and Entitlement Service APIs](saas-integration-metering-and-entitlement-apis.md).
+
+**Note**  
+For Agentic Commerce products, you don't integrate with the AWS Marketplace Metering Service or Entitlement Service. AWS Marketplace meters each verified payment on the buyer's account.
 
 ### SNS notifications
 <a name="sns-notifications"></a>
@@ -140,6 +150,9 @@ Subscribe to Amazon Simple Notification Service (Amazon SNS) topics to receive n
 The following Amazon SNS topics are available for SaaS API-based products:
 + [Amazon SNS topic: `aws-mp-entitlement-notification`](saas-notification.md#saas-sns-message-body) – Notifies you when customers create, upgrade, or renew contracts, or when contracts expires. This is only available for products with pricing models that include a contract.
 + [Amazon SNS topic: `aws-mp-subscription-notification`](saas-notification.md#saas-sns-subscription-message-body) – Notifies you when customers subscribe or unsubscribe from your product and includes the `offer-identifier` for private offers and a free trials flag for SaaS free trials. This is available for all pricing models, including contracts and subscriptions.
+
+**Note**  
+For Agentic Commerce products, you don't need these notifications to give buyers access or to send final metering records. Your endpoint gives access to each request that carries a valid payment token, and AWS Marketplace meters each payment.
 
 ## Usage instructions templates
 <a name="usage-instructions-templates"></a>

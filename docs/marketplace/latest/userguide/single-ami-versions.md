@@ -1,14 +1,41 @@
 
 
 # Managing versions for AMI-based products on AWS Marketplace
-<a name="single-ami-versions"></a>
 
 When you create an Amazon Machine Image (AMI) based product on AWS Marketplace, you include a specific version of your software. The lifecycle of an AMI-based product for AWS Marketplace doesn't end after you publish the first version. You should keep your product up-to-date with new versions of your software. The following sections show you how to manage your versions, which includes updating version information (such as descriptions and dates), adding new versions, and restricting access to previous versions.
 
 **Topics**
++ [View versions](#single-ami-viewing-versions)
 + [Update version information](#single-ami-updating-version)
 + [Add a new version](#single-ami-adding-version)
 + [Restrict a version](#single-ami-restricting-version)
+
+## View versions
+<a name="single-ami-viewing-versions"></a>
+
+View your versions to check their scan results and to find your product ID, product code, and AMI aliases.
+
+**To view versions**
+
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
+
+1. Choose the product.
+
+1. Choose the **Delivery** tab.
+
+   The **Versions** section lists your versions in the following columns:
+   + **Version title** – The title that buyers see.
+   + **Scan result** – The result of the latest security scan of the version: **Passed**, the number of issues found, **Assessment expired**, or **Missing permission**.
+   + **Version visibility** – **Public** versions are discoverable and available to all buyers. **Limited** versions are available only to allowlisted AWS accounts. **Restricted** versions aren't offered to new subscribers. Existing subscribers can still launch them. AWS Marketplace marks a restricted version's AMI as deprecated, so it doesn't appear in AMI search results unless you search for its AMI ID.
+   + **Due date** – The date by which you must resolve the security issues that a scan found.
+
+1. Choose the title of the version.
+
+   The **Version summary** section shows the **Product ID** and **Product code**. The section for an AMI delivery option shows the **AMI alias** of the version. For more information, see [Using AMI aliases in AWS Marketplace](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-ami-aliases.html) in the *AWS Marketplace Buyer Guide*.
+
+If a scan finds security issues in a version, the version details page shows the **Security issues found** alert. To resolve the issues, add a new version and restrict the affected version by the due date. If you don't, AWS Marketplace restricts the affected versions or temporarily restricts the product. Active subscribers keep access, but new buyers can't find or subscribe to the product. To start a new version from the alert, choose **Add version**.
+
+If your product uses custom metering or contract pricing, the version details page also shows the **Integrate new version with AWS Marketplace** alert. Each new version needs its own integration so that buyers are billed for their use.
 
 ## Update version information
 <a name="single-ami-updating-version"></a>
@@ -17,27 +44,34 @@ After a version is created, it can be helpful to provide updated information to 
 
 **To update version information**
 
-1. Open AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. Go to the [**Current server product**](https://aws.amazon.com/marketplace/management/products/server) page, on the **Server products** tab, then select the product that you want to modify.
+1. Choose the product.
 
-1. From the **Request changes** dropdown, choose **Update version information**.
+1. Choose the **Delivery** tab.
 
-1. On the **Update version** page, select the version that you want to update.
+1. In the **Versions** section, select the version that you want to update.
 
-1. Update any of the following information that you need to modify:
-   + **Release notes**
-   + **Usage instructions**
-   + **64-bit (x86) Amazon Machine Image (AMI)** – Details on usage and security group
+   You can update restricted versions too.
 
-1. Select **Submit**.
+1. From the **Edit** menu, choose **Update version**.
 
-1. Verify that the request appears on the **Requests** tab with the **Under review** status.
+   You can also choose **Edit** on the details page of the version.
+
+1. Update any of the following fields:
+   + **Release notes** – Up to 30,000 characters.
+   + For the **AMI delivery option**: **Recommended instance type**, **Usage instructions**, **Security group recommendations**, and **Access endpoint URL**.
+   + For each **AMI with CloudFormation delivery option**: **Delivery option title**, **Short description**, **Long description**, **Usage instructions**, **Recommended instance type**, and **Architecture diagram link**.
+   + For each **EC2 Image Builder component delivery option**: **Delivery option title** and **Usage instructions**.
+
+   The same limits apply as when you add a version. You can't change the version title, AMI ID, IAM access role ARN, operating system details, scanning port, or AFI IDs. To change them, add a new version.
+
+1. Choose **Save and submit**.
+
+Your change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While a request is in progress, the actions on the **Delivery** tab are unavailable.
 
 **Note**  
 You can't use this procedure to update the version title, or the AMI associated with the version. Instead, [create a new version](#single-ami-adding-version) and [restrict the previous version](#single-ami-restricting-version).
-
-You can check the status of your request at any time from the **Requests** tab of the [ Server Products](https://aws.amazon.com/marketplace/management/products/server) page. For more information, see [Get the status of a change request](single-ami-create-change-request.md#single-ami-getting-change-request-status).
 
 ## Add a new version
 <a name="single-ami-adding-version"></a>
@@ -49,57 +83,81 @@ For information about creating an AMI for AWS Marketplace, see [Best practices f
 
 **To add a new version**
 
-1. Open AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, on the **Current server product** tab, then select the product that you want to modify. 
+1. Choose the product.
 
-1. From the **Request changes** dropdown, choose **Add new version**. The **Add a new version** form appears, populated with the information from your most recent version.
+1. Choose the **Delivery** tab.
+
+1. In the **Versions** section, choose **Add version**.
+
+   For a new product, you can instead choose **Start** on the **Configure version and delivery options** card under **Step 2: Delivery configuration**. On a new product, **Add version** and this card are available after you complete the **Add Regions** and **Add instance types** cards.
+
+1. On the **Configure version** step, under **Version information**, enter the following:
+   + **Version title** – A title that buyers use to tell your releases apart, for example {{1.1}}. The title can have up to 64 characters and must be unique in your product. You can't use `latest`, a space before ™, or characters other than printable ASCII characters and the symbols ©, ®, ™, ¢, £, ¤, and ¥. You can't change the title after you submit. To see your recent titles, expand **View previous version titles**.
+   + **Release notes** – Details about this version, up to 30,000 characters.
+   + (Optional) **Test version** – To check this version without adding it, select **Test this version**. For more information, see [Scanning your AMI for publishing requirements](best-practices-for-building-your-amis.md#self-service-scanning).
+
+   The form starts with the values from your latest version, except **IAM access role ARN**, **Amazon FPGA Image (AFI) IDs**, **Component ARN**, and **AMI parameter name**. For a product that isn't in draft, **Version title** and **Amazon Machine Image (AMI) ID** also start blank.
+
+1. (Optional) Under **Tags**, add tags to the change request.
+
+1. Choose **Next**.
+
+**To configure delivery options for a new version**
+
+1. On the **Configure delivery options** step, under **Delivery option**, for **Delivery method**, select one or more of the following:
+   + **AMI (standalone)** – Buyers deploy your AMI from AWS Marketplace or the Amazon EC2 console.
+   + **AMI with CloudFormation** – Buyers deploy your AMI and other AWS resources with CloudFormation. You can add up to three CloudFormation templates.
+   + **EC2 Image Builder component** – Buyers add your software to their own image pipelines. You can add up to five components. For more information, see [EC2 Image Builder component-based products in AWS Marketplace](ec2-ib-component-products.md).
+
+   You can't add delivery options to a version after you submit it. Include every delivery option for this version in this request.
 **Note**  
-You can also choose **Test 'Add version'** to scan your AMI and CloudFormation template(s) without adding a new version. For more information, refer to [ Scanning your AMI for publishing requirements ](https://docs.aws.amazon.com/marketplace/latest/userguide/best-practices-for-building-your-amis.html#self-service-scanning) .
+In the AWS European Sovereign Cloud catalog, only **AMI (standalone)** is available.
 
-1. In the **Version information** section, provide the following information:
-   + **Version title** – Enter a valid string (for example {{1.1}} or {{Version 2.0}}). It must be unique across the product.
-   + **Release notes** – Enter text to describe details about this version.
+1. Enter the details for each delivery method that you selected:
+   + If you selected **AMI (standalone)** or **AMI with CloudFormation**, enter the following under **Amazon Machine Image (AMI)**. These details apply to every AMI delivery option in the version.
+     + **Amazon Machine Image (AMI) ID** – The ID of the AMI for this version, for example {{ami-086d874dcc2f96d24}}. The AMI must exist in the US East (N. Virginia) Region and in your AWS Marketplace seller account. The snapshot associated with this AMI can't be encrypted.
+     + **IAM access role ARN** – The ARN of an IAM role that gives AWS Marketplace access to your AMI, for example {{arn:aws:iam::123456789012:role/RoleName}}. The role must exist in your AWS Marketplace seller account. For instructions, see [Giving AWS Marketplace access to your AMI](single-ami-marketplace-ami-access.md).
+     + **Operating system (OS)** – Choose the base operating system of your AMI. It must be compatible with your product's instance types.
+     + **OS version** – The version of the operating system.
+     + **OS user name** – A user name that can sign in to the instance. Use letters, numbers, hyphens, and underscores. We recommend *ec2-user*.
+     + (Optional) **Scanning port** – The SSH port for a Linux AMI or the RDP port for a Windows AMI.
+     + (Optional) **Amazon FPGA Image (AFI) IDs** – Up to 15 AFI IDs to associate with your AMI. Choose **Add AFI ID** for each one. Each AFI must exist in the US East (N. Virginia) Region and in your AWS Marketplace seller account, and the IAM access role must have permission to share it with AWS Marketplace. For more information, see [Giving AWS Marketplace access to your FPGA images](https://docs.aws.amazon.com/marketplace/latest/userguide/single-ami-marketplace-ami-access.html#single-ami-marketplace-afi-access). AFIs load only on F2 instance types. Use AFI IDs only in a version whose sole delivery method is **AMI (standalone)**. A version with AFI IDs can't include **AMI with CloudFormation** or **EC2 Image Builder component** delivery options. Requests with AFI IDs take longer, because AWS Marketplace Seller Operations creates a copy of each AFI in every Region.
+   + If you selected **AMI (standalone)**, enter the following under **AMI delivery option**:
+     + **Recommended instance type** – Choose one of your product's instance types. Buyers see it labeled *Vendor recommended*, and it's selected by default when they launch.
+     + **Usage instructions** – How buyers configure and run your software, or a link to those instructions, up to 4,000 characters.
+     + **Security group recommendations** – At least one and up to 25 inbound rules. For each rule, choose the **Protocol** (*tcp* or *udp*), and enter the **Range start port** and **Range end port** (from 1 to 65,535). For **Comma-separated list of CIDR IPs**, enter from 1 to 5 IPv4 CIDR blocks, for example {{192.0.2.0/24}}. To add a rule, choose **Add another security group recommendation**.
+     + (Optional) **Access endpoint URL** – How buyers reach your software after they launch an instance. Choose the **Protocol** (*http* or *https*), and enter the **Port** (for example, {{443}}) and the **Path** (for example, {{index.html}}). Don't begin the path with a slash. The host name depends on the instance, so you provide only the path. If you enter any of these values, the protocol and port are required.
+   + If you selected **AMI with CloudFormation**, enter the following for each template under **AMI with CloudFormation delivery option**:
+     + **Delivery option title** – A unique name for this delivery option, up to 72 characters.
+     + **Short description** – Two or three sentences, up to 1,000 characters. Buyers must choose a *show more* link to read a description longer than 188 characters.
+     + **Long description** – A detailed description, up to 3,000 characters.
+     + **Usage instructions** – How buyers use the solution, or a link to those instructions, up to 4,000 characters.
+     + **Recommended instance type** – The instance type that buyers get by default.
+     + **CloudFormation template link** – The Amazon S3 URL of your template, for example {{https://bucket\_name.s3.amazonaws.com/template.yaml}}. For nested stacks, provide the entry point (parent) template. For more information, see [Add CloudFormation templates to your product](https://docs.aws.amazon.com/marketplace/latest/userguide/cloudformation.html).
+     + **Architecture diagram link** – The Amazon S3 URL of your architecture diagram. The image must be 1560x878 or 1560x3120 pixels with a 16:9 or 1:2 ratio, and the bucket must be publicly accessible. For more information, see [Architectural diagram](https://docs.aws.amazon.com/marketplace/latest/userguide/cloudformation.html#topology-diagram).
+     + **AMI parameter name** – The name of the template parameter that your EC2 instance resources use for their `ImageId` property, up to 100 letters and numbers. AWS Marketplace replaces it with an [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) parameter that resolves to the Region-specific AMI ID of your product. For more information, see [Requirements for AMI details](https://docs.aws.amazon.com/marketplace/latest/userguide/cloudformation.html#ami-requirements-sse).
 
-1. In the **Delivery options** section, select how the buyer can deploy the solution, either AMI (standalone), AMI with CloudFormation, or both. You can choose up to three AMI with CloudFormation delivery options.
+     To add another template, choose **Add another CloudFormation template**.
+   + If you selected **EC2 Image Builder component**, enter the following for each component under **EC2 Image Builder component delivery option**:
+     + **Component ARN** – The Amazon Resource Name (ARN) of the EC2 Image Builder component that you want to publish, for example {{arn:aws:imagebuilder:us-east-1:123456789012:component/my-component/1.0.0/1}}. The component must exist in your AWS Marketplace seller account. You can't use a component ARN that another version of this product already uses.
+     + **IAM access role ARN** – The ARN of an IAM role that gives AWS Marketplace access to your component. For instructions, see [Creating the AWS Marketplace IAM role](https://docs.aws.amazon.com/marketplace/latest/developerguide/work-with-ec2-image-builder-products.html#ib-create-iam-role) in the *AWS Marketplace Developer Guide*.
+     + **Usage instructions** – How buyers use the component in their Image Builder pipelines, up to 4,000 characters.
+     + (Optional) **Delivery option title** – A name for this delivery option, up to 72 characters. If you leave it blank, AWS Marketplace uses the component name.
+
+     To add another component, choose **Add another Image Builder component**. A product can use up to five different Image Builder components across its public delivery options, and you can add each component only once, regardless of its version. If you reach the limit, remove a component, or restrict a version that uses one.
+
+1. Choose **Next**.
+
+1. On the **Review and submit** step, choose **Submit**.
+
+   If you selected **Test this version**, the step is **Review and test**, and the button is **Run test**.
+
+Your change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While a request is in progress, the actions on the **Delivery** tab are unavailable.
+
 **Note**  
-New delivery options can't be added to an existing version. All delivery options for a single version must be submitted in the same request.
-
-1. In the **Amazon Machine Image (AMI)** section, provide the following information:
-   + **Amazon Machine Image ID** – Enter the AMI ID for the AMI that you want to use for this version. You can find the AMI ID from the [ list of AMIs in the console](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Images:sort=name). The AMI must exist in the US East (N. Virginia) Region, and in your AWS Marketplace Seller account. The snapshot associated with this AMI can't be encrypted.
-   + **IAM access role ARN** – Enter the Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role that allows AWS Marketplace to gain access to your AMI. For instructions on how to create the IAM role, see [Giving AWS Marketplace access to your AMI](single-ami-marketplace-ami-access.md). Use the standard format for an IAM ARN, for example: {{arn:aws:iam::123456789012:role/RoleName}}. The ARN must exist in your AWS Marketplace Seller account.
-   + **Operating system (OS)** – Enter the base operating system for your AMI.
-   + **OS version** – Enter which version of the operating system that your AMI is using.
-   + **OS user name** – For Linux-based AMIs, enter the name of a user that can be used to sign into the instance. We recommend using *ec2-user*.
-   + **Scanning port** – Enter the port number that can be used to log into the operating system: the SSH port for a Linux AMI or the RDP port for a Windows AMI.
-   + **Amazon FPGA Image (AFI) IDs ** (Optional) – Enter the AFI IDs to associate with your AMI. AFIs only support F2 instance types. You can offer your AMI on other instance types, however, the AFIs will not be loaded in those cases. You can add up to 15 AFI IDs using the **Add AFI ID** button. This option is not available when using CloudFormation templates. All AFI IDs you provide must originate from the US East (N. Virginia) region, reside within your AWS Marketplace seller account, and the provided IAM access role should have permissions to share this AFI with AWS Marketplace.For more details on the required permissions, see [Giving AWS Marketplace access to your FPGA images](https://docs.aws.amazon.com/marketplace/latest/userguide/single-ami-marketplace-ami-access.html#single-ami-marketplace-afi-access).
-
-1. Provide the following configurations for the **AMI delivery option** section, if applicable:
-   + **Recommended instance type**– Choose the instance type that buyers get by default.
-   + **Usage instructions** – Enter instructions for using the AMI or a link to more information about using the AMI. For example: {{To get started with the product, navigate to https://example.com/usage.htm.}}
-   + **Endpoint URL** – Provide information about how the buyer can access the software after they create an instance. Enter the **Protocol** (*https* or *http*), the **Relative URL** (for example, {{/index.html}}), and the **Port** (for example, {{443}}) that buyers can use to access your product. (The host name depends on the EC2 instance, so you only need to provide the relative path).
-   + **Security group recommendations** – Enter the information for one or more recommendations, including the protocol (*TCP* or *UDP*), range of ports to allow, and list of IPv4 CIDR IPs (in the form *xxx.xxx.xxx.xxx/nn*, for example, {{192.0.2.0/24}}).
-
-1. Provide the following configuration settings for the **AMI with CloudFormation delivery option**, if applicable:
-   + **Delivery option title** – This is a unique name to identify this Single AMI CloudFormation template delivery option.
-   + **Short Description** – A brief description of the CloudFormation template.
-   + **Long Description** – A detailed description of the CloudFormation template.
-   + **Recommended Instance type** – The instance type, buyers get by default.
-   + **Usage instructions** – Instructions for using the solution or a link to more information about using the solution.
-   + **CloudFormation template link** – The URL to the location of your CloudFormation template in Amazon S3. For nested stacks or templates, provide the entry point, or parent, template. The Amazon S3 bucket that your file resides must be publicly accessible. For more information, see [Add CloudFormation templates to your product](https://docs.aws.amazon.com/marketplace/latest/userguide/cloudformation.html).
-   + **AMI parameter name** – Add the name of the parameter in the CloudFormation template that the EC2 instance resources in your template are referencing for their `ImageId` property value. AWS Marketplace replaces the specified parameter with an [AWS Systems Manager Parameter Store ](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html)parameter. When buyers deploy your template, that parameter resolves to the AWS Region-specific AMI ID of your published product. For more information, see [Requirements for AMI details](https://docs.aws.amazon.com/marketplace/latest/userguide/cloudformation.html#ami-requirements-sse).
-   + **Architecture diagram link** – The URL to the location of your architectural diagram in Amazon S3. The max image file must be 1560x878 or 1560x3120 pixels in size with a 16:9 or 1:2 ratio. The Amazon S3 bucket that your image file resides must be publicly accessible. For diagram requirements, see [Architectural diagram](https://docs.aws.amazon.com/marketplace/latest/userguide/cloudformation.html#topology-diagram).
-
-1. Select **Submit** to submit the request to add your new version.
-**Note**  
-Adding a new version results in a scanning of the AMI. For more information, refer to [ Scanning your AMI for publishing requirements](https://docs.aws.amazon.com/marketplace/latest/userguide/best-practices-for-building-your-amis.html#self-service-scanning).
-**Note**  
-**AFI ID Support in New Versions**  
-When adding new AMI versions, AFI IDs can be configured if you select the AMI (standalone) delivery method. The same validation rules that apply during product creation also apply when adding new versions, including character restrictions, uniqueness requirements, regional constraints, and account ownership verification. Once a version is created with AFI IDs, those AFI IDs become immutable and cannot be edited later. If you need to modify AFI IDs, you must create a new version with the updated configuration. New versions with AFI IDs can coexist alongside existing versions that also have AFI IDs, allowing you to maintain multiple FPGA configurations across different product versions. During version preparation, AWS Marketplace creates regional AFI clones to ensure your product is available across supported AWS Regions, streamlining the deployment process for your buyers. This process is handled by the AWS Marketplace Seller Operations team and can take longer than other AMI Add Version requests. During this time, your the request will be 'Under Review'. 
-
-1. Verify that the request appears on the **Requests** tab with the **Under review** status. If there are errors to fix, the page displays the errors in a table at the top of the page, and the specific fields that need to be updated display in red.
-
-You can check the status of your request at any time from the **Requests** tab of the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page. The new version will be reviewed and, if successful, published as a new public version of your product. If there is an issue, the status might be **Action required**. Select the request to see details, including any issues.
+Adding a new version results in a scan of the AMI. For more information, see [Scanning your AMI for publishing requirements](best-practices-for-building-your-amis.md#self-service-scanning).
 
 If your request is successful, your existing users receive the following email message. The message notifies them that the new version is available, links to the version's release notes, and suggests that they upgrade to the latest version. As the AWS account root user, you also receive a copy of the email message in the email account that's associated with your AWS account.
 
@@ -131,29 +189,35 @@ This message was produced and distributed by AWS Inc., 410 Terry Ave. North, Sea
 ## Restrict a version
 <a name="single-ami-restricting-version"></a>
 
-If you want to prevent buyers from accessing a specific version of your public product, you can restrict that version.
+If you no longer want to offer a specific version of your public product to new subscribers, you can restrict that version.
 
 **Note**  
-All subscribers can use the current version regardless of the restriction status. AWS Marketplace guidelines require that you continue to offer support to existing buyers for 90 days after restricting the version. Your AMI will be marked as deprecated after the version is restricted. For more information, see [Deprecate an AMI](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ami-deprecate.html) in the *Amazon Elastic Compute Cloud User Guide for Windows Instances*.
+All subscribers can use the current version regardless of the restriction status. AWS Marketplace guidelines require that you continue to offer support to existing buyers for 90 days after restricting the version. Your AMI will be marked as deprecated after the version is restricted. For more information, see [Deprecate an Amazon EC2 AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html) in the *Amazon EC2 User Guide*.
 
 **To restrict a version**
 
-1. Open AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, on the **Current server product** tab, then select the product that you want to modify.
+1. Choose the product.
 
-1. From the **Request changes** dropdown, choose **Restrict version**.
+1. Choose the **Delivery** tab.
 
-1. On the **Restrict version** page, select the version (or versions) that you want to restrict.
+1. In the **Versions** section, select the versions that you want to restrict.
 
-1. Select **Submit** to submit your request for review.
+   You can restrict only versions whose **Version visibility** is **Public**. At least one version must stay available.
 
-1. Verify that the **Requests** tab shows the **Request status** as **Under review**. When the request completes, the status is **Succeeded**.
+1. From the **Edit** menu, choose **Restrict version**, or **Restrict versions** if you selected more than one.
+
+   You can also choose **Restrict version** on the details page of the version.
+
+1. In the confirmation dialog box, choose **Restrict version** or **Restrict versions**.
+
+   You can't undo a restriction in AWS Partner Central.
+
+Your change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While a request is in progress, the actions on the **Delivery** tab are unavailable.
 
 **Note**  
-You can't restrict all versions of a product. If you try to restrict the last remaining public version of a product, you will receive an error. To completely remove a product, see [Removing a product from AWS Marketplace](removing-products-from-aws-marketplace.md).
-
-You can check the status of your request at any time from the **Requests** tab of the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page. For more information, see [Get the status of a change request](single-ami-create-change-request.md#single-ami-getting-change-request-status).
+You can't restrict all versions of a product. If you select every public version, the restrict action is unavailable. To completely remove a product, see [Removing a product from AWS Marketplace](removing-products-from-aws-marketplace.md).
 
 **Note**  
 Restricting a version can take up to 3 days to complete.

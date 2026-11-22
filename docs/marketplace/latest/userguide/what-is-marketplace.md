@@ -1,7 +1,6 @@
 
 
 # What is AWS Marketplace?
-<a name="what-is-marketplace"></a>
 
 AWS Marketplace is a curated digital catalog that customers can use to find, buy, deploy, and manage third-party software, data, and services to build solutions and run their businesses. AWS Marketplace includes thousands of software listings from popular categories such as security, business applications, machine learning, and data products across specific industries, such as healthcare, financial services, and telecommunications. Customers can quickly launch preconfigured software, and choose software solutions in Amazon Machine Images (AMIs), software as a service (SaaS), and other formats. Professional services are also available to help customers configure, deploy, and manage third-party software. For a complete list of delivery methods, see [Product delivery](https://docs.aws.amazon.com/marketplace/latest/userguide/product-preparation.html#product-delivery). 
 

@@ -1,7 +1,6 @@
 
 
 # Getting started with professional services products in AWS Marketplace
-<a name="proserv-getting-started"></a>
 
 As a seller, you can offer professional services to AWS Marketplace buyers. Professional services include services to assess, migrate, support, manage, and train others in how to use AWS services and products in AWS Marketplace. Your product definition tells buyers about the services that you offer and explains why they should select your company for those services. AWS Marketplace allows buyers to contact you. You agree on a contract, and then you create a private offer that allows the buyer to purchase your services for a fixed cost. The following sections show you how to get started with a professional services product, providing the steps that you need to create your first product and offer it to your customers. 
 
@@ -28,30 +27,55 @@ To sell professional services on AWS Marketplace, you must complete the followin
 + You must have a professional services product to offer that is related to an AWS service or at least one public product in AWS Marketplace. Your product must either directly support those products, or offer services that drive subscriptions to those products.
 
 **Note**  
-Your product must be listed in at least one of these primary categories: Assessments, Implementation, Managed services, Premium support, or Training.   
+Your product must be listed in at least one of these primary categories: Assessments, Implementation, Managed Services, Premium Support, or Training.   
 For more information about professional services product guidelines, see [Requirements for professional services products on AWS Marketplace](proserv-product-guidelines.md).
 
 ## Create a professional services product
 <a name="proserv-create"></a>
 
-The following procedure describes how to create a new professional services product in AWS Partner Central.
+The following procedures describe how to create a new professional services product.
 
 **To create a professional services product**
 
-1. Open a web browser and sign into [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home).
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. From the **Build** menu, select **Professional services**. This page shows you all professional services products that you have already created, as well as any requests you have made for creating or modifying these products.
+1. Choose **Create product**.
 
-1. On the **Professional Services products** tab, select **Create professional services product**.
+1. For **Product name**, enter a unique name of 2 to 72 characters.
 
-1. On the **Create product** page, provide the information for your product, and select **Submit**. For more information about the details that you must provide, see [Providing details for a professional services product in AWS Marketplace](proserv-product-details.md).
+1. For **Product type**, choose **Professional service**.
 
-1. (Optional) From the **Build** menu of AWS Partner Central, select **Professional services**, then choose the **Requests** tab. Verify that you see your product request with the correct **Product title**, and that the **Request status** is **Under review**. Your product should be created in limited preview mode within a few minutes.
+1. (Optional) Under **Tags**, add tags for the product.
 
-**Note**  
-You can return to the **Requests** tab of the **Professional services** page to see the status of your request at any time. Any errors in the creation process will appear here. You can select the request to see the request details or to fix errors.
+1. Choose **Create product**.
 
-When your product is initially created, it's only accessible to your AWS account (the one you used to create the product). If you view the product from the **Professional services** page, you can select **View on AWS Marketplace** to view the product details as they appear in AWS Marketplace for buyers. This detail listing isn't available to other AWS Marketplace users, unless you extend a private offer to them.
+AWS Partner Central creates the product with **Draft** visibility and opens the product's page. Next, add your product details.
+
+**To provide product details**
+
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
+
+1. Choose the product.
+
+1. Under **Step 1: Product details**, choose **Start** on the **Provide product details** card.
+
+   To link up to 10 AWS Marketplace products that your service supports, use the optional **Associated products** card in this step. This card is available after you complete **Provide product details**.
+
+1. Enter your product details.
+
+   For the details that you must provide, see [Providing details for a professional services product in AWS Marketplace](proserv-product-details.md).
+
+1. Choose **Save**.
+
+1. At the top of the page, choose **Advance to add-ons**.
+
+   This button is available after you complete the required cards under **Step 1: Product details**.
+
+1. In the **Transition to Limited** dialog box, choose **Confirm and continue**.
+
+Your product moves to **Limited** visibility. Each change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name.
+
+When your product is initially created, it's only accessible to your AWS account (the one you used to create the product). When your product has **Limited** visibility, choose **View on AWS Marketplace** on the product's page to see the product details as buyers see them. This detail listing isn't available to other AWS Marketplace users, unless you extend a private offer to them.
 
 To learn how to make the product available publicly, see [Edit product visibility](#proserv-edit-visibility).
 
@@ -61,102 +85,113 @@ To learn how to make the product available publicly, see [Edit product visibilit
 When a potential buyer views your product on AWS Marketplace, they can't purchase it directly. When they attempt to subscribe, they are redirected to request a [private offer](https://docs.aws.amazon.com/marketplace/latest/userguide/private-offers-overview.html) from you. AWS Marketplace sends an email message to your AWS Marketplace seller account root user email address, informing you that the customer has requested a private offer. The following procedure describes how to respond to this request. 
 
 **Note**  
-When you create a private offer higher than $250,000 through AWS Partner Central, additional approval may be required. For more information, contact the Private Offer Success Team (POST), Vendor Finance Success (VFS), or Seller Reporting teams through [AWS Partner Central](https://aws.amazon.com/marketplace/management/contact-us/). 
+When you create a private offer higher than $250,000 through AWS Partner Central, additional approval may be required. For more information, contact the Private Offer Success Team (POST), Vendor Finance Success (VFS), or Seller Reporting teams on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1). 
+
+Before you create the offer, contact the buyer to resolve any questions about the request, and agree on the offer terms. The buyer isn't obligated to purchase your product.
+
+For a professional services product, the offer's pricing model can be **Variable payments**, **Installment plan**, or **Upfront payment**. For variable payments, see [Pricing professional service products in AWS Marketplace](proserv-variable-payments.md).
 
 **To create a private offer for a professional services product**
 
-1. Contact the customer to resolve any questions you have about the request. Agree on the offer terms before creating the private offer in AWS Marketplace. The buyer is not obligated to purchase your product, so it makes sense to agree before creating the offer.
+1. Open the [**Offers**](https://console.aws.amazon.com/partnercentral/offers) page in AWS Partner Central, and sign in to your seller account.
 
-1. Open a web browser and sign into [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home).
+1. On the **Private offers** tab, choose **Create private offer**.
 
-1. Select **Private offers** from the menu, and then select **Create private offer**.
+1. For **Product type**, choose **Professional service product**, and then choose your product under **Product**.
 
-1. On the **Create private offer** page, select the product that you want to create a private offer for. Only currently available products are included.
+   If the page shows **Offer type**, choose **Direct private offer** first.
 
-1. Choose the **Offer Type**.
+1. Choose **Continue to offer details**.
 
-1. From the **Product type** drop-down menu, choose **Professional service product**, select the product you wish to create a private offer for, and then choose **Continue to offer details**.
+   Generating the offer ID can take up to 30 seconds. Don't close or refresh the page.
 
-1. Add **Offer information** such as offer name and offer description. In addition, choose if this private offer is for a renewal. The default selection will be **No**.
+1. Complete each step of the offer, and then choose **Next**.
 
-1. Enter the **Offer expiration date** and choose **Next**. This date dictates how long the buyer has to subscribe to this private offer. After 23:59:59 UTC on this date, the buyer will no longer be able to access the private offer.
+   For the fields on each step, see [Drafting and publishing the private offer](creating-private-offer.md#drafting-and-publishing-private-offer).
 
-1. Choose **Next**.
+1. On the **Review and create** step, choose **Create offer**.
 
-1. On the **Configure offer pricing and duration** page, choose the pricing model, contract duration, offer currency, and product dimension (if relevant). You can choose from contract pricing with upfront payment, installment plan, and variable payments. For the variable payment pricing, see [Pricing professional service products in AWS Marketplace](proserv-variable-payments.md).
-
-1. On the **Add buyers** page, provide an AWS account ID for each AWS Marketplace buyer you are extending the private offer to. Each selected buyer must have an AWS account in an AWS Region where the selected offer currency is supported. To add another AWS account ID, choose **Add another buyer**. You can add up to 24 buyers to each private offer.
-
-1. Choose **Next**.
-
-1. On the **Configure legal terms and offer documents** page, add custom legal terms. Upload up to five files related to your private offer, including legal terms, a statement of work, a bill of materials, a pricing sheet, or other addendums. These files will be merged into one document when the offer is created.
-
-1. On the **Review and create** page, review the details of your private offer. After you review and confirm, choose **Create offer** to publish the offer and extend it to the buyers you chose.
-
-**Note**  
-Your offer may take some time to be published. After it's published, you can view the offer on the **Manage offers** page. If you need to edit an offer (that has not yet been accepted), you can do so from that page.
-
-After the offer is published it will be available on the **Manage private offers** page. From this page, you can use the **Actions** menu for that offer, select **Copy offer URL**, and then send it in an email message to the buyer to accept.
+Your offer can take some time to publish. After it's published, select it on the **Private offers** tab, choose **Actions**, and then choose **Copy offer URL**. Send the URL to the buyer in an email message. To change a published offer, select it, and then choose **Edit**.
 
 ## Edit product information
 <a name="proserv-edit-product"></a>
 
-The following procedure describes how to edit the product information for an existing professional services product in AWS Partner Central.
+The following procedure describes how to edit the product information for an existing professional services product.
 
 **To edit product information**
 
-1. Open a web browser and sign into [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home).
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. From the **Build** menu, select **Professional services**. This page shows you all professional services products that you have already created, as well as any requests you have outstanding for creating or modifying these products.
+1. Choose the product.
 
-1. Select an existing product that you would like to edit. Then, from the **Request changes** menu, select **Update product information**.
+1. Choose the **Product details** tab.
 
-1. Make the changes to the details. For more information about the fields you can edit, see [Providing details for a professional services product in AWS Marketplace](proserv-product-details.md).
+1. In the **Product details** section, choose **Edit**.
 
-1. Select **Submit** to create the request.
+1. On the **Provide product details** page, make your changes.
 
-1. (Optional) If you are not already on the **Requests** tab of the **Professional services** page, then from the **Build** menu of AWS Partner Central, select **Professional services**, then choose the **Requests** tab. Verify that you see your request with the correct **Product title**, and that the **Request status** is **Under review**. Your product will be updated with the changes you requested within a few minutes. If there is an error, you can view it here and resubmit your edits after fixing the errors.
+   For the fields that you can edit, see [Providing details for a professional services product in AWS Marketplace](proserv-product-details.md).
+
+1. Choose **Save**.
+
+Your change request appears on the product's **Change history** tab as **Provide product details**. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While any of these requests is in progress, you can't edit product details, images and videos, the trust center, or associated products.
+
+To change the products associated with your service, choose **Edit** in the **Associated products** section of the **Product details** tab, or **Add** if there are none. You can choose up to 10 products. This change request is named **Update associated products**.
 
 ## Editing product pricing
 <a name="proserv-edit-pricing"></a>
 
-The following procedure describes how to edit the pricing information for an existing professional services product in AWS Partner Central.
+The following procedure describes how to edit the pricing information for an existing professional services product.
 
 **To edit product pricing**
 
-1. Open a web browser and sign into [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home).
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. From the **Build** menu, select **Professional services**. This page shows you all professional services products that you have already created, as well as any requests you have made for creating or modifying these products.
+1. Choose the product.
 
-1. Select an existing product that you would like to edit, then from the **Request changes** menu, select **Update pricing dimensions**.
-**Note**  
-You can only add new pricing dimensions through AWS Partner Central. To modify or remove previously created dimensions, contact the [AWS Marketplace Seller Operations team](https://aws.amazon.com/marketplace/management/contact-us/) with your request. In your request, include the product ID and details about what dimensions you want to change or remove.
+1. Choose the **Procurement** tab.
 
-1. Add any new pricing dimensions that you want. For more information about the pricing fields, see [Providing details for a professional services product in AWS Marketplace](proserv-product-details.md).
+1. In the **Pricing dimensions** section, choose **Update**, and then choose **Add dimensions**.
 
-1. Select **Submit** to create the request.
+   The section appears after your product has at least one pricing dimension, and you can't edit dimensions while your product has **Restricted** visibility. To change the display name or description of an existing dimension, choose **Update dimensions** instead.
 
-1. (Optional) From the **Build** menu of AWS Partner Central, select **Professional services**, then choose the **Requests** tab. Verify that you see your request with the correct **Product title**, and that the **Request status** is **Under review**. Your product will be updated with the changes you requested within a few minutes. If there is an error, you can view it here and resubmit your edits after fixing the errors.
+1. On the **Add dimensions** step, choose **Add contract dimension**.
+
+1. For each new dimension, enter a **Display name** and a **Description**, and then choose **Add dimensions**.
+
+   A display name can have up to 80 characters, and a description up to 1,000 characters. AWS Partner Central generates the API identifier from the display name.
+
+1. Choose **Next**, and then on the **Review and submit** step, choose **Submit**.
+
+Your change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name.
 
 ## Edit product visibility
 <a name="proserv-edit-visibility"></a>
 
-By default, products are created with limited visibility—a new product is only visible from your account. You can make the product publicly visible in the AWS Marketplace. The following procedure describes how to edit the visibility of an existing professional services product in AWS Partner Central.
+A new product starts with **Draft** visibility and moves to **Limited** when you choose **Advance to add-ons**. A product with limited visibility is visible only from your account. You can make the product publicly visible in AWS Marketplace. The following procedure describes how to edit the visibility of an existing professional services product.
 
 **Note**  
-For Professional Services products in the limited state, there is no allowlist and as long as you have 1 other product in the public state, you can proceed to create private offers. Private offers on professional services products in the limited state can be accepted by specified buyers without adding them to the product's allowlist.
+You don't need to add buyers to the allowlist. If you have at least one other product with **Public** visibility, you can create private offers on a professional services product with **Limited** visibility, and the buyers that you extend them to can accept them.
 
 **To edit product visibility**
 
-1. Open a web browser and sign into [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home).
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. From the **Build** menu, select **Professional services**. This page shows you all professional services products that you have already created.
+1. Choose the product.
 
-1. Select an existing product that you would like to edit or update the visibility. Then, from the **Request changes** menu, select **Update product visibility**.
+1. Choose **Edit visibility**.
 
-1. Select an option to update your product visibility and choose **Submit** to submit your request for review.
+   This button appears when your product has **Limited** visibility.
 
-1. Verify that the **Requests** tab shows the **Request** status as **Under review**. When the request completes, the status becomes **Succeeded**. If the status is **Failed**, select the request name to view the **Issues Found**.
+1. In the **Update listing visibility** dialog box, for **Change to**, choose **Public** or **Restricted**.
+
+   For a product with **Limited** visibility, **Public** appears only when **Publish** is available under **Step 2: Add-ons** on the **Complete your listing** progress bar.
+
+1. Choose **Update visibility**.
+
+Your change request appears on the product's **Change history** tab as **Publish product** or **Restrict product**. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name.
+
+Another way to publish a product with **Limited** visibility is the **Complete your listing** progress bar: choose **Step 2: Add-ons**, choose **Publish**, and then choose **Submit for review**.
 
 **Note**  
 To make a product visible in the public AWS Marketplace catalog requires a product review by the AWS Marketplace Seller Operations team to ensure that the product meets the product guidelines (see [Requirements for professional services products on AWS Marketplace](proserv-product-guidelines.md)). The request can take several days to complete.
@@ -164,22 +199,26 @@ To make a product visible in the public AWS Marketplace catalog requires a produ
 ## Remove a professional services product
 <a name="proserv-remove-product"></a>
 
-The following procedure describes how to remove an existing professional services product from AWS Partner Central.
+The following procedure describes how to remove an existing professional services product.
 
 **Note**  
 Removing a professional services product would not affect active private offers.
 
 **To remove a product**
 
-1. Open a web browser and sign into [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home).
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. From the **Build** menu, select **Professional services**. This page shows you all professional services products that you have already created.
+1. Choose the product.
 
-1. Select an existing product that you would like to remove. Then, from the **Request changes** menu, select **Update product visibility**.
+1. Choose **Edit visibility**.
 
-1. Select **Restricted** as the visibility option to update your product visibility and choose **Submit**.
+1. In the **Update listing visibility** dialog box, for **Change to**, choose **Restricted**.
 
-1. Verify that the **Requests** tab shows the **Request** status as **Under review**. When the request completes, the status becomes **Succeeded**.
+1. (Optional) For **Replacement product ID**, enter the ID of the product that existing subscribers move to when their contract ends.
+
+1. Choose **Update visibility**.
+
+Your change request appears on the product's **Change history** tab as **Restrict product**. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name.
 
 **Note**  
 The request can take several days to complete. Products with active offers will be moved to restricted state until the last active subscription or contract is completed and then removed from AWS Marketplace. Restricted status means that existing users can continue to use the product. However, the product will no longer be visible to the public or be available to new users.

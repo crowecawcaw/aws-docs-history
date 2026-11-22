@@ -1,7 +1,6 @@
 
 
 # Agreements data feed
-<a name="data-feed-agreements"></a>
 
 This data feed provides information about agreements, which is a contract signed between a proposer (seller of record) and an acceptor (AWS Buyer) to start using a product. This data feed provides information about the agreements for the product offers you have created as the seller of record.
 

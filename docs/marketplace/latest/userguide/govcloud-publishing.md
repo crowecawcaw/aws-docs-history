@@ -1,7 +1,6 @@
 
 
 # Publishing your product in AWS GovCloud (US)
-<a name="govcloud-publishing"></a>
 
 AWS Marketplace supports product listing in the AWS GovCloud (US) Regions. You can publish AMI-based and SaaS-based products in AWS GovCloud (US) to make them available to government agencies and customers with regulated workloads. This section describes the requirements and steps for publishing your product in AWS GovCloud (US).
 
@@ -31,10 +30,12 @@ To publish an AMI-based product in the AWS GovCloud (US) Region, you must reques
 
 1. Confirm that you meet the prerequisite in the [Requirements](#govcloud-publishing-requirements) section: you must already have an active AWS GovCloud (US) entitlement.
 
-1. Submit a request through the AWS Marketplace Management Portal using the Support Form. In your request, include the following:
+1. Submit a request on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1). In your request, include the following:
    + Your AWS account ID.
    + Your GovCloud account ID.
    + In the inquiry details, state that you are requesting access to publish into the AWS GovCloud (US) Regions.
+
+   When you select an AWS GovCloud (US) Region on the **Add Regions** page, the **AWS GovCloud (US) Region selection** alert appears. Its **submit a support request** link opens the same form with the GovCloud category selected.
 
 1. Wait for your request to be reviewed by the AWS Marketplace operations team.
 
@@ -49,13 +50,11 @@ To publish a SaaS-based product in the AWS GovCloud (US) Region, you must reques
 
 1. Confirm that you meet the prerequisite in the [Requirements](#govcloud-publishing-requirements) section: you must already have an active AWS GovCloud (US) entitlement.
 
-1. Create a commercial SaaS product using the self-service listing experience in the AWS Marketplace Management Portal.
-**Important**  
-The new UI experience is not currently supported for creating GovCloud SaaS products.
+1. Create a commercial SaaS product in AWS Partner Central. For more information, see [Creating a SaaS product in AWS Marketplace](saas-create-product.md).
 
 1. Publish the listing to limited view.
 
-1. After your listing successfully publishes to limited view, submit a support request through the AWS Marketplace Management Portal Support Form. Categorize the request as *Commercial Marketplace > GovCloud > Other support*. In your request, include the following:
+1. After your listing successfully publishes to limited view, submit a support request on the AWS Partner Central and Marketplace Support page. Categorize the request as *Commercial Marketplace > GovCloud > Other support*. In your request, include the following:
    + Product Title
    + Product ID
    + Product Code

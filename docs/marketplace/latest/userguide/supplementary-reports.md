@@ -1,7 +1,6 @@
 
 
 # Supplementary reports
-<a name="supplementary-reports"></a>
 
 AWS Marketplace delivers supplementary reports through the [Seller delivery data feeds in AWS Marketplace](data-feed-service.md) to seller-owned Amazon S3 accounts that are connected to the AWS Marketplace Seller Account ID associated with the AWS Marketplace listings for sellers. For more information, see [Create a destination Amazon Simple Storage Service bucket](https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-service.html#data-feed-accessing). 
 
@@ -10,9 +9,9 @@ The supplementary reports are published daily at 16:00 UTC if there were new sub
 ## Agreement details report
 <a name="agreement-details-report"></a>
 
-The agreement details report helps you support the customers that are on a software as a service (SaaS) contract free trial. The report includes agreement details such as the subscriber name, subscriber ID, offer ID, agreement start, and agreement end date. 
+The agreement details report helps you support the customers that are on a software as a service (SaaS) contract free trial or on a free trial of an RTB Fabric module product. The report includes agreement details such as the subscriber name, subscriber ID, offer ID, agreement start, and agreement end date.
 
-You only receive this report if relevant information is available. If you don't receive this report on an occasion when you think that you should, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team.
+You only receive this report if relevant information is available. If you don't receive this report when you expect it, contact the AWS Marketplace support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.
 
 You can access this report through Amazon S3 bucket associated with the AWS Marketplace Seller Account ID.
 

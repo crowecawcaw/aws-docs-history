@@ -1,7 +1,6 @@
 
 
 # Agreement structure
-<a name="contract-structure-seller"></a>
 
 As a seller, your agreements include the following items:
 + Your end user license agreement (EULA). 

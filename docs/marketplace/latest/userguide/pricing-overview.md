@@ -1,11 +1,10 @@
 
 
 # Pricing overview
-<a name="pricing-overview"></a>
 
 In AWS Marketplace, you can offer products for free, or you can charge for them. The charge becomes part of the buyer's AWS bill, and after the buyer pays, AWS pays the seller.
 
-Products can take many forms, so the pricing models also take many forms. For example, you can offer a product as an Amazon Machine Image (AMI) that is instantiated using a buyer's AWS account. You can also configure products to use CloudFormation templates for delivery to the buyer. Products can also be SaaS offerings from an ISV, web access control lists (web ACL), sets of rules, or conditions for AWS WAF. Products can also be professional services from an ISV, channel partners, or managed services provider (MSP).
+Products can take many forms, so the pricing models also take many forms. For example, you can offer a product as an Amazon Machine Image (AMI) that is instantiated using a buyer's AWS account. You can also configure products to use CloudFormation templates for delivery to the buyer. Products can also be SaaS offerings from an ISV, web access control lists (web ACL), sets of rules, or conditions for AWS WAF. Products can also be professional services from an ISV, channel partners, or managed services provider (MSP). Products can also be Data as a Service (DaaS) products, where you deliver data and content to buyers yourself.
 
 Flexible pricing options include free trial, hourly, monthly, annual, multi-year, and bring your own license (BYOL). AWS handles billing and payments, and charges appear on your customers’ AWS bills. 
 

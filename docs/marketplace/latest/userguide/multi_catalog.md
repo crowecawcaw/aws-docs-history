@@ -1,7 +1,6 @@
 
 
 # Multi-Catalog for AWS Marketplace Sellers
-<a name="multi_catalog"></a>
 
  AWS Marketplace enables sellers to create and manage product listings across multiple separate catalogs through multi-catalog capability. Multi-Catalog allows you to list your software products in special regions and partitions beyond the standard commercial AWS Marketplace, each serving distinct customer bases with specific regulatory, data residency, or sovereignty requirements. 
 

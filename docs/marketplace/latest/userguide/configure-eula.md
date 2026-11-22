@@ -1,10 +1,5 @@
 
 
-# Step 6: Configure EULA
-<a name="configure-eula"></a>
+# Choosing your EULA
 
- In this step, you'll choose the legal agreement that will govern how customers can use your product. You can either select AWS's standard contract terms or upload your own custom end-user license agreement (EULA). 
-
-1.  Select either the standard contract or provide a custom end-user license agreement. 
-
-1.  Choose **Next** to move to the next step in the wizard. 
+Your end-user license agreement (EULA) sets the legal terms under which buyers use your product. You choose it on the **Configure legal terms and offer documents** page when you create your public offer. You can use the **Standard Contract for AWS Marketplace (SCMP)** (see [Using standardized contracts in AWS Marketplace](standardized-license-terms.md)), or choose **Custom legal terms** and upload your own EULA. For the procedure, see [Creating and publishing your listing](create-new-listing.md).

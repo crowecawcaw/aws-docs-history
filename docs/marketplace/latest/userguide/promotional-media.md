@@ -1,7 +1,6 @@
 
 
 # Enhance your AWS Marketplace product with promotional media
-<a name="promotional-media"></a>
 
 As an AWS Marketplace seller, you can help customers better discover and evaluate your product by enhancing your product listing with promotional media. Promotional media are videos and images that are shown prominently on your product page and provides customers an easy way of learning about your product. The following sections provide best practices for promotional media and tips for adding and managing promotional media in the AWS Marketplace Management Portal (AMMP).
 

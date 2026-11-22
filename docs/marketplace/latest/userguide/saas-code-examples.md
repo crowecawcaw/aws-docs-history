@@ -1,7 +1,6 @@
 
 
 # Code examples for SaaS product integration
-<a name="saas-code-examples"></a>
 
 You can use the following code examples to integrate your software as a service (SaaS) product with the AWS Marketplace APIs that are required for publishing and maintaining your product. For more information, see the following sections.
 
@@ -15,14 +14,14 @@ You can use the following code examples to integrate your software as a service 
 ## `ResolveCustomer` code example
 <a name="saas-resolvecustomer-example"></a>
 
-The following code example is relevant for all pricing models. The Python example exchanges a `x-amzn-marketplace-token` token for a `CustomerIdentifier`, `ProductCode`, `LicenseArn`, and `CustomerAWSAccountId`. The `CustomerAWSAccountId` is the AWS account ID associated with the subscription, and `LicenseArn` is a unique identifier for a specific granted license. These are used for software purchased through AWS Marketplace. This code runs in an application on your registration website, when you are redirected there from the AWS Marketplace Management Portal. The redirect is a POST request that includes the token. 
+The following code example is relevant for all pricing models. The Python example exchanges a `x-amzn-marketplace-token` token for a `CustomerIdentifier`, `ProductCode`, `LicenseArn`, and `CustomerAWSAccountId`. The `CustomerAWSAccountId` is the AWS account ID associated with the subscription, and `LicenseArn` is a unique identifier for a specific granted license. These are used for software purchased through AWS Marketplace. This code runs in an application on your registration website, when AWS Marketplace redirects the buyer there after they subscribe. The redirect is a POST request that includes the token. 
 
 For more information about `ResolveCustomer`, see [ResolveCustomer](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/API_ResolveCustomer.html) in the *AWS Marketplace Metering Service API Reference*.
 
 **Important**  
 For new SaaS product integrations, the `CustomerIdentifier` field is not populated in the `ResolveCustomer` API response. Use `CustomerAWSAccountId` and `LicenseArn` instead for customer identification.
 
-```
+```python
 # Import AWS Python SDK and urllib.parse 
 import boto3
 import urllib.parse as urlparse 
@@ -47,7 +46,7 @@ if (regToken):
 ### Example response
 <a name="saas-resolvecustomer-example-response"></a>
 
-```
+```json
 {
     'CustomerIdentifier': 'string',
     'CustomerAWSAccountId':'string',
@@ -63,7 +62,7 @@ The following code example is relevant for SaaS products with the contract and S
 
 For more information about `GetEntitlement`, see [GetEntitlement](https://docs.aws.amazon.com/marketplaceentitlement/latest/APIReference/API_GetEntitlements.html) in the *AWS Marketplace Entitlement Service API Reference*.
 
-```
+```python
 # Import AWS Python SDK
 import boto3
 
@@ -71,8 +70,8 @@ marketplaceClient = boto3.client('marketplace-entitlement', region_name='us-east
 
 # Filter entitlements for a specific customerID
 #
-# productCode is supplied after the AWS Marketplace Ops team has published 
-# the product to limited
+# To find productCode, open the product in AWS Partner Central
+# and choose Show more in the Product summary
 # 
 # customerID is obtained from the ResolveCustomer response
 entitlement = marketplaceClient.get_entitlements({
@@ -102,9 +101,9 @@ entitlement = marketplaceClient.get_entitlements({
 ### Example response
 <a name="saas-getentitlement-example-response"></a>
 
-The returned value corresponds to the dimensions created when you created the product in the AWS Marketplace Management Portal.
+The returned value corresponds to the pricing dimensions that you defined for the product.
 
-```
+```json
 {
    "Entitlements": [ 
       { 
@@ -134,13 +133,13 @@ The following code example is relevant for SaaS subscription and contract with c
 **Important**  
 `BatchMeterUsage` does not support `CustomerIdentifier` for new SaaS product integrations. For new integrations, see [`BatchMeterUsage` code example: With License ARN](#saas-batchmeterusage-licensearn-example).
 
-```
+```python
 # NOTE: Your application will need to aggregate usage for the 
 #       customer for the hour and set the quantity as seen below. 
 #       AWS Marketplace can only accept records for up to an hour in the past. 
 #
-# productCode is supplied after the AWS Marketplace Ops team has 
-# published the product to limited
+# To find productCode, open the product in AWS Partner Central
+# and choose Show more in the Product summary
 #
 # customerID is obtained from the ResolveCustomer response
 
@@ -170,7 +169,7 @@ For more information about `BatchMeterUsage`, see [BatchMeterUsage](https://docs
 ### Example response
 <a name="saas-batchmeterusage-example-response"></a>
 
-```
+```json
 {
     'Results': [
         {
@@ -202,7 +201,7 @@ For more information about `BatchMeterUsage`, see [BatchMeterUsage](https://docs
 
 The following code example is relevant for SaaS products that support Concurrent Agreements. The `LicenseArn` and `CustomerAWSAccountId` are returned by the `ResolveCustomer` API when a buyer registers to your product.
 
-```
+```python
 # NOTE: Your application will need to aggregate usage for the
 #       customer for the hour and set the quantity as seen below.
 #       AWS Marketplace can only accept records for up to an hour in the past.
@@ -234,7 +233,7 @@ response = marketplaceClient.batch_meter_usage(
 ### Example response
 <a name="saas-batchmeterusage-licensearn-example-response"></a>
 
-```
+```json
 {
     'Results': [
         {
@@ -270,7 +269,7 @@ The following code example is relevant for SaaS subscriptions and contracts with
 
 This example uses `LicenseArn` and `CustomerAWSAccountId`, which are returned by the `ResolveCustomer` API when a buyer registers to your product. Using `LicenseArn` supports products with Concurrent Agreements, where a single buyer can have multiple active agreements for the same product.
 
-```
+```python
 # NOTE: Your application will need to aggregate usage for the 
 #       customer for the hour and set the quantity as seen below. 
 #       AWS Marketplace can only accept records for up to an hour in the past. 
@@ -354,7 +353,7 @@ To report fractional usage, use `QuantityAsDecimal` and `AllocatedUsageQuantityA
 
 The following Python example sends a usage record with a fractional quantity that is split across two usage allocations:
 
-```
+```python
 # Import AWS Python SDK
 import boto3
 from datetime import datetime, timezone
@@ -391,7 +390,7 @@ For more information about `BatchMeterUsage`, see [BatchMeterUsage](https://docs
 ### Example response
 <a name="saas-batchmeterusage-tagging-response"></a>
 
-```
+```json
 {
     "Results": [
         {

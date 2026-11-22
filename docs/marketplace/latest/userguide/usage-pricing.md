@@ -1,19 +1,14 @@
 
 
 # Usage pricing
-<a name="usage-pricing"></a>
 
 A usage pricing model, also known as *pay as you go* pricing, enables you to offer products to customers who only pay for what they use.
 
-Usage pricing private offers support multi-currency pricing in EUR, GBP, AUD, and JPY.
+Usage pricing private offers support multi-currency pricing in EUR, GBP, AUD, JPY, CAD, SGD, and NZD.
 
-As a seller, you can choose one of the following usage categories:
-+ **Users**
-+ **Hosts**
-+ **Bandwidth**
-+ **Data**
-+ **Tiers**
-+ **Units** (for custom categories)
+Agentic Commerce products use a reserved usage dimension, `agentic_commerce_default`, at USD $1.00 per unit. AWS Marketplace meters this dimension for you. For more information, see [Pricing and metering](agentic-commerce-products.md#agentic-commerce-pricing).
+
+For products other than Agentic Commerce products, when you add usage dimensions, you choose one **Dimension unit type** for all of the product's dimensions. The options are **Gbps**, **Mbps**, **GB**, **MB**, **TB**, **Requests**, **Units**, **Host hours**, **Tier hours**, and **User hours**. You can't change the unit type later. If the unit differs between dimensions, choose **Units**.
 
 You can also define up to 200 dimensions for the product. Charges are measured and reported when the API is called by the software. We recommend that sellers configure the API to be called once per hour as a best practice, depending on their use case. All usage is calculated monthly and billed monthly using the same mechanism as existing AWS Marketplace software. 
 
@@ -26,11 +21,11 @@ If your software monitors hosts, you can charge for each host monitored and set 
 If your software allows multiple users across an organization, you can charge by user. Each hour, the customer is charged for the total number of provisioned users. 
 
 **Note**  
-In the Product Load Form (PLF), relevant columns are preceded with "FCP" (Flexible Consumption Pricing). For example: **FCP Category (Custom Pricing Category)**. 
+You choose usage pricing and add usage dimensions when you create your product's public offer. For AMI products, see [Adding your product to AWS Marketplace](custom-metering-pricing-ami-products.md#listing-your-product-on-aws-marketplace).
 
 For AWS Marketplace Metering Service products, note the following: 
 + If your software is already on AWS Marketplace, you will need to create a product to enable an alternate usage dimension. You can't convert a standard product to use the AWS Marketplace Metering Service. After the new product is published, you can remove the old product or keep both on the website. 
 + The AWS Marketplace Metering Service requires that your software reports usage every hour, recording the customer usage for the hour. If there is a failure in the transmission or receipt of metering service records, AWS will be unable to bill for such usage. You are responsible for ensuring the successful receipt of metering records. 
 + Products that use the AWS Marketplace Metering Service don't support 1-Click. Buyers are required to launch your software with an AWS Identity and Access Management (IAM) role with specific permissions and have an internet gateway. 
-+ Free Trial and Annual Pricing aren't compatible with the AWS Marketplace Metering Service. 
-+ Changing dimension (user, hosts, bandwidth, and data) or dimension name isn't supported. You will need to create a new product. 
++ AMI products that use the AWS Marketplace Metering Service can't offer a free trial or annual pricing.
++ You can't change the dimension unit type or a dimension's API identifier. To use a different unit type, create a new product. You can change a dimension's display name and description. On the product's **Procurement** tab, in the **Pricing dimensions** section, choose **Update**, and then choose **Update dimensions**.

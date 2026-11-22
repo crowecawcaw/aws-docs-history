@@ -1,7 +1,6 @@
 
 
 # Receiving Amazon SNS notifications for AMI products on AWS Marketplace
-<a name="ami-notification"></a>
 
 **Amazon SNS notifications aren't available to new sellers**  
 If you registered your seller account after July 15, 2026, use Amazon EventBridge to receive events. If you registered on or before that date, you can continue to use Amazon SNS. For more information, see [Managing AMI agreement events with Amazon EventBridge](ami-eventbridge-integration.md).
@@ -11,7 +10,7 @@ If you use Amazon SNS notifications, plan to migrate to EventBridge. New notific
 To receive notifications about changes to customer subscriptions for your products, you can subscribe to the Amazon Simple Notification Service (Amazon SNS) topics for AWS Marketplace provided to you during product creation. For example, you can know when customers accept a private offer. [Amazon SNS topic: aws-mp-subscription-notification](#ami-sns-subscription-message-body) is an Amazon SNS topic that is available for AMI products. This topic notifies you when a buyer subscribes or unsubscribes to a product. This notification is available for hourly pricing models, including hourly and hourly with annual. For more information, see the following sections.
 
 **Note**  
-During the product creation process, an Amazon SNS topic is created for your product. To subscribe to notifications, you need the Amazon Resource Name (ARN) of the Amazon SNS topic (for example, `arn:aws:sns:us-east-1:123456789012:aws-mp-subscription-notification-PRODUCTCODE`). The ARN is not available in the seller portal for server products. Contact the [AWS Marketplace operations team](https://aws.amazon.com/marketplace/management/contact-us) to request the ARN.
+During the product creation process, an Amazon SNS topic is created for your product. To subscribe to notifications, you need the Amazon Resource Name (ARN) of the Amazon SNS topic (for example, `arn:aws:sns:us-east-1:123456789012:aws-mp-subscription-notification-PRODUCTCODE`). Contact the AWS Marketplace operations team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) to request the ARN.
 
 **Topics**
 + [Amazon SNS topic: aws-mp-subscription-notification](#ami-sns-subscription-message-body)

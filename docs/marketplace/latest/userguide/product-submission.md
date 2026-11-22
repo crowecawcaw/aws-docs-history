@@ -1,67 +1,64 @@
 
 
 # Submitting your product for publication on AWS Marketplace
-<a name="product-submission"></a>
 
-You use the product submission process to make your products available on AWS Marketplace. Products can be simple, such as a single Amazon Machine Image (AMI) with one price structure, or more complicated, with AWS CloudFormation templates, and complex pricing options and payment schedules. You define your product offering and submit it through AWS Partner Central in one of two ways:
-+ Using the **Build** tab – For products that are less complex, you use the **Build** tab to completely define and submit your request.
-+ Using the **Assets** tab – For products that are more complex and require more definition, you download a product load form (PLF), add product details, and then upload the completed form using the **File upload** option.
+You use the product submission process to make your products available on AWS Marketplace. Products can be simple, such as a single Amazon Machine Image (AMI) with one price structure, or more complicated, with AWS CloudFormation templates, and complex pricing options and payment schedules. You create your product and submit it on the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central.
+
+When you choose **Create product**, AWS Partner Central creates your product as a draft and opens its page. You then work through the steps under **Complete your listing**. When your listing is complete, choose **Publish** to submit it for review.
 
 **Note**  
-Data product providers must use the AWS Data Exchange console to publish products. For more information, see [Publishing a new product](https://docs.aws.amazon.com/data-exchange/latest/userguide/publishing-products.html) in the *AWS Data Exchange User Guide*.
+Data product providers create products in AWS Partner Central and prepare their data sets in the AWS Data Exchange console. For more information, see [Publishing a new product](https://docs.aws.amazon.com/data-exchange/latest/userguide/publishing-products.html) in the *AWS Data Exchange User Guide*.  
+RTB Fabric module products are created in AWS Partner Central or with the AWS Marketplace Catalog API. For more information, see [Working with seller products](https://docs.aws.amazon.com/marketplace/latest/developerguide/work-with-seller-products.html) in the *AWS Marketplace Developer Guide*.
 
-We recommend that you start by using the **Build** tab to determine which approach to use. The following table lists configurations and the approach you use to submit your request. The first column is the pricing model for your product, and the other three columns describe how the product is deployed to the customer.
+For the steps for your product type, see the following topics:
++ [Creating AMI-based products](ami-single-ami-products.md)
++ [EC2 Image Builder component-based products in AWS Marketplace](ec2-ib-component-products.md)
++ [Getting started with container products](container-product-getting-started.md)
++ [Listing your machine learning product in AWS Marketplace](ml-publishing-your-product-in-aws-marketplace.md)
++ [Creating a SaaS product in AWS Marketplace](saas-create-product.md)
++ [AI agent products](ai-agents-tools.md)
++ [Create a professional services product](proserv-getting-started.md#proserv-create)
 
+To create or update several products in one request, use the AWS Marketplace Catalog API. One change set can include up to 20 changes for one or more products. For more information, see [Invoking multiple change types in one change set](https://docs.aws.amazon.com/marketplace/latest/APIReference/catalog-apis.html#multiple-change-types) in the *AWS Marketplace API Reference*.
 
-| Pricing model  | Products launched using single-node AMI | Products launched with CloudFormation | Products launched as software as a service (SaaS) | 
-| --- | --- | --- | --- | 
-|  Bring Your Own License (BYOL)  |  Build tab  |  Assets tab  |     | 
-|  Free  |  Build tab  |  Assets tab  |     | 
-| Paid Hourly  |  Build tab  |  Assets tab  |     | 
-| Paid Hourly with Annual  |  Build tab  |  Assets tab  |     | 
-| Paid Monthly  |  Build tab  |  Assets tab  |     | 
-|  Hourly with Monthly  |  Assets tab  |  Assets tab  |     | 
-| Paid Usage (AWS Marketplace Metering Service) |  Build tab  |  Assets tab  |     | 
-| Contract Pricing | Build tab |  |  | 
-|  SaaS Subscription  |     |     |  Build tab  | 
-|  SaaS Contract  |     |     |  Build tab  | 
-|  SaaS Legacy  |     |     |  Assets tab  | 
-
-You can submit products individually or, if you use a product load form, you can submit multiple products or product updates at the same time. You cannot use the **Build** tab to submit multiple products. If you are unclear about which products to submit and how to submit them, start by using the **Build** tab. If you have any problems making your submissions, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team.
+If you have any problems making your submissions, contact the AWS Marketplace Seller Operations team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1).
 
 **Topics**
-+ [Using the Build tab](#using-the-products-tab)
++ [Using the Products and services page](#using-the-products-tab)
 + [Company and product logo requirements](#seller-and-product-logos)
 + [Requirements for submitting paid repackaged software](#paid-repackaged-software)
 + [Requirements for products with a hardware component](#product-requirements-hardware)
-+ [CloudFormation-launched product (free or paid) or usage-based paid AMI product](#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product)
++ [Submitting AMI products with CloudFormation templates](#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product)
 + [Product changes and updates](#product-changes-and-updates)
 + [Timing and expectations](#timing-and-expectations)
 + [Submitting AMIs to AWS Marketplace](#submitting-amis-to-aws-marketplace)
 + [Final checklist](#final-checklist)
 
-## Using the Build tab
+## Using the Products and services page
 <a name="using-the-products-tab"></a>
 
-To access the **Build** tab, log in to AWS Partner Central. From the **Build** tab, choose either **Server**, **SaaS**, or **Machine learning**, depending on the type of product that you manage.
+The [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central lists your products and their visibility. To create a product, choose **Create product**. To work on an existing product, choose it.
 
-A dashboard for that product type appears and displays your current products. If you choose the **Requests** tab, the dashboard displays any outstanding requests and your completed request history. Once you start creating a product request, you can save your work in progress, and if necessary, create your request in several different sessions.
+A product's visibility controls who can view and buy it:
++ **Draft** – You're still setting up the product. Complete the product details and, for products with a delivery step, the delivery configuration to move it to **Limited**.
++ **Limited** – Your account and the accounts on your allowlist can view the product, so you can test it. To preview your listing, choose **View on AWS Marketplace** on the product's page.
++ **Public** – Any AWS Marketplace buyer can find and buy the product.
++ **Restricted** – New buyers can't see or buy the product. Existing subscribers keep access, but they can't renew their contracts.
 
-When you submit your product request, the AWS Marketplace team reviews it. You can monitor the status of your request on the product page for the type of product you requested. For new products, after your request is approved for publication, you receive a limited listing URL that you use to preview and approve your submission. Your product offer is not published until you approve the submission.
+When you choose **Publish** and submit your listing for review, AWS Marketplace reviews it against its policies. Automated checks can approve it within hours. If a check flags your listing, the review usually takes 3 to 5 business days. After AWS Marketplace approves your listing, any AWS Marketplace buyer can find and buy your product.
 
-When you request a product update, it's published without the need for you to review and approve the change. This includes adding or removing versions, and metadata changes. 
+Each change to your product, such as new product details, Regions, or a version, is a change request. You track your product's change requests on its **Change history** tab. Each request has one of the following statuses:
++ **Preparing** – AWS Marketplace is reviewing your request.
++ **Applying** – AWS Marketplace is applying the change to your product.
++ **Succeeded** – The change is applied to your product.
++ **Failed** – The change wasn't applied. To see why, choose the request name.
++ **Cancelled** – You cancelled the request.
 
-You track the status of your requests under the **Requests** tab. The tab displays one of the following:
-+  **Draft** – You have started the request process but have not submitted your request. 
-+  **Submitted** – You have completed and submitted your request, and it is under review. 
-+  **Action Required** – The AWS Marketplace team has reviewed your request and needs more information. 
-+  **Approval Required** – The AWS Marketplace team has created the limited listing URL for your product. You must review and either approve or reject the URL before AWS Marketplace will publish. If you approve, the status changes to **Publishing Pending** while the site gets published. If you reject, the status returns to **Draft** so you can modify the request. 
-+  **Publishing Pending** – You have approved the mock-up of your request and AWS Marketplace is publishing your product.
-+  **Expired** – You started the request process but did not complete it within six months, so the request expired. 
+To cancel a request while its status is **Preparing**, choose the request name on the **Change history** tab, and then choose **Cancel request**. While a request is in progress, you can't submit another change to the same product until the request completes.
 
-If you have an entry with a status of **Submitted**, you can retract the submission. If you have an entry with a status of **Draft**, you can delete the request. This will allow you to start over. When you delete a **Draft** entry, the entry is moved to the **Request History** tab. 
+Changes to your public offer, such as new prices, appear on the offer's **Requests log** tab. For more information, see [Changing prices](pricing.md#changing-prices).
 
- To add your product in the AWS GovCloud (US) AWS Region, you must [have an active AWS GovCloud (US) account](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/getting-started-sign-up.html) and comply with the AWS GovCloud (US) requirements, including export control requirements. 
+To add your product in an AWS GovCloud (US) Region, you must have an active AWS GovCloud (US) account that AWS Marketplace has verified, and comply with the AWS GovCloud (US) requirements, including export control requirements. If your account isn't verified, a request that adds an AWS GovCloud (US) Region fails. To request verification, choose **submit a support request** in the **AWS GovCloud (US) Region selection** alert on the **Add Regions** page. For more information, see [AWS GovCloud (US) Sign Up](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/getting-started-sign-up.html) in the *AWS GovCloud (US) User Guide*.
 
 ## Company and product logo requirements
 <a name="seller-and-product-logos"></a>
@@ -95,141 +92,80 @@ The sale of hardware products isn't permitted on AWS Marketplace. If you're subm
 + The cost of the hardware component can't be included in the listing price of your product.
 + The **Product Overview** section of the listing must include the following statements: *Any hardware that may be required with this listing must be obtained separately. Review the product details for more information.*
 
-## CloudFormation-launched product (free or paid) or usage-based paid AMI product
+## Submitting AMI products with CloudFormation templates
 <a name="aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product"></a>
 
-**Note**  
-Some pricing models no longer require you to use the product load form described in this section to publish AMI with CloudFormation products. When you create a **Amazon Machine Image (AMI) or AMI with CloudFormation** on the [server products](https://aws.amazon.com/marketplace/management/products/server) page in the seller portal, and are not immediately prompted to download the product load form, see [Creating AMI-based products](https://docs.aws.amazon.com/marketplace/latest/userguide/ami-single-ami-products.html) and [Add CloudFormation templates to your listing](https://docs.aws.amazon.com/marketplace/latest/userguide/cloudformation.html).
+Buyers deploy an AMI with CloudFormation product from an CloudFormation template that launches your AMI and other AWS resources. You create it as an AMI-based product, and add versions that use the **AMI with CloudFormation** delivery method. A version can have one AMI delivery option and up to three CloudFormation template delivery options.
 
-Use a product load form (PLF) to submit products that AWS Marketplace customers launch by using CloudFormation templates. The PLF is available through AWS Partner Central. 
-
-You follow these broad steps to submit a product:
-+ Choose a pricing model.
-+ Download a product load form (PLF), a Microsoft Excel spreadsheet.
-+ Fill out the product load form.
-+ Follow the instructions in the form to submit your product.
-
-For more information about completing each step, expand the sections in the order listed.
+To submit an AMI with CloudFormation product, use the following sections:
++ [Choosing a pricing model](#define-pricing-model)
++ [Creating an AMI with CloudFormation product](#submitting-your-product)
++ [Providing your product information](#completing-plf)
++ [Submitting your product for review](#submit-plf)
 
 ### Choosing a pricing model
 <a name="define-pricing-model"></a>
 
-You must select a pricing model for your product. The model you choose controls the pricing information that you enter into the PLF. For a list of supported pricing models, see [AMI product pricing for AWS Marketplace](pricing-ami-products.md) in this guide.
+The pricing model controls which prices you enter for your product. You set it when you create the public offer for your product in **Step 3: Procurement configuration**. For AMI-based products, you can choose **Hourly**, **Usage pricing**, **Contract pricing**, **Free**, or **Bring your own license (BYOL)**. For details about each model, see [AMI product pricing for AWS Marketplace](pricing-ami-products.md).
 
-### Downloading the PLF for a new product
+### Creating an AMI with CloudFormation product
 <a name="submitting-your-product"></a>
 
-1. Open [AWS Partner Central](https://aws.amazon.com/marketplace/management/products/?). 
+Create the product as described in [Create the listing](ami-single-ami-products.md#ami-create-product). For **Software type**, choose **AMI-based**.
 
-1. On the **Assets** tab, in the right-hand pane, choose the [Single AMI with CloudFormation product](https://s3.amazonaws.com/awsmp-loadforms/ProductDataLoad-Current.xlsx) link.
+On the **Configure version and delivery options** card, for **Delivery method**, select **AMI with CloudFormation**, and then enter the details for each template. For the fields, see [Add a new version](single-ami-versions.md#single-ami-adding-version). For template requirements, see [Add CloudFormation templates to your product](cloudformation.md).
 
-   The form appears in your browser.
-
-1. Choose **Download file**, then edit the file in Excel. 
-
-   —or—
-
-   If you have Microsoft OneDrive, choose **Edit a copy**. That saves the PLF to OneDrive, and you can edit it there.
-
-**Note**  
-The spreadsheet contains several example products. You must delete those before you submit the form.
-
-### Downloading a PLF for an existing product
+### Adding CloudFormation templates to an existing product
 <a name="download-existing-plf"></a>
 
-**To download the form**
-+ Start the AWS Marketplace Dashboard and choose **Download product load form**.  
-![The Download product load form button in the AWS Marketplace dashboard.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/plf-download.png)
+To add CloudFormation templates to an existing AMI-based product, add a new version that uses the **AMI with CloudFormation** delivery method. You can't add a delivery option to a version after you submit it. For the procedure, see [Add a new version](single-ami-versions.md#single-ami-adding-version).
 
-  The spreadsheet contains data for the previous versions of your products. Leave that data in place and add the new product on the next blank row.
+The form starts with values from your latest version. Enter the **Version title**, **Amazon Machine Image (AMI) ID**, **IAM access role ARN**, and each template's **AMI parameter name**.
 
-### Filling out the PLF
+### Providing your product information
 <a name="completing-plf"></a>
 
-The following steps explain how to complete a product load form (PLF). The steps apply to new and existing products.
+You enter your product information in the steps under **Complete your listing** on the product's page:
++ In **Step 1: Product details**, you enter the product title, SKU, descriptions, highlights, logo, categories, keywords, and support details. For more information, see [Updating AMI-based product information on AWS Marketplace](single-ami-updating-product.md). For logo requirements, see [Company and product logo requirements](#seller-and-product-logos).
++ In **Step 2: Delivery configuration**, you complete the following cards:
+  + On the **Add Regions** card, you choose the Regions where buyers can deploy your product. For more information, see [Add an AWS Region](single-ami-regions.md#single-ami-adding-regions). AWS GovCloud (US) Regions have extra requirements. For example, you must have an active AWS GovCloud (US) account that AWS Marketplace has verified. If your account isn't verified, a request that adds an AWS GovCloud (US) Region fails. To request verification, choose **submit a support request** in the **AWS GovCloud (US) Region selection** alert on the **Add Regions** page. For more information, see [Getting set up](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/getting-set-up.html) in the *AWS GovCloud (US) User Guide*.
+  + On the **Add instance types** card, you choose the instance types that buyers can use. For more information, see [Adding an instance](single-ami-instance-types.md#single-ami-adding-instance-types).
+  + On the **Configure version and delivery options** card, you enter the version, your AMI details, and each CloudFormation template with its title, descriptions, template link, architecture diagram, AMI parameter name, usage instructions, and recommended instance type. For the fields, see [Add a new version](single-ami-versions.md#single-ami-adding-version).
 
-**To fill out the form**
+    To give AWS Marketplace access to your AMI, see [Giving AWS Marketplace access to your AMI](single-ami-marketplace-ami-access.md). Usage instructions must meet the requirements in [Creating AMI and container product usage instructions for AWS Marketplace](ami-container-product-usage-instructions.md). Architecture diagrams must meet the requirements in [Architectural diagram](cloudformation.md#topology-diagram).
++ In **Step 3: Procurement configuration**, you create your public offer, with its pricing, the countries where buyers can buy your product, the EULA, and the refund policy. For more information, see [AMI product pricing for AWS Marketplace](pricing-ami-products.md), [Update availability by country](single-ami-regions.md#single-ami-update-availability-by-country), [Updating end user license agreement (EULA) for your AMI-based AWS Marketplace product](single-ami-update-eula.md), and [Updating the refund policy for your AMI-based product on AWS Marketplace](single-ami-update-refund-policy.md). For the standard EULA, see [Using standardized contracts in AWS Marketplace](standardized-license-terms.md).
 
-1. In the **SKU** to **Refund and Cancellation Policy** columns, enter all the information relevant to your product.
-**Note**  
- In the **Product Access Instructions** column, you must provide detailed, clear usage instructions . Follow the requirements listed at [Creating AMI and container product usage instructions for AWS Marketplace](ami-container-product-usage-instructions.md) in this guide. 
-
-1. In the **Type** to **Endpoint URL Relative URL** columns, enter the required information for your AMI. 
-**Important**  
- You must share your AMI with AWS Marketplace. To do that, follow the steps at [Submitting AMIs to AWS Marketplace](#submitting-amis-to-aws-marketplace) in this guide.
-
-1. The **End User License Agreement URL** column provides a link to the standard AWS Marketplace agreement. You can accept that agreement or enter a link to a EULA that you prefer to use. If you provide a link, it must allow customers to download the EULA, such as a link from an Amazon S3 bucket. 
-
-   For more information about the standard contract, see [Using standardized contracts in AWS Marketplace](standardized-license-terms.md) in this guide.
-
-1. In the **us-east-1 Availability** to **Make available for all future instance types** columns, enter **TRUE** or **FALSE** under each of the AWS Regions that you intend to use.
-**Note**  
-GovCloud Regions have extra requirements. For example, you must own a GovCloud account to use a GovCloud Region. For more information, see [Getting set up](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/getting-set-up.html), in the *AWS GovCloud User Guide*.
-
-1. In the **Recommended Instance Type** column, accept the recommended instance type or choose another from the list. Ensure the instance type is available in the Regions that you want to use.
-**Note**  
-Most customers accept the recommended instance type. 
-You must ensure that the instance type is available in the same Regions as the product.
-
-1. In the columns between **Recommended Instance Type** and **Countries To Include**, enter **TRUE** under your instance types. This activates the instance types. Enter **FALSE** for the remaining types. For more information about instance types, see [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/).
-
-1. In the **Countries to include** and **Countries to exclude** columns, enter the two-letter country code, such as US, of any countries you want to include or exclude. 
-
-1. In the **Pricing Model** column, enter the pricing model for your product. 
-
-   The following list describes the pricing models and any additional columns that you must complete.
-   +  **BYOL URL** – Enter the license URL. No need to input pricing information. 
-   +  **Hourly** – Enter a price for any instance types that you set to TRUE. Leave all other columns empty. The columns related to this are the ones from **a1.medium Hourly Price** to **z1d.metal Hourly Price** 
-   + **Hourly Annual Pricing** – Fill in the columns listed in the previous step, plus the columns that start in ** a1.medium Annual Price** to **z1d.metal Annual Price**. Enter a price for any instance types that you set to TRUE. You can leave all other columns empty.
-   + **Usage** – Enter the information related to the usage dimensions in the columns **FCP Category** to **FCP Dimension24 Rate**.
-   + **Contract** – In the **Contracts Category** to **Contracts Dimension24 36-Month Rate** columns, enter the information related to the contract dimensions. 
-
-1. In the **Security Group Rule 1** to **Security Group Rule 12** columns, enter the information about your product’s security group. Follow the `tcp,#,#,0.0.0.0/0` format. For example, use `tcp,22,22,0.0.0.0/0` for SSH and `tcp,3389,3389,0.0.0.0/0` for RDP.
-
-1. In the **Clusters and AWS Resources Topology 1: Title** to **Clusters and AWS Resources Topology 3: Architecture Diagram URL** columns, enter the CloudFormation data for your product. You must enter the following data:
-   + **Topology title** – The title of your deployment or fulfillment option. The title appears on the detail page of your product in the **Fulfillment Options** section. For example:  
-![An example topology in the Fulfilment Options page of a product.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/plf-topology.png)
-   + In the **Pricing Estimate** column, enter a link to the [AWS Calculator](https://calculator.aws/#/) with your values.
-   +  **Short and Long Description** – Enter descriptions of your deployment option. 
-   +  **Template URL** – Provide a downloadable link to your Cloudformation template. 
-   + **Architectural Diagram** – Provide a downloadable link to your CloudFormation’s topology architectural diagram. Each Deployment option must have a distinct diagram that shows what the stack launches. Diagrams must follow the requirements listed at [Architectural diagram](cloudformation.md#topology-diagram). 
-
-### Submitting the PLF
+### Submitting your product for review
 <a name="submit-plf"></a>
 
-The following steps explain how to submit a completed PLF.
+When your listing is complete, choose **Publish**, and then choose **Submit for review**. For the full procedure, see [Create the listing](ami-single-ami-products.md#ami-create-product).
 
-1. Sign in to [AWS Partner Central](https://aws.amazon.com/marketplace/management/products/?).
-
-1. On the **Assets** tab, choose **File Upload**. 
-
-1. On the **File Uploads** page, upload your PLF and any CloudFormation templates. The file uploader provides a secure transfer mechanism and a history of submitted files. The uploader automatically notifies the AWS Marketplace, which reviews your submission for policy and security compliance, software vulnerabilities, and product usability. If the team has any questions or issues with a request, they send you an email message.
+AWS Marketplace reviews your listing against its policies before it goes live. Automated checks can approve it within hours. If a check flags your listing, the review usually takes 3 to 5 business days. After AWS Marketplace approves your listing, any AWS Marketplace buyer can find and buy your product.
 
 ### Updating your product
 <a name="updating-your-product"></a>
 
-For products that you created by using the product load form (PLF), you also use the PLF to make changes to those products. You can make changes to the original PLF you completed or, if it's not available, you can start with a new PLF. Just like using the **Build** tab, you can add a new version, remove existing versions, and update pricing, instance types, Region availability, and metadata. To make an update, you prepare any updated product the same way you prepare a new product. After the product update is prepared, follow these steps: 
+You update an AMI with CloudFormation product the same way as other AMI-based products. Product updates appear on the product's **Change history** tab, and price changes appear on the offer's **Requests log** tab. For the procedures, see the following topics:
++ [Add a new version](single-ami-versions.md#single-ami-adding-version)
++ [Update version information](single-ami-versions.md#single-ami-updating-version)
++ [Restrict a version](single-ami-versions.md#single-ami-restricting-version)
++ [Changing prices](pricing.md#changing-prices)
++ [Adding and restricting AMI instances for AWS Marketplace](single-ami-instance-types.md)
++ [Managing AMI-based product availability by AWS Region and country](single-ami-regions.md)
++ [Updating AMI-based product information on AWS Marketplace](single-ami-updating-product.md)
 
-1. Use your existing PLF, or open [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home), and on the **Assets** tab, choose **File upload**. Under **Product load forms and seller guides**, you can download the PLF for your product.
-
-1. Update the product in the PLF. 
-
-1. From [AWS Partner Central](https://aws.amazon.com/marketplace/management/products/?), under the **Assets** tab, choose **File Upload**. 
-
-1. On the **File Uploads** page, upload your updated PLF and any CloudFormation templates. The file uploader provides a secure transfer mechanism and a history of submitted files. The uploader automatically notifies the AWS Marketplace team to begin processing your request. Include a description of the submission (adding new version, changing price, changing metadata, and so forth). 
-
-Your product submission is reviewed for policy and security compliance, software vulnerabilities, and product usability. If there are any questions or issues with a request, the AWS Marketplace team will contact you through an email message. Updates to existing product pages are processed and released directly without additional reviews.
+In an existing version, you can update each template's title, descriptions, usage instructions, recommended instance type, and architecture diagram. To use a different CloudFormation template, add a new version.
 
 ## Product changes and updates
 <a name="product-changes-and-updates"></a>
 
 Sellers can submit changes to their product at any time, and they will be processed as described earlier. However, some changes can only be made every 90 or 120 days, or when pending changes are in place. Examples include price changes and AWS Region or instance type changes. Common changes include: 
-+  **New Version** – New versions of the software and roll outs of patches or updates. At your request, we can notify customers who have subscribed to your AWS Marketplace content about the availability of new versions or send upgrade instructions on your behalf. 
-+  **Metadata change** – Changes to product information (Description, URLs, and Usage Instructions). 
-+  **Pricing Change** – A change to the pricing amount. A notification to current customers is sent after the request is complete. Once the notification is sent, the price change will take effect on the first of the month following a 90-day window. For example, if you make a change on March 16, 90 days after would be approximately June 16, but the price change happens on the first of the following month. The actual date of the change would be July 1.
-+  **Pricing Model Change** – A change to the pricing model (for example, Hourly, Free, Hourly\_Annual). Not all pricing model changes are supported, and all requests to change models must be reviewed and approved by the AWS Marketplace team. Any change from a free to a paid model presents significant impact to existing customers. An alternative is to propose a new product with additional features and encourage current customers to migrate. 
-+  **Region or Instance change** – Adding or removing instances types or Regions. 
-+  **Product takedown** – Remove a product page from AWS Marketplace to prevent new customers from subscribing. A notification to current customers is sent after the request is complete. 
++  **New version** – New versions of the software and roll outs of patches or updates. At your request, we can notify customers who have subscribed to your AWS Marketplace content about the availability of new versions or send upgrade instructions on your behalf. For more information, see [Add a new version](single-ami-versions.md#single-ami-adding-version).
++  **Product information change** – Changes to your product details, such as descriptions and URLs, and to each version's usage instructions. For more information, see [Updating AMI-based product information on AWS Marketplace](single-ami-updating-product.md) and [Update version information](single-ami-versions.md#single-ami-updating-version).
++  **Price change** – A change to the prices in your public offer. Price decreases take effect immediately. For a price increase, AWS Marketplace notifies existing buyers after the request is complete. The new price takes effect for them on the first day of the month after a 90-day notice period. For example, if you increase a price on March 16, the new price takes effect on July 1. New buyers pay the updated price immediately. For more information, see [Changing prices](pricing.md#changing-prices).
++  **Pricing model change** – You can't change the pricing model after you create the public offer for your product. To use a different pricing model, create a new product, and encourage current customers to migrate to it.
++  **Region or instance type change** – Adding or restricting instance types or Regions. For more information, see [Adding and restricting AMI instances for AWS Marketplace](single-ami-instance-types.md) and [Managing AMI-based product availability by AWS Region and country](single-ami-regions.md).
++  **Product removal** – Remove a product from AWS Marketplace to prevent new customers from subscribing. A notification to current customers is sent after the request is complete. For more information, see [Removing a product from AWS Marketplace](removing-products-from-aws-marketplace.md).
 
 ## Timing and expectations
 <a name="timing-and-expectations"></a>
@@ -238,7 +174,7 @@ While we strive to process requests as quickly as possible, requests can require
 + Total request time normally takes 2–4 calendar weeks. More complex requests or products can take longer, due to multiple iterations and adjustments to product metadata and software.
 + We require a completed product request and AMI at least 45 days in advance of any planned events or releases, so we can prioritize the request accordingly.
 
-If you have any questions about your request, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team. 
+If you have questions about your request, contact the AWS Marketplace support team on the AWS Partner Central and Marketplace Support page. 
 
 ## Submitting AMIs to AWS Marketplace
 <a name="submitting-amis-to-aws-marketplace"></a>
@@ -246,30 +182,46 @@ If you have any questions about your request, contact the [AWS Marketplace Selle
 All AMIs built and submitted to AWS Marketplace must adhere to all product policies. We suggest a few final checks of your AMI before submission: 
 + Remove all user credentials from the system; for example, all default passwords, authorization keys, key pairs, security keys or other credentials. 
 + Ensure that root login is disabled or locked. Only sudo access accounts are allowed. 
-+  If you are submitting an AMI to be deployed into the AWS GovCloud (US) Region, you need to [ have an active AWS GovCloud account](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/getting-started-sign-up.html) and agree to the [AWS GovCloud Requirements](https://aws.amazon.com/service-terms/), including applicable export control requirements. 
++ If you are submitting an AMI to be deployed into the AWS GovCloud (US) Region, you need an active [AWS GovCloud (US) account](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/getting-started-sign-up.html) that AWS Marketplace has verified, and you must agree to the [AWS GovCloud Requirements](https://aws.amazon.com/service-terms/) on the AWS website, including applicable export control requirements. To request verification, choose **submit a support request** in the **AWS GovCloud (US) Region selection** alert on the **Add Regions** page.
 
 ### AMI self-service scanning
 <a name="ami-self-service-scanning"></a>
 
-AWS Marketplace offers AMI scanning within AWS Partner Central. For new products, the system automatically runs a scan and provides results upon submission. For new versions of existing products, use the Test 'Add Version' feature to initiate a scan. This process typically completes in less than an hour and delivers comprehensive feedback in a single, convenient location.
+AWS Marketplace offers AMI scanning within AWS Partner Central. For new products, the system automatically runs a scan and provides results upon submission. For new versions of existing products, start a scan by selecting **Test this version** when you add the version. This process typically completes in less than an hour and delivers comprehensive feedback in a single, convenient location.
 
-**To begin sharing and scanning your AMI with self-service scanning**
+**To scan your AMI**
 
-1. Navigate to [ https://aws.amazon.com/marketplace/management/products/server](https://aws.amazon.com/marketplace/management/products/server). 
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. In the **Product title** column, choose the product.
+1. Choose the product.
 
-1. On the product detail page, in the **Versions** section, choose **Test 'Add Version'.**
+1. On the **Delivery** tab, in the **Versions** section, choose **Add version**.
 
-1. On the **Test 'Add Version'** page, enter the required version information and validation parameters.
+   For a new product, you can instead choose **Start** on the **Configure version and delivery options** card under **Step 2: Delivery configuration**. On a new product, **Add version** and this card are available after you complete the **Add Regions** and **Add instance types** cards.
 
-1. Choose **Run test**.
+1. On the **Configure version** step, enter the version information.
 
-1. View the scan result.
+1. Under **Test version**, select **Test this version**.
 
-After your AMI has successfully been scanned, you can follow the current process to submit it to the AWS Marketplace Seller Operations team by [uploading](https://aws.amazon.com/marketplace/management/product-load/) your product load form (PLF). If you have any issues, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team.
+1. Choose **Next**.
 
-To include your AMI in the self-service scanning list, the AMI must be in the `us-east-1` (N. Virginia) Region and owned by your AWS Marketplace seller account. If you need to grant other accounts access to AWS Partner Central, you must register those accounts as sellers. For more information, see [Registration process](registration-process.md). 
+**To configure delivery options for an AMI scan**
+
+1. On the **Configure delivery options** step, enter your AMI details and any CloudFormation templates.
+
+   A test checks every field, so complete the step as you would for a new version. For the fields, see [Add a new version](single-ami-versions.md#single-ami-adding-version).
+
+1. Choose **Next**.
+
+1. On the **Review and test** step, choose **Run test**.
+
+Your test appears on the product's **Change history** tab as **Test add version {{version-title}}**. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. If the status is **Succeeded**, your AMI passed scanning. To see why a request failed, choose the request name.
+
+A test doesn't add a version, and your live listing doesn't change.
+
+To publish a scanned AMI, add the version again without selecting **Test this version**. If you have any issues, contact the AWS Marketplace Seller Operations team on the AWS Partner Central and Marketplace Support page.
+
+Your AMI must be in the `us-east-1` (N. Virginia) Region and owned by your AWS Marketplace seller account. If you need to grant other accounts access to AWS Partner Central, you must register those accounts as sellers. For more information, see [Registration process](registration-process.md). 
 
 ### AMI cloning and product code assignment
 <a name="ami-cloning-and-product-code-assignment"></a>
@@ -297,7 +249,7 @@ To help avoid delays in publishing your product, use this checklist before you s
 + Use hardware virtual machine (HVM) virtualization and 64-bit architecture. 
 + Does not contain any known vulnerabilities, malware, or viruses. 
 + Buyers have operating system-level administration access to the AMI. 
-+ Use Test 'Add Version' in AWS Partner Central to scan your AMI.
++ Scan your AMI with **Test this version** when you add a version. For more information, see [AMI self-service scanning](#ami-self-service-scanning).
 
  **For Windows AMIs** 
 + Use the most recent version of `Ec2ConfigService`, as described in [Configuring a Windows instance using the EC2Config service](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2config-service.html) in the *Amazon EC2 User Guide*. 
@@ -310,8 +262,7 @@ To help avoid delays in publishing your product, use this checklist before you s
 + All required fields are completed. 
 + All values are within specified character limits. 
 + All URLs load without error. 
-+ Product image is at least 110px wide and between a 1:1 and 2:1 ratio. 
-+ Pricing is specified for all enabled instance types (for hourly, hourly\_monthly, and hourly\_annual pricing models). 
-+ Monthly pricing is specified (for hourly\_monthly and monthly pricing models). 
++ Product logo is 120 to 640 pixels wide and tall, with a 1:1 or 2:1 (wide) ratio. 
++ Pricing is specified for every instance type that you select (for the **Hourly** pricing model). 
 
-If you have any questions or comments about automated AMI building, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team. 
+If you have questions or comments about automated AMI building, contact the AWS Marketplace support team on the AWS Partner Central and Marketplace Support page. 

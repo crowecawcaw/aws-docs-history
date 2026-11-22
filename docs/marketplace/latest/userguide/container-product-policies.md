@@ -1,7 +1,6 @@
 
 
 # Container-based product requirements for AWS Marketplace
-<a name="container-product-policies"></a>
 
 AWS Marketplace maintains the following requirements for all container-based products and offerings on AWS Marketplace. These requirements help to promote a safe, secure, and trustworthy catalog for our customers. We also encourage sellers to review implementation of additional controls and protocols as applicable to meet the needs of their specific products.
 
@@ -70,7 +69,7 @@ As a container product seller, you must adhere to the following policies:
 <a name="container-architecture-requirements"></a>
 
  All container-based products must adhere to the following architecture requirements: 
-+ Source container images for AWS Marketplace must be pushed to the Amazon Elastic Container Registry (Amazon ECR) repository owned by AWS Marketplace. You can create these repositories in the AWS Marketplace Management Portal under server products for each of your container product listings.
++ Source container images for AWS Marketplace must be pushed to the Amazon Elastic Container Registry (Amazon ECR) repository owned by AWS Marketplace. You create these repositories for each of your container product listings on the product's **Delivery** tab in AWS Partner Central. For more information, see [Step 1: Add repositories](container-add-version.md#add-repositories).
 + Container images must be based on Linux.
 + Paid container-based products must be able to be deployed on [Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html), [Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html), or [AWS Fargate](https://docs.aws.amazon.com/AmazonECS/latest/userguide/what-is-fargate.html).
 + Paid container-based products with contract pricing and an integration with AWS License Manager should deploy on Amazon EKS, Amazon ECS, AWS Fargate, Amazon EKS Anywhere, Amazon ECS Anywhere, Red Hat OpenShift Service on AWS (ROSA), self-managed Kubernetes clusters on-premises, or on Amazon Elastic Compute Cloud.
@@ -97,7 +96,7 @@ The following demonstrates approaches for structuring container image references
 
 **`values.yaml` (recommended format):**
 
-```
+```yaml
 image:
   registry: "709825985650.dkr.ecr.us-east-1.amazonaws.com"
   repository: "accuknox/kubearmor"
@@ -109,7 +108,7 @@ We recommend the approach above for the structure of your `values.yaml` , but th
 
 **`values.yaml` (alternative format):**
 
-```
+```yaml
 image:
   repository: "709825985650.dkr.ecr.us-east-1.amazonaws.com/guance/datakit"
   tag: "1.0"
@@ -117,7 +116,7 @@ image:
 
 **`values.yaml` (alternative format):**
 
-```
+```yaml
 image:
   repository: "709825985650.dkr.ecr.us-east-1.amazonaws.com/guance/datakit:1.0"
 ```
@@ -152,8 +151,8 @@ During the product submission process, AWS Marketplace performs validation check
 | INCOMPATIBLE\_HELM\_OBJECTS | The specified Helm objects are not supported for EKS add-ons. See [Requirements for Amazon EKS add-on products](#publishing-eks-add-on). | 
 | INVALID\_DEPENDENT\_HELM\_CHARTS | Dependent Helm charts must be contained within the parent chart directory and not externally sourced. | 
 | INVALID\_HELM\_SENSITIVE\_CONFIG | The configuration schema cannot contain fields that collect sensitive information. Configuration schemas must not accept passwords, API keys, certificates, or secrets. Instead, provide fields for Kubernetes secret names that customers will create separately. | 
-| INVALID\_HELM\_CHART\_IMAGES | All images, including open-source dependencies, must be pushed to AWS Marketplace Amazon ECR repositories created via the [Add Repository](container-add-version.md#add-repositories) request. | 
-| INVALID\_HELM\_UNDECLARED\_IMAGES | All container images references must be explicitly listed in the [Add Version](container-add-version.md#add-new-version) request. | 
+| INVALID\_HELM\_CHART\_IMAGES | All images, including open-source dependencies, must be pushed to AWS Marketplace Amazon ECR repositories created via the [Add repositories](container-add-version.md#add-repositories) request. | 
+| INVALID\_HELM\_UNDECLARED\_IMAGES | All container images references must be explicitly listed in the [Add version](container-add-version.md#add-new-version) request. | 
 | INVALID\_HELM\_LINT | The Helm chart failed helm lint validation. Run helm lint locally to identify and fix structural or syntactical issues. Use Helm version 3.19.0 or later. | 
 | INVALID\_HELM\_TEMPLATE | The Helm chart failed helm template validation. The chart cannot be rendered into valid Kubernetes manifests. Test locally with helm template to identify template syntax or logic errors. Use Helm version 3.19.0 or later. | 
 | MISSING\_HELM\_DEPLOYMENT\_CONFIG | The Helm chart for an Amazon EKS add-on must contain a Deployment or DaemonSet resource. Amazon EKS requires at least one of these workload types for add-on lifecycle management. See [Requirements for Amazon EKS add-on products](#publishing-eks-add-on). | 
@@ -207,7 +206,7 @@ BYOL is not supported for Amazon EKS add-on delivery.
     + Helm Template – `helm template {{chart-name}} {{chart-location}} --set k8version={{Kubernetes-version}} --kube-version {{Kubernetes-version}} --namespace {{addon-namespace}} --include-crds --no-hooks -f {{any-overriden-values}}`
 
       Pass any overridden configurations with the `-f` flag.
-  + Store all container binaries in AWS Marketplace Amazon ECR repos. To create a manifest, use the Helm template command that's shown earlier. Search the manifest for any external image references such as `busybox` or `gcr` images. Upload all container images along with dependencies into AWS Marketplace Amazon ECR repos created by using the **Add Repository** option in the request dropdown.
+  + Store all container binaries in AWS Marketplace Amazon ECR repos. To create a manifest, use the Helm template command that's shown earlier. Search the manifest for any external image references such as `busybox` or `gcr` images. Upload all container images along with dependencies into AWS Marketplace Amazon ECR repos that you create with **Add repositories**. For more information, see [Step 1: Add repositories](container-add-version.md#add-repositories).
 + **Custom configuration** – You can add custom variables during the deployment. For information about how to identify the end user experience, name the software `aws_mp_configuration_schema.json`, and package into a wrapper with the Helm chart, see [Amazon EKS add-ons: Advanced configuration](https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/).
 
   According to [The "$schema" Keyword](https://json-schema.org/draft/2020-12/json-schema-core#name-the-schema-keyword), `$schema` must be a URI that points to a valid `application/schema+json` resource.
@@ -233,7 +232,7 @@ BYOL is not supported for Amazon EKS add-on delivery.
 
   Your add-on must have an additional configuration file named `aws_mp_addon_parameters.json` in the top level of the Helm chart, in the same directory as the current custom configuration schema (`aws_mp_configuration_schema.json`). Currently, this file only handles pod identity-compatible permissions. The file format is as follows: 
 
-  ```
+  ```json
   {
     "permissions": {
         "isPodIdentityCompatible" : true,
@@ -266,7 +265,7 @@ The `aws_mp_addon_parameters.json` file enables the **Add-on access ** section i
 **Note**  
 Pay-as-you-go (PAYG) add-on products from AWS Marketplace can't use Amazon EKS Pod Identity and must use IAM Roles for Service Accounts (IRSA) for access control.
 + **Version updates** – Amazon EKS releases new Kubernetes versions a few weeks after the upstream release. As new Amazon EKS cluster versions become generally available, vendors have 45 days to certify or update their software to be compatible with the new Amazon EKS cluster version release. If your current versions of the add-on supports the new Kubernetes version, validate and certify the same so that we can update the version compatibility matrix. If a new add-on version is needed to support the new Kubernetes version release, then please submit the new version for onboarding.
-+ Partner’s software must fall into one of the following types or be an operational software that will enhance Kubernetes or Amazon EKS: Gitops \| monitoring \| logging \| cert-management \| policy-management \| cost-management \| autoscaling \| storage \| kubernetes-management \| service-mesh \| etcd-backup \| ingress-service-type \| load-balancer \| local-registry\| networking \| Security \| backup \| ingress-controller \| observability
++ Partner’s software must fall into one of the following types or be an operational software that will enhance Kubernetes or Amazon EKS: gitops \| monitoring \| logging \| cert-management \| policy-management \| cost-management \| autoscaling \| storage \| kubernetes-management \| service-mesh \| etcd-backup \| ingress-service-type \| load-balancer \| local-registry \| networking \| security \| backup \| ingress-controller \| observability
 + Software cannot be [Container Network Interface (CNI)](https://github.com/containernetworking/cni).
 + Software must be sold through AWS Marketplace and integrated with Licensing and metering APIs for paid products. BYOL products are not accepted.
 
@@ -299,7 +298,7 @@ Using any other json schema version is incompatible with Amazon EKS add-ons and 
 
 **Example Helm schema file**
 
-```
+```json
 {
 "$schema": "http://json-schema.org/schema#",
   "type": "object",
@@ -355,7 +354,7 @@ In summary, add-on providers can use the schema to allow customers to pass in th
 **Example configuration values**  
 You can include configuration examples in your schema to help customers with configuration of add-ons. The following example is from the schema of AWS Distro for OpenTelemetry add-on.  
 
-```
+```json
 "examples": [
       {
         "admissionWebhooks": {
@@ -522,7 +521,7 @@ Add-on providers need to ensure you have templating defined for such applicable 
 
 **Example mapping from release metadata**
 
-```
+```json
 "defaultConfiguration": [
        {
             "key": "image.containerRegistry",

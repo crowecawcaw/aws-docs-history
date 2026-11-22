@@ -1,10 +1,9 @@
 
 
 # Address data feed
-<a name="data-feed-address"></a>
 
 **Important**  
-AWS Marketplace will discontinue the PIIFeed, which is delivered using the [seller delivery data feeds service](https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-service.html), in December 2023. Use the AddressFeed\_V1 data feed for your address data needs. If you have questions or require support, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team.
+AWS Marketplace will discontinue the PIIFeed, which is delivered using the [seller delivery data feeds service](https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-service.html), in December 2023. Use the AddressFeed\_V1 data feed for your address data needs. If you have questions or need help, contact the AWS Marketplace support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.
 
 This data feed provides contact information for all the accounts you interact with: your own, any channel partners you work with, buyers, payers, and all taxed accounts. Each time a new transaction occurs, the customer address for the transaction is scanned, and if it's not in your data feed, a new entry is added to your data feed file.
 

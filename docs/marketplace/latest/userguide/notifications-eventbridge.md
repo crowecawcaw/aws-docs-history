@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge events
-<a name="notifications-eventbridge"></a>
 
 As a seller, you can use Amazon EventBridge to receive notifications for events in AWS Marketplace. For example, you can receive an *event* from AWS Marketplace when an offer is created. The *event* contains details like the ID, expiration date, and product details. EventBridge is an event bus service that you can use to connect your applications with data from a variety of sources. For more information, see the [*Amazon EventBridge User Guide*](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html). The following sections provide detailed information about events under the Marketplace Catalog service in the EventBridge console.
 
@@ -38,6 +37,7 @@ This topic
 | Customer cancels their agreement | Purchase Agreement Ended | [Events for agreements](#events-for-agreements) | 
 | An advisory is issued that might affect a customer's agreement | Purchase Agreement Advisory Issued | [Events for agreements](#events-for-agreements) | 
 | An advisory affecting a customer's agreement is resolved | Purchase Agreement Advisory Resolved | [Events for agreements](#events-for-agreements) | 
+| A buyer's eligibility level for an agreement changes | Purchase Agreement Buyer Eligibility Updated | [Events for agreements](#events-for-agreements) | 
 | A customer's auto-renewing agreement approaches its end date | Purchase Agreement Ending - Proposer | [Events for agreements](#events-for-agreements) | 
 | A customer's renewal price uplift is finalized (percentage-range offers) | Purchase Agreement Renewal Terms Finalized - Proposer | [Events for agreements](#events-for-agreements) | 
 | A customer's agreement reaches its lockout date and will auto-renew | Purchase Agreement Renewal Upcoming - Proposer | [Events for agreements](#events-for-agreements) | 
@@ -1007,6 +1007,69 @@ The following is an example event body for **Purchase Agreement Advisory Resolve
   }
 }
 ```
+
+The following is an example event body for **Purchase Agreement Buyer Eligibility Updated - Manufacturer**.
+
+**Note**  
+When a new agreement is created, `previousLevel` is an empty string. For subsequent changes, it contains the level that was in effect before the change. AWS Marketplace sends this event only when the level changes, and does not send it when an account requires immediate action. In those cases, AWS Marketplace sends a `Purchase Agreement Advisory Issued - Manufacturer` event instead.
+
+```
+{
+  "version": "0",
+  "id": "a1b2c3d4-1111-2222-3333-444455556666",
+  "detail-type": "Purchase Agreement Buyer Eligibility Updated - Manufacturer",
+  "source": "aws.agreement-marketplace",
+  "account": "987654321098",
+  "time": "2026-07-02T14:30:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-4mwg1nevbokzw95eca5797ixs"
+  ],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-4mwg1nevbokzw95eca5797ixs"
+    },
+    "product": {
+      "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE"
+    },
+    "acceptor": {
+      "accountId": "845735284135"
+    },
+    "proposer": {
+      "accountId": "987654321098"
+    },
+    "offer": {
+      "id": "offer-1234567890123"
+    },
+    "eligibilityLevel": {
+      "level": "RECOGNIZED",
+      "previousLevel": "STANDARD",
+      "updatedAt": "2026-07-02T14:28:00Z"
+    }
+  }
+}
+````eligibilityLevel` fields
+
+`level`  
+The buyer's current eligibility level. An eligibility level shows how much information AWS has about a buyer's account. The level can go up or down over time as AWS collects new information. It reflects the information AWS has gathered, not a judgment about the buyer's character or intent. Possible values, from lowest to highest:    
+`MINIMAL`  
+AWS has very little information about this account.  
+`BASIC`  
+AWS has a baseline amount of information about this account.  
+`STANDARD`  
+AWS has an average amount of information about this account.  
+`RECOGNIZED`  
+AWS has greater than average information about this account.  
+`ESTABLISHED`  
+AWS has substantial information about this account.
+
+`previousLevel`  
+The buyer's previous eligibility level, or an empty string when the agreement is first created.
+
+`updatedAt`  
+The time the eligibility level was last updated, in ISO 8601 format.
 
 The following is an example event body for **Purchase Agreement Ending - Proposer**.
 

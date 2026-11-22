@@ -1,7 +1,6 @@
 
 
 # Understanding Buy with AWS dashboards
-<a name="buy-with-aws-dashboard"></a>
 
 The **Buy with AWS** dashboard provides an overview of the web traffic, engagements, and agreements created by the customers who choose your **Buy with AWS** call-to-action buttons and visit your **Buy with AWS** procurement page on AWS Marketplace.
 

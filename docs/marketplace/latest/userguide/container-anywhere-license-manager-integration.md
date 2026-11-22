@@ -1,7 +1,6 @@
 
 
 # Integrating an AWS Marketplace for Containers Anywhere with License Manager
-<a name="container-anywhere-license-manager-integration"></a>
 
 As an AWS Marketplace seller, you can integrate AWS License Manager with an AWS Marketplace for Containers Anywhere product for Amazon EKS Anywhere, Amazon ECS Anywhere, Amazon EC2, or on-premises infrastructure. The following sections provide instructions for this integration.
 
@@ -23,17 +22,9 @@ Use the following instructions to integrate your AWS Marketplace for Containers 
 
 **To integrate your AWS Marketplace for Containers Anywhere product with License Manager**
 
-1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home).
+1. Create a product ID for your container product. You will use this ID in your container image for license checks in a later step.
 
-1. Create a product ID for your container product by performing the following steps. You will use this ID in your container image for license checks in a later step.
-
-   1. From the menu bar, expand **Assets**, and choose **Container**.
-
-   1. Enter a customer-facing name for your product, and choose **Create**. You can change this name later.
-
-   1. Make a note of the **Product ID**. You will use it when you create or update the product pricing details.
-**Tip**  
-If you lose your product ID, you can find it in the AWS Marketplace Management Portal by choosing **Container** from the **Assets** menu. The **Containers** page shows a list of your products with their associated product IDs.
+   Create the product as described in [Step 1: Create your container product](container-product-getting-started.md#create-initial-container-product). Then make a note of the **Product ID** in the **Product summary** section of your product's page. If you lose your product ID, you can find it in the **Product ID** column of the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page.
 
 1. Download the latest public AWS SDK and then install it in your container application. You can find installation instructions for your preferred AWS SDK at [Tools to Build on AWS](https://aws.amazon.com/tools/).
 **Note**  
@@ -83,7 +74,7 @@ Extending the `DefaultCredentialsProvider` allows the same container application
        }
        ```
    + `KeyFingerprint` – The key fingerprint for licenses issued by AWS Marketplace is `aws:294406891311:AWS/Marketplace:issuer-fingerprint`. Using this key fingerprint ensures that the license is issued by AWS Marketplace and not by an unreliable entity.
-   + `ProductSKU` – The Product ID generated on AWS Marketplace Management Portal in previous steps.
+   + `ProductSKU` – The Product ID generated in previous steps.
 
    The following snippet is an example of a call using the `CheckoutLicense` API operation using the AWS CLI.
 
@@ -265,7 +256,7 @@ You can use minikube or any other setup to test License Manager integration on a
    --from-literal=iam_role=${ROLE_ARN}
    ```
 
-1. Deploy your application through Helm with the secret name as input and verify that the application can call License Manager API operations to perform entitlement checks. For Helm and deployment specification changes, refer to Step 9 in [Integrating an AWS Marketplace for Containers Anywhere product with License Manager](#containers-anywhere-integrate-with-LM).
+1. Deploy your application through Helm with the secret name as input and verify that the application can call License Manager API operations to perform entitlement checks. For Helm and deployment specification changes, refer to Step 8 in [Integrating an AWS Marketplace for Containers Anywhere product with License Manager](#containers-anywhere-integrate-with-LM).
 
 ## Testing License Manager integration on Amazon EKS
 <a name="container-testing-LM-integration-EKS"></a>

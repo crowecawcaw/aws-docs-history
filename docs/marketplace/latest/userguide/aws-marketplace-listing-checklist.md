@@ -1,7 +1,6 @@
 
 
 # AMI product checklist for AWS Marketplace
-<a name="aws-marketplace-listing-checklist"></a>
 
 Before submitting your Amazon Machine Image (AMI) product to AWS, use this checklist to validate your submission. Following these requirements will help ensure an efficient publication process.
 
@@ -23,7 +22,7 @@ Before submitting your Amazon Machine Image (AMI) product to AWS, use this check
 + Customers are able to access the instance over network and use administrative access.
 + No hardcoded secrets are present on the AMI. Examples of hardcoded secrets include default passwords for system users and services, private keys, and credentials.
 + No hardcoded SSH authorized public keys are present on the AMI.
-+ The Test 'Add Version' validation test completes successfully with no issues.
++ A version test with **Test this version** succeeds with no issues. For more information, see [Scanning your AMI for publishing requirements](best-practices-for-building-your-amis.md#self-service-scanning).
 
 ## Windows AMIs
 <a name="windows-amis-checklist"></a>
@@ -44,11 +43,12 @@ Before submitting your Amazon Machine Image (AMI) product to AWS, use this check
 + Remote login as superuser is prohibited.
 + Password-based remote access is prohibited.
 
-## Product load form or Product tab
+## Product details and pricing
 <a name="product-load-form-checklist"></a>
 + All required fields are completed. 
 + All values are within specified character limits. 
 + All URLs load without error. 
-+ The product image is at least 110 pixels wide and between a 1:1 and 2:1 ratio. 
-+ Pricing is specified for all enabled instance types (for hourly, hourly-based monthly pricing, and hourly-based annual pricing models). 
-+ Monthly pricing is specified (for hourly-based monthly and monthly pricing models). 
++ The product logo is a PNG or JPG file up to 5 MB, 120 to 640 pixels wide and tall, with a 1:1 or 2:1 ratio. For more information, see [Company and product logo requirements](product-submission.md#seller-and-product-logos).
++ Pricing is specified for all enabled instance types (for **Hourly pricing**, **Hourly with monthly subscription**, and **Hourly with annual savings option**). 
++ The monthly subscription fee is specified (for **Hourly with monthly subscription**). 
++ Contract dimensions and their prices are specified (for contract pricing).

@@ -1,33 +1,28 @@
 
 
 # Updating EC2 Image Builder product information on AWS Marketplace
-<a name="single-ib-updating-product"></a>
 
-After you create your single EC2 Image Builder components, you can change some of the information associated with it in AWS Marketplace. For example, if a new version modifies the description or highlights of the product, you can edit the product information with the new data. You can also update other product information, including product title, SKU description, categories, keywords, and others. For more information, see the following procedure.
+After you create your single EC2 Image Builder components, you can change some of the information associated with it in AWS Marketplace. For example, if a new version modifies the description or highlights of the product, you can edit the product information with the new data. You can also update other product information, including product title, SKU, categories, keywords, and others. For more information, see the following procedure.
 
 **To update product information**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, and on the **Server products** tab, select the product that you want to modify.
+1. Choose the product.
 
-1. From the **Request changes** dropdown, choose **Update product information**.
+1. Choose the **Product details** tab.
 
-1. Update any of the following fields that you need to change:
-   + **Product title**
-   + **SKU**
-   + **Short description**
-   + **Long description**
-   + **Product logo image URL**
-   + **Highlights**
-   + **Product categories**
-   + **Keywords**
-   + **Product video URL**
-   + **Resources**
-   + **Support information**
-**Note**  
-For details about the logo format, see [Company and product logo requirements](product-submission.md#seller-and-product-logos).
+1. In the **Product details** section, choose **Edit**.
 
-1. Select **Submit**.
+1. On the **Provide product details** page, update the fields that you need to change:
+   + **Product information** – **Product title**, **SKU**, **Product logo**, **Short description**, **Long description**, and **Highlights**
+   + **Support information** – **Support details** and **Learning resources**
+   + **AWS Marketplace discoverability** – **Product categories** and **Keywords for AWS Marketplace search results**
 
-1. Verify that the request appears on the **Requests** tab with the **Under review** status. You might need to refresh the page to see the request on the list.
+   For details about the logo format, see [Company and product logo requirements](product-submission.md#seller-and-product-logos).
+
+1. Choose **Save**.
+
+Your change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While this request is in progress, the actions on the **Product details** tab are unavailable.
+
+To change images and videos, choose **Edit** in the **Images and videos** section of the **Product details** tab. If your product has no images or videos yet, choose **Add**.

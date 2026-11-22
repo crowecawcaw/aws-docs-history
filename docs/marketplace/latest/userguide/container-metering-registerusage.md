@@ -1,7 +1,6 @@
 
 
 # Configuring hourly metering with AWS Marketplace Metering Service
-<a name="container-metering-registerusage"></a>
 
 **Note**  
  For Amazon EKS deployments, your software must use [IAM roles for service accounts (IRSA)](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) to sign the API call for the [`RegisterUsage`](https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-metering_RegisterUsage.html) API operation. Using [EKS Pod Identity](https://docs.aws.amazon.com/eks/latest/userguide/pod-identities.html), the node role, or long-term access keys are not supported.  
@@ -28,9 +27,9 @@ For more information about integrating AWS Marketplace Metering Service API with
 
 Before publishing the product, you must do the following:
 
-1. Create a new container product in the AWS Marketplace Management Portal, and make a note of its product code.
+1. Create a new container product in AWS Partner Central, and make a note of its product code.
 
-   For more information, see [Overview: Create a container product](container-product-getting-started.md#create-container-product).
+   The product code appears in the **Product summary** section of your product's page after you choose **Show more**. For more information, see [Overview: Create a container product](container-product-getting-started.md#create-container-product).
 
 1. Use an AWS Identity and Access Management (IAM) role for the task or pod running your application with the IAM permissions necessary to call `RegisterUsage`. The IAM managed policy `AWSMarketplaceMeteringRegisterUsage` has these permissions. For more information about the policy, see [ AWSMarketplaceMeteringFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSMarketplaceMeteringFullAccess.html) in the *AWS Managed Policy Reference*.
 

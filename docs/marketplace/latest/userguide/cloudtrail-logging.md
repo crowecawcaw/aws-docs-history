@@ -1,7 +1,6 @@
 
 
 # Logging AWS Marketplace API calls with AWS CloudTrail
-<a name="cloudtrail-logging"></a>
 
 AWS Marketplace is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Marketplace. CloudTrail captures API calls for AWS Marketplace as events. The calls captured include calls from the AWS Marketplace console and code calls to the AWS Marketplace API operations.
 

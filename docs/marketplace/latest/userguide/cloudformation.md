@@ -1,7 +1,6 @@
 
 
 # Add CloudFormation templates to your product
-<a name="cloudformation"></a>
 
 AWS Marketplace sellers can list AMI-based products that are delivered to AWS Marketplace buyers by using AWS CloudFormation templates. Adding a CloudFormation template to your AMI-based product allows your buyers to deploy your solution without having to manually configure the resources and dependencies. You can use the templates to define a cluster or distributed architecture for the products or to select different AMI combinations or product configurations. Single AMI solutions can contain a maximum of three CloudFormation templates.
 
@@ -32,7 +31,7 @@ To build your CloudFormation templates, you must meet the template prerequisites
 <a name="ami-requirements-sse"></a>
 
 **Note**  
-If you create an **Amazon Machine Image (AMI) or AMI with CloudFormation** on the [server products](https://aws.amazon.com/marketplace/management/products/server) page of the seller portal and are prompted to download the [product load form](https://docs.aws.amazon.com/marketplace/latest/userguide/product-submission.html#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product), see [Requirements for AMI details using the product load form](#ami-requirements-product-load-form) instead.
+When you add a version, enter the name of the template parameter that your `ImageId` property references in **AMI parameter name**. For instructions, see [Add a new version](single-ami-versions.md#single-ami-adding-version).
 
 When specifying the `ImageId` property of resources that deploy your AMI to EC2 instances such as [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html), [AWS::AutoScaling::LaunchConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html), and [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) resources, you must reference a [template parameter.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) The parameter type must be either a `AWS::EC2::Image::Id`, `AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>`, or `String`.
 
@@ -79,42 +78,13 @@ JSON example:
 
 If you are deploying EC2 instances inside a [nested stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) instead of the root stack, the AMI ID must dynamically inherit its value from the root stack. Edit your root and nested stacks so that in the root stack, setting the value of your template parameter overrides the AMI ID used in this nested stack.
 
-### Requirements for AMI details using the product load form
+### AMI mapping tables in existing templates
 <a name="ami-requirements-product-load-form"></a>
 
-**Note**  
-When you create an **Amazon Machine Image (AMI) or AMI with CloudFormation** on the [server products](https://aws.amazon.com/marketplace/management/products/server) page of the seller portal and are not immediately prompted to download the [product load form](https://docs.aws.amazon.com/marketplace/latest/userguide/product-submission.html#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product), see [Requirements for AMI details](#ami-requirements-sse) instead.
-
-AMIs must be in a mapping table for each Region. The AWS Marketplace team updates the AMI IDs after they're cloned. Your source AMI must be in the `us-east-1` Region. The other Regions can use placeholders.
-
-YAML example:
-
-```
-Mappings: 
-  RegionMap: 
-      us-east-1: 
-          ImageId: ami-0123456789abcdef0
-      us-west-1: 
-          ImageId: ami-xxxxxxxxxxxxxxxxx
-      eu-west-1: 
-          ImageId: ami-xxxxxxxxxxxxxxxxx
-      ap-southeast-1: 
-          ImageId: ami-xxxxxxxxxxxxxxxxx
-Resources:
-  EC2Instance:
-    Type: AWS::EC2::Instance
-    Properties:
-      ImageId: !FindInMap 
-        - RegionMap
-        - !Ref AWS::Region
-        - ImageId
-```
+Templates of some existing products reference the AMI ID through a mapping table for each AWS Region. To add a new version, your template must reference a template parameter instead, as described in [Requirements for AMI details](#ami-requirements-sse). To update a template that uses a mapping table, see [Convert CloudFormation templates of existing products](#convert-cloudformation-templates).
 
 ### Requirements for nested stack templates
 <a name="nested-stack-template-requirements"></a>
-
-**Note**  
-This section only applies to pricing models that do not use the [product load form](https://docs.aws.amazon.com/marketplace/latest/userguide/product-submission.html#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product). For pricing models that *do use* the product load form, only a fixed string is allowed for the nested stack `TemplateURL` property.
 
 If your template includes [nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html), the `TemplateURL` property of nested stack resources must reference the template parameters for the Amazon S3 bucket name, bucket Region, and Amazon S3 object key prefix. The parameter names for the bucket name must be `MPS3BucketName`, the bucket Region must be `MPS3BucketRegion`, and for the object key prefix must be `MPS3KeyPrefix`.
 
@@ -268,29 +238,25 @@ The diagram must meet the following criteria:
 + Include metadata for all the services deployed by the CloudFormation template.
 + Include all networks, VPCs, and subnets deployed by the CloudFormation template.
 + Show integration points, including third party assets, APIs and on-premises, hybrid assets.
-+ Diagrams must be 1100 x 700 pixels in size. Maintain original diagram proportions without stretching or cropping.
++ Diagrams must be 1560 x 878 or 1560 x 3120 pixels in size, with a 16:9 or 1:2 ratio. Maintain original diagram proportions without stretching or cropping.
 
 ## Convert CloudFormation templates of existing products
 <a name="convert-cloudformation-templates"></a>
 
-**Note**  
-This section is for sellers with an existing AMI with CloudFormation product that used the [product load form](https://docs.aws.amazon.com/marketplace/latest/userguide/product-submission.html#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product) to publish their templates and now want to update that template without using the product load form. If you are publishing a new product, see [Preparing your CloudFormation templates](https://docs.aws.amazon.com/marketplace/latest/userguide/cloudformation.html#aws-cloudformation-template-preparation).  
-If you create an **Amazon Machine Image (AMI) or AMI with CloudFormation** on the [server products](https://aws.amazon.com/marketplace/management/products/server) page of the seller portal and are prompted to download the [product load form](https://docs.aws.amazon.com/marketplace/latest/userguide/product-submission.html#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product), see [Requirements for AMI details using the product load form](#ami-requirements-product-load-form).
+Some existing products use templates that reference the AMI ID through a mapping table, and nested templates through a fixed URL. Before you add a new version of one of these products, update the template to reference template parameters instead. If you're publishing a new product, see [Preparing your CloudFormation template](#aws-cloudformation-template-preparation).
 
-If you want to use the self-service experience to update an existing product that previously used the [product load form](https://docs.aws.amazon.com/marketplace/latest/userguide/product-submission.html#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product) to publish, you must make changes to your existing CloudFormation template.
-
-The following table describes the difference between using the product load form and the self-service experience:
+The following table describes the changes:
 
 
 
-|  | Product load form | Self-service experience | 
+| Property | Existing template | Updated template | 
 | --- | --- | --- | 
-| Value of ImageId property for EC2 resources | References a mapping table for your AMI ID. For more information, see [Requirements for AMI details using the product load form](#ami-requirements-product-load-form).  | References a template parameter for your AMI ID. For more information, see [Requirements for AMI details](#ami-requirements-sse).  | 
+| Value of ImageId property for EC2 resources | References a mapping table for your AMI ID. For more information, see [AMI mapping tables in existing templates](#ami-requirements-product-load-form).  | References a template parameter for your AMI ID. For more information, see [Requirements for AMI details](#ami-requirements-sse).  | 
 | Value of TemplateURL property for nested stacks | Must be a fixed string and can't use intrinsic functions. | Can be dynamic by using intrinsic functions. Must reference a set of template parameters. For more information, see [Requirements for nested stack templates](#nested-stack-template-requirements) | 
 
-The following example templates illustrate an example of an existing product that used the product load form to publish the template. In this example, the AMI ID is `ami-example123456` and a nested template is in a seller’s S3 bucket at the location `https://sellerbucket.s3.us-east-1.amazonaws.com/sellerproductfolder/nested-template.yaml`.
+The following examples show an existing template. In this example, the AMI ID is `ami-example123456` and a nested template is in a seller’s S3 bucket at the location `https://sellerbucket.s3.us-east-1.amazonaws.com/sellerproductfolder/nested-template.yaml`.
 
-YAML example published with the product load form:
+YAML example of an existing template:
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -312,7 +278,7 @@ Resources:
       TemplateURL: https://sellerbucket.s3.us-east-1.amazonaws.com/sellerproductfolder/nested-template.yaml
 ```
 
-JSON example published with the product load form:
+JSON example of an existing template:
 
 ```
 {
@@ -349,9 +315,9 @@ JSON example published with the product load form:
 }
 ```
 
-The following template examples illustrate the changes required to use the self-service experience to update the product.
+The following examples show the same template after you update it.
 
-YAML example published with the self-service experience:
+YAML example of the updated template:
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -393,7 +359,7 @@ Resources:
       TemplateURL: !Sub https://${MPS3BucketName}.s3.${MPS3BucketRegion}.${AWS::URLSuffix}/${MPS3KeyPrefix}nested-template.yaml
 ```
 
-JSON Example published with the self-service experience:
+JSON example of the updated template:
 
 ```
 {
@@ -457,3 +423,5 @@ JSON Example published with the self-service experience:
     }
 }
 ```
+
+After you update the template, upload it and its nested templates to Amazon S3. Then add a new version with the **AMI with CloudFormation** delivery method. In **CloudFormation template link**, enter the Amazon S3 URL of the parent template. In **AMI parameter name**, enter the parameter that your `ImageId` property references, `ImageId` in this example. For instructions, see [Add a new version](single-ami-versions.md#single-ami-adding-version).

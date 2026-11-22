@@ -1,11 +1,10 @@
 
 
 # AWS Marketplace glossary
-<a name="glossary"></a>
 
 For the latest AWS terminology, see the [AWS glossary](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html) in the *AWS Glossary Reference*.
 
-*Jump to:* [A](#glossary-a) \| [B](#glossary-b) \| [C](#glossary-c) \| [D](#glossary-d) \| [E](#glossary-e) \| [F](#glossary-f) \| [G](#glossary-g) \| [I](#glossary-i) \| [K](#glossary-k) \| [L](#glossary-l) \| [M](#glossary-m) \| [O](#glossary-o) \| [P](#glossary-p) \| [S](#glossary-s) \| [T](#glossary-t) \| [V](#glossary-v) \| [W](#glossary-w) \| 
+*Jump to:* [A](#glossary-a) \| [B](#glossary-b) \| [C](#glossary-c) \| [D](#glossary-d) \| [E](#glossary-e) \| [F](#glossary-f) \| [G](#glossary-g) \| [I](#glossary-i) \| [K](#glossary-k) \| [L](#glossary-l) \| [M](#glossary-m) \| [O](#glossary-o) \| [P](#glossary-p) \| [R](#glossary-r) \| [S](#glossary-s) \| [T](#glossary-t) \| [V](#glossary-v) \| [W](#glossary-w) \| 
 
 ## A
 <a name="glossary-a"></a>
@@ -175,6 +174,12 @@ Software offerings in AWS Marketplace that require payment from buyers and have 
 Information about a seller's company that is visible to potential buyers in AWS Marketplace, including company name, description, website, and contact information.  
 *See also:* [display name](#glossary-display-name), [legal company name](#glossary-legal-company-name)  
 *Learn more:* [Step 1: Register and create your seller profile](create-public-profile.md)
+
+## R
+<a name="glossary-r"></a>
+
+**RTB Fabric module product**  <a name="glossary-rtb-fabric-module-product"></a>
+A product that delivers a bid-traffic module that buyers deploy in the AWS RTB Fabric console. Buyers subscribe on AWS Marketplace or from the AWS RTB Fabric console, then deploy the module in RTB Fabric, which verifies the subscription.
 
 ## S
 <a name="glossary-s"></a>

@@ -1,7 +1,6 @@
 
 
 # Step 4: Set disbursement preferences
-<a name="set-disbursement-preferences"></a>
 
 Setting disbursement preferences allows you to specify how you want to receive payments for your product sales on AWS Marketplace. This step is required for sellers who plan to offer paid products.
 
@@ -13,6 +12,10 @@ If you recently registered, you may need to wait two business days between creat
 **Sellers in India**  
 Sellers in India can only receive disbursements in Indian rupee and have specific deduction requirements. For detailed information, see [Sellers in India FAQ](india-seller-faq.md).  
 The requirement for setting USD as a disbursement preference is not needed for sellers in India. Sellers in India are required to associate INR to their bank account to create offers and receive disbursements. Sellers in India will be able to create public offers in USD and private offers in USD.
+
+**Sellers in Singapore**  
+Sellers in Singapore must complete Singapore business verification before they can open the **Payment information** tab and add a bank account. For more information, see [Singapore business verification](complete-kyc-process.md#singapore-business-verification).  
+Sellers in Singapore can add a bank account located in Singapore and receive disbursements in USD, SGD, and other supported currencies.
 
 ## Steps to set disbursement preferences
 <a name="set-disbursement-preferences-steps"></a>

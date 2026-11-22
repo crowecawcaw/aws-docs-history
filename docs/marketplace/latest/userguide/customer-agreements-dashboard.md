@@ -1,7 +1,6 @@
 
 
 # Customer agreements dashboard
-<a name="customer-agreements-dashboard"></a>
 
 The Customer agreements dashboard provides an overview of the agreements and customers who subscribe to your products in AWS Marketplace. The dashboard provides data on your new and active agreements, plus customer trends and profiles.
 

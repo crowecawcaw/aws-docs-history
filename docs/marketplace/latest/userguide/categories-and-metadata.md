@@ -1,7 +1,6 @@
 
 
 # Providing metadata for AWS Marketplace products
-<a name="categories-and-metadata"></a>
 
 As a seller, when you add a product to AWS Marketplace, you specify product metadata. Product metadata includes the name, description, categories, and keywords that you use to describe your product for customers. AWS Marketplace revises product metadata solely for quality assurance and error correction. This topic provides information and best practices that you, as an AWS Marketplace seller, can use to effectively name, describe, and categorize your products. 
 

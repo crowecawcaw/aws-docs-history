@@ -1,7 +1,6 @@
 
 
 # Amazon Bedrock AgentCore Gateway
-<a name="bedrock-agentcore-gateway"></a>
 
 This document provides information for AWS Marketplace sellers who want to list API-based AI agent products or tools that can be integrated with Amazon Bedrock AgentCore Gateway.
 
@@ -30,6 +29,10 @@ For more information, see [Amazon Bedrock AgentCore Developer Guide](https://doc
 You can enable Amazon Bedrock AgentCore Gateway integration for your SaaS API-based AI agent products in one of the following ways, depending on your product: 
 + If you list an MCP server that supports two-legged OAuth authentication, you can opt-in to offer your buyers the integration with no additional requirements. The MCP server endpoint you provide as part of your listing process will be used for the integration. However, you must ensure your MCP server meets the requirements listed below. For more information, see [MCP servers targets](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-MCPservers.html).
 + For all other agents or tools, you can provide an OpenAPI specification to enable the integration.
+
+**Note**  
+Gateway integration isn't available for Agentic Commerce products. For more information, see [Listing Agentic Commerce products](agentic-commerce-products.md).  
+Buyers' agents can still find Agentic Commerce products through the AWS Marketplace connector on Amazon Bedrock AgentCore Gateway. For more information, see [AWS Marketplace as Connector Target](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-aws-marketplace.html) in the *Amazon Bedrock AgentCore Developer Guide*.
 
 ### MCP server requirements
 <a name="gateway-mcp-server-requirements"></a>
@@ -85,25 +88,33 @@ The following table shows supported and unsupported OpenAPI features:
 ### Enabling Bedrock AgentCore Gateway
 <a name="enabling-bedrock-agentcore"></a>
 
+You can't enable Gateway integration for an Agentic Commerce product.
+
 Before you enable Gateway integration, test your OpenAPI specification or MCP server with Amazon Bedrock AgentCore Gateway by completing these tasks:
 + [Create a gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-building.html)
 + [Attach a Target](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-building-adding-targets.html)
 + [Test your Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-building-testing.html)
 
+For a new listing, you choose Gateway integration when you add the delivery option. For more information, see [Configure fulfillment options](listing-saas-ai-agents.md#step-2-fulfillment-options).
+
 **To enable Gateway integration**
 
-1. Sign in to [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home).
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. Open the [AI agents and tools](https://aws.amazon.com/marketplace/management/products/aiagents) page.
+1. Choose the product.
 
-1. On the **AI agents and tools products** tab, select the product to modify.
+1. On the **Delivery** tab, in the **Protocols and integration** section, choose **Edit**.
 
-1. From the **Request changes** dropdown list, select **Update fulfillment options**.
+   The update wizard opens on the **Set protocols and integration** step.
 
-1. Choose **Enable tool for Amazon Bedrock AgentCore integration**.
+1. Under **Amazon Bedrock AgentCore Gateway integration**, for **Integration status**, choose **Enable tool for AgentCore Gateway integration - recommended**.
 
-1. Upload your OpenAPI specification. For two-legged OAuth enabled MCP Server products this is not required and only the MCP endpoint is required.
+1. For **OpenAPI specification file upload**, choose **Choose file**, and select your OpenAPI specification.
 
-1. Choose **Submit**.
+   Use .json, .yml, or .yaml format, up to 1 MB. The uploaded file expires after 6 hours, so submit the delivery option within that time. If the option already has a specification, choose **Replace** instead. An MCP server that uses **OAuth 2.0** doesn't need a file, because Gateway uses your MCP endpoint.
 
-After you submit, the request status appears as **Under review** in the **Requests** tab. When processing completes, the status changes to **Succeeded**.
+1. Choose **Next**.
+
+1. On the **Review and submit** step, choose **Update delivery option**.
+
+Your change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While a request is in progress, the actions on the **Delivery** tab are unavailable.

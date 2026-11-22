@@ -1,7 +1,6 @@
 
 
-# Packaging your code into images for machine learning products in AWS Marketplace
-<a name="ml-packaging-your-code-into-images"></a>
+# Packaging your product
 
 Machine learning products in AWS Marketplace use Amazon SageMaker AI to create and run the machine learning logic you provide for buyers. SageMaker AI runs Docker container images that contain your logic. SageMaker AI runs these containers in a secure and scalable infrastructure. For more information, see [Security and intellectual property with Amazon SageMaker AI](ml-security-and-intellectual-property.md). The following sections provide information about how to package your code into Docker container images for SageMaker AI.
 
@@ -25,4 +24,4 @@ Machine learning products in AWS Marketplace use Amazon SageMaker AI to create a
 **Important**  
  For security purposes, when a buyer subscribes to your containerized product, the Docker containers run in an isolated environment without an internet connection. When you create your containers, don't rely on outgoing calls over the internet because they will fail. Calls to AWS services will also fail. For more information, see the [Security and intellectual property with Amazon SageMaker AI](ml-security-and-intellectual-property.md) section. 
 
- Optionally, when creating your inference and training images, use a container from [Available Deep Learning Containers Images](https://aws.amazon.com/releasenotes/available-deep-learning-containers-images/) as a starting point. The images are already properly packaged with different machine learning frameworks. 
+ Optionally, when creating your inference and training images, use a container from [Available Deep Learning Containers Images](https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/deep-learning-containers-images.html) in the *AWS Deep Learning Containers Developer Guide* as a starting point. The images are already properly packaged with different machine learning frameworks. 

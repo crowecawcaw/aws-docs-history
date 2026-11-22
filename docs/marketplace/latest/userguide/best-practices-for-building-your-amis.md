@@ -1,7 +1,6 @@
 
 
 # Best practices for building AMIs for use with AWS Marketplace
-<a name="best-practices-for-building-your-amis"></a>
 
 This topic provides best practices and references to help you build Amazon Machine Images (AMIs) for use with AWS Marketplace. AMIs built and submitted to AWS Marketplace must adhere to all AWS Marketplace product policies. For more information, see the following sections.
 
@@ -70,17 +69,29 @@ For more information related to security, see the following resources:
 
 To publish your AMI on the AWS Marketplace Catalog, you must complete AMI scanning. AMI scanning checks for unpatched common vulnerabilities and exposures (CVEs) and verifies that your AMI follows security best practices. For more information, refer to [Preparing and securing your AMI for AWS Marketplace](https://docs.aws.amazon.com/marketplace/latest/userguide/best-practices-for-building-your-amis.html#securing-an-ami)
 
-To initiate a test scan, you must have an existing AMI product. To learn how to create an AMI product, see [Creating AMI-based products](ami-single-ami-products.md). 
+To check a version before you submit it, run a test. A test runs the same checks that AWS Marketplace runs on a new version, including the AMI scan, without adding the version. Nothing reaches buyers, and your live listing doesn't change. To run a test, you must have an existing AMI product. To learn how to create an AMI product, see [Creating AMI-based products](ami-single-ami-products.md).
 
-To perform AMI scanning:
+**To test a version**
 
-1. From the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/homepage), navigate to the **Products** menu and choose **Server**. 
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. Select your product from **Server products**. This must be an AMI-based product. The product can be in any state and does not need to be in the **Public** published state for next steps.
+1. Choose the product.
 
-1. Navigate to the **Request changes** menu and select **Update versions**. 
+1. On the **Delivery** tab, in the **Versions** section, choose **Add version**.
 
-1. Select **Test ‘Add version’**. Follow the prompts to submit a request with your AMI details. If the request succeeds, this indicates that the AMI has passed scanning successfully. Unlike the **Add new version** option, **Test 'add version'** does not add a new version to the AMI-based product if the scan is successful.
+   For a new product, you can instead choose **Start** on the **Configure version and delivery options** card under **Step 2: Delivery configuration**. On a new product, **Add version** and this card are available after you complete the **Add Regions** and **Add instance types** cards.
+
+1. On the **Configure version** step, enter the version information.
+
+1. Under **Test version**, select **Test this version**, and then choose **Next**.
+
+1. On the **Configure delivery options** step, enter your AMI details and any CloudFormation templates, and then choose **Next**.
+
+   A test checks every field, so complete the step as you would for a new version. For the fields, see [Add a new version](single-ami-versions.md#single-ami-adding-version).
+
+1. On the **Review and test** step, choose **Run test**.
+
+Your test appears on the product's **Change history** tab as **Test add version {{version-title}}**. Its status moves from **Preparing** to **Succeeded** or **Failed**. A test stops after this check and never applies a change. If the status is **Succeeded**, the version passed every check, including the AMI scan, and you can submit it. To see why a test failed, choose the request name.
 
 **Note**  
 To learn about giving AWS Marketplace access to your AMI, see [Giving AWS Marketplace access to your AMI](single-ami-marketplace-ami-access.md).

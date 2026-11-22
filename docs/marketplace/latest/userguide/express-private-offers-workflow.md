@@ -1,7 +1,6 @@
 
 
 # How express private offers work
-<a name="express-private-offers-workflow"></a>
 
 Express private offers enable automated private offer generation through a structured three-phase process. This workflow ensures that standard deals are processed efficiently while complex opportunities receive appropriate sales attention.
 

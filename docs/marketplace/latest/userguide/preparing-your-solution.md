@@ -1,12 +1,17 @@
 
 
 # Preparing your solution listing
-<a name="preparing-your-solution"></a>
 
 ## What is a solution?
 <a name="what-is-solution-listing"></a>
 
- A solution shows customers how multiple AWS Marketplace products work together. Solutions help customers discover and understand your complete offering. 
+ A solution is your product framed for a specific customer: who you serve, the problem you solve, and the result the customer gets. Solutions help customers discover and understand your offering when they are describing a problem rather than searching for you by name. 
+
+There are two kinds, and the difference is how many products sit behind the solution.
++ **Single-product solution.** One product positioned for a specific sector, audience, or outcome. Use it when you already sell a product and want it discovered by the problem it solves rather than by its name. It adds a new go-to-market story over an existing product, with no rebuild.
++ **Multi-product solution.** Several products bundled into one customer outcome, including products from other AWS Marketplace sellers and from AWS. Use it when the result takes more than one product. It adds offer sets, so a customer can transact the bundle as a single purchase.
+
+The rest of this page applies to both unless it says otherwise. The sections on adding other sellers' products and on offer sets apply only to multi-product solutions. To decide which you need, see [Deciding what to list in AWS Marketplace](deciding-what-to-list.md).
 
 ## Prerequisites
 <a name="prerequisites"></a>
@@ -15,9 +20,9 @@
 
 1. Active AWS Partner Network (APN) membership.
 
-1. ACE (APN Customer Engagement) eligibility to enable **Request private offer** and receive leads.
+1. Opportunities, in the left navigation pane under **Sell**, enabled to use **Request private offer** and receive leads.
 
-1. At least two public product listings on AWS Marketplace. At least one public product must be your own.
+1. At least one product on AWS Marketplace, and at least one must be your own public product.
 
 1. For solutions that include other sellers' products:
 
@@ -54,6 +59,7 @@
 + Professional services
 + Machine Learning
 + AI agents
++ RTB Fabric module
 
 **Note**  
 Solution listings do not currently support Amazon Data Exchange (ADX) products.
@@ -165,7 +171,7 @@ This must be the Product ID from AWS Partner Central or the AWS Marketplace cata
  To make your solution public, choose **Update Visibility** in the upper right of the overview page. By default, the system enables the **Request private offer** button for all solutions going public to ensure customers can engage with the seller. Your solution must meet all criteria below. After you submit your request, the AWS Marketplace seller operations team will review and approve or reject it. 
 
  Requirements: 
-+ Include at least two public AWS Marketplace products. Solutions cannot include draft, limited, or restricted products.
++ Include at least one public AWS Marketplace product. Solutions cannot include draft, limited, or restricted products.
 + At least one public product must be owned by your own account.
 + At least one use case must be chosen.
 + You must enable **Request private offer**.
@@ -173,4 +179,4 @@ This must be the Product ID from AWS Partner Central or the AWS Marketplace cata
   + You coordinated with the product owner to obtain product IDs.
   + The product owner is ready to provide selling authorization to create channel partner private offers.
   + You obtained consent from the product owner to showcase their product in your public solution listing.
-+ No more than five public solutions live on AWS Marketplace.
++ Your account can have up to 100 public solutions at a time. Limited and Restricted solutions don't count toward this limit.

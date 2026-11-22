@@ -1,7 +1,6 @@
 
 
 # Refunds and cancellations in AWS Marketplace
-<a name="refunds"></a>
 
 All paid products in AWS Marketplace must have a stated refund policy for software charges. The refund policy must include the terms of the refund and a method of contacting the seller to request a refund.
 
@@ -13,6 +12,9 @@ For a walkthrough of how to request a cancellation and apply a billing adjustmen
 
 **Note**  
 In AWS Partner Central, refunds are referred to as *billing adjustments*. Both terms refer to the same process of returning funds to a buyer or reducing the outstanding balance on an invoice.
+
+**Note**  
+Buyers who purchase through AWS Marketplace Express Checkout cancel in My Account in the AWS Marketplace Express Checkout catalog. For details, see the [Express Checkout FAQ](saas-express-checkout.md#saas-express-checkout-faq).
 
 **Topics**
 + [Refund request types for AWS Marketplace products](#refund-requests)
@@ -41,7 +43,10 @@ The following list describes the AWS Marketplace refund policy and whether your 
 + **Free trials** — If you list your software as a free trial product, AWS can issue refunds on your behalf for software charges that accrue within seven days of converting to a paid subscription. Refunds issued in connection with free trial conversions require no action on your part. By enabling a free trial on a product, you agree to this policy.
 + **Private offers** — All refunds for private offers must be authorized by you before AWS can process them.
 + **Software metering refunds** — If you use the AWS Marketplace Metering Service to meter the usage of your software, AWS can issue refunds on your behalf for software charges resulting from software metering errors. If these errors are common across multiple buyers, AWS reserves the right to determine an appropriate refund for each buyer and apply it directly to each buyer. By using the AWS Marketplace Metering Service with a product, you are agreeing to this policy.
-+ **Subscription cancellation within 48 hours of purchase** — If a buyer cancels their subscription within 48 hours of a non-private offer purchase, AWS issues a full refund (cancel with 100 percent refund). Refunds issued in connection with cancellation within 48 hours of purchase require no action on your part. After 48 hours, such buyer request is at your discretion. By listing your product on AWS Marketplace, you agree to this policy. Buyers cancel pay-as-you-go (usage-based) subscriptions themselves in the AWS Marketplace console. For contract (upfront) pricing, self-service cancellation isn't available, so buyers request cancellation through AWS Customer Service. For requests made within 48 hours of purchase, AWS cancels and refunds the buyer directly, with no action on your part.
++ **Agentic Commerce charges** — Agentic Commerce charges follow the same refund process as other usage-based third-party software. Buyers request refunds from you under your refund policy. If you approve a refund, you can apply a billing adjustment to the invoice after the charge appears on it. Apply it from the [Agreements](https://aws.amazon.com/marketplace/management/agreements/) page in AWS Partner Central or through the [Billing Adjustments API](#billing-adjustments-api).
+
+  Billing adjustments apply to an invoice, not to an individual payment. There's no separate API for adjusting individual Agentic Commerce payments. For more information about Agentic Commerce refunds, see [Refunds and reporting](agentic-commerce-products.md#agentic-commerce-refunds-reporting).
++ **Subscription cancellation within 48 hours of purchase** — If a buyer cancels their subscription within 48 hours of a non-private offer purchase, AWS issues a full refund (cancel with 100 percent refund). Refunds issued in connection with cancellation within 48 hours of purchase require no action on your part. After 48 hours, such buyer request is at your discretion. By listing your product on AWS Marketplace, you agree to this policy. Buyers cancel pay-as-you-go (usage-based) subscriptions themselves in the AWS Marketplace console. For contract (upfront) pricing, self-service cancellation isn't available, so buyers request cancellation through AWS Customer Service. For requests made within 48 hours of purchase, AWS cancels and refunds the buyer directly, with no action on your part. For RTB Fabric module products, contract agreements go through AWS Customer Service or a seller-initiated cancellation request.
 + **Subscription upgrade** — If a buyer replaces an existing non-private offer subscription with a more expensive subscription or a subscription of equal value, AWS can issue refunds on your behalf for the lower-tier subscription.
 + **Subscription downgrade** — All downgrade subscription refund requests must be authorized by you before AWS can process them.
 + **Seller-initiated billing adjustments** — As the seller of record, you can initiate billing adjustments (refunds) for any agreement through the [**Agreements**](https://aws.amazon.com/marketplace/management/agreements/) page in AWS Partner Central or through the Billing Adjustments API. Billing adjustments don't require buyer approval and are processed automatically after validation. Refunds are irreversible after they've been processed.
@@ -60,6 +65,7 @@ Cancellation only cancels future invoices that have not been issued. It doesn't 
 ### Prerequisites
 <a name="cancellation-prerequisites"></a>
 + You must be the seller of record for the agreement. For Marketplace Private Offers (MPPO), this is the ISV. For Channel Partner Private Offers (CPPO), this is the channel partner (CP).
++ Seller-initiated cancellation requests and billing adjustments are available for SaaS, AMI, container, professional services, and RTB Fabric module agreements.
 + The agreement must be active.
 + There must not be an existing active cancellation request for the same agreement.
 + No related agreement should exist for the agreement being canceled. For instance, a usage agreement can't be canceled if it has an associated annual discount agreement.

@@ -1,7 +1,6 @@
 
 
 # Seller eligibility requirements
-<a name="seller-eligibility"></a>
 
 Eligibility requirements for AWS Marketplace sellers vary based on whether you're offering free products or paid products, your location, and the regions where you want to sell.
 
@@ -70,6 +69,7 @@ If you're changing jurisdictions, consult your legal and tax advisors before pro
 + New Zealand
 + Norway
 + Qatar
++ Singapore
 + South Korea
 + Switzerland
 + United Arab Emirates (UAE)

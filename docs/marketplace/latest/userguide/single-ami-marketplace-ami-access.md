@@ -1,7 +1,6 @@
 
 
 # Giving AWS Marketplace access to your AMI
-<a name="single-ami-marketplace-ami-access"></a>
 
 When you create a request that includes adding a new Amazon Machine Image (AMI) to AWS Marketplace, the AMI must be copied into the AWS Marketplace system and then scanned for security issues. You must give AWS Marketplace access to the AMI by creating an AWS Identity and Access Management (IAM) role with permissions to perform actions on your AMI and a trust policy that allows AWS Marketplace to assume the role. You only need to create the IAM role once. The following procedure shows you how to create a role for AWS Marketplace assets ingestion that gives AWS Marketplace access to your AMI.
 
@@ -49,7 +48,7 @@ If your AMI includes FPGA images (AFIs), you must also grant AWS Marketplace add
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[

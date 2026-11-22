@@ -1,30 +1,83 @@
 
 
 # Creating an initial SaaS product page on AWS Marketplace
-<a name="saas-create-product-page"></a>
 
 You can use your software as a service (SaaS) application metadata to create an initial SaaS product page in the AWS Marketplace catalog, using AWS Partner Central. You can then also add product information, product deployment details, and public offer details. Optionally, you can add accounts to the allowlist to test the product. For more information see the following procedure.
 
 **Use AI-assisted product listing**  
-You can use AI-assisted product listing in AWS Partner Assistant to generate product information for this step from a website URL or uploaded documents. The tool scores listing quality against AWS Marketplace standards and provides field-level recommendations to improve discoverability and buyer engagement before you submit. For more information, see [AI-assisted product listing](ai-assisted-product-listing.md).
+You can use AI-assisted product listing in AWS Partner Central Agents to generate product information for this step from a website URL or uploaded documents. The tool scores listing quality against AWS Marketplace standards and provides field-level recommendations to improve discoverability and buyer engagement before you submit. For more information, see [AI-assisted product listing](ai-assisted-product-listing.md).
 
-**To create an initial SaaS product page**
+**To create a SaaS product**
 
-1. Sign in to [AWS Partner Central](https://aws.amazon.com/marketplace/management/homepage).
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. Choose **Create SaaS product**, and then choose **SaaS product**.
+1. Choose **Create product**.
 
-1. Generate a SaaS product ID and code. You can also add optional tags to support tag-based authorization.
-**Note**  
-For information about tag-based authorization, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html#access_tags_control-resources) in the *AWS Identity and Access Management User Guide*.
+1. Under **Product details**, for **Product name**, enter the name that buyers see on your listing and in AWS Marketplace search results.
 
-1. Use the self-service experience to create the AWS Marketplace listing. Add product information, product deployment details, and public offer details. Optionally, you can also add accounts to the allowlist to test the product.
-**Note**  
-If you need to end your session before finishing the steps, choose the **Save and exit** option to save your current selections to the staging area. This option creates a request to validate the information that you provided. While your request is being validated, you can't edit the product. If your request is successful, you can continue creating your product by choosing **Resume product creation**.  
-If your request isn't successful, it's because of a validation error, which is visible on the product request log. Select the request to view the error, and choose **Copy to new** under **Actions** to correct the error and resubmit the request. To update previous steps, open the product detail page and submit a change request.
-**Note**  
-For products using non-free pricing models (contract, usage, or contract with consumption), your price will default to $0.001 per dimension during testing. This price allows you to test your product in the **Limited** state without incurring a large bill. For products using the Free pricing model, dimensions will default to $0.00. For non-free pricing models, you'll provide your actual price when making your product public. Note that if all dimensions are set to $0.00, the product will automatically convert to the Free pricing model.
+   The name must be 2 to 72 characters and unique.
 
-1. Choose **Submit**. Then, AWS Marketplace validates the information. If the validation succeeds, AWS Marketplace releases the product in a **Limited** status. After the validation succeeds, you can preview, integrate, and test your product.
-**Note**  
-While the validation is in progress, you can't edit the product. When your product is initially published, it's only accessible for the AWS account used to create the product and the AWS Marketplace Seller Operations team's test account. If you view the product from the **SaaS products** page, you can choose **View on AWS Marketplace** to view the product details as they will appear in AWS Marketplace for buyers. This detail listing isn't visible to other AWS Marketplace users. 
+1. For **Product type**, choose **Software**.
+
+1. For **Software type**, choose **SaaS**.
+
+1. (Optional) Under **Tags**, add tags to your product.
+
+1. Choose **Create product**.
+
+   AWS Partner Central creates the product as a draft and opens its page, which shows **Complete your listing**.
+
+**To complete product details and delivery configuration**
+
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
+
+1. Choose the product.
+
+1. Complete **Step 1: Product details**.
+
+1. Under **Step 2: Delivery configuration**, complete the **Add delivery option** card.
+
+   For more information, see [Adding a SaaS delivery option](#saas-add-delivery-option).
+
+1. Choose **Advance to procurement configuration**.
+
+1. In the **Transition to Limited** dialog box, choose **Confirm and continue**.
+
+Your change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. When the request succeeds, your product is in the **Limited** state.
+
+While your product is Limited, only your account and the accounts on its allowlist can view it. To see the listing as buyers see it, choose **View on AWS Marketplace** on the product's page. To add accounts to the allowlist, use the **Share with others for testing** card under **Step 4: Testing and integrations**. This step is locked until you complete **Step 3: Procurement configuration**. For more information, see [Update the allowlist of AWS account IDs](saas-product-settings.md#update-allowlist).
+
+Next, complete the remaining steps under **Complete your listing**. To set up pricing in **Step 3: Procurement configuration**, see [Pricing for SaaS contracts](saas-contracts.md) or [Pricing for SaaS subscriptions](saas-subscriptions.md).
+
+## Adding a SaaS delivery option
+<a name="saas-add-delivery-option"></a>
+
+After you create your SaaS product in AWS Partner Central, add the fulfillment URL that buyers go to after they subscribe. You must complete the **Add delivery option** card to finish **Step 2: Delivery configuration**.
+
+Your fulfillment URL must authenticate buyers, create their accounts, provision resources, and control access. For more information, see [Onboarding customers to your SaaS product through AWS Marketplace](saas-product-customer-setup.md).
+
+**To add a SaaS delivery option**
+
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
+
+1. Choose the product.
+
+1. Under **Step 2: Delivery configuration**, choose **Start** on the **Add delivery option** card.
+
+1. In the commercial AWS Marketplace catalog, for **Delivery method**, keep **SaaS** selected. In other catalogs, this field doesn't appear.
+
+   To list an API-based AI agent or tool instead, see [Configure fulfillment options](listing-saas-ai-agents.md#step-2-fulfillment-options).
+
+1. Under **Fulfillment options**, for **Fulfillment URL**, enter the URL of the website that buyers go to after they subscribe.
+
+   The URL must start with `https://` and have 8 to 2,048 characters.
+
+1. (Optional) Under **Tags**, add tags to the change request.
+
+1. Choose **Add delivery option**.
+
+Your change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While a request is in progress, the actions on the **Delivery** tab are unavailable.
+
+If the product already has a SaaS delivery option, change its URL instead. For more information, see [Update the SaaS URL fulfillment option](saas-product-settings.md#update-fulfillment-options).
+
+After you add the delivery option, you can add Quick Launch with the optional **Add Quick Launch** card. Quick Launch is available only in the commercial AWS Marketplace catalog. For more information, see [Configure Quick Launch](saas-product-settings.md#saas-quick-launch).

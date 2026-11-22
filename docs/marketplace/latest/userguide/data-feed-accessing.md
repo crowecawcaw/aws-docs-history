@@ -1,7 +1,6 @@
 
 
 # Accessing data feeds
-<a name="data-feed-accessing"></a>
 
 With AWS Marketplace, you can use data feeds as a mechanism to send structured, up-to-date product and customer information from AWS Marketplace systems an Amazon S3 buckets for ETL (extract, transform, and load) between seller-owned business intelligence tools. You need to configure your environment to receive data feeds to an encrypted Amazon S3 bucket. This topic shows you how to access and unsubscribe from data feeds.
 
@@ -51,7 +50,7 @@ Data tools have different capabilities. You must involve a business intelligence
 
    Example notification:
 
-   ```
+   ```json
    {
            "mainExecutionId": "{{1bc08b11-ab4b-47e1-866a-9c8f38423a98}}",
            "executionId": "{{52e862a9-42d2-41e0-8010-810af84d39b1}}",
@@ -142,4 +141,4 @@ When the AWS Marketplace reports service calls Amazon S3, AWS KMS, or Amazon SNS
 ## Unsubscribe from data feeds
 <a name="data-feed-unsubscribing"></a>
 
-Open a web browser and sign in to the [AWS Partner Central](http://aws.amazon.com/marketplace/management/). Then, go to the [Contact us page](https://aws.amazon.com/marketplace/management/contact-us/) to submit an unsubscribe request to the AWS Marketplace Seller Operations team. The unsubscribe request can take up to 10 business days to process.
+Open the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console to submit an unsubscribe request to the AWS Marketplace support team. The unsubscribe request can take up to 10 business days to process.

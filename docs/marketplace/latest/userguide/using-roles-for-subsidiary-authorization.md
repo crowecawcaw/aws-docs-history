@@ -1,7 +1,6 @@
 
 
 # Subsidiary authorization service role
-<a name="using-roles-for-subsidiary-authorization"></a>
 
 If you register your local entities as separate AWS Marketplace seller accounts, you can maintain a product in one account and authorize your other accounts to sell it. The account that owns the product is the *primary account*. An account that is authorized to sell it is a *subsidiary account*. For more information about subsidiary authorization, see [Creating private offers as a subsidiary account](subsidiary-offers.md).
 

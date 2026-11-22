@@ -1,7 +1,6 @@
 
 
 # Pricing professional service products in AWS Marketplace
-<a name="proserv-variable-payments"></a>
 
 As an AWS Marketplace seller with a Professional Services product, you can choose from three contract pricing options: installment plan, upfront payment, and variable payments. Variable payments allow you to set a total contract amount when creating a private offer. Once buyers accept the contract, you send payment requests, up to the total contract amount, over the duration of the contract.
 
@@ -10,19 +9,23 @@ As an AWS Marketplace seller with a Professional Services product, you can choos
 
 **To create a private offer with variable payment**
 
-1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home).
+1. Open the [**Offers**](https://console.aws.amazon.com/partnercentral/offers) page in AWS Partner Central, and sign in to your seller account.
 
-1. Choose **Private offers**.
+1. On the **Private offers** tab, choose **Create private offer**.
 
-1. The first step is to **Provide offer information**. You must enter an offer name. Providing an offer description is optional. Indicate whether this private offer is a renewal or not.
+1. For **Product type**, choose **Professional service product**, and then choose your product under **Product**.
 
-1. Set the offer expiration date. Your buyer must respond to your offer by the provided date before 23:59 (UTC), otherwise the offer will expire.
+1. Choose **Continue to offer details**.
 
-1. The second step is to **Configure offer pricing and duration**. In this step, choose **Contract pricing with variable payments**.
+1. On the **Provide offer information** step, enter an **Offer name** and an **Offer expiration date**, and then choose **Next**.
 
-1. Choose the contract duration and offer currency.
+   The buyer must respond to your offer by 23:59 UTC on the expiration date, or the offer expires. **Offer purpose** defaults to **Not a renewal**.
 
-1. Specify the contract total amount. You can bill your buyer up to this amount over the course of the contract. Your cumulative payment requests cannot exceed the total contract amount.
+1. On the **Configure offer pricing and duration** step, choose **Variable payments**, and then enter the **Contract total**.
+
+   The contract total is the most that your payment requests can add up to. Set the contract duration and offer currency on the same step.
+
+1. Complete the remaining steps, and then on the **Review and create** step, choose **Create offer**.
 
 ## Payment requests
 <a name="proserv-payment-requests"></a>
@@ -34,44 +37,52 @@ Once your buyer accepts a professional services private offer with variable paym
 
 **To create payment requests**
 
-1. You view and manage agreements from the **Agreements** page in the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home).
+1. Open the [**Agreements**](https://console.aws.amazon.com/partnercentral/agreements) page in AWS Partner Central, and sign in to your seller account.
 
-1. Select **Agreements** from the menu.
+1. On the **Active agreements** tab, choose the agreement in the **Agreement ID** column.
 
-1. In the **Agreements** table, select the option next to the agreement and choose **View details**. Alternatively, you can choose the link for the agreement in the **Agreement ID** column.
+1. Choose **Request payment**.
 
-1. On the agreement detail page, choose **Request payment**.
+   This button appears only for agreements with variable payments. It's unavailable when the agreement isn't active or the remaining amount is zero.
 
-1. On the Create payment request page, specify the **Requested amount**. Your payment request cannot exceed the **Remaining amount**.
-**Note**  
-The **Remaining amount** is the available balance of payment requests from your Total Contract amount. You can send your customers additional payment requests as long as it does not exceed this amount. You can no longer send payment requests when the remaining amount is zero or the agreement has expired.
+1. For **Requested amount**, enter the amount to bill.
 
-1. You also have the option to describe what you delivered to the buyer in the **Deliverables**. Tell the buyer about the work associated with this payment request.
+   The amount can't exceed the **Remaining amount** under **Agreement information**.
 
-1. Submit your payment request by selecting **Create**.
+1. For **Payment request title**, enter a title of 6 to 64 characters that starts with a letter.
+
+1. (Optional) Enter a **Description** of the deliverables and an **Invoice memo**.
+
+   The description can have up to 2,000 characters. The invoice memo appears on the AWS invoice PDF that the buyer receives, and can have up to 255 characters.
+
+1. Choose **Create**.
+
+The buyer receives an email message to review the payment request. The request appears on the agreement's **Payment requests** tab with a status of **Pending response**.
 
 ### Canceling payment requests
 <a name="proserv-cancel-payment-request"></a>
 
-**To cancel payment request**
+**To cancel a payment request**
 
-1. You view and manage agreements from the **Agreements** page in the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home).
+1. Open the [**Agreements**](https://console.aws.amazon.com/partnercentral/agreements) page in AWS Partner Central, and sign in to your seller account.
 
-1. Select **Agreements** from the menu.
+1. On the **Active agreements** tab, choose the agreement in the **Agreement ID** column.
 
-1. In the **Agreements** table, select the option next to the agreement and choose **View details**. Alternatively, you can choose the link for the agreement in the **Agreement ID** column.
+1. Choose the **Payment requests** tab.
 
-1. On the agreement detail page, under the **Payment request** panel, select the option next to the payment request ID and choose **View details**.
+1. Select the payment request, and then choose **Cancel payment request**.
 
-1. On the payment request detail page, choose **Cancel Payment Request**.
-**Note**  
-You may cancel your payment request at any time while it is in pending state. You can no longer cancel the payment once the buyer has approved the payment request.
+   You can cancel a request only while its status is **Pending response**.
+
+1. In the **Cancel payment request** dialog box, choose **Confirm cancellation**.
+
+AWS Partner Central cancels the request and notifies the buyer. You can't undo a cancellation.
 
 ### Payment request statuses
 <a name="proserv-payment-request-statuses"></a>
 
-Pending  
-Your payment request has been submitted and is pending buyer action. You can cancel the payment request if it is in pending state.
+Pending response  
+Your payment request has been submitted and is pending buyer action. You can cancel a payment request with this status.
 
 Canceled  
 The payment request has been cancelled by the seller. Cancelled payment requests are no longer active/valid.

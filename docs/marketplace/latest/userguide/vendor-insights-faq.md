@@ -1,7 +1,6 @@
 
 
 # AWS Marketplace Vendor Insights FAQ for sellers
-<a name="vendor-insights-faq"></a>
 
 **AWS Marketplace Vendor Insights will no longer be available after November 26th, 2026.**  
 We're replacing AWS Marketplace Vendor Insights with new compliance validation features, coming soon. As of October 27th, 2026, you can no longer create or update AWS Marketplace Vendor Insights profiles. Your existing profiles stay available to you and your approved buyers until November 26th, 2026. To keep any documents for your records, please download them before November 26th, 2026.
@@ -21,7 +20,7 @@ AWS Marketplace Vendor Insights will no longer be available after November 26, 2
 ## Do I need to deactivate my profile myself?
 <a name="seller-vi-faq-deactivate"></a>
 
-**No.** AWS Marketplace deactivates your Vendor Insights profile for you after November 26, 2026. To deactivate it sooner, [open a support case](https://aws.amazon.com/marketplace/management/contact-us/).
+**No.** AWS Marketplace deactivates your Vendor Insights profile for you after November 26, 2026. To deactivate it sooner, open a support case on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.
 
 ## What happens to my profile and documents after November 26, 2026?
 <a name="seller-vi-faq-data-deletion"></a>

@@ -1,7 +1,6 @@
 
 
 # Creating a selling authorization for an AWS Marketplace Channel Partner as an ISV
-<a name="channel-partner-isv-info"></a>
 
 As an independent software vendor (ISV), you can authorize AWS Marketplace Channel Partners to resell your products by creating a selling authorization for that partner. The Channel Partner can use the selling authorization to create Channel Partner Private Offer (CPPO) to the end buyer. Supported product types include:
 + AMI-based products
@@ -9,10 +8,16 @@ As an independent software vendor (ISV), you can authorize AWS Marketplace Chann
 + SaaS-based products
 + Professional services products
 
+**Note**  
+Channel Partner private offers aren't yet available for RTB Fabric module products. A selling authorization can't be created for this product type.
+
 The following procedure outlines how ISVs can create a selling authorization for an AWS Marketplace Channel Partner. To use this feature, you must have permissions to use the **Selling authorizations** tab in AWS Partner Central. For more information, see [Policies for AWS Marketplace sellers](detailed-management-portal-permissions.md#seller-managed-policies). 
 
 ## Create a selling authorization
 <a name="create-selling-authorization"></a>
+
+**Note**  
+The product must have at least one dimension. If it has none, add a dimension first through a public offer, or through a private offer with a custom dimension. For SaaS products with contract dimensions, you can also add contract dimensions in this flow with **Manage custom dimensions**.
 
 1. Sign in to [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home) with your AWS Marketplace Seller account.
 **Tip**  

@@ -1,15 +1,11 @@
 
 
 # Understanding listing fees for AWS Marketplace sellers
-<a name="listing-fees"></a>
 
 AWS Marketplace offers standard and regional listing fees for AWS Marketplace sellers. Listing fees appear as a single line item in the listing fee invoice issued by AWS. The fee is calculated based on the pre-tax Total Contract Value (TCV). This applies to all uplifts, including [Regional offer listing fees](#regional-offer-listing-fees).
 
 **Sellers in India**  
 Sellers in India have specific listing fee structures with GST applied and automatic deductions from disbursements. For detailed information, see [Sellers in India FAQ](india-seller-faq.md).
-
-**Note**  
-These listing fees are effective as of January 5, 2024 at midnight UTC.
 
 ## Understanding fees for standard offer listings in AWS Marketplace
 <a name="standard-offer-listing-fees"></a>
@@ -19,9 +15,14 @@ Learn about listing fees for standard public offers, private offers, channel par
 **Public offer listing fees**
 
 Listing fees for software and data public offers are determined by the deployment method:
-+ Software-as-a-service (SaaS) – 3%
++ Software-as-a-service (SaaS) – 3%. This fee also applies to Agentic Commerce products.
++ Data as a Service (DaaS) – 3%
 + Server (Amazon Machine Image (AMI), container, and machine learning) – 20%
 + AWS Data Exchange – 3%
++ RTB Fabric module – 15% (public and private offers)
+
+**Note**  
+Standard public offer listing fees apply to purchases made through [AWS Marketplace Express Checkout](saas-express-checkout.md#saas-express-checkout-pricing).
 
 **Private offer listing fees**
 
@@ -30,6 +31,9 @@ Listing fees for private offers are determined by the total contract value and w
 + Between $1M and less than $10M – 2%
 + Equal to or greater than $10M – 1.5%
 + All renewals – 1.5%
+
+**Note**  
+RTB Fabric module private offers are charged a 15% listing fee.
 
 **Channel partner private offer (CPPO) listing fees**
 
@@ -44,7 +48,7 @@ Professional services offerings have a 0.5% listing fee for private offers. This
 
 Eligibility is evaluated when each listing fee invoice is generated.
 
-The 0% rate applies only to qualifying professional services agreements created on or after feature launch. It is not applied retroactively to agreements created before that time.
+The 0% rate applies only to qualifying professional services agreements accepted on or after 12:00 AM UTC on September 1, 2026. It isn't applied retroactively to agreements accepted before then.
 
 **Note**  
 Regional and channel partner private offer (CPPO) uplifts still apply on top of the professional services listing fee. For example, a qualifying professional services offer sold through a CPPO has a 0% base listing fee plus the 0.5% CPPO uplift.

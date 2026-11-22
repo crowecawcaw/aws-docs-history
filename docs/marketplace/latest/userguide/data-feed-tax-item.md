@@ -1,7 +1,6 @@
 
 
 # Tax item data feed
-<a name="data-feed-tax-item"></a>
 
 This data feed provides information about tax calculations for a customer invoice.
 

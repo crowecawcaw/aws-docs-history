@@ -1,12 +1,11 @@
 
 
 # Planning your SaaS product
-<a name="saas-prepare"></a>
 
 Before you add your software as a service (SaaS) product to AWS Marketplace, you must first do some planning. This step is critical to the success of your product. A lack of planning can result in billing issues or you might have to re-create your product in AWS Marketplace. The following sections show you how to plan for SaaS product,
 
 **Important**  
-Most of your product's settings can’t be changed after you've configured them. If you need to change them after the product is created in AWS Marketplace, you probably need to create a new product with the correct settings.
+You can't change the pricing model later. To use a different pricing model, create a new product.
 
 **Topics**
 + [Plan your pricing](#plan-pricing)
@@ -17,10 +16,11 @@ Most of your product's settings can’t be changed after you've configured them.
 ## Plan your pricing
 <a name="plan-pricing"></a>
 
-There are three pricing models for SaaS products on AWS Marketplace. Choosing the right pricing model for your product is the most important decision you'll make as you plan your product. Choosing the wrong pricing model can set you back by weeks. The pricing model determines the payment options for your customers and the billing integration code that you need to write, test, and deploy. For information about the different types of pricing models, see [SaaS product pricing](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-pricing-models.html).
+There are four pricing models for SaaS products on AWS Marketplace. Choosing the right pricing model for your product is the most important decision you'll make as you plan your product. Choosing the wrong pricing model can set you back by weeks. The pricing model determines the payment options for your customers and the billing integration code that you need to write, test, and deploy. For information about the different types of pricing models, see [SaaS product pricing](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-pricing-models.html).
 
 **Note**  
-All SaaS pricing models support free trials. For more information, see [SaaS free trials](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-free-trials.html).
+All SaaS pricing models support free trials. Free trials on SaaS subscription products can convert to paid automatically, and SaaS contract free trials expire when they end. Free trials aren't available in the AWS European Sovereign Cloud catalog. For more information, see [SaaS free trials](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-free-trials.html).  
+The exception is Agentic Commerce products, which support neither free trials nor free pricing. They use only usage pricing, with a reserved USD $1.00 dimension that AWS Marketplace meters for you. For more information, see [Pricing and metering](agentic-commerce-products.md#agentic-commerce-pricing).
 
 ## Plan your billing integration
 <a name="saas-plan-integration"></a>
@@ -55,7 +55,7 @@ To validate AWS Marketplace customers using your registration website, see [SaaS
 #### Using Quick Launch for customers to access your product
 <a name="plan-saas-quick-launch"></a>
 
-Use the Quick Launch deployment option to reduce the time and resources that are required for buyers to configure, deploy, and launch your products. Quick Launch reduces the number of sites that buyers must visit during the process. For more information, see [Configure Quick Launch](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-product-settings.html#saas-quick-launch).
+Use the Quick Launch deployment option to reduce the time and resources that are required for buyers to configure, deploy, and launch your products. Quick Launch reduces the number of sites that buyers must visit during the process. Quick Launch is available only in the commercial AWS Marketplace catalog. For more information, see [Configure Quick Launch](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-product-settings.html#saas-quick-launch).
 
 #### Using AWS PrivateLink for customers to access your SaaS product
 <a name="saas-plan-privatelink"></a>

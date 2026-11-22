@@ -1,7 +1,6 @@
 
 
 # Private offer installment plans
-<a name="installment-plans"></a>
 
 As an AWS Marketplace seller, you can use installment plans (also known as *flexible payment schedules*) to extend private offers with a custom payment schedule. Installment plans are available for private offers on certain product and pricing types. For more information, see [Product types eligible for private offers](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-private-offers.html#buyer-private-offers-types). The payment schedule can be spread over the accepted contract duration, with the buyer making payments in regular installments.
 

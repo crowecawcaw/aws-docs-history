@@ -1,7 +1,6 @@
 
 
 # Deemed Supply FAQs
-<a name="vat-deemed-supply-faq"></a>
 
 This FAQ answers commonly asked questions about VAT on AWS Marketplace Deemed Supplies in the EU, Norway and UK.
 
@@ -208,7 +207,7 @@ Your AWS Identity and Access Management (IAM) user or role might lack the requir
 
 This policy grants access to the Deemed VAT feature:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -543,6 +542,6 @@ The following table summarizes the key differences:
 ## Where can I get additional help with VAT on Deemed Supplies?
 <a name="faq-additional-help"></a>
 
-For questions about the VAT on Deemed Supplies invoicing process, invoice submission, or disbursement status, please Contact Us through AWS Partner Central.
+For questions about the VAT on Deemed Supplies invoicing process, invoice submission, or disbursement status, contact support on the AWS Partner Central and Marketplace Support page.
 
-For tax-specific questions regarding the Deemed Supply treatment, applicable VAT rates, or legal references, please consult your tax advisor. AWS is unable to provide tax advice on the VAT treatment of your individual transactions.
+For tax-specific questions regarding the Deemed Supply treatment, applicable VAT rates, or legal references, consult your tax advisor. AWS is unable to provide tax advice on the VAT treatment of your individual transactions.

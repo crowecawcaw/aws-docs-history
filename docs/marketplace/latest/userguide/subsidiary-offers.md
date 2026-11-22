@@ -1,7 +1,6 @@
 
 
 # Creating private offers as a subsidiary account
-<a name="subsidiary-offers"></a>
 
 Many AWS partners operate through more than one legal entity. For example, you might have one entity per country, one per region, or one that you inherited through an acquisition.
 
@@ -102,6 +101,8 @@ Authorize a connected subsidiary account so that it can create private offers fo
 1. In the **Authorization details** section, enter a name. The subsidiary account selects this authorization by name when it creates an offer. Choose a name its team will recognize, such as the product and regions the authorization covers. (Optional) Enter a description.
 
 1. For **Pricing dimensions**, select the dimensions the subsidiary account can price in its offers. For **Countries**, select the countries where the subsidiary account can sell the product. The subsidiary account can price only the selected dimensions and sell only to buyers located in the selected countries.
+**Note**  
+The product must have at least one dimension. Only the primary account can add dimensions. If the product has none, add a dimension first through a public offer, or through a private offer with a custom dimension.
 
 1. (Optional) To authorize this subsidiary account for another product, choose **Add additional authorization**, and then repeat steps 3 through 5.
 
@@ -121,7 +122,7 @@ Create a private offer for a product that your primary account owns, so that you
 
 **To create a private offer as a subsidiary account**
 
-1. Sign in to the subsidiary account in [AWS Partner Central](https://console.aws.amazon.com/partnercentral/home). On the navigation pane, under **Sell**, choose **Private offers**, and then choose **Create private offer**.
+1. Sign in to the subsidiary account in [AWS Partner Central](https://console.aws.amazon.com/partnercentral/home). On the navigation pane, under **Sell**, choose **Offers**, choose the **Private offers** tab, and then choose **Create private offer**.
 
 1. For **Offer type**, choose **Subsidiary private offer**. Use this offer type for products that your primary account owns and has authorized you to sell.
 

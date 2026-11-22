@@ -1,9 +1,10 @@
 
 
 # Checking entitlements using the AWS Marketplace Entitlement Service
-<a name="checking-entitlements"></a>
 
  If your product is a SaaS contracts product, your product calls the AWS Marketplace Entitlement Service to retrieve the customer’s entitlement using the [GetEntitlements](https://docs.aws.amazon.com/marketplaceentitlement/latest/APIReference/API_GetEntitlements.html) API. Your product should verify subsequent usage on that account against the AWS Marketplace Entitlement Service. For example, if the customer provisions 10 users on the account, your product should check the AWS Marketplace Entitlement Service for entitlement to that capacity. 
+
+`GetEntitlements` also applies to the RTB Fabric module product type. The fulfilling AWS service checks entitlements for RTB Fabric module products.
 
 To verify a customer's entitlement to your product, use the `GetEntitlements` operation in the AWS Marketplace Entitlement Service. The AWS Marketplace Entitlement Service is available only in the US East (N. Virginia) Region, accessible through `entitlement.marketplace.us-east-1.amazonaws.com` or `entitlement-marketplace.us-east-1.api.aws`.
 

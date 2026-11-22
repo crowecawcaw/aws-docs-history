@@ -1,7 +1,6 @@
 
 
 # Creating model package images
-<a name="ml-model-package-images"></a>
 
 An Amazon SageMaker AI model package is a pre-trained model that makes predictions and does not require any further training by the buyer. You can create a model package in SageMaker AI and publish your machine learning product on AWS Marketplace. The following sections you how to create a model package for AWS Marketplace. This includes creating the container image and building and testing the image locally.
 
@@ -84,7 +83,7 @@ The following example uses a web service, [Flask](https://pypi.org/project/Flask
 
  **`./web_app_serve.py`** 
 
-```
+```py
 # Import modules
 import json
 import re
@@ -131,7 +130,7 @@ This same code is called for both real-time and batch inferences
 
  **`./serve`** 
 
-```
+```bash
 #!/bin/bash
 
 # Run flask server on port 8080 for SageMaker
@@ -145,7 +144,7 @@ flask run --host 0.0.0.0 --port 8080
 
  `./Dockerfile` 
 
-```
+```docker
 FROM ubuntu:18.04
 
 # Specify encoding
@@ -203,7 +202,7 @@ ENV PATH=/opt/program:${PATH}
 
  Run the Docker command in the build context to build and tag the image. This example uses the tag `my-inference-image`. 
 
-```
+```bash
 sudo docker build --tag my-inference-image ./
 ```
 
@@ -219,7 +218,7 @@ Successfully tagged my-inference-image:latest
 
  After your build has completed, you can test the image locally. 
 
-```
+```bash
 sudo docker run \
   --rm \
   --publish 8080:8080/tcp \
@@ -244,7 +243,7 @@ sudo docker run \
 
  When SageMaker AI runs your container, it periodically pings the endpoint. When the endpoint returns an HTTP response with status code 200, it signals to SageMaker AI that the container is ready for inference. You can test this by running the following command, which tests the endpoint and includes the response header. 
 
-```
+```bash
 curl --include http://127.0.0.1:8080/ping
 ```
 
@@ -263,7 +262,7 @@ Date: Mon, 21 Oct 2019 06:58:54 GMT
 
  When the container indicates it is ready by returning a 200 status code to your ping, SageMaker AI passes the inference data to the `/invocations` HTTP endpoint via a `POST` request. Test the inference point by running the following command. 
 
-```
+```bash
 curl \
   --request POST \
   --data "hello world" \
@@ -281,7 +280,7 @@ curl \
 
  To stop the container, run the following command.
 
-```
+```bash
 sudo docker container stop my-inference-container
 ```
 
@@ -317,7 +316,7 @@ The following example replaces the Flask server from the previous section with F
 
  **`./web_app_serve.py`** 
 
-```
+```python
 from fastapi import FastAPI, Request, Response, WebSocket, WebSocketDisconnect
 from fastapi.responses import StreamingResponse
 
@@ -363,7 +362,7 @@ async def bidirectional_stream(websocket: WebSocket):
 
  **`./serve`** 
 
-```
+```bash
 #!/bin/bash
 
 # Run the web server on port 8080 for SageMaker
@@ -375,7 +374,7 @@ exec uvicorn web_app_serve:app --app-dir / --host 0.0.0.0 --port 8080
 
  `./Dockerfile` 
 
-```
+```docker
 FROM python:3.12-slim
 
 # Tell SageMaker that this container supports bidirectional streams
@@ -402,13 +401,13 @@ Build and run the image as described in [Step 2: Build and testing the image loc
 
 1. Confirm that the image has the label. The command returns `true`.
 
-   ```
+   ```bash
    sudo docker inspect --format '{{ index .Config.Labels "com.amazonaws.sagemaker.capabilities.bidirectional-streaming" }}' my-inference-image
    ```
 
 1. Test a streaming response. The `--no-buffer` option prints each part as it arrives.
 
-   ```
+   ```bash
    curl --no-buffer --request POST --data "hello world" http://127.0.0.1:8080/invocations
    ```
 
@@ -418,7 +417,7 @@ Build and run the image as described in [Step 2: Build and testing the image loc
 
     **`./test_bidi.py`** 
 
-   ```
+   ```python
    import asyncio
    
    import websockets
@@ -434,7 +433,7 @@ Build and run the image as described in [Step 2: Build and testing the image loc
    asyncio.run(main())
    ```
 
-   ```
+   ```bash
    python test_bidi.py
    ```
 

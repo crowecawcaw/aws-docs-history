@@ -1,7 +1,6 @@
 
 
 # Pricing models
-<a name="pricing-models"></a>
 
 The following topics provide general information about the pricing models available in AWS Marketplace.
 
@@ -16,3 +15,4 @@ For information about the pricing models for specific product delivery methods, 
 + [Container products pricing for AWS Marketplace](pricing-container-products.md)
 + [Machine learning product pricing for AWS Marketplace](machine-learning-pricing.md)
 + [SaaS product pricing in AWS Marketplace](saas-pricing-models.md)
++ [DaaS product pricing in AWS Marketplace](daas-pricing-models.md)

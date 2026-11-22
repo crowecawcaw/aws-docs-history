@@ -1,7 +1,6 @@
 
 
 # Managing email notifications for AWS Marketplace events
-<a name="email-notifications"></a>
 
 AWS Marketplace sends email notifications of updates to offers, agreements, subscriptions, products, security, billing and payments, and Private Marketplace. Independent software vendors (ISVs), AWS Marketplace Channel Partners, and customers can receive email notifications. For examples and details of email notifications sent for offer and agreement updates, refer to [Supported email notifications](#event-types).
 
@@ -34,7 +33,7 @@ The following email notifications are supported for all products and pricing typ
 ### Offers and Offer Sets
 <a name="email-details-offers"></a>
 
-The following table shows the events for offers and offer sets. An offer is a set of terms for a buyer's use of a product. For more information, refer to [Preparing a private offer for your AWS Marketplace product](private-offers-overview.md). Offer sets enable you to combine multiple private offers into a single-click purchase experience. For more information, refer to [Preparing your multi-product solution](multi-product-solutions.md).
+The following table shows the events for offers and offer sets. An offer is a set of terms for a buyer's use of a product. For more information, refer to [Preparing a private offer for your AWS Marketplace product](private-offers-overview.md). Offer sets enable you to combine multiple private offers into a single-click purchase experience. For more information, refer to [Preparing your solution](multi-product-solutions.md).
 
 **Note**  
 When an AWS Marketplace Channel Partner creates an offer set that includes an ISV's product(s), that ISV will not be notified.
@@ -188,7 +187,7 @@ The following table shows descriptions of the fields referred to in the [Offers 
 | Agreement acceptance date | The date when the customer subscribed to the product, in the format `MM-DD-YYYY`. | 
 | Agreement end date | The date when the contract expires, formatted in the format `MM-DD-YYYY`. For metered or pay-as-you-go subscriptions, this date is set to `JAN-1-9999`. | 
 | Agreement end date | The date when the contract expires, formatted in the format `MM-DD-YYYY`. For metered or pay-as-you-go subscriptions, this date is set to `JAN-1-9999`. | 
-| Purchase amount | The estimated cost of the agreement, otherwise known as total contract value. This applies to SaaS, professional services, and server product types and contract or annual pricing types. | 
+| Purchase amount | The estimated cost of the agreement, otherwise known as total contract value. This applies to SaaS, professional services, server, and RTB Fabric module product types and contract or annual pricing types. | 
 | Channel partner company name | Name of the account that purchased a product or service at wholesale cost from an ISV to resell to a customer. | 
 | Channel partner AWS account ID | ID of the AWS account of the AWS Marketplace Channel Partner that purchased a product or service from an ISV to resell to a customer. | 
 | Wholesale price | The wholesale cost from an ISV to resell a product to the AWS Marketplace Channel Partner. | 

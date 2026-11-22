@@ -1,12 +1,11 @@
 
 
 # Creating your Amazon SageMaker AI resource
-<a name="ml-creating-your-amazon-sagemaker-resource"></a>
 
  To publish a model package or an algorithm product, you must create the respective [ model package resource](https://docs.aws.amazon.com/marketplace/latest/userguide/ml-creating-your-amazon-sagemaker-resource.html#ml-creating-your-model-package-product) or [ algorithm resource](https://docs.aws.amazon.com/marketplace/latest/userguide/ml-creating-your-amazon-sagemaker-resource.html#ml-creating-your-algorithm-product) in Amazon SageMaker AI. When you create your resource for an AWS Marketplace product, it must be certified through a validation step. The validation step requires that you provide data to test your model package or algorithm resource before it can be published. The following sections show you how to create your SageMaker AI resource, either a model package resource or an algorithm resources. This includes setting the validation specifications that tell SageMaker AI how to perform the validation. 
 
 **Note**  
-If you haven't yet created the images for your product and uploaded them to Amazon Elastic Container Registry (Amazon ECR), see [Packaging your code into images for machine learning products in AWS Marketplace](ml-packaging-your-code-into-images.md) and [Uploading your images to Amazon Elastic Container Registry](ml-uploading-your-images.md) for information about how to do so.
+If you haven't yet created the images for your product and uploaded them to Amazon Elastic Container Registry (Amazon ECR), see [Packaging your product](ml-packaging-your-code-into-images.md) and [Uploading your images to Amazon Elastic Container Registry](ml-uploading-your-images.md) for information about how to do so.
 
 **Topics**
 + [Creating your model package](#ml-creating-your-model-package-product)
@@ -81,7 +80,7 @@ After you create the package, you need to set the specifications of the inferenc
 **Note**  
  The validation step does not evaluate the accuracy of the model with your test data. The validation step checks if the container runs and responds as expected. 
 
- You have completed creating your model product resources. Continue to [Listing your product in AWS Marketplace](ml-publishing-your-product-in-aws-marketplace.md). 
+ You have completed creating your model product resources. Continue to [Listing your machine learning product in AWS Marketplace](ml-publishing-your-product-in-aws-marketplace.md). 
 
 ## Creating your algorithm
 <a name="ml-creating-your-algorithm-product"></a>
@@ -177,4 +176,4 @@ After you have set the tuning parameters, if any, you must set the specification
  The validation step does not evaluate the accuracy of the training or the model with your test data. The validation step checks if the containers run and respond as expected.   
 The validation step only validates batch processing. It is up to you to validate that real-time processing works with your product.
 
- You have completed creating your algorithm product resources. Continue to [Listing your product in AWS Marketplace](ml-publishing-your-product-in-aws-marketplace.md). 
+ You have completed creating your algorithm product resources. Continue to [Listing your machine learning product in AWS Marketplace](ml-publishing-your-product-in-aws-marketplace.md). 

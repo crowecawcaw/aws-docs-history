@@ -1,7 +1,6 @@
 
 
 # Contract pricing for container products with AWS License Manager
-<a name="container-license-manager-integration"></a>
 
 For container-based products with contract pricing, you can use AWS License Manager to associate licenses with your product. AWS License Manager is a license management tool that enables your application to track and update licenses (also known as entitlements) that have been purchased by a customer. This section provides information about how to integrate your product with AWS License Manager. After the integration is complete, you can publish your product listing on AWS Marketplace.
 
@@ -27,9 +26,9 @@ For container-based products with contract pricing, AWS Marketplace bills your c
 
 To set your pricing, choose one or more contract durations that you offer customers. You can enter different prices for each contract duration. Your options are 1-month, 12-months, 24-month, and 36-month durations. For private offers, you can specify a custom duration in months (up to 144 months). 
 
-Choose the category that best describes your product’s pricing. The pricing category appears to customers on the AWS Marketplace website. You can choose from **Bandwidth** (GB/s, MB/s), **Data** (GB, MB, TB), **Hosts**, **Requests**, **Tiers**, or **Users**. If none of the predefined categories fit your needs, you can choose the more generic **Units** category. 
+For **Dimension unit type**, choose the unit that describes how you price your product. The unit appears to customers on the AWS Marketplace website. The options are **Gbps**, **Mbps**, **GB**, **MB**, **TB**, **Requests**, **Units**, **Hosts**, and **Users**. You can't change the unit type later. If the unit differs between dimensions, choose **Units**.
 
-The offer allows for up to 24 dimensions to be added to it.
+The offer allows for up to 200 dimensions to be added to it.
 
 
 **Example: Data storage application**  
@@ -62,7 +61,7 @@ For example, in a case where you have `ReadOnlyUsers` and `AdminUsers` dimension
 
  When customers purchase your product through AWS Marketplace using container contracts, they can agree to automatically renew the contract terms. Customers continue to pay for the entitlements every month or for 1, 2, or 3 years. 
 
-Customers can modify their renewal settings at any time. For more information, see [Modifying an existing contract](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-container-contracts.html#modify-existing-contract) in the *AWS Marketplace Buyer Guide*.
+Customers can modify their renewal settings at any time. For more information, see [Modifying an existing contract](https://docs.aws.amazon.com/marketplace/latest/buyerguide/modify-existing-contract-container.html) in the *AWS Marketplace Buyer Guide*.
 
 ## License models
 <a name="container-LM-license-models"></a>
@@ -103,7 +102,7 @@ In this example, your software calls the `CheckoutLicense` API operation to chec
 
 **Request**
 
-```
+```json
 linux-machine ~]$ aws license-manager checkout-license\
 --product-sku "2205b290-19e6-4c76-9eea-377d6bf7la47" \
 --checkout-type "PERPETUAL" \
@@ -114,7 +113,7 @@ linux-machine ~]$ aws license-manager checkout-license\
 
 **Response**
 
-```
+```json
 {"CheckoutType": "PERPETUAL",
 "EntitlementsAllowed": [{
 "Name": "IntermediateTier",
@@ -159,7 +158,7 @@ In the following Request, the `key-fingerprint` isn't a placeholder value but th
 
 **Request**
 
-```
+```json
 aws license-manager checkout-license\
 --product-sku "2205b290-19e6-4c76-9eea-377d6bf7la47" \
 --checkout-type "PROVISIONAL" \
@@ -170,7 +169,7 @@ aws license-manager checkout-license\
 
 **Response**
 
-```
+```json
 {
   "CheckoutType": "PROVISIONAL",
   "EntitlementsAllowed": [
@@ -208,7 +207,7 @@ The response of the request contains the entitlement corresponding to the tier t
 #### Request
 <a name="container-LM-tiered-request"></a>
 
-```
+```json
 linux-machine  ~]$ aws  license-manager   checkout-license\
 --product-sku  "2205b290-19e6-4c76-9eea-377d6bf7la47"  \
 --checkout-type  "PROVISIONAL"  \
@@ -219,7 +218,7 @@ linux-machine  ~]$ aws  license-manager   checkout-license\
 #### Response
 <a name="container-LM-tiered-response"></a>
 
-```
+```json
 {
   "CheckoutType": "PROVISIONAL",
   "EntitlementsAllowed": [
@@ -240,9 +239,9 @@ linux-machine  ~]$ aws  license-manager   checkout-license\
 
 Before publishing the product, you must do the following:
 
-1. Create a new container product in the AWS Marketplace Management Portal, and make a note of its product code.
+1. Create a new container product in AWS Partner Central, and make a note of its product code.
 
-   For more information, see [Overview: Create a container product](container-product-getting-started.md#create-container-product).
+   The product code appears in the **Product summary** section of your product's page after you choose **Show more**. For more information, see [Overview: Create a container product](container-product-getting-started.md#create-container-product).
 
 1. Use an IAM role for the task or pod running your application with the IAM permissions necessary to call the `CheckoutLicense`, `ExtendLicenseConsumption`, and `CheckInLicense` API operations.
 
@@ -253,7 +252,7 @@ Before publishing the product, you must do the following:
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[
@@ -315,7 +314,7 @@ To manage the licenses stored in the customer's License Manager account, your so
 ## License renewals and upgrades
 <a name="container-LM-lic-renew-upgrade"></a>
 
-Customers can renew or upgrade their licenses on the AWS Marketplace Management Portal. After they make an additional purchase, AWS Marketplace generates a new version of the license that reflects the new entitlements. Your software reads the new entitlements by using the same API operations. You don't have to do anything different in terms of License Manager integration to handle renewals and upgrades.
+Customers can renew or upgrade their licenses through AWS Marketplace. After they make an additional purchase, AWS Marketplace generates a new version of the license that reflects the new entitlements. Your software reads the new entitlements by using the same API operations. You don't have to do anything different in terms of License Manager integration to handle renewals and upgrades.
 
 Due to license renewals, upgrades, cancellations, and so on, we recommend that your product calls the `CheckoutLicense` API operation at a regular cadence while the product is in use. By using the `CheckoutLicense` API operation at a regular cadence, the product can detect changes in entitlements such as upgrades and expiry.
 

@@ -1,7 +1,6 @@
 
 
-# Integrating your SaaS contract-based product with AWS Marketplace
-<a name="saas-integrate-contract-with-pay"></a>
+# Integrating your SaaS contract with consumption product with AWS Marketplace
 
 **Integration requirements changing June 1, 2026 for new SaaS products**  
 AWS Marketplace is introducing support for Concurrent Agreements, enabling multiple purchases of the same product on a single AWS account during the same agreement period. Starting June 1, 2026, all new SaaS products will be required to support updated integration requirements. [Review the new integration for Concurrent Agreements](https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements).
@@ -9,7 +8,7 @@ AWS Marketplace is introducing support for Concurrent Agreements, enabling multi
 Integrating your product with AWS Marketplace is one step in [Creating a SaaS product in AWS Marketplace](saas-create-product.md). To integrate your software as a service (SaaS) contract product with AWS Marketplace, you must write code and demonstrate that it can respond successfully to several customer scenarios. The following sections describe these scenarios, explain how to respond to them, and provide an overview of testing your integration.
 
 **Note**  
-This guide is for *contract-based* SaaS products only. If you are implementing a *Pay-As-You-Go (PAYG)* SaaS product, use [Integrating your SaaS subscription or Pay-As-You-Go product with AWS Marketplace](saas-integrate-subscription.md) instead. PAYG products do not use entitlement SNS topics or the GetEntitlements API.  
+This guide is for SaaS products with contract with consumption pricing, which adds metered usage to a contract. For a contract without metered usage, use [Integrating your SaaS contract product with AWS Marketplace](saas-integrate-contract.md). If you are implementing a *Pay-As-You-Go (PAYG)* SaaS product, use [Integrating your SaaS subscription or Pay-As-You-Go product with AWS Marketplace](saas-integrate-subscription.md) instead. PAYG products do not use entitlement SNS topics or the GetEntitlements API.  
 Before you begin, make sure you've chosen the right pricing model for your software as a service (SaaS) product in AWS Marketplace. For more information, see [Planning your SaaS product](saas-prepare.md). 
 
 **Topics**
@@ -77,7 +76,8 @@ For additional information, see [Checking entitlements using the AWS Marketplace
 After you've integrated your contract with pay-as-you-go product with AWS Marketplace, you must conduct in-depth testing to ensure that the integration is successful. The following procedure outlines the steps to verify your product integration.
 
 **Note**  
-Use your own accounts to subscribe to your product and test that the integration is successful. Prices can be temporarily reduced so that you can test the purchase flow without incurring high charges in those accounts. For more information about temporarily reducing the prices or allowing additional test accounts to access your product, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team.  
+Use your own accounts to subscribe to your product and test that the integration is successful. You can set test prices in your public offer so that you can test the purchase flow without incurring high charges in those accounts. Before you publish, replace any test prices with the prices that you want buyers to pay. For more information, see [Update pricing terms](saas-product-settings.md#saas-update-pricing-terms).  
+To let other AWS accounts test your product, add them to the allowlist. For more information, see [Update the allowlist of AWS account IDs](saas-product-settings.md#update-allowlist).  
 After your product is launched, the service must continue to respond to these scenarios for new customers.
 
 1. Use an allowed account to test the customer experience by getting a contract for your product. 

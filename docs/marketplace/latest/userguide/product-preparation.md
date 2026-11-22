@@ -1,7 +1,6 @@
 
 
 # Preparing your product for AWS Marketplace
-<a name="product-preparation"></a>
 
 The following topics explain how to prepare your software products for sale through AWS Marketplace. Preparing your product involves configuring your package, setting a pricing scheme, determining the categories in which to list your product, and adding keywords so your product appears in relevant searches. If you are an independent software vendor (ISV), channel partner, managed services provider (MSP), or individual who has something to offer that works with AWS products and services, you can use this process to prepare to publish a product on AWS Marketplace. 
 
@@ -16,6 +15,9 @@ The following topics explain how to prepare your software products for sale thro
 + [Creating AMI and container product usage instructions for AWS Marketplace](ami-container-product-usage-instructions.md)
 + [Optimizing your AWS Marketplace products for search](search-engine-optimization.md)
 + [Enhance your AWS Marketplace product with promotional media](promotional-media.md)
++ [Creating a product in AWS Marketplace](creating-a-product.md)
++ [Add-ons](add-ons.md)
++ [Connecting a trust center to your product listing](connecting-trust-center.md)
 
 ## Product delivery for AWS Marketplace
 <a name="product-delivery"></a>
@@ -34,12 +36,14 @@ The following table lists the methods that you can use to deliver software produ
 | --- | --- | --- | 
 | Single AMI | Amazon Machine Image (AMI) | You deliver a single custom Amazon Machine Image (AMI) for your product. The AMI provides the information required to launch an Amazon Elastic Compute Cloud (Amazon EC2) instance.<br />Buyers can use the single AMI to create Amazon EC2 instances with your product already installed and ready to use.<br />For more information, see [AMI-based products in AWS Marketplace](ami-products.md). | 
 | AMIs delivered using AWS CloudFormation templates | CloudFormation Template | You can list AMI-based products that are delivered to AWS Marketplace buyers by using CloudFormation templates.<br />For more information about delivering AMIs as a CloudFormation template, see [AMI-based delivery using AWS CloudFormation](https://docs.aws.amazon.com/marketplace/latest/userguide/cloudformation.html). <br />For more information about CloudFormation templates, see [AWS CloudFormation concepts](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html) in the *AWS CloudFormation User Guide*. | 
-| EC2 Image Builder component-based product | EC2 Image Builder component | You can list products delivered to AWS Marketplace buyers using EC2 Image Builder components.<br />For more information about using EC2 Image Builder components, see [ Work with EC2 Image Builder component products](https://docs.aws.amazon.com/marketplace/latest/APIReference/work-with-ec2-image-builder-products.html) in the *AWS Marketplace API Reference*. | 
+| EC2 Image Builder component-based product | EC2 Image Builder component | You can list products delivered to AWS Marketplace buyers using EC2 Image Builder components.<br />For more information about using EC2 Image Builder components, see [ Work with EC2 Image Builder component products](https://docs.aws.amazon.com/marketplace/latest/developerguide/work-with-ec2-image-builder-products.html) in the *AWS Marketplace Developer Guide*. | 
 | Container-based product or application | Container | You deliver products packaged in container images. Container products consist of options, which are a set of container images and deployment templates that work together.<br />For more information, see [Container-based products on AWS Marketplace](container-based-products.md). | 
-| Data products | AWS Data Exchange | You use AWS Data Exchange to create data products.<br />For information about publishing and managing data products and offers through AWS Data Exchange, see [Providing data products on AWS Data Exchange](https://docs.aws.amazon.com/data-exchange/latest/userguide/providing-data-sets.html) in the *AWS Data Exchange User Guide*. | 
+| Data products | AWS Data Exchange | You create data products in AWS Partner Central and prepare their data sets in the AWS Data Exchange console.<br />For information about publishing and managing data products and offers through AWS Data Exchange, see [Providing data products on AWS Data Exchange](https://docs.aws.amazon.com/data-exchange/latest/userguide/providing-data-sets.html) in the *AWS Data Exchange User Guide*. | 
 | Machine learning algorithms and model packages | SageMaker Model | You use Amazon SageMaker AI to create the algorithm or model package, and then publish it on AWS Marketplace.<br />For more information about delivering machine learning algorithms and model packages, see [Machine learning products in AWS Marketplace](machine-learning-products.md). <br />For information about SageMaker AI, see [What is SageMaker AI?](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html) in the *Amazon SageMaker AI Developer Guide*. | 
 | Software as a service (SaaS) | SaaS | You can offer SaaS products with subscription- based, contract-based, or contract with consumption pricing models.<br />For more information, see [SaaS-based products in AWS Marketplace](saas-products.md). | 
+| Data as a Service (DaaS) | Data as a Service | You can offer data and content that you deliver yourself, for example through an API, a web portal, an Amazon S3 location, or a managed feed. DaaS products support contract, pay as you go, contract with consumption, and free pricing models.<br />For more information, see [DaaS products in AWS Marketplace](daas-products.md). | 
 | Professional services | Professional services | You can offer professional services that support or work with other AWS Marketplace products. | 
+| RTB Fabric module | RTB Fabric Module | You deliver a bid-traffic module that buyers deploy in the AWS RTB Fabric console. Buyers subscribe on AWS Marketplace or from the RTB Fabric console, then deploy your module in RTB Fabric, which verifies the subscription.<br />For more information, see [Products Integrated with AWS Services in AWS Marketplace](additional-product-types.md). | 
 
 ## Designation for products running on AWS
 <a name="designation-delivery-methods"></a>
@@ -58,3 +62,4 @@ Products that are deployed on AWS receive a special designation in the AWS Marke
 | SaaS-based  | Only for products that run entirely on AWS. For more information, refer to the [Architecture guidelines](saas-guidelines.md#saas-architecture) later in this guide.  | 
 | Data-based  | Yes  | 
 | Professional services-based  | No  | 
+| RTB Fabric module  | Yes  | 

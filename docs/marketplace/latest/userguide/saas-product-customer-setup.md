@@ -1,9 +1,8 @@
 
 
 # Onboarding customers to your SaaS product through AWS Marketplace
-<a name="saas-product-customer-setup"></a>
 
- With software as a service (SaaS) subscriptions and SaaS contracts, your customers subscribe to your products through AWS Marketplace but access the product in your AWS environment. After subscribing to the product, your customer is directed to a website you create and manage as a part of your SaaS product to register their account and conﬁgure the product.
+ With software as a service (SaaS) subscriptions and SaaS contracts, your customers subscribe to your products through AWS Marketplace and then access the product where you host it. After subscribing to the product, your customer is directed to a website you create and manage as a part of your SaaS product to register their account and conﬁgure the product.
 
 When creating your SaaS product listing, you provide a URL to your registration landing page. We use that URL to redirect customers to your registration landing page after they subscribe. On your software's registration landing page, you collect the information that is required to create an account for the customer. We recommend collecting your customer’s email addresses if you plan to contact them through email for usage notifications.
 
@@ -11,6 +10,9 @@ The registration landing page must be able to identify and accept the `x-amzn-ma
 
 **Note**  
 The registration token resolves to a specific subscribed customer and each generated token has an expiration window of 4 hours. As long as the caller is calling the API with the same token, it will keep returning the same response values until the token expires.
+
+**Note**  
+Buyers who purchase through AWS Marketplace Express Checkout onboard the same way and have a valid AWS account ID. For details, see [Customer onboarding and integration](saas-express-checkout.md#saas-express-checkout-onboarding) for Express Checkout.
 
 ## Configuring your SaaS product to accept new buyers
 <a name="configuring-your-saas-application-to-accept-new-customers"></a>
@@ -28,7 +30,7 @@ You're responsible for correctly configuring your SaaS software to accept new cu
 
 1. The customer is redirected to your software's registration landing page. This page must be able to accept the token.
 
-1. The customer’s browser sends a `POST` request to your software's registration landing page URL. The request contains one `POST` parameter, `x-amzn-marketplace-token`, containing the customer’s registration token. From the perspective of your registration website, the customer has submitted a form with this parameter. The registration token is an opaque string. If the offer type is a free trial, a second parameter, `x-amzn-marketplace-offer-type` with the value `free-trial`, will be added to the request.
+1. The customer’s browser sends a `POST` request to your software's registration landing page URL. The request contains one `POST` parameter, `x-amzn-marketplace-token`, containing the customer’s registration token. From the perspective of your registration website, the customer has submitted a form with this parameter. The registration token is an opaque string. If the buyer is in a free trial, AWS Marketplace adds a second parameter, `x-amzn-marketplace-offer-type`, with the value `free-trial`. For a SaaS subscription free trial that converts automatically, AWS Marketplace adds this parameter only during the free trial.
 
 1. To redeem this registration token for your customer's AWS account ID, LicenseArn, and product code, your website must call [ResolveCustomer](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/API_ResolveCustomer.html) on the AWS Marketplace Metering Service. For an example of a `ResolveCustomer` call, see [`ResolveCustomer` code example](saas-code-examples.md#saas-resolvecustomer-example). Use the LicenseArn to differentiate between different entitlements that a buyer might have from subscribing to multiple distinct offers for the same product. The product code is a unique string for your SaaS product that AWS provides to you. Each AWS product has one unique product code, which is assigned to you during registration.
 **Note**  

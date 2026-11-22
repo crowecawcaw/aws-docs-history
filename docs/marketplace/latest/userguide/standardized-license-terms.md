@@ -1,7 +1,6 @@
 
 
 # Using standardized contracts in AWS Marketplace
-<a name="standardized-license-terms"></a>
 
 When you [prepare your product](product-preparation.md) as an AWS Marketplace seller, you need to determine which end user license agreement (EULA) will govern the use of your product. You can use the following:
 + Your own EULA.
@@ -34,7 +33,7 @@ The EULA is between you and the buyer. Using the SCMP as your EULA is at your di
 ### Getting started with the SCMP
 <a name="standard-contracts-sign-up"></a>
 
-You can update a EULA to the SCMP and offer it to buyers of new and existing single Amazon Machine Instance (AMI) and software as a service (SaaS) products. The procedure that you use to request the update depends on whether a product is or is not listed through a self-service listing (SSL). 
+You can update a EULA to the SCMP and offer it to buyers of new and existing single Amazon Machine Instance (AMI) and software as a service (SaaS) products, and of RTB Fabric module products. The procedure that you use to request the update depends on whether a product is or is not listed through a self-service listing (SSL). 
 
 If you have questions, send an email message to the AWS Marketplace Standard Contracts team at aws-mp-standardcontract@amazon.com.
 
@@ -56,15 +55,21 @@ If you have questions, send an email message to the AWS Marketplace Standard Con
 
 **To update a EULA to the SCMP for AMI and SaaS products not listed through SSL**
 
-1. Open the [Contact us](https://aws.amazon.com/marketplace/management/contact-us/) page on the AWS Marketplace Management Portal.
+1. Open the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.
 
-1. Sign in to your AWS Marketplace seller account.
+1. Choose **Get support**.
 
-1. Complete the form as follows:
-   + For the subject of your question, choose **Commercial Marketplace**.
-   + For the category, choose **Product Listing**.
-   + For the subcategory, choose **Standard Contract Request**.
-   + In the description, type **Please update these products to SCMP V2** and provide the product titles and IDs that you want to update with the SCMP.
+1. In the support chat, ask to update your products to SCMP V2 (a standard contract request).
+
+1. Provide the product titles and IDs that you want to update with the SCMP.
+
+1. Answer the chat's questions. If your issue needs a support case, the chat displays a case form with the details filled in.
+
+1. Review the case form, and update any fields that need changes.
+
+1. Choose **Submit**. The chat displays your case ID.
+
+For more information, see [Create a support case](https://docs.aws.amazon.com/partner-central/latest/getting-started/getting-support.html#how-support-chat-works).
 
 ## Reseller Contract for AWS Marketplace
 <a name="reseller-contract-for-aws-marketplace"></a>

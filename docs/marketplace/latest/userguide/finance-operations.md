@@ -1,7 +1,6 @@
 
 
 # Dashboards for finance operations
-<a name="finance-operations"></a>
 
 AWS Marketplace provides multiple dashboards to help you track your financial data.
 

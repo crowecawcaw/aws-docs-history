@@ -1,7 +1,6 @@
 
 
 # Step 3: Provide bank account information
-<a name="provide-bank-information"></a>
 
 Providing bank account information is required for sellers who plan to offer paid products on AWS Marketplace. This information allows AWS to disburse payments for your product sales.
 
@@ -19,6 +18,8 @@ The bank account requirements depend on your location:
 + **Non-US sellers** – (Does not apply to sellers in India) If you're based outside the United States, you need to provide a bank account in an eligible jurisdiction that can accept wire transfers in USD. Your bank account must have a valid SWIFT code.
 
 For all sellers, the bank account must be associated with the legal entity you provided during the tax information step.
+
+The bank account name must be 35 characters or less.
 
 ## Steps to provide bank account information
 <a name="provide-bank-information-steps"></a>

@@ -1,7 +1,6 @@
 
 
 # Data feeds
-<a name="data-feeds"></a>
 
 AWS Marketplace provides a number of data feeds to help sellers collect and analyze information about your product sales. Data feeds are available to all registered AWS Marketplace sellers. Since data feeds are generated within a day, they contain the most current data available.
 

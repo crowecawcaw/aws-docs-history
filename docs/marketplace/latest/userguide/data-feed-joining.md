@@ -1,7 +1,6 @@
 
 
 # Data feed tables overview
-<a name="data-feed-joining"></a>
 
 AWS Marketplace provides data feeds as a set of tables that you can join together to provide more context for your queries.
 

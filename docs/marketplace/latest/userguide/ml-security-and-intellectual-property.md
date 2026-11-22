@@ -1,7 +1,6 @@
 
 
 # Security and intellectual property with Amazon SageMaker AI
-<a name="ml-security-and-intellectual-property"></a>
 
 Amazon SageMaker AI protects both your intellectual property and buyer data for models and algorithms obtained from AWS Marketplace. The following sections provide more information about the ways that SageMaker AI protects intellectual property and the security of customer data.
 

@@ -1,7 +1,6 @@
 
 
 # Registering as a seller on AWS Marketplace
-<a name="seller-account-registering"></a>
 
 Registering as a seller is the first step to selling your products on AWS Marketplace. This section guides you through the registration process, including providing required information and completing verification steps.
 

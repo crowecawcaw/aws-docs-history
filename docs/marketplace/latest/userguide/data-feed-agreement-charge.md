@@ -1,7 +1,6 @@
 
 
 # Agreement Charge data feed
-<a name="data-feed-agreement-charge"></a>
 
 This data feed provides an overview about the charge associated with an agreement created by you as the seller of record. This data feed currently provides only charge information for agreements associated with a Payment Schedule term.
 

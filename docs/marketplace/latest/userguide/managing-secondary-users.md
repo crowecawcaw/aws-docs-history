@@ -1,7 +1,6 @@
 
 
 # Managing secondary users for Know Your Customer (KYC)
-<a name="managing-secondary-users"></a>
 
 After KYC verification is complete, the AWS account root user has access to financial functions such as processing refunds, changing bank account details, and managing disbursement frequency options. However, as a security best practice, we strongly recommend that you do not use the root user for everyday tasks. The root user has unrestricted access to all resources in your account and its credentials should be safeguarded for only the tasks that require them. Instead, create administrative users with appropriate permissions for day-to-day operations. For more information, see [Root user best practices for your AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html).
 

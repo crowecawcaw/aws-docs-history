@@ -1,7 +1,6 @@
 
 
 # SaaS product guidelines for AWS Marketplace
-<a name="saas-guidelines"></a>
 
 AWS Marketplace maintains the following guidelines for all software as a service (SaaS) products and offerings on AWS Marketplace to promote a safe, secure, and trustworthy platform for our customers. The following sections provide guidelines for SaaS products on AWS Marketplace.
 
@@ -52,6 +51,9 @@ All SaaS products must comply with the following security policies:
 <a name="saas-customer-information"></a>
 
 All SaaS products must adhere to the following customer information requirements:
+
+**Note**  
+The registration page requirements apply only to products where buyers register with you. Agentic Commerce products have no registration page, because AI agents pay for each request. For more information, see [Listing Agentic Commerce products](agentic-commerce-products.md).
 + SaaS products must be billed entirely through the listed dimensions on AWS Marketplace.
 + You cannot collect customer payment information for your SaaS product at any time, including credit card and bank account information.
 + The SaaS registration page must include an input field for the buyer's email address. You can include additional fields such as:
@@ -67,6 +69,9 @@ All SaaS products must adhere to the following customer information requirements
 <a name="saas-product-usage"></a>
 
 All SaaS products must adhere to the following product usage guidelines:
+
+**Note**  
+For Agentic Commerce products, the guidelines about account creation, sign-in from the fulfillment landing page, and subscription status apply only if buyers need an account. Your fulfillment URL can lead to a sign-in page, or to a setup page if buyers don't need an account. Provide support contact options in your product's support information and usage instructions.
 + After subscribing to the product in AWS Marketplace, customers should be able to create an account within your SaaS application and gain access to a web console. If the customer cannot gain access to the application immediately, you must provide a message with specific instructions on when they will gain access. When an account has been created, the customer must be sent a notification confirming that their account has been created along with clear next steps. 
 + If a customer already has an account in the SaaS application, they must have the ability to log in from the fulfillment landing page.
 + Customers must be able to see the status of their subscription within the SaaS application, including any relevant contract or subscription usage information.

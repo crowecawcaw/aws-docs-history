@@ -1,9 +1,8 @@
 
 
 # Step 5: Complete the Know Your Customer (KYC) process
-<a name="complete-kyc-process"></a>
 
-The Know Your Customer (KYC) process verifies your business and the people who represent, own, or control it. AWS Marketplace uses regional invoicing entities to manage local tax, reporting, disbursement, and compliance requirements. Each entity is subject to local laws and regulations, including EU anti-money laundering directives and Korean financial transaction reporting requirements. Disbursements are the payments sent to your bank account.
+The Know Your Customer (KYC) process verifies your business and the people who represent, own, or control it. AWS Marketplace uses regional invoicing entities to manage local tax, reporting, disbursement, and compliance requirements. Each entity is subject to local laws and regulations, including EU anti-money laundering directives, Korean financial transaction reporting requirements, and Singapore payment services requirements. Disbursements are the payments sent to your bank account.
 
 ## When KYC verification applies
 <a name="when-kyc-applies"></a>
@@ -14,6 +13,11 @@ Your KYC requirements depend on where your business is registered and where your
 <a name="when-kyc-applies-japan"></a>
 
 Sellers registered in Japan must complete **Japan Installment Sales Act verification** to sell on AWS Marketplace, regardless of where their buyers are located. This is required under Japanese law and is a separate, self-service process. See [Japan Installment Sales Act verification](#japan-isa-verification).
+
+### If your business is registered in Singapore
+<a name="when-kyc-applies-singapore"></a>
+
+Sellers registered in Singapore must complete **Singapore business verification** to sell on AWS Marketplace, regardless of where their buyers are located. This is required for sellers registered in Singapore and is a separate, self-service process. See [Singapore business verification](#singapore-business-verification).
 
 ### If your business is registered in South Korea
 <a name="when-kyc-applies-korea"></a>
@@ -90,6 +94,41 @@ You can leave the wizard at any time. If you have unsaved changes on a step, you
 + **Failed** — verification could not be completed. Contact AWS Marketplace Seller Support.
 
 If you update your details after verification, submitting the changes starts reverification. Check your seller settings and email for updates.
+
+## Singapore business verification
+<a name="singapore-business-verification"></a>
+
+Businesses registered in Singapore complete this verification in AWS Partner Central. Before you start, review [If your business is registered in Singapore](#when-kyc-applies-singapore). This process is separate from Global KYC through Amazon Payments Europe. See [Global KYC requirements](#kyc-requirements).
+
+**Interactive demo available**  
+To preview the verification screens before you begin, view the [interactive Singapore business verification demo](https://awsmarketplace.storylane.io/share/u6l2slrlj9mh).
+
+**What it verifies:** your legal business name, registered business address, and business registration number.
+
+**Before you start:** complete your Singapore tax registration in **Tax settings** in the Billing console. The verification form uses your legal business name, registered address, and business registration number from **Tax settings**. You cannot edit these details in the verification form. If your tax registration is incomplete, a banner on the **Know Your Customer (KYC)** tab asks you to complete it first. For Singapore tax requirements, see [Singapore tax requirements](provide-tax-information.md#singapore-tax-requirements), [AWS Marketplace Tax Help for Sellers](https://aws.amazon.com/tax-help/marketplace-sellers/), and [AWS Singapore FAQs](https://aws.amazon.com/legal/awssg/).
+
+**To complete Singapore business verification**
+
+1. Sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and choose **Settings**.
+
+1. Choose the **Know Your Customer (KYC)** tab, and then locate **Singapore Know Your Customer (KYC)**.
+
+1. Choose **Start verification**. The **Business verification** page opens.
+
+1. Check that your legal business name, address, and business registration number match your registration documents. To correct any of them, update **Tax settings** first.
+
+1. Choose **Submit**. To leave without submitting, choose **Cancel**.
+
+**After you submit:** most verifications finish within a few minutes. You receive email notifications to your AWS account root email address and custom email address when your status changes. The **Singapore Know Your Customer (KYC)** card shows these verification statuses:
++ **Not started**: you haven't begun verification.
++ **Under review**: your submission is being verified.
++ **Verified**: verification is complete. You can open the **Payment information** tab, add a bank account, and set disbursement preferences.
++ **Action required**: your details could not be verified. Correct your details in **Tax settings**, and then choose **Update verification** to resubmit.
++ **Failed**: verification could not be completed. Contact AWS Marketplace Seller Support.
+
+Until your status is **Verified**, you cannot open the **Payment information** tab. If you change your legal business name, address, or business registration number after verification, choose **Update verification** to verify the new details.
+
+After verification, you receive disbursements from the AWS Inc. invoicing entity to the bank account you choose. You can use a bank account located in Singapore. For more information, see [Step 4: Set disbursement preferences](set-disbursement-preferences.md).
 
 ## South Korea business and bank account verification
 <a name="korea-business-verification"></a>

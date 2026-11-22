@@ -1,7 +1,6 @@
 
 
 # Offer product data feed
-<a name="data-feed-offer-product"></a>
 
 One offer can have several products, and one product can be included in different offers. This data feed lists information about the relationships between offers and products. 
 

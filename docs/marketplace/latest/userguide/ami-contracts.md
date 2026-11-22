@@ -1,7 +1,6 @@
 
 
 # Contract pricing for AMI products on AWS Marketplace
-<a name="ami-contracts"></a>
 
 Contract pricing for Amazon Machine Image (AMI)-based products means that the buyer pays an upfront fee for a single AMI product or single AMI with AWS CloudFormation stack. For AMI-based products with contract pricing, AWS Marketplace bills your customers upfront or by the payment schedule that you define, based on the contract between you and your customer. After that point, they're entitled to use those resources. This topic provides more information about contract pricing.
 
@@ -10,28 +9,55 @@ To set your pricing, choose one or more contract durations that you offer custom
 **Note**  
 Free trials are not available for AMI products with contract pricing.
 
-Choose the category that best describes your product’s pricing. The pricing category appears to customers on the AWS Marketplace website. You can choose from **Bandwidth** (GB/s, MB/s), **Data** (GB, MB, TB), **Hosts**, **Requests**, **Tiers**, or **Users**. If none of the predefined categories fit your needs, you can choose the more generic **Units** category. 
+You set contract pricing when you create your product's public offer. You can add up to 200 dimensions to the offer. The display name and description of each dimension appear to customers on the product detail and procurement pages of the AWS Marketplace website.
 
-The offer allows for up to 24 dimensions to be added to it. Each dimension requires the following data:
-+ **Contracts Category** – For contract products with no consumption-based pricing, you can choose a category which most closely resembles the category of dimension in the contract or choose **Units** if no values resemble the units for the dimension in the contract
-+ **Contracts Unit** – Choose one of the available values for the units that closely matches your dimensions based on the Category selected.
-+ **Contracts Dimension Allow Multiple Purchases** – This field is used to indicate whether an offer is a tiered pricing offer or a non-tiered offer: 
+**To start a public offer**
 
-  Tiered offer – Allows the buyer to subscribe to only one of the available dimensions in the offer. Dimensions in a tiered offer don't have the concept of quantities. Signing a contract with a specific dimension essentially indicates that the buyer has chosen the specific feature indicated by that dimension.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-  Non-tiered offer – Allows the customer to procure more than one dimensions as part of the contract and allows them to procure multiple units of each such dimension.
+1. Choose the product.
 
-  Setting a value of *true* for this field indicates that the offer is a non-tiered offer. Setting a value of *false* for this field indicates that the offer is a tiered offer.
+   The product must have Limited or Public visibility. To create one, see [Create the listing](ami-single-ami-products.md#ami-create-product).
 
-When using the Product Load Form (PLF) to create the contracts for your AMI product, you must define the following fields for your pricing dimensions:
-+  **Contracts DimensionX API Name** – The name that should appear in the license generated in the buyer’s AWS License Manager account. This name is also used as the value for `Name` in `Entitlement` in the `Checkoutlicense` API call.
-+  **Contracts DimensionX Display Name** – The customer-facing name of the dimension that will be displayed on the product detail and procurement pages of the AWS Marketplace website. Create a name that is be user-friendly. The name's maximum length is 24 characters. After the listing is public, the value of `Name`can't be changed.
-+  **Contracts DimensionX Description** – The customer-facing description of a dimension that provides additional information about the dimension for the product, such as the capabilities that the specific dimension provides. The maximum length for the description is 70 characters.
-+  **Contracts DimensionX Quantity** – This is used to calculate proration in cases of agreement amendments to a product. This value of this field should be set to 1 for all contract offers. It should not be edited. 
-+  **Contracts DimensionX **1-Month Rate**** – The contract rate to be charged for one month of entitlements against this dimension. For non-tiered offers, this rate is charged for each unit of the dimension that is procured. This ﬁeld supports three decimal places.
-+  **Contracts DimensionX **12-Month Rate**** – The contract rate to be charged for 12 months of entitlements against the dimension. For non-tiered offers, this rate is charged for each unit of the dimension that is procured. This ﬁeld supports three decimal places. 
-+  **Contracts DimensionX **24-Month Rate**** – The contract rate to be charged for 24 months of entitlements against the dimension. For non-tiered offers, this rate is charged for each unit of the dimension that is procured. This ﬁeld supports three decimal places.
-+  **Contracts DimensionX **36-Month Rate**** – The contract rate to be charged for 36 months of entitlements against the dimension. For non-tiered offers, this rate is charged for each unit of the dimension that is procured. This ﬁeld supports three decimal places.
+1. Choose the **Procurement** tab.
+
+1. On the **Public offer** card, choose **Create public offer**.
+
+   The **Create public offer** page opens. Continue with the following procedures.
+
+**To set the pricing model and dimensions**
+
+1. On the **Set pricing model and dimensions** step, for **Pricing model**, choose **Contract pricing**.
+
+   You can't change the pricing model later. To use a different pricing model, create a new product.
+
+1. For **Dimension unit type**, choose the unit that describes how you price your product.
+
+   The options are **Gbps**, **Mbps**, **GB**, **MB**, **TB**, **Requests**, **Units**, **Hosts**, and **Users**. You can't change the unit type later. If the unit differs between dimensions, choose **Units**.
+
+1. Choose **Add contract dimension**.
+
+1. In the panel, enter the **API identifier**, **Display name**, and **Description**, and then choose **Add dimensions**.
+
+   The API identifier is the entitlement name in the license that AWS Marketplace creates in the buyer's AWS License Manager account. Your software passes it as `Name` in the `CheckoutLicense` call. Use up to 36 letters, numbers, and underscores, and don't start with a number. You can't change the API identifier later. The display name can have up to 80 characters, and the description can have up to 1,000. To add more than one dimension, choose **Add new dimension** before you choose **Add dimensions**.
+
+1. Choose **Next**.
+
+**To set prices and create the public offer**
+
+1. On the **Configure pricing details and duration** step, under **Purchasing options**, choose **Multiple dimensions per contract** or **Single dimension per contract**.
+
+   With multiple dimensions, buyers choose a quantity of each dimension. With a single dimension, buyers choose one tier from your dimensions, with no quantity.
+
+1. For **Contract duration options**, select the durations that buyers can choose, and then enter the price of each dimension for each duration.
+
+   Prices can have up to 3 decimal places. With multiple dimensions per contract, the price applies to each unit that the buyer buys.
+
+1. Complete the **Specify refund policy**, **Configure legal terms and offer documents**, and **Configure offer availability** steps.
+
+1. On the **Review and create** step, choose **Create public offer**.
+
+AWS Partner Central returns you to the **Procurement** tab while AWS Marketplace processes the request. When the request succeeds, your public offer appears on the **Public offer** card. To add dimensions or change a dimension's display name or description later, choose **Update** in the **Pricing dimensions** section of the **Procurement** tab.
 
 
 **Example: Data storage application**  
@@ -63,4 +89,4 @@ For example, in a case where you have `ReadOnlyUsers` and `AdminUsers` dimension
 
  When customers purchase your product through AWS Marketplace using AMI contracts, they can agree to automatically renew the contract terms. Customers continue to pay for the entitlements every month or for 1, 2, or 3 years. 
 
-Customers can modify their renewal settings at any time. For more information, see [Modifying an existing contract](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-ami-contracts.html#modify-existing-contract) in the *AWS Marketplace Buyer Guide*.
+Customers can modify their renewal settings at any time. For more information, see [Modifying an existing contract](https://docs.aws.amazon.com/marketplace/latest/buyerguide/modify-existing-contract.html) in the *AWS Marketplace Buyer Guide*.

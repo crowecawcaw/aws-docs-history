@@ -1,13 +1,12 @@
 
 
 # Integrating MCP
-<a name="integrating-mcp"></a>
 
 AWS MCP Server (MCP) is an open standard that enables seamless communication between AI agents and external tools. When you implement MCP in your AI agent or tool, customers can integrate your solution directly into their existing agentic workflows without complex API integration work.
 
 MCP transforms how AI agents access external capabilities. Instead of building custom integrations for each tool, agents use a standardized protocol to discover, connect, and interact with MCP-compatible services. This approach reduces integration complexity and enables ready-to-use functionality.
 
-For more information about implementing AWS MCP Server in your agent or tool, see [Integrating MCP](#integrating-mcp). 
+For more information about implementing AWS MCP Server in your agent or tool, see [Integrating MCP](integrating-mcp.md). 
 
 **Topics**
 + [Key Benefits of AWS MCP Server integration](#mcp-benefits)
@@ -50,6 +49,8 @@ The protocol defines the following three main types of capabilities:
 ## Technical requirements for AWS MCP Server implementation
 <a name="mcp-implementation"></a>
 
+You can also list an AWS MCP Server server as an Agentic Commerce product, so that AI agents pay for each request through the x402 payment protocol. For more information, see [Listing Agentic Commerce products](agentic-commerce-products.md).
+
 Your AWS MCP Server server must implement the following core protocol specifications:
 + JSON-RPC 2.0 communication protocol
 + Standard AWS MCP Server message types and formats
@@ -77,7 +78,7 @@ Your AWS MCP Server server must implement the following core protocol specificat
 ### Example capability definition
 <a name="mcp-implementation-example"></a>
 
-```
+```json
 {
   "name": "search_knowledge_base",
   "description": "Search the knowledge base for relevant information",
@@ -125,4 +126,4 @@ When listing an AWS MCP Server-compatible agent or tool on AWS Marketplace, incl
 For more information about implementing AWS MCP Server in your AI agent or tool, refer to these resources:
 + [Model Context Protocol Specification](https://modelcontextprotocol.io/specification) on the Model Context Protocol website
 + [MCP GitHub Repository](https://github.com/orgs/modelcontextprotocol/repositories) on the GitHub website
-+ [AWS Marketplace Seller Operations team](https://aws.amazon.com/marketplace/management/contact-us/) for AWS MCP Server integration support
++ AWS Marketplace support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console for AWS MCP Server integration support

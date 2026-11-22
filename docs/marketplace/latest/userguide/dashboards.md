@@ -1,7 +1,6 @@
 
 
 # Seller dashboards
-<a name="dashboards"></a>
 
 AWS Marketplace provides dashboards powered by [AWS Quick](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) with charts, graphs, and insights that help you access and analyze financial, sales, and marketing data. The seller dashboards include:
 
@@ -44,7 +43,7 @@ The following example provides access to current and future AWS Marketplace reso
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -70,7 +69,7 @@ You can also provide access to one or more dashboards by including their ARNs. T
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

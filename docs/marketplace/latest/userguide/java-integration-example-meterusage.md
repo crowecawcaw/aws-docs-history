@@ -1,17 +1,20 @@
 
 
 # Integrating your container product using custom metering with the AWS Marketplace Metering Service and AWS SDK for Java
-<a name="java-integration-example-meterusage"></a>
 
-AWS Marketplace container products can have custom metering on up to 24 different pricing dimensions per product. To enable custom metering, you integrate your container product with AWS Marketplace Metering Service. You can define your own pricing units and custom metering for that usage to AWS for billing using the [`MeterUsage`](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/API_MeterUsage.html) API operation. The following example outlines an implementation that uses the AWS SDK for Java to integrate with the [AWS Marketplace Metering Service](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/Welcome.html) `MeterUsage` operation. 
+AWS Marketplace container products can have custom metering on up to 200 different pricing dimensions per product. To enable custom metering, you integrate your container product with AWS Marketplace Metering Service. You can define your own pricing units and custom metering for that usage to AWS for billing using the [`MeterUsage`](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/API_MeterUsage.html) API operation. The following example outlines an implementation that uses the AWS SDK for Java to integrate with the [AWS Marketplace Metering Service](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/Welcome.html) `MeterUsage` operation. 
 
 For complete details, see [`MeterUsage` Java examples](#meterusage-java-example). Many of the following steps apply regardless of the language. 
 
 **Example: AWS Marketplace Metering Service integration**
 
-1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home).
+1. Create a new container product in AWS Partner Central. For more information, see [Step 1: Create your container product](container-product-getting-started.md#create-initial-container-product).
 
-1. From **Assets**, choose **Containers** to start creating a new container product. Creating the product generates the product code for the product to integrate with your container image. For information about setting AWS Identity and Access Management (IAM) permissions, see [AWS Marketplace metering and entitlement API permissions](iam-user-policy-for-aws-marketplace-actions.md).
+   For information about setting AWS Identity and Access Management (IAM) permissions, see [AWS Marketplace metering and entitlement API permissions](iam-user-policy-for-aws-marketplace-actions.md).
+
+1. Make a note of the product code.
+
+   Creating the product generates the product code that your container image uses to call the AWS Marketplace Metering Service. The product code appears in the **Product summary** section of your product's page after you choose **Show more**.
 
 1.  Download the public [AWS Java SDK](https://aws.amazon.com/sdk-for-java/). 
 **Important**  
@@ -41,7 +44,7 @@ It is possible to see transient issues in connecting to the AWS Marketplace Mete
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -64,7 +67,7 @@ It is possible to see transient issues in connecting to the AWS Marketplace Mete
 
 1. Configure the Amazon ECS or Amazon EKS cluster and launch the Amazon ECS task definition or Amazon EKS pod that you created in step 8, in the us-east-1 AWS Region. It's only during this testing process, before the product is live, that you have to use this Region.
 
-1. When you get a valid response from `MeterUsage` for each of the dimensions being published for the product, you can begin creating your container product. For questions, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team. 
+1. When you get a valid response from `MeterUsage` for each of the dimensions being published for the product, you can begin creating your container product. For questions, contact the AWS Marketplace support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console. 
 
 ## `MeterUsage` Java examples
 <a name="meterusage-java-example"></a>
@@ -113,7 +116,7 @@ public class MeterUsage {
 
 To report fractional usage, for example `2.5` hours, send the quantity in `UsageQuantityAsDecimal` instead of `UsageQuantity`. Don't set both. The following code example uses the AWS SDK for Java 2.x.
 
-```
+```java
 import software.amazon.awssdk.services.marketplacemetering.MarketplaceMeteringClient;
 import software.amazon.awssdk.services.marketplacemetering.model.MarketplaceMeteringException;
 import software.amazon.awssdk.services.marketplacemetering.model.MeterUsageRequest;

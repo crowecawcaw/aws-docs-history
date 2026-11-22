@@ -1,7 +1,6 @@
 
 
 # Container product billing, metering, and licensing integrations
-<a name="container-products-billing-integration"></a>
 
 AWS Marketplace integrates with other AWS services to provide both metering and contract-based pricing for your container product. For container-based products with usage pricing, you can use the [AWS Marketplace Metering Service](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/Welcome.html) for both checking entitlement to use your product and metering usage for billing. For container-based products with contract pricing, you can use the AWS License Manager to associate licenses with your product. The following sections provide more information about hourly and custom metering with AWS Marketplace Metering Service and contract pricing with AWS License Manager.
 
@@ -17,7 +16,7 @@ AWS Marketplace integrates with other AWS services to provide both metering and 
 
 To both check entitlement to use your product and to meter usage for billing, use the [AWS Marketplace Metering Service](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/Welcome.html). If you want to define your own pricing units and meter that usage to us for billing, integrate by using the [MeterUsage](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/API_MeterUsage.html) API operation. If you want to price your product based on number of tasks or pods used and have AWS meter that usage automatically, integrate by using the [RegisterUsage](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/API_RegisterUsage.html) API operation. For both types of pricing, you can add a long-term contract price without changing how you integrate with the AWS Marketplace Metering Service.
 
-When you create a new container product in the AWS Marketplace Management Portal, we provide a set of product identifiers (the product code and public key) that are used to integrate your product with the AWS Marketplace Metering Service.
+When you create a new container product in AWS Partner Central, we provide a product code that you use to integrate your product with the AWS Marketplace Metering Service. The product code appears in the **Product summary** section of your product's page after you choose **Show more**.
 
 ### Entitlement
 <a name="seller-container-entitlement"></a>
@@ -77,8 +76,8 @@ For more information about AWS License Manager, see the [AWS License Manager Use
 
 **Note**  
 Customers can't launch new instances of the container after the contract expiry period. However, during the contract duration, they can launch any number of instances. These licenses are not bound to a specific node or instance. Any software running on any container on any node can checkout the license as long as it has the assigned AWS credentials.
-**Private Offer Creation** – Sellers can generate private offers for the products using the Private offer creation tool in the AWS Marketplace Management Portal.
-**Reporting** – You can set up data feeds by setting up an Amazon S3 bucket in the **Report** section in the AWS Marketplace Management Portal. For more information, see [Seller reports, data feeds, and dashboards in AWS Marketplace](reports-and-data-feed.md).
+You can create private offers for your product. For more information, see [Creating and managing private offers](creating-private-offer.md).
+**Reporting** – You can receive data feeds in an encrypted Amazon S3 bucket that you provide. For more information, see [Seller reports, data feeds, and dashboards in AWS Marketplace](reports-and-data-feed.md).
 
 ### Integration workflow
 <a name="container-LM-LM-workflow"></a>

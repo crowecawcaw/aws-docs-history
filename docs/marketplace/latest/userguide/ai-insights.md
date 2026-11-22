@@ -1,7 +1,6 @@
 
 
 # AI Insights
-<a name="ai-insights"></a>
 
 AWS Marketplace displays AI Insights in the pricing section of your product listing to help buyers understand your pricing model. AI Insights explain your product's pricing in simple language, including dimension summary and frequently asked questions. Insights are generated using your listing's public pricing and additional context from your product's website.
 
@@ -15,4 +14,4 @@ AI Insights are based on your listing's public pricing and your product's websit
 
 You can review the AI Insights displayed on your product listing at any time by viewing your listing in the AWS Marketplace catalog.
 
-If you want to suggest edits to the AI Insights shown on your listing, use the [Contact us](https://aws.amazon.com/marketplace/management/contact-us/?category=listing&details=I%20would%20like%20to%20change%20the%20following%20about%20the%20AI%20Insights%20on%20my%20listing%3A%0A%0AProduct%20ID%3A%20%0AProduct%20Title%3A%20%0A&marketplace=commercial&subCategory=text#) form to submit your feedback. The AWS Marketplace team reviews your submission, follows up to discuss, and revises insights as needed.
+If you want to suggest edits to the AI Insights shown on your listing, use the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console to submit your feedback. Include your product ID and product title. The AWS Marketplace team reviews your submission, follows up to discuss, and revises insights as needed.

@@ -1,7 +1,6 @@
 
 
 # Sellers in India FAQ
-<a name="india-seller-faq"></a>
 
 This FAQ addresses common questions for sellers in India who want to list products on AWS Marketplace.
 
@@ -39,15 +38,13 @@ You must submit: GST identification number (GSTIN), Permanent Account Number (PA
 ## How do I get support and assistance as a seller in India?
 <a name="india-seller-support"></a>
 
-Use the Contact Us form in AWS Marketplace Management Portal:
+Use the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console. Start a support chat and say what you need help with, for example:
++ Banking or disbursement assistance
++ Private offer creation
 
-1. For banking or disbursement assistance, select Commercial Marketplace, then Seller Account, then Banking.
+To get a faster resolution, include details about your request.
 
-1. For private offer creation help, select Commercial Marketplace, then Private Offer, then Offer Creation.
-
-1. For India-specific questions about tax obligations, banking, or regulatory requirements, consult with local advisors familiar with regulations in India.
-
-1. Provide detailed information about your specific request for faster resolution.
+For India-specific questions about tax obligations, banking, or regulatory requirements, consult local advisors who are familiar with regulations in India.
 
 ## Can I sell to buyers outside of India as a seller in India?
 <a name="india-seller-geographic-restrictions"></a>

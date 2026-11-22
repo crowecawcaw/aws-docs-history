@@ -1,7 +1,6 @@
 
 
 # AWS Marketplace Field Demonstration Program
-<a name="field-demonstration-program"></a>
 
 The AWS Marketplace Field Demonstration Program (FDP) allows the AWS field team (internally approved AWS employees) to use some products and solutions through AWS Marketplace at no charge.
 
@@ -16,4 +15,4 @@ The following product types are supported:
 For AWS Data Exchange products, the FDP only applies to products with a public offer of $0 (free).  
 For AWS Data Exchange products that have subscription verification enabled, providers need to approve the subscription request. For more information about subscription verification, see [Subscription verification for subscribers](https://docs.aws.amazon.com/data-exchange/latest/userguide/subscription-verification-sub.html) in the *AWS Data Exchange User Guide*.
 
-You're automatically enrolled in the FDP program when you sign up as an AWS Marketplace seller. To opt out, submit a support request to the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team.
+You're automatically enrolled in the FDP program when you sign up as an AWS Marketplace seller. To opt out, submit a support request to the AWS Marketplace support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.

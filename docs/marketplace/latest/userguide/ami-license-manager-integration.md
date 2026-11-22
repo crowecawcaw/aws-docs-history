@@ -1,7 +1,6 @@
 
 
 # Associating licenses with AMI-based products using AWS License Manager
-<a name="ami-license-manager-integration"></a>
 
 For Amazon Machine Image (AMI)-based products with contract pricing, you can use AWS License Manager to associate licenses with your product. AWS License Manager is a license management tool that enables your application to track and update licenses (also known as entitlements) that have been purchased by a customer. After the integration is complete, you can publish your product listing on AWS Marketplace. The following sections provide more information about using AWS License Manager to associate licenses with your AMI-based product.
 
@@ -11,8 +10,8 @@ For more information about integrating AWS License Manager with AMI-based produc
 
 **Note**  
 Customers can't launch new instances of the AMI after the contract expiry period. However, during the contract duration, they can launch any number of instances. These licenses are not node-locked or tied to particular instances.
-**Private Offer Creation**– Sellers can generate private offers for the products using the Private offer creation tool in the AWS Marketplace Management Portal.
-**Reporting** – You can set up data feeds by setting up an Amazon S3 bucket in the **Report** section in the AWS Marketplace Management Portal. For more information, see [Seller reports, data feeds, and dashboards in AWS Marketplace](reports-and-data-feed.md).
+You can create private offers for your product. For more information, see [Creating and managing private offers](creating-private-offer.md).
+**Reporting** – You can receive data feeds in an encrypted Amazon S3 bucket that you provide. For more information, see [Seller reports, data feeds, and dashboards in AWS Marketplace](reports-and-data-feed.md).
 
 **Topics**
 + [License models](#license-models)
@@ -60,7 +59,7 @@ In this example, your software calls `CheckoutLicense` to check out 10 units of 
 
 **Request**
 
-```
+```json
 linux-machine ~]$ aws license-manager checkout-license\
 --product-sku "2205b290-19e6-4c76-9eea-377d6bf7la47" \
 --checkout-type "PERPETUAL" \
@@ -71,7 +70,7 @@ linux-machine ~]$ aws license-manager checkout-license\
 
 **Response**
 
-```
+```json
 {
   "CheckoutType": "PERPETUAL",
   "EntitlementsAllowed": [
@@ -107,7 +106,7 @@ In the following Request, the `key-fingerprint` isn't a placeholder value but th
 
 **Request**
 
-```
+```json
 linux-machine ~]$ aws license-manager checkout-license\
 --product-sku "2205b290-19e6-4c76-9eea-377d6bf7la47" \
 --checkout-type "PROVISIONAL" \
@@ -118,7 +117,7 @@ linux-machine ~]$ aws license-manager checkout-license\
 
 **Response**
 
-```
+```json
 {
   "CheckoutType": "PROVISIONAL",
   "EntitlementsAllowed": [
@@ -156,7 +155,7 @@ The response of the request contains the entitlement corresponding to the tier t
 #### Request
 <a name="tiered-request"></a>
 
-```
+```json
 linux-machine  ~]$ aws  license-manager   checkout-license\
 --product-sku  "2205b290-19e6-4c76-9eea-377d6bf7la47"  \
 --checkout-type  "PROVISIONAL"  \
@@ -167,7 +166,7 @@ linux-machine  ~]$ aws  license-manager   checkout-license\
 #### Response
 <a name="tiered-response"></a>
 
-```
+```json
 { 
   "CheckoutType": "PROVISIONAL",
   "EntitlementsAllowed": [
@@ -207,9 +206,13 @@ License Manager doesn't do any tracking or updates; this is done by the seller�
 
 Before publishing the product, you must do the following:
 
-1. Create a new AMI product in the AWS Marketplace Management Portal, and make a note of its product code.
+1. Create a new AMI product in AWS Partner Central, and make a note of its product code.
 
-1. Fill out the Product Load Form (PLF) with the necessary price information, and return it to us for processing.
+   The product code appears in the **Product summary** section of your product's page after you choose **Show more**. For more information, see [Create the listing](ami-single-ami-products.md#ami-create-product).
+
+1. Create the product's public offer with contract pricing, and add your contract dimensions.
+
+   The API identifier of each contract dimension is the entitlement name that your software checks with `CheckoutLicense`. For the procedure, see [Contract pricing for AMI products on AWS Marketplace](ami-contracts.md).
 
 1. Use an IAM role for the task or pod running your application with the IAM permissions necessary to call `CheckoutLicense`, `ExtendLicenseConsumption`, and `CheckInLicense`.
 
@@ -220,7 +223,7 @@ Before publishing the product, you must do the following:
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[
@@ -315,7 +318,7 @@ The required parameters for use in the `CheckoutLicense` API operation are as fo
 **Example of a configurable entitlement**  
 The following is an example of a request that uses the `CheckoutLicense` API operation to check out a configurable entitlement named `PowerUsers`.  
 
-```
+```json
 aws license-manager checkout-license \
    product-sku "2205b290-19e6-4c76-9eea-377d6bf71a47" \
    checkout-type "PROVISIONAL" \
@@ -327,7 +330,7 @@ aws license-manager checkout-license \
 **Example of a tiered entitlement**  
 The following is an example of a request that uses the `CheckoutLicense` API operation to check out a feature entitlement named `EnterpriseEdition`.  
 
-```
+```json
 aws license-manager checkout-license \
    --product-sku "2205b290-19e6-4c76-9eea-377d6bf71a47" \
    --checkout-type "PROVISIONAL" \
@@ -342,7 +345,7 @@ aws license-manager checkout-license \
 **Note**  
 Use a different AWS account than the test AWS account in which you are deploying and testing your software. Licenses can't be created, granted to, and checked out in the same AWS account.
 
-   ```
+   ```json
    #!/bin/bash
    
    # Replace with intended product ID on AWS Marketplace
@@ -424,7 +427,7 @@ Use a different AWS account than the test AWS account in which you are deploying
 
 1. Run the following command in your environment.
 
-   ```
+   ```json
    # The following example uses a key fingerprint that should match the test license you created.
    # When checking out an actual AWS Marketplace created license, use the following fingerprint:
    # aws:294406891311:AWS/Marketplace:issuer-fingerprint
@@ -451,7 +454,7 @@ To manage the licenses stored in the customer's License Manager account, your so
 ## License renewals and upgrades
 <a name="lic-renew-upgrade"></a>
 
-Customers can renew or upgrade their licenses on the AWS Marketplace Management Portal. After they make an additional purchase, AWS Marketplace generates a new version of the license that reflects the new entitlements. Your software reads the new entitlements using the same API calls. You don't have to do anything different in terms of License Manager Integration to handle renewals and upgrades.
+Customers can renew or upgrade their licenses in AWS Marketplace. After they make an additional purchase, AWS Marketplace generates a new version of the license that reflects the new entitlements. Your software reads the new entitlements using the same API calls. You don't have to do anything different in terms of License Manager Integration to handle renewals and upgrades.
 
 Due to license renewals, upgrades, cancellations, and so on, we recommend that your product performs the `CheckoutLicense` API call at a regular cadence while the product is in use. By using the `CheckoutLicense` API operation at a regular cadence, the product can detect changes in entitlements such as upgrades and expiry.
 

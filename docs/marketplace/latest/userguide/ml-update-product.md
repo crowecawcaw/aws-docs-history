@@ -1,20 +1,23 @@
 
 
 # Updating product information
-<a name="ml-update-product"></a>
 
  After creating your machine learning (ML) product, you can modify certain product information in AWS Marketplace, such as descriptions, highlights, title, SKU, categories, and keywords. 
 
-1.  Sign in to your seller account in the [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home). 
+**To update product information**
 
-1.  Go to the **Machine learning products** page and select your target product. 
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1.  Choose **Request changes** and select **Update product information**. 
+1. Choose the product.
 
-1.  Update the fields as needed. 
-**Note**  
- For logo specifications, see [Company and product logo requirements](product-submission.md#seller-and-product-logos). 
+1. Choose the **Product details** tab.
 
-1.  Choose **Submit**. 
+1. In the **Product details** section, choose **Edit**.
 
- You can monitor your request from the **Requests** tab of the **Machine learning** products page. For more information on statuses, see [Machine learning product status](ml-product-lifecycle.md#ml-product-status). 
+1. On the **Provide product details** page, update the fields that you want to change.
+
+   For **Product logo**, use a PNG or JPG file of up to 5 MB that is 120 to 640 pixels wide and tall, with a 1:1 or 2:1 ratio.
+
+1. Choose **Save**.
+
+Your change request appears on the product's **Change history** tab as **Provide product details**. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While a request is in progress, **Edit** is unavailable.

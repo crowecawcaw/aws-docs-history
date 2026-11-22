@@ -1,7 +1,6 @@
 
 
 # Auto-generated private offers
-<a name="auto-generated-private-offers"></a>
 
 When AWS Marketplace generates offers on your behalf based on instructions you configured, they appear on the **Auto-generated private offers** tab of the **Offers** page. Two categories of offers appear here:
 + **Renewal offers** – generated to renew an agreement with auto-renewal terms. Each offer links back to the agreement it renews and inherits its renewal terms. Buyers do not need to act; renewal offers are auto-accepted on the buyer's behalf if neither you nor the buyer opt out. You do not need to act either, unless the offer has a **Pending uplift** status and you need to finalize the price uplift percentage.

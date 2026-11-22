@@ -1,9 +1,8 @@
 
 
 # Managing container product pricing on AWS Marketplace
-<a name="container-pricing"></a>
 
-As an AWS Marketplace seller, you can manage and update container product pricing. For container products, you can list free products, Bring Your Own License model (BYOL) products, and paid products for Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), and AWS Fargate. You can set only one price per product. You can add or update pricing dimensions. Depending on your pricing model, you can add contract and usage dimensions. You can also update your pricing terms or your refund policy. For more information, see the following sections.
+As an AWS Marketplace seller, you can manage and update container product pricing. For container products, you can list free products, Bring Your Own License model (BYOL) products, and paid products for Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), and AWS Fargate. You can add or update pricing dimensions. Depending on your pricing model, you can add contract and usage dimensions. You can also update your pricing terms or your refund policy. For more information, see the following sections.
 
  For more information about the container product pricing models for AWS Marketplace, see [Container products pricing for AWS Marketplace](pricing-container-products.md).
 
@@ -20,55 +19,81 @@ You can add a pricing dimension to the pricing model that you use for your produ
 
 **Note**  
 Container products don't support contract with consumption pricing. For the pricing models that container products support, see [Container pricing models](pricing-container-products.md#pricing-models-for-server-products).  
-You can't change your pricing model between contract and usage pricing. Contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team for assistance.
+You can't change your pricing model between contract and usage pricing. Contact the AWS Marketplace support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console for assistance.
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and sign in to your seller account.
+**To add pricing dimensions**
 
-1. From the [**Server Products**](https://aws.amazon.com/marketplace/management/products/server) page, select the container product that you want to modify.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. From the **Request changes** dropdown list, select **Update pricing dimensions**, and then select **Add pricing dimensions**.
+1. Choose the product.
 
-1. Depending on the pricing model, you can add contract dimensions or usage dimensions by providing information for **API identifier**, **Display name**, and **Description**.
+1. Choose the **Procurement** tab.
 
-1. Choose **Next**, and enter your contract dimension pricing.
+1. In the **Pricing dimensions** section, choose **Update**, and then choose **Add dimensions**.
 
-1. Choose **Submit** to submit your request for review.
+   The **Pricing dimensions** section appears when your product has pricing dimensions that you define. If **Add dimensions** is unavailable, the menu shows the reason, such as a missing public offer or another change in progress.
 
-1. Verify that the **Requests** tab shows the **Request status** as **Under review**. When the request completes, the status will update to **Succeeded** or **Failed**. 
+1. On the **Add dimensions** step, choose **Add contract dimension** or **Add usage dimension**.
+
+   The button that appears depends on your pricing model.
+
+1. In the panel that opens on the right side of the page, enter the **API identifier**, **Display name**, and **Description**, and then choose **Add dimensions**.
+
+   The API identifier can contain only letters, numbers, and underscores, and can't start with a number. You can't change it after the dimension is created. To add more than one dimension, choose **Add new dimension** before you choose **Add dimensions**.
+
+1. Choose **Next**, and then choose **Submit** on the **Review and submit** step.
+
+   If your product has a public offer, the **Configure prices** step comes first. Enter the prices for the new dimensions, and then choose **Next**.
+
+Your change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While a request is in progress, **Add dimensions** and **Update dimensions** in the **Pricing dimensions** section are unavailable.
 
 ## Updating dimension information
 <a name="container-update-dimensions-information"></a>
 
 You can change the dimensions information for your product. For more information about pricing models, see [Container pricing models](pricing-container-products.md#pricing-models-for-server-products).
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and sign in to your seller account.
+**To update dimension information**
 
-1. From the [**Server Products**](https://aws.amazon.com/marketplace/management/products/server) page, select the container product that you want to modify.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. From the **Request changes** dropdown list, select **Update pricing dimensions**, and then select **Update dimension information**.
+1. Choose the product.
 
-1. You can add dimension information by providing information for **Display name** and **Description** of the dimension you want to update.
+1. Choose the **Procurement** tab.
 
-1. Choose **Submit** to submit your request for review.
+1. In the **Pricing dimensions** section, choose **Update**, and then choose **Update dimensions**.
 
-1. Verify that the **Requests** tab shows the **Request status** as **Under review**. When the request completes, the status will update to **Succeeded** or **Failed**. 
+1. On the **Update dimension information** page, select the dimension in the **Pricing dimensions** table, and then choose **Update**.
+
+1. In the **Update pricing dimension** panel, change the **Display name** or **Description**, and then choose **Update dimension**.
+
+   The display name can have 1 to 80 characters and can't start with a space. You can't change the API identifier, and the change doesn't affect prices.
+
+1. At the bottom of the page, choose **Update**.
+
+Your change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While a request is in progress, **Add dimensions** and **Update dimensions** in the **Pricing dimensions** section are unavailable.
 
 ## Updating pricing terms
 <a name="container-update-pricing-terms"></a>
 
 You can change the pricing terms for your product. Pricing terms might need updating if you change the countries in which your product is offered.
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and sign in to your seller account.
+**To update pricing terms**
 
-1. From the [**Server Products**](https://aws.amazon.com/marketplace/management/products/server) page, select the container product that you want to modify.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. From the **Request changes** list, select **Update public offer**, and then select **Update pricing terms**.
+1. Choose the product.
 
-1. Current pricing is prepopulated for you to edit. You can delete the current pricing and add your new price. We recommend that you review the prices you’re requesting before submitting your request for review.
+1. Choose the **Procurement** tab.
 
-1. Choose **Submit** to submit your request for review.
+1. On the **Public offer** card, choose **Update**, and then choose **Update pricing terms**.
 
-1. Verify that the **Requests** tab shows the **Request status** as **Under review**. When the request completes, the status will update to **Succeeded** or **Failed**.
+   The **Update** menu appears after your public offer is released.
+
+1. On the **Update pricing terms** page, under **Configure pricing details and duration**, enter your new prices.
+
+1. Choose **Submit**.
+
+Your change request appears on the offer's **Requests log** tab. To open the offer, choose the link under **Offer ID** on the **Public offer** card of the **Procurement** tab. Its status moves from **Under review** to **Update in progress**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While a request is in progress, the **Update** menu on the **Public offer** card is unavailable.
 
 **Note**  
 If you increase the price of a dimension using **Update pricing terms**, you won't be able to update pricing for 90 days. A price increase locks the price for 90 days from the day you initiate the change. This price lock is only in effect for a price increase not a price decrease.
@@ -78,14 +103,22 @@ If you increase the price of a dimension using **Update pricing terms**, you won
 
 You can update the refund policy for your product. Updates to the refund policy take effect for all users. For more information, see [Refunds and cancellations in AWS Marketplace](refunds.md). 
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and sign in to your seller account.
+**To update the refund policy**
 
-1. From the [**Server Products**](https://aws.amazon.com/marketplace/management/products/server) page, select the container product that you want to modify.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. From the **Request changes** dropdown list, select **Update public offer**, and then select **Update refund policy**.
+1. Choose the product.
 
-1. Current refund policy is prepopulated for you to edit. You can delete the current refund policy and add your new refund policy. We recommend that you review the refund policy you’re requesting before submitting your request for review. Submitting the request overwrites the current refund policy.
+1. Choose the **Procurement** tab.
 
-1. Choose **Submit** to submit your request for review.
+1. On the **Public offer** card, choose **Update**, and then choose **Update refund policy**.
 
-1. Verify that the **Requests** tab shows the **Request status** as **Under review**. When the request completes, the status will update to **Succeeded** or **Failed**. 
+   The **Update** menu appears after your public offer is released.
+
+1. On the **Update refund policy** page, under **Refund policy**, enter your refund policy.
+
+   The box shows your current refund policy, and your new text replaces it. Include the terms of your policy and your contact information for buyers to request a refund. You can enter up to 500 characters.
+
+1. Choose **Submit**.
+
+Your change request appears on the offer's **Requests log** tab. To open the offer, choose the link under **Offer ID** on the **Public offer** card of the **Procurement** tab. Its status moves from **Under review** to **Update in progress**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While a request is in progress, the **Update** menu on the **Public offer** card is unavailable.

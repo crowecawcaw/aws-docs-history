@@ -1,7 +1,6 @@
 
 
 # Seller delivery data feeds in AWS Marketplace
-<a name="data-feed-service"></a>
 
 AWS Marketplace provides data feeds as a mechanism to send structured, up-to-date product and customer information from AWS Marketplace systems to seller Amazon S3 buckets for ETL (extract, transform, and load) between seller-owned business intelligence tools. Data feeds collect and deliver comma-separated value (CSV) files to an encrypted Amazon S3 bucket that you provide. Data feeds are generated within a day, and contain 24 hours of data from the previous day. The following sections provide an overview of data feeds and explain how to access and use them. Subsequent sections describe each data feed. 
 

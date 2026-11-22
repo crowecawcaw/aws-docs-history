@@ -1,7 +1,6 @@
 
 
 # Pricing for SaaS contracts
-<a name="saas-contracts"></a>
 
 SaaS contracts allow customers to purchase your software through an upfront agreement. Under the agreement, customers are entitled to a specified quantity of use of your SaaS product. You define the usage categories, dimensions, and the length of the contract. AWS Marketplace bills your customers upfront or by the payment schedule that you define. For additional usage above their contract, your software reports the usage through the AWS Marketplace Metering Service (AWS Marketplace Metering Service).
 
@@ -10,55 +9,79 @@ When using the SaaS Contract pricing model, your application never sends meterin
 ## Creating a SaaS contract product
 <a name="creating-saas-contract-product"></a>
 
-Before you can publish a SaaS product with contract pricing, you must do the following:
+Before you can publish a SaaS product with contract pricing, create the product and set up its contract pricing.
 
-1. Create a new SaaS product in the AWS Marketplace Management Portal, and choose **New SaaS contract**.
+**To create a SaaS contract product**
 
-1. Complete the fields in the **General** tab with the necessary information. Make a note of the product code.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. On the **Pricing** tab:
+1. Choose the product.
 
-   1. For **Set pricing**, choose the **Contract duration** you want to offer customers. You can enter different prices for each contract duration. You can select one or more of the following options: **Monthly**, **1 year**, **2 years**, and **3 years**. If you are creating a private offer, you can choose a custom duration in months (up to 144 months). 
+   The product must have Limited or Public visibility. To create one, see [Creating an initial SaaS product page on AWS Marketplace](saas-create-product-page.md).
 
-   1. For **Choose the contract type you want to offer**, choose how you want customers to be able to purchase your product from the following options: 
-      +  **Buyer can choose one or more options offered** – Customers can select a quantity for each pricing dimension you offer.
-      +  **Buyer can choose one tier from multiple tiers offered** – Customers choose a tier from options that include different sets of features, services, and usage amounts. 
+1. Choose the **Procurement** tab.
 
-   1.  Choose the usage unit category that describes your product’s pricing most accurately. The pricing category appears to customers on the AWS Marketplace website. You can choose from **Bandwidth** (GBps, MBps), **Data** (GB, MB, TB), **Hosts** (hours), **Requests**, or **Users** (hours). If none of the predefined categories fit your needs, you can choose the more generic **Units** category.
+1. In the **Public offer** section, choose **Create public offer**.
 
-1. Define your pricing dimensions. Each dimension represents a feature or service that you want to price separately. For detailed information about pricing dimensions and the required fields, see [Understanding SaaS contract pricing dimensions](#understanding-saas-contract-pricing-dimensions).
+   The **Create public offer** page opens. Continue with the following procedures.
+
+**To set the pricing model and dimensions**
+
+1. On the **Set pricing model and dimensions** step, for **Pricing model**, choose **Contract-based pricing**.
+
+   You can't change the pricing model later. To use a different pricing model, create a new product.
+
+1. (Optional) To let buyers pay for usage above their contract, select **Enable additional usage on top of contract**.
+
+1. For **Dimension unit type**, choose the unit that describes how you price your product.
+
+   You can't change the unit type later. If the unit differs between dimensions, choose **Units**.
+
+1. Add your contract dimensions. For each dimension, enter the **API identifier**, **Display name**, and **Description**.
+
+   For more information, see [Understanding SaaS contract pricing dimensions](#understanding-saas-contract-pricing-dimensions).
+
+1. Choose **Next**.
+
+**To set prices and create the public offer**
+
+1. On the **Configure pricing details and duration** step, under **Purchasing options**, choose **Multiple dimensions per contract** or **Single dimension per contract**.
+
+   With multiple dimensions, buyers choose a quantity of each dimension. With a single dimension, buyers choose one tier from your dimensions.
+
+1. For **Contract duration options**, select the durations that buyers can choose, and then enter the price of each dimension for each duration.
+
+   You can offer 1, 12, 24, or 36 months. If you enabled additional usage, also enter the hourly price under **Usage dimension pricing**.
+
+1. Complete the **Specify refund policy**, **Configure legal terms and offer documents**, and **Configure offer availability** steps.
+
+1. On the **Review and create** step, choose **Create public offer**.
+
+AWS Partner Central returns you to the **Procurement** tab while AWS Marketplace processes the request. When the request succeeds, your public offer appears in the **Public offer** section.
+
+To find the product code that your integration uses, choose **Show more** in the product's **Product summary**.
 
 ## Understanding SaaS contract pricing dimensions
 <a name="understanding-saas-contract-pricing-dimensions"></a>
 
-Each pricing dimension represents a feature or service that you can set a per unit price for. Examples of dimensions are users, hosts scanned, and GB of logs ingested. For each dimension you define, you add a name, a description, a price, and an API name. The name, price, and description are displayed to customers. You use the API name for tracking and reporting with AWS Marketplace as follows:
+Each pricing dimension represents a feature or service that you can set a per unit price for. Examples of dimensions are users, hosts scanned, and GB of logs ingested. For each dimension you define, you add a name, a description, a price, and an API identifier. The name, price, and description are displayed to customers. You use the API identifier for tracking and reporting with AWS Marketplace as follows:
 + Calling the [AWS Marketplace Entitlement Service](https://docs.aws.amazon.com/marketplaceentitlement/latest/APIReference/Welcome.html) to retrieve the dimensions your customers have purchased.
 + Calling the [AWS Marketplace Metering Service](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/Welcome.html) to indicate which dimensions customers used.
 
 For each pricing dimension in your contract, you can choose to let customers pay as they go for additional usage of that dimension above their contract. You can also add additional dimensions without contract prices that customers only consume by paying as they go.
 
-When using the wizard to create the contracts for your SaaS product, you must define the following fields for your pricing dimensions:
+When you create the public offer, you define the following fields for each contract dimension:
 
-**Dimension API name**  
-The name used when calling the Entitlements API. This name is visible in billing reports and reports that aren't external-facing. The maximum length for the API name is 15 characters. After you set the name, it can't be changed.
+**API identifier**  
+The name that you use when you call the AWS Marketplace Entitlement Service. This name is visible in billing reports and reports that aren't external-facing. It can have 1 to 36 characters: letters, numbers, and underscores. You can't change it after you create the dimension.
 
-**Dimension display name**  
-The customer-facing name of a dimension. This name should help the customer understand the dimension for the product. The name should be user-friendly, and its maximum length is 24 characters. This value can be changed.
+**Display name**  
+The customer-facing name of the dimension. Use a name that helps buyers understand the dimension. It can have 1 to 80 characters and can't start with a space. You can change it later.
 
-**Dimension description**  
-The customer-facing description of a dimension that provides additional information about the dimension for the product. The maximum length for the description is 70 characters.
+**Description**  
+The customer-facing description of the dimension. It can have 1 to 1,000 characters and can't start with a space.
 
-**Dimension - monthly price**  
-The software charge per unit for the 1-month option for this dimension. This field supports three decimal places.
-
-**Dimension - 1-year price**  
-The software charge per unit for the 12-month option for this dimension. This field supports three decimal places. It's not a monthly charge. The price must reflect the 12-month one-time charge price.
-
-**Dimension - 2-year price**  
-The software charge per unit for the 24-month option for this dimension. This field supports three decimal places.
-
-**Dimension - 3-year price**  
-The software charge per unit for the 36-month option for this dimension. This field supports three decimal places.
+On the **Configure pricing details and duration** step, you enter a price per unit for each dimension in each contract duration that you offer. Each price is a one-time charge for the whole duration, not a monthly charge. Prices support up to 3 decimal places.
 
 
 **Example: Data storage application**  

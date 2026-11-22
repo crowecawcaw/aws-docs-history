@@ -1,7 +1,6 @@
 
 
 # Marketing your product on AWS Marketplace
-<a name="product-marketing"></a>
 
 You can contribute to the success of your product by driving awareness of AWS Marketplace and by driving traffic directly to your product pages on AWS Marketplace. The following sections provide information and support to help you market the product or products that you have listed on AWS Marketplace.
 
@@ -63,13 +62,13 @@ Additionally, customers benefit from the ability to easily deploy preconfigured 
 
 AWS Marketplace provides the ability for customers to submit reviews on your product. We also provide the ability for syndicated reviewers such as G2, a business-to-business marketplace that curates independent product reviews, to integrate their syndicated reviews on AWS Marketplace.
 
-AWS Marketplace customer reviews must meet the review guidelines listed in the user guide for buyers. Review submissions are not released on AWS Marketplace until after the submission is reviewed to verify it meets our review criteria. For more information on review guidelines, see [Product Reviews](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-product-reviews.html). Syndicated review organizations use their own unique processes to validate their reviews and aren't reviewed by AWS Marketplace before release. If you think that a syndicated review on your product doesn't meet the product review guidelines, or a review on your product contains objectionable content, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team.
+AWS Marketplace customer reviews must meet the review guidelines listed in the user guide for buyers. Review submissions are not released on AWS Marketplace until after the submission is reviewed to verify it meets our review criteria. For more information on review guidelines, see [Product Reviews](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-product-reviews.html). Syndicated review organizations use their own unique processes to validate their reviews and aren't reviewed by AWS Marketplace before release. If you think that a syndicated review on your product doesn't meet the product review guidelines, or a review on your product contains objectionable content, contact the AWS Marketplace support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.
 
 The reviewer can also provide a star rating for your product based on a five-star rating system. The ratings are averaged to give the overall star rating for your product. Syndicated reviews can also include a star rating, but star ratings from syndicated reviews are not averaged in with the AWS customer star ratings.
 
 The following are additional key points about the product review feature:
 + You can't have a product review removed from AWS Marketplace. However, you can leave a comment on any review as long as the comment meets the review criteria governing product reviews. 
-+ If you think that a review doesn't meet the review guidelines or contains objectionable content, you can contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team and describe your concern.
++ If you think that a review doesn't meet the review guidelines or contains objectionable content, you can contact the AWS Marketplace support team on the AWS Partner Central and Marketplace Support page and describe your concern.
 + AWS customers searching for products in AWS Marketplace can search and filter results based on ratings, verified reviews, and externally sourced reviews. AWS customers see the externally sourced ratings alongside AWS customer ratings in search results.
 + Syndicated reviews for your product are automatically added to AWS Marketplace at no cost to you. Because reviews are automatically added, you don't need to submit a request to have a syndicated review added.
 + If you don't have any syndicated reviews for your product, you can contact the syndicated reviewer and follow their process for getting your product reviewed. For example, with G2, you can visit their website and claim your product page to start their review process.
@@ -141,23 +140,31 @@ Currently, Buy with AWS supports only SaaS products.
 
 Complete the following steps to submit a brand review request before launching with the Buy with AWS experience:
 
-1. Navigate to AWS Partner Central and [submit support ticket](https://aws.amazon.com/marketplace/management/contact-us/?) for **Commercial Marketplace**
+1. In the left navigation pane of the AWS Partner Central console, choose **Support**.
 
-   1. Select **Buy with AWS** as the category
+1. Choose **Get support**.
 
-   1. Select **Branding Review** as the sub-category.
+1. In the support chat, say that you want a Buy with AWS branding review.
 
-1. Provide the following in the ticket:
+1. Provide the following in the support chat:
 
    1. Your primary email address, and seller ID.
 
-   1. In the **Provide more details about your request** section:
+   1. Details about your request:
 
       1. The URL where you'll implement the Buy with AWS integration
 
-      1. A link to your sandbox, live site, or mockups for AWS Marketplace operations team to review. If you don't include this, the operations team will request it after you submit the ticket.
+      1. A link to your sandbox, live site, or mockups for AWS Marketplace operations team to review. If you don't include this, the operations team will request it after you submit the case.
+
+1. Answer the chat's questions. If your issue needs a support case, the chat displays a case form with the details filled in.
+
+1. Review the case form, and update any fields that need changes.
+
+1. Choose **Submit**. The chat displays your case ID.
 
 1. The AWS Marketplace seller operations team will evaluate your implementation against Buy with AWS branding guidelines. They'll provide feedback to ensure compliance. You must address all feedback and obtain approval before launching.
+
+For more information, see [Create a support case](https://docs.aws.amazon.com/partner-central/latest/getting-started/getting-support.html#how-support-chat-works).
 
 ### Buy with AWS reporting
 <a name="buy-with-aws-reporting"></a>

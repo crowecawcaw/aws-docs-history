@@ -1,7 +1,6 @@
 
 
 # Listing performance dashboard
-<a name="listing-performance-dashboard"></a>
 
 The listing performance dashboard provides an overview of, and detailed data about, your AWS Marketplace listings. The dashboard provides data about traffic volumes and the steps that your customers take to subscribe to your products. The dashboard also provides a detailed breakdown of traffic by marketing channels.
 

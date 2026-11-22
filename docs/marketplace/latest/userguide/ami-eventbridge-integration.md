@@ -1,7 +1,6 @@
 
 
 # Managing AMI agreement events with Amazon EventBridge
-<a name="ami-eventbridge-integration"></a>
 
 You can use Amazon EventBridge to receive notifications about changes to customer agreements for your AMI products on AWS Marketplace. Events are sent for agreement lifecycle changes, so you can track when customers subscribe, amend, or cancel. These events serve two primary roles:
 + **Manufacturer** – The original product manufacturer (ISV) in a channel partner resale (CPPO) arrangement.

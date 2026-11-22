@@ -1,12 +1,11 @@
 
 
 # Container-based products on AWS Marketplace
-<a name="container-based-products"></a>
 
 **Important**  
-On March 1, 2026, AWS Marketplace will discontinue Quick Launch for Helm chart deployments on Amazon EKS. Existing deployments will continue running normally. You can still deploy using standard Helm commands or container images on Amazon ECS.
+As of March 1, 2026, AWS Marketplace no longer supports Quick Launch for Helm chart deployments on Amazon EKS. Deployments created with Quick Launch before that date continue to run normally. To deploy, use standard Helm commands, or use container images on Amazon ECS.
 
-AWS Marketplace supports software products that use Docker containers. Container products consist of delivery options that are a set of container images and deployment templates that go together. You submit at least one delivery option for your product, with up to a maximum of four. For each delivery option, you provide a set of container images, usage instructions, and links to deployment templates for customers to launch that delivery option. This topic provides information about container-based products on AWS Marketplace.
+AWS Marketplace supports software products that use Docker containers. Container products consist of delivery options that are a set of container images and deployment templates that go together. You submit one to four delivery options for each version of your product. For each delivery option, you provide a set of container images, usage instructions, and links to deployment templates for customers to launch that delivery option. This topic provides information about container-based products on AWS Marketplace.
 
 AWS Marketplace buyers see the available delivery options on the published product detail pages that are available to them. After they subscribe to the product and choose their preferred delivery option, buyers see information and instructions for launching and using the product. For container image delivery options, buyers see links to the available deployment templates and container image URLs. They also receive instructions for how to pull the individual container images. For Helm chart delivery options, buyers will see step-by-step instructions for launching using Helm.
 
@@ -28,4 +27,4 @@ You can run Free and Bring Your Own License model (BYOL) container products on a
 ## Getting help
 <a name="container-help"></a>
 
-For assistance with your container products, contact your business development partner for AWS Marketplace or the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team.
+For assistance with your container products, contact your business development partner for AWS Marketplace or the AWS Marketplace support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.

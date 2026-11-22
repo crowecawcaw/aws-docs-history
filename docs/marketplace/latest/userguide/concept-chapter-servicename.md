@@ -1,9 +1,8 @@
 
 
 # Managing AMI-based products as an AWS Marketplace seller
-<a name="concept-chapter-servicename"></a>
 
-As an AWS Marketplace seller, you can manage and update your single [Amazon Machine Images (AMIs)](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#AmazonMachineImage) products. AMI-based products include a set of one or more versions of the software and metadata about the product as a whole. When you create the product, you configure its properties in AWS Marketplace, including your product name, description, and pricing. You also determine the appropriate categories for your product and add keywords so your product appears in relevant searches. After you create, your single-AMI product, you can submit change requests to make changes to your product or version. 
+As an AWS Marketplace seller, you can manage and update your single [Amazon Machine Images (AMIs)](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#AmazonMachineImage) products. AMI-based products include a set of one or more versions of the software and metadata about the product as a whole. When you create the product, you enter its name. On the **Provide product details** page, you add a description, choose categories, and add keywords so your product appears in relevant searches. You set pricing when you create the public offer under **Step 3: Procurement configuration**. After you create your single-AMI product, you can submit change requests to make changes to your product or version. 
 
 The types of changes you can request for AMI-based products include:
 + Update product information displayed to buyers.
@@ -12,7 +11,7 @@ The types of changes you can request for AMI-based products include:
 + Restrict a version so that new buyers can no longer access that version.
 + Update the AWS Regions that a product is available in.
 + Update the pricing and instance types for a product.
-+ Remove a product from AWS Marketplace.
++ Restrict a product so that new buyers can no longer subscribe to it and existing subscribers can't renew their contracts.
 
 The following topics show to manage and update a single AMI product.
 

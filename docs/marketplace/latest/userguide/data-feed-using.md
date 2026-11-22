@@ -1,7 +1,6 @@
 
 
 # Collecting and analyzing data with data feeds
-<a name="data-feed-using"></a>
 
 AWS Marketplace provides data feeds as a mechanism to send structured, up-to-date product and customer information from AWS Marketplace systems to seller Amazon S3 buckets for ETL (extract, transform, and load) between seller-owned business intelligence tools. When data is available in your Amazon S3 bucket, you can use data feeds in the following ways:
 + Download the .CSV files from the Amazon S3 bucket you created in [Accessing data feeds](data-feed-accessing.md) so that you can view the data in a spreadsheet.

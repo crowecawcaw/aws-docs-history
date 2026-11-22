@@ -1,7 +1,6 @@
 
 
 # Amazon Bedrock AgentCore Runtime for AWS Marketplace
-<a name="bedrock-agentcore-runtime"></a>
 
 This document provides information for AWS Marketplace sellers who want to list AI agents or tools that can be deployed on Amazon Bedrock AgentCore Runtime. It outlines the technical requirements, configuration guidelines, and best practices for preparing your Bedrock AgentCore Runtime supported container for AWS Marketplace.
 

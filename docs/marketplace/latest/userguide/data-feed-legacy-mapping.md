@@ -1,7 +1,6 @@
 
 
 # Legacy mapping data feed
-<a name="data-feed-legacy-mapping"></a>
 
 This data feed lists how product IDs and offer IDs map to legacy globally unique identifiers (GUIDs). The legacy GUIDs were used in older reports, and the new IDs are used in data feeds and in AWS Marketplace APIs.
 

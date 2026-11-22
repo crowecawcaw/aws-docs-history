@@ -1,9 +1,8 @@
 
 
 # Custom metering pricing for AMI products with AWS Marketplace Metering Service
-<a name="custom-metering-pricing-ami-products"></a>
 
-With the AWS Marketplace Metering Service, you can modify your software to send metering records to an endpoint to capture usage. You can select a usage category and define up to 24 dimensions for that one category. These dimensions are metered once per hour, aggregated, and charged against a price plan that you define. As a seller, you must determine which dimension you want to use. After the AMI is published, you will not be able to change it. The following sections provide information about AWS Marketplace Metering Service.
+With the AWS Marketplace Metering Service, you can modify your software to send metering records to an endpoint to capture usage. You choose one dimension unit type and define up to 200 dimensions for it. These dimensions are metered once per hour, aggregated, and charged against a price plan that you define. Choose your dimension unit type and API identifiers before you create the public offer. You can't change them later. The following sections provide information about AWS Marketplace Metering Service.
 
 **Topics**
 + [Metering service concepts](#metering-service-concepts)
@@ -19,20 +18,20 @@ With the AWS Marketplace Metering Service, you can modify your software to send 
 
 Before you use the AWS Marketplace Metering Service, note the following important service concepts:
 +  **Usage Category** – Any software product priced through the use of the Metering Service is categorized according to one usage category, which determines the appropriate way to charge customers. Usage categories include but aren't limited to: 
-  + **Users** – A defined set of permissions associated with a single identifier. This category is appropriate for software in which a customer’s users connect to the software directly (for example, for customer-relationship management or business intelligence reporting). 
-  + **Hosts** – Any server, node, instance, endpoint, or other part of a computing system. This category is appropriate for software that monitors or scans many customer-owned instances (for example, performance or security monitoring). 
-  + **Data** – Storage or information, measured in MB, GB, or TB. This category is appropriate for software that manages stored data or processes data in batches. 
-  + **Bandwidth** – Measured in Mbps or Gbps. This category is appropriate for software that allows customers to specify an amount of bandwidth to provision.
-  + **Unit** – Unit of measurement; see the examples described next.
-+  **Usage Unit** – A software product's specific usage unit corresponds to the selected usage category. This usage unit describes the unit your software will charge on. Examples include: 
-  + **NodesHrs** (corresponding to the Hosts category)
-  + **UserHrs** (corresponding to the User category)
-  + **GBStored** (corresponding to the Data category)
+  + Users – A defined set of permissions associated with a single identifier. This category is appropriate for software in which a customer’s users connect to the software directly (for example, for customer-relationship management or business intelligence reporting). 
+  + Hosts – Any server, node, instance, endpoint, or other part of a computing system. This category is appropriate for software that monitors or scans many customer-owned instances (for example, performance or security monitoring). 
+  + Data – Storage or information, measured in MB, GB, or TB. This category is appropriate for software that manages stored data or processes data in batches. 
+  + Bandwidth – Measured in Mbps or Gbps. This category is appropriate for software that allows customers to specify an amount of bandwidth to provision.
+  + Unit – Unit of measurement; see the examples described next.
++  **Usage Unit** – A software product's specific usage unit corresponds to the selected usage category. This usage unit describes the unit your software will charge on. When you create the public offer, you choose it for **Dimension unit type**. Examples include: 
+  + **Host hours** (corresponding to the Hosts category)
+  + **User hours** (corresponding to the Users category)
+  + **GB** (corresponding to the Data category)
 +  **Consumption** – Software products priced through the use of the Metering Service charge for consumption in one of three ways: 
   + Provisioned – The software allows customers to configure a specific amount of resources for use (for example, number of users or a fixed amount of bandwidth). Each hour, customers pay for what they have provisioned. 
   + Concurrent – The software allows any number of distinct hosts or users to connect to the software. Each hour, customers pay based on the number of hosts or users who accessed the software. 
   + Accumulated – The software allows customers to use any amount of data, either processed or stored. Each hour, customers pay for the aggregated amount. 
-+  **Pricing** – Software products priced through the use of the Metering Service must specify either a single price or define up to 24 dimensions, each with their own price. Details about the pricing options include:
++  **Pricing** – Software products priced through the use of the Metering Service must specify either a single price or define up to 200 dimensions, each with their own price. Details about the pricing options include:
   + Single dimension – This is the simplest pricing option. Customers pay a single price per resource unit per hour, regardless of size or volume (for example, $0.014 per user per hour, or $0.070 per host per hour). 
   + Multiple dimensions – This pricing option is appropriate when the selected usage category varies along multiple axes. For example, for host monitoring, a different price could be set depending on the size of the host. Or, for user-based pricing, a different price could be set based on the type of user (for example, admin, power user, and read-only user). 
 +  **Metering** – All usage is recorded as a metering event, once each hour. Your software must be configured to send the appropriate dimension and usage amount to the AWS Marketplace Metering Service. 
@@ -51,60 +50,82 @@ When pricing your software with the AWS Marketplace Metering Service, you must f
 
 Next, you must decide how to price the selected usage category: 
 + Single price 
-+ Multiple dimensions (up to 24) 
++ Multiple dimensions (up to 200) 
 
 [Adding your product to AWS Marketplace](#listing-your-product-on-aws-marketplace) describes how to provide a customer-friendly description of your dimension and pricing. 
 
 ### Example: Provisioned bandwidth with nonlinear pricing
 <a name="example-provisioned-bandwidth-with-non-linear-pricing"></a>
 
-Imagine you offer network appliance software. You choose to bill by provisioned bandwidth. For your usage category, select **Bandwidth**. In addition to charging by bandwidth, you want to charge a different price as buyers scale up. You can define multiple dimensions within the bandwidth category. You can define a distinct price for 25 Mbps, 100 Mbps, and 1 Gbps. 
+Imagine you offer network appliance software. You choose to bill by provisioned bandwidth. For **Dimension unit type**, choose **Mbps** or **Gbps**. In addition to charging by bandwidth, you want to charge a different price as buyers scale up. You can define multiple dimensions within the bandwidth category. You can define a distinct price for 25 Mbps, 100 Mbps, and 1 Gbps. 
 
 ### Example: Concurrent hosts with multiple dimensions
 <a name="example-concurrent-hosts-with-multiple-dimensions"></a>
 
-Imagine you offer software that monitors other Amazon EC2 instances. You choose to bill by the number of hosts that are being monitored. For your usage category, select **Host**. In addition to charging by host, you want to charge for the extra value for monitoring larger hosts. You can use multiple dimensions within the host category. You can define a distinct price for micro, small, medium, large, x-large, 2XL, 4XL, and 8XL instances. Your software is responsible for mapping each particular host to one of your defined dimensions. Your software is responsible for sending a separate metering record for each dimension of your usage category if applicable. 
+Imagine you offer software that monitors other Amazon EC2 instances. You choose to bill by the number of hosts that are being monitored. For **Dimension unit type**, choose **Host hours**. In addition to charging by host, you want to charge for the extra value for monitoring larger hosts. You can use multiple dimensions within the host category. You can define a distinct price for micro, small, medium, large, x-large, 2XL, 4XL, and 8XL instances. Your software is responsible for mapping each particular host to one of your defined dimensions. Your software is responsible for sending a separate metering record for each dimension of your usage category if applicable. 
 
 ## Adding your product to AWS Marketplace
 <a name="listing-your-product-on-aws-marketplace"></a>
 
 To take advantage of the Metering Service, you must create a new product for AWS Marketplace to list. If your product is already on the AWS Marketplace, you will need to decide whether the new AWS Marketplace Metering Service product will be made available in addition to your current product, or if it will replace your current product as the only version available to new users. If you choose replacement, the existing product will be removed from the AWS Marketplace so that it is no longer available for new buyers. Existing customers will continue to have access to their old product and instances, but they can migrate to the new product at their convenience. The new product must meter usage to the AWS Marketplace Metering Service, as described in [Modifying your software to use the Metering Service](#modifying-your-software-to-use-the-metering-service).
 
-After you have your AMI, follow the standard process to share and scan your AMI using the self-service tool. In addition to using the template available on the management portal, fill out the product load form and upload it to start the ingestion process. 
+After you have your AMI, create the product and add the AMI as its first version. For the procedure, see [Create the listing](ami-single-ami-products.md#ami-create-product). If you already have the same software on AWS Marketplace and you're adding it with the AWS Marketplace Metering Service, add the usage category to the product name to tell the two products apart (for example, "PRODUCT TITLE (Data)").
 
-Use the following definitions to complete the fields of the Product Load Form for the AWS Marketplace Metering Service. On the Product Load Form, these fields are labeled as **Flexible Consumption Pricing (FCP)** to differentiate them from hourly and monthly priced products. 
-+  **Title** – If you already have a product on AWS Marketplace and you're adding the same product with the AWS Marketplace Metering Service, include the FCP category and dimension in parentheses to differentiate them (for example, “PRODUCT TITLE (Data)”). 
-+  **Pricing Model** –From the dropdown list, choose **Usage**. 
-+  **FCP Category** – The category in which customers are charged for paid products with a **Usage** pricing component. From the dropdown list, choose **Users**, **Hosts**, **Data**, or **Bandwidth**. 
-+  **FCP Unit** –The unit of measurement on which customers are charged for paid products with a **Usage** pricing component. Options will appear in the dropdown list based on the FCP category you selected. The following table lists the valid units for each category. 
+You set usage pricing when you create the product's public offer.
 
+**To start a public offer**
 
-<table>
-<thead>
-  <tr><th> <b>Category </b> </th><th> <b>Valid units </b> </th></tr>
-</thead>
-<tbody>
-  <tr><td> Users </td><td> UserHrs </td></tr>
-  <tr><td> Hosts </td><td> HostHrs </td></tr>
-  <tr><td> Data </td><td> MB, GB, TB </td></tr>
-  <tr><td> Bandwidth </td><td> Mbps, Gbps </td></tr>
-</tbody>
-</table>
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-+  **FCP Dimension Name** – The name used when sending metering records by calling the `MeterUsage` operation. It is visible in billing reports. However, because it isn't external-facing, the name doesn't need to be user-friendly. The name can be no more than 15 characters and can only include alphanumeric and underscore characters. After you set the name and make the product public, you can't change it. Changing the name requires a new AMI. 
-+  **FCP Dimension Description** – The customer-facing statement that describes the dimension for the product. The description (can be no more than 70 characters and should be user-friendly. Examples of descriptions include: Administrators per hour and Per Mbps bandwidth provisioned. After the product is published, you can't change this description. 
-+  **FCP Rate** – The software charge per unit for this product. This field supports eight decimal places. 
+1. Choose the product.
 
-**Notes:**  
-You don't need to fill out hourly and annual pricing fields. 
+   The product must have Limited or Public visibility.
+
+1. Choose the **Procurement** tab.
+
+1. On the **Public offer** card, choose **Create public offer**.
+
+   The **Create public offer** page opens. Continue with the following procedures.
+
+**To set the pricing model and dimensions**
+
+1. On the **Set pricing model and dimensions** step, for **Pricing model**, choose **Usage pricing**.
+
+   You can't change the pricing model later. To use a different pricing model, create a new product.
+
+1. For **Dimension unit type**, choose the unit that customers are charged on.
+
+   The options are **Gbps**, **Mbps**, **GB**, **MB**, **TB**, **Requests**, **Units**, **Host hours**, **Tier hours**, and **User hours**. You can't change the unit type later. If the unit differs between dimensions, choose **Units**.
+
+1. Choose **Add usage dimension**.
+
+1. In the panel, enter the **API identifier**, **Display name**, and **Description**, and then choose **Add dimensions**.
+
+   The API identifier is the dimension name that your software sends in `MeterUsage` calls, and it appears in billing reports. Use up to 60 letters, numbers, and underscores, and don't start with a number. You can't change the API identifier later. The display name can have up to 80 characters, and the description can have up to 90. To add more than one dimension, choose **Add new dimension** before you choose **Add dimensions**.
+
+1. Choose **Next**.
+
+**To set prices and create the public offer**
+
+1. On the **Configure pricing details and duration** step, enter the price per unit for each dimension.
+
+   Prices can have up to 8 decimal places.
+
+1. Complete the **Specify refund policy**, **Configure legal terms and offer documents**, and **Configure offer availability** steps.
+
+1. On the **Review and create** step, choose **Create public offer**.
+
+AWS Partner Central returns you to the **Procurement** tab while AWS Marketplace processes the request. When the request succeeds, your public offer appears on the **Public offer** card.
+
+**Note**  
 Free trial and annual pricing aren't compatible. 
-Products that use an AMI, and the Clusters, and AWS Resources feature, can't use the AWS Marketplace Metering Service. 
+For an **AMI with CloudFormation** product, the AWS Marketplace Metering Service integration applies to the software that runs on the instances your product launches, including instances that your CloudFormation template launches. Call `MeterUsage` from those instances by using their IAM role.
 Price, instance type, or AWS Region change will follow the same process as other AWS Marketplace products.
 Products with the AWS Marketplace Metering Service can't be converted to other pricing models such as hourly, monthly, or Bring Your Own License (BYOL). 
 AWS Marketplace recommends adding IAM policy information in your usage instructions or document. 
-You can include up to 24 FCP dimensions in total. Once created and published, you can't modify existing dimensions, but you can add new ones (up to the limit of 24).
+You can include up to 200 usage dimensions in total. After you publish, you can add dimensions up to that limit, and you can change the display name and description of a dimension. To make these changes, choose **Update** in the **Pricing dimensions** section of the product's **Procurement** tab.
 
-If you have questions, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team. 
+If you have questions, contact the AWS Marketplace support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console. 
 
 ## Modifying your software to use the Metering Service
 <a name="modifying-your-software-to-use-the-metering-service"></a>
@@ -118,7 +139,7 @@ Your software must determine how much of the selected usage category and which d
 
 For provisioned consumption, this will typically be read from the software configuration as a sampled value, but might also be a maximum configured value, recorded each hour. For concurrent consumption, this might be either a periodic sample or a maximum value recorded each hour. For accumulated consumption, this will be a value that is accumulated each hour. 
 
-For pricing on multiple dimensions, multiple values must be measured and sent to the Metering Service, one per dimension. This requires your software to be programmed or configured with the known set of dimensions when you provide the AMI. The set of dimensions can't change after a product is created.
+For pricing on multiple dimensions, multiple values must be measured and sent to the Metering Service, one per dimension. This requires your software to be programmed or configured with the known set of dimensions when you provide the AMI. You can add dimensions later. You can't change a dimension's API identifier after you create it.
 
 For each pricing scenario, the following table describes recommended ways for measuring consumption each hour. 
 

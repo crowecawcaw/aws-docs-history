@@ -1,13 +1,12 @@
 
 
 # Policies and permissions for AWS Marketplace sellers
-<a name="detailed-management-portal-permissions"></a>
 
  AWS Marketplace provides a set of managed policies for use with AWS Partner Central. In addition, you can use individual permissions to create your own AWS Identity and Access Management (IAM) policy.
 
-You can also provide fine-grained access to AWS Partner Central for the **Settings**, **Contact Us**, **File Upload**, and **Insights** tabs. Fine-grained access enables you to do the following:
+You can also provide fine-grained access to AWS Partner Central for the **Settings**, **File Upload**, and **Insights** tabs. For permissions to use the AWS Partner Central and Marketplace Support page, see [Example 6: Permissions to use the Support page](#example-support-page). Fine-grained access enables you to do the following:
 + Grant other people permission to administer and use resources in your AWS account without sharing your password or access key.
-+ Grant granular permissions to multiple people for various resources. For example, you might allow some users access to view the **Settings** tab in AWS Partner Central. For other users, you might allow access to edit in the **Settings** and **Contact Us** tabs.
++ Grant granular permissions to multiple people for various resources. For example, you might allow some users access to view the **Settings** tab in AWS Partner Central. For other users, you might allow access to edit in the **Settings** tab.
 
 **Note**  
 For more information about policies and permissions in AWS Data Exchange for data products, see [Identity and Access Management in AWS Data Exchange](https://docs.aws.amazon.com/data-exchange/latest/userguide/auth-access.html) in the *AWS Data Exchange User Guide*.  
@@ -76,8 +75,29 @@ Allows access to add a bank account to AWS Partner Central.
 **`payments:GetPaymentInstrument`**  
 Allows access to view existing bank accounts in AWS Partner Central.
 
+**`support:SearchForCases`**  
+Allows access to list and search support cases on the AWS Partner Central and Marketplace Support page and in the support chat.
+
+**`support:DescribeCases`**  
+Allows access to view support case details and status.
+
+**`support:DescribeCommunications`**  
+Allows access to read support case correspondence.
+
 **`support:CreateCase`**  
-Allows access to create an AWS Marketplace case within AWS Partner Central.
+Allows access to create an AWS Marketplace support case on the AWS Partner Central and Marketplace Support page.
+
+**`support:AddAttachmentsToSet`**  
+Allows access to attach files to a support case.
+
+**`support:AddCommunicationToCase`**  
+Allows access to reply to a support case.
+
+**`support:ResolveCase`**  
+Allows access to resolve a support case.
+
+**`support-console:*`**  
+Allows access to view, reply to, and resolve support cases in AWS Support Center.
 
 **`aws-marketplace-management:viewSupport`**  
 Allows access to the [Customer Support Eligibility](https://aws.amazon.com/marketplace/management/support/) page in AWS Partner Central.
@@ -120,6 +140,8 @@ Allows access to view the details of assessments pending seller action.
 **`s3:PutObject`**  
 Allows access to upload files in AWS Partner Central. For example, you can upload custom legal terms and other offer documents when you create a private offer or amend an agreement. Use this permission with the following ARN: `arn:aws:s3:::aws-partner-central-marketplace-ephemeral-writeonly-files/{{account-id}}/*`. AWS Marketplace owns this bucket, and you can only upload files to it. The `AWSMarketplaceSellerFullAccess` and `AWSMarketplaceSellerProductsFullAccess` managed policies include this permission.
 
+**Permissions for publishing with the Catalog API.** To create and manage RTB Fabric module products programmatically, the identity needs `aws-marketplace:StartChangeSet`, `aws-marketplace:DescribeChangeSet`, `aws-marketplace:ListChangeSets`, `aws-marketplace:CancelChangeSet`, `aws-marketplace:DescribeEntity`, and `aws-marketplace:ListEntities`. To read agreements and report usage, add `aws-marketplace:SearchAgreements`, `aws-marketplace:DescribeAgreement`, `aws-marketplace:GetAgreementTerms`, `aws-marketplace:BatchMeterUsage`, and `aws-marketplace:GetEntitlements`. The `AWSMarketplaceSellerFullAccess` managed policy includes all of these.
+
 **Note**  
  To enable a user to access the [Manage Products](https://aws.amazon.com/marketplace/management/products/) page, you must use either the `AWSMarketplaceSellerProductsFullAccess` or `AWSMarketplaceSellerProductsReadOnly` managed permissions. 
 
@@ -137,7 +159,7 @@ To grant permissions to view the KYC status in AWS Partner Central, use a policy
 
 ****  
 
-```
+```json
 {"Version":"2012-10-17",		 	 	 
   "Statement": [{
     "Effect": "Allow",
@@ -161,7 +183,7 @@ To grant permissions to view and use the **Agreements** page to create upgrades 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -202,7 +224,7 @@ To grant permissions to view and use the **Offers** page to view existing privat
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -231,7 +253,7 @@ To grant permissions to view and use the **Settings** page, use a policy similar
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -260,7 +282,7 @@ To grant permissions to view and use the **File Upload** page, use a policy simi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -278,6 +300,47 @@ To grant permissions to view and use the **File Upload** page, use a policy simi
 ```
 
 ------
+
+## Example 6: Permissions to use the Support page
+<a name="example-support-page"></a>
+
+If you use an AWS managed policy for AWS Marketplace or AWS Partner Central, you already have the permissions to use the AWS Partner Central and Marketplace Support page. If you use a customer managed policy, use a policy similar to the following example. It grants permissions to create, track, reply to, and resolve support cases. With `aws-marketplace:ListEntities`, the support chat can confirm that your account is a seller.
+
+You can't scope these actions to specific resources, so each statement must use `"Resource": "*"`. If your account is also an AWS Partner, add `partnercentral:ListPartners` for the `AWS` and `Sandbox` catalogs. For more information, see [Required permissions](https://docs.aws.amazon.com/partner-central/latest/getting-started/getting-support.html#support-permissions) in the *AWS Partner Central Getting Started Guide*.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PartnerCentralAndMarketplaceSupportCases",
+      "Effect": "Allow",
+      "Action": [
+        "support:SearchForCases",
+        "support:DescribeCases",
+        "support:DescribeCommunications",
+        "support:CreateCase",
+        "support:AddAttachmentsToSet",
+        "support:AddCommunicationToCase",
+        "support:ResolveCase"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "SupportCenterConsole",
+      "Effect": "Allow",
+      "Action": "support-console:*",
+      "Resource": "*"
+    },
+    {
+      "Sid": "MarketplaceSellerAccountCheck",
+      "Effect": "Allow",
+      "Action": "aws-marketplace:ListEntities",
+      "Resource": "*"
+    }
+  ]
+}
+```
 
 ## Using IAM groups
 <a name="seller-ammp-permissions-iam-groups"></a>

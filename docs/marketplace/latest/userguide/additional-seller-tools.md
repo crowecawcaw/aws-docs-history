@@ -1,7 +1,6 @@
 
 
 # Additional programs, tools, and assistants for AWS Marketplace sellers
-<a name="additional-seller-tools"></a>
 
 AWS Marketplace provides you with seller tools that you can use to sell and manage your products. You can use these tools to gain insight into your customer base and help better understand your sales. This topic provides a information about these tools with links to additional resources. 
 
@@ -12,12 +11,12 @@ AWS Marketplace provides the following additional seller tools:
 + **AWS Marketplace Commerce Analytics Service **– The AWS Marketplace Commerce Analytics Service lets you programmatically access product and customer data through AWS Marketplace. After you enroll in the service, you can access your usage, subscription, and billing reports through the AWS SDK. For more information, see [Accessing product and customer data with the AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md).
 + **AWS Marketplace Field Demonstration Program (FDP) **– The FDP allows the AWS field team (internally approved AWS employees) to use some products and solutions through AWS Marketplace at no charge. For more information, see [AWS Marketplace Field Demonstration Program](field-demonstration-program.md).
 + **Seller reports, data feeds, and dashboards** – AWS Marketplace provides tools for collecting and analyzing information about your product sales. For more information, see [Seller reports, data feeds, and dashboards in AWS Marketplace](reports-and-data-feed.md).
-+ **AI-assisted product listing** – You can use AI-assisted product listing in AWS Partner Assistant to generate high-quality AWS Marketplace product listings from your existing digital assets. For more information, see [AI-assisted product listing](ai-assisted-product-listing.md).
++ **AI-assisted product listing** – You can use AI-assisted product listing in AWS Partner Central Agents to generate high-quality AWS Marketplace product listings from your existing digital assets. For more information, see [AI-assisted product listing](ai-assisted-product-listing.md).
 
 For more information, see the following topics.
 
 **Topics**
 + [Accessing product and customer data with the AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md)
 + [AWS Marketplace Field Demonstration Program](field-demonstration-program.md)
-+ [AWS Partner Assistant](partner-assistant.md)
++ [AWS Partner Central Agents](partner-assistant.md)
 + [What is the Designated Seller of Record (DSOR) program?](designated-seller-of-record.md)

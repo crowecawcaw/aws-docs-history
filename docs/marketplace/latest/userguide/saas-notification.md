@@ -1,10 +1,10 @@
 
 
 # Amazon SNS notifications for SaaS products
-<a name="saas-notification"></a>
 
 **Amazon SNS notifications aren't available to new sellers**  
-If you registered your seller account after July 15, 2026, use Amazon EventBridge to receive events. If you registered on or before that date, you can continue to use Amazon SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).
+If you registered your seller account after July 15, 2026, use Amazon EventBridge to receive events. If you registered on or before that date, you can continue to use Amazon SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).  
+Amazon SNS is not available for RTB Fabric module products. That product type uses Amazon EventBridge.
 
 If you use Amazon SNS notifications, plan to migrate to EventBridge. New notifications are available only in EventBridge.
 
@@ -14,13 +14,13 @@ To receive notifications, you subscribe to the Amazon Simple Notification Servic
 During the product creation process, you'll receive the actual Amazon Resource Name (ARN) to the SNS topic. For example: `arn:aws:sns:us-east-1:123456789012:aws-mp-subscription-notification-PRODUCTCODE`
 
 The following Amazon SNS topics are available to software as a service (SaaS) products:
-+ [Amazon SNS topic: `aws-mp-entitlement-notification`](#saas-sns-message-body) – This topic notifies you when buyers create a new contract, upgrade it, renew it, or it expires. This is only available for products with pricing models that include a contract (also known as **SaaS Contracts** and **SaaS Contracts with Consumption (Overages)**).
-+ [Amazon SNS topic: `aws-mp-subscription-notification`](#saas-sns-subscription-message-body) – This topic notifies you when a buyer subscribes to or unsubscribes from a product and includes the `offer-identifier` for private offers and a free trials flag for SaaS free trials. This is available for all pricing models, including contracts and subscriptions (also known as **SaaS Subscriptions**, **SaaS Contracts**, and **SaaS Contracts with Consumption (Overages)**.
++ [Amazon SNS topic: `aws-mp-entitlement-notification`](#saas-sns-message-body) – This topic notifies you when buyers create a new contract, upgrade it, renew it, or it expires. This is only available for products with pricing models that include a contract (**Contract-based pricing**, with or without **Enable additional usage on top of contract**).
++ [Amazon SNS topic: `aws-mp-subscription-notification`](#saas-sns-subscription-message-body) – This topic notifies you when a buyer subscribes to or unsubscribes from a product and includes the `offer-identifier` for private offers and a free trials flag for SaaS free trials. This is available for all pricing models, including contracts and subscriptions (**Contract-based pricing** and **Usage-based pricing**).
 
 To learn more about the scenarios in which you respond to these notifications, see the following topics:
 + [Integrating your SaaS subscription or Pay-As-You-Go product with AWS Marketplace](saas-integrate-subscription.md)
 + [Integrating your SaaS contract product with AWS Marketplace](saas-integrate-contract.md)
-+ [Integrating your SaaS contract-based product with AWS Marketplace](saas-integrate-contract-with-pay.md)
++ [Integrating your SaaS contract with consumption product with AWS Marketplace](saas-integrate-contract-with-pay.md)
 
 ## Amazon SNS topic: `aws-mp-entitlement-notification`
 <a name="saas-sns-message-body"></a>
@@ -39,7 +39,7 @@ The {{<action-name>}} will always be ` entitlement-updated`.
 
 **Note**  
 For entitlement messages, regardless of the action (new, upgrade, renewal, or expired), the message is the same. A subsequent call to `GetEntitlement` is required to discover the content of the update.
-For **SaaS Contract with Consumption (Overages)**, sellers are provided with the [`aws-mp-subscription-notification` SNS topic](#saas-sns-subscription-message-body). This is an extra notification that a seller receives when they add on overage pricing. When a seller acquires new customers, instead of only getting `entitlement-updated` (which may refer to any kind of action), the seller receives a subscribe message indicating that this is a new customer.
+For **Contract-based pricing** with **Enable additional usage on top of contract** selected, sellers are provided with the [`aws-mp-subscription-notification` SNS topic](#saas-sns-subscription-message-body). This is an extra notification that a seller receives when they add on overage pricing. When a seller acquires new customers, instead of only getting `entitlement-updated` (which may refer to any kind of action), the seller receives a subscribe message indicating that this is a new customer.
 For future dated agreements (FDAs), this topic is initiated on the agreement start date (and not agreement sign date). It's also initiated when subsequent changes occur in the entitlement, such as cancellation, replacement, renewal, or expiration of the agreement.
 
 Products with contract pricing (including contracts with pay-as-you-go) must respond to these messages. For more information about how to respond, see [Scenario: Monitor changes to user subscriptions](saas-integrate-contract.md#saas-contract-monitor-changes).
@@ -84,7 +84,7 @@ For future dated agreements (FDAs), the `subscribe-success` action is initiated 
 
 Products with subscription pricing (including contracts with pay-as-you-go) must respond to these messages. For more information about how to respond, see the following topics:
 + [Integrating your SaaS subscription or Pay-As-You-Go product with AWS Marketplace](saas-integrate-subscription.md)
-+ [Integrating your SaaS contract-based product with AWS Marketplace](saas-integrate-contract-with-pay.md)
++ [Integrating your SaaS contract with consumption product with AWS Marketplace](saas-integrate-contract-with-pay.md)
 
 ## Subscribing an SQS queue to the SNS topic
 <a name="subscribing-an-sqs-queue-to-the-sns-topic"></a>

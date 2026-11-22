@@ -1,7 +1,6 @@
 
 
 # Listing and Selling in AWS Marketplace for AWS European Sovereign Cloud
-<a name="esc_seller_guide"></a>
 
  AWS Marketplace in the AWS European Sovereign Cloud (ESC) enables you to offer your products to customers who require enhanced data sovereignty, residency, and operational control within the European Union. ESC is designed to help EU-based organizations meet strict regulatory requirements while using cloud computing services. For full comparison between AWS Marketplace in Commercial region and AWS Marketplace in ESC refer to [this documentation](https://docs.aws.eu/esc/latest/userguide/marketplace.html). 
 
@@ -37,7 +36,7 @@
 ## ESC seller catalog registration
 <a name="esc-registration"></a>
 
- Successful registration for the AWS European Sovereign Cloud Marketplace is subject to meeting all prerequisites described above. Please ensure you have access to the root-email associated with your AWS Account used as seller account. All multi-catalog registration communication will exclusively be sent to this email domain. You can validate the domain by navigating to the Settings Tab in your AWS Marketplace Management Console under "Notifications". 
+ Successful registration for the AWS European Sovereign Cloud Marketplace is subject to meeting all prerequisites described above. Please ensure you have access to the root-email associated with your AWS Account used as seller account. All multi-catalog registration communication will exclusively be sent to this email domain. To find your root email address, choose **Settings** and then **AWS Marketplace notifications** in AWS Partner Central. 
 
 ### Registering for the ESC catalog
 <a name="registering-esc-catalog"></a>
@@ -69,19 +68,17 @@ Please ensure that the ESC account that you provided is the correct account for 
 ### ESC Approval and Access
 <a name="esc-approval-access"></a>
 
-Once approved, you will receive an email confirmation to your AWS account root email address. You will also gain access to the ESC catalog in the AWS Marketplace Management Portal, along with the ability to create and publish ESC product listings. To verify your ESC catalog access:
+Once approved, you will receive an email confirmation to your AWS account root email address. You also get access to the ESC catalog in AWS Partner Central, where you can create and publish ESC product listings.
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/)
+**To verify your ESC catalog access**
 
-1. Locate the catalog dropdown in the header navigation
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. Confirm that **AWS Marketplace — European Sovereign Cloud (aws-eusc)** appears as an available option
+1. For **Catalog**, choose the AWS European Sovereign Cloud catalog (`aws-eusc`).
 
-1. Select the ESC catalog to update your public profile
+   If the ESC catalog isn't in the list, see [Troubleshooting and Support in the ESC](#troubleshooting-esc).
 
-1. Add ESC disbursement preferences to your ESC account
-
-1. You can start adding ESC products
+Before you add ESC products, add your public profile and disbursement preferences for the ESC catalog. For more information, see [ESC Seller Profile completion](#esc-seller-profile).
 
 Both Commercial and ESC accounts must remain active throughout your AWS Marketplace in the AWS ESC participation. Suspension of your commercial account may affect your ESC catalog access.
 
@@ -107,7 +104,7 @@ All SaaS pricing models: Free, subscription, contract, and contract with consump
 
 Sellers who have registered as an AWS Marketplace in the AWS ESC seller and have created an AWS ESC account (see [Multi-Catalog for Marketplace sellers](https://docs.aws.amazon.com/marketplace/latest/userguide/multi_catalog.html) for more information), can start listing their SaaS products. Supported pricing models: Contract, Subscription, Contract with Consumption, Pay-as-you-go (PAYG), and Free.
 
-1. List your product in AWS Partner Central under Build - SaaS Products
+1. List your product in AWS Partner Central. For the steps, see [How to create a product listing in ESC](#create-product-listing-esc).
 
 1. Select the "aws-eusc" catalog before creating
 
@@ -129,22 +126,22 @@ Sellers who have registered as an AWS Marketplace in the AWS ESC seller and have
 
 Please refer to [SaaS-based products](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-products.html) and [diff doc](https://docs.aws.eu/esc/latest/userguide/marketplace.html) for further reference.
 
-### AMI-based products (including AMI-CFT)
+### AMI-based products
 <a name="ami-products-esc"></a>
 
-AMI-based products include Amazon Machine Images (AMIs) and AMIs with an AWS CloudFormation template (AMI-CFT). AMI-based products support the following pricing options: Free, paid hourly, and hourly annual.
+AMI-based products in the AWS European Sovereign Cloud deliver Amazon Machine Images (AMIs) with the **AMI (standalone)** delivery method. In AWS Partner Central, the **AMI with CloudFormation** and **EC2 Image Builder component** delivery methods aren't offered for the AWS European Sovereign Cloud catalog. AMI-based products support the following pricing options: Free, hourly, and hourly annual.
 
 Sellers who have registered as AWS Marketplace sellers in the AWS ESC and have created an AWS ESC account (see [Multi-Catalog for Marketplace sellers](https://docs.aws.amazon.com/marketplace/latest/userguide/multi_catalog.html) for more information) can start listing their AMI products. To list an AMI-based product, complete the following steps:
 
-1. List your product in AWS Partner Central under **Build - Server Products**.
+1. List your product in AWS Partner Central. For the steps, see [How to create a product listing in ESC](#create-product-listing-esc).
 
 1. Select the `aws-eusc` catalog before you create your product listing.
 
-1. Complete the 9-step wizard to generate your product ID and product code.
+1. Complete each step under **Complete your listing**. Your product ID and product code appear on the product's page when you create the product.
 
 1. Set pricing in EUR. Public listings must use EUR, and private offers can use EUR or USD.
 
-1. Test end-to-end in the ESC console. Subscribe to and launch your product in the ESC partition to validate all use cases. If needed, modify your product in either the ESC partition or the commercial partition.
+1. Test end-to-end in the ESC console. Subscribe to and launch your product in the ESC partition to validate all use cases. If needed, update your product in AWS Partner Central with the ESC catalog selected.
 
 1. Go public. If you created any test versions, restrict them first. Then set the product visibility to **Public** with EUR pricing.
 
@@ -159,15 +156,15 @@ Container products are software packaged as container images that buyers deploy 
 
 Sellers who have registered as AWS Marketplace sellers in the AWS ESC and have created an AWS ESC account (see [Multi-Catalog for Marketplace sellers](https://docs.aws.amazon.com/marketplace/latest/userguide/multi_catalog.html) for more information) can start listing their container products. To list a container product, complete the following steps:
 
-1. List your product in AWS Partner Central under **Build - Server Products**.
+1. List your product in AWS Partner Central. For the steps, see [How to create a product listing in ESC](#create-product-listing-esc).
 
 1. Select the `aws-eusc` catalog before you create your product listing.
 
-1. Complete the 9-step wizard to generate your product ID and product code.
+1. Complete each step under **Complete your listing**. Your product ID and product code appear on the product's page when you create the product.
 
 1. Set pricing in EUR. Public listings must use EUR, and private offers can use EUR or USD.
 
-1. Test end-to-end in the ESC console. Subscribe to and launch your product in the ESC partition to validate all use cases. If needed, modify your product in either the ESC partition or the commercial partition.
+1. Test end-to-end in the ESC console. Subscribe to and launch your product in the ESC partition to validate all use cases. If needed, update your product in AWS Partner Central with the ESC catalog selected.
 
 1. Go public. If you created any test versions, restrict them first. Then set the product visibility to **Public** with EUR pricing.
 
@@ -175,22 +172,48 @@ Sellers who have registered as AWS Marketplace sellers in the AWS ESC and have c
 
 For more information, see [Container-based products](https://docs.aws.amazon.com/marketplace/latest/userguide/container-based-products.html).
 
-Additional product types may be supported in the future. Check AWS Marketplace for current product type availability in ESC.
-
 ### How to create a product listing in ESC
 <a name="create-product-listing-esc"></a>
 
-1. In the AWS Marketplace Management Portal header, choose **AWS Marketplace — European Sovereign Cloud (aws-eusc)** from the catalog dropdown
+**To create an ESC product listing**
 
-1. Navigate to the **Products** tab and choose **Create new product**
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. Select your product type
+1. For **Catalog**, choose the AWS European Sovereign Cloud catalog (`aws-eusc`).
 
-1. Complete all required product information
+1. Choose **Create product**.
 
-1. Review ESC-specific requirements for your product type. Ensure all product information complies with European regulations and that pricing is appropriate for the EUR currency market
+   Under **Product details**, **Catalog** shows the catalog that you chose.
 
-1. Submit your product for AWS Marketplace review. The standard review process applies, and the AWS Seller Operations Team performs additional ESC authorization checks
+1. For **Product name**, enter a unique name of 2 to 72 characters.
+
+1. For **Product type**, choose **Software**, and then for **Software type**, choose **SaaS**, **AMI-based**, or **Container**.
+
+   The ESC catalog offers only these product types.
+
+1. If you chose **Container**, for **Delivery option**, choose **AWS Marketplace Containers**.
+
+1. Choose **Create product**.
+
+   AWS Partner Central creates the product as a draft and opens the product's page.
+
+**To publish an ESC product listing**
+
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
+
+1. For **Catalog**, choose the AWS European Sovereign Cloud catalog (`aws-eusc`).
+
+1. Choose the product.
+
+1. Complete each step under **Complete your listing**.
+
+   Check that your product information complies with European regulations and that your pricing suits the EUR currency market.
+
+1. Choose **Publish**.
+
+1. In the confirmation dialog box, choose **Submit for review**.
+
+AWS Marketplace reviews your listing against its policies before it goes live. Automated checks can approve it within hours. If a check flags your listing, the review usually takes 3 to 5 business days. The AWS Marketplace Seller Operations team also performs additional ESC authorization checks.
 
 For detailed product preparation guidance, see the [Preparing your product for AWS Marketplace](https://docs.aws.amazon.com/marketplace/latest/userguide/product-preparation.html) section of this guide.
 
@@ -211,13 +234,11 @@ You can create private offers for ESC customers using the same private offer wor
 #### For Direct Private Offers
 <a name="direct-private-offers-esc"></a>
 
-1. Go to [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home?region=us-east-1).
-
-1. Select **Private offers** from the left-hand panel.
+1. Open the [**Offers**](https://console.aws.amazon.com/partnercentral/offers) page in AWS Partner Central, and sign in to your seller account.
 
 1. Select **European Sovereign Cloud (aws-eusc)** from the **Catalog** drop-down menu.
 
-1. Choose **Create private offer**.
+1. On the **Private offers** tab, choose **Create private offer**.
 
 1. Select your ESC product and complete the private offer details.
 
@@ -235,7 +256,7 @@ Before creating ESC private offers, confirm that EUR is configured in your disbu
 #### For CPPO
 <a name="cppo-esc"></a>
 
-To create a selling authorization for a Channel Partner, follow the same procedure as in the commercial Marketplace. See [Create a selling authorization](https://docs.aws.amazon.com/marketplace/latest/userguide/channel-partner-isv-info.html#create-selling-authorization). The only difference is that you select **European Sovereign Cloud (aws-eusc)** from the **Catalog** drop-down menu in [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home?region=us-east-1).
+To create a selling authorization for a Channel Partner, follow the same procedure as in the commercial Marketplace. See [Create a selling authorization](channel-partner-isv-info.md#create-selling-authorization). The only difference is that you select **European Sovereign Cloud (aws-eusc)** from the **Catalog** drop-down menu in [AWS Partner Central](https://console.aws.amazon.com/partnercentral/home?region=us-east-1).
 
 **Note**  
 For Channel Partner Private Offers (CPPOs), both the ISV and the Channel Partner must be individually registered in the AWS Marketplace in the AWS ESC to transact within the same partition. Verify that both parties have completed ESC catalog registration before creating or accepting a CPPO. If either party is not yet registered, complete ESC registration first.
@@ -247,7 +268,7 @@ AWS Marketplace in the AWS ESC uses a dual-partition payment model that separate
 + **ESC partition (aws-eusc) — Buyer operations:** Buyer invoice processing, customer subscriptions, and entitlements are managed entirely within the ESC partition. All customer data and transactions remain within European boundaries, ensuring data sovereignty and regulatory compliance.
 + **Commercial partition (aws) — Seller operations:** Seller disbursements and listing fee invoices are handled through the commercial partition using existing AWS Marketplace infrastructure. This provides reliable EUR disbursements to sellers worldwide and maintains consistency with the commercial marketplace seller experience.
 
-Your ESC customers' data never leaves the ESC partition. Your disbursements are processed through proven commercial infrastructure. You manage both catalogs from a single AWS Marketplace Management Portal interface. Account linking connects the two partitions securely. Sellers can access their European Sovereign Cloud reports from the same UI available for the above listed dashboards. You will need to select the ESC dropdown from the Catalog Control available in seller dashboards.
+Your ESC customers' data never leaves the ESC partition. Your disbursements are processed through proven commercial infrastructure. You manage disbursements and reports for both catalogs in AWS Partner Central. Account linking connects the two partitions securely. Sellers can access their European Sovereign Cloud reports from the same UI available for the above listed dashboards. You will need to select the ESC dropdown from the Catalog Control available in seller dashboards.
 
 ### EUR transaction processing
 <a name="eur-transaction-processing"></a>
@@ -274,14 +295,14 @@ The following table describes common issues you may encounter when registering f
 | KYC verification delayed: No response received after two weeks, or the KYC team has requested document resubmission. | 1. Review all email communications from AWS Marketplace, including your spam and junk folders. 2. Verify that the root email address associated with your seller account is current and accessible. 3. Confirm that all submitted documents are clear, legible, and not expired; all required fields are visible and complete; file formats are accepted (PDF, JPG, or PNG); and document types match what was requested, such as a government-issued ID, business registration, or tax documents. 4. If resubmission was requested, review the specific feedback provided, correct the identified documents, and resubmit. 5. Contact KYC support for a status update. | 
 | EUR bank account verification failed: Bank account rejected or verification pending indefinitely. | 1. Confirm the account holder name matches your business registration exactly. 2. Verify your SWIFT/BIC code is correct. 3. Confirm with your bank that the account supports international SWIFT wire transfers and EUR deposits. | 
 | Cannot access ESC partition account creation portal: Access denied error when attempting to reach the portal. | 1. Verify that your commercial seller registration is fully approved. 2. Contact the AWS Seller Operations Team to request ESC partition access. 3. Confirm you are using the correct ESC partition URL provided by the AWS Seller Operations Team. 4. Confirm that your organization is eligible for ESC participation. | 
-| ESC catalog not visible after approval: The ESC catalog does not appear in the AMMP dropdown after receiving approval. | 1. Update your ESC public profile. 2. Update your ESC disbursement preferences. 3. Wait 1–2 hours for system propagation. 4. Clear your browser cache and sign in again. 5. Try accessing from an incognito or private browser window. 6. Contact the AWS Seller Operations Team if the catalog is still not visible after 24 hours. | 
-| Verification email not received: Dual email confirmation not received at commercial or ESC account root address. | 1. Check spam and junk folders for both your commercial and ESC account root email addresses. 2. Verify that both root email addresses are correct in AMMP. 3. Contact the AWS Seller Operations Team if you have not received the email after 24 hours. | 
+| ESC catalog not visible after approval: The ESC catalog does not appear in the Catalog dropdown list after receiving approval. | 1. Update your ESC public profile. 2. Update your ESC disbursement preferences. 3. Wait 1–2 hours for system propagation. 4. Clear your browser cache and sign in again. 5. Try accessing from an incognito or private browser window. 6. Contact the AWS Seller Operations Team if the catalog is still not visible after 24 hours. | 
+| Verification email not received: Dual email confirmation not received at commercial or ESC account root address. | 1. Check spam and junk folders for both your commercial and ESC account root email addresses. 2. Verify that both root email addresses are correct. 3. Contact the AWS Seller Operations Team if you have not received the email after 24 hours. | 
 | Product has external dependencies or hybrid architecture: Product does not meet the AWS-only infrastructure requirement. | 1. Redesign your architecture to use AWS-only services. 2. Migrate external dependencies to AWS infrastructure. 3. Remove or replace non-AWS components. 4. Consider creating an ESC-specific version of your product that meets the infrastructure requirement. | 
-| EUR disbursement not received: Expected EUR disbursement has not arrived. | 1. Verify the EUR bank account is configured correctly in AMMP. 2. Confirm the account supports international wire transfers. 3. Verify your SWIFT and IBAN information is accurate. 4. Contact your bank to confirm there are no blocks on incoming transfers. 5. Review your disbursement reports for processing status. | 
+| EUR disbursement not received: Expected EUR disbursement has not arrived. | 1. Verify the EUR bank account is configured correctly. 2. Confirm the account supports international wire transfers. 3. Verify your SWIFT and IBAN information is accurate. 4. Contact your bank to confirm there are no blocks on incoming transfers. 5. Review your disbursement reports for processing status. | 
 | Disbursement amount does not match expected value: Disbursement received is lower or higher than expected. | 1. Review listing fee deductions in your disbursement report. 2. Check for any refunds or chargebacks. 3. Verify all transactions are included in the disbursement period. 4. Compare against customer subscription start dates. | 
 | Registration taking longer than expected: ESC registration has not been approved within the expected timeframe. | 1. Verify that all prerequisites are complete: KYC verification, EUR bank account, and ESC AWS account creation. 2. Check both root email addresses for requests from the AWS Seller Operations Team. 3. Respond promptly to any documentation requests. 4. Contact the AWS Seller Operations Team if you have not received a response. | 
-| Product creation error: Errors encountered when creating ESC product listings. | 1. Verify the ESC catalog is selected in the AMMP dropdown. 2. Confirm the product type is supported for ESC Marketplace. 3. Check that all required fields are completed. 4. Review the error message for specific guidance. | 
-| Cannot create private offer in EUR: EUR is not available as a currency option when creating a private offer. | 1. Verify that EUR is configured in your disbursement preferences. 2. Confirm your EUR bank account is set up and verified in AMMP. 3. Ensure the ESC catalog is selected when creating the offer. | 
+| Product creation error: Errors encountered when creating ESC product listings. | 1. Verify that the ESC catalog is selected in the Catalog dropdown list on the Products and services page. 2. Confirm the product type is supported for ESC Marketplace. 3. Check that all required fields are completed. 4. Review the error message for specific guidance. | 
+| Cannot create private offer in EUR: EUR is not available as a currency option when creating a private offer. | 1. Verify that EUR is configured in your disbursement preferences. 2. Confirm your EUR bank account is set up and verified. 3. Ensure the ESC catalog is selected when creating the offer. | 
 | CPPO transaction unavailable or fails in ESC | Both the ISV and the Channel Partner must be individually registered in the AWS Marketplace in the AWS ESC to transact within the same partition. | 
 
-If you cannot resolve your issue using the table above, contact the AWS Marketplace Seller Operations Team through the AMMP. Choose [Contact Us](https://aws.amazon.com/marketplace/management/contact-us/?form=true), select the appropriate issue category, and provide your AWS account ID and ESC catalog context.
+If the preceding table doesn't resolve your issue, contact the Seller Operations team on the [ Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1). Select the appropriate issue category, and provide your AWS account ID and ESC catalog context.

@@ -1,7 +1,6 @@
 
 
 # Deploying a serverless SaaS integration
-<a name="deploy-serverless-saas"></a>
 
 When you have a SaaS solution that you want to integrate with AWS Marketplace, you can use various architectural approaches for the integration.
 

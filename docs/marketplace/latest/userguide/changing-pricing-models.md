@@ -1,11 +1,10 @@
 
 
 # Changing pricing models
-<a name="changing-pricing-models"></a>
 
- Changes to pricing models must be reviewed and approved by AWS Marketplace to ensure a positive customer experience and reduced risk to all parties. Discuss the pricing model changes you want to make by contacting the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team. 
+After you choose a pricing model in your product's public offer, you can't change it. To use a different pricing model, create a new product.
 
-All requests for pricing model changes can take 30–90 days to process and review. 
+For a SaaS product, setting the price of every dimension to zero converts the product to the **Free** pricing model. After the product is published, you can't change it back to paid. For more information, see [Update pricing terms](saas-product-settings.md#saas-update-pricing-terms).
 
 **Note**  
-Please note that pricing model change is not supported for SaaS products. For more information on SaaS product pricing, refer to [ SaaS product pricing in AWS Marketplace](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-pricing-models.html). 
+For SaaS and RTB Fabric module products, dimension types are also fixed when the first dimension is added. To change the dimension types, create a new product. For more information on SaaS product pricing, refer to [ SaaS product pricing in AWS Marketplace](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-pricing-models.html). 

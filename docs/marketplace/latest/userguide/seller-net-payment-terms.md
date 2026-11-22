@@ -1,7 +1,6 @@
 
 
 # Configuring net payment terms for private offers
-<a name="seller-net-payment-terms"></a>
 
 When you create a private offer, you can specify net payment terms that apply to that offer. With this feature, you can honor negotiated payment terms and close deals that require them.
 
@@ -37,7 +36,7 @@ You configure payment terms during the private offer creation process in [AWS Pa
 
 **To set payment terms for a private offer**
 
-1. Sign in to [AWS Partner Central](https://console.aws.amazon.com/partnercentral/home) and choose **Private offers**.
+1. Sign in to [AWS Partner Central](https://console.aws.amazon.com/partnercentral/home) and choose **Offers**, and then choose the **Private offers** tab.
 
 1. Create a new private offer or resume a draft offer. For more information about creating private offers, see [Creating and managing private offers](creating-private-offer.md).
 

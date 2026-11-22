@@ -1,9 +1,8 @@
 
 
 # Supported product types for AWS Marketplace private offers
-<a name="private-offers-supported-product-types"></a>
 
-As an AWS Marketplace seller, you can use private offers to sell the following product types: Amazon Machine Images (AMIs), container, professional services, machine learning (ML), and software as a service (SaaS) products. Private offers are negotiated terms used to purchase a product from AWS Marketplace. This topic provides information about private offers for AMI, container, SaaS, ML, and professional services products.
+As an AWS Marketplace seller, you can use private offers to sell the following product types: Amazon Machine Images (AMIs), container, professional services, machine learning (ML), software as a service (SaaS), and RTB Fabric module products. Private offers are negotiated terms used to purchase a product from AWS Marketplace. This topic provides information about private offers for AMI, container, SaaS, ML, professional services, and RTB Fabric module products.
 
 For more information about private offers, see [Preparing a private offer for your AWS Marketplace product](private-offers-overview.md). 
 
@@ -12,6 +11,7 @@ For more information about private offers, see [Preparing a private offer for yo
 + [Private offers for container products](#container-private-offers)
 + [Private offers for professional services products](#proserv-private-offers)
 + [Private offers for SaaS products](#saas-private-offers)
++ [Private offers for RTB Fabric module products](#rtb-daas-private-offers)
 + [Private offers for ML products](#ml-private-offers)
 
 ## Private offers for AMI products
@@ -62,9 +62,23 @@ All professional services product offerings are done through private offers. For
 
 Software as a service (SaaS) private offer products can't change the pricing level for a given pricing tier based on timing. For example, an offer can't charge $0.80/hour for three months and then change pricing to $0.60/hour thereafter for the same pricing tier. For SaaS contracts, private offers don't monitor usage.
 
+**Note**  
+Agentic Commerce products don't support private offers or Concurrent Agreements. They have one usage-based public offer. For more information, see [Requirements and limitations](agentic-commerce-products.md#agentic-commerce-requirements).
+
 Buyers can manually upgrade to new contract levels at any time. However, the independent software vendor (ISV) defines contract tiers, enforces service limitations, and advises buyers to manually upgrade to higher contract tiers when needed. The contract duration of the private offer can match the public product listing, or it can be a custom duration in months (up to 144 months).
 
 Express private offers are available for SaaS contracts and SaaS contracts with pay-as-you-go products. Complex opportunities that don't meet your predefined criteria are automatically routed to your sales team for manual processing. For more information, see [Express private offers](express-private-offers.md).
+
+## Private offers for RTB Fabric module products
+<a name="rtb-daas-private-offers"></a>
+
+You can create private offers for RTB Fabric module products with the AWS Marketplace Catalog API or in AWS Partner Central.
+
+Private offers for RTB Fabric module products can't change the pricing level for a given pricing tier based on timing. For contract pricing, private offers don't monitor usage.
+
+Buyers can manually upgrade to new contract levels at any time. The contract duration of the private offer can match the public product listing, or it can be a custom duration in months, up to 144 months.
+
+Channel partner private offers aren't available for RTB Fabric module products at this time. Free trials can't be offered through a private offer.
 
 ## Private offers for ML products
 <a name="ml-private-offers"></a>

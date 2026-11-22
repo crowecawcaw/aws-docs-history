@@ -1,7 +1,6 @@
 
 
 # Billing event data feed
-<a name="data-feed-billing-event"></a>
 
 This data feed provides information about billing events, including invoicing and disbursements. 
 
@@ -174,7 +173,7 @@ As described in [Collecting and analyzing data with data feeds](data-feed-using.
 
 To find out how much buyers were invoiced, including taxes, you can run a query as shown in the following example. 
 
-```
+```sql
 SELECT sum(amount) FROM billing_event 
 WHERE 
   action = 'INVOICED'
@@ -193,7 +192,7 @@ WHERE
 
 To find out how much buyers were invoiced on a seller's behalf, you can run a query as shown in the following example.
 
-```
+```sql
 SELECT sum(amount) FROM billing_event 
 WHERE
   action = 'INVOICED'
@@ -207,7 +206,7 @@ WHERE
 
 To find out how much AWS can collect on a seller's behalf, minus any refunds, credits, and forgiven accounts, you can run a query as shown in the following example.
 
-```
+```sql
 SELECT sum(amount) FROM billing_event 
 WHERE
   -- what is invoiced on behalf of SELLER, incl. refunds/ credits and cost of goods
@@ -222,7 +221,7 @@ WHERE
 
 To find out how much sellers can collect, you can run a query as shown in the following example. This example removes listing fees and taxes that AWS collects, and adds any exceptional balance adjustments. 
 
-```
+```sql
 SELECT sum(amount) FROM billing_event
 WHERE
   (transaction_type like 'SELLER_%' -- what is invoiced on behalf of SELLER
@@ -235,7 +234,7 @@ WHERE
 
 You can also use the following query to collect the same information, as shown in the following example.
 
-```
+```sql
 SELECT sum(amount) FROM billing_event
 WHERE
   balance_impacting = 1
@@ -259,7 +258,7 @@ WHERE
 
 To find out the amount that's been disbursed, you can run a query as shown in the following example.
 
-```
+```sql
 select sum(amount) FROM billing_event
 WHERE
   action ='DISBURSED'
@@ -272,7 +271,7 @@ WHERE
 
 To find out the amount that's pending disbursement, you can run a query as shown in the following example. This query removes amounts that have already been disbursed. 
 
-```
+```sql
 SELECT sum(amount) FROM billing_event targeted 
 WHERE
    (transaction_type like 'SELLER_%'  -- what is invoiced on behalf of SELLER
@@ -298,7 +297,7 @@ WHERE
 
 Another way to get the same information is to run a query to get the seller's balance, as shown in the following example.
 
-```
+```sql
 SELECT sum(amount) FROM billing_event
 WHERE
  balance_impacting = 1
@@ -307,7 +306,7 @@ WHERE
 
 The following query extends our example. It restricts the results to 2018 transactions and returns additional details about the transactions.
 
-```
+```sql
 select sum(residual_amount_per_transaction)
 from
  (SELECT
@@ -342,7 +341,7 @@ from
 
 To learn the sum of a set of invoices, you can run a query as shown in the following example.
 
-```
+```sql
 SELECT invoice_id, sum(amount) FROM billing_event targeted
 WHERE
   -- invoice_id is only not null for invoiced records AND disbursed records 

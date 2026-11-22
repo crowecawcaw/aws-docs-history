@@ -1,7 +1,6 @@
 
 
 # Private offer FAQ
-<a name="private-offer-faq"></a>
 
 This FAQ answers commonly asked questions about creating, managing, and troubleshooting private offers. 
 
@@ -23,7 +22,7 @@ This FAQ answers commonly asked questions about creating, managing, and troubles
 ## What is the Private Offer Success Team (POST), and how can sellers contact them?
 <a name="what-is-post"></a>
 
-The POST enables external audiences on the AWS Marketplace Private Offer experience. Sellers can us the [Support Form](https://aws.amazon.com/marketplace/management/contact-us/) in AWS Partner Central. For help with the support form, download and refer to the [Private offers support form guide](https://d1.awsstatic.com/awsmp/solutions/mk-sol-files/private-offers/Private%20Offer%20Support%20Form%20Guide.pdf) PDF. 
+The POST enables external audiences on the AWS Marketplace Private Offer experience. To contact the POST, sellers create a support case on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.
 
 ## How can a seller resolve errors when accessing the Private offers tab?
 <a name="resolve-offers-tab-errors"></a>
@@ -116,7 +115,7 @@ Here are common reasons for 404 errors and their resolutions:
 
 **Resolution:**
 + For Single AMI limited listings: Allow-list the buyer's account by following the instructions for [ allow-listing buyer accounts](https://docs.aws.amazon.com/marketplace/latest/userguide/ami-single-ami-products.html#single-ami-updating-allowlist).
-+ For other server type limited listings: Contact the [Private Offer Success Team (POST)](https://aws.amazon.com/marketplace/management/contact-us/?) to allow-list the buyer's account.
++ For other server type limited listings: Contact the Private Offer Success Team (POST) on the AWS Partner Central and Marketplace Support page to allow-list the buyer's account.
 
 **Note**  
 Allow-listing is a one-time activity per product.
@@ -196,12 +195,12 @@ Each buyer account can only have one active subscription. To update or expand:
 ### For AMI contracts and professional services
 <a name="ami-contracts-professional-services"></a>
 
-The buyer's current subscription must be cancelled before accepting a new private offer. Use the [refund/cancellation form](https://aws.amazon.com/marketplace/management/support/refund-request) to initiate a cancellation request.
+Before the buyer can accept a new private offer, cancel the buyer's current subscription. To cancel it, use the AWS Partner Central and Marketplace Support page to submit a cancellation request.
 
 ## Can a seller or buyer cancel a private offer?
 <a name="cancel-private-offer"></a>
 + **If the buyer hasn't subscribed:** The seller can cancel by navigating to the **Private offers** tab in AWS Partner Central, selecting the offer, and choosing **Cancel**.
-+ **If the buyer has subscribed:** The seller of record must initiate a cancellation request by using the [refund/cancellation form](https://aws.amazon.com/marketplace/management/support/refund-request) in AWS Partner Central. For detailed instructions, refer to this [video tutorial](https://www.youtube.com/watch?v=eQpadPl0ROs).
++ **If the buyer has subscribed:** The seller of record must submit a cancellation request on the AWS Partner Central and Marketplace Support page.
 
 ## How do I request a refund or contract cancellation?
 <a name="request-refund-cancellation"></a>
@@ -256,11 +255,11 @@ For more information about tax obligations, refer to [AWS Marketplace – Tax He
 
 If you have a specific request, reach out to one of the following AWS Marketplace teams through AWS Partner Central.
 
-**Private Offers Success Team (POST):** The team supports sellers (ISV and Channel Partners) and buyers with private offer operational enablement and support. Contact us via the [Support Form](https://aws.amazon.com/marketplace/management/contact-us/?).
+**Private Offers Success Team (POST):** The team supports sellers (ISV and Channel Partners) and buyers with private offer operational enablement and support. Contact the AWS Marketplace support team on the AWS Partner Central and Marketplace Support page.
 
-**Vendor Finance Success Team (VFS):** The team improves processes that impact Vendor Finance cash application, reconciliation and related reporting, and support onboarding sellers (ISV and Channel Partners) with finance specific questions regarding MPPOs and CPPOs not public offers. Contact us via the [Support Form](https://aws.amazon.com/marketplace/management/contact-us/%22).
+**Vendor Finance Success Team (VFS):** The team improves processes that impact Vendor Finance cash application, reconciliation and related reporting, and support onboarding sellers (ISV and Channel Partners) with finance specific questions regarding MPPOs and CPPOs not public offers. Contact the AWS Marketplace support team on the AWS Partner Central and Marketplace Support page.
 
-**Managed Catalog Operations (MCO):** The team is responsible for onboarding 3rd party sellers of software onto the AWS Marketplace platform, reviewing and processing their software products for policy compliance and buyer experience, and managing the operational relationship with sellers. Contact us via the [Support Form](https://aws.amazon.com/marketplace/management/contact-us/%22).
+**Managed Catalog Operations (MCO):** The team is responsible for onboarding 3rd party sellers of software onto the AWS Marketplace platform, reviewing and processing their software products for policy compliance and buyer experience, and managing the operational relationship with sellers. Contact the AWS Marketplace support team on the AWS Partner Central and Marketplace Support page.
 
 If you are new to the private offer process, use this [video library](https://youtube.com/playlist?list=PLhr1KZpdzukc8sIMVYRmxXt3cpfsXz61q) to help you get started with introductions, overviews, and answers to the most common questions. You can also find the answers to questions about [buyer invoicing](https://youtu.be/vKzo7FINzss), [disbursements](https://youtu.be/uevtix9nhsY), or [AWS tax rules](https://youtu.be/MyhJZRiYBR0) in the linked videos or in the [AWS Marketplace Vendor Finance Success](https://d1.awsstatic.com/awsmp/solutions/mk-sol-files/private-offers/Success-guide.pdf) PDF.
 
@@ -277,7 +276,7 @@ If you are new to the private offer process, use this [video library](https://yo
 ### Which currencies are supported for private offers?
 <a name="which-currencies-supported"></a>
 
-Private offers support USD, EUR, GBP, AUD, JPY, and INR (for sellers in India only). All pricing models (contract, contract with consumption, and pay-as-you-go) support these currencies.
+Private offers support USD, EUR, GBP, AUD, JPY, CAD, SGD, NZD, and INR (for sellers in India only). All pricing models (contract, contract with consumption, and pay-as-you-go) support these currencies.
 
 ### Can I create pay-as-you-go offers in non-USD currencies?
 <a name="payg-non-usd-currencies"></a>

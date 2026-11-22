@@ -1,9 +1,8 @@
 
 
 # Managing EC2 Image Builder product availability by AWS Region and country
-<a name="single-ib-regions"></a>
 
-When you create a product in AWS Marketplace, you choose the AWS Regions where it is available. You also choose the countries where buyers can purchase your product from. These two properties are similar, but they are not the same. For example, a buyer might be located in, and purchasing from, the United States, but they might be planning to install your product in the Europe (Frankfurt) Region. In order for this buyer to purchase your product, you must include both the United States in your list of countries, and the Europe (Frankfurt) Region in your list of Regions. You can use the following sections to update your product availability by Region and country.
+You choose the AWS Regions where buyers can deploy your product on the **Add Regions** card under **Step 2: Delivery configuration**. You choose the countries where buyers can purchase your product on the **Configure offer availability** step when you create the public offer. These two properties are similar, but they are not the same. For example, a buyer might be located in, and purchasing from, the United States, but they might be planning to install your product in the Europe (Frankfurt) Region. In order for this buyer to purchase your product, you must include both the United States in your list of countries, and the Europe (Frankfurt) Region in your list of Regions. You can use the following sections to update your product availability by Region and country.
 
 **Topics**
 + [Add an AWS Region](#single-ib-adding-regions)
@@ -16,19 +15,31 @@ When you create a product in AWS Marketplace, you choose the AWS Regions where i
 
 You can add a Region where buyers can use your product.
 
-**To add a Region**
+**To add Regions**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, and on the **Current server product** tab, select the product that you want to modify.
+1. Choose the product.
 
-1. From the **Request changes** dropdown, choose **Add Region**.
+1. On the **Delivery** tab, in the **Region availability** section, choose **Add Regions**.
 
-1. Select the Region that you want to add from the list of available Regions. 
+   For a new product, you can instead choose **Start** on the **Add Regions** card under **Step 2: Delivery configuration**.
 
-1. Choose **Submit request** to submit your request for review.
+1. In the **Choose Regions** table, select the Regions to add.
 
-1. Verify that the **Requests** tab shows the **Request status** as **Under review**. When the request completes, the status becomes **Succeeded**.
+   Regions your product already supports are selected and can't be cleared.
+
+1. (Optional) Under **Future Region support**, select **Enable future AWS Region support**, and then choose **Include all future US and non-US Regions** or **Limit to future US Regions only**.
+
+1. (Optional) Under **Tags**, add tags to the change request.
+
+1. Choose **Save Regions**.
+
+Your change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While a request is in progress, the actions on the **Delivery** tab are unavailable.
+
+**Note**  
+To add an AWS GovCloud (US) Region, you need an active AWS GovCloud (US) account that AWS Marketplace has verified. If you don't have one, the request fails. When you select an AWS GovCloud (US) Region, the **AWS GovCloud (US) Region selection** alert appears. To request verification, choose **submit a support request** in the alert. For more information, see [Publishing an AMI product in AWS GovCloud (US)](https://docs.aws.amazon.com/marketplace/latest/userguide/govcloud-publishing.html#govcloud-publishing-ami).  
+The **EC2 Image Builder component** delivery method isn't available in the AWS European Sovereign Cloud catalog.
 
 **Note**  
 When you add support for a new AWS Region, customers already subscribed to private offers for your product won't be able to access the newly added Region automatically. You must create another private offer with the Region you want customers to access. After accepting the new offer, customers can access the newly added Region. Customers who subscribe to your product at a future date can also access the Region, as long as the Region is included in the private offer. For more information about how to create a new private offer, see [Private offer upgrades, renewals, and amendments](https://docs.aws.amazon.com/marketplace/latest/userguide/private-offers-upgrades-and-renewals.html).
@@ -38,23 +49,25 @@ When you add support for a new AWS Region, customers already subscribed to priva
 
 To prevent new buyers from using your product in a specific AWS Region, you can restrict the Region. You can add the Region back at a later time. Existing subscribers of the product in the Region can continue using the product from the Region as long as they're subscribed.
 
-**To restrict a Region**
+**To restrict Regions**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, and on the **Current server product** tab, select the product that you want to modify.
+1. Choose the product.
 
-1. From the **Request changes** dropdown, choose **Restrict Region**.
+1. Choose the **Delivery** tab.
 
-1. Select the dropdown menu to view the list of Regions in which your product is currently available. 
+1. In the **Region availability** section, choose **Edit**, and then choose **Restrict Regions**.
 
-1. Select the Regions that you want to restrict.
+   This option is available after your product has at least one version.
 
-1. The Regions you have selected appear as tokens. Review the list of Regions that you're restricting, and enter X for Regions that you don't want to restrict.
+1. For **Restrict Regions**, choose the Regions to restrict.
 
-1. Choose **Submit change request** to submit your request for review.
+   You must keep at least one Region available.
 
-1. Verify that the **Requests** tab shows the **Request status** as **Under review**. When the request completes, the status becomes **Succeeded**. 
+1. Choose **Restrict Regions**.
+
+Your change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While a request is in progress, the actions on the **Delivery** tab are unavailable.
 
 If your request is successful, your existing users receive the following email message notifying them of the Region to be restricted. They can continue using your product as long as they remain subscribed, but they can’t re-subscribe if they cancel the subscription.
 
@@ -85,41 +98,48 @@ If you want your product to be onboarded to newly launched AWS Regions, you can 
 
 **To update future Region support**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, and on the **Current server product** tab, select the product that you want to modify.
+1. Choose the product.
 
-1. From the **Request changes** dropdown, choose **Update future Region support**.
+1. Choose the **Delivery** tab.
 
-1. You can choose to activate future Region support to allow AWS Marketplace to onboard your product to newly launched AWS Regions on your behalf.
+1. In the **Region availability** section, choose **Edit**, and then choose **Update future Region support**.
 
-1. After activating the feature, you can choose between all future Regions or limit to US Regions only.
+   The **Add Regions** page opens.
 
-1. Choose **Submit change request** to submit your request for review.
+1. Under **Future Region support**, do one of the following:
+   + To turn on future Region support, select **Enable future AWS Region support**, and then choose **Include all future US and non-US Regions** or **Limit to future US Regions only**.
+   + To turn off future Region support, clear **Enable future AWS Region support**.
 
-1. Verify that the **Requests** tab shows the **Request status** as** Under review**. When the request completes, the status becomes **Succeeded**.
+1. Choose **Save Regions**.
+
+Your change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name. While a request is in progress, the actions on the **Delivery** tab are unavailable.
 
 ## Update availability by country
 <a name="single-ib-update-availability-by-country"></a>
 
-If you want to change the countries in which your product can be subscribed to and offered, you can use **Update availability**. 
+To change the countries where buyers can subscribe to your product, use **Update availability by country**.
 
 **To update availability by country**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, on the **Current server product** tab, then select the product that you want to modify.
+1. Choose the product.
 
-1. From the **Request changes** dropdown, choose **Update availability**.
+1. Choose the **Procurement** tab.
 
-1. Choose one of the following options:
+1. On the **Public offer** card, choose **Update**, and then choose **Update availability by country**.
 
-   1. **All countries** – Available in all supported countries.
+   The **Update** menu appears after your public offer is released.
 
-   1. **All countries with exclusions** – Available in all supported countries except in selected countries.
+1. Under **Offer availability by country**, choose one of the following options:
+   + **All countries** – Buyers in all countries can purchase your product.
+   + **All countries with exclusions** – For **Excluded countries**, choose the countries where buyers can't purchase your product.
+   + **Allowlisted countries only** – For **Allowlisted countries**, choose the countries where buyers can purchase your product.
 
-   1. **Custom list** – Specific list of countries where the product is available.
+   Availability by country applies only to your public offer. You can extend private offers to specific buyers even if they aren't in one of your allowlisted countries.
 
-1. Choose **Submit change request** to submit your request for review.
+1. Choose **Submit**.
 
-1. Verify that the **Requests** tab shows the **Request status** as **Under review**. When the request completes, the status becomes **Succeeded**.
+To track your request, choose the ID under **Offer ID** on the **Public offer** card, and then choose the **Requests log** tab. The **Request status** moves from **Under review** to **Update in progress**, and then to **Succeeded** or **Failed**. While a request is in progress, the **Update** menu is unavailable.

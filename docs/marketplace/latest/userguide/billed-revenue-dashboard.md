@@ -1,7 +1,6 @@
 
 
 # Billed revenue dashboard
-<a name="billed-revenue-dashboard"></a>
 
 The billed revenue dashboard provides information about all billed sales in AWS Marketplace. This report is expected to save time and is available approximately 45 days earlier than the legacy [monthly billed revenue report](https://docs.aws.amazon.com/marketplace/latest/userguide/monthly-billed-revenue-report.html). The legacy report delivers on the 15th day of each month, which delays visibility on billings of the prior month.
 

@@ -1,7 +1,6 @@
 
 
 # Understanding AMI-based products in AWS Marketplace
-<a name="ami-getting-started"></a>
 
 As an AWS Marketplace seller, you can deliver your products to buyers with [Amazon Machine Images (AMIs)](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#AmazonMachineImage). An AMI provides the information required to launch an Amazon Elastic Compute Cloud (Amazon EC2) instance. The following section explains the key concepts for working with AMI-based products.
 
@@ -12,26 +11,26 @@ You can only use one AMI in an AMI product, but you can add versions of that AMI
 + [Product lifecycle](#ami-product-lifecycle)
 + [AMI product codes](#ami-product-codes)
 + [Change requests](#ami-change-requests)
-+ [Product Load Forms](#ami-product-load-forms)
++ [Pricing models and delivery methods](#ami-product-load-forms)
 + [Annual agreement amendments](#annual-agreement-amendments)
 + [FPGA Products](#ami-fpga-products)
 
 ## Product lifecycle
 <a name="ami-product-lifecycle"></a>
 
-AMI-based products include one or more versions of the software, plus metadata about the product as a whole. When you create the product, you configure its properties in AWS Marketplace including the product name, description, and pricing. You also determine the appropriate categories for your product and add keywords so your product appears in relevant searches.
+AMI-based products include one or more versions of the software, plus metadata about the product as a whole. When you create the product, you enter its name. On the **Provide product details** page, you add a description, choose categories, and add keywords so your product appears in relevant searches. You set pricing when you create the public offer under **Step 3: Procurement configuration**.
 
 You also create the first version of the software. This can be just the AMI, or you can include AWS CloudFormation templates or software packages that buyers can use to create their own AMIs. For more information, see [AMI-based product delivery methods](ami-products.md#ami-product-delivery-methods).
 
 For paid products, buyers are billed for the number of installed instances. To meter on a different dimension that your software tracks, such as the number of product users, integrate your product with the AWS Marketplace Metering Service. For more information, see [Configuring custom metering for AMI products with AWS Marketplace Metering Service](custom-metering-with-mp-metering-service.md).
 
-When you create your product and the first version of your software, it's initially published in a limited scope so that only your account can access it. When you're ready, you can publish it to the AWS Marketplace catalog to allow buyers to subscribe and purchase your product.
+When you create your product, it starts with a status of **Draft**. After you complete the product details and add the first version of your software, you can move the product to **Limited**. Only your account and the accounts on the product's allowlist can access a **Limited** product. When you're ready, you can publish it to the AWS Marketplace catalog to allow buyers to subscribe and purchase your product.
 
-You use the [Server product](https://aws.amazon.com/marketplace/management/products/server) page to view the list of your products. Products will have one of the following statuses:
-+ **Staging ** – An incomplete product for which you are still adding information. At the first **Save and exit** from the create self-service experience, the successful change request creates an unpublished product with information from the full steps you submitted. From this state, you can continue adding information to the product or change already submitted details through change requests.
-+ **Limited** – A product is complete after it is submitted to the system and passes all validation in the system. Then the product is released to a **Limited** state. At this point, the product has a detail page that is only accessible to your account and whoever you have allowlisted. You can test your product through the detail page. If necessary, for more information and help, contact the [**AWS Marketplace Seller Operations team**](https://aws.amazon.com/marketplace/management/contact-us/?#).
-+ **Public** – When you're ready to publish the product so that buyers can view and subscribe to the product, you use the **Update visibility** change request. This initiates a workflow for the AWS Marketplace Seller Operations team to review and audit your product against our [policies](https://docs.aws.amazon.com/marketplace/latest/userguide/product-and-ami-policies.html). Once the product is approved and the change request is processed, the product is moved from a status of **Limited** to **Public**.
-+ **Restricted** – If you want to stop new users from subscribing to your product, you can restrict the product by using the **Update visibility** change request. A **Restricted** status means that existing users can continue to use the product. However, the product will no longer be visible to the public or be available to new users.
+You view your products on the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central. The **Visibility** column shows each product's status. Products have one of the following statuses:
++ **Draft** – A product that you are still setting up. Complete the product details and delivery configuration, and then choose **Advance to procurement configuration** to move it to **Limited**. For more information, see [Create the listing](ami-single-ami-products.md#ami-create-product).
++ **Limited** – A product is complete after it is submitted to the system and passes all validation in the system. Then the product is released to a **Limited** state. At this point, the product has a detail page that is only accessible to your account and whoever you have allowlisted. You can test your product through the detail page. If necessary, for more information and help, contact the AWS Marketplace Seller Operations team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1).
++ **Public** – When you're ready to publish the product so that buyers can view and subscribe to it, choose **Publish**, and then choose **Submit for review**. AWS Marketplace reviews your listing against its [policies](https://docs.aws.amazon.com/marketplace/latest/userguide/product-and-ami-policies.html). Reviews typically take 3 to 5 business days. After the review, the product moves from **Limited** to **Public**.
++ **Restricted** – To stop new buyers from subscribing to your product, choose **Edit visibility**, choose **Restricted**, and then choose **Update visibility**. Existing subscribers keep access, but they can't renew their contracts. The product is no longer visible to the public or available to new buyers. For more information, see [Updating AMI-based product visibility](ami-update-visibility.md).
 
 The lifecycle of an AMI-based product for AWS Marketplace does not end after you publish the first version. You should keep your product up to date with new versions of your software, and with security patches for the base operating system.
 
@@ -53,11 +52,11 @@ Unlike new products, new versions are published to full public availability. You
 
 1. **Monitor usage** – As buyers purchase and use the product, the seller monitors sales, usage, and other metrics using the AWS Marketplace [Seller reports, data feeds, and dashboards in AWS Marketplace](reports-and-data-feed.md).
 
-1. **Remove the product** – When the product is no longer needed, the seller removes it from AWS Marketplace.
+1. **Remove the product** – When the product is no longer needed, the seller restricts it. New buyers can no longer subscribe, and existing buyers keep access. For more information, see [Removing a product from AWS Marketplace](removing-products-from-aws-marketplace.md).
 
 In this example, the seller created three different versions of the AMI in the product, but only two were available to new buyers (before removing the product).
 
-To make modifications to versions or the product information, you create [change requests](single-ami-create-change-request.md) in the AWS Marketplace Management Portal.
+To make modifications to versions or the product information, you create [change requests](single-ami-create-change-request.md) in AWS Partner Central.
 
 For detailed instructions on the steps to create and manage your AMI-based product, see [Creating AMI-based products](ami-single-ami-products.md).
 
@@ -67,17 +66,17 @@ For detailed instructions on the steps to create and manage your AMI-based produ
 A unique product code is assigned to your product when you create it in AWS Marketplace. That product code is associated with the AMI for your product and is used to track usage of your product. Product codes are propagated automatically as buyers work with the software. For example, a customer subscribes and launches an AMI, configures it, and produces a new AMI. The new AMI still contains the original product code, so correct usage tracking and permissions remain in place.
 
 **Note**  
-The product *code* is different than the product *ID* for your product. Each product in AWS Marketplace is assigned a unique product ID. The product ID is used to identify your product in the AWS Marketplace catalog, in customer billing, and in seller reports. The product code is attached to instances created from your AMI as instance metadata. When an AMI with that product code is used to create an instance, the customer will get a bill that shows the associated product ID. After you create your product, find the product code and the product ID in the AWS Marketplace Management Portal page for your product.
+The product *code* is different than the product *ID* for your product. Each product in AWS Marketplace is assigned a unique product ID. The product ID is used to identify your product in the AWS Marketplace catalog, in customer billing, and in seller reports. The product code is attached to instances created from your AMI as instance metadata. When an AMI with that product code is used to create an instance, the customer will get a bill that shows the associated product ID. After you create your product, find the product code and the product ID in AWS Partner Central, in the **Product summary** section of your product's page. To see the product code, choose **Show more**.
 
 As a seller, your software can get the product code for the running Amazon Elastic Compute Cloud (Amazon EC2) instance at runtime from the instance metadata. You can use the product code for extra security, such as validating the product code at product start. You can't make API calls to an AMI's product code until the product has been published into a limited state for testing. For more information about verifying the product code, see [Verifying your software is running on your AWS Marketplace AMI](best-practices-for-building-your-amis.md#verifying-ami-runtime) .
 
 ## Change requests
 <a name="ami-change-requests"></a>
 
-To make changes to a product or version in AWS Marketplace, you submit a **change request** through the AWS Marketplace Management Portal. Change requests are added to a queue and can take from minutes to days to resolve, depending on the type of request. You can see the status of requests in the AWS Marketplace Management Portal.
+To make changes to a product or version in AWS Marketplace, you submit a **change request** in AWS Partner Central. Change requests are added to a queue and can take from minutes to days to resolve, depending on the type of request. You see the status of requests on the **Change history** tab of your product.
 
 **Note**  
-In addition to the AWS Marketplace Management Portal, you can also create change requests by using the [AWS Marketplace Catalog API](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/seller-products.html).
+You can also create change requests by using the [AWS Marketplace Catalog API](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/seller-products.html).
 
 The types of changes you can request for AMI-based products include:
 + Update product information displayed to buyers.
@@ -86,12 +85,11 @@ The types of changes you can request for AMI-based products include:
 + Restrict a version so that new buyers can no longer access that version.
 + Update the AWS Regions that a product is available in.
 + Update the pricing and instance types for a product.
-+ Remove a product from AWS Marketplace.
++ Restrict a product so that new buyers can no longer subscribe to it.
 
-**Note**  
-Some change requests require you to use product load forms to create the request. For more information, see [Product Load Forms](#ami-product-load-forms).
+To start one of these changes, see [Create a change request by using self-service](single-ami-create-change-request.md#ami-self-service-change-req). To change your prices, see [Pricing models and delivery methods](#ami-product-load-forms).
 
-To list your AMI product without displaying public pricing, see [Update pricing visibility](update-pricing-visibility.md).
+To list your AMI product without displaying public pricing, see [Leads-only listings](update-pricing-visibility.md).
 
 ### Update change request
 <a name="update-change-request"></a>
@@ -101,28 +99,25 @@ Change requests that start with an update will load the current details. You the
 ### Add or restrict change request
 <a name="add-restrict-requests"></a>
 
-Add and restrict request pairs are specifically for steps and updates that are provisioned after each request succeeds. A request succeeds after you choose **Save and exit** and **Submit** actions in the self-service experience.
+Add and restrict request pairs are specifically for steps and updates that are provisioned after each request succeeds.
 
 For example, if the AMI asset is provisioned to the instances and Regions once added, then they can only be restricted rather than completely removed. This means existing subscribers and users can continue to use the product until their subscription or contract runs out. However, no new subscribers can be added to a product that is in a **Restricted** status.
 
-## Product Load Forms
+## Pricing models and delivery methods
 <a name="ami-product-load-forms"></a>
 
-Typically, you use [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home) to create or edit your product. However, a few operations require you to use a *Product Load Form* (PLF). 
+You choose a pricing model when you create the public offer for your product, under **Step 3: Procurement configuration**. AMI-based products support **Contract pricing**, **Usage pricing**, **Hourly**, **Free**, and **Bring your own license (BYOL)**. With **Usage pricing**, you define the dimensions that you meter, such as users, hosts, data, or bandwidth. For more information, see [AMI product pricing for AWS Marketplace](pricing-ami-products.md).
 
-A PLF is a spreadsheet that contains all the information about a product. To obtain a PLF, you can:
-+ Download the PLF for an existing product from the product's details page in the AWS Marketplace Management Portal. 
-+ Select a menu item for an action that requires a PLF. For example, if you create a new monthly billed server product, the system prompts you to download the appropriate PLF. 
+You can't change the pricing model later. To use a different pricing model, create a new product.
 
-  If the action is an edit to an existing product, the PLF is pre-populated with the information for that product, so you only need to change the details that you want to update.
-+ If you need a new, blank PLF, navigate to the AWS Marketplace Management Portal [File upload](https://aws.amazon.com/marketplace/management/product-load) page. The page contains links to PLFs for the product type you want to create.
+To change your prices, choose the **Procurement** tab of your product. On the **Public offer** card, choose **Update**, and then choose **Update pricing terms**. The **Update** menu appears after your public offer is released.
 
- After you have completed your PLF, upload it to the AWS Marketplace Management Portal [ File upload](https://aws.amazon.com/marketplace/management/product-load) page. The PLF itself has more detailed instructions in the **Instructions** tab. 
+You choose a delivery method for each version when you add the version: **AMI (standalone)**, **AMI with CloudFormation**, or **EC2 Image Builder component**. In the AWS European Sovereign Cloud catalog, only **AMI (standalone)** is available. With **AMI with CloudFormation**, you can add up to three CloudFormation templates. For more information, see [Add a new version](single-ami-versions.md#single-ami-adding-version).
 
 ## Annual agreement amendments
 <a name="annual-agreement-amendments"></a>
 
-Hourly annual (annual) plan amendments allow you and your buyers to make the following changes to existing plans:
+Hourly annual (annual) plan amendments allow your buyers to make the following changes to their existing plans:
 + Switch between Amazon EC2 instance type families
 + Switch between Amazon EC2 instance type sizes
 + Add a new instance type

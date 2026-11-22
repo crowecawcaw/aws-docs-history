@@ -1,7 +1,6 @@
 
 
 # Collections and disbursement dashboard
-<a name="collections-disbursement-dashboard"></a>
 
 The collections and disbursements dashboard provides data about funds disbursed to your bank accounts. It also provides a list of all invoices where a disbursement has been sent for a partial payment, full payment, or where a failed disbursement has occurred. The list does not include invoices where a disbursement has not transpired. To review invoices not disbursed, use the **Billed revenue** dashboard.
 

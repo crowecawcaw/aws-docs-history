@@ -1,7 +1,6 @@
 
 
 # Uploading your images to Amazon Elastic Container Registry
-<a name="ml-uploading-your-images"></a>
 
 After you create your inference and training images you can upload them to Amazon Elastic Container Registry. [Amazon ECR](https://aws.amazon.com/ecr/) is a fully managed Docker registry. Amazon SageMaker AI pulls images from Amazon ECR to create a model package for inference or an algorithm for training jobs. AWS Marketplace also retrieves these images from Amazon ECR to publish your model package and algorithm products. This topic provides a walkthrough for uploading your inference and training images to Amazon ECR
 
@@ -24,21 +23,18 @@ After you create your inference and training images you can upload them to Amaz
 +  [AWSMarketplaceSellerProductsFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSMarketplaceSellerProductsFullAccess.html) – For access to AWS Marketplace 
 +  [AmazonEC2ContainerRegistryFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEC2ContainerRegistryFullAccess.html) – For access to Amazon ECR 
 
-**Note**  
-The links take you to the *AWS Managed Policy Reference*.
-
 ## Log your Docker client into AWS
 <a name="ml-log-in-your-docker-client"></a>
 
  Set a variable for the AWS Region that you want to publish from (see [Supported AWS Regions for publishing](ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing)). For this example, use the US East (Ohio) Region. 
 
-```
+```bash
 region={{us-east-2}}
 ```
 
  Run the following command to set a variable with your AWS account ID. This example assumes that the current AWS Command Line Interface (AWS CLI) credentials belong to the seller’s AWS account. 
 
-```
+```bash
 account=$(aws sts get-caller-identity --query Account --output text)
 ```
 
@@ -68,7 +64,7 @@ repo={{my-inference-image}}
 
  Run the following command to create the image repository in Amazon ECR. 
 
-```
+```bash
 aws ecr --region ${region} create-repository --repository-name "${repo}"
 ```
 
@@ -78,19 +74,19 @@ aws ecr --region ${region} create-repository --repository-name "${repo}"
 
  Set a variable for the full name of the image repository location along with the `latest` tag. 
 
-```
+```bash
 fullname="${account}.dkr.ecr.${region}.amazonaws.com/${repo}:latest"
 ```
 
  Tag the image with the full name. 
 
-```
+```bash
 sudo docker tag ${image} ${fullname}
 ```
 
  Finally, push the inference image to the repository in Amazon ECR. 
 
-```
+```bash
 sudo docker push ${fullname}
 ```
 
@@ -103,8 +99,8 @@ sudo docker push ${fullname}
 
  After your images are scanned successfully, they can be used to create a model package or algorithm resource. 
 
-If you believe that your product had errors in the scan that are false positives, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us) team with information about the error.
+If you believe that your product had errors in the scan that are false positives, contact the AWS Marketplace support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console with information about the error.
 
  **Next steps** 
-+  See size limits in [Requirements and best practices for creating machine learning products](ml-listing-requirements-and-best-practices.md) 
++  See size limits in [Service restrictions and quotas for machine learning products in AWS Marketplace](ml-service-restrictions-and-limits.md) 
 +  Continue to [Creating your Amazon SageMaker AI resource](ml-creating-your-amazon-sagemaker-resource.md) 

@@ -1,7 +1,6 @@
 
 
 # Getting started as a seller in India
-<a name="getting-started-seller-india"></a>
 
 AWS Marketplace allows sellers in India to sell paid offers to buyers in India (user agreement is with Amazon Web Services India Private Limited (Amazon India) refer [here](https://docs.aws.amazon.com/accounts/latest/reference/managing-accounts-india.html)). Buyers can procure software and services from sellers in India and receive invoices from AWS India in Indian rupees (INR).
 

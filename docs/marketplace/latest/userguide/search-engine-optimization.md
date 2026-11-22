@@ -1,14 +1,13 @@
 
 
 # Optimizing your AWS Marketplace products for search
-<a name="search-engine-optimization"></a>
 
 As an AWS Marketplace seller, you can optimize your products for search so that buyers can more easily find them. Search is a critical tool in the buyer’s journey that enables customers to find the best product to meet their unique needs. For AWS Marketplace customers, searches happen in two primary locations: search engines (for example, Google or Bing) and the search function in AWS Marketplace. This topic provides information on how to optimize your listing for both locations.
 
 ## Optimize your product detail page with AI assistance
 <a name="optimize-with-ai-assistance"></a>
 
-You can use AI-assisted product listing in AWS Partner Assistant to generate listing content optimized for both search engine optimization (SEO) and AWS Marketplace search. AWS Partner Assistant draws from multiple sources to produce listing content for the title, short description, long description, highlights, and keywords fields. These sources include SEO and generative engine optimization (GEO) guidance, AWS Marketplace search ranking signals, and AWS Marketplace listing standards. The agent provides field-level recommendations and a quality score so you know which fields to improve before you submit.
+You can use AI-assisted product listing in AWS Partner Central Agents to generate listing content optimized for both search engine optimization (SEO) and AWS Marketplace search. AWS Partner Assistant draws from multiple sources to produce listing content for the title, short description, long description, highlights, and keywords fields. These sources include SEO and generative engine optimization (GEO) guidance, AWS Marketplace search ranking signals, and AWS Marketplace listing standards. The agent provides field-level recommendations and a quality score so you know which fields to improve before you submit.
 
 For more information, see [AI-assisted product listing](ai-assisted-product-listing.md).
 
@@ -65,7 +64,7 @@ Keywords aren't the same as software categories. Keywords are more specific term
 
 You can edit keywords after you create a product by editing the metadata for the product. For products that you created using the **Products** tab in AWS Marketplace Management Portal, you also use the **Products** tab to make changes. For more information, see [Product changes and updates](https://docs.aws.amazon.com/marketplace/latest/userguide/product-submission.html#product-changes-and-updates).
 
-You can also ask AWS Partner Assistant to recommend keywords based on your product website and AWS Marketplace search ranking signals. For more information, see [AI-assisted product listing](ai-assisted-product-listing.md).
+You can also ask AWS Partner Central Agents to recommend keywords based on your product website and AWS Marketplace search ranking signals. For more information, see [AI-assisted product listing](ai-assisted-product-listing.md).
 
 The AWS Marketplace Seller Operations team helps redirect queries with similar-sounding words or words with similar meanings. For example, when customers search for *automobile* when you expect them to search for *car*.
 

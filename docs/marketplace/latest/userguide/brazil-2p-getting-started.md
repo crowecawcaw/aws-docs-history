@@ -1,7 +1,6 @@
 
 
 # Getting started as a seller through Brazil 2P
-<a name="brazil-2p-getting-started"></a>
 
 The AWS Brazil 2P distribution program enables AWS Brazil (Amazon AWS Serviços Brasil Ltda.) to distribute your eligible AWS Marketplace SaaS product licenses to buyers in Brazil. To participate, you must be a foreign (non-Brazilian) seller. Under this program, AWS Brazil is the seller of record, acquiring the rights to distribute SaaS product licenses to the end buyer. AWS Brazil issues invoices in Brazilian reais (BRL) that include the applicable Brazilian taxes (COFINS, ISS, and PIS). This gives Brazilian customers a localized purchasing experience.
 

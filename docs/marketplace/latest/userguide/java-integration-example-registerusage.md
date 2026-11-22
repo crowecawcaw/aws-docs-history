@@ -1,7 +1,6 @@
 
 
 # Integrating your container product with the AWS Marketplace Metering Service using the AWS SDK for Java
-<a name="java-integration-example-registerusage"></a>
 
 You can use the AWS SDK for Java to integrate with the AWS Marketplace Metering Service. Continuous metering for software use is automatically handled by the AWS Marketplace Metering Control Plane. Your software isn't required to perform any metering specific actions except calling `RegisterUsage` once for metering of software use to commence. This topic provides an example implementation using the AWS SDK for Java to integrate with the [AWS Marketplace Metering Service](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/Welcome.html)'s `RegisterUsage` action. 
 
@@ -13,9 +12,13 @@ For the full source code, see [RegisterUsage Java example](#registerusage-java-e
 
 **Example steps for AWS Marketplace Metering Service integration**
 
-1. Sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home).
+1. Sign in to your seller account in AWS Partner Central.
 
-1. From **Assets** choose **Containers** to start creating a new container product. Creating the product generates the product code for the product to integrate with your container image. For information about setting IAM permissions, see [AWS Marketplace metering and entitlement API permissions](iam-user-policy-for-aws-marketplace-actions.md).
+1. Create a new container product as described in [Step 1: Create your container product](container-product-getting-started.md#create-initial-container-product). Creating the product generates the product code for the product to integrate with your container image.
+
+   The product code appears in the **Product summary** section of your product's page after you choose **Show more**.
+
+   For information about setting IAM permissions, see [AWS Marketplace metering and entitlement API permissions](iam-user-policy-for-aws-marketplace-actions.md).
 
 1.  Download the public [AWS Java SDK](https://aws.amazon.com/sdk-for-java/). 
 **Important**  
@@ -94,7 +97,7 @@ It is possible to see transient issues in connecting to the AWS Marketplace Mete
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -111,13 +114,13 @@ It is possible to see transient issues in connecting to the AWS Marketplace Mete
 
 ------
 
-1. Create an Amazon ECS task or Amazon EKS pod definition that references the container that has integrated with AWS Marketplace and references the IAM role that you created in step 7. You should enable AWS CloudTrail logging in the task definition if you want to see logging. 
+1. Create an Amazon ECS task or Amazon EKS pod definition that references the container that has integrated with AWS Marketplace and references the IAM role that you created in step 8. You should enable AWS CloudTrail logging in the task definition if you want to see logging. 
 
 1. Create an Amazon ECS or Amazon EKS cluster to execute your task or pod. For more information about creating an Amazon ECS cluster, see [Creating a Cluster](https://docs.aws.amazon.com/AmazonECS/latest/userguide/create_cluster.html) in the *Amazon Elastic Container Service Developer Guide*. For more information about creating an Amazon EKS cluster (using Kubernetes version 1.1.3.x or later), see [Creating an Amazon EKS Cluster](https://docs.aws.amazon.com/eks/latest/userguide/create_cluster.html).
 
 1. Configure the Amazon ECS or Amazon EKS cluster and launch the Amazon ECS task definition or Amazon EKS pod that you created, in the us-east-1 AWS Region. It's only during this testing process, before the product is live, that you have to use this region.
 
-1. When you get a valid response back from `RegisterUsage`, you can begin creating your container product. For questions, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team. 
+1. When you get a valid response back from `RegisterUsage`, you can begin creating your container product. For questions, contact the AWS Marketplace support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console. 
 
 ## RegisterUsage Java example
 <a name="registerusage-java-example"></a>

@@ -1,7 +1,6 @@
 
 
 # Reporting usage for inference pricing
-<a name="ml-inference-metering"></a>
 
 If your product uses inference pricing, your container reports how many inferences each request or streaming session used. SageMaker AI passes the count to AWS Marketplace, which charges the buyer your price for each inference. What your container sends depends on how the buyer calls the endpoint. This topic covers real-time requests, streaming responses, and bidirectional streams.
 
@@ -22,7 +21,7 @@ Your container runs a web server that answers requests from SageMaker AI on port
 
 When a buyer calls `InvokeEndpoint`, SageMaker AI sends the request to your container at `/invocations`. By default, AWS Marketplace charges one inference for each successful response (HTTP `2XX`). To charge a different number, add the `X-Amzn-Inference-Metering` header to your response. The following example charges three inferences:
 
-```
+```http
 X-Amzn-Inference-Metering: {"Dimension": "inference.count", "ConsumedUnits": 3}
 ```
 + `ConsumedUnits` is the number of inferences for this request. It can be a decimal, for example `2.5`. To charge nothing for a request, send `0`.
@@ -31,7 +30,7 @@ X-Amzn-Inference-Metering: {"Dimension": "inference.count", "ConsumedUnits": 3}
 
 The following FastAPI example charges one inference for each image in the request.
 
-```
+```python
 import json
 
 from fastapi import FastAPI, Request, Response
@@ -63,7 +62,7 @@ When a buyer calls `InvokeEndpointWithResponseStream`, there's no default count.
 
 Send the header with the response headers, before the first part of the response body. SageMaker AI reads the count when the response starts, so you can't change it after streaming begins. AWS Marketplace charges for the request only if the stream completes successfully. If you don't know the final size of the response at the start, base the count on what you do know, such as one per request or the size of the input. The validation rules for real-time requests also apply.
 
-```
+```python
 import json
 
 from fastapi import FastAPI, Request
@@ -98,7 +97,7 @@ Your container must already support bidirectional streams, including the Docker 
 
 1. **Opt in.** When SageMaker AI opens the data connection, include the following header in your WebSocket upgrade (101) response.
 
-   ```
+   ```http
    X-Amzn-SageMaker-Metadata-Stream-Supported: true
    ```
 
@@ -122,7 +121,7 @@ Your container must already support bidirectional streams, including the Docker 
 
 1. **Send metering records.** Send each record as a JSON object in its own WebSocket text frame.
 
-   ```
+   ```json
    {"Metering": {"Dimension": "inference.count", "ConsumedUnits": 2, "ClientToken": "8b3c2d41-1f0a-4c55-9a1e-2f4a7a0c6e19"}}
    ```
 
@@ -172,7 +171,7 @@ SageMaker AI drops records that break these rules without returning an error to 
 
 The following FastAPI example reports seconds of audio once a second, sends the final count when the session ends, and then closes the metadata connection. It assumes that audio arrives in binary frames, and `transcribe` stands in for your model code.
 
-```
+```python
 import asyncio
 import json
 import uuid

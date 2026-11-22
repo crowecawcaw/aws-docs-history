@@ -1,11 +1,10 @@
 
 
 # Troubleshooting issues with machine learning products
-<a name="ml-troubleshooting"></a>
 
- This section provides help for some common errors that you might encounter during the publishing process for your machine learning product. If your issue isn't listed, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team. 
+ This section provides help for some common errors that you might encounter during the publishing process for your machine learning product. If your issue isn't listed, contact the AWS Marketplace support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console. 
 
-## General: I get a 400 error when I add the Amazon Resource Name (ARN) of my model package or algorithm in the AWS Marketplace Management Portal
+## My request fails after I add the Amazon Resource Name (ARN) of my model package or algorithm
 <a name="troubleshooting_error_code_400"></a>
 
 ### Common cause
@@ -20,9 +19,11 @@
 
  If you're using the AWS SDK to [create a model package](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModelPackage.html#sagemaker-CreateModelPackage-request-CertifyForMarketplace) or [ create an algorithm](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAlgorithm.html#sagemaker-CreateAlgorithm-request-CertifyForMarketplace), ensure that the parameter `CertifyForMarketplace` is set to `true`. 
 
-After you re-create your certified and validated model package or algorithm resource, add the new ARN in the AWS Marketplace Management Portal. 
+The **Add version** wizard doesn't check this setting, so the request can fail after you submit it. To see why a request failed, choose the request name on your product's **Change history** tab.
 
-## General: I get a 404 error when I add the ARN of my model package or algorithm in the AWS Marketplace Management Portal
+After you re-create your certified and validated model package or algorithm resource, add a version with the new ARN.
+
+## I get the message "We couldn't locate the ARN you provided" when I add the ARN of my model package or algorithm
 <a name="troubleshooting_error_code_404"></a>
 
 ### Common cause
@@ -49,6 +50,26 @@ After you re-create your certified and validated model package or algorithm reso
     For model packages, the action `sagemaker:DescribeModelPackage` on the model package resource must be allowed. 
 
     For algorithms, the action `sagemaker:DescribeAlgorithm` on the algorithm resource must be allowed. 
+
+   The **Add version** wizard reads the resource with the identity that you signed in with, in the ARN's AWS Region. If that identity lacks the permission, the wizard shows a message from SageMaker AI that starts with `AccessDeniedException`.
+
+## I get an error message when I enter the ARN of my model package or algorithm
+<a name="troubleshooting_pc_add_version_messages"></a>
+
+The following table lists the messages that the **Add version** wizard can show for the ARN that you enter, and how to resolve each one.
+
+
+**Messages when AWS Partner Central reads your SageMaker AI resource**  
+
+| Message | Resolution | 
+| --- | --- | 
+| Enter a valid Amazon SageMaker AI ARN. | The ARN doesn't match the model package or algorithm ARN format. Check the ARN, and enter it again. | 
+| We couldn't locate the ARN you provided. Verify that the ARN is correct and has the required permissions. | See [I get the message "We couldn't locate the ARN you provided" when I add the ARN of my model package or algorithm](#troubleshooting_error_code_404). | 
+| A message that starts with AccessDeniedException | The identity that you signed in with can't describe the resource. Allow sagemaker:DescribeModelPackage or sagemaker:DescribeAlgorithm for it. For more information, see [Required permissions](ml-publishing-prereq.md#ml-permissions-required). | 
+| SageMaker AI resource must be in a Completed state for listing in AWS Marketplace. | The resource's status in SageMaker AI isn't Completed. If the resource is still being created, wait until its status is Completed. If it failed, fix the problem and create the resource again. Then enter the ARN again. | 
+| Your session has expired, please reload the page and try again. | Reload the page, and sign in again if prompted. The wizard doesn't keep your entries, so enter them again. | 
+| Your SageMaker AI resource failed to load because of a network or server issue. Try again. | Choose Next to read the resource again. | 
+| A message that starts with UnrecognizedClientException or InvalidClientTokenId | Trying again or reloading the page doesn't clear this message. Contact the AWS Marketplace Seller Operations team on the AWS Partner Central and Marketplace Support page. | 
 
 ## Amazon SageMaker AI: I get a “Client error: Access denied for registry” failure message when I create a model package or algorithm resource
 <a name="troubleshooting_error_sm_access_denied"></a>

@@ -1,7 +1,6 @@
 
 
 # Machine learning product pricing for AWS Marketplace
-<a name="machine-learning-pricing"></a>
 
 You can choose from several available pricing models for your Amazon SageMaker AI products in AWS Marketplace. Buyers who subscribe to your product run it in SageMaker AI within their own AWS account. The price for your buyers is a combination of the infrastructure costs for the resources running in their AWS account and the product pricing that you set. The following sections provide information about pricing models for SageMaker AI products in AWS Marketplace
 
@@ -17,7 +16,7 @@ Buyers are responsible for all the infrastructure costs of SageMaker AI while us
 ## Software pricing
 <a name="ml-software-pricing"></a>
 
-You determine the software prices that AWS Marketplace charges the buyer for using your product. You set the pricing and terms when you add your machine learning product to AWS Marketplace.
+You determine the software prices that AWS Marketplace charges the buyer for using your product. You set the pricing and terms when you create the public offer in **Step 3: Procurement configuration**.
 
 All infrastructure and software prices per instance type are presented to the buyer on the product listing pages in AWS Marketplace before the buyer subscribes.
 
@@ -44,7 +43,7 @@ For *algorithm* products, in addition to determining the prices for performing i
 ### Inference pricing
 <a name="ml-pricing-inference"></a>
 
-With inference pricing, buyers pay for the work your model does. You set one price per inference, and AWS Marketplace charges the buyer that price for each inference that your model reports. The price is the same on every instance type.
+With inference pricing, buyers pay for the work your model does. You set one price per unit of inference, and AWS Marketplace charges the buyer that price for each unit that your model reports. The price is the same on every instance type.
 
 Buyers also pay SageMaker AI for the instances that run their endpoint. Your inference price is the software charge, billed in addition to those infrastructure costs.
 
@@ -99,18 +98,18 @@ For details and code examples, see [Reporting usage for inference pricing](ml-in
 #### Choosing inference pricing when you create the listing
 <a name="ml-pricing-inference-choose"></a>
 
-You choose the pricing model when you create your product. After you publish, you can't switch it between hourly and inference pricing. To change pricing models, create a new product.
+You choose the pricing model on the **Set pricing model** page when you create the public offer. After you publish, you can't switch it between hourly and inference pricing. To change pricing models, create a new product.
 
 In a private offer, you can give a buyer a lower price per inference, or a fixed fee for unlimited use during the contract. For more information, see [Private offers for ML products](private-offers-supported-product-types.md#ml-private-offers).
 
 ### Free trial
 <a name="ml-pricing-free-trial"></a>
 
-Optionally, you can create a free trial for your product and define the number of days of the free trial. When you set up a free trial in the AWS Marketplace Management Portal, it can last 5 to 31 days. With the AWS Marketplace Catalog API, it can last 5 to 120 days. During the free trial, buyers can run your software as much as they want and aren't charged for your software. Buyers are charged for the infrastructure costs during the free trial. After the trial ends, they are charged your normal software price, along with the infrastructure costs.
+Optionally, you can create a free trial for your product and define the number of days of the free trial. When you set up a free trial in AWS Partner Central, it can last 5 to 31 days. With the AWS Marketplace Catalog API, it can last 5 to 120 days. During the free trial, buyers can run your software as much as they want and aren't charged for your software. Buyers are charged for the infrastructure costs during the free trial. After the trial ends, they are charged your normal software price, along with the infrastructure costs.
 
 When buyers subscribe to a product with a free trial, they receive a welcome email message. The message includes the term of the free trial, a calculated expiration date, and details on unsubscribing. A reminder email message is sent three days before the expiration date.
 
-If you offer a free trial for your product in AWS Marketplace, you agree to the specific [refund policy](https://docs.aws.amazon.com/marketplace/latest/userguide/refunds.html#refund-policy) for free trials. 
+If you offer a free trial for your product in AWS Marketplace, you agree to the specific [refund policy](https://docs.aws.amazon.com/marketplace/latest/userguide/refunds.html#refund-approval) for free trials. 
 
 **Note**  
 For information on Private offers for machine learning, see [Private offers](https://docs.aws.amazon.com/marketplace/latest/userguide/private-offers-overview.html).

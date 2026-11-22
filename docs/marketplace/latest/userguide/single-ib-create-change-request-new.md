@@ -1,16 +1,15 @@
 
 
 # Creating a change request for an EC2 Image Builder product in AWS Marketplace
-<a name="single-ib-create-change-request-new"></a>
 
-To make changes to a product or version in AWS Marketplace, you submit a **change request** through the AWS Marketplace Management Portal. Change requests are added to a queue and can take from minutes to days to resolve, depending on the type of request. You can see the status of requests in the AWS Marketplace Management Portal. This topic provides the procedures that you can use to create a change request for a single product in AWS Marketplace, including the option to use the self-service experience.
+To make changes to a product or version in AWS Marketplace, you submit a **change request** in AWS Partner Central. Change requests are added to a queue and can take from minutes to days to resolve, depending on the type of request. You can see the status of each request on the **Change history** tab of your product. This topic shows how to create a change request for an EC2 Image Builder product in AWS Marketplace and how to check its status.
 
 You can create a change request for the following situations:
-+ You saved your in-progress steps, but didn't complete the entire process, while using the self-service experience to create a single product listing. To complete the remaining steps, you create a change request.
-+ You want to make modifications to the product information for your product that is in either a **Limited** or **Public** state. To update the information, you create a change request. For more information about the types of changes that you can request for EC2 Image Builder products, see [Create a change request](#single-ib-creating-change-request).
++ You created a product, but you didn't complete all the cards under **Complete your listing** on your product's page. When you complete a card, such as **Provide product details** or **Add Regions**, you create a change request. For the steps, see [EC2 Image Builder component-based products in AWS Marketplace](ec2-ib-component-products.md).
++ You want to make modifications to the product information for your product that is in either a **Limited** or **Public** state. To update the information, you create a change request. For more information about the types of changes that you can request for EC2 Image Builder products, see [Create a change request by using self-service](#ib-self-service-change-req).
 
 **Note**  
-In addition to the AWS Marketplace Management Portal, you can also create change requests by using the [AWS Marketplace Catalog API](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/seller-products.html).
+You can also create change requests by using the [AWS Marketplace Catalog API](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/seller-products.html).
 
 **Topics**
 + [Create a change request by using self-service](#ib-self-service-change-req)
@@ -21,52 +20,44 @@ In addition to the AWS Marketplace Management Portal, you can also create change
 ## Create a change request by using self-service
 <a name="ib-self-service-change-req"></a>
 
-To make modifications to versions or the product information, you create a *change request* in the AWS Marketplace Management Portal. Change requests are the building blocks of a self-service listing that you use to make changes to your product. Each time you select **Save and exit** from the steps or select **Submit** for any update, you are making a change request. You can find your requests on the AWS Marketplace Management Portal [Request ](https://aws.amazon.com/marketplace/management/requests) tab. 
+To make modifications to versions or the product information, you create a *change request*. Change requests are the building blocks of a self-service listing that you use to make changes to your product.
 
-**To create a change request using self-service**
+You start each change from your product's page:
++ AWS Regions and future Region support – The **Region availability** section of the **Delivery** tab. For more information, see [Managing EC2 Image Builder product availability by AWS Region and country](single-ib-regions.md).
++ Instance types – The **Instance type configuration** section of the **Delivery** tab. For more information, see [Adding and restricting Amazon EC2 instances for AWS Marketplace](single-ib-instance-types.md).
++ Versions – The **Versions** section of the **Delivery** tab. For more information, see [Add a new version](single-ib-versions.md#single-ib-adding-version), [Update version information](single-ib-versions.md#single-ib-updating-version), and [Restrict a version](single-ib-versions.md#single-ib-restricting-version).
++ Product information – The **Product details** tab.
++ Product visibility – **Edit visibility** on your product's page.
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and sign in to your seller account, then go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page.
+**To create a change request**
 
-1. On the **Server products** tab, select the product that you want to modify.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. Choose an option from the **Request changes** dropdown.
+1. Choose the product.
 
-1. After you make a change request, there is a wait time for the system to process your request, reflected **Under Review**. When the request completes, it will result in either **Succeeded** or **Failed**.
-   + After the request is submitted, it begins processing through these statuses: **Under review**, **Preparing changes**, and **Applying changes**.
-   + **Succeeded** means that the requested change has been processed and changes reflect in the system.
-   + **Failed** means that something went wrong with the request, so the changes were not processed. If the status is **Failed**, you can select the request to find error codes that provide recommendations on how to correct the error. At this point, you can troubleshoot the errors and create a new request for the change. To make the process faster, you can choose **Copy to new request ** to copy the details of the failed request. Then, you can make the adjustment and resubmit the request.
+1. Choose the action for your change.
+
+   The list earlier in this section shows where each change starts.
+
+1. Enter your changes.
+
+1. Submit the change.
+
+   The button name depends on the change, for example **Save Regions** or **Save**.
+
+Your change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name.
 
 ## Create a change request
 <a name="single-ib-creating-change-request"></a>
 
-**Important**  
-On June 15, 2023, AWS Marketplace will discontinue the following procedure. After June 15, 2023, use the [Create a change request by using self-service](#ib-self-service-change-req) procedure.
-
-To make modifications to versions or the product information, you create a *change request* in the AWS Marketplace Management Portal.
-
-**To create a change request**
-
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and sign in to your seller account, then go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page.
-
-1. On the **Server products** tab, select the product that you want to modify.
-
-1. Choose an option from the **Request changes** dropdown list.
-
-   For most change requests, fill out the form in the user interface and submit it.
+To create a change request, follow the procedure in [Create a change request by using self-service](#ib-self-service-change-req).
 
 For more information about the status of a change request, see [Get the status of a change request](#single-ib-getting-change-request-status). For insight into potential issues with change requests, see [Troubleshooting common errors for change requests on AWS Marketplace](request-errors-and-issues.md).
 
 ## Get the status of a change request
 <a name="single-ib-getting-change-request-status"></a>
 
-**Important**  
-On June 15, 2023, AWS Marketplace will discontinue the following procedure. This procedure is no longer needed for the self-service experience.
-
-After you submit a change request, you can see the status of your request from the **Requests** tab of the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page of the AWS Marketplace Management Portal. The status could be any of the following:
-+ **Under review** means that your request is being reviewed. Some requests require manual review by the AWS Marketplace team but most are reviewed automatically in the system.
-+ **Succeeded** means that your request is complete. Your product or version has been updated as you requested.
-+ **Action required** means that you need to update your request to fix an issue or answer a question about the request. Select the request to see the details, including any issues.
-+ **Failed** means that something went wrong with the request, and you should create a new request for the change, with the same data.
+You see the status of each request on the **Change history** tab of your product: **Preparing**, **Applying**, **Succeeded**, **Failed**, or **Cancelled**. To see the details of a request, including the **Failure details** of a failed request, choose its name. To retry a failed request, fix the issues that the failure details describe, and then submit the change again.
 
 ## Additional resources
 <a name="ib-single-change-req-resources"></a>

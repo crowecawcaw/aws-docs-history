@@ -1,7 +1,6 @@
 
 
 # Requirements and best practices for creating machine learning products
-<a name="ml-listing-requirements-and-best-practices"></a>
 
 It is important that your buyers find it easy to test your model package and algorithm products. The following sections describe best practices for ML products. For a complete summary of requirements and recommendations, see the [Summary of requirements and recommendations for ML product listings](#ml-summary-table-of-requirements-and-recommendations).
 
@@ -26,8 +25,8 @@ An AWS Marketplace representative might contact you to help you meet these requi
   +  How your model was trained or the amount of data that was used 
   +  What the performance metrics are and the validation data used 
   +  If medical, whether or not your model is for diagnostic use 
-+ By default, machine learning products are configured to have public visibility. However, you can create a product with limited visibility. For more information, see [Step 7: Configure allowlist](configure-allowlist.md).
-+  (Optional) For paid products, offer a free trial of 14–30 days for customers to try your product. For more information, see [Machine learning product pricing for AWS Marketplace](machine-learning-pricing.md). 
++ A new product starts with **Draft** visibility. After you complete **Step 1: Product details** and **Step 2: Delivery configuration**, you can move it to **Limited** visibility for testing. It becomes **Public** after you publish it and AWS Marketplace approves your listing. For more information about testing with **Limited** visibility, see [Adding test accounts to the allowlist](configure-allowlist.md).
++  (Optional) For paid products, offer a free trial so that customers can try your product. You can set a trial of 5 to 31 days, and we recommend 14 to 30 days. For more information, see [Machine learning product pricing for AWS Marketplace](machine-learning-pricing.md). 
 
 ## Requirements for usage information
 <a name="ml-requirements-for-usage-information"></a>
@@ -57,7 +56,7 @@ For samples, provide input files that work with your product. If your model per
 ### Training inputs
 <a name="ml-training-inputs"></a>
 
-In the **Information to train a model** section, provide the input data format and code snippets for any necessary preprocessing of the data. Include a description of values and limitations, if applicable. Provide input samples hosted on [GitHub](https://github.com). 
+For algorithms, describe the training input data format, and provide code snippets for any necessary preprocessing of the data. Include a description of values and limitations, if applicable. Put this information in the **Usage instructions** for the version and in your sample notebook. Provide input samples hosted on [GitHub](https://github.com). 
 
 Explain both optional and mandatory features that can be provided by the buyer, and specify whether the `PIPE` input mode is supported. If [distributed training](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-running-container.html#your-algorithms-training-algo-running-container-dist-training) (training with more than 1 CPU/GPU instance) is supported, specify this. For tuning, list the recommend hyperparameters. 
 
@@ -84,7 +83,9 @@ A lack of example training data might prevent your buyer from running the Jupyte
 The following table provides a summary of the requirements and recommendations for a machine learning product listing page.
 
 
-|  **Details**  |  **For model package listings**  |  **For algorithm listings**  | 
+**Summary of requirements and recommendations**  
+
+| Details | For model package listings | For algorithm listings | 
 | --- |--- |--- |
 | **Product descriptions** | 
 | --- |
@@ -93,8 +94,8 @@ The following table provides a summary of the requirements and recommendations f
 | List most important use case(s) for this product.  |  Required  |  Required  | 
 | Describe the data (source and size) it was trained on and list any known limitations.  |  Required  |  Not applicable | 
 | Describe the core framework that the model was built on.  |  Recommended  |  Recommended  | 
-| Summarize model performance metric on validation data (for example, "XX.YY percent accuracy benchmarked using the Z dataset").  |  Required  |  Not applicable | 
-| Summarize model latency and/or throughput metrics on recommended instance type.  |  Required  |  Not applicable | 
+| Summarize model performance metric on validation data (for example, "XX.YY percent accuracy benchmarked using the Z dataset").  |  Recommended  |  Not applicable | 
+| Summarize model latency and/or throughput metrics on recommended instance type.  |  Recommended  |  Not applicable | 
 | Describe the algorithm category. For example, “This decision forest regression algorithm is based on an ensemble of tree-structured classifiers that are built using the general technique of bootstrap aggregation and a random choice of features.”  |  Not applicable |  Required  | 
 | **Usage information** | 
 | --- |
@@ -108,5 +109,5 @@ The following table provides a summary of the requirements and recommendations f
 | For training, provide details about necessary information to train the model such as minimum rows of data required. See [Requirements for inputs and outputs](#ml-requirements-for-inputs-and-outputs).  |  Not applicable |  Required  | 
 | For training, provide input samples hosted on GitHub. See [Requirements for inputs and outputs](#ml-requirements-for-inputs-and-outputs).  |  Not applicable |  Required  | 
 | For training, provide an example of performing training jobs. Describe the supported hyperparameters, their ranges, and their overall impact. Specify if the algorithm supports hyperparameter tuning, distributed training, or GPU instances. Include code example such as AWS CLI commands or using an AWS SDK, for example.  |  Not applicable |  Required  | 
-| Provide a Jupyter notebook hosted on GitHub demonstrating complete use of your product. See [Requirements for Jupyter notebook](#ml-requirements-for-jupyter-notebook).  |  Required  |  Required  | 
+| Provide a Jupyter notebook hosted on GitHub demonstrating complete use of your product. See [Requirements for Jupyter notebook](#ml-requirements-for-jupyter-notebook).  |  Recommended  |  Recommended  | 
 | Provide technical information related to the usage of the product, including user manuals and sample data.  |  Recommended  |  Recommended  | 

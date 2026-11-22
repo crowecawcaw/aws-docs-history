@@ -1,7 +1,6 @@
 
 
 # Supplemental tax registrations
-<a name="supplemental-tax-registrations"></a>
 
 If you use a local Tax Registration Number (TRN) for sales in a specific locality, you can add it as a supplemental TRN to your AWS Marketplace account. For example, a supplemental Swiss TRN is used to manage tax collection and invoicing for Swiss buyers. The business address associated with supplemental TRN may be shared with independent software vendors, channel partners, and buyers.
 

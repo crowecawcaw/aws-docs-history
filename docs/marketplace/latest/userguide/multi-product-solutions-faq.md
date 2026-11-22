@@ -1,14 +1,12 @@
 
 
 # Multi-product solutions FAQ
-<a name="multi-product-solutions-faq"></a>
 
 This FAQ addresses common questions about multi-product solutions, including solution listings and offer sets.
 
 **Topics**
 + [What is the difference between a product and a solution?](#product-vs-solution-difference)
 + [Do I need to be an AWS Partner to create solutions?](#aws-partner-to-create-solutions)
-+ [What's the difference between AWS Marketplace Management Portal and AWS Partner Central?](#ammp-partner-central-difference)
 + [How do I use solution in the rest of AWS Partner Central co-selling?](#solution-in-partner-central-coselling)
 + [How do I track the status of my change requests?](#track-change-request-status)
 + [Why is my solution stuck in "pending review" or "preparing" status?](#solution-pending-review-status)
@@ -45,11 +43,6 @@ You need AWS Marketplace seller credentials to create solutions. Requesting priv
 **Note**  
 Your partner solutions from legacy Partner Central migrate to AWS Partner Central as AWS Marketplace solutions. Active solutions start in a Limited state. In this state, you can add products and enrich your solution before you publish it on AWS Marketplace as a multi-product solution.
 
-## What's the difference between AWS Marketplace Management Portal and AWS Partner Central?
-<a name="ammp-partner-central-difference"></a>
-
-For more information about AWS Partner Central, see the [AWS Partner Central console](https://us-east-1.console.aws.amazon.com/partnercentral/dashboard?region=us-east-1). AWS Partner Central combines two separate portals into one. You can now use AWS Partner Central to create and manage solutions. You can navigate product, offer, and agreement capabilities from AWS Marketplace Management Portal along with partner co-selling capabilities all in AWS Partner Central. AWS Partner Central is part of the AWS Console. You can easily become an AWS Partner and access both co-selling benefits and AWS Marketplace features. Existing AWS Marketplace sellers can access AWS Partner Central directly using your AWS Marketplace credentials.
-
 ## How do I use solution in the rest of AWS Partner Central co-selling?
 <a name="solution-in-partner-central-coselling"></a>
 
@@ -58,7 +51,7 @@ Solutions can be used throughout AWS Partner Central for Foundational Technical 
 ## How do I track the status of my change requests?
 <a name="track-change-request-status"></a>
 
-After you submit a change request, you can view the status from the **Requests** tab of the Solutions page in the AWS Partner Central. The status could be any of the following:
+After you submit a change request, you can view the status from the Requests page (in the left navigation pane, under **Build**, choose **Requests**). The status could be any of the following:
 + **Under review** – Your request is being reviewed. Most requests are reviewed automatically in the system, though some require manual review by the AWS Marketplace team.
 + **Succeeded** – Your request is complete. Your solution has been updated as requested.
 + **Action required** – You need to update your request to fix an issue or answer a question. Choose the request to see the details, including any issues.
@@ -92,7 +85,7 @@ When your solution is in public status, you can edit some details but not others
 ## Can I include products I don't own in my solution?
 <a name="include-products-not-owned"></a>
 
-Yes, you can include AWS Marketplace products owned by others by obtaining their Product ID and entering it in your solution (Option 2 in Add product). The product must be public and supported in solutions. You need to coordinate with the product owner to obtain the necessary ID. Keep in mind that this Product ID is on the seller side in AWS Partner Central, AWS Marketplace Management Portal, or AWS Marketplace Catalog API. It's not the Listing ID found in AWS Marketplace website URL.
+Yes, you can include AWS Marketplace products owned by others by obtaining their Product ID and entering it in your solution (Option 2 in Add product). The product must be public and supported in solutions. You need to coordinate with the product owner to obtain the necessary ID. Keep in mind that you find this Product ID on the seller side in AWS Partner Central or the AWS Marketplace Catalog API. It's not the Listing ID found in AWS Marketplace website URL.
 
 ## How do I get consent from product owners to include their products in my solution listing?
 <a name="get-consent-product-owners"></a>
@@ -187,4 +180,6 @@ When you release an offer set, AWS Marketplace sends multiple notifications to h
 ## How does listing fee work for multi-product offer set?
 <a name="listing-fee-multi-product-offer-set"></a>
 
-Listing fees are calculated at the individual product level when the customer is billed for each product. Each private offer incurs listing fees based on the product, the vendor, and any selling authorization involved. For more information about listing fees for AWS Marketplace sellers, see the [Understanding listing fees for AWS Marketplace seller documentation](https://docs.aws.amazon.com/marketplace/latest/userguide/listing-fees.html).
+Listing fees are calculated at the individual product level when the customer is billed for each product. Each private offer incurs listing fees based on the product, the vendor, and any selling authorization involved.
+
+If you sell professional services in a qualifying offer set, the professional services listing fee is 0%. To qualify, every offer in your offer set must have an agreement, and at least one offer that isn't professional services must be a paid offer. For the full rules, see [Understanding fees for standard offer listings in AWS Marketplace](listing-fees.md#standard-offer-listing-fees).

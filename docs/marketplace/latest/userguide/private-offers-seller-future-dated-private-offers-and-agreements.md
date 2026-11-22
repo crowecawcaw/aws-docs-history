@@ -1,9 +1,8 @@
 
 
 # Creating future dated agreements for private offers
-<a name="private-offers-seller-future-dated-private-offers-and-agreements"></a>
 
-As an AWS Marketplace seller, you can use future dated agreements to sell a product that a buyer will receive on a *predetermined future date*. In a typical AWS Marketplace transaction, the buyer receives the product license or entitlement *immediately* after the offer is accepted or the agreement is created. In contrast, with a future dated agreement (FDA), the buyer receives the product license or entitlement on a *predetermined future date*. FDA can be used to setup renewals for existing transactions with the buyer. FDA is supported for software as a service (SaaS) products for contract and contracts with consumption (CCP) pricing, with and without flexible payments. The following sections provide information about working with future dated agreements.
+As an AWS Marketplace seller, you can use future dated agreements to sell a product that a buyer will receive on a *predetermined future date*. In a typical AWS Marketplace transaction, the buyer receives the product license or entitlement *immediately* after the offer is accepted or the agreement is created. In contrast, with a future dated agreement (FDA), the buyer receives the product license or entitlement on a *predetermined future date*. FDA can be used to setup renewals for existing transactions with the buyer. FDA is supported for software as a service (SaaS) products for contract and contracts with consumption (CCP) pricing, with and without flexible payments. FDA is also supported for RTB Fabric module products for contract pricing. For that product type, create the offer with the AWS Marketplace Catalog API: set the agreement start and end dates in the validity term, express the rate card duration in days matching the agreement window exactly, and set the offer availability end date before the agreement start date. The following sections provide information about working with future dated agreements.
 
 With FDA, you can close transactions with buyers when they choose instead of when the buyer wants to begin product usage. You can use FDA to dependently perform the following actions for transactions on AWS Marketplace:
 + Book (buyer accepts the offer) the deal based on sales needs.
@@ -73,12 +72,16 @@ You receive [email notifications](https://docs.aws.amazon.com/marketplace/latest
 + Upon an agreement amendment or replacement
 
 **Note**  
-If you registered your seller account on or before July 15, 2026, all Amazon Simple Notification Service (Amazon SNS) notifications for SaaS also work for FDA. For FDAs, both Amazon SNS topics are initiated on the agreement start date (and not agreement sign date). For more information, see [Amazon SNS notifications for SaaS products](saas-notification.md). 
+If you registered your seller account on or before July 15, 2026, all Amazon Simple Notification Service (Amazon SNS) notifications for SaaS also work for FDA. For FDAs, both Amazon SNS topics are initiated on the agreement start date (and not agreement sign date). For more information, see [Amazon SNS notifications for SaaS products](saas-notification.md).   
+Amazon SNS notifications aren't available for RTB Fabric module products. Use the Amazon EventBridge events, which for a future dated agreement include **Purchase Agreement Created** at acceptance and **License Updated** at the start date.
 
 ## Using future dated agreements with reselling for Channel Partner private offers
 <a name="seller-using-future-dated-agreements-with-reselling"></a>
 
 Manufacturers and resellers can use future dated agreements for AWS Marketplace Channel Partner private offers. 
+
+**Note**  
+Channel Partner private offers aren't yet available for RTB Fabric module products. A selling authorization can't be created for this product type.
 
 **As the manufacturer:**
 + Similar to standard AWS Marketplace Channel Partner Private Offers (CPPOs), manufacturers must authorize AWS Marketplace Channel Partners to create CPPOs with a future start date by extending a resale authorization to them.

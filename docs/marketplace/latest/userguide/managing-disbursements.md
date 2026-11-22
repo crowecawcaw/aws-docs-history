@@ -1,7 +1,6 @@
 
 
 # Managing disbursements
-<a name="managing-disbursements"></a>
 
 After completing your initial disbursement setup during registration, you can manage your disbursement preferences, add multiple currencies, and monitor your payment history. For initial setup instructions, see [Set disbursement preferences](set-disbursement-preferences.md). 
 
@@ -37,6 +36,9 @@ Available currencies for disbursements include:
 + Great Britain pound (GBP)
 + Australian dollar (AUD)
 + Japanese yen (JPY)
++ Canadian dollar (CAD)
++ Singapore dollar (SGD)
++ New Zealand dollar (NZD)
 + Indian rupee (INR) – For sellers in India only
 
 ## Disbursement timing and processing

@@ -1,7 +1,6 @@
 
 
 # Managing your invoices
-<a name="managing-invoices"></a>
 
 You can view and download tax invoices for your AWS Marketplace seller account from the Tax details dashboard in AWS Partner Central. The dashboard provides access to both listing fee invoices and customer invoices.
 

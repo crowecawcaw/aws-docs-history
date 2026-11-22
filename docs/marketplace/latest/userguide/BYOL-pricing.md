@@ -1,7 +1,6 @@
 
 
 # Bring Your Own License pricing
-<a name="BYOL-pricing"></a>
 
 There is no service fee for Bring Your Own License (BYOL) products on AWS Marketplace. 
 

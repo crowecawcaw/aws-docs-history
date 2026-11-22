@@ -1,7 +1,6 @@
 
 
 # Step 2: Provide tax information
-<a name="provide-tax-information"></a>
 
 Providing tax information is a required step for sellers who plan to offer paid products on AWS Marketplace. This information ensures proper tax reporting and withholding for your sales.
 
@@ -28,6 +27,7 @@ If you're located in these countries, you must provide VAT registration informat
 + Israel
 + New Zealand
 + Norway
++ Singapore
 + Switzerland
 + United Arab Emirates (UAE)
 + United Kingdom (UK)
@@ -62,6 +62,13 @@ From April 1, 2025, the following procedures are in effect for the collection an
 | Channel Partner Private Offer (CPPO), Channel Partner outside Japan.1.  First transaction   **Seller – **Independent software vendor (ISV) with an address in Japan.   **Customer – **AWS Marketplace Channel Partner with an address outside Japan.   <br />2.  Second transaction   **Seller – **Same AWS Marketplace Channel Partner.   **Customer – **AWS account with an address in Japan.    | For the first transaction, AWS Japan does not issue an invoice or collect Japan Consumption Tax (JCT) as this is outside the scope of JCT.<br />For the second transaction:+  According to the Specified Platform Business rule, AWS Japan will do the following:   Collect the 10% Japanese Consumption Tax (JCT).   Issue a Tax Qualified Invoice (TQI) to the customer under AWS Japan JCT number T6011001106696.   Remit the collected Japan Consumption Tax (JCT) to the Japan Tax Authority (JTA).   <br />To avoid duplication, the Channel Partner should cease collecting or remitting Japanese Consumption Tax (JCT) and issuing Tax Qualified Invoices (TQIs). | 
 
 For more information about VAT, invoicing, and your tax obligations as a seller, see [AWS Marketplace Sellers](https://aws.amazon.com/tax-help/marketplace/) on [Amazon Web Service Tax Help](https://aws.amazon.com/tax-help/).
+
+## Singapore tax requirements
+<a name="singapore-tax-requirements"></a>
+
+Sellers in Singapore must provide a valid goods and services tax (GST) registration number registered with the Inland Revenue Authority of Singapore (IRAS). You can check a GST registration number in the [IRAS GST register](https://mytax.iras.gov.sg/ESVWeb/default.aspx?target=GSTListingSearch). If your business is below the IRAS registration threshold, you can [register for GST voluntarily](https://www.iras.gov.sg/taxes/goods-services-tax-(gst)/gst-registration-deregistration/factors-to-consider-before-registering-voluntarily-for-gst).
+
+For more information about Singapore GST and tax invoicing, see [Tax Services](tax-services.md), [AWS Marketplace Tax Help for Sellers](https://aws.amazon.com/tax-help/marketplace-sellers/), and [AWS Singapore FAQs](https://aws.amazon.com/legal/awssg/).
 
 ## India tax requirements
 <a name="india-tax-requirements"></a>

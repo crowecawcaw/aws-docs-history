@@ -1,7 +1,6 @@
 
 
 # AI agent products
-<a name="ai-agents-tools"></a>
 
 ## What are AI agent products?
 <a name="what-are-ai-agents"></a>
@@ -48,6 +47,8 @@ Specialized components that enhance other AI agents, including knowledge bases, 
 
 AWS Marketplace supports multiple deployment options for AI agents, allowing you to choose the approach that best fits your architecture and customer needs:
 + **API deployment option** – The API deployment option allows customers to access your AI agent through vendor-hosted endpoints. This option is ideal for agents and agent tools that require specialized infrastructure or proprietary models that you want to keep in your own environment.
+
+  With Agentic Commerce, AI agents pay for each request through the x402 payment protocol. Charges appear on the buyer's AWS bill. It's an optional capability of this option. Agentic Commerce is available in the US East (N. Virginia) Region, in US dollars. For more information, see [Listing Agentic Commerce products](agentic-commerce-products.md).
 + **Container deployment** – Package your AI agent and agentic tools as containerized applications that customers can run in their own AWS environments. This option provides customers with greater control over their data and infrastructure.
 
 ## Choosing the right deployment option
@@ -63,6 +64,7 @@ Here is a quick feature comparison between the deployment options:
 
 | Feature | API Deployment | Container Deployment | 
 | --- | --- | --- | 
+| Pay per request by AI agents (Agentic Commerce) | Optional, through x402. US East (N. Virginia) Region and USD only | Not available | 
 | Hosting | Vendor-hosted endpoints | Customer's own AWS environment | 
 | Data control | Data processed on vendor servers | Greater customer control over data | 
 | Infrastructure requirements | Minimal - uses vendor infrastructure | Requires customer to manage infrastructure | 

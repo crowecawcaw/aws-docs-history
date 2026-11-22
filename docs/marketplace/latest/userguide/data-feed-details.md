@@ -1,7 +1,6 @@
 
 
 # Storage and structure of AWS Marketplace data feeds
-<a name="data-feed-details"></a>
 
 AWS Marketplace provides data feeds as a mechanism to send structured, up-to-date product and customer information from AWS Marketplace systems to seller Amazon S3 buckets for ETL (extract, transform, and load) between seller-owned business intelligence tools. This topic provides more information about the structure and storage of data feeds.
 
@@ -22,7 +21,7 @@ Data feeds are generated and stored as follows:
 
   `{{bucket-name}}/{{data-feed-name_version}}/year={{YYYY}}/month={{MM}}/data.csv`
 + As each daily data feed is generated, it is appended to the existing CSV file for that month. When a new month starts, a new CSV file is generated for each data feed. 
-+ Information in data feeds is backfilled from 2010/01/01 to 2020/04/30 (inclusive) and is available in the [CSV file](#data-feed-details) in the `year=2010/month=01` subfolder.
++ Information in data feeds is backfilled from 2010/01/01 to 2020/04/30 (inclusive) and is available in the [CSV file](data-feed-details.md) in the `year=2010/month=01` subfolder.
 
   You may notice cases where the current month's file for a given data feed contains only column headers, and no data. This means that there were no new entries for that month for the feed. This can happen with data feeds that are updated less frequently, like the product feed. In these cases, data is available in the backfilled folder. 
 + In Amazon S3, you can create an [Amazon S3 lifecycle policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-lifecycle.html) to manage how long to keep files in the bucket. 

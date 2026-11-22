@@ -1,7 +1,6 @@
 
 
 # Seller notifications for AWS Marketplace events
-<a name="notifications"></a>
 
 You can receive notifications about important events related to your AWS Marketplace products, such as subscription changes, private offer acceptances, and professional services requests. Amazon EventBridge is the recommended approach for programmatic integration, while email notifications are also available. SNS topics are available only to sellers who registered their seller account on or before July 15, 2026. AWS Marketplace is replacing SNS topics with EventBridge. This topic provides an overview of available notification and event options.
 + **EventBridge** – You can use EventBridge to receive an event for actions that happen in AWS Marketplace, for example, when an offer is created. The event contains information like the ID, expiration date, and product details. For more information, see [Amazon EventBridge events](notifications-eventbridge.md) and the [*Amazon EventBridge User Guide*](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html). For SaaS products specifically, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).

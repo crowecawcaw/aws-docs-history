@@ -1,22 +1,44 @@
 
 
 # Pricing for SaaS subscriptions
-<a name="saas-subscriptions"></a>
 
 For software as a service (SaaS) subscriptions, AWS Marketplace bills your customers based on the metering records that you send to us. All charges must be measured and reported every hour from the software deployed in the customer's account. All usage is then calculated monthly and billed monthly using the same mechanism as AMI based AWS Marketplace offerings. Our ability to bill customers for usage of your product is dependent upon receiving metering records from you. You are responsible for ensuring that your product’s metering records are successfully transmitted and received. 
 
 Before you can publish a SaaS product with subscription pricing, you must do the following:
 
-1. Create a new SaaS product in the AWS Marketplace Management Portal, choose **New SaaS Subscription**.
+**To create a SaaS subscription product**
 
-1. Complete the fields in the **General** tab with the necessary information. Make a note of the product code.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. On the **Pricing** tab, under **Set Pricing**, select the **Category** that describes your product’s pricing most accurately. The pricing category appears to customers on the AWS Marketplace website. You can choose from **Bandwidth** (GBps, MBps), **Data** (GB, MB, TB), **Hosts** (hours), **Requests**, or **Users** (hours). If none of the predefined categories fit your needs, you can choose the more generic **Units** category.
+1. Choose the product.
 
-   Next, define your Pricing Dimensions. Each Pricing Dimension represents a feature or service that you can set a per-unit price for. Examples of dimensions include users, hosts scanned, and GB of logs ingested. You can define a maximum of 200 dimensions. For each dimension you define, you must add the following information: 
-   + **Dimension API Name** – The API name used when sending metering records to the [AWS Marketplace Metering Service](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/Welcome.html). This name indicates which dimension your customer used. This name is visible in billing reports. The name doesn't need to be reader-friendly because you're the only one with access to your reports. After you set the name, you can't change it. 
-   + **Dimension Description** – The customer-facing statement that describes the dimension for the product. The description can be no more than 70 characters and should be user-friendly. Examples of descriptions are Administrators per hour, and Per Mbps bandwidth provisioned. After the product is published, you can change this description. 
-   + **Dimension Rate** – The software charge per FCP unit for this product, in USD. This ﬁeld supports eight decimal places. 
+   The product must have Limited or Public visibility. To create one, see [Creating an initial SaaS product page on AWS Marketplace](saas-create-product-page.md).
+
+1. Choose the **Procurement** tab.
+
+1. In the **Public offer** section, choose **Create public offer**.
+
+**To complete the public offer for a SaaS subscription product**
+
+1. On the **Set pricing model and dimensions** step, for **Pricing model**, choose **Usage-based pricing**.
+
+   You can't change the pricing model later. To use a different pricing model, create a new product.
+
+1. For **Dimension unit type**, choose the unit that describes how you price your product.
+
+   You can't change the unit type later. If the unit differs between dimensions, choose **Units**.
+
+1. Add your usage dimensions. For each dimension, enter the **API identifier**, **Display name**, and **Description**.
+
+   The API identifier is the dimension name that your metering records use, and you can't change it after you create the dimension. Use up to 60 letters, numbers, and underscores, and don't start with a number. The display name can have up to 80 characters, and the description can have up to 90.
+
+1. Complete the **Configure pricing details and duration**, **Specify refund policy**, **Configure legal terms and offer documents**, and **Configure offer availability** steps.
+
+1. On the **Review and create** step, choose **Create public offer**.
+
+AWS Partner Central returns you to the **Procurement** tab while AWS Marketplace processes the request. When the request succeeds, your public offer appears in the **Public offer** section.
+
+To find the product code that your integration uses, choose **Show more** in the product's **Product summary**.
 
 ## When a SaaS subscription ends
 <a name="saas-subscription-ends"></a>

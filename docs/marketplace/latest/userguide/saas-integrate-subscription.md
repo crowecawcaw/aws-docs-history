@@ -1,16 +1,18 @@
 
 
 # Integrating your SaaS subscription or Pay-As-You-Go product with AWS Marketplace
-<a name="saas-integrate-subscription"></a>
 
 **Integration requirements changing June 1, 2026 for new SaaS products**  
 AWS Marketplace is introducing support for Concurrent Agreements, enabling multiple purchases of the same product on a single AWS account during the same agreement period. Starting June 1, 2026, all new SaaS products will be required to support updated integration requirements. [Review the new integration for Concurrent Agreements](https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements).
 
 Integrating your product with AWS Marketplace is one step in [Creating a SaaS product in AWS Marketplace](saas-create-product.md). To integrate your software as a service (SaaS) subscription product with AWS Marketplace, you must write code and demonstrate that it can respond successfully to several customer scenarios. The following sections show you how to integrate your SaaS subscription model with AWS Marketplace.
 
-This guide is for *Pay-As-You-Go (PAYG)* SaaS products. If you are implementing a *contract-based* SaaS product, use [Integrating your SaaS contract-based product with AWS Marketplace](saas-integrate-contract-with-pay.md) instead. PAYG products do not use entitlement SNS topics or the GetEntitlements API.
+This guide is for *Pay-As-You-Go (PAYG)* SaaS products. If you are implementing a *contract-based* SaaS product, use [Integrating your SaaS contract with consumption product with AWS Marketplace](saas-integrate-contract-with-pay.md) instead. PAYG products do not use entitlement SNS topics or the GetEntitlements API.
 
 Before you begin, make sure you've chosen the right pricing model for your software-as-a-service (SaaS) product in AWS Marketplace. For more information, see [Planning your SaaS product](saas-prepare.md).
+
+**Note**  
+Agentic Commerce products don't use this integration. You don't build a registration page, call `ResolveCustomer`, meter usage, or support Concurrent Agreements for them. AWS Marketplace meters each verified payment for you. For more information, see [Listing Agentic Commerce products](agentic-commerce-products.md).
 
 **Topics**
 + [Scenario: Your service validates new customers](#saas-subscription-validate-customer)
@@ -70,7 +72,7 @@ Before creating resources on the customer's behalf, verify that the customer sho
 After you've integrated your SaaS subscription product with AWS Marketplace, you must conduct in-depth testing to ensure that the integration is successful. The following procedure outlines the steps to verify your product integration.
 
 **Note**  
-Use your own accounts to subscribe to your product and test that the integration is successful. Prices can be temporarily reduced so that you can test the purchase flow without incurring high charges in those accounts. For more information about temporarily reducing the prices or allowing additional test accounts to access your product, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team.  
+Use your own accounts to subscribe to your product and test that the integration is successful. You can temporarily reduce your prices to test the purchase flow without incurring high charges in those accounts. Before you publish, replace any test prices in your public offer with the prices that you want buyers to pay. To let additional test accounts access your product, add their AWS account IDs to your product's allowlist. For more information, see [Update pricing terms](saas-product-settings.md#saas-update-pricing-terms) and [Update the allowlist of AWS account IDs](saas-product-settings.md#update-allowlist).  
 After your product is launched, the service must continue to respond to these scenarios for new customers.
 
 1. Use an allowed account to test the customer experience by subscribing to your product. 

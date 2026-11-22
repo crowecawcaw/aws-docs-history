@@ -1,7 +1,6 @@
 
 
 # Professional services products in AWS Marketplace
-<a name="proserv-products"></a>
 
 If you sell professional services, such as data migration management, consulting, or training, you can offer those services to buyers on AWS Marketplace. You can create a product offering that describes the services you provide, negotiate with customers on price, scope of work, and payment terms, then create a private offer for your services.
 
@@ -26,4 +25,4 @@ The following video explains more about managing professional services products 
 ## Getting help
 <a name="proserv-help"></a>
 
- For assistance with your professional services products, contact your business development partner for AWS Marketplace or the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team. 
+ For assistance with your professional services products, contact your business development partner for AWS Marketplace or the AWS Marketplace support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console. 

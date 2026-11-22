@@ -1,111 +1,164 @@
 
 
 # AI-assisted product listing
-<a name="ai-assisted-product-listing"></a>
 
-AI-assisted product listing is a capability in AWS Partner Assistant. It helps you create high-quality AWS Marketplace product listings of all product types from your existing digital assets.
+AI-assisted product listing helps you create and improve AWS Marketplace product listings from your existing digital assets. It drafts content, rates your listing against the standards that drive buyer engagement, and returns recommendations on the individual fields that need work. You review each one and choose whether to accept it.
 
-Any seller with the `AWSPartnerCentralFullAccess` permission can access this capability through the AWS Partner Assistant chat window.
+For solutions, see [AI-assisted solution listing](ai-assisted-solution-listing.md).
 
-With AI-assisted product listing, you can:
-+ Generate product information from a website URL or uploaded documents (PDFs, case studies, product documentation).
-+ Score the strength of any product listing against AWS Marketplace standards.
-+ Receive field-level recommendations for product information to improve listing quality and buyer discoverability before publishing.
-+ Apply your own brand voice or listing standards by uploading a style guide that the chat uses as a guardrail when generating product information.
+AI-assisted product listing is not available in AWS GovCloud (US) Regions or the China Regions.
 
 **Topics**
-+ [How to access AI-assisted product listing](#how-to-access-ai-assisted-product-listing)
-+ [What you can ask the chat](#what-you-can-ask-chat)
-+ [Supported product types](#supported-product-types)
-+ [Supported input modalities](#supported-input-modalities)
-+ [Search and discoverability optimization](#search-and-discoverability-optimization)
-+ [Programmatic access](#programmatic-access)
-+ [Frequently asked questions](#ai-assisted-product-listing-faq)
++ [What it does](#what)
++ [Prerequisites](#prereq)
++ [Drafting a listing from your existing content](#drafting)
++ [Working with recommendations](#recommendations)
++ [Improving a listing you have already published](#improving)
++ [Understanding listing strength](#strength)
++ [Supported product types](#types)
++ [Supported inputs](#inputs)
++ [Programmatic access](#api)
++ [Frequently asked questions](#faq)
 
-## How to access AI-assisted product listing
-<a name="how-to-access-ai-assisted-product-listing"></a>
+## What it does
+<a name="what"></a>
 
-You can access AI-assisted product listing in two locations:
+**Drafts product content from your existing assets.** Point it at a website URL or upload a document, and it drafts your product information.
 
-1. Sign in to AWS Partner Central or AWS Marketplace Management Portal (AMMP).
+**Rates your listing.** The rating tells you where your listing stands relative to the AWS Marketplace listing standards. See [Understanding listing strength](#strength).
 
-1. Open the AWS Partner Assistant chat window:
-   + In AWS Partner Central, choose the **AWS assistant** chat button in the dashboard header.
-   + In AMMP, choose the **AI sparkle** icon on any product creation, update, or detail page.
-   + If you are a newly registered seller, you can also access this chat through the **Create your first listing** tile.
+**Returns field-level recommendations.** Each recommendation names the field it applies to, so you can see what to change and where.
 
-1. Ask the agent to help you with your product listing. The agent recognizes the intent, hands off to AI-assisted product listing, and returns content you can review and copy into your AWS Marketplace listing.
+**Writes for discoverability.** Recommendations are generated against AWS Marketplace listing standards, AWS Marketplace search ranking signals, and search engine optimization (SEO) and generative engine optimization (GEO) guidance. Your listing content is read by AWS Marketplace search, Agent Mode, and the Solutions Matching Engine, so recommendations target the vocabulary buyers actually search. For more information, see [Optimizing your AWS Marketplace products for search](search-engine-optimization.md).
 
-Sellers complete their product listings in AMMP.
+**Applies your own standards.** Upload your **Branding Guidelines** document and it uses it as a guardrail when generating content.
 
-## What you can ask the chat
-<a name="what-you-can-ask-chat"></a>
+It doesn't publish anything. You review every recommendation and choose when to publish.
 
-Use these prompts to get started:
-+ "Help me build my product information from my website: [URL]"
-+ "Import content from this document for my SaaS listing" (with a PDF or supported file attached)
-+ "Score the quality of my listing"
-+ "How can I improve my listing quality?"
-+ "Make my listing more discoverable"
-+ "Apply my brand voice to my listing" (with a style guide attached)
-+ "What makes a strong AWS Marketplace listing?"
+## Prerequisites
+<a name="prereq"></a>
++ An AWS account linked to AWS Partner Central
++ The `AWSMarketplaceSellerFullAccess` permission, or equivalent
+
+## Drafting a listing from your existing content
+<a name="drafting"></a>
+
+1. Sign in to the AWS Partner Central console and open your product from the **Products and services** page, or choose **Create product** to start a new one.
+
+1. On the product information step, choose **Generate with AI**.
+
+1. Provide a source: a website URL, an uploaded document, or a description of your product.
+
+1. Review the drafted fields and work through the recommendations.
+
+For best results with a URL, use a specific product page rather than a general landing page.
+
+## Working with recommendations
+<a name="recommendations"></a>
+
+Recommendations appear inline on the fields they apply to. For each one, you can choose from the following controls.
+
+
+| Control | What it does | 
+| --- | --- | 
+| **Apply** | Accepts the recommendation and writes it into the field. | 
+| **Refine with AI** | Generates an alternative for that field. You can keep going by asking the listing assistant follow-up questions until the wording is right, for example *Make this shorter*, *Use the words our buyers search for*, *Lead with the outcome rather than the feature*, or *Rewrite this for a healthcare buyer*. | 
+| **Dismiss** | Declines the recommendation. | 
+| Edit the field directly | Your own text always wins. | 
+
+To get recommendations across every field at once rather than field by field, choose **Ask listing assistant**.
+
+If the recommendations need to go to a colleague rather than being applied now, choose the **List all recommendations so I can share them with my marketing team** prompt in the listing assistant. It returns them in a form you can paste into an email or a document.
+
+## Improving a listing you have already published
+<a name="improving"></a>
+
+A listing written before buyers searched the way they do now carries the vocabulary of that time. You can rate and improve a published product without recreating it.
+
+1. Open the product from the **Products and services** page.
+
+1. Choose the **Listing strength** tab.
+
+1. Review the improvement groups.
+
+1. For a group you want to work on, choose **Start**. This opens the page where that group's fields live, with recommendations inline.
+
+1. Apply, refine, edit, or dismiss each recommendation.
+
+Improvement groups cover product details, use cases, case studies, promotional media, engagement options, free trial, and quick launch.
+
+## Understanding listing strength
+<a name="strength"></a>
+
+Listing strength is a position on a four-point scale, not a numeric score. The following table shows the ratings.
+
+
+| Position | Rating | 
+| --- | --- | 
+| 1 of 4 | Needs improvement | 
+| 2 of 4 | Basic | 
+| 3 of 4 | Strong | 
+| 4 of 4 | Excellent | 
+
+Two values are not ratings. **Loading** appears while the rating is being read. A hyphen (**-**) appears when a product has not been rated yet, or when the rating could not be read.
+
+Your rating also appears in the **Listing strength** column on the **Products and services** page, so you can see your whole portfolio at once. See [Creating a product in AWS Marketplace](creating-a-product.md).
+
+To raise a rating, work the groups marked **Required** first. They have the largest effect.
+
+**Notes**
++ You cannot sort the **Listing strength** column. Ratings are read after the rows load, so the order would change as they arrive.
++ If every row in that column shows a hyphen, your account might not be enabled for listing assessment. Contact AWS Marketplace Seller Operations on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.
 
 ## Supported product types
-<a name="supported-product-types"></a>
-
-AI-assisted product listing is available for the following product types:
+<a name="types"></a>
 + SaaS products
-+ Server (AMI and container) products
-+ Data products on AWS Data Exchange
++ Server products, both AMI and container
 + Machine learning products
-+ AI agents and tools (SaaS API-based and container-based)
++ Data products on AWS Data Exchange
++ AI agents and tools, both SaaS API-based and container-based
 + Professional services products
++ Solutions. See [AI-assisted solution listing](ai-assisted-solution-listing.md).
 
-## Supported input modalities
-<a name="supported-input-modalities"></a>
+## Supported inputs
+<a name="inputs"></a>
++ A product website URL.
++ An uploaded document.
++ A description typed directly into the chat.
 
-You can provide content to AWS Partner Assistant in the following ways:
-+ A product website URL. For best results, provide the URL of a specific product page rather than a generic landing page.
-+ An uploaded document. Supported file types include PDF, DOCX, XLSX, CSV, and image files.
-+ A direct text description of your product in the chat.
+You can combine these. For example, provide a URL and then upload a one-pager to enrich the recommendations.
 
-You can combine these inputs in a single conversation. For example, you can provide a website URL and then upload a one-pager to enrich the recommendations.
+### How your uploaded content is used
+<a name="inputs-how-content-used"></a>
 
-## Search and discoverability optimization
-<a name="search-and-discoverability-optimization"></a>
+Uploaded files are stored in an AWS Marketplace-managed location scoped to your seller account. The content is used only to inform recommendations for your listing. Files are not used to train models and are not shared with other AWS Marketplace sellers.
 
-AWS Partner Assistant generates product information recommendations based on AWS Marketplace standards, search ranking signals, and search engine optimization (SEO) and generative engine optimization (GEO) guidance.
-
-For more information about how AWS Marketplace ranks search results and how to optimize your product detail page for discoverability, see [Optimizing your AWS Marketplace products for search](search-engine-optimization.md).
+If the sources you provide do not contain enough information to complete a field, AWS Marketplace supplements them with third-party information about your product where it is available, such as your G2 profile. Fields drafted this way name the sources they came from, so you can see the origin of the content and edit it.
 
 ## Programmatic access
-<a name="programmatic-access"></a>
+<a name="api"></a>
 
-You can also access the same capabilities programmatically through the Partner Central agents MCP Server. For more information, see [Partner Central agents MCP Server](https://docs.aws.amazon.com/partner-central/latest/APIReference/partner-central-mcp-server.html) in the *AWS Partner Central API Reference*.
+The same capabilities are available through the [Partner Agent MCP server](https://docs.aws.amazon.com/partner-central/latest/developer-guide/mcp-getting-started.html).
 
 ## Frequently asked questions
-<a name="ai-assisted-product-listing-faq"></a>
+<a name="faq"></a>
 
 ### Does AI-assisted product listing publish my listing automatically?
-<a name="faq-does-ai-listing-publish-automatically"></a>
+<a name="pl-faq-publish-automatically"></a>
 
-No. AWS Partner Assistant generates listing content and recommendations. You review the content, copy and paste it into the listing input/update page, make any adjustments, and choose when to publish.
+No. It drafts content and returns recommendations. You review each one, apply or edit or dismiss it, and choose when to publish.
+
+### Can I still use it from the assistant chat?
+<a name="pl-faq-assistant-chat"></a>
+
+Yes. For more information, see [AWS Partner Central Agents](partner-assistant.md).
 
 ### What happens to my data when I upload a document?
-<a name="faq-data-when-upload-document"></a>
+<a name="pl-faq-data-upload"></a>
 
-When you upload a document to AWS Partner Assistant, the file is stored in an AWS Marketplace-managed storage location. This location is scoped to your seller account. The agent uses your uploaded content only to inform its recommendations. These files are not used to train models or shared with other AWS Marketplace sellers. You can upload up to 3 files per message and up to 5 total files against a listing. Supported formats are PDF, DOCX, DOC, XLSX, JPEG, and PNG, with a maximum size of 4.5 MB per document and 3.75 MB per image. Examples include product datasheets, solution briefs, case studies, and technical whitepapers. PowerPoint (PPTX) is not supported at this time. Convert decks to PDF before uploading.
+See [How your uploaded content is used](#inputs-how-content-used).
 
-Two important guidelines:
-+ Do not upload files containing credentials, secrets, or other sensitive information. While storage is ephemeral, sensitive data should not be passed through the agent at all.
-+ You can review and remove generated content before publishing. AI-generated content is shown in the chat for your review; nothing is published to your AWS Marketplace listing without your explicit action.
+### Why is my product's listing strength a hyphen?
+<a name="pl-faq-strength-hyphen"></a>
 
-### Does AI-assisted product listing replace the AWS Marketplace product review process?
-<a name="faq-replace-product-review"></a>
-
-No. Listings created or updated using AI-assisted product listing follow the same AWS Marketplace product review process as listings created manually.
-
-### Can I provide my company's brand voice to the agent?
-<a name="faq-provide-brand-voice"></a>
-
-Yes. Upload a brand voice or style guide document, and the agent uses those rules as a guardrail when generating listing content.
+Either it has not been rated yet, or the rating could not be read. A new or newly updated product is rated after you save it; refresh the page to pick up the rating. If the hyphen persists, or if every product shows a hyphen, your account might not be enabled for listing assessment. Contact AWS Marketplace Seller Operations on the AWS Partner Central and Marketplace Support page in the AWS Partner Central console.

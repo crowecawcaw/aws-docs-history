@@ -1,7 +1,6 @@
 
 
 # Troubleshooting common errors for change requests on AWS Marketplace
-<a name="request-errors-and-issues"></a>
 
 When you make changes to your product's information on AWS Marketplace, you might run into errors. This topic explains some common errors and provides suggestions for how to fix them.
 + **Scanning your AMI** – Several issues could happen when scanning your AMI:
@@ -9,17 +8,18 @@ When you make changes to your product's information on AWS Marketplace, you migh
   + If scanning finds security issues or Common Vulnerabilities and Exposures (CVEs) in your AMI, make sure you're using the latest patches for the operating system in your image. For more information, see [AMI-based product requirements for AWS Marketplace](product-and-ami-policies.md).
 
   For general guidelines about building an AMI, see [Best practices for building AMIs for use with AWS Marketplace](best-practices-for-building-your-amis.md).
-+ **AWS Marketplace Management Portal fields** – Some fields in the AWS Marketplace Management Portal require very specific information:
++ **AWS Partner Central fields** – Some fields require specific information:
   + If you are unsure about what the field is requesting, try checking the details in the console. Most fields have text descriptions above the field, and formatting requirements below the field.
-  + If you try to submit a form with one or more invalid fields, a list of issues is shown. A recommended action is provided to help you fix the issue.
+  + Each invalid field shows an error message. If a request is rejected when you submit it, the page shows the error code and message. If a request fails after you submit it, choose its name on the product's **Change history** tab, and review the **Failure details**.
   +  If you're asked to provide an ARN, you will typically find it elsewhere in the console. For example, the ARN for the IAM role that you created to give AWS Marketplace access to your AMI is found on the [ Roles page](https://console.aws.amazon.com/iam/home?region=us-east-1#/roles) in the IAM console. ARNs all have a similar format. For example, an IAM role ARN is in the form *arn:aws:iam::123456789012:role/exampleRole*. 
-  + Your logos and videos must be provided as a URL directly to the content. For more information about logo formats, see [Company and product logo requirements](product-submission.md#seller-and-product-logos).
+  + Upload your logo, images, and videos from your computer, or import them from Amazon S3. Files that you import from Amazon S3 must be publicly accessible. For more information about logo formats, see [Company and product logo requirements](product-submission.md#seller-and-product-logos).
 
   For more information about submitting products and version change requests, see [Submitting your product for publication on AWS Marketplace](product-submission.md). 
-+ **Product Load Form (PLF) issues** – PLFs contain instructions that are included in the spreadsheet. Overall instructions are provided in the Instructions table. Each field has instructions for how to fill it out—select the field to reveal the instructions.
-+ **Request in Progress** – Some requests can't happen in parallel. You can only have one request to update specific information in progress for a product at a time. You can see all of your requests still under review on the **Requests** tab of the **Server products** page in AWS Marketplace Management Portal. If you have a pending request that you did not intend, you can cancel it and then submit a new request with the change that you want to make.
++ **Request in Progress** – Some requests can't happen in parallel. You can only have one request to update specific information in progress for a product at a time.
   + You can't update version information when an update (to add or restrict) a version is ongoing.
   + If there is a request pending from the AWS Marketplace Seller Operations team, you can't submit any new changes.
+
+  Your product's **Change history** tab lists its requests. To cancel a request that you didn't intend, choose its name, and then choose **Cancel request**. You can cancel a request only while its status is **Preparing**.
 + **Unexplained error** – If your submission fails with no explanation, try again. Occasionally, server load causes a submission to fail.
 
-If you're still having problems with a change request, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team.
+If you're still having problems with a change request, contact the AWS Marketplace support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.

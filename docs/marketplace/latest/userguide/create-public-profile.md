@@ -1,7 +1,6 @@
 
 
 # Step 1: Register and create your seller profile
-<a name="create-public-profile"></a>
 
 AWS Marketplace consolidates the management portal with AWS Partner Central. To begin selling on AWS Marketplace, sign in to your AWS account and complete the registration process to create your seller profile.
 

@@ -1,7 +1,6 @@
 
 
 # Getting started as an AWS Marketplace seller
-<a name="user-guide-for-sellers"></a>
 
 If you are an independent software vendor (ISV), channel partner, managed services provider (MSP), or individual who has something to offer that works with AWS products and services, you can register as a seller on AWS Marketplace. Registering as a seller is a prerequisite for publishing products for sale on AWS Marketplace. Based on where you reside and what type of products you're selling, AWS Marketplace has different registration requirements. The following sections provide you with an overview of the seller registration process, requirements, and related tools.
 
@@ -45,7 +44,7 @@ This requirement does not apply to India-based sellers. For more information, se
 
  To sell into the AWS GovCloud (US) Region, sellers must have an [AWS GovCloud (US) account](https://aws.amazon.com/govcloud-us/getting-started/). For details on ITAR requirements, see the *[AWS GovCloud (US) User Guide](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/getting-started-sign-up.html)*. 
 
- For questions about AWS Marketplace seller requirements or the registration process, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team.
+ For questions about AWS Marketplace seller requirements or the registration process, contact the AWS Marketplace support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.
 
 ### Eligible jurisdictions for paid products
 <a name="jurisdictions"></a>
@@ -95,17 +94,17 @@ If a business entity is not incorporated in one of the countries or SARs listed 
 ## AWS Partner Central
 <a name="aws-marketplace-management-portal"></a>
 
-You can use the [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home) to manage the products that you sell in AWS Marketplace. All registered sellers can access AWS Partner Central using their AWS credentials for the account that they used to create their products. The account that you use is defined as the seller of record when a customer subscribes to your product. If you need help determining the specific account that is the seller of record for your products, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team. 
+You can use the [AWS Partner Central](https://console.aws.amazon.com/partnercentral/home) to manage the products that you sell in AWS Marketplace. All registered sellers can access AWS Partner Central using their AWS credentials for the account that they used to create their products. The account that you use is defined as the seller of record when a customer subscribes to your product. If you need help determining the specific account that is the seller of record for your products, contact the AWS Marketplace Seller Operations team on the AWS Partner Central and Marketplace Support page. 
 
-You can complete the following tasks on the portal:
+You can complete the following tasks in AWS Partner Central:
 + Register as an AWS Marketplace seller. 
-+ Use the **Products** page to submit new software products and update existing software products. 
++ Use the **Products and services** page to submit new software products and update existing software products. 
 + Monitor the status of your requests. 
-+ Upload files needed to create and manage your new software products. 
 + Manage your software products into incremental channel revenue by taking advantage of the go-to-market activities. 
 + Measure the results of your marketing efforts within hours of launch, including the usage and revenue driven by your campaigns. 
 + Enable customer service representatives to retrieve customer data in real time.
 + Initiate an automatic Amazon Machine Image (AMI) scan to detect vulnerabilities. 
 
 **Note**  
-Data products are published and managed from the AWS Data Exchange console. AWS Data Exchange providers can use AWS Partner Central to register as a seller, request AWS Data Exchange on-boarding, access seller reports, and submit refund requests.
+You publish and manage data products in AWS Partner Central, and you prepare their data sets in the AWS Data Exchange console. AWS Data Exchange providers can use AWS Partner Central to register as a seller, request AWS Data Exchange on-boarding, access seller reports, and submit refund requests.  
+RTB Fabric module products can be created in AWS Partner Central or with the AWS Marketplace Catalog API. Sellers use AWS Partner Central for registration, offers, agreements, reports, and refunds.

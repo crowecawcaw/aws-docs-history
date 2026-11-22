@@ -1,11 +1,15 @@
 
 
 # Amending agreements in AWS Marketplace
-<a name="private-offers-upgrades-and-renewals"></a>
 
 AWS Marketplace sellers, Channel Partners, and ISVs can offer upgrades, renewals, and amendments to replace active agreements. For example, you can grant new entitlements, offer pricing discounts, adjust payment schedules, or change the end user license agreement (EULA) to use [standardized license terms](standardized-license-terms.md). You can also change the number of units and payment schedule and add a custom end date.
 
-Software as service (SaaS) contract and SaaS contract with consumption products support public and private offer amendments. All AWS Marketplace sellers can upgrade, renew, or amend private offers for these product types, including independent software vendors (ISVs) and channel partners. The following sections provide information about the process. 
+Software as a service (SaaS) contract and contract with consumption products, and RTB Fabric module contract products, support public and private offer amendments.
+
+All AWS Marketplace sellers can upgrade, renew, or amend private offers for these product types, including independent software vendors (ISVs) and channel partners. The following sections provide information about the process. 
+
+**Note**  
+Channel partner private offers are not available for RTB Fabric module products.
 
 An *offer* becomes an *agreement* when a buyer accepts its terms:
 + An **offer** is a set of terms for the use of a product. Offers can be public or private. 
@@ -24,8 +28,9 @@ You can't amend an agreement to specify a seller of record that's different from
 Only the following product types support offer amendments:
 + SaaS contracts
 + SaaS contracts with consumption
++ RTB Fabric module products with contract pricing
 
-You can see the following additional product types on the **Agreements** tab in the AWS Marketplace Management Portal. However, these product types don't support amendments:
+You can see the following other product types on the **Agreements** tab in the AWS Marketplace Management Portal. However, these product types don't support amendments:
 + SaaS usage-based products
 + AMI-based products
 + Container-based products

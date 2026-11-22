@@ -1,7 +1,6 @@
 
 
 # Accessing product and customer data with the AWS Marketplace Commerce Analytics Service
-<a name="commerce-analytics-service"></a>
 
 With the AWS Marketplace Commerce Analytics Service, you can programmatically access product and customer data through AWS Marketplace. After you enroll in the service, you can access your usage, subscription, and billing reports through the AWS SDKs. The data you request using the SDK tools is delivered to your AWS account as datasets. Most of the datasets correspond to the same data as the text-based reports available on [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home). You can request datasets for a specific date, and the data is delivered to the provided Amazon S3 bucket. You receive notification of data delivery through Amazon Simple Notification Service (Amazon SNS). This topic provides the terms and conditions for using the AWS Marketplace Commerce Analytics Service.
 

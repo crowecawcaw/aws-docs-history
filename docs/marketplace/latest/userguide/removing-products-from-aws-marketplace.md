@@ -1,9 +1,8 @@
 
 
 # Removing a product from AWS Marketplace
-<a name="removing-products-from-aws-marketplace"></a>
 
-After you publish your product, you can remove it from AWS Marketplace. This is also referred to as *sunsetting*. To remove a product, identify the product and submit a request to remove it, along with a reason for removal and a contact email address for you. You can also provide a replacement product ID if you're replacing the current product with a new one.
+After you publish your product, you can remove it from AWS Marketplace. This is also referred to as *sunsetting*. To remove a product, submit a request to change its visibility to **Restricted**. You can also provide a replacement product ID if you're replacing the current product with a new one.
 
 After you request product removal, new customers can't subscribe to the product. You must support any existing customers for a minimum of 90 days.
 
@@ -12,26 +11,32 @@ You can't delete restricted products from AWS Partner Central. The portal retain
 
 We process requests for product removal from AWS Marketplace with the following conditions: 
 + The product is removed from AWS Marketplace search, browse, and other discovery tools. Any **Subscribe** button or functionality is disabled, and messaging on the page clearly indicates the product is no longer available. The product detail page is still accessible using the URL and might be indexed in public search engines. 
-+ A reason for removal must be specified (for example, end of support, end of product updates, or replacement product). For the requirements for continuing support for removed products, see [ Terms and Conditions for AWS Marketplace Sellers](https://aws.amazon.com/marketplace/management/terms). 
++ For the requirements for continuing support for removed products, see [ Terms and Conditions for AWS Marketplace Sellers](https://aws.amazon.com/marketplace/management/terms). 
 + AWS Marketplace contacts current buyers through an email message informing them of the product removal, reasons for the removal, and to provide seller contact information. 
-+ Current buyers *do* retain access to the software until they cancel their subscription. They aren't affected in any way by the product's removal. 
++ Current buyers *do* retain access to the software until they cancel their subscription or their contract ends. They can't renew their contracts.
 
-**To remove a product created using the AWS Marketplace Management Portal**
+**To remove a product**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open the [**Products and services**](https://console.aws.amazon.com/partnercentral/products) page in AWS Partner Central, and sign in to your seller account.
 
-1. Choose the **Build** tab, and then choose **Server products**. 
+1. Choose the product.
 
-1. On your product page, under **Server products**, locate the product that you want to remove. From the **Request changes** dropdown list, choose **Update product visibility**.
+1. Choose **Edit visibility**.
 
-1. On the **Update product visibility** page, select **Restricted**. 
+1. In the **Update listing visibility** dialog box, under **Change to**, choose **Restricted**.
 
-1. (Optional) Provide a **Replacement Product ID**, if there is another product that will take the place of the product you are removing.
+   If **Restricted** is the only choice, the dialog box shows it without options to select.
 
-1. Review the information for accuracy, and then choose **Submit**. 
+1. (Optional) For **Replacement product ID**, enter the ID of the product that replaces this one.
 
-A **What’s next** informational page displays after you submit the product removal request. The AWS Marketplace Seller Operations reviews and processes your request. Check the status of your submission by viewing **Requests**. 
+   Use `prod-` followed by 13 or 25 letters and numbers, or a UUID. Existing subscribers keep access until their contracts end, and then move to the replacement product. If you leave this field blank, existing subscribers keep access to this product, but they can't renew their contracts.
 
-After your product is removed, the product appears in the **Current Products** list in the AWS Marketplace Management Portal. In **Current Products**, the only action that you can perform is downloading the spreadsheet for the product. You can't edit or submit another sunset request. 
+1. Choose **Update visibility**.
 
-If you have questions about product removals, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team.
+Your change request appears on the product's **Change history** tab. Its status moves from **Preparing** to **Applying**, and then to **Succeeded** or **Failed**. To see why a request failed, choose the request name.
+
+After the request succeeds, the product stays on the **Products and services** page, and its **Visibility** is **Restricted**.
+
+There's no waiting period. To make a **Restricted** product available again, choose **Edit visibility**, choose **Public**, and then choose **Update visibility**. AWS Marketplace might review the request before the product is **Public** again.
+
+If you have questions about product removals, contact the AWS Marketplace Seller Operations team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1).

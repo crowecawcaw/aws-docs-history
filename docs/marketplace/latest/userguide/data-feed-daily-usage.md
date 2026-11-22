@@ -1,7 +1,6 @@
 
 
 # Daily Usage data feed
-<a name="data-feed-daily-usage"></a>
 
 This data feed provides detailed daily usage information for your products, including customer usage metrics, estimated revenue, and pricing details. The data helps you track how customers are using your products and calculate estimated revenue based on usage patterns.
 
@@ -25,7 +24,7 @@ The following table lists and describes the items in the data feed.
 | region | The AWS region where the buyer usage occurred. | 
 | dimension\_key | The dimension key configured by the seller when publishing the offer. | 
 | usage\_unit | A classification for the usage units, describing the type of usage measurement. | 
-| usage\_quantity | The usage value for the AWS service or usage type associated with the billing record. The value is provided with up to 2 decimal places. | 
+| usage\_quantity | The usage value for the AWS service or usage type associated with the billing record. The value is provided with up to 2 decimal places.<br />For Agentic Commerce products, the quantity for the `agentic_commerce_default` dimension is in dollars: one unit equals USD $1.00 of quoted charges. | 
 | pricing\_currency | The currency of estimated revenue. | 
 | estimated\_revenue\_in\_pricing\_currency | The estimated revenue calculated using the `usage_rate_per_unit` and `usage_quantity`. The value is provided with up to 2 decimal places. For ISV views of usage from reseller offers, this needs to be multiplied by the revenue share percentage. | 
 | recipient\_account\_id | The account of the seller that is receiving the data in the feeds. | 

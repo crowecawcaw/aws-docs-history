@@ -1,7 +1,6 @@
 
 
 # Preparing your offer set
-<a name="preparing-your-offer-set"></a>
 
 ## What are offer sets?
 <a name="what-are-offer-sets"></a>
@@ -20,7 +19,7 @@
 ## Getting Started
 <a name="getting-started"></a>
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/partners/management-tour).
+1. Sign in to the [AWS Partner Central console](https://us-east-1.console.aws.amazon.com/partnercentral/home).
 
 1. Go to **Private offers** → **Private Offer Sets**.
 

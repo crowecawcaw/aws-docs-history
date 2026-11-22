@@ -1,7 +1,6 @@
 
 
 # AWS Marketplace Commerce Analytics Service account permissions
-<a name="set-aws-iam-cas-permissions"></a>
 
 Use the following IAM permissions policy to enroll in the AWS Marketplace Commerce Analytics Service. 
 
@@ -12,7 +11,7 @@ For instructions on how to enroll, follow the [onboarding guide](https://docs.aw
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -40,7 +39,7 @@ Use the following IAM permissions policy to allow a user to make requests to the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,9 +1,11 @@
 
 
 # Creating private offers as an AWS Marketplace Channel Partner
-<a name="channel-partner-offers"></a>
 
 AWS Marketplace Channel Partner private offers give Channel Partners the opportunity to resell independent software vendors' (ISVs) products in AWS Marketplace. The AWS Marketplace Channel Partner and ISV establish an agreement called a *selling authorization* to resell one or more of the ISV's products. The Channel Partner then extends a private offer to the buyer for that product.
+
+**Note**  
+Channel Partner private offers aren't yet available for RTB Fabric module products. A selling authorization can't be created for this product type.
 
 ## Prerequisites to become a Channel Partner
 <a name="channel-partner-prerequisites"></a>
