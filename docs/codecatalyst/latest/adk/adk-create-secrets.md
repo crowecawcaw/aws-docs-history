@@ -1,7 +1,6 @@
 
 
 # Creating secrets
-<a name="adk-create-secrets"></a>
 
 As a developer, you might have API keys, secrets, or tokens. You can create secrets to use sensitive data in your workflows. The action is the main building block of a CodeCatalyst workflow and used by the workflow to integrate the action within the workflow itself. values shouldn't be used directly in any workflow definitions because they will be visible as files in your repository. With CodeCatalyst, you can protect these values by adding a secret to your project, and then referencing the secret in your workflow definition file. For more information, see [Creating a secret](https://docs.aws.amazon.com/codecatalyst/latest/userguide/workflows-secrets.html#workflows-secrets.creating). To learn more about workflows and actions, see [ Working with workflows](https://docs.aws.amazon.com/codecatalyst/latest/userguide/working-with-workflows.html) and [ Working with actions](https://docs.aws.amazon.com/codecatalyst/latest/userguide/workflows-actions.html).
 

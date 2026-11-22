@@ -1,7 +1,6 @@
 
 
 # AWS CodeBuild action using ADK
-<a name="codebuild-action-adk"></a>
 
 The following example action initiates a build in AWS CodeBuild. CodeBuild is an AWS service that compiles source code, runs tests, and packages the code into artifacts. For more information, see the [AWS CodeBuild Documentation](https://docs.aws.amazon.com/codebuild/index.html). 
 

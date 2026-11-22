@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 The following information can help you troubleshoot common issues in the Amazon CodeCatalyst ADK.
 

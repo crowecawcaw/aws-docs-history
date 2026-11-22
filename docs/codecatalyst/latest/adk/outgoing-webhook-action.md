@@ -1,7 +1,6 @@
 
 
 # Outgoing webhook action using ADK
-<a name="outgoing-webhook-action"></a>
 
 The outgoing webhook action can initiate an outgoing webhook (OW) and make a POST request to a provided URL. With the action, you can bridge Amazon CodeCatalyst workflows with predefined web services like status reporting and sharing artifacts. 
 

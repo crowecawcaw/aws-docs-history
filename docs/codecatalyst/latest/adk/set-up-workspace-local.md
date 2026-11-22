@@ -1,7 +1,6 @@
 
 
 # Setting up your project on a local machine
-<a name="set-up-workspace-local"></a>
 
 While it's recommended that you create a Dev Environment and build your action within a CodeCatalyst-supported IDE, you can also set up your project and build your action on your local machine. For more information about setting up a Dev Environment, see [Step 1: Set up your project and Dev Environment](getting-started.md#set-up-workspace-first-action).
 

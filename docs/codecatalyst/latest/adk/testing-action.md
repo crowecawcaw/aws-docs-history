@@ -1,7 +1,6 @@
 
 
 # Testing an action
-<a name="testing-action"></a>
 
 Use the following instructions to add unit tests and also test your custom actions in CodeCatalyst workflows.
 

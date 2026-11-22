@@ -1,7 +1,6 @@
 
 
 # Action reference
-<a name="action-ref"></a>
 
 The following is the action definition YAML reference for your custom actions. You can define inputs, outputs, and resource integrations in the action definition YAML file. Once the action is defined, it can be referenced in your CI workflow file.
 
@@ -10,7 +9,7 @@ Choose a YAML property in the following code to see a description of it.
 **Note**  
 Most of the YAML properties that follow have corresponding UI elements in the visual editor. To look up a UI element, use **Ctrl\+F**. The element will be listed with its associated YAML property.
 
-```
+```yaml
 SchemaVersion: 1.0 
 Name: MyAction   # Name of the action - string
 Id: my-action   # String

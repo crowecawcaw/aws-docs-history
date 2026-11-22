@@ -1,7 +1,6 @@
 
 
 # Accessing data
-<a name="accessing-data"></a>
 
 Using ADK APIs, you can access data that is set on the actions. Here is some of the data you can access.
 

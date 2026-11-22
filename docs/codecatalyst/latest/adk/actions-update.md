@@ -1,7 +1,6 @@
 
 
 # Publishing a new action version
-<a name="actions-update"></a>
 
 After publishing your initial action version, you can update your action definition and publish a new version to the Amazon CodeCatalyst actions catalog. Unlike publishing an action initially, you can't change the **Action name** when editing details for later versions.
 

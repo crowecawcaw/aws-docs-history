@@ -1,7 +1,6 @@
 
 
 # Custom actions concepts
-<a name="adk-concepts"></a>
 
 Here are some concepts to know about as you work with the Action Development Kit (ADK) to develop custom actions.
 
