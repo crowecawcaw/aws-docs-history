@@ -1,7 +1,6 @@
 
 
 # Managing your solution
-<a name="managing-your-solution"></a>
 
 AWS Partner Central you can manage your offering by publishing it to your AWS Partner Solution Finder listing, requesting an AWS Foundational Technical Review (FTR), and linking Software Product offerings to an AWS Marketplace listing.
 

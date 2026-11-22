@@ -1,7 +1,6 @@
 
 
 # Remove a solution from AWS Partner Solution Finder
-<a name="removing-solution-from-finder"></a>
 
 To remove a solution from your AWS Partner Solution Finder listing, mark it restricted in AWS Partner Central. In AWS Partner Central you can do this on the Solution details page.
 

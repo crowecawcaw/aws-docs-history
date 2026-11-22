@@ -1,7 +1,6 @@
 
 
 # Publish your solution to AWS Partner Solution Finder (PSF)
-<a name="publication-to-aws-solution-finder"></a>
 
 Your solution is published to the AWS Solution Finder automatically after the following prerequisites are met:
 

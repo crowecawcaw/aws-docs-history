@@ -1,7 +1,6 @@
 
 
 # Request Foundational Technical Review for your solutions
-<a name="requesting-ftr"></a>
 
 You can submit a Foundational Technical Review (FTR) validation request for your active software solutions listed in AWS Marketplace. The streamlined FTR process accepts industry-standard compliance certifications aligned to the same security, reliability, and operational standards that AWS validates, and returns approval or actionable feedback within minutes.
 
@@ -96,5 +95,5 @@ You can resubmit as many times as needed. Each submission is reviewed automatica
 ## Related resources
 <a name="ftr-related-resources"></a>
 + [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/userguide/waf.html)
-+ [Partner Revenue Measurement onboarding guide](https://docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/what-is-service.html)
++ [AWS Revenue Measurement onboarding guide](https://docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/what-is-service.html)
 + [Attributed revenue dashboard](https://docs.aws.amazon.com/partner-central/latest/getting-started/partner-analytics-attributed-revenue.html)

@@ -1,7 +1,6 @@
 
 
 # What is a solution?
-<a name="what-is-a-solution"></a>
 
 **Note**  
 Starting in December 2025, when you migrate to the new AWS Partner Central in the AWS Console, you'll access new solution management capabilities. This new feature uses AWS Marketplace's solution workflow, allowing you to create solutions that combine products from your portfolio with offerings from other partners. For detailed instructions, see [Publish a Multi-product solution on AWS Marketplace](https://docs.aws.amazon.com/marketplace/latest/userguide/multi-product-solutions.html).

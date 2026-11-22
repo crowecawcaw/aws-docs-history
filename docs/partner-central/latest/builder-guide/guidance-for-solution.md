@@ -1,7 +1,6 @@
 
 
 # Guidance for creating solutions in AWS Partner Central
-<a name="guidance-for-solution"></a>
 
 ## Determining which solutions to create
 <a name="determining-solutions-to-create"></a>
