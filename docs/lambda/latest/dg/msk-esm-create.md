@@ -1,7 +1,6 @@
 
 
 # Creating a Lambda event source mapping for an Amazon MSK event source
-<a name="msk-esm-create"></a>
 
 To create an event source mapping, you can use the Lambda console, the [AWS Command Line Interface (CLI)](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html), or an [AWS SDK](https://aws.amazon.com/getting-started/tools-sdks/).
 
@@ -57,7 +56,7 @@ The following console steps add an Amazon MSK cluster as a trigger for your Lamb
 
 You can also create the event source mapping using the AWS CLI with the [ create-event-source-mapping](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-event-source-mapping.html) command. The following example creates an event source mapping to map the Lambda Event Function `my-msk-function` to the `AWSKafkaTopic` topic, starting from the `LATEST` message. This command also uses the [SourceAccessConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html) object to instruct Lambda to use [SASL/SCRAM](msk-cluster-auth.md#msk-sasl-scram) authentication when connecting to the cluster.
 
-```
+```bash
 aws lambda create-event-source-mapping \
   --event-source-arn arn:aws:kafka:us-east-1:111122223333:cluster/my-cluster/fc2f5bdf-fd1b-45ad-85dd-15b4a5a6247e-2 \
   --topics AWSKafkaTopic \
@@ -68,7 +67,7 @@ aws lambda create-event-source-mapping \
 
 If the cluster uses [mTLS authentication](msk-cluster-auth.md#msk-mtls), include a [SourceAccessConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html) object that specifies `CLIENT_CERTIFICATE_TLS_AUTH` and a Secrets Manager key ARN. This is shown in the following command:
 
-```
+```bash
 aws lambda create-event-source-mapping \
   --event-source-arn arn:aws:kafka:us-east-1:111122223333:cluster/my-cluster/fc2f5bdf-fd1b-45ad-85dd-15b4a5a6247e-2 \
   --topics AWSKafkaTopic \
@@ -79,7 +78,7 @@ aws lambda create-event-source-mapping \
 
 When the cluster uses [IAM authentication](msk-cluster-auth.md#msk-iam-auth), you don't need a [ SourceAccessConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html) object. This is shown in the following command:
 
-```
+```bash
 aws lambda create-event-source-mapping \
   --event-source-arn arn:aws:kafka:us-east-1:111122223333:cluster/my-cluster/fc2f5bdf-fd1b-45ad-85dd-15b4a5a6247e-2 \
   --topics AWSKafkaTopic \

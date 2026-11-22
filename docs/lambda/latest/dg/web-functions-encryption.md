@@ -1,7 +1,6 @@
 
 
 # Encryption at rest for Web Functions
-<a name="web-functions-encryption"></a>
 
 AWS Lambda encrypts the data for your Lambda Web Functions at rest on the server side. This page explains the encryption options available to you and how to configure a customer managed key.
 
@@ -88,7 +87,7 @@ This example shows only the statements that Lambda requires for Web Functions. A
 
 **Example Key policy for Web Function encryption**  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -149,7 +148,7 @@ To encrypt a revision with a customer managed key, specify the key ARN in the `k
 **To create a Web Function with a customer managed key (AWS CLI)**
 + Run the following command to create a Web Function with a customer managed key.
 
-  ```
+  ```bash
   aws lambda-web create-web-function \
       --function-name {{my-web-app}} \
       --revision-config '{
@@ -187,7 +186,7 @@ Lambda does not re-encrypt existing revisions when you create a new revision wit
 
 1. Run the following command to create a revision that uses a different key.
 
-   ```
+   ```bash
    aws lambda-web create-web-function-revision \
        --function-name {{my-web-app}} \
        --kms-key-arn arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{new-key-id}} \
@@ -216,7 +215,7 @@ Do not apply this condition to a statement that grants `kms:DescribeKey`. That o
 
 The following example shows the creator statement with the encryption context condition.
 
-```
+```json
 {
     "Sid": "Allow the revision creator to generate and validate data keys",
     "Effect": "Allow",
@@ -245,7 +244,7 @@ AWS KMS does not share key policies between related multi-Region keys. Each repl
 
 The following example shows the creator statement with both the `kms:ViaService` condition and the encryption context condition.
 
-```
+```json
 {
     "Sid": "Allow the revision creator to generate and validate data keys",
     "Effect": "Allow",
@@ -273,7 +272,7 @@ The confused deputy problem occurs when an entity without permission to perform 
 
 When Lambda calls AWS KMS with its own service credentials to launch an execution environment, it sends the revision ARN as the source ARN and your AWS account ID as the source account. Use the [aws:SourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn) condition key on the Lambda service principal statement to restrict the key to revisions of a specific Web Function.
 
-```
+```json
 {
     "Sid": "Allow Lambda to decrypt the data key for Web Function revisions",
     "Effect": "Allow",

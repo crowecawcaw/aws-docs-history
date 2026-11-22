@@ -1,7 +1,6 @@
 
 
 # Managing Lambda workflows and events
-<a name="workflow-event-management"></a>
 
 When building serverless applications with Lambda, you often need ways to orchestrate function execution and handle events. AWS provides several approaches for coordinating Lambda Event Functions:
 + [Lambda durable functions](durable-functions.md) for code-first workflow orchestration within Lambda
@@ -17,7 +16,7 @@ Lambda durable functions provide a code-first approach to workflow orchestration
 
 Durable functions are ideal when you need:
 + **Use standard programming languages:** Define workflows using familiar programming languages like JavaScript and Python
-+ **Long-running processes:** Execute workflows that can run for up to one year, far beyond the default 15-minute invocation limit
++ **Long-running processes:** Execute workflows that can run for up to one year, far beyond the 30-minute invocation limit
 + **Simplified development:** Keep workflow logic and business logic in the same codebase for easier maintenance and testing
 + **Cost-effective waiting:** Pause execution during wait states without consuming compute resources
 + **Built-in state management:** Automatic checkpointing and state persistence without external storage configuration

@@ -1,7 +1,6 @@
 
 
 # Granting Event Function access to AWS services
-<a name="permissions-function-services"></a>
 
 When you [use an AWS service to invoke your function](lambda-services.md), you grant permission in a statement on a resource-based policy. You can apply the statement to the entire function, or limit the statement to a single version or alias.
 
@@ -18,7 +17,7 @@ Using `put-resource-policy` replaces any existing resource-based policy on the r
 
 The following example policy grants Amazon Simple Notification Service permission to invoke a function named `my-function`, but only for a specific topic. It also denies invocations from a particular topic.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -67,7 +66,7 @@ aws lambda put-resource-policy \
 
 For Amazon S3, the source is a bucket whose ARN doesn't include an account ID. It's possible that you could delete a bucket and another account could create a bucket with the same name. Use the `aws:SourceAccount` condition key to ensure that only resources in your account can invoke the function:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

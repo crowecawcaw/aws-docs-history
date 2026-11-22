@@ -1,9 +1,8 @@
 
 
 # Building Lambda Event Functions with Go
-<a name="lambda-golang"></a>
 
-Go is implemented differently than other managed runtimes. Because Go compiles natively to an executable binary, it doesn't require a dedicated language runtime. Use an [OS-only runtime](runtimes-provided.md) (the `provided` runtime family) to deploy Go Event Functions to Lambda.
+Go is implemented differently than other managed runtimes. Because Go compiles natively to an executable binary, it doesn't require a dedicated language runtime. Use an [OS-only runtime](lambda-runtimes.md#runtimes-provided) (the `provided` runtime family) to deploy Go Event Functions to Lambda.
 
 For information about using layers with Go, see [Working with layers for Go Lambda Event Functions](golang-layers.md).
 
@@ -21,7 +20,7 @@ For information about using layers with Go, see [Working with layers for Go Lamb
 ## Go runtime support
 <a name="golang-al1"></a>
 
-The Go 1.x managed runtime for Lambda is [deprecated](lambda-runtimes.md#runtime-support-policy). If you have functions that use the Go 1.x runtime, you must migrate your functions to `provided.al2023` or `provided.al2`. The `provided.al2023` and `provided.al2` runtimes offer several advantages over `go1.x`, including support for the arm64 architecture (AWS Graviton processors), smaller binaries, and slightly faster invoke times.
+The Go 1.x managed runtime for Lambda is [deprecated](runtime-support-policy.md). If you have functions that use the Go 1.x runtime, you must migrate your functions to `provided.al2023` or `provided.al2`. The `provided.al2023` and `provided.al2` runtimes offer several advantages over `go1.x`, including support for the arm64 architecture (AWS Graviton processors), smaller binaries, and slightly faster invoke times.
 
 No code changes are required for this migration. The only required changes relate to how you build your deployment package and which runtime you use to create your function. For more information, see [Migrating AWS Lambda functions from the Go1.x runtime to the custom runtime on Amazon Linux 2](https://aws.amazon.com/blogs/compute/migrating-aws-lambda-functions-from-the-go1-x-runtime-to-the-custom-runtime-on-amazon-linux-2/) on the *AWS Compute Blog*.
 

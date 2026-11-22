@@ -1,16 +1,15 @@
 
 
-# Open source repositories
-<a name="runtimes-open-source"></a>
+# Open-source repositories
 
-AWS Lambda provides a variety of open source tools, libraries, and components to help you build, customize, and optimize your serverless applications. These resources include runtime interface clients, event libraries, container base images, development tools, and sample projects that are maintained by AWS and available on GitHub. By using these open source repositories, you can extend Lambda's capabilities, create custom runtimes, process events from various AWS services, and gain deeper insights into your function's performance. This page provides an overview of the key open source projects that support Lambda development.
+AWS Lambda provides a variety of open-source tools, libraries, and components to help you build, customize, and optimize your serverless applications. These resources include runtime interface clients, event libraries, container base images, development tools, and sample projects that are maintained by AWS and available on GitHub. By using these open-source repositories, you can extend Lambda capabilities, build your own runtimes, process events from various AWS services, and gain deeper insights into your function's performance. This page provides an overview of the key open-source projects that support Lambda development.
 
 ## Runtime Interface Clients
 <a name="open-source-ric"></a>
 
-Lambda Runtime Interface Clients (RICs) are open source libraries that implement the [Runtime API](runtimes-api.md) and manage the interaction between your function code and the Lambda service. These clients handle receiving invocation events, passing context information, and reporting errors.
+Lambda Runtime Interface Clients (RICs) are open-source libraries that implement the [Runtime API](runtimes-api.md) and manage the interaction between your function code and the Lambda service. These clients handle receiving invocation events, passing context information, and reporting errors.
 
-The runtime interface clients used by Lambda's managed runtimes and container base images are published as open source. When you build custom runtimes or extend existing ones, you can use these open source libraries to simplify your implementation. The following open source GitHub repositories contain the source code for Lambda's RICs:
+The runtime interface clients used by Lambda-managed runtimes and container base images are published as open source. When you build your own runtime, either as a [customer-managed runtime](runtimes-customer-managed.md) or by bringing your own language (BYOL), you can use these open-source libraries to simplify your implementation. The following open-source GitHub repositories contain the source code for the Lambda RICs:
 + [Node.js Runtime Interface Client](https://github.com/aws/aws-lambda-nodejs-runtime-interface-client)
 + [Python Runtime Interface Client](https://github.com/aws/aws-lambda-python-runtime-interface-client)
 + [Java Runtime Interface Client](https://github.com/aws/aws-lambda-java-libs/tree/main/aws-lambda-java-runtime-interface-client)
@@ -20,9 +19,8 @@ The runtime interface clients used by Lambda's managed runtimes and container ba
 + [Go Runtime Interface Client](https://github.com/aws/aws-lambda-go)
 + [Swift Runtime Interface Client](https://github.com/awslabs/swift-aws-lambda-runtime) (experimental)
 + [C\+\+ Runtime Interface Client](https://github.com/awslabs/aws-lambda-cpp) (experimental)
-+ [Lambda Base Images](https://github.com/aws/aws-lambda-base-images)
 
-For more information about using these clients to build custom runtimes, see [Building a custom runtime for AWS Lambda Event Functions](runtimes-custom.md).
+For more information about using these clients to build your own runtime, see [Building runtime images from scratch](cmr-images-from-scratch.md) and [Supporting a new programming language for AWS Lambda Event Functions](runtimes-custom.md).
 
 ## Event libraries
 <a name="open-source-event-libraries"></a>
@@ -33,28 +31,30 @@ For compiled languages, AWS provides the following event libraries:
 + [Java Event Library](https://github.com/aws/aws-lambda-java-libs/tree/main/aws-lambda-java-events)
 + [.NET Event Libraries](https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src)
 + [Go Event Library](https://github.com/aws/aws-lambda-go/tree/main/events)
-+ [Rust Event Library](https://github.com/awslabs/aws-lambda-rust-runtime)
++ [Rust Event Library](https://github.com/aws/aws-lambda-rust-runtime/tree/main/lambda-events)
 
-For interpreted languages like Node.js, Python, and Ruby, events can be parsed directly as JSON objects without requiring a separate library. However, developers using Node.js and Python can use powertools for AWS Lambda, which provides built-in schemas for AWS events that offer type hinting, data validation, and functionality similar to what compiled language libraries provide.
+For interpreted languages like Node.js, Python, and Ruby, events can be parsed directly as JSON objects without requiring a separate library. However, developers using Node.js and Python can use Powertools for AWS Lambda, which provides built-in schemas for AWS events that offer type hinting, data validation, and functionality similar to what compiled language libraries provide.
 + [Powertools for TypeScript](https://docs.aws.amazon.com/powertools/typescript/latest/features/parser/#built-in-schemas)
 + [Powertools for Python](https://docs.aws.amazon.com/powertools/python/latest/utilities/parser/#built-in-models)
 
 ## Container base images
 <a name="open-source-container-base-images"></a>
 
-AWS provides open source container base images that you can use as a starting point for building container images for your Lambda Event Functions. These base images include the runtime interface client and other components needed to run your functions in the Lambda execution environment.
+AWS provides open-source container base images that you can use as a starting point for building container images for your Lambda Event Functions. These base images include the runtime interface client and other components needed to run your functions in the Lambda execution environment.
 
 For more information about the available base images and how to use them, see the [AWS Lambda Base Images](https://github.com/aws/aws-lambda-base-images) repository and [Create a Lambda Event Function using a container image](images-create.md).
+
+You can also use these base images to build a [customer-managed runtime](runtimes-customer-managed.md). For more information, see [Building a runtime image from a Lambda base image](cmr-base-images.md).
 
 ## Development tools
 <a name="open-source-development-tools"></a>
 
-AWS provides additional open source development tools to help you build and optimize your Lambda functions:
+AWS provides additional open-source development tools to help you build and optimize your Lambda Event Functions:
 
 ### Powertools for AWS Lambda
 <a name="open-source-powertools"></a>
 
-Powertools for AWS Lambda simplifies serverless development with essential utilities to prevent duplicate processing, and batch processing for multi-record handling and Kafka consumer library. These features help you minimize code complexity and operational overhead.
+Powertools for AWS Lambda simplifies serverless development with essential utilities to prevent duplicate processing, batch processing for multi-record handling, and a Kafka consumer library. These features help you minimize code complexity and operational overhead.
 
 You can also use built-in event schema validation, structured logging and tracing, and parameter store integration which are designed to accelerate the creation of production-ready Lambda functions while following AWS well-architected best practices.
 

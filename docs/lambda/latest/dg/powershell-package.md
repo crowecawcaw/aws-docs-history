@@ -1,7 +1,6 @@
 
 
 # Deploy PowerShell Lambda Event Functions with .zip file archives
-<a name="powershell-package"></a>
 
 A deployment package for the PowerShell runtime contains your PowerShell script, PowerShell modules that are required for your PowerShell script, and the assemblies needed to host PowerShell Core.
 

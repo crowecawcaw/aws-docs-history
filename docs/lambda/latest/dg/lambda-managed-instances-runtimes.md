@@ -1,7 +1,6 @@
 
 
 # Lambda Managed Instances runtimes
-<a name="lambda-managed-instances-runtimes"></a>
 
 Lambda Event Functions on Lambda Managed Instances support both `.zip` file archive and container image deployment packages, which use the Open Container Initiative (OCI) format. To reduce startup time for large container images, see [Lazy-load container images with Seekable OCI (SOCI)](lambda-managed-instances-seekable-oci.md).
 
@@ -16,6 +15,7 @@ Lambda Managed Instances can be used with the following programming languages an
 + **Node.js:** Node.js 22 and later.
 + **.NET:** .NET 8 and later.
 + **Rust:** Supported using the OS-only runtime `provided.al2023` and later.
++ **Customer-managed runtimes:** Supported when the runtime declares support for Lambda Managed Instances. You can use a customer-managed runtime to run other languages, or your own builds of supported languages, on Lambda Managed Instances. For more information, see [Lambda Managed Instances](cmr-building-images.md#cmr-building-images-managed-instances).
 
 ## Language-specific considerations
 <a name="lambda-managed-instances-runtime-considerations"></a>
@@ -42,6 +42,10 @@ Uses .NET Tasks with asynchronous processing of multiple concurrent requests. Re
 
 Uses a single process with async tasks powered by [Tokio](https://tokio.rs/). The handler must be `Clone` \+ `Send`.
 
+**Customer-managed runtimes**
+
+The runtime publisher implements multi-concurrency. For the concurrency model and how to handle state safely, see the runtime publisher's documentation. For the requirements that a runtime must meet, see [Supporting Lambda Managed Instances in your runtime](runtimes-custom.md#runtimes-custom-managed-instances).
+
 ## Next steps
 <a name="lambda-managed-instances-runtime-next-steps"></a>
 
@@ -51,3 +55,4 @@ For detailed information about each runtime, see the following topics:
 + [Python runtime for Lambda Managed Instances](lambda-managed-instances-python-runtime.md)
 + [.NET runtime for Lambda Managed Instances](lambda-managed-instances-dotnet-runtime.md)
 + [Rust support for Lambda Managed Instances](lambda-managed-instances-rust.md)
++ [Customer-managed runtimes](runtimes-customer-managed.md)

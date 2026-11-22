@@ -1,7 +1,6 @@
 
 
 # Manage Lambda Event Function versions
-<a name="configuration-versions"></a>
 
 You can use versions to manage the deployment of your functions. For example, you can publish a new version of a function for beta testing without affecting users of the stable production version. Lambda creates a new version of your function each time that you publish the function. The new version is a copy of the unpublished version of the function. The unpublished version is named `$LATEST`.
 
@@ -15,7 +14,7 @@ After you publish a function version, its code, runtime, architecture, memory, l
 + [Database connections and proxies](services-rds.md#rds-configuration)
 
 **Note**  
-When using [runtime management controls](runtimes-update.md#runtime-management-controls) with **Auto** mode, the runtime version used by the function version is updated automatically. When using **Function update** or **Manual** mode, the runtime version is not updated. For more information, see [Understanding how Lambda manages runtime version updates](runtimes-update.md).
+When using [runtime management controls](runtimes-update.md#runtime-management-controls) with **Auto** mode, the runtime version used by the function version is updated automatically. When using **Function update** or **Manual** mode, the runtime version is not updated. For more information, see [Understanding how Lambda manages runtime updates](runtimes-update.md).
 
 **Topics**
 + [Creating function versions](#configuration-versions-config)

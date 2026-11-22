@@ -1,7 +1,6 @@
 
 
 # Sending Lambda Event Function logs to Firehose
-<a name="logging-with-firehose"></a>
 
 The Lambda console now offers the option to send Event Function logs to Firehose. This enables real-time streaming of your logs to various destinations supported by Firehose, including third-party analytics tools and custom endpoints.
 

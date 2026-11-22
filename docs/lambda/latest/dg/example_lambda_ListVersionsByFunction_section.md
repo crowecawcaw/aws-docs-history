@@ -1,7 +1,6 @@
 
 
 # Use `ListVersionsByFunction` with a CLI
-<a name="example_lambda_ListVersionsByFunction_section"></a>
 
 The following code examples show how to use `ListVersionsByFunction`.
 
@@ -102,7 +101,7 @@ For more information, see [Configuring AWS Lambda Function Aliases](https://docs
 **Tools for PowerShell V4**  
 **Example 1: This example returns the list of version specific configurations for each version of the Lambda Function.**  
 
-```
+```powershell
 Get-LMVersionsByFunction -FunctionName "MylambdaFunction123"
 ```
 **Output:**  
@@ -120,7 +119,7 @@ MylambdaFunction123 python3.8        128     600     1426 2019-12-25T09:52:59.87
 **Tools for PowerShell V5**  
 **Example 1: This example returns the list of version specific configurations for each version of the Lambda Function.**  
 
-```
+```powershell
 Get-LMVersionsByFunction -FunctionName "MylambdaFunction123"
 ```
 **Output:**  

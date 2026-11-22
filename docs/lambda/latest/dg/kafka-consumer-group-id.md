@@ -1,7 +1,6 @@
 
 
 # Customizable consumer group ID in Lambda
-<a name="kafka-consumer-group-id"></a>
 
 When setting up Amazon MSK or self-managed Apache Kafka as an event source, you can specify a [consumer group](https://developer.confluent.io/learn-more/kafka-on-the-go/consumer-groups/) ID. This consumer group ID is an existing identifier for the Kafka consumer group that you want your Lambda Event Function to join. You can use this feature to seamlessly migrate any ongoing Kafka record processing setups from other consumers to Lambda.
 

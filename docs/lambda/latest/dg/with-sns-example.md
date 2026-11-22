@@ -1,7 +1,6 @@
 
 
 # Tutorial: Using AWS Lambda with Amazon Simple Notification Service
-<a name="with-sns-example"></a>
 
 In this tutorial, you use a Lambda Event Function in one AWS account to subscribe to an Amazon Simple Notification Service (Amazon SNS) topic in a separate AWS account. When you publish messages to your Amazon SNS topic, your Lambda Event Function reads the contents of the message and outputs it to Amazon CloudWatch Logs. To complete this tutorial, you use the AWS Command Line Interface (AWS CLI).
 
@@ -105,7 +104,7 @@ This tutorial uses the Node.js 24 runtime, but we've also provided example code 
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda) repository. 
 Consuming an SNS event with Lambda using .NET.  
 
-```
+```csharp
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 using Amazon.Lambda.Core;
@@ -154,7 +153,7 @@ public class Function
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda) repository. 
 Consuming an SNS event with Lambda using Go.  
 
-```
+```go
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 package main
@@ -192,7 +191,7 @@ func main() {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda) repository. 
 Consuming an SNS event with Lambda using Java.  
 
-```
+```java
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 package example;
@@ -242,7 +241,7 @@ public class SNSEventHandler implements RequestHandler<SNSEvent, Boolean> {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/blob/main/integration-sns-to-lambda) repository. 
 Consuming an SNS event with Lambda using JavaScript.  
 
-```
+```javascript
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 exports.handler = async (event, context) => {
@@ -265,7 +264,7 @@ async function processMessageAsync(record) {
 ```
 Consuming an SNS event with Lambda using TypeScript.  
 
-```
+```javascript
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 import { SNSEvent, Context, SNSHandler, SNSEventRecord } from "aws-lambda";
@@ -299,7 +298,7 @@ async function processMessageAsync(record: SNSEventRecord): Promise<any> {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda) repository. 
 Consuming an SNS event with Lambda using PHP.  
 
-```
+```php
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 <?php
@@ -344,7 +343,7 @@ return new Handler();
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda) repository. 
 Consuming an SNS event with Lambda using Python.  
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 def lambda_handler(event, context):
@@ -370,7 +369,7 @@ def process_message(record):
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda) repository. 
 Consuming an SNS event with Lambda using Ruby.  
 
-```
+```ruby
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 def lambda_handler(event:, context:)
@@ -393,7 +392,7 @@ end
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda) repository. 
 Consuming an SNS event with Lambda using Rust.  
 
-```
+```rust
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 use aws_lambda_events::event::sns::SnsEvent;

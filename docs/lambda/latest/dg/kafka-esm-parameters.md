@@ -1,7 +1,6 @@
 
 
 # All self-managed Apache Kafka event source configuration parameters in Lambda
-<a name="kafka-esm-parameters"></a>
 
 All Lambda event source types share the same [CreateEventSourceMapping](https://docs.aws.amazon.com/lambda/latest/api/API_CreateEventSourceMapping.html) and [UpdateEventSourceMapping](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateEventSourceMapping.html) API operations. However, only some of the parameters apply to self-managed Apache Kafka, as shown in the following table.
 

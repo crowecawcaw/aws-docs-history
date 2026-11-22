@@ -1,7 +1,6 @@
 
 
 # Deploying Event Functions with AWS CDK
-<a name="lambda-cdk-tutorial"></a>
 
 The AWS Cloud Development Kit (AWS CDK) is an infrastructure as code (IaC) framework that you can use to define AWS cloud infrastructure by using a programming language of your choosing. To define your own cloud infrastructure, you first write an app (in one of the CDK's supported languages) that contains one or more stacks. Then, you synthesize it to an CloudFormation template and deploy your resources to your AWS account. Follow the steps in this topic to deploy a Lambda Event Function that returns an event from an Amazon API Gateway endpoint.
 
@@ -100,7 +99,7 @@ Note that all of the CDK stacks in this tutorial use the Node.js [runtime](lambd
 
 Open the `lib/hello-lambda-stack.js` file and replace the contents with the following.
 
-```
+```javascript
 const { Stack } = require('aws-cdk-lib');
 const lambda = require('aws-cdk-lib/aws-lambda');
 const apigw = require('aws-cdk-lib/aws-apigateway');
@@ -136,7 +135,7 @@ module.exports = { HelloLambdaStack }
 
 Open the `lib/hello-lambda-stack.ts` file and replace the contents with the following.
 
-```
+```javascript
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as apigw from "aws-cdk-lib/aws-apigateway";
@@ -166,7 +165,7 @@ export class HelloLambdaStack extends cdk.Stack {
 
 Open the `/hello-lambda/hello_lambda/hello_lambda_stack.py` file and replace the contents with the following.
 
-```
+```python
 from aws_cdk import (
     Stack,
     aws_apigateway as apigw,
@@ -200,7 +199,7 @@ class HelloLambdaStack(Stack):
 
 Open the `/hello-lambda/src/main/java/com/myorg/HelloLambdaStack.java` file and replace the contents with the following.
 
-```
+```java
 package com.myorg;
 
 import software.constructs.Construct;
@@ -237,7 +236,7 @@ public class HelloLambdaStack extends Stack {
 
 Open the `src/HelloLambda/HelloLambdaStack.cs` file and replace the contents with the following.
 
-```
+```csharp
 using Amazon.CDK;
 using Amazon.CDK.AWS.APIGateway;
 using Amazon.CDK.AWS.Lambda;
@@ -274,7 +273,7 @@ namespace HelloLambda
 
 1. Create a new file called `index.js` in the `/lib/lambda-handler` directory. Paste the following code into the file. The function extracts specific properties from the API request and returns them as a JSON response.
 
-   ```
+   ```javascript
    exports.handler = async (event) => {
      // Extract specific properties from the event object
      const { resource, path, httpMethod, headers, queryStringParameters, body } = event;
@@ -311,7 +310,7 @@ If you get the following error, make sure that you are in the root of your proje
    ```  
 **Example CloudFormation template**  
 
-   ```
+   ```yaml
    Resources:
      MyFunctionServiceRole3C357FF2:
        Type: AWS::IAM::Role
@@ -371,7 +370,7 @@ curl -s {{https://abcd1234.execute-api.us-east-1.amazonaws.com/prod/}}
 
 The response is a JSON representation of selected properties from the original event object, which contains information about the request made to the API Gateway endpoint. Example:
 
-```
+```json
 {
   "resource": "/",
   "path": "/",

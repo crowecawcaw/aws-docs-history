@@ -1,7 +1,6 @@
 
 
 # Monitoring Lambda Event Functions with tenant isolation
-<a name="tenant-isolation-monitor"></a>
 
 You can monitor your tenant-isolated Lambda functions using Amazon CloudWatch, AWS X-Ray, and by accessing real-time telemetry data for extensions [using the Telemetry API](telemetry-api.md).
 
@@ -27,7 +26,7 @@ fields @message
 
 The `tenantId` property is included for platforms events (like `platform.start` and `platform.report`) and custom logs you print in your function code, as shown below:
 
-```
+```json
 {
     "time": "2025-10-13T19:48:06.990Z",
     "type": "platform.start",

@@ -1,7 +1,6 @@
 
 
 # Use `CreateFunction` with an AWS SDK or CLI
-<a name="example_lambda_CreateFunction_section"></a>
 
 The following code examples show how to use `CreateFunction`.
 
@@ -18,7 +17,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Creates a new Lambda function.
     /// </summary>
@@ -70,7 +69,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region in which the bucket was created (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -192,7 +191,7 @@ For more information, see [Configure Lambda function memory](https://docs.aws.am
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples). 
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -261,7 +260,7 @@ func (wrapper FunctionWrapper) CreateFunction(ctx context.Context, functionName 
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples). 
 
-```
+```java
     /**
      * Creates a new Lambda function in AWS using the AWS Lambda Java API.
      *
@@ -320,7 +319,7 @@ func (wrapper FunctionWrapper) CreateFunction(ctx context.Context, functionName 
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples). 
 
-```
+```javascript
 const createFunction = async (funcName, roleArn) => {
   const client = new LambdaClient({});
   const code = await readFile(`${dirname}../functions/${funcName}.zip`);
@@ -346,7 +345,7 @@ const createFunction = async (funcName, roleArn) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/lambda#code-examples). 
 
-```
+```kotlin
 suspend fun createNewFunction(
     myFunctionName: String,
     s3BucketName: String,
@@ -387,7 +386,7 @@ suspend fun createNewFunction(
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples). 
 
-```
+```php
     public function createFunction($functionName, $role, $bucketName, $handler)
     {
         //This assumes the Lambda function is in an S3 bucket.
@@ -413,7 +412,7 @@ suspend fun createNewFunction(
 **Tools for PowerShell V4**  
 **Example 1: This example creates a new C\# (dotnetcore1.0 runtime) function named MyFunction in AWS Lambda, providing the compiled binaries for the function from a zip file on the local file system (relative or absolute paths may be used). C\# Lambda functions specify the handler for the function using the designation AssemblyName::Namespace.ClassName::MethodName. You should replace the assembly name (without .dll suffix), namespace, class name and method name parts of the handler spec appropriately. The new function will have environment variables 'envvar1' and 'envvar2' set up from the provided values.**  
 
-```
+```powershell
 Publish-LMFunction -Description "My C# Lambda Function" `
         -FunctionName MyFunction `
         -ZipFilename .\MyFunctionBinaries.zip `
@@ -444,7 +443,7 @@ VpcConfig        :
 ```
 **Example 2: This example is similar to the previous one except the function binaries are first uploaded to an Amazon S3 bucket (which must be in the same region as the intended Lambda function) and the resulting S3 object is then referenced when creating the function.**  
 
-```
+```powershell
 Write-S3Object -BucketName amzn-s3-demo-bucket -Key MyFunctionBinaries.zip -File .\MyFunctionBinaries.zip    
 Publish-LMFunction -Description "My C# Lambda Function" `
         -FunctionName MyFunction `
@@ -460,7 +459,7 @@ Publish-LMFunction -Description "My C# Lambda Function" `
 **Tools for PowerShell V5**  
 **Example 1: This example creates a new C\# (dotnetcore1.0 runtime) function named MyFunction in AWS Lambda, providing the compiled binaries for the function from a zip file on the local file system (relative or absolute paths may be used). C\# Lambda functions specify the handler for the function using the designation AssemblyName::Namespace.ClassName::MethodName. You should replace the assembly name (without .dll suffix), namespace, class name and method name parts of the handler spec appropriately. The new function will have environment variables 'envvar1' and 'envvar2' set up from the provided values.**  
 
-```
+```powershell
 Publish-LMFunction -Description "My C# Lambda Function" `
         -FunctionName MyFunction `
         -ZipFilename .\MyFunctionBinaries.zip `
@@ -491,7 +490,7 @@ VpcConfig        :
 ```
 **Example 2: This example is similar to the previous one except the function binaries are first uploaded to an Amazon S3 bucket (which must be in the same region as the intended Lambda function) and the resulting S3 object is then referenced when creating the function.**  
 
-```
+```powershell
 Write-S3Object -BucketName amzn-s3-demo-bucket -Key MyFunctionBinaries.zip -File .\MyFunctionBinaries.zip    
 Publish-LMFunction -Description "My C# Lambda Function" `
         -FunctionName MyFunction `
@@ -510,7 +509,7 @@ Publish-LMFunction -Description "My C# Lambda Function" `
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples). 
 
-```
+```python
 class LambdaWrapper:
     def __init__(self, lambda_client, iam_resource):
         self.lambda_client = lambda_client
@@ -563,7 +562,7 @@ class LambdaWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples). 
 
-```
+```ruby
 class LambdaWrapper
   attr_accessor :lambda_client, :cloudwatch_client, :iam_client
 
@@ -616,7 +615,7 @@ class LambdaWrapper
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples). 
 
-```
+```rust
     /**
      * Create a function, uploading from a zip file.
      */
@@ -692,7 +691,7 @@ class LambdaWrapper
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_lmd->createfunction(
             iv_functionname = iv_function_name
@@ -730,7 +729,7 @@ class LambdaWrapper
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples). 
 
-```
+```swift
 import AWSClientRuntime
 import AWSLambda
 import Foundation

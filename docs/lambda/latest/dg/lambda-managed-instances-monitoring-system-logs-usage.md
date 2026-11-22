@@ -1,7 +1,6 @@
 
 
 # Using capacity provider system logs
-<a name="lambda-managed-instances-monitoring-system-logs-usage"></a>
 
 Capacity provider system logs record what Lambda does on your behalf. This topic explains how to find the logs, how to filter them, and how to read and correlate each type of log. For the full list of events and metadata fields, see [Capacity provider system log event reference](lambda-managed-instances-monitoring-system-log-events.md).
 
@@ -14,7 +13,7 @@ Each log entry is a JSON object, so you can select events by any field. Use the 
 
 To search the logs from the AWS CLI, use `filter-log-events` with a filter pattern. The following example returns the warnings and errors from the last hour:
 
-```
+```bash
 aws logs filter-log-events \
   --log-group-name /aws/lambda/capacity-provider/{{my-capacity-provider}} \
   --start-time $(($(date +%s) - 3600))000 \

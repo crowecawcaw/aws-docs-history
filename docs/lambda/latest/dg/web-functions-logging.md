@@ -1,7 +1,6 @@
 
 
 # Web Function logs in Amazon CloudWatch Logs
-<a name="web-functions-logging"></a>
 
 AWS Lambda captures everything your application writes to standard output and standard error and sends it to Amazon CloudWatch Logs, along with system logs that Lambda itself generates. In Node.js, output from every `console` method, such as `console.log`, `console.info`, and `console.error`, is captured automatically and filtered by the `applicationLogLevel` setting. Logging libraries that write to standard output or standard error are also captured. You do not need a logging agent or the Amazon CloudWatch Logs SDK.
 
@@ -41,7 +40,7 @@ You can send your Web Function's logs to a log group that you choose instead of 
 
 1. In the home Region, create the log group and its `.local` companion, and set the retention you want on each. For a `MultiRegion` or `PerRegion` endpoint, also create the `.local` log group in each other Region that the endpoint serves, by running the `.local` commands with `--region` set to that Region.
 
-   ```
+   ```bash
    aws logs create-log-group --log-group-name {{/my-app/web-logs}}
    aws logs create-log-group --log-group-name {{/my-app/web-logs}}.local
    
@@ -56,7 +55,7 @@ You can send your Web Function's logs to a log group that you choose instead of 
 
 1. Create a revision that specifies the log group in the `telemetryConfig` section of `serviceConfig`.
 
-   ```
+   ```bash
    aws lambda-web create-web-function-revision \
        --function-name {{my-web-app}} \
        --build-config '{
@@ -93,7 +92,7 @@ The `loggingConfig` section controls the destination and minimum severity of log
 
 The following example creates a revision that drops application logs below `WARN`:
 
-```
+```bash
 aws lambda-web create-web-function-revision \
     --function-name {{my-web-app}} \
     --build-config '{
@@ -143,7 +142,7 @@ The `lambda-web-request-id` response header identifies the request, and the `lam
 
 To find the events from the identified log stream in the centralized log group in the home Region, filter by the stream name as a prefix. You can also read the stream by its exact name from the `.local` log group in the Region that served the request.
 
-```
+```bash
 aws logs filter-log-events \
     --log-group-name /aws/lambda/web/{{my-web-app}} \
     --log-stream-name-prefix "{{LAMBDA_WEB_LOGSTREAM}}" \
@@ -152,7 +151,7 @@ aws logs filter-log-events \
 
 To follow recent logs while reproducing an issue, use:
 
-```
+```bash
 aws logs tail /aws/lambda/web/{{my-web-app}} \
     --follow \
     --region {{us-east-1}}
@@ -163,7 +162,7 @@ aws logs tail /aws/lambda/web/{{my-web-app}} \
 
 Pass an object to a `console` method so that Lambda writes it as a JSON object in the `message` field. You can then query individual fields in Amazon CloudWatch Logs Insights rather than matching on substrings. Do not pass a string that you built with `JSON.stringify`. Lambda writes a string as an escaped string value, so its fields cannot be queried.
 
-```
+```javascript
 function logRequest(req, statusCode, durationMs) {
   console.info({
     method: req.method,
@@ -176,7 +175,7 @@ function logRequest(req, statusCode, durationMs) {
 
 Lambda writes a log event similar to the following:
 
-```
+```json
 {
   "timestamp": "2026-09-25T11:29:02.711Z",
   "level": "INFO",

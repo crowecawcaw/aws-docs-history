@@ -1,7 +1,6 @@
 
 
 # Using the Lambda Logs API
-<a name="runtimes-logs-api"></a>
 
 **Important**  
 The Lambda Telemetry API supersedes the Lambda Logs API. **While the Logs API remains fully functional, we recommend using only the Telemetry API going forward.** You can subscribe your extension to a telemetry stream using either the Telemetry API or the Logs API. After subscribing using one of these APIs, any attempt to subscribe using the other API returns an error.
@@ -78,7 +77,7 @@ During buffering configuration, note the following points:
 + Each subscriber can specify a different buffering configuration in their subscription request.
 + Consider the buffer size that you need for reading the data. Expect to receive payloads as large as `2*maxBytes+metadata`, where `maxBytes` is configured in the subscribe request. For example, Lambda adds the following metadata bytes to each record:
 
-  ```
+  ```json
   {
   "time": "2020-08-20T12:31:32.123Z",
   "type": "function",

@@ -1,7 +1,6 @@
 
 
 # Augment Lambda Event Functions using Lambda extensions
-<a name="lambda-extensions"></a>
 
 You can use Lambda extensions to augment your Lambda Event Functions. For example, use Lambda extensions to integrate Event Functions with your preferred monitoring, observability, security, and governance tools. You can choose from a broad set of tools that [AWS Lambda Partners](https://aws.amazon.com/lambda/partners/) provides, or you can [create your own Lambda extensions](runtimes-extensions-api.md).
 

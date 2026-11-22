@@ -1,7 +1,6 @@
 
 
 # Using Lambda MicroVMs as a sandbox for OpenAI Agents API
-<a name="microvms-integrations-openai-agents-api"></a>
 
 You can use AWS Lambda MicroVMs as the self-hosted environment for agents built with the OpenAI Agents API, keeping workspace files, tool execution, and network access in infrastructure you control. OpenAI runs the agent harness; the Lambda MicroVM executes your tasks. In this example, it runs `codex exec-server`, which executes the agent's tool calls and holds the session's workspace files. You decide the image contents, the network paths the executor can take, and the AWS resources its execution role is scoped to.
 
@@ -168,13 +167,13 @@ Run either example, then confirm that `hello.txt` downloads, the MicroVM reaches
 
 **Launcher logs.** Review the launcher Lambda function's logs in CloudWatch Logs:
 
-```
+```bash
 aws logs tail /aws/lambda/codex-agents-api-webhook --since 10m
 ```
 
 **Running MicroVMs.** Set `MICROVM_IMAGE_ARN` to your image ARN, use your deployment's AWS Region, and list the MicroVMs for the image:
 
-```
+```bash
 aws lambda-microvms list-microvms \
   --image-identifier "$MICROVM_IMAGE_ARN" \
   --query 'items[].{id:microvmId,state:state}' --output table

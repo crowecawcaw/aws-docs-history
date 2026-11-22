@@ -1,7 +1,6 @@
 
 
 # Using event filtering with an Amazon SQS event source
-<a name="with-sqs-filtering"></a>
 
 You can use event filtering to control which records from a stream or queue Lambda sends to your Event Function. For general information about how event filtering works, see [Control which events Lambda sends to your Event Function](invocation-eventfiltering.md).
 
@@ -105,7 +104,7 @@ aws lambda update-event-source-mapping \
 
 To add this filter using AWS SAM, add the following snippet to the YAML template for your event source.
 
-```
+```YAML
 FilterCriteria:
   Filters:
     - Pattern: '{ "body" : { "RequestCode" : [ "BBBB" ] } }'
@@ -175,7 +174,7 @@ aws lambda update-event-source-mapping \
 
 To add this filter using AWS SAM, add the following snippet to the YAML template for your event source.
 
-```
+```YAML
 FilterCriteria:
   Filters:
     - Pattern: '{ "body" : { "RecordNumber" : [ { "numeric": [ ">", 9999 ] } ] } }'

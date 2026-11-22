@@ -1,9 +1,8 @@
 
 
 # Basic concepts
-<a name="durable-basic-concepts"></a>
 
-The AWS Durable Execution SDK is the foundation for building durable functions, providing the primitives you need to checkpoint progress, handle retries, and manage execution flow. The SDK is available for Node.js (JavaScript and TypeScript), Python, Java, Go, and C\# (.NET). For complete SDK documentation including API reference, quickstart tutorials, and language-specific guides, see the [AWS Durable Execution SDK Developer Guide](https://docs.aws.amazon.com/durable-execution/).
+The AWS Durable Execution SDK is the foundation for building durable functions, providing the primitives you need to checkpoint progress, handle retries, and manage execution flow. The SDK is available for JavaScript, TypeScript, Python, Java, Go, Rust, and C\# (.NET). For complete SDK documentation including API reference, quickstart tutorials, and language-specific guides, see the [AWS Durable Execution SDK Developer Guide](https://docs.aws.amazon.com/durable-execution/).
 
 ## Durable execution
 <a name="durable-execution-concept"></a>
@@ -13,7 +12,7 @@ A **durable execution** represents the complete lifecycle of a Lambda durable fu
 The lifecycle might include multiple invocations of a Lambda function to complete the execution, particularly after suspensions or failure recovery. This approach enables your function to run for extended periods (up to one year) while maintaining reliable progress despite interruptions.
 
 **How replay works**  
-Lambda keeps a running log of all durable operations (steps, waits, and other operations) as your function executes. When your function needs to pause or encounters an interruption, Lambda saves this checkpoint log and stops the execution. When it's time to resume, Lambda invokes your function again from the beginning and replays the checkpoint log, substituting stored values for completed operations. This means your code runs again, but previously completed steps don't re-execute. Their stored results are used instead.
+Lambda keeps a running log of all durable operations (steps, waits, and other operations) as your function executes. When your function needs to wait or encounters an interruption, Lambda saves this checkpoint log and stops the execution. When it's time to resume, Lambda invokes your function again from the beginning and replays the checkpoint log, substituting stored values for completed operations. This means your code runs again, but previously completed steps don't re-execute. Their stored results are used instead.
 
 This replay mechanism is fundamental to understanding durable functions. Your code must be deterministic during replay, meaning it produces the same results given the same inputs. Avoid operations with side effects (like generating random numbers or getting the current time) outside of steps, as these can produce different values during replay and cause non-deterministic behavior.
 
@@ -27,7 +26,7 @@ Your durable function receives a `DurableContext` instead of the default Lambda 
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 import {
   DurableContext,
   withDurableExecution,
@@ -46,7 +45,7 @@ export const handler = withDurableExecution(
 ------
 #### [ Python ]
 
-```
+```python
 from aws_durable_execution_sdk_python import (
     DurableContext,
     durable_execution,
@@ -80,7 +79,7 @@ Durable functions add configuration settings that control execution behavior and
 
 The **DurableConfig** object defines the configuration for durable functions:
 
-```
+```json
 {
   "ExecutionTimeout": Integer,
   "RetentionPeriodInDays": Integer
@@ -95,7 +94,7 @@ The **execution timeout** controls how long a durable execution can run from sta
 A durable execution can span multiple Lambda function invocations as it progresses through checkpoints, waits, and replays. The execution timeout applies to the total elapsed time of the durable execution, not to individual function invocations.
 
 **Understanding the difference**  
-The function timeout limits each individual invocation of your function, up to 15 minutes by default or 90 minutes for asynchronous and event source mapping invocations on Lambda Managed Instances. The durable execution timeout (maximum 1 year) limits the total time from when the execution starts until it completes, fails, or times out. During this period, your function might be invoked multiple times as it processes steps, waits, and recovers from failures.
+The function timeout limits each individual invocation of your function. This can be up to 30 minutes for event functions. For event functions running on Lambda Managed Instances with asynchronous and event source mapping invocations, this can be extended up to 90 minutes. The durable execution timeout (maximum 1 year) limits the total time from when the execution starts until it completes, fails, or times out. During this period, your function might be invoked multiple times as it processes steps, waits, and recovers from failures.
 
 For example, if you set a durable execution timeout of 24 hours and a Lambda function timeout of 5 minutes:
 + Each function invocation must complete within 5 minutes
@@ -103,10 +102,12 @@ For example, if you set a durable execution timeout of 24 hours and a Lambda fun
 + Your function can be invoked many times during those 24 hours
 + Wait operations don't count against the Lambda function timeout but do count against the execution timeout
 
-You can configure the execution timeout when creating a durable function using the Lambda console, AWS CLI, or AWS SAM. In the Lambda console, choose your function, then Configuration, Durable execution. Set the Execution timeout value in seconds (default: 86400 seconds / 24 hours, minimum: 60 seconds, maximum: 31536000 seconds / 1 year).
+If you pause an execution, you can choose whether the execution timeout keeps running while the execution is paused. For more information about the execution timeout of paused executions, see [Execution timeout while paused](durable-pause-resume.md#durable-pause-resume-timeout).
+
+You can configure the execution timeout when creating a durable function using the Lambda console, AWS CLI, or AWS SAM. In the Lambda console, choose your function, then Configuration, Durable execution. Set the Execution timeout value in seconds (default: 86400 seconds / 24 hours, minimum: 1 second, maximum: 31622400 seconds / 366 days).
 
 **Note**  
-The execution timeout and the function timeout are different settings. The function timeout limits each invocation, up to 15 minutes by default or 90 minutes for asynchronous and event source mapping invocations on Lambda Managed Instances. The execution timeout limits the total time of the durable execution across all its invocations (maximum 1 year).
+The execution timeout and the function timeout are different settings. The function timeout limits each invocation. This can be up to 30 minutes for event functions. For event functions running on Lambda Managed Instances with asynchronous and event source mapping invocations, this can be extended up to 90 minutes. The execution timeout limits the total time of the durable execution across all its invocations (maximum 1 year).
 
 ### Retention period
 <a name="durable-retention-period"></a>

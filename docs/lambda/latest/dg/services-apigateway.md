@@ -1,7 +1,6 @@
 
 
 # Invoking a Lambda Event Function using an Amazon API Gateway endpoint
-<a name="services-apigateway"></a>
 
 You can create a web API with an HTTP endpoint for your Lambda Event Function by using Amazon API Gateway. API Gateway provides tools for creating and documenting web APIs that route HTTP requests to Lambda Event Functions. You can secure access to your API with authentication and authorization controls. Your APIs can serve traffic over the internet or can be accessible only within your VPC.
 
@@ -105,7 +104,7 @@ The following example shows a response object from a Node.js function. The respo
 
 **Example index.mjs – Proxy integration response object (Node.js)**  
 
-```
+```json
 var response = {
       "statusCode": 200,
       "headers": {
@@ -149,7 +148,7 @@ When you add an API to your function by using the Lambda console, using the API 
 **Example function policy**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "default",

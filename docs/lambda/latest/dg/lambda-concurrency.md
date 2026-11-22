@@ -1,7 +1,6 @@
 
 
 # Understanding Lambda Event Function scaling
-<a name="lambda-concurrency"></a>
 
 **Concurrency** is the number of in-flight requests that your AWS Lambda Event Function is handling at the same time. For each concurrent request, Lambda provisions a separate instance of your execution environment. As your Event Functions receive more requests, Lambda automatically handles scaling the number of execution environments until you reach your account's concurrency limit. By default, Lambda provides your account with a total concurrency limit of 1,000 concurrent executions across all Event Functions in an AWS Region. To support your specific account needs, you can [request a quota increase](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-concurrency-limit-increase/) and configure function-level concurrency controls so that your critical Event Functions don't experience throttling.
 

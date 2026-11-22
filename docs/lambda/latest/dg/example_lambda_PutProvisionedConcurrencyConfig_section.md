@@ -1,7 +1,6 @@
 
 
 # Use `PutProvisionedConcurrencyConfig` with a CLI
-<a name="example_lambda_PutProvisionedConcurrencyConfig_section"></a>
 
 The following code examples show how to use `PutProvisionedConcurrencyConfig`.
 
@@ -37,7 +36,7 @@ For more information, see [Configuring provisioned concurrency for an Event Func
 **Tools for PowerShell V4**  
 **Example 1: This example adds a provisioned concurrency configuration to a Function's Alias**  
 
-```
+```powershell
 Write-LMProvisionedConcurrencyConfig -FunctionName "MylambdaFunction123" -ProvisionedConcurrentExecution 20 -Qualifier "NewAlias1"
 ```
 +  For API details, see [PutProvisionedConcurrencyConfig](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -45,7 +44,7 @@ Write-LMProvisionedConcurrencyConfig -FunctionName "MylambdaFunction123" -Provis
 **Tools for PowerShell V5**  
 **Example 1: This example adds a provisioned concurrency configuration to a Function's Alias**  
 
-```
+```powershell
 Write-LMProvisionedConcurrencyConfig -FunctionName "MylambdaFunction123" -ProvisionedConcurrentExecution 20 -Qualifier "NewAlias1"
 ```
 +  For API details, see [PutProvisionedConcurrencyConfig](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # Packaging your layer content
-<a name="packaging-layers"></a>
 
 A Lambda layer is a .zip file archive that contains supplementary code or data. Layers usually contain library dependencies, a [custom runtime](runtimes-custom.md), or configuration files. 
 

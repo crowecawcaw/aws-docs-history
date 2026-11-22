@@ -1,7 +1,6 @@
 
 
 # Adding layers to Event Functions
-<a name="adding-layers"></a>
 
 A Lambda layer is a .zip file archive that contains supplementary code or data. Layers usually contain library dependencies, a [custom runtime](runtimes-custom.md), or configuration files. 
 

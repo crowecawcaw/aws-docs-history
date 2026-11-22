@@ -1,7 +1,6 @@
 
 
 # Configuring CloudWatch log groups
-<a name="lambda-managed-instances-cwl-configure"></a>
 
 By default, Lambda creates a log group named `/aws/lambda/capacity-provider/{{<capacity-provider-name>}}` for your capacity provider. To send logs to a different log group, use the Lambda console, AWS CLI, or the `CreateCapacityProvider` and `UpdateCapacityProvider` API commands.
 

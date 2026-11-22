@@ -1,7 +1,6 @@
 
 
 # Working with resource-based policies in Lambda
-<a name="access-control-resource-based"></a>
 
 With resource-based permissions policies, you can grant other AWS accounts, users, organizations, and AWS services access to your Lambda Event Functions. A resource-based policy is a JSON document that contains one or more *statements*. Each statement defines the following:
 + `Principal`: The entity you want to grant permissions to (another AWS service, an IAM role or user, or another AWS account)
@@ -199,7 +198,7 @@ With JSON resource-based policies, you can follow least-privilege access pattern
 **Example Granting permission to Amazon S3 with a deny statement**  
 The following policy grants all Amazon S3 buckets in an account permission to invoke a function, except for one bucket that is explicitly denied.  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -241,7 +240,7 @@ The following policy grants all Amazon S3 buckets in an account permission to in
 **Example Granting permission to accounts in an organization**  
 The following policy grants invoke access to all AWS accounts in an organization.  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -264,7 +263,7 @@ The following policy grants invoke access to all AWS accounts in an organization
 **Example Granting permission to multiple IAM roles with conditions**  
 The following policy grants permission to two IAM roles to use the CreateAlias action from a specified IP address.  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -291,7 +290,7 @@ The following policy grants permission to two IAM roles to use the CreateAlias a
 
 **Example Denying access unless the caller is part of a specified organization**  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

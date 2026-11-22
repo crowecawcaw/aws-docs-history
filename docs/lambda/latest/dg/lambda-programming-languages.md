@@ -1,7 +1,6 @@
 
 
 # Programming languages
-<a name="lambda-programming-languages"></a>
 
 Lambda Event Functions (previously known as Lambda functions) support a wide range of popular programming languages. Each has an idiomatic programming experience tailored to that language.
 

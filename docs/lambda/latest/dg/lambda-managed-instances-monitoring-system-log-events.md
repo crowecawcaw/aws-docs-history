@@ -1,7 +1,6 @@
 
 
 # Capacity provider system log event reference
-<a name="lambda-managed-instances-monitoring-system-log-events"></a>
 
 Lambda publishes system log events for your capacity provider and for the function versions, Amazon EC2 instances, and execution environments that it manages. This topic describes the format of each log entry, the metadata fields that log entries can contain, and the events that Lambda publishes.
 
@@ -23,7 +22,7 @@ Capacity provider system logs use structured JSON format. Each system log entry 
 
 The following example shows a system log entry for a function version that has become active:
 
-```
+```JSON
 {
   "timestamp": "2026-07-22T18:09:30.000Z",
   "level": "INFO",
@@ -97,7 +96,7 @@ These fields contain the values configured on the capacity provider. For details
 
 The following example shows a function version activation failure caused by an AWS KMS key issue:
 
-```
+```JSON
 {
   "timestamp": "2026-07-22T18:25:00.000Z",
   "level": "ERROR",
@@ -135,7 +134,7 @@ All `Autoscaling` events include the `capacityProviderArn` metadata field. Event
 
 The following example shows a scale-out event triggered by CPU utilization:
 
-```
+```JSON
 {
   "timestamp": "2026-07-22T18:15:30.000Z",
   "level": "INFO",
@@ -173,7 +172,7 @@ All `InstanceLifecycle` events include the `capacityProviderArn` metadata field.
 
 The following example shows an instance launch failure caused by insufficient Amazon EC2 capacity. The message includes the error message that Amazon EC2 returned, and `errorCode` contains the Amazon EC2 error code:
 
-```
+```JSON
 {
   "timestamp": "2026-07-22T19:36:29.000Z",
   "level": "ERROR",

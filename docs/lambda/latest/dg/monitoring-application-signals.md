@@ -1,7 +1,6 @@
 
 
 # Monitor application performance with Amazon CloudWatch Application Signals
-<a name="monitoring-application-signals"></a>
 
 Amazon CloudWatch Application Signals is an application performance monitoring (APM) solution that enables developers and operators to monitor the health and performance of their serverless applications built using Lambda. You can enable Application Signals in one-click from the Lambda console, and you don't need to add any instrumentation code or external dependencies to your Lambda Event Function. After you enable Application Signals, you can view all collected metrics and traces in the CloudWatch console. This page describes how to enable and view Application Signals telemetry data for your applications.
 

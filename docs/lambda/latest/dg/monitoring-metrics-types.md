@@ -1,7 +1,6 @@
 
 
 # Types of metrics for Lambda Event Functions
-<a name="monitoring-metrics-types"></a>
 
 This section describes the types of Lambda metrics available in the CloudWatch console.
 
@@ -12,6 +11,7 @@ This section describes the types of Lambda metrics available in the CloudWatch c
 + [Concurrency metrics](#concurrency-metrics)
 + [Asynchronous invocation metrics](#async-invocation-metrics)
 + [Event source mapping metrics](#event-source-mapping-metrics)
++ [Customer-managed runtime metrics](#runtime-metrics)
 
 ## Invocation metrics
 <a name="invocation-metrics"></a>
@@ -153,3 +153,18 @@ The timestamp for the `FailedInvokeEventCount` metric represents the end of the 
 + `SumOffsetLag` – The sum of the offset lags across all partitions in the event source mapping.
 
 If your event source mapping is disabled, you won't receive event source mapping metrics. You might also see missing metrics if CloudWatch or Lambda is experiencing degraded availability.
+
+## Customer-managed runtime metrics
+<a name="runtime-metrics"></a>
+
+If you publish a [customer-managed runtime](runtimes-customer-managed.md), Lambda publishes the following metrics to the `AWS/Lambda` namespace in the runtime owner's account. The metrics count invocations of all functions that use the runtime, including functions in other accounts.
++ `RuntimeInvocations` – The number of invocations of functions that use the runtime, including invocations that result in an error.
++ `RuntimeInvocationErrors` – The number of invocations of functions that use the runtime that result in an error.
+
+Lambda publishes these metrics with the following dimension combinations:
++ `Runtime`
++ `Runtime` and `RuntimeAlias`
++ `Runtime` and `RuntimeVersion`
++ `Runtime`, `RuntimeAlias`, and `RuntimeVersion`
+
+For more information about these metrics and how to use them, see [Monitoring customer-managed runtimes](cmr-monitoring.md).

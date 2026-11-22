@@ -1,9 +1,8 @@
 
 
 # Understanding the Lambda programming model
-<a name="foundation-progmodel"></a>
 
-Lambda Event Functions run for up to 15 minutes per invocation by default. Asynchronous and event source mapping (ESM) invocations on Lambda Managed Instances can run for up to 90 minutes. Durable Functions can run for up to one year. While both share core concepts, Durable Functions add capabilities for long-running, stateful workflows.
+Lambda Event Functions run for up to 30 minutes per invocation. Asynchronous and event source mapping (ESM) invocations on Lambda Managed Instances can run for up to 90 minutes. Durable Functions can run for up to one year. While both share core concepts, Durable Functions add capabilities for long-running, stateful workflows.
 
 Lambda provides a programming model that is common to all of the runtimes. The programming model defines the interface between your code and the Lambda system. You tell Lambda the entry point to your function by defining a *handler* in the function configuration. The runtime passes in objects to the handler that contain the invocation *event* and the *context*, such as the function name and request ID.
 

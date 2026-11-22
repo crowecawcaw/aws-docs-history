@@ -1,7 +1,6 @@
 
 
 # Using the .NET Lambda Global CLI
-<a name="csharp-package-cli"></a>
 
 The .NET CLI and the .NET Lambda Global Tools extension (`Amazon.Lambda.Tools`) offer a cross-platform way to create .NET-based Lambda applications, package them, and deploy them to Lambda. In this section, you learn how to create new Lambda .NET projects using the .NET CLI and Amazon Lambda templates, and to package and deploy them using `Amazon.Lambda.Tools`
 

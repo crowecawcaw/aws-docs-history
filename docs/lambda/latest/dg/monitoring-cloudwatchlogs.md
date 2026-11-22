@@ -1,7 +1,6 @@
 
 
 # Sending Lambda Event Function logs to CloudWatch Logs
-<a name="monitoring-cloudwatchlogs"></a>
 
 By default, Lambda automatically captures logs for all Event Function invocations and sends them to CloudWatch Logs, provided your Event Function's execution role has the necessary permissions. These logs are, by default, stored in a log group named /aws/lambda/{{<function-name>}}. To enhance debugging, you can insert custom logging statements into your code, which Lambda seamlessly integrates with CloudWatch Logs. If needed, you can configure your Event Function to send logs to a different group using the Lambda console, AWS CLI, or Lambda API. See [Configuring CloudWatch log groups](monitoring-cloudwatchlogs-loggroups.md) to learn more.
 

@@ -1,7 +1,6 @@
 
 
 # Using Lambda MicroVMs as a sandbox for Claude Managed Agents
-<a name="microvms-integrations-claude-managed-agents"></a>
 
 AWS Lambda MicroVMs is a managed sandbox provider in self-hosted sandboxes for Claude Managed Agents; keeping sensitive files, packages, and services in infrastructure you control. Anthropic hosts the agent loop and Claude model, while the Lambda MicroVM is where your tool calls run. With this pattern, you control the execution environment – what is installed, what network access is available, and what resources the agent can reach.
 
@@ -77,7 +76,7 @@ To access private resources like an Amazon Aurora database or Amazon ElastiCache
 
 Set `suspendedDurationSeconds: 0` and `autoResumeEnabled: false` for per-session MicroVMs. Set `maximumDurationInSeconds` as a ceiling for stuck sessions (max 28,800 s).
 
-```
+```json
 {
   "maxIdleDurationSeconds": 120,
   "suspendedDurationSeconds": 0,
@@ -90,13 +89,13 @@ Set `suspendedDurationSeconds: 0` and `autoResumeEnabled: false` for per-session
 
 **Application logs** – Review application logs in CloudWatch Logs:
 
-```
+```bash
 aws logs tail /aws/lambda-microvms/claude-worker --follow
 ```
 
 **Running MicroVMs** – List the running MicroVMs in your account:
 
-```
+```bash
 aws lambda-microvms list-microvms \
   --image-identifier claude-worker \
   --query 'items[].[microvmId,state,startedAt]' --output table

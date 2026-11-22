@@ -1,7 +1,6 @@
 
 
 # Implementing stateful Kinesis Data Streams processing in Lambda
-<a name="services-kinesis-windows"></a>
 
 Lambda Event Functions can run continuous stream processing applications. A stream represents unbounded data that flows continuously through your application. To analyze information from this continuously updating input, you can bound the included records using a window defined in terms of time.
 
@@ -96,7 +95,7 @@ Tumbling windows fully support the existing retry policies `maxRetryAttempts` an
 **Example Handler.py – Aggregation and processing**  
 The following Python function demonstrates how to aggregate and then process your final state:  
 
-```
+```python
 def lambda_handler(event, context):
     print('Incoming event: ', event)
     print('Incoming state: ', event['state'])

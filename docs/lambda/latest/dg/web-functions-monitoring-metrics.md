@@ -1,7 +1,6 @@
 
 
 # Using CloudWatch metrics with Lambda Web Functions
-<a name="web-functions-monitoring-metrics"></a>
 
 AWS Lambda publishes Web Function metrics to Amazon CloudWatch in two namespaces:
 + `AWS/Lambda/Web` – Request and response metrics for each endpoint, and resource usage metrics for the execution environments that serve each Web Function. Lambda centralizes these metrics into the Web Function's home Region, so the values in the home Region include traffic from every Region that the endpoint serves.
@@ -89,7 +88,7 @@ Create CloudWatch alarms to detect issues such as elevated error rates or thrott
 
 The following command creates an alarm that triggers when callers receive more than five 5xx responses from the endpoint in a five-minute period.
 
-```
+```bash
 aws cloudwatch put-metric-alarm \
     --alarm-name {{my-web-app-prod-5xx}} \
     --namespace AWS/Lambda/Web \

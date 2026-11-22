@@ -1,9 +1,8 @@
 
 
 # Lambda Event Function runtimes
-<a name="lambda-runtimes"></a>
 
-AWS Lambda Event Functions (previously known as Lambda functions) support multiple languages through the use of *runtimes*. A runtime provides an environment for a specific language. It passes invocation events, context information, and responses between Lambda and the function. You can use runtimes that Lambda provides, or build your own. For information about open-source runtimes, see [Open source repositories](runtimes-open-source.md). For runtimes that Lambda Web Functions use, see [Lambda Web Function runtimes](web-functions-runtimes.md). 
+AWS Lambda Event Functions (previously known as Lambda functions) support multiple languages through the use of *runtimes*. A runtime provides an environment for a specific language. It passes invocation events, context information, and responses between Lambda and the function. You can use runtimes that Lambda provides, or build your own as a [customer-managed runtime](runtimes-customer-managed.md). For information about open-source runtimes, see [Open-source repositories](runtimes-open-source.md). For runtimes that Lambda Web Functions use, see [Lambda Web Function runtimes](web-functions-runtimes.md). 
 
 Lambda is agnostic to your choice of runtime. For simple functions, interpreted languages like Python and Node.js offer the fastest performance. For functions with more complex computation, compiled languages like Java are often slower to initialize but run quickly in the Lambda handler. Choice of runtime is also influenced by developer preference and language familiarity.
 
@@ -15,28 +14,24 @@ When you use a .zip file archive for the deployment package, you choose a runtim
 
 Lambda invokes your function in an [execution environment](lambda-runtime-environment.md). The execution environment provides a secure and isolated runtime environment that manages the resources required to run your function. Lambda re-uses the execution environment from a previous invocation if one is available, or it can create a new execution environment. 
 
-To use other languages in Lambda, such as [Go](lambda-golang.md) or [Rust](lambda-rust.md), use an [OS-only runtime](runtimes-provided.md). The Lambda execution environment provides a [runtime interface](runtimes-api.md) for getting invocation events and sending responses. You can deploy other languages by implementing a [custom runtime](runtimes-custom.md) alongside your function code, or in a [layer](chapter-layers.md).
+To use languages that compile to a native binary, such as [Go](lambda-golang.md) or [Rust](lambda-rust.md), use an [OS-only runtime](#runtimes-provided). To use other languages or language versions, or to customize a runtime, we recommend that you create a [customer-managed runtime](runtimes-customer-managed.md). You can also include a runtime in your function's deployment package or in a [layer](chapter-layers.md), with an OS-only runtime. This approach is called [bring your own language (BYOL)](runtimes-custom.md). In both cases, the runtime uses the Lambda [runtime API](runtimes-api.md) to get invocation events and send responses.
 
 ## Supported runtimes
 <a name="runtimes-supported"></a>
 
-The following table lists the supported Lambda runtimes for Event Functions and projected deprecation dates. After a runtime is deprecated, you're still able to create and update functions for a limited period. For more information, see [Runtime use after deprecation](#runtime-deprecation-levels). The table provides the currently forecasted dates for runtime deprecation, based on our [Runtime deprecation policy](#runtime-support-policy). These dates are provided for planning purposes and are subject to change.
-
-**Note**  
-The Node.js 26 and Python 3.15 runtimes are in **public preview**. Preview runtimes are not covered by the Lambda SLA or Technical Support, and should not be used for production workloads.  
-The purpose of preview runtimes is to gather feedback from customers, partners, and upstream language communities prior to General Availability, while breaking changes are still possible. You can provide feedback through the dedicated GitHub issues for [Node.js 26](https://github.com/aws/aws-lambda-nodejs-runtime-interface-client/issues/198) and [Python 3.15](https://github.com/aws/aws-lambda-python-runtime-interface-client/issues/216). For further information, see this [blog post](https://aws.amazon.com/blogs/compute/introducing-public-preview-runtimes-on-aws-lambda-starting-with-node-js-26-and-python-3-15/).
+The following table lists the supported Lambda runtimes for Event Functions and projected deprecation dates. After a runtime is deprecated, you're still able to create and update functions for a limited period. For more information, see [Runtime use after deprecation](runtime-support-policy.md#runtime-deprecation-levels). The table provides the currently forecasted dates for runtime deprecation, based on our [Runtime deprecation](runtime-support-policy.md). These dates are provided for planning purposes and are subject to change.
 
 **Important**  
-Amazon Linux 2 is scheduled for end of life on June 30, 2026. Lambda runtimes and container base images for Java 8 (AL2), Java 11 (AL2), Java 17 (AL2), Python 3.10, Python 3.11, and provided.al2 will continue to receive patches for [critical and selected important](https://alas.aws.amazon.com/faqs.html) Amazon Linux 2 security issues, in addition to language runtime patches, until the deprecation dates shown in the following table.  
+Amazon Linux 2 reached its scheduled end of life on June 30, 2026. Lambda runtimes and container base images for Java 8 (AL2), Java 11 (AL2), Java 17 (AL2), Python 3.10, Python 3.11, and provided.al2 will continue to receive patches for [critical and selected important](https://alas.aws.amazon.com/faqs.html) Amazon Linux 2 security issues, in addition to language runtime patches, until the deprecation dates shown in the following table and in the [deprecated runtimes](runtime-support-policy.md#runtimes-deprecated) table.  
 We recommend customers upgrade to an Amazon Linux 2023-based runtime as soon as possible. For customers upgrading to Java 21 or Java 25, you can use [AWS Transform custom](https://docs.aws.amazon.com/transform/latest/userguide/custom.html) to assist with these upgrades. For customers unable to upgrade their Java version, we provide Amazon Linux 2023-based runtimes for Java 8, Java 11, and Java 17 that follow the AL2023 deprecation schedule.
 
 
 | Name | Identifier | Operating system | Deprecation date | Block function create | Block function update | 
 | --- | --- | --- | --- | --- | --- | 
-| Node.js 26 | `nodejs26.x` | Amazon Linux 2023 |  Not scheduled  |  Not scheduled  |  Not scheduled  | 
+| Node.js 26 | `nodejs26.x` | Amazon Linux 2023 |  Apr 30, 2029  |  Jun 1, 2029  |  Jul 1, 2029  | 
 | Node.js 24 | `nodejs24.x` | Amazon Linux 2023 |  Apr 30, 2028  |  Jun 1, 2028  |  Jul 1, 2028  | 
 | Node.js 22 | `nodejs22.x` | Amazon Linux 2023 |  May 30, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
-| Python 3.15 | `python3.15` | Amazon Linux 2023 |  Not scheduled  |  Not scheduled  |  Not scheduled  | 
+| Python 3.15 | `python3.15` | Amazon Linux 2023 |  Jun 30, 2029  |  Jul 31, 2029  |  Aug 31, 2029  | 
 | Python 3.14 | `python3.14` | Amazon Linux 2023 |  Jun 30, 2029  |  Jul 31, 2029  |  Aug 31, 2029  | 
 | Python 3.13 | `python3.13` | Amazon Linux 2023 |  Jun 30, 2029  |  Jul 31, 2029  |  Aug 31, 2029  | 
 | Python 3.12 | `python3.12` | Amazon Linux 2023 |  Oct 31, 2028  |  Nov 30, 2028  |  Jan 10, 2029  | 
@@ -56,9 +51,9 @@ We recommend customers upgrade to an Amazon Linux 2023-based runtime as soon as 
 | OS-only Runtime | `provided.al2023` | Amazon Linux 2023 |  Jun 30, 2029  |  Jul 31, 2029  |  Aug 31, 2029  | 
 
 **Note**  
-For new regions, Lambda will not support runtimes that are set to be deprecated within the next 6 months.
+For new AWS Regions, Lambda doesn't support runtimes that are set to be deprecated within the next 6 months.
 
-Lambda keeps managed runtimes and their corresponding container base images up to date with patches and support for minor version releases. For more information see [Lambda runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
+Lambda keeps managed runtimes and their corresponding container base images up to date with patches and support for minor version releases. For more information, see [Understanding how Lambda manages runtime updates](runtimes-update.md).
 
 To interact with other AWS services and resources from your function, you can use one of the AWS SDKs. The Node.js, Python, and Ruby runtimes include a version of the AWS SDK. However, we recommend that you always include the SDK modules your code uses, along with any dependencies, in your function's deployment package or in a [Lambda layer](chapter-layers.md). This approach gives you full control of your dependencies. It also maximizes [backward compatibility](runtimes-update.md#runtime-update-compatibility) during automatic runtime updates.
 
@@ -69,9 +64,9 @@ Lambda periodically updates the versions of the AWS SDKs included in the Node.js
 + [Runtime-included SDK versions (Python)](lambda-python.md#python-sdk-included)
 + [Runtime-included SDK versions (Ruby)](lambda-ruby.md#ruby-sdk-included)
 
-Lambda continues to support the Go programming language after deprecation of the Go 1.x runtime. For more information, see [ Migrating AWS Lambda functions from the Go1.x runtime to the custom runtime on Amazon Linux 2](https://aws.amazon.com/blogs/compute/migrating-aws-lambda-functions-from-the-go1-x-runtime-to-the-custom-runtime-on-amazon-linux-2/) on the *AWS Compute Blog*.
+Lambda continues to support the Go programming language after deprecation of the Go 1.x runtime. Use an [OS-only runtime](#runtimes-provided), such as `provided.al2023`. For more information, see [Building Lambda Event Functions with Go](lambda-golang.md) and [Migrating AWS Lambda functions from the Go1.x runtime to the custom runtime on Amazon Linux 2](https://aws.amazon.com/blogs/compute/migrating-aws-lambda-functions-from-the-go1-x-runtime-to-the-custom-runtime-on-amazon-linux-2/) on the *AWS Compute Blog*.
 
-All supported Lambda runtimes support both x86\_64 and arm64 architectures.
+All supported Lambda runtimes support both x86\_64 and arm64 architectures. For customer-managed runtimes, the runtime publisher chooses the supported architectures.
 
 ## New runtime releases
 <a name="runtimes-future"></a>
@@ -82,129 +77,49 @@ Before the release reaches the long-term support phase, it remains in developmen
 
 Lambda doesn't provide managed runtimes for language versions which aren't scheduled for LTS release.
 
+To use a language version before Lambda provides a managed runtime for it, or a version that Lambda doesn't plan to support, you can create a [customer-managed runtime](runtimes-customer-managed.md).
+
 The following list shows the target launch month for upcoming Lambda runtimes. These dates are indicative only and subject to change.
 + **Node.js 26** - November 2026
 + **Python 3.15** - November 2026
 
-## Runtime deprecation policy
-<a name="runtime-support-policy"></a>
+For information about how Lambda deprecates runtimes and a list of deprecated runtimes, see [Runtime deprecation](runtime-support-policy.md).
 
-Lambda runtimes for .zip file archives combine an operating system, a programming language, and software libraries. These components receive maintenance and security updates. Lambda deprecates a runtime when any major component reaches the end of community long-term support (LTS) and security updates are no longer available. This component is most often the language runtime. In some cases, Lambda deprecates a runtime because the operating system (OS) reaches end of LTS.
+## OS-only runtimes
+<a name="runtimes-provided"></a>
 
-After a runtime is deprecated, we may no longer apply security patches or updates to that runtime, and functions using that runtime are no longer eligible for technical support. Such deprecated runtimes are provided 'as-is', without any warranties, and may contain bugs, errors, defects, or other vulnerabilities.
+Lambda provides [managed runtimes](#runtimes-supported) for Java, Python, Node.js, .NET, and Ruby. An OS-only runtime (the `provided` runtime family) includes the operating system but no language runtime. Lambda patches the operating system in OS-only runtimes, in the same way as for other managed runtimes.
 
-To learn more about managing runtime upgrades and deprecation, see the following sections and [Managing AWS Lambda runtime upgrades](https://aws.amazon.com/blogs/compute/managing-aws-lambda-runtime-upgrades/) on the *AWS Compute Blog*.
+### Using an OS-only runtime for compiled languages
+<a name="runtimes-provided-native"></a>
 
-**Important**  
-Lambda occasionally delays deprecation of a Lambda runtime for a limited period beyond the end of support date of the language version that the runtime supports. During this period, Lambda only applies security patches to the runtime OS. Lambda doesn't apply security patches to programming language runtimes after they reach their end of support date.
+Languages such as Go, Rust, Swift, and C\+\+ compile ahead of time (AOT) to a native executable binary, which doesn't require a separate language runtime. These languages need only an operating system environment in which the binary can run. You can also use OS-only runtimes to deploy binaries compiled with .NET Native AOT and Java GraalVM Native Image.
 
-## Shared responsibility model
-<a name="runtimes-shared-responsibility"></a>
+You must include a runtime interface client in your binary. The runtime interface client calls the [Lambda runtime API](runtimes-api.md) to retrieve function invocations, and then calls your function handler. Lambda provides runtime interface clients for [Rust](lambda-rust.md), [Go](golang-package.md#golang-package-mac-linux), [.NET Native AOT](dotnet-native-aot.md), [Swift](https://github.com/awslabs/swift-aws-lambda-runtime) (experimental), and [C\+\+](https://github.com/awslabs/aws-lambda-cpp) (experimental).
 
- Lambda curates and publishes security updates for all supported managed runtimes and container base images. By default, Lambda applies these updates automatically to functions that use managed runtimes. If you changed the default automatic runtime update setting, see the [runtime management controls shared responsibility model](runtime-management-shared.md). For functions deployed using container images, you're responsible for the updates. Rebuild your function's container image from the latest base image, and then redeploy it. 
+You must compile your binary for a Linux environment and for the same instruction set architecture that you plan to use for the function (x86\_64 or arm64).
 
- When a runtime is deprecated, Lambda's responsibility for updating the managed runtime and container base images ceases. You are responsible for upgrading your functions to use a supported runtime or base image. 
+### Customizing or adding a language runtime
+<a name="runtimes-provided-customize"></a>
 
- In all cases, you are responsible for applying updates to your function code, including its dependencies. Your responsibilities under the shared responsibility model are summarized in the following table.
+To use a language or language version that Lambda doesn't provide a managed runtime for, or to add shared components to a runtime, we recommend that you create a [customer-managed runtime](runtimes-customer-managed.md). Customer-managed runtimes have the following benefits:
++ **Central runtime management** – You manage the runtime as a separate resource, independently of the functions that use it. You control the runtime contents, patching, and lifecycle, including deprecation.
++ **Updates at scale** – You roll out a runtime update by updating a runtime alias. Functions that use the alias pick up the update at their next cold start, without you redeploying each function.
 
+You can build a customer-managed runtime from a Lambda base image or an OS-only base image, or with a third-party runtime. For more information, see [Comparing customer-managed runtimes to other deployment models](runtimes-customer-managed.md#runtimes-customer-managed-compare) and [Building runtime images](cmr-building-images.md).
 
-| Runtime lifecycle phase | Lambda's responsibilities | Your responsibilities | 
-| --- | --- | --- | 
-| Supported managed runtime | Provide regular runtime updates with security patches and other updates.<br />Apply runtime updates automatically by default (see [Runtime update modes](runtimes-update.md#runtime-management-controls) for non-default behaviors). | Update your function code, including dependencies, to address any security vulnerabilities. | 
-| Supported container image | Provide regular updates to container base image with security patches and other updates. | Update your function code, including dependencies, to address any security vulnerabilities.<br />Regularly re-build and re-deploy your container image using the latest base image. | 
-| Managed runtime approaching deprecation | Notify customers before runtime deprecation through documentation, Health Dashboard, email, and Trusted Advisor.<br />Responsibility for runtime updates ends at deprecation. | Monitor Lambda documentation, Health Dashboard, email, or Trusted Advisor for runtime deprecation information.<br />Upgrade functions to a supported runtime before the previous runtime is deprecated. | 
-| Container image approaching deprecation | Deprecation notifications are not available for functions using container images.<br />Responsibility for container base image updates ends at deprecation. | Be aware of deprecation schedules and upgrade functions to a supported base image before the previous image is deprecated. | 
+You can also include the language runtime in your function's deployment package or in a [layer](chapter-layers.md), and use it with an OS-only runtime. This approach is called bring your own language (BYOL). With BYOL, you update the runtime separately in each function, so it can be a good choice when you have only a small number of functions. Third-party runtimes such as [Bref](https://bref.sh/) for PHP use this approach. For more information, see [Supporting a new programming language for AWS Lambda Event Functions](runtimes-custom.md).
 
-## Runtime use after deprecation
-<a name="runtime-deprecation-levels"></a>
+### Supported OS-only runtimes
+<a name="runtimes-provided-list"></a>
 
-After a runtime is deprecated, we may no longer apply security patches or updates to that runtime, and functions using that runtime are no longer eligible for technical support. You can continue to invoke your functions indefinitely. However, we strongly recommend that you migrate to a supported runtime. Deprecated runtimes are provided 'as-is', without any warranties, and may contain bugs, errors, defects, or other vulnerabilities. Functions that use a deprecated runtime may also experience degraded performance or other issues, such as a certificate expiry, that can cause them to stop working properly.
-
-You can update a function to use a newer supported runtime at any time after a runtime is deprecated. We recommend testing your function with the new runtime before applying changes in production environments. You will not be able to revert to the deprecated runtime after function updates are blocked. We recommend using function [versions](configuration-versions.md) and [aliases](configuration-aliases.md) to enable safe deployment with rollback.
-
-The following timeline describes what happens when a runtime is deprecated:
-
-
-| Runtime lifecycle phase | When | What | 
-| --- | --- | --- | 
-| Deprecation notice period | At least 180 days before deprecation |  +  We send notifications through email and the Health Dashboard to accounts that have functions using this runtime in their `$LATEST` version. <br />+  Affected functions are also listed in the [Health Dashboard Scheduled changes tab](https://docs.aws.amazon.com/health/latest/ug/aws-health-account-views.html) and the [AWS Trusted Advisor deprecated runtimes check](https://docs.aws.amazon.com/awssupport/latest/user/security-checks.html#aws-lambda-functions-deprecated-runtimes).   | 
-| Deprecation | Deprecation date |  +  We may no longer apply security updates or other updates. <br />+  Functions are no longer eligible for technical support. <br />+  You can no longer create or update functions using the deprecated runtime in the Lambda console. You can continue to create and update functions through the AWS CLI, AWS SAM, or CloudFormation.   | 
-| Block function create | At least 30 days after deprecation |  +  Lambda begins blocking creation of new functions. <br />+  You can continue to update code and configuration for existing functions through the AWS CLI, AWS SAM, or CloudFormation..   | 
-| Block function update | At least 60 days after deprecation |  +  Lambda begins blocking the update of code and configuration for existing functions. <br />+  You can still upgrade the function configuration to a supported runtime. However, rolling back to the deprecated runtime may be blocked.   | 
-
-**Note**  
-For some runtimes, we are delaying the block-function-create and block-function-update dates beyond the usual 30 and 60 days after deprecation. We have made this change in response to customer feedback. This change gives you more time to upgrade your functions. Refer to the tables in [Supported runtimes](#runtimes-supported) and [Deprecated runtimes](#runtimes-deprecated) to see the dates for your runtime. Lambda will not start blocking function creates or updates before the dates given in these tables.
-
-## Receiving runtime deprecation notifications
-<a name="runtime-deprecation-notify"></a>
-
-When a runtime approaches its deprecation date, Lambda sends you an email alert if any functions in your AWS account use that runtime. Notifications are also displayed in the Health Dashboard and in AWS Trusted Advisor.
-+ Receiving email notifications:
-
-  Lambda sends you an email alert at least **180 days** before a runtime is deprecated. This email lists the $LATEST versions of all functions using the runtime. To see a full list of affected function versions, use Trusted Advisor or see [Retrieve data about Lambda Event Functions that use a deprecated runtime](runtimes-list-deprecated.md).
-
-  Lambda sends email notification to your AWS account's primary account contact. For information about viewing or updating the email addresses in your account, see [Updating contact information](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html) in the *AWS General Reference*.
-+ Receiving notifications through the Health Dashboard:
-
-  The Health Dashboard displays a notification at least **180 days** before a runtime is deprecated. Notifications appear on the **Your account health** page under [Other notifications](https://health.aws.amazon.com/health/home#/account/dashboard/other-notifications). The **Affected resources** tab of the notification lists the $LATEST versions of all functions using the runtime.
-**Note**  
-To see a full and up-to-date list of affected function versions, use Trusted Advisor or see [Retrieve data about Lambda Event Functions that use a deprecated runtime](runtimes-list-deprecated.md).
-
-  Health Dashboard notifications expire 90 days after the affected runtime is deprecated.
-+ Using AWS Trusted Advisor
-
-  Trusted Advisor displays a notification at least **180 days** before a runtime is deprecated. Notifications appear on the [Security](https://console.aws.amazon.com/trustedadvisor/home#/category/security) page. A list of your affected functions is displayed under **AWS Lambda Functions Using Deprecated Runtimes**. This list of functions shows both $LATEST and published versions and updates automatically to reflect your functions' current status.
-
-  You can turn on weekly email notifications from Trusted Advisor in the [Preferences](https://console.aws.amazon.com/trustedadvisor/home?#/preferences) page of the Trusted Advisor console.
-
-## Deprecated runtimes
-<a name="runtimes-deprecated"></a>
-
-The following runtimes have reached end of support:
+Lambda supports the following OS-only runtimes:
 
 
 | Name | Identifier | Operating system | Deprecation date | Block function create | Block function update | 
 | --- | --- | --- | --- | --- | --- | 
-| .NET 8 |  dotnet8  | Amazon Linux 2023 |  Nov 10, 2026  |  Jul 29, 2027  |  Aug 31, 2027  | 
-| .NET 9 (container only) |  dotnet9  | Amazon Linux 2023 |  Nov 10, 2026  |  N/A  |  N/A  | 
-| Python 3.10 |  python3.10  | Amazon Linux 2 |  Oct 31, 2026  |  Jul 29, 2027  |  Aug 31, 2027  | 
-| OS-only Runtime |  provided.al2  | Amazon Linux 2 |  Jul 31, 2026  |  Jul 29, 2027  |  Aug 31, 2027  | 
-| Node.js 20 |  nodejs20.x  | Amazon Linux 2023 |  Apr 30, 2026  |  Jul 29, 2027  |  Aug 31, 2027  | 
-| Ruby 3.2 |  ruby3.2  | Amazon Linux 2 |  Mar 31, 2026  |  Jul 29, 2027  |  Aug 31, 2027  | 
-| Python 3.9 |  python3.9  | Amazon Linux 2 |  Dec 15, 2025  |  Jul 29, 2027  |  Aug 31, 2027  | 
-| Node.js 18 |  nodejs18.x  | Amazon Linux 2 |  Sep 1, 2025  |  Jul 29, 2027  |  Aug 31, 2027  | 
-| .NET 6 |  dotnet6  | Amazon Linux 2 |  Dec 20, 2024  |  Jul 29, 2027  |  Aug 31, 2027  | 
-| Python 3.8 |  python3.8  | Amazon Linux 2 |  Oct 14, 2024  |  Jul 29, 2027  |  Aug 31, 2027  | 
-| Node.js 16 |  nodejs16.x  | Amazon Linux 2 |  Jun 12, 2024  |  Jul 29, 2027  |  Aug 31, 2027  | 
-| .NET 7 (container only) |  dotnet7  | Amazon Linux 2 |  May 14, 2024  |  N/A  |  N/A  | 
-| Java 8 |  java8  | Amazon Linux |  Jan 8, 2024  |  Feb 8, 2024  |  Aug 31, 2027  | 
-| Go 1.x |  go1.x  | Amazon Linux |  Jan 8, 2024  |  Feb 8, 2024  |  Aug 31, 2027  | 
-| OS-only Runtime |  provided  | Amazon Linux |  Jan 8, 2024  |  Feb 8, 2024  |  Aug 31, 2027  | 
-| Ruby 2.7 |  ruby2.7  | Amazon Linux 2 |  Dec 7, 2023  |  Jan 9, 2024  |  Aug 31, 2027  | 
-| Node.js 14 |  nodejs14.x  | Amazon Linux 2 |  Dec 4, 2023  |  Jan 9, 2024  |  Aug 31, 2027  | 
-| Python 3.7 |  python3.7  | Amazon Linux |  Dec 4, 2023  |  Jan 9, 2024  |  Aug 31, 2027  | 
-| .NET Core 3.1 |  dotnetcore3.1  | Amazon Linux 2 |  Apr 3, 2023  |  Apr 3, 2023  |  May 3, 2023  | 
-| Node.js 12 |  nodejs12.x  | Amazon Linux 2 |  Mar 31, 2023  |  Mar 31, 2023  |  Apr 30, 2023  | 
-| Python 3.6 |  python3.6  | Amazon Linux |  Jul 18, 2022  |  Jul 18, 2022  |  Aug 29, 2022  | 
-| .NET 5 (container only) |  dotnet5.0  | Amazon Linux 2 |  May 10, 2022  |  N/A  |  N/A  | 
-| .NET Core 2.1 |  dotnetcore2.1  | Amazon Linux |  Jan 5, 2022  |  Jan 5, 2022  |  Apr 13, 2022  | 
-| Node.js 10 |  nodejs10.x  | Amazon Linux 2 |  Jul 30, 2021  |  Jul 30, 2021  |  Feb 14, 2022  | 
-| Ruby 2.5 |  ruby2.5  | Amazon Linux |  Jul 30, 2021  |  Jul 30, 2021  |  Mar 31, 2022  | 
-| Python 2.7 |  python2.7  | Amazon Linux |  Jul 15, 2021  |  Jul 15, 2021  |  May 30, 2022  | 
-| Node.js 8.10 |  nodejs8.10  | Amazon Linux |  Mar 6, 2020  |  Feb 4, 2020  |  Mar 6, 2020  | 
-| Node.js 4.3 |  nodejs4.3  | Amazon Linux |  Mar 5, 2020  |  Feb 3, 2020  |  Mar 5, 2020  | 
-| Node.js 4.3 edge |  nodejs4.3-edge  | Amazon Linux |  Mar 5, 2020  |  Mar 31, 2019  |  Apr 30, 2019  | 
-| Node.js 6.10 |  nodejs6.10  | Amazon Linux |  Aug 12, 2019  |  Jul 12, 2019  |  Aug 12, 2019  | 
-| .NET Core 1.0 |  dotnetcore1.0  | Amazon Linux |  Jun 27, 2019  |  Jun 30, 2019  |  Jul 30, 2019  | 
-| .NET Core 2.0 |  dotnetcore2.0  | Amazon Linux |  May 30, 2019  |  Apr 30, 2019  |  May 30, 2019  | 
-| Node.js 0.10 |  nodejs  | Amazon Linux |  Aug 30, 2016  |  Sep 30, 2016  |  Oct 31, 2016  | 
+| OS-only Runtime | `provided.al2023` | Amazon Linux 2023 |  Jun 30, 2029  |  Jul 31, 2029  |  Aug 31, 2029  | 
 
-In almost all cases, the end-of-life date of a language version or operating system is known well in advance. The following links give end-of-life schedules for each language that Lambda supports as a managed runtime.
+The Amazon Linux 2023 (`provided.al2023`) runtime provides several advantages over Amazon Linux 2, including a smaller deployment footprint and updated versions of libraries such as `glibc`.
 
-**Language and framework support policies**
-+ **Node.js** – [github.com](https://github.com/nodejs/Release#release-schedule)
-+ **Python** – [devguide.python.org](https://devguide.python.org/versions/#versions)
-+ **Ruby** – [www.ruby-lang.org](https://www.ruby-lang.org/en/downloads/branches/)
-+ **Java** – [www.oracle.com](https://www.oracle.com/java/technologies/java-se-support-roadmap.html) and [Corretto FAQs](https://aws.amazon.com/corretto/faqs/)
-+ **Go** – [golang.org](https://golang.org/doc/devel/release.html)
-+ **.NET** – [dotnet.microsoft.com](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
+The `provided.al2023` runtime uses `dnf` as the package manager instead of `yum`, which is the default package manager in Amazon Linux 2. For more information about the differences between `provided.al2023` and `provided.al2`, see [Introducing the Amazon Linux 2023 runtime for AWS Lambda](https://aws.amazon.com/blogs/compute/introducing-the-amazon-linux-2023-runtime-for-aws-lambda/) on the AWS Compute Blog.

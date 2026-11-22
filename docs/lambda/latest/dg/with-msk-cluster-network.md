@@ -1,7 +1,6 @@
 
 
 # Configuring your Amazon MSK cluster and Amazon VPC network for Lambda
-<a name="with-msk-cluster-network"></a>
 
 To connect your AWS Lambda Event Function to your Amazon MSK cluster, you need to correctly configure your cluster and the [Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) it resides in. This page describes how to configure your cluster and VPC. If your cluster and VPC are already configured properly, see [Configuring Amazon MSK event sources for Lambda](with-msk-configure.md) to configure the event source mapping.
 

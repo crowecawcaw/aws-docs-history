@@ -1,7 +1,6 @@
 
 
 # Security and permissions
-<a name="lambda-managed-instances-security"></a>
 
 Lambda Managed Instances use **capacity providers as trust boundaries**. Lambda Event Functions execute in containers within these instances, but containers do not provide security isolation between workloads. All functions assigned to the same capacity provider must be mutually trusted.
 
@@ -26,7 +25,7 @@ Account administrators control which functions can use specific capacity provide
 
 **Example IAM Policy**
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

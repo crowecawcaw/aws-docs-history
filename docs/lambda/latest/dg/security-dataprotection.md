@@ -1,7 +1,6 @@
 
 
 # Data protection in AWS Lambda
-<a name="security-dataprotection"></a>
 
 **Note**  
 The encryption details in this topic, including environment variable encryption, describe Lambda Event Functions. For Lambda Web Functions encryption, see [Encryption at rest for Web Functions](web-functions-encryption.md).

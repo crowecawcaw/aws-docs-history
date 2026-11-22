@@ -1,7 +1,6 @@
 
 
 # Use `GetAccountSettings` with a CLI
-<a name="example_lambda_GetAccountSettings_section"></a>
 
 The following code examples show how to use `GetAccountSettings`.
 
@@ -41,7 +40,7 @@ For more information, see [AWS Lambda Limits](https://docs.aws.amazon.com/lambda
 **Tools for PowerShell V4**  
 **Example 1: This sample displays to compare the Account Limit and Account Usage**  
 
-```
+```powershell
 Get-LMAccountSetting | Select-Object @{Name="TotalCodeSizeLimit";Expression={$_.AccountLimit.TotalCodeSize}}, @{Name="TotalCodeSizeUsed";Expression={$_.AccountUsage.TotalCodeSize}}
 ```
 **Output:**  
@@ -56,7 +55,7 @@ TotalCodeSizeLimit TotalCodeSizeUsed
 **Tools for PowerShell V5**  
 **Example 1: This sample displays to compare the Account Limit and Account Usage**  
 
-```
+```powershell
 Get-LMAccountSetting | Select-Object @{Name="TotalCodeSizeLimit";Expression={$_.AccountLimit.TotalCodeSize}}, @{Name="TotalCodeSizeUsed";Expression={$_.AccountUsage.TotalCodeSize}}
 ```
 **Output:**  

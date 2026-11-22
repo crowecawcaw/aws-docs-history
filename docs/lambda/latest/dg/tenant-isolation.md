@@ -1,7 +1,6 @@
 
 
 # Tenant isolation
-<a name="tenant-isolation"></a>
 
 Use tenant isolation mode when you need isolated request processing for individual end-users or tenants invoking a Lambda Event Function, previously known as a Lambda function. This capability simplifies building multi-tenant applications that process tenant-specific code or data, such as SaaS platforms for workflow automation or code execution, by removing the need to manage tenant-specific function resources and request routing logic.
 

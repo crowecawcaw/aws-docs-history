@@ -1,7 +1,6 @@
 
 
 # AWS Lambda Event Function testing in C\#
-<a name="dotnet-csharp-testing"></a>
 
 **Note**  
 See the [Testing functions](testing-guide.md) chapter for a complete introduction to techniques and best practices for testing serverless solutions. 
@@ -43,7 +42,7 @@ To accelerate your development cycle, there are a number of tools and techniques
 
 The way you define your Lambda function code makes it simple to add unit tests. Lambda requires a public, parameterless constructor to initialize your class. Introducing a second, internal constructor gives you control of the dependencies your application uses.
 
-```
+```csharp
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
 
 namespace GetProductHandler;
@@ -78,7 +77,7 @@ public class Function
 
 To write a test for this function, you can initialize a new instance of your `Function` class and pass in a mocked implementation of the `IDatabaseRepository`. The below examples uses `XUnit`, `Moq`, and `FluentAssertions` to write a simple test ensuring the `FunctionHandler` returns a 200 status code.
 
-```
+```csharp
 using Xunit;
 using Moq;
 using FluentAssertions;

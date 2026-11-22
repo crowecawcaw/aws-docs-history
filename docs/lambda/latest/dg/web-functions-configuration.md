@@ -1,7 +1,6 @@
 
 
 # Configuring Lambda Web Functions
-<a name="web-functions-configuration"></a>
 
 You configure most Web Function settings on a revision, which is an immutable snapshot of your application code and configuration. Because a revision is immutable, changing a revision setting means creating a new revision with the updated values. You set tags and the resource-based policy on the Web Function. Its revisions and endpoints inherit its tags, and the resource-based policy controls who can act on the Web Function, its revisions, and its endpoints. Endpoint settings apply to each endpoint, including authentication type, auto-deployment mode, revision weights, scaling, and throttling. You can change these without creating a new revision. The following sections describe the settings you can configure.
 
@@ -55,7 +54,7 @@ By default, the runtime loads `index.js` at the root of your deployment package 
 
 The following example shows how to read the `AWS_LAMBDA_HTTP_ENDPOINT` environment variable in a Node.js application:
 
-```
+```javascript
 // Lambda provides the address to bind in AWS_LAMBDA_HTTP_ENDPOINT ("host:port").
 // The fallback applies only when running locally.
 const [host, port] = (process.env.AWS_LAMBDA_HTTP_ENDPOINT || 'localhost:3000').split(':');
@@ -66,7 +65,7 @@ app.listen(port, host, () => {
 
 To set your own environment variables, add an `environmentVariables` map to the `serviceConfig` object when you create a revision, as in the following example. For the full command, see [Creating a revision](web-functions-revisions.md#web-functions-revisions-create).
 
-```
+```json
 {
   "executionRoleArn": "arn:aws:iam::{{111122223333}}:role/{{my-web-function-role}}",
   "environmentVariables": {
@@ -110,15 +109,15 @@ Powertools for AWS Lambda provides a utility for accessing the Lambda metadata e
 
 Because Web Functions run on Node.js, the following example uses the Powertools for AWS Lambda metadata utility to read the AZ ID once at server startup and cache it for the life of the process. Run the following npm command to install the Powertools package and Express:
 
-```
+```bash
 npm install @aws-lambda-powertools/commons express
 ```
 
-The following example uses Express for illustration. The same approach works with any Node.js web framework; see [Supported web frameworks](web-functions-runtimes.md#web-functions-runtimes-frameworks). Read the AZ ID at startup and reuse the cached value when handling requests.
+The following example uses Express for illustration. The same approach works with any Node.js web framework; see [Supported web frameworks](web-functions-nodejs.md#web-functions-runtimes-frameworks). Read the AZ ID at startup and reuse the cached value when handling requests.
 
 **Example – Retrieving AZ ID with Powertools at startup (TypeScript)**  
 
-```
+```javascript
 import express from 'express';
 import { getMetadata } from '@aws-lambda-powertools/commons/utils/metadata';
 
@@ -144,7 +143,7 @@ You can also call the metadata endpoint directly. Lambda automatically sets the 
 
 For example, read the metadata server address from `AWS_LAMBDA_METADATA_API` and send an authenticated GET request:
 
-```
+```bash
 METADATA_ENDPOINT="http://${AWS_LAMBDA_METADATA_API}/2026-01-15/metadata/execution-environment"
 RESPONSE=$(curl -s -H "Authorization: Bearer ${AWS_LAMBDA_METADATA_TOKEN}" "$METADATA_ENDPOINT")
 AZ_ID=$(echo "$RESPONSE" | jq -r '.AvailabilityZoneID')

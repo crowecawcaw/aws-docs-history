@@ -1,7 +1,6 @@
 
 
 # Best practices for Lambda MicroVMs
-<a name="microvms-best-practices"></a>
 
 Follow these best practices to build reliable, cost-effective, and secure applications with AWS Lambda MicroVMs.
 

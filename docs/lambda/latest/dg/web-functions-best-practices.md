@@ -1,7 +1,6 @@
 
 
 # Best practices for Lambda Web Functions
-<a name="web-functions-best-practices"></a>
 
 Follow these best practices to build secure, reliable, observable, and cost-aware applications with AWS Lambda Web Functions.
 

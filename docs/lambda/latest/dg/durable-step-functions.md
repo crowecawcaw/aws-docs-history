@@ -1,7 +1,6 @@
 
 
 # Durable functions or Step Functions
-<a name="durable-step-functions"></a>
 
 Both Lambda durable functions and AWS Step Functions enable reliable workflow orchestration with automatic state management and failure recovery. They serve different developer preferences and architectural patterns. Durable functions are optimized for application development within Lambda, while Step Functions is built for workflow orchestration across AWS services.
 

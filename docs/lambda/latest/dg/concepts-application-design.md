@@ -1,7 +1,6 @@
 
 
 # Designing Lambda applications
-<a name="concepts-application-design"></a>
 
 A well-architected event-driven application uses a combination of AWS services and custom code to process and manage requests and data. This chapter focuses on Lambda-specific topics in application design. There are many important considerations for serverless architects when designing applications for busy production systems.
 
@@ -84,7 +83,7 @@ Any global-scope constants that change infrequently should be implemented as env
 
 Many traditional systems are designed to run periodically and process batches of transactions that have built up over time. For example, a banking application might run every hour to process ATM transactions into central ledgers. In Lambda-based applications, the custom processing should be triggered by every event, allowing the service to scale up concurrency as needed, to provide near-real time processing of transactions.
 
-By default, a function invocation can run for up to 15 minutes. On Lambda Managed Instances, asynchronous and event source mapping (ESM) invocations can run for up to 90 minutes. For longer-running processing, durable functions checkpoint progress across multiple invocations. When invoked asynchronously, a durable execution can run for up to one year. However, you should still prefer event-driven processing over batch processing when possible.
+A function invocation can run for up to 30 minutes. On Lambda Managed Instances, asynchronous and event source mapping (ESM) invocations can run for up to 90 minutes. For longer-running processing, durable functions checkpoint progress across multiple invocations. When invoked asynchronously, a durable execution can run for up to one year. However, you should still prefer event-driven processing over batch processing when possible.
 
 While you can run [cron](https://en.wikipedia.org/wiki/Cron) tasks in serverless applications [by using scheduled expressions](https://docs.aws.amazon.com/eventbridge/latest/userguide/scheduled-events.html) for rules in Amazon EventBridge, these should be used sparingly or as a last-resort. In any scheduled task that processes a batch, there is the potential for the volume of transactions to grow beyond what can be processed within the Lambda duration limit. If the limitations of external systems force you to use a scheduler, you should generally schedule for the shortest reasonable recurring time period.
 

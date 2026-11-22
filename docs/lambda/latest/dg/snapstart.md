@@ -1,7 +1,6 @@
 
 
 # Improving startup performance with Lambda SnapStart
-<a name="snapstart"></a>
 
 Lambda SnapStart can provide as low as sub-second startup performance, typically with no changes to your Event Function code. SnapStart makes it easier to build highly responsive and scalable applications without provisioning resources or implementing complex performance optimizations.
 
@@ -49,7 +48,7 @@ SnapStart supports the following [Lambda managed runtimes](lambda-runtimes.md) a
 
 For container images built on AWS Lambda base images or custom base images, refer to [Implementing SnapStart hooks for container images](snapstart-runtime-hooks-custom.md) and validate your function code for handling SnapStart [uniqueness requirements](snapstart-uniqueness.md).
 
-Other managed runtimes (such as `nodejs24.x` and `ruby4.0`) and [OS-only runtimes](runtimes-provided.md) are not supported. SnapStart does not support [provisioned concurrency](provisioned-concurrency.md), [Amazon Elastic File System (Amazon EFS)](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html), [Amazon S3 Files](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files.html), or ephemeral storage greater than 512 MB.
+Other managed runtimes (such as `nodejs24.x` and `ruby4.0`) and [OS-only runtimes](lambda-runtimes.md#runtimes-provided) are not supported. SnapStart does not support [provisioned concurrency](provisioned-concurrency.md), [Amazon Elastic File System (Amazon EFS)](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html), [Amazon S3 Files](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files.html), or ephemeral storage greater than 512 MB.
 
 **Note**  
 You can use SnapStart only on [published function versions](configuration-versions.md#configuration-versions-config) and [aliases](configuration-aliases.md) that point to versions. You can't use SnapStart on a function's unpublished version ($LATEST).

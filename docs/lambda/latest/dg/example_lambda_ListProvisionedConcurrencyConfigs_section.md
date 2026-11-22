@@ -1,7 +1,6 @@
 
 
 # Use `ListProvisionedConcurrencyConfigs` with a CLI
-<a name="example_lambda_ListProvisionedConcurrencyConfigs_section"></a>
 
 The following code examples show how to use `ListProvisionedConcurrencyConfigs`.
 
@@ -49,7 +48,7 @@ For more information, see [Configuring provisioned concurrency for an Event Func
 **Tools for PowerShell V4**  
 **Example 1: This example retrieves the list of provisioned concurrency configurations for a Lambda function.**  
 
-```
+```powershell
 Get-LMProvisionedConcurrencyConfigList -FunctionName "MylambdaFunction123"
 ```
 +  For API details, see [ListProvisionedConcurrencyConfigs](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -57,7 +56,7 @@ Get-LMProvisionedConcurrencyConfigList -FunctionName "MylambdaFunction123"
 **Tools for PowerShell V5**  
 **Example 1: This example retrieves the list of provisioned concurrency configurations for a Lambda function.**  
 
-```
+```powershell
 Get-LMProvisionedConcurrencyConfigList -FunctionName "MylambdaFunction123"
 ```
 +  For API details, see [ListProvisionedConcurrencyConfigs](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

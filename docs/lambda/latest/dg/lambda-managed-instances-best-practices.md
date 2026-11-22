@@ -1,7 +1,6 @@
 
 
 # Best practices for Lambda Managed Instances
-<a name="lambda-managed-instances-best-practices"></a>
 
 ## Capacity provider configuration
 <a name="lambda-managed-instances-bp-capacity-provider"></a>
@@ -38,7 +37,7 @@ Note that execution environments with very low concurrency might experience thro
 ## Long-running functions
 <a name="lambda-managed-instances-bp-long-running"></a>
 
-Functions on AWS Lambda Managed Instances can run for up to 90 minutes (5,400 seconds) per invocation for asynchronous invocations and for event source mapping invocations, except Amazon MQ and Amazon DocumentDB event source mappings, which remain limited to 15 minutes. Synchronous invocations and the function initialization phase also remain limited to 15 minutes. For more information about setting the timeout, see [Configure Lambda function timeout](configuration-timeout.md). Because your function can run longer, review the following considerations for components that are ephemeral in nature, such as network connections and credentials.
+Functions on AWS Lambda Managed Instances can run for up to 90 minutes (5,400 seconds) per invocation for asynchronous invocations and for event source mapping invocations, except Amazon MQ and Amazon DocumentDB event source mappings, which remain limited to 15 minutes. Synchronous invocations are limited to 30 minutes, and the function initialization phase remains limited to 15 minutes. For more information about setting the timeout, see [Configure Lambda function timeout](configuration-timeout.md). Because your function can run longer, review the following considerations for components that are ephemeral in nature, such as network connections and credentials.
 
 **Accommodate idle connection timeouts.** Ensure that idle connection timeouts on downstream services such as Amazon RDS, Amazon ElastiCache, and external APIs accommodate the full function duration. If your function routes traffic through a NAT gateway, send keep-alive packets to prevent idle connections from being dropped after the NAT gateway's 350-second idle timeout.
 

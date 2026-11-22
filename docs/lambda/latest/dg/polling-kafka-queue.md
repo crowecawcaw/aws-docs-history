@@ -1,7 +1,6 @@
 
 
 # Polling Kafka topics in Queue mode
-<a name="polling-kafka-queue"></a>
 
 Queue mode is a consumption mode that uses share groups, which became available in Apache Kafka 4.0 (the Kafka Queue Poller requires version 4.2 or later). With Queue mode, you can process Kafka topic messages in an unordered, high-throughput way using share groups. Unlike traditional Kafka consumer groups that assign partitions exclusively to consumers, share groups let multiple consumers read from the same partitions concurrently. This is similar to how Amazon SQS processes messages from a queue.
 
@@ -235,7 +234,7 @@ In provisioned mode, you can group multiple event source mappings within the sam
 
 When Lambda invokes your function with a Queue mode event source, the event payload is identical to a standard Kafka event. Each record includes the topic, partition, offset, timestamp, and base64-encoded key and value:
 
-```
+```json
 {
   "eventSource": "SelfManagedKafka",
   "bootstrapServers": "broker1.example.com:9092,broker2.example.com:9092",

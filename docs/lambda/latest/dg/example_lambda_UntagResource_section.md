@@ -1,7 +1,6 @@
 
 
 # Use `UntagResource` with a CLI
-<a name="example_lambda_UntagResource_section"></a>
 
 The following code examples show how to use `UntagResource`.
 
@@ -27,12 +26,12 @@ For more information, see [Tagging Lambda Functions](https://docs.aws.amazon.com
 **Tools for PowerShell V4**  
 **Example 1: Removes the supplied tags from a function. The cmdlet will prompt for confirmation before proceeding unless the -Force switch is specified. A single call is made to the service to remove the tags.**  
 
-```
+```powershell
 Remove-LMResourceTag -Resource "arn:aws:lambda:us-west-2:123456789012:function:MyFunction" -TagKey "Washington","Oregon","California"
 ```
 **Example 2: Removes the supplied tags from a function. The cmdlet will prompt for confirmation before proceeding unless the -Force switch is specified. Once call to the service is made per supplied tag.**  
 
-```
+```powershell
 "Washington","Oregon","California" | Remove-LMResourceTag -Resource "arn:aws:lambda:us-west-2:123456789012:function:MyFunction"
 ```
 +  For API details, see [UntagResource](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -40,12 +39,12 @@ Remove-LMResourceTag -Resource "arn:aws:lambda:us-west-2:123456789012:function:M
 **Tools for PowerShell V5**  
 **Example 1: Removes the supplied tags from a function. The cmdlet will prompt for confirmation before proceeding unless the -Force switch is specified. A single call is made to the service to remove the tags.**  
 
-```
+```powershell
 Remove-LMResourceTag -Resource "arn:aws:lambda:us-west-2:123456789012:function:MyFunction" -TagKey "Washington","Oregon","California"
 ```
 **Example 2: Removes the supplied tags from a function. The cmdlet will prompt for confirmation before proceeding unless the -Force switch is specified. Once call to the service is made per supplied tag.**  
 
-```
+```powershell
 "Washington","Oregon","California" | Remove-LMResourceTag -Resource "arn:aws:lambda:us-west-2:123456789012:function:MyFunction"
 ```
 +  For API details, see [UntagResource](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

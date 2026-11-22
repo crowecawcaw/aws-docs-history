@@ -1,7 +1,6 @@
 
 
 # Using tags on Lambda Event Functions
-<a name="configuration-tags"></a>
 
 You can tag functions to organize and manage your resources. Tags are free-form key-value pairs associated with your resources that are supported across AWS services. For more information about use cases for tags, see [Common tagging strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html#tag-strategies) in the *Tagging AWS Resources and Tag Editor Guide*. 
 
@@ -106,7 +105,7 @@ To create a new Lambda function with tags, use the [CreateFunction](https://docs
 
 Before using the tags parameter with `CreateFunction`, ensure that your role has permission to tag resources alongside the usual permissions needed for this operation. For more information about permissions for tagging, see [Permissions required for working with tags](#fxn-tags-required-permissions). This example adds two tags, one with the key {{Department}} and one with the key {{CostCenter}}.
 
-```
+```bash
 aws lambda create-function --function-name {{my-function}}
 --handler index.js --runtime nodejs24.x \
 --role arn:aws:iam::{{123456789012}}:role/{{lambda-role}} \
@@ -128,7 +127,7 @@ You can view the tags that are applied to a specific resource with the [GetFunct
 
 You can call this operation with the `get-function` CLI command:
 
-```
+```bash
 aws lambda get-function --function-name {{my-function}}
 ```
 

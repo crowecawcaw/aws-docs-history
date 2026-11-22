@@ -1,7 +1,6 @@
 
 
 # Deploy Rust Lambda Event Functions with .zip file archives
-<a name="rust-package"></a>
 
 This page describes how to compile your Rust Event Function, and then deploy the compiled binary to AWS Lambda using [Cargo Lambda](https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html). It also shows how to deploy the compiled binary with the AWS Command Line Interface and the AWS Serverless Application Model CLI.
 
@@ -74,7 +73,7 @@ You can also deploy your binary with the AWS CLI.
    ```
 
 1. To deploy the .zip package to Lambda, run the [create-function](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html) command.
-   + For `--runtime`, specify `provided.al2023`. This is an [OS-only runtime](runtimes-provided.md). OS-only runtimes are used to deploy compiled binaries and custom runtimes to Lambda.
+   + For `--runtime`, specify `provided.al2023`. This is an [OS-only runtime](lambda-runtimes.md#runtimes-provided). OS-only runtimes are used to deploy compiled binaries and custom runtimes to Lambda.
    + For `--role`, specify the ARN of the [execution role](lambda-intro-execution-role.md).
 
    ```
@@ -91,7 +90,7 @@ You can also deploy your binary with the AWS CLI.
 
 You can also deploy your binary with the AWS SAM CLI.
 
-1. Create an AWS SAM template with the resource and property definition. For `Runtime`, specify `provided.al2023`. This is an [OS-only runtime](runtimes-provided.md). OS-only runtimes are used to deploy compiled binaries and custom runtimes to Lambda.
+1. Create an AWS SAM template with the resource and property definition. For `Runtime`, specify `provided.al2023`. This is an [OS-only runtime](lambda-runtimes.md#runtimes-provided). OS-only runtimes are used to deploy compiled binaries and custom runtimes to Lambda.
 
    For more information about deploying Lambda functions using AWS SAM, see [AWS::Serverless::Function](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html) in the *AWS Serverless Application Model Developer Guide*.  
 **Example SAM resource and property definition for a Rust binary**  

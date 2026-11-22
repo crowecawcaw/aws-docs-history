@@ -1,7 +1,6 @@
 
 
 # Apache Kafka event poller scaling modes in Lambda
-<a name="kafka-scaling-modes"></a>
 
 You can choose between two modes of event poller scaling for Amazon MSK and self-managed Apache Kafka event source mappings:
 + [On-demand mode (default)](#kafka-default-mode)
@@ -130,7 +129,7 @@ When you configure the `PollerGroupName` parameter with the same value for multi
 
 The following example creates an ESM with a poller group named `production-app-group`:
 
-```
+```bash
 aws lambda create-event-source-mapping \
   --function-name myFunction1 \
   --event-source-arn arn:aws:kafka:us-east-1:123456789012:cluster/MyCluster/abcd1234 \
@@ -145,7 +144,7 @@ aws lambda create-event-source-mapping \
 
 To add another ESM to the same group (sharing EPU capacity), use the same PollerGroupName:
 
-```
+```bash
 aws lambda create-event-source-mapping \
   --function-name myFunction2 \
   --event-source-arn arn:aws:kafka:us-east-1:123456789012:cluster/MyCluster/abcd1234 \
@@ -161,7 +160,7 @@ aws lambda create-event-source-mapping \
 **Note**  
 You can update the `PollerGroupName` to move an ESM to a different group, or remove an ESM from a group by passing an empty string ("") for `PollerGroupName`:
 
-```
+```bash
 # Move ESM to a different group
 aws lambda update-event-source-mapping \
   --uuid a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \

@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon MQ event source for Lambda
-<a name="process-mq-messages-with-lambda"></a>
 
 **Topics**
 + [Configure network security](#process-mq-messages-with-lambda-networkconfiguration)
@@ -38,7 +37,7 @@ If your broker uses authentication, you can also restrict the endpoint policy fo
 
 **Example VPC endpoint policy — Secrets Manager endpoint**  
 
-```
+```JSON
 {
       "Statement": [
           {
@@ -63,7 +62,7 @@ The following example VPC endpoint policies show how to grant the required acces
 
 **Example VPC Endpoint policy — AWS STS endpoint**  
 
-```
+```JSON
 {
       "Statement": [
           {
@@ -82,7 +81,7 @@ The following example VPC endpoint policies show how to grant the required acces
 
 **Example VPC Endpoint policy — Lambda endpoint**  
 
-```
+```JSON
 {
       "Statement": [
           {
@@ -143,7 +142,7 @@ When using an encrypted customer managed key, add the `[kms:Decrypt](https://doc
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

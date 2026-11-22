@@ -1,7 +1,6 @@
 
 
 # Development tools for Lambda
-<a name="tools-to-develop-deploy-manage"></a>
 
 You have access to a variety of tools that increase productivity and ease-of-use throughout the entire development lifecycle. This section provides information on tools that help many Lambda customers design, develop, and manage their applications. From local development in your IDE to deploying and managing complex serverless applications, these tools help you streamline your workflow, improve code quality, and accelerate the development of robust Lambda-based solutions.
 + **Local development** – Write and test Lambda Event Functions faster in your preferred development environment. The AWS Toolkit for VS Code enables local function development, debugging, and testing with direct deployment capabilities to Lambda.

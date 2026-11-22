@@ -1,7 +1,6 @@
 
 
 # Working with layers for Python Lambda Event Functions
-<a name="python-layers"></a>
 
 Use [Lambda layers](chapter-layers.md) to package code and dependencies that you want to reuse across multiple functions. Layers usually contain library dependencies, a [custom runtime](runtimes-custom.md), or configuration files. Creating a layer involves three general steps:
 
@@ -92,7 +91,7 @@ You can create layers that contain either third-party Python libraries installed
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Compress-Archive -Path .\python -DestinationPath .\layer.zip
    ```
 
@@ -124,7 +123,7 @@ If you use a Python virtual environment (venv) to install packages, your directo
 1. Create your Python modules in the `python` directory. The following example module validates orders by confirming that they contain the required information.  
 **Example custom module: validator.py**  
 
-   ```
+   ```python
    import json
    
    def validate_order(order_data):
@@ -168,7 +167,7 @@ If you use a Python virtual environment (venv) to install packages, your directo
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Compress-Archive -Path .\python -DestinationPath .\layer.zip
    ```
 
@@ -183,7 +182,7 @@ If you use a Python virtual environment (venv) to install packages, your directo
 
 1. In your function, import and use the modules as you would with any Python package. Example:
 
-   ```
+   ```python
    from validator import validate_order, format_response
    import json
    
@@ -211,7 +210,7 @@ If you use a Python virtual environment (venv) to install packages, your directo
 
    You can use the following [test event](testing-functions.md#invoke-with-event) to invoke the function:
 
-   ```
+   ```json
    {
        "body": "{\"product_id\": \"ABC123\", \"quantity\": 2, \"priority\": \"express\"}"
    }
@@ -219,7 +218,7 @@ If you use a Python virtual environment (venv) to install packages, your directo
 
    Expected response:
 
-   ```
+   ```json
    {
      "statusCode": 200,
      "body": "{\"message\": \"Order validated successfully\", \"order\": {\"product_id\": \"ABC123\", \"quantity\": 2, \"shipping_priority\": \"express\"}}"

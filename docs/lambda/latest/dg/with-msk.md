@@ -1,7 +1,6 @@
 
 
 # Using Lambda with Amazon MSK
-<a name="with-msk"></a>
 
 [Amazon Managed Streaming for Apache Kafka (Amazon MSK)](https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html) is a fully-managed service that you can use to build and run applications that use Apache Kafka to process streaming data. Amazon MSK simplifies the setup, scaling, and management of Kafka clusters. Amazon MSK also makes it easier to configure your application for multiple Availability Zones and for security with AWS Identity and Access Management (IAM).
 
@@ -30,7 +29,7 @@ For examples on how to set up a Lambda integration with an Amazon MSK cluster, s
 
 Lambda sends the batch of messages in the event parameter when it invokes your Event Function. The event payload contains an array of messages. Each array item contains details of the Amazon MSK topic and partition identifier, together with a timestamp and a base64-encoded message.
 
-```
+```json
 {
    "eventSource":"aws:kafka",
    "eventSourceArn":"arn:aws:kafka:us-east-1:123456789012:cluster/vpc-2priv-2pub/751d2973-a626-431c-9d4e-d7975eb44dd7-2",

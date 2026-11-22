@@ -1,7 +1,6 @@
 
 
 # Deploy and invoke Lambda durable functions with the AWS CLI
-<a name="durable-getting-started-cli"></a>
 
 Use the AWS CLI to create and deploy Lambda durable functions with imperative commands. This approach gives you direct control over each step of the deployment process.
 
@@ -20,7 +19,7 @@ Create an IAM role with permissions for basic Lambda execution and checkpoint op
 
 1. Create a trust policy document that allows Lambda to assume the role. Save this as `trust-policy.json`:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -37,7 +36,7 @@ Create an IAM role with permissions for basic Lambda execution and checkpoint op
 
 1. Create the role:
 
-   ```
+   ```bash
    aws iam create-role \
      --role-name {{durable-function-role}} \
      --assume-role-policy-document file://trust-policy.json
@@ -45,7 +44,7 @@ Create an IAM role with permissions for basic Lambda execution and checkpoint op
 
 1. Attach the durable execution policy for checkpoint operations and basic execution:
 
-   ```
+   ```bash
    aws iam attach-role-policy \
      --role-name {{durable-function-role}} \
      --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicDurableExecutionRolePolicy
@@ -62,7 +61,7 @@ Create your durable function with the `--durable-config` parameter.
 
 1. Package your function code with dependencies into a .zip file:
 
-   ```
+   ```bash
    zip -r function.zip index.mjs node_modules/
    ```
 **Note**  
@@ -70,7 +69,7 @@ For Java-based durable functions, you need to compile your function code and dep
 
 1. Create the function with durable execution enabled:
 
-   ```
+   ```bash
    aws lambda create-function \
      --function-name {{myDurableFunction}} \
      --runtime nodejs22.x \
@@ -88,7 +87,7 @@ You can only enable durable execution when creating the function. You cannot ena
 
 While durable functions can be invoked using the `$LATEST` version qualifier, you must always use a qualified ARN pointing to a stable version to ensure deterministic execution of your code.
 
-```
+```bash
 aws lambda publish-version \
   --function-name {{myDurableFunction}} \
   --description "Initial version"
@@ -98,7 +97,7 @@ The command returns the version ARN. Note the version number (for example, `:1`)
 
 Optionally, create an alias that points to the version:
 
-```
+```bash
 aws lambda create-alias \
   --function-name {{myDurableFunction}} \
   --name prod \
@@ -114,9 +113,9 @@ Invoke your durable function using the qualified ARN (version or alias).
 **Idempotent invocations:** To prevent duplicate executions when retrying failed invocations, you can provide an execution name that ensures at-most-once execution semantics. See [Idempotency](durable-execution-idempotency.md) for details.
 
 **Synchronous invocation**  
-For executions that complete within 15 minutes, use synchronous invocation:
+For executions that complete within 30 minutes, use synchronous invocation:
 
-```
+```bash
 aws lambda invoke \
   --function-name {{myDurableFunction:1}} \
   --payload '{"orderId": "order-12345"}' \
@@ -126,7 +125,7 @@ aws lambda invoke \
 
 Or using an alias:
 
-```
+```bash
 aws lambda invoke \
   --function-name {{myDurableFunction:prod}} \
   --payload '{"orderId": "order-12345"}' \
@@ -137,7 +136,7 @@ aws lambda invoke \
 **Asynchronous invocation**  
 For long-running executions, use asynchronous invocation:
 
-```
+```bash
 aws lambda invoke \
   --function-name {{myDurableFunction:prod}} \
   --invocation-type Event \
@@ -159,7 +158,7 @@ Use the following commands to manage and monitor durable function executions.
 **List executions**  
 List all executions for a durable function:
 
-```
+```bash
 aws lambda list-durable-executions-by-function \
   --function-name {{myDurableFunction}}
 ```
@@ -167,7 +166,7 @@ aws lambda list-durable-executions-by-function \
 **Get execution details**  
 Get details about a specific execution:
 
-```
+```bash
 aws lambda get-durable-execution \
   --durable-execution-arn {{arn:aws:lambda:us-east-1:123456789012:function:myDurableFunction:my-function-version/durable-execution/my-execution-name/my-execution-id}}
 ```
@@ -175,7 +174,7 @@ aws lambda get-durable-execution \
 **Get execution history**  
 View the checkpoint history for an execution:
 
-```
+```bash
 aws lambda get-durable-execution-history \
   --durable-execution-arn {{arn:aws:lambda:us-east-1:123456789012:function:myDurableFunction:my-function-version/durable-execution/my-execution-name/my-execution-id}}
 ```
@@ -183,14 +182,40 @@ aws lambda get-durable-execution-history \
 **Stop an execution**  
 Stop a running durable execution:
 
-```
+```bash
 aws lambda stop-durable-execution \
   --durable-execution-arn {{arn:aws:lambda:us-east-1:123456789012:function:myDurableFunction:my-function-version/durable-execution/my-execution-name/my-execution-id}}
 ```
 
+**Pause an execution**  
+Pause a running durable execution so that Lambda stops invoking your function. In the following example, replace the execution ARN and reason with your own values:
+
+```bash
+aws lambda pause-durable-execution \
+  --durable-execution-arn {{arn:aws:lambda:us-east-1:123456789012:function:myDurableFunction:my-function-version/durable-execution/my-execution-name/my-execution-id}} \
+  --reason "{{Investigating downstream errors}}"
+```
+
+This command uses the following options:
++ `--durable-execution-arn` – The ARN of the durable execution to pause.
++ `--reason` – (Optional) A description of why you're pausing the execution.
+
+**Resume an execution**  
+Resume a paused durable execution from its last checkpoint. In the following example, replace the execution ARN with your own value:
+
+```bash
+aws lambda resume-durable-execution \
+  --durable-execution-arn {{arn:aws:lambda:us-east-1:123456789012:function:myDurableFunction:my-function-version/durable-execution/my-execution-name/my-execution-id}}
+```
+
+This command uses the following option:
++ `--durable-execution-arn` – The ARN of the paused durable execution to resume.
+
+For more information about pausing and resuming executions, see [Pausing and resuming durable executions](durable-pause-resume.md).
+
 To delete a durable execution that has reached a terminal state, together with its data, run the following command:
 
-```
+```bash
 aws lambda delete-durable-execution \
   --durable-execution-arn {{arn:aws:lambda:us-east-1:123456789012:function:myDurableFunction:my-function-version/durable-execution/my-execution-name/my-execution-id}}
 ```
@@ -204,7 +229,7 @@ Update your durable function code and publish a new version:
 
 1. Update the function code:
 
-   ```
+   ```bash
    aws lambda update-function-code \
      --function-name {{myDurableFunction}} \
      --zip-file fileb://function.zip
@@ -212,14 +237,14 @@ Update your durable function code and publish a new version:
 
 1. Wait for the update to complete:
 
-   ```
+   ```bash
    aws lambda wait function-updated \
      --function-name {{myDurableFunction}}
    ```
 
 1. Publish a new version:
 
-   ```
+   ```bash
    aws lambda publish-version \
      --function-name {{myDurableFunction}} \
      --description "Updated order processing logic"
@@ -227,7 +252,7 @@ Update your durable function code and publish a new version:
 
 1. Update the alias to point to the new version:
 
-   ```
+   ```bash
    aws lambda update-alias \
      --function-name {{myDurableFunction}} \
      --name prod \
@@ -242,13 +267,13 @@ Running executions continue using the version they started with. New invocations
 
 View your durable function's logs in CloudWatch Logs:
 
-```
+```bash
 aws logs tail /aws/lambda/myDurableFunction --follow
 ```
 
 Filter logs for a specific execution:
 
-```
+```bash
 aws logs filter-log-events \
   --log-group-name /aws/lambda/myDurableFunction \
   --filter-pattern "exec-abc123"
@@ -259,7 +284,7 @@ aws logs filter-log-events \
 
 Delete your durable function and associated resources:
 
-```
+```bash
 # Delete the function
 aws lambda delete-function --function-name {{myDurableFunction}}
 

@@ -1,7 +1,6 @@
 
 
 # Orchestrating Lambda Event Functions with Step Functions
-<a name="with-step-functions"></a>
 
 AWS Step Functions provides visual workflow orchestration for coordinating Lambda Event Functions with other AWS services. With native integrations to 220\+ AWS services and fully managed, zero-maintenance infrastructure, Step Functions is ideal when you need visual workflow design and fully-managed service integrations.
 

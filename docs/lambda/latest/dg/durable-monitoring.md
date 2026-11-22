@@ -1,7 +1,6 @@
 
 
 # Monitoring durable functions
-<a name="durable-monitoring"></a>
 
 You can monitor your durable functions using CloudWatch metrics, CloudWatch Logs, and tracing. Because durable functions can run for extended periods and span multiple function invocations, monitoring them requires understanding their unique execution patterns, including checkpoints, state transitions, and replay behavior.
 
@@ -21,14 +20,17 @@ Lambda emits the following metrics for durable executions:
 
 | Metric | Description | 
 | --- | --- | 
-| ApproximateRunningDurableExecutions | Number of durable executions in the RUNNING state | 
+| ApproximateRunningDurableExecutions | Number of durable executions in the RUNNING, PAUSING, or PAUSED state | 
 | ApproximateRunningDurableExecutionsUtilization | Percentage of your account's maximum running durable executions quota currently in use | 
-| DurableExecutionDuration | Elapsed wall-clock time in milliseconds that a durable execution remained in the RUNNING state | 
+| DurableExecutionDuration | Elapsed wall-clock time in milliseconds that a durable execution remained in the RUNNING, PAUSING, or PAUSED state | 
 | DurableExecutionStarted | Number of durable executions that started | 
 | DurableExecutionStopped | Number of durable executions stopped using the StopDurableExecution API | 
 | DurableExecutionSucceeded | Number of durable executions that completed successfully | 
 | DurableExecutionFailed | Number of durable executions that completed with a failure | 
 | DurableExecutionTimedOut | Number of durable executions that exceeded their configured execution timeout | 
+| DurableExecutionPausing | Number of durable executions that changed to the PAUSING status because an invocation was in progress | 
+| DurableExecutionPaused | Number of durable executions that changed to the PAUSED status after a PauseDurableExecution request | 
+| DurableExecutionResumed | Number of durable executions that returned to the RUNNING status after a ResumeDurableExecution request | 
 | DurableExecutionOperations | Cumulative number of operations performed within a durable execution | 
 | DurableExecutionStorageWrittenBytes | Cumulative amount of data in bytes persisted by a durable execution | 
 
@@ -71,10 +73,17 @@ Status change events are published for the following execution states:
 + `STOPPED` - Execution stopped using the StopDurableExecution API
 + `FAILED` - Execution failed with an error
 + `TIMED_OUT` - Execution exceeded the configured timeout
++ `PAUSING` - Execution is waiting for an in-progress invocation to reach its next checkpoint before pausing
++ `PAUSED` - Execution paused after a PauseDurableExecution request
++ `RESUMED` - Execution resumed after a ResumeDurableExecution request. The execution status is `RUNNING`.
+
+If you pause an execution with no invocation in progress, it changes directly to `PAUSED`, so Lambda doesn't send a `PAUSING` event. For more information about pausing executions, see [Pausing and resuming durable executions](durable-pause-resume.md).
+
+Deleting an execution doesn't send a status change event. Instead, when a CloudTrail trail logs `DeleteDurableExecution` data events, CloudTrail sends each call to EventBridge as an `AWS API Call via CloudTrail` event. For more information about getting notified when someone deletes an execution, see [Audit execution deletions](durable-delete.md#durable-cloudtrail-audit-deletions).
 
 The following example shows a durable execution status change event:
 
-```
+```json
 {
   "version": "0",
   "id": "d019b03c-a8a3-9d58-85de-241e96206538",
@@ -103,7 +112,7 @@ Create EventBridge rules to route durable execution status change events to targ
 
 The following example creates a rule that matches all durable execution status changes:
 
-```
+```json
 {
   "source": ["aws.lambda"],
   "detail-type": ["Durable Execution Status Change"]
@@ -112,7 +121,7 @@ The following example creates a rule that matches all durable execution status c
 
 The following example creates a rule that matches only failed executions:
 
-```
+```json
 {
   "source": ["aws.lambda"],
   "detail-type": ["Durable Execution Status Change"],
@@ -124,7 +133,7 @@ The following example creates a rule that matches only failed executions:
 
 The following example creates a rule that matches status changes for a specific function:
 
-```
+```json
 {
   "source": ["aws.lambda"],
   "detail-type": ["Durable Execution Status Change"],
@@ -166,7 +175,7 @@ aws lambda update-function-configuration \
 
 To enable AWS X-Ray tracing using AWS SAM:
 
-```
+```yaml
 Resources:
   MyDurableFunction:
     Type: AWS::Serverless::Function

@@ -1,7 +1,6 @@
 
 
 # Control access to Lambda function URLs
-<a name="urls-auth"></a>
 
 **Note**  
 Starting in October 2025, new function URLs will require both `lambda:InvokeFunctionUrl` and `lambda:InvokeFunction` permissions.
@@ -35,7 +34,7 @@ The following resource-based policy allows the `example` role in AWS account `44
 **Example — Cross-account resource-based policy**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -129,7 +128,7 @@ Note the following about this policy:
 **Example — Default resource-based policy for NONE auth type**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -203,7 +202,7 @@ To allow or deny function URL access to other AWS entities, include these action
 **Example cross-account function URL policy**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -231,7 +230,7 @@ You can use these context keys in policies associated with your Event Function. 
 **Example function URL policy with explicit deny**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -257,7 +256,7 @@ To grant the `example` role in AWS account `444455556666` permissions to make `C
 **Example function URL policy with explicit allow**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -286,7 +285,7 @@ You can also use this condition key in a [service control policy](https://docs.a
 **Example function URL SCP with explicit deny**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

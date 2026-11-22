@@ -1,7 +1,6 @@
 
 
 # Powertools for AWS Lambda
-<a name="powertools-for-lambda"></a>
 
 Powertools for AWS Lambda (also referred to as Powertools for AWS) provides utility functions, decorators, and middleware that handle common Lambda tasks like structured logging, tracing, metrics collection, and input validation. Use Powertools for AWS Lambda to implement serverless best practices and accelerate development across multiple Lambda Event Functions. Doing this simplifies common development tasks in your Lambda functions.
 

@@ -1,7 +1,6 @@
 
 
 # Using AWS Lambda with CloudFormation
-<a name="services-cloudformation"></a>
 
 In an AWS CloudFormation template, you can specify a Lambda Event Function as the target of a custom resource. Use custom resources to process parameters, retrieve configuration values, or call other AWS services during stack lifecycle events.
 

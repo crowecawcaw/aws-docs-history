@@ -1,7 +1,6 @@
 
 
 # Security model for Lambda SnapStart
-<a name="snapstart-security"></a>
 
 AWS Lambda SnapStart supports encryption at rest. Lambda encrypts snapshots with an AWS KMS key. By default, Lambda uses an AWS managed key. If this default behavior suits your workflow, then you don't need to set up anything else.
 

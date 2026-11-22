@@ -1,7 +1,6 @@
 
 
 # Using a Kafka topic as an on-failure destination
-<a name="kafka-on-failure-destination"></a>
 
 You can configure a Kafka topic as an on-failure destination for your Kafka event source mappings. When Lambda can't process records after exhausting retry attempts or when records exceed the maximum age, Lambda sends the failed records to the specified Kafka topic for later processing. When you configure both [infinite retries](kafka-retry-configurations.md) and an on-failure destination, Lambda automatically applies a maximum of 10 retry attempts.
 
@@ -99,7 +98,7 @@ When Lambda sends failed records to a Kafka topic, each message contains both me
 
 The metadata includes information about why the record failed and details about the original batch:
 
-```
+```json
 {
   "requestContext": {
     "requestId": "e4b46cbf-b738-xmpl-8880-a18cdf61200e",
@@ -157,7 +156,7 @@ Lambda uses the same partition key from the original record when producing to th
 + **Same cluster only** – The destination topic must exist in the same Kafka cluster as your source topics.
 + **Topic permissions** – Your event source mapping must have write permissions to the destination topic. Example:
 
-  ```
+  ```json
   {
       "Version": "2012-10-17",		 	 	 
       "Statement": [

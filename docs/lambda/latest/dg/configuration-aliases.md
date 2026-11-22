@@ -1,7 +1,6 @@
 
 
 # Create an alias for a Lambda Event Function
-<a name="configuration-aliases"></a>
 
 You can create aliases for your Lambda function. A Lambda alias is a pointer to a function version that you can update. The function's users can access the function version using the alias Amazon Resource Name (ARN). When you deploy a new version, you can update the alias to use the new version, or split traffic between two versions. For more information about using aliases in your applications, see [Using Lambda aliases in event sources and permissions policies](using-aliases.md).
 
@@ -33,7 +32,7 @@ You can create aliases for your Lambda function. A Lambda alias is a pointer to 
 
 To create an alias using the AWS Command Line Interface (AWS CLI), use the [create-alias](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-alias.html) command.
 
-```
+```bash
 aws lambda create-alias \
   --function-name {{my-function}} \
   --name {{alias-name}} \
@@ -43,7 +42,7 @@ aws lambda create-alias \
 
 To change an alias to point a new version of the function, use the [update-alias](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/update-alias.html) command.
 
-```
+```bash
 aws lambda update-alias \
   --function-name {{my-function}} \
   --name {{alias-name}} \
@@ -52,7 +51,7 @@ aws lambda update-alias \
 
 To delete an alias, use the [delete-alias](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/delete-alias.html) command.
 
-```
+```bash
 aws lambda delete-alias \
   --function-name {{my-function}} \
   --name {{alias-name}}

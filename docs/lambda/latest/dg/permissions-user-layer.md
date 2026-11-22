@@ -1,14 +1,13 @@
 
 
 # Granting users access to a Lambda layer
-<a name="permissions-user-layer"></a>
 
 Use [identity-based policies](access-control-identity-based.md) to allow users, user groups, or roles to perform operations on Lambda layers. The following policy grants a user permission to create layers and use them with functions. The resource patterns allow the user to work in any AWS Region and with any layer version, as long as the name of the layer starts with `test-`.
 
 **Example layer development policy**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -40,7 +39,7 @@ You can also enforce layer use during function creation and configuration with t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

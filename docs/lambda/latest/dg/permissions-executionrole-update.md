@@ -1,7 +1,6 @@
 
 
 # Viewing and updating permissions in the execution role
-<a name="permissions-executionrole-update"></a>
 
 This topic covers how you can view and update your function's [execution role](lambda-intro-execution-role.md).
 

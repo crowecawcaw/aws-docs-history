@@ -1,7 +1,6 @@
 
 
 # Using AWS Lambda with Amazon DynamoDB
-<a name="with-ddb"></a>
 
 **Note**  
 If you want to send data to a target other than a Lambda Event Function or enrich the data before sending it, see [ Amazon EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html).

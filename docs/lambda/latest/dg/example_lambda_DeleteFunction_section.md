@@ -1,7 +1,6 @@
 
 
 # Use `DeleteFunction` with an AWS SDK or CLI
-<a name="example_lambda_DeleteFunction_section"></a>
 
 The following code examples show how to use `DeleteFunction`.
 
@@ -18,7 +17,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Delete an AWS Lambda function.
     /// </summary>
@@ -48,7 +47,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region in which the bucket was created (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -109,7 +108,7 @@ For more information, see [AWS Lambda Function Configuration](https://docs.aws.a
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples). 
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -149,7 +148,7 @@ func (wrapper FunctionWrapper) DeleteFunction(ctx context.Context, functionName 
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples). 
 
-```
+```java
     /**
      * Deletes an AWS Lambda function.
      *
@@ -181,7 +180,7 @@ func (wrapper FunctionWrapper) DeleteFunction(ctx context.Context, functionName 
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples). 
 
-```
+```javascript
 /**
  * @param {string} funcName
  */
@@ -199,7 +198,7 @@ const deleteFunction = (funcName) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/lambda#code-examples). 
 
-```
+```kotlin
 suspend fun delLambdaFunction(myFunctionName: String) {
     val request =
         DeleteFunctionRequest {
@@ -220,7 +219,7 @@ suspend fun delLambdaFunction(myFunctionName: String) {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples). 
 
-```
+```php
     public function deleteFunction($functionName)
     {
         return $this->lambdaClient->deleteFunction([
@@ -236,7 +235,7 @@ suspend fun delLambdaFunction(myFunctionName: String) {
 **Tools for PowerShell V4**  
 **Example 1: This example deletes a specific version of a Lambda function**  
 
-```
+```powershell
 Remove-LMFunction -FunctionName "MylambdaFunction123" -Qualifier '3'
 ```
 +  For API details, see [DeleteFunction](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -244,7 +243,7 @@ Remove-LMFunction -FunctionName "MylambdaFunction123" -Qualifier '3'
 **Tools for PowerShell V5**  
 **Example 1: This example deletes a specific version of a Lambda function**  
 
-```
+```powershell
 Remove-LMFunction -FunctionName "MylambdaFunction123" -Qualifier '3'
 ```
 +  For API details, see [DeleteFunction](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -255,7 +254,7 @@ Remove-LMFunction -FunctionName "MylambdaFunction123" -Qualifier '3'
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples). 
 
-```
+```python
 class LambdaWrapper:
     def __init__(self, lambda_client, iam_resource):
         self.lambda_client = lambda_client
@@ -282,7 +281,7 @@ class LambdaWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples). 
 
-```
+```ruby
 class LambdaWrapper
   attr_accessor :lambda_client, :cloudwatch_client, :iam_client
 
@@ -314,7 +313,7 @@ class LambdaWrapper
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples). 
 
-```
+```rust
     /** Delete a function and its role, and if possible or necessary, its associated code object and bucket. */
     pub async fn delete_function(
         &self,
@@ -370,7 +369,7 @@ class LambdaWrapper
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_lmd->deletefunction( iv_functionname = iv_function_name ).
         MESSAGE 'Lambda function deleted.' TYPE 'I'.
@@ -394,7 +393,7 @@ class LambdaWrapper
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples). 
 
-```
+```swift
 import AWSClientRuntime
 import AWSLambda
 import Foundation

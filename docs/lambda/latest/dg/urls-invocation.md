@@ -1,7 +1,6 @@
 
 
 # Invoking Lambda function URLs
-<a name="urls-invocation"></a>
 
 A function URL is a dedicated HTTP(S) endpoint for your Lambda Event Function. You can create and configure a function URL through the Lambda console or the Lambda API.
 

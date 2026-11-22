@@ -1,9 +1,8 @@
 
 
 # AWS Lambda Web Functions
-<a name="web-functions"></a>
 
-With AWS Lambda Web Functions, you can run web applications and API backends as serverless HTTP servers. Your code listens on a network port and handles requests directly. You can use familiar Node.js web frameworks such as Express, Hono, or React Router with no Lambda-specific adapters or wrappers. You develop and run your server locally like any other Node.js web app.
+With AWS Lambda Web Functions, you can run web applications and API backends as serverless HTTP applications. Use standard Node.js HTTP servers or Python web applications with familiar frameworks and application structures.
 
 You deploy your code as a .zip file. Lambda creates an HTTPS endpoint, manages the execution environments, and scales your application with traffic, including to zero when it's idle. To reduce latency for globally distributed users, you can deploy across multiple AWS Regions behind a single endpoint. Lambda uses latency-based routing to send each request to one of those Regions. You pay for requests, active CPU time, memory consumed over the life of each execution environment, and data transfer.
 
@@ -41,9 +40,6 @@ Use Web Functions for workloads that receive and respond to HTTP traffic directl
 
 For event-driven processing, such as handling queue messages or file uploads, use [Lambda Event Functions](lambda-functions-chapter.md#lambda-functions-use-cases) instead.
 
-**Note**  
-AWS Lambda Web Functions currently support Node.js runtimes only. If you use Java, Python, .NET, or another language, see [Create your first Lambda function](getting-started.md) for AWS Lambda Event Functions, or [AWS Lambda MicroVMs](lambda-microvms-guide.md) for Lambda MicroVMs.
-
 ## How Web Functions work
 <a name="web-functions-overview-how-it-works"></a>
 
@@ -53,7 +49,7 @@ A Web Function contains revisions and endpoints. A revision is an immutable snap
 <a name="web-functions-overview-benefits"></a>
 
 Web Functions provide the following benefits for web applications and API backends:
-+ **Standard web development experience** – Deploy standard Node.js applications that listen on a port. You use familiar web frameworks and your normal application structure.
++ **Standard web development experience** – Deploy standard Node.js HTTP servers or Python web applications. Use familiar web frameworks and your normal application structure.
 + **Adaptive scaling** – Each execution environment serves multiple concurrent requests, like a standard web server. As a result, fewer execution environments handle more traffic. Existing execution environments can absorb small traffic increases, so fewer requests wait for a new execution environment to start.
 + **Usage-based billing** – You pay for requests, CPU time that your application and runtime actively consume, memory over the life of each execution environment, and data transfer. A request that waits on a database query or an external API call consumes little CPU while it waits. However, memory continues to accrue while the execution environment exists, including idle time between requests.
 + **Response streaming** – Stream responses to clients as your application produces them, without additional configuration.

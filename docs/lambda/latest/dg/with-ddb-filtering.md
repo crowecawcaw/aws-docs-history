@@ -1,7 +1,6 @@
 
 
 # Using event filtering with a DynamoDB event source
-<a name="with-ddb-filtering"></a>
 
 You can use event filtering to control which records from a stream or queue Lambda sends to your Event Function. For general information about how event filtering works, see [Control which events Lambda sends to your Event Function](invocation-eventfiltering.md).
 
@@ -118,7 +117,7 @@ aws lambda update-event-source-mapping \
 
 To add this filter using AWS SAM, add the following snippet to the YAML template for your event source.
 
-```
+```YAML
 FilterCriteria:
    Filters:
      - Pattern: '{ "dynamodb" : { "Keys" : { "CustomerName" : { "S" : [ "AnyCompany Industries" ] } } } }'
@@ -191,7 +190,7 @@ aws lambda update-event-source-mapping \
 
 To add this filter using AWS SAM, add the following snippet to the YAML template for your event source.
 
-```
+```YAML
 FilterCriteria:
   Filters:
     - Pattern: '{ "dynamodb" : { "NewImage" : { "AccountManager" : { "S" : [ "Pat Candella", "Shirley Rodriguez" ] } } } }'
@@ -275,7 +274,7 @@ aws lambda update-event-source-mapping \
 
 To add this filter using AWS SAM, add the following snippet to the YAML template for your event source.
 
-```
+```YAML
 FilterCriteria:
   Filters:
     - Pattern: '{ "dynamodb" : { "NewImage" : { "AccountManager" : { "S" : [ "Pat Candella" ] } } } , "dynamodb" : { "OldImage" : { "AccountManager" : { "S" : [ "Terry Whitlock" ] } } } }'
@@ -291,7 +290,7 @@ DynamoDB event filtering doesn't support the use of numeric operators (numeric e
 
 Because of the way that JSON event objects from DynamoDB are structured, using the Exists operator requires special care. The Exists operator only works on leaf nodes in the event JSON, so if your filter pattern uses Exists to test for an intermediate node, it won't work. Consider the following DynamoDB table item:
 
-```
+```JSON
 {
   "UserID": {"S": "12345"},
   "Name": {"S": "John Doe"},

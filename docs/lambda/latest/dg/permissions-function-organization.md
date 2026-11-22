@@ -1,7 +1,6 @@
 
 
 # Granting function access to an organization
-<a name="permissions-function-organization"></a>
 
 To grant permissions to all accounts in an [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) organization, we recommend using `put-resource-policy` to create a full JSON policy with the `aws:PrincipalOrgID` condition key.
 
@@ -13,7 +12,7 @@ Using `put-resource-policy` replaces any existing resource-based policy on the r
 
 The following example policy grants invoke access to all AWS accounts in organization `o-a1b2c3d4e5f`:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -43,7 +42,7 @@ aws lambda put-resource-policy \
 
 With a full JSON policy, you can also deny access to specific accounts within an organization:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

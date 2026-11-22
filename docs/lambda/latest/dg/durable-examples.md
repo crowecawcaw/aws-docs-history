@@ -1,7 +1,6 @@
 
 
 # Examples and use cases
-<a name="durable-examples"></a>
 
 Lambda durable functions enable you to build fault-tolerant, multi-step applications using durable operations like steps and waits. With automatic checkpointing and a checkpoint-replay model, where execution restarts from the beginning after failure but skips completed checkpoints, your functions can recover from failures and resume execution without losing progress.
 
@@ -23,7 +22,7 @@ Coordinate payments, inventory, and shipping across multiple services with autom
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 import { DurableContext, withDurableExecution } from "@aws/durable-execution-sdk-js";
 
 export const handler = withDurableExecution(
@@ -53,7 +52,7 @@ export const handler = withDurableExecution(
 ------
 #### [ Python ]
 
-```
+```python
 from aws_durable_execution_sdk_python import DurableContext, durable_execution
 
 @durable_execution
@@ -95,7 +94,7 @@ Process orders through validation, payment authorization, inventory allocation, 
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 import { DurableContext, withDurableExecution } from "@aws/durable-execution-sdk-js";
 
 export const handler = withDurableExecution(
@@ -147,7 +146,7 @@ export const handler = withDurableExecution(
 ------
 #### [ Python ]
 
-```
+```python
 from aws_durable_execution_sdk_python import DurableContext, durable_execution
 
 @durable_execution
@@ -225,7 +224,7 @@ This pattern is essential for processes that require human judgment or external 
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 import { DurableContext, withDurableExecution } from "@aws/durable-execution-sdk-js";
 
 export const handler = withDurableExecution(
@@ -283,7 +282,7 @@ export const handler = withDurableExecution(
 ------
 #### [ Python ]
 
-```
+```python
 from aws_durable_execution_sdk_python import DurableContext, durable_execution, WaitConfig
 
 @durable_execution
@@ -352,7 +351,7 @@ This pattern is ideal for ETL workflows, data migrations, or batch processing jo
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 import { DurableContext, withDurableExecution } from "@aws/durable-execution-sdk-js";
 
 export const handler = withDurableExecution(
@@ -420,7 +419,7 @@ export const handler = withDurableExecution(
 ------
 #### [ Python ]
 
-```
+```python
 from aws_durable_execution_sdk_python import DurableContext, durable_execution
 from datetime import datetime
 
@@ -509,7 +508,7 @@ Guide users through registration, email verification, profile setup, and initial
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 import { DurableContext, withDurableExecution } from "@aws/durable-execution-sdk-js";
 
 export const handler = withDurableExecution(
@@ -597,7 +596,7 @@ export const handler = withDurableExecution(
 ------
 #### [ Python ]
 
-```
+```python
 from aws_durable_execution_sdk_python import DurableContext, durable_execution, WaitConfig
 from datetime import datetime
 
@@ -702,7 +701,7 @@ Use this pattern when you have specialized functions that handle specific domain
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 import { DurableContext, withDurableExecution } from "@aws/durable-execution-sdk-js";
 
 // Main orchestrator function
@@ -767,7 +766,7 @@ export const handler = withDurableExecution(
 ------
 #### [ Python ]
 
-```
+```python
 from aws_durable_execution_sdk_python import DurableContext, durable_execution
 
 # Main orchestrator function
@@ -843,7 +842,7 @@ Process millions of records with automatic recovery from the last successful che
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 import { DurableContext, withDurableExecution } from "@aws/durable-execution-sdk-js";
 
 interface Batch {
@@ -923,7 +922,7 @@ export const handler = withDurableExecution(
 ------
 #### [ Python ]
 
-```
+```python
 from aws_durable_execution_sdk_python import DurableContext, durable_execution, MapConfig
 from datetime import datetime
 from typing import List, Dict

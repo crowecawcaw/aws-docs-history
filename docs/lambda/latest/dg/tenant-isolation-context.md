@@ -1,7 +1,6 @@
 
 
 # Accessing tenant identifier in Lambda Event Function code
-<a name="tenant-isolation-context"></a>
 
 When your Lambda Event Function has tenant isolation enabled, the tenant identifier used to invoke your Event Function is made available within the context object passed to your Event Function handler. You can use this identifier to implement tenant-specific logic, monitoring, and debugging capabilities.
 
@@ -18,7 +17,7 @@ The tenant identifier is available through the `tenantId` property of the contex
 ------
 #### [ Python ]
 
-```
+```python
 def lambda_handler(event, context):
     tenant_id = context.tenant_id
     print(f"Processing request for tenant: {tenant_id}")
@@ -35,7 +34,7 @@ def lambda_handler(event, context):
 ------
 #### [ Node.js ]
 
-```
+```javascript
 exports.handler = async (event, context) => {
     const tenantId = context.tenantId;
     console.log(`Processing request for tenant: ${tenantId}`);
@@ -55,7 +54,7 @@ exports.handler = async (event, context) => {
 ------
 #### [ Java ]
 
-```
+```java
 public class TenantHandler implements RequestHandler<Map<String, Object>, String> {
     
     @Override
@@ -87,7 +86,7 @@ Here are common ways to use the tenant identifier in your Event Function code:
 
 Use the tenant ID to load tenant-specific configuration or settings:
 
-```
+```python
 def lambda_handler(event, context):
     tenant_id = context.tenant_id
     
@@ -104,7 +103,7 @@ def lambda_handler(event, context):
 
 Use the tenant ID to ensure data isolation and access control:
 
-```
+```python
 import boto3
 
 def lambda_handler(event, context):
@@ -134,7 +133,7 @@ The tenant identifier is automatically included in Lambda logs when you have [JS
 **Example Custom metrics with tenant ID**  
 The following example demonstrates how to use the tenant ID to create tenant-specific CloudWatch metrics for monitoring usage patterns and performance by tenant:  
 
-```
+```python
 import boto3
 
 def lambda_handler(event, context):

@@ -1,7 +1,6 @@
 
 
 # Logging AWS Lambda API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Lambda is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures API calls for Lambda as events. The calls captured include calls from the Lambda console and code calls to the Lambda API operations. Using the information collected by CloudTrail, you can determine the request that was made to Lambda, the IP address from which the request was made, when it was made, and additional details.
 
@@ -128,6 +127,8 @@ In the CloudTrail log file, the `eventName` might include date and version infor
   (The `Environment` parameter is omitted from the CloudTrail logs for `UpdateFunctionConfiguration`.)
 + [UpdateFunctionEventInvokeConfig](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionEventInvokeConfig.html)
 + [UpdateFunctionUrlConfig](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionUrlConfig.html)
+
+Lambda also logs API actions for customer-managed runtimes as management events. For details, see [Logging customer-managed runtime API calls with CloudTrail](cmr-monitoring.md#cmr-monitoring-cloudtrail).
 
 ## Using CloudTrail to troubleshoot disabled Lambda event sources
 <a name="cloudtrail-ESM-troubleshooting"></a>

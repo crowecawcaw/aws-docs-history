@@ -1,7 +1,6 @@
 
 
 # $LATEST.PUBLISHED version in Lambda Managed Instances
-<a name="lambda-managed-instances-version-publishing"></a>
 
 Lambda Managed Instances functions support the same numbered versioning workflow as Lambda (default). If you prefer not to maintain numbered versions, Lambda Managed Instances introduces a new version type: `$LATEST.PUBLISHED`. With this version type, you can create or republish a published version with updated code or configuration. You do not need to manage numbered versions.
 
@@ -9,13 +8,13 @@ Lambda Managed Instances functions support the same numbered versioning workflow
 
 The following AWS CLI command creates or republishes the `$LATEST.PUBLISHED` version.
 
-```
+```bash
 aws lambda publish-version --function-name my-function --publish-to LATEST_PUBLISHED
 ```
 
 You should see the following output:
 
-```
+```json
 {
   "FunctionName": "my-function",
   "FunctionArn": "arn:aws:lambda:us-east-2:123456789012:function:my-function:$LATEST.PUBLISHED",

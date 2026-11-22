@@ -1,7 +1,6 @@
 
 
 # Networking for Lambda Managed Instances
-<a name="lambda-managed-instances-networking"></a>
 
 When running Lambda Managed Instances functions, you need to configure network connectivity to enable your Lambda Event Functions to access resources outside the VPC. This includes AWS services such as Amazon S3 and DynamoDB. The connectivity is also needed for transmitting telemetry data to CloudWatch Logs and X-Ray.
 

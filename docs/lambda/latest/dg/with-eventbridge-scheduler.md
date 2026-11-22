@@ -1,7 +1,6 @@
 
 
 # Invoke a Lambda Event Function on a schedule
-<a name="with-eventbridge-scheduler"></a>
 
 [Amazon EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html) is a serverless scheduler that you can use to create, run, and manage tasks from one central, managed service. With EventBridge Scheduler, you can create schedules using cron and rate expressions for recurring patterns, or configure one-time invocations. You can set up flexible time windows for delivery, define retry limits, and set the maximum retention time for unprocessed events.
 

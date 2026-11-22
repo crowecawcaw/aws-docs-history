@@ -1,14 +1,13 @@
 
 
 # Python runtime for Lambda Managed Instances
-<a name="lambda-managed-instances-python-runtime"></a>
 
 The Lambda runtime uses multiple Python processes to handle concurrent requests. Each concurrent request runs in a separate process with its own memory space and initialization. Each process handles one request at a time, synchronously. Processes don't share memory directly, so global variables, module-level caches, and singleton objects are isolated between concurrent requests.
 
 ## Concurrency configuration
 <a name="lambda-managed-instances-python-concurrency-config"></a>
 
-The maximum number of concurrent requests which Lambda sends to each execution environment is controlled by the `PerExecutionEnvironmentMaxConcurrency` setting in the function configuration. This is an optional setting, and the default value varies depending on the runtime. For Python runtimes, the default is 16 concurrent requests per vCPU, or you can configure your own value. This value also determines the number of processes used by the Python runtime. Lambda automatically adjusts the number of concurrent requests up to the configured maximum based on the capacity of each execution environment to absorb those requests.
+The maximum number of concurrent requests which Lambda sends to each execution environment is controlled by the `PerExecutionEnvironmentMaxConcurrency` setting in the function configuration. This is an optional setting, and the default value varies depending on the runtime. For Python runtimes, the default is 16 concurrent requests per vCPU, or you can configure your own value. For [GPU-accelerated functions](lambda-managed-instances-gpu.md) (functions with an accelerator configuration), the default is 4 concurrent requests per execution environment, regardless of the number of vCPUs. For more information, see [Concurrency in GPU-accelerated functions](lambda-managed-instances-gpu-scaling.md#lambda-managed-instances-gpu-scaling-concurrency). This value also determines the number of processes used by the Python runtime. Lambda automatically adjusts the number of concurrent requests up to the configured maximum based on the capacity of each execution environment to absorb those requests.
 
 **Important**  
 Using process-based concurrency means each runtime worker process performs its own initialization. Total memory usage equals the per-process memory multiplied by the number of concurrent processes. If you are loading large libraries or data sets and have high concurrency, you have a large memory footprint. According to your workload, you might need to tune your CPU-to-memory ratio or use a lower concurrency setting to avoid exceeding the available memory. You can use the `MemoryUtilization` metric in CloudWatch to track memory consumption.
@@ -43,7 +42,7 @@ Use `context.get_remaining_time_in_millis()` to detect timeouts. See [Error hand
 
 Check remaining time before each unit of work and stop processing before the timeout fires. Configure `BUFFER_MS` based on the expected duration of your next chunk of work.
 
-```
+```python
 BUFFER_MS = 2000  # Configure based on your next chunk of work
 
 def handler(event, context):
@@ -58,7 +57,7 @@ def handler(event, context):
 
 When making calls to downstream services, propagate the remaining time as a timeout to avoid hanging on network calls that would outlive your invocation. The boto3 SDK does not support per-request timeouts on an existing client, so you must create a client with the desired timeout. For high-throughput functions, evaluate whether a fixed timeout configured at initialization is more appropriate than per-request client creation.
 
-```
+```python
 import boto3
 from botocore.config import Config
 

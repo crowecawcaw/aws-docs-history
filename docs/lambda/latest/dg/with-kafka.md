@@ -1,7 +1,6 @@
 
 
 # Using Lambda with self-managed Apache Kafka
-<a name="with-kafka"></a>
 
 This topic describes how to use Lambda with a self-managed Kafka cluster. In AWS terminology, a self-managed cluster includes non-AWS hosted Kafka clusters. For example, you can host your Kafka cluster with a cloud provider such as [Confluent Cloud](https://www.confluent.io/confluent-cloud/) or [Redpanda](https://www.redpanda.com/).
 
@@ -35,7 +34,7 @@ For an example of how to use self-managed Kafka as an event source, see [Using s
 
 Lambda sends the batch of messages in the event parameter when it invokes your Lambda Event Function. The event payload contains an array of messages. Each array item contains details of the Kafka topic and Kafka partition identifier, together with a timestamp and a base64-encoded message.
 
-```
+```json
 {
    "eventSource": "SelfManagedKafka",
    "bootstrapServers":"b-2.demo-cluster-1.a1bcde.c1.kafka.us-east-1.amazonaws.com:9092,b-1.demo-cluster-1.a1bcde.c1.kafka.us-east-1.amazonaws.com:9092",

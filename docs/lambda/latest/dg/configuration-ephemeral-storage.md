@@ -1,7 +1,6 @@
 
 
 # Configure ephemeral storage for Lambda Event Functions
-<a name="configuration-ephemeral-storage"></a>
 
 Lambda provides ephemeral storage for functions in the `/tmp` directory. This storage is temporary and unique to each execution environment. You can control the amount of ephemeral storage allocated to your function using the **Ephemeral storage** setting. You can configure ephemeral storage between 512 MB and 10,240 MB, in 1-MB increments. All data stored in `/tmp` is encrypted at rest with a key managed by AWS.
 
@@ -62,7 +61,7 @@ You can use the [AWS Serverless Application Model](https://docs.aws.amazon.com/s
 
 **Example template.yaml**  
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: An AWS Serverless Application Model template describing your function.

@@ -1,7 +1,6 @@
 
 
 # Converting Lambda Telemetry API `Event` objects to OpenTelemetry Spans
-<a name="telemetry-otel-spans"></a>
 
 The AWS Lambda Telemetry API schema is semantically compatible with OpenTelemetry (OTel). This means that you can convert your AWS Lambda Telemetry API `Event` objects to OpenTelemetry (OTel) Spans. When converting, you shouldn't map a single `Event` object to a single OTel Span.
 

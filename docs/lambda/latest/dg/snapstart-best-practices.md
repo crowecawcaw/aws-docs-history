@@ -1,7 +1,6 @@
 
 
 # Maximize Lambda SnapStart performance
-<a name="snapstart-best-practices"></a>
 
 **Topics**
 + [Performance tuning](#snapstart-tuning)
@@ -75,7 +74,7 @@ To maximize the benefits of SnapStart, focus on efficient code organization and 
 
 **Example — Optimize Python Event Function for SnapStart**  
 
-```
+```python
 # Import all dependencies outside of Lambda handler
 from snapshot_restore_py import register_before_snapshot
 import boto3
@@ -108,7 +107,7 @@ Make sure that your dummy function invocation does not produce unintended side e
 
 **Example**  
 
-```
+```csharp
 public class Function
 {
     public Function()

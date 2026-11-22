@@ -1,7 +1,6 @@
 
 
 # Use `UpdateAlias` with a CLI
-<a name="example_lambda_UpdateAlias_section"></a>
 
 The following code examples show how to use `UpdateAlias`.
 
@@ -38,7 +37,7 @@ For more information, see [Configuring AWS Lambda Function Aliases](https://docs
 **Tools for PowerShell V4**  
 **Example 1: This example updates the Configuration of an existing Lambda function Alias. It updates the RoutingConfiguration value to shift 60% (0.6) of traffic to version 1**  
 
-```
+```powershell
 Update-LMAlias -FunctionName "MylambdaFunction123" -Description " Alias for version 2" -FunctionVersion 2 -Name "newlabel1" -RoutingConfig_AdditionalVersionWeight @{Name="1";Value="0.6}
 ```
 +  For API details, see [UpdateAlias](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -46,7 +45,7 @@ Update-LMAlias -FunctionName "MylambdaFunction123" -Description " Alias for vers
 **Tools for PowerShell V5**  
 **Example 1: This example updates the Configuration of an existing Lambda function Alias. It updates the RoutingConfiguration value to shift 60% (0.6) of traffic to version 1**  
 
-```
+```powershell
 Update-LMAlias -FunctionName "MylambdaFunction123" -Description " Alias for version 2" -FunctionVersion 2 -Name "newlabel1" -RoutingConfig_AdditionalVersionWeight @{Name="1";Value="0.6}
 ```
 +  For API details, see [UpdateAlias](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

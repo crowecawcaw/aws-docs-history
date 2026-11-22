@@ -1,7 +1,6 @@
 
 
 # Use `TagResource` with a CLI
-<a name="example_lambda_TagResource_section"></a>
 
 The following code examples show how to use `TagResource`.
 
@@ -27,7 +26,7 @@ For more information, see [Tagging Lambda Functions](https://docs.aws.amazon.com
 **Tools for PowerShell V4**  
 **Example 1: Adds the three tags (Washington, Oregon and California) and their associated values to the specified function identified by its ARN.**  
 
-```
+```powershell
 Add-LMResourceTag -Resource "arn:aws:lambda:us-west-2:123456789012:function:MyFunction" -Tag @{ "Washington" = "Olympia"; "Oregon" = "Salem"; "California" = "Sacramento" }
 ```
 +  For API details, see [TagResource](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -35,7 +34,7 @@ Add-LMResourceTag -Resource "arn:aws:lambda:us-west-2:123456789012:function:MyFu
 **Tools for PowerShell V5**  
 **Example 1: Adds the three tags (Washington, Oregon and California) and their associated values to the specified function identified by its ARN.**  
 
-```
+```powershell
 Add-LMResourceTag -Resource "arn:aws:lambda:us-west-2:123456789012:function:MyFunction" -Tag @{ "Washington" = "Olympia"; "Oregon" = "Salem"; "California" = "Sacramento" }
 ```
 +  For API details, see [TagResource](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

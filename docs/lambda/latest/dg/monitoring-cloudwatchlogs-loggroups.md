@@ -1,7 +1,6 @@
 
 
 # Configuring CloudWatch log groups
-<a name="monitoring-cloudwatchlogs-loggroups"></a>
 
 By default, CloudWatch automatically creates a log group named `/aws/lambda/<function name>` for your Lambda Event Function when it's first invoked. To configure your Event Function to send logs to an existing log group, or to create a new log group for your Event Function, you can use the Lambda console or the AWS CLI. You can also configure custom log groups using the [CreateFunction](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunction.html) and [UpdateFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionConfiguration.html) Lambda API commands and the AWS Serverless Application Model (AWS SAM) [AWS::Serverless::Function]() resource.
 
@@ -91,7 +90,7 @@ We recommend one of the following approaches:
 + **Use default Lambda runtime loggers (recommended)**: The default logging libraries provided by Lambda managed runtimes automatically include the request ID in each log entry.
 + **Implement structured JSON logging**: If you're building a [custom runtime](runtimes-custom.md) or need custom logging, implement JSON-formatted logs that include the request ID in each entry. Lambda Managed Instances only support the JSON log format. Include the `requestId` field in your JSON logs to enable filtering by invocation:
 
-  ```
+  ```json
   {
     "timestamp": "2025-01-15T10:30:00.000Z",
     "level": "INFO",

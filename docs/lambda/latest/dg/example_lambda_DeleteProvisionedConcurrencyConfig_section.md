@@ -1,7 +1,6 @@
 
 
 # Use `DeleteProvisionedConcurrencyConfig` with a CLI
-<a name="example_lambda_DeleteProvisionedConcurrencyConfig_section"></a>
 
 The following code examples show how to use `DeleteProvisionedConcurrencyConfig`.
 
@@ -27,7 +26,7 @@ For more information, see [Configuring provisioned concurrency for an Event Func
 **Tools for PowerShell V4**  
 **Example 1: This example removes the Provisioned Concurrency Configuration for a specific Alias.**  
 
-```
+```powershell
 Remove-LMProvisionedConcurrencyConfig -FunctionName "MylambdaFunction123" -Qualifier "NewAlias1"
 ```
 +  For API details, see [DeleteProvisionedConcurrencyConfig](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -35,7 +34,7 @@ Remove-LMProvisionedConcurrencyConfig -FunctionName "MylambdaFunction123" -Quali
 **Tools for PowerShell V5**  
 **Example 1: This example removes the Provisioned Concurrency Configuration for a specific Alias.**  
 
-```
+```powershell
 Remove-LMProvisionedConcurrencyConfig -FunctionName "MylambdaFunction123" -Qualifier "NewAlias1"
 ```
 +  For API details, see [DeleteProvisionedConcurrencyConfig](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

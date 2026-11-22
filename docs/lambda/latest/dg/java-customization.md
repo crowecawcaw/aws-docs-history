@@ -1,7 +1,6 @@
 
 
 # Customize Java runtime startup behavior for Lambda Event Functions
-<a name="java-customization"></a>
 
 This page describes settings specific to Java Event Functions in AWS Lambda. You can use these settings to customize Java runtime startup behavior. This can reduce overall function latency and improve overall function performance, without having to modify any code.
 

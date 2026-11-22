@@ -1,7 +1,6 @@
 
 
 # Deploy .NET Lambda Event Functions with container images
-<a name="csharp-image"></a>
 
 There are three ways to build a container image for a .NET Lambda Event Function:
 + [Using an AWS base image for .NET](#csharp-image-instructions)
@@ -165,7 +164,7 @@ To complete the steps in this section, you must have the following:
 
 1. Open the `aws-lambda-tools-defaults.json` file and Add the following lines:
 
-   ```
+   ```json
      {{"package-type": "image",}}
      {{"docker-host-build-output-dir": "./bin/Release/lambda-publish"}}
    ```
@@ -173,7 +172,7 @@ To complete the steps in this section, you must have the following:
    + **docker-host-build-output-dir**: Sets the output directory for the build process.  
 **Example aws-lambda-tools-defaults.json**  
 
-   ```
+   ```json
    {
      "Information": [
        "This file provides default values for the deployment wizard inside Visual Studio and the AWS Lambda commands added to the .NET Core CLI.",
@@ -202,7 +201,7 @@ To complete the steps in this section, you must have the following:
    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.  
 **Example Dockerfile**  
 
-   ```
+   ```dockerfile
    # You can also pull these images from DockerHub amazon/aws-lambda-dotnet:8
    FROM {{mcr.microsoft.com/dotnet/runtime:9.0}}
    

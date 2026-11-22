@@ -1,7 +1,6 @@
 
 
 # Implement preventative controls for Lambda with AWS Config
-<a name="governance-config"></a>
 
 It is essential to ensure compliance in your serverless applications as early in the development process as possible. In this topic, we cover how to implement preventative controls using [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html). With AWS Config, you can implement compliance checks earlier in the development process and implement the same controls in your CI/CD pipelines. This also standardizes your controls in a centrally managed repository of rules so that you can apply your controls consistently across your AWS accounts.
 
@@ -57,7 +56,7 @@ As a hook developer, you need to add the desired target resource type in the `<h
 
 You also need to ensure that the CloudFormation hook has appropriate permissions to call the AWS Config APIs. You can do that by updating the role definition file named `hook-role.yaml`. The role definition file has the following trust policy by default, which allows CloudFormation to assume the role.
 
-```
+```yaml
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
@@ -70,7 +69,7 @@ You also need to ensure that the CloudFormation hook has appropriate permissions
 
 To allow this hook to call config APIs, you must add following permissions to the Policy statement. Then you submit the hook project using the `cfn submit` command, where CloudFormation creates a role for you with the required permissions.
 
-```
+```yaml
       Policies:
         - PolicyName: HookTypePolicy
           PolicyDocument:
@@ -87,7 +86,7 @@ To allow this hook to call config APIs, you must add following permissions to th
 
 Next, you need to write a Lambda function in a `src/handler.py` file. Within this file, you find methods named `preCreate`, `preUpdate`, and `preDelete` already created when you initiated the project. You aim to write a common, reusable function that calls the AWS Config `StartResourceEvaluation` API in proactive mode using the AWS SDK for Python (Boto3). This API call takes resource properties as input and evaluates the resource against the rule definition.
 
-```
+```python
 def validate_lambda_tracing_config(resource_type, function_properties: MutableMapping[str, Any]) -> ProgressEvent:
   LOG.info("Fetching proactive data")
   config_client = boto3.client('config')
@@ -110,7 +109,7 @@ def validate_lambda_tracing_config(resource_type, function_properties: MutableMa
 
 Now you can call the common function from the handler for the pre-create hook. Here's an example of the handler:
 
-```
+```python
 @hook.handler(HookInvocationPoint.CREATE_PRE_PROVISION)
 def pre_create_handler(
         session: Optional[SessionProxy],
@@ -133,7 +132,7 @@ After this step you can register the hook and configure it to listen to all AWS 
 
  A developer prepares the infrastructure as code (IaC) template for a serverless microservice using Lambda. This preparation includes adherence to internal standards, followed by locally testing and committing the template to the repository. Here's an example IaC template: 
 
-```
+```yaml
   MyLambdaFunction:
   Type: 'AWS::Lambda::Function'
   Properties:

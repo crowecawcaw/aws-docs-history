@@ -1,7 +1,6 @@
 
 
 # Process Amazon DocumentDB events with Lambda
-<a name="with-documentdb"></a>
 
 You can use a Lambda Event Function to process events in an [Amazon DocumentDB (with MongoDB compatibility) change stream](https://docs.aws.amazon.com/documentdb/latest/developerguide/change_streams.html) by configuring an Amazon DocumentDB cluster as an event source. Then, you can automate event-driven workloads by invoking your Lambda Event Function each time that data changes with your Amazon DocumentDB cluster.
 
@@ -100,7 +99,7 @@ Before you can use Amazon DocumentDB as an event source for your Lambda Event Fu
 + **Keep the size of Amazon DocumentDB change stream events that you send to Lambda under 6 MB.** Lambda supports payload sizes of up to 6 MB. If your change stream tries to send Lambda an event larger than 6 MB, then Lambda drops the message and emits the `OversizedRecordCount` metric. Lambda emits all metrics on a best-effort basis.
 
 **Note**  
-While Lambda Event Functions typically have a maximum timeout limit of 15 minutes, event source mappings for Amazon MSK, self-managed Apache Kafka, Amazon DocumentDB, and Amazon MQ for ActiveMQ and RabbitMQ only support functions with maximum timeout limits of 14 minutes. This constraint ensures that the event source mapping can properly handle function errors and retries.
+While Lambda Event Functions typically have a maximum timeout limit of 30 minutes, event source mappings for Amazon DocumentDB and Amazon MQ for ActiveMQ and RabbitMQ only support functions with maximum timeout limits of 14 minutes. This constraint ensures that the event source mapping can properly handle function errors and retries.
 
 ## Configure network security
 <a name="docdb-network"></a>
@@ -133,7 +132,7 @@ If your cluster uses authentication, you can also restrict the endpoint policy f
 
 **Example VPC endpoint policy — Secrets Manager endpoint**  
 
-```
+```JSON
 {
       "Statement": [
           {
@@ -158,7 +157,7 @@ The following example VPC endpoint policies show how to grant the required acces
 
 **Example VPC Endpoint policy — AWS STS endpoint**  
 
-```
+```JSON
 {
       "Statement": [
           {
@@ -177,7 +176,7 @@ The following example VPC endpoint policies show how to grant the required acces
 
 **Example VPC Endpoint policy — Lambda endpoint**  
 
-```
+```JSON
 {
       "Statement": [
           {

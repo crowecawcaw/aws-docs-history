@@ -1,7 +1,6 @@
 
 
 # Configuring provisioned concurrency for an Event Function
-<a name="provisioned-concurrency"></a>
 
 In Lambda, [concurrency](lambda-concurrency.md) is the number of in-flight requests that your Event Function is currently handling. There are two types of concurrency controls available:
 + Reserved concurrency – This sets both the maximum and minimum number of concurrent instances allocated to your Event Function. When an Event Function has reserved concurrency, no other Event Function can use that concurrency. Reserved concurrency is useful for ensuring that your most critical functions always have enough concurrency to handle incoming requests. Additionally, reserved concurrency can be used for limiting concurrency to prevent overwhelming downstream resources, like database connections. Reserved concurrency acts as both a lower and upper bound - it reserves the specified capacity exclusively for your function while also preventing it from scaling beyond that limit. Configuring reserved concurrency for a function incurs no additional charges.

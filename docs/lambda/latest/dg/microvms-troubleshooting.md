@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="microvms-troubleshooting"></a>
 
 This section describes how to debug and troubleshoot common issues when working with AWS Lambda MicroVMs.
 
@@ -16,7 +15,7 @@ You can connect to a MicroVM shell in two ways:
 
 Generate a shell token, then connect:
 
-```
+```bash
 aws lambda-microvms create-microvm-shell-auth-token \
   --microvm-identifier <id> --expiration-in-minutes 30
 # In Console: select MicroVM -> Connect
@@ -74,7 +73,8 @@ This section provides solutions for common issues when working with Lambda Micro
 | --- | --- | --- | 
 | DisallowedByVpcEncryptionControl | The VPC has an encryption control policy that prevents unencrypted network interfaces or traffic. Lambda cannot create ENIs that satisfy the encryption requirements. | Add Lambda to the VPC encryption control exclusion list. If exclusion is not possible, use a VPC or subnet that does not have restrictive encryption controls applied. | 
 | Ec2RequestLimitExceeded | Lambda makes EC2 API calls (for example, CreateNetworkInterface, DescribeSubnets) to set up connectivity. Too many concurrent EC2 API calls causes throttling. | Retry the operation after a short delay. If persistent, reduce concurrent network connector operations or request an EC2 API throttling limit increase through AWS Support. | 
-| InsufficientRolePermissions | The operator role lacks required EC2 permissions. | Ensure the IAM role has necessary EC2 networking permissions. | 
+| InsufficientRolePermissions | The operator role lacks required EC2 permissions. | Make sure that the IAM role has the necessary EC2 networking permissions. If the connector uses service-managed Elastic IP addresses, the role also needs ec2:AllocateAddress and ec2:AssociateAddress. See [Prerequisites](microvms-networking.md#microvms-networking-connectors-prereqs). | 
+| InternetGatewayNotAttached | The connector uses service-managed Elastic IP addresses, and the VPC of its subnets has no internet gateway attached. | Attach an internet gateway to the VPC and add a route from the connector subnets to it. | 
 | InternalError | An unexpected error occurred within the Lambda service while processing the network connector request. | Retry the operation. If it persists after multiple retries, contact AWS Support with the network connector ARN and approximate timestamp. | 
 | InvalidSecurityGroup | The security group ID does not exist, has been deleted, or does not belong to the same VPC as the specified subnets. | Verify all security group IDs exist and belong to the same VPC as the subnets. Use aws ec2 describe-security-groups --group-ids <sg-id> to validate. | 
 | InvalidSubnet | The subnet ID does not exist, has been deleted, or belongs to a different VPC than expected. | Verify all subnet IDs exist and belong to the correct VPC. Use aws ec2 describe-subnets --subnet-ids <subnet-id> to validate. | 

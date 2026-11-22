@@ -1,7 +1,6 @@
 
 
 # Instrumenting Ruby code in AWS Lambda
-<a name="ruby-tracing"></a>
 
 Lambda integrates with AWS X-Ray to enable you to trace, debug, and optimize Lambda applications. You can use X-Ray to trace a request as it traverses resources in your application, from the frontend API to storage and database on the backend. By simply adding the X-Ray SDK library to your build configuration, you can record errors and latency for any call that your function makes to an AWS service.
 
@@ -74,7 +73,7 @@ To instrument AWS SDK clients, require the `aws-xray-sdk/lambda` module after cr
 
 **Example [blank-ruby/function/lambda\_function.rb](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-ruby/function/lambda_function.rb) – Tracing an AWS SDK client**  
 
-```
+```ruby
 # lambda_function.rb
 require 'logger'
 require 'json'

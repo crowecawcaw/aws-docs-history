@@ -1,9 +1,8 @@
 
 
 # Building Lambda Event Functions with Rust
-<a name="lambda-rust"></a>
 
-Because Rust compiles to native code, you don't need a dedicated runtime to run Rust code as a Lambda Event Function. Instead, use the [Rust runtime client](https://github.com/aws/aws-lambda-rust-runtime) to build your project locally, and then deploy it to Lambda using an [OS-only runtime](runtimes-provided.md). When you use an OS-only runtime, Lambda automatically keeps the operating system up to date with the latest patches. For information about working with HTTP events, see [Processing HTTP events with Rust](rust-http-events.md). For information about using layers with Rust, see [Working with layers for Rust Lambda Event Functions](rust-layers.md).
+Because Rust compiles to native code, you don't need a dedicated runtime to run Rust code as a Lambda Event Function. Instead, use the [Rust runtime client](https://github.com/aws/aws-lambda-rust-runtime) to build your project locally, and then deploy it to Lambda using an [OS-only runtime](lambda-runtimes.md#runtimes-provided). When you use an OS-only runtime, Lambda automatically keeps the operating system up to date with the latest patches. For information about working with HTTP events, see [Processing HTTP events with Rust](rust-http-events.md). For information about using layers with Rust, see [Working with layers for Rust Lambda Event Functions](rust-layers.md).
 
 **Tools and libraries for Rust**
 + [AWS SDK for Rust](https://docs.aws.amazon.com/sdk-for-rust/latest/dg/getting-started.html): The AWS SDK for Rust provides Rust APIs to interact with Amazon Web Services infrastructure services.

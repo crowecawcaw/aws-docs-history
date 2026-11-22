@@ -1,7 +1,6 @@
 
 
 # Define Lambda Event Function handler in TypeScript
-<a name="typescript-handler"></a>
 
 The Lambda Event Function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
@@ -27,13 +26,13 @@ Use a local integrated development environment (IDE) or text editor to write you
 
 There are multiple ways to initialize a TypeScript Lambda project. For example, you can create a project using `npm`, create an [AWS SAM application](typescript-package.md#aws-sam-ts), or create an [AWS CDK application](typescript-package.md#aws-cdk-ts). To create the project using `npm`:
 
-```
+```bash
 npm init
 ```
 
 Your function code lives in a `.ts` file, which you transpile into a JavaScript file at build time. You can use either [esbuild](https://esbuild.github.io/) or Microsoft's TypeScript compiler (`tsc`) to transpile your TypeScript code into JavaScript. To use esbuild, add it as a development dependency:
 
-```
+```bash
 npm install -D esbuild
 ```
 
@@ -59,7 +58,7 @@ This example uses an ES module handler. Lambda supports both ES module and Commo
 
 **Example index.ts Lambda Event Function**  
 
-```
+```typescript
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 
 // Initialize the S3 client outside the handler for reuse
@@ -169,7 +168,7 @@ If you create a function in the console using a different file name or function 
 
 JSON is the most common and standard input format for Lambda Event Functions. In this example, the function expects an input similar to the following:
 
-```
+```json
 {
     "order_id": "12345",
     "amount": 199.99,
@@ -179,7 +178,7 @@ JSON is the most common and standard input format for Lambda Event Functions. In
 
 When working with Lambda functions in TypeScript, you can define the shape of the input event using a type or interface. In this example, we define the event structure using a type:
 
-```
+```typescript
 type OrderEvent = {
     order_id: string;
     amount: number;
@@ -189,7 +188,7 @@ type OrderEvent = {
 
 After you define the type or interface, use it in your handler's signature to ensure type safety:
 
-```
+```typescript
 export const handler = async (event: OrderEvent): Promise<string> => {
 ```
 
@@ -204,7 +203,7 @@ The examples in this section use the `S3Event` type. However, you can use any ot
 
 1. Add the @types/aws-lambda package as a development dependency:
 
-   ```
+   ```bash
    npm install -D @types/aws-lambda
    ```
 
@@ -219,11 +218,11 @@ The `async` keyword marks a function as asynchronous, and the `await` keyword pa
 
 Here are the valid signatures for the async/await pattern:
 
-```
+```typescript
 export const handler = async {{(event: S3Event)}}: Promise<void> => { };
 ```
 
-```
+```typescript
 export const handler = async {{(event: S3Event, context: Context)}}: Promise<void> => { };
 ```
 
@@ -235,11 +234,11 @@ When processing arrays of items asynchronously, make sure to use await with `Pro
 
 Where your function does not perform any asynchronous tasks, you can use a synchronous function handler, using one of the following function signatures:
 
-```
+```typescript
 export const handler = (event: S3Event): void => { };
 ```
 
-```
+```typescript
 export const handler = (event: S3Event, context: Context): void => { };
 ```
 
@@ -248,7 +247,7 @@ export const handler = (event: S3Event, context: Context): void => { };
 
 Lambda supports response streaming with Node.js. Response streaming function handlers use the awslambda.streamifyResponse() decorator and take 3 parameters: event, responseStream, and context. The function signature is:
 
-```
+```typescript
 export const handler = awslambda.streamifyResponse(async (event: APIGatewayProxyEvent, responseStream: NodeJS.WritableStream, context: Context) => { });
 ```
 
@@ -264,7 +263,7 @@ Callback-based function handlers can use the event, context, and callback argume
 
 Here is the valid signature for the callback handler pattern:
 
-```
+```typescript
 export const handler = {{(event: S3Event, context: Context, callback: Callback<void>)}}: void => { };
 ```
 
@@ -273,7 +272,7 @@ The function continues to execute until the [event loop](https://nodejs.org/lear
 **Example TypeScript function with callback**  
 The following example uses `APIGatewayProxyCallback`, which is a specialized callback type specific to API Gateway integrations. Most AWS event sources use the generic `Callback` type shown in the signatures above.  
 
-```
+```typescript
 import { Context, APIGatewayProxyCallback, APIGatewayEvent } from 'aws-lambda';
 
 export const lambdaHandler = (event: APIGatewayEvent, context: Context, callback: APIGatewayProxyCallback): void => {
@@ -295,25 +294,25 @@ Often, you'll use Lambda functions to interact with or make updates to other AWS
 
 To add SDK dependencies to your function, use the `npm install` command for the specific SDK clients that you need. In the example code, we used the [Amazon S3 client](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/). Add this dependency by running the following command in the directory that contains your `package.json` file:
 
-```
+```bash
 npm install @aws-sdk/client-s3
 ```
 
 In the function code, import the client and commands that you need, as the example function demonstrates:
 
-```
+```javascript
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 ```
 
 Then, initialize an [Amazon S3 client](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/):
 
-```
+```javascript
 const s3Client = new S3Client();
 ```
 
 In this example, we initialized our Amazon S3 client outside of the main handler function to avoid having to initialize it every time we invoke our function. After you initialize your SDK client, you can then use it to make API calls for that AWS service. The example code calls the Amazon S3 [PutObject](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectCommand/) API action as follows:
 
-```
+```javascript
 const command = new PutObjectCommand({
     Bucket: bucketName,
     Key: key,
@@ -326,7 +325,7 @@ const command = new PutObjectCommand({
 
 In your handler code, you can reference any [environment variables](configuration-envvars.md) by using `process.env`. In this example, we reference the defined `RECEIPT_BUCKET` environment variable using the following lines of code:
 
-```
+```javascript
 // Access environment variables
 const bucketName = process.env.RECEIPT_BUCKET;
 if (!bucketName) {

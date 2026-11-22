@@ -1,21 +1,20 @@
 
 
 # Select a database service for your Lambda-based applications
-<a name="ddb-rds-database-decision"></a>
 
 Many serverless applications need to store and retrieve data. AWS offers multiple database options that work with Lambda Event Functions. Two of the most popular choices are Amazon DynamoDB, a NoSQL database service, and Amazon RDS, a traditional relational database solution. The following sections explain the key differences between these services when using them with Lambda and help you select the right database service for your serverless application.
 
 To learn more about the other database services offered by AWS, and to understand their use cases and tradeoffs more generally, see [Choosing an AWS database service](https://docs.aws.amazon.com/decision-guides/latest/databases-on-aws-how-to-choose/databases-on-aws-how-to-choose.html). All of the AWS database services are compatible with Lambda, but not all of them might be suited to your particular use case.
 
 ## What are your choices when selecting a database service with Lambda?
-<a name="w2aac15c59d103c21b9"></a>
+<a name="w2aac15c63d105c21b9"></a>
 
 AWS offers multiple database services. For serverless applications, two of the most popular choices are DynamoDB and Amazon RDS.
 + **DynamoDB** is a fully managed NoSQL database service optimized for serverless applications. It provides seamless scaling and consistent single-digit millisecond performance at any scale.
 + **Amazon RDS** is a managed relational database service that supports multiple database engines including MySQL and PostgreSQL. It provides familiar SQL capabilities with managed infrastructure.
 
 ## Recommendations if you already know your requirements
-<a name="w2aac15c59d103c21c11"></a>
+<a name="w2aac15c63d105c21c11"></a>
 
 If you're already clear on your requirements, here are our basic recommendations:
 
@@ -24,7 +23,7 @@ We recommend [DynamoDB](with-ddb.md) for serverless applications that need consi
 [Amazon RDS](services-rds.md) is a better choice when you need complex SQL queries, joins, or have existing applications using relational databases. However, be aware that connecting Lambda Event Functions to Amazon RDS requires additional configuration and can impact cold start times.
 
 ## What to consider when selecting a database service
-<a name="w2aac15c59d103c21c13"></a>
+<a name="w2aac15c63d105c21c13"></a>
 
 When selecting between DynamoDB and Amazon RDS for your Lambda applications, consider these factors:
 + Connection management and cold starts
@@ -37,37 +36,37 @@ When selecting between DynamoDB and Amazon RDS for your Lambda applications, con
 By understanding these factors, you can select the option that best meets the needs of your particular use case.
 
 ### Connection management and cold starts
-<a name="w2aac15c59d103c21c13b9b1"></a>
+<a name="w2aac15c63d105c21c13b9b1"></a>
 + DynamoDB uses an HTTP API for all operations. Lambda Event Functions can make immediate requests without maintaining connections, resulting in better cold start performance. Each request is authenticated using AWS credentials without connection overhead.
 + Amazon RDS requires managing connection pools since it uses traditional database connections. This can impact cold starts as new Lambda instances need to establish connections. You'll need to implement connection pooling strategies and potentially use [Amazon RDS Proxy](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html) to manage connections effectively. Note that using Amazon RDS Proxy incurs additional costs.
 
 ### Data access patterns
-<a name="w2aac15c59d103c21c13b9b3"></a>
+<a name="w2aac15c63d105c21c13b9b3"></a>
 + DynamoDB works best with known access patterns and single-table designs. It's ideal for Lambda applications that need consistent low-latency access to data based on primary keys or secondary indexes.
 + Amazon RDS provides flexibility for complex queries and changing access patterns. It's better suited when your Lambda Event Functions need to perform unique, tailored queries or complex joins across multiple tables.
 
 ### Query complexity
-<a name="w2aac15c59d103c21c13b9b5"></a>
+<a name="w2aac15c63d105c21c13b9b5"></a>
 + DynamoDB excels at simple, key-based operations and predefined access patterns. Complex queries must be designed around index structures, and joins must be handled in application code.
 + Amazon RDS supports complex SQL queries with joins, subqueries, and aggregations. This can simplify your Lambda Event Function code when complex data operations are needed.
 
 ### Data consistency requirements
-<a name="w2aac15c59d103c21c13b9b7"></a>
+<a name="w2aac15c63d105c21c13b9b7"></a>
 + DynamoDB offers both eventual and strong consistency options, with strong consistency available for single-item reads. Transactions are supported but with some limitations.
 + Amazon RDS provides full atomicity, consistency, isolation, and durability (ACID) compliance and complex transaction support. If your Lambda Event Functions require complex transactions or strong consistency across multiple records, Amazon RDS might be more suitable.
 
 ### Scaling characteristics
-<a name="w2aac15c59d103c21c13b9b9"></a>
+<a name="w2aac15c63d105c21c13b9b9"></a>
 + DynamoDB scales automatically with your workload. It can handle sudden spikes in traffic from Lambda Event Functions without pre-provisioning. You can use on-demand capacity mode to pay only for what you use, perfectly matching Lambda's scaling model.
 + Amazon RDS has fixed capacity based on the instance size you choose. If multiple Lambda Event Functions try to connect simultaneously, you might exceed your connection quota. You need to carefully manage connection pools and potentially implement retry logic.
 
 ### Cost model
-<a name="w2aac15c59d103c21c13b9c11"></a>
+<a name="w2aac15c63d105c21c13b9c11"></a>
 + DynamoDB's pricing aligns well with serverless applications. With on-demand capacity, you pay only for the actual reads and writes performed by your Lambda Event Functions. There are no charges for idle time.
 + Amazon RDS charges for the running instance regardless of usage. This can be less cost-effective for sporadic workloads that can be typical in serverless applications. However, it might be more economical for high-throughput workloads with consistent usage.
 
 ## Getting started with your chosen database service
-<a name="w2aac15c59d103c21c15"></a>
+<a name="w2aac15c63d105c21c15"></a>
 
 Now that you've read about the criteria for selecting between DynamoDB and Amazon RDS and the key differences between them, you can select the option that best matches your needs and use the following resources to get started using it.
 

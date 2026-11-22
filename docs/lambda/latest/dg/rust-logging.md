@@ -1,7 +1,6 @@
 
 
 # Log and monitor Rust Lambda Event Functions
-<a name="rust-logging"></a>
 
 AWS Lambda automatically monitors Lambda Event Functions on your behalf and sends logs to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation to the log stream, and relays logs and other output from your function's code.
 

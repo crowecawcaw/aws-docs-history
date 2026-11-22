@@ -1,7 +1,6 @@
 
 
 # Use `CreateAlias` with a CLI
-<a name="example_lambda_CreateAlias_section"></a>
 
 The following code examples show how to use `CreateAlias`.
 
@@ -39,7 +38,7 @@ For more information, see [Configuring AWS Lambda Function Aliases](https://docs
 **Tools for PowerShell V4**  
 **Example 1: This example creates a New Lambda Alias for specified version and routing configuration to specify the percentage of invocation requests that it receives.**  
 
-```
+```powershell
 New-LMAlias -FunctionName "MylambdaFunction123" -RoutingConfig_AdditionalVersionWeight @{Name="1";Value="0.6} -Description "Alias for version 4" -FunctionVersion 4 -Name "PowershellAlias"
 ```
 +  For API details, see [CreateAlias](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -47,7 +46,7 @@ New-LMAlias -FunctionName "MylambdaFunction123" -RoutingConfig_AdditionalVersion
 **Tools for PowerShell V5**  
 **Example 1: This example creates a New Lambda Alias for specified version and routing configuration to specify the percentage of invocation requests that it receives.**  
 
-```
+```powershell
 New-LMAlias -FunctionName "MylambdaFunction123" -RoutingConfig_AdditionalVersionWeight @{Name="1";Value="0.6} -Description "Alias for version 4" -FunctionVersion 4 -Name "PowershellAlias"
 ```
 +  For API details, see [CreateAlias](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

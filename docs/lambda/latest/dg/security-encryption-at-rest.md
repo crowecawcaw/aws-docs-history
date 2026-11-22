@@ -1,7 +1,6 @@
 
 
 # Data encryption at rest for AWS Lambda
-<a name="security-encryption-at-rest"></a>
 
 AWS Lambda always provides at-rest encryption for the following resources:
 + Environment variables

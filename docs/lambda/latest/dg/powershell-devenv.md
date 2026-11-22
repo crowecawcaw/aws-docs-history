@@ -1,7 +1,6 @@
 
 
 # Setting Up a PowerShell Development Environment
-<a name="powershell-devenv"></a>
 
 Lambda provides a set of tools and libraries for the PowerShell runtime. For installation instructions, see [Lambda tools for PowerShell](https://github.com/aws/aws-lambda-dotnet/tree/master/PowerShell) on GitHub.
 

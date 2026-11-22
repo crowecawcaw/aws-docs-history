@@ -1,7 +1,6 @@
 
 
 # Compile .NET Lambda Event Function code to a native runtime format
-<a name="dotnet-native-aot"></a>
 
 .NET 8 supports native ahead-of-time (AOT) compilation. With native AOT, you can compile your Lambda function code to a native runtime format, which removes the need to compile .NET code at runtime. Native AOT compilation can reduce the cold start time for Lambda functions that you write in .NET. For more information, see [Introducing the .NET 8 runtime for AWS Lambda](https://aws.amazon.com/blogs/compute/introducing-the-net-8-runtime-for-aws-lambda/) on the AWS Compute Blog.
 
@@ -64,7 +63,7 @@ Both the .NET Global CLI and the AWS Serverless Application Model (AWS SAM) prov
 
    The `Function.cs` file created by the native AOT template contains the following function code.
 
-   ```
+   ```csharp
    using Amazon.Lambda.Core;
    using Amazon.Lambda.RuntimeSupport;
    using Amazon.Lambda.Serialization.SystemTextJson;
@@ -155,7 +154,7 @@ Both the .NET Global CLI and the AWS Serverless Application Model (AWS SAM) prov
 
 To deploy functions to Lambda using native AOT, your function code must use [source generated serialization](https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/source-generation-modes?pivots=dotnet-8-0). Instead of using run-time reflection to gather the metadata needed to access object properties for serialization, source generators generate C\# source files that are compiled when you build your application. To configure your source generated serializer correctly, ensure that you include any input and output objects your function uses, as well as any custom types. For example, a Lambda function that receives events from an API Gateway REST API and returns a custom `Product` type would include a serializer defined as follows.
 
-```
+```csharp
 [JsonSerializable(typeof(APIGatewayProxyRequest))]
 [JsonSerializable(typeof(APIGatewayProxyResponse))]
 [JsonSerializable(typeof(Product))]
@@ -171,7 +170,7 @@ Native AOT trims your application code as part of the compilation to ensure that
 
 These improvements offer the potential to eliminate build-time trimming warnings, but .NET is never completely trim safe. This means that parts of libraries that your function relies on might be trimmed out as part of the compilation step. You can manage this by defining `TrimmerRootAssemblies` as part of your `.csproj` file as shown in the following example. 
 
-```
+```csharp
 <ItemGroup>
     <TrimmerRootAssembly Include="AWSSDK.Core" />
     <TrimmerRootAssembly Include="AWSXRayRecorder.Core" />

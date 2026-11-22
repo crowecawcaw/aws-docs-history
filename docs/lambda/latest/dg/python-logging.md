@@ -1,7 +1,6 @@
 
 
 # Log and monitor Python Lambda Event Functions
-<a name="python-logging"></a>
 
 AWS Lambda automatically monitors Lambda functions and sends log entries to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation and other output from your function's code to the log stream. For more information about CloudWatch Logs, see [Sending Lambda Event Function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md).
 
@@ -16,7 +15,7 @@ Note that if your function outputs logs using Python `print` statements, Lambda 
 
 **Example lambda\_function.py**  
 
-```
+```python
 import os
 def lambda_handler(event, context):
     print('## ENVIRONMENT VARIABLES')
@@ -127,7 +126,7 @@ The following example code snippet and log output show how standard log outputs 
 
 **Example Python logging code**  
 
-```
+```Python
 import logging  
 logger = logging.getLogger()
 
@@ -137,7 +136,7 @@ def lambda_handler(event, context):
 
 **Example JSON log record**  
 
-```
+```JSON
 {
     "timestamp":"2025-10-27T19:17:45.586Z",
     "level":"INFO",
@@ -154,7 +153,7 @@ When your function's log format is set to JSON, you can also log additional para
 
 **Example Python logging code**  
 
-```
+```Python
 import logging
 
 def lambda_handler(event, context):
@@ -166,7 +165,7 @@ def lambda_handler(event, context):
 
 **Example JSON log record**  
 
-```
+```JSON
 {
   "timestamp": "2025-11-02T15:26:28Z",
   "level": "INFO",
@@ -187,7 +186,7 @@ The following code snippet shows how Python exceptions are captured in your func
 
 **Example Python logging code**  
 
-```
+```Python
 import logging
 
 def lambda_handler(event, context):
@@ -199,7 +198,7 @@ def lambda_handler(event, context):
 
 **Example JSON log record**  
 
-```
+```JSON
 {
   "timestamp": "2025-11-02T16:18:57Z",
   "level": "ERROR",
@@ -224,7 +223,7 @@ The following example shows how log outputs generated using the Powertools for A
 
 **Example Python logging code snippet (using Powertools for AWS Lambda)**  
 
-```
+```Python
 from aws_lambda_powertools import Logger
 
 logger = Logger()
@@ -235,7 +234,7 @@ def lambda_handler(event, context):
 
 **Example JSON log record (using Powertools for AWS Lambda)**  
 
-```
+```JSON
 { 
     "level": "INFO", 
     "location": "lambda_handler:7", 
@@ -257,7 +256,7 @@ For AWS Lambda to filter your application logs according to their log level, you
 
   You can also use a print statement to output a JSON object containing a log level identifier. The following print statement produces a JSON formatted output where the log level is set to INFO. AWS Lambda sends the JSON object to CloudWatch Logs if your function's logging level is set to INFO, DEBUG, or TRACE.
 
-  ```
+  ```Python
   print('{"msg":"My log message", "level":"info"}')
   ```
 
@@ -554,7 +553,7 @@ For **HelloWorldFunction may not have authorization defined, Is this okay?**, ma
 
 Log groups aren't deleted automatically when you delete a function. To avoid storing logs indefinitely, delete the log group, or configure a retention period after which CloudWatch automatically deletes the logs. To set up log retention, add the following to your AWS SAM template:
 
-```
+```yaml
 Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function
@@ -611,7 +610,7 @@ To complete the steps in this section, you must have the following:
 
 1. Create a file **app.py** and add the following code to the file. This is the code for the function.
 
-   ```
+   ```python
    from aws_lambda_powertools.event_handler import APIGatewayRestResolver
    from aws_lambda_powertools.utilities.typing import LambdaContext
    from aws_lambda_powertools.logging import correlation_paths
@@ -657,7 +656,7 @@ To complete the steps in this section, you must have the following:
 
 1. Open **hello\_world\_stack.py** and add the following code to the file. This contains the [Lambda Constructor](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_lambda.html), which creates the function, configures environment variables for Powertools and sets log retention to one week, and the [ ApiGatewayv1 Constructor](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_apigateway.html), which creates the REST API.
 
-   ```
+   ```python
    from aws_cdk import (
        Stack,
        aws_apigateway as apigwv1,

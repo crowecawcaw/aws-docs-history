@@ -1,7 +1,6 @@
 
 
 # Define Lambda Event Function handler in PowerShell
-<a name="powershell-handler"></a>
 
 When a Lambda function is invoked, the Lambda handler invokes the PowerShell script.
 

@@ -1,7 +1,6 @@
 
 
 # Deploy Ruby Lambda Event Functions with container images
-<a name="ruby-image"></a>
 
 There are three ways to build a container image for a Ruby Lambda Event Function:
 + [Using an AWS base image for Ruby](#ruby-image-instructions)
@@ -64,7 +63,7 @@ To complete the steps in this section, you must have the following:
 
 1. Create a new file called `Gemfile`. This is where you list your application's required RubyGems packages. The AWS SDK for Ruby is available from RubyGems. You should choose specific AWS service gems to install. For example, to use the [Ruby gem for Lambda](https://rubygems.org/gems/aws-sdk-lambda/), your Gemfile should look like this:
 
-   ```
+   ```rubygem
    source 'https://rubygems.org'
    
    gem 'aws-sdk-lambda'
@@ -81,7 +80,7 @@ To complete the steps in this section, you must have the following:
 1. Create a new file called `lambda_function.rb`. You can add the following sample function code to the file for testing, or use your own.  
 **Example Ruby function**  
 
-   ```
+   ```ruby
    module LambdaFunction
      class Handler
        def self.process(event:,context:)
@@ -99,7 +98,7 @@ To complete the steps in this section, you must have the following:
    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.  
 **Example Dockerfile**  
 
-   ```
+   ```dockerfile
    FROM {{public.ecr.aws/lambda/ruby:3.4}}
    
    # Copy Gemfile and Gemfile.lock
@@ -160,13 +159,13 @@ If you built the Docker image for the ARM64 instruction set architecture, be sur
 
    In PowerShell, run the following `Invoke-WebRequest` command:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{}' -ContentType "application/json"
    ```
 
    This command invokes the function with an empty event and returns a response. If you're using your own function code rather than the sample function code, you might want to invoke the function with a JSON payload. Example:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{{{"payload":"hello world!"}}}' -ContentType "application/json"
    ```
 
@@ -330,7 +329,7 @@ To complete the steps in this section, you must have the following:
 
 1. Create a new file called `Gemfile`. This is where you list your application's required RubyGems packages. The AWS SDK for Ruby is available from RubyGems. You should choose specific AWS service gems to install. For example, to use the [Ruby gem for Lambda](https://rubygems.org/gems/aws-sdk-lambda/), your Gemfile should look like this:
 
-   ```
+   ```rubygem
    source 'https://rubygems.org'
    
    gem 'aws-sdk-lambda'
@@ -347,7 +346,7 @@ To complete the steps in this section, you must have the following:
 1. Create a new file called `lambda_function.rb`. You can add the following sample function code to the file for testing, or use your own.  
 **Example Ruby function**  
 
-   ```
+   ```ruby
    module LambdaFunction
      class Handler
        def self.process(event:,context:)
@@ -366,7 +365,7 @@ To complete the steps in this section, you must have the following:
    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.  
 **Example Dockerfile**  
 
-   ```
+   ```dockerfile
    FROM {{ruby:2.7}}
    
    # Install the runtime interface client for Ruby
@@ -433,7 +432,7 @@ Use the [runtime interface emulator](https://github.com/aws/aws-lambda-runtime-i
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $dirPath = "$HOME\.aws-lambda-rie"
    if (-not (Test-Path $dirPath)) {
        New-Item -Path $dirPath -ItemType Directory
@@ -469,7 +468,7 @@ Use the [runtime interface emulator](https://github.com/aws/aws-lambda-runtime-i
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    docker run --platform linux/amd64 -d -v "$HOME\.aws-lambda-rie:/aws-lambda" -p 9000:8080 `
    --entrypoint /aws-lambda/aws-lambda-rie `
    {{docker-image:test}} `
@@ -504,13 +503,13 @@ If you built the Docker image for the ARM64 instruction set architecture, be sur
 
    In PowerShell, run the following `Invoke-WebRequest` command:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{}' -ContentType "application/json"
    ```
 
    This command invokes the function with an empty event and returns a response. If you're using your own function code rather than the sample function code, you might want to invoke the function with a JSON payload. Example:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{{{"payload":"hello world!"}}}' -ContentType "application/json"
    ```
 

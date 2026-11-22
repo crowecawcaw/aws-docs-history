@@ -1,7 +1,6 @@
 
 
 # AWS Lambda MicroVMs
-<a name="lambda-microvms-guide"></a>
 
 If you're building an application where multiple users or AI agents connect to a compute environment and run code (for example, interactive development environments, CI/CD systems, or sandboxes for AI) – you need compute environments that start fast, stay isolated between tenants, and don't require you to manage servers or networking.
 

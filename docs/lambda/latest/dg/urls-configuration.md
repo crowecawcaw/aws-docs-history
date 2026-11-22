@@ -1,7 +1,6 @@
 
 
 # Creating and managing Lambda function URLs
-<a name="urls-configuration"></a>
 
 A function URL is a dedicated HTTP(S) endpoint for your Lambda Event Function. You can create and configure a function URL through the Lambda console or the Lambda API.
 
@@ -26,6 +25,8 @@ Lambda function URLs use [resource-based policies](access-control-resource-based
 
 You can apply function URLs to any function alias, or to the `$LATEST` unpublished function version. You can't add a function URL to any other function version.
 
+To add a function URL to a [durable function](durable-functions.md), set the function's durable execution timeout to 1,800 seconds (30 minutes) or less.
+
 The following section show how to create and manage a function URL using the Lambda console, AWS CLI, and CloudFormation template. For a step-by-step tutorial on using function URLs as webhook endpoints, see [Tutorial: Creating a webhook endpoint using a Lambda function URL](urls-webhook-tutorial.md).
 
 **Topics**
@@ -35,7 +36,7 @@ The following section show how to create and manage a function URL using the Lam
 + [Cross-origin resource sharing (CORS)](#urls-cors)
 + [Throttling function URLs](#urls-throttling)
 + [Deactivating function URLs](#urls-deactivating)
-+ [Deleting function URLs](#w2aac15c47c77c53)
++ [Deleting function URLs](#w2aac15c51c77c55)
 + [Control access to Lambda function URLs](urls-auth.md)
 + [Invoking Lambda function URLs](urls-invocation.md)
 + [Monitoring Lambda function URLs](urls-monitoring.md)
@@ -241,7 +242,7 @@ Whenever your function concurrency exceeds the reserved concurrency, your functi
 In an emergency, you might want to reject all traffic to your function URL. To deactivate your function URL, set the reserved concurrency to zero. This throttles all requests to your function URL, resulting in HTTP `429` status responses. To reactivate your function URL, delete the reserved concurrency configuration, or set the configuration to an amount greater than zero.
 
 ## Deleting function URLs
-<a name="w2aac15c47c77c53"></a>
+<a name="w2aac15c51c77c55"></a>
 
 When you delete a function URL, you can't recover it. Creating a new function URL results in a different URL address.
 

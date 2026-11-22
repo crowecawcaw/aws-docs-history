@@ -1,7 +1,6 @@
 
 
 # Supported runtimes for durable functions
-<a name="durable-supported-runtimes"></a>
 
 Durable functions are available for selected managed runtimes and OCI container images for additional runtime version flexibility. You can create durable functions for Node.js, Python, Java, and C\# (.NET) using managed runtimes directly in the console or programmatically through infrastructure-as-code.
 
@@ -31,7 +30,7 @@ Lambda Node.js and Python runtimes include the durable execution SDK for testing
 
 Install the SDK in your Node.js project:
 
-```
+```bash
 npm install @aws/durable-execution-sdk-js
 ```
 
@@ -42,7 +41,7 @@ The SDK supports JavaScript and TypeScript. For TypeScript projects, the SDK inc
 
 Install the SDK in your Python project:
 
-```
+```bash
 pip install aws-durable-execution-sdk-python
 ```
 
@@ -53,7 +52,7 @@ The Python SDK uses synchronous methods and doesn't require `async/await`.
 
 Add a dependency to `pom.xml`:
 
-```
+```bash
 <dependency>
     <groupId>software.amazon.lambda.durable</groupId>
     <artifactId>aws-durable-execution-sdk-java</artifactId>
@@ -63,7 +62,7 @@ Add a dependency to `pom.xml`:
 
 Install the SDK in your Java project:
 
-```
+```bash
 mvn install
 ```
 
@@ -74,7 +73,7 @@ The Java SDK provides both synchronous and asynchronous versions of each method.
 
 Add the SDK to your .NET project:
 
-```
+```bash
 dotnet add package Amazon.Lambda.DurableExecution
 ```
 
@@ -105,7 +104,7 @@ Create a Dockerfile:
 
 Create a Dockerfile for Python 3.11:
 
-```
+```dockerfile
 FROM public.ecr.aws/lambda/python:3.11
 
 # Copy requirements file
@@ -132,7 +131,7 @@ aws-durable-execution-sdk-python
 
 Create a Dockerfile for Java 25:
 
-```
+```dockerfile
 FROM --platform=linux/amd64 public.ecr.aws/lambda/java:25
 
 # Install Maven
@@ -158,7 +157,7 @@ CMD ["src.path.to.lambdaFunction::handler"]
 
 Build and push the image:
 
-```
+```bash
 # Build the image
 docker build -t my-durable-function .
 
@@ -171,7 +170,7 @@ docker push 123456789012.dkr.ecr.us-east-1.amazonaws.com/my-durable-function:lat
 
 Create the function with durable execution enabled:
 
-```
+```bash
 aws lambda create-function \
   --function-name myDurableFunction \
   --package-type Image \

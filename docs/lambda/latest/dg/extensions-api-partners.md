@@ -1,7 +1,6 @@
 
 
 # AWS Lambda extensions partners
-<a name="extensions-api-partners"></a>
 
 AWS Lambda has partnered with several third party entities to provide extensions to integrate with your Lambda Event Functions. The following list details third party extensions that are ready for you to use at any time.
 + [AppDynamics](https://docs.appdynamics.com/display/PRO20X/Use+the+AppDynamics+AWS+Lambda+Extension+to+Instrument+Serverless+APM+at+Runtime) – Provides automatic instrumentation of Node.js or Python Lambda Event Functions, providing visibility and alerting on Event Function performance.

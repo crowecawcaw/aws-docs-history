@@ -1,7 +1,6 @@
 
 
 # Core concepts
-<a name="lambda-managed-instances-core-concepts"></a>
 
 Lambda Managed Instances introduces several core concepts that differ from traditional Lambda functions. Understanding these concepts is essential for effectively deploying and managing your Lambda Event Functions on EC2 infrastructure.
 

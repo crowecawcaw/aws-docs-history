@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon S3 Files access
-<a name="configuration-filesystem-s3files"></a>
 
 Amazon S3 Files delivers a shared file system that connects any AWS compute resource directly with your data in Amazon S3. Amazon S3 Files provides access to your Amazon S3 objects as files using standard file system operations such as read and write on the local mount path. Learn more about [Amazon S3 Files](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files.html).
 
@@ -55,7 +54,7 @@ When you configure a file system in the console, Lambda uses your permissions to
 
 The following example policy grants your function's execution role permissions to mount an Amazon S3 file system with read-write access and read directly from Amazon S3.
 
-```
+```JSON
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [

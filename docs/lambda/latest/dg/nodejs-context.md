@@ -1,7 +1,6 @@
 
 
 # Using the Lambda context object to retrieve Node.js Event Function information
-<a name="nodejs-context"></a>
 
 When Lambda runs your function, it passes a context object to the [handler](nodejs-handler.md). This object provides methods and properties that provide information about the invocation, function, and execution environment.
 
@@ -37,7 +36,7 @@ The following example function logs context information and returns the location
 
 **Example index.js file**  
 
-```
+```javascript
 exports.handler = async function(event, context) {
   console.log('Remaining time: ', context.getRemainingTimeInMillis())
   console.log('Function name: ', context.functionName)

@@ -1,7 +1,6 @@
 
 
 # Using Lambda with Amazon SQS
-<a name="with-sqs"></a>
 
 **Note**  
 If you want to send data to a target other than a Lambda Event Function or enrich the data before sending it, see [ Amazon EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html).
@@ -48,6 +47,10 @@ For workloads where you need to fine-tune the throughput of your event source ma
 We recommend that you use provisioned mode for Amazon SQS event- driven workloads that have strict performance requirements, such as financial services firms processing market data feeds, e-commerce platforms providing real-time personalized recommendations, and gaming companies managing live player interactions. Using provisioned mode incurs additional costs. For detailed pricing, see [AWS Lambda pricing](https://aws.amazon.com/lambda/pricing/).
 
 Each event poller in provisioned mode can handle up to 1 MB/s of throughput, up to 10 concurrent invokes, or up to 10 Amazon SQS polling API calls per second. The range of accepted values for the minimum number of event pollers (MinimumPollers) is between 2 and 200, with default of 2. The range of accepted values for the maximum number of event pollers (MaximumPollers) is between 2 and 10,000, with default of 200. MaximumPollers must be greater than or equal to MinimumPollers.
+
+With provisioned mode, you can use a batch window (`MaximumBatchingWindowInSeconds`) of up to 300 seconds and a batch size of up to 10,000 messages for a FIFO queue. A batch size greater than 10 requires a batch window of at least 1 second. Message ordering works as described in [Configuring scaling behavior for SQS event source mappings](services-sqs-scaling.md). Amazon SQS does not return more messages from a message group while earlier messages from that group are in flight. As a result, each batch contains at most 10 messages from each message group. To get larger batches, send messages to more message groups.
+
+To remove `ProvisionedPollerConfig` from a FIFO queue event source mapping, set `MaximumBatchingWindowInSeconds` to 0 and `BatchSize` to 10 or less. Do this before you remove provisioned mode, or in the same `UpdateEventSourceMapping` request.
 
 ### Determining required event pollers
 <a name="sqs-determining-event-pollers"></a>
@@ -98,7 +101,7 @@ You can configure provisioned mode for your Amazon SQS event source mapping usin
 
 You can configure provisioned mode programmatically using the `ProvisionedPollerConfig` object in your `EventSourceMappingConfiguration`. For example, the following `UpdateEventSourceMapping` CLI command configures a `MinimumPollers` value of 5, and a `MaximumPollers` value of 100.
 
-```
+```bash
 aws lambda update-event-source-mapping \
     --uuid a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
     --provisioned-poller-config '{"MinimumPollers": 5, "MaximumPollers": 100}'
@@ -108,10 +111,20 @@ After configuring provisioned mode, you can observe the usage of event pollers f
 
 To disable provisioned mode and return to default (on-demand) mode, you can use the following `UpdateEventSourceMapping` CLI command:
 
-```
+```bash
 aws lambda update-event-source-mapping \
     --uuid a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
     --provisioned-poller-config '{}'
+```
+
+If a FIFO queue event source mapping uses a batch window, run the following AWS CLI command instead. It also sets the batch window to 0 and the batch size to 10 in the same request. Replace `{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}` with the UUID of your event source mapping.
+
+```bash
+aws lambda update-event-source-mapping \
+    --uuid a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
+    --provisioned-poller-config '{}' \
+    --maximum-batching-window-in-seconds 0 \
+    --batch-size 10
 ```
 
 **Note**  
@@ -170,7 +183,7 @@ For more information on configuring provisioned mode, see [Creating and configur
 }
 ```
 
-By default, Lambda polls up to 10 messages in your queue at once and sends that batch to your function. To avoid invoking the function with a small number of records, you can configure the event source to buffer records for up to 5 minutes by configuring a batch window. Before invoking the function, Lambda continues to poll messages from the standard queue until the batch window expires, the [invocation payload size quota](gettingstarted-limits.md) is reached, or the configured maximum batch size is reached.
+By default, Lambda polls up to 10 messages in your queue at once and sends that batch to your function. To avoid invoking the function with a small number of records, you can configure the event source to buffer records for up to 5 minutes by configuring a batch window. Before invoking the function, Lambda continues to poll messages from the queue until the batch window expires, the [invocation payload size quota](gettingstarted-limits.md) is reached, or the configured maximum batch size is reached. For FIFO queues, a batch window requires [provisioned mode](#sqs-provisioned-mode).
 
 If you're using a batch window and your SQS queue contains very low traffic, Lambda might wait for up to 20 seconds before invoking your function. This is true even if you set a batch window lower than 20 seconds. 
 

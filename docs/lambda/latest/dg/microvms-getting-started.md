@@ -1,7 +1,6 @@
 
 
 # Create your first Lambda MicroVM
-<a name="microvms-getting-started"></a>
 
 This tutorial walks you through creating a AWS Lambda MicroVM image and running a MicroVM from it. By the end, you'll have a running application accessible over HTTPS.
 
@@ -16,7 +15,7 @@ You need two things before you start:
 
 Create the IAM role with the following trust policy. This allows the Lambda service to assume the role:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [{
@@ -29,7 +28,7 @@ Create the IAM role with the following trust policy. This allows the Lambda serv
 
 Attach the following permissions policy to the role. Replace `<your-bucket-name>` with your Amazon S3 bucket name:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -62,7 +61,7 @@ Create a simple HTTP server that runs inside your MicroVM. This example uses Nod
 
 **`app.js`**
 
-```
+```javascript
 // Minimal HTTP server — listens on port 8080
 const http = require('http');
 
@@ -80,7 +79,7 @@ Next, create a `Dockerfile` that packages and starts your application:
 
 **`Dockerfile`**
 
-```
+```dockerfile
 # Use a lightweight Node.js runtime for your application layers
 FROM node:24-alpine
 
@@ -106,7 +105,7 @@ If your application generates unique values (IDs, secrets, or cryptographic mate
 
 Package your `app.js` and `Dockerfile` into a zip archive, then upload it to your Amazon S3 bucket. Run the following commands in your terminal:
 
-```
+```bash
 zip app.zip app.js Dockerfile
 aws s3 cp app.zip s3://{{your-bucket-name}}/app.zip
 ```
@@ -116,7 +115,7 @@ aws s3 cp app.zip s3://{{your-bucket-name}}/app.zip
 
 Call `create-microvm-image` to start the build. Lambda downloads your zip from Amazon S3, runs your `Dockerfile`, starts your application, and captures a Firecracker snapshot of the fully initialized state:
 
-```
+```bash
 aws lambda-microvms create-microvm-image \
   --name my-first-microvm-image \
   --code-artifact uri=s3://{{your-bucket-name}}/app.zip \
@@ -129,14 +128,14 @@ This command builds the image for the default `ARM64` CPU architecture. To build
 
 The image starts in `CREATING` state. Check the build status with:
 
-```
+```bash
 aws lambda-microvms get-microvm-image \
   --image-identifier my-first-microvm-image
 ```
 
 When the build completes, the `state` field changes to `CREATED`:
 
-```
+```json
 {
   "imageName": "my-first-microvm-image",
   "imageArn": "arn:aws:lambda:{{us-east-1}}:123456789012:microvm-image:my-first-microvm-image",
@@ -155,7 +154,7 @@ Once your MicroVM image reaches `CREATED` state, you can run MicroVMs from it. E
 
 Run a MicroVM with the following command:
 
-```
+```bash
 aws lambda-microvms run-microvm \
   --image-identifier my-first-microvm-image \
   --ingress-network-connectors "arn:aws:lambda:{{us-east-1}}:aws:network-connector:aws-network-connector:HTTP_INGRESS" \
@@ -170,7 +169,7 @@ Parameters explained:
 
 The response includes the MicroVM ID and endpoint URL:
 
-```
+```json
 {
   "microvmId": "mvm-01234567-abcd-ef01-2345-6789abcdef01",
   "state": "PENDING",
@@ -181,7 +180,7 @@ The response includes the MicroVM ID and endpoint URL:
 
 Wait for the state to reach `RUNNING`:
 
-```
+```bash
 aws lambda-microvms get-microvm \
   --microvm-identifier mvm-01234567-abcd-ef01-2345-6789abcdef01
 ```
@@ -191,7 +190,7 @@ aws lambda-microvms get-microvm \
 
 All requests to a MicroVM endpoint require an authentication token. Generate one with:
 
-```
+```bash
 aws lambda-microvms create-microvm-auth-token \
   --microvm-identifier mvm-01234567-abcd-ef01-2345-6789abcdef01 \
   --expiration-in-minutes 30 \
@@ -200,14 +199,14 @@ aws lambda-microvms create-microvm-auth-token \
 
 The response includes a token in the `authToken` field. Use it to send a request to your running application:
 
-```
+```bash
 curl https://mvm-01234567-abcd-ef01-2345-6789abcdef01.lambda-microvm.{{us-east-1}}.on.aws/ \
   -H "X-aws-proxy-auth: {{token-value}}"
 ```
 
 You should see the response from your application:
 
-```
+```json
 {"status":"ok","path":"/"}
 ```
 
@@ -218,7 +217,7 @@ Your MicroVM is running and serving traffic. The application you wrote in Step 1
 
 To avoid ongoing charges, terminate the MicroVM when you're done:
 
-```
+```bash
 aws lambda-microvms terminate-microvm \
   --microvm-identifier mvm-01234567-abcd-ef01-2345-6789abcdef01
 ```

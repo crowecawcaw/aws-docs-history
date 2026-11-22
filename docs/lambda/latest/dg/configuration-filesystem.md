@@ -1,7 +1,6 @@
 
 
 # Configuring file system access for Lambda Event Functions
-<a name="configuration-filesystem"></a>
 
 You can configure a Lambda function to mount a file system to a local directory. Lambda supports the following file system types:
 + **[Amazon Elastic File System (Amazon EFS)](configuration-filesystem-efs.md)** – Serverless file system that scales automatically with your workloads.

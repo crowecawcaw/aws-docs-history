@@ -1,7 +1,6 @@
 
 
 # Using AWS Lambda with AWS Infrastructure Composer
-<a name="services-appcomposer"></a>
 
 AWS Infrastructure Composer is a visual builder for desiging modern applications on AWS. You design your application architecture by dragging, grouping, and connecting AWS services in a visual canvas. Infrastructure Composer creates infrastructure as code (IaC) templates from your design that you can deploy using [AWS SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) or [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
@@ -67,7 +66,7 @@ For Lambda to write your function's configuration to Amazon S3, you must have pe
 If you are unable to export your function's configuration to Infrastructure Composer, check that your account has the required permissions for these operations. If you have the required permissions, but still cannot export your function's configuration, check for any [resource-based policies](access-control-resource-based.md) that might limit access to Amazon S3.
 
 ## Other resources
-<a name="w2aac15c59c35b7"></a>
+<a name="w2aac15c63c37b7"></a>
 
 For a more detailed tutorial on how to design a serverless application in Infrastructure Composer based on an existing Lambda Event Function, see [Using Lambda with infrastructure as code (IaC)](foundation-iac.md).
 

@@ -1,7 +1,6 @@
 
 
 # Self-managed S3 code storage
-<a name="configuration-self-managed-storage"></a>
 
 By default, when you create or update a Lambda Event Function or layer from a .zip file archive, Lambda stores a copy of your code in Lambda-managed storage. Each AWS account has a 300 GB quota for Lambda-managed storage per Region.
 
@@ -42,7 +41,7 @@ To use self-managed S3 code storage, complete the following steps:
 
 To use self-managed S3 code storage, grant the Lambda service principal (`lambda.amazonaws.com`) permission to access your source objects. Add the following S3 bucket policy:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -136,7 +135,7 @@ You must specify `S3ObjectStorageMode=REFERENCE` on every call to `update-functi
 
 In your CloudFormation template, set `S3ObjectStorageMode` to `REFERENCE` in the `Code` property of the `AWS::Lambda::Function` resource:
 
-```
+```yaml
 Resources:
   MyFunction:
     Type: AWS::Lambda::Function

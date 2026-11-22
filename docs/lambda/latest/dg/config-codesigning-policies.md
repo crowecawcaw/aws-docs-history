@@ -1,7 +1,6 @@
 
 
 # Configuring IAM policies for Lambda code signing configurations
-<a name="config-codesigning-policies"></a>
 
 To grant permission for a user to access Lambda code signing API operations, attach one or more policy statements to the user policy. For more information about user policies, see [Identity-based IAM policies for Lambda](access-control-identity-based.md).
 
@@ -12,7 +11,7 @@ The following example policy statement grants permission to create, update, and 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -40,7 +39,7 @@ The following example policy statement grants permission to create a function. T
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

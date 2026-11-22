@@ -1,7 +1,6 @@
 
 
 # Rust support for Lambda Managed Instances
-<a name="lambda-managed-instances-rust"></a>
 
 ## Concurrency configuration
 <a name="lambda-managed-instances-rust-concurrency-config"></a>
@@ -15,7 +14,7 @@ You should apply the same thread safety practices when using Lambda Managed Inst
 
 To enable concurrent request handling, add the `concurrency-tokio` feature flag to your `Cargo.toml` file.
 
-```
+```toml
 [dependencies]  
 lambda_runtime = { version = "1", features = ["concurrency-tokio"] }
 ```
@@ -31,7 +30,7 @@ All AWS SDK for Rust clients are concurrency-safe and require no special handlin
 
 The following example uses an S3 client to upload an object on each invocation. The client is cloned directly into the closure without `Arc`:
 
-```
+```rust
 let config = aws_config::load_defaults(BehaviorVersion::latest()).await;  
 let s3_client = aws_sdk_s3::Client::new(&config);  
   
@@ -55,7 +54,7 @@ run_concurrent(service_fn(move |event: LambdaEvent<Request>| {
 
 When your handler needs access to shared state such as a client and configuration, wrap it in [Arc](https://doc.rust-lang.org/std/sync/struct.Arc.html) and clone the `Arc` into each invocation:
 
-```
+```rust
 #[derive(Debug)]  
 struct AppState {  
     dynamodb_client: DynamoDbClient,  

@@ -1,7 +1,6 @@
 
 
 # Using Lambda with infrastructure as code (IaC)
-<a name="foundation-iac"></a>
 
 Lambda Event Functions rarely run in isolation. Instead, they often form part of a serverless application with other resources such as databases, queues, and storage. With [infrastructure as code (IaC)](https://aws.amazon.com/what-is/iac/), you can automate your deployment processes to quickly and repeatably deploy and update whole serverless applications involving many separate AWS resources. This approach speeds up your development cycle, makes configuration management easier, and ensures that your resources are deployed the same way every time.
 

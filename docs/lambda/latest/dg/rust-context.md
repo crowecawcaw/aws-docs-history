@@ -1,7 +1,6 @@
 
 
 # Using the Lambda context object to retrieve Rust Event Function information
-<a name="rust-context"></a>
 
 When Lambda runs your Event Function, it adds a context object to the LambdaEvent that the [handler](rust-handler.md) receives. This object provides properties with information about the invocation, function, and execution environment.
 

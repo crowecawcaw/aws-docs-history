@@ -1,7 +1,6 @@
 
 
 # Lambda Web Function permissions
-<a name="web-functions-permissions"></a>
 
 Lambda Web Functions use AWS Identity and Access Management (IAM) to control what your application code can do (the execution role) and who can access your Web Function (resource-based policies). This page explains how to configure each type.
 + **Execution role** – An IAM role that your Web Function code assumes to access AWS services such as Amazon CloudWatch Logs, DynamoDB, or Amazon S3.
@@ -26,7 +25,7 @@ To create an execution role for your Web Function, create an IAM role with a tru
 
 1. Create a file named `trust-policy.json` with the following trust policy. This policy allows the Lambda service principal to assume the role on your behalf.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [
@@ -43,7 +42,7 @@ To create an execution role for your Web Function, create an IAM role with a tru
 
 1. Create the role.
 
-   ```
+   ```bash
    aws iam create-role \
        --role-name {{my-web-function-role}} \
        --assume-role-policy-document file://trust-policy.json
@@ -51,7 +50,7 @@ To create an execution role for your Web Function, create an IAM role with a tru
 
 1. Attach the AWS Lambda basic execution role managed policy. This policy grants permissions to create log groups, log streams, and write log events to Amazon CloudWatch Logs.
 
-   ```
+   ```bash
    aws iam attach-role-policy \
        --role-name {{my-web-function-role}} \
        --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
@@ -59,7 +58,7 @@ To create an execution role for your Web Function, create an IAM role with a tru
 
 If you prefer to create a custom permissions policy instead of using the managed policy, the minimum permissions your Web Function needs for logging are:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -86,7 +85,7 @@ The policy covers two log groups. Lambda writes in-Region logs to the `.local` l
 
 If your application accesses other AWS services, add the corresponding permissions to the execution role. The following example adds read access to a DynamoDB table and write access to an Amazon S3 bucket.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -156,7 +155,7 @@ In this section, *public* describes a policy that grants access to an unspecifie
 
 A policy is public unless it restricts who can call the resource to a well-specified set of principals. Lambda assumes that the policy is public and then evaluates whether it qualifies as non-public. A policy is public if it allows a principal that any AWS customer could assume. The most common case is an unrestricted wildcard principal, as in the following example. Lambda rejects this policy with a `ValidationException`. Don't use it.
 
-```
+```json
 {
   "Effect": "Allow",
   "Principal": "*",
@@ -177,7 +176,7 @@ There are two ways to make a policy non-public.
 
 List one or more fully specified principals in the `Principal` block. The values must not contain wildcards or policy variables. The number of principals does not matter.
 
-```
+```json
 {
   "Effect": "Allow",
   "Principal": {
@@ -225,7 +224,7 @@ Naming a trusted key is not sufficient on its own. You must also constrain the v
 
 The following policy grants principals in your organization the resource-based permission required to invoke the endpoint and is not considered public. An IAM principal in another account also needs identity-based permission.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -252,7 +251,7 @@ The following policy grants principals in your organization the resource-based p
 
 The following resource-based policy grants a specific IAM role in another account permission to invoke one endpoint of your Web Function. The role also needs identity-based permission to invoke the endpoint.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -279,7 +278,7 @@ For cross-account invocation to succeed, all of the following must be true:
 
 The following resource-based policy grants the CloudFront service principal permission to invoke your Web Function. Use this policy when you configure a CloudFront distribution with your Web Function endpoint as the origin.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

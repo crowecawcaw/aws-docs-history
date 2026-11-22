@@ -1,7 +1,6 @@
 
 
 # What is AWS Lambda?
-<a name="welcome"></a>
 
 AWS Lambda is a serverless compute service. With Lambda, you can run code without provisioning or managing servers. Lambda automatically manages the underlying infrastructure – including server maintenance, capacity provisioning, scaling, and patching – so you can focus on your application logic.
 
@@ -31,7 +30,7 @@ While they share this foundation, they serve different use cases:
 | --- | --- | --- | --- | 
 | Best for | Request-response or event-driven workloads (APIs, data processing, automation) | Web applications and API backends that serve HTTP traffic directly | Persistent environments running user or AI-produced untrusted code | 
 | Programming model | Function handler invoked in a supported runtime | HTTP server that listens on a port, using standard web frameworks | Any application – run your own binaries, listen on ports, use Linux OS capabilities | 
-| Duration | Up to 15 minutes per invocation by default; up to 90 minutes per asynchronous or event source mapping invocation on Lambda Managed Instances; multi-step workflows lasting up to a year with Lambda Durable Functions | Up to 15 minutes per HTTP request (default 30 seconds) | Up to 8 hours per session; suspend and resume across sessions | 
+| Duration | Up to 30 minutes per invocation; up to 90 minutes per asynchronous or event source mapping invocation on Lambda Managed Instances; multi-step workflows lasting up to a year with Lambda Durable Functions | Up to 15 minutes per HTTP request (default 30 seconds) | Up to 8 hours per session; suspend and resume across sessions | 
 | Runtime environment | Service-provided language runtimes; support for customer-provided runtimes | Service-provided Node.js runtimes | Customer-provided MicroVM images | 
 | Inbound Networking | Direct invocations or event-source integrations with AWS services | Service-provided HTTPS endpoint with TLS; optional latency-based routing across AWS Regions | Inbound access to any port using OSI Layer 7 protocols | 
 | Concurrency | One request per execution environment at a time by default; multiple concurrent requests per execution environment for Lambda Managed Instances | Multiple concurrent requests per execution environment | Multiple concurrent connections per MicroVM | 

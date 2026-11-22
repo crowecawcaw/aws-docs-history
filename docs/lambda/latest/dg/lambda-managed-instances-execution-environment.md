@@ -1,11 +1,20 @@
 
 
 # Understanding the Lambda Managed Instances execution environment
-<a name="lambda-managed-instances-execution-environment"></a>
 
 Lambda Managed Instances provide an alternative deployment model that runs your function code on customer-owned Amazon EC2 instances while Lambda manages the operational aspects. The execution environment for Managed Instances has several important differences from Lambda (default) functions, particularly in how it handles concurrent invocations and manages container lifecycles.
 
 **Note:** For information about the Lambda (default) execution environment, see Understanding the Lambda execution environment lifecycle.
+
+## How Lambda starts an execution environment
+<a name="lambda-managed-instances-execution-how-starts"></a>
+
+When you publish a function version, or when Lambda scales your function out, Lambda performs the following steps before a new execution environment can handle an invocation:
++ **Instance provisioning** – When you publish a function version, or when Lambda launches a new instance to meet scaling demand, Lambda launches an instance from your capacity provider and prepares it. When Lambda scales out onto a running instance that has room for the execution environment, this step is skipped.
++ **Code download** – For functions deployed as a container image, Lambda downloads the image layers from Amazon ECR to the instance and unpacks them to local storage. For functions deployed as a .zip file archive, Lambda downloads the deployment package. For large container images, this step can take longer than the others. Unpacking is CPU-heavy and, depending on the composition of the image, can take longer than the download.
++ **Initialization** – Lambda starts the runtime and runs your initialization code. The Init phase described in the following section begins here.
+
+A long image download or a long initialization delays the version reaching the `Active` state and slows scale-out. To shorten them, keep large artifacts out of the image and load them in initialization code, and lazy-load the image with Seekable OCI (SOCI). For more information, see [Lazy-load container images with SOCI](lambda-managed-instances-seekable-oci.md). For GPU-accelerated functions, see [Optimizing startup time for GPU-accelerated functions](lambda-managed-instances-gpu-startup.md).
 
 ## Execution environment lifecycle
 <a name="lambda-managed-instances-execution-lifecycle"></a>
@@ -24,7 +33,7 @@ During the Init phase, Lambda performs the following steps:
 The Init phase is considered complete when extensions have initialized and at least one runtime worker has called `/runtime/invocation/next`. The function is then ready to process invocations.
 
 **Note**  
-For Lambda Managed Instances functions, initialization can take up to 15 minutes. The timeout is the maximum of 130 seconds or the configured function timeout (up to 900 seconds).
+For Lambda Managed Instances functions, initialization can take up to 15 minutes. The timeout is the maximum of 130 seconds or the configured function timeout (up to 900 seconds, even if the function timeout is longer).
 
 ### Invoke phase
 <a name="lambda-managed-instances-invoke-phase"></a>

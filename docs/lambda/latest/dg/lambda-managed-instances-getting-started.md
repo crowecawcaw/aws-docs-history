@@ -1,7 +1,6 @@
 
 
 # Getting started with Lambda Managed Instances
-<a name="lambda-managed-instances-getting-started"></a>
 
 ## Creating a Lambda Managed Instance function (console)
 <a name="lambda-managed-instances-getting-started-console"></a>
@@ -71,7 +70,7 @@ Lambda Managed Instances require two IAM roles: an execution role for your funct
 
 1. Create a trust policy document that allows Lambda to assume the role:
 
-   ```
+   ```bash
    cat > lambda-trust-policy.json << 'EOF'
    {
      "Version": "2012-10-17",		 	 	 
@@ -90,7 +89,7 @@ Lambda Managed Instances require two IAM roles: an execution role for your funct
 
 1. Create the execution role:
 
-   ```
+   ```bash
    aws iam create-role \
      --role-name MyLambdaExecutionRole \
      --assume-role-policy-document file://lambda-trust-policy.json
@@ -98,7 +97,7 @@ Lambda Managed Instances require two IAM roles: an execution role for your funct
 
 1. Attach the basic execution policy:
 
-   ```
+   ```bash
    aws iam attach-role-policy \
      --role-name MyLambdaExecutionRole \
      --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
@@ -108,7 +107,7 @@ Lambda Managed Instances require two IAM roles: an execution role for your funct
 
 1. Create a trust policy document that allows Lambda to assume the operator role:
 
-   ```
+   ```bash
    cat > operator-trust-policy.json << 'EOF'
    {
      "Version": "2012-10-17",		 	 	 
@@ -127,7 +126,7 @@ Lambda Managed Instances require two IAM roles: an execution role for your funct
 
 1. Create the operator role:
 
-   ```
+   ```bash
    aws iam create-role \
      --role-name MyCapacityProviderOperatorRole \
      --assume-role-policy-document file://operator-trust-policy.json
@@ -135,7 +134,7 @@ Lambda Managed Instances require two IAM roles: an execution role for your funct
 
 1. Attach the required EC2 permissions policy:
 
-   ```
+   ```bash
    aws iam attach-role-policy \
      --role-name MyCapacityProviderOperatorRole \
      --policy-arn arn:aws:iam::aws:policy/AWSLambdaManagedEC2ResourceOperator
@@ -150,7 +149,7 @@ Lambda Managed Instances run in your VPC and require a subnet and security group
 
 1. Create a VPC:
 
-   ```
+   ```bash
    VPC_ID=$(aws ec2 create-vpc \
      --cidr-block 10.0.0.0/16 \
      --query 'Vpc.VpcId' \
@@ -159,7 +158,7 @@ Lambda Managed Instances run in your VPC and require a subnet and security group
 
 1. Create a subnet:
 
-   ```
+   ```bash
    SUBNET_ID=$(aws ec2 create-subnet \
      --vpc-id $VPC_ID \
      --cidr-block 10.0.1.0/24 \
@@ -169,7 +168,7 @@ Lambda Managed Instances run in your VPC and require a subnet and security group
 
 1. Create a security group:
 
-   ```
+   ```bash
    SECURITY_GROUP_ID=$(aws ec2 create-security-group \
      --group-name my-capacity-provider-sg \
      --description "Security group for Lambda Managed Instances" \
@@ -187,7 +186,7 @@ A capacity provider manages the EC2 instances that run your Lambda functions.
 
 **To create a capacity provider**
 
-```
+```bash
 ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 
 aws lambda create-capacity-provider \
@@ -211,7 +210,7 @@ This command creates a capacity provider with the following configuration:
 
 1. First, create a simple Python function and package it inline:
 
-   ```
+   ```bash
    # Create a temporary directory for the function code
    mkdir -p /tmp/my-lambda-function
    cd /tmp/my-lambda-function
@@ -236,7 +235,7 @@ This command creates a capacity provider with the following configuration:
 
 1. Create the Lambda function using the inline ZIP file:
 
-   ```
+   ```bash
    ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
    REGION=$(aws configure get region)
    
@@ -267,7 +266,7 @@ To run your function on Lambda Managed Instances, you must publish a version.
 
 **To publish a function version**
 
-```
+```bash
 aws lambda publish-version \
   --function-name my-managed-instance-function
 ```
@@ -281,7 +280,7 @@ After publishing, you can invoke your function.
 
 **To invoke your function**
 
-```
+```bash
 aws lambda invoke \
   --function-name my-managed-instance-function:1 \
   --payload '{"name": "World"}' \
@@ -300,19 +299,19 @@ To avoid incurring charges, delete the resources you created:
 
 1. Delete the function:
 
-   ```
+   ```bash
    aws lambda delete-function --function-name my-managed-instance-function
    ```
 
 1. Delete the capacity provider:
 
-   ```
+   ```bash
    aws lambda delete-capacity-provider --capacity-provider-name my-capacity-provider
    ```
 
 1. Delete the VPC resources:
 
-   ```
+   ```bash
    aws ec2 delete-security-group --group-id $SECURITY_GROUP_ID
    aws ec2 delete-subnet --subnet-id $SUBNET_ID
    aws ec2 delete-vpc --vpc-id $VPC_ID
@@ -320,7 +319,7 @@ To avoid incurring charges, delete the resources you created:
 
 1. Delete the IAM roles:
 
-   ```
+   ```bash
    aws iam detach-role-policy \
      --role-name MyLambdaExecutionRole \
      --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole

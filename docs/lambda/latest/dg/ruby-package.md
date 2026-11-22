@@ -1,7 +1,6 @@
 
 
 # Deploy Ruby Lambda Event Functions with .zip file archives
-<a name="ruby-package"></a>
 
  Your AWS Lambda function’s code comprises a .rb file containing your function’s handler code, together with any additional dependencies (gems) your code depends on. To deploy this function code to Lambda, you use a *deployment package*. This package may either be a .zip file archive or a container image. For more information about using container images with Ruby, see [Deploy Ruby Lambda Event Functions with container images](https://docs.aws.amazon.com/lambda/latest/dg/ruby-image.html). 
 
@@ -11,7 +10,7 @@
 
 The example commands in the following sections use the [Bundler](https://bundler.io/) utility to add dependencies to your deployment package. To install bundler, run the following command.
 
-```
+```bash
 gem install bundler
 ```
 
@@ -32,7 +31,7 @@ The Ruby runtime includes the AWS SDK for Ruby. If your function uses the SDK, y
 
 You can either include the SDK in your .zip file, or add it using a Lambda layer. Dependencies in your .zip file or in Lambda layers take precedence over versions included in the runtime. To find out which version of the SDK for Ruby is included in your runtime version, see [Runtime-included SDK versions](lambda-ruby.md#ruby-sdk-included). 
 
- Under the [AWS shared responsibility model](lambda-runtimes.md#runtimes-shared-responsibility), you are responsible for the management of any dependencies in your functions' deployment packages. This includes applying updates and security patches. To update dependencies in your function's deployment package, first create a new .zip file and then upload it to Lambda. See [Creating a .zip deployment package with dependencies](#ruby-package-dependencies) and [Creating and updating Ruby Lambda Event Functions using .zip files](#ruby-package-create-functions) for more information. 
+ Under the [AWS shared responsibility model](runtime-support-policy.md#runtimes-shared-responsibility), you are responsible for the management of any dependencies in your functions' deployment packages. This includes applying updates and security patches. To update dependencies in your function's deployment package, first create a new .zip file and then upload it to Lambda. See [Creating a .zip deployment package with dependencies](#ruby-package-dependencies) and [Creating and updating Ruby Lambda Event Functions using .zip files](#ruby-package-create-functions) for more information. 
 
 ## Creating a .zip deployment package with no dependencies
 <a name="ruby-package-codeonly"></a>
@@ -52,20 +51,20 @@ Suppose your function code is saved in a file named `lambda_function.rb` in your
 
 1. In your project directory, create a `Gemfile` to specify your dependencies in.
 
-   ```
+   ```bash
    bundle init
    ```
 
 1. Using your preferred text editor, edit the `Gemfile` to specify your function's dependencies. For example, to use the TZInfo gem, edit your `Gemfile` to look like the following. 
 
-   ```
+   ```ruby
    source "https://rubygems.org"
    gem "tzinfo"
    ```
 
 1. Run the following command to install the gems specified in your `Gemfile` in your project directory. This command sets `vendor/bundle` as the default path for gem installations.
 
-   ```
+   ```bash
    bundle config set --local path 'vendor/bundle' && bundle install
    ```
 
@@ -82,13 +81,13 @@ Suppose your function code is saved in a file named `lambda_function.rb` in your
 **Note**  
 To install gems globally again later, run the following command.  
 
-   ```
+   ```bash
    bundle config set --local system 'true'
    ```
 
 1. Create a .zip file archive containing the `lambda_function.rb` file with your function's handler code and the dependencies you installed in the previous step.
 
-   ```
+   ```bash
    zip -r my_deployment_package.zip lambda_function.rb vendor
    ```
 
@@ -124,7 +123,7 @@ To create a .zip deployment package containing gems with native extensions witho
 
 1. Create a folder on your local build machine to save your container in. Inside that folder, create a file named `dockerfile` and paste the following code into it.
 
-   ```
+   ```dockerfile
    FROM public.ecr.aws/sam/build-ruby3.2:latest-x86_64
    RUN gem update bundler 
    CMD "/bin/bash"
@@ -132,7 +131,7 @@ To create a .zip deployment package containing gems with native extensions witho
 
 1. Inside the folder you created your `dockerfile` in, run the following command to create the Docker container.
 
-   ```
+   ```bash
    docker build -t awsruby32 .
    ```
 
@@ -141,7 +140,7 @@ To create a .zip deployment package containing gems with native extensions witho
 ------
 #### [ Linux/MacOS ]
 
-   ```
+   ```bash
    docker run --rm -it -v $PWD:/var/task -w /var/task awsruby32
    ```
 
@@ -151,7 +150,7 @@ In MacOS, you might see a warning informing you that the requested image's platf
 ------
 #### [ Windows PowerShell ]
 
-   ```
+   ```powershell
    docker run --rm -it -v ${pwd}:/var/task -w /var/task awsruby32
    ```
 
@@ -165,19 +164,19 @@ In MacOS, you might see a warning informing you that the requested image's platf
 
 1. Configure the bundle utility to install the gems specified in your `Gemfile` in a local `vendor/bundle` directory and install your dependencies.
 
-   ```
+   ```bash
    bash-4.2# bundle config set --local path 'vendor/bundle' && bundle install
    ```
 
 1. Create the .zip deployment package with your function code and its dependencies. In this example, the file containing your function's handler code is named `lambda_function.rb`.
 
-   ```
+   ```bash
    bash-4.2# zip -r my_deployment_package.zip lambda_function.rb vendor
    ```
 
 1. Exit the container and return to your local project directory.
 
-   ```
+   ```bash
    bash-4.2# exit
    ```
 

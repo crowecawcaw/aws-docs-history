@@ -1,7 +1,6 @@
 
 
 # Testing Lambda Event Functions in the console
-<a name="testing-functions"></a>
 
 You can test your Lambda Event Functions in the console by invoking your function with a test event. A *test event* is a JSON input to your Event Function. If your function doesn't require input, the event can be an empty document `({})`.
 

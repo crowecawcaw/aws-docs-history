@@ -1,7 +1,6 @@
 
 
 # Building Lambda Event Functions with C\#
-<a name="lambda-csharp"></a>
 
 You can run your .NET application as a Lambda Event Function using the managed .NET 8 runtime, a custom runtime, or a container image. After your application code is compiled, you can deploy it to Lambda either as a .zip file or a container image. Lambda provides the following runtimes for .NET languages:
 

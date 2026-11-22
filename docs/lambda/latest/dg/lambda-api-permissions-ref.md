@@ -1,7 +1,6 @@
 
 
 # Fine-tuning the Resources and Conditions sections of policies
-<a name="lambda-api-permissions-ref"></a>
 
 You can restrict the scope of a user's permissions by specifying resources and conditions in an AWS Identity and Access Management (IAM) policy. Each action in a policy supports a combination of resource and condition types that varies depending on the behavior of the action.
 
@@ -31,7 +30,7 @@ For example, the following policy allows a user in AWS account `123456789012` to
 **Example invoke function policy**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -65,7 +64,7 @@ For example, the `lambda:Principal` condition lets you restrict the service or a
 **Example manage function policy permissions**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -106,7 +105,7 @@ You can't use a wildcard character (\*) to match the account ID. For more inform
 **Example allowing invocation of an unqualified ARN**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -124,7 +123,7 @@ If your policy references a specific qualified ARN, Lambda accepts requests that
 **Example allowing invocation of a specific qualified ARN**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -142,7 +141,7 @@ If your policy references any qualified ARN using `:*`, Lambda accepts any quali
 **Example allowing invocation of any qualified ARN**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -160,7 +159,7 @@ If your policy references any ARN using `*`, Lambda accepts any qualified or unq
 **Example allowing invocation of any qualified or unqualified ARN**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -184,7 +183,7 @@ If your policy references the unqualified function ARN, Lambda denies requests t
 
 **Example Policy that does not grant access to durable executions**  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -201,7 +200,7 @@ If your policy references the function ARN with `:*`, Lambda accepts requests to
 
 **Example Allowing access to durable executions of any version**  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -218,7 +217,7 @@ If your policy references the function ARN with `:1/durable-execution/*`, Lambda
 
 **Example Allowing access to durable executions of a specific version**  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -240,7 +239,7 @@ Lambda authorizes the `lambda:ListDurableExecutionsByFunction` action against th
 
 **Example Allowing listing of durable executions with either name form**  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

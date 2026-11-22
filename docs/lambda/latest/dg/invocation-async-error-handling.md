@@ -1,7 +1,6 @@
 
 
 # How Lambda handles errors and retries with asynchronous invocation
-<a name="invocation-async-error-handling"></a>
 
 Lambda manages your function's asynchronous event queue and attempts to retry on errors. If the function returns an error, by default Lambda attempts to run it two more times, with a one-minute wait between the first two attempts, and two minutes between the second and third attempts. Event Function errors include errors returned by the function's code and errors returned by the function's runtime, such as timeouts.
 

@@ -1,11 +1,12 @@
 
 
 # Configure Lambda Event Function timeout
-<a name="configuration-timeout"></a>
 
-Lambda runs your code for a set amount of time before timing out. *Timeout* is the maximum amount of time in seconds that a Lambda function can run. The default value for this setting is 3 seconds, but you can adjust this in increments of 1 second up to a maximum value of 900 seconds (15 minutes).
+Lambda runs your code for a set amount of time before timing out. *Timeout* is the maximum amount of time in seconds that a Lambda function can run. The default value for this setting is 3 seconds, but you can adjust this in increments of 1 second up to a maximum value of 1,800 seconds (30 minutes).
 
 For functions using AWS Lambda Managed Instances, asynchronous invocations and event source mapping invocations (except Amazon MQ and Amazon DocumentDB) support a maximum allowed value of 5,400 seconds (90 minutes).
+
+When another service invokes your function synchronously, that service might stop waiting for a response before your function times out. For more information, see [Response timeouts for synchronous callers](lambda-services.md#lambda-services-caller-limits). If your function processes messages from an Amazon SQS queue, increase the queue's visibility timeout before you increase the function timeout. For more information, see [Creating and configuring an Amazon SQS event source mapping](services-sqs-configure.md).
 
 This page describes how and when to update the timeout setting for a Lambda function.
 
@@ -41,7 +42,7 @@ You can configure function timeout in the Lambda console.
 
 1. Under **General configuration**, choose **Edit**.
 
-1. For **Timeout**, set a value between 1 and 900 seconds (15 minutes).
+1. For **Timeout**, set a value between 1 and 1,800 seconds (30 minutes).
 
 1. Choose **Save**.
 
@@ -65,7 +66,7 @@ You can use the [AWS Serverless Application Model](https://docs.aws.amazon.com/s
 
 **Example template.yaml**  
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: An AWS Serverless Application Model template describing your function.

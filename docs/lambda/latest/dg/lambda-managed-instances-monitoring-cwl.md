@@ -1,7 +1,6 @@
 
 
 # Sending capacity provider system logs to CloudWatch Logs
-<a name="lambda-managed-instances-monitoring-cwl"></a>
 
 By default, Lambda automatically captures system logs for your capacity provider and sends them to CloudWatch Logs, provided your capacity provider's [operator role](lambda-managed-instances-operator-role.md) has the necessary permissions. These logs are stored in a log group named `/aws/lambda/capacity-provider/{{<capacity-provider-name>}}`. If needed, you can configure your capacity provider to send logs to a different log group using the Lambda console, AWS CLI, or Lambda API. For more information, see [Configuring CloudWatch log groups](lambda-managed-instances-cwl-configure.md).
 

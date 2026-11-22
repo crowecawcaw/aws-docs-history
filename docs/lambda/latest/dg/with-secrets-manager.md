@@ -1,7 +1,6 @@
 
 
 # Use Secrets Manager secrets in Lambda Event Functions
-<a name="with-secrets-manager"></a>
 
 AWS Secrets Manager helps you manage credentials, API keys, and other secrets that your Lambda Event Functions need. You have two main approaches for retrieving secrets in your Lambda Event Functions, both offering better performance and lower costs compared to retrieving secrets directly using the AWS SDK:
 + **AWS parameters and secrets Lambda extension** - A runtime-agnostic solution that provides a simple HTTP interface for retrieving secrets
@@ -63,7 +62,7 @@ Choose your preferred runtime and follow the steps to create a function that ret
 
 1. Create a file named `lambda_function.py` with the following code. For `secret_name`, use the name or Amazon Resource Name (ARN) of your secret.
 
-   ```
+   ```python
    import json
    import boto3
    import requests
@@ -138,7 +137,7 @@ Choose your preferred runtime and follow the steps to create a function that ret
 
 1. Create a file named `index.mjs` with the following code. For `secret_name`, use the name or Amazon Resource Name (ARN) of your secret.
 
-   ```
+   ```javascript
    import http from 'http';
    import { fromNodeProviderChain } from '@aws-sdk/credential-providers';
    
@@ -227,7 +226,7 @@ Choose your preferred runtime and follow the steps to create a function that ret
 
 1. Open the `pom.xml` and replace the contents with the following:
 
-   ```
+   ```xml
    <project xmlns="http://maven.apache.org/POM/4.0.0"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -287,7 +286,7 @@ Choose your preferred runtime and follow the steps to create a function that ret
 
 1. Open the `Hello.java` file and replace its contents with the following. For `secretName`, use the name or Amazon Resource Name (ARN) of your secret. 
 
-   ```
+   ```java
    package example;
    
    import com.amazonaws.services.lambda.runtime.Context;
@@ -422,7 +421,7 @@ Choose your preferred runtime and follow the steps to create a function that ret
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -508,7 +507,7 @@ The following examples show how to retrieve secrets using the Parameters utility
 For complete examples and setup instructions, see the [Parameters utility documentation](https://docs.aws.amazon.com/powertools/python/latest/utilities/parameters/).
 Retrieving secrets from Secrets Manager with Powertools for AWS Lambda Parameters utility.  
 
-```
+```python
 from aws_lambda_powertools import Logger
 from aws_lambda_powertools.utilities import parameters
 
@@ -544,7 +543,7 @@ def lambda_handler(event, context):
 For complete examples and setup instructions, see the [Parameters utility documentation](https://docs.aws.amazon.com/powertools/typescript/2.1.1/utilities/parameters/).
 Retrieving secrets from Secrets Manager with Powertools for AWS Lambda Parameters utility.  
 
-```
+```typescript
 import { Logger } from '@aws-lambda-powertools/logger';
 import { getSecret } from '@aws-lambda-powertools/parameters/secrets';
 import type { Context } from 'aws-lambda';
@@ -583,7 +582,7 @@ export const handler = async (event: any, context: Context) => {
 For complete examples and setup instructions, see the [Parameters utility documentation](https://docs.aws.amazon.com/powertools/java/latest/utilities/parameters/).
 Retrieving secrets from Secrets Manager with Powertools for AWS Lambda Parameters utility.  
 
-```
+```java
 import software.amazon.lambda.powertools.logging.Logging;
 import software.amazon.lambda.powertools.parameters.SecretsProvider;
 import software.amazon.lambda.powertools.parameters.ParamManager;
@@ -624,7 +623,7 @@ public class SecretHandler implements RequestHandler<Object, String> {
 For complete examples and setup instructions, see the [Parameters utility documentation](https://docs.aws.amazon.com/powertools/dotnet/utilities/parameters/).
 Retrieving secrets from Secrets Manager with Powertools for AWS Lambda Parameters utility.  
 
-```
+```csharp
 using AWS.Lambda.Powertools.Logging;
 using AWS.Lambda.Powertools.Parameters;
 using Amazon.Lambda.Core;

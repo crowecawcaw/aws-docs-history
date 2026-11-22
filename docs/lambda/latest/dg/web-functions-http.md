@@ -1,7 +1,6 @@
 
 
 # HTTP requests and responses
-<a name="web-functions-http"></a>
 
 A Web Function endpoint accepts HTTP/1.1 requests and forwards them to your application over HTTP/1.1. Lambda rejects HTTP/1.0 requests with HTTP 505 (HTTP Version Not Supported). Lambda preserves the request method, path, query string, body, and most headers. It removes or changes headers that describe the connection between the client and the endpoint. It also adds headers that provide request context.
 

@@ -1,7 +1,6 @@
 
 
 # Invoking a response streaming enabled function using Lambda function URLs
-<a name="config-rs-invoke-furls"></a>
 
 **Note**  
 Your Lambda function can now stream response payloads through the [Amazon API Gateway proxy integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/response-transfer-mode-lambda.html).

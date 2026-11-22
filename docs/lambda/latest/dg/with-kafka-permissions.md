@@ -1,7 +1,6 @@
 
 
 # Configuring Lambda execution role permissions
-<a name="with-kafka-permissions"></a>
 
 In addition to [accessing your self-managed Kafka cluster](kafka-cluster-auth.md), your Lambda Event Function needs permissions to perform various API actions. You add these permissions to the function's [execution role](lambda-intro-execution-role.md). If your users need access to any API actions, add the required permissions to the identity policy for the AWS Identity and Access Management (IAM) user or role.
 
@@ -58,7 +57,7 @@ By default, Lambda is not permitted to perform the required or optional actions 
 
 ****  
 
-```
+```json
 {
         "Version":"2012-10-17",		 	 	 
         "Statement":[

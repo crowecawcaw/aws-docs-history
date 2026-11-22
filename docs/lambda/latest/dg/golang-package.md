@@ -1,7 +1,6 @@
 
 
 # Deploy Go Lambda Event Functions with .zip file archives
-<a name="golang-package"></a>
 
 Your AWS Lambda function's code consists of scripts or compiled programs and their dependencies. You use a *deployment package* to deploy your function code to Lambda. Lambda supports two types of deployment packages: container images and .zip file archives. 
 
@@ -28,7 +27,7 @@ If your function uses the AWS SDK for Go, download the standard set of SDK modul
 ### Using the provided runtime family
 <a name="golang-package-mac-linux-al2"></a>
 
-Go is implemented differently than other managed runtimes. Because Go compiles natively to an executable binary, it doesn't require a dedicated language runtime. Use an [OS-only runtime](runtimes-provided.md) (the `provided` runtime family) to deploy Go Event Functions to Lambda.
+Go is implemented differently than other managed runtimes. Because Go compiles natively to an executable binary, it doesn't require a dedicated language runtime. Use an [OS-only runtime](lambda-runtimes.md#runtimes-provided) (the `provided` runtime family) to deploy Go Event Functions to Lambda.
 
 **To create a .zip deployment package (macOS/Linux)**
 
@@ -97,7 +96,7 @@ If your function uses the AWS SDK for Go, download the standard set of SDK modul
 ### Using the provided runtime family
 <a name="golang-package-windows-al2"></a>
 
-Go is implemented differently than other managed runtimes. Because Go compiles natively to an executable binary, it doesn't require a dedicated language runtime. Use an [OS-only runtime](runtimes-provided.md) (the `provided` runtime family) to deploy Go Event Functions to Lambda.
+Go is implemented differently than other managed runtimes. Because Go compiles natively to an executable binary, it doesn't require a dedicated language runtime. Use an [OS-only runtime](lambda-runtimes.md#runtimes-provided) (the `provided` runtime family) to deploy Go Event Functions to Lambda.
 
 **To create a .zip deployment package (Windows)**
 
@@ -332,7 +331,7 @@ You can also use AWS SAM to create a Lambda function using an existing .zip file
    + **Architectures**: Use `[arm64]` for the arm64 architecture. For the x86\_64 instruction set architecture, use `[amd64]` or remove the `Architectures` property.  
 **Example template.yaml**  
 
-   ```
+   ```yaml
    AWSTemplateFormatVersion: '2010-09-09'
    Transform: 'AWS::Serverless-2016-10-31'
    Resources:

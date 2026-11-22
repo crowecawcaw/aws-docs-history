@@ -1,7 +1,6 @@
 
 
 # Define Lambda Event Function handler in Ruby
-<a name="ruby-handler"></a>
 
 The Lambda Event Function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 

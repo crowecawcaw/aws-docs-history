@@ -1,7 +1,6 @@
 
 
 # Multi-Region deployment
-<a name="web-functions-endpoint-replication"></a>
 
 For **MultiRegion** and **PerRegion** endpoints, Lambda replicates runtime artifacts to all target Regions so your application can serve traffic close to end users. You manage the Web Function entirely from the home Region. Replicated resources are not visible or modifiable in replica Regions.
 

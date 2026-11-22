@@ -1,7 +1,6 @@
 
 
 # Lambda SnapStart runtime hooks for .NET
-<a name="snapstart-runtime-hooks-dotnet"></a>
 
 You can use runtime hooks to implement code before Lambda creates a snapshot or after Lambda resumes an Event Function from a snapshot. .NET runtime hooks are available as part of the [Amazon.Lambda.Core](https://www.nuget.org/packages/Amazon.Lambda.Core) package (version 2.5.0 or later). This library provides two methods that you can use to define your runtime hooks:
 + `RegisterBeforeSnapshot()`: Code to run before snapshot creation
@@ -20,7 +19,7 @@ Register your hooks in your initialization code. Consider the following guidelin
 
 To register runtime hooks for SnapStart in .NET, use the following methods:
 
-```
+```csharp
 Amazon.Lambda.Core.SnapshotRestore.RegisterBeforeSnapshot(BeforeCheckpoint);
 Amazon.Lambda.Core.SnapshotRestore.RegisterAfterRestore(AfterCheckpoint);
 ```
@@ -30,14 +29,14 @@ When multiple hook types are registered, the order that Lambda executes your run
 + `RegisterAfterSnapshot()`: Executed in the order of registration
 
 **Note**  
-When Lambda creates a snapshot, your initialization code can run for up to 15 minutes. The time limit is 130 seconds or the [configured function timeout](configuration-timeout.md) (maximum 900 seconds), whichever is higher. Your `RegisterBeforeSnapshot()` runtime hooks count towards the initialization code time limit. When Lambda restores a snapshot, the runtime must load and `RegisterAfterSnapshot()` runtime hooks must complete within the timeout limit (10 seconds). Otherwise, you'll get a SnapStartTimeoutException.
+When Lambda creates a snapshot, your initialization code can run for up to 15 minutes. The time limit is 130 seconds or the [configured function timeout](configuration-timeout.md) (maximum 900 seconds, even if the function timeout is longer), whichever is higher. Your `RegisterBeforeSnapshot()` runtime hooks count towards the initialization code time limit. When Lambda restores a snapshot, the runtime must load and `RegisterAfterSnapshot()` runtime hooks must complete within the timeout limit (10 seconds). Otherwise, you'll get a SnapStartTimeoutException.
 
 ## Example
 <a name="runtime-hooks-dotnet-code-sample"></a>
 
 The following example function shows how to run code before checkpointing (`RegisterBeforeSnapshot`) and after restoring (`RegisterAfterRestore`).
 
-```
+```csharp
 public class SampleClass
 {
     public SampleClass()

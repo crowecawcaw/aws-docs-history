@@ -1,7 +1,6 @@
 
 
 # Tutorial: Using Lambda with API Gateway
-<a name="services-apigateway-tutorial"></a>
 
 In this tutorial, you create a REST API through which you invoke a Lambda Event Function using an HTTP request. Your Lambda Event Function performs create, read, update, and delete (CRUD) operations on a DynamoDB table. This function is provided here for demonstration, but you learn to configure an API Gateway REST API that can invoke any Lambda Event Function.
 
@@ -43,7 +42,7 @@ Before you can create an [execution role](lambda-intro-execution-role.md) for yo
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -131,7 +130,7 @@ An [execution role](lambda-intro-execution-role.md) is an AWS Identity and Acces
 
 **Example index.mjs**  
 
-   ```
+   ```nodejs
    import { DynamoDBDocumentClient, PutCommand, GetCommand, 
             UpdateCommand, DeleteCommand} from "@aws-sdk/lib-dynamodb";
    import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
@@ -188,7 +187,7 @@ An [execution role](lambda-intro-execution-role.md) is an AWS Identity and Acces
 
 **Example lambda\_function.py**  
 
-   ```
+   ```python
    import boto3
    
    # Define the DynamoDB table that Lambda will connect to
@@ -256,7 +255,7 @@ Before integrating your function with API Gateway, confirm that you have deploye
 
 1. Scroll down to the **Event JSON** section and replace the default event with the following. This event matches the structure expected by the Lambda Event Function.
 
-   ```
+   ```json
    {
        "operation": "echo",
        "payload": {
@@ -363,7 +362,7 @@ You're now ready to test the integration of your API Gateway API method with you
 
 1. Under **Test method**, leave **Query strings** and **Headers** empty. For **Request body**, paste the following JSON:
 
-   ```
+   ```json
    {
      "operation": "create",
      "payload": {
@@ -392,7 +391,7 @@ You're now ready to test the integration of your API Gateway API method with you
 
 1. Under **Test method**, leave **Query strings** and **Headers** empty. For **Request body**, paste the following JSON:
 
-   ```
+   ```json
    {
        "operation": "update",
        "payload": {
@@ -452,7 +451,7 @@ You can now invoke your Lambda Event Function by issuing an HTTP request to your
 ------
 #### [ Linux/macOS ]
 
-   ```
+   ```bash
    curl https://{{l8togsqxd8.execute-api.us-east-2.amazonaws.com/test}}/DynamoDBManager \
    -H "Content-Type: application/json" \
    -d '{"operation": "create", "payload": {"Item": {"id": "5678EFGH", "number": 15}}}'
@@ -461,7 +460,7 @@ You can now invoke your Lambda Event Function by issuing an HTTP request to your
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    curl.exe 'https://{{l8togsqxd8.execute-api.us-east-2.amazonaws.com/test}}/DynamoDBManager' -H 'Content-Type: application/json' -d '{\"operation\": \"create\", \"payload\": {\"Item\": {\"id\": \"5678EFGH\", \"number\": 15}}}'
    ```
 
@@ -481,7 +480,7 @@ You can now invoke your Lambda Event Function by issuing an HTTP request to your
 ------
 #### [ Linux/macOS ]
 
-  ```
+  ```bash
   curl https://{{l8togsqxd8.execute-api.us-east-2.amazonaws.com/test}}/DynamoDBManager \
   -H "Content-Type: application/json" \
   -d '{"operation": "read", "payload": {"Key": {"id": "5678EFGH"}}}'
@@ -490,7 +489,7 @@ You can now invoke your Lambda Event Function by issuing an HTTP request to your
 ------
 #### [ PowerShell ]
 
-  ```
+  ```powershell
   curl.exe 'https://{{l8togsqxd8.execute-api.us-east-2.amazonaws.com/test}}/DynamoDBManager' -H 'Content-Type: application/json' -d '{\"operation\": \"read\", \"payload\": {\"Key\": {\"id\": \"5678EFGH\"}}}'
   ```
 
@@ -525,7 +524,7 @@ You can now invoke your Lambda Event Function by issuing an HTTP request to your
 ------
 #### [ Linux/macOS ]
 
-   ```
+   ```bash
    curl https://{{l8togsqxd8.execute-api.us-east-2.amazonaws.com/test}}/DynamoDBManager \
    -H "Content-Type: application/json" \
    -d '{"operation": "update", "payload": {"Key": {"id": "5678EFGH"}, "UpdateExpression": "SET #num = :new_value", "ExpressionAttributeNames": {"#num": "number"}, "ExpressionAttributeValues": {":new_value": 42}}}'
@@ -534,7 +533,7 @@ You can now invoke your Lambda Event Function by issuing an HTTP request to your
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    curl.exe 'https://{{l8togsqxd8.execute-api.us-east-2.amazonaws.com/test}}/DynamoDBManager' -H 'Content-Type: application/json' -d '{\"operation\": \"update\", \"payload\": {\"Key\": {\"id\": \"5678EFGH\"}, \"UpdateExpression\": \"SET #num = :new_value\", \"ExpressionAttributeNames\": {\"#num\": \"number\"}, \"ExpressionAttributeValues\": {\":new_value\": 42}}}'
    ```
 
@@ -545,7 +544,7 @@ You can now invoke your Lambda Event Function by issuing an HTTP request to your
 ------
 #### [ Linux/macOS ]
 
-   ```
+   ```bash
    curl https://{{l8togsqxd8.execute-api.us-east-2.amazonaws.com/test}}/DynamoDBManager \
    -H "Content-Type: application/json" \
    -d '{"operation": "read", "payload": {"Key": {"id": "5678EFGH"}}}'
@@ -554,7 +553,7 @@ You can now invoke your Lambda Event Function by issuing an HTTP request to your
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    curl.exe 'https://{{l8togsqxd8.execute-api.us-east-2.amazonaws.com/test}}/DynamoDBManager' -H 'Content-Type: application/json' -d '{\"operation\": \"read\", \"payload\": {\"Key\": {\"id\": \"5678EFGH\"}}}'
    ```
 
@@ -567,7 +566,7 @@ You can now invoke your Lambda Event Function by issuing an HTTP request to your
 ------
 #### [ Linux/macOS ]
 
-   ```
+   ```bash
    curl https://{{l8togsqxd8.execute-api.us-east-2.amazonaws.com/test}}/DynamoDBManager \
    -H "Content-Type: application/json" \
    -d '{"operation": "delete", "payload": {"Key": {"id": "5678EFGH"}}}'
@@ -576,7 +575,7 @@ You can now invoke your Lambda Event Function by issuing an HTTP request to your
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    curl.exe 'https://{{l8togsqxd8.execute-api.us-east-2.amazonaws.com/test}}/DynamoDBManager' -H 'Content-Type: application/json' -d '{\"operation\": \"delete\", \"payload\": {\"Key\": {\"id\": \"5678EFGH\"}}}'
    ```
 

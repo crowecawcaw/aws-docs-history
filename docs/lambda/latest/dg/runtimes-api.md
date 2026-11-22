@@ -1,9 +1,8 @@
 
 
-# Using the Lambda runtime API for custom runtimes
-<a name="runtimes-api"></a>
+# Using the Lambda runtime API
 
-AWS Lambda provides an HTTP API for [custom runtimes](runtimes-custom.md) of Lambda Event Functions to receive invocation events from Lambda and send response data back within the Lambda [execution environment](lambda-runtimes.md). This section contains the API reference for the Lambda runtime API.
+AWS Lambda provides an HTTP API that runtimes for Lambda Event Functions use to receive invocation events from Lambda and send response data back within the Lambda [execution environment](lambda-runtimes.md). You use this API when you build your own runtime, either as a [customer-managed runtime](runtimes-customer-managed.md) or by [bringing your own language (BYOL)](runtimes-custom.md). This page contains the API reference for the Lambda runtime API.
 
 **Lambda Managed Instances support concurrent requests**  
 Lambda Managed Instances use the same runtime API as functions that use the Lambda default capacity provider. The key difference is that Managed Instances can accept concurrent `/next` and `/response` requests up to the configured `AWS_LAMBDA_MAX_CONCURRENCY` limit. This enables multiple invocations to be processed simultaneously within a single execution environment. For more information about Managed Instances, see [Understanding the Lambda Managed Instances execution environment](lambda-managed-instances-execution-environment.md).
@@ -234,10 +233,14 @@ No headers required.
 + 404 – SnapStart is not enabled for this function.
 + 500 – Container error. The execution environment is in a non-recoverable state. Exit the runtime process.
 
+**Request syntax**
+
 ```
 GET /2018-06-01/runtime/restore/next HTTP/1.1
 Host: ${AWS_LAMBDA_RUNTIME_API}
 ```
+
+**Response syntax**
 
 ```
 HTTP/1.1 200 OK
@@ -266,11 +269,15 @@ If an after-restore hook fails or the runtime encounters an error during restore
 + 404 – SnapStart is not enabled for this function.
 + 500 – Container error. The execution environment is in a non-recoverable state. Exit the runtime process.
 
+**Request syntax**
+
 ```
 POST /2018-06-01/runtime/restore/error HTTP/1.1
 Host: ${AWS_LAMBDA_RUNTIME_API}
 Lambda-Runtime-Function-Error-Type: Runtime.AfterRestoreError
 ```
+
+**Response syntax**
 
 ```
 HTTP/1.1 202 Accepted

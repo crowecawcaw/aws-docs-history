@@ -1,7 +1,6 @@
 
 
 # Implement code before or after Lambda Event Function snapshots
-<a name="snapstart-runtime-hooks"></a>
 
 You can use runtime hooks to implement code before Lambda creates a snapshot or after Lambda resumes a function from a snapshot. Runtime hooks are useful for a variety of purposes, such as:
 + **Cleanup and initialization:** Before a snapshot is created, you can use a runtime hook to perform cleanup or resource release operations. After a snapshot is restored, you can use a runtime hook to re-initialize any resources or state that were not captured in the snapshot.

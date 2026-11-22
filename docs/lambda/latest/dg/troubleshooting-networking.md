@@ -1,7 +1,6 @@
 
 
 # Troubleshoot networking issues in Lambda
-<a name="troubleshooting-networking"></a>
 
 By default, Lambda runs your functions in an internal virtual private cloud (VPC) with connectivity to AWS services and the internet. To access local network resources, you can [configure your function to connect to a VPC in your account](configuration-vpc.md). When you use this feature, you manage the Lambda Event Function's internet access and network connectivity with Amazon Virtual Private Cloud (Amazon VPC) resources.
 
@@ -14,6 +13,7 @@ Network connectivity errors can result from issues with your VPC's routing confi
 + [VPC: Elastic network interface limit reached](#troubleshooting-networking-limit)
 + [EC2: Elastic network interface with type of "lambda"](#troubleshooting-networking-eni)
 + [DNS: Fail to connect to hosts with UNKNOWNHOSTEXCEPTION](#troubleshooting-networking-dns-tcp)
++ [IPv6: Local server fails to listen on localhost](#troubleshooting-networking-localhost)
 
 ## VPC: Function loses internet access or times out
 <a name="troubleshooting-networking-cfn"></a>
@@ -71,3 +71,14 @@ You receive this error if you attempt to modify an elastic network interface (EN
 Lambda functions support a maximum of 20 concurrent TCP connections for DNS resolution. Your function might be exhausting that limit. Most common DNS requests are done over UDP. If your function is only making UDP DNS connections, this is unlikely to be your issue. This error is commonly thrown due to misconfiguration or degraded infrastructure, so before examining your DNS traffic in depth, confirm that your DNS infrastructure is properly configured and healthy and that your Lambda function is referring to a host specified in DNS.
 
 If you diagnose your issue as related to the TCP connection maximum, note that you cannot request an increase to this limit. If your Lambda function is falling back to TCP DNS because of large DNS payloads, confirm that your solution is using libraries that support EDNS. For more information about EDNS, see [the RFC 6891 standard](https://datatracker.ietf.org/doc/html/rfc6891). If your DNS payloads consistently exceed EDNS max sizes, your solution might still exhaust the TCP DNS limit.
+
+## IPv6: Local server fails to listen on localhost
+<a name="troubleshooting-networking-localhost"></a>
+
+**Issue:** *A local server in your Lambda function fails to start when it listens on localhost.*
+
+**Error:** *EADDRNOTAVAIL: Cannot assign requested address*
+
+The name `localhost` can resolve to both `127.0.0.1` (IPv4) and `::1` (IPv6). For Lambda functions that don't use IPv6 networking, the loopback interface in the execution environment has no IPv6 address, so attempts to listen on `::1` fail with `EADDRNOTAVAIL`. Some language runtimes and libraries stop at this error instead of trying the next address, so the server fails to start.
+
+To avoid this error, configure your server to listen on `127.0.0.1` instead of `localhost`. This works in all runtimes and container images.

@@ -1,7 +1,6 @@
 
 
 # Response streaming for Lambda Event Functions
-<a name="configuration-response-streaming"></a>
 
 Lambda functions can natively stream response payloads back to clients through [Lambda function URLs](urls-configuration.md) or by using the [InvokeWithResponseStream](https://docs.aws.amazon.com/lambda/latest/api/API_InvokeWithResponseStream.html) API (through the AWS SDK or direct API calls). Your Lambda function can also stream response payloads through the [Amazon API Gateway proxy integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/response-transfer-mode-lambda.html), which uses the [InvokeWithResponseStream](https://docs.aws.amazon.com/lambda/latest/api/API_InvokeWithResponseStream.html) API to invoke your function. Response streaming can benefit latency sensitive applications by improving time to first byte (TTFB) performance. This is because you can send partial responses back to the client as they become available. Additionally, response streaming functions can return payloads up to 200 MB, compared to the 6 MB maximum for buffered responses.
 

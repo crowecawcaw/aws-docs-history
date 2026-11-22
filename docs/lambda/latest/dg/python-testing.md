@@ -1,7 +1,6 @@
 
 
 # AWS Lambda Event Function testing in Python
-<a name="python-testing"></a>
 
 **Note**  
 See the [Testing functions](testing-guide.md) chapter for a complete introduction to techniques and best practices for testing serverless solutions. 

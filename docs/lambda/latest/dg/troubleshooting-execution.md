@@ -1,7 +1,6 @@
 
 
 # Troubleshoot execution issues in Lambda
-<a name="troubleshooting-execution"></a>
 
 When the Lambda runtime runs your function code, the event might be processed on an instance of the Lambda Event Function that's been processing events for some time, or it might require a new instance to be initialized. Errors can occur during function initialization, when your handler code processes the event, or when your function returns (or fails to return) a response.
 
@@ -53,7 +52,7 @@ Malformed JSON can occur when provided by upstream services that do not use a ro
 
 Similarly, failing to check for ranges of values in the event payload can result in errors. This example shows a function that calculates a tax withholding:
 
-```
+```javascript
 exports.handler = async (event) => {
     let pct = event.taxPct
     let salary = event.salary

@@ -1,7 +1,6 @@
 
 
 # Monitoring Lambda Web Functions
-<a name="web-functions-monitoring"></a>
 
 AWS Lambda Web Functions publish metrics and logs to Amazon CloudWatch. Use them to identify performance bottlenecks, debug errors, and set alarms that alert you when error rates spike during canary deployments or traffic shifts.
 

@@ -1,7 +1,6 @@
 
 
 # All Amazon MSK event source configuration parameters in Lambda
-<a name="msk-esm-parameters"></a>
 
 All Lambda event source types share the same [CreateEventSourceMapping](https://docs.aws.amazon.com/lambda/latest/api/API_CreateEventSourceMapping.html) and [UpdateEventSourceMapping](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateEventSourceMapping.html) API operations. However, only some of the parameters apply to Amazon MSK, as shown in the following table.
 

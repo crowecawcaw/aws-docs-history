@@ -1,7 +1,6 @@
 
 
 # Configuring networking for AWS Lambda Web Functions
-<a name="web-functions-networking"></a>
 
 A Web Function accepts requests from clients. It can also reach other resources to do its work, such as a database in your VPC, an internal API, or a service on the public internet. You configure these two directions independently. You can expose an endpoint to callers without granting it VPC access, or give a function private outbound access without changing who can invoke it.
 
@@ -80,9 +79,15 @@ You choose the outbound network path for each revision:
 + Without an egress network connector – The revision reaches public `IPv4` destinations directly without traversing your VPC. The source address is Lambda-managed, isn't stable, and isn't suitable for an allow list. The revision has no route to private resources in your VPC.
 + With an egress network connector – The revision sends outbound traffic through elastic network interfaces in the connector's subnets. Your VPC route tables, security groups, and network access control lists (ACLs) apply. Use this option to reach private VPC resources, on-premises networks connected through Direct Connect or VPN, or destinations that require traffic from your address space.
 
-Referencing a connector replaces the default outbound path. A connector places traffic in your VPC, but it doesn't provide internet access. To reach public `IPv4` destinations, the connector subnets need a route to a NAT gateway. To reach public `IPv6` destinations, they need a route to an egress-only internet gateway.
+Referencing a connector replaces the default outbound path. A connector places traffic in your VPC, but it doesn't provide internet access by itself. To reach public `IPv4` destinations, use one of the following:
++ A route from the connector subnets to a NAT gateway
++ Service-managed Elastic IP addresses on the connector, in subnets with a route to an internet gateway (see [Use Elastic IP addresses for outbound traffic](#web-functions-networking-vpc-elastic-ip))
 
-There is no stable source IP address for connector traffic. Configure destination security groups to allow the connector's security groups. If a destination doesn't support security-group references, allow the connector subnet CIDR blocks instead of an individual address.
+To reach public `IPv6` destinations, use a dual-stack connector (`NetworkProtocol` set to `DualStack`) in subnets with a route to an egress-only internet gateway. For more information, see [IPv6 support](#web-functions-networking-ipv6).
+
+For destinations in your VPC, connector traffic has no stable source IP address. Configure destination security groups to allow the connector's security groups. If a destination doesn't support security-group references, allow the connector subnet CIDR blocks instead of an individual address.
+
+For public destinations, connector traffic leaves from your NAT gateway's Elastic IP address or, with service-managed Elastic IP addresses, from the address of each connector network interface. For more information, see [Use Elastic IP addresses for outbound traffic](#web-functions-networking-vpc-elastic-ip). To give a destination one contiguous address range to allow, allocate the addresses with IPAM.
 
 Lambda runs connector operations asynchronously. A connector reports `PENDING` while Lambda creates its network interfaces, and `ACTIVE` when revisions can reference it. Other states include `INACTIVE`, `FAILED`, `DELETING`, and `DELETE_FAILED`.
 
@@ -132,7 +137,7 @@ Lambda assumes the connector's operator role to manage the connector's network i
 
 1. Create the operator role with a trust policy that allows the Lambda service principal, `lambda.amazonaws.com`, to assume it:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",
      "Statement": [
@@ -149,7 +154,7 @@ Lambda assumes the connector's operator role to manage the connector's network i
 
 1. Attach a permissions policy to the operator role that allows Lambda to create and tag the connector's network interfaces:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",
      "Statement": [
@@ -178,6 +183,42 @@ Lambda assumes the connector's operator role to manage the connector's network i
    }
    ```
 
+   If the connector uses service-managed Elastic IP addresses, also add the following statements to the policy's `Statement` array. The second statement lets the role associate only the addresses that Lambda tags with a connector ID, and the third limits the network interface permissions to the connector's own network interfaces.
+
+   ```json
+   {
+     "Sid": "AllocateEIP",
+     "Effect": "Allow",
+     "Action": "ec2:AllocateAddress",
+     "Resource": "arn:aws:ec2:*:*:elastic-ip/*"
+   },
+   {
+     "Sid": "AssociateConnectorEIP",
+     "Effect": "Allow",
+     "Action": "ec2:AssociateAddress",
+     "Resource": "arn:aws:ec2:*:*:elastic-ip/*",
+     "Condition": {
+       "StringLike": {
+         "aws:ResourceTag/aws:lambda:networkConnectorId": "nc-*"
+       }
+     }
+   },
+   {
+     "Sid": "ManageEIPOnConnectorENI",
+     "Effect": "Allow",
+     "Action": [
+       "ec2:AllocateAddress",
+       "ec2:AssociateAddress"
+     ],
+     "Resource": "arn:aws:ec2:*:*:network-interface/*",
+     "Condition": {
+       "StringEquals": {
+         "ec2:ManagedResourceOperator": "network-connectors.lambda.amazonaws.com"
+       }
+     }
+   }
+   ```
+
 ### Create a connector
 <a name="web-functions-networking-vpc-create-connector"></a>
 
@@ -187,7 +228,7 @@ A connector supports one compute resource type. A connector for Web Functions do
 
 1. Create an `IPv4` connector for Web Functions with the following AWS CLI command. Replace the connector name, subnet IDs, security group ID, and operator role ARN with your own values:
 
-   ```
+   ```bash
    aws lambda-core create-network-connector \
      --name {{my-connector}} \
      --configuration '{
@@ -221,7 +262,7 @@ A revision doesn't accept an unqualified ARN, connector name, or connector ID.
 
 1. Create a revision that references the connector. The following AWS CLI command references connector version 4. Replace the function name, execution role ARN, connector ARN, and Region with your own values:
 
-   ```
+   ```bash
    aws lambda-web create-web-function-revision \
      --function-name {{my-web-function}} \
      --build-config file://build-config.json \
@@ -242,6 +283,57 @@ A revision doesn't accept an unqualified ARN, connector name, or connector ID.
 1. Test a VPC destination and confirm the traffic with VPC Flow Logs.
 
 The endpoint's automatic deployment mode determines whether creating an active revision updates routing automatically. In all modes, confirm which revision is serving before testing its connector.
+
+### Use Elastic IP addresses for outbound traffic
+<a name="web-functions-networking-vpc-elastic-ip"></a>
+
+To give connector traffic a public `IPv4` source address through an Elastic IP address, set `ElasticIpConfiguration` in the connector's `VpcEgressConfiguration` with `Type` set to `ServiceManaged`. You get a service-managed Elastic IP address in your account for each connector network interface, associated with that interface. Each address stays the same for the life of its network interface, and Lambda releases it when it deletes the network interface. Lambda assigns Elastic IP addresses only when `Type` is `ServiceManaged`.
+
+Lambda manages these addresses for you. They appear in Amazon EC2 `DescribeAddresses` output and on the Elastic IP addresses page of the Amazon EC2 console with `ServiceManaged` set to `lambda-network-connector`. Each address is tagged with `aws:lambda:networkConnectorName` and `aws:lambda:networkConnectorId`, so you can find the addresses of a specific connector. The addresses don't count toward your account's Elastic IP address quota, and you can't modify or release them.
+
+To use service-managed Elastic IP addresses, you must meet the following requirements:
++ The VPC of the connector subnets must have an internet gateway attached, or the connector will fail with `InternetGatewayNotAttached`. For traffic to reach the internet through the Elastic IP addresses, the connector subnets also need a route to the internet gateway.
++ The operator role must allow `ec2:AllocateAddress` and `ec2:AssociateAddress`. For more information, see [Operator role permissions](#web-functions-networking-vpc-operator-role).
+
+The following AWS CLI command creates a connector with service-managed Elastic IP addresses. Replace the connector name, subnet IDs, security group ID, and account ID with your own values.
+
+```bash
+aws lambda-core create-network-connector \
+  --name {{my-connector}} \
+  --configuration '{
+    "VpcEgressConfiguration": {
+      "SubnetIds": [
+        "{{subnet-0ab1c2d3e4f5a6b78}}",
+        "{{subnet-1bc2d3e4f5a6b7c89}}"
+      ],
+      "SecurityGroupIds": ["{{sg-0123456789abcdef0}}"],
+      "NetworkProtocol": "IPv4",
+      "AssociatedComputeResourceTypes": ["WebFunction"],
+      "ElasticIpConfiguration": {
+        "Type": "ServiceManaged"
+      }
+    }
+  }' \
+  --operator-role arn:aws:iam::{{111122223333}}:role/NetworkConnectorOperatorRole
+```
++ Replace `my-connector` with a name for the connector.
++ Replace `subnet-0ab1c2d3e4f5a6b78` and `subnet-1bc2d3e4f5a6b7c89` with the IDs of public subnets for the connector.
++ Replace `sg-0123456789abcdef0` with the ID of the connector's security group.
++ Replace `111122223333` in the operator role ARN with your AWS account ID.
+
+To change the setting on an existing connector, include `ElasticIpConfiguration` in the configuration that you pass to `update-network-connector`. The change applies to the network interfaces of the new connector version. Create a revision that references the new version, as described in [Updating or removing VPC connectivity](#web-functions-networking-update-remove).
+
+To allocate these addresses from IP address pools that you manage, see [Allocate Elastic IP addresses with IPAM](#web-functions-networking-vpc-ipam).
+
+**Elastic IP address charges**  
+Elastic IP addresses are charged differently depending on where they come from. For rates, see [Amazon VPC pricing](https://aws.amazon.com/vpc/pricing/). A connector's Elastic IP addresses are charged for as long as the connector has network interfaces, including when the connector is idle or in the `FAILED` state. To stop the charges, delete the connector. Earlier connector versions keep their Elastic IP addresses after an update, including an update that sets the Elastic IP configuration type to `None`, until you delete those versions.
+
+### Allocate Elastic IP addresses with IPAM
+<a name="web-functions-networking-vpc-ipam"></a>
+
+By default, service-managed Elastic IP addresses come from Amazon's pool of public `IPv4` addresses. You can instead allocate them from public `IPv4` pools that you manage in Amazon VPC IP Address Manager (IPAM). This lets you use IPAM features such as [Bring Your Own IP (BYOIP)](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html), [Bring Your Own Autonomous System Number (BYOASN)](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html), and [Amazon-provided contiguous `IPv4` blocks](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html). To do this, create and enable an IPAM policy with an allocation rule for the `lambda-network-connector` resource type. For more information, see [Define public IPv4 allocation strategy with IPAM policies](https://docs.aws.amazon.com/vpc/latest/ipam/define-public-ipv4-allocation-strategy-with-ipam-policies.html) in the *Amazon VPC IPAM User Guide*.
+
+The IPAM pool and the allocation rule must use the connector's Region as their locale. The IPAM itself can be in a different AWS Region, as long as the connector's Region is one of the IPAM's operating Regions and both are in the same partition (a group of AWS Regions, such as the commercial Regions or the AWS GovCloud (US) Regions). For example, an IPAM in US West (N. California) can provide addresses for a connector in Europe (Frankfurt) from a pool with the locale `eu-central-1`. For more information, see [Modify IPAM operating Regions](https://docs.aws.amazon.com/vpc/latest/ipam/mod-ipam-region.html) in the *Amazon VPC IPAM User Guide*.
 
 ## Updating or removing VPC connectivity
 <a name="web-functions-networking-update-remove"></a>

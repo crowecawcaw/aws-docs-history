@@ -1,7 +1,6 @@
 
 
 # Process Amazon Kinesis Data Streams records with Lambda
-<a name="services-kinesis-create"></a>
 
 To process Amazon Kinesis Data Streams records with Lambda, create a Lambda event source mapping. You can map a Lambda Event Function to a standard iterator or enhanced fan-out consumer. For more information, see [Polling and batching streams](with-kinesis.md#kinesis-polling-and-batching).
 
@@ -61,7 +60,7 @@ Lambda makes `kinesis:GetRecords` and `kinesis:GetShardIterator` API calls when 
 **To add Kinesis permissions to your Event Function**
 + In your function's definition, add the `Policies` property as shown in the following example:
 
-  ```
+  ```YAML
   Resources:
     MyFunction:
       Type: AWS::Serverless::Function
@@ -118,7 +117,7 @@ To specify a batching window, add the `--maximum-batching-window-in-seconds` opt
 **To create the Kinesis event source mapping**
 + In your function's definition, add the `KinesisEvent` property as shown in the following example:
 
-  ```
+  ```YAML
   Resources:
     MyFunction:
       Type: AWS::Serverless::Function

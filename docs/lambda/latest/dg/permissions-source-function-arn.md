@@ -1,7 +1,6 @@
 
 
 # Using source function ARN to control function access behavior
-<a name="permissions-source-function-arn"></a>
 
 It's common for your Lambda Event Function code to make API requests to other AWS services. To make these requests, Lambda generates an ephemeral set of credentials by assuming your function's execution role. These credentials are available as environment variables during your function's invocation. When working with AWS SDKs, you don't need to provide credentials for the SDK directly in code. By default, the credential provider chain sequentially checks each place where you can set credentials and selects the first one available—usually the environment variables (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_SESSION_TOKEN`).
 
@@ -36,7 +35,7 @@ For example, suppose your Lambda function code makes an `s3:PutObject` call that
 **Example policy granting a specific Event Function access to an Amazon S3 resource**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -65,7 +64,7 @@ You can also use `lambda:SourceFunctionArn` in SCPs. For example, suppose you wa
 **Example policy denying access to Amazon S3 under specific conditions**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

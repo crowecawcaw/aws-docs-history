@@ -1,7 +1,6 @@
 
 
 # Define Lambda Event Function handlers in Rust
-<a name="rust-handler"></a>
 
 The Lambda Event Function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
@@ -55,7 +54,7 @@ The following example Rust Lambda function code takes in information about an or
 
 **Example `main.rs` Lambda Event Function**  
 
-```
+```rust
 use aws_sdk_s3::{Client, primitives::ByteStream};
 use lambda_runtime::{run, service_fn, Error, LambdaEvent};
 use serde::{Deserialize, Serialize};

@@ -1,7 +1,6 @@
 
 
 # Enable internet access for VPC-connected Lambda Event Functions
-<a name="configuration-vpc-internet"></a>
 
 By default, Lambda functions run in a Lambda-managed VPC that has internet access. To access resources in a VPC in your account, you can add a VPC configuration to a function. This restricts the function to resources within that VPC, unless the VPC has internet access. This page explains how to provide internet access to VPC-connected Lambda functions.
 
@@ -112,7 +111,7 @@ Use the following sample code to confirm that your VPC-connected function can re
 ![Lambda console code editor.](https://docs.aws.amazon.com/lambda/latest/dg/images/code-source-nodejs.png)  
 **Example — HTTP request with async/await**  
 
-   ```
+   ```javascript
    const url = "https://aws.amazon.com/";
    
    export const handler = async(event) => {
@@ -141,7 +140,7 @@ Use the following sample code to confirm that your VPC-connected function can re
 
    If the function can't reach the public internet, you get an error message like this:
 
-   ```
+   ```json
    {
      "errorMessage": "2024-04-11T17:22:20.857Z abe12jlc-640a-8157-0249-9be825c2y110 Task timed out after 3.01 seconds"
    }
@@ -153,7 +152,7 @@ Use the following sample code to confirm that your VPC-connected function can re
 1. In the **Code source** pane on the Lambda console, paste the following code into the **lambda\_function.py** file. The function makes an HTTP GET request to a public endpoint and returns the HTTP response code to test if the function has access to the public internet.  
 ![Lambda console code editor.](https://docs.aws.amazon.com/lambda/latest/dg/images/code-source-python.png)
 
-   ```
+   ```python
    import urllib.request
    
    def lambda_handler(event, context):
@@ -180,7 +179,7 @@ Use the following sample code to confirm that your VPC-connected function can re
 
    If the function can't reach the public internet, you get an error message like this:
 
-   ```
+   ```json
    {
      "errorMessage": "2024-04-11T17:22:20.857Z abe12jlc-640a-8157-0249-9be825c2y110 Task timed out after 3.01 seconds"
    }
@@ -445,7 +444,7 @@ Use the following sample code to confirm that your VPC-connected function can re
 ![Lambda console code editor.](https://docs.aws.amazon.com/lambda/latest/dg/images/code-source-nodejs.png)  
 **Example — HTTP request with async/await**  
 
-   ```
+   ```javascript
    const url = "https://aws.amazon.com/";
    
    export const handler = async(event) => {
@@ -474,7 +473,7 @@ Use the following sample code to confirm that your VPC-connected function can re
 
    If the function can't reach the public internet, you get an error message like this:
 
-   ```
+   ```json
    {
      "errorMessage": "2024-04-11T17:22:20.857Z abe12jlc-640a-8157-0249-9be825c2y110 Task timed out after 3.01 seconds"
    }
@@ -486,7 +485,7 @@ Use the following sample code to confirm that your VPC-connected function can re
 1. In the **Code source** pane on the Lambda console, paste the following code into the **lambda\_function.py** file. The function makes an HTTP GET request to a public endpoint and returns the HTTP response code to test if the function has access to the public internet.  
 ![Lambda console code editor.](https://docs.aws.amazon.com/lambda/latest/dg/images/code-source-python.png)
 
-   ```
+   ```python
    import urllib.request
    
    def lambda_handler(event, context):
@@ -513,7 +512,7 @@ Use the following sample code to confirm that your VPC-connected function can re
 
    If the function can't reach the public internet, you get an error message like this:
 
-   ```
+   ```json
    {
      "errorMessage": "2024-04-11T17:22:20.857Z abe12jlc-640a-8157-0249-9be825c2y110 Task timed out after 3.01 seconds"
    }

@@ -1,7 +1,6 @@
 
 
 # Log-level filtering for capacity provider system logs
-<a name="lambda-managed-instances-monitoring-log-levels"></a>
 
 Lambda can filter your capacity provider's system logs so that only logs of a certain detail level or lower are sent to CloudWatch Logs. You can choose between the following log levels.
 

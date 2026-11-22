@@ -1,7 +1,6 @@
 
 
 # Apache Kafka polling and stream starting positions in Lambda
-<a name="kafka-starting-positions"></a>
 
 The [ StartingPosition parameter](https://docs.aws.amazon.com/lambda/latest/api/API_CreateEventSourceMapping.html#lambda-CreateEventSourceMapping-request-StartingPosition) tells Lambda when to start reading messages from your Amazon MSK or self-managed Apache Kafka stream. There are three options to choose from:
 + **Latest** – Lambda starts reading just after the most recent record in the Kafka topic.

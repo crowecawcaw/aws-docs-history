@@ -1,7 +1,6 @@
 
 
 # Viewing CloudWatch logs for Lambda Event Functions
-<a name="monitoring-cloudwatchlogs-view"></a>
 
 You can view Amazon CloudWatch logs for your Lambda Event Function using the Lambda console, the CloudWatch console, or the AWS Command Line Interface (AWS CLI). Follow the instructions in the following sections to access your Event Function's logs.
 
@@ -203,7 +202,7 @@ With CloudWatch Logs Insights, you can search and analyze log data using a speci
 
 You can take advantage of these capabilities by implementing structured logging in your Lambda Event Functions. Structured logging organizes your logs into a pre-defined format, making it easier to query for. Using log levels is an important first step in generating filter-friendly logs that separate informational messages from warnings or errors. For example, consider the following Node.js code:
 
-```
+```javascript
 exports.handler = async (event) => {
     console.log("console.log - Application is fine")
     console.info("console.info - This is the same as console.log")

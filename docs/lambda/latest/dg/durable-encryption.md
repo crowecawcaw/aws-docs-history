@@ -1,7 +1,6 @@
 
 
 # Encrypting AWS Lambda durable execution data
-<a name="durable-encryption"></a>
 
 With [AWS Lambda durable functions](durable-functions.md), you can build resilient, multi-step applications that run for up to one year, using checkpoints to recover each execution from failures by replaying completed work.
 
@@ -57,7 +56,7 @@ The policy grants the following capabilities:
 + **Allow the function execution role to decrypt durable execution data**. Grants the execution role `kms:Decrypt` to read state and progress the execution.
 + **Allow the function author to describe this key**. Grants `kms:DescribeKey` so Lambda can validate that the key is symmetric and enabled during `CreateFunction` or `UpdateFunctionConfiguration`.
 + **Allow the function author to validate this key for a specific function**. Grants `kms:GenerateDataKey` and `kms:Decrypt` so Lambda can validate key permissions and access with the function's encryption context during `CreateFunction` or `UpdateFunctionConfiguration`. This confirms the key policy accepts calls for this specific function before the function is created or updated.
-+ **Allow durable execution operators**. Grants operators `kms:Decrypt` for calls to `GetDurableExecution`, `GetDurableExecutionHistory` with `IncludeExecutionData=true`, `GetDurableExecutionState`, `StopDurableExecution`, and the callback APIs. `DeleteDurableExecution` doesn't use the key, so it doesn't need a statement in the key policy.
++ **Allow durable execution operators**. Grants operators `kms:Decrypt` for calls to `GetDurableExecution`, `GetDurableExecutionHistory` with `IncludeExecutionData=true`, `GetDurableExecutionState`, `StopDurableExecution`, `PauseDurableExecution`, `ResumeDurableExecution`, and the callback APIs. `DeleteDurableExecution` doesn't use the key, so it doesn't need a statement in the key policy.
 
 As a best practice, use separate principals for the execution role, function author, and durable execution operator so each identity has only the capabilities it needs.
 
@@ -71,7 +70,7 @@ The following example combines the statements and conditions above.
 
 **Example Key policy for durable functions**  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -217,7 +216,7 @@ aws lambda update-function-configuration \
 
 In an `AWS::Lambda::Function` resource, set the `KMSKeyArn` property of `DurableConfig`:
 
-```
+```yaml
 Resources:
   MyDurableFunction:
     Type: AWS::Lambda::Function
@@ -253,7 +252,7 @@ When `IncludeExecutionData` is `false`, Lambda does not call AWS KMS or decrypt 
 
 **Example: `GetDurableExecution` response with `IncludeExecutionData=false`**
 
-```
+```json
 {
     "DurableExecutionArn": "arn:aws:lambda:us-east-1:111122223333:function:myDurableFunction:execution:exec-abc123",
     "DurableExecutionName": "exec-abc123",

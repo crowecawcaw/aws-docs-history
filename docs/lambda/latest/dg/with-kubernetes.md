@@ -1,7 +1,6 @@
 
 
 # Using Lambda with Kubernetes
-<a name="with-kubernetes"></a>
 
 You can deploy and manage Lambda Event Functions with the Kubernetes API using [AWS Controllers for Kubernetes (ACK)](https://aws-controllers-k8s.github.io/community/docs/community/overview/) or [Crossplane](https://docs.crossplane.io/latest/packages/providers/).
 

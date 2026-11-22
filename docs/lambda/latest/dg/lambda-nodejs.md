@@ -1,7 +1,6 @@
 
 
 # Building Lambda Event Functions with Node.js
-<a name="lambda-nodejs"></a>
 
 You can run JavaScript code with Node.js in AWS Lambda Event Functions. Lambda provides [runtimes](lambda-runtimes.md) for Node.js that run your code to process events. Your code runs in an environment that includes the AWS SDK for JavaScript, with credentials from an AWS Identity and Access Management (IAM) role that you manage. To learn more about the SDK versions included with the Node.js runtimes, see [Runtime-included SDK versions](#nodejs-sdk-included).
 
@@ -10,7 +9,7 @@ Lambda supports the following Node.js runtimes.<a name="nodejs-supported-runtime
 
 | Name | Identifier | Operating system | Deprecation date | Block function create | Block function update | 
 | --- | --- | --- | --- | --- | --- | 
-| Node.js 26 | `nodejs26.x` | Amazon Linux 2023 |  Not scheduled  |  Not scheduled  |  Not scheduled  | 
+| Node.js 26 | `nodejs26.x` | Amazon Linux 2023 |  Apr 30, 2029  |  Jun 1, 2029  |  Jul 1, 2029  | 
 | Node.js 24 | `nodejs24.x` | Amazon Linux 2023 |  Apr 30, 2028  |  Jun 1, 2028  |  Jul 1, 2028  | 
 | Node.js 22 | `nodejs22.x` | Amazon Linux 2023 |  May 30, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
 
@@ -56,14 +55,14 @@ All [supported Lambda Node.js runtimes](#nodejs-supported-runtimes) include a sp
 
 **Example index.mjs**  
 
-```
+```JavaScript
 import packageJson from '@aws-sdk/client-s3/package.json' with { type: 'json' };
 
 export const handler = async () => ({ version: packageJson.version });
 ```
 This returns a response in the following format:  
 
-```
+```JSON
 {
   "version": "3.632.0"
 }

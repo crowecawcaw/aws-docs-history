@@ -1,7 +1,6 @@
 
 
 # Implement observability for Lambda security and compliance
-<a name="governance-observability"></a>
 
 AWS Config is a useful tool to find and fix non-compliant AWS Serverless resources. Every change you make to your serverless resources is recorded in AWS Config. Additionally, with AWS Config, you can store configuration snapshot data on S3.
 

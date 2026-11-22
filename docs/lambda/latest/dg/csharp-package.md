@@ -1,7 +1,6 @@
 
 
 # Build and deploy C\# Lambda Event Functions with .zip file archives
-<a name="csharp-package"></a>
 
 A .NET deployment package (.zip file archive) contains your function's compiled assembly along with all of its assembly dependencies. The package also contains a `{{proj}}.deps.json` file. This signals to the .NET runtime all of your function's dependencies and a `{{proj}}.runtimeconfig.json` file, which is used to configure the runtime.
 

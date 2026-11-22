@@ -1,7 +1,6 @@
 
 
 # Using schema registries with Kafka event sources in Lambda
-<a name="services-consume-kafka-events"></a>
 
  Schema registries help you define and manage data stream schemas. A schema defines the structure and format of a data record. In the context of Kafka event source mappings, you can configure a schema registry to validate the structure and format of Kafka messages against predefined schemas before they reach your Lambda Event Function. This adds a layer of data governance to your application and you can efficiently manage data formats, ensure schema compliance, and optimize costs through event filtering. 
 
@@ -864,7 +863,7 @@ Example of the required IAM policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

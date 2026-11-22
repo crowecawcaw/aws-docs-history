@@ -1,7 +1,6 @@
 
 
 # Handling uniqueness with Lambda SnapStart
-<a name="snapstart-uniqueness"></a>
 
 When invocations scale up on a SnapStart function, Lambda uses a single initialized snapshot to resume multiple execution environments. If your initialization code generates unique content that is included in the snapshot, then the content might not be unique when it is reused across execution environments. To maintain uniqueness when using SnapStart, you must generate unique content after initialization. This includes unique IDs, unique secrets, and entropy that's used to generate pseudorandomness.
 
@@ -19,7 +18,7 @@ The following examples demonstrate how to generate a UUID in the Event Function 
 
 **Example – Generating a unique ID in Event Function handler**  
 
-```
+```java
 import java.util.UUID;
   public class Handler implements RequestHandler<String, String> {
     private static UUID uniqueSandboxId = null;
@@ -38,7 +37,7 @@ import java.util.UUID;
 
 **Example – Generating a unique ID in Event Function handler**  
 
-```
+```python
 import json
 import random
 import time
@@ -62,7 +61,7 @@ def lambda_handler(event, context):
 
 **Example – Generating a unique ID in Event Function handler**  
 
-```
+```csharp
 namespace Example;
 public class SnapstartExample
 {
@@ -141,7 +140,7 @@ The following examples demonstrate how to use CSPRNGs to guarantee unique number
 
 **Example – java.security.SecureRandom**  
 
-```
+```java
 import java.security.SecureRandom;
   public class Handler implements RequestHandler<String, String> {
     private static SecureRandom rng = new SecureRandom();
@@ -160,7 +159,7 @@ import java.security.SecureRandom;
 
 **Example – random.SystemRandom**  
 
-```
+```python
 import json
 import random
 
@@ -180,7 +179,7 @@ def lambda_handler(event, context):
 
 **Example – RandomNumberGenerator**  
 
-```
+```csharp
 using Amazon.Lambda.Core;
 using System.Security.Cryptography;
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]

@@ -1,7 +1,6 @@
 
 
 # Lambda sample applications
-<a name="lambda-samples"></a>
 
 The GitHub repository for this guide includes sample applications that demonstrate the use of various languages and AWS services. Each sample application includes scripts for easy deployment and cleanup and supporting resources.
 

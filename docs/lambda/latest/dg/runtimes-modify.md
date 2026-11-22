@@ -1,7 +1,6 @@
 
 
 # Modifying the runtime environment
-<a name="runtimes-modify"></a>
 
 You can use [internal extensions](lambda-extensions.md) to modify the runtime process. Internal extensions are not separate processes—they run as part of the runtime process.
 
@@ -11,9 +10,9 @@ Lambda provides language-specific [environment variables](configuration-envvars.
 <a name="runtimes-envvars"></a>
 
 Lambda supports configuration-only ways to enable code to be pre-loaded during function initialization through the following language-specific environment variables:
-+ `JAVA_TOOL_OPTIONS` – On Java, Lambda supports this environment variable to set additional command-line variables in Lambda. This environment variable allows you to specify the initialization of tools, specifically the launching of native or Java programming language agents using the `agentlib` or `javaagent` options. For more information, see [`JAVA_TOOL_OPTIONS` environment variable](https://docs.aws.amazon.com/lambda/latest/dg/java-customization.html#java-tool-options).
++ `JAVA_TOOL_OPTIONS` – On Java, Lambda supports this environment variable to set additional command-line variables in Lambda. This environment variable allows you to specify the initialization of tools, specifically the launching of native or Java programming language agents using the `agentlib` or `javaagent` options. For more information, see [Understanding the `JAVA_TOOL_OPTIONS` environment variable](java-customization.md#java-tool-options).
 + `NODE_OPTIONS` – Available in [Node.js runtimes](lambda-nodejs.md).
-+ `DOTNET_STARTUP_HOOKS` – On .NET Core 3.1 and above, this environment variable specifies a path to an assembly (dll) that Lambda can use.
++ `DOTNET_STARTUP_HOOKS` – On .NET runtimes, this environment variable specifies a path to an assembly (dll) that Lambda can use.
 
 Using language-specific environment variables is the preferred way to set startup properties.
 
@@ -25,7 +24,7 @@ You can create a *wrapper script* to customize the runtime startup behavior of y
 **Note**  
 Invocations might fail if the wrapper script does not successfully start the runtime process.
 
-Wrapper scripts are supported on all native [Lambda runtimes](lambda-runtimes.md). Wrapper scripts are not supported on [OS-only runtimes](runtimes-provided.md) (the `provided` runtime family).
+Wrapper scripts are supported on all [Lambda-managed language runtimes](lambda-runtimes.md#runtimes-supported). Wrapper scripts are not supported on [OS-only runtimes](lambda-runtimes.md#runtimes-provided) (the `provided` runtime family). [Customer-managed runtimes](runtimes-customer-managed.md) can support wrapper scripts. The runtime publisher decides whether to support them, because the runtime's bootstrap script is responsible for running the wrapper script. To find out whether a customer-managed runtime supports wrapper scripts, check the runtime publisher's documentation. To add wrapper script support to a runtime that you publish, see [Writing the bootstrap](cmr-images-from-scratch.md#cmr-images-from-scratch-bootstrap).
 
 When you use a wrapper script for your function, Lambda starts the runtime using your script. Lambda sends to your script the path to the interpreter and all of the original arguments for the standard runtime startup. Your script can extend or transform the startup behavior of the program. For example, the script can inject and alter arguments, set environment variables, or capture metrics, errors, and other diagnostic information.
 
@@ -47,7 +46,7 @@ In the following example, you create a wrapper script to start the Python interp
 
 1. In the `bin` directory, paste the following code into a new file named `importtime_wrapper`. This is the wrapper script.
 
-   ```
+   ```bash
    #!/bin/bash
    
    # the path to the interpreter and all of the originally intended arguments
@@ -65,13 +64,13 @@ In the following example, you create a wrapper script to start the Python interp
 
 1. Give the script executable permissions:
 
-   ```
+   ```bash
    chmod +x {{importtime_wrapper}}
    ```
 
 1. Create a .zip file for the layer:
 
-   ```
+   ```bash
    cd ..
    zip -r ../{{python-wrapper-layer.zip}} .
    ```

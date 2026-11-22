@@ -1,7 +1,6 @@
 
 
 # Capturing records of Lambda asynchronous invocations
-<a name="invocation-async-retain-records"></a>
 
 Lambda can send records of asynchronous invocations to one of the following AWS services.
 + **Amazon SQS** – A standard SQS queue
@@ -88,7 +87,7 @@ To ensure that invocation records from your Event Function can't be sent to an S
 
 The following example shows an IAM policy that limits your function's `s3:PutObject` permissions to buckets in your account. This policy also gives Lambda the `s3:ListBucket` permission it needs to use an S3 bucket as a destination.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -165,7 +164,7 @@ When an invocation matches the condition, Lambda sends [a JSON document](#destin
 
 **Example**  
 
-```
+```json
 {
     "version": "1.0",
     "timestamp": "2019-11-14T18:16:05.568Z",

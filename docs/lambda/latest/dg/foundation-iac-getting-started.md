@@ -1,7 +1,6 @@
 
 
 # Using Event Functions in AWS SAM and Infrastructure Composer
-<a name="foundation-iac-getting-started"></a>
 
 In this tutorial, you can get started using IaC with Lambda by creating an AWS SAM template from an existing Lambda function and then building out a serverless application in Infrastructure Composer by adding other AWS resources.
 
@@ -50,7 +49,7 @@ Before you export your function configuration to Infrastructure Composer, use th
 
    In place of the diagram representing your function's configuration, you'll see an AWS SAM template for your function. The template should look like the following.
 
-   ```
+   ```YAML
    # This AWS SAM template has been generated from your function's 
    # configuration. If your function has one or more triggers, note 
    # that the AWS resources associated with these triggers aren't fully 
@@ -174,7 +173,7 @@ Now that you've added these extra resources, let's take a look at the updated AW
 Your AWS SAM template should now contain the following additional resources and properties:
 + An Amazon SQS queue with the identifier `LambdaIaCQueue`
 
-  ```
+  ```YAML
   LambdaIaCQueue:
       Type: AWS::SQS::Queue
       Properties:
@@ -186,7 +185,7 @@ Your AWS SAM template should now contain the following additional resources and 
   To set other properties for your queue, you can manually edit the template to add them. To learn more about the `AWS::SQS::Queue` resource and its available properties, see [AWS::SQS::Queue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.html) in the *CloudFormation User Guide*.
 + An `Events` property in your Lambda function definition that specifies the Amazon SQS queue as a trigger for the function
 
-  ```
+  ```YAML
   Events:
     LambdaIaCQueue:
       Type: SQS
@@ -198,7 +197,7 @@ Your AWS SAM template should now contain the following additional resources and 
   The `Events` property consists of an event type and a set of properties that depend on the type. To learn about the different AWS services you can configure to trigger a Lambda function and the properties you can set, see [EventSource](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-eventsource.html) in the *AWS SAM Developer Guide*.
 + A DynamoDB table with the identifier `LambdaIaCTable`
 
-  ```
+  ```YAML
   LambdaIaCTable:
       Type: AWS::DynamoDB::Table
       Properties:
@@ -218,7 +217,7 @@ Your AWS SAM template should now contain the following additional resources and 
   To learn more about these properties and other properties you can add to your AWS SAM template, see [AWS::DynamoDB::Table](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html) in the *CloudFormation User Guide*.
 + A new IAM policy that gives your function permission to perform CRUD operations on the DynamoDB table you added.
 
-  ```
+  ```YAML
   Policies:
   ...
     - DynamoDBCrudPolicy:
@@ -227,7 +226,7 @@ Your AWS SAM template should now contain the following additional resources and 
 
 The complete final AWS SAM template should look like the following.
 
-```
+```YAML
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: An AWS Serverless Specification template describing your function.
@@ -309,7 +308,7 @@ This code accepts a key value pair in a message from the Amazon SQS queue you cr
 ### Updated Python function code
 <a name="foundation-iac-updated-code"></a>
 
-```
+```Python
 import boto3
 import os
 import json
@@ -392,7 +391,7 @@ To confirm that your serverless application deployed correctly, send a message t
 
 1. Choose **Send and receive messages** and paste the following JSON into the **Message body** in the **Send message** section.
 
-   ```
+   ```JSON
    {
        "myKey": "myValue"
    }

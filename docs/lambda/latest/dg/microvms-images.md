@@ -1,7 +1,6 @@
 
 
 # MicroVM images
-<a name="microvms-images"></a>
 
 This section describes how to build, configure, update, and manage MicroVM images.
 
@@ -38,11 +37,11 @@ The following table lists the available sizes:
 
 | Baseline | Peak | Max disk space | 
 | --- | --- | --- | 
-| 0.5 GB memory, 0.25 vCPU | 2 GB memory, 1 vCPU | 8 GB | 
-| 1 GB memory, 0.5 vCPU | 4 GB memory, 2 vCPU | 8 GB | 
-| 2 GB memory, 1 vCPU (default) | 8 GB memory, 4 vCPU | 8 GB | 
-| 4 GB memory, 2 vCPU | 16 GB memory, 8 vCPU | 16 GB | 
-| 8 GB memory, 4 vCPU | 32 GB memory, 16 vCPU | 32 GB | 
+| 0.5 GB memory, 0.25 vCPU | 2 GB memory, 1 vCPU | 10 GB | 
+| 1 GB memory, 0.5 vCPU | 4 GB memory, 2 vCPU | 16 GB | 
+| 2 GB memory, 1 vCPU (default) | 8 GB memory, 4 vCPU | 32 GB | 
+| 4 GB memory, 2 vCPU | 16 GB memory, 8 vCPU | 64 GB | 
+| 8 GB memory, 4 vCPU | 32 GB memory, 16 vCPU | 128 GB | 
 
 ## CPU architecture
 <a name="microvms-images-cpu-architecture"></a>
@@ -51,7 +50,7 @@ Lambda MicroVMs supports the `x86_64` and `ARM64` CPU architectures. `ARM64` is 
 
 Set the architecture with the `cpuConfigurations` parameter. In the AWS CLI and API, the architecture values are `ARM_64` and `X86_64`. The following example creates a MicroVM image that runs on `x86_64`:
 
-```
+```bash
 aws lambda-microvms create-microvm-image \
   --name my-microvm-image \
   --code-artifact uri=s3://{{your-bucket-name}}/app.zip \
@@ -87,7 +86,7 @@ Note that the MicroVM base image is distinct from the container base image you s
 
 Use the following APIs to discover available managed MicroVM base images and their versions:
 
-```
+```bash
 # List all managed MicroVM base images
 aws lambda-microvms list-managed-microvm-images
 
@@ -105,7 +104,7 @@ Run `list-managed-microvm-image-versions` and pick a version whose `supportedCpu
 
 The following example shows the JSON output of `list-managed-microvm-image-versions` for a version that supports both architectures:
 
-```
+```json
 {
     "items": [
         {
@@ -158,7 +157,7 @@ You can update an existing MicroVM image by calling the `update-microvm-image` A
 
 The following CLI command shows how you can update a MicroVM image. The `--base-image-arn` and `--build-role-arn` parameters are required on every `update-microvm-image` call that triggers a new build, even when you are only changing the code artifact – omitting them results in a `ValidationException`:
 
-```
+```bash
 aws lambda-microvms update-microvm-image \
   --image-identifier arn:aws:lambda:{{us-east-1}}:123456789012:microvm-image:my-microvm-image \
   --code-artifact uri=s3://my-bucket/deployments/app-v2.zip \
@@ -189,7 +188,7 @@ To run a MicroVM from a version, the image state must be `CREATED` or `UPDATED`,
 **Note**  
 These states are independent. An image in the `CREATED` state can contain a version whose state is `FAILED`.
 
-```
+```bash
 # De-activate a version
 aws lambda-microvms update-microvm-image-version \
   --image-identifier my-image \
@@ -220,6 +219,7 @@ You can either start with the Lambda base container image for Amazon Linux 2023 
 + Container base images from private AWS ECR repositories require the build role to have `ecr:GetAuthorizationToken` and `ecr:BatchGetImage` permissions.
 + The container base image must be based on a Linux operating system.
 + Container base images must be accessible from the Lambda build infrastructure (public internet or an ECR repository in the same AWS account).
++ Base image layers must use gzip compression. Other compression formats, such as zstd, are not supported.
 + Container base images must be snapshot compatible, see instructions below.
 
 ### Snapshot-compatible base images
@@ -232,7 +232,7 @@ As Lambda MicroVMs starts each MicroVM from a pre-initialized snapshot, base ima
 
 Reference your private ECR container base image in the `FROM` instruction of your `Dockerfile`:
 
-```
+```dockerfile
 FROM 123456789012.dkr.ecr.{{us-east-1}}.amazonaws.com/my-base:latest
 WORKDIR /app
 COPY . .
@@ -241,7 +241,7 @@ CMD ["./my-app"]
 
 Add the following permissions to your build role:
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": [
@@ -259,7 +259,7 @@ Add the following permissions to your build role:
 
 By default, Lambda MicroVMs run with a standard set of Linux capabilities. You can grant elevated Linux capabilities using the `additionalOsCapabilities` field when creating or updating a MicroVM image. The only supported value is `["ALL"]`. Elevated capabilities enable operations such as mounting filesystems, creating network namespaces, or running eBPF programs. Capabilities are applied within the VM isolation boundary and do not affect the host or other MicroVMs.
 
-```
+```bash
 aws lambda-microvms create-microvm-image \
   --name my-network-tool \
   --code-artifact uri=s3://my-bucket/app.zip \

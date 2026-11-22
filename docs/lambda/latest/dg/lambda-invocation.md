@@ -1,7 +1,6 @@
 
 
 # Understanding Lambda Event Function invocation methods
-<a name="lambda-invocation"></a>
 
 After you deploy your Lambda Event Function, you can invoke it in several ways:
 + The [Lambda console](testing-functions.md) – Use the Lambda console to quickly create a test event to invoke your function.

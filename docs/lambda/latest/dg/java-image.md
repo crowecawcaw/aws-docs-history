@@ -1,7 +1,6 @@
 
 
 # Deploy Java Lambda Event Functions with container images
-<a name="java-image"></a>
 
 There are three ways to build a container image for a Java Lambda Event Function:
 + [Using an AWS base image for Java](#java-image-instructions)
@@ -87,7 +86,7 @@ To complete the steps in this section, you must have the following:
 
    In PowerShell, run this command:
 
-   ```
+   ```powershell
    mvn -B archetype:generate `
       "-DarchetypeGroupId=software.amazon.awssdk" `
       "-DarchetypeArtifactId=archetype-lambda" "-Dservice={{s3}}" "-Dregion={{US_WEST_2}}" `
@@ -106,7 +105,7 @@ To complete the steps in this section, you must have the following:
    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.  
 **Example Dockerfile**  
 
-   ```
+   ```dockerfile
    FROM public.ecr.aws/lambda/java:21
      
    # Copy function code and runtime dependencies from Maven layout
@@ -150,7 +149,7 @@ The command specifies the `--platform linux/amd64` option to ensure that your co
 1. Open the `/{{example}}/app/src/main/java/{{example}}` directory, and find the `App.java` file. This is the code for the Lambda function. You can use the following sample code for testing, or replace it with your own.  
 **Example App.java**  
 
-   ```
+   ```java
    package com.example;
    import com.amazonaws.services.lambda.runtime.Context;
    import com.amazonaws.services.lambda.runtime.RequestHandler;
@@ -200,7 +199,7 @@ The command specifies the `--platform linux/amd64` option to ensure that your co
    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.  
 **Example Dockerfile**  
 
-   ```
+   ```dockerfile
    FROM public.ecr.aws/lambda/java:21
      
    # Copy function code and runtime dependencies from Gradle layout
@@ -255,13 +254,13 @@ If you built the Docker image for the ARM64 instruction set architecture, be sur
 
    In PowerShell, run the following `Invoke-WebRequest` command:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{}' -ContentType "application/json"
    ```
 
    This command invokes the function with an empty event and returns a response. If you're using your own function code rather than the sample function code, you might want to invoke the function with a JSON payload. Example:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{{{"payload":"hello world!"}}}' -ContentType "application/json"
    ```
 
@@ -394,7 +393,7 @@ If you use an [OS-only base image](images-create.md#runtimes-images-provided) or
 
 Install the runtime interface client for Java in your Dockerfile, or as a dependency in your project. For example, to install the runtime interface client using the Maven package manager, add the following to your `pom.xml` file:
 
-```
+```xml
 <dependency>
     <groupId>com.amazonaws</groupId>
     <artifactId>aws-lambda-java-runtime-interface-client</artifactId>
@@ -437,7 +436,7 @@ To complete the steps in this section, you must have the following:
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    mvn -B archetype:generate `
       -DarchetypeArtifactId=maven-archetype-quickstart `
       -DgroupId={{example}} `
@@ -500,7 +499,7 @@ To complete the steps in this section, you must have the following:
 1. Open the `{{myapp}}/src/main/java/com/example/{{myapp}}` directory, and find the `App.java` file. This is the code for the Lambda function. Replace the code with the following.  
 **Example function handler**  
 
-   ```
+   ```java
    package example;
    
    public class App {
@@ -520,7 +519,7 @@ To complete the steps in this section, you must have the following:
    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.  
 **Example Dockerfile**  
 
-   ```
+   ```dockerfile
    FROM {{public.ecr.aws/amazoncorretto/amazoncorretto:21}} as base
    
    # Configure the build environment
@@ -584,7 +583,7 @@ Use the [runtime interface emulator](https://github.com/aws/aws-lambda-runtime-i
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $dirPath = "$HOME\.aws-lambda-rie"
    if (-not (Test-Path $dirPath)) {
        New-Item -Path $dirPath -ItemType Directory
@@ -620,7 +619,7 @@ Use the [runtime interface emulator](https://github.com/aws/aws-lambda-runtime-i
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    docker run --platform linux/amd64 -d -v "$HOME\.aws-lambda-rie:/aws-lambda" -p 9000:8080 `
    --entrypoint /aws-lambda/aws-lambda-rie `
    {{docker-image:test}} `
@@ -655,13 +654,13 @@ If you built the Docker image for the ARM64 instruction set architecture, be sur
 
    In PowerShell, run the following `Invoke-WebRequest` command:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{}' -ContentType "application/json"
    ```
 
    This command invokes the function with an empty event and returns a response. If you're using your own function code rather than the sample function code, you might want to invoke the function with a JSON payload. Example:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{{{"payload":"hello world!"}}}' -ContentType "application/json"
    ```
 

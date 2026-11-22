@@ -1,7 +1,6 @@
 
 
 # Using Lambda with Amazon MQ
-<a name="with-mq"></a>
 
 **Note**  
 If you want to send data to a target other than a Lambda Event Function or enrich the data before sending it, see [ Amazon EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html).
@@ -51,13 +50,13 @@ For Amazon MQ event sources, Lambda batches records together and sends them to y
 The consumer group retrieves the messages as a BLOB of bytes, base64-encodes them into a single JSON payload, and then invokes your function. If your function returns an error for any of the messages in a batch, Lambda retries the whole batch of messages until processing succeeds or the messages expire.
 
 **Note**  
-While Lambda Event Functions typically have a maximum timeout limit of 15 minutes, event source mappings for Amazon MSK, self-managed Apache Kafka, Amazon DocumentDB, and Amazon MQ for ActiveMQ and RabbitMQ only support functions with maximum timeout limits of 14 minutes. This constraint ensures that the event source mapping can properly handle function errors and retries.
+While Lambda Event Functions typically have a maximum timeout limit of 30 minutes, event source mappings for Amazon DocumentDB and Amazon MQ for ActiveMQ and RabbitMQ only support functions with maximum timeout limits of 14 minutes. This constraint ensures that the event source mapping can properly handle function errors and retries.
 
 You can monitor a given function's concurrency usage using the `ConcurrentExecutions` metric in Amazon CloudWatch. For more information about concurrency, see [Configuring reserved concurrency for an Event Function](configuration-concurrency.md).
 
 **Example Amazon MQ record events**  
 
-```
+```json
 {
    "eventSource": "aws:mq",
    "eventSourceArn": "arn:aws:mq:us-east-2:111122223333:broker:test:b-9bcfa592-423a-4942-879d-eb284b418fc8",
@@ -112,7 +111,7 @@ You can monitor a given function's concurrency usage using the `ConcurrentExecut
 }
 ```
 
-```
+```json
 {
   "eventSource": "aws:rmq",
   "eventSourceArn": "arn:aws:mq:us-east-2:111122223333:broker:pizzaBroker:b-9bcfa592-423a-4942-879d-eb284b418fc8",

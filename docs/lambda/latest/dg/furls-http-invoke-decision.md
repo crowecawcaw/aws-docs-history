@@ -1,21 +1,20 @@
 
 
 # Select a method to invoke your Lambda Event Function using an HTTP request
-<a name="furls-http-invoke-decision"></a>
 
 Many common use cases for Lambda involve invoking your Event Function using an HTTP request. For example, you might want a web application to invoke your function through a browser request. Lambda Event Functions can also be used to create full REST APIs, handle user interactions from mobile apps, process data from external services via HTTP calls, or create custom webhooks.
 
 The following sections explain what your choices are for invoking Lambda through HTTP and provide information to help you make the right decision for your particular use case.
 
 ## What are your choices when selecting an HTTP invoke method?
-<a name="w2aac15c47c77c73b9"></a>
+<a name="w2aac15c51c77c75b9"></a>
 
 Lambda offers two main methods to invoke a function using an HTTP request - [function URLs](urls-configuration.md) and [API Gateway](services-apigateway.md). The key differences between these two options are as follows:
 + **Lambda function URLs** provide a simple, direct HTTP endpoint for a Lambda Event Function. They are optimized for simplicity and cost-effectiveness and provide the fastest path to expose a Lambda Event Function via HTTP.
 + **API Gateway** is a more advanced service for building fully-featured APIs. API Gateway is optimized for building and managing productions APIs at scale and provides comprehensive tools for security, monitoring, and traffic management.
 
 ## Recommendations if you already know your requirements
-<a name="w2aac15c47c77c73c11"></a>
+<a name="w2aac15c51c77c75c11"></a>
 
 If you're already clear on your requirements, here are our basic recommendations:
 
@@ -24,7 +23,7 @@ We recommend **[function URLs](urls-configuration.md)** for simple applications 
 **[API Gateway](services-apigateway.md)** is a better choice for production applications at scale or for cases where you need more advanced features like [OpenAPI Description](https://www.openapis.org/) support, a choice of authentication options, custom domain names, or rich request/response handling including throttling, caching, and request/response transformation.
 
 ## What to consider when selecting a method to invoke your Lambda Event Function
-<a name="w2aac15c47c77c73c13"></a>
+<a name="w2aac15c51c77c75c13"></a>
 
 When selecting between function URLs and API Gateway, you need to consider the following factors:
 + Your authentication needs, such as whether you require OAuth or Amazon Cognito to authenticate users
@@ -38,37 +37,37 @@ By understanding these factors, you can select the option that best balances you
 The following information summarizes the main differences between the two options.
 
 ### Authentication
-<a name="w2aac15c47c77c73c13c11b1"></a>
+<a name="w2aac15c51c77c75c13c11b1"></a>
 + **Function URLs** provide basic authentication options through AWS Identity and Access Management (IAM). You can configure your endpoints to be either public (no authentication) or to require IAM authentication. With IAM authentication, you can use standard AWS credentials or IAM roles to control access. While straightforward to set up, this approach provides limited options compared with other authenticaton methods.
 + **API Gateway** provides access to a more comprehensive range of authentication options. As well as IAM authentication, you can use [Lambda authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html) (custom authentication logic), [Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html) user pools, and OAuth2.0 flows. This flexibility allows you to implement complex authentication schemes, including third-party authentication providers, token-based authentication, and multi-factor authentication.
 
 ### Request/response handling
-<a name="w2aac15c47c77c73c13c11b3"></a>
+<a name="w2aac15c51c77c75c13c11b3"></a>
 + **Function URLs** provide basic HTTP request and response handling. They support standard HTTP methods and include built-in cross-origin resource sharing (CORS) support. While they can handle JSON payloads and query parameters naturally, they don't offer request transformation or validation capabilities. Response handling is similarly straightforward – the client receives the response from your Lambda Event Function exactly as Lambda returns it.
 + **API Gateway** provides sophisticated request and response handling capabilities. You can define request validators, transform requests and responses using mapping templates, set up request/response headers, and implement response caching. API Gateway also supports binary payloads and custom domain names and can modify responses before they reach the client. You can set up models for request/response validation and transformation using JSON Schema.
 
 ### Scaling
-<a name="w2aac15c47c77c73c13c11b5"></a>
+<a name="w2aac15c51c77c75c13c11b5"></a>
 + **Function URLs** scale directly with your Lambda Event Function's concurrency limits and handle traffic spikes by scaling your function up to its maximum configured concurrency limit. Once that limit is reached, Lambda responds to additional requests with HTTP 429 responses. There's no built-in queuing mechanism, so handling scaling is entirely dependent on your Lambda Event Function's configuration. By default, Lambda Event Functions have a limit of 1,000 concurrent executions per AWS Region.
 + **API Gateway** provides additional scaling capabilities on top of Lambda's own scaling. It includes built-in request queuing and throttling controls, allowing you to manage traffic spikes more gracefully. API Gateway can handle up to 10,000 requests per second per region by default, with a burst capacity of 5,000 requests per second. It also provides tools to throttle requests at different levels (API, stage, or method) to protect your backend.
 
 ### Monitoring
-<a name="w2aac15c47c77c73c13c11b7"></a>
+<a name="w2aac15c51c77c75c13c11b7"></a>
 + **Function URLs** offer basic monitoring through Amazon CloudWatch metrics, including request count, latency, and error rates. You get access to standard Lambda metrics and logs, which show the raw requests coming into your function. While this provides essential operational visibility, the metrics are focused mainly on function execution.
 + **API Gateway** provides comprehensive monitoring capabilities including detailed metrics, logging, and tracing options. You can monitor API calls, latency, error rates, and cache hit/miss rates through CloudWatch. API Gateway also integrates with AWS X-Ray for distributed tracing and provides customizable logging formats.
 
 ### Cost
-<a name="w2aac15c47c77c73c13c11b9"></a>
+<a name="w2aac15c51c77c75c13c11b9"></a>
 + **Function URLs** follow the standard Lambda pricing model – you only pay for function invocations and compute time. There are no additional charges for the URL endpoint itself. This makes it a cost-effective choice for simple APIs or low-traffic applications if you don't need the additional features of API Gateway.
 + **API Gateway** offers a [free tier](https://aws.amazon.com/api-gateway/pricing/#Free_Tier) that includes one million API calls received for REST APIs and one million API calls received for HTTP APIs. After this, API Gateway charges for API calls, data transfer, and caching (if enabled). Refer to the API Gateway [pricing page](https://aws.amazon.com/api-gateway/pricing/) to understand the costs for your own use case.
 
 ### Other features
-<a name="w2aac15c47c77c73c13c11c11"></a>
+<a name="w2aac15c51c77c75c13c11c11"></a>
 + **Function URLs** are designed for simplicity and direct Lambda integration. They support both HTTP and HTTPS endpoints, offer built-in CORS support, and provide dual-stack (IPv4 and IPv6) endpoints. While they lack advanced features, they excel in scenarios where you need a quick, straightforward way to expose Lambda Event Functions via HTTP.
 + **API Gateway** includes numerous additional features such as API versioning, stage management, API keys for usage plans, API documentation through Swagger/OpenAPI, WebSocket APIs, private APIs within a VPC, and WAF integration for additional security. It also supports canary deployments, mock integrations for testing, and integration with other AWS services beyond Lambda.
 
 ## Select a method to invoke your Lambda Event Function
-<a name="w2aac15c47c77c73c15"></a>
+<a name="w2aac15c51c77c75c15"></a>
 
 Now that you've read about the criteria for selecting between Lambda function URLs and API Gateway and the key differences between them, you can select the option that best meets your needs and use the following resources to help you get started using it.
 

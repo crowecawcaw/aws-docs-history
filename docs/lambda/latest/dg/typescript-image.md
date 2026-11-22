@@ -1,7 +1,6 @@
 
 
 # Deploy transpiled TypeScript code in Lambda with container images
-<a name="typescript-image"></a>
 
 You can deploy your TypeScript code to an AWS Lambda Event Function as a Node.js [container image](images-create.md). AWS provides [base images](nodejs-image.md#nodejs-image-base) for Node.js to help you build the container image. These base images are preloaded with a language runtime and other components that are required to run the image on Lambda. AWS provides a Dockerfile for each of the base images to help with building your container image.
 
@@ -76,7 +75,7 @@ The `import` statement imports the type definitions from [@types/aws-lambda](htt
    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.  
 **Example Dockerfile**  
 
-   ```
+   ```dockerfile
    FROM public.ecr.aws/lambda/nodejs:22 as builder
    WORKDIR /usr/app
    COPY package.json index.ts  ./
@@ -132,13 +131,13 @@ If you built the Docker image for the ARM64 instruction set architecture, be sur
 
    In PowerShell, run the following `Invoke-WebRequest` command:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{}' -ContentType "application/json"
    ```
 
    This command invokes the function with an empty event and returns a response. If you're using your own function code rather than the sample function code, you might want to invoke the function with a JSON payload. Example:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{{{"payload":"hello world!"}}}' -ContentType "application/json"
    ```
 

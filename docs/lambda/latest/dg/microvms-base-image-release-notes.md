@@ -1,12 +1,19 @@
 
 
 # Base image release notes
-<a name="microvms-base-image-release-notes"></a>
 
 This page lists the changes in each version of the AWS Lambda MicroVMs managed base image. For information about how base image versioning and deprecation works, see [MicroVM base images](microvms-images.md#microvms-images-base-images).
 
+## Version 4
+<a name="microvms-base-image-release-notes-v4"></a>
+
+**Released:** November 23, 2026
++ **Larger disk space** – Increased available disk space per MicroVM, up to 4x from prior limit. For details, see [MicroVM sizing](microvms-images.md#microvms-images-sizing).
+
 ## Version 3
 <a name="microvms-base-image-release-notes-v3"></a>
+
+**Released:** November 11, 2026
 + **x86\_64 architecture support** – You can now build MicroVM images for the `x86_64` architecture, in addition to `ARM64`. For more information, see [CPU architecture](microvms-images.md#microvms-images-cpu-architecture).
 
 ## Version 2

@@ -1,7 +1,6 @@
 
 
 # Use `UpdateFunctionConfiguration` with an AWS SDK or CLI
-<a name="example_lambda_UpdateFunctionConfiguration_section"></a>
 
 The following code examples show how to use `UpdateFunctionConfiguration`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Update the code of a Lambda function.
     /// </summary>
@@ -49,7 +48,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region in which the bucket was created (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -127,7 +126,7 @@ For more information, see [AWS Lambda Function Configuration](https://docs.aws.a
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples). 
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -169,7 +168,7 @@ func (wrapper FunctionWrapper) UpdateFunctionConfiguration(ctx context.Context, 
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples). 
 
-```
+```java
     /**
      * Updates the configuration of an AWS Lambda function.
      *
@@ -203,7 +202,7 @@ func (wrapper FunctionWrapper) UpdateFunctionConfiguration(ctx context.Context, 
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples). 
 
-```
+```javascript
 const updateFunctionConfiguration = async (funcName) => {
   const client = new LambdaClient({});
   const config = readFileSync(`${dirname}../functions/config.json`).toString();
@@ -224,7 +223,7 @@ const updateFunctionConfiguration = async (funcName) => {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples). 
 
-```
+```php
     public function updateFunctionConfiguration($functionName, $handler, $environment = '')
     {
         return $this->lambdaClient->updateFunctionConfiguration([
@@ -242,7 +241,7 @@ const updateFunctionConfiguration = async (funcName) => {
 **Tools for PowerShell V4**  
 **Example 1: This example updates the existing Lambda Function Configuration**  
 
-```
+```powershell
 Update-LMFunctionConfiguration -FunctionName "MylambdaFunction123" -Handler "lambda_function.launch_instance" -Timeout 600 -Environment_Variable @{ "envvar1"="value";"envvar2"="value" } -Role arn:aws:iam::123456789101:role/service-role/lambda -DeadLetterConfig_TargetArn arn:aws:sns:us-east-1: 123456789101:MyfirstTopic
 ```
 +  For API details, see [UpdateFunctionConfiguration](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -250,7 +249,7 @@ Update-LMFunctionConfiguration -FunctionName "MylambdaFunction123" -Handler "lam
 **Tools for PowerShell V5**  
 **Example 1: This example updates the existing Lambda Function Configuration**  
 
-```
+```powershell
 Update-LMFunctionConfiguration -FunctionName "MylambdaFunction123" -Handler "lambda_function.launch_instance" -Timeout 600 -Environment_Variable @{ "envvar1"="value";"envvar2"="value" } -Role arn:aws:iam::123456789101:role/service-role/lambda -DeadLetterConfig_TargetArn arn:aws:sns:us-east-1: 123456789101:MyfirstTopic
 ```
 +  For API details, see [UpdateFunctionConfiguration](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -261,7 +260,7 @@ Update-LMFunctionConfiguration -FunctionName "MylambdaFunction123" -Handler "lam
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples). 
 
-```
+```python
 class LambdaWrapper:
     def __init__(self, lambda_client, iam_resource):
         self.lambda_client = lambda_client
@@ -299,7 +298,7 @@ class LambdaWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples). 
 
-```
+```ruby
 class LambdaWrapper
   attr_accessor :lambda_client, :cloudwatch_client, :iam_client
 
@@ -342,7 +341,7 @@ class LambdaWrapper
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples). 
 
-```
+```rust
     /** Update the environment for a function. */
     pub async fn update_function_configuration(
         &self,
@@ -374,7 +373,7 @@ class LambdaWrapper
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_lmd->updatefunctionconfiguration(     " oo_result is returned for testing purposes. "
               iv_functionname = iv_function_name
@@ -409,7 +408,7 @@ class LambdaWrapper
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples). 
 
-```
+```swift
 import AWSClientRuntime
 import AWSLambda
 import Foundation

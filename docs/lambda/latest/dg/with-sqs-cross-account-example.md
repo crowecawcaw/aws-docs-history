@@ -1,7 +1,6 @@
 
 
 # Tutorial: Using a cross-account Amazon SQS queue as an event source
-<a name="with-sqs-cross-account-example"></a>
 
 In this tutorial, you create a Lambda Event Function that consumes messages from an Amazon Simple Queue Service (Amazon SQS) queue in a different AWS account. This tutorial involves two AWS accounts: **Account A** refers to the account that contains your Lambda Event Function, and **Account B** refers to the account that contains the Amazon SQS queue.
 
@@ -45,7 +44,7 @@ The following Node.js code example writes each message to a log in CloudWatch Lo
 
 **Example index.mjs**  
 
-```
+```javascript
 export const handler = async function(event, context) {
   event.Records.forEach(record => {
     const { body } = record;
@@ -145,7 +144,7 @@ In **Account B**, create an Amazon SQS queue that the Lambda Event Function in *
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Id": "Queue1_Policy_UUID",

@@ -1,7 +1,6 @@
 
 
 # Using Lambda to process records from Amazon Kinesis Data Streams
-<a name="with-kinesis"></a>
 
 You can use a Lambda Event Function to process records in an [Amazon Kinesis data stream](https://docs.aws.amazon.com/streams/latest/dev/introduction.html). You can map a Lambda Event Function to a Kinesis Data Streams shared-throughput consumer (standard iterator), or to a dedicated-throughput consumer with [enhanced fan-out](https://docs.aws.amazon.com/kinesis/latest/dev/enhanced-consumers.html). For standard iterators, Lambda polls each shard in your Kinesis stream for records using HTTP protocol. The event source mapping shares read throughput with other consumers of the shard.
 

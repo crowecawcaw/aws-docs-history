@@ -1,7 +1,6 @@
 
 
 # Use `GetFunctionConcurrency` with a CLI
-<a name="example_lambda_GetFunctionConcurrency_section"></a>
 
 The following code examples show how to use `GetFunctionConcurrency`.
 
@@ -32,7 +31,7 @@ For more information, see [Configuring reserved concurrency for an Event Functio
 **Tools for PowerShell V4**  
 **Example 1: This examples gets the Reserved concurrency for the Lambda Function**  
 
-```
+```powershell
 Get-LMFunctionConcurrency -FunctionName "MylambdaFunction123" -Select *
 ```
 **Output:**  
@@ -47,7 +46,7 @@ ReservedConcurrentExecutions
 **Tools for PowerShell V5**  
 **Example 1: This examples gets the Reserved concurrency for the Lambda Function**  
 
-```
+```powershell
 Get-LMFunctionConcurrency -FunctionName "MylambdaFunction123" -Select *
 ```
 **Output:**  

@@ -1,7 +1,6 @@
 
 
 # Create a serverless file-processing app
-<a name="file-processing-app"></a>
 
 One of the most common use cases for Lambda is to perform file processing tasks. For example, you might use a Lambda function to automatically create PDF files from HTML files or images, or to create thumbnails when a user uploads an image.
 
@@ -36,7 +35,7 @@ Expand the following sections to view the code and to learn more about the role 
 
 Copy and paste the following code into a file named `lambda_function.py`.
 
-```
+```Python
 from pypdf import PdfReader, PdfWriter
 import uuid
 import os
@@ -213,7 +212,7 @@ An execution role is an IAM role that grants a Lambda function permission to acc
 1. Save the following JSON in a file named `trust-policy.json`. This trust policy allows Lambda to use the role's permissions by giving the service principal `lambda.amazonaws.com` permission to call the AWS Security Token Service (AWS STS) `AssumeRole` action.  
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -410,7 +409,7 @@ Although S3 bucket names are globally unique, when using resource-based policies
 
 1. Save the following JSON in a file named `notification.json`. When applied to your source bucket, this JSON configures the bucket to send a notification to your Lambda function every time a new object is added. Replace the AWS account number and AWS Region in the Lambda function ARN with your own account number and region.
 
-   ```
+   ```JSON
    {
    "LambdaFunctionConfigurations": [
        {
@@ -442,7 +441,7 @@ Before you begin, make sure that [Docker](https://docs.docker.com/get-docker/) a
    + For the source bucket, replace `amzn-s3-demo-bucket` with any name that complies with the [S3 bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
    + For the destination bucket, replace `amzn-s3-demo-bucket-encrypted` with `<source-bucket-name>-encrypted`, where `<source-bucket>` is the name you chose for your source bucket.
 
-   ```
+   ```yaml
    AWSTemplateFormatVersion: '2010-09-09'
    Transform: AWS::Serverless-2016-10-31
    
@@ -614,7 +613,7 @@ Copy and paste the following code into a file named `test_pdf_encrypt.py`. Be su
 + In the `test_encrypted_file_in_bucket` function, replace `amzn-s3-demo-bucket-encrypted` with `source-bucket-encrypted`, where `source-bucket>` is the name of your source bucket.
 + In the `cleanup` function, replace `amzn-s3-demo-bucket` with the name of your source bucket, and replace `amzn-s3-demo-bucket-encrypted` with the name of your destination bucket.
 
-```
+```python
 import boto3
 import json
 import pytest

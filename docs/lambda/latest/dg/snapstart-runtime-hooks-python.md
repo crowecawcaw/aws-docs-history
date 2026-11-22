@@ -1,7 +1,6 @@
 
 
 # Lambda SnapStart runtime hooks for Python
-<a name="snapstart-runtime-hooks-python"></a>
 
 You can use runtime hooks to implement code before Lambda creates a snapshot or after Lambda resumes a function from a snapshot. Python runtime hooks are available as part of the open-source [Snapshot Restore for Python library](https://pypi.org/project/snapshot-restore-py/), which is included in Python managed runtimes. This library provides two decorators that you can use to define your runtime hooks:
 + `@register_before_snapshot`: For functions you want to run before Lambda creates a snapshot.
@@ -23,14 +22,14 @@ The order of runtime hook registration depends on how you define the hooks. When
 Make sure that all registered hooks are properly imported and included in your function's code. If you register runtime hooks in a separate file or module, you must ensure that the module is imported, either directly or as part of a larger package, in your function's handler file. If the file or module is not imported in the function handler, Lambda ignores the runtime hooks.
 
 **Note**  
-When Lambda creates a snapshot, your initialization code can run for up to 15 minutes. The time limit is 130 seconds or the [configured function timeout](configuration-timeout.md) (maximum 900 seconds), whichever is higher. Your `@register_before_snapshot` runtime hooks count towards the initialization code time limit. When Lambda restores a snapshot, the runtime must load and `@register_after_restore` runtime hooks must complete within the timeout limit (10 seconds). Otherwise, you'll get a SnapStartTimeoutException.
+When Lambda creates a snapshot, your initialization code can run for up to 15 minutes. The time limit is 130 seconds or the [configured function timeout](configuration-timeout.md) (maximum 900 seconds, even if the function timeout is longer), whichever is higher. Your `@register_before_snapshot` runtime hooks count towards the initialization code time limit. When Lambda restores a snapshot, the runtime must load and `@register_after_restore` runtime hooks must complete within the timeout limit (10 seconds). Otherwise, you'll get a SnapStartTimeoutException.
 
 ## Example
 <a name="runtime-hooks-python-code-sample"></a>
 
 The following example handler shows how to run code before checkpointing (`@register_before_snapshot`) and after restoring (`@register_after_restore`).
 
-```
+```python
 from snapshot_restore_py import register_before_snapshot, register_after_restore
 
 def lambda_handler(event, context):

@@ -1,7 +1,6 @@
 
 
 # Use `PutFunctionConcurrency` with a CLI
-<a name="example_lambda_PutFunctionConcurrency_section"></a>
 
 The following code examples show how to use `PutFunctionConcurrency`.
 
@@ -33,7 +32,7 @@ For more information, see [Reserving Concurrency for a Lambda Function](https://
 **Tools for PowerShell V4**  
 **Example 1: This example applies the concurrency settings for the Function as a whole.**  
 
-```
+```powershell
 Write-LMFunctionConcurrency -FunctionName "MylambdaFunction123" -ReservedConcurrentExecution 100
 ```
 +  For API details, see [PutFunctionConcurrency](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -41,7 +40,7 @@ Write-LMFunctionConcurrency -FunctionName "MylambdaFunction123" -ReservedConcurr
 **Tools for PowerShell V5**  
 **Example 1: This example applies the concurrency settings for the Function as a whole.**  
 
-```
+```powershell
 Write-LMFunctionConcurrency -FunctionName "MylambdaFunction123" -ReservedConcurrentExecution 100
 ```
 +  For API details, see [PutFunctionConcurrency](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

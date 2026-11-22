@@ -1,7 +1,6 @@
 
 
 # Create a lending library REST API
-<a name="example_cross_AuroraRestLendingLibrary_section"></a>
 
 The following code example shows how to create a lending library where patrons can borrow and return books by using a REST API backed by an Amazon Aurora database.
 

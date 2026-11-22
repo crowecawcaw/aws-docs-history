@@ -1,7 +1,6 @@
 
 
 # Configure Lambda Event Function memory
-<a name="configuration-memory"></a>
 
 Lambda allocates CPU power in proportion to the amount of memory configured. *Memory* is the amount of memory available to your Lambda function at runtime. You can increase or decrease the memory and CPU power allocated to your function using the **Memory** setting. You can configure memory between 128 MB and 10,240 MB in 1-MB increments. At 1,769 MB, a function has the equivalent of one vCPU (one vCPU-second of credits per second).
 
@@ -65,7 +64,7 @@ You can use the [AWS Serverless Application Model](https://docs.aws.amazon.com/s
 
 **Example template.yaml**  
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: An AWS Serverless Application Model template describing your function.

@@ -1,7 +1,6 @@
 
 
 # Define Lambda Event Function handler in Node.js
-<a name="nodejs-handler"></a>
 
 The Lambda Event Function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
@@ -52,7 +51,7 @@ The following example Lambda function code takes in information about an order, 
 
 **Example index.mjs Lambda Event Function**  
 
-```
+```javascript
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 
 // Initialize the S3 client outside the handler for reuse
@@ -134,7 +133,7 @@ The following examples show function handlers written using both ES modules and 
 
 **Example – ES module handler**  
 
-```
+```javascript
 const url = "https://aws.amazon.com/";
 
 export const handler = async(event) => {
@@ -155,7 +154,7 @@ export const handler = async(event) => {
 
 **Example – CommonJS module handler**  
 
-```
+```javascript
 const https = require("https");
 let url = "https://aws.amazon.com/";
 
@@ -221,7 +220,7 @@ JSON is the most common and standard input format for Lambda functions. In this 
 
 When working with Lambda functions in Node.js, you can define the expected shape of the input event using JSDoc annotations. In this example, we define the input structure in the handler's JSDoc comment:
 
-```
+```javascript
 /**
  * Lambda handler for processing orders and storing receipts in S3.
  * @param {Object} event - Input event containing order details
@@ -248,11 +247,11 @@ The `async` keyword marks a function as asynchronous, and the `await` keyword pa
 
 Here are the valid signatures for the async/await pattern:
 
-```
+```javascript
 export const handler = async {{(event)}} => { };
 ```
 
-```
+```javascript
 export const handler = async {{(event, context)}} => { };
 ```
 
@@ -261,11 +260,11 @@ export const handler = async {{(event, context)}} => { };
 
 Where your function does not perform any asynchronous tasks, you can use a synchronous function handler, using one of the following function signatures:
 
-```
+```javascript
 export const handler = (event) => { };
 ```
 
-```
+```javascript
 export const handler = (event, context) => { };
 ```
 
@@ -274,7 +273,7 @@ export const handler = (event, context) => { };
 
 Lambda supports response streaming with Node.js. Response streaming function handlers use the `awslambda.streamifyResponse()` decorator and take 3 parameters: `event`, `responseStream`, and `context`. The function signature is:
 
-```
+```javascript
 export const handler = awslambda.streamifyResponse(async (event, responseStream, context) => { });
 ```
 
@@ -288,7 +287,7 @@ Callback-based function handlers are only supported up to Node.js 22. Starting f
 
 Callback-based function handlers must use the event, context, and callback arguments. Example:
 
-```
+```javascript
 export const handler = {{(event, context, callback)}} => { };
 ```
 
@@ -297,7 +296,7 @@ The callback function expects an `Error` and a response, which must be JSON-seri
 **Example – HTTP request with callback**  
 The following example function checks a URL and returns the status code to the invoker.  
 
-```
+```javascript
 import https from "https";
 let url = "https://aws.amazon.com/";
 
@@ -319,25 +318,25 @@ However, we strongly recommend that you include the AWS SDK clients that you nee
 
 To add SDK dependencies to your function, use the `npm install` command for the specific SDK clients that you need. In the example code, we used the [Amazon S3 client](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/). Add this dependency by running the following command in the directory that contains your `package.json` file:
 
-```
+```bash
 npm install @aws-sdk/client-s3
 ```
 
 In the function code, import the client and commands that you need, as the example function demonstrates:
 
-```
+```javascript
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 ```
 
 Then, initialize an [Amazon S3 client](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/):
 
-```
+```javascript
 const s3Client = new S3Client();
 ```
 
 In this example, we initialized our Amazon S3 client outside of the main handler function to avoid having to initialize it every time we invoke our function. After you initialize your SDK client, you can then use it to make API calls for that AWS service. The example code calls the Amazon S3 [PutObject](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectCommand/) API action as follows:
 
-```
+```javascript
 const command = new PutObjectCommand({
     Bucket: bucketName,
     Key: key,
@@ -350,7 +349,7 @@ const command = new PutObjectCommand({
 
 In your handler code, you can reference any [environment variables](configuration-envvars.md) by using `process.env`. In this example, we reference the defined `RECEIPT_BUCKET` environment variable using the following lines of code:
 
-```
+```javascript
 // Access environment variables
 const bucketName = process.env.RECEIPT_BUCKET;
 if (!bucketName) {

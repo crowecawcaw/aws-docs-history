@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Lambda Web Functions
-<a name="web-functions-troubleshooting"></a>
 
 Start with the resource state, the HTTP response, and the logs for the request. Web Functions expose separate state for the function, revision, endpoint, and each Region of a `MultiRegion` or `PerRegion` endpoint. A failure in one resource does not always change the state of the others.
 
@@ -15,7 +14,7 @@ Before you run the diagnostic commands in this topic, make sure that you have AW
 
 1. Get the Web Function, revision, and endpoint. Record each `state`, `stateReason`, `updateStatus`, and `updateStatusReason` value.
 
-   ```
+   ```bash
    aws lambda-web get-web-function \
        --function-name {{my-web-app}}
    
@@ -32,7 +31,7 @@ Before you run the diagnostic commands in this topic, make sure that you have AW
 
 1. Send a request and record the status code and response headers.
 
-   ```
+   ```bash
    curl --include https://{{endpoint-domain}}/{{path}}
    ```
 
@@ -115,7 +114,7 @@ The Node.js count limit counts header lines, not distinct header names. A header
 
 If your application must accept more header lines than the Node.js default allows, raise the Node.js limit in your server code. Set `server.maxHeadersCount` to the number of header lines to accept, or set it to `0` to disable the Node.js count check. The 128 KiB size limit still applies.
 
-```
+```javascript
 const server = http.createServer(handler);
 server.maxHeadersCount = 2000;
 server.listen(port, host);
@@ -219,7 +218,7 @@ Common symptoms include the following:
 + **Public internet works, but VPC resources don't** – The serving revision has no connector reference.
 + **VPC access works for some requests** – The endpoint is routing to two revisions with different connector configurations.
 + **A connector update has no effect** – The serving revision references an older connector version.
-+ **Public access stops after adding a connector** – The connector subnets don't have the required NAT or IPv6 route.
++ **Public access stops after adding a connector** – The connector subnets have no route to the internet. For `IPv4`, they need a route to a NAT gateway, or to an internet gateway if the connector uses service-managed Elastic IP addresses. For `IPv6`, they need a route to an egress-only internet gateway.
 + **One VPC destination times out** – The destination security group, route table, or network ACL blocks the connection.
 + **Flow Logs contain no matching records** – Traffic didn't enter the VPC. Recheck the serving revision and connector reference.
 + **Private names fail but direct IP connections work** – Check VPC DNS attributes and private hosted zone associations.

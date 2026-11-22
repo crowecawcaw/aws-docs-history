@@ -1,7 +1,6 @@
 
 
 # Lambda Telemetry API `Event` schema reference
-<a name="telemetry-schema-reference"></a>
 
 Use the Lambda Telemetry API endpoint to subscribe extensions to telemetry streams. You can retrieve the Telemetry API endpoint from the `AWS_LAMBDA_RUNTIME_API` environment variable. To send an API request, append the API version (`2022-07-01/`) and `telemetry/`. For example:
 

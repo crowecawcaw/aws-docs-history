@@ -1,7 +1,6 @@
 
 
 # Invoking Lambda Event Functions with tenant isolation
-<a name="tenant-isolation-invoke"></a>
 
 When invoking an Event Function that has tenant isolation enabled, you must provide a `tenant-id` parameter. This parameter ensures that your Event Function invocation is processed in an execution environment dedicated to that specific tenant.
 
@@ -12,7 +11,7 @@ When invoking an Event Function that has tenant isolation enabled, you must prov
 
 For synchronous invocations, add the `--tenant-id` parameter to your [Invoke](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html) command:
 
-```
+```bash
 aws lambda invoke \
     --function-name {{image-analysis}} \
     --tenant-id {{blue}} \
@@ -23,7 +22,7 @@ aws lambda invoke \
 
 For asynchronous invocations, include both the `--tenant-id` and `--invocation-type Event` parameters:
 
-```
+```bash
 aws lambda invoke \
     --function-name {{image-analysis}} \
     --tenant-id {{blue}} \
@@ -99,7 +98,7 @@ When using AWS SDKs to invoke tenant-isolated Event Functions, include the tenan
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 import json
 
@@ -120,7 +119,7 @@ result = json.loads(response['Payload'].read())
 ------
 #### [ Node.js ]
 
-```
+```javascript
 const AWS = require('aws-sdk');
 const lambda = new AWS.Lambda();
 
@@ -146,7 +145,7 @@ lambda.invoke(params, (err, data) => {
 ------
 #### [ Java ]
 
-```
+```java
 import software.amazon.awssdk.services.lambda.LambdaClient;
 import software.amazon.awssdk.services.lambda.model.InvokeRequest;
 import software.amazon.awssdk.services.lambda.model.InvokeResponse;

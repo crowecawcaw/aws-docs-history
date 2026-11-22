@@ -1,7 +1,6 @@
 
 
 # Web Function sample applications
-<a name="web-functions-samples"></a>
 
 Every sample uses `index.js` as the entry file and listens on the host and port from `AWS_LAMBDA_HTTP_ENDPOINT`. Package the application with its production dependencies and deploy it from a versioned Amazon S3 object.
 
@@ -18,14 +17,14 @@ This framework-based sample is an alternative to the zero-dependency starter cre
 
 Install Express:
 
-```
+```bash
 npm init -y
 npm install express
 ```
 
 Create `index.js`:
 
-```
+```javascript
 const express = require('express');
 const app = express();
 const [host, port] = (process.env.AWS_LAMBDA_HTTP_ENDPOINT || 'localhost:3000').split(':');
@@ -44,7 +43,7 @@ For packaging guidance, see [Package and deploy a sample](#web-functions-samples
 
 Install the dependencies:
 
-```
+```bash
 npm init -y
 npm pkg set type=module
 npm install hono @hono/node-server
@@ -52,7 +51,7 @@ npm install hono @hono/node-server
 
 Create `index.js`:
 
-```
+```javascript
 import { serve } from '@hono/node-server';
 import { serveStatic } from '@hono/node-server/serve-static';
 import { Hono } from 'hono';
@@ -76,7 +75,7 @@ Put static files under a `static` directory and include the directory in the dep
 
 Add the following route to an Express application:
 
-```
+```javascript
 app.get('/events', (request, response) => {
   response.setHeader('Content-Type', 'text/event-stream');
   response.setHeader('Cache-Control', 'no-cache');
@@ -99,7 +98,7 @@ The request remains active until the application ends the response or the client
 
 Add a route that returns the Region in which the request executed:
 
-```
+```javascript
 app.get('/region', (request, response) => {
   response.json({
     region: process.env.AWS_REGION,
@@ -115,7 +114,7 @@ Call the route from the client locations that matter to your application. For a 
 
 Package a sample and upload it to Amazon S3 with the following commands:
 
-```
+```bash
 npm ci --omit=dev
 zip -r function.zip index.js package.json package-lock.json node_modules
 aws s3 cp function.zip s3://{{amzn-s3-demo-bucket}}/samples/function.zip

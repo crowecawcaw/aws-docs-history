@@ -1,7 +1,6 @@
 
 
 # Publishing custom metrics with the embedded metric format
-<a name="web-functions-emf"></a>
 
 With the [Amazon CloudWatch embedded metric format](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format.html) (EMF), you can publish your own metrics from AWS Lambda Web Functions, such as orders placed, cache hit rate, or payment latency. Your application writes a structured JSON object to its logs, and CloudWatch extracts the metrics from it. Use custom metrics to track what your application does. The metrics that Lambda publishes describe only request outcomes and resource usage.
 
@@ -28,7 +27,7 @@ Your custom metrics appear in your own namespace, not in `AWS/Lambda/Web`. That 
 
 The following Node.js example publishes a `CheckoutLatency` metric and an `OrdersPlaced` metric under the `MyWebApp` namespace, with a `PaymentProvider` dimension. It writes the EMF object with `process.stdout.write`. Do not pass an EMF object to a `console` method. Lambda wraps `console` output in its own JSON log event, and CloudWatch does not extract metrics from the wrapped object.
 
-```
+```javascript
 function publishCheckoutMetrics(provider, latencyMs, orders) {
   process.stdout.write(JSON.stringify({
     _aws: {

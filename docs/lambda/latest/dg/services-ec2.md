@@ -1,7 +1,6 @@
 
 
 # Process Amazon EC2 lifecycle events with a Lambda Event Function
-<a name="services-ec2"></a>
 
 You can use AWS Lambda to process lifecycle events from Amazon Elastic Compute Cloud and manage Amazon EC2 resources. Amazon EC2 sends events to [Amazon EventBridge (CloudWatch Events)](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) for [lifecycle events](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html) such as when an instance changes state, when an Amazon Elastic Block Store volume snapshot completes, or when a Spot Instance is scheduled to be terminated. You configure EventBridge (CloudWatch Events) to forward those events to a Lambda Event Function for processing.
 
@@ -9,7 +8,7 @@ EventBridge (CloudWatch Events) invokes your Lambda Event Function asynchronousl
 
 **Example instance lifecycle event**  
 
-```
+```json
 {
     "version": "0",
     "id": "b6ba298a-7732-2226-xmpl-976312c1a050",

@@ -1,7 +1,6 @@
 
 
 # Define Lambda Event Function handler in C\#
-<a name="csharp-handler"></a>
 
 The Lambda Event Function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
@@ -63,7 +62,7 @@ The following example C\# Lambda function code takes in information about an ord
 
 **Example `Function.cs` Lambda Event Function**  
 
-```
+```csharp
 using System;
 using System.Text;
 using System.Threading.Tasks;
@@ -421,20 +420,20 @@ This command adds the dependency to your project. You should also see a line sim
 
 Then, import the dependencies directly in your C\# code:
 
-```
+```csharp
 using Amazon.S3;
 using Amazon.S3.Model;
 ```
 
 The example code then initializes an Amazon S3 client (using the [default credential provider chain](https://docs.aws.amazon.com/sdkref/latest/guide/standardized-credentials.html)) as follows:
 
-```
+```csharp
 private static readonly AmazonS3Client s3Client = new();
 ```
 
 In this example, we initialized our Amazon S3 client outside of the main handler function to avoid having to initialize it every time we invoke our function. After you initialize your SDK client, you can then use it to interact with other AWS services. The example code calls the Amazon S3 `PutObject` API as follows:
 
-```
+```csharp
 var putRequest = new PutObjectRequest
 {
     BucketName = bucketName,
@@ -451,7 +450,7 @@ await s3Client.PutObjectAsync(putRequest);
 
 In your handler code, you can reference any [environment variables](configuration-envvars.md) by using the `System.Environment.GetEnvironmentVariable` method. In this example, we reference the defined `RECEIPT_BUCKET` environment variable using the following lines of code:
 
-```
+```csharp
 string? bucketName = Environment.GetEnvironmentVariable("RECEIPT_BUCKET");
 if (string.IsNullOrWhiteSpace(bucketName))
 {
@@ -478,7 +477,7 @@ For an example of a full application using Lambda Annotations, see the [ PhotoAs
 
 You can also use the Lambda Annotations framework to add dependency injection to your Lambda functions using syntax you are familiar with. When you add a `[LambdaStartup]` attribute to a `Startup.cs` file, the Lambda Annotations framework generates the required code at compile time.
 
-```
+```csharp
 [LambdaStartup]
 public class Startup
 {
@@ -491,7 +490,7 @@ public class Startup
 
 Your Lambda function can inject services using either constructor injection or by injecting into individual methods using the `[FromServices]` attribute.
 
-```
+```csharp
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
 
 namespace GetProductHandler;

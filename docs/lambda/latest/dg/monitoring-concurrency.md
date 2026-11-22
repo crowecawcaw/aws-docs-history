@@ -1,7 +1,6 @@
 
 
 # Monitoring concurrency
-<a name="monitoring-concurrency"></a>
 
 Lambda emits Amazon CloudWatch metrics to help you monitor concurrency for your Lambda Event Functions. This topic explains these metrics and how to interpret them.
 

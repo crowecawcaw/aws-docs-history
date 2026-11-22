@@ -1,7 +1,6 @@
 
 
 # Using AWS Lambda with Amazon RDS
-<a name="services-rds"></a>
 
 You can connect a Lambda Event Function to an Amazon Relational Database Service (Amazon RDS) database directly and through an Amazon RDS Proxy. Direct connections are useful in simple scenarios, and proxies are recommended for production. A database proxy manages a pool of shared database connections which enables your function to reach high concurrency levels without exhausting database connections.
 
@@ -39,7 +38,7 @@ In the Lambda console, you can provision, and configure, Amazon RDS database ins
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -139,7 +138,7 @@ The `readFileSync` function is required because Node.js database clients need th
 
 **Example Node.js connection config for OCI function**  
 
-```
+```javascript
 import { readFileSync } from 'fs';
 
 // ...
@@ -160,7 +159,7 @@ let connectionConfig = {
 
 **Example Python connection config for OCI function**  
 
-```
+```python
 connection = pymysql.connect(
     host=proxy_host_name,
     user=db_username,
@@ -181,7 +180,7 @@ For Java functions using JDBC connections, the connection string must include:
 
 **Example Java connection string for OCI function**  
 
-```
+```java
 // Define connection string
 String connectionString = String.format("jdbc:{{mysql://%s:%s/%s?useSSL=true&requireSSL=true&sslCA=/us-east-1-bundle.pem}}", // Path to the certificate in container
         System.getenv("ProxyHostName"),
@@ -194,7 +193,7 @@ String connectionString = String.format("jdbc:{{mysql://%s:%s/%s?useSSL=true&req
 
 **Example .NET connection string for MySQL connection in OCI function**  
 
-```
+```csharp
 /// Build the Connection String with the Token 
 string connectionString = $"Server={Environment.GetEnvironmentVariable("RDS_ENDPOINT")};" +
                          $"Port={Environment.GetEnvironmentVariable("RDS_PORT")};" +
@@ -211,7 +210,7 @@ For Go functions using MySQL connections, load the Amazon RDS certificate into a
 
 **Example Go code for MySQL connection in OCI function**  
 
-```
+```go
 import (
     "crypto/tls"
     "crypto/x509"
@@ -245,7 +244,7 @@ dsn := fmt.Sprintf("%s:%s@tcp(%s)/%s?allowCleartextPasswords=true&{{tls=custom}}
 
 **Example Ruby connection config for OCI function**  
 
-```
+```ruby
 conn = Mysql2::Client.new(
     host: endpoint,
     username: user,
@@ -274,7 +273,7 @@ These code examples are valid for [.zip deployment packages](configuration-funct
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using .NET.  
 
-```
+```csharp
 using System.Data;
 using System.Text.Json;
 using Amazon.Lambda.APIGatewayEvents;
@@ -366,7 +365,7 @@ public class Function
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using Go.  
 
-```
+```go
 /*
 Golang v2 code here.
 */
@@ -454,7 +453,7 @@ func main() {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using Java.  
 
-```
+```java
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
@@ -542,7 +541,7 @@ public class RdsLambdaHandler implements RequestHandler<APIGatewayProxyRequestEv
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using JavaScript.  
 
-```
+```javascript
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 /* 
@@ -603,7 +602,7 @@ export const handler = async (event) => {
 ```
 Connecting to an Amazon RDS database in a Lambda function using TypeScript.  
 
-```
+```javascript
 import { Signer } from "@aws-sdk/rds-signer";
 import mysql from 'mysql2/promise';
 
@@ -677,7 +676,7 @@ export const lambdaHandler = async (event: any): Promise<{ statusCode: number; b
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using PHP.  
 
-```
+```php
 <?php
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
@@ -780,7 +779,7 @@ return new Handler($logger);
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using Python.  
 
-```
+```python
 import json
 import os
 import boto3
@@ -834,7 +833,7 @@ def lambda_handler(event, context):
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using Ruby.  
 
-```
+```ruby
 # Ruby code here.
 
 require 'aws-sdk-rds'
@@ -897,7 +896,7 @@ end
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
 Connecting to an Amazon RDS database in a Lambda function using Rust.  
 
-```
+```rust
 use aws_config::BehaviorVersion;
 use aws_credential_types::provider::ProvideCredentials;
 use aws_sigv4::{

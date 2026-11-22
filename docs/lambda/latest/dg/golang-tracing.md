@@ -1,7 +1,6 @@
 
 
 # Instrumenting Go code in AWS Lambda
-<a name="golang-tracing"></a>
 
 Lambda integrates with AWS X-Ray to help you trace, debug, and optimize Lambda applications. You can use X-Ray to trace a request as it traverses resources in your application, which may include Lambda functions and other AWS services.
 

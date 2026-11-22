@@ -1,7 +1,6 @@
 
 
 # Low latency processing for Kafka event sources
-<a name="with-kafka-low-latency"></a>
 
 AWS Lambda natively supports low latency event processing for applications that require consistent end-to-end latencies of less than 100 milliseconds. This page provides configuration details and recommendations to enable low latency workflows.
 

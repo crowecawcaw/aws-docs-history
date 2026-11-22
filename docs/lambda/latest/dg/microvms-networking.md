@@ -1,7 +1,6 @@
 
 
 # Networking
-<a name="microvms-networking"></a>
 
 You configure network access for your AWS Lambda MicroVMs by associating Network Connector resources with your MicroVM at run time. Network connectors are specified when you call `run-microvm` and cannot be changed while a MicroVM is running.
 
@@ -74,14 +73,14 @@ Lambda routes inbound requests based on their port and does not filter them by U
 
 The following example creates a token and uses it to send an authenticated request:
 
-```
+```bash
 aws lambda-microvms create-microvm-auth-token \
   --microvm-identifier {{microvm-id}} \
   --expiration-in-minutes 30 \
   --allowed-ports '[{"port":8080}]'
 ```
 
-```
+```bash
 curl 'https://{{microvm-endpoint}}' \
   -H 'X-aws-proxy-auth: {{TOKEN}}' \
   -H 'X-aws-proxy-port: 8080'
@@ -138,7 +137,7 @@ To use HTTP/2 between the endpoint and your application inside the MicroVM:
 
 By default, Lambda MicroVMs have public internet access on the egress path. To connect MicroVMs with resources in your private VPCs – such as RDS, ElastiCache, internal APIs, and on-premises systems through Direct Connect or VPN – create a Lambda Network Connector with your VPC configuration.
 
-When using VPC egress, outbound traffic is subject to security group rules and network ACLs governing traffic in your VPC.
+When using VPC egress, outbound traffic is subject to security group rules and network ACLs governing traffic in your VPC. To reach the public internet from a VPC egress connector, route traffic through your VPC's existing internet path, such as a NAT gateway. Alternatively, you can use service-managed Elastic IP addresses on your connector to reach the internet from public subnets without having to set up a NAT gateway. For more information, see [Using Elastic IP addresses for outbound traffic](#microvms-networking-connectors-elastic-ip). You can also allocate the connector's Elastic IP addresses from IP address pools that you manage. For more information, see [Allocating Elastic IP addresses with IPAM](#microvms-networking-connectors-ipam).
 
 ## Working with egress network connectors
 <a name="microvms-networking-connectors"></a>
@@ -150,7 +149,7 @@ Egress network connectors route outbound traffic from your MicroVM through your 
 
 Before creating a network connector, you need an IAM role that allows Lambda to create elastic network interfaces (ENIs) in your VPC. The role requires the following permissions:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -179,12 +178,48 @@ Before creating a network connector, you need an IAM role that allows Lambda to 
 }
 ```
 
+If the connector uses service-managed Elastic IP addresses, the role also requires the following additional permissions. Add these statements to the policy's `Statement` array. The second statement lets the role associate only the addresses that Lambda tags with a connector ID, and the third limits the network interface permissions to the connector's own network interfaces.
+
+```json
+{
+  "Sid": "AllocateEIP",
+  "Effect": "Allow",
+  "Action": "ec2:AllocateAddress",
+  "Resource": "arn:aws:ec2:*:*:elastic-ip/*"
+},
+{
+  "Sid": "AssociateConnectorEIP",
+  "Effect": "Allow",
+  "Action": "ec2:AssociateAddress",
+  "Resource": "arn:aws:ec2:*:*:elastic-ip/*",
+  "Condition": {
+    "StringLike": {
+      "aws:ResourceTag/aws:lambda:networkConnectorId": "nc-*"
+    }
+  }
+},
+{
+  "Sid": "ManageEIPOnConnectorENI",
+  "Effect": "Allow",
+  "Action": [
+    "ec2:AllocateAddress",
+    "ec2:AssociateAddress"
+  ],
+  "Resource": "arn:aws:ec2:*:*:network-interface/*",
+  "Condition": {
+    "StringEquals": {
+      "ec2:ManagedResourceOperator": "network-connectors.lambda.amazonaws.com"
+    }
+  }
+}
+```
+
 ### Creating a network connector
 <a name="microvms-networking-connectors-create"></a>
 
 Create a connector by specifying your VPC subnets, security groups, and network protocol (`IPv4` or `DualStack`):
 
-```
+```bash
 aws lambda-core create-network-connector \
   --name my-connector \
   --configuration '{
@@ -197,6 +232,56 @@ aws lambda-core create-network-connector \
   }' \
   --operator-role arn:aws:iam::{{123456789012}}:role/NetworkConnectorOperatorRole
 ```
+
+### Using Elastic IP addresses for outbound traffic
+<a name="microvms-networking-connectors-elastic-ip"></a>
+
+To give MicroVM traffic a public `IPv4` source address through an Elastic IP address, set `ElasticIpConfiguration` in `VpcEgressConfiguration` with `Type` set to `ServiceManaged`. You get a service-managed Elastic IP address in your account for each connector network interface, associated with that interface. Each address stays the same for the life of its network interface, and Lambda releases it when it deletes the network interface. Lambda assigns Elastic IP addresses only when `Type` is `ServiceManaged`.
+
+Lambda manages these addresses for you. They appear in Amazon EC2 `DescribeAddresses` output and on the Elastic IP addresses page of the Amazon EC2 console with `ServiceManaged` set to `lambda-network-connector`. Each address is tagged with `aws:lambda:networkConnectorName` and `aws:lambda:networkConnectorId`, so you can find the addresses of a specific connector. The addresses don't count toward your account's Elastic IP address quota, and you can't modify or release them.
+
+To use service-managed Elastic IP addresses, you must meet the following requirements:
++ The VPC of the connector subnets must have an internet gateway attached, or the connector will fail with `InternetGatewayNotAttached`. For traffic to reach the internet through the Elastic IP addresses, the connector subnets also need a route to the internet gateway.
++ The operator role must allow `ec2:AllocateAddress` and `ec2:AssociateAddress`. For more information, see [Prerequisites](#microvms-networking-connectors-prereqs).
+
+The following AWS CLI command creates a connector with service-managed Elastic IP addresses. Replace the subnet ID, security group ID, and account ID with your own values.
+
+```bash
+aws lambda-core create-network-connector \
+  --name my-connector \
+  --configuration '{
+    "VpcEgressConfiguration": {
+      "SubnetIds": ["{{subnet-0ab1c2d3e4f5a6b78}}"],
+      "SecurityGroupIds": ["{{sg-0123456789abcdef0}}"],
+      "NetworkProtocol": "IPv4",
+      "AssociatedComputeResourceTypes": ["MicroVm"],
+      "ElasticIpConfiguration": {"Type": "ServiceManaged"}
+    }
+  }' \
+  --operator-role arn:aws:iam::{{111122223333}}:role/NetworkConnectorOperatorRole
+```
++ Replace `subnet-0ab1c2d3e4f5a6b78` with the ID of a public subnet for the connector.
++ Replace `sg-0123456789abcdef0` with the ID of the connector's security group.
++ Replace `111122223333` in the operator role ARN with your AWS account ID.
+
+When you change this setting with `update-network-connector`, it applies to the network interfaces of the new connector version. MicroVMs adopt the new version as described in [Network connector versioning](#microvms-networking-connectors-versioning).
+
+To allocate these addresses from IP address pools that you manage, see [Allocating Elastic IP addresses with IPAM](#microvms-networking-connectors-ipam).
+
+**Elastic IP address charges**  
+Elastic IP addresses are charged differently depending on where they come from. For rates, see [Amazon VPC pricing](https://aws.amazon.com/vpc/pricing/). A connector's Elastic IP addresses are charged for as long as the connector has network interfaces, including when the connector is idle or in the `FAILED` state. To stop the charges, delete the connector. Earlier connector versions keep their Elastic IP addresses after an update, including an update that sets the Elastic IP configuration type to `None`, until you delete those versions.
+
+#### Supported Regions
+<a name="microvms-networking-connectors-elastic-ip-regions"></a>
+
+Service-managed Elastic IP addresses for Lambda MicroVMs are available in all commercial Regions where Lambda MicroVMs are available. They aren't available for Lambda MicroVMs in the China Regions.
+
+### Allocating Elastic IP addresses with IPAM
+<a name="microvms-networking-connectors-ipam"></a>
+
+By default, service-managed Elastic IP addresses come from Amazon's pool of public `IPv4` addresses. You can instead allocate them from public `IPv4` pools that you manage in Amazon VPC IP Address Manager (IPAM). This lets you use IPAM features such as [Bring Your Own IP (BYOIP)](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html), [Bring Your Own Autonomous System Number (BYOASN)](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html), and [Amazon-provided contiguous `IPv4` blocks](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html). To do this, create and enable an IPAM policy with an allocation rule for the `lambda-network-connector` resource type. For more information, see [Define public IPv4 allocation strategy with IPAM policies](https://docs.aws.amazon.com/vpc/latest/ipam/define-public-ipv4-allocation-strategy-with-ipam-policies.html) in the *Amazon VPC IPAM User Guide*.
+
+The IPAM pool and the allocation rule must use the connector's Region as their locale. The IPAM itself can be in a different AWS Region, as long as the connector's Region is one of the IPAM's operating Regions and both are in the same partition (a group of AWS Regions, such as the commercial Regions or the AWS GovCloud (US) Regions). For example, an IPAM in US West (N. California) can provide addresses for a connector in Europe (Frankfurt) from a pool with the locale `eu-central-1`. For more information, see [Modify IPAM operating Regions](https://docs.aws.amazon.com/vpc/latest/ipam/mod-ipam-region.html) in the *Amazon VPC IPAM User Guide*.
 
 ### Network connector states
 <a name="microvms-networking-connectors-states"></a>
@@ -226,7 +311,7 @@ A MicroVM moves to a new version only when you change the ARN it references, so 
 
 Example `run-microvm` call pinning a specific connector version:
 
-```
+```bash
 aws lambda-microvms run-microvm \
   --image-identifier arn:aws:lambda:{{us-east-1}}:123456789012:microvm-image:my-microvm-image \
   --egress-network-connectors arn:aws:lambda:{{us-east-1}}:123456789012:network-connector:nc-id:version-number \
@@ -238,7 +323,7 @@ aws lambda-microvms run-microvm \
 
 Reference the connector ARN when running a MicroVM:
 
-```
+```bash
 aws lambda-microvms run-microvm \
   --image-identifier arn:aws:lambda:{{us-east-1}}:{{123456789012}}:microvm-image:my-microvm-image \
   --egress-network-connectors {{connector-arn}} \
@@ -269,7 +354,7 @@ For more information, see [Controlling access to services with VPC endpoints](ht
 
 The following example policy allows user `MyUser` to list and get MicroVM images through the endpoint:
 
-```
+```json
 {
   "Statement": [
     {
@@ -319,7 +404,7 @@ To use the private DNS option, you must set the `enableDnsHostnames` and `enable
 
 **To create an interface endpoint for MicroVM connectivity (AWS CLI)**
 
-```
+```bash
 aws ec2 create-vpc-endpoint \
   --vpc-id {{vpc-ec43eb89}} \
   --vpc-endpoint-type Interface \
@@ -331,7 +416,7 @@ aws ec2 create-vpc-endpoint \
 
 To verify that the endpoint is available and that private DNS is in effect:
 
-```
+```bash
 aws ec2 describe-vpc-endpoints \
   --vpc-endpoint-ids {{vpce-1a2b3c4d5e6f7g8h9}} \
   --query 'VpcEndpoints[0].{State:State,PrivateDns:PrivateDnsEnabled,Dns:DnsEntries[*].DnsName}'
@@ -352,7 +437,7 @@ If either value is set to the VPC endpoint hostname instead of the MicroVM hostn
 
 The following example uses [curl](https://curl.se/) with the `--connect-to` flag to redirect the TCP connection to your VPC endpoint while keeping the MicroVM hostname in the URL, SNI, and Host header:
 
-```
+```bash
 ENDPOINT_HOST=abc123def456.lambda-microvm.{{us-east-1}}.on.aws
 VPCE_HOST=vpce-0a1b2c3d4e5f67890-a1b2c3d4.lambda-microvm.{{us-east-1}}.vpce.amazonaws.com
 
@@ -398,7 +483,7 @@ Connections to a MicroVM endpoint are authenticated with a MicroVM auth token ra
 
 The following endpoint policy allows connections through the endpoint only to MicroVMs owned by account 111122223333. Connections to MicroVMs owned by any other account are denied.
 
-```
+```json
 {
   "Statement": [
     {

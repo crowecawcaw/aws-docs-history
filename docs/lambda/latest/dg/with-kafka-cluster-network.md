@@ -1,7 +1,6 @@
 
 
 # Configuring your self-managed Apache Kafka cluster and network for Lambda
-<a name="with-kafka-cluster-network"></a>
 
 To connect your Lambda Event Function to your self-managed Apache Kafka cluster, you need to correctly configure your cluster and the network it resides in. This page describes how to configure your cluster and network. If your cluster and network are already configured properly, see [Configuring self-managed Apache Kafka event sources for Lambda](with-kafka-configure.md) to configure the event source mapping.
 
@@ -45,7 +44,7 @@ If your cluster uses authentication, you can also restrict the endpoint policy f
 
 **Example VPC endpoint policy — Secrets Manager endpoint**  
 
-```
+```JSON
 {
       "Statement": [
           {
@@ -70,7 +69,7 @@ The following example VPC endpoint policies show how to grant the required acces
 
 **Example VPC Endpoint policy — AWS STS endpoint**  
 
-```
+```JSON
 {
       "Statement": [
           {
@@ -89,7 +88,7 @@ The following example VPC endpoint policies show how to grant the required acces
 
 **Example VPC Endpoint policy — Lambda endpoint**  
 
-```
+```JSON
 {
       "Statement": [
           {

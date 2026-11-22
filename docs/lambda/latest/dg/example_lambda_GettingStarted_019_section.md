@@ -1,7 +1,6 @@
 
 
 # Creating your first serverless function
-<a name="example_lambda_GettingStarted_019_section"></a>
 
 The following code example shows how to:
 + Create an IAM role for Lambda
@@ -16,7 +15,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/019-lambda-gettingstarted) repository. 
 
-```
+```bash
 #!/bin/bash
 # AWS Lambda - Create Your First Function
 # This script creates a Lambda function, invokes it with a test event,

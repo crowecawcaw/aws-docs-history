@@ -1,7 +1,6 @@
 
 
 # Deploy ASP.NET applications
-<a name="csharp-package-asp"></a>
 
 As well as hosting event-driven functions, you can also use .NET with Lambda Event Functions to host lightweight ASP.NET applications. You can build and deploy ASP.NET applications using the `Amazon.Lambda.AspNetCoreServer` NuGet package. In this section, you learn how to deploy an ASP.NET web API to Lambda using the .NET Lambda CLI tooling.
 
@@ -69,7 +68,7 @@ This command creates the following files and directories in your project directo
 
 When Lambda invokes your function, the entry point it uses is the `LambdaEntryPoint.cs` file. The file created by the .NET Lambda template contains the following code.
 
-```
+```csharp
 namespace AspNetOnLambda;
 
 public class LambdaEntryPoint : Amazon.Lambda.AspNetCoreServer.APIGatewayProxyFunction
@@ -137,7 +136,7 @@ The command creates the following files and directories in your project director
 
 The `Program.cs` file contains the following code.
 
-```
+```csharp
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

@@ -1,7 +1,6 @@
 
 
 # Security and permissions
-<a name="microvms-security"></a>
 
 This section describes the IAM roles, authentication tokens, and access controls for AWS Lambda MicroVMs.
 
@@ -34,7 +33,7 @@ Both roles require a trust policy that allows the Lambda service principal `lamb
 
 Tokens control inbound access to running MicroVMs. They are port-scoped; each token specifies which ports it grants access to.
 
-```
+```bash
 # Token granting access to all ports
 aws lambda-microvms create-microvm-auth-token \
   --microvm-identifier <id> \
@@ -53,7 +52,7 @@ aws lambda-microvms create-microvm-auth-token \
 
 Shell access uses a separate token API. The target MicroVM must have been run with the `SHELL_INGRESS` network connector (`arn:aws:lambda:{{us-east-1}}:aws:network-connector:aws-network-connector:SHELL_INGRESS`). If the MicroVM was not launched with this connector, `create-microvm-shell-auth-token` fails with a `ValidationException`:
 
-```
+```bash
 aws lambda-microvms create-microvm-shell-auth-token \
   --microvm-identifier <id> \
   --expiration-in-minutes 30
@@ -66,7 +65,7 @@ For a full walkthrough of connecting to a MicroVM shell, see [Shell access](micr
 
 Lambda MicroVM images support AWS resource tags for organization and cost allocation. Add tags when creating an image using the `--tags` parameter or explicitly after creation. You can also list and delete tags, as demonstrated below: You can also reference tags in IAM policy conditions to control access to MicroVM resources.
 
-```
+```bash
 # Add tags when creating an image
 aws lambda-microvms create-microvm-image \
   --name my-app-image \
@@ -115,7 +114,7 @@ Lambda MicroVMs defines the following IAM actions. Use these in IAM policies to 
 ## Resource ARN formats
 <a name="microvms-security-resource-arns"></a>
 
-```
+```text
 # MicroVM image
 arn:aws:lambda:<region>:<account>:microvm-image:<image-name>
 # Network connector
@@ -125,7 +124,7 @@ arn:aws:lambda:<region>:<account>:network-connector:<connector-id>
 ## Example: Least-privilege policy for an operator
 <a name="microvms-security-least-privilege"></a>
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

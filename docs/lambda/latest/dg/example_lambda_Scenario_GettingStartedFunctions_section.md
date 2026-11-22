@@ -1,7 +1,6 @@
 
 
 # Learn the basics of Lambda with an AWS SDK
-<a name="example_lambda_Scenario_GettingStartedFunctions_section"></a>
 
 The following code examples show how to:
 + Create an IAM role and Lambda function, then upload handler code.
@@ -19,7 +18,7 @@ For more information, see [Create a Lambda function with the console](https://do
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples). 
 Create methods that perform Lambda actions.  
 
-```
+```csharp
 namespace LambdaActions;
 
 using Amazon.Lambda;
@@ -226,7 +225,7 @@ public class LambdaWrapper
 ```
 Create a function that runs the scenario.  
 
-```
+```csharp
 global using System.Threading.Tasks;
 global using Amazon.IdentityManagement;
 global using Amazon.Lambda;
@@ -657,7 +656,7 @@ public class UIWrapper
 ```
 Define a Lambda handler that increments a number.  
 
-```
+```csharp
 using Amazon.Lambda.Core;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
@@ -692,7 +691,7 @@ public class Function
 ```
 Define a second Lambda handler that performs arithmetic operations.  
 
-```
+```csharp
 using Amazon.Lambda.Core;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
@@ -762,7 +761,7 @@ public class Function
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples). 
 
-```
+```cpp
 //! Get started with functions scenario.
 /*!
  \param clientConfig: AWS client configuration.
@@ -1193,7 +1192,7 @@ AwsDoc::Lambda::invokeLambdaFunction(const Aws::Utils::Json::JsonValue &jsonPayl
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples). 
 Create an interactive scenario that shows you how to get started with Lambda functions.  
 
-```
+```go
 import (
 	"archive/zip"
 	"bytes"
@@ -1522,7 +1521,7 @@ func (helper *ScenarioHelper) CreateDeploymentPackage(sourceFile string, destina
 ```
 Create a struct that wraps individual Lambda actions.  
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -1721,7 +1720,7 @@ type LambdaResultFloat struct {
 ```
 Define a Lambda handler that increments a number.  
 
-```
+```go
 import logging
 
 logger = logging.getLogger()
@@ -1751,7 +1750,7 @@ def lambda_handler(event, context):
 ```
 Define a second Lambda handler that performs arithmetic operations.  
 
-```
+```go
 import logging
 import os
 
@@ -1813,7 +1812,7 @@ def lambda_handler(event, context):
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples). 
 
-```
+```java
 /*
  *  Lambda function names appear as:
  *
@@ -2141,7 +2140,7 @@ public class LambdaScenario {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda/scenarios/basic#code-examples). 
 Create an AWS Identity and Access Management (IAM) role that grants Lambda permission to write to logs.  
 
-```
+```javascript
     logger.log(`Creating role (${NAME_ROLE_LAMBDA})...`);
     const response = await createRole(NAME_ROLE_LAMBDA);
 
@@ -2165,7 +2164,7 @@ export const attachRolePolicy = (policyArn, roleName) => {
 ```
 Create a Lambda function and upload handler code.  
 
-```
+```javascript
 const createFunction = async (funcName, roleArn) => {
   const client = new LambdaClient({});
   const code = await readFile(`${dirname}../functions/${funcName}.zip`);
@@ -2185,7 +2184,7 @@ const createFunction = async (funcName, roleArn) => {
 ```
 Invoke the function with a single parameter and get results.  
 
-```
+```javascript
 const invoke = async (funcName, payload) => {
   const client = new LambdaClient({});
   const command = new InvokeCommand({
@@ -2202,7 +2201,7 @@ const invoke = async (funcName, payload) => {
 ```
 Update the function code and configure its Lambda environment with an environment variable.  
 
-```
+```javascript
 const updateFunctionCode = async (funcName, newFunc) => {
   const client = new LambdaClient({});
   const code = await readFile(`${dirname}../functions/${newFunc}.zip`);
@@ -2232,7 +2231,7 @@ const updateFunctionConfiguration = async (funcName) => {
 ```
 List the functions for your account.  
 
-```
+```javascript
 const listFunctions = () => {
   const client = new LambdaClient({});
   const command = new ListFunctionsCommand({});
@@ -2242,7 +2241,7 @@ const listFunctions = () => {
 ```
 Delete the IAM role and the Lambda function.  
 
-```
+```javascript
 import { DeleteRoleCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -2280,7 +2279,7 @@ const deleteFunction = (funcName) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/lambda#code-examples). 
 
-```
+```kotlin
 suspend fun main(args: Array<String>) {
     val usage = """
         Usage:
@@ -2479,7 +2478,7 @@ suspend fun delFunction(myFunctionName: String) {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples). 
 
-```
+```php
 namespace Lambda;
 
 use Aws\S3\S3Client;
@@ -2668,7 +2667,7 @@ class GettingStartedWithLambda
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples). 
 Define a Lambda handler that increments a number.  
 
-```
+```python
 import logging
 
 logger = logging.getLogger()
@@ -2698,7 +2697,7 @@ def lambda_handler(event, context):
 ```
 Define a second Lambda handler that performs arithmetic operations.  
 
-```
+```python
 import logging
 import os
 
@@ -2747,7 +2746,7 @@ def lambda_handler(event, context):
 ```
 Create functions that wrap Lambda actions.  
 
-```
+```python
 class LambdaWrapper:
     def __init__(self, lambda_client, iam_resource):
         self.lambda_client = lambda_client
@@ -3016,7 +3015,7 @@ class LambdaWrapper:
 ```
 Create a function that runs the scenario.  
 
-```
+```python
 class UpdateFunctionWaiter(CustomWaiter):
     """A custom waiter that waits until a function is successfully updated."""
 
@@ -3175,7 +3174,7 @@ if __name__ == "__main__":
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples). 
 Set up pre-requisite IAM permissions for a Lambda function capable of writing logs.  
 
-```
+```ruby
   # Get an AWS Identity and Access Management (IAM) role.
   #
   # @param iam_role_name: The name of the role to retrieve.
@@ -3241,7 +3240,7 @@ Set up pre-requisite IAM permissions for a Lambda function capable of writing lo
 ```
 Define a Lambda handler that increments a number provided as an invocation parameter.  
 
-```
+```ruby
 require 'logger'
 
 # A function that increments a whole number by one (1) and logs the result.
@@ -3272,7 +3271,7 @@ end
 ```
 Zip your Lambda function into a deployment package.  
 
-```
+```ruby
   # Creates a Lambda deployment package in .zip format.
   #
   # @param source_file: The name of the object, without suffix, for the Lambda file and zip.
@@ -3294,7 +3293,7 @@ Zip your Lambda function into a deployment package.
 ```
 Create a new Lambda function.  
 
-```
+```ruby
   # Deploys a Lambda function.
   #
   # @param function_name: The name of the Lambda function.
@@ -3330,7 +3329,7 @@ Create a new Lambda function.
 ```
 Invoke your Lambda function with optional runtime parameters.  
 
-```
+```ruby
   # Invokes a Lambda function.
   # @param function_name [String] The name of the function to invoke.
   # @param payload [nil] Payload containing runtime parameters.
@@ -3345,7 +3344,7 @@ Invoke your Lambda function with optional runtime parameters.
 ```
 Update your Lambda function's configuration to inject a new environment variable.  
 
-```
+```ruby
   # Updates the environment variables for a Lambda function.
   # @param function_name: The name of the function to update.
   # @param log_level: The log level of the function.
@@ -3371,7 +3370,7 @@ Update your Lambda function's configuration to inject a new environment variable
 ```
 Update your Lambda function's code with a different deployment package containing different code.  
 
-```
+```ruby
   # Updates the code for a Lambda function by submitting a .zip archive that contains
   # the code for the function.
   #
@@ -3397,7 +3396,7 @@ Update your Lambda function's code with a different deployment package containin
 ```
 List all existing Lambda functions using the built-in paginator.  
 
-```
+```ruby
   # Lists the Lambda functions for the current account.
   def list_functions
     functions = []
@@ -3413,7 +3412,7 @@ List all existing Lambda functions using the built-in paginator.
 ```
 Delete a specific Lambda function.  
 
-```
+```ruby
   # Deletes a Lambda function.
   # @param function_name: The name of the function to delete.
   def delete_function(function_name)
@@ -3442,7 +3441,7 @@ Delete a specific Lambda function.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples). 
 The Cargo.toml with dependencies used in this scenario.  
 
-```
+```rust
 [package]
 name = "lambda-code-examples"
 version = "0.1.0"
@@ -3470,7 +3469,7 @@ serde = "1.0.164"
 ```
 A collection of utilities that streamline calling Lambda for this scenario. This file is src/ations.rs in the crate.  
 
-```
+```rust
 use anyhow::anyhow;
 use aws_sdk_iam::operation::{create_role::CreateRoleError, delete_role::DeleteRoleOutput};
 use aws_sdk_lambda::{
@@ -4033,7 +4032,7 @@ mod test {
 ```
 A binary to run the scenario from front to end, using command line flags to control some behavior. This file is src/bin/scenario.rs in the crate.  
 
-```
+```rust
 /*
 ## Service actions
 
@@ -4266,7 +4265,7 @@ async fn main() {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples). 
 
-```
+```sap-abap
     TRY.
         "Create an AWS Identity and Access Management (IAM) role that grants AWS Lambda permission to write to logs."
         DATA(lv_policy_document) = `{` &&
@@ -4496,7 +4495,7 @@ async fn main() {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples). 
 Define the first Lambda function, which simply increments the specified value.  
 
-```
+```swift
 // swift-tools-version: 5.9
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
@@ -4585,7 +4584,7 @@ try await incrementLambdaRuntime.run()
 ```
 Define the second Lambda function, which performs an arithmetic operation on two numbers.  
 
-```
+```swift
 // swift-tools-version: 5.9
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
@@ -4702,7 +4701,7 @@ try await calculatorLambdaRuntime.run()
 ```
 Define the main program that will invoke the two Lambda functions.  
 
-```
+```swift
 // swift-tools-version: 5.9
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0

@@ -1,7 +1,6 @@
 
 
 # Deploy Java Lambda Event Functions with .zip or JAR file archives
-<a name="java-package"></a>
 
 Your AWS Lambda function's code consists of scripts or compiled programs and their dependencies. You use a *deployment package* to deploy your function code to Lambda. Lambda supports two types of deployment packages: container images and .zip file archives. 
 
@@ -40,7 +39,7 @@ Add these libraries to your build definition as follows:
 ------
 #### [ Gradle ]
 
-```
+```groovy
 dependencies {
     implementation 'com.amazonaws:aws-lambda-java-core:1.2.2'
     implementation 'com.amazonaws:aws-lambda-java-events:3.11.1'
@@ -52,7 +51,7 @@ dependencies {
 ------
 #### [ Maven ]
 
-```
+```xml
   <dependencies>
     <dependency>
       <groupId>com.amazonaws</groupId>
@@ -139,7 +138,7 @@ To build a deployment package with Maven, use the [Maven Shade plugin](https://m
 
 **Example pom.xml – Plugin configuration**  
 
-```
+```xml
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
@@ -193,7 +192,7 @@ If you use the appender library (`aws-lambda-java-log4j2`), you must also config
 
 **Example pom.xml – Plugin configuration with Log4j 2 appender**  
 
-```
+```xml
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
@@ -299,7 +298,7 @@ If you upload your .zip or JAR file from an Amazon S3 bucket using the AWS CLI, 
 
  You must also specify the location of your .zip or JAR file. If your .zip or JAR file is located in a folder on your local build machine, use the `--zip-file` option to specify the file path, as shown in the following example command. 
 
-```
+```bash
 aws lambda create-function --function-name myFunction \
 --runtime java25 --handler example.handler \
 --role arn:aws:iam::123456789012:role/service-role/my-lambda-role \
@@ -308,7 +307,7 @@ aws lambda create-function --function-name myFunction \
 
  To specify the location of .zip file in an Amazon S3 bucket, use the `--code` option as shown in the following example command. You only need to use the `S3ObjectVersion` parameter for versioned objects. 
 
-```
+```bash
 aws lambda create-function --function-name myFunction \
 --runtime java25 --handler example.handler \
 --role arn:aws:iam::123456789012:role/service-role/my-lambda-role \
@@ -317,14 +316,14 @@ aws lambda create-function --function-name myFunction \
 
  To update an existing function using the CLI, you specify the the name of your function using the `--function-name` parameter. You must also specify the location of the .zip file you want to use to update your function code. If your .zip file is located in a folder on your local build machine, use the `--zip-file` option to specify the file path, as shown in the following example command. 
 
-```
+```bash
 aws lambda update-function-code --function-name myFunction \
 --zip-file fileb://myFunction.zip
 ```
 
  To specify the location of .zip file in an Amazon S3 bucket, use the `--s3-bucket` and `--s3-key` options as shown in the following example command. You only need to use the `--s3-object-version` parameter for versioned objects. 
 
-```
+```bash
 aws lambda update-function-code --function-name myFunction \
 --s3-bucket amzn-s3-demo-bucket --s3-key myFileName.zip --s3-object-version myObject Version
 ```
@@ -336,7 +335,7 @@ You can use AWS SAM to automate deployments of your function code, configuration
 
 **Example template.yml**  
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 Description: An AWS Lambda application that calls the Lambda API.
@@ -377,6 +376,6 @@ For a complete working example, see the following sample applications:
 **Sample Lambda applications in Java**
 + [example-java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/example-java) – A Java Event Function that demonstrates how you can use Lambda to process orders. This function illustrates how to define and deserialize a custom input event object, use the AWS SDK, and output logging.
 + [java-basic](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-basic) – A collection of minimal Java functions with unit tests and variable logging configuration.
-+ [java-events](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-events) – A collection of Java functions that contain skeleton code for how to handle events from various services such as Amazon API Gateway, Amazon SQS, and Amazon Kinesis. These functions use the latest version of the [aws-lambda-java-events](#java-package) library (3.0.0 and newer). These examples do not require the AWS SDK as a dependency.
++ [java-events](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-events) – A collection of Java functions that contain skeleton code for how to handle events from various services such as Amazon API Gateway, Amazon SQS, and Amazon Kinesis. These functions use the latest version of the [aws-lambda-java-events](java-package.md) library (3.0.0 and newer). These examples do not require the AWS SDK as a dependency.
 + [s3-java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/s3-java) – A Java function that processes notification events from Amazon S3 and uses the Java Class Library (JCL) to create thumbnails from uploaded image files.
 + [layer-java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/layer-java) – A Java function that illustrates how to use a Lambda layer to package dependencies separate from your core function code.

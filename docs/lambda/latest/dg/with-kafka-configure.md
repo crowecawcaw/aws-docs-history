@@ -1,7 +1,6 @@
 
 
 # Configuring self-managed Apache Kafka event sources for Lambda
-<a name="with-kafka-configure"></a>
 
 To use a self-managed Apache Kafka cluster as an event source for your Lambda Event Function, you create an [event source mapping](invocation-eventsourcemapping.md) that connects the two resources. This page describes how to create an event source mapping for self-managed Apache Kafka.
 
@@ -25,4 +24,4 @@ Lambda reads messages sequentially for each Kafka topic partition. A single Lamb
 After Lambda processes each batch, it commits the offsets of the messages in that batch. If your function returns an error for any of the messages in a batch, Lambda retries the whole batch of messages until processing succeeds or the messages expire. You can send records that fail all retry attempts to an on-failure destination for later processing.
 
 **Note**  
-While Lambda Event Functions typically have a maximum timeout limit of 15 minutes, event source mappings for Amazon MSK, self-managed Apache Kafka, Amazon DocumentDB, and Amazon MQ for ActiveMQ and RabbitMQ only support functions with maximum timeout limits of 14 minutes.
+While Lambda Event Functions typically have a maximum timeout limit of 30 minutes, on-demand Kafka event source mappings created before 30-minute timeouts were available support function timeouts of up to 14 minutes. Kafka event source mappings in [provisioned mode](kafka-scaling-modes.md#kafka-provisioned-mode), and on-demand Kafka event source mappings created after that, support function timeouts of up to 30 minutes. To use a longer timeout with an existing on-demand event source mapping, turn on provisioned mode. For functions using Lambda Managed Instances, Kafka event source mappings support function timeouts of up to 90 minutes.

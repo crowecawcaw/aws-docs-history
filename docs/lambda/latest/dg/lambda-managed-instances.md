@@ -1,9 +1,8 @@
 
 
 # Lambda Managed Instances
-<a name="lambda-managed-instances"></a>
 
-With Lambda Managed Instances, you can run Lambda Event Functions on your current-generation Amazon EC2 instances, including Graviton4, network-optimized instances, and other specialized compute options. You don't need to manage instance lifecycles, operating system and language runtime patching, routing, load balancing, or scaling policies. With Lambda Managed Instances, you benefit from EC2 pricing advantages, including EC2 Savings Plans and Reserved Instances. Lambda Managed Instances currently support only Lambda Event Functions.
+With Lambda Managed Instances, you can run Lambda Event Functions on your current-generation Amazon EC2 instances, including the latest Graviton and GPU-accelerated instances, network-optimized instances, and other specialized compute options. You don't need to manage instance lifecycles, operating system and language runtime patching, routing, load balancing, or scaling policies. With Lambda Managed Instances, you benefit from EC2 pricing advantages, including EC2 Savings Plans and Reserved Instances. Lambda Managed Instances currently support only Lambda Event Functions.
 
 For a list of supported instance types, go to the [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High) page and select your AWS Region.
 
@@ -11,7 +10,7 @@ For a list of supported instance types, go to the [AWS Lambda Pricing](https://a
 <a name="lambda-managed-instances-key-capabilities"></a>
 
 Lambda Managed Instances provides the following capabilities:
-+ **Choose suitable instances** - Select [appropriate instances](https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High) based on performance and cost requirements, including access to the latest CPUs like Graviton4, configurable memory-CPU ratios, and high-bandwidth networking.
++ **Choose suitable instances** - Select [appropriate instances](https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High) based on performance and cost requirements, including access to the latest CPUs and GPUs, configurable memory-CPU ratios, and high-bandwidth networking.
 + **Automatic provisioning** - AWS automatically provisions suitable instances and spins up function execution environments.
 + **Dynamic scaling** - Instances scale dynamically based on your function traffic patterns.
 + **Fully managed experience** - AWS handles infrastructure management, scaling, patching, and routing, with the same extensive event-source integrations you're familiar with.
@@ -21,7 +20,7 @@ Lambda Managed Instances provides the following capabilities:
 
 Consider Lambda Managed Instances for the following use cases:
 + **High volume-predictable workloads** - Ideal for steady-state workloads without unexpected traffic spikes. Lambda Managed Instances scale to handle traffic doubling within five minutes by default.
-+ **Performance-critical applications** - Access to latest CPUs, varying memory-CPU ratios, and high network throughput
++ **Performance-critical applications** - Access to the latest CPUs and GPUs, varying memory-CPU ratios, and high network throughput
 + **Regulatory requirements** - Granular governance needs with control over VPC and instance placement
 + **Variety of applications** - Event-driven applications, media/data processing, web applications, and legacy workloads migrating to serverless
 
@@ -81,17 +80,18 @@ Lambda Managed Instances changes how Lambda processes requests compared to Lambd
 | Concurrency model | Single concurrency model where one execution environment can support a maximum of one invocation at a time | Multi-concurrent invocations where one execution environment can handle multiple invocations simultaneously, increasing throughput especially for IO-heavy applications | 
 | Tenancy and isolation | Multi-tenant, using Firecracker MicroVM technology to provide isolation between execution environments running on shared Lambda fleets | Run in your account, using EC2 Nitro to provide isolation. Capacity providers serve as the security boundary, with functions executing in containers within instances | 
 | Pricing model | Per-request duration pricing | Instance-based pricing with EC2 pricing models, including On-Demand and Reserved Instances, and savings options such as Compute Savings Plans | 
-| Scaling behavior | Scales when there is no free execution environment to handle an incoming invocation (cold start). Scales to zero without traffic | Scales asynchronously based on CPU resource utilization only, without cold starts. Scales to minimum execution environments configured without traffic | 
+| Scaling behavior | Scales when there is no free execution environment to handle an incoming invocation (cold start). Scales to zero without traffic | Scales asynchronously based on CPU resource utilization and multi-concurrency saturation. Without traffic, scales to the minimum number of execution environments you configure. | 
 | Best suited for | Functions with bursty traffic that can handle some cold-start time, or applications without sustained load that benefit from scale to zero | High volume predictable traffic functions when you want the flexibility, pricing plans, and hardware options of EC2 | 
 
 ## Next steps
 <a name="lambda-managed-instances-next-steps"></a>
 + Learn about [core concepts for Lambda Managed Instances](lambda-managed-instances-core-concepts.md)
 + [Get started with Lambda Managed Instances](lambda-managed-instances-getting-started.md)
++ Find cost optimization candidates with [Trusted Advisor recommendations](lambda-managed-instances-trusted-advisor.md)
 + Learn about [capacity providers for Lambda Managed Instances](lambda-managed-instances-capacity-providers.md)
 + Understand [scaling for Lambda Managed Instances](lambda-managed-instances-scaling.md)
 + Learn about [deploying and updating Lambda Managed Instances functions](lambda-managed-instances-deployments.md)
-+ Review [supported runtimes](lambda-managed-instances-runtimes.md)
++ Review [supported runtimes](lambda-managed-instances-runtimes.md), including customer-managed runtimes
 + Review runtime-specific guides for [Java](lambda-managed-instances-java-runtime.md), [Node.js](lambda-managed-instances-nodejs-runtime.md), and [Python](lambda-managed-instances-python-runtime.md)
 + Configure [VPC connectivity for your capacity providers](lambda-managed-instances-networking.md)
 + Understand [security and permissions for Lambda Managed Instances](lambda-managed-instances-security.md)

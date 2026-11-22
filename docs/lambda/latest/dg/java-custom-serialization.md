@@ -1,7 +1,6 @@
 
 
 # Customize serialization for Lambda Java Event Functions
-<a name="java-custom-serialization"></a>
 
 The Lambda [Java managed runtimes](lambda-java.md#java-runtimes) support custom serialization for JSON events. Custom serialization can simplify your code and potentially improve performance.
 
@@ -19,7 +18,7 @@ You can also use your own objects to represent the event JSON that you pass to y
 
 For example, assume that your function handler expects a `Vehicle` class as input, with the following structure:
 
-```
+```java
 public class Vehicle {
     private String vehicleType;
     private long vehicleId;
@@ -28,7 +27,7 @@ public class Vehicle {
 
 However, the JSON event payload looks like this:
 
-```
+```JSON
 {
     "vehicle-type": "car",
     "vehicleID": 123

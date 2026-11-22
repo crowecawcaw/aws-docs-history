@@ -1,7 +1,6 @@
 
 
 # Use `GetProvisionedConcurrencyConfig` with a CLI
-<a name="example_lambda_GetProvisionedConcurrencyConfig_section"></a>
 
 The following code examples show how to use `GetProvisionedConcurrencyConfig`.
 
@@ -37,7 +36,7 @@ For more information, see [Configuring provisioned concurrency for an Event Func
 **Tools for PowerShell V4**  
 **Example 1: This example gets the provisioned Concurrency Configuration for the specified Alias of the Lambda Function.**  
 
-```
+```powershell
 C:\>Get-LMProvisionedConcurrencyConfig -FunctionName "MylambdaFunction123" -Qualifier "NewAlias1"
 ```
 **Output:**  
@@ -55,7 +54,7 @@ StatusReason                             :
 **Tools for PowerShell V5**  
 **Example 1: This example gets the provisioned Concurrency Configuration for the specified Alias of the Lambda Function.**  
 
-```
+```powershell
 C:\>Get-LMProvisionedConcurrencyConfig -FunctionName "MylambdaFunction123" -Qualifier "NewAlias1"
 ```
 **Output:**  

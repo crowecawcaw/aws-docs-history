@@ -1,7 +1,6 @@
 
 
 # Capturing discarded batches for Amazon MSK and self-managed Apache Kafka event sources
-<a name="kafka-on-failure"></a>
 
 To retain records of failed event source mapping invocations, add a destination to your Event Function's event source mapping. Each record sent to the destination is a JSON document containing metadata about the failed invocation. For Amazon S3 destinations, Lambda also sends the entire invocation record along with the metadata. You can configure any Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka as a destination.
 
@@ -80,7 +79,7 @@ To ensure that invocation records from your Event Function can't be sent to an S
 
 The following example shows an IAM policy that limits your function's `s3:PutObject` permissions to buckets in your account. This policy also gives Lambda the `s3:ListBucket` permission it needs to use an S3 bucket as a destination.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -155,7 +154,7 @@ To add a permissions policy to your function's execution role using the AWS Mana
 
 The following example shows what Lambda sends to an SNS topic or SQS queue destination for a failed Kafka event source invocation. Each of the keys under `recordsInfo` contains both the Kafka topic and partition, separated by a hyphen. For example, for the key `"Topic-0"`, `Topic` is the Kafka topic, and `0` is the partition. For each topic and partition, you can use the offsets and timestamp data to find the original invocation records.
 
-```
+```json
 {
     "requestContext": {
         "requestId": "316aa6d0-8154-xmpl-9af7-85d5f4a6bc81",
@@ -198,7 +197,7 @@ The following example shows what Lambda sends to an SNS topic or SQS queue desti
 
 For S3 destinations, Lambda sends the entire invocation record along with the metadata to the destination. The following example shows that Lambda sends to an S3 bucket destination for a failed Kafka event source invocation. In addition to all of the fields from the previous example for SQS and SNS destinations, the `payload` field contains the original invocation record as an escaped JSON string.
 
-```
+```json
 {
     "requestContext": {
         "requestId": "316aa6d0-8154-xmpl-9af7-85d5f4a6bc81",

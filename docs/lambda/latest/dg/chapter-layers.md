@@ -1,7 +1,6 @@
 
 
 # Managing Lambda Event Function dependencies with layers
-<a name="chapter-layers"></a>
 
 A Lambda layer is a .zip file archive that contains supplementary code or data. Layers usually contain library dependencies, a [custom runtime](runtimes-custom.md), or configuration files. 
 
@@ -10,7 +9,7 @@ There are multiple reasons why you might consider using layers:
 + **To separate core function logic from dependencies.** With layers, you can update your Event Function dependencies independent of your Event Function code, and vice versa. This promotes separation of concerns and helps you focus on your Event Function logic.
 + **To share dependencies across multiple functions.** After you create a layer, you can apply it to any number of Event Functions in your account. Without layers, you need to include the same dependencies in each individual deployment package.
 + **To use the Lambda console code editor.** The code editor is a useful tool for testing minor Event Function code updates quickly. However, you can't use the editor if your deployment package size is too large. Using layers reduces your package size and can unlock usage of the code editor.
-+ **To lock an embedded SDK version.**The embedded SDKs might change without notice as AWS releases new services and features. You can lock a version of the SDK by [creating a Lambda layer](#chapter-layers) with the specific version needed. The Event Function then always uses the version in the layer, even if the version embedded in the service changes.
++ **To lock an embedded SDK version.**The embedded SDKs might change without notice as AWS releases new services and features. You can lock a version of the SDK by [creating a Lambda layer](chapter-layers.md) with the specific version needed. The Event Function then always uses the version in the layer, even if the version embedded in the service changes.
 
 If you're working with Lambda Event Functions in Go or Rust, we recommend against using layers. For Go and Rust Event Functions, you provide your Event Function code as an executable, which includes your compiled Event Function code along with all of its dependencies. Putting your dependencies in a layer forces your Event Function to manually load additional assemblies during the initialization phase, which can increase cold start times. For optimal performance for Go and Rust Event Functions, include your dependencies along with your deployment package.
 

@@ -1,7 +1,6 @@
 
 
 # Using the Lambda context object to retrieve Go Event Function information
-<a name="golang-context"></a>
 
 In Lambda, the context object provides methods and properties with information about the invocation, function, and execution environment. When Lambda runs your function, it passes a context object to the [handler](golang-handler.md). To use the context object in your handler, you can optionally declare it as an input parameter to your handler. The context object is necessary if you want to do the following in your handler:
 + You need access to any of the [global variables, methods, or properties](#golang-context-library) offered by the context object. These methods and properties are useful for tasks like determining the entity that invoked your function or measuring the invocation time of your function, as illustrated in [Accessing invoke context information](#golang-context-access).
@@ -38,7 +37,7 @@ The Lambda context library provides the following global variables, methods, and
 
 Lambda functions have access to metadata about their environment and the invocation request. This can be accessed at [Package context](https://golang.org/pkg/context/). Should your handler include `context.Context` as a parameter, Lambda will insert information about your function into the context's `Value` property. Note that you need to import the `lambdacontext` library to access the contents of the `context.Context` object.
 
-```
+```go
 package main
  
 import (
@@ -62,7 +61,7 @@ In the example above, `lc` is the variable used to consume the information that 
 
 The following example introduces how to use the context object to monitor how long your Lambda function takes to complete. This way, you can analyze performance expectations and adjust your function code accordingly, if needed. 
 
-```
+```go
 package main
 
 import (

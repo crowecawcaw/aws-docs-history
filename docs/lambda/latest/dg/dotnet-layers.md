@@ -1,7 +1,6 @@
 
 
 # Working with layers for .NET Lambda Event Functions
-<a name="dotnet-layers"></a>
 
 We don't recommend using [layers](chapter-layers.md) to manage dependencies for Lambda Event Functions written in .NET. This is because .NET is a compiled language, and your functions still have to manually load any shared assemblies into memory during the [Init](lambda-runtime-environment.md#runtimes-lifecycle-ib) phase, which can increase cold start times. Using layers not only complicates the deployment process, but also prevents you from taking advantage of built-in compiler optimizations.
 

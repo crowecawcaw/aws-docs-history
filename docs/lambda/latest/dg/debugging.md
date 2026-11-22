@@ -1,7 +1,6 @@
 
 
 # Remotely debug Lambda Event Functions with Visual Studio Code
-<a name="debugging"></a>
 
 With the remote debugging feature in the [AWS Toolkit for Visual Studio Code](https://aws.amazon.com/visualstudiocode/), you can debug your Lambda Event Functions running directly in the AWS cloud. This is useful when investigating issues that are difficult to replicate locally or diagnose only with logs.
 

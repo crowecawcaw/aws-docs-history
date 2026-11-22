@@ -1,7 +1,6 @@
 
 
 # How Lambda works
-<a name="concepts-basics"></a>
 
 Lambda functions are the basic building blocks you use to build Lambda applications. To write functions, it's essential to understand the core concepts and components that make up the Lambda programming model. This section guides you through the fundamental elements you need to know to start building serverless applications with Lambda.
 + **[Lambda functions and function handlers](#gettingstarted-concepts-function)** - A Lambda function is a small block of code that runs in response to events. Functions are the basic building blocks you use to build applications. Function handlers are the entry point for event objects that your Lambda function code processes.
@@ -29,7 +28,7 @@ To create a Lambda function, you bundle your function code and its dependencies 
 
 Lambda functions run inside a secure, isolated *[execution environment](lambda-runtime-environment.md)* which Lambda manages for you. For [durable functions](durable-functions.md), the execution environment includes additional components for state management and workflow coordination. The execution environment manages the processes and resources that are needed to run your function. When a function is first invoked, Lambda creates a new execution environment for the function to run in. After the function has finished running, Lambda doesn't stop the execution environment right away; if the function is invoked again, Lambda can re-use the existing execution environment.
 
-The Lambda execution environment also contains a *runtime*, a language-specific environment that relays event information and responses between Lambda and your function. Lambda provides a number of [managed runtimes](lambda-runtimes.md#runtimes-supported) for the most popular programming languages, or you can create your own.
+The Lambda execution environment also contains a *runtime*, a language-specific environment that relays event information and responses between Lambda and your function. Lambda provides a number of [managed runtimes](lambda-runtimes.md#runtimes-supported) for the most popular programming languages. With [customer-managed runtimes](runtimes-customer-managed.md), you control the runtime contents, patching, and lifecycle, and you can roll out updates across many functions without redeploying them.
 
 For managed runtimes, Lambda automatically applies security updates and patches to functions using the runtime.
 

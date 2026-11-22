@@ -1,7 +1,6 @@
 
 
 # Monitoring Lambda applications
-<a name="applications-console-monitoring"></a>
 
 The **Applications** section of the Lambda console includes a **Monitoring** tab where you can review an Amazon CloudWatch dashboard with aggregate metrics for the resources in your application.
 
@@ -20,7 +19,7 @@ By default, the Lambda console shows a basic dashboard. You can customize this p
 
 **Example Event Function dashboard template**  
 
-```
+```yaml
 Resources:
   MyDashboard:
     Type: AWS::CloudWatch::Dashboard

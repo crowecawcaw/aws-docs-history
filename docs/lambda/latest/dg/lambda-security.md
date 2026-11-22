@@ -1,7 +1,6 @@
 
 
 # Security in AWS Lambda
-<a name="lambda-security"></a>
 
 This chapter covers security, governance, and compliance for AWS Lambda. The data protection, compliance, resilience, and infrastructure security guidance applies to all Lambda compute types. Access control and encryption have compute-type-specific details: for Lambda Web Functions, see [Lambda Web Function permissions](web-functions-permissions.md), [Lambda Web Function endpoint access control](web-functions-endpoint-access-control.md), and [Encryption at rest for Web Functions](web-functions-encryption.md); for Lambda MicroVMs, see [Security and permissions](microvms-security.md). The remaining topics in this chapter describe Lambda Event Functions.
 

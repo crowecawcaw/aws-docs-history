@@ -1,7 +1,6 @@
 
 
 # Invoking a Lambda Event Function asynchronously
-<a name="invocation-async"></a>
 
 Several AWS services, such as Amazon Simple Storage Service (Amazon S3) and Amazon Simple Notification Service (Amazon SNS), invoke Event Functions asynchronously to process events. You can also invoke a Lambda Event Function asynchronously using the AWS Command Line Interface (AWS CLI) or one of the AWS SDKs. When you invoke an Event Function asynchronously, you don't wait for a response from the function code. You hand off the event to Lambda and Lambda handles the rest. You can configure how Lambda handles errors, and can send invocation records to a downstream resource such as Amazon Simple Queue Service (Amazon SQS) or Amazon EventBridge (EventBridge) to chain together components of your application.
 
@@ -10,7 +9,7 @@ The following diagram shows clients invoking a Lambda function asynchronously. L
 ![Clients invoke a function asynchronously. Lambda queues events before sending them to the function.](https://docs.aws.amazon.com/lambda/latest/dg/images/features-async.png)
 
 
-For asynchronous invocation, Lambda places the event in a queue and returns a success response without additional information. A separate process reads events from the queue and sends them to your function.
+For asynchronous invocation, Lambda places the event in a queue and returns a success response without additional information. A separate process reads events from the queue and sends them to your function. Each invocation can run up to the function timeout. This can be up to 30 minutes for event functions. For event functions running on Lambda Managed Instances with asynchronous and event source mapping invocations, this can be extended up to 90 minutes.
 
  To invoke a Lambda Event Function asynchronously using the AWS Command Line Interface (AWS CLI) or one of the AWS SDKs, set the [InvocationType](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html#lambda-Invoke-request-InvocationType) parameter to `Event`. The following example shows an AWS CLI command to invoke a function.
 

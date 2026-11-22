@@ -1,7 +1,6 @@
 
 
 # Working with Lambda Event Function logs
-<a name="monitoring-logs"></a>
 
 To help you troubleshoot failures, AWS Lambda automatically monitors Lambda Event Functions on your behalf. You can view logs for Lambda Event Functions using the Lambda console, the CloudWatch console, the AWS Command Line Interface (AWS CLI), the CloudWatch API. You can also configure Lambda to send logs to Amazon S3 and Firehose.
 

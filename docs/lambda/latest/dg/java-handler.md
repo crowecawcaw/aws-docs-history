@@ -1,7 +1,6 @@
 
 
 # Define Lambda Event Function handler in Java
-<a name="java-handler"></a>
 
 The Lambda Event Function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
@@ -48,7 +47,7 @@ The following example Java 21 Lambda function code takes in information about an
 
 **Example `OrderHandler.java` Lambda Event Function**  
 
-```
+```java
 package example;
 
 import com.amazonaws.services.lambda.runtime.Context;

@@ -1,7 +1,6 @@
 
 
 # Using tags on event source mappings
-<a name="tags-esm"></a>
 
 You can tag event source mappings to organize and manage your resources. Tags are free-form key-value pairs associated with your resources that are supported across AWS services. For more information about use cases for tags, see [Common tagging strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html#tag-strategies) in the *Tagging AWS Resources and Tag Editor Guide*. 
 

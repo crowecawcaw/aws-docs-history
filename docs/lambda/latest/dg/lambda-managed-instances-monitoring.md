@@ -1,7 +1,6 @@
 
 
 # Monitoring Lambda Managed Instances
-<a name="lambda-managed-instances-monitoring"></a>
 
 Lambda provides two types of monitoring data for your capacity providers: metrics and system logs. Together, these give you visibility into resource utilization, instance lifecycle events, and operational issues.
 + **Metrics** – Lambda automatically publishes CloudWatch metrics for your capacity providers to help you monitor resource utilization, track costs, and optimize performance. For more information, see [CloudWatch metrics for Lambda Managed Instances](lambda-managed-instances-monitoring-metrics.md).

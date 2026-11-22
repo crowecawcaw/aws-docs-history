@@ -1,7 +1,6 @@
 
 
 # Granting other AWS entities access to your Event Functions
-<a name="permissions-granting-access"></a>
 
 To give other AWS accounts, organizations, and services permissions to access your Lambda resources, you have a few options:
 + You can use [identity-based policies](access-control-identity-based.md) to grant other users access to your Lambda resources. Identity-based policies can apply to users directly, or to groups and roles that are associated with a user.

@@ -1,11 +1,10 @@
 
 
 # Invoke a Lambda Event Function synchronously
-<a name="invocation-sync"></a>
 
 When you invoke a Lambda Event Function synchronously, Lambda runs the function and waits for a response. When the function completes, Lambda returns the response from the function's code with additional data, such as the version of the function that was invoked. To invoke a function synchronously with the AWS CLI, use the `invoke` command.
 
-```
+```bash
 aws lambda invoke --function-name {{my-function}} \
     --cli-binary-format raw-in-base64-out \
     --payload '{ "key": "value" }' response.json
@@ -35,11 +34,12 @@ Lambda does not wait for external extensions to complete before sending the resp
 The output from the command, which is displayed in the terminal, includes information from headers in the response from Lambda. This includes the version that processed the event (useful when you use [aliases](configuration-aliases.md)), and the status code returned by Lambda. If Lambda was able to run the function, the status code is 200, even if the function returned an error.
 
 **Note**  
-For Event Functions with a long timeout, your client might be disconnected during synchronous invocation while it waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long connections with timeout or keep-alive settings.
+Synchronous invocations can run for up to 30 minutes. For Event Functions with a long timeout, your client might be disconnected during synchronous invocation while it waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long connections with timeout or keep-alive settings. Set your client's read timeout higher than the function timeout, and turn on TCP keep-alive. With the AWS CLI, use the `--cli-read-timeout` option, for example `--cli-read-timeout 0` to wait without a time limit.  
+Some AWS services that invoke functions synchronously stop waiting for a response sooner than the function timeout. For more information, see [Response timeouts for synchronous callers](lambda-services.md#lambda-services-caller-limits).
 
 If Lambda isn't able to run the Event Function, the error is displayed in the output.
 
-```
+```bash
 aws lambda invoke --function-name {{my-function}} \
     --cli-binary-format raw-in-base64-out \
     --payload value response.json

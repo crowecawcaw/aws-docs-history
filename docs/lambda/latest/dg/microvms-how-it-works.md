@@ -1,7 +1,6 @@
 
 
 # AWS Lambda MicroVMs core concepts
-<a name="microvms-how-it-works"></a>
 
 AWS Lambda MicroVMs uses several resource types that you create and manage. This page describes each resource type, how Lambda builds your MicroVM image into a snapshot, and the lifecycle states a MicroVM transitions through at runtime – the foundation for building applications with MicroVMs.
 

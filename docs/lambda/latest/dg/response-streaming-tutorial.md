@@ -1,7 +1,6 @@
 
 
 # Tutorial: Creating a response streaming Lambda function with a function URL
-<a name="response-streaming-tutorial"></a>
 
 In this tutorial, you create a Lambda function defined as a .zip file archive with a function URL endpoint that returns a response stream. For more information about configuring function URLs, see [Function URLs](urls-configuration.md).
 
@@ -57,7 +56,7 @@ Create a response streaming Lambda function with a function URL endpoint using t
 
 1. Copy the following code example into a file named `index.js`. This function streams three responses, separated by 1 second.
 
-   ```
+   ```nodejs
    exports.handler = awslambda.streamifyResponse(
    	async (event, responseStream, _context) => {
    		// Metadata is a JSON serializable JS object. Its shape is not defined here.
@@ -88,13 +87,13 @@ Create a response streaming Lambda function with a function URL endpoint using t
 
 1. Create a deployment package.
 
-   ```
+   ```bash
    zip function.zip index.js
    ```
 
 1. Create a Lambda function with the `create-function` command. Replace the value of `--role` with the role ARN from the previous step. This command sets the function timeout to 10 seconds, which allows the function to stream three responses.
 
-   ```
+   ```bash
    aws lambda create-function \
      --function-name {{my-streaming-function}} \
      --runtime nodejs24.x \
@@ -108,7 +107,7 @@ Create a response streaming Lambda function with a function URL endpoint using t
 
 1. Add a resource-based policy to your function that grants `lambda:InvokeFunctionUrl` and `lambda:InvokeFunction` permissions. Each statement must be added in a separate command. Replace the value of `--principal` with your AWS account ID.
 
-   ```
+   ```bash
    aws lambda add-permission \
      --function-name my-streaming-function \
      --action lambda:InvokeFunctionUrl \
@@ -117,7 +116,7 @@ Create a response streaming Lambda function with a function URL endpoint using t
      --function-url-auth-type AWS_IAM
    ```
 
-   ```
+   ```bash
    aws lambda add-permission \
        --function-name my-streaming-function \
        --action lambda:InvokeFunction \
@@ -127,7 +126,7 @@ Create a response streaming Lambda function with a function URL endpoint using t
 
 1. Create a URL endpoint for the function with the `create-function-url-config` command.
 
-   ```
+   ```bash
    aws lambda create-function-url-config \
      --function-name my-streaming-function \
      --auth-type AWS_IAM \

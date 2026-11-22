@@ -1,7 +1,6 @@
 
 
 # Control which events Lambda sends to your Event Function
-<a name="invocation-eventfiltering"></a>
 
 You can use event filtering to control which records from a stream or queue Lambda sends to your function. For example, you can add a filter so that your function only processes Amazon SQS messages containing certain data parameters. Event filtering works only with certain event source mappings. You can add filters to event source mappings for the following AWS services:
 + Amazon DynamoDB
@@ -56,7 +55,7 @@ For added clarity, here is the value of the filter's `Pattern` expanded in plain
 
 Your filter pattern can include metadata properties, data properties, or both. The available metadata parameters and the format of the data parameters vary according to the AWS service which is acting as the event source. For example, suppose your event source mapping receives the following record from an Amazon SQS queue:
 
-```
+```JSON
 {
     "messageId": "059f36b4-87a3-44ab-83d2-661975830a7d",
     "receiptHandle": "AQEBwJnKyrHigUMZj6rYigCgxlaS3SLy0a...",
@@ -158,7 +157,7 @@ Like EventBridge, for strings, Lambda uses exact character-by-character matching
 
 Note that the Exists operator only works on leaf nodes in your event source JSON. It doesn't match intermediate nodes. For example, with the following JSON, the filter pattern `{ "person": { "address": [ { "exists": true } ] } }"` wouldn't find a match because `"address"` is an intermediate node.
 
-```
+```JSON
 {
   "person": {
     "name": "John Doe",
@@ -276,7 +275,7 @@ For more examples of creating event filters using the AWS CLI, see [Using filter
 
  To add these filter criteria to your event source mapping, insert the following snippet into the YAML template for your event source.
 
-```
+```YAML
 FilterCriteria: 
   Filters: 
     - Pattern: '{"Metadata": [1, 2]}'
@@ -321,7 +320,7 @@ We also recommend using the [`kms:ViaService`](https://docs.aws.amazon.com/kms/l
 **Example AWS KMS key policy**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "example-key-policy-1",

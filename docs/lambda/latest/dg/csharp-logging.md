@@ -1,7 +1,6 @@
 
 
 # Log and monitor C\# Lambda Event Functions
-<a name="csharp-logging"></a>
 
 AWS Lambda automatically monitors Lambda functions and sends log entries to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation and other output from your function's code to the log stream. For more information about CloudWatch Logs, see [Sending Lambda Event Function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md).
 
@@ -64,13 +63,13 @@ The following example logging command shows how to write a log message with the 
 
 **Example .NET logging code**  
 
-```
+```cs
 context.Logger.LogInformation("Fetching cart from database");
 ```
 
 You can also use a generic log method that takes the log level as an argument as shown in the following example.
 
-```
+```cs
 context.Logger.Log(LogLevel.Information, "Fetching cart from database");
 ```
 
@@ -78,7 +77,7 @@ The log output by these example code snippets would be captured in CloudWatch Lo
 
 **Example JSON log record**  
 
-```
+```JSON
 {
     "timestamp": "2025-09-07T01:30:06.977Z",
     "level": "Information",
@@ -101,7 +100,7 @@ When using structured JSON logging with `ILambdaLogger`, you can log exceptions 
 
 **Example usage of exception logging**  
 
-```
+```cs
 try
 {
     connection.ExecuteQuery(query);
@@ -116,7 +115,7 @@ The log format output by this code is shown in the following example JSON. Note 
 
 **Example JSON log record**  
 
-```
+```json
 {
     "timestamp": "2025-09-07T01:30:06.977Z",
     "level": "Warning",
@@ -133,13 +132,13 @@ If your function's logging format is set to JSON, Lambda also outputs JSON-forma
 
 **Example exception code**  
 
-```
+```cs
 throw new ApplicationException("Invalid data");
 ```
 
 **Example JSON log record**  
 
-```
+```json
 {
     "timestamp": "2025-09-07T01:30:06.977Z",
     "level": "Error",
@@ -159,7 +158,7 @@ With JSON-formatted log messages, you can supply additional log parameters and i
 
 **Example JSON logging command with additional parameters**  
 
-```
+```cs
 context.Logger.LogInformation("Starting retry {retryAttempt} to make GET request to {uri}", retryAttempt, uriDestination);
 ```
 
@@ -167,7 +166,7 @@ The log message output by this command is shown in the following example JSON.
 
 **Example JSON log record**  
 
-```
+```json
 {
     "timestamp": "2025-09-07T01:30:06.977Z",
     "level": "Information",
@@ -182,7 +181,7 @@ The log message output by this command is shown in the following example JSON.
 **Tip**  
 You can also use positional properties instead of names when specifying additional parameters. For example, the logging command in the previous example could also be written as follows:  
 
-```
+```cs
 context.Logger.LogInformation("Starting retry {0} to make GET request to {1}", retryAttempt, uriDestination);
 ```
 
@@ -192,7 +191,7 @@ If the argument you supply for an additional parameter is a complex object, by d
 
 **Example JSON logging command with JSON serialized object**  
 
-```
+```cs
 context.Logger.LogInformation("User {@user} logged in", User);
 ```
 
@@ -200,7 +199,7 @@ The log message output by this command is shown in the following example JSON.
 
 **Example JSON log record**  
 
-```
+```json
 {
     "timestamp": "2025-09-07T01:30:06.977Z",
     "level": "Information",
@@ -219,7 +218,7 @@ If the argument for an additional parameter is an array or implements `IList` or
 
 **Example JSON log record with an `IList` argument**  
 
-```
+```json
 {
     "timestamp": "2025-09-07T01:30:06.977Z",
     "level": "Information",
@@ -238,7 +237,7 @@ You can also JSON serialize the list by using the `@` prefix in your logging com
 
 **Example JSON log record with a JSON serialized `IList` argument**  
 
-```
+```json
 {
     "timestamp": "2025-09-07T01:30:06.977Z",
     "level": "Information",

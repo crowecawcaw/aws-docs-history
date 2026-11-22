@@ -1,7 +1,6 @@
 
 
 # Granting users access to an Event Function
-<a name="permissions-user-function"></a>
 
 Use [identity-based policies](access-control-identity-based.md) to allow users, user groups, or roles to perform operations on Lambda Event Functions. 
 
@@ -13,7 +12,7 @@ The following shows an example of a permissions policy with limited scope. It al
 **Example Function development policy**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

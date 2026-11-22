@@ -1,7 +1,6 @@
 
 
 # Securing Lambda environment variables
-<a name="configuration-envvars-encryption"></a>
 
 For securing your environment variables, you can use server-side encryption to protect your data at rest and client-side encryption to protect your data in transit.
 
@@ -77,7 +76,7 @@ Users without `Decrypt` permissions can still manage functions, but they can't v
 **Example IAM policy – Deny access by key ARN**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Use `UpdateFunctionCode` with an AWS SDK or CLI
-<a name="example_lambda_UpdateFunctionCode_section"></a>
 
 The following code examples show how to use `UpdateFunctionCode`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Update an existing Lambda function.
     /// </summary>
@@ -48,7 +47,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region in which the bucket was created (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -141,7 +140,7 @@ For more information, see [AWS Lambda Function Configuration](https://docs.aws.a
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples). 
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -195,7 +194,7 @@ func (wrapper FunctionWrapper) UpdateFunctionCode(ctx context.Context, functionN
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples). 
 
-```
+```java
     /**
      * Updates the code for an AWS Lambda function.
      *
@@ -239,7 +238,7 @@ func (wrapper FunctionWrapper) UpdateFunctionCode(ctx context.Context, functionN
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples). 
 
-```
+```javascript
 const updateFunctionCode = async (funcName, newFunc) => {
   const client = new LambdaClient({});
   const code = await readFile(`${dirname}../functions/${newFunc}.zip`);
@@ -263,7 +262,7 @@ const updateFunctionCode = async (funcName, newFunc) => {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples). 
 
-```
+```php
     public function updateFunctionCode($functionName, $s3Bucket, $s3Key)
     {
         return $this->lambdaClient->updateFunctionCode([
@@ -281,12 +280,12 @@ const updateFunctionCode = async (funcName, newFunc) => {
 **Tools for PowerShell V4**  
 **Example 1: Updates the function named 'MyFunction' with new content contained in the specified zip file. For a C\# .NET Core Lambda function the zip file should contain the compiled assembly.**  
 
-```
+```powershell
 Update-LMFunctionCode -FunctionName MyFunction -ZipFilename .\UpdatedCode.zip
 ```
 **Example 2: This example is similar to the previous one but uses an Amazon S3 object containing the updated code to update the function.**  
 
-```
+```powershell
 Update-LMFunctionCode -FunctionName MyFunction -BucketName amzn-s3-demo-bucket -Key UpdatedCode.zip
 ```
 +  For API details, see [UpdateFunctionCode](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -294,12 +293,12 @@ Update-LMFunctionCode -FunctionName MyFunction -BucketName amzn-s3-demo-bucket -
 **Tools for PowerShell V5**  
 **Example 1: Updates the function named 'MyFunction' with new content contained in the specified zip file. For a C\# .NET Core Lambda function the zip file should contain the compiled assembly.**  
 
-```
+```powershell
 Update-LMFunctionCode -FunctionName MyFunction -ZipFilename .\UpdatedCode.zip
 ```
 **Example 2: This example is similar to the previous one but uses an Amazon S3 object containing the updated code to update the function.**  
 
-```
+```powershell
 Update-LMFunctionCode -FunctionName MyFunction -BucketName amzn-s3-demo-bucket -Key UpdatedCode.zip
 ```
 +  For API details, see [UpdateFunctionCode](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -310,7 +309,7 @@ Update-LMFunctionCode -FunctionName MyFunction -BucketName amzn-s3-demo-bucket -
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples). 
 
-```
+```python
 class LambdaWrapper:
     def __init__(self, lambda_client, iam_resource):
         self.lambda_client = lambda_client
@@ -350,7 +349,7 @@ class LambdaWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples). 
 
-```
+```ruby
 class LambdaWrapper
   attr_accessor :lambda_client, :cloudwatch_client, :iam_client
 
@@ -393,7 +392,7 @@ class LambdaWrapper
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples). 
 
-```
+```rust
     /** Given a Path to a zip file, update the function's code and wait for the update to finish. */
     pub async fn update_function_code(
         &self,
@@ -456,7 +455,7 @@ class LambdaWrapper
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_lmd->updatefunctioncode(     " oo_result is returned for testing purposes. "
               iv_functionname = iv_function_name
@@ -491,7 +490,7 @@ class LambdaWrapper
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples). 
 
-```
+```swift
 import AWSClientRuntime
 import AWSLambda
 import Foundation

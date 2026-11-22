@@ -1,7 +1,6 @@
 
 
 # Log and monitor Powershell Lambda Event Functions
-<a name="powershell-logging"></a>
 
 AWS Lambda automatically monitors Lambda Event Functions on your behalf and sends logs to Amazon CloudWatch. Your function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation to the log stream, and relays logs and other output from your function's code. For more information, see [Sending Lambda Event Function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md).
 
@@ -21,7 +20,7 @@ To output logs from your function code, you can use cmdlets on [Microsoft.PowerS
 
 **Example [function/Handler.ps1](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-powershell/function/Handler.ps1) – Logging**  
 
-```
+```powershell
 #Requires -Modules @{ModuleName='AWSPowerShell.NetCore';ModuleVersion='3.3.618.0'}
 Write-Host `## Environment variables
 Write-Host AWS_LAMBDA_FUNCTION_VERSION=$Env:AWS_LAMBDA_FUNCTION_VERSION

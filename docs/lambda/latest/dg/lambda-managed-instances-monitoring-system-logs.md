@@ -1,7 +1,6 @@
 
 
 # Capacity provider system logs for Lambda Managed Instances
-<a name="lambda-managed-instances-monitoring-system-logs"></a>
 
 To help you monitor and troubleshoot your Lambda Managed Instances environment, Lambda automatically generates system logs for your capacity providers. You can view logs for capacity providers using the Lambda console, the CloudWatch console, the AWS Command Line Interface (AWS CLI), or the CloudWatch API. You can also route logs to Amazon S3 and Firehose using CloudWatch Logs subscription filters.
 

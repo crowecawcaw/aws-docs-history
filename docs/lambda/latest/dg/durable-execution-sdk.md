@@ -1,18 +1,17 @@
 
 
 # Durable execution SDK
-<a name="durable-execution-sdk"></a>
 
 The durable execution SDK is the foundation for building durable functions. It provides primitives to checkpoint progress, handle retries, and manage execution flow. The SDK abstracts the complexity of checkpoint management and replay, letting you write sequential code that automatically becomes fault-tolerant.
 
-The SDK is available for JavaScript, TypeScript, Python, Java, Go, and C\# (.NET). For complete API documentation, quickstart tutorials, and language-specific guides, see the [AWS Durable Execution SDK Developer Guide](https://docs.aws.amazon.com/durable-execution/).
+The SDK is available for JavaScript, TypeScript, Python, Java, Go, Rust, and C\# (.NET). For complete API documentation, quickstart tutorials, and language-specific guides, see the [AWS Durable Execution SDK Developer Guide](https://docs.aws.amazon.com/durable-execution/).
 
 ## What the SDK does
 <a name="durable-sdk-what-it-does"></a>
 
 **Checkpoint management:** The SDK automatically creates checkpoints as your function executes durable operations. Each checkpoint records the operation type, inputs, and results. When your function completes a step, the SDK persists the checkpoint before continuing. This ensures your function can resume from any completed operation if interrupted.
 
-**Replay coordination:** When your function resumes after a pause or interruption, the SDK performs replay. It runs your code from the beginning but skips completed operations, using stored checkpoint results instead of re-executing them. The SDK ensures replay is deterministic. Given the same inputs and checkpoint log, your function produces the same results.
+**Replay coordination:** When your function resumes after a wait or an interruption, the SDK performs replay. It runs your code from the beginning but skips completed operations, using stored checkpoint results instead of re-executing them. The SDK ensures replay is deterministic. Given the same inputs and checkpoint log, your function produces the same results.
 
 **State isolation:** The SDK maintains execution state separately from your business logic. Each durable execution has its own checkpoint log that other executions cannot access. The SDK encrypts checkpoint data at rest and ensures state remains consistent across replays.
 

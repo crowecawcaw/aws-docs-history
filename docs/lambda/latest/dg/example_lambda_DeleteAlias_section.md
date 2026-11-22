@@ -1,7 +1,6 @@
 
 
 # Use `DeleteAlias` with a CLI
-<a name="example_lambda_DeleteAlias_section"></a>
 
 The following code examples show how to use `DeleteAlias`.
 
@@ -27,7 +26,7 @@ For more information, see [Configuring AWS Lambda Function Aliases](https://docs
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the Lambda function Alias mentioned in the command.**  
 
-```
+```powershell
 Remove-LMAlias -FunctionName "MylambdaFunction123" -Name "NewAlias"
 ```
 +  For API details, see [DeleteAlias](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -35,7 +34,7 @@ Remove-LMAlias -FunctionName "MylambdaFunction123" -Name "NewAlias"
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the Lambda function Alias mentioned in the command.**  
 
-```
+```powershell
 Remove-LMAlias -FunctionName "MylambdaFunction123" -Name "NewAlias"
 ```
 +  For API details, see [DeleteAlias](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

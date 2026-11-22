@@ -1,7 +1,6 @@
 
 
 # Tutorial: Using an Amazon S3 trigger to create thumbnail images
-<a name="with-s3-tutorial"></a>
 
 In this tutorial, you create and configure a Lambda Event Function that resizes images added to an Amazon Simple Storage Service (Amazon S3) bucket. When you add an image file to your bucket, Amazon S3 invokes your Lambda Event Function. The function then creates a thumbnail version of the image and outputs it to a different Amazon S3 bucket.
 
@@ -160,7 +159,7 @@ The first step in creating your Lambda Event Function is to create a permissions
 1. Choose the **JSON** tab, and then paste the following custom policy into the JSON editor.  
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -205,7 +204,7 @@ The first step in creating your Lambda Event Function is to create a permissions
 1. Save the following JSON in a file named `policy.json`.  
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -285,7 +284,7 @@ An execution role is an IAM role that grants a Lambda Event Function permission 
 1. Save the following JSON in a file named `trust-policy.json`. This trust policy allows Lambda to use the role's permissions by giving the service principal `lambda.amazonaws.com` permission to call the AWS Security Token Service (AWS STS) `AssumeRole` action.  
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -342,7 +341,7 @@ To create your function, you create a *deployment package* containing your funct
 
 1. Save the following function code in a file named `index.mjs`. Make sure to replace `us-east-1` with the AWS Region in which you created your own source and destination buckets.
 
-   ```
+   ```JavaScript
    // dependencies
    import { S3Client, GetObjectCommand, PutObjectCommand } from '@aws-sdk/client-s3';
    
@@ -659,7 +658,7 @@ Although Amazon S3 bucket names are globally unique, when using resource-based p
 
 1. Save the following JSON in a file named `notification.json`. When applied to your source bucket, this JSON configures the bucket to send a notification to your Lambda Event Function every time a new object is added. Replace the AWS account number and AWS Region in the Lambda Event Function ARN with your own account number and region.
 
-   ```
+   ```JSON
    {
    "LambdaFunctionConfigurations": [
        {
@@ -712,7 +711,7 @@ Before you test your whole setup by adding an image file to your Amazon S3 sourc
       + For `name`, replace `amzn-s3-demo-bucket` with the name of your own Amazon S3 source bucket.
       + For `key`, replace `test%2Fkey` with the filename of the test object you uploaded to your source bucket in the step [Upload a test image to your source bucket](#with-s3-tutorial-test-image).
 
-      ```
+      ```JSON
       {
         "Records": [
           {
@@ -773,7 +772,7 @@ Before you test your whole setup by adding an image file to your Amazon S3 sourc
    + For `name`, replace `amzn-s3-demo-bucket` with the name of your own Amazon S3 source bucket.
    + For `key`, replace `test%2Fkey` with the filename of the test object you uploaded to your source bucket in the step [Upload a test image to your source bucket](#with-s3-tutorial-test-image).
 
-   ```
+   ```JSON
    {
      "Records": [
        {

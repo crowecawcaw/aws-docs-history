@@ -1,12 +1,11 @@
 
 
 # Lambda quotas
-<a name="gettingstarted-limits"></a>
 
 **Important**  
 New AWS accounts have reduced concurrency and memory quotas for Lambda Functions and Lambda MicroVMs, and reduced vCPU and request rate quotas for Lambda Web Functions. AWS raises these quotas automatically based on your usage.
 
-AWS Lambda is designed to scale rapidly to meet demand, allowing your functions to scale up to serve traffic in your application. Lambda is designed for short-lived compute tasks that do not retain or rely upon state between invocations. Code can run for up to 15 minutes in a single invocation (up to 90 minutes for Lambda Managed Instances functions invoked asynchronously or through any event source mapping except Amazon MQ and Amazon DocumentDB) and a single function can use up to 10,240 MB of memory.
+AWS Lambda is designed to scale rapidly to meet demand, allowing your functions to scale up to serve traffic in your application. Lambda is designed for short-lived compute tasks that do not retain or rely upon state between invocations. Code can run for up to 30 minutes in a single invocation (up to 90 minutes for Lambda Managed Instances functions invoked asynchronously or through any event source mapping except Amazon MQ and Amazon DocumentDB) and a single function can use up to 10,240 MB of memory.
 
 It's important to understand the guardrails that are put in place to protect your account and the workloads of other customers. Service quotas exist in all AWS services and consist of hard limits, which you cannot change, and soft limits, which you can request increases for. By default, all new accounts are assigned a quota profile that allows exploration of AWS services.
 
@@ -24,6 +23,7 @@ The following sections list default quotas and limits in Lambda by category.
 + [Durable functions](#durable-functions-quotas)
 + [Lambda MicroVMs](#microvms-quotas)
 + [Lambda Web Functions](#web-functions-quotas)
++ [Customer-managed runtimes](#cmr-quotas)
 + [Other services](#quotas-other-services)
 
 ## Compute and storage
@@ -53,7 +53,7 @@ The Lambda documentation, log messages, and console use the abbreviation MB (rat
 | Resource | Quota | 
 | --- | --- | 
 | Function [memory allocation](configuration-memory.md) | 128 MB to 10,240 MB, in 1-MB increments.<br />**Note:** Lambda allocates CPU power in proportion to the amount of memory configured. You can increase or decrease the memory and CPU power allocated to your function using the **Memory (MB)** setting. At 1,769 MB, a function has the equivalent of one vCPU. | 
-| Function timeout | 900 seconds (15 minutes). For functions using AWS Lambda Managed Instances, asynchronous invocations and event source mapping invocations (except Amazon MQ and Amazon DocumentDB) support a maximum allowed value of 5,400 seconds (90 minutes). | 
+| Function timeout | 1,800 seconds (30 minutes). For functions using AWS Lambda Managed Instances, asynchronous invocations and event source mapping invocations (except Amazon MQ and Amazon DocumentDB) support a maximum allowed value of 5,400 seconds (90 minutes). | 
 | Function [environment variables](configuration-envvars.md) | 4 KB, for all environment variables associated with the function, in aggregate | 
 | Function [resource-based policy](access-control-resource-based.md) | 20 KB | 
 | Function [layers](chapter-layers.md) | 5 layers | 
@@ -92,7 +92,7 @@ The following quotas apply to [durable functions](durable-functions.md). Quotas 
 
 | Resource | Default quota | 
 | --- | --- | 
-| Maximum running durable executions | 5,000,000 per Region.<br />10,000,000 in US East (N. Virginia), US West (Oregon), and Europe (Ireland).<br />This is a soft limit that can be increased. | 
+| Maximum running durable executions | 5,000,000 per Region.<br />10,000,000 in US East (N. Virginia), US West (Oregon), and Europe (Ireland).<br />Executions in the `RUNNING`, `PAUSING`, and `PAUSED` states count toward this quota.<br />This is a soft limit that can be increased. | 
 | Maximum number of durable operations per durable execution | 30,000<br />Cannot be increased. For more information, see [Available durable operations](durable-execution-sdk.md#durable-sdk-operations). | 
 | Durable execution storage written in megabytes | 100 MB<br />Cannot be increased. Cumulative payload size persisted by durable functions per execution. For more information, see [persisted data per durable operation](durable-execution-sdk.md#durable-operations-checkpoint-consumption). | 
 | Maximum payload size per durable operation | 1 MB<br />Cannot be increased. Applies to checkpoint and callback payloads. | 
@@ -121,7 +121,7 @@ Lambda MicroVMs supports the `x86_64` and `ARM64` architectures.
 
 | Resource | Default quota | Adjustable | 
 | --- | --- | --- | 
-| Memory allocated across all MicroVMs (per account, per Region) | 400 GB (that is, 200 MicroVMs at 2 GB configured memory each or 400 MicroVMs at 1 GB configured memory each).<br />1,024 GB in US East (N. Virginia), US West (Oregon), US East (Ohio), and Asia Pacific (Tokyo) (that is, 512 MicroVMs at 2 GB configured memory each or 1,024 MicroVMs at 1 GB configured memory each).<br />Burstable up to four times this quota. | Yes | 
+| Memory allocated across all MicroVMs (per account, per Region) | 800 GB (that is, 400 MicroVMs at 2 GB configured memory each or 800 MicroVMs at 1 GB configured memory each).<br />2,048 GB in US East (N. Virginia), US West (Oregon), US East (Ohio), Asia Pacific (Tokyo), Europe (Ireland), Europe (Frankfurt), and Asia Pacific (Sydney) (that is, 1,024 MicroVMs at 2 GB configured memory each or 2,048 MicroVMs at 1 GB configured memory each).<br />Burstable up to four times this quota. | Yes | 
 | Maximum execution duration per MicroVM | 8 hours (28,800 seconds) | No | 
 
 ### Images and versions
@@ -241,6 +241,23 @@ The following constraints apply to Web Function networking.
 | Endpoint type and Region set | Fixed at endpoint creation | 
 | Direct public egress | IPv4 only | 
 | Private endpoint access with AWS PrivateLink | Not available | 
+
+## Customer-managed runtimes
+<a name="cmr-quotas"></a>
+
+The following quotas apply to [customer-managed runtimes](runtimes-customer-managed.md) in each AWS Region of your AWS account.
+
+
+| Resource | Default quota | Adjustable | 
+| --- | --- | --- | 
+| Runtimes | 100 | Yes | 
+| Runtime versions per runtime | 200 | Yes | 
+| Runtime aliases per runtime | 100 | Yes | 
+| Rate of runtime write API requests (combined across all runtime write API operations) | 10 requests per second | Yes | 
+| Rate of runtime read API requests (combined across all runtime read API operations) | 100 requests per second | Yes | 
+| Runtime image size | 10 GB (maximum uncompressed image size, including all layers) | No | 
+
+Runtimes, runtime versions, and runtime aliases that are scheduled for deletion count toward their quotas.
 
 ## Other services
 <a name="quotas-other-services"></a>

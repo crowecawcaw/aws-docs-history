@@ -1,7 +1,6 @@
 
 
 # Deploy Node.js Lambda Event Functions with .zip file archives
-<a name="nodejs-package"></a>
 
  Your AWS Lambda function’s code comprises a .js or .mjs file containing your function’s handler code, together with any additional packages and modules your code depends on. To deploy this function code to Lambda, you use a *deployment package*. This package may either be a .zip file archive or a container image. For more information about using container images with Node.js, see [Deploy Node.js Lambda Event Functions with container images](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-image.html). 
 
@@ -24,7 +23,7 @@
 
  Lambda periodically updates the SDK libraries in the Node.js runtime to include the latest features and security upgrades. Lambda also applies security patches and updates to the other libraries included in the runtime. To have full control of the dependencies in your package, you can add your preferred version of any runtime-included dependency to your deployment package. For example, if you want to use a particular version of the SDK for JavaScript, you can include it in your .zip file as a dependency. For more information on adding runtime-included dependencies to your .zip file, see [Dependency search path and runtime-included libraries](#nodejs-package-searchpath). 
 
- Under the [AWS shared responsibility model](lambda-runtimes.md#runtimes-shared-responsibility), you are responsible for the management of any dependencies in your functions' deployment packages. This includes applying updates and security patches. To update dependencies in your function's deployment package, first create a new .zip file and then upload it to Lambda. See [Creating a .zip deployment package with dependencies](#nodejs-package-create-dependencies) and [Creating and updating Node.js Lambda Event Functions using .zip files](#nodejs-package-create-update) for more information. 
+ Under the [AWS shared responsibility model](runtime-support-policy.md#runtimes-shared-responsibility), you are responsible for the management of any dependencies in your functions' deployment packages. This includes applying updates and security patches. To update dependencies in your function's deployment package, first create a new .zip file and then upload it to Lambda. See [Creating a .zip deployment package with dependencies](#nodejs-package-create-dependencies) and [Creating and updating Node.js Lambda Event Functions using .zip files](#nodejs-package-create-update) for more information. 
 
 ## Creating a .zip deployment package with no dependencies
 <a name="nodejs-package-create-no-dependencies"></a>
@@ -44,13 +43,13 @@ The following example CLI commands create a .zip file named `my_deployment_packa
 
 1. Navigate to the project directory containing your `index.js` or `index.mjs` source code file. In this example, the directory is named `my_function`.
 
-   ```
+   ```bash
    cd my_function
    ```
 
 1. Install your function's required libraries in the `node_modules` directory using the `npm install` command. In this example you install the AWS X-Ray SDK for Node.js.
 
-   ```
+   ```bash
    npm install aws-xray-sdk
    ```
 
@@ -72,7 +71,7 @@ The following example CLI commands create a .zip file named `my_deployment_packa
 
 1. Create a .zip file that contains the contents of your project folder at the root. Use the `r` (recursive) option to ensure that zip compresses the subfolders.
 
-   ```
+   ```bash
    zip -r my_deployment_package.zip .
    ```
 
@@ -119,13 +118,13 @@ When you add a dependency to a layer, Lambda extracts this to `/opt/nodejs/nodex
 
 You can see the full search path for your Lambda function by adding the following line of code.
 
-```
+```javascript
 console.log(process.env.NODE_PATH)
 ```
 
 You can also add dependencies in a separate folder inside your .zip package. For example, you might add a custom module to a folder in your .zip package called `common`. When your .zip package is decompressed and mounted, this folder is placed inside the `/var/task` directory. To use a dependency from a folder in your .zip deployment package in your code, use an `import { } from` or `const { } = require()` statement, depending on whether you are using CJS or ESM module resolution. For example:
 
-```
+```javascript
 import { myModule } from './common'
 ```
 

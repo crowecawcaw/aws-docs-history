@@ -1,7 +1,6 @@
 
 
 # Lambda SnapStart runtime hooks for Java
-<a name="snapstart-runtime-hooks-java"></a>
 
 You can use runtime hooks to implement code before Lambda creates a snapshot or after Lambda resumes an Event Function from a snapshot. Runtime hooks are available as part of the open-source Coordinated Restore at Checkpoint (CRaC) project. CRaC is in development for the [Open Java Development Kit (OpenJDK)](https://wiki.openjdk.org/display/crac). For an example of how to use CRaC with a reference application, see the [CRaC](https://github.com/CRaC/docs/blob/master/STEP-BY-STEP.md) repository on GitHub. CRaC uses three main elements:
 + `Resource` – An interface with two methods, `beforeCheckpoint()` and `afterRestore()`. Use these methods to implement the code that you want to run before a snapshot and after a restore.
@@ -22,14 +21,14 @@ The order that Lambda executes your runtime hooks is determined by the order of 
 Make sure that all registered hooks are properly imported and included in your function's code. If you register runtime hooks in a separate file or module, you must ensure that the module is imported, either directly or as part of a larger package, in your function's handler file. If the file or module is not imported in the function handler, Lambda ignores the runtime hooks.
 
 **Note**  
-When Lambda creates a snapshot, your initialization code can run for up to 15 minutes. The time limit is 130 seconds or the [configured function timeout](configuration-timeout.md) (maximum 900 seconds), whichever is higher. Your `beforeCheckpoint()` runtime hooks count towards the initialization code time limit. When Lambda restores a snapshot, the runtime must load and `afterRestore()` runtime hooks must complete within the timeout limit (10 seconds). Otherwise, you'll get a SnapStartTimeoutException.
+When Lambda creates a snapshot, your initialization code can run for up to 15 minutes. The time limit is 130 seconds or the [configured function timeout](configuration-timeout.md) (maximum 900 seconds, even if the function timeout is longer), whichever is higher. Your `beforeCheckpoint()` runtime hooks count towards the initialization code time limit. When Lambda restores a snapshot, the runtime must load and `afterRestore()` runtime hooks must complete within the timeout limit (10 seconds). Otherwise, you'll get a SnapStartTimeoutException.
 
 ## Step 1: Update the build configuration
 <a name="runtime-hooks-java-update-build"></a>
 
 Add the `org.crac` dependency to the build configuration. The following example uses Gradle. For examples for other build systems, see the [Apache Maven documentation](https://search.maven.org/artifact/io.github.crac/org-crac/0.1.3/jar).
 
-```
+```java
 dependencies {
     compile group: 'com.amazonaws', name: 'aws-lambda-java-core', version: '1.2.1'
     # All other project dependecies go here:
@@ -49,9 +48,9 @@ For more information, see [Define Lambda Event Function handler in Java](java-ha
 The following example handler shows how to run code before checkpointing (`beforeCheckpoint()`) and after restoring (`afterRestore()`). This handler also registers the `Resource` to the runtime-managed global `Context`.
 
 **Note**  
-When Lambda creates a snapshot, your initialization code can run for up to 15 minutes. The time limit is 130 seconds or the [configured function timeout](configuration-timeout.md) (maximum 900 seconds), whichever is higher. Your `beforeCheckpoint()` runtime hooks count towards the initialization code time limit. When Lambda restores a snapshot, the runtime (JVM) must load and `afterRestore()` runtime hooks must complete within the timeout limit (10 seconds). Otherwise, you'll get a SnapStartTimeoutException.
+When Lambda creates a snapshot, your initialization code can run for up to 15 minutes. The time limit is 130 seconds or the [configured function timeout](configuration-timeout.md) (maximum 900 seconds, even if the function timeout is longer), whichever is higher. Your `beforeCheckpoint()` runtime hooks count towards the initialization code time limit. When Lambda restores a snapshot, the runtime (JVM) must load and `afterRestore()` runtime hooks must complete within the timeout limit (10 seconds). Otherwise, you'll get a SnapStartTimeoutException.
 
-```
+```java
 ...
   import org.crac.Resource;
   import org.crac.Core;

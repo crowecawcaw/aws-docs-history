@@ -1,7 +1,6 @@
 
 
 # Create an application that analyzes customer feedback and synthesizes audio
-<a name="example_cross_FSA_section"></a>
 
 The following code examples show how to create an application that analyzes customer comment cards, translates them from their original language, determines their sentiment, and generates an audio file from the translated text.
 
@@ -52,7 +51,7 @@ The following code examples show how to create an application that analyzes cust
 + Amazon Polly synthesizes an audio file from the extracted text.
  The full app can be deployed with the AWS CDK. For source code and deployment instructions, see the project in [ GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/feedback-sentiment-analyzer). The following excerpts show how the AWS SDK for JavaScript is used inside of Lambda functions.   
 
-```
+```javascript
 import {
   ComprehendClient,
   DetectDominantLanguageCommand,
@@ -93,7 +92,7 @@ export const handler = async (extractTextOutput) => {
 };
 ```
 
-```
+```javascript
 import {
   DetectDocumentTextCommand,
   TextractClient,
@@ -130,7 +129,7 @@ export const handler = async (eventBridgeS3Event) => {
 };
 ```
 
-```
+```javascript
 import { PollyClient, SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
 import { S3Client } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
@@ -171,7 +170,7 @@ export const handler = async (sourceDestinationConfig) => {
 };
 ```
 
-```
+```javascript
 import {
   TranslateClient,
   TranslateTextCommand,

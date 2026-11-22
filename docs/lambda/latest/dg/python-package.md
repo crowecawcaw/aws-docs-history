@@ -1,7 +1,6 @@
 
 
 # Working with .zip file archives for Python Lambda Event Functions
-<a name="python-package"></a>
 
  Your AWS Lambda function’s code comprises a .py file containing your function’s handler code, together with any additional packages and modules your code depends on. To deploy this function code to Lambda, you use a *deployment package*. This package may either be a .zip file archive or a container image. For more information about using container images with Python, see [Deploy Python Lambda Event Functions with container images](https://docs.aws.amazon.com/lambda/latest/dg/python-image.html). 
 
@@ -52,13 +51,13 @@ To find out which version of the SDK for Python (Boto3) is included in the runti
 
 1. Navigate to the project directory containing your `lambda_function.py` source code file. In this example, the directory is named `my_function`.
 
-   ```
+   ```bash
    cd my_function
    ```
 
 1. Create a new directory named package into which you will install your dependencies.
 
-   ```
+   ```bash
    mkdir package
    ```
 
@@ -66,13 +65,13 @@ To find out which version of the SDK for Python (Boto3) is included in the runti
 
 1. Install your dependencies in the `package` directory. The example below installs the Boto3 SDK from the Python Package Index using pip. If your function code uses Python packages you have created yourself, save them in the `package` directory.
 
-   ```
+   ```bash
    pip install --target ./package boto3
    ```
 
 1. Create a .zip file with the installed libraries at the root.
 
-   ```
+   ```bash
    cd package
    zip -r ../my_deployment_package.zip .
    ```
@@ -81,7 +80,7 @@ To find out which version of the SDK for Python (Boto3) is included in the runti
 
 1. Add the lambda\_function.py file to the root of the .zip file
 
-   ```
+   ```bash
    cd ..
    zip my_deployment_package.zip lambda_function.py
    ```
@@ -158,7 +157,7 @@ In the Python 3.11 managed runtime and base image, the AWS SDK and its dependenc
 
  You can see the full search path for your function by adding the following code snippet. 
 
-```
+```python
 import sys
       
 search_path = sys.path
@@ -170,7 +169,7 @@ Because dependencies in your deployment package or layers take precedence over r
 
  You can also add dependencies in a separate folder inside your .zip package. For example, you might add a version of the Boto3 SDK to a folder in your .zip package called `common`. When your .zip package is decompressed and mounted, this folder is placed inside the `/var/task` directory. To use a dependency from a folder in your .zip deployment package in your code, use an `import from` statement. For example, to use a version of Boto3 from a folder named `common` in your .zip package, use the following statement. 
 
-```
+```python
 from common import boto3
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Creating Lambda durable functions
-<a name="durable-getting-started"></a>
 
 To get started with Lambda durable functions, use the Lambda console to create a durable function. In a few minutes, you can create and deploy a durable function that uses steps and waits to demonstrate checkpoint-based execution.
 
@@ -57,7 +56,7 @@ Use the console's built-in code editor to add your durable function code.
 
 1. Paste the following code into the **index.mjs** tab, replacing the code that Lambda created.
 
-   ```
+   ```javascript
    import {
      withDurableExecution,
    } from "@aws/durable-execution-sdk-js";
@@ -129,7 +128,7 @@ Before you move to the next step, let's look at the function code and understand
 
 1. Paste the following code into the **lambda\_function.py** tab, replacing the code that Lambda created.
 
-   ```
+   ```python
    from aws_durable_execution_sdk_python import (
        DurableContext,
        durable_execution,
@@ -229,7 +228,7 @@ Now create a test event to send to your function. The event is a JSON formatted 
 
 1. In the **Event JSON** section, replace the default JSON with the following:
 
-   ```
+   ```json
    {
      "orderId": "order-12345"
    }

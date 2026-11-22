@@ -1,7 +1,6 @@
 
 
 # Configuring error handling settings for Lambda asynchronous invocations
-<a name="invocation-async-configuring"></a>
 
 Use the following settings to configure how Lambda handles errors and retries for asynchronous function invocations:
 + [MaximumEventAgeInSeconds](https://docs.aws.amazon.com/lambda/latest/api/API_PutFunctionEventInvokeConfig.html#lambda-PutFunctionEventInvokeConfig-request-MaximumEventAgeInSeconds): The maximum amount of time, in seconds, that Lambda keeps an event in the asynchronous event queue before discarding it.

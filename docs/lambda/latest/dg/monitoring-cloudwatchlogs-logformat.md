@@ -1,7 +1,6 @@
 
 
 # Configuring JSON and plain text log formats
-<a name="monitoring-cloudwatchlogs-logformat"></a>
 
 Capturing your log outputs as JSON key value pairs makes it easier to search and filter when debugging your Event Functions. With JSON formatted logs, you can also add tags and contextual information to your logs. This can help you to perform automated analysis of large volumes of log data. Unless your development workflow relies on existing tooling that consumes Lambda logs in plain text, we recommend that you select JSON for your log format.
 
@@ -69,7 +68,7 @@ For comparison, the following two examples show the same log output in both plai
 
 **Example structured JSON:**  
 
-```
+```JSON
 {
   "time": "2024-03-13T18:56:24.046Z",
   "type": "platform.initStart",
@@ -109,7 +108,7 @@ For comparison, the following two examples show the same log output in both plai
 
 **Example structured JSON:**  
 
-```
+```JSON
 {
     "timestamp":"2024-10-27T19:17:45.586Z",
     "level":"INFO",

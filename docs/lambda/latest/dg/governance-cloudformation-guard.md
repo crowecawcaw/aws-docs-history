@@ -1,7 +1,6 @@
 
 
 # Proactive controls for Lambda with AWS CloudFormation Guard
-<a name="governance-cloudformation-guard"></a>
 
 [AWS CloudFormation Guard](https://docs.aws.amazon.com/cfn-guard/latest/ug/what-is-guard.html) is an open-source, general-purpose, policy-as-code evaluation tool. This can be used for preventative governance and compliance by validating Infrastructure as Code (IaC) templates and service compositions against policy rules. These rules can be customized based on your team or organizational requirements. For Lambda functions, the Guard rules can be used to control resource creation and configuration updates by defining the required property settings needed while creating or updating a Lambda function.
 
@@ -41,7 +40,7 @@ rule lambda_soon_to_be_deprecated_runtime when %lambda_functions !empty {
 
 Now suppose you write the following `iac/lambda.yaml` CloudFormation template that defines a Lambda function:
 
-```
+```yaml
   Fn:
     Type: AWS::Lambda::Function
     Properties:

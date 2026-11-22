@@ -1,7 +1,6 @@
 
 
 # Building Lambda Event Functions with Java
-<a name="lambda-java"></a>
 
 You can run Java code in AWS Lambda Event Functions. Lambda provides [runtimes](lambda-runtimes.md) for Java that run your code to process events. Your code runs in an Amazon Linux environment that includes AWS credentials from an AWS Identity and Access Management (IAM) role that you manage.
 
@@ -31,7 +30,7 @@ Add these libraries to your build definition as follows:
 ------
 #### [ Gradle ]
 
-```
+```groovy
 dependencies {
     implementation 'com.amazonaws:aws-lambda-java-core:1.2.2'
     implementation 'com.amazonaws:aws-lambda-java-events:3.11.1'
@@ -43,7 +42,7 @@ dependencies {
 ------
 #### [ Maven ]
 
-```
+```xml
   <dependencies>
     <dependency>
       <groupId>com.amazonaws</groupId>

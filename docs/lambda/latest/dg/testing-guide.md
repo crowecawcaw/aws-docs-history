@@ -1,7 +1,6 @@
 
 
 # How to test serverless functions and applications
-<a name="testing-guide"></a>
 
  Testing serverless functions uses traditional test types and techniques, but you must also consider testing serverless applications as a whole. Cloud-based tests provide the **most accurate** measure of quality of both your functions and serverless applications. 
 
@@ -91,7 +90,7 @@ Although the test runs locally, it talks to cloud-based resources. These resourc
 
 Then, it sends a request to the API endpoint. The response contains a list of Amazon S3 buckets. This test runs against cloud-based resources to verify they are deployed, secured, and working.
 
-```
+```bash
 ========================= test session starts =========================
       platform darwin -- Python 3.10.10, pytest-7.3.1, pluggy-1.0.0
       -- /Users/t/code/aws/serverless-test-samples/python-test-samples/apigw-lambda/venv/bin/python

@@ -1,7 +1,6 @@
 
 
 # Configuring partial batch response with DynamoDB and Lambda
-<a name="services-ddb-batchfailurereporting"></a>
 
 Before you configure partial batch responses, you must first create a DynamoDB event source mapping. For instructions, see [Process DynamoDB records with Lambda](services-dynamodb-eventsourcemapping.md).
 
@@ -64,7 +63,7 @@ Here are some examples of function code that return the list of failed message I
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
 Reporting DynamoDB batch item failures with Lambda using .NET.  
 
-```
+```csharp
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 using System.Text.Json;
@@ -118,7 +117,7 @@ public class Function
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
 Reporting DynamoDB batch item failures with Lambda using Go.  
 
-```
+```go
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 package main
@@ -169,7 +168,7 @@ func main() {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
 Reporting DynamoDB batch item failures with Lambda using Java.  
 
-```
+```java
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 import com.amazonaws.services.lambda.runtime.Context;
@@ -215,7 +214,7 @@ public class ProcessDynamodbRecords implements RequestHandler<DynamodbEvent, Str
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
 Reporting DynamoDB batch item failures with Lambda using JavaScript.  
 
-```
+```javascript
 export const handler = async (event) => {
   const records = event.Records;
   let curRecordSequenceNumber = "";
@@ -235,7 +234,7 @@ export const handler = async (event) => {
 ```
 Reporting DynamoDB batch item failures with Lambda using TypeScript.  
 
-```
+```javascript
 import {
   DynamoDBBatchResponse,
   DynamoDBBatchItemFailure,
@@ -269,7 +268,7 @@ export const handler = async (
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
 Reporting DynamoDB batch item failures with Lambda using PHP.  
 
-```
+```php
 <?php
 
 # using bref/bref and bref/logger for simplicity
@@ -337,7 +336,7 @@ return new Handler($logger);
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
 Reporting DynamoDB batch item failures with Lambda using Python.  
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 def handler(event, context):
@@ -362,7 +361,7 @@ def handler(event, context):
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
 Reporting DynamoDB batch item failures with Lambda using Ruby.  
 
-```
+```ruby
 def lambda_handler(event:, context:)
     records = event["Records"]
     cur_record_sequence_number = ""
@@ -388,7 +387,7 @@ def lambda_handler(event:, context:)
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
 Reporting DynamoDB batch item failures with Lambda using Rust.  
 
-```
+```rust
 use aws_lambda_events::{
     event::dynamodb::{Event, EventRecord, StreamRecord},
     streams::{DynamoDbBatchItemFailure, DynamoDbEventResponse},
@@ -470,7 +469,7 @@ The batch processor utility from Powertools for AWS Lambda automatically handles
 For complete examples and setup instructions, see the [batch processor documentation](https://docs.aws.amazon.com/powertools/python/latest/utilities/batch/).
 Processing DynamoDB stream records with AWS Lambda batch processor.  
 
-```
+```python
 import json
 from aws_lambda_powertools import Logger
 from aws_lambda_powertools.utilities.batch import BatchProcessor, EventType, process_partial_response
@@ -498,7 +497,7 @@ def lambda_handler(event, context: LambdaContext):
 For complete examples and setup instructions, see the [batch processor documentation](https://docs.aws.amazon.com/powertools/typescript/latest/features/batch/).
 Processing DynamoDB stream records with AWS Lambda batch processor.  
 
-```
+```typescript
 import { BatchProcessor, EventType, processPartialResponse } from '@aws-lambda-powertools/batch';
 import { Logger } from '@aws-lambda-powertools/logger';
 import type { DynamoDBStreamEvent, Context } from 'aws-lambda';
@@ -523,7 +522,7 @@ export const handler = async (event: DynamoDBStreamEvent, context: Context) => {
 For complete examples and setup instructions, see the [batch processor documentation](https://docs.aws.amazon.com/powertools/java/latest/utilities/batch/).
 Processing DynamoDB stream records with AWS Lambda batch processor.  
 
-```
+```java
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.DynamodbEvent;
@@ -556,7 +555,7 @@ public class DynamoDBStreamBatchHandler implements RequestHandler<DynamodbEvent,
 For complete examples and setup instructions, see the [batch processor documentation](https://docs.aws.amazon.com/powertools/dotnet/utilities/batch-processing/).
 Processing DynamoDB stream records with AWS Lambda batch processor.  
 
-```
+```csharp
 using System;
 using System.Threading;
 using System.Threading.Tasks;

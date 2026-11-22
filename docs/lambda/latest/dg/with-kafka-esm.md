@@ -1,7 +1,6 @@
 
 
 # Using Lambda with Apache Kafka
-<a name="with-kafka-esm"></a>
 
 Lambda supports [Apache Kafka](https://kafka.apache.org/) as an [event source](invocation-eventsourcemapping.md). Apache Kafka is an open-source event streaming platform designed to handle high-throughput, real-time data pipelines and streaming applications. There are two main ways to use Lambda with Apache Kafka:
 + [Using Lambda with Amazon MSK](with-msk.md) – Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully-managed service by AWS. Amazon MSK helps automate management of your Kafka infrastructure, including provisioning, patching, and scaling.

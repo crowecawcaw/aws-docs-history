@@ -1,7 +1,6 @@
 
 
 # Deploy Go Lambda Event Functions with container images
-<a name="go-image"></a>
 
 There are two ways to build a container image for a Go Lambda Event Function:
 + [Using an AWS OS-only base image](#go-image-provided)
@@ -63,26 +62,26 @@ To complete the steps in this section, you must have the following:
 
 1. Create a directory for the project, and then switch to that directory.
 
-   ```
+   ```bash
    mkdir hello
    cd hello
    ```
 
 1. Initialize a new Go module.
 
-   ```
+   ```bash
    go mod init {{example.com/hello-world}}
    ```
 
 1. Add the **lambda** library as a dependency of your new module.
 
-   ```
+   ```bash
    go get github.com/aws/aws-lambda-go/lambda
    ```
 
 1. Create a file named `main.go` and then open it in a text editor. This is the code for the Lambda function. You can use the following sample code for testing, or replace it with your own.
 
-   ```
+   ```go
    package main
    
    import (
@@ -112,7 +111,7 @@ To complete the steps in this section, you must have the following:
 **Note**  
 Make sure that the version of Go that you specify in your Dockerfile (for example, `golang:1.20`) is the same version of Go that you used to create your application.
 
-   ```
+   ```dockerfile
    FROM {{golang:1.20}} as build
    WORKDIR /helloworld
    # Copy dependencies list
@@ -145,7 +144,7 @@ Use the [runtime interface emulator](https://github.com/aws/aws-lambda-runtime-i
    + `docker-image` is the image name and `test` is the tag.
    + `./main` is the `ENTRYPOINT` from your Dockerfile.
 
-   ```
+   ```bash
    docker run -d -p 9000:8080 \
    --entrypoint /usr/local/bin/aws-lambda-rie \
    {{docker-image:test ./main}}
@@ -155,25 +154,25 @@ Use the [runtime interface emulator](https://github.com/aws/aws-lambda-runtime-i
 
 1. From a new terminal window, post an event to the following endpoint using a **curl** command:
 
-   ```
+   ```bash
    curl "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{}'
    ```
 
    This command invokes the function with an empty event and returns a response. Some functions might require a JSON payload. Example:
 
-   ```
+   ```bash
    curl "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{{{"payload":"hello world!"}}}'
    ```
 
 1. Get the container ID.
 
-   ```
+   ```bash
    docker ps
    ```
 
 1. Use the [docker kill](https://docs.docker.com/engine/reference/commandline/kill/) command to stop the container. In this command, replace `3766c4ab331c` with the container ID from the previous step.
 
-   ```
+   ```bash
    docker kill {{3766c4ab331c}}
    ```
 
@@ -308,26 +307,26 @@ To complete the steps in this section, you must have the following:
 
 1. Create a directory for the project, and then switch to that directory.
 
-   ```
+   ```bash
    mkdir hello
    cd hello
    ```
 
 1. Initialize a new Go module.
 
-   ```
+   ```bash
    go mod init {{example.com/hello-world}}
    ```
 
 1. Add the **lambda** library as a dependency of your new module.
 
-   ```
+   ```bash
    go get github.com/aws/aws-lambda-go/lambda
    ```
 
 1. Create a file named `main.go` and then open it in a text editor. This is the code for the Lambda function. You can use the following sample code for testing, or replace it with your own.
 
-   ```
+   ```go
    package main
    
    import (
@@ -354,7 +353,7 @@ To complete the steps in this section, you must have the following:
 **Note**  
 Make sure that the version of Go that you specify in your Dockerfile (for example, `golang:1.20`) is the same version of Go that you used to create your application.
 
-   ```
+   ```dockerfile
    FROM golang:1.20.2-alpine3.16 as build
    WORKDIR /helloworld
    # Copy dependencies list
@@ -403,7 +402,7 @@ Use the [runtime interface emulator](https://github.com/aws/aws-lambda-runtime-i
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $dirPath = "$HOME\.aws-lambda-rie"
    if (-not (Test-Path $dirPath)) {
        New-Item -Path $dirPath -ItemType Directory
@@ -439,7 +438,7 @@ Use the [runtime interface emulator](https://github.com/aws/aws-lambda-runtime-i
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    docker run --platform linux/amd64 -d -v "$HOME\.aws-lambda-rie:/aws-lambda" -p 9000:8080 `
    --entrypoint /aws-lambda/aws-lambda-rie `
    {{docker-image:test}} `
@@ -474,13 +473,13 @@ If you built the Docker image for the ARM64 instruction set architecture, be sur
 
    In PowerShell, run the following `Invoke-WebRequest` command:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{}' -ContentType "application/json"
    ```
 
    This command invokes the function with an empty event and returns a response. If you're using your own function code rather than the sample function code, you might want to invoke the function with a JSON payload. Example:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{{{"payload":"hello world!"}}}' -ContentType "application/json"
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Using AWS Lambda with AWS IoT
-<a name="services-iot"></a>
 
 AWS IoT provides secure communication between internet-connected devices (such as sensors) and the AWS Cloud. This makes it possible for you to collect, store, and analyze telemetry data from multiple devices.
 

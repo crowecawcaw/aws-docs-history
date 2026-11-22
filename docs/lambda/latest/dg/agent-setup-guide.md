@@ -1,7 +1,6 @@
 
 
 # Agent setup guide
-<a name="agent-setup-guide"></a>
 
 AI coding agents can accelerate serverless development by providing intelligent assistance for application scaffolding, deployment configuration, debugging, and infrastructure-as-code generation. By configuring your agent with the right combination of plugins and skills, you equip it with expertise required to build and manage serverless applications.
 

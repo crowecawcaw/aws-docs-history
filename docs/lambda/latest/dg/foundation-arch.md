@@ -1,7 +1,6 @@
 
 
 # Selecting and configuring an instruction set architecture for your Lambda function
-<a name="foundation-arch"></a>
 
  The *instruction set architecture* of a Lambda function determines the type of computer processor that Lambda uses to run the function. Lambda provides a choice of instruction set architectures:
 + arm64 – 64-bit ARM architecture, for AWS Graviton processors.

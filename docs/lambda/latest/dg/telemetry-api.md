@@ -1,7 +1,6 @@
 
 
 # Accessing real-time telemetry data for extensions using the Telemetry API
-<a name="telemetry-api"></a>
 
 The Telemetry API enables your extensions to receive telemetry data directly from Lambda. During function initialization and invocation, Lambda automatically captures telemetry, including logs, platform metrics, and platform traces. The Telemetry API enables extensions to access this telemetry data directly from Lambda in near real time.
 

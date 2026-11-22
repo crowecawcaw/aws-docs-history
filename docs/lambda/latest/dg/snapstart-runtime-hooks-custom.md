@@ -1,7 +1,6 @@
 
 
 # Implementing SnapStart hooks for container images
-<a name="snapstart-runtime-hooks-custom"></a>
 
 ## Overview
 <a name="snapstart-custom-overview"></a>

@@ -1,7 +1,6 @@
 
 
 # Deploying Lambda Event Functions as .zip file archives
-<a name="configuration-function-zip"></a>
 
 When you create a Lambda Event Function, you package your function code into a deployment package. Lambda supports two types of deployment packages: container images and .zip file archives. The workflow to create a function depends on the deployment package type. To configure a function defined as a container image, see [Create a Lambda Event Function using a container image](images-create.md).
 

@@ -1,7 +1,6 @@
 
 
 # Granting Lambda layer access to other accounts
-<a name="permissions-layer-cross-account"></a>
 
 To share a layer with another AWS account, add a cross-account permissions statement to the layer's [resource-based policy](access-control-resource-based.md). Run the [add-layer-version-permission](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/add-layer-version-permission.html) command and specify the account ID as the `principal`. In each statement, you can grant permission to a single account, all accounts, or an organization in [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).
 

@@ -1,7 +1,6 @@
 
 
 # Log-level filtering
-<a name="monitoring-cloudwatchlogs-log-level"></a>
 
 Lambda can filter your Event Function's logs so that only logs of a certain detail level or lower are sent to CloudWatch Logs. You can configure log-level filtering separately for your Event Function's system logs (the logs that Lambda generates) and application logs (the logs that your Event Function code generates).
 
@@ -9,7 +8,7 @@ For [Supported runtimes and logging methods](monitoring-cloudwatchlogs-logformat
 
 For all other runtimes and logging methods , your Event Function code must output log events to `stdout` or `stderr` as JSON formatted objects that contain a key value pair with the key `"level"`. For example, Lambda interprets the following output to `stdout` as a DEBUG level log.
 
-```
+```python
 print('{"level": "debug", "msg": "my debug log", "timestamp": "2024-11-02T16:51:31.587199Z"}')
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Working with snapshots
-<a name="microvms-images-snapshots"></a>
 
 When AWS Lambda MicroVMs builds a MicroVM image, it captures a Firecracker snapshot of your fully initialized application. This page describes what a snapshot contains, how to handle uniqueness across MicroVMs that share the same snapshot, and best practices for snapshot-compatible applications.
 

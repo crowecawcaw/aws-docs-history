@@ -1,7 +1,6 @@
 
 
 # Building Lambda Event Functions with TypeScript
-<a name="lambda-typescript"></a>
 
 You can use the Node.js runtime to run TypeScript code in AWS Lambda Event Functions. Because Node.js doesn't run TypeScript code natively, you must first transpile your TypeScript code into JavaScript. Then, use the JavaScript files to deploy your function code to Lambda. Your code runs in an environment that includes the AWS SDK for JavaScript, with credentials from an AWS Identity and Access Management (IAM) role that you manage. To learn more about the SDK versions included with the Node.js runtimes, see [Runtime-included SDK versions](lambda-nodejs.md#nodejs-sdk-included).
 
@@ -12,7 +11,7 @@ Lambda supports the following Node.js runtimes.
 
 | Name | Identifier | Operating system | Deprecation date | Block function create | Block function update | 
 | --- | --- | --- | --- | --- | --- | 
-| Node.js 26 | `nodejs26.x` | Amazon Linux 2023 |  Not scheduled  |  Not scheduled  |  Not scheduled  | 
+| Node.js 26 | `nodejs26.x` | Amazon Linux 2023 |  Apr 30, 2029  |  Jun 1, 2029  |  Jul 1, 2029  | 
 | Node.js 24 | `nodejs24.x` | Amazon Linux 2023 |  Apr 30, 2028  |  Jun 1, 2028  |  Jul 1, 2028  | 
 | Node.js 22 | `nodejs22.x` | Amazon Linux 2023 |  May 30, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
 
@@ -74,13 +73,13 @@ The [@types/aws-lambda](https://www.npmjs.com/package/@types/aws-lambda) package
 
 To add the Lambda type definitions to your function, install `@types/aws-lambda` as a development dependency:
 
-```
+```bash
 npm install -D @types/aws-lambda
 ```
 
 Then, import the types from `aws-lambda`:
 
-```
+```typescript
 import { Context, S3Event, APIGatewayProxyEvent } from 'aws-lambda';
 
 export const handler = async (event: S3Event, context: Context) => {

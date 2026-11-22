@@ -1,7 +1,6 @@
 
 
 # Identity-based IAM policies for Lambda
-<a name="access-control-identity-based"></a>
 
 You can use identity-based policies in AWS Identity and Access Management (IAM) to grant users in your account access to Lambda. Identity-based policies can apply to users, user groups, or roles. You can also grant users in another account permission to assume a role in your account and access your Lambda resources.
 

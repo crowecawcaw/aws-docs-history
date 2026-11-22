@@ -1,7 +1,6 @@
 
 
 # Create a Lambda Event Function using a container image
-<a name="images-create"></a>
 
 Your AWS Lambda function's code consists of scripts or compiled programs and their dependencies. You use a *deployment package* to deploy your function code to Lambda. Lambda supports two types of deployment packages: container images and .zip file archives. 
 
@@ -42,7 +41,7 @@ You cannot change the [deployment package type](https://docs.aws.amazon.com/lamb
 <a name="images-reqs"></a>
 
 Install the [AWS CLI version 2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and the [Docker CLI](https://docs.docker.com/get-docker). Additionally, note the following requirements:
-+ The container image must implement the [Using the Lambda runtime API for custom runtimes](runtimes-api.md). The AWS open-source [runtime interface clients](#images-ric) implement the API. You can add a runtime interface client to your preferred base image to make it compatible with Lambda.
++ The container image must implement the [Using the Lambda runtime API](runtimes-api.md). The AWS open-source [runtime interface clients](#images-ric) implement the API. You can add a runtime interface client to your preferred base image to make it compatible with Lambda.
 + The container image must be able to run on a read-only file system. Your function code can access a writable `/tmp` directory with between 512 MB and 10,240 MB, in 1-MB increments, of storage. 
 + The default Lambda user must be able to read all the files required to run your function code. Lambda follows security best practices by defining a default Linux user with least-privileged permissions. This means that you don't need to specify a [USER](https://docs.docker.com/reference/dockerfile/#user) in your Dockerfile. Verify that your application code does not rely on files that other Linux users are restricted from running.
 + Lambda supports only Linux-based container images.
@@ -99,7 +98,7 @@ For optimal performance, keep your image manifest size under 25,400 bytes. To re
 ## Runtime interface clients
 <a name="images-ric"></a>
 
-If you use an [OS-only base image](#runtimes-images-provided) or an alternative base image, you must include a runtime interface client in your image. The runtime interface client must extend the [Using the Lambda runtime API for custom runtimes](runtimes-api.md), which manages the interaction between Lambda and your function code. AWS provides open-source runtime interface clients for the following languages:
+If you use an [OS-only base image](#runtimes-images-provided) or an alternative base image, you must include a runtime interface client in your image. The runtime interface client must extend the [Using the Lambda runtime API](runtimes-api.md), which manages the interaction between Lambda and your function code. AWS provides open-source runtime interface clients for the following languages:
 +  [Node.js](nodejs-image.md#nodejs-image-clients) 
 +  [Python](python-image.md#python-image-clients) 
 +  [Java](java-image.md#java-image-clients) 
@@ -124,7 +123,7 @@ For example, use the IAM console to create a role with the following policy:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -189,7 +188,7 @@ In the following example, your [Amazon ECR repository permissions policy](https:
 **Example — Add cross-account permission to your repository**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Working with layers for Rust Lambda Event Functions
-<a name="rust-layers"></a>
 
 We don't recommend using [layers](chapter-layers.md) to manage dependencies for Lambda Event Functions written in Rust. This is because Rust functions compile into a single executable, which you provide to Lambda when you deploy your function. This executable contains your compiled function code, along with all of its dependencies. Using layers not only complicates this process, but also leads to increased cold start times because your functions need to manually load extra assemblies into memory during the init phase.
 

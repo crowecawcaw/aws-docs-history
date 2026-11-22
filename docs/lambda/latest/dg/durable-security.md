@@ -1,7 +1,6 @@
 
 
 # Security and permissions for Lambda durable functions
-<a name="durable-security"></a>
 
 AWS Lambda durable functions require specific IAM permissions to run and manage durable executions. Follow the principle of least privilege by granting only the permissions each principal needs.
 
@@ -28,7 +27,7 @@ You can invoke a durable function through an alias, but the resulting execution'
 
 Your durable function's execution role must have permissions to create checkpoints and retrieve execution state. The following policy shows the minimum required permissions:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -48,7 +47,7 @@ When you create a durable function using the console, Lambda automatically adds 
 
 For Lambda to assume your execution role, the role's trust policy must specify the Lambda service principal (`lambda.amazonaws.com`) as a trusted service. The following example shows a trust policy that grants Lambda permission to assume the role.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -68,7 +67,7 @@ Scope the `Resource` element to specific function ARNs instead of using wildcard
 
 **Example Scoped permissions for multiple functions**  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -92,7 +91,7 @@ Alternatively, you can use the AWS managed policy `AWSLambdaBasicDurableExecutio
 ### Permissions for managing durable executions
 <a name="durable-manage-permissions"></a>
 
-Lambda authorizes the `lambda:GetDurableExecution`, `lambda:GetDurableExecutionHistory`, `lambda:StopDurableExecution`, and `lambda:DeleteDurableExecution` actions against the durable execution ARN. Grant `lambda:DeleteDurableExecution` only to principals that are allowed to permanently remove execution data.
+Lambda authorizes the `lambda:GetDurableExecution`, `lambda:GetDurableExecutionHistory`, `lambda:StopDurableExecution`, `lambda:PauseDurableExecution`, `lambda:ResumeDurableExecution`, and `lambda:DeleteDurableExecution` actions against the durable execution ARN. Grant `lambda:DeleteDurableExecution` only to principals that are allowed to permanently remove execution data.
 
 To list the durable executions of a function, use `lambda:ListDurableExecutionsByFunction`. Lambda authorizes this action against the function ARN from the request. The following rules apply to ARN matching:
 + A policy that grants the unqualified function ARN matches only requests that use the unqualified function name.
@@ -102,7 +101,7 @@ For more information, see [Referencing functions in the Resource section of poli
 
 To match requests made with either form of the function name, include both the unqualified and the qualified function ARN, as the following policy shows:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -113,6 +112,8 @@ To match requests made with either form of the function name, include both the u
                 "lambda:GetDurableExecution",
                 "lambda:GetDurableExecutionHistory",
                 "lambda:StopDurableExecution",
+                "lambda:PauseDurableExecution",
+                "lambda:ResumeDurableExecution",
                 "lambda:DeleteDurableExecution"
             ],
             "Resource": "arn:aws:lambda:us-east-1:123456789012:function:myDurableFunction:*"
@@ -135,7 +136,7 @@ To match requests made with either form of the function name, include both the u
 
 The external system that sends a callback result uses the `lambda:SendDurableExecutionCallbackSuccess`, `lambda:SendDurableExecutionCallbackFailure`, and `lambda:SendDurableExecutionCallbackHeartbeat` actions.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -184,31 +185,99 @@ Your function's execution role needs `kms:Encrypt` and `kms:Decrypt` permissions
 Lambda logs the following durable execution operations as data events in AWS CloudTrail. You can use CloudTrail to audit when checkpoints are created, track execution state changes, and monitor access to and deletion of durable execution data.
 
 Durable execution operations appear in CloudTrail logs with the following event names:
-+ `CheckpointDurableExecution` - Logged when a step completes and creates a checkpoint
-+ `GetDurableExecutionState` - Logged when Lambda retrieves execution state during replay
-+ `SendDurableExecutionCallbackSuccess`, `SendDurableExecutionCallbackFailure`, and `SendDurableExecutionCallbackHeartbeat` - Logged when an external system completes a callback or sends a heartbeat for it
-+ `StopDurableExecution` - Logged when a running execution is stopped
-+ `DeleteDurableExecution` - Logged when an execution and its data are deleted
++ `CheckpointDurableExecution` – Logged when a step completes and creates a checkpoint.
++ `GetDurableExecutionState` – Logged when Lambda retrieves execution state during replay.
++ `SendDurableExecutionCallbackSuccess`, `SendDurableExecutionCallbackFailure`, and `SendDurableExecutionCallbackHeartbeat` – Logged when an external system completes a callback or sends a heartbeat for it.
++ `StopDurableExecution` – Logged when a running execution is stopped.
++ `PauseDurableExecution` – Logged when you pause an execution.
++ `ResumeDurableExecution` – Logged when you resume a paused execution.
++ `DeleteDurableExecution` – Logged when you call `DeleteDurableExecution`. Executions that Lambda removes when their retention period ends don't create a CloudTrail event.
 
 `GetDurableExecution`, `GetDurableExecutionHistory`, and `ListDurableExecutionsByFunction` are logged as management events.
 
+To log only deletions, find out who deleted an execution, or get notified when someone does, see [Audit execution deletions](durable-delete.md#durable-cloudtrail-audit-deletions).
+
 To enable data event logging for durable functions, configure a CloudTrail trail to log Lambda data events. For more information, see [Logging data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) in the CloudTrail User Guide.
 
-**Example: CloudTrail log entry for checkpoint operation**
+The following example shows a CloudTrail log entry for a `CheckpointDurableExecution` call that records a step. The durable execution SDK makes this call with the function's execution role, so `userIdentity` shows that role and `inScopeOf` shows the function. CloudTrail doesn't record step results. The `payload` of each update and the `result` of each step appear as `HIDDEN_DUE_TO_SECURITY_REASONS`.
 
-```
+```json
 {
-    "eventVersion": "1.08",
-    "eventTime": "2024-11-16T10:30:45Z",
-    "eventName": "CheckpointDurableExecution",
-    "eventSource": "lambda.amazonaws.com",
-    "requestParameters": {
-        "functionName": "myDurableFunction",
-        "executionId": "exec-abc123",
-        "stepId": "step-1"
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "A1B2C3D4E5F6G7EXAMPLE:my-function",
+    "arn": "arn:aws:sts::111122223333:assumed-role/MyExecutionRole/my-function",
+    "accountId": "111122223333",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "A1B2C3D4E5F6G7EXAMPLE",
+        "arn": "arn:aws:iam::111122223333:role/MyExecutionRole",
+        "accountId": "111122223333",
+        "userName": "MyExecutionRole"
+      }
     },
-    "responseElements": null,
-    "eventType": "AwsApiCall"
+    "inScopeOf": {
+      "issuerType": "AWS::Lambda::Function",
+      "credentialsIssuedTo": "arn:aws:lambda:{{us-east-1}}:111122223333:function:my-function"
+    }
+  },
+  "eventTime": "2026-11-18T21:48:18Z",
+  "eventSource": "lambda.amazonaws.com",
+  "eventName": "CheckpointDurableExecution",
+  "awsRegion": "{{us-east-1}}",
+  "sourceIPAddress": "192.0.2.1",
+  "requestParameters": {
+    "updates": [
+      {
+        "id": "a1b2c3d4EXAMPLE",
+        "type": "STEP",
+        "action": "SUCCEED",
+        "name": "process-order",
+        "subType": "Step",
+        "payload": "HIDDEN_DUE_TO_SECURITY_REASONS"
+      }
+    ],
+    "durableExecutionArn": "arn:aws:lambda:{{us-east-1}}:111122223333:function:my-function:$LATEST/durable-execution/my-execution/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "clientToken": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "checkpointToken": "AQIDAHhEXAMPLE"
+  },
+  "responseElements": {
+    "checkpointToken": "AQIDAHhEXAMPLE",
+    "newExecutionState": {
+      "operations": [
+        {
+          "id": "a1b2c3d4EXAMPLE",
+          "type": "STEP",
+          "name": "process-order",
+          "subType": "Step",
+          "status": "SUCCEEDED",
+          "stepDetails": {
+            "attempt": 1,
+            "result": "HIDDEN_DUE_TO_SECURITY_REASONS"
+          }
+        }
+      ]
+    }
+  },
+  "additionalEventData": {
+    "functionVersion": "arn:aws:lambda:{{us-east-1}}:111122223333:function:my-function:$LATEST"
+  },
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "111122223333",
+      "type": "AWS::Lambda::Function",
+      "ARN": "arn:aws:lambda:{{us-east-1}}:111122223333:function:my-function"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": false,
+  "recipientAccountId": "111122223333",
+  "eventCategory": "Data"
 }
 ```
 

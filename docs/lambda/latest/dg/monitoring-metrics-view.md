@@ -1,7 +1,6 @@
 
 
 # Viewing metrics for Lambda Event Functions
-<a name="monitoring-metrics-view"></a>
 
 Use the CloudWatch console to view metrics for your Lambda Event Functions. In the console, you can filter and sort function metrics by function name, alias, version, or event source mapping UUID.
 

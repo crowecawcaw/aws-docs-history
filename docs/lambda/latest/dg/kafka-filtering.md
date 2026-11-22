@@ -1,7 +1,6 @@
 
 
 # Filtering events from Amazon MSK and self-managed Apache Kafka event sources
-<a name="kafka-filtering"></a>
 
 You can use event filtering to control which records from a stream or queue Lambda sends to your Event Function. For general information about how event filtering works, see [Control which events Lambda sends to your Event Function](invocation-eventfiltering.md).
 
@@ -34,7 +33,7 @@ Suppose a producer is writing messages to a topic in your Kafka cluster, either 
 
 Suppose your Apache Kafka producer is writing messages to your topic in the following JSON format.
 
-```
+```JSON
 {
     "device_ID": "AB1234",
     "session":{
@@ -102,7 +101,7 @@ aws lambda update-event-source-mapping \
 
 To add this filter using AWS SAM, add the following snippet to the YAML template for your event source.
 
-```
+```YAML
 FilterCriteria:
   Filters:
     - Pattern: '{ "value" : { "device_ID" : [ { "prefix":  "AB" } ] } }'
@@ -170,7 +169,7 @@ aws lambda update-event-source-mapping \
 
 To add this filter using AWS SAM, add the following snippet to the YAML template for your event source.
 
-```
+```YAML
 FilterCriteria:
   Filters:
     - Pattern: '{ "value" : [ { "anything-but": [ "error" ] } ] }'

@@ -1,7 +1,6 @@
 
 
 # Lambda Web Function endpoint access control
-<a name="web-functions-endpoint-access-control"></a>
 
 You can control access to your AWS Lambda Web Function endpoints using the `AuthType` you set on each endpoint. Depending on the authentication type, you can also attach a resource-based policy to the Web Function to control who can invoke an endpoint.
 
@@ -28,7 +27,7 @@ Resource-based policies are attached to the Web Function, but each statement can
 
 **Example – Cross-account resource-based policy**  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -46,7 +45,7 @@ Resource-based policies are attached to the Web Function, but each statement can
 
 To attach the resource-based policy, use `put-resource-policy` with the function ARN (not an endpoint ARN):
 
-```
+```bash
 aws lambda-web put-resource-policy \
     --resource-arn "arn:aws:lambda:us-east-1:{{111122223333}}:web-function/my-function" \
     --policy file://policy.json \
@@ -59,7 +58,7 @@ A Web Function has one resource-based policy, and `put-resource-policy` replaces
 
 To allow invoking all endpoints of a function, use a wildcard in the resource ARN:
 
-```
+```json
 "Resource": "arn:aws:lambda:{{us-east-1}}:{{111122223333}}:web-function/{{my-function}}/endpoint/*"
 ```
 
@@ -74,7 +73,7 @@ Attach the following policy to the IAM role or user that will invoke the endpoin
 
 **Example – Identity-based policy to invoke an endpoint**  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -119,7 +118,7 @@ To allow CloudFront to invoke the endpoint, attach a resource-based policy to th
 
 **Example – Resource-based policy for CloudFront OAC**  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -178,7 +177,7 @@ If you administer an AWS Organization and want to prevent developers from creati
 
 **Example – SCP denying public endpoints**  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -212,7 +211,7 @@ For fine-grained access control, Lambda supports the following condition context
 
 **Example – Allow invoke only on endpoints of a tagged function**  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

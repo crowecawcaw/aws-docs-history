@@ -1,7 +1,6 @@
 
 
 # Creating a Lambda Web Function
-<a name="web-functions-create"></a>
 
 To deploy an app with Lambda Web Functions, you create a Web Function with a revision and an endpoint to receive traffic. The console and the `aws lambda-web deploy` command can create the Web Function, its first revision, and its first endpoint. Revisions are immutable snapshots of your code and configuration. An endpoint routes requests to an active revision. For more information about these resources, see [Core concepts](web-functions-how-it-works.md). This topic shows how to create them using the Lambda console and the AWS CLI.
 
@@ -64,7 +63,7 @@ The endpoint starts serving traffic when it reaches **Active** and there is an *
 
 To confirm that your app is serving traffic, send a request to the domain name. Because you chose **Application-managed authentication**, you can send a plain request without signing it.
 
-```
+```bash
 curl https://{{your-endpoint-domain-name}}/
 ```
 
@@ -82,7 +81,7 @@ Create and deploy a Web Function from your terminal. The starter command generat
 
 1. Run the following command:
 
-   ```
+   ```bash
    aws lambda-web deploy --name my-web-app --hello-world
    ```
 
@@ -96,13 +95,13 @@ Create and deploy a Web Function from your terminal. The starter command generat
 
 1. Send a request to the endpoint URL that you copied in the previous step. Replace {{endpoint-url}} with that URL:
 
-   ```
+   ```bash
    curl {{endpoint-url}}
    ```
 
    The starter returns a response similar to the following:
 
-   ```
+   ```json
    {"message":"Hello from Lambda Web!","path":"/"}
    ```
 
@@ -124,7 +123,7 @@ A Web Function contains immutable revisions of your code and configuration. On l
 
 After you edit the starter application, run:
 
-```
+```bash
 aws lambda-web deploy \
   --name my-web-app \
   --code ./my-web-app
@@ -139,7 +138,7 @@ To deploy your own app instead of the starter, pass its directory to `--code`. Y
 
 If you already manage an Amazon S3 bucket or IAM execution role, use the following command to reuse those resources instead of creating defaults. The bucket must have versioning enabled and a bucket policy that grants the Lambda service principal (`lambda.amazonaws.com`) `s3:GetObject` and `s3:GetObjectVersion`. The command does not change the configuration of a bucket that you specify. For bucket requirements, see [Bucket policy for Lambda](web-functions-code-s3.md#web-functions-code-s3-bucket-policy). Replace the example resource values with your own.
 
-```
+```bash
 aws lambda-web deploy \
   --name my-web-app \
   --code ./my-web-app \
@@ -160,7 +159,7 @@ The `deploy` command uploads your code to Amazon S3 and creates the Web Function
 
 1. Create a .zip deployment package from your app directory, with your entry file at the root of the package. Upload the package to an Amazon S3 bucket that meets the requirements in [Prerequisites](web-functions-code-s3.md#web-functions-code-s3-requirements). The following commands create the package and use the AWS CLI to upload it.
 
-   ```
+   ```bash
    cd {{my-app}}
    zip -r ../my-app.zip .
    aws s3 cp ../my-app.zip s3://{{amzn-s3-demo-bucket}}/my-app.zip
@@ -168,7 +167,7 @@ The `deploy` command uploads your code to Amazon S3 and creates the Web Function
 
 1. Use the following AWS CLI command to create the Web Function with its first revision and endpoint. In `revisionConfig`, `buildConfig` specifies the code location and runtime, and `serviceConfig` specifies the execution role. The `endpointConfig` property defines the endpoint.
 
-   ```
+   ```bash
    aws lambda-web create-web-function \
        --function-name {{my-web-app}} \
        --revision-config '{
@@ -194,7 +193,7 @@ The `deploy` command uploads your code to Amazon S3 and creates the Web Function
 
 1. Wait until the revision is `Active`. Replace {{rev-abc12}} with the revision ID from the previous step.
 
-   ```
+   ```bash
    aws lambda-web wait web-function-revision-active \
        --function-name {{my-web-app}} \
        --revision-id {{rev-abc12}}
@@ -202,7 +201,7 @@ The `deploy` command uploads your code to Amazon S3 and creates the Web Function
 
 1. Get the endpoint's details.
 
-   ```
+   ```bash
    aws lambda-web get-web-function-endpoint \
        --function-name {{my-web-app}} \
        --endpoint-name {{my-endpoint}}
@@ -210,7 +209,7 @@ The `deploy` command uploads your code to Amazon S3 and creates the Web Function
 
    When the endpoint's `state` is `Active`, send requests to its `domainName`. The response looks like the following excerpt.
 
-   ```
+   ```json
    {
        "endpointName": "my-endpoint",
        "endpointType": "HomeRegion",
@@ -225,7 +224,7 @@ The `deploy` command uploads your code to Amazon S3 and creates the Web Function
 **To deploy a change with the API commands (AWS CLI)**
 + Upload a new package and create a revision. A revision is a complete snapshot, so pass the full `buildConfig` and `serviceConfig` each time.
 
-  ```
+  ```bash
   aws s3 cp ../my-app.zip s3://{{amzn-s3-demo-bucket}}/my-app.zip
   aws lambda-web create-web-function-revision \
       --function-name {{my-web-app}} \
@@ -247,7 +246,7 @@ The `deploy` command uploads your code to Amazon S3 and creates the Web Function
 
 When you no longer need the Web Function, delete it:
 
-```
+```bash
 aws lambda-web delete-web-function --function-name my-web-app
 ```
 

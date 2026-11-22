@@ -1,7 +1,6 @@
 
 
 # Event Function scaling behavior
-<a name="scaling-behavior"></a>
 
 As your Event Function receives more requests, Lambda automatically scales up the number of execution environments to handle these requests until your account reaches its concurrency quota. However, to protect against over-scaling in response to sudden bursts of traffic, Lambda limits how fast your functions can scale. This ** concurrency scaling rate** is the maximum rate at which Event Functions in your account can scale in response to increased requests. (That is, how quickly Lambda can create new execution environments.) The concurrency scaling rate differs from the account-level concurrency limit, which is the total amount of concurrency available to your Event Functions.
 

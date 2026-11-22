@@ -1,7 +1,6 @@
 
 
 # Troubleshoot deployment issues in Lambda
-<a name="troubleshooting-deployment"></a>
 
 When you update your Lambda Event Function, Lambda deploys the change by launching new instances of the function with the updated code or settings. Deployment errors prevent the new version from being used and can arise from issues with your deployment package, code, permissions, or tools.
 
@@ -143,7 +142,7 @@ When you configure a Lambda function with a layer, Lambda merges the layer with 
 
 The maximum size of the variables object that is stored in the function's configuration must not exceed 4096 bytes. This includes key names, values, quotes, commas, and brackets. The total size of the HTTP request body is also limited.
 
-```
+```json
 {
     "FunctionName": "my-function",
     "FunctionArn": "arn:aws:lambda:us-east-2:123456789012:function:my-function",
@@ -188,7 +187,7 @@ This error occurs when you try to update a Lambda function's code or configurati
 
 1. **Roll back the alias:** Temporarily update the alias to point to the previously working version.
 
-   ```
+   ```bash
     aws lambda update-alias \
      --function-name <function-name> \
      --name <alias-name> \

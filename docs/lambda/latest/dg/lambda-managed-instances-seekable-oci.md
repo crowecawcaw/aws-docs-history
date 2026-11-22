@@ -1,7 +1,6 @@
 
 
 # Lazy-load container images with Seekable OCI (SOCI)
-<a name="lambda-managed-instances-seekable-oci"></a>
 
 For Lambda Event Functions deployed as container images on Lambda Managed Instances, Lambda downloads and unpacks the image on each instance before it starts an execution environment. For large images, this pull is the largest part of the time between publishing a function version or scaling out and the execution environment handling its first invocation. With Seekable OCI (SOCI), Lambda can start the execution environment before the whole image has been downloaded.
 
@@ -24,7 +23,7 @@ If your function reads a file for the first time during an invocation rather tha
 
 The following example runs on Amazon Linux 2023. It installs the SOCI snapshotter, containerd, and nerdctl, then creates a SOCI index for an existing image in Amazon ECR and pushes the result. Replace the placeholder values with your own. For other ways to create and push a SOCI index, see [Getting started with the SOCI snapshotter](https://github.com/awslabs/soci-snapshotter/blob/main/docs/getting-started.md) on GitHub.
 
-```
+```bash
 sudo yum install -y soci-snapshotter containerd nerdctl
 sudo systemctl start soci-snapshotter
 sudo systemctl restart containerd

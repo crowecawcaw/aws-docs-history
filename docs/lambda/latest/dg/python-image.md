@@ -1,7 +1,6 @@
 
 
 # Deploy Python Lambda Event Functions with container images
-<a name="python-image"></a>
 
 There are three ways to build a container image for a Python Lambda Event Function:
 + [Using an AWS base image for Python](#python-image-instructions)
@@ -32,7 +31,7 @@ AWS provides the following base images for Python:
 
 | Tags | Runtime | Operating system | Dockerfile | Deprecation | 
 | --- | --- | --- | --- | --- | 
-| 3.15 | Python 3.15 | Amazon Linux 2023 | [Dockerfile for Python 3.15 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/python3.15/Dockerfile.python3.15) |  Not scheduled  | 
+| 3.15 | Python 3.15 | Amazon Linux 2023 | [Dockerfile for Python 3.15 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/python3.15/Dockerfile.python3.15) |  Jun 30, 2029  | 
 | 3.14 | Python 3.14 | Amazon Linux 2023 | [Dockerfile for Python 3.14 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/python3.14/Dockerfile.python3.14) |  Jun 30, 2029  | 
 | 3.13 | Python 3.13 | Amazon Linux 2023 | [Dockerfile for Python 3.13 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/python3.13/Dockerfile.python3.13) |  Jun 30, 2029  | 
 | 3.12 | Python 3.12 | Amazon Linux 2023 | [Dockerfile for Python 3.12 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/python3.12/Dockerfile.python3.12) |  Oct 31, 2028  | 
@@ -58,7 +57,7 @@ Other steps in the search path depend on which version of the Lambda base image 
 
 You can see the full search path for your function by adding the following code snippet.
 
-```
+```python
 import sys
       
 search_path = sys.path
@@ -92,7 +91,7 @@ To complete the steps in this section, you must have the following:
 1. Create a new file called `lambda_function.py`. You can add the following sample function code to the file for testing, or use your own.  
 **Example Python function**  
 
-   ```
+   ```python
    import sys
    def handler(event, context):
        return 'Hello from AWS Lambda using Python' + sys.version + '!'
@@ -113,7 +112,7 @@ To complete the steps in this section, you must have the following:
    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.  
 **Example Dockerfile**  
 
-   ```
+   ```dockerfile
    FROM public.ecr.aws/lambda/python:3.12
    
    # Copy requirements.txt
@@ -172,13 +171,13 @@ If you built the Docker image for the ARM64 instruction set architecture, be sur
 
    In PowerShell, run the following `Invoke-WebRequest` command:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{}' -ContentType "application/json"
    ```
 
    This command invokes the function with an empty event and returns a response. If you're using your own function code rather than the sample function code, you might want to invoke the function with a JSON payload. Example:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{{{"payload":"hello world!"}}}' -ContentType "application/json"
    ```
 
@@ -343,7 +342,7 @@ To complete the steps in this section, you must have the following:
 1. Create a new file called `lambda_function.py`. You can add the following sample function code to the file for testing, or use your own.  
 **Example Python function**  
 
-   ```
+   ```python
    import sys
    def handler(event, context):
        return 'Hello from AWS Lambda using Python' + sys.version + '!'
@@ -364,7 +363,7 @@ To complete the steps in this section, you must have the following:
    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.  
 **Example Dockerfile**  
 
-   ```
+   ```dockerfile
    # Define custom function directory
    ARG FUNCTION_DIR="/function"
    
@@ -434,7 +433,7 @@ Use the [runtime interface emulator](https://github.com/aws/aws-lambda-runtime-i
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $dirPath = "$HOME\.aws-lambda-rie"
    if (-not (Test-Path $dirPath)) {
        New-Item -Path $dirPath -ItemType Directory
@@ -470,7 +469,7 @@ Use the [runtime interface emulator](https://github.com/aws/aws-lambda-runtime-i
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    docker run --platform linux/amd64 -d -v "$HOME\.aws-lambda-rie:/aws-lambda" -p 9000:8080 `
    --entrypoint /aws-lambda/aws-lambda-rie `
    {{docker-image:test}} `
@@ -505,13 +504,13 @@ If you built the Docker image for the ARM64 instruction set architecture, be sur
 
    In PowerShell, run the following `Invoke-WebRequest` command:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{}' -ContentType "application/json"
    ```
 
    This command invokes the function with an empty event and returns a response. If you're using your own function code rather than the sample function code, you might want to invoke the function with a JSON payload. Example:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{{{"payload":"hello world!"}}}' -ContentType "application/json"
    ```
 

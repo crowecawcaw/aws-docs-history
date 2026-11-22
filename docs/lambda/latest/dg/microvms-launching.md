@@ -1,7 +1,6 @@
 
 
 # Running and using MicroVMs
-<a name="microvms-launching"></a>
 
 This section describes how to start MicroVMs, connect to your running applications, manage the MicroVM lifecycle, and handle scaling.
 
@@ -10,7 +9,7 @@ This section describes how to start MicroVMs, connect to your running applicatio
 
 Use the `run-microvm` command to launch a new MicroVM from a specified image. Lambda provisions the required resources, creates a dedicated HTTPS endpoint, and starts your application from the image snapshot.
 
-```
+```bash
 aws lambda-microvms run-microvm \
   --image-identifier arn:aws:lambda:{{us-east-1}}:123456789012:microvm-image:my-microvm-image \
   --ingress-network-connectors "arn:aws:lambda:{{us-east-1}}:aws:network-connector:aws-network-connector:HTTP_INGRESS" \
@@ -64,7 +63,7 @@ With the `runHookPayload` parameter, you can pass per-MicroVM configuration data
 
 The `/run` hook receives a JSON body with the following structure:
 
-```
+```json
 {
   "microvmId": "mvm-01234567-abcd-ef01-2345-6789abcdef01",
   "runHookPayload": "tenant-specific-string"
@@ -73,7 +72,7 @@ The `/run` hook receives a JSON body with the following structure:
 
 Use runtime payloads to provide configuration that varies per MicroVM – for example, tenant IDs, session tokens, signed URLs, or Secrets Manager paths. Unlike environment variables (which are set at image level and shared across all MicroVMs from that image), the run hook payload is unique to each MicroVM.
 
-```
+```bash
 aws lambda-microvms run-microvm \
   --image-identifier arn:aws:lambda:{{us-east-1}}:123456789012:microvm-image:my-microvm-image \
   --run-hook-payload 'tenant-specific-string'
@@ -91,7 +90,7 @@ Every MicroVM gets a unique public HTTPS endpoint URL, assigned when you call `r
 
 All requests to a MicroVM endpoint require a JWE authentication token. There is no unauthenticated access option. Generate a token with `create-microvm-auth-token`:
 
-```
+```bash
 aws lambda-microvms create-microvm-auth-token \
   --microvm-identifier {{microvm-id}} \
   --expiration-in-minutes 30 \
@@ -100,7 +99,7 @@ aws lambda-microvms create-microvm-auth-token \
 
 Tokens are scoped to specific ports and have a configurable expiration. You can restrict access to a single port, a port range, or all ports:
 
-```
+```json
 { "port": {{number}} }
 { "range": { "startPort": {{N}}, "endPort": {{N}} } }
 { "allPorts": {} }
@@ -118,7 +117,7 @@ Lambda MicroVMs supports HTTP/2, WebSockets, gRPC, and SSE over the endpoint URL
 
 For WebSocket connections, pass the authentication token and target port through subprotocols:
 
-```
+```javascript
 // JavaScript WebSocket example
 const protocols = [
   "lambda-microvms",                              // Required base protocol
@@ -140,7 +139,7 @@ The following examples show how to run a MicroVM and connect to it using the AWS
 
 **Example – Running a MicroVM and connecting with boto3**  
 
-```
+```python
 import boto3, requests
 client = boto3.client("lambda-microvms")
 run_resp = client.run_microvm(
@@ -163,7 +162,7 @@ print(resp.status_code, resp.json())
 
 **Example – Running a MicroVM and connecting with the AWS SDK for JavaScript**  
 
-```
+```javascript
 import { LambdaMicrovmsClient, RunMicrovmCommand, CreateMicrovmAuthTokenCommand } from "@aws-sdk/client-lambda-microvms";
 const client = new LambdaMicrovmsClient({});
 const { microvmId, endpoint } = await client.send(new RunMicrovmCommand({
@@ -189,7 +188,7 @@ console.log(await resp.json());
 
 **Example – Sending a request with cURL**  
 
-```
+```bash
 curl 'https://<{{microvm-endpoint}}>' \
   -H 'X-aws-proxy-auth: <{{TOKEN}}>' \
   -H 'X-aws-proxy-port: 8080'
@@ -200,7 +199,7 @@ curl 'https://<{{microvm-endpoint}}>' \
 
 **Example – Sending a request with the requests library**  
 
-```
+```python
 import requests
 response = requests.get('https://<{{microvm-endpoint}}>', headers={'X-aws-proxy-auth': '<{{TOKEN}}>'})
 print(response.text)
@@ -211,7 +210,7 @@ print(response.text)
 
 **Example – Sending a request with fetch**  
 
-```
+```javascript
 const response = await fetch('https://<{{microvm-endpoint}}>', {
   headers: { 'X-aws-proxy-auth': '<{{TOKEN}}>', 'X-aws-proxy-port': '8080' }
 });
@@ -245,7 +244,7 @@ For hooks that run during image creation (`/ready` and `/validate`), see [MicroV
 
 **OpenAPI specification:**
 
-```
+```json
 {
   "openapi": "3.0.2",
   "info": {
@@ -354,7 +353,7 @@ There are two ways to suspend a MicroVM:
 
 1. **API call (explicit)** – Call `suspend-microvm` to suspend immediately:
 
-```
+```bash
 aws lambda-microvms suspend-microvm --microvm-identifier {{microvm-id}}
 ```
 
@@ -370,7 +369,7 @@ When a MicroVM resumes (through an API call or auto-resume), Lambda restores mem
 
 Use the `/resume` hook to refresh credentials, re-establish network connections, and validate state.
 
-```
+```bash
 aws lambda-microvms resume-microvm --microvm-identifier {{microvm-id}}
 ```
 
@@ -410,7 +409,7 @@ Terminate a MicroVM when it is no longer needed. Termination releases all comput
 
 Before releasing resources, Lambda calls your `/terminate` hook. Use it to flush pending data or notify external systems. The `/terminate` hook runs only on final termination – it does not run when a MicroVM is suspended.
 
-```
+```bash
 aws lambda-microvms terminate-microvm --microvm-identifier {{microvm-id}}
 ```
 
@@ -419,7 +418,7 @@ aws lambda-microvms terminate-microvm --microvm-identifier {{microvm-id}}
 
 List all MicroVMs in your account, optionally filtered by image:
 
-```
+```bash
 aws lambda-microvms list-microvms
 
 # Filter by image
@@ -447,7 +446,7 @@ The following table lists common errors returned by the `run-microvm` API:
 
 For transient errors (`ThrottlingException`, `InternalServerException`), use exponential backoff:
 
-```
+```python
 import time, random
 def run_with_retry(client, params, max_retries=5):
     for attempt in range(max_retries):

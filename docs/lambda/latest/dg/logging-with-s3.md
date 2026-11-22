@@ -1,7 +1,6 @@
 
 
 # Sending Lambda Event Function logs to Amazon S3
-<a name="logging-with-s3"></a>
 
 You can configure your Lambda Event Function to send logs directly to Amazon S3 using the Lambda console. This feature provides a cost-effective solution for long-term log storage and enables powerful analysis options using services like Athena.
 
@@ -34,7 +33,7 @@ To send logs from CloudWatch Logs to Amazon S3, you need to create a subscriptio
 
    Run the following command, replacing the placeholder Region with the Region you want to use:
 
-   ```
+   ```bash
    aws s3api create-bucket --bucket amzn-s3-demo-bucket2 --create-bucket-configuration LocationConstraint=region
    ```
 **Note**  
@@ -42,7 +41,7 @@ To send logs from CloudWatch Logs to Amazon S3, you need to create a subscriptio
 
    The following is example output:
 
-   ```
+   ```json
    {
        "Location": "/amzn-s3-demo-bucket2"
    }
@@ -52,7 +51,7 @@ To send logs from CloudWatch Logs to Amazon S3, you need to create a subscriptio
 
    1. Use a text editor to create a trust policy in a file `~/TrustPolicyForCWL.json` as follows:
 
-      ```
+      ```json
       {
           "Statement": {
               "Effect": "Allow",
@@ -69,7 +68,7 @@ To send logs from CloudWatch Logs to Amazon S3, you need to create a subscriptio
 
    1. Use the create-role command to create the IAM role, specifying the trust policy file. Note of the returned Role.Arn value, as you need it in a later step:
 
-      ```
+      ```bash
       aws iam create-role \
        --role-name CWLtoS3Role \
        --assume-role-policy-document file://~/TrustPolicyForCWL.json
@@ -100,7 +99,7 @@ To send logs from CloudWatch Logs to Amazon S3, you need to create a subscriptio
 
 1. Create a permissions policy to define what actions CloudWatch Logs can do on your account. First, use a text editor to create a permissions policy in a file `~/PermissionsForCWL.json`:
 
-   ```
+   ```json
    {
      "Statement": [
        {
@@ -114,19 +113,19 @@ To send logs from CloudWatch Logs to Amazon S3, you need to create a subscriptio
 
    Associate the permissions policy with the role using the following `put-role-policy` command:
 
-   ```
+   ```bash
    aws iam put-role-policy --role-name CWLtoS3Role --policy-name Permissions-Policy-For-S3 --policy-document file://~/PermissionsForCWL.json
    ```
 
 1. Create a `Delivery` log group or use a existing `Delivery` log group.
 
-   ```
+   ```bash
    aws logs create-log-group --log-group-name my-logs --log-group-class DELIVERY --region REGION_NAME
    ```
 
 1. `PutSubscriptionFilter` to set up destination
 
-   ```
+   ```bash
    aws logs put-subscription-filter
    --log-group-name my-logs
    --filter-name my-lambda-delivery

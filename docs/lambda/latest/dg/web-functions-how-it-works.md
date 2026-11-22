@@ -1,7 +1,6 @@
 
 
 # Core concepts
-<a name="web-functions-how-it-works"></a>
 
 Understanding the following core concepts helps you deploy and manage web applications effectively. This page covers the resource model of a Web Function, the lifecycle states of each resource, and how Lambda handles incoming HTTP requests.
 
@@ -106,4 +105,4 @@ The request lifecycle works as follows:
 
 Each request can run for up to 900 seconds (15 minutes). You can configure the timeout from 3 to 900 seconds using the revision's `timeoutSeconds` setting. The default timeout is 30 seconds.
 
-Each Web Function execution environment handles multiple concurrent requests, so your application code must be safe for concurrent use. For details on the concurrency model, see [Node.js execution model](web-functions-runtimes.md#web-functions-runtimes-execution-model).
+Each Web Function execution environment handles multiple concurrent requests, so your application code must be safe for concurrent use. For details on the concurrency model, see [Node.js execution model](web-functions-nodejs.md#web-functions-runtimes-execution-model).

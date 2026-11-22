@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS Lambda
-<a name="security-iam"></a>
 
 **Note**  
 The identity-based and resource-based policy guidance in this topic describes Lambda Event Functions. Lambda Web Functions use a different access-control model; see [Lambda Web Function permissions](web-functions-permissions.md) and [Lambda Web Function endpoint access control](web-functions-endpoint-access-control.md). For Lambda MicroVMs, see [Security and permissions](microvms-security.md).

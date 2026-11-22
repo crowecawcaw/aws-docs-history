@@ -1,7 +1,6 @@
 
 
 # Monitoring Lambda function URLs
-<a name="urls-monitoring"></a>
 
 You can use AWS CloudTrail and Amazon CloudWatch to monitor your function URLs.
 

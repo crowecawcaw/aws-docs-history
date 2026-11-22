@@ -1,7 +1,6 @@
 
 
 # Deploy Node.js Lambda Event Functions with container images
-<a name="nodejs-image"></a>
 
 There are three ways to build a container image for a Node.js Lambda Event Function:
 + [Using an AWS base image for Node.js](#nodejs-image-instructions)
@@ -32,7 +31,7 @@ AWS provides the following base images for Node.js:
 
 | Tags | Runtime | Operating system | Dockerfile | Deprecation | 
 | --- | --- | --- | --- | --- | 
-| 26 | Node.js 26 | Amazon Linux 2023 | [Dockerfile for Node.js 26 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/nodejs26.x/Dockerfile.nodejs26.x) |  Not scheduled  | 
+| 26 | Node.js 26 | Amazon Linux 2023 | [Dockerfile for Node.js 26 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/nodejs26.x/Dockerfile.nodejs26.x) |  Apr 30, 2029  | 
 | 24 | Node.js 24 | Amazon Linux 2023 | [Dockerfile for Node.js 24 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/nodejs24.x/Dockerfile.nodejs24.x) |  Apr 30, 2028  | 
 | 22 | Node.js 22 | Amazon Linux 2023 | [Dockerfile for Node.js 22 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/nodejs22.x/Dockerfile.nodejs22.x) |  May 30, 2027  | 
 
@@ -64,21 +63,21 @@ To complete the steps in this section, you must have the following:
 
 1. Create a directory for the project, and then switch to that directory.
 
-   ```
+   ```bash
    mkdir example
    cd example
    ```
 
 1. Create a new Node.js project with `npm`. To accept the default options provided in the interactive experience, press `Enter`.
 
-   ```
+   ```bash
    npm init
    ```
 
 1. Create a new file called `index.js`. You can add the following sample function code to the file for testing, or use your own.  
 **Example CommonJS handler**  
 
-   ```
+   ```javascript
    exports.handler = async (event) => {
        const response = {
            statusCode: 200,
@@ -98,7 +97,7 @@ To complete the steps in this section, you must have the following:
    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.  
 **Example Dockerfile**  
 
-   ```
+   ```dockerfile
    FROM {{public.ecr.aws/lambda/nodejs:22}}
    
    # Copy function code
@@ -151,13 +150,13 @@ If you built the Docker image for the ARM64 instruction set architecture, be sur
 
    In PowerShell, run the following `Invoke-WebRequest` command:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{}' -ContentType "application/json"
    ```
 
    This command invokes the function with an empty event and returns a response. If you're using your own function code rather than the sample function code, you might want to invoke the function with a JSON payload. Example:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{{{"payload":"hello world!"}}}' -ContentType "application/json"
    ```
 
@@ -290,7 +289,7 @@ If you use an [OS-only base image](images-create.md#runtimes-images-provided) or
 
 Install the [Node.js runtime interface client](https://www.npmjs.com/package/aws-lambda-ric) using the npm package manager:
 
-```
+```bash
 npm install aws-lambda-ric
 ```
 
@@ -314,21 +313,21 @@ To complete the steps in this section, you must have the following:
 
 1. Create a directory for the project, and then switch to that directory.
 
-   ```
+   ```bash
    mkdir example
    cd example
    ```
 
 1. Create a new Node.js project with `npm`. To accept the default options provided in the interactive experience, press `Enter`.
 
-   ```
+   ```bash
    npm init
    ```
 
 1. Create a new file called `index.js`. You can add the following sample function code to the file for testing, or use your own.  
 **Example CommonJS handler**  
 
-   ```
+   ```javascript
    exports.handler = async (event) => {
        const response = {
            statusCode: 200,
@@ -349,7 +348,7 @@ To complete the steps in this section, you must have the following:
    Note that the example Dockerfile does not include a [USER instruction](https://docs.docker.com/reference/dockerfile/#user). When you deploy a container image to Lambda, Lambda automatically defines a default Linux user with least-privileged permissions. This is different from standard Docker behavior which defaults to the `root` user when no `USER` instruction is provided.  
 **Example Dockerfile**  
 
-   ```
+   ```dockerfile
    # Define custom function directory
    ARG FUNCTION_DIR="/function"
    
@@ -436,7 +435,7 @@ Use the [runtime interface emulator](https://github.com/aws/aws-lambda-runtime-i
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $dirPath = "$HOME\.aws-lambda-rie"
    if (-not (Test-Path $dirPath)) {
        New-Item -Path $dirPath -ItemType Directory
@@ -472,7 +471,7 @@ Use the [runtime interface emulator](https://github.com/aws/aws-lambda-runtime-i
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    docker run --platform linux/amd64 -d -v "$HOME\.aws-lambda-rie:/aws-lambda" -p 9000:8080 `
    --entrypoint /aws-lambda/aws-lambda-rie `
    {{docker-image:test}} `
@@ -507,13 +506,13 @@ If you built the Docker image for the ARM64 instruction set architecture, be sur
 
    In PowerShell, run the following `Invoke-WebRequest` command:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{}' -ContentType "application/json"
    ```
 
    This command invokes the function with an empty event and returns a response. If you're using your own function code rather than the sample function code, you might want to invoke the function with a JSON payload. Example:
 
-   ```
+   ```powershell
    Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{{{"payload":"hello world!"}}}' -ContentType "application/json"
    ```
 

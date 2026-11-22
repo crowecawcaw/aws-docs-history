@@ -1,7 +1,6 @@
 
 
 # Kafka event source mapping logging
-<a name="esm-logging"></a>
 
 You can configure the system-level logging for your Kafka event source mappings to enable and filter the system logs that Lambda event pollers send to CloudWatch. 
 
@@ -104,7 +103,7 @@ When Lambda event poller sends the log, each log entry contains general event so
 
 WARN record contains errors or warnings from the event poller, and it's emitted when the event happened. For example:
 
-```
+```json
 {
     "eventType": "ESM_PROCESSING_EVENT",
     "timestamp": 1546347650000,
@@ -124,7 +123,7 @@ WARN record contains errors or warnings from the event poller, and it's emitted 
 
 INFO record contains Kafka consumer client configurations in each event poller, and it's emitted on the event of a consumer being built or changed. For example:
 
-```
+```json
 {
     "eventType": "POLLER_STATUS_EVENT",
     "timestamp": 1546347660000,
@@ -166,7 +165,7 @@ INFO record contains Kafka consumer client configurations in each event poller, 
 
 DEBUG log contains the Kafka offsets related info in event source mapping processing, and the offset info is emitted per minute. For example:
 
-```
+```json
 {
     "eventType": "KAFKA_STATUS_EVENT",
     "timestamp": 1546347670000,

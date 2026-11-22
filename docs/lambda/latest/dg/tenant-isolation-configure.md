@@ -1,7 +1,6 @@
 
 
 # Enabling tenant isolation for Lambda Event Functions
-<a name="tenant-isolation-configure"></a>
 
 To activate tenant isolation mode, create a new Lambda Event Function. You cannot enable tenant isolation on existing Event Functions.
 
@@ -37,7 +36,7 @@ To activate tenant isolation mode, create a new Lambda Event Function. You canno
 
 When creating a new Event Function using the CLI, add the `--tenancy-config '{"TenantIsolationMode": "PER_TENANT"}'` option to your [create-function](https://docs.aws.amazon.com/cli/latest/reference/lambda/create-function.html) request. Example:
 
-```
+```bash
 aws lambda create-function \
     --function-name {{image-analysis}} \
     --runtime {{nodejs24.x}} \

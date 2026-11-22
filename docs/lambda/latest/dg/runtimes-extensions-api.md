@@ -1,7 +1,6 @@
 
 
 # Using the Lambda Extensions API to create extensions
-<a name="runtimes-extensions-api"></a>
 
 Lambda Event Function authors use extensions to integrate Lambda with their preferred tools for monitoring, observability, security, and governance. Event Function authors can use extensions from AWS, [AWS Partners](extensions-api-partners.md), and open-source projects. For more information on using extensions, see [Introducing AWS Lambda Extensions](https://aws.amazon.com/blogs/aws/getting-started-with-using-your-favorite-operational-tools-on-aws-lambda-extensions-are-now-generally-available/) on the AWS Compute Blog. This section describes how to use the Lambda Extensions API, the Lambda execution environment lifecycle, and the Lambda Extensions API reference. 
 

@@ -1,31 +1,40 @@
 
 
-# Building a custom runtime for AWS Lambda Event Functions
-<a name="runtimes-custom"></a>
+# Supporting a new programming language for AWS Lambda Event Functions
 
-You can implement an AWS Lambda runtime in any programming language. A runtime is a program that runs a Lambda Event Function's handler method when the function is invoked. You can include the runtime in your function's deployment package or distribute it in a [layer](chapter-layers.md). When you create the function, choose an [OS-only runtime](runtimes-provided.md) (the `provided` runtime family).
+You can support any programming language in Lambda by implementing a runtime interface client (RIC) and an associated bootstrap script for that language. You then include them, together with the language runtime, in a [customer-managed runtime](runtimes-customer-managed.md).
+
+The runtime image has the structure that [Building runtime images](cmr-building-images.md) describes. The runtime must include the OS libraries, the language runtime, and the RIC. It can also include other components, such as SDKs and certificates.
+
+You write the RIC in your chosen programming language. The RIC is the entry point for that language, and the bootstrap script starts it during a cold start. The RIC loads your function code and acts as the bridge between the Lambda service and your function handler. Some Lambda features require specific implementation in the RIC. For more information, see [Implementing response streaming in your runtime](#runtimes-custom-response-streaming) and [Supporting Lambda Managed Instances in your runtime](#runtimes-custom-managed-instances).
+
+For languages that have a separate language runtime executable, the RIC is separate from your function code. Languages such as Go, Rust, C\+\+, and Swift compile to an executable binary. These languages still need a RIC, but you build it into the executable as a library, together with the function handler. This also applies to Java GraalVM Native Image and .NET NativeAOT, which also compile to an executable binary. Running the executable only requires an operating system environment. These functions typically use an OS-only runtime (the `provided` runtime family), although you can also use a customer-managed runtime to modify the OS or include additional components. For more information, see [OS-only runtimes](lambda-runtimes.md#runtimes-provided).
+
+We recommend that you implement a new programming language as a customer-managed runtime. You can also include the language runtime, bootstrap script, and RIC in your function's deployment package (.zip file) or in a [Lambda layer](chapter-layers.md). This approach is called bring your own language (BYOL). With BYOL, you choose an OS-only runtime when you create the function. The RIC implementation is the same for both approaches.
 
 **Note**  
-Creating a custom runtime is an advanced use case. If you're looking for information about compiling to a native binary or using a third-party off-the-shelf runtime, see [When to use Lambda's OS-only runtimes](runtimes-provided.md).
+Building a RIC is an advanced use case. To build a customer-managed runtime for a language that Lambda already supports, see [Building a runtime image from a Lambda base image](cmr-base-images.md). To use one of the open-source RICs that Lambda provides, see [Open-source repositories](runtimes-open-source.md).
 
-For a walkthrough of the custom runtime deployment process, see [Tutorial: Building a custom runtime](runtimes-walkthrough.md).
+The rest of this page describes how to build a RIC. For a tutorial that builds a runtime in Bash, see [Tutorial: Creating a Bash runtime](runtimes-walkthrough.md).
 
 **Topics**
 + [Requirements](#runtimes-custom-build)
-+ [Implementing response streaming in a custom runtime](#runtimes-custom-response-streaming)
-+ [Building custom runtimes for Lambda Managed Instances](#runtimes-custom-managed-instances)
++ [Implementing response streaming in your runtime](#runtimes-custom-response-streaming)
++ [Supporting Lambda Managed Instances in your runtime](#runtimes-custom-managed-instances)
++ [Using the Lambda runtime API](runtimes-api.md)
++ [Tutorial: Creating a Bash runtime](runtimes-walkthrough.md)
 
 ## Requirements
 <a name="runtimes-custom-build"></a>
 
-Custom runtimes must complete certain initialization and processing tasks. A runtime runs the function's setup code, reads the handler name from an environment variable, and reads invocation events from the Lambda runtime API. The runtime passes the event data to the function handler, and posts the response from the handler back to Lambda.
+Your RIC and bootstrap script must complete certain initialization and processing tasks. The RIC runs the function's setup code, reads the handler name from an environment variable, and reads invocation events from the Lambda runtime API. The RIC passes the event data to the function handler, and posts the response from the handler back to Lambda.
 
 ### Initialization tasks
 <a name="runtimes-custom-initialization"></a>
 
 The initialization tasks run once [per instance of the function](lambda-runtime-environment.md) to prepare the environment to handle invocations.
 + **Retrieve settings** – Read environment variables to get details about the function and environment.
-  + `_HANDLER` – The location to the handler, from the function's configuration. The standard format is `{{file}}.{{method}}`, where `file` is the name of the file without an extension, and `method` is the name of a method or function that's defined in the file.
+  + `_HANDLER` – The location to the handler, from the function's configuration. The standard format is `{{file}}.{{method}}`, where `file` is the name of the file without an extension, and `method` is the name of a method or function that's defined in the file. For functions that use an OS-only runtime (BYOL), Lambda sets this variable. For customer-managed runtimes, Lambda doesn't set this variable. Instead, your bootstrap script sets it from the handler argument that Lambda passes to the image's `ENTRYPOINT`. For more information, see [How Lambda starts your runtime](cmr-building-images.md#cmr-building-images-startup).
   + `LAMBDA_TASK_ROOT` – The directory that contains the function code.
   + `AWS_LAMBDA_RUNTIME_API` – The host and port of the runtime API.
 
@@ -44,7 +53,7 @@ REPORT RequestId: f8ac1208... Init Duration: 48.26 ms   Duration: 237.17 ms   Bi
 ### Processing tasks
 <a name="runtimes-custom-processing"></a>
 
-While it runs, a runtime uses the [Lambda runtime interface](runtimes-api.md) to manage incoming events and report errors. After completing initialization tasks, the runtime processes incoming events in a loop. In your runtime code, perform the following steps in order.
+While it runs, the RIC uses the [Lambda runtime API](runtimes-api.md) to manage incoming events and report errors. After completing initialization tasks, the RIC processes incoming events in a loop. In your RIC code, perform the following steps in order.
 + **Get an event** – Call the [next invocation](runtimes-api.md#runtimes-api-next) API to get the next event. The response body contains the event data. Response headers contain the request ID and other information.
 + **Propagate the tracing header** – Get the X-Ray tracing header from the `Lambda-Runtime-Trace-Id` header in the API response. Set the `_X_AMZN_TRACE_ID` environment variable locally with the same value. The X-Ray SDK uses this value to connect trace data between services.
 + **Create a context object** – Create an object with context information from environment variables and headers in the API response.
@@ -56,9 +65,11 @@ While it runs, a runtime uses the [Lambda runtime interface](runtimes-api.md) to
 ### Entrypoint
 <a name="runtimes-custom-bootstrap"></a>
 
-A custom runtime's entry point is an executable file named `bootstrap`. The bootstrap file can be the runtime, or it can invoke another file that creates the runtime. If the root of your deployment package doesn't contain a file named `bootstrap`, Lambda looks for the file in the function's layers. If the `bootstrap` file doesn't exist or isn't executable, your function returns a `Runtime.InvalidEntrypoint` error upon invocation.
+Your runtime's entry point is an executable file named `bootstrap`. The bootstrap file can be the RIC itself, for example a compiled binary. Or it can be a script that starts the language runtime and runs the RIC. For a customer-managed runtime, Lambda runs the executable that the image's `ENTRYPOINT` specifies, or `/var/runtime/bootstrap` if the image doesn't set one. For more information, see [How Lambda starts your runtime](cmr-building-images.md#cmr-building-images-startup).
 
-Here's an example `bootstrap` file that uses a bundled version of Node.js to run a JavaScript runtime in a separate file named `runtime.js`.
+For BYOL, the `ENTRYPOINT` of the OS-only runtime starts an initial bootstrap script that's included in the runtime. This script looks for your `bootstrap` file, first at the root of your function's deployment package, and then in the function's layers. If your `bootstrap` file doesn't exist or isn't executable, your function returns a `Runtime.InvalidEntrypoint` error when you invoke it.
+
+Here's an example `bootstrap` file that uses a bundled version of Node.js to run a RIC written in JavaScript in a separate file named `runtime.js`.
 
 **Example bootstrap**  
 
@@ -68,7 +79,7 @@ Here's an example `bootstrap` file that uses a bundled version of Node.js to run
     ./node-v11.1.0-linux-x64/bin/node runtime.js
 ```
 
-## Implementing response streaming in a custom runtime
+## Implementing response streaming in your runtime
 <a name="runtimes-custom-response-streaming"></a>
 
 For [response streaming functions](configuration-response-streaming.md), the `response` and `error` endpoints have slightly modified behavior that lets the runtime stream partial responses to the client and return payloads in chunks. For more information about the specific behavior, see the following:
@@ -84,17 +95,19 @@ To attach trailing headers, the runtime must set the `Trailer` header value at t
   + `Lambda-Runtime-Function-Error-Type` – The error type that the runtime encountered. This header consists of a string value. Lambda accepts any string, but we recommend a format of {{<category.reason>}}. For example, `Runtime.APIKeyNotFound`.
   + `Lambda-Runtime-Function-Error-Body` – Base64-encoded information about the error.
 
-## Building custom runtimes for Lambda Managed Instances
+## Supporting Lambda Managed Instances in your runtime
 <a name="runtimes-custom-managed-instances"></a>
 
-Lambda Managed Instances use the same runtime API as functions that use the Lambda default capacity provider. However, there are key differences in how custom runtimes must be implemented to support the concurrent execution model of Managed Instances.
+These requirements apply to runtimes that you include with your function (BYOL) and to [customer-managed runtimes](runtimes-customer-managed.md).
+
+Lambda Managed Instances use the same runtime API as functions that use the Lambda default capacity provider. However, there are key differences in how runtimes must be implemented to support the concurrent execution model of Managed Instances.
 
 ### Concurrent request handling
 <a name="runtimes-custom-managed-instances-concurrency"></a>
 
-The primary difference when building custom runtimes for Managed Instances is support for concurrent invocations. Unlike functions that use the Lambda default capacity provider, where the runtime processes one invocation at a time, Managed Instances can process multiple invocations simultaneously within a single execution environment.
+The primary difference when building runtimes for Managed Instances is support for concurrent invocations. Unlike functions that use the Lambda default capacity provider, where the runtime processes one invocation at a time, Managed Instances can process multiple invocations simultaneously within a single execution environment.
 
-Your custom runtime must:
+Your runtime must:
 + **Support concurrent `/next` requests** – The runtime can make multiple simultaneous calls to the [next invocation](runtimes-api.md#runtimes-api-next) API, up to the limit specified by the `AWS_LAMBDA_MAX_CONCURRENCY` environment variable.
 + **Handle concurrent `/response` requests** – Multiple invocations can call the [invocation response](runtimes-api.md#runtimes-api-response) API simultaneously.
 + **Implement thread-safe request handling** – Ensure that concurrent invocations don't interfere with each other by properly managing shared resources and state.

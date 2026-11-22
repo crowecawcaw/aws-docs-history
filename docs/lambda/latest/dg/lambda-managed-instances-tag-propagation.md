@@ -1,7 +1,6 @@
 
 
 # Tag propagation
-<a name="lambda-managed-instances-tag-propagation"></a>
 
 With tag propagation, you can specify a set of tags on your capacity provider configuration, and Lambda automatically applies those tags to all managed resources it creates, including Amazon EC2 instances, Amazon EBS volumes, and ENIs. This ensures consistent tagging for cost allocation, service control policies (SCPs), and compliance requirements without requiring manual intervention or custom automation.
 
@@ -24,7 +23,7 @@ Tag propagation applies only to new managed resources provisioned after the conf
 
 **Create a capacity provider with tag propagation (AWS CLI):**
 
-```
+```bash
 aws lambda create-capacity-provider \
   --capacity-provider-name my-capacity-provider \
   --vpc-config SubnetIds=subnet-12345,subnet-67890,SecurityGroupIds=sg-12345 \
@@ -34,7 +33,7 @@ aws lambda create-capacity-provider \
 
 **Update an existing capacity provider to enable tag propagation:**
 
-```
+```bash
 aws lambda update-capacity-provider \
   --capacity-provider-name my-capacity-provider \
   --propagate-tags '{"Mode": "Explicit", "ExplicitTags": {"CostCenter": "12345", "Environment": "Production"}}'
@@ -42,7 +41,7 @@ aws lambda update-capacity-provider \
 
 **Disable tag propagation:**
 
-```
+```bash
 aws lambda update-capacity-provider \
   --capacity-provider-name my-capacity-provider \
   --propagate-tags '{"Mode": "None"}'

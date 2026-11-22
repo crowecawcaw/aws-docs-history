@@ -1,7 +1,6 @@
 
 
 # Hello Lambda
-<a name="example_lambda_Hello_section"></a>
 
 The following code examples show how to get started using Lambda.
 
@@ -11,7 +10,7 @@ The following code examples show how to get started using Lambda.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples). 
 
-```
+```csharp
 namespace LambdaActions;
 
 using Amazon.Lambda;
@@ -42,7 +41,7 @@ public class HelloLambda
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda/hello_lambda#code-examples). 
 Code for the CMakeLists.txt CMake file.  
 
-```
+```cpp
 # Set the minimum required version of CMake for this project.
 cmake_minimum_required(VERSION 3.13)
 
@@ -84,7 +83,7 @@ target_link_libraries(${PROJECT_NAME}
 ```
 Code for the hello\_lambda.cpp source file.  
 
-```
+```cpp
 #include <aws/core/Aws.h>
 #include <aws/lambda/LambdaClient.h>
 #include <aws/lambda/model/ListFunctionsRequest.h>
@@ -162,7 +161,7 @@ int main(int argc, char **argv) {
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples). 
 
-```
+```go
 package main
 
 import (
@@ -214,7 +213,7 @@ func main() {
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples). 
 
-```
+```java
     /**
      * Lists the AWS Lambda functions associated with the current AWS account.
      *
@@ -244,7 +243,7 @@ func main() {
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples). 
 
-```
+```javascript
 import { LambdaClient, paginateListFunctions } from "@aws-sdk/client-lambda";
 
 const client = new LambdaClient({});
@@ -271,7 +270,7 @@ export const helloLambda = async () => {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples). 
 
-```
+```python
 import boto3
 
 
@@ -303,7 +302,7 @@ if __name__ == "__main__":
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-lambda'
 
 # Creates an AWS Lambda client using the default credentials and configuration

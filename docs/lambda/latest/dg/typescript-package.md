@@ -1,7 +1,6 @@
 
 
 # Deploy transpiled TypeScript code in Lambda with .zip file archives
-<a name="typescript-package"></a>
 
 Before you can deploy TypeScript code to AWS Lambda, you need to transpile it into JavaScript. This page explains three ways to build and deploy TypeScript code to Lambda with .zip file archives:
 + [Using AWS Serverless Application Model (AWS SAM)](#aws-sam-ts)
@@ -29,13 +28,13 @@ To complete the steps in this section, you must have the following:
 
 1. Initialize the application using the Hello World TypeScript template.
 
-   ```
+   ```bash
    sam init --app-template hello-world-typescript --name sam-app --package-type Zip --runtime nodejs24.x
    ```
 
 1. (Optional) The sample application includes configurations for commonly used tools, such as [ESLlint](https://eslint.org/) for code linting and [Jest](https://jestjs.io/) for unit testing. To run lint and test commands:
 
-   ```
+   ```bash
    cd sam-app/hello-world
    npm install
    npm run lint
@@ -44,14 +43,14 @@ To complete the steps in this section, you must have the following:
 
 1. Build the app.
 
-   ```
+   ```bash
    cd sam-app
    sam build
    ```
 
 1. Deploy the app.
 
-   ```
+   ```bash
    sam deploy --guided
    ```
 
@@ -59,13 +58,13 @@ To complete the steps in this section, you must have the following:
 
 1. The output shows the endpoint for the REST API. Open the endpoint in a browser to test the function. You should see this response:
 
-   ```
+   ```json
    {"message":"hello world"}
    ```
 
 1. This is a public API endpoint that is accessible over the internet. We recommend that you delete the endpoint after testing.
 
-   ```
+   ```bash
    sam delete
    ```
 
@@ -86,20 +85,20 @@ To complete the steps in this section, you must have the following:
 
 1. Create a project directory for your new application.
 
-   ```
+   ```bash
    mkdir hello-world
    cd hello-world
    ```
 
 1. Initialize the app.
 
-   ```
+   ```bash
    cdk init app --language typescript
    ```
 
 1. Add the [@types/aws-lambda](https://www.npmjs.com/package/@types/aws-lambda) package as a development dependency. This package contains the type definitions for Lambda.
 
-   ```
+   ```bash
    npm install -D @types/aws-lambda
    ```
 
@@ -109,7 +108,7 @@ To complete the steps in this section, you must have the following:
 **Note**  
 The `import` statement imports the type definitions from [@types/aws-lambda](https://www.npmjs.com/package/@types/aws-lambda). It does not import the `aws-lambda` NPM package, which is an unrelated third-party tool. For more information, see [aws-lambda](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/aws-lambda) in the DefinitelyTyped GitHub repository.
 
-   ```
+   ```typescript
    import { Context, APIGatewayProxyResult, APIGatewayEvent } from 'aws-lambda';
    
    export const handler = async (event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult> => {
@@ -126,7 +125,7 @@ The `import` statement imports the type definitions from [@types/aws-lambda](htt
 
 1. Open **hello-world.ts** and add the following code to the file. This contains the [NodejsFunction construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs-readme.html), which creates the Lambda function, and the [LambdaRestApi construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.LambdaRestApi.html), which creates the REST API.
 
-   ```
+   ```typescript
    import { Construct } from 'constructs';
    import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
    import { LambdaRestApi } from 'aws-cdk-lib/aws-apigateway';
@@ -146,7 +145,7 @@ The `import` statement imports the type definitions from [@types/aws-lambda](htt
    + Your function handler is called `handler`.
    + The .ts file that contains the function code (**hello-world.function.ts**) is in the same directory as the .ts file that contains the construct (**hello-world.ts**). The construct uses the construct's ID ("hello-world") and the name of the Lambda handler file ("function") to find the function code. For example, if your function code is in a file called **hello-world.my-function.ts**, the **hello-world.ts** file must reference the function code like this:
 
-     ```
+     ```typescript
      const helloFunction = new NodejsFunction(this, 'my-function');
      ```
 
@@ -154,7 +153,7 @@ The `import` statement imports the type definitions from [@types/aws-lambda](htt
 
 1. Open **hello-world-stack.ts**. This is the code that defines your [AWS CDK stack](https://docs.aws.amazon.com/cdk/v2/guide/stacks.html). Replace the code with the following:
 
-   ```
+   ```typescript
    import { Stack, StackProps } from 'aws-cdk-lib';
    import { Construct } from 'constructs';
    import { HelloWorld } from './hello-world';
@@ -169,13 +168,13 @@ The `import` statement imports the type definitions from [@types/aws-lambda](htt
 
 1. from the `hello-world` directory containing your `cdk.json` file, deploy your application.
 
-   ```
+   ```bash
    cdk deploy
    ```
 
 1. The AWS CDK builds and packages the Lambda function using esbuild, and then deploys the function to the Lambda runtime. The output shows the endpoint for the REST API. Open the endpoint in a browser to test the function. You should see this response:
 
-   ```
+   ```json
    {"message":"hello world"}
    ```
 
@@ -200,13 +199,13 @@ To complete the steps in this section, you must have the following:
 
 1. Create a new Node.js project with npm or a package manager of your choice.
 
-   ```
+   ```bash
    npm init
    ```
 
 1. Add the [@types/aws-lambda](https://www.npmjs.com/package/@types/aws-lambda) and [esbuild](https://esbuild.github.io/) packages as development dependencies. The `@types/aws-lambda` package contains the type definitions for Lambda.
 
-   ```
+   ```bash
    npm install -D @types/aws-lambda esbuild
    ```
 
@@ -214,7 +213,7 @@ To complete the steps in this section, you must have the following:
 **Note**  
 The `import` statement imports the type definitions from [@types/aws-lambda](https://www.npmjs.com/package/@types/aws-lambda). It does not import the `aws-lambda` NPM package, which is an unrelated third-party tool. For more information, see [aws-lambda](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/aws-lambda) in the DefinitelyTyped GitHub repository.
 
-   ```
+   ```typescript
    import { Context, APIGatewayProxyResult, APIGatewayEvent } from 'aws-lambda';
    
    export const handler = async (event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult> => {
@@ -234,7 +233,7 @@ The `import` statement imports the type definitions from [@types/aws-lambda](htt
 ------
 #### [ Linux and MacOS ]
 
-   ```
+   ```json
    "scripts": {
      "prebuild": "rm -rf dist",
      "build": "esbuild index.ts --bundle --minify --sourcemap --platform=node --target=es2020 --outfile=dist/index.js",
@@ -247,7 +246,7 @@ The `import` statement imports the type definitions from [@types/aws-lambda](htt
 
    In this example, the `"postbuild"` command uses the [7zip](https://www.7-zip.org/download.html) utility to create your .zip file. Use your own preferred Windows zip utility and modify the command as necessary.
 
-   ```
+   ```json
    "scripts": {
      "prebuild": "del /q dist",
      "build": "esbuild index.ts --bundle --minify --sourcemap --platform=node --target=es2020 --outfile=dist/index.js",
@@ -259,19 +258,19 @@ The `import` statement imports the type definitions from [@types/aws-lambda](htt
 
 1. Build the package.
 
-   ```
+   ```bash
    npm run build
    ```
 
 1. Create a Lambda function using the .zip deployment package. Replace the highlighted text with the Amazon Resource Name (ARN) of your [execution role](lambda-intro-execution-role.md).
 
-   ```
+   ```bash
    aws lambda create-function --function-name hello-world --runtime "nodejs24.x" --role {{arn:aws:iam::123456789012:role/lambda-ex}} --zip-file "fileb://dist/index.zip" --handler index.handler
    ```
 
 1. [Run a test event](testing-functions.md) to confirm that the function returns the following response. If you want to invoke this function using API Gateway, [create and configure a REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html).
 
-   ```
+   ```json
    {
      "statusCode": 200,
      "body": "{\"message\":\"hello world\"}"

@@ -1,7 +1,6 @@
 
 
 # Creating and configuring an Amazon SQS event source mapping
-<a name="services-sqs-configure"></a>
 
 To process Amazon SQS messages with Lambda, configure your queue with the appropriate settings, then create a Lambda event source mapping.
 
@@ -18,7 +17,7 @@ If you don't already have an existing Amazon SQS queue, [create one](https://doc
 To allow your function time to process each batch of records, set the source queue's [ visibility timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html) to at least six times the [configuration timeout](configuration-timeout.md) on your function. The extra time allows Lambda to retry if your function is throttled while processing a previous batch.
 
 **Note**  
-Your function's timeout must be less than or equal to the queue's visibility timeout. Lambda validates this requirement when you create or update an event source mapping and returns an error if the function timeout exceeds the queue's visibility timeout.
+Your function's timeout must be less than or equal to the queue's visibility timeout. Lambda validates this requirement when you create or update an event source mapping and returns an error if the function timeout exceeds the queue's visibility timeout. Lambda doesn't check this requirement when you change the function timeout. If you increase the function timeout above the queue's visibility timeout, messages can become visible again while your function is still processing them, and your function might process them more than once. Increase the queue's visibility timeout before you increase the function timeout.
 
 By default, if Lambda encounters an error at any point while processing a batch, all messages in that batch return to the queue. After the [ visibility timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html), the messages become visible to Lambda again. You can configure your event source mapping to use [ partial batch responses](services-sqs-errorhandling.md#services-sqs-batchfailurereporting) to return only the failed messages back to the queue.
 
@@ -71,12 +70,12 @@ The Amazon SQS queue to read records from. The Lambda Event Function and the Ama
 The status of the event source mapping. **Enable trigger** is selected by default.
 
 **Batch size**  
-The maximum number of records to send to the function in each batch. For a standard queue, this can be up to 10,000 records. For a FIFO queue, the maximum is 10. For a batch size over 10, you must also set the batch window (`MaximumBatchingWindowInSeconds`) to at least 1 second.  
+The maximum number of records to send to the function in each batch. For a standard queue, this can be up to 10,000 records. For a FIFO queue, the maximum is 10, or 10,000 if the event source mapping uses [provisioned mode](with-sqs.md#sqs-provisioned-mode). For a batch size over 10, you must also set the batch window (`MaximumBatchingWindowInSeconds`) to at least 1 second.  
 Configure your [ function timeout](https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/configurations#timeouts) to allow enough time to process an entire batch of items. If items take a long time to process, choose a smaller batch size. A large batch size can improve efficiency for workloads that are very fast or have a lot of overhead. If you configure [reserved concurrency](configuration-concurrency.md) on your function, set a minimum of five concurrent executions to reduce the chance of throttling errors when Lambda invokes your function.  
 Lambda passes all of the records in the batch to the function in a single call, as long as the total size of the events doesn't exceed the [ invocation payload size quota](gettingstarted-limits.md) for synchronous invocation (6 MB). Both Lambda and Amazon SQS generate metadata for each record. This additional metadata is counted towards the total payload size and can cause the total number of records sent in a batch to be lower than your configured batch size. The metadata fields that Amazon SQS sends can be variable in length. For more information about the Amazon SQS metadata fields, see the [ReceiveMessage](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.html) API operation documentation in the *Amazon Simple Queue Service API Reference*.
 
 **Batch window**  
-The maximum amount of time to gather records before invoking the function, in seconds. This applies only to standard queues.  
+The maximum amount of time to gather records before invoking the function, in seconds. You can set a batch window from 0 to 300 seconds. For a FIFO queue, you can set a batch window only if the event source mapping uses provisioned mode.  
 If you're using a batch window greater than 0 seconds, you must account for the increased processing time in your queue's [ visibility timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html). We recommend setting your queue's visibility timeout to six times your [Event Function timeout](configuration-timeout.md), plus the value of `MaximumBatchingWindowInSeconds`. This allows time for your Lambda Event Function to process each batch of events and to retry in the event of a throttling error.  
 When messages become available, Lambda starts processing messages in batches. Lambda starts processing five batches at a time with five concurrent invocations of your function. If messages are still available, Lambda adds up to 300 concurrent invokes of your function a minute, up to a maximum of 1,250 concurrent invokes.  
 When using provisioned mode, each event poller can handle up to 1 MB/s of throughput, up to 10 concurrent invokes, or up to 10 Amazon SQS polling API calls per second. Lambda scales the number of event pollers between your configured minimum and maximum, quickly adding up to 1,000 concurrent invokes per minute to provide low-latency processing of your Amazon SQS events. You control scaling and concurrency through these minimum and maximum event poller settings. To learn more about Event Function scaling and concurrency, see [Understanding Lambda Event Function scaling](lambda-concurrency.md).  
