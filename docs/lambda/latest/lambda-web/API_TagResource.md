@@ -1,7 +1,6 @@
 
 
 # TagResource
-<a name="API_TagResource"></a>
 
 Adds tags to a web function. If a tag key already exists, the existing value is overwritten with the new value.
 

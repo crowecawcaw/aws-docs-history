@@ -1,7 +1,6 @@
 
 
 # FunctionRevisionSummary
-<a name="API_FunctionRevisionSummary"></a>
 
 A summary of a web function revision.
 

@@ -1,7 +1,6 @@
 
 
 # Filter
-<a name="API_Filter"></a>
 
 A filter to apply when listing resources.
 

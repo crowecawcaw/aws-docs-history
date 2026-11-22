@@ -1,7 +1,6 @@
 
 
 # GetWebAccountSettings
-<a name="API_GetWebAccountSettings"></a>
 
 Retrieves details about your AWS Lambda Web Functions account settings for the current AWS Region, including the quotas that apply to web functions and your current usage.
 

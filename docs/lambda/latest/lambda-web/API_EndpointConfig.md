@@ -1,7 +1,6 @@
 
 
 # EndpointConfig
-<a name="API_EndpointConfig"></a>
 
 The configuration for a web function endpoint.
 

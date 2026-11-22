@@ -1,7 +1,6 @@
 
 
 # LoggingConfig
-<a name="API_LoggingConfig"></a>
 
 The logging configuration for a web function revision.
 

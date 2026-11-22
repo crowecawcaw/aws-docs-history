@@ -1,7 +1,6 @@
 
 
 # ScalingConfig
-<a name="API_ScalingConfig"></a>
 
 The scaling configuration for a web function endpoint.
 

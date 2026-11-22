@@ -1,7 +1,6 @@
 
 
 # ListTags
-<a name="API_ListTags"></a>
 
 Returns a list of tags applied to a web function.
 

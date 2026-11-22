@@ -1,7 +1,6 @@
 
 
 # UpdateWebFunctionEndpoint
-<a name="API_UpdateWebFunctionEndpoint"></a>
 
 Updates the configuration of a web function endpoint. You can modify the authorization type, auto-deployment mode, revision weights, scaling, and throttling settings.
 

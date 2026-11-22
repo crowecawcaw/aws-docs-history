@@ -1,7 +1,6 @@
 
 
 # ListWebFunctionEndpoints
-<a name="API_ListWebFunctionEndpoints"></a>
 
 Lists endpoints for a web function. Use pagination to ensure that the operation returns quickly and successfully.
 

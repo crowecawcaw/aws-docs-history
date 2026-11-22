@@ -1,7 +1,6 @@
 
 
 # ThrottleConfig
-<a name="API_ThrottleConfig"></a>
 
 The throttling configuration for a web function endpoint.
 

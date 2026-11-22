@@ -1,7 +1,6 @@
 
 
 # GetWebFunctionEndpoint
-<a name="API_GetWebFunctionEndpoint"></a>
 
 Retrieves details about a web function endpoint, including its current state, configuration, and domain name.
 

@@ -1,7 +1,6 @@
 
 
 # GetResourcePolicy
-<a name="API_GetResourcePolicy"></a>
 
 Retrieves the resource-based policy attached to a web function.
 

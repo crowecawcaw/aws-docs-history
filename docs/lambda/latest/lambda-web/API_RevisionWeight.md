@@ -1,7 +1,6 @@
 
 
 # RevisionWeight
-<a name="API_RevisionWeight"></a>
 
 Specifies a revision and its traffic weight for an endpoint. You can assign weights to up to two revisions to split traffic for canary or blue-green deployments.
 

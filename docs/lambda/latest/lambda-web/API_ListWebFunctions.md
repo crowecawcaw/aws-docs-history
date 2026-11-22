@@ -1,7 +1,6 @@
 
 
 # ListWebFunctions
-<a name="API_ListWebFunctions"></a>
 
 Lists web functions in your account. Use pagination to ensure that the operation returns quickly and successfully.
 

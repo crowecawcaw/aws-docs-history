@@ -1,7 +1,6 @@
 
 
 # DeleteWebFunctionRevision
-<a name="API_DeleteWebFunctionRevision"></a>
 
 Deletes a web function revision. You cannot delete a revision that is currently serving traffic on an endpoint.
 

@@ -1,7 +1,6 @@
 
 
 # GetWebFunction
-<a name="API_GetWebFunction"></a>
 
 Retrieves details about a web function, including its current state and configuration.
 

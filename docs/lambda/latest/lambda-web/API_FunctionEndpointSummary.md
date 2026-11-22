@@ -1,7 +1,6 @@
 
 
 # FunctionEndpointSummary
-<a name="API_FunctionEndpointSummary"></a>
 
 A summary of a web function endpoint.
 

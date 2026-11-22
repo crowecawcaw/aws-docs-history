@@ -1,7 +1,6 @@
 
 
 # GetWebFunctionRevision
-<a name="API_GetWebFunctionRevision"></a>
 
 Retrieves details about a web function revision, including its state and configuration.
 

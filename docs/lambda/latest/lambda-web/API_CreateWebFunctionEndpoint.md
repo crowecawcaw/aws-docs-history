@@ -1,7 +1,6 @@
 
 
 # CreateWebFunctionEndpoint
-<a name="API_CreateWebFunctionEndpoint"></a>
 
 Creates an endpoint for a web function. An endpoint exposes the web function over HTTPS and routes traffic to one or more revisions.
 

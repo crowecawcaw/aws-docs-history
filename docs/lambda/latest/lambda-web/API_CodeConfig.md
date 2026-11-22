@@ -1,7 +1,6 @@
 
 
 # CodeConfig
-<a name="API_CodeConfig"></a>
 
 The code configuration specifying the location of the deployment artifact.
 

@@ -1,7 +1,6 @@
 
 
 # ListWebFunctionRevisions
-<a name="API_ListWebFunctionRevisions"></a>
 
 Lists revisions for a web function. Use pagination to ensure that the operation returns quickly and successfully.
 

@@ -1,7 +1,6 @@
 
 
 # DeleteResourcePolicy
-<a name="API_DeleteResourcePolicy"></a>
 
 Removes the resource-based policy from a web function.
 

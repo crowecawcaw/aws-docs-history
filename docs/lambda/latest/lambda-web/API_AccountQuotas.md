@@ -1,7 +1,6 @@
 
 
 # AccountQuotas
-<a name="API_AccountQuotas"></a>
 
 The quotas that apply to web functions in your account in the current AWS Region.
 

@@ -1,7 +1,6 @@
 
 
 # DeleteWebFunctionEndpoint
-<a name="API_DeleteWebFunctionEndpoint"></a>
 
 Deletes a web function endpoint.
 

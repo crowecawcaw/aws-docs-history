@@ -1,7 +1,6 @@
 
 
 # CreateWebFunction
-<a name="API_CreateWebFunction"></a>
 
 Creates a web function with an initial revision and endpoint. To create a web function, you provide the function name, revision configuration (code and service settings), and endpoint configuration.
 

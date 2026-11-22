@@ -1,7 +1,6 @@
 
 
 # PutResourcePolicy
-<a name="API_PutResourcePolicy"></a>
 
 Adds or updates a resource-based policy on a web function. A resource-based policy grants permissions to other AWS accounts or services to perform actions on the web function.
 

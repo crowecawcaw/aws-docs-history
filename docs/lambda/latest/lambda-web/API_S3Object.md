@@ -1,7 +1,6 @@
 
 
 # S3Object
-<a name="API_S3Object"></a>
 
 The Amazon S3 location of a deployment artifact.
 

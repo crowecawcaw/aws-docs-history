@@ -1,7 +1,6 @@
 
 
 # FunctionSummary
-<a name="API_FunctionSummary"></a>
 
 A summary of a web function.
 

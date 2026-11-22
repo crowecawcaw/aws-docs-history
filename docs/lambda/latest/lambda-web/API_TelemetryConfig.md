@@ -1,7 +1,6 @@
 
 
 # TelemetryConfig
-<a name="API_TelemetryConfig"></a>
 
 The telemetry configuration for a web function revision.
 

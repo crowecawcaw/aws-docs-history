@@ -1,7 +1,6 @@
 
 
 # RegionalEndpoint
-<a name="API_RegionalEndpoint"></a>
 
 Represents the endpoint configuration and state in a specific Region.
 

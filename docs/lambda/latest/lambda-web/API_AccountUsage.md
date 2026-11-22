@@ -1,7 +1,6 @@
 
 
 # AccountUsage
-<a name="API_AccountUsage"></a>
 
 Contains your current web function usage for the current AWS Region.
 

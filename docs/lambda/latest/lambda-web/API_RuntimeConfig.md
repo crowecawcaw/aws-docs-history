@@ -1,7 +1,6 @@
 
 
 # RuntimeConfig
-<a name="API_RuntimeConfig"></a>
 
 The runtime configuration for a web function revision.
 

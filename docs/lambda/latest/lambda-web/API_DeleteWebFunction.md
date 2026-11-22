@@ -1,7 +1,6 @@
 
 
 # DeleteWebFunction
-<a name="API_DeleteWebFunction"></a>
 
 Deletes a web function and all of its associated revisions and endpoints.
 

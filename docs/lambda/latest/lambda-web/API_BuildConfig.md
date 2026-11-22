@@ -1,7 +1,6 @@
 
 
 # BuildConfig
-<a name="API_BuildConfig"></a>
 
 The build configuration for a web function revision, including code location and runtime settings.
 
