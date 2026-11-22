@@ -1,7 +1,6 @@
 
 
 # Healthcare Interoperability Stack on AWS
-<a name="healthcare-interoperability-stack"></a>
 
 Publication date: **January 31, 2023 ([Diagram history](#interop-history))**
 
