@@ -1,7 +1,6 @@
 
 
 # Document history for AWS Wavelength Developer Guide
-<a name="doc-history"></a>
 
 The following table describes significant updates to *AWS Wavelength Developer Guide*. In addition to the major changes listed here, we also update the documentation frequently to improve the descriptions and examples, and to address the feedback that you send to us.
 

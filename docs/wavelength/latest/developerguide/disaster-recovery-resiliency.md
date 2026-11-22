@@ -1,7 +1,6 @@
 
 
 # Resilience in AWS Wavelength
-<a name="disaster-recovery-resiliency"></a>
 
 AWS recommends that you architect edge applications in a hub and spoke model with the Region providing the most scalable, resilient, and cost effective options for components that are less latency sensitive, that need to be shared across Zones, or that have states that need to persist. Then, use Wavelength Zones for the application components that need low latency, data residency, higher bandwidth, or increased quality of service over 5G mobile networks.
 

@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Wavelength
-<a name="compliance-validation"></a>
 
 The existing compliance certifications for AWS services apply to services running entirely in an AWS Region. The services running in a Wavelength Zone require a separate evaluation for certifications. 
 

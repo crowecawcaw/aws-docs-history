@@ -1,7 +1,6 @@
 
 
 # Architect apps for Wavelength
-<a name="architecture"></a>
 
 Wavelength Zones are designed for the following workloads:
 + Applications that require edge resiliency across existing AWS hybrid and edge infrastructure deployments

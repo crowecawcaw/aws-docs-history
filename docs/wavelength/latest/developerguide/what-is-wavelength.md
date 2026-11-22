@@ -1,7 +1,6 @@
 
 
 # What is AWS Wavelength?
-<a name="what-is-wavelength"></a>
 
 *AWS Wavelength* enables developers to build applications that require edge computing infrastructure to deliver low latency to mobile devices and end users or increase the resiliency of their existing edge applications. Wavelength deploys standard AWS compute and storage services to the edge of communications service providers' (CSP) networks. You can extend a virtual private cloud (VPC) to one or more Wavelength Zones. You can then use AWS resources such as Amazon Elastic Compute Cloud (Amazon EC2) instances to run the applications that require low latency or edge resiliency within the Wavelength Zone, while seamlessly communicating back to your existing AWS services deployed in the parent [AWS Region](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions-availability-zones.html).
 

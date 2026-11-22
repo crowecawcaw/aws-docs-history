@@ -1,7 +1,6 @@
 
 
 # Multi-access AWS Wavelength
-<a name="multi-access"></a>
 
 TCP, UDP, and ICMP traffic from the device on the carrier network to an Amazon EC2 instance in the Wavelength Zone is supported. However, when a mobile subscriber connects to an external, non-cellular network offered by the communications service provider (CSP), such as a WiFi network, traffic is denied for most partners because traffic is characterized as *internet facing*.
 

@@ -1,7 +1,6 @@
 
 
 # Carrier gateway for AWS Wavelength
-<a name="carrier-gateways"></a>
 
 A carrier gateway serves two purposes. It allows inbound traffic from a carrier network in a specific location, and it allows outbound traffic to the carrier network and the internet. There is generally no inbound connection configuration from the internet to a Wavelength Zone through the carrier gateway with the exception of select partners. For more information, see [Multi-access AWS Wavelength](multi-access.md).
 
@@ -156,7 +155,7 @@ If you used the Amazon EC2 console to launch the instance, or you did not use th
 
    The following is example output:
 
-   ```
+   ```json
    {
        "AllocationId": "eipalloc-05807b62acEXAMPLE",
        "PublicIpv4Pool": "amazon",
@@ -175,7 +174,7 @@ If you used the Amazon EC2 console to launch the instance, or you did not use th
 
    The following is example output:
 
-   ```
+   ```json
    {
        "AssociationId": "eipassoc-02463d08ceEXAMPLE",
    }

@@ -1,7 +1,6 @@
 
 
 # Use cases for AWS Wavelength
-<a name="wavelength-use-cases"></a>
 
 Using AWS Wavelength Zones can help you accomplish a variety of goals. This section lists a few to give you an idea of the possibilities.
 

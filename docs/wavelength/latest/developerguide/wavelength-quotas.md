@@ -1,7 +1,6 @@
 
 
 # Quotas and considerations for Wavelength Zones
-<a name="wavelength-quotas"></a>
 
 Consider the following as you get started with AWS Wavelength.
 

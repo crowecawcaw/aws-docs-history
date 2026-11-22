@@ -1,7 +1,6 @@
 
 
 # How AWS Wavelength works
-<a name="how-wavelengths-work"></a>
 
 The following diagram demonstrates how you can create a subnet that uses resources in a communications service provider (CSP) network at a specific location. For resources that must be deployed to the Wavelength Zone, first opt in to the Wavelength Zone, and then create resources in the Wavelength Zone.
 

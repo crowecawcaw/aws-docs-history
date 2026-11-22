@@ -1,7 +1,6 @@
 
 
 # Available Wavelength Zones
-<a name="available-wavelength-zones"></a>
 
 AWS Wavelength Zones are associated with an AWS Region and designed to run workloads that require low latency or edge resiliency. Review the locations, carriers, and other details of each available AWS Wavelength Zone.
 
