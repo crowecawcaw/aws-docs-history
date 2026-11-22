@@ -1,7 +1,6 @@
 
 
 # IFS Maintenix Software Implementation on AWS
-<a name="maintenix-implementation"></a>
 
 Publication date: **March 24, 2022 ([Diagram history](#maintenix-history))**
 
