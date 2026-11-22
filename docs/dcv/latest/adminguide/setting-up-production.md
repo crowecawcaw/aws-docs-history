@@ -1,7 +1,6 @@
 
 
 # Installing a production license
-<a name="setting-up-production"></a>
 
 
 
@@ -288,7 +287,7 @@ The contents of the `rlm.log` file might vary slightly depending on the RLM serv
 
    1. Open the file using your preferred text editor and add the following script. Save and close the file.
 
-      ```
+      ```bash
       #! /bin/sh
       # chkconfig: 35 99 01
       # description: The Reprise License Manager daemon.

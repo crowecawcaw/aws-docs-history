@@ -1,7 +1,6 @@
 
 
 # Starting Amazon DCV sessions
-<a name="managing-sessions-start"></a>
 
 When you use the defaults to [install Windows Amazon DCV server](setting-up-installing-windows-installation.md), a [console session](managing-sessions-intro.md#managing-sessions-intro-console) is automatically created and active after the server is installed. The default console session is owned by `Administrator` and has a default session ID of `console`. You can use this session or you can [close it](managing-sessions-lifecycle-stop.md) and create a new session.
 

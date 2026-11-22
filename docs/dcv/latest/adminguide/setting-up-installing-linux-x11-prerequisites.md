@@ -1,7 +1,6 @@
 
 
 # Prerequisites for the Amazon DCV server on Linux with X11
-<a name="setting-up-installing-linux-x11-prerequisites"></a>
 
 Amazon DCV enables clients to access a remote graphical X session on a Linux server. This provides access to the corresponding Linux desktop. Amazon DCV supports two types of Linux desktop streaming: console sessions and virtual sessions. For more information about console and virtual sessions, see [Managing Amazon DCV sessions](managing-sessions.md).
 

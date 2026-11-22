@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon DCV authentication
-<a name="security-authentication"></a>
 
 By default, clients are required to authenticate against the server where Amazon DCV is hosted before connecting to a Amazon DCV session. If the client fails to authenticate, this is probably because it was prevented from connecting to the session. Client authentication requirements can be disabled to allow clients to connect to a session without authenticating against the server.
 

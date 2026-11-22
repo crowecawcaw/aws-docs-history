@@ -1,7 +1,6 @@
 
 
 # Security considerations and best practices
-<a name="url-redirection-security"></a>
 + Use specific URL patterns. Add only the domains and paths that must open on the local device, instead of broad patterns such as `https://*`.
 + Use the exception list for internal domains and other links that must remain in the session, such as `https://*.internal.example.com/*` and `https://localhost/*`.
 + Use `https://` and `sftp://` patterns. Traffic for `http://` and `ftp://` links isn't encrypted.

@@ -1,7 +1,6 @@
 
 
 # Configuring HTTP headers
-<a name="manage-headers"></a>
 
 You can configure the Amazon DCV server to send additional HTTP response headers to the Amazon DCV client when users connect to a session using the web browser client. The response headers can provide additional information about the Amazon DCV server that users are connecting to.
 

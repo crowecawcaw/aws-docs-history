@@ -1,7 +1,6 @@
 
 
 # Configure URL patterns (allow list)
-<a name="configure-url-patterns-allow-list"></a>
 
 The allow list contains the URL patterns for the links that you want to open on the local device. A link that matches any pattern in the allow list is redirected. If the allow list is empty, no links are redirected.
 

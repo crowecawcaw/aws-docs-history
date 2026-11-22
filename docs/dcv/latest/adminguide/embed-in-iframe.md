@@ -1,7 +1,6 @@
 
 
 # Embed the Amazon DCV web browser client inside an iFrame
-<a name="embed-in-iframe"></a>
 
 By default, to protect against clickjacking attacks, Amazon DCV doesn't allow the web browser client to be embedded inside an iFrame. However, you can override this default behavior to allow the web browser client to run inside an iFrame.
 

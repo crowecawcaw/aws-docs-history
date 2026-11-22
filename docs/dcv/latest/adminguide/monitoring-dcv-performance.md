@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon DCV Performance and Statistics
-<a name="monitoring-dcv-performance"></a>
 
 Starting with Amazon DCV 2023.1 server, you can use Windows Performance Counters to monitor various aspects of the protocol performance and collect the statistics about the Amazon DCV sessions and connections.
 

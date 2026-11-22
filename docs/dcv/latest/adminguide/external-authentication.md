@@ -1,7 +1,6 @@
 
 
 # Use External Authentication
-<a name="external-authentication"></a>
 
 By default, Amazon DCV client authentication is delegated to the underlying operating system. With Windows Amazon DCV servers, authentication is delegated to WinLogon. With Linux and macOS Amazon DCV servers, authentication is delegated to Linux PAM.
 

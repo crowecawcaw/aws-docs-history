@@ -1,7 +1,6 @@
 
 
-# Prerequisites
-<a name="url-redirection-prerequisites"></a>
+# URL redirection prerequisites
 
 Before you enable URL redirection, make sure that your environment meets the following requirements.
 

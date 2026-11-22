@@ -1,7 +1,6 @@
 
 
 # Amazon DCV end of support life
-<a name="eosl"></a>
 
 The Amazon DCV End of Support Life (EOSL) defines the point in time after which a specific major version (and all of its minor versions) of Amazon DCV no longer receives support and is no longer tested for compatibility with newer versions.
 

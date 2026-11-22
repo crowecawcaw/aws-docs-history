@@ -1,7 +1,6 @@
 
 
 # Multimonitor/full screen failure with NVIDIA GPUs on Windows
-<a name="multimonitor-failure-nvidia"></a>
 
 DCV full screen/multimonitor feature may fail in cases where a Windows server host has an NVIDIA GPU. When this happens, the display will refuse to enter full screen mode or the server will fail to configure a display layout with multiple remote monitors.
 

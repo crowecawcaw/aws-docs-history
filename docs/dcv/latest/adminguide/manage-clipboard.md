@@ -1,7 +1,6 @@
 
 
 # Configuring the clipboard on a Linux Amazon DCV Server
-<a name="manage-clipboard"></a>
 
 Linux operating systems feature two buffers that you can use to copy and paste content. The buffers are the primary selection and the clipboard. To copy content into the primary selection, highlight the content by dragging the pointer. To paste it from the primary selection, use either the pointer or the **Shift\+Insert** keyboard shortcut. To copy content into the clipboard, highlight the content and select **Copy** from the context (right-click) menu. To paste it from the clipboard, select **Paste** from the context (right-click) menu.
 

@@ -1,7 +1,6 @@
 
 
 # Step 2: License the Amazon DCV Server
-<a name="setting-up-license"></a>
 
 After you have installed the Amazon DCV server software, you need to download and install the license to use Amazon DCV. The Amazon DCV licensing requirements differ depending on where you are installing and using the Amazon DCV server.
 
@@ -27,7 +26,7 @@ Make sure that your instance has the following properties:
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

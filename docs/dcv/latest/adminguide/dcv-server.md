@@ -1,7 +1,6 @@
 
 
 # Amazon DCV server
-<a name="dcv-server"></a>
 
 This counter set contains global statistics about the DCV Server service on the host. It also contains an aggregated variant of many counters that are also available in the other counter sets, providing a way to access the information aggregated over the full lifetime of the server, and with a static path (you don’t have to retrieve session or connection identifiers in order to read the counters in this counter set).
 

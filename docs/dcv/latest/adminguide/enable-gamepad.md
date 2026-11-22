@@ -1,7 +1,6 @@
 
 
 # Enabling gamepad support
-<a name="enable-gamepad"></a>
 
 Beginning with Amazon DCV Server 2022.0, gamepad devices can be used when connecting to any of the supported Windows operating systems.
 

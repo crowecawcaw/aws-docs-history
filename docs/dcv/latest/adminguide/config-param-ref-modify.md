@@ -1,7 +1,6 @@
 
 
 # Modifying configuration parameters
-<a name="config-param-ref-modify"></a>
 
 This section describes how to modify the configuration parameters for your Amazon DCV server. For more information about the registry keys for Windows servers, sections for Linux servers, parameter names, types, and valid values, see the [Amazon DCV Server parameter reference](config-param-ref.md).
 

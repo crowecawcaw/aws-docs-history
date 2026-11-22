@@ -1,7 +1,6 @@
 
 
 # Finding and stopping idle sessions
-<a name="stop-idle-sessions"></a>
 
 You can identify idle Amazon DCV sessions using the `dcv describe-sessions` CLI command with the `-j` command option. Specifying the `-j` option configures the command to return the output in JSON format, which provides additional details about the session.
 
@@ -13,7 +12,7 @@ $ dcv describe-session {{my-session}} -j
 
 Output:
 
-```
+```json
 {
     "id" : "my-session",
     "owner" : "dcvuser",

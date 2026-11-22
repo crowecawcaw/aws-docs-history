@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon DCV authorization
-<a name="security-authorization"></a>
 
 Authorization is used to grant or deny Amazon DCV clients permissions to specific Amazon DCV features. In Amazon DCV, authorization is configured using a *permissions file*. The permissions file defines the specific Amazon DCV features that are available to specific users when they connect to a session.
 

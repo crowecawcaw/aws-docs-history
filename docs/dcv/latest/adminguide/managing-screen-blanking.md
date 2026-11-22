@@ -1,7 +1,6 @@
 
 
 # Managing screen blanking on Linux
-<a name="managing-screen-blanking"></a>
 
 **Note**  
 Screen blanking applies only to console sessions, which are not supported on Linux with Wayland.

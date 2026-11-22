@@ -1,7 +1,6 @@
 
 
 # Configuring host-to-client URL redirection
-<a name="config-url-redirection"></a>
 
 Beginning with Amazon DCV Server 2026.0, host-to-client URL redirection opens links that users access in an Amazon DCV session on the user's local device instead of in the session. Redirecting resource-intensive web content, such as video, to the local device reduces latency and lowers resource consumption on the Amazon DCV server.
 
@@ -25,7 +24,7 @@ While a client is connected, an application named **AWS DCV URL Redirector** app
 When no client is connected to the session, links open in the session as usual, and **AWS DCV URL Redirector** doesn't appear in **Default apps**.
 
 **Topics**
-+ [Prerequisites](url-redirection-prerequisites.md)
++ [URL redirection prerequisites](url-redirection-prerequisites.md)
 + [Enable host-to-client URL redirection](enable-url-redirection.md)
 + [Configure URL patterns (allow list)](configure-url-patterns-allow-list.md)
 + [Configure the exception list (optional)](configure-exception-list.md)
@@ -34,5 +33,5 @@ When no client is connected to the session, links open in the session as usual, 
 + [Disable host-to-client URL redirection](disable-url-redirection.md)
 + [Configure URL redirection using the Windows Registry Editor](configure-url-redirection-registry.md)
 + [URL redirection parameters](url-redirection-parameters.md)
-+ [Troubleshooting](url-redirection-troubleshooting.md)
++ [Troubleshooting URL redirection](url-redirection-troubleshooting.md)
 + [Security considerations and best practices](url-redirection-security.md)

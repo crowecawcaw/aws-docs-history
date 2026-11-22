@@ -1,7 +1,6 @@
 
 
 # Starting the Amazon DCV Server
-<a name="manage-start"></a>
 
 The Amazon DCV server must be running to host sessions.
 

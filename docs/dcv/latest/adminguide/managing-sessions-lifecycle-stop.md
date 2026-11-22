@@ -1,7 +1,6 @@
 
 
 # Stopping Amazon DCV sessions
-<a name="managing-sessions-lifecycle-stop"></a>
 
 A console session can only be stopped by the administrator on Windows Amazon DCV servers, and the root user on Linux and macOS Amazon DCV servers. A virtual session on a Linux Amazon DCV server can only be stopped by the root user or the Amazon DCV user who created it. 
 

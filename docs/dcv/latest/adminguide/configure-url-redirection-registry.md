@@ -1,7 +1,6 @@
 
 
 # Configure URL redirection using the Windows Registry Editor
-<a name="configure-url-redirection-registry"></a>
 
 As an alternative to the `dcv set-config` command, you can set the URL redirection parameters in the Windows Registry Editor. The following table lists the registry values.
 

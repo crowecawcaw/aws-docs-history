@@ -1,7 +1,6 @@
 
 
 # Amazon DCV server imaging
-<a name="dcv-server-imaging"></a>
 
 Counters in this set provide information about the subsystems responsible for screen grabbing, encoding and delivery.
 

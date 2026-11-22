@@ -1,7 +1,6 @@
 
 
 # Amazon DCV server channels
-<a name="dcv-server-channels"></a>
 
 Counters in this set provide information about individual channels in a client connection. There can be additional channels for extensions.
 

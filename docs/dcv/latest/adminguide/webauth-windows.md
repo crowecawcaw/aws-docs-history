@@ -1,7 +1,6 @@
 
 
 # Configuring WebAuthn redirection on Windows hosts
-<a name="webauth-windows"></a>
 
 WebAuthn can be enabled or disabled using the `webauthn-redirection` permission. For more information, see [Working with permissions files](https://docs.aws.amazon.com/dcv/latest/adminguide/security-authorization-file-create.html).
 

@@ -1,7 +1,6 @@
 
 
 # Importing a permissions file
-<a name="security-authorization-file-create-import"></a>
 
 The `imports` section is typically the first section of the permissions file. You can use this section to reference and include existing permissions files. You can also use it to incorporate previously defined Amazon DCV permissions into your permissions file.
 

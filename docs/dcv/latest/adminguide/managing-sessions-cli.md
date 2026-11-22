@@ -1,7 +1,6 @@
 
 
 # Using the Command Line Tool to Manage Sessions
-<a name="managing-sessions-cli"></a>
 
 The Amazon DCV server includes a command line tool that can be used to start, stop, and view Amazon DCV sessions.
 

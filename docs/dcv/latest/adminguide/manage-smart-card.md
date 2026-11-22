@@ -1,7 +1,6 @@
 
 
 # Configuring smart card caching
-<a name="manage-smart-card"></a>
 
 The smart card caching feature enables the Amazon DCV server to cache smart card values. When this feature is enabled, the Amazon DCV server caches the results of recent calls to the client's smart card. Future calls are retrieved directly from the server's cache, instead of from the client. This reduces the amount of traffic that's transferred between the client and the server and improves performance. This is especially useful if the client has a slow internet connection.
 

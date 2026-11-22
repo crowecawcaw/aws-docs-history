@@ -1,7 +1,6 @@
 
 
 # Amazon DCV Server parameter reference
-<a name="config-param-ref"></a>
 
 The following table lists the parameters that can be configured to customize the Amazon DCV server.
 

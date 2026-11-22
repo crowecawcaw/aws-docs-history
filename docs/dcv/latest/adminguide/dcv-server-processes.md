@@ -1,7 +1,6 @@
 
 
 # Amazon DCV server processes
-<a name="dcv-server-processes"></a>
 
 This counter set contains information about the individual Amazon DCV processes.
 

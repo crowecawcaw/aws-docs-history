@@ -1,7 +1,6 @@
 
 
 # Configuring the printer on a Linux Amazon DCV Server
-<a name="manage-printer"></a>
 
 Amazon DCV allows you to print either to a local redirected printer or to a virtual Amazon DCV printer.
 

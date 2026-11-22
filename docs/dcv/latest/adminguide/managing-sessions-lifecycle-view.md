@@ -1,7 +1,6 @@
 
 
 # Viewing Amazon DCV sessions
-<a name="managing-sessions-lifecycle-view"></a>
 
 The administrator on a Windows Amazon DCV server or the root user on a Linux Amazon DCV server can view all active sessions that are running on the server. Amazon DCV users can only view sessions that they have created.
 
@@ -74,7 +73,7 @@ $ dcv describe-session {{session-id}} --json
 
 The following is example JSON output.
 
-```
+```json
 {
   "id" : "{{session-id}}",
   "owner" : "dcvuser",

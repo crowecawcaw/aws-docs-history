@@ -1,7 +1,6 @@
 
 
 # Managing the Amazon DCV Session display layout
-<a name="managing-session-display"></a>
 
 You can set the display layout for a running Amazon DCV session. The display layout specifies the default configuration that's used when clients connect to the session. However, clients can manually override the layout using the Amazon DCV client settings or the native operating system display settings. 
 

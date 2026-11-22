@@ -1,7 +1,6 @@
 
 
 # Configure the exception list (optional)
-<a name="configure-exception-list"></a>
 
 The exception list contains URL patterns for links that you don't want to redirect. Amazon DCV evaluates the exception list before the allow list. If a link matches an exception pattern, it opens in the session regardless of the allow list. Exception patterns use the same syntax as allow list patterns.
 

@@ -1,7 +1,6 @@
 
 
 # Step 3: Set up Amazon DCV Server imaging (Optional)
-<a name="imaging"></a>
 
  After customizing an [Amazon EC2](https://aws.amazon.com/ec2/) instance, you can capture those changes as an [Amazon Machine Image]( https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) (AMI). This feature allows you to launch multiple instances from a single AMI, all with the same configuration, when needed. When you have a requirement to securely stream with a high-performance remote display protocol, you can add Amazon DCV to your operating system before taking an image of the Amazon EC2 instance. The Amazon DCV configuration is included in your image, allowing you to separate business units at the image level or set specific DCV configurations on a deployed instance. 
 

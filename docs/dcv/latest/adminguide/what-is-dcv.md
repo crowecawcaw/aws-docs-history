@@ -1,7 +1,6 @@
 
 
 # What Is Amazon DCV?
-<a name="what-is-dcv"></a>
 
 **Note**  
 Amazon DCV was previously known as NICE DCV.

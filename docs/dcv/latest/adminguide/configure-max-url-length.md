@@ -1,7 +1,6 @@
 
 
 # Configure the maximum URL length (optional)
-<a name="configure-max-url-length"></a>
 
 By default, URLs longer than 2,048 characters aren't redirected and open in the session. You can change this limit. The limit doesn't apply to `mailto:` links.
 
@@ -13,7 +12,7 @@ By default, URLs longer than 2,048 characters aren't redirected and open in the 
    C:\> cd "C:\Program Files\NICE\DCV\Server\bin"
    ```
 
-1. Set the `max-url-length` parameter to the maximum number of characters. The maximum value is `65536`. Amazon DCV doesn't reject a larger value. Instead, Amazon DCV clamps the value to `65536` and writes a warning to the log. To turn off the length check, use `0`. For example:
+1. Set the `max-url-length` parameter to the maximum number of characters. The maximum value is `65536`. Amazon DCV doesn't reject a larger value. Instead, Amazon DCV clamps the value to `65536` and writes a warning to the log. To turn off the length check, use `0`. The following command sets the maximum URL length to 4,096 characters:
 
    ```
    C:\Program Files\NICE\DCV\Server\bin> dcv.exe set-config --section url-redirection --key max-url-length 4096

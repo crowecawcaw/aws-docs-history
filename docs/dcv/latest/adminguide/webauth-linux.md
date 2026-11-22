@@ -1,7 +1,6 @@
 
 
 # Configuring WebAuthn redirection on Linux hosts
-<a name="webauth-linux"></a>
 
 DCV Linux server currently support Standard WebAuthn. Standard WebAuthn requires a browser extension to facilitate the redirection of WebAuthn prompts onto the client. WebAuthn can be enabled or disabled using the webauthn-redirection permission. For more information, see [Working with permissions files](https://docs.aws.amazon.com/dcv/latest/adminguide/security-authorization-file-create.html).
 

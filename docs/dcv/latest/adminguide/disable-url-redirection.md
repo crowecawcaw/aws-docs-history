@@ -1,7 +1,6 @@
 
 
 # Disable host-to-client URL redirection
-<a name="disable-url-redirection"></a>
 
 1. Open a Command Prompt as the administrator and go to the Amazon DCV Server installation directory:
 

@@ -1,7 +1,6 @@
 
 
 # Prerequisites for the Amazon DCV server on Linux with Wayland
-<a name="setting-up-installing-linux-wayland-prerequisites"></a>
 
 Amazon DCV enables clients to access a remote graphical session on a Linux server. This provides access to the corresponding Linux desktop. With Wayland, Amazon DCV supports virtual sessions only. For more information about virtual sessions, see [Managing Amazon DCV sessions](managing-sessions.md).
 

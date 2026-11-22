@@ -1,7 +1,6 @@
 
 
 # Installing an extended evaluation license
-<a name="setting-up-evaluation"></a>
 
 When you request an extended evaluation license from Amazon DCV, you receive a `license.lic` file that defines the license. 
 

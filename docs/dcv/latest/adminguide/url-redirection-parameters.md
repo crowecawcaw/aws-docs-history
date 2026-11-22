@@ -1,7 +1,6 @@
 
 
 # URL redirection parameters
-<a name="url-redirection-parameters"></a>
 
 The following table describes the configuration parameters in the `url-redirection` section. On Windows Amazon DCV servers, the parameters are stored in the `HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\url-redirection` registry key. For more information, see the [Amazon DCV Server parameter reference](https://docs.aws.amazon.com/dcv/latest/adminguide/config-param-ref.html).
 

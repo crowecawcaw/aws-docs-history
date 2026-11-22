@@ -1,7 +1,6 @@
 
 
 # Configuring multi-channel audio
-<a name="manage-audio"></a>
 
 Amazon DCV supports up to 7.1 audio channels when using the Amazon DCV native clients. The web browser clients supports only stereo 2.0 audio channels.
 

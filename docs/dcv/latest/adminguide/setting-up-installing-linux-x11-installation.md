@@ -1,7 +1,6 @@
 
 
 # Installing the Amazon DCV Server on Linux with X11
-<a name="setting-up-installing-linux-x11-installation"></a>
 
 The Amazon DCV server is installed using a series of RPM or .deb packages, depending on your host server's operating system. The packages install all required packages and their dependencies, and perform the required server configuration.
 

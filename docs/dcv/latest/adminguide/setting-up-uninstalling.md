@@ -1,7 +1,6 @@
 
 
 # Uninstalling the Amazon DCV Server
-<a name="setting-up-uninstalling"></a>
 
 The following topic describes how to uninstall the Amazon DCV server.
 

@@ -1,7 +1,6 @@
 
 
 # Adding permissions
-<a name="security-authorization-file-create-permission"></a>
 
 The `[permissions]` section of the permissions file lets you control user and group access to specific features or aliases.
 

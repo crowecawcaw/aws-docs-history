@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon DCV
-<a name="troubleshooting"></a>
 
 This chapter explains how to identify and troubleshoot problems that you might have with Amazon DCV.
 

@@ -1,7 +1,6 @@
 
 
 # Installing the Amazon DCV Server on Linux with Wayland
-<a name="setting-up-installing-linux-wayland-installation"></a>
 
 The Amazon DCV server is installed using a series of RPM or .deb packages, depending on your host server's operating system. The packages install all required packages and their dependencies, and perform the required server configuration.
 

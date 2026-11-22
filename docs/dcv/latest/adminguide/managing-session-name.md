@@ -1,7 +1,6 @@
 
 
 # Managing the session name
-<a name="managing-session-name"></a>
 
 You can change the name of a running session at any time. You can use the specific name of session to quickly identify a session based on its name. Session names don't need to be unique across running sessions.
 

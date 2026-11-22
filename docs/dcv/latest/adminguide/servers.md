@@ -1,7 +1,6 @@
 
 
 # Understanding Amazon DCV Servers
-<a name="servers"></a>
 
 Amazon DCV is installed on a dedicated server that creates user sessions. The Amazon DCV server software is available for Windows, Linux, and Amazon EC2 Mac instances. The servers offer similar features, but there are some differences. Choose the Amazon DCV server that best meets your needs. The following table compares the features supported by the Windows, Linux, and macOS Amazon DCV servers.
 

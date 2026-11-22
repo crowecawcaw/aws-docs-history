@@ -1,7 +1,6 @@
 
 
 # Disabling the QUIC UDP transport protocol
-<a name="disable-quic"></a>
 
 By default, since version 2024.0, Amazon DCV supports both the WebSocket protocol, which is based on TCP, and the QUIC protocol, which is based on UDP for data transport.
 

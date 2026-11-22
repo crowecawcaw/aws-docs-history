@@ -1,7 +1,6 @@
 
 
 # Changing the Amazon DCV Server TCP/UDP ports and listen address
-<a name="manage-port-addr"></a>
 
 By default, the Amazon DCV server is configured to listen on TCP port `8443` and to communicate on any of the network interfaces on the host it runs on.
 

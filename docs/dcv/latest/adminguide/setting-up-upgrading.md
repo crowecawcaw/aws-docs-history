@@ -1,7 +1,6 @@
 
 
 # Upgrading the Amazon DCV Server
-<a name="setting-up-upgrading"></a>
 
 The following topic describes how to upgrade the Amazon DCV server.
 

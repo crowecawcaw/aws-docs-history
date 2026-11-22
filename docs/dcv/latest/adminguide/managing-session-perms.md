@@ -1,7 +1,6 @@
 
 
 # Managing Amazon DCV Session authorization
-<a name="managing-session-perms"></a>
 
 Authorization is used to grant or deny Amazon DCV clients permissions to specific Amazon DCV features. Typically, authorization is configured when a Amazon DCV session is started. However, it's possible to edit the permissions for a running session. For more information about Amazon DCV authorization, see [Configuring Amazon DCV authorization](security-authorization.md).
 

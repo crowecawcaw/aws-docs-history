@@ -1,7 +1,6 @@
 
 
 # Enabling GPU sharing on a Linux Amazon DCV Server
-<a name="manage-gpu"></a>
 
 With GPU sharing, you can share one or more physical GPUs between multiple Amazon DCV virtual sessions. For more information about sessions, see [Managing Amazon DCV sessions](managing-sessions.md). Using GPU sharing, you can use a single Amazon DCV server and host multiple virtual sessions that share the server's physical GPU resources. 
 

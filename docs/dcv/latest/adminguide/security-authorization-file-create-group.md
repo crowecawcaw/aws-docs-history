@@ -1,7 +1,6 @@
 
 
 # Creating groups
-<a name="security-authorization-file-create-group"></a>
 
 You can use `[groups]` section of the permissions file to define user groups for users that have similar use cases or permissions requirements. Groups can be assigned specific permissions. Permissions assigned to a group apply to all of the users that are included in the group.
 

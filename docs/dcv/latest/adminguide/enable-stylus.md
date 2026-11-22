@@ -1,7 +1,6 @@
 
 
 # Enabling touchscreen and stylus support
-<a name="enable-stylus"></a>
 
 **Note**  
  USB redirection for touchscreen and stylus devices is not needed. Also, no vendor drivers need to be installed on the Amazon DCV server.  

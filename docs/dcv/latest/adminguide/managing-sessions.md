@@ -1,7 +1,6 @@
 
 
 # Managing Amazon DCV sessions
-<a name="managing-sessions"></a>
 
 Once the Amazon DCV servers are set up and all your applications are installed, your clients access them through a secured session. Managing these sessions for your client grants them access and sets the parameters for each session.
 
