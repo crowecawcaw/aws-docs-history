@@ -1,7 +1,6 @@
 
 
 # Update Python applications
-<a name="troubleshooting-async-deadlock-update-python-apps"></a>
 
 Python applications can use connectors in 2 different ways: packaging connectors and other Java dependencies as part of single uber-jar, or use connector jar directly. To fix applications affected by Async Sink deadlock:
 + If the application uses an uber jar, follow the instructions for [Update Java applications](troubleshooting-async-deadlock-update-java-apps.md).
@@ -18,43 +17,43 @@ Prerequisites, similar to Flink [build requirements](https://nightlies.apache.or
 
 1. Download source code for Flink 1.15.4:
 
-   ```
+   ```bash
    wget https://archive.apache.org/dist/flink/flink-1.15.4/flink-1.15.4-src.tgz
    ```
 
 1. Uncompress source code:
 
-   ```
+   ```bash
    tar -xvf flink-1.15.4-src.tgz
    ```
 
 1. Navigate to kinesis connector directory
 
-   ```
+   ```bash
    cd flink-1.15.4/flink-connectors/flink-connector-kinesis/
    ```
 
 1. Compile and install connector jar, specifying required AWS SDK version. To speed up build use `-DskipTests` to skip test execution and `-Dfast` to skip additional source code checks:
 
-   ```
+   ```bash
    mvn clean install -DskipTests -Dfast -Daws.sdkv2.version=2.20.144
    ```
 
 1. Navigate to kinesis connector directory
 
-   ```
+   ```bash
    cd ../flink-sql-connector-kinesis
    ```
 
 1. Compile and install sql connector jar:
 
-   ```
+   ```bash
    mvn clean install -DskipTests -Dfast
    ```
 
 1. Resulting jar will be available at:
 
-   ```
+   ```bash
    target/flink-sql-connector-kinesis-1.15.4.jar
    ```
 
@@ -63,43 +62,43 @@ Prerequisites, similar to Flink [build requirements](https://nightlies.apache.or
 
 1. Download source code for Flink 1.15.4:
 
-   ```
+   ```bash
    wget https://archive.apache.org/dist/flink/flink-1.15.4/flink-1.15.4-src.tgz
    ```
 
 1. Uncompress source code:
 
-   ```
+   ```bash
    tar -xvf flink-1.15.4-src.tgz
    ```
 
 1. Navigate to kinesis connector directory
 
-   ```
+   ```bash
    cd flink-1.15.4/flink-connectors/flink-connector-aws-kinesis-streams/
    ```
 
 1. Compile and install connector jar, specifying required AWS SDK version. To speed up build use `-DskipTests` to skip test execution and `-Dfast` to skip additional source code checks:
 
-   ```
+   ```bash
    mvn clean install -DskipTests -Dfast -Daws.sdk.version=2.20.144
    ```
 
 1. Navigate to kinesis connector directory
 
-   ```
+   ```bash
    cd ../flink-sql-connector-aws-kinesis-streams
    ```
 
 1. Compile and install sql connector jar:
 
-   ```
+   ```bash
    mvn clean install -DskipTests -Dfast
    ```
 
 1. Resulting jar will be available at:
 
-   ```
+   ```bash
    target/flink-sql-connector-aws-kinesis-streams-1.15.4.jar
    ```
 
@@ -108,43 +107,43 @@ Prerequisites, similar to Flink [build requirements](https://nightlies.apache.or
 
 1. Download source code for Flink 1.15.4:
 
-   ```
+   ```bash
    wget https://archive.apache.org/dist/flink/flink-1.15.4/flink-1.15.4-src.tgz
    ```
 
 1. Uncompress source code:
 
-   ```
+   ```bash
    tar -xvf flink-1.15.4-src.tgz
    ```
 
 1. Navigate to connector directory
 
-   ```
+   ```bash
    cd flink-1.15.4/flink-connectors/flink-connector-aws-kinesis-firehose/
    ```
 
 1. Compile and install connector jar, specifying required AWS SDK version. To speed up build use `-DskipTests` to skip test execution and `-Dfast` to skip additional source code checks:
 
-   ```
+   ```bash
    mvn clean install -DskipTests -Dfast -Daws.sdk.version=2.20.144
    ```
 
 1. Navigate to sql connector directory
 
-   ```
+   ```bash
    cd ../flink-sql-connector-aws-kinesis-firehose
    ```
 
 1. Compile and install sql connector jar:
 
-   ```
+   ```bash
    mvn clean install -DskipTests -Dfast
    ```
 
 1. Resulting jar will be available at:
 
-   ```
+   ```bash
    target/flink-sql-connector-aws-kinesis-firehose-1.15.4.jar
    ```
 
@@ -153,30 +152,30 @@ Prerequisites, similar to Flink [build requirements](https://nightlies.apache.or
 
 1. Download source code for Flink 1.15.4:
 
-   ```
+   ```bash
    wget https://archive.apache.org/dist/flink/flink-connector-aws-3.0.0/flink-connector-aws-3.0.0-src.tgz
    ```
 
 1. Uncompress source code:
 
-   ```
+   ```bash
    tar -xvf flink-connector-aws-3.0.0-src.tgz
    ```
 
 1. Navigate to connector directory
 
-   ```
+   ```bash
    cd flink-connector-aws-3.0.0
    ```
 
 1. Compile and install connector jar, specifying required AWS SDK version. To speed up build use `-DskipTests` to skip test execution and `-Dfast` to skip additional source code checks:
 
-   ```
+   ```bash
    mvn clean install -DskipTests -Dfast -Dflink.version=1.15.4 -Daws.sdk.version=2.20.144
    ```
 
 1. Resulting jar will be available at:
 
-   ```
+   ```bash
    flink-sql-connector-dynamodb/target/flink-sql-connector-dynamodb-3.0.0.jar
    ```

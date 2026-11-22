@@ -1,7 +1,6 @@
 
 
 # Runtime troubleshooting
-<a name="troubleshooting-runtime"></a>
 
 This section contains information about diagnosing and fixing runtime issues with your Managed Service for Apache Flink application.
 

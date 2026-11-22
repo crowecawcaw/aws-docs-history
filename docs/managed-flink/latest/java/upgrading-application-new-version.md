@@ -1,7 +1,6 @@
 
 
 # Upgrade your application to a new Apache Flink version
-<a name="upgrading-application-new-version"></a>
 
 You can upgrade your Flink application by using the [UpdateApplication](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_UpdateApplication.html) action.
 
@@ -22,7 +21,7 @@ In enhanced snapshot mode, you can upgrade a `RUNNING` application from a specif
 
 The following JSON request for the `UpdateApplication` API upgrades `MyApplication` to Flink 2.2 from an enhanced snapshot. Replace `MyApplication`, the version ID, the file key, and the `SnapshotArn` value with your own values.
 
-```
+```json
 {
     "ApplicationName": "MyApplication",
     "CurrentApplicationVersionId": 3,
@@ -52,7 +51,7 @@ For a `READY` application, set the restore configuration in the next `StartAppli
 
 The following example shows upgrading an app in `RUNNING` state named `UpgradeTest` to Flink 1.18 in US East (N. Virginia) using the AWS CLI and starting the upgraded app from the latest snapshot. 
 
-```
+```json
             
 aws --region us-east-1 kinesisanalyticsv2 update-application \
 --application-name UpgradeTest --runtime-environment-update "FLINK-1_18" \
@@ -80,7 +79,7 @@ aws --region us-east-1 kinesisanalyticsv2 update-application \
 
 The following example shows upgrading an app in `READY` state named `UpgradeTest` to Flink 1.18 in US East (N. Virginia) using the AWS CLI. There is no specified snapshot to start the app because the application is not running. You can specify a snapshot when you issue the start application request.
 
-```
+```json
             
 aws --region us-east-1 kinesisanalyticsv2 update-application \
 --application-name UpgradeTest --runtime-environment-update "FLINK-1_18" \

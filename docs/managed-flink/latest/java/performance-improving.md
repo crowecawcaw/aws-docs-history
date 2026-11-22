@@ -1,7 +1,6 @@
 
 
 # Use performance best practices
-<a name="performance-improving"></a>
 
 This section describes special considerations for designing an application for performance.
 

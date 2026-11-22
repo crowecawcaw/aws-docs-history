@@ -1,7 +1,6 @@
 
 
 # Set up application logging in Managed Service for Apache Flink
-<a name="cloudwatch-logs"></a>
 
 By adding an Amazon CloudWatch logging option to your Managed Service for Apache Flink application, you can monitor for application events or configuration problems.
 
@@ -140,7 +139,7 @@ For information about application log levels, see [Control application monitorin
 
 The following example request for the [`CreateApplication`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateApplication.html) action sets the application log level to `INFO`.
 
-```
+```json
 {
    "ApplicationName": "MyApplication",                    
    "ApplicationDescription": "My Application Description",
@@ -171,7 +170,7 @@ The following example request for the [`CreateApplication`](https://docs.aws.ama
 
 The following example request for the [`UpdateApplication`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.html) action sets the application log level to `INFO`.
 
-```
+```json
 {
    "ApplicationConfigurationUpdate": {
       "FlinkApplicationConfigurationUpdate": { 
@@ -201,7 +200,7 @@ To grant Managed Service for Apache Flink permissions to assume an IAM role, you
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -228,7 +227,7 @@ To grant permissions to an application to write log events to CloudWatch from a 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

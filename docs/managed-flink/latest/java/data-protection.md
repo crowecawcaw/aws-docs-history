@@ -1,7 +1,6 @@
 
 
 # Data protection in Amazon Managed Service for Apache Flink
-<a name="data-protection"></a>
 
 You can protect your data using tools that are provided by AWS. Amazon MSF can work with services that support encrypting data, including Firehose, and Amazon S3. 
 

@@ -1,7 +1,6 @@
 
 
 # Use custom metrics with Amazon Managed Service for Apache Flink
-<a name="monitoring-metrics-custom"></a>
 
 Managed Service for Apache Flink exposes 19 metrics to CloudWatch, including metrics for resource usage and throughput. In addition, you can create your own metrics to track application-specific data, such as processing events or accessing external resources.
 
@@ -41,7 +40,7 @@ The following code examples demonstrate how to create a mapping class that creat
 
 The following code example demonstrates how to create a mapping class that creates a metric that counts records in a data stream (the same functionality as the `numRecordsIn` metric):
 
-```
+```java
     private static class NoOpMapperFunction extends RichMapFunction<String, String> {
         private transient int valueToExpose = 0;
         private final String customMetricName;
@@ -71,7 +70,7 @@ In the preceding example, the `valueToExpose` variable is incremented for each r
 
 After defining your mapping class, you then create an in-application stream that implements the map:
 
-```
+```java
 DataStream<String> noopMapperFunctionAfterFilter =
     kinesisProcessed.map(new NoOpMapperFunction("FilteredRecords"));
 ```
@@ -83,7 +82,7 @@ For the complete code for this application, see [Record Count Custom Metric Appl
 
 The following code example demonstrates how to create a mapping class that creates a metric that counts words in a data stream:
 
-```
+```java
 private static final class Tokenizer extends RichFlatMapFunction<String, Tuple2<String, Integer>> {
      
             private transient Counter counter;
@@ -117,7 +116,7 @@ In the preceding example, the `counter` variable is incremented for each word th
 
 After defining your mapping class, you then create an in-application stream that implements the map:
 
-```
+```java
 // Split up the lines in pairs (2-tuples) containing: (word,1), and
 // group by the tuple field "0" and sum up tuple field "1"
 DataStream<Tuple2<String, Integer>> wordCountStream = input.flatMap(new Tokenizer()).keyBy(0).sum(1);

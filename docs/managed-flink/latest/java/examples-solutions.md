@@ -1,7 +1,6 @@
 
 
 # Training workshops, labs, and solution implementations
-<a name="examples-solutions"></a>
 
 The following end-to-end examples demonstrate advanced Managed Service for Apache Flink solutions.
 

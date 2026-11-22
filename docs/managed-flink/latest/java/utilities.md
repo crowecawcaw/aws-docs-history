@@ -1,7 +1,6 @@
 
 
 # Use practical utilities for Managed Service for Apache Flink
-<a name="utilities"></a>
 
 The following utilities can make using the Managed Service for Apache Flink service easier to use:
 

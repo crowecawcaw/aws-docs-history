@@ -1,7 +1,6 @@
 
 
 # Create a Studio notebook with Kinesis Data Streams
-<a name="example-notebook-streams"></a>
 
 This tutorial describes how to create a Studio notebook that uses a Kinesis data stream as a source.
 
@@ -21,7 +20,7 @@ You can create this stream using either the Amazon Kinesis console or the follow
 
 To create the stream (`ExampleInputStream`) using the AWS CLI, use the following Amazon Kinesis `create-stream` AWS CLI command.
 
-```
+```bash
 $ aws kinesis create-stream \
 --stream-name ExampleInputStream \
 --shard-count 1 \

@@ -1,7 +1,6 @@
 
 
 # Compile error: "Could not resolve dependencies for project"
-<a name="troubleshooting-compile"></a>
 
 In order to compile the Managed Service for Apache Flink sample applications, you must first download and compile the Apache Flink Kinesis connector and add it to your local Maven repository. If the connector hasn't been added to your repository, a compile error similar to the following appears:
 

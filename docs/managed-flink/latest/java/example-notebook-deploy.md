@@ -1,7 +1,6 @@
 
 
 # Tutorial: Deploy a Studio notebook as a Managed Service for Apache Flink application with durable state
-<a name="example-notebook-deploy"></a>
 
 The following tutorial demonstrates how to deploy a Studio notebook as a Managed Service for Apache Flink application with durable state.
 
@@ -27,7 +26,7 @@ Create a new Studio notebook by following the [Tutorial: Create a Studio noteboo
 
 1. Use the following sample code:
 
-   ```
+   ```SQL
    %flink.ssql(type=update) 
    CREATE TABLE exampleoutput (
      'ticket' VARCHAR,

@@ -1,7 +1,6 @@
 
 
 # Create and run the application (CLI)
-<a name="examples-gs-scala-create-run-cli"></a>
 
 In this section, you use the AWS Command Line Interface to create and run the Managed Service for Apache Flink application. Use the *kinesisanalyticsv2* AWS CLI command to create and interact with Managed Service for Apache Flink applications.
 
@@ -20,7 +19,7 @@ Use the following code to create the `AKReadSourceStreamWriteSinkStream` permiss
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -135,7 +134,7 @@ For step-by-step instructions for creating a role, see [Creating an IAM Role (Co
 
 Save the following JSON code to a file named `create_request.json`. Replace the sample role ARN with the ARN for the role that you created previously. Replace the bucket ARN suffix (username) with the suffix that you chose in the previous section. Replace the sample account ID (012345678901) in the service execution role with your account ID.
 
-```
+```json
 {
     "ApplicationName": "getting_started",
     "ApplicationDescription": "Scala getting started application",
@@ -196,7 +195,7 @@ In this section, you use the [StartApplication](https://docs.aws.amazon.com/mana
 
 1. Save the following JSON code to a file named `start_request.json`.
 
-   ```
+   ```json
    {
        "ApplicationName": "getting_started",
        "RunConfiguration": {
@@ -215,7 +214,7 @@ In this section, you use the [StartApplication](https://docs.aws.amazon.com/mana
 
 For an application in enhanced snapshot mode, you can also restore from a specific enhanced snapshot. Set `ApplicationRestoreType` to `RESTORE_FROM_CUSTOM_SNAPSHOT` and set `SnapshotArn` to the ARN of the enhanced snapshot. Enhanced snapshot mode requires Apache Flink version 1.20 or later. This option does not apply to the tutorial application, because the tutorial uses Apache Flink 1.19.
 
-```
+```json
 {
     "ApplicationName": "MyApplication",
     "RunConfiguration": {
@@ -240,7 +239,7 @@ In this section, you use the [StopApplication](https://docs.aws.amazon.com/manag
 
 1. Save the following JSON code to a file named `stop_request.json`.
 
-   ```
+   ```json
    {
       "ApplicationName": "s3_sink"
    }
@@ -268,7 +267,7 @@ In this section, you use the [UpdateApplication](https://docs.aws.amazon.com/man
 
 1. Save the following JSON code to a file named `update_properties_request.json`.
 
-   ```
+   ```json
    {
          "ApplicationName": "getting_started",
           "CurrentApplicationVersionId": 1,

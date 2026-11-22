@@ -1,7 +1,6 @@
 
 
 # Compliance validation for Amazon Managed Service for Apache Flink
-<a name="compliance-validation"></a>
 
 Third-party auditors assess the security and compliance of Amazon Managed Service for Apache Flink as part of multiple AWS compliance programs. These include SOC, PCI, HIPAA, and others.
 

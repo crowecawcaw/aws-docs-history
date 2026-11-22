@@ -1,7 +1,6 @@
 
 
 # Create an application using Apache Beam
-<a name="examples-beam"></a>
 
 In this exercise, you create a Managed Service for Apache Flink application that transforms data using [Apache Beam](https://beam.apache.org/). Apache Beam is a programming model for processing streaming data. For information about using Apache Beam with Managed Service for Apache Flink, see [Use Apache Beam with Managed Service for Apache Flink applications](how-creating-apps-beam.md).
 
@@ -39,7 +38,7 @@ This section requires the [AWS SDK for Python (Boto)](https://aws.amazon.com/dev
 
 1. Create a file named `ping.py` with the following contents:
 
-   ```
+   ```python
    import json
    import boto3
    import random
@@ -57,7 +56,7 @@ This section requires the [AWS SDK for Python (Boto)](https://aws.amazon.com/dev
 
 1. Run the `ping.py` script: 
 
-   ```
+   ```bash
    $ python ping.py
    ```
 
@@ -196,7 +195,7 @@ Edit the IAM policy to add permissions to access the Kinesis data streams.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

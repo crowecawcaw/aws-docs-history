@@ -1,7 +1,6 @@
 
 
 # Hudi configuration best practices
-<a name="troubleshooting-hudi"></a>
 
 To run Hudi connectors on Managed Service for Apache Flink we recommend the following configuration changes.
 

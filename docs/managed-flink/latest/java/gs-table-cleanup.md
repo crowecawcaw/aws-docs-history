@@ -1,7 +1,6 @@
 
 
 # Clean up AWS resources
-<a name="gs-table-cleanup"></a>
 
 This section includes procedures for cleaning up AWS resources created in the Getting Started (Table API) tutorial.
 

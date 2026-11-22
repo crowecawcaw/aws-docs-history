@@ -1,7 +1,6 @@
 
 
 # Set up an AWS account and create an administrator user
-<a name="setting-up"></a>
 
 Before you use Managed Service for Apache Flink for the first time, complete the following tasks:
 

@@ -1,7 +1,6 @@
 
 
 # View example queries to analyza data in a Studio notebook
-<a name="how-zeppelin-sql-examples"></a>
 
 **Topics**
 + [Create tables with Amazon MSK/Apache Kafka](#how-zeppelin-examples-creating-tables)
@@ -494,7 +493,7 @@ Use the `AmazonKinesisFullAccess` policy and the following role trust policy for
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

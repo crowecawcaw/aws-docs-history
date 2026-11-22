@@ -1,7 +1,6 @@
 
 
 # Upgrade an existing application to enhanced snapshots
-<a name="snapshots-upgrade"></a>
 
 This page describes how to upgrade an existing Amazon Managed Service for Apache Flink application to enhanced snapshot mode. You upgrade with an [`UpdateApplication`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.html) request. The page lists the changes to make before you upgrade. The page also describes how the upgrade affects your application snapshots (legacy).
 
@@ -58,7 +57,7 @@ To keep the application state, upgrade the application while its status is `RUNN
 
 1. Save the following JSON request as `upgrade.json` in a text editor.
 
-   ```
+   ```json
    {
      "ApplicationName": "MyApplication",
      "CurrentApplicationVersionId": 3,
@@ -79,7 +78,7 @@ To keep the application state, upgrade the application while its status is `RUNN
 
 1. Run the following AWS CLI command at a command prompt to send the request.
 
-   ```
+   ```bash
    PROMPT> aws kinesisanalyticsv2 update-application --cli-input-json file://upgrade.json
    ```
 
@@ -87,7 +86,7 @@ To keep the application state, upgrade the application while its status is `RUNN
 
 1. Run the following AWS CLI command for a `RUNNING` application until the operation status is `SUCCESSFUL` or `FAILED`. The command calls [`DescribeApplicationOperation`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DescribeApplicationOperation.html) with the `OperationId`. For a `READY` application, skip this step.
 
-   ```
+   ```bash
    PROMPT> aws kinesisanalyticsv2 describe-application-operation --application-name MyApplication --operation-id {{operation-id}}
    ```
 
@@ -123,7 +122,7 @@ For an application that CloudFormation manages as an `AWS::KinesisAnalyticsV2::A
 
 1. In the template, set `SnapshotMode` to `ENHANCED_SNAPSHOTS`. Keep `SnapshotsEnabled` set to `true`.
 
-   ```
+   ```yaml
    ApplicationConfiguration:
      ApplicationSnapshotConfiguration:
        SnapshotsEnabled: true
@@ -222,7 +221,7 @@ Use the following procedures to upgrade an application without loss of state.
 
 1. Run the following AWS CLI command at a command prompt to create an enhanced snapshot with [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html).
 
-   ```
+   ```bash
    PROMPT> aws kinesisanalyticsv2 create-snapshot --application-name MyApplication --snapshot-name MyApplication-snapshot-1
    ```
 
@@ -230,7 +229,7 @@ Use the following procedures to upgrade an application without loss of state.
 
 1. Run the following AWS CLI command until `SnapshotStatus` is `READY`. The command calls [`DescribeSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DescribeSnapshot.html).
 
-   ```
+   ```bash
    PROMPT> aws kinesisanalyticsv2 describe-snapshot --snapshot-name MyApplication-snapshot-1
    ```
 

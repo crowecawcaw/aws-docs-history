@@ -1,7 +1,6 @@
 
 
 # Get started (Scala)
-<a name="examples-gs-scala"></a>
 
 **Note**  
 Starting from version 1.15, Flink is Scala free. Applications can now use the Java API from any Scala version. Flink still uses Scala in a few key components internally, but doesn't expose Scala into the user code classloader. Because of that, you must add Scala dependencies into your JAR-archives.  
@@ -72,7 +71,7 @@ aws configure
 
 1. Create a file named `stock.py` with the following contents:
 
-   ```
+   ```python
    import datetime
    import json
    import random
@@ -104,7 +103,7 @@ aws configure
 
 1. Run the `stock.py` script: 
 
-   ```
+   ```bash
    $ python stock.py
    ```
 
@@ -130,7 +129,7 @@ Note the following about the application code:
 + The `BasicStreamingJob.scala` file contains the main method that defines the application's functionality.
 + The application uses a Kinesis source to read from the source stream. The following snippet creates the Kinesis source:
 
-  ```
+  ```python
   private def createSource: FlinkKinesisConsumer[String] = {
     val applicationProperties = KinesisAnalyticsRuntime.getApplicationProperties
     val inputProperties = applicationProperties.get("ConsumerConfigProperties")
@@ -142,7 +141,7 @@ Note the following about the application code:
 
   The application also uses a Kinesis sink to write into the result stream. The following snippet creates the Kinesis sink:
 
-  ```
+  ```python
   private def createSink: KinesisStreamsSink[String] = {
     val applicationProperties = KinesisAnalyticsRuntime.getApplicationProperties
     val outputProperties = applicationProperties.get("ProducerConfigProperties")

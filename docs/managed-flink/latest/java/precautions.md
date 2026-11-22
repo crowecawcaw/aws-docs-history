@@ -1,7 +1,6 @@
 
 
 # Precautions and known issues with application upgrades
-<a name="precautions"></a>
 
 ## Kafka Commit on checkpointing fails repeatedly after a broker restart
 <a name="apache-kafka-connector"></a>

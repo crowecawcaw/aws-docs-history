@@ -1,7 +1,6 @@
 
 
 # Analyze logs with CloudWatch Logs Insights
-<a name="cloudwatch-logs-reading"></a>
 
 After you've added a CloudWatch logging option to your application as described in the previous section, you can use CloudWatch Logs Insights to query your log streams for specific events or errors.
 

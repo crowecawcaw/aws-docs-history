@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon Managed Service for Apache Flink (DataStream API)
-<a name="getting-started"></a>
 
 This section introduces you to the fundamental concepts of Managed Service for Apache Flink and implementing an application in Java using the DataStream API. It describes the available options for creating and testing your applications. It also provides instructions for installing the necessary tools to complete the tutorials in this guide and to create your first application. 
 
@@ -51,13 +50,13 @@ To complete the steps in this guide, you must have the following:
 + [Apache Maven](https://maven.apache.org/). Install Apache Maven if you haven't already. To learn how to install it, see [Installing Apache Maven](https://maven.apache.org/install.html).
   + To test your Apache Maven installation, enter the following:
 
-  ```
+  ```bash
   $ mvn -version
   ```
 + IDE for local development. We recommend that you use a development environment such as [Eclipse Java Neon](https://www.eclipse.org/downloads/packages/release/neon/3) or [IntelliJ IDEA](https://www.jetbrains.com/idea/) to develop and compile your application.
   + To test your Apache Maven installation, enter the following:
 
-  ```
+  ```bash
   $ mvn -version
   ```
 

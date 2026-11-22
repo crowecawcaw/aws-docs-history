@@ -1,7 +1,6 @@
 
 
 # Roll back application upgrades
-<a name="rollback"></a>
 
 If you have issues with your application or find inconsistencies in your application code between Flink versions, you can roll back using the AWS CLI, AWS CloudFormation, AWS SDK, or the AWS Management Console. The following examples show what rolling back looks like in different failure scenarios.
 

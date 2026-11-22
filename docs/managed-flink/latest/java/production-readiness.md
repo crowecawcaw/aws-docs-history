@@ -1,7 +1,6 @@
 
 
 # Achieve production readiness for your Managed Service for Apache Flink applications
-<a name="production-readiness"></a>
 
 This is a collection of important aspects of running production applications on Managed Service for Apache Flink. It's not an exhaustive list, but rather the bare minimum of what you should pay attention to before putting an application into production.
 

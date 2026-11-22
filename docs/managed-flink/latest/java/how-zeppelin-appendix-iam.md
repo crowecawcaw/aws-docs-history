@@ -1,7 +1,6 @@
 
 
 # Create custom IAM policies for Managed Service for Apache Flink Studio notebooks
-<a name="how-zeppelin-appendix-iam"></a>
 
 You normally use managed IAM policies to allow your application to access dependent resources. If you need finer control over your application's permissions, you can use a custom IAM policy. This section contains examples of custom IAM policies.
 
@@ -24,7 +23,7 @@ The following example policy grants permissions to access a AWS Glue database.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -112,7 +111,7 @@ The following policy grants permissions to read from a Kinesis Stream used as a 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -157,7 +156,7 @@ The following policy grants permissions to write to a Kinesis Stream used as a d
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

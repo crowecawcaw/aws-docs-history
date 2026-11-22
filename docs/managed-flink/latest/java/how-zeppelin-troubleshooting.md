@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Studio notebooks for Managed Service for Apache Flink
-<a name="how-zeppelin-troubleshooting"></a>
 
 This section contains troubleshooting information for Studio notebooks.
 
@@ -42,7 +41,7 @@ If you’re building a Python application with deploy-as-app feature from Studio
 
 You can execute following command to list out all installed Python packages with their respective installed size and selectively remove packages with significant size.
 
-```
+```bash
 %flink.pyflink
 
 !pip list --format freeze | awk -F = {'print $1'} | xargs pip show | grep -E 'Location:|Name:' | cut -d ' ' -f 2 | paste -d ' ' - - | awk '{gsub("-","_",$1); print $2 "/" tolower($1)}' | xargs du -sh 2> /dev/null | sort -hr
@@ -53,7 +52,7 @@ You can execute following command to list out all installed Python packages with
 
 Following is the list of pre-install Python packages in Studio V2 which can be considered for removal:
 
-```
+```text
 scipy
 statsmodels
 plotnine
@@ -73,14 +72,14 @@ numba
 
 1. Executing following command to remove a package:
 
-   ```
+   ```bash
    %flink.pyflink
    !pip uninstall -y <package-to-remove>
    ```
 
 1. If you need to retrieve a package which you removed by mistake, executing the following command:
 
-   ```
+   ```bash
    %flink.pyflink
    !pip install <package-to-install>
    ```
@@ -90,20 +89,20 @@ numba
 1. Use `pipdeptree` to discover all `scipy` consumers and verify if you can safely remove `scipy`.
    + Install the tool through notebook:
 
-     ```
+     ```bash
      %flink.pyflink             
      !pip install pipdeptree
      ```
    + Get reversed dependency tree of `scipy` by running:
 
-     ```
+     ```bash
      %flink.pyflink
      !pip -r -p scipy
      ```
 
      You should see output similar to the following (condensed for brevity):
 
-     ```
+     ```text
      ...
      ------------------------------------------------------------------------ 
      scipy==1.8.0 
@@ -117,7 +116,7 @@ numba
 
 1. Remove the package by running:
 
-   ```
+   ```bash
    !pip uninstall -y scipy plotnine seaborn statemodels
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Create and run the application (console)
-<a name="gs-scala-7"></a>
 
 Follow these steps to create, configure, update, and run the application using the console.
 
@@ -108,7 +107,7 @@ Edit the IAM policy to add permissions to access the Amazon S3 bucket.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

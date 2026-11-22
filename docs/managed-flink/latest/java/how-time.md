@@ -1,7 +1,6 @@
 
 
 # Track events in Managed Service for Apache Flink using the DataStream API
-<a name="how-time"></a>
 
 Managed Service for Apache Flink tracks events using the following timestamps:
 + **Processing Time:** Refers to the system time of the machine that is executing the respective operation.
@@ -10,7 +9,7 @@ Managed Service for Apache Flink tracks events using the following timestamps:
 
 You set the time used by the streaming environment using `setStreamTimeCharacteristic`. 
 
-```
+```java
 env.setStreamTimeCharacteristic(TimeCharacteristic.ProcessingTime);
 env.setStreamTimeCharacteristic(TimeCharacteristic.IngestionTime);
 env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);

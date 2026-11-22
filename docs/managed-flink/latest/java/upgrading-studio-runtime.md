@@ -1,7 +1,6 @@
 
 
 # Upgrade Studio Runtime
-<a name="upgrading-studio-runtime"></a>
 
 This section contains information about how to upgrade your Studio notebook Runtime. We recommend that you always upgrade to the latest supported Studio Runtime.
 

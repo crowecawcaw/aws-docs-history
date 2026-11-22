@@ -1,7 +1,6 @@
 
 
 # Backpressure
-<a name="troubleshooting-backpressure"></a>
 
 Flink uses backpressure to adapt the processing speed of individual operators. 
 

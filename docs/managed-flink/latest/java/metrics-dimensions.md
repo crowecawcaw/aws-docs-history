@@ -1,7 +1,6 @@
 
 
 # Metrics and dimensions in Managed Service for Apache Flink
-<a name="metrics-dimensions"></a>
 
 When your Managed Service for Apache Flink processes a data source, Managed Service for Apache Flink reports the following metrics and dimensions to Amazon CloudWatch.
 

@@ -1,7 +1,6 @@
 
 
 # Using customer managed keys in Amazon MSF
-<a name="use-cmk-flink"></a>
 
 You need to consider the following factors when establishing, managing, and operating Amazon MSF applications subject to a CMK policy.
 

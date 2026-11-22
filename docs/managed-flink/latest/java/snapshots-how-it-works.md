@@ -1,7 +1,6 @@
 
 
 # How enhanced snapshots work
-<a name="snapshots-how-it-works"></a>
 
 This page explains how enhanced snapshots work in Amazon Managed Service for Apache Flink. Read it before you upgrade an application to enhanced snapshot mode.
 
@@ -80,7 +79,7 @@ You set the mode in the following request members:
 
 To see the mode, call [`DescribeApplication`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DescribeApplication.html). The response shows the mode in `ApplicationDetail.ApplicationConfigurationDescription.ApplicationSnapshotConfigurationDescription.SnapshotMode`. The following example shows that part of the response:
 
-```
+```json
 {
     "ApplicationDetail": {
         "ApplicationConfigurationDescription": {
@@ -187,7 +186,7 @@ Each response includes a `SnapshotOperationId` and a `SnapshotOperationStatus`. 
 
 The following example shows a `CreateSnapshot` response:
 
-```
+```json
 {
     "SnapshotArn": "arn:aws:kinesisanalytics:aa-example-1:111122223333:snapshot/MyApplication-snapshot-1",
     "SnapshotStatus": "CREATING",

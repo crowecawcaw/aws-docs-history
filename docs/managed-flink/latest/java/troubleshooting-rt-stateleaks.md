@@ -1,7 +1,6 @@
 
 
 # Unbounded state growth
-<a name="troubleshooting-rt-stateleaks"></a>
 
 If your application is not properly disposing of outdated state information, it will continually accumulate and lead to application performance or stability issues. This section describes symptoms and troubleshooting steps for this condition.
 

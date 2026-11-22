@@ -1,7 +1,6 @@
 
 
 # Create and run a Managed Service for Apache Flink application
-<a name="gs-table-create"></a>
 
 In this exercise, you create a Managed Service for Apache Flink application with Kinesis data streams as a source and sink.
 
@@ -464,7 +463,7 @@ Edit the IAM policy to add permissions to access the Amazon S3 bucket.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

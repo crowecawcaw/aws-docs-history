@@ -1,7 +1,6 @@
 
 
 # Create a Studio notebook
-<a name="how-zeppelin-creating"></a>
 
 A Studio notebook contains queries or programs written in SQL, Python, or Scala that runs on streaming data and returns analytic results. You create your application using either the console or the CLI, and provide queries for analyzing the data from your data source.
 

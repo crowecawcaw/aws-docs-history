@@ -1,7 +1,6 @@
 
 
 # Add tags to Managed Service for Apache Flink applications
-<a name="how-tagging"></a>
 
 
 

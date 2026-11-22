@@ -1,7 +1,6 @@
 
 
 # Apache Flink Flame Graphs
-<a name="troubleshooting-update-flamegraphs"></a>
 
 Flame Graphs are enabled by default on applications in Managed Service for Apache Flink versions that support it. Flame Graphs may affect application performance if you keep the graph open, as mentioned in [Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15//docs/ops/debugging/flame_graphs/). 
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring in Managed Service for Apache Flink
-<a name="monitoring"></a>
 
 When running streaming applications in production, you set out to execute the application continuously and indefinitely. It is crucial to implement monitoring and proper alarming of all components not only the Flink application. Otherwise you risk to miss emerging problems early on and only realize an operational event once it is fully unravelling and much harder to mitigate. General things to monitor include:
 + Is the source ingesting data?

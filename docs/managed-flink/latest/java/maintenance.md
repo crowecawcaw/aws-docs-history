@@ -1,7 +1,6 @@
 
 
 # Manage maintenance tasks for Managed Service for Apache Flink
-<a name="maintenance"></a>
 
 Managed Service for Apache Flink patches your applications periodically with operating-system and container-image security updates to maintain compliance and meet AWS security goals. A maintenance window for a Managed Service for Apache Flink application is a time window of 8 hours during which Managed Service for Apache Flink performs application maintenance activities on an application. The maintenance might begin on different days for different AWS Regions as scheduled by the service team. Consult the table in the following section for maintenance time windows. 
 

@@ -1,7 +1,6 @@
 
 
 # Configure Managed Service for Apache Flink to access resources in an Amazon VPC
-<a name="vpc"></a>
 
 You can configure a Managed Service for Apache Flink application to connect to private subnets in a virtual private cloud (VPC) in your account. Use Amazon Virtual Private Cloud (Amazon VPC) to create a private network for resources such as databases, cache instances, or internal services. Connect your application to the VPC to access private resources during execution. 
 

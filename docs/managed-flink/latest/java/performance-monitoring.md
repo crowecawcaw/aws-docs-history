@@ -1,7 +1,6 @@
 
 
 # Monitor performance
-<a name="performance-monitoring"></a>
 
 This section describes tools for monitoring an application's performance.
 

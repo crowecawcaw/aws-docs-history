@@ -1,7 +1,6 @@
 
 
 # Use Apache Beam with Managed Service for Apache Flink applications
-<a name="how-creating-apps-beam"></a>
 
 You can use the [Apache Beam](https://beam.apache.org/) framework with your Managed Service for Apache Flink application to process streaming data. Managed Service for Apache Flink applications that use Apache Beam use [Apache Flink runner](https://beam.apache.org/documentation/runners/flink/) to execute Beam pipelines.
 

@@ -1,7 +1,6 @@
 
 
 # Upgrade applications using in-place version upgrades for Apache Flink
-<a name="upgrading-applications"></a>
 
 Before you begin, we recommend that you watch this video: [In-Place Version Upgrades](https://www.youtube.com/watch?v=f1qGGdaP2XI).
 

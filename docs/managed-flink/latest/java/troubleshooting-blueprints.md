@@ -1,7 +1,6 @@
 
 
 # Real-time vector embedding blueprints FAQ and troubleshooting
-<a name="troubleshooting-blueprints"></a>
 
 Review the following FAQ and troubleshooting sections to troubleshoot real-time vector embedding blueprint issues. For more information about real-time vector embedding blueprints, see [Real-time vector embedding blueprints](https://docs.aws.amazon.com/msk/latest/developerguide/ai-vector-embedding-integration-learn-more.html).
 

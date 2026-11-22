@@ -1,7 +1,6 @@
 
 
 # Create and run a Managed Service for Apache Flink application
-<a name="get-started-exercise"></a>
 
 In this step, you create a Managed Service for Apache Flink application with Kinesis data streams as a source and a sink.
 
@@ -38,7 +37,7 @@ You can create these streams using either the Amazon Kinesis console or the foll
 
 1. To create the first stream (`ExampleInputStream`), use the following Amazon Kinesis `create-stream` AWS CLI command:
 
-   ```
+   ```bash
    $ aws kinesis create-stream \
    --stream-name ExampleInputStream \
    --shard-count 1 \
@@ -47,7 +46,7 @@ You can create these streams using either the Amazon Kinesis console or the foll
 
 1. To create the second stream that the application uses to write output, run the same command, changing the stream name to `ExampleOutputStream`:
 
-   ```
+   ```bash
    $ aws kinesis create-stream \
    --stream-name ExampleOutputStream \
    --shard-count 1 \
@@ -517,7 +516,7 @@ Edit the IAM policy to add permissions to access the Kinesis data streams.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

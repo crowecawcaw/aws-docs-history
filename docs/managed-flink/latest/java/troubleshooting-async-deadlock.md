@@ -1,7 +1,6 @@
 
 
 # Flink 1.15 Async Sink Deadlock
-<a name="troubleshooting-async-deadlock"></a>
 
 There is a [known issue](https://issues.apache.org/jira/browse/FLINK-32230) with AWS connectors for Apache Flink implementing AsyncSink interface. This affects applications using Flink 1.15 with the following connectors: 
 + For Java applications:

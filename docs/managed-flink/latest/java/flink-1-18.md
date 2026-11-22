@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Service for Apache Flink 1.18
-<a name="flink-1-18"></a>
 
  Managed Service for Apache Flink now supports Apache Flink version 1.18.1. Learn about the key new features and changes introduced with Managed Service for Apache Flink support of Apache Flink 1.18.1.
 

@@ -1,7 +1,6 @@
 
 
 # Applications with unsupported Kinesis connectors
-<a name="troubleshooting-unsupported-kinesis-connectors"></a>
 
 Managed Service for Apache Flink for Apache Flink version 1.15 or later will [automatically reject applications from starting or updating](https://docs.aws.amazon.com/managed-flink/latest/java/flink-1-15-2.html) if they are using unsupported Kinesis Connector versions (pre-version 1.15.2) bundled into application JARs or archives (ZIP). 
 

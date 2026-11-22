@@ -1,7 +1,6 @@
 
 
 # Explore additional resources
-<a name="getting-started-next-steps"></a>
 
 Now that you've created and run a basic Managed Service for Apache Flink application, see the following resources for more advanced Managed Service for Apache Flink solutions.
 + **[Amazon Managed Service for Apache Flink Workshop](https://catalog.workshops.aws/managed-flink):** In this workshop, you build an end-to-end streaming architecture to ingest, analyze, and visualize streaming data in near real-time. You set out to improve the operations of a taxi company in New York City. You analyze the telemetry data of a taxi fleet in New York City in near real-time to optimize their fleet operations.

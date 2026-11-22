@@ -1,7 +1,6 @@
 
 
 # Modifiable Flink configuration properties
-<a name="reference-modifiable-settings"></a>
 
 Following are Flink configuration settings that you can modify using a [support case](https://console.aws.amazon.com/support/home#/). You can modify more than one property at a time, and for multiple applications at the same time by specifying the application prefix. If there are other Flink configuration properties outside this list you want to modify, specify the exact property in your case. 
 

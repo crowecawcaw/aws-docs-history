@@ -1,7 +1,6 @@
 
 
 # State compatibility guide for Flink 2.2 upgrades
-<a name="state-compatibility"></a>
 
 When upgrading from Flink 1.x to Flink 2.2, state compatibility issues may prevent your application from restoring from snapshots. This guide helps you identify potential compatibility issues and provides migration strategies.
 
@@ -108,7 +107,7 @@ If your application can rebuild state from source data:
 
 1. Allow application to rebuild state
 
-```
+```bash
 aws kinesisanalyticsv2 start-application \
     --application-name MyApplication \
     --run-configuration '{

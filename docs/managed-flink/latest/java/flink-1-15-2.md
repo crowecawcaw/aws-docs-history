@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Service for Apache Flink 1.15
-<a name="flink-1-15-2"></a>
 
  Managed Service for Apache Flink supports the following new features in Apache 1.15.2: 
 

@@ -1,7 +1,6 @@
 
 
 # Enable checkpointing
-<a name="how-zeppelin-checkpoint"></a>
 
 You enable checkpointing by using environment settings. For information about checkpointing, see [Fault Tolerance](https://docs.aws.amazon.com/managed-flink/latest/java/how-fault.html) in the [Managed Service for Apache Flink Developer Guide](https://docs.aws.amazon.com/managed-flink/latest/java/).
 

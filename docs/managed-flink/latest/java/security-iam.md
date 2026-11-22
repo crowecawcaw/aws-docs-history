@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for Amazon Managed Service for Apache Flink
-<a name="security-iam"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # Use connectors to move data in Managed Service for Apache Flink with the DataStream API
-<a name="how-connectors"></a>
 
 In the Amazon Managed Service for Apache Flink DataStream API, *connectors* are software components that move data into and out of a Managed Service for Apache Flink application. Connectors are flexible integrations that let you read from files and directories. Connectors consist of complete modules for interacting with Amazon services and third-party systems.
 

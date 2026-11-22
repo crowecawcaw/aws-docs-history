@@ -1,7 +1,6 @@
 
 
 # Use CloudFormation with Managed Service for Apache Flink
-<a name="lambda-cfn-flink"></a>
 
 The following exercise shows how to start a Flink application created with CloudFormation using a Lambda function in the same stack. 
 
@@ -87,7 +86,7 @@ For an application in enhanced snapshot mode, the function can restore from a sp
 
 In enhanced snapshot mode, grant the role of the Lambda function `kinesisanalytics:RestoreFromSnapshot` on the enhanced snapshot that the restore uses. You need to grant this permission for `RESTORE_FROM_LATEST_SNAPSHOT` and for `RESTORE_FROM_CUSTOM_SNAPSHOT`. If `SnapshotsEnabled` is `true`, also grant the role `kinesisanalytics:CreateSystemSnapshot` on the application.
 
-```
+```python
 run_configuration = {
   'ApplicationRestoreConfiguration': {
     'ApplicationRestoreType': 'RESTORE_FROM_CUSTOM_SNAPSHOT',

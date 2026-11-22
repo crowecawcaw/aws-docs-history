@@ -1,7 +1,6 @@
 
 
 # Use a Studio notebook with Managed Service for Apache Flink
-<a name="how-notebook"></a>
 
 Studio notebooks for Managed Service for Apache Flink allows you to interactively query data streams in real time, and easily build and run stream processing applications using standard SQL, Python, and Scala. With a few clicks in the AWS Management console, you can launch a serverless notebook to query data streams and get results in seconds. 
 

@@ -1,7 +1,6 @@
 
 
 # Set up the AWS Command Line Interface (AWS CLI)
-<a name="setup-awscli"></a>
 
 In this step, you download and configure the AWS CLI to use with Managed Service for Apache Flink.
 
@@ -28,7 +27,7 @@ aws-cli/1.16.63
 
 1. Add a named profile for the administrator user in the AWS CLI `config` file. You use this profile when executing the AWS CLI commands. For more information about named profiles, see [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) in the *AWS Command Line Interface User Guide*.
 
-   ```
+   ```bash
    [profile adminuser]
    aws_access_key_id = {{adminuser access key ID}}
    aws_secret_access_key = {{adminuser secret access key}}
@@ -41,7 +40,7 @@ The example code and commands in this tutorial use the us-east-1 US East (N. Vir
 
 1. Verify the setup by entering the following help command at the command prompt: 
 
-   ```
+   ```bash
    aws help
    ```
 

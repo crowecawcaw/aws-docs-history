@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Service for Apache Flink 2.3
-<a name="flink-2-3"></a>
 
 Managed Service for Apache Flink now supports Apache Flink version 2.3.0. This section introduces you to the key new features and changes introduced with Managed Service for Apache Flink support of Apache Flink 2.3.0.
 

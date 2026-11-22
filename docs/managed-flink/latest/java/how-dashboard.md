@@ -1,7 +1,6 @@
 
 
 # Use the Apache Flink Dashboard with Managed Service for Apache Flink
-<a name="how-dashboard"></a>
 
 You can use your application's Apache Flink Dashboard to monitor your Managed Service for Apache Flink application's health. Your application's dashboard shows the following information:
 + Resources in use, including Task Managers and Task Slots. 

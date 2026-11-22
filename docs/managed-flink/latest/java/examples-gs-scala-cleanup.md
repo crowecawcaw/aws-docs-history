@@ -1,7 +1,6 @@
 
 
 # Clean up AWS resources
-<a name="examples-gs-scala-cleanup"></a>
 
 This section includes procedures for cleaning up AWS resources created in the Tumbling Window tutorial.
 

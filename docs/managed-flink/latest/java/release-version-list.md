@@ -1,7 +1,6 @@
 
 
 # Supported and deprecated Apache Flink versions
-<a name="release-version-list"></a>
 
 This topic contains information about the supported versions of Apache Flink in Managed Service for Apache Flink. This topic also lists the supported Apache Flink features in each release.
 

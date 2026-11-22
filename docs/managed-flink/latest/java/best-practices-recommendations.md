@@ -1,7 +1,6 @@
 
 
 # General best practices and recommendations for application upgrades
-<a name="best-practices-recommendations"></a>
 + Test the new job/runtime without state on a non-production environment before attempting a production upgrade.
 + Consider testing the stateful upgrade with a non-production application first.
 + Create a snapshot before you upgrade, and wait until its status is `READY`. For an application in enhanced snapshot mode, call [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html). For other applications, call [`CreateApplicationSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateApplicationSnapshot.html). For more information, see [Create an enhanced snapshot](snapshots-manage.md#snapshots-manage-create-a-snapshot).

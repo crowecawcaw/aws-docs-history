@@ -1,7 +1,6 @@
 
 
 # S3 StreamingFileSink FileNotFoundExceptions
-<a name="troubleshooting-s3sink"></a>
 
 Managed Service for Apache Flink applications can run into In-progress part file `FileNotFoundException` when starting from snapshots if an In-progress part file referred to by its savepoint is missing. When this failure mode occurs, the Managed Service for Apache Flink application’s operator state is usually non-recoverable and must be restarted without snapshot using `SKIP_RESTORE_FROM_SNAPSHOT`. See following example stacktrace:
 

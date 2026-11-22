@@ -1,7 +1,6 @@
 
 
 # Table API connectors
-<a name="how-table-connectors"></a>
 
 In the Apache Flink programming model, connectors are components that your application uses to read or write data from external sources, such as other AWS services.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot performance issues
-<a name="performance-troubleshooting"></a>
 
 This section contains a list of symptoms that you can check to diagnose and fix performance issues.
 

@@ -1,7 +1,6 @@
 
 
 # I/O bound operators
-<a name="troubleshooting-io-bound-operators"></a>
 
 It's best to avoid dependencies to external systems on the data path. It's often much more performant to keep a reference data set in state rather than querying an external system to enrich individual events. However, sometimes there are dependencies that cannot be easily moved to state, e.g., if you want to enrich events with a machine learning model that is hosted on Amazon Sagemaker.
 

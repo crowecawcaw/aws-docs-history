@@ -1,7 +1,6 @@
 
 
 # Document history for Amazon Managed Service for Apache Flink
-<a name="doc-history"></a>
 
 The following table describes the important changes to the documentation since the last release of Managed Service for Apache Flink.
 

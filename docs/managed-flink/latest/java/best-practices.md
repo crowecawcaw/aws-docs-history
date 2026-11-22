@@ -1,7 +1,6 @@
 
 
 # Maintain best practices for Managed Service for Apache Flink applications
-<a name="best-practices"></a>
 
 This section contains information and recommendations for developing a stable, performant Managed Service for Apache Flink applications.
 
@@ -219,7 +218,7 @@ However, the idleness option with the build-in watermark strategies will not adv
 
 The following application is reading from a stream and creating session windows based on event time.
 
-```
+```json
 Properties consumerConfig = new Properties();
 consumerConfig.put(AWSConfigConstants.AWS_REGION, "eu-west-1");
 consumerConfig.put(ConsumerConfigConstants.STREAM_INITIAL_POSITION, "TRIM_HORIZON");
@@ -259,7 +258,7 @@ env.addSource(consumer)
 
 In the following example, 8 events are written to a 16 shard stream (the first 2 and the last event happen to land in the same shard).
 
-```
+```json
 $ aws kinesis put-record --stream-name hp-16 --partition-key 1 --data MQ==
 $ aws kinesis put-record --stream-name hp-16 --partition-key 2 --data Mg==
 $ aws kinesis put-record --stream-name hp-16 --partition-key 3 --data Mw==
@@ -327,7 +326,7 @@ Wed Mar 23 11:21:27 CET 2022
 
 This input should result in 5 session windows: event 1,2,3; event 4,5; event 6; event 7; event 8. However, the program only yields the first 4 windows.
 
-```
+```json
 11:59:21,529 INFO  org.apache.flink.streaming.connectors.kinesis.FlinkKinesisConsumer [] - Subtask 5 will be seeded with initial shard StreamShardHandle{streamName='hp-16', shard='{ShardId: shardId-000000000006,HashKeyRange: {StartingHashKey: 127605887595351923798765477786913079296,EndingHashKey: 148873535527910577765226390751398592511},SequenceNumberRange: {StartingSequenceNumber: 49627894338480851089309627289524549239292625588395704418,}}'}, starting state set as sequence number EARLIEST_SEQUENCE_NUM
 11:59:21,530 INFO  org.apache.flink.streaming.connectors.kinesis.internals.KinesisDataFetcher [] - Subtask 5 will start consuming seeded shard StreamShardHandle{streamName='hp-16', shard='{ShardId: shardId-000000000006,HashKeyRange: {StartingHashKey: 127605887595351923798765477786913079296,EndingHashKey: 148873535527910577765226390751398592511},SequenceNumberRange: {StartingSequenceNumber: 49627894338480851089309627289524549239292625588395704418,}}'} from sequence number EARLIEST_SEQUENCE_NUM with ShardConsumer 0
 11:59:21,530 INFO  org.apache.flink.streaming.connectors.kinesis.FlinkKinesisConsumer [] - Subtask 6 will be seeded with initial shard StreamShardHandle{streamName='hp-16', shard='{ShardId: shardId-000000000007,HashKeyRange: {StartingHashKey: 148873535527910577765226390751398592512,EndingHashKey: 170141183460469231731687303715884105727},SequenceNumberRange: {StartingSequenceNumber: 49627894338503151834508157912666084957565273949901684850,}}'}, starting state set as sequence number EARLIEST_SEQUENCE_NUM
@@ -399,7 +398,7 @@ The *operator ID mismatch* issue happens when Flink does not find a 1:1 mapping 
 
 Flink uses Java’s [Service Provider Interfaces (SPI)](https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html) to load components such as connectors and formats. Multiple Flink dependencies using SPI [may cause clashes in the uber-jar](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/overview/#transform-table-connectorformat-resources) and unexpected application behaviors. We recommend that you add the [ServiceResourceTransformer](https://maven.apache.org/plugins/maven-shade-plugin/examples/resource-transformers.html) of the Maven shade plugin, defined in the pom.xml.
 
-```
+```json
 <build>
     <plugins>
         <plugin>

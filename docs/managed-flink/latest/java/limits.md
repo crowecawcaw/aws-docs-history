@@ -1,7 +1,6 @@
 
 
 # Managed Service for Apache Flink and Studio notebook quota
-<a name="limits"></a>
 
 **Note**  
 Apache Flink versions **1.6, 1.8, and 1.11** have not been supported by the Apache Flink community for over three years. We now plan to end support for these versions in Amazon Managed Service for Apache Flink. From **November 5, 2024**, you will not be able to create new applications for these Flink versions. You can continue running existing applications at this time.   

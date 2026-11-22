@@ -1,7 +1,6 @@
 
 
 # Write data using sinks in Managed Service for Apache Flink
-<a name="how-sinks"></a>
 
 In your application code, you can use any [Apache Flink sink](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/overview/) connector to write into external systems, including AWS services, such as Kinesis Data Streams and DynamoDB.
 
@@ -40,7 +39,7 @@ The `FlinkKinesisFirehoseProducer` is a reliable, scalable Apache Flink sink for
 
 The following code example demonstrates creating a `FlinkKinesisFirehoseProducer`:
 
-```
+```java
 Properties outputProperties = new Properties();
 outputProperties.setProperty(ConsumerConfigConstants.AWS_REGION, region);
 
@@ -52,7 +51,7 @@ FlinkKinesisFirehoseProducer<String> sink = new FlinkKinesisFirehoseProducer<>(o
 
 The following code example demonstrates how to create and configure a `FlinkKinesisFirehoseProducer` and send data from an Apache Flink data stream to the Firehose service.
 
-```
+```java
  
 package com.amazonaws.services.kinesisanalytics;
 

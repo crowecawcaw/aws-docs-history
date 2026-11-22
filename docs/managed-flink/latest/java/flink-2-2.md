@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Service for Apache Flink 2.2
-<a name="flink-2-2"></a>
 
 Amazon Managed Service for Apache Flink now supports Apache Flink version 2.2. This is the first major version upgrade for the service. This page covers the capabilities introduced in Flink 2.2, along with important considerations for upgrading from Flink 1.x.
 
@@ -36,6 +35,8 @@ Amazon Managed Service for Apache Flink 2.2 introduces behavioral changes that m
 <a name="flink-2-2-breaking-changes"></a>
 
 Below is a summary of breaking changes and deprecations introduced in Managed Service for Apache Flink 2.2. See [Apache Flink 2.0 Release Notes](https://nightlies.apache.org/flink/flink-docs-stable/release-notes/flink-2.0/) for full release notes of Apache Flink 2.0 that introduces these breaking changes.
+
+**Flink API and Language Removals**
 
 **DataSet API Removed**
 + The legacy DataSet API for batch processing has been completely removed in Flink 2.0\+. All batch processing must now use the unified DataStream API.

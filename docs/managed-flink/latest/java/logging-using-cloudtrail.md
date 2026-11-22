@@ -1,7 +1,6 @@
 
 
 # Log Managed Service for Apache Flink API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Managed Service for Apache Flink is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Managed Service for Apache Flink. CloudTrail captures all API calls for Managed Service for Apache Flink as events. The calls captured include calls from the Managed Service for Apache Flink console and code calls to the Managed Service for Apache Flink API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Managed Service for Apache Flink. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Managed Service for Apache Flink, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
@@ -44,7 +43,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the [AddApplicationCloudWatchLoggingOption](/managed-flink/latest/apiv2/API_AddApplicationCloudWatchLoggingOption.html) and [DescribeApplication](/managed-flink/latest/apiv2/API_DescribeApplication.html) actions.
 
-```
+```json
 {
     "Records": [
         {
@@ -118,7 +117,7 @@ The following example shows a CloudTrail log entry that demonstrates the [AddApp
 
 The following example shows a CloudTrail log entry for the [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html) action. The `resources` field lists the ARN of the application and the ARN of the enhanced snapshot.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {

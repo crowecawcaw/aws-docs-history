@@ -1,7 +1,6 @@
 
 
 # Managing CMK using APIs
-<a name="manage-cmk-api"></a>
 
 This topic describes how to create, and update your KMS CMKs using Amazon MSF APIs. To follow the procedures described in this topic, you must have permission to manage the KMS key and the Amazon MSF application. The procedures in this topic use a permissive key policy, which is for demonstration and testing purposes only. We **don't recommend** using such a permissive key policy for production workloads. In real-life scenarios for production workloads, roles, permissions, and workflows are isolated.
 
@@ -41,7 +40,7 @@ The following example uses IAM roles. You can create the key policy for the KMS 
 
 The following key policy statements are large because they are intended to be explicit and show the conditions that each action requires.
 
-```
+```json
 {
     "Version":"2012-10-17",			 	 	 	 	 	 
     "Id": "MyMsfCmkApplicationKeyPolicy",
@@ -278,7 +277,7 @@ The following IAM policy ensures that the application lifecycle operator has the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -381,7 +380,7 @@ For an application in enhanced snapshot mode, each existing enhanced snapshot ke
 
    In this JSON configuration, remember to replace the {{sample}} values with the actual values.
 
-   ```
+   ```json
    {
        "ApplicationName": "{{MyCmkApplication}}",
        "CurrentApplicationVersionId": {{1}},
@@ -417,7 +416,7 @@ The preceding configuration is accepted to update the application for using CMK 
 
    In this JSON configuration, remember to replace the {{sample}} values with the actual values.
 
-   ```
+   ```json
    {
        "ApplicationName": "{{MyCmkApplication}}",
        "CurrentApplicationVersionId": {{1}},

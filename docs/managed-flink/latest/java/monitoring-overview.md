@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in Amazon Managed Service for Apache Flink
-<a name="monitoring-overview"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Managed Service for Apache Flink applications. You should collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multipoint failure if one occurs. 
 

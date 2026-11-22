@@ -1,7 +1,6 @@
 
 
 # Create a Managed Service for Apache Flink application
-<a name="how-creating-apps"></a>
 
 This topic contains information about creating a Managed Service for Apache Flink application.
 
@@ -34,7 +33,7 @@ For information about creating a Managed Service for Apache Flink application th
 
 When using Managed Service for Apache Flink Runtime version 1.1.0 and later, you specify the version of Apache Flink that your application uses when you compile your application. You provide the version of Apache Flink with the `-Dflink.version` parameter. For example, if you are using Apache Flink 2.3.0, provide the following:
 
-```
+```sh
 mvn package -Dflink.version=2.3.0
 ```
 

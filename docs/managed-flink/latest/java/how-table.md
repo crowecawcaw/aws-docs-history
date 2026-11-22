@@ -1,7 +1,6 @@
 
 
 # Review Table API components
-<a name="how-table"></a>
 
 Your Apache Flink application uses the [Apache Flink Table API](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/dev/table/tableapi/) to interact with data in a stream using a relational model. You use the Table API to access data using Table sources, and then use Table functions to transform and filter table data. You can transform and filter tabular data using either API functions or SQL commands. 
 

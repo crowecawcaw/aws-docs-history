@@ -1,7 +1,6 @@
 
 
 # Checkpointing is timing out
-<a name="troubleshooting-chk-timeout"></a>
 
 If your application is not optimized or properly provisioned, checkpoints can fail. This section describes symptoms and troubleshooting steps for this condition. 
 

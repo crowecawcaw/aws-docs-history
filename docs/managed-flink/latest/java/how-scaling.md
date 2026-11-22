@@ -1,7 +1,6 @@
 
 
 # Implement application scaling in Managed Service for Apache Flink
-<a name="how-scaling"></a>
 
 You can configure the parallel execution of tasks and the allocation of resources for Amazon Managed Service for Apache Flink to implement scaling. For information about how Apache Flink schedules parallel instances of tasks, see [Parallel Execution](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/dev/datastream/execution/parallel/) in the Apache Flink Documentation.
 
@@ -49,7 +48,7 @@ This section contains sample requests for API actions that set an application's 
 
 The following example request for the [`CreateApplication`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateApplication.html) action sets parallelism when you are creating an application:
 
-```
+```json
 {
    "ApplicationName": "string",
    "RuntimeEnvironment":"FLINK-1_18",
@@ -79,7 +78,7 @@ The following example request for the [`CreateApplication`](https://docs.aws.ama
 
 The following example request for the [`UpdateApplication`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.html) action sets parallelism for an existing application:
 
-```
+```json
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 4,
@@ -98,7 +97,7 @@ The following example request for the [`UpdateApplication`](https://docs.aws.ama
 
 The following example request for the [`UpdateApplication`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.html) action disables parallelism for an existing application:
 
-```
+```json
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 4,

@@ -1,7 +1,6 @@
 
 
 # FlinkKafkaConsumer issue with stop with savepoint
-<a name="troubleshooting-FlinkKafkaConsumer"></a>
 
 When using the legacy FlinkKafkaConsumer there is a possibility your application may get stuck in UPDATING, STOPPING or SCALING, if you have system snapshots enabled. There is no published fix available for this [issue](https://issues.apache.org/jira/browse/FLINK-28758), therefore we recommend you upgrade to the new [KafkaSource](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/kafka/#kafka-source) to mitigate this issue. 
 

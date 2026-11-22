@@ -1,7 +1,6 @@
 
 
 # How Amazon Managed Service for Apache Flink works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 
 
@@ -48,7 +47,7 @@ If you create the IAM role manually or if you create and manage the application 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

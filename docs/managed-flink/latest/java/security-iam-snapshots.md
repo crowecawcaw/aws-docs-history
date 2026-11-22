@@ -1,7 +1,6 @@
 
 
 # Identity and access management for enhanced snapshots
-<a name="security-iam-snapshots"></a>
 
 The permissions on this page apply only to enhanced snapshots in Amazon Managed Service for Apache Flink. If you do not use enhanced snapshots, you do not need these permissions. For more information about enhanced snapshots, see [How enhanced snapshots work](snapshots-how-it-works.md).
 
@@ -107,7 +106,7 @@ The policies with a customer managed key use the following AWS KMS conditions:
 
 The trust policy lets the Managed Service for Apache Flink service principal `kinesisanalytics.amazonaws.com` assume the role. The `aws:SourceAccount` and `aws:SourceArn` conditions limit the role to your account and one enhanced snapshot. The example uses `ArnEquals` with the full snapshot ARN of one enhanced snapshot.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -136,7 +135,7 @@ The trust policy lets the Managed Service for Apache Flink service principal `ki
 
 Use this policy when the source objects use Amazon S3 managed keys (SSE-S3) and not a customer managed key. The role reads the savepoint objects under the source prefix.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -183,7 +182,7 @@ Use this policy when a customer managed key encrypts the source objects. This po
 + `ReadEncryptedSnapshotSourceViaS3`: Allows `kms:Decrypt` for the decrypt request that Amazon S3 makes for the role. The conditions require `kms:ViaService` and the Amazon S3 encryption context.
 + `ValidateSnapshotSourceKeyAccess`: Allows `kms:Decrypt` and `kms:GenerateDataKey` for the permission check that Managed Service for Apache Flink makes directly on the key. The encryption context of this check is the snapshot ARN.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -283,7 +282,7 @@ Use this policy when a customer managed key encrypts the source objects. This po
 
 Use this policy when the default encryption of the destination bucket uses Amazon S3 managed keys (SSE-S3) and not a customer managed key. The role writes and reads objects under the destination prefix. The role also manages multipart uploads. The role does not need `s3:DeleteObject`.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -347,7 +346,7 @@ Use this policy when a customer managed key encrypts the exported objects. This 
 + `WriteEncryptedSnapshotDestinationViaS3`: Allows the key requests that Amazon S3 makes for the role. The conditions require `kms:ViaService`, the Amazon S3 encryption context, and the snapshot ARN in the Managed Service for Apache Flink encryption context.
 + `ValidateSnapshotDestinationKeyAccess`: Allows the permission check that Managed Service for Apache Flink makes directly on the key. The encryption context of this check is the snapshot ARN.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -476,7 +475,7 @@ The following identity-based policies give a caller permissions for enhanced sna
 
 The following policy lets a caller create enhanced snapshots of `MyApplication`. The policy also lets the caller describe and delete those enhanced snapshots, and track their operations. The policy assumes that each enhanced snapshot name starts with `MyApplication-`.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -514,7 +513,7 @@ To add tags in the `CreateSnapshot` request, also allow `kinesisanalytics:TagRes
 
 The following policy lets a caller create enhanced snapshots of `MyApplication` only with an `Environment` tag. The `Deny` statement rejects a `CreateSnapshot` request without that tag. Its `Null` condition is true only when the request has no `Environment` tag, so a request with the tag is not denied. The `TagResource` statement allows the tag only with the values `dev` or `prod`.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -553,7 +552,7 @@ The `Deny` statement does not affect system snapshots, because Managed Service f
 
 The following policy lets a caller start or update `MyApplication` from the enhanced snapshot `MyApplication-snapshot-1`. The request sets `ApplicationRestoreType` to `RESTORE_FROM_CUSTOM_SNAPSHOT` and `SnapshotArn` to the snapshot ARN.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -591,7 +590,7 @@ For the restore procedure, see [Restore from a specific snapshot](snapshots-rest
 
 The following policy lets a caller import a savepoint as the enhanced snapshot `MyApplication-snapshot-imported`. The policy also lets the caller export the enhanced snapshot `MyApplication-snapshot-1`. The `TagResource` statement lets the caller add tags in the `ImportSnapshot` request. The `iam:PassRole` statement lets the caller pass the import role and the export role to Managed Service for Apache Flink.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -636,7 +635,7 @@ The import role and the export role need their own trust policy and permissions 
 
 Managed Service for Apache Flink also needs a key policy on the key of the enhanced snapshot. The following key policy allows the caller role `Operator` to import the enhanced snapshot `MyApplication-snapshot-imported`. The key is the key in `DestinationEncryptionConfiguration`. The `DescribeKey` statements are for a later restore or export of the imported enhanced snapshot.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -699,7 +698,7 @@ Managed Service for Apache Flink also needs a key policy on the key of the enhan
 
 The following key policy allows the caller role `Operator` to export the enhanced snapshot `MyApplication-snapshot-1`. The application `MyApplication` created this enhanced snapshot, so the conditions use the application ARN. For an imported enhanced snapshot, use the snapshot ARN instead. Keep the application ARN in the key policy after you delete the application.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Clean up your application and dependent resources
-<a name="example-notebook-cleanup"></a>
 
 ## Delete your Studio notebook
 <a name="example-notebook-cleanup-app"></a>

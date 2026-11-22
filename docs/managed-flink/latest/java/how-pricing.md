@@ -1,7 +1,6 @@
 
 
 # Per second billing in Managed Service for Apache Flink
-<a name="how-pricing"></a>
 
 Managed Service for Apache Flink is now billed in one-second increments. There is a ten-minute minimum charge per application. Per-second billing is applicable to applications that are newly launched or already running. This section describes how Managed Service for Apache Flink meters and bills you for your usage. To learn more about Managed Service for Apache Flink pricing, see [Amazon Managed Service for Apache Flink Pricing](https://aws.amazon.com/managed-service-apache-flink/pricing/). 
 

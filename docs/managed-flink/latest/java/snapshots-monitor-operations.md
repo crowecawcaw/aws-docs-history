@@ -1,7 +1,6 @@
 
 
 # Monitor enhanced snapshot operations
-<a name="snapshots-monitor-operations"></a>
 
 In Amazon Managed Service for Apache Flink, [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html), [`DeleteSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteSnapshot.html), [`ImportSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ImportSnapshot.html), and [`ExportSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ExportSnapshot.html) run asynchronously. Each call returns a `SnapshotOperationId`. This page shows how to use the ID to track the operation until the operation succeeds or fails.
 
@@ -23,7 +22,7 @@ A `DescribeSnapshotOperation` request has the following members:
 + `SnapshotName`: The name of the enhanced snapshot.
 + `SnapshotOperationId`: The ID that the asynchronous action returned. The ID has 1 to 64 characters.
 
-```
+```json
 {
     "SnapshotName": "MyApplication-snapshot-1",
     "SnapshotOperationId": "s9T0u1V2w3X4"
@@ -63,7 +62,7 @@ A `ListSnapshotOperations` request has the following members:
 
 Each request accepts at most one filter. To filter on both type and status, filter on one member and check the other member in the results.
 
-```
+```json
 {
     "SnapshotName": "MyApplication-snapshot-1",
     "SnapshotOperationStatus": "FAILED",
@@ -219,7 +218,7 @@ Before you begin, install and configure the AWS CLI. Make sure that your credent
 
    Run the following AWS CLI command:
 
-   ```
+   ```bash
    PROMPT> aws kinesisanalyticsv2 describe-snapshot-operation \
        --snapshot-name MyApplication-snapshot-1 \
        --snapshot-operation-id s9T0u1V2w3X4
@@ -227,7 +226,7 @@ Before you begin, install and configure the AWS CLI. Make sure that your credent
 
    The following example shows the JSON request for the `DescribeSnapshotOperation` API:
 
-   ```
+   ```json
    {
        "SnapshotName": "MyApplication-snapshot-1",
        "SnapshotOperationId": "s9T0u1V2w3X4"
@@ -236,7 +235,7 @@ Before you begin, install and configure the AWS CLI. Make sure that your credent
 
    The following example shows the JSON response while the export runs:
 
-   ```
+   ```json
    {
        "SnapshotOperationInfoDetails": {
            "SnapshotOperationId": "s9T0u1V2w3X4",
@@ -255,7 +254,7 @@ Before you begin, install and configure the AWS CLI. Make sure that your credent
 
    The following AWS CLI script repeats the call until the operation ends:
 
-   ```
+   ```bash
    while true; do
        STATUS=$(aws kinesisanalyticsv2 describe-snapshot-operation \
            --snapshot-name MyApplication-snapshot-1 \
@@ -278,7 +277,7 @@ Before you begin, install and configure the AWS CLI. Make sure that your credent
 
    The following example shows the failure details of a failed export:
 
-   ```
+   ```json
    {
        "SnapshotOperationFailureDetails": {
            "ErrorInfo": {

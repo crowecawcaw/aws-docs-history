@@ -1,7 +1,6 @@
 
 
 # Checkpoint failure for Apache Beam application
-<a name="troubleshooting-chk-failure-beam"></a>
 
 If your Beam application is configured with [shutdownSourcesAfterIdleMs](https://beam.apache.org/documentation/runners/flink/#:~:text=shutdownSourcesAfterIdleMs) set to 0ms, checkpoints can fail to trigger because tasks are in "FINISHED" state. This section describes symptoms and resolution for this condition. 
 

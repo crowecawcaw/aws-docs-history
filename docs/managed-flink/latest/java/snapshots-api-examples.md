@@ -1,7 +1,6 @@
 
 
 # Enhanced snapshot API examples
-<a name="snapshots-api-examples"></a>
 
 Use the following examples to call the enhanced snapshot API actions. Each snapshot action example shows the full request and response. The `CreateApplication` and `UpdateApplication` examples show only the request. For information about how to use a JSON file for input for an API action, see [Managed Service for Apache Flink API example code](api-examples.md).
 
@@ -17,7 +16,7 @@ Each of the following sections shows one API action.
 
 The following example request for the [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html) action creates an enhanced snapshot of a running application:
 
-```
+```json
 {
     "ApplicationName": "MyApplication",
     "SnapshotName": "MyApplication-snapshot-1",
@@ -28,7 +27,7 @@ The following example request for the [`CreateSnapshot`](https://docs.aws.amazon
 
 The following example shows the response:
 
-```
+```json
 {
     "SnapshotArn": "arn:aws:kinesisanalytics:aa-example-1:111122223333:snapshot/MyApplication-snapshot-1",
     "SnapshotStatus": "CREATING",
@@ -42,7 +41,7 @@ The following example shows the response:
 
 The following example request for the [`DescribeSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DescribeSnapshot.html) action returns the details of an enhanced snapshot:
 
-```
+```json
 {
     "SnapshotName": "MyApplication-snapshot-1"
 }
@@ -50,7 +49,7 @@ The following example request for the [`DescribeSnapshot`](https://docs.aws.amaz
 
 The following example shows the response:
 
-```
+```json
 {
     "SnapshotInfoDetails": {
         "SnapshotName": "MyApplication-snapshot-1",
@@ -84,7 +83,7 @@ The following example request for the [`ListSnapshots`](https://docs.aws.amazon.
 
 All filter fields are optional. The request accepts at most one of these filter fields: `SourceApplicationName`, `SnapshotInitiator`, `SnapshotInitiatorOperation`, or `SnapshotStatus`.
 
-```
+```json
 {
     "Limit": 50
 }
@@ -92,7 +91,7 @@ All filter fields are optional. The request accepts at most one of these filter 
 
 The following example shows the response. The newest enhanced snapshot comes first.
 
-```
+```json
 {
     "SnapshotInfoList": [
         {
@@ -124,7 +123,7 @@ The following example shows the response. The newest enhanced snapshot comes fir
 
 The following example request for the [`DeleteSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteSnapshot.html) action deletes an enhanced snapshot. Copy the `SnapshotCreationTimestamp` value from the `DescribeSnapshot` response.
 
-```
+```json
 {
     "SnapshotName": "MyApplication-snapshot-1",
     "SnapshotCreationTimestamp": 1767225600
@@ -133,7 +132,7 @@ The following example request for the [`DeleteSnapshot`](https://docs.aws.amazon
 
 The following example shows the response:
 
-```
+```json
 {
     "SnapshotArn": "arn:aws:kinesisanalytics:aa-example-1:111122223333:snapshot/MyApplication-snapshot-1",
     "SnapshotStatus": "DELETING",
@@ -147,7 +146,7 @@ The following example shows the response:
 
 The following example request for the [`ImportSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ImportSnapshot.html) action imports an Apache Flink savepoint from Amazon S3 as a new enhanced snapshot:
 
-```
+```json
 {
     "SnapshotName": "MyApplication-snapshot-imported",
     "ImportSourceConfiguration": {
@@ -169,7 +168,7 @@ The following example request for the [`ImportSnapshot`](https://docs.aws.amazon
 
 The following example shows the response:
 
-```
+```json
 {
     "SnapshotArn": "arn:aws:kinesisanalytics:aa-example-1:111122223333:snapshot/MyApplication-snapshot-imported",
     "SnapshotStatus": "CREATING",
@@ -183,7 +182,7 @@ The following example shows the response:
 
 The following example request for the [`ExportSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ExportSnapshot.html) action exports an enhanced snapshot to an Amazon S3 bucket. `DestinationEncryptionConfiguration` is optional. If you omit it, Managed Service for Apache Flink uses `AWS_OWNED_KEY`.
 
-```
+```json
 {
     "SnapshotName": "MyApplication-snapshot-1",
     "ExportDestinationConfiguration": {
@@ -202,7 +201,7 @@ The following example request for the [`ExportSnapshot`](https://docs.aws.amazon
 
 The following example shows the response. The response has no snapshot ARN or snapshot status.
 
-```
+```json
 {
     "SnapshotOperationId": "s9T0u1V2w3X4",
     "SnapshotOperationStatus": "IN_PROGRESS"
@@ -214,7 +213,7 @@ The following example shows the response. The response has no snapshot ARN or sn
 
 The following example request for the [`DescribeSnapshotOperation`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DescribeSnapshotOperation.html) action returns the details of an export operation:
 
-```
+```json
 {
     "SnapshotName": "MyApplication-snapshot-1",
     "SnapshotOperationId": "s9T0u1V2w3X4"
@@ -223,7 +222,7 @@ The following example request for the [`DescribeSnapshotOperation`](https://docs
 
 The following example shows the response for a successful export. The `ExportedPrefix` field holds the full path of the exported files.
 
-```
+```json
 {
     "SnapshotOperationInfoDetails": {
         "SnapshotOperationId": "s9T0u1V2w3X4",
@@ -249,7 +248,7 @@ The following example shows the response for a successful export. The `ExportedP
 
 The following example shows the response for a failed export. The response adds `SnapshotOperationFailureDetails`. `S3PrefixLocation` also includes `ExportedPrefix` for a failed export.
 
-```
+```json
 {
     "SnapshotOperationInfoDetails": {
         "SnapshotOperationId": "y5Z6a7B8c9D0",
@@ -284,7 +283,7 @@ The following example shows the response for a failed export. The response adds 
 
 The following example request for the [`ListSnapshotOperations`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ListSnapshotOperations.html) action lists the failed operations of an enhanced snapshot. The request accepts at most one of these filter fields: `SnapshotOperation` or `SnapshotOperationStatus`.
 
-```
+```json
 {
     "SnapshotName": "MyApplication-snapshot-1",
     "SnapshotOperationStatus": "FAILED",
@@ -294,7 +293,7 @@ The following example request for the [`ListSnapshotOperations`](https://docs.aw
 
 The following example shows the response:
 
-```
+```json
 {
     "SnapshotOperationInfoList": [
         {
@@ -313,7 +312,7 @@ The following example shows the response:
 
 The following example request for the [`CreateApplication`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateApplication.html) action creates an application in enhanced snapshot mode. Set `SnapshotMode` to `ENHANCED_SNAPSHOTS`. The request must include `SnapshotsEnabled`. Set `SnapshotsEnabled` to `true` to turn on system snapshots.
 
-```
+```json
 {
     "ApplicationName": "MyApplication",
     "RuntimeEnvironment": "FLINK-1_20",
@@ -344,7 +343,7 @@ The following example request for the [`UpdateApplication`](https://docs.aws.ama
 **Note**  
 You cannot set `SnapshotModeUpdate` back to `APPLICATION_SNAPSHOTS_LEGACY`. That request returns `InvalidArgumentException`. To return to application snapshots (legacy), call `RollbackApplication` when the upgrade is still the most recent update. For more information, see [Upgrade an existing application to enhanced snapshots](snapshots-upgrade.md).
 
-```
+```json
 {
     "ApplicationName": "MyApplication",
     "CurrentApplicationVersionId": 3,
@@ -362,7 +361,7 @@ You cannot set `SnapshotModeUpdate` back to `APPLICATION_SNAPSHOTS_LEGACY`. That
 
 The following example request for the [`StartApplication`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_StartApplication.html) action starts an application from an enhanced snapshot. Set `ApplicationRestoreType` to `RESTORE_FROM_CUSTOM_SNAPSHOT`. Identify the enhanced snapshot with `SnapshotArn`, not `SnapshotName`.
 
-```
+```json
 {
     "ApplicationName": "MyApplication",
     "RunConfiguration": {
@@ -376,7 +375,7 @@ The following example request for the [`StartApplication`](https://docs.aws.amaz
 
 The following example shows the response:
 
-```
+```json
 {
     "OperationId": "Abc123Def456"
 }
@@ -387,7 +386,7 @@ The following example shows the response:
 
 The following example request for the `UpdateApplication` action restores a running application from an enhanced snapshot. The application must be in the `RUNNING` status.
 
-```
+```json
 {
     "ApplicationName": "MyApplication",
     "CurrentApplicationVersionId": 4,

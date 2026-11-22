@@ -1,7 +1,6 @@
 
 
 # Internet and service access for a VPC-connected Managed Service for Apache Flink application
-<a name="vpc-internet"></a>
 
 By default, when you connect a Managed Service for Apache Flink application to a VPC in your account, it does not have access to the internet unless the VPC provides access. If the application needs internet access, the following need to be true:
 + The Managed Service for Apache Flink application should only be configured with private subnets.

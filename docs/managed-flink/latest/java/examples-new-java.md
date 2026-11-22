@@ -1,7 +1,6 @@
 
 
 # Java examples for Managed Service for Apache Flink
-<a name="examples-new-java"></a>
 
 The following examples demonstrate how to create applications written in Java.
 

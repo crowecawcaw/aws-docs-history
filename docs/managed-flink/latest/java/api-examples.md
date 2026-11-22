@@ -1,7 +1,6 @@
 
 
 # Managed Service for Apache Flink API example code
-<a name="api-examples"></a>
 
 This topic contains example request blocks for Managed Service for Apache Flink actions.
 
@@ -9,7 +8,7 @@ To use JSON as the input for an action with the AWS Command Line Interface (AWS 
 
 The following example demonstrates how to use a JSON file with an action.
 
-```
+```bash
 $ aws kinesisanalyticsv2 start-application --cli-input-json file://start.json
 ```
 
@@ -54,7 +53,7 @@ For more information about using JSON with the AWS CLI, see [Generate CLI Skelet
 
 The following example request code for the [AddApplicationCloudWatchLoggingOption](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_AddApplicationCloudWatchLoggingOption.html) action adds an Amazon CloudWatch logging option to a Managed Service for Apache Flink application:
 
-```
+```json
 {
     "ApplicationName": "MyApplication",
     "CloudWatchLoggingOption": {
@@ -69,7 +68,7 @@ The following example request code for the [AddApplicationCloudWatchLoggingOptio
 
 The following example request code for the [AddApplicationInput](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_AddApplicationInput.html) action adds an application input to a Managed Service for Apache Flink application:
 
-```
+```json
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 2,
@@ -112,7 +111,7 @@ The following example request code for the [AddApplicationInput](https://docs.aw
 
 The following example request code for the [AddApplicationInputProcessingConfiguration](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_AddApplicationInputProcessingConfiguration.html) action adds an application input processing configuration to a Managed Service for Apache Flink application:
 
-```
+```json
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 2,
@@ -130,7 +129,7 @@ The following example request code for the [AddApplicationInputProcessingConfigu
 
 The following example request code for the [AddApplicationOutput](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_AddApplicationOutput.html) action adds a Kinesis data stream as an application output to a Managed Service for Apache Flink application:
 
-```
+```json
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 2,
@@ -151,7 +150,7 @@ The following example request code for the [AddApplicationOutput](https://docs.a
 
 The following example request code for the [AddApplicationReferenceDataSource](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_AddApplicationReferenceDataSource.html) action adds a CSV application reference data source to a Managed Service for Apache Flink application:
 
-```
+```json
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 5,
@@ -194,7 +193,7 @@ The following example request code for the [AddApplicationReferenceDataSource](h
 
 The following example request code for the [AddApplicationVpcConfiguration](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_AddApplicationVpcConfiguration.html) action adds a VPC configuration to an existing application:
 
-```
+```json
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 9,
@@ -210,7 +209,7 @@ The following example request code for the [AddApplicationVpcConfiguration](http
 
 The following example request code for the [CreateApplication](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateApplication.html) action creates a Managed Service for Apache Flink application:
 
-```
+```json
 {
   "ApplicationName":"MyApplication",
   "ApplicationDescription":"My-Application-Description",
@@ -262,7 +261,7 @@ The following JSON example request for the `CreateApplication` action creates an
 
 In the following example, replace `MyApplication`, the `ServiceExecutionRole` ARN, the bucket ARN, and the file key with your own values.
 
-```
+```json
 {
     "ApplicationName": "MyApplication",
     "RuntimeEnvironment": "FLINK-1_20",
@@ -290,7 +289,7 @@ In the following example, replace `MyApplication`, the `ServiceExecutionRole` AR
 
 The following JSON example request for the [`CreateApplicationSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateApplicationSnapshot.html) action creates an application snapshot (legacy). For an application in enhanced snapshot mode, this action returns `InvalidApplicationConfigurationException`. For the response syntax, see [`CreateApplicationSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateApplicationSnapshot.html#API_CreateApplicationSnapshot_ResponseSyntax) in the *Managed Service for Apache Flink API Reference*.
 
-```
+```json
 {
    "ApplicationName": "MyApplication",
    "SnapshotName": "MySnapshot"
@@ -302,7 +301,7 @@ The following JSON example request for the [`CreateApplicationSnapshot`](https:/
 
 The following example request code for the [DeleteApplication](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteApplication.html) action deletes a Managed Service for Apache Flink application:
 
-```
+```json
 {"ApplicationName": "MyApplication",
 "CreateTimestamp": 12345678912}
 ```
@@ -314,7 +313,7 @@ In enhanced snapshot mode, `DeleteApplication` does not delete the enhanced snap
 
 The following example request code for the [DeleteApplicationCloudWatchLoggingOption](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationCloudWatchLoggingOption.html) action deletes an Amazon CloudWatch logging option from a Managed Service for Apache Flink application:
 
-```
+```json
 {
     "ApplicationName": "MyApplication",
     "CloudWatchLoggingOptionId": "3.1"
@@ -327,7 +326,7 @@ The following example request code for the [DeleteApplicationCloudWatchLoggingOp
 
 The following example request code for the [DeleteApplicationInputProcessingConfiguration](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationInputProcessingConfiguration.html) action removes an input processing configuration from a Managed Service for Apache Flink application:
 
-```
+```json
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 4,
@@ -340,7 +339,7 @@ The following example request code for the [DeleteApplicationInputProcessingConf
 
 The following example request code for the [DeleteApplicationOutput](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationOutput.html) action removes an application output from a Managed Service for Apache Flink application:
 
-```
+```json
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 4,
@@ -353,7 +352,7 @@ The following example request code for the [DeleteApplicationOutput](https://doc
 
 The following example request code for the [DeleteApplicationReferenceDataSource](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationReferenceDataSource.html) action removes an application reference data source from a Managed Service for Apache Flink application:
 
-```
+```json
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 5,
@@ -366,7 +365,7 @@ The following example request code for the [DeleteApplicationReferenceDataSource
 
 The following JSON example request for the [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html) action creates an enhanced snapshot of a running application. The application must use enhanced snapshot mode.
 
-```
+```json
 {
    "ApplicationName": "MyApplication",
    "SnapshotName": "MyApplication-snapshot-1",
@@ -376,7 +375,7 @@ The following JSON example request for the [`CreateSnapshot`](https://docs.aws.a
 
 The following example shows the response:
 
-```
+```json
 {
    "SnapshotArn": "arn:aws:kinesisanalytics:aa-example-1:111122223333:snapshot/MyApplication-snapshot-1",
    "SnapshotStatus": "CREATING",
@@ -390,7 +389,7 @@ The following example shows the response:
 
 The following JSON example request for the [`DeleteApplicationSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationSnapshot.html) action deletes an application snapshot (legacy). For an enhanced snapshot, use [`DeleteSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteSnapshot.html). For the response syntax, see [`DeleteApplicationSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationSnapshot.html#API_DeleteApplicationSnapshot_ResponseSyntax) in the *Managed Service for Apache Flink API Reference*.
 
-```
+```json
 {
    "ApplicationName": "MyApplication",
    "SnapshotCreationTimestamp": 12345678912,
@@ -403,7 +402,7 @@ The following JSON example request for the [`DeleteApplicationSnapshot`](https:/
 
 The following example request code for the [DeleteApplicationVpcConfiguration](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_DeleteApplicationVpcConfiguration.html) action removes an existing VPC configuration from an application:
 
-```
+```json
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 9,
@@ -416,7 +415,7 @@ The following example request code for the [DeleteApplicationVpcConfiguration](h
 
 The following JSON example request for the [`DeleteSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteSnapshot.html) action deletes an enhanced snapshot. Copy the `SnapshotCreationTimestamp` value from the `DescribeSnapshot` response.
 
-```
+```json
 {
    "SnapshotName": "MyApplication-snapshot-1",
    "SnapshotCreationTimestamp": 1767225600
@@ -425,7 +424,7 @@ The following JSON example request for the [`DeleteSnapshot`](https://docs.aws.a
 
 The following example shows the response:
 
-```
+```json
 {
    "SnapshotArn": "arn:aws:kinesisanalytics:aa-example-1:111122223333:snapshot/MyApplication-snapshot-1",
    "SnapshotStatus": "DELETING",
@@ -439,7 +438,7 @@ The following example shows the response:
 
 The following example request code for the [DescribeApplication](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DescribeApplication.html) action returns details about a Managed Service for Apache Flink application:
 
-```
+```json
 {"ApplicationName": "MyApplication"}
 ```
 
@@ -448,7 +447,7 @@ The following example request code for the [DescribeApplication](https://docs.aw
 
 The following JSON example request for the [`DescribeApplicationSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DescribeApplicationSnapshot.html) action returns details about an application snapshot (legacy). For an enhanced snapshot, use [`DescribeSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DescribeSnapshot.html). For the response syntax, see [`DescribeApplicationSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DescribeApplicationSnapshot.html#API_DescribeApplicationSnapshot_ResponseSyntax) in the *Managed Service for Apache Flink API Reference*.
 
-```
+```json
 {
    "ApplicationName": "MyApplication",
    "SnapshotName": "MySnapshot"
@@ -460,7 +459,7 @@ The following JSON example request for the [`DescribeApplicationSnapshot`](https
 
 The following JSON example request for the [`DescribeSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DescribeSnapshot.html) action returns the details of an enhanced snapshot.
 
-```
+```json
 {
    "SnapshotName": "MyApplication-snapshot-1"
 }
@@ -468,7 +467,7 @@ The following JSON example request for the [`DescribeSnapshot`](https://docs.aws
 
 The following example shows part of the response:
 
-```
+```json
 {
    "SnapshotInfoDetails": {
       "SnapshotName": "MyApplication-snapshot-1",
@@ -488,7 +487,7 @@ The following example shows part of the response:
 
 The following JSON example request for the [`DescribeSnapshotOperation`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DescribeSnapshotOperation.html) action returns the details of one operation on an enhanced snapshot.
 
-```
+```json
 {
    "SnapshotName": "MyApplication-snapshot-1",
    "SnapshotOperationId": "s9T0u1V2w3X4"
@@ -497,7 +496,7 @@ The following JSON example request for the [`DescribeSnapshotOperation`](https:/
 
 The following example shows the response for a successful export:
 
-```
+```json
 {
    "SnapshotOperationInfoDetails": {
       "SnapshotOperationId": "s9T0u1V2w3X4",
@@ -515,7 +514,7 @@ The following example shows the response for a successful export:
 
 The following example request code for the [DiscoverInputSchema](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DiscoverInputSchema.html) action generates a schema from a streaming source:
 
-```
+```json
 {
    "InputProcessingConfiguration": { 
       "InputLambdaProcessor": { 
@@ -536,7 +535,7 @@ The following example request code for the [DiscoverInputSchema](https://docs.aw
 
 The following example request code for the [DiscoverInputSchema](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DiscoverInputSchema.html) action generates a schema from a reference source:
 
-```
+```json
 {
    "S3Configuration": { 
       "BucketARN": "arn:aws:s3:::amzn-s3-demo-bucket",
@@ -553,7 +552,7 @@ The following JSON example request for the [`ExportSnapshot`](https://docs.aws.a
 
 In the following example, replace the snapshot name, the role ARN, the bucket ARN, and the key prefix with your own values.
 
-```
+```json
 {
    "SnapshotName": "MyApplication-snapshot-1",
    "ExportDestinationConfiguration": {
@@ -572,7 +571,7 @@ In the following example, replace the snapshot name, the role ARN, the bucket AR
 
 The following example shows the response:
 
-```
+```json
 {
    "SnapshotOperationId": "s9T0u1V2w3X4",
    "SnapshotOperationStatus": "IN_PROGRESS"
@@ -586,7 +585,7 @@ The following JSON example request for the [`ImportSnapshot`](https://docs.aws.a
 
 In the following example, replace the snapshot name, the role ARN, the bucket ARN, and the key prefix with your own values.
 
-```
+```json
 {
    "SnapshotName": "MyApplication-snapshot-imported",
    "ImportSourceConfiguration": {
@@ -603,7 +602,7 @@ In the following example, replace the snapshot name, the role ARN, the bucket AR
 
 The following example shows the response:
 
-```
+```json
 {
    "SnapshotArn": "arn:aws:kinesisanalytics:aa-example-1:111122223333:snapshot/MyApplication-snapshot-imported",
    "SnapshotStatus": "CREATING",
@@ -617,7 +616,7 @@ The following example shows the response:
 
 The following example request code for the [ListApplications](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ListApplications.html) action returns a list of Managed Service for Apache Flink applications in your account:
 
-```
+```json
 {
    "ExclusiveStartApplicationName": "MyApplication",
    "Limit": 50
@@ -629,7 +628,7 @@ The following example request code for the [ListApplications](https://docs.aws.a
 
 The following JSON example request for the [`ListApplicationSnapshots`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ListApplicationSnapshots.html) action returns a list of the application snapshots (legacy) of an application. For enhanced snapshots, use [`ListSnapshots`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ListSnapshots.html). For the response syntax, see [`ListApplicationSnapshots`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ListApplicationSnapshots.html#API_ListApplicationSnapshots_ResponseSyntax) in the *Managed Service for Apache Flink API Reference*.
 
-```
+```json
 {"ApplicationName": "MyApplication",
    "Limit": 50,
    "NextToken": "aBcDeFgHiJkLmNoPqRsTuVwXyZ0123"
@@ -641,7 +640,7 @@ The following JSON example request for the [`ListApplicationSnapshots`](https://
 
 The following JSON example request for the [`ListSnapshotOperations`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ListSnapshotOperations.html) action lists the failed operations of an enhanced snapshot.
 
-```
+```json
 {
    "SnapshotName": "MyApplication-snapshot-1",
    "SnapshotOperationStatus": "FAILED",
@@ -651,7 +650,7 @@ The following JSON example request for the [`ListSnapshotOperations`](https://do
 
 The following example shows the response:
 
-```
+```json
 {
    "SnapshotOperationInfoList": [
       {
@@ -670,7 +669,7 @@ The following example shows the response:
 
 The following JSON example request for the [`ListSnapshots`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ListSnapshots.html) action lists the first 50 enhanced snapshots in the account and Region.
 
-```
+```json
 {
    "Limit": 50
 }
@@ -678,7 +677,7 @@ The following JSON example request for the [`ListSnapshots`](https://docs.aws.am
 
 The following example shows part of the response:
 
-```
+```json
 {
    "SnapshotInfoList": [
       {
@@ -700,7 +699,7 @@ The following example shows part of the response:
 
 The following example request code for the [StartApplication](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_StartApplication.html) action starts a Managed Service for Apache Flink application, and loads the application state from the latest snapshot (if any):
 
-```
+```json
 {
     "ApplicationName": "MyApplication",
     "RunConfiguration": {
@@ -717,7 +716,7 @@ The following JSON example request for the `StartApplication` action starts an a
 
 In the following example, replace `MyApplication` and the `SnapshotArn` value with your application name and the ARN of your enhanced snapshot.
 
-```
+```json
 {
     "ApplicationName": "MyApplication",
     "RunConfiguration": {
@@ -734,7 +733,7 @@ In the following example, replace `MyApplication` and the `SnapshotArn` value wi
 
 The following example request code for the [API\_StopApplication](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_StopApplication.html) action stops a Managed Service for Apache Flink application:
 
-```
+```json
 {"ApplicationName": "MyApplication"}
 ```
 
@@ -743,7 +742,7 @@ The following example request code for the [API\_StopApplication](https://docs.a
 
 The following example request code for the [UpdateApplication](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.html) action updates a Managed Service for Apache Flink application to change the location of the application code:
 
-```
+```json
 {"ApplicationName": "MyApplication",
 "CurrentApplicationVersionId": 1,
 "ApplicationConfigurationUpdate": { 
@@ -768,7 +767,7 @@ The application must already use Apache Flink 1.20 or later. If you upgrade an a
 
 In the following example, replace `MyApplication` with your application name. Set `CurrentApplicationVersionId` to the current version ID from the `DescribeApplication` response.
 
-```
+```json
 {
     "ApplicationName": "MyApplication",
     "CurrentApplicationVersionId": 3,
@@ -785,7 +784,7 @@ The following JSON example request for the `UpdateApplication` action restores a
 
 In the following example, replace `MyApplication`, the `CurrentApplicationVersionId` value, and the `SnapshotArn` value with your own values.
 
-```
+```json
 {
     "ApplicationName": "MyApplication",
     "CurrentApplicationVersionId": 4,

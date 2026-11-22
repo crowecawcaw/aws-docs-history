@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon Managed Service for Apache Flink identity and access
-<a name="security_iam_troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with Managed Service for Apache Flink and IAM.
 

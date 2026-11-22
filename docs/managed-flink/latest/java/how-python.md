@@ -1,7 +1,6 @@
 
 
 # Use Python with Managed Service for Apache Flink
-<a name="how-python"></a>
 
 **Note**  
 If you are developing Python Flink application on a new Mac with Apple Silicon chip, you may encounter some [known issues](https://issues.apache.org/jira/browse/FLINK-26981) with Python dependencies of PyFlink 1.15. In this case we recommend running the Python interpreter in Docker. For step-by-step instructions, see [PyFlink 1.15 development on Apple Silicon Mac](https://github.com/aws-samples/amazon-managed-service-for-apache-flink-examples/tree/main/python/LocalDevelopmentOnAppleSilicon).

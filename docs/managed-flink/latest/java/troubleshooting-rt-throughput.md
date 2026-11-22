@@ -1,7 +1,6 @@
 
 
 # Throughput is too slow
-<a name="troubleshooting-rt-throughput"></a>
 
 If your application is not processing incoming streaming data quickly enough, it will perform poorly and become unstable. This section describes symptoms and troubleshooting steps for this condition. 
 

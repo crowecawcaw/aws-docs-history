@@ -1,7 +1,6 @@
 
 
 # Programmatic Flink configuration properties
-<a name="programmatic-configuration"></a>
 
 Following are Flink configuration properties that you can modify directly in your application code. Starting with MSF 2.2, an exception will be thrown if you try to modify a property not listed on this page in your application code.
 

@@ -1,7 +1,6 @@
 
 
 # Use the correct Studio notebook Runtime version
-<a name="studio-notebook-versions"></a>
 
 With Amazon Managed Service for Apache Flink Studio, you can query data streams in real time and build and run stream processing applications using standard SQL, Python, and Scala in an interactive notebook. Studio notebooks are powered by [Apache Zeppelin](https://zeppelin.apache.org/) and use [Apache Flink](https://flink.apache.org/) as the stream processing engine. 
 

@@ -1,7 +1,6 @@
 
 
 # Upgrading to Flink 2.2: Complete guide
-<a name="flink-2-2-upgrade-guide"></a>
 
 This guide provides step-by-step instructions for upgrading your Amazon Managed Service for Apache Flink application from Flink 1.x to Flink 2.2. This is a major version upgrade with breaking changes that require careful planning and testing.
 
@@ -96,7 +95,7 @@ Auto-rollback allows Amazon Managed Service for Apache Flink to automatically re
 
 *AWS CLI:*
 
-```
+```bash
 aws kinesisanalyticsv2 describe-application \
     --application-name MyApplication \
     --query 'ApplicationDetail.ApplicationConfigurationDescription.ApplicationSystemRollbackConfigurationDescription.RollbackEnabled'
@@ -104,7 +103,7 @@ aws kinesisanalyticsv2 describe-application \
 
 **Enable auto-rollback (if not enabled)**
 
-```
+```bash
 aws kinesisanalyticsv2 update-application \
     --application-name MyApplication \
     --current-application-version-id <version-id> \
@@ -136,7 +135,7 @@ If automatic snapshots are enabled for your application you can skip this step, 
 
 *AWS CLI:*
 
-```
+```bash
 aws kinesisanalyticsv2 create-application-snapshot \
     --application-name MyApplication \
     --snapshot-name pre-flink-2.2-upgrade
@@ -144,7 +143,7 @@ aws kinesisanalyticsv2 create-application-snapshot \
 
 **Verify snapshot creation**
 
-```
+```bash
 aws kinesisanalyticsv2 describe-application-snapshot \
     --application-name MyApplication \
     --snapshot-name pre-flink-2.2-upgrade
@@ -156,7 +155,7 @@ Wait until `SnapshotStatus` is `READY` before proceeding.
 
 The previous commands create an application snapshot (legacy). For an application in enhanced snapshot mode, `CreateApplicationSnapshot` returns `InvalidApplicationConfigurationException`. Call [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html) instead. Run the following AWS CLI command for Amazon Managed Service for Apache Flink. Replace `MyApplication` with the name of your application, and `pre-flink-2.2-upgrade` with a name for the enhanced snapshot.
 
-```
+```bash
 PROMPT> aws kinesisanalyticsv2 create-snapshot \
     --application-name MyApplication \
     --snapshot-name pre-flink-2.2-upgrade
@@ -164,7 +163,7 @@ PROMPT> aws kinesisanalyticsv2 create-snapshot \
 
 Run the following AWS CLI command, which calls [`DescribeSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DescribeSnapshot.html), until `SnapshotStatus` is `READY`. Copy the `SnapshotArn` value. You need the ARN to restore the application from this enhanced snapshot.
 
-```
+```bash
 PROMPT> aws kinesisanalyticsv2 describe-snapshot \
     --snapshot-name pre-flink-2.2-upgrade
 ```
@@ -197,7 +196,7 @@ For more information, see [IAM permissions](snapshots-setup.md#snapshots-setup-i
 
 **Upgrade from RUNNING state**
 
-```
+```bash
 aws kinesisanalyticsv2 update-application \
     --application-name MyApplication \
     --current-application-version-id <version-id> \
@@ -215,7 +214,7 @@ aws kinesisanalyticsv2 update-application \
 
 **Upgrade from READY state**
 
-```
+```bash
 aws kinesisanalyticsv2 update-application \
     --application-name MyApplication \
     --current-application-version-id <version-id> \
@@ -302,7 +301,7 @@ If the application is running but unhealthy, use the `RollbackApplication` API:
 
 *AWS CLI:*
 
-```
+```bash
 aws kinesisanalyticsv2 rollback-application \
     --application-name MyApplication \
     --current-application-version-id <version-id>

@@ -1,7 +1,6 @@
 
 
 # Table API time attributes
-<a name="how-table-timeattributes"></a>
 
 Each record in a data stream has several timestamps that define when events related to the record occurred:
 + **Event Time**: A user-defined timestamp that defines when the event that created the record occurred.

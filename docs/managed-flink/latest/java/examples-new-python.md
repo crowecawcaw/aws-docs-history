@@ -1,7 +1,6 @@
 
 
 # Python examples for Managed Service for Apache Flink
-<a name="examples-new-python"></a>
 
 The following examples demonstrate how to create applications written in Python.
 
