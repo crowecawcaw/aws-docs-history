@@ -1,7 +1,6 @@
 
 
 # Map APIs
-<a name="choose-maps-apis"></a>
 
 Maps provide access to both dynamic and static map types for a variety of applications. For more information, See [Amazon Location Service Maps](maps.md).
 + **Dynamic Maps**: Interactive maps that can be customized in real time, allowing users to pan, zoom, and overlay data. For more information, See [Dynamic maps](dynamic-maps.md).

@@ -1,7 +1,6 @@
 
 
 # Resource Management
-<a name="resource-management"></a>
 
 Resource management provides tools and processes to manage quotas, organize resources with tags, control costs, and automate resource creation using AWS CloudFormation. These capabilities enable you to efficiently allocate, monitor, and manage your resources within Amazon Location.
 

@@ -1,7 +1,6 @@
 
 
 # How to match GPS traces to a road network
-<a name="how-to-match-gps-traces"></a>
 
 The SnapToRoads API allows you to match GPS traces onto the road network. A GPS trace includes positions and metadata like timestamp, speed, and heading that are recorded using a GPS device. These traces often have a margin of error, making them challenging to use for analysis and visualization directly.
 
@@ -22,7 +21,7 @@ SnapToRoads considers legal and time restrictions for the specified travel mode 
 ------
 #### [ Sample request ]
 
-```
+```json
 {
   "TracePoints": [
     {
@@ -42,7 +41,7 @@ SnapToRoads considers legal and time restrictions for the specified travel mode 
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "Notices": [],
     "SnappedGeometry": {
@@ -67,7 +66,7 @@ SnapToRoads considers legal and time restrictions for the specified travel mode 
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://routes.geo.eu-central-1.amazonaws.com/v2/snap-to-roads?key=Your_key' \
   --header 'Content-Type: application/json' \
@@ -90,7 +89,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-routes snap-to-roads --key ${YourKey} \
 --trace-points '[{"Position": [8.53404, 50.16364], "Timestamp": "2024-05-22T18:13:42Z"}, {"Position": [8.53379056, 50.16352417], "Speed": 20, "Timestamp": "2024-05-22T18:13:59Z"}]' \
 --travel-mode "Car"
@@ -104,7 +103,7 @@ aws geo-routes snap-to-roads --key ${YourKey} \
 ------
 #### [ Sample request ]
 
-```
+```json
 {
   "TracePoints": [
     {
@@ -129,7 +128,7 @@ aws geo-routes snap-to-roads --key ${YourKey} \
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "Notices": [],
     "SnappedGeometry": {
@@ -154,7 +153,7 @@ aws geo-routes snap-to-roads --key ${YourKey} \
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://routes.geo.eu-central-1.amazonaws.com/v2/snap-to-roads?key=Your_key' \
   --header 'Content-Type: application/json' \
@@ -182,7 +181,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-routes snap-to-roads --key ${YourKey} \
 --trace-points '[{"Position": [8.53404, 50.16364], "Timestamp": "2024-05-22T18:13:42Z"}, {"Position": [8.53379056, 50.16352417], "Speed": 20, "Timestamp": "2024-05-22T18:13:59Z"}]' \
 --travel-mode "Truck" \

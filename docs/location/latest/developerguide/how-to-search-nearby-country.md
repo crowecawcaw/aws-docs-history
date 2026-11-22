@@ -1,7 +1,6 @@
 
 
 # How to search nearby within a country
-<a name="how-to-search-nearby-country"></a>
 
 The SearchNearby API enables you to search for nearby places within a specific country. To use the API, you need to provide a QueryPosition, which can be:
 + A device position
@@ -29,7 +28,7 @@ The following example demonstrates how to search for golf courses within Canada 
 
 This request searches for golf courses in Canada near the specified location.
 
-```
+```json
 {
     "QueryPosition": [
             -122.741803, 
@@ -45,7 +44,7 @@ This request searches for golf courses in Canada near the specified location.
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -121,7 +120,7 @@ This request searches for golf courses in Canada near the specified location.
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/search-nearby?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -141,7 +140,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places search-nearby --key ${YourKey} \
 --query-position -122.741803 49.002478 \
 --filter '{"IncludeCategories": ["golf_course"], "IncludeCountries": ["CAN"]}'

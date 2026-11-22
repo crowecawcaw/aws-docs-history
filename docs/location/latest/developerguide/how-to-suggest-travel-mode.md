@@ -1,7 +1,6 @@
 
 
 # How to get suggestions with travel mode
-<a name="how-to-suggest-travel-mode"></a>
 
 Use `TravelMode` in Suggest requests to improve the relevance of place suggestions based on the user's mode of transportation.
 
@@ -19,7 +18,7 @@ Use `TravelMode` in Suggest requests to improve the relevance of place suggestio
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryText": "parking",
     "BiasPosition": [-122.3321, 47.6062],
@@ -30,7 +29,7 @@ Use `TravelMode` in Suggest requests to improve the relevance of place suggestio
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -49,7 +48,7 @@ Use `TravelMode` in Suggest requests to improve the relevance of place suggestio
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/suggest?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -63,7 +62,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places suggest --key ${YourKey} --query-text "parking" --bias-position -122.3321 47.6062 --travel-mode Scooter
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Navigation
-<a name="maps-navigation-map"></a>
 
 The navigation features such as `Traffic` and `Truck TravelModes` provide dynamic visualization tools that enhance navigation and route planning. They help users understand real-time road conditions and choose the most efficient travel options based on their transportation needs.
 

@@ -1,7 +1,6 @@
 
 
 # Developer tutorials
-<a name="sdk-how-to"></a>
 
 Use this section to learn how to use various aspects of the Amazon Location Service SDK.
 

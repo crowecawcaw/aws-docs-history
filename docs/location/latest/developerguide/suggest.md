@@ -1,7 +1,6 @@
 
 
 # Suggest
-<a name="suggest"></a>
 
 Suggest provides predictions or recommendations based on user input or context, such as relevant places, points of interest, query terms, or search categories. It assists users in finding places, points of interest, or identifying follow-up queries based on incomplete or misspelled input. The API returns a list of possible matches or refinements, which can be used to formulate a more accurate query. Users can select the appropriate suggestion for further searching. The API supports filtering results by location and other attributes and offers additional features like phonemes and time zones. The response includes refined query terms and detailed place information.
 

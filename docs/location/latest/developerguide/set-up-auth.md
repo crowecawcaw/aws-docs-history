@@ -1,7 +1,6 @@
 
 
 # Use the Amazon Location Service console to authenticate
-<a name="set-up-auth"></a>
 
 **Note**  
 To learn more about authentication, see [Authenticate with Amazon Location Service](access.md).

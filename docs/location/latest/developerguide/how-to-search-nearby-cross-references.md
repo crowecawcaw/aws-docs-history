@@ -1,7 +1,6 @@
 
 
 # How to get cross-references for nearby places
-<a name="how-to-search-nearby-cross-references"></a>
 
 Include `CrossReferences` in the `AdditionalFeatures` parameter to retrieve third-party supplier identifiers for each nearby place result.
 
@@ -19,7 +18,7 @@ Include `CrossReferences` in the `AdditionalFeatures` parameter to retrieve thir
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryPosition": [-122.3321, 47.6062],
     "QueryRadius": 1000,
@@ -33,7 +32,7 @@ Include `CrossReferences` in the `AdditionalFeatures` parameter to retrieve thir
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -55,7 +54,7 @@ Include `CrossReferences` in the `AdditionalFeatures` parameter to retrieve thir
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/search-nearby?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -72,7 +71,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places search-nearby --key ${YourKey} --query-position -122.3321 47.6062 --query-radius 1000 --filter '{"IncludeCategories": ["100-1000-0000"]}' --additional-features CrossReferences
 ```
 

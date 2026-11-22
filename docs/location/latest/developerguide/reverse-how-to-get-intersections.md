@@ -1,7 +1,6 @@
 
 
 # How to get intersections
-<a name="reverse-how-to-get-intersections"></a>
 
 ReverseGeocode API can retrieve nearby intersections to the specified location.
 
@@ -32,7 +31,7 @@ Intersections are returned when the result type is Street, PointAddress, or Inte
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -142,7 +141,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places reverse-geocode --key ${YourKey} --query-position -123.11694, 49.28126 --additional-features "Intersections" --heading 45
 ```
 
@@ -167,7 +166,7 @@ aws geo-places reverse-geocode --key ${YourKey} --query-position -123.11694, 49.
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -278,7 +277,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places reverse-geocode --key ${YourKey} --query-position -123.11694, 49.28126 --additional-features "Intersections" --filter '{"IncludePlaceTypes": ["Street"]}'
 ```
 

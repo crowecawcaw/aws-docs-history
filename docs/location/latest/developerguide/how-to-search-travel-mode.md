@@ -1,7 +1,6 @@
 
 
 # How to search with travel mode
-<a name="how-to-search-travel-mode"></a>
 
 `TravelMode` indicates your mode of mobility. This improves the relevance of search results. For example, a search for "EV charging station" returns charging stations suitable for trucks when `TravelMode` is set to `Truck`.
 
@@ -19,7 +18,7 @@
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryText": "fuel station",
     "BiasPosition": [-122.3321, 47.6062],
@@ -30,7 +29,7 @@
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -46,7 +45,7 @@
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/search-text?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -60,7 +59,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places search-text --key ${YourKey} --query-text "fuel station" --bias-position -122.3321 47.6062 --travel-mode Truck
 ```
 

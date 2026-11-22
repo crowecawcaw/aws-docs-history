@@ -1,7 +1,6 @@
 
 
 # How to reverse geocode for the time zone of a city
-<a name="how-to-reverse-geocode-timezone"></a>
 
 You can use the Reverse Geocode API to request for time zone information such as UTC offset and time zone name
 
@@ -23,7 +22,7 @@ Reverse geocode a location in Tokyo, with time zone request.
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryPosition": [
         139.69172,
@@ -38,7 +37,7 @@ Reverse geocode a location in Tokyo, with time zone request.
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -95,7 +94,7 @@ Reverse geocode a location in Tokyo, with time zone request.
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/reverse-geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -113,7 +112,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places reverse-geocode --key ${YourKey} --query-position 139.69172 35.6895 --additional-features "TimeZone"
 ```
 

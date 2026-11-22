@@ -1,7 +1,6 @@
 
 
 # Monitor with Amazon CloudWatch
-<a name="cloudwatch"></a>
 
 Amazon CloudWatch monitors your AWS resources and the applications that you run on AWS in near-real time. You can monitor Amazon Location resources using CloudWatch, which collects raw data and processes metrics into meaningful statistics in near-real time. You can view historical information for up to 15 months, or search metrics to view in the Amazon CloudWatch console for more perspective on how your application or service is performing. You can also set alarms by defining thresholds, and send notifications or take actions when those thresholds are met. 
 

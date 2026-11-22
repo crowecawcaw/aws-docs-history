@@ -1,7 +1,6 @@
 
 
 # Prepare input data
-<a name="preparing-input-data"></a>
 
 Format your input data as [Apache Parquet](https://parquet.apache.org/docs/overview/) files following the required schema for the job action type you want to perform. Each action type has its own schema requirements that define the fields your input data must include.
 

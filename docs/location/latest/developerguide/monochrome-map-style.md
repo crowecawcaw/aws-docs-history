@@ -1,7 +1,6 @@
 
 
 # Monochrome map style
-<a name="monochrome-map-style"></a>
 
 The Monochrome style is a minimalist canvas with a constrained color palette, designed for use with data visualization overlays. This style supports both light and dark modes, each of which communicates all the essential information needed for geographic context.
 

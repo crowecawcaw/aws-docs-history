@@ -1,7 +1,6 @@
 
 
 # Contacts and opening hours
-<a name="contacts-opening-hours"></a>
 
 Amazon Location Service provides details on contacts and opening hours for various points of interest (POIs), enabling applications to offer comprehensive information about business operations. This section covers contact and business hours information and how to retrieve and interpret these details effectively.
 

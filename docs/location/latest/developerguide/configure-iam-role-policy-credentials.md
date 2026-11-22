@@ -1,7 +1,6 @@
 
 
 # Configure IAM permissions
-<a name="configure-iam-role-policy-credentials"></a>
 
 Amazon Location Jobs requires an IAM execution role that grants the service permission to access your Amazon S3 buckets. When you run a job, Amazon Location assumes this role to read input files from your input bucket and write output results to your output bucket on your behalf. You provide these permissions by creating an IAM policy with the required Amazon S3 permissions and attaching it to an IAM role with a trust policy that allows the Amazon Location service to assume the role.
 
@@ -23,7 +22,7 @@ Create an IAM policy that grants the permissions required for Amazon Location jo
 
 1. Choose the **JSON** tab and enter the following policy document, replacing {{INPUT\_BUCKET\_NAME}} and {{OUTPUT\_BUCKET\_NAME}} with your bucket names:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17", 		 	 	 
      "Statement": [
@@ -79,7 +78,7 @@ This policy follows the principle of least privilege by granting only the permis
 
 1. Create a file named `location-jobs-policy.json` with the following content, replacing {{INPUT\_BUCKET\_NAME}} and {{OUTPUT\_BUCKET\_NAME}} with your bucket names:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17", 		 	 	 
      "Statement": [
@@ -137,7 +136,7 @@ The trust policy allows the Amazon Location service (`geo.amazonaws.com`) to ass
 
 1. Enter the following trust policy, replacing {{ACCOUNT\_ID}} with your AWS account ID:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17", 		 	 	 
      "Statement": [
@@ -171,7 +170,7 @@ The trust policy allows the Amazon Location service (`geo.amazonaws.com`) to ass
 
 1. Create a file named `trust-policy.json` with the following content, replacing {{ACCOUNT\_ID}} with your AWS account ID:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17", 		 	 	 
      "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Incident Response in Amazon Location Service
-<a name="incident-response"></a>
 
 Security is the highest priority at AWS. As part of the AWS Cloud [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/), AWS manages a data center and network architecture that meets the requirements of the most security-sensitive organizations. As an AWS customer, you share a responsibility for maintaining security in the cloud. This means you control the security you choose to implement from the AWS tools and features you have access to.
 

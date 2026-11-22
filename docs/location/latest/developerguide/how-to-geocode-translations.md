@@ -1,7 +1,6 @@
 
 
 # How to get address translations
-<a name="how-to-geocode-translations"></a>
 
 `AddressTranslations` allows you to retrieve all name translations and alternative names for address components in all available languages. You specify which address components to translate using the `AddressTranslations` request parameter.
 
@@ -19,7 +18,7 @@
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryText": "1 Rue de Rivoli, Paris",
     "AddressTranslations": ["Locality", "Region"]
@@ -29,7 +28,7 @@
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -87,7 +86,7 @@
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -100,7 +99,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places geocode --key ${YourKey} --query-text "1 Rue de Rivoli, Paris" --address-translations Locality Region
 ```
 

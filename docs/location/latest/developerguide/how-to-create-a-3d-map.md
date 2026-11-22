@@ -1,7 +1,6 @@
 
 
 # How to create a 3D map
-<a name="how-to-create-a-3d-map"></a>
 
 Amazon Location Service lets you add three-dimensional features to maps, such as `Terrain3D` to display elevation data as a three-dimensional surface, or `Buildings3D` to display urban structures with height and volume. 
 
@@ -16,7 +15,7 @@ This example shows how to create a map with `Terrain3D` parameter.
 ------
 #### [ index.html ]
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -49,7 +48,7 @@ This example shows how to create a map with `Terrain3D` parameter.
 ------
 #### [ style.css ]
 
-```
+```css
 body {
     margin: 0;
     padding: 0;
@@ -74,7 +73,7 @@ This example shows how to create a map with `Buildings3D` parameter.
 ------
 #### [ index.html ]
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -108,7 +107,7 @@ This example shows how to create a map with `Buildings3D` parameter.
 ------
 #### [ style.css ]
 
-```
+```css
 body {
     margin: 0;
     padding: 0;
@@ -133,7 +132,7 @@ This example shows how to enable or disable the Globe view projection. By defaul
 ------
 #### [ index.html ]
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -172,7 +171,7 @@ This example shows how to enable or disable the Globe view projection. By defaul
 ------
 #### [ style.css ]
 
-```
+```css
 body {
     margin: 0;
     padding: 0;

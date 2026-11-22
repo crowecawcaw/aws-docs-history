@@ -1,7 +1,6 @@
 
 
 # How to add a marker to a static map
-<a name="add-marker-static-map"></a>
 
 In this topic, you will learn how to add markers to static maps generated with Amazon Location Service. You can customize the marker's icon, label, size, color, and other styling options. This allows you to highlight specific locations with visual cues that align with your map's purpose.
 
@@ -67,7 +66,7 @@ color=#EE4B2B
 
 With the GeoJSON overlay
 
-```
+```terminal
 https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=1024&height=1024&zoom=15&scale-unit=KilometersMiles&geojson-overlay=%7B%22type%22%3A%22FeatureCollection%22,%22features%22%3A%5B%7B%22type%22%3A%22Feature%22,%22properties%22%3A%7B%22color%22%3A%22%23EE4B2B%22,%22size%22%3A%22large%22,%22label%22%3A%22BC%20Place,%20Vancouver%22,%22text-color%22%3A%22%230000FF%22%7D,%22geometry%22%3A%7B%22coordinates%22%3A%5B-123.11210974152168,49.27678753813112%5D,%22type%22%3A%22Point%22%7D%7D%5D%7D&key={{API_KEY}}
 ```
 
@@ -125,7 +124,7 @@ The available marker icon type include: `cp` for proximity circle, `diamond, pin
 ------
 #### [ Request URL ]
 
-```
+```terminal
 https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=1024&height=1024&padding=150&geojson-overlay=%7B%22type%22%3A%22FeatureCollection%22,%22features%22%3A%5B%7B%22type%22%3A%22Feature%22,%22geometry%22%3A%7B%22type%22%3A%22MultiPoint%22,%22coordinates%22%3A%5B%5B24.9526,60.1692%5D,%5B24.927,60.1725%5D,%5B24.9226,60.1826%5D,%5B24.9509,60.1675%5D,%5B24.9566,60.1685%5D,%5B24.9457,60.1674%5D,%5B24.9397,60.1719%5D,%5B24.9414,60.1715%5D,%5B24.9387,60.172%5D%5D%7D,%22properties%22%3A%7B%22icon%22%3A%22diamond%22,%22label%22%3A%22%24num%22,%22size%22%3A%22large%22,%22text-color%22%3A%22%23972E2B%22,%22text-outline-color%22%3A%22%23FFF%22,%22text-outline-width%22%3A2%7D%7D%5D%7D&key={{API_KEY}}
 ```
 
@@ -184,7 +183,7 @@ In this example, you will use bubble markers of different colors to represent ci
 ------
 #### [ Request URL ]
 
-```
+```terminal
 https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=1400&height=1024&padding=150&geojson-overlay=%7B%22type%22%3A%22FeatureCollection%22,%22features%22%3A%5B%7B%22type%22%3A%22Feature%22,%22geometry%22%3A%7B%22type%22%3A%22Point%22,%22coordinates%22%3A%5B85.1376,25.5941%5D%7D,%22properties%22%3A%7B%22label%22%3A%22Patna%22,%22icon%22%3A%22bubble%22,%22color%22%3A%22%23FF5722%22,%22outline-color%22%3A%22%23D74D3D%22,%22text-color%22%3A%22%23FFFFFF%22%7D%7D,%7B%22type%22%3A%22Feature%22,%22geometry%22%3A%7B%22type%22%3A%22Point%22,%22coordinates%22%3A%5B105.8542,21.0285%5D%7D,%22properties%22%3A%7B%22label%22%3A%22Hanoi,%20Vietnam%22,%22icon%22%3A%22bubble%22,%22color%22%3A%22%232196F3%22,%22outline-color%22%3A%22%231A78C2%22,%22text-color%22%3A%22%23FFFFFF%22%7D%7D,%7B%22type%22%3A%22Feature%22,%22geometry%22%3A%7B%22type%22%3A%22Point%22,%22coordinates%22%3A%5B116.4074,39.9042%5D%7D,%22properties%22%3A%7B%22label%22%3A%22Beijing,%20China%22,%22icon%22%3A%22bubble%22,%22color%22%3A%22%23FF9800%22,%22outline-color%22%3A%22%23D76B0B%22,%22text-color%22%3A%22%23FFFFFF%22%7D%7D,%7B%22type%22%3A%22Feature%22,%22geometry%22%3A%7B%22type%22%3A%22Point%22,%22coordinates%22%3A%5B106.9101,47.918%5D%7D,%22properties%22%3A%7B%22label%22%3A%22Ulaanbaatar,%20Mongolia%22,%22icon%22%3A%22bubble%22,%22color%22%3A%22%239C27B0%22,%22outline-color%22%3A%22%237B1FA2%22,%22text-color%22%3A%22%23FFFFFF%22%7D%7D,%7B%22type%22%3A%22Feature%22,%22geometry%22%3A%7B%22type%22%3A%22Point%22,%22coordinates%22%3A%5B151.2093,-33.8688%5D%7D,%22properties%22%3A%7B%22label%22%3A%22Sydney,%20Australia%22,%22icon%22%3A%22bubble%22,%22color%22%3A%22%234CAF50%22,%22outline-color%22%3A%22%23388E3C%22,%22text-color%22%3A%22%23FFFFFF%22%7D%7D,%7B%22type%22%3A%22Feature%22,%22geometry%22%3A%7B%22type%22%3A%22Point%22,%22coordinates%22%3A%5B174.7633,-41.2865%5D%7D,%22properties%22%3A%7B%22label%22%3A%22Wellington,%20New%20Zealand%22,%22icon%22%3A%22bubble%22,%22color%22%3A%22%23FFC107%22,%22outline-color%22%3A%22%23FFA000%22,%22text-color%22%3A%22%23000000%22%7D%7D%5D%7D&key={{API_KEY}}
 ```
 

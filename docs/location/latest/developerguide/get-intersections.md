@@ -1,7 +1,6 @@
 
 
 # How to get intersections
-<a name="get-intersections"></a>
 
 `Intersections` allows you to retrieve all nearby intersections. This can potentially be used by emergency services and delivery couriers. 
 
@@ -19,7 +18,7 @@
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryText":"910 Beach Avenue, Vancouver",
     "AdditionalFeatures": ["Intersections"]
@@ -29,7 +28,7 @@
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -156,7 +155,7 @@
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -169,7 +168,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places geocode --key ${YourKey} --query-text "910 Beach Avenue, Vancouver" --additional-features "Intersections"
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Route APIs
-<a name="choose-routes-apis"></a>
 
 Routes provide capabilities for calculating optimized paths between locations. These features support applications requiring logistics planning, distance calculations, and route optimization. Users can also snap location points to roads for improved accuracy. For more information, See [Amazon Location Service Routes](routes.md).
 + **CalculateIsolines**: Generates isolines based on travel time or distance, useful for defining service areas or reachability zones. For more information, See [Calculate isolines](calculate-isolines.md).

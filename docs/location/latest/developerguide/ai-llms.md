@@ -1,7 +1,6 @@
 
 
 # Build with AI agents
-<a name="ai-llms"></a>
 
  AI and LLMs can significantly accelerate development with Amazon Location Service by providing intelligent assistance for API usage, code generation, and troubleshooting. By configuring your LLM client with the right MCP servers and context, you can create a powerful development assistant that understands AWS services and Amazon Location Service specifics. Using a minimal context and MCP configuration as recommended on this page can ensure your LLM model of choice has enough context to lead to correct results without overwhelming the context window. This can reduce hallucinations and increase result accuracy. This configuration also ensures that model knowledge cutoff does not impact the quality of the results. The Amazon Location Service agent context package provides ready-to-use integrations for popular AI coding assistants, guiding AI agents through adding maps, places search, geocoding, routing, and other geospatial features, including authentication setup, SDK integration, and best practices. 
 
@@ -37,13 +36,13 @@ https://docs.aws.amazon.com/location/latest/developerguide/ai-llms.md
 
  Install Amazon Location Service as an [Agent Skill](https://agentskills.io) using the skills CLI: 
 
-```
+```bash
 npx skills add aws-geospatial/amazon-location-agent-context -a kiro-cli
 ```
 
  After installing, add the skill to your custom agent's resources in `.kiro/agents/<agent>.json`: 
 
-```
+```json
 {
     "resources": [
         "skill://.kiro/skills/**/SKILL.md"
@@ -70,7 +69,7 @@ npx skills add aws-geospatial/amazon-location-agent-context -a kiro-cli
 
 Run the following command to install the plugin:
 
-```
+```bash
 /plugin install amazon-location-service@claude-plugins-official
 ```
 
@@ -116,7 +115,7 @@ Run the following command to install the plugin:
 
  For AI coding agents that support the [Agent Skills](https://agentskills.io) open standard (including GitHub Copilot, OpenCode, Codex, Antigravity, and [more](https://github.com/vercel-labs/skills?tab=readme-ov-file#supported-agents)), install the skill using the skills CLI: 
 
-```
+```bash
 npx skills add aws-geospatial/amazon-location-agent-context
 ```
 
@@ -142,19 +141,19 @@ $ npx skills add aws-geospatial/amazon-location-agent-context
 
 GitHub Copilot:
 
-```
+```bash
 npx skills add aws-geospatial/amazon-location-agent-context -a github-copilot
 ```
 
 OpenCode:
 
-```
+```bash
 npx skills add aws-geospatial/amazon-location-agent-context -a opencode
 ```
 
 Codex:
 
-```
+```bash
 npx skills add aws-geospatial/amazon-location-agent-context -a codex
 ```
 

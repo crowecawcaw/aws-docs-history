@@ -1,7 +1,6 @@
 
 
 # Optimize waypoints
-<a name="actions-optimize-waypoints"></a>
 
 The Optimize Waypoints API calculates the most efficient sequence for visiting multiple waypoints along a route. Using advanced algorithms, this API minimizes travel time and distance while considering factors such as traffic conditions, avoidances, and vehicle specifications. Integrating the Optimize Waypoints API helps businesses streamline operations, reduce fuel consumption, enhance delivery efficiency, and improve customer satisfaction. The API provides optimized routes, enabling better decision-making and resource allocation in multi-stop travel scenarios.
 

@@ -1,7 +1,6 @@
 
 
 # Learn how to use CalculateIsolines
-<a name="calculate-isolines-how-to"></a>
 
 In this section you learn how to use `CalculateIsolines` with ranges of time or distance, as well as to set areas to avoid.
 

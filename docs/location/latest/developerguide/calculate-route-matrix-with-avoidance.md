@@ -1,7 +1,6 @@
 
 
 # How to calculate route matrix with avoidance
-<a name="calculate-route-matrix-with-avoidance"></a>
 
 The CalculateRouteMatrix API computes routes and returns travel time and distance from each origin to each destination in the specified lists. The response includes `Distance` in meters and `Duration` in seconds. The API can be used to set avoidance options for specific areas or road features, ensuring routes avoid specified zones or conditions. If an alternative route is not feasible, the avoidance preference may be bypassed.
 
@@ -18,7 +17,7 @@ The CalculateRouteMatrix API computes routes and returns travel time and distanc
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "Origins": [
         {
@@ -53,7 +52,7 @@ The CalculateRouteMatrix API computes routes and returns travel time and distanc
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ErrorCount": 0,
     "RouteMatrix": [
@@ -73,7 +72,7 @@ The CalculateRouteMatrix API computes routes and returns travel time and distanc
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://routes.geo.eu-central-1.amazonaws.com/v2/route-matrix?key=Your_key' \
   --header 'Content-Type: application/json' \
@@ -111,7 +110,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-routes calculate-route-matrix --key ${YourKey} \
 --origins '[{"Position": [-123.11679620827039, 49.28147612192166]}]' \
 --destinations '[{"Position": [-123.112317039, 49.28897192166]}]' \
@@ -127,7 +126,7 @@ aws geo-routes calculate-route-matrix --key ${YourKey} \
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "Origins": [
         {
@@ -153,7 +152,7 @@ aws geo-routes calculate-route-matrix --key ${YourKey} \
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ErrorCount": 0,
     "RouteMatrix": [
@@ -173,7 +172,7 @@ aws geo-routes calculate-route-matrix --key ${YourKey} \
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://routes.geo.eu-central-1.amazonaws.com/v2/route-matrix?key=Your_key' \
   --header 'Content-Type: application/json' \
@@ -202,7 +201,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-routes calculate-route-matrix --key ${YourKey} \
 --origins '[{"Position": [-123.11679620827039, 49.28147612192166]}]' \
 --destinations '[{"Position": [-123.112317039, 49.28897192166]}]' \

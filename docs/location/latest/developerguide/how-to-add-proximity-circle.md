@@ -1,7 +1,6 @@
 
 
 # How to add a proximity circle to a static map
-<a name="how-to-add-proximity-circle"></a>
 
 Proximity circles offer important insights into the accuracy of a reported or estimated device or user location. By showing a circle around the reported point, users are informed that the actual position could fall anywhere within the circle, due to various factors affecting positioning precision. This added clarity helps with decision-making and enhances navigation safety.
 
@@ -10,7 +9,7 @@ In this example, you add a proximity circle of 500 meters near the Eiffel Tower 
 ------
 #### [ Request ]
 
-```
+```json
 {
   "type": "FeatureCollection",
   "features": [

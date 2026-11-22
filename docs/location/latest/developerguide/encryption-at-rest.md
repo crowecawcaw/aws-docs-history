@@ -1,7 +1,6 @@
 
 
 # Data encryption at rest for Amazon Location Service
-<a name="encryption-at-rest"></a>
 
 Amazon Location Service provides encryption by default to protect sensitive customer data at rest using AWS owned encryption keys.
 + **AWS owned keys** — Amazon Location uses these keys by default to automatically encrypt personally identifiable data. You can't view, manage, or use AWS owned keys, or audit their use. However, you don't have to take any action or change any programs to protect the keys that encrypt your data. For more information, see [AWS owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) in the *AWS Key Management Service Developer Guide*. 
@@ -75,7 +74,7 @@ To use your customer managed key with your Amazon Location resources, the follow
 
 The following are policy statement examples you can add for Amazon Location:
 
-```
+```json
   "Statement" : [ 
     {
       "Sid" : "Allow access to principals authorized to use Amazon Location",
@@ -149,7 +148,7 @@ Amazon Location uses the same encryption context in all AWS KMS cryptographic op
 
 **Example**  
 
-```
+```json
 "encryptionContext": {
     "aws:geo:arn": "arn:aws:geo:us-west-2:111122223333:geofence-collection/SAMPLE-GeofenceCollection"
 }
@@ -168,7 +167,7 @@ Amazon Location uses an encryption context constraint in grants to control acces
 **Example**  
 The following are example key policy statements to grant access to a customer managed key for a specific encryption context. The condition in this policy statement requires that the grants have an encryption context constraint that specifies the encryption context.  
 
-```
+```json
 {
     "Sid": "Enable DescribeKey",
     "Effect": "Allow",

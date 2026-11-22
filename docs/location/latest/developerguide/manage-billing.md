@@ -1,7 +1,6 @@
 
 
 # Manage billing and costs with AWS Billing and Cost Management
-<a name="manage-billing"></a>
 
 AWS Billing and Cost Management is a web service that provides features that helps you pay your bills and optimize your costs. Amazon Web Services bills your account for usage, which ensures that you pay only for what you use. 
 

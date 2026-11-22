@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon Location Service trackers
-<a name="start-tracking"></a>
 
 This section provides a comprehensive guide to creating and using trackers with Amazon Location. Trackers allow you to store, process, and evaluate device positions while filtering location updates to reduce noise and manage costs. With advanced position filtering options, support for linked geofence collections, and integration with AWS services like EventBridge and IoT Core, trackers enable accurate real-time tracking and geofencing applications tailored to your specific needs.
 

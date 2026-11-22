@@ -1,7 +1,6 @@
 
 
 # Verify device positions
-<a name="verify-device-positions"></a>
 
 To check the integrity of a device position use the [VerifyDevicePosition](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_VerifyDevicePosition.html) API. This API returns information about the integrity of the device's position, by evaluating properties such as the device's cell signal, Wi-Fi access point, Ipv4 address, and if a proxy is in use.
 

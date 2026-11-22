@@ -1,7 +1,6 @@
 
 
 # How to use SearchText
-<a name="search-text-how-to"></a>
 
 This section contains a variety of how to guides and examples for how to use SearchText APIs.
 

@@ -1,7 +1,6 @@
 
 
 # How to search nearby from a position
-<a name="how-to-search-nearby"></a>
 
 The SearchNearby API enables querying for all nearby places and points of interest (POI) without entering any specific text. Users can explore neighborhoods, discover POIs, and more using this API. It requires a `QueryPosition`, which can represent a device's location, IP-based position, or the map viewport center. Alternatively, users can specify a city or place to bias results based on the geocoordinates of that location.
 
@@ -21,7 +20,7 @@ In this example, the search is conducted from a position in Dubai with latitude 
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryPosition": [
         55.30884,
@@ -33,7 +32,7 @@ In this example, the search is conducted from a position in Dubai with latitude 
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -118,7 +117,7 @@ In this example, the search is conducted from a position in Dubai with latitude 
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/search-nearby?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -134,7 +133,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places search-nearby --key ${YourKey} \
 --query-position 55.30884 25.26951 \
 --max-results 2

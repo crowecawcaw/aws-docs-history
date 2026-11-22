@@ -1,7 +1,6 @@
 
 
 # Terms of use and data attribution
-<a name="data-attribution"></a>
 
 Before you use Amazon Location Service, be sure you can comply with all applicable legal requirements, including license terms applicable to the use of the provider.
 + For more information about the AWS requirements, see Section 82 of the [AWS Service Terms](https://aws.amazon.com/service-terms/).

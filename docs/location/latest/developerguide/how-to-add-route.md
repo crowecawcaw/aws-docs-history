@@ -1,7 +1,6 @@
 
 
 # How to add a route to a static map
-<a name="how-to-add-route"></a>
 
 In this topic, you'll learn how to add a route to a static map using Amazon Location Service. You'll go through the steps to obtain a route using the CalculateRoutes API and then visualize it on a static map using GeoJSON and custom styling for points and lines. 
 
@@ -21,7 +20,7 @@ In this topic, you'll learn how to add a route to a static map using Amazon Loca
 
 In this example, you will add a route with start and end points to the line created in [How to add a line to a static map](how-to-add-line-static.md). The route will be defined with custom styling, including color, size, and labels for the start and end points.
 
-```
+```json
 {
   "type": "FeatureCollection",
   "features": [
@@ -93,7 +92,7 @@ In this example, you will add a route with start and end points to the line crea
 ------
 #### [ Request URL ]
 
-```
+```terminal
 https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=1024&height=1024&padding=200&scale-unit=KilometersMiles&geojson-overlay=%7B%22type%22%3A%22FeatureCollection%22,%22features%22%3A%5B%7B%22type%22%3A%22Feature%22,%22geometry%22%3A%7B%22type%22%3A%22LineString%22,%22coordinates%22%3A%5B%5B-123.11813,49.28246%5D,%5B-123.11967,49.28347%5D,%5B-123.12108,49.28439%5D,%5B-123.12216,49.28507%5D,%5B-123.12688,49.28812%5D,%5B-123.1292,49.28964%5D,%5B-123.13216,49.2916%5D,%5B-123.13424,49.29291%5D,%5B-123.13649,49.2944%5D,%5B-123.13678,49.29477%5D,%5B-123.13649,49.29569%5D,%5B-123.13657,49.29649%5D,%5B-123.13701,49.29715%5D,%5B-123.13584,49.29847%5D,%5B-123.13579,49.29935%5D,%5B-123.13576,49.30018%5D,%5B-123.13574,49.30097%5D%5D%7D,%22properties%22%3A%7B%22color%22%3A%22%23000000%22,%22width%22%3A%2220m%22,%22outline-color%22%3A%22%23a8b9cc%22,%22outline-width%22%3A%222px%22%7D%7D,%7B%22type%22%3A%22Feature%22,%22geometry%22%3A%22Point%22,%22coordinates%22%3A%5B-123.11813,49.28246%5D%7D,%22properties%22%3A%7B%22label%22%3A%22Pacific%20Centre%22,%22icon%22%3A%22bubble%22,%22size%22%3A%22large%22,%22color%22%3A%22%2334B3A4%22,%22outline-color%22%3A%22%23006400%22,%22text-color%22%3A%22%23FFFFFF%22%7D%7D,%7B%22type%22%3A%22Feature%22,%22geometry%22%3A%22Point%22,%22coordinates%22%3A%5B-123.13574,49.30097%5D%7D,%22properties%22%3A%7B%22label%22%3A%22Stanley%20park%22,%22icon%22%3A%22bubble%22,%22size%22%3A%22large%22,%22color%22%3A%22%23B3346D%22,%22outline-color%22%3A%22%23FF0000%22,%22text-color%22%3A%22%23FFFFFF%22%7D%7D%5D%7D&key={{API_KEY}}
 ```
 

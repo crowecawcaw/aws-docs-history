@@ -1,7 +1,6 @@
 
 
 # Logging and Monitoring in Amazon Location Service
-<a name="security-logging-and-monitoring"></a>
 
 Logging and monitoring are an important part of incident response. It lets you establish a security baseline to detect deviations that you can investigate and respond to. By implementing logging and monitoring for Amazon Location Service, you're able to maintain the reliability, availability, and performance for your projects and resources. 
 

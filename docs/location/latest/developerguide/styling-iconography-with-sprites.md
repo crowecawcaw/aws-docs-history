@@ -1,7 +1,6 @@
 
 
 # Style iconography with sprites
-<a name="styling-iconography-with-sprites"></a>
 
 A sprite is a Portable Network Graphic (PNG) image file that contains small raster images such as icons, markers, and other elements rendered on a map. Sprites can be customized based on parameters like style, color scheme, and variant. Amazon Location Service provides a sprite sheet through the `GetSprites` API. You can also use custom icons by either loading your own icon set (see [How to add an icon on the map](how-to-add-icon-on-map.md)) or customizing the style descriptor to load your custom sprites.
 

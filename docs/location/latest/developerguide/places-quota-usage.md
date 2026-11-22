@@ -1,7 +1,6 @@
 
 
 # Places quotas and usage
-<a name="places-quota-usage"></a>
 
 Amazon Location Service places quotas on API usage to manage service capacity and prevent over utilization. These quotas can be adjusted through the AWS service quotas console or by contacting support. This section covers the service quotas for Place APIs and API usage limits, including how to request increases and other related information.
 

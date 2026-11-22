@@ -1,7 +1,6 @@
 
 
 # How to use SearchNearby
-<a name="search-nearby-how-to"></a>
 
 This section contains a variety of how to guides and examples for how to use SearchNearby.
 

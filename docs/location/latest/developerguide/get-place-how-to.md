@@ -1,7 +1,6 @@
 
 
 # How to use Get Place
-<a name="get-place-how-to"></a>
 
 This section contains a variety of how to guides and examples for how to use Get Place APIs.
 

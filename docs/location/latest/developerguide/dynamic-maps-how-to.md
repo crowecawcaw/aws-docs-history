@@ -1,7 +1,6 @@
 
 
 # How to use dynamic maps
-<a name="dynamic-maps-how-to"></a>
 
 These how-to topics offer a comprehensive walkthrough teaching you how to enhance your mapping applications using the Amazon Location Service. From displaying interactive maps to adding markers, lines, and polygons, these tutorials demonstrate how to utilize essential features like setting map controls, adding custom icons, and handling real-time data. Furthermore, the topics also cover localization and internationalization aspects, such as setting preferred languages, adjusting political views, and ensuring compliance with regional laws by customizing map content based on the user’s location or perspective.
 

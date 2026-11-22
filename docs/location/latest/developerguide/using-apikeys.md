@@ -1,7 +1,6 @@
 
 
 # Use API keys to authenticate
-<a name="using-apikeys"></a>
 
 **Note**  
 API keys are available to use only with **map**, **place**, and **route** resources, and you can't modify or create those resources. If your application needs access to other resources or actions for unauthenticated users, you can use Amazon Cognito to provide access along with, or instead of, API keys. For more information, see [Use Amazon Cognito to authenticate](authenticating-using-cognito.md).

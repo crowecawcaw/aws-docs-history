@@ -1,7 +1,6 @@
 
 
 # Amazon Location Service Geofences
-<a name="geofences"></a>
 
 ![An overview of Amazon Location Service Geofences.](https://docs.aws.amazon.com/location/latest/developerguide/images/geofences-overview.png)
 

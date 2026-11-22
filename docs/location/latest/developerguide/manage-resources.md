@@ -1,7 +1,6 @@
 
 
 # Manage resources with Tags
-<a name="manage-resources"></a>
 
 Use resource tagging in Amazon Location to create tags to categorize your resources by purpose, owner, environment, or criteria. Tagging your resources helps you manage, identify, organize, search, and filter your resources. For example, with AWS Resource Groups, you can create groups of AWS resources based on one or more tags or portions of tags. You can also create groups based on their occurrence in an AWS CloudFormation stack. Using Resource Groups and Tag Editor, you can consolidate and view data for applications that consist of multiple services, resources, and Regions in one place. For more information on [Common Tagging Strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html), see the *AWS General Reference*.
 

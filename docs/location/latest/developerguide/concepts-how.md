@@ -1,7 +1,6 @@
 
 
 # How (travel mode, avoidance, and exclusion)
-<a name="concepts-how"></a>
 
 Use the following options to specify the travel mode and related features to use for route calculation.
 

@@ -1,7 +1,6 @@
 
 
 # Quotas and usage
-<a name="auth-quota-and-usage"></a>
 
 Amazon Location Service places quotas on API key management operations to help manage service capacity and prevent over-utilization. You can adjust these quotas through the AWS Service Quotas console or by contacting support. This section covers the service quotas for authentication APIs, usage monitoring with CloudWatch, and how to request increases.
 

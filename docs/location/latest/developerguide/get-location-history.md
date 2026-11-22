@@ -1,7 +1,6 @@
 
 
 # Get a device's location history from a tracker
-<a name="get-location-history"></a>
 
  Your Amazon Location tracker resource maintains the location history of all your tracked devices for a period of 30 days. You can retrieve device location history, including all associated metadata, from your tracker resource. The following examples use the AWS CLI, or the Amazon Location APIs.
 

@@ -1,7 +1,6 @@
 
 
 # How to work with Amazon Location Service trackers
-<a name="tracker-how-to"></a>
 
 This section provides instructions for working with Amazon Location trackers. Learn how to verify device positions, link trackers to geofence collections, and track locations using AWS IoT and MQTT. Additionally, learn how to manage your trackers effectively to support your location-based applications and ensure accurate, real-time tracking.
 

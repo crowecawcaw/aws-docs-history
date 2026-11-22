@@ -1,7 +1,6 @@
 
 
 # Topography
-<a name="maps-topographic-map"></a>
 
 Topographic features such as terrain and contour lines display elevation changes and geographic features. This helps users better understand the physical landscape and terrain characteristics of their mapped areas.
 

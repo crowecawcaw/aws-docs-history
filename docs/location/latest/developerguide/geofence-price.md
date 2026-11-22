@@ -1,7 +1,6 @@
 
 
 # Geofences pricing
-<a name="geofence-price"></a>
 
 For pricing information for tracking and geofencing APIs, see the [Amazon Location Service pricing page](https://aws.amazon.com/location/pricing/). 
 

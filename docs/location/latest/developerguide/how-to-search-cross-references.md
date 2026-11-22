@@ -1,7 +1,6 @@
 
 
 # How to get cross-references for places
-<a name="how-to-search-cross-references"></a>
 
 `CrossReferences` allows you to retrieve third-party supplier identifiers for places, enabling correlation of places across external systems such as Yelp and TripAdvisor. You must include `CrossReferences` in the `AdditionalFeatures` request parameter.
 
@@ -19,7 +18,7 @@
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryText": "Canlis Seattle",
     "BiasPosition": [-122.3321, 47.6062],
@@ -30,7 +29,7 @@
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -67,7 +66,7 @@
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/search-text?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -81,7 +80,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places search-text --key ${YourKey} --query-text "Canlis Seattle" --bias-position -122.3321 47.6062 --additional-features CrossReferences
 ```
 

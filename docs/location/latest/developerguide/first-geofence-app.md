@@ -1,7 +1,6 @@
 
 
 # Create your first Geofences and Trackers application
-<a name="first-geofence-app"></a>
 
 In this section, you'll create an application that demonstrates the key features of using the Amazon Location Geofences and Trackers. The applications demonstrate how a tracker and geofence interact using a combination of Lambda, AWS IoT, and Amazon Location features. Choose iOS or Android platform to get started. 
 

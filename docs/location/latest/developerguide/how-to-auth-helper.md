@@ -1,7 +1,6 @@
 
 
 # How to use authentication helpers
-<a name="how-to-auth-helper"></a>
 
 This section provides additional information about authentication helpers.
 

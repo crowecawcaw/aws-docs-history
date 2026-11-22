@@ -1,7 +1,6 @@
 
 
 # How to
-<a name="maps-how-to"></a>
 
 This section contains a variety of how to guides and examples for how to use Maps APIs.
 

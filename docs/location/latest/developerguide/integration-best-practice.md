@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="integration-best-practice"></a>
 
 The following are a few best practices for integrating with Amazon Location Service.
 

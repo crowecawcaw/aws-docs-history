@@ -1,7 +1,6 @@
 
 
 # Routes concepts
-<a name="routes-concepts"></a>
 
 The Routes concepts in Amazon Location Service provide a robust framework for planning and optimizing journeys, whether for simple navigation or complex logistics. Routes encompass various components, such as waypoints, legs, steps, and spans, each contributing to the granularity and flexibility of route calculations. Leveraging the Routes API, you can calculate travel distances, estimate travel times, and optimize multi-stop journeys. Additionally, features like route geometry, traffic awareness, speed limits, toll costs, and flexible polyline encoding enhance the capabilities for visualization, analysis, and operational efficiency. This section covers terminology, best practices, and detailed usage patterns, guiding you through implementing effective route solutions for navigation, delivery, field services, and more.
 

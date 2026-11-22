@@ -1,7 +1,6 @@
 
 
 # Manage your geofence collection resources
-<a name="managing-geofence-collections"></a>
 
 Manage your geofence collections using the Amazon Location console, the AWS CLI, or the Amazon Location APIs.
 

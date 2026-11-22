@@ -1,7 +1,6 @@
 
 
 # AWS PrivateLink for Amazon Location
-<a name="privatelink-interface-endpoints"></a>
 
 With AWS PrivateLink for Amazon Location, you can provision *interface Amazon VPC endpoints* (interface endpoints) in your virtual private cloud (Amazon VPC). These endpoints are directly accessible from applications that are on premises over VPN and Direct Connect, or in a different AWS Region over [Amazon VPC peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html). Using AWS PrivateLink and interface endpoints, you can simplify private network connectivity from your applications to Amazon Location.
 
@@ -74,7 +73,7 @@ There are six different VPC endpoints, one for each feature offered by Amazon Lo
 
 **For example: **
 
-```
+```bash
 com.amazonaws.{{us-east-2}}.geo.maps
 ```
 
@@ -103,7 +102,7 @@ You can use the [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/locat
 
 **Example: Create a VPC endpoint**
 
-```
+```bash
 aws ec2 create-vpc-endpoint \
 --region us-east-1 \
 --service-name location-service-name \
@@ -115,7 +114,7 @@ aws ec2 create-vpc-endpoint \
 
 **Example: Modify a VPC endpoint**
 
-```
+```bash
 aws ec2 modify-vpc-endpoint \
 --region us-east-1 \
 --vpc-endpoint-id client-vpc-endpoint-id \
@@ -143,7 +142,7 @@ You can attach an endpoint policy to your Amazon VPC endpoint that controls acce
 
 **Example:** Sample VPCe policy for accessing Amazon Location Service Places APIs:
 
-```
+```bash
 {
 	"Version": "2012-10-17",		 	 	 
 	"Statement": [

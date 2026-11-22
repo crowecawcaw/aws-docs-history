@@ -1,7 +1,6 @@
 
 
 # How to help users disambiguate between similar results
-<a name="suggest-disambiguate-results"></a>
 
 The Suggest API enables you to create queries for places or categories of results. The results are sorted for more likely to less likely matches. Information is provided for each result which helps you quickly identify the correct match, particularly with regard to the Title and Label fields.
 
@@ -20,7 +19,7 @@ The Title field is usually enough information for you to understand when the res
 ------
 #### [ Sample request ]
 
-```
+```json
 {
   "QueryText": "Marriott",
   "Filter": {
@@ -41,7 +40,7 @@ The Title field is usually enough information for you to understand when the res
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -134,7 +133,7 @@ The Title field is usually enough information for you to understand when the res
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/suggest?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -158,7 +157,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places suggest --key ${YourKey} \
 --query-text "Marriott" \
 --filter '{"IncludeCountries": ["USA"], "BoundingBox": [ -71.15693983012913,42.261623506672635, -70.97249727163558,42.37584075627763]}' \

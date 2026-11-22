@@ -1,7 +1,6 @@
 
 
 # Tiles
-<a name="tiles"></a>
 
 Map tiles are pre-rendered, small sections of a larger map, typically displayed as square images. They are used to efficiently display geographic data by loading only the visible portions at different zoom levels. There are three main types of map tiles:
 

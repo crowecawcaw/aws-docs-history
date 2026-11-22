@@ -1,7 +1,6 @@
 
 
 # Job lifecycle
-<a name="job-lifecycle"></a>
 
 Jobs progress through the following states:
 

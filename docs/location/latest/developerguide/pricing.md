@@ -1,7 +1,6 @@
 
 
 # Pricing model
-<a name="pricing"></a>
 
 Amazon Location Service requires no up-front commitment and no minimum fee. You're only charged for what you use. Amazon Location offers a free trial for the first three months of usage (usage quota apply). Location data is billed based on each request your application makes to the service. Beyond the Amazon Location Service free trial, you pay for the requests your application makes to the service. For more pricing information, visit our [pricing page](https://aws.amazon.com/location/pricing/).
 

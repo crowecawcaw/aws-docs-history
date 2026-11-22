@@ -1,7 +1,6 @@
 
 
 # Maps terminology
-<a name="maps-terminology"></a>
 
 Understanding these key terms helps you effectively use Amazon Location Service mapping APIs and resources.
 

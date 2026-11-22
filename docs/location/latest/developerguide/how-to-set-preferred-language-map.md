@@ -1,7 +1,6 @@
 
 
 # How to set a preferred language for a map
-<a name="how-to-set-preferred-language-map"></a>
 
 Amazon Location Service enables you to set the preferred language at the client-side by updating the style descriptor for a specific language. You can set a preferred language and display content in that language where embedded. Otherwise, it will fall back to another language.
 
@@ -19,7 +18,7 @@ In this example, you will set update style to show map labels in Japanese (ja).
 ------
 #### [ index.html ]
 
-```
+```html
 <html>
 <head>
     <link href="https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.css" rel="stylesheet" />
@@ -60,7 +59,7 @@ In this example, you will set update style to show map labels in Japanese (ja).
 ------
 #### [ style.css ]
 
-```
+```css
 body { margin: 0; }
 #map { height: 100vh; }
 ```
@@ -68,7 +67,7 @@ body { margin: 0; }
 ------
 #### [ main.js ]
 
-```
+```javascript
 async function getStyleWithPreferredLanguage(preferredLanguage) {
     const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
 
@@ -160,7 +159,7 @@ In this example, you will set update style to show map labels in user's device l
 ------
 #### [ index.html ]
 
-```
+```html
 <html>
 <head>
     <link href="https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.css" rel="stylesheet" />
@@ -200,7 +199,7 @@ In this example, you will set update style to show map labels in user's device l
 ------
 #### [ style.css ]
 
-```
+```css
 body { margin: 0; }
 #map { height: 100vh; }
 ```
@@ -208,7 +207,7 @@ body { margin: 0; }
 ------
 #### [ main.js ]
 
-```
+```javascript
 async function getStyleWithPreferredLanguage(preferredLanguage) {
     const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
 

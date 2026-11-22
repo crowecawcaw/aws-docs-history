@@ -1,7 +1,6 @@
 
 
 # How to reverse geocode with a political view
-<a name="reverse-geocode-political-view"></a>
 
 The Amazon Location Service allows you to specify a political view to ensure your application aligns with local regulations. This feature is useful when geocoding locations in disputed areas where place names or borders may vary depending on the political view.
 
@@ -19,7 +18,7 @@ The Amazon Location Service allows you to specify a political view to ensure you
 ------
 #### [ Sample Request ]
 
-```
+```json
 {
     "QueryPosition": [
         33.95876,
@@ -32,7 +31,7 @@ The Amazon Location Service allows you to specify a political view to ensure you
 ------
 #### [ Sample Response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -74,7 +73,7 @@ The Amazon Location Service allows you to specify a political view to ensure you
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/reverse-geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -90,7 +89,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places reverse-geocode --key ${YourKey} --query-position 33.95876 45.46824 --political-view "RUS"
 ```
 

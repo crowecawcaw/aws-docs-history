@@ -1,7 +1,6 @@
 
 
 # How to calculate a service area based on avoidance
-<a name="calculate-service-area-based-on-avoidance"></a>
 
 The CalculateIsolines API allows you to determine reachable service areas within specified ranges of time or distance, factoring in road networks and traffic conditions to avoid. This capability supports applications in defining service areas for restaurants, grocery stores, or other service providers which can assist in planning fuel efficiency and defining accessible areas for service coverage.
 
@@ -18,7 +17,7 @@ The CalculateIsolines API allows you to determine reachable service areas within
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "Origin": [
         -123.11679620827039,
@@ -52,7 +51,7 @@ The CalculateIsolines API allows you to determine reachable service areas within
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "DepartureTime": "2024-10-28T14:27:56-07:00",
     "IsolineGeometryFormat": "FlexiblePolyline",
@@ -79,7 +78,7 @@ The CalculateIsolines API allows you to determine reachable service areas within
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://routes.geo.eu-central-1.amazonaws.com/v2/isolines?key=Your_key' \
   --header 'Content-Type: application/json' \
@@ -116,7 +115,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-routes calculate-isolines --key ${YourKey} \
 --origin -123.11679620827039 49.28147612192166 \
 --departure-time "2024-10-28T21:27:56Z" \
@@ -133,7 +132,7 @@ aws geo-routes calculate-isolines --key ${YourKey} \
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "Origin": [
         -123.11679620827039,
@@ -167,7 +166,7 @@ aws geo-routes calculate-isolines --key ${YourKey} \
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "DepartureTime": "2024-10-28T14:27:56-07:00",
     "IsolineGeometryFormat": "FlexiblePolyline",
@@ -194,7 +193,7 @@ aws geo-routes calculate-isolines --key ${YourKey} \
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://routes.geo.eu-central-1.amazonaws.com/v2/isolines?key=Your_key' \
   --header 'Content-Type: application/json' \
@@ -231,7 +230,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-routes calculate-isolines --key ${YourKey} \
 --origin -123.11679620827039 49.28147612192166 \
 --departure-time "2024-10-28T21:27:56Z" \
@@ -248,7 +247,7 @@ aws geo-routes calculate-isolines --key ${YourKey} \
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "Origin": [
         -123.11679620827039,
@@ -281,7 +280,7 @@ aws geo-routes calculate-isolines --key ${YourKey} \
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "DepartureTime": "2024-10-28T14:27:56-07:00",
     "IsolineGeometryFormat": "FlexiblePolyline",
@@ -308,7 +307,7 @@ aws geo-routes calculate-isolines --key ${YourKey} \
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://routes.geo.eu-central-1.amazonaws.com/v2/isolines?key=Your_key' \
   --header 'Content-Type: application/json' \
@@ -344,7 +343,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-routes calculate-isolines --key ${YourKey} \
 --origin -123.11679620827039 49.28147612192166 \
 --departure-time "2024-10-28T21:27:56Z" \
@@ -361,7 +360,7 @@ aws geo-routes calculate-isolines --key ${YourKey} \
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "Origin": [
         -123.11679620827039,
@@ -395,7 +394,7 @@ aws geo-routes calculate-isolines --key ${YourKey} \
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "DepartureTime": "2024-10-28T14:27:56-07:00",
     "IsolineGeometryFormat": "FlexiblePolyline",
@@ -422,7 +421,7 @@ aws geo-routes calculate-isolines --key ${YourKey} \
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://routes.geo.eu-central-1.amazonaws.com/v2/isolines?key=Your_key' \
   --header 'Content-Type: application/json' \
@@ -458,7 +457,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-routes calculate-isolines --key ${YourKey} \
 --origin -123.11679620827039 49.28147612192166 \
 --departure-time "2024-10-28T21:27:56Z" \

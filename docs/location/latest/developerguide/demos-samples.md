@@ -1,7 +1,6 @@
 
 
 # Examples and Learning Resources
-<a name="demos-samples"></a>
 
 This topic provides links and details about our available demos and sample projects. These resources are designed to help you quickly understand and implement key features of our tools and APIs. Additionally, you’ll find links to GitHub repositories containing source code, and example solutions.
 

@@ -1,7 +1,6 @@
 
 
 # Calculate route matrix
-<a name="calculate-route-matrix"></a>
 
 The Matrix Routing service calculates routing matrices, providing travel times or distances between multiple origins and destinations. This service offers flexible customization options, allowing you to specify travel modes, traffic conditions, and other routing parameters. The matrix calculations can vary in size and shape, supporting both square and non-square matrices, and accommodate dynamic or free-flow traffic data.
 

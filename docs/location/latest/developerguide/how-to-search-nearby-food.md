@@ -1,7 +1,6 @@
 
 
 # How to search nearby places based on food type
-<a name="how-to-search-nearby-food"></a>
 
 The `SearchNearby` API enables you query nearby restaurants that serve a specific type of food. You can also exclude food types from your results.
 
@@ -27,7 +26,7 @@ The following example demonstrates how to search for nearby places based on food
 
 This request searches for restaurants that serve Chinese food near the specified coordinates.
 
-```
+```json
 {
     "QueryPosition": [
         12.49563,
@@ -42,7 +41,7 @@ This request searches for restaurants that serve Chinese food near the specified
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -90,7 +89,7 @@ This request searches for restaurants that serve Chinese food near the specified
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/search-nearby?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -105,7 +104,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places search-nearby --key ${YourKey} \
 --query-position 12.49563 41.90325 \
 --filter '{"IncludeFoodTypes": ["chinese"]}'

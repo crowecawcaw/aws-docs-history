@@ -1,7 +1,6 @@
 
 
 # Learn how to use CalculateRouteMatrix
-<a name="calculate-route-matrix-how-to"></a>
 
 In this section you learn how to use `CalculateRouteMatrix` to find efficient routes for multiple origins and destinations.
 

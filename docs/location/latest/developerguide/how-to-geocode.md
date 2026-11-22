@@ -1,7 +1,6 @@
 
 
 # How to use Geocode
-<a name="how-to-geocode"></a>
 
 This section contains a variety of how to guides and examples for how to use Geocode APIs.
 

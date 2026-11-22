@@ -1,7 +1,6 @@
 
 
 # Monitor and log with AWS CloudTrail
-<a name="cloudtrail"></a>
 
 AWS CloudTrail is a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail records all API calls as events. You can use Amazon Location Service with CloudTrail to monitor your API calls, which include calls from the Amazon Location Service console and AWS SDK calls to the Amazon Location Service API operations. 
 
@@ -90,7 +89,7 @@ CloudTrail log files are not an ordered stack trace of API calls. They do not ap
 
  The following example shows a CloudTrail log entry for the `CreateTracker` operation, which creates a tracker resource. 
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {
@@ -143,7 +142,7 @@ CloudTrail log files are not an ordered stack trace of API calls. They do not ap
 
  The following example shows a CloudTrail log entry for the `Geocode` operation, which retrieves coordinates, addresses, and other details about a place. 
 
-```
+```json
 {
   "eventVersion": "1.09",
   "userIdentity": {

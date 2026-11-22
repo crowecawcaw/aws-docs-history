@@ -1,7 +1,6 @@
 
 
 # React to Amazon Location Service events with Amazon EventBridge
-<a name="location-events"></a>
 
 Amazon EventBridge is a serverless event bus that efficiently connects applications together using data from AWS services like Amazon Location. EventBridge receives events from Amazon Location and routes that data to targets like AWS Lambda. You can set up routing rules to determine where to send your data to build application architectures that react in real time.
 
@@ -40,7 +39,7 @@ Using the following values, [create an EventBridge rule](https://docs.aws.amazon
 + For **Rule type**, choose **Rule with an event pattern**.
 + In the **Event pattern** box, add the following pattern:
 
-  ```
+  ```json
   {
     "source": ["aws.geo"],
     "detail-type": ["Location Geofence Event"]
@@ -94,7 +93,7 @@ It's best practice to confirm that the event rule was successfully applied or yo
 
 You can also capture all events from Amazon Location, by just excluding the `detail-type` section. For example:
 
-```
+```json
 {
   "source": [
     "aws.geo"

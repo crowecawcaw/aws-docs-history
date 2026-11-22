@@ -1,7 +1,6 @@
 
 
 # Upload input data
-<a name="uploading-input-data"></a>
 
 After preparing your input data in Apache Parquet format, upload the files to your Amazon S3 input bucket.
 

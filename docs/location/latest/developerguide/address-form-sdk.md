@@ -1,7 +1,6 @@
 
 
 # Address Form SDK
-<a name="address-form-sdk"></a>
 
 The Address Form SDK streamlines building smart address-entry forms. Address forms built with the SDK provide relevant address suggestions as users begin typing. When a user selects a suggestion, an address form automatically fills in fields such as city, state, and postal code. This reduces errors and speeds up data entry by minimizing manual input. Users can also preview the selected address on a map and adjust its location pin to indicate specific entrances or pick-up locations, significantly improving accuracy.
 
@@ -81,7 +80,7 @@ Example key policy for the [CreateKey](https://docs.aws.amazon.com/location/late
 #### CreateKey request for Address Form permissions
 <a name="createkey-example"></a>
 
-```
+```json
 {
   "KeyName": "ExampleKey",
   "ExpireTime": "YYYY-MM-DDThh:mm:ss.sss",
@@ -109,7 +108,7 @@ Example key policy for the [CreateKey](https://docs.aws.amazon.com/location/late
 
 Include the following CSS and JavaScript for the SDK in your HTML code
 
-```
+```html
 ...
 <head>
 ...
@@ -151,7 +150,7 @@ Use `"Storage"` if you need to store or cache the results. This ensures complian
 ------
 #### [ HTML/JavaScript ]
 
-```
+```html
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -210,7 +209,7 @@ script src="https://cdn.jsdelivr.net/npm/@aws/address-form-sdk-js/dist/standalon
 ------
 #### [ React ]
 
-```
+```javascript
 import React from 'react';
 import { AddressForm, Flex } from "@aws/address-form-sdk-js";
 

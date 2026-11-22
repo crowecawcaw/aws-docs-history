@@ -1,7 +1,6 @@
 
 
 # How to geocode an administrative and postal area
-<a name="how-to-geocode-admin-postal-area"></a>
 
 The Geocode API allows you to perform geocoding for a geographic area using a query text input, such as the name of a country, region (state or province), or city. The API response includes location details like geographic coordinates, bounding boxes for map visualizations, and match scores indicating the result's relevance to the query.
 
@@ -19,7 +18,7 @@ The Geocode API allows you to perform geocoding for a geographic area using a qu
 ------
 #### [ Sample request ]
 
-```
+```json
 {
   "QueryText": "Canada"
 }
@@ -28,7 +27,7 @@ The Geocode API allows you to perform geocoding for a geographic area using a qu
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -59,7 +58,7 @@ The Geocode API allows you to perform geocoding for a geographic area using a qu
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -71,7 +70,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "Canada"
 ```
 
@@ -83,7 +82,7 @@ aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "Canada"
 ------
 #### [ Sample request ]
 
-```
+```json
 {
   "QueryText": "BC"
 }
@@ -92,7 +91,7 @@ aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "Canada"
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -127,7 +126,7 @@ aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "Canada"
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -139,7 +138,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "BC"
 ```
 
@@ -151,7 +150,7 @@ aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "BC"
 ------
 #### [ Sample request ]
 
-```
+```json
 {
   "QueryText": "Vancouver"
 }
@@ -160,7 +159,7 @@ aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "BC"
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -200,7 +199,7 @@ aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "BC"
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -212,7 +211,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "Vancouver"
 ```
 
@@ -226,7 +225,7 @@ You can geocode a postal code. Use `IncludePlaceTypes` with `["PostalCode"]` for
 ------
 #### [ Sample request ]
 
-```
+```json
 {
   "QueryText": "800006",
   "Filter": { "IncludePlaceTypes": ["PostalCode"] }
@@ -236,7 +235,7 @@ You can geocode a postal code. Use `IncludePlaceTypes` with `["PostalCode"]` for
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -274,7 +273,7 @@ You can geocode a postal code. Use `IncludePlaceTypes` with `["PostalCode"]` for
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -287,7 +286,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "800006" --filter '{"IncludePlaceTypes": ["PostalCode"]}'
 ```
 
@@ -298,7 +297,7 @@ aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "800006" --filter '{
 
 Use filters like `IncludeCountries` and `IncludePlaceTypes` for more targeted results. For example, to ensure results from Vancouver in the USA, set `"IncludeCountries": ["USA"]`. For more details, see .
 
-```
+```json
 {
   "QueryText": "Vancouver",
   "Filter": { "IncludeCountries": ["USA"] }

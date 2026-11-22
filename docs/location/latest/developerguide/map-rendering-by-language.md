@@ -1,7 +1,6 @@
 
 
 # Map Rendering SDK by language
-<a name="map-rendering-by-language"></a>
 
 We recommend rendering Amazon Location Service maps using the [MapLibre](https://github.com/maplibre/maplibre-gl-js) rendering engine.
 

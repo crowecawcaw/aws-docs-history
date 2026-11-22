@@ -1,7 +1,6 @@
 
 
 # How to geocode using filters
-<a name="how-to-geocode-filters"></a>
 
 The Geocode API enables you to use filters to get desired results.
 
@@ -23,7 +22,7 @@ Specify a value for `IncludeCountries` to return values for that country in the 
 
 Without `IncludeCountries": ["USA"]`, the Geocode API will return Vancouver, BC, Canada.
 
-```
+```json
 {
   "QueryText": "Vancouver",
     "Filter" : {
@@ -35,7 +34,7 @@ Without `IncludeCountries": ["USA"]`, the Geocode API will return Vancouver, BC,
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -85,7 +84,7 @@ Without `IncludeCountries": ["USA"]`, the Geocode API will return Vancouver, BC,
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -100,7 +99,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places geocode --key ${YourKey} --query-text "Vancouver" --filter '{"IncludeCountries": ["USA"]}'
 ```
 
@@ -116,7 +115,7 @@ Specify a value for `IncludePlaceTypes` to return values for that place in the r
 
 Without `IncludePlaceTypes": ["Street"]`, the Geocode API will return Georgia, a country. You can further refine the results by adding `"IncludeCountries"` with values of **CAN** and **USA** and compare the results.
 
-```
+```json
 {
   "QueryText": "Georgia",
     "Filter" : {
@@ -129,7 +128,7 @@ Without `IncludePlaceTypes": ["Street"]`, the Geocode API will return Georgia, a
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -187,7 +186,7 @@ Without `IncludePlaceTypes": ["Street"]`, the Geocode API will return Georgia, a
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -203,7 +202,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places geocode --key ${YourKey} --query-text "Georgia" --filter '{"IncludePlaceTypes": ["Street"]}'
 ```
 

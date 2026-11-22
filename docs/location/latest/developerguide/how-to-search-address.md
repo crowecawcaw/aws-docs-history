@@ -1,7 +1,6 @@
 
 
 # How to search for an address
-<a name="how-to-search-address"></a>
 
 The `SearchText` API enables you to search for an address.
 
@@ -21,7 +20,7 @@ One way to use the SearchText API is to let end users search for an address and 
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryText":"1368 E 8 Ave Vancouver",
         "BiasPosition":[    
@@ -35,7 +34,7 @@ One way to use the SearchText API is to let end users search for an address and 
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -91,7 +90,7 @@ One way to use the SearchText API is to let end users search for an address and 
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/search-text?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -108,7 +107,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places search-text --key ${YourKey} --query-text "1368 E 8 Ave Vancouver" --bias-position -123.18544 49.24643 --max-results 1
 ```
 

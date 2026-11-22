@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon Location Service Geofences
-<a name="geofence-gs"></a>
 
 Geofences are powerful tools for defining geographic boundaries and triggering actions based on location updates. This guide walks you through the process of creating and using geofence collection resources in Amazon Location. By setting up geofences and evaluating locations against them, you can monitor movement and generate automated events, such as notifications when a device enters or exits a defined area. These features are ideal for applications like fleet tracking, location-based notifications, and more.
 

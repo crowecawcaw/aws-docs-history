@@ -1,7 +1,6 @@
 
 
 # How to geocode using geospatial context
-<a name="how-to-geocode-geospatial"></a>
 
 The Geocode API enables you to use geospatial context (such as bias position) to get desired results.
 
@@ -24,7 +23,7 @@ By biasing to a position, you can change the rankings of your results. Try the f
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryText": "George Street",
     "BiasPosition": [
@@ -37,7 +36,7 @@ By biasing to a position, you can change the rankings of your results. Try the f
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -98,7 +97,7 @@ By biasing to a position, you can change the rankings of your results. Try the f
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -114,7 +113,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places geocode --key ${YourKey} --query-text "George Street" --bias-position 151.2059 -33.8691
 ```
 

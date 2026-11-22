@@ -1,7 +1,6 @@
 
 
 # Create resources with AWS CloudFormation
-<a name="cloudformation"></a>
 
 Amazon Location Service is integrated with CloudFormation, a service that helps you to model and set up your AWS resources so that you can spend less time creating and managing your resources and infrastructure. You create a template that describes all the AWS resources that you want (such as Amazon Location resources), and CloudFormation provisions and configures those resources for you. 
 
@@ -40,7 +39,7 @@ The permission is required even if your template doesn't specify tags. CloudForm
 
 Add the following statement to the policy of the identity that CloudFormation uses:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "geo:TagResource",

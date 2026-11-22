@@ -1,7 +1,6 @@
 
 
 # List jobs
-<a name="listing-jobs"></a>
 
 Use the `ListJobs` operation to list all existing address validation jobs. You can use the results of this operation to check the status of multiple jobs at the same time, or to find the `Name` and `JobId` for a specific job that you want to cancel or monitor individually.
 
@@ -14,7 +13,7 @@ Use the `ListJobs` operation to list all existing address validation jobs. You c
 ------
 #### [ Sample request ]
 
-```
+```json
 {  
     "Filter": {    
         "JobStatus": "Running"
@@ -27,7 +26,7 @@ Use the `ListJobs` operation to list all existing address validation jobs. You c
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "Entries": [{
             "Action": "ValidateAddress",
@@ -62,7 +61,7 @@ Use the `ListJobs` operation to list all existing address validation jobs. You c
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws location list-jobs --region us-west-2
 ```
 

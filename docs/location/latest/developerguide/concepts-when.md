@@ -1,7 +1,6 @@
 
 
 # When (departure and arrival)
-<a name="concepts-when"></a>
 
 Specifies the time for route calculation. The time not only determines the timestamps for departure and arrival but also influences the traffic data to be used.
 

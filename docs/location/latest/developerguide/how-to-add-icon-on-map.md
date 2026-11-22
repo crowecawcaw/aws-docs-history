@@ -1,7 +1,6 @@
 
 
 # How to add an icon on the map
-<a name="how-to-add-icon-on-map"></a>
 
 Amazon Location Service enables you to add icons, preferably in PNG format, to the map. You can add icons to specific geolocations and style them as needed.
 
@@ -16,7 +15,7 @@ In this example, you will use an external URL to add an icon to the map using a 
 ------
 #### [ index.html ]
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -80,7 +79,7 @@ In this example, you will use an external URL to add an icon to the map using a 
 ------
 #### [ style.css ]
 
-```
+```css
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
 ```

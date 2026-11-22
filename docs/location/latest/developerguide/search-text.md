@@ -1,7 +1,6 @@
 
 
 # Search Text
-<a name="search-text"></a>
 
 Search Text allows you to query location data using a single free-form text input, returning place results with optional filters like country, geographic circle, or bounding box. The API also enables searching by `QueryId` returned from the Suggest API. The response includes details such as place name, address, phone number, category, food type, contact information, and opening hours. Optional features like phonemes, time zones, and more are also available based on specified parameters.
 

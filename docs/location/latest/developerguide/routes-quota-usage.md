@@ -1,7 +1,6 @@
 
 
 # Routes Quota and Usage
-<a name="routes-quota-usage"></a>
 
 ## Service Quota
 <a name="service-quota"></a>

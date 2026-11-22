@@ -1,7 +1,6 @@
 
 
 # How to control address name variants
-<a name="how-to-geocode-address-names-mode"></a>
 
 `AddressNamesMode` specifies how address names are returned. If not set, the service returns normalized (official) names by default. When set to `Matched`, address names in the response are based on the input query rather than official names. When set to `Administrative`, the service returns the official administrative names for address components. `Administrative` currently applies only to addresses in the United States.
 
@@ -19,7 +18,7 @@
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryText": "100 Universal City Plaza, Hollywood, CA",
     "AddressNamesMode": "Matched"
@@ -29,7 +28,7 @@
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -64,7 +63,7 @@
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -77,7 +76,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places geocode --key ${YourKey} --query-text "100 Universal City Plaza, Hollywood, CA" --address-names-mode Matched
 ```
 
@@ -89,7 +88,7 @@ aws geo-places geocode --key ${YourKey} --query-text "100 Universal City Plaza, 
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryText": "100 Universal City Plaza, Hollywood, CA",
     "AddressNamesMode": "Administrative"
@@ -99,7 +98,7 @@ aws geo-places geocode --key ${YourKey} --query-text "100 Universal City Plaza, 
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -134,7 +133,7 @@ aws geo-places geocode --key ${YourKey} --query-text "100 Universal City Plaza, 
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -147,7 +146,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places geocode --key ${YourKey} --query-text "100 Universal City Plaza, Hollywood, CA" --address-names-mode Administrative
 ```
 

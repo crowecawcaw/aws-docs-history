@@ -1,7 +1,6 @@
 
 
 # Search Nearby
-<a name="search-nearby"></a>
 
 The Search Nearby API allows developers to query for points of interest within a specified radius from central coordinates. The API provides place results with optional filters, including categories, business chains, food types, and more. Response details include place name, address, phone, category, food type, contact, and opening hours. Additional features, such as phonemes, time zones, and others, are available based on requested parameters.
 

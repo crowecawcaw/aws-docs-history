@@ -1,7 +1,6 @@
 
 
 # Places concepts
-<a name="places-common-concepts"></a>
 
 The following topics provide foundational knowledge and best practices for using the Amazon Location Service Places API. These concepts are essential for effectively implementing the Places features within your application.
 

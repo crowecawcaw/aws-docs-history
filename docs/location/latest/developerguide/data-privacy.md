@@ -1,7 +1,6 @@
 
 
 # Data privacy
-<a name="data-privacy"></a>
 
 With Amazon Location Service, you retain control of your organization’s data. Amazon Location anonymizes all queries sent to data providers by removing customer metadata and account information. 
 

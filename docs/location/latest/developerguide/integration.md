@@ -1,7 +1,6 @@
 
 
 # AWS integration for Amazon Location Service
-<a name="integration"></a>
 
 Amazon Location Service is integrated with various AWS services for efficient authentication, monitoring, management and development.
 

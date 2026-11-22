@@ -1,7 +1,6 @@
 
 
 # Calculate routes
-<a name="calculate-routes"></a>
 
 The Routes API calculates routes between two or more locations with or without avoidances for different travel modes such as car, truck, scooter, pedestrian, transit, and intermodal. With this API, you can customize routing options and request additional route-related information to meet specific needs. This API supports turn-by-turn navigation and customizes route calculations by applying parameters like avoiding toll roads, motorways, or ferries. The API also returns speed limits and toll costs.
 

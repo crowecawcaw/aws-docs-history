@@ -1,7 +1,6 @@
 
 
 # How to use Suggest
-<a name="suggest-how-to"></a>
 
 This section contains a variety of how-to guides and examples for using the `Suggest` API with response data.
 

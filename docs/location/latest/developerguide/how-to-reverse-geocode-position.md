@@ -1,7 +1,6 @@
 
 
 # How to reverse geocode for a position
-<a name="how-to-reverse-geocode-position"></a>
 
 The Reverse Geocode API allows you to convert a geocode to a geographic area based on a position query. The API response includes place details, providing information about the location associated with specific coordinates.
 
@@ -17,7 +16,7 @@ The Reverse Geocode API allows you to convert a geocode to a geographic area bas
 ------
 #### [ Sample request ]
 
-```
+```json
 {
   "QueryPosition": [
     -123.11694,
@@ -29,7 +28,7 @@ The Reverse Geocode API allows you to convert a geocode to a geographic area bas
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -64,7 +63,7 @@ The Reverse Geocode API allows you to convert a geocode to a geographic area bas
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/reverse-geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -79,7 +78,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places reverse-geocode --key ${YourKey} --query-position "-123.11694,49.28126"
 ```
 
@@ -91,7 +90,7 @@ aws geo-places reverse-geocode --key ${YourKey} --query-position "-123.11694,49.
 ------
 #### [ Sample request ]
 
-```
+```json
 {
   "QueryPosition": [
     -123.11694,
@@ -104,7 +103,7 @@ aws geo-places reverse-geocode --key ${YourKey} --query-position "-123.11694,49.
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -144,7 +143,7 @@ aws geo-places reverse-geocode --key ${YourKey} --query-position "-123.11694,49.
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/reverse-geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -160,7 +159,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places reverse-geocode --key ${YourKey} --query-position "-123.11694,49.28126" --max-results "3"
 ```
 
@@ -171,7 +170,7 @@ aws geo-places reverse-geocode --key ${YourKey} --query-position "-123.11694,49.
 
 For targeted results, use `IncludePlaceTypes` in the filter.
 
-```
+```json
 {
   "QueryPosition": [
     -123.11694,

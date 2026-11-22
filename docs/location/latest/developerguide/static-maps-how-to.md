@@ -1,7 +1,6 @@
 
 
 # How to use static maps
-<a name="static-maps-how-to"></a>
 
 These how-to topics offer step-by-step guidance for customizing static maps with overlays and visual elements, utilizing the mapping capabilities of Amazon Location Service. Each guide walks you through key tasks, such as adjusting map dimensions, choosing between zoom or radius, and adding various geo-spatial elements like markers, polygons, lines, and proximity circles. These guides use both compact and GeoJSON formats to ensure flexibility in styling and configuration.
 

@@ -1,7 +1,6 @@
 
 
 # Link a tracker to a geofence collection
-<a name="associate-consumer"></a>
 
 Now that you have a geofence collection and a tracker, you can link them together so that location updates are automatically evaluated against all of your geofences. If you don’t want to evaluate all location updates, or alternatively, if you aren't storing some of your locations in a tracker resource, you can [evaluate device positions against geofences](https://docs.aws.amazon.com/location/latest/developerguide/evaluate-geofences.html) on demand.
 

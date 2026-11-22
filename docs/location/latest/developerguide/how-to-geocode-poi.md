@@ -1,7 +1,6 @@
 
 
 # How to geocode a point of interest
-<a name="how-to-geocode-poi"></a>
 
 You can use the geocode API to geocode the coordinates of a known place (Point of interest) such as business addresses, landmark, or tourist spot. The API response contains location information, including geographical coordinates, and match scores that indicate how well the result matches the query.
 
@@ -19,7 +18,7 @@ You can use the geocode API to geocode the coordinates of a known place (Point o
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryText": "Starbucks , Vancouver"
 }
@@ -1310,7 +1309,7 @@ You can use the geocode API to geocode the coordinates of a known place (Point o
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -1322,7 +1321,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places geocode --key ${YourKey} --query-text "Starbucks , Vancouver"
 ```
 
@@ -1334,7 +1333,7 @@ aws geo-places geocode --key ${YourKey} --query-text "Starbucks , Vancouver"
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryText": "Eiffel Tower, Paris"
 }
@@ -1551,7 +1550,7 @@ aws geo-places geocode --key ${YourKey} --query-text "Starbucks , Vancouver"
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -1563,7 +1562,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places geocode --key ${YourKey} --query-text "Eiffel Tower, Paris"
 ```
 
@@ -1574,7 +1573,7 @@ aws geo-places geocode --key ${YourKey} --query-text "Eiffel Tower, Paris"
 + Use complete addresses or query component for better results. To learn more, see [How to geocode an address](how-to-geocode-address.md).
 + Use filters like `IncludeCountries` and `IncludePlaceTypes` to obtain accurate results. For instance, if you need Vancouver from the USA, apply `"IncludeCountries": ["USA"]` to prioritize results in the USA. To learn more, see [How to geocode using filters](how-to-geocode-filters.md).
 
-  ```
+  ```json
   {
     "QueryText": "Vancouver",
     "Filter": {

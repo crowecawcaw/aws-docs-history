@@ -1,7 +1,6 @@
 
 
 # Amazon Location Jobs
-<a name="jobs"></a>
 
 Amazon Location Jobs provides asynchronous bulk processing capabilities that enable you to perform actions on large batches of location data efficiently and cost-effectively. Instead of making multiple API calls to perform the same action on each data entry individually, you can process thousands of actions on large batches of data in a single operation using the Jobs API.
 

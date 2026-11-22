@@ -1,7 +1,6 @@
 
 
 # How to complete an address with filters
-<a name="how-to-complete-address-with-filters"></a>
 
 The Autocomplete API enables you to complete partially typed addresses, facilitating quick and standardized address input for end users. By using the `AdditionalFeatures` parameter, you can customize the information provided in the response to meet specific requirements.
 
@@ -21,7 +20,7 @@ This example applies a country filter to refine results, enabling a standardized
 ------
 #### [ Sample request ]
 
-```
+```json
 {
   "QueryText": "100 McCullum Rd",
   "Filter": {
@@ -35,7 +34,7 @@ This example applies a country filter to refine results, enabling a standardized
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -123,7 +122,7 @@ This example applies a country filter to refine results, enabling a standardized
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/autocomplete?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -140,7 +139,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places autocomplete --key ${YourKey} --query-text "100 McCullum Rd" \
 --filter '{"IncludeCountries": ["GBR"]}'
 ```
@@ -155,7 +154,7 @@ This example returns additional data, allowing the returned address details to b
 ------
 #### [ Sample request ]
 
-```
+```json
 {
   "QueryText": "100 McCullum Rd",
   "Filter": {
@@ -172,7 +171,7 @@ This example returns additional data, allowing the returned address details to b
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -260,7 +259,7 @@ This example returns additional data, allowing the returned address details to b
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/autocomplete?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -280,7 +279,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places autocomplete --key ${YourKey} --query-text "100 McCullum Rd" \
 --additional-features "Core" \
 --filter '{"IncludeCountries": ["GBR"]}'

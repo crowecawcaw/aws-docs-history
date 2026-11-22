@@ -1,7 +1,6 @@
 
 
 # How to optimize waypoints for a route with traffic awareness
-<a name="optimize-waypoints-traffic-awareness"></a>
 
 The OptimizeWaypoints API calculates the optimal route between multiple waypoints to minimize travel time or total distance. It utilizes advanced algorithms to solve the Traveling Salesman Problem, determining the most efficient path while accounting for factors such as road networks and real-time traffic conditions.
 
@@ -18,7 +17,7 @@ The OptimizeWaypoints API calculates the optimal route between multiple waypoint
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "Origin": [
         -123.095740,
@@ -53,7 +52,7 @@ The OptimizeWaypoints API calculates the optimal route between multiple waypoint
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "Connections": [
         {
@@ -132,7 +131,7 @@ The OptimizeWaypoints API calculates the optimal route between multiple waypoint
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://routes.geo.eu-central-1.amazonaws.com/v2/optimize-waypoints?key=Your_key' \
   --header 'Content-Type: application/json' \
@@ -170,7 +169,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-routes optimize-waypoints --key ${YourKey} \
 --origin -123.095740 49.274426 \
 --waypoints '[{"Position": [-123.115193 , 49.280596]}, {"Position": [-123.089557 , 49.271774]}]' \

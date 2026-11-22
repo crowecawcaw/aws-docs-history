@@ -1,7 +1,6 @@
 
 
 # Customize static maps
-<a name="customizing-static-maps"></a>
 
 **Note**  
 Static maps only support the Satellite style. For more information, see [AWS map styles and features](map-styles.md).

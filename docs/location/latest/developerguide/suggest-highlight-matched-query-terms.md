@@ -1,7 +1,6 @@
 
 
 # Choose a route using Suggest and the ability to highlight matched query terms
-<a name="suggest-highlight-matched-query-terms"></a>
 
 With the Suggest API, you get real-time autocomplete suggestions as users type their search queries for places or categories. Results are ranked by relevance, with the most likely matches appearing first. The API response includes highlighting information that shows how each suggestion matches the user's query.
 
@@ -23,7 +22,7 @@ This example demonstrates how to use the Suggest API to look up a misspelled poi
 ------
 #### [ Sample request ]
 
-```
+```json
 {
   "QueryText": "Effel tow",
   "Filter": {
@@ -46,7 +45,7 @@ This example demonstrates how to use the Suggest API to look up a misspelled poi
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -135,7 +134,7 @@ This example demonstrates how to use the Suggest API to look up a misspelled poi
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/suggest?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -161,7 +160,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places suggest --key ${YourKey} \
 --query-text "Effel tow" \
 --filter '{"Circle": {"Radius": 10000, "Center": [2.3431932014695382, 48.858844492141145]}, "IncludeCountries": ["FRA"]}' \

@@ -1,7 +1,6 @@
 
 
 # Tracker concepts
-<a name="tracking-components"></a>
 
 This section details common trackers concepts.
 

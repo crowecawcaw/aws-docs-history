@@ -1,7 +1,6 @@
 
 
 # How to find a speed limit for a road span
-<a name="calculate-routes-speed-limit-road"></a>
 
 The CalculateRoutes API helps you to find the best routes between origin and destination, as well as the best opportunities for driver resting. It supports travel modes such as car, truck, pedestrian and scooter. It also supports up to 25 waypoints (stopovers) including the origin and destination, with only a few constraints.
 
@@ -19,7 +18,7 @@ The CalculateRoutes API helps you to find the best routes between origin and des
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "Origin": [
         13.055211,
@@ -37,7 +36,7 @@ The CalculateRoutes API helps you to find the best routes between origin and des
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "LegGeometryFormat": "FlexiblePolyline",
     "Notices": [],
@@ -434,7 +433,7 @@ The CalculateRoutes API helps you to find the best routes between origin and des
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://routes.geo.eu-central-1.amazonaws.com/v2/routes?key=Your_key' \
   --header 'Content-Type: application/json' \
@@ -455,7 +454,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-routes calculate-routes --key ${YourKey} \
 --origin 13.055211 52.704802 \
 --destination 13.551910 52.282705 \

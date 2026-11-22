@@ -1,7 +1,6 @@
 
 
 # Driver schedule and notices
-<a name="driver-schedule-notices"></a>
 
 ## Driver schedule
 <a name="driver-schedule"></a>

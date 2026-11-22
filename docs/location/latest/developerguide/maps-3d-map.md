@@ -1,7 +1,6 @@
 
 
 # 3D Features
-<a name="maps-3d-map"></a>
 
 Amazon Location Service's 3D visualization capabilities - terrain and buildings - help users make better decisions by adding depth and perspective to geographic data. 3D terrain reveals elevation changes critical for route optimization, emergency response planning, and outdoor recreation, while 3D buildings provide spatial context for urban navigation, real estate assessment, and landmark identification. These features integrate seamlessly through simple API parameters (terrain, buildings), enabling applications across logistics, public safety, tourism, and real estate to deliver more intuitive and engaging user experiences without complex implementation.
 

@@ -1,7 +1,6 @@
 
 
 # Traffic awareness
-<a name="concepts-traffic-awareness"></a>
 
 Determines the type of traffic-related information used during route calculation. Flow traffic represents congestion, excluding long-term incident-related congestion. The accuracy of flow traffic data decreases over time, making historical traffic data more reliable for past events.
 

@@ -1,7 +1,6 @@
 
 
 # Trackers quota and usage
-<a name="trackers-quotas"></a>
 
 This topic provides a summary of rate limits and quotas for Amazon Location Service trackers.
 

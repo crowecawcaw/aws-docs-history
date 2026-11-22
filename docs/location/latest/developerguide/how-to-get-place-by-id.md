@@ -1,7 +1,6 @@
 
 
 # How to get results for a PlaceId
-<a name="how-to-get-place-by-id"></a>
 
 The GetPlace API retrieves detailed information about a place using its unique PlaceId, allowing applications to access comprehensive details about specified locations.
 
@@ -19,14 +18,14 @@ The GetPlace API retrieves detailed information about a place using its unique P
 ------
 #### [ Sample request ]
 
-```
+```http
 https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAFUAcrFHu947JATTY9gIGcfNlNVzD3UftkkI9ayJjtquaC7IquYz-_FFnJnzJSQ7JePd-sY0MSpA64V0w4aXLc-lB2fZLJKk6uoAMSgtwvwxzg1fvPxFM9zXsx77EaLXarl7F4gSPTyQ6fiEnj0b0ipOXpnOoIsP?key=Your_Key
 ```
 
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "PlaceId": "<Redacted>",
     "PlaceType": "PointOfInterest",
@@ -86,7 +85,7 @@ https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAFUAcrFHu947JATTY9gIG
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request GET \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAFUAcrFHu947JATTY9gIGcfNlNVzD3UftkkI9ayJjtquaC7IquYz-_FFnJnzJSQ7JePd-sY0MSpA64V0w4aXLc-lB2fZLJKk6uoAMSgtwvwxzg1fvPxFM9zXsx77EaLXarl7F4gSPTyQ6fiEnj0b0ipOXpnOoIsP?key=Your_Key&language=en'
 ```
@@ -94,7 +93,7 @@ curl --request GET \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 export PLACEID=AQAAAFUAcrFHu947JATTY9gIGcfNlNVzD3UftkkI9ayJjtquaC7IquYz-_FFnJnzJSQ7JePd-sY0MSpA64V0w4aXLc-lB2fZLJKk6uoAMSgtwvwxzg1fvPxFM9zXsx77EaLXarl7F4gSPTyQ6fiEnj0b0ipOXpnOoIs
 aws geo-places get-place --key ${YourKey} --place-id ${PLACEID}
 ```

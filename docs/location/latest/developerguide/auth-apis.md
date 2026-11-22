@@ -1,7 +1,6 @@
 
 
 # Auth APIs
-<a name="auth-apis"></a>
 
 The following APIs enable you to manage API keys for Amazon Location Service. Use these operations to create keys, configure restrictions, rotate keys, and monitor your key inventory.
 + **CreateKey**: Creates a new API key with specified restrictions and optional expiration. Returns the key value used to authenticate subsequent API requests. For more information, see [CreateKey](https://docs.aws.amazon.com/location/latest/APIReference/API_geoapikeys_CreateKey.html) in the *Amazon Location Service API Reference*.

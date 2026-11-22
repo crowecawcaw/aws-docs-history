@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="jobs-best-practices"></a>
 
 We recommend the following best practices to optimize costs for bulk address validation jobs:
 + Implement data quality checks before submitting jobs to avoid processing addresses that are easily identifiable as invalid. Pre-filtering can reduce the number of addresses requiring validation and improve overall cost efficiency.

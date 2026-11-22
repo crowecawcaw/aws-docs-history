@@ -1,7 +1,6 @@
 
 
 # How to search using category name or food type
-<a name="how-to-search-category-name"></a>
 
 The `SearchText` API enables you to search by name of category such as restaurants, schools and more. You can also search by food type.
 
@@ -24,7 +23,7 @@ For more information, see [Categories filters](places-filtering.md#place-categor
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryText": "Nursing Home",
     "BiasPosition": [
@@ -37,7 +36,7 @@ For more information, see [Categories filters](places-filtering.md#place-categor
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -154,7 +153,7 @@ For more information, see [Categories filters](places-filtering.md#place-categor
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/search-text?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -170,7 +169,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places search-text --key ${YourKey} --query-text "Nursing Home" --bias-position -123.11336 49.26038
 ```
 
@@ -184,7 +183,7 @@ Specify a food type for `QueryText` to select restaurants by food type. Filterin
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryText": "Sushi",
     "BiasPosition": [
@@ -197,7 +196,7 @@ Specify a food type for `QueryText` to select restaurants by food type. Filterin
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -356,7 +355,7 @@ Specify a food type for `QueryText` to select restaurants by food type. Filterin
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/search-text?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -372,7 +371,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places search-text --key ${YourKey} --query-text "Sushi" --bias-position -123.11336 49.26038
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Learn how to use OptimizeWaypoints
-<a name="optimize-waypoints-how-to"></a>
 
 Learn how to use `OptimizeWaypoints` to find the best routes for minimizing travel time or distance.
 

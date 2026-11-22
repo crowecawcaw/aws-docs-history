@@ -1,7 +1,6 @@
 
 
 # Places terminology
-<a name="places-terminology"></a>
 
 This section provides essential definitions to understand core concepts within Amazon Location Service Places, such as location data types, geographic boundaries, and filtering options. These terms enable accurate use of the Places API capabilities.
 

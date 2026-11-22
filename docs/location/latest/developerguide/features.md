@@ -1,7 +1,6 @@
 
 
 # Key features of Amazon Location
-<a name="features"></a>
 
 Amazon Location offers a comprehensive set of features to enhance your location-based applications and services. This page provides an overview of the key capabilities available, including Maps, Places, Routes, Geofences and Trackers, and Jobs. Leveraging these features, you can build rich, location-aware experiences tailored to your specific use cases, whether it's delivering real-time location intelligence, enabling location-based services, or optimizing logistics and transportation operations.
 

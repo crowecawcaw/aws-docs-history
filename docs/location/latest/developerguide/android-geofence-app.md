@@ -1,7 +1,6 @@
 
 
 # Create an Android application
-<a name="android-geofence-app"></a>
 
 Follow these procedures to build an iOS application using Amazon Location Service.
 

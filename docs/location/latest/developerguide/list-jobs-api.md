@@ -1,7 +1,6 @@
 
 
 # ListJobs
-<a name="list-jobs-api"></a>
 
 The `ListJobs` operation retrieves a paginated list of jobs with optional filtering capabilities. You can filter by job status and control the number of results returned. The operation supports pagination through next tokens, allowing you to retrieve large job lists efficiently.
 

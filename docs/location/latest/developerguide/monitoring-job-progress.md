@@ -1,7 +1,6 @@
 
 
 # Monitor job progress
-<a name="monitoring-job-progress"></a>
 
 Use the `GetJob` operation to check job status periodically. Jobs typically progress from **Pending** to **Running** to **Completed**, though processing time varies based on the number of addresses and requested features.
 
@@ -18,7 +17,7 @@ Consider implementing Amazon EventBridge integration to receive automatic notifi
 ------
 #### [ Sample request ]
 
-```
+```json
 {  
     "JobId": "{{YOUR_JOB_ID}}"
 }
@@ -27,7 +26,7 @@ Consider implementing Amazon EventBridge integration to receive automatic notifi
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "Action": "ValidateAddress",
     "CreatedAt": "2023-01-01T00:00:00Z",
@@ -60,7 +59,7 @@ Consider implementing Amazon EventBridge integration to receive automatic notifi
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws location get-job --job-id "{{YOUR_JOB_ID}}" --region us-west-2
 ```
 

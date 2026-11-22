@@ -1,7 +1,6 @@
 
 
 # Snap to Roads
-<a name="snap-to-roads"></a>
 
 The Snap to Road API enhances the accuracy of geographic positioning by aligning GPS coordinates to the nearest road segments on a digital map. This API takes raw longitude and latitude data, often collected from mobile devices or vehicles, and "snaps" these points to the corresponding road network, correcting inaccuracies caused by GPS drift or signal loss. By integrating the Snap to Road API, you can ensure your applications provide reliable and accurate data, supporting better decision-making and operational efficiency across various scenarios.
 

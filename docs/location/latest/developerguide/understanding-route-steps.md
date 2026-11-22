@@ -1,7 +1,6 @@
 
 
 # Understanding route steps
-<a name="understanding-route-steps"></a>
 
 This section defines various actions and steps that need to be taken to complete a leg of a journey. Route steps vary by travel mode and provide guidance for both overview applications and detailed turn-by-turn navigation.
 

@@ -1,7 +1,6 @@
 
 
 # StartJob
-<a name="start-job-api"></a>
 
 The `StartJob` operation initiates a new Amazon Location data processing job. You specify the action type, input and output Amazon S3 locations, and an IAM execution role that grants the service access to your buckets. The operation returns a job identifier, Amazon Resource Name (ARN), and initial status that you can use to monitor job progress.
 

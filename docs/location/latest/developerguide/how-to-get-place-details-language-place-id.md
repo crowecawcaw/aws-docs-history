@@ -1,7 +1,6 @@
 
 
 # How to get the details for PlaceId in a specific language
-<a name="how-to-get-place-details-language-place-id"></a>
 
 The feature allows you to select a preferred response language from BCP47-compliant codes. It detects the query language based on name variants and uses the preferred language for unmatched tokens and ambiguous cases. If no requested language is stated, the Places API provides results in whatever language the country uses, but it prioritizes the regional language in regions where it differs. As a fallback, Places APIs return addresses in the default language when some address elements are unavailable in the requested language.
 
@@ -19,14 +18,14 @@ The feature allows you to select a preferred response language from BCP47-compli
 ------
 #### [ Sample request ]
 
-```
+```http
 https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAFUAY0R_4qfQ9LZ0j6lpOggbNLAQ31TRf-sESER_bKKjCar9FF6A3UA0HrYWa4yfeUN5V0qkk6NmdrI3y7fB7PZ4vfuo-Z8Wd-u-01an4KNvWaqfYmEh14s22yCV9Nb1yMXl4-HTfpX5D-jWQT14FEIBqoiuKwLq?language=EN&key=Your_Key
 ```
 
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "PlaceId": "<Redacted>",
     "PlaceType": "PointOfInterest",
@@ -77,7 +76,7 @@ https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAFUAY0R_4qfQ9LZ0j6lpO
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request GET \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAFUAY0R_4qfQ9LZ0j6lpOggbNLAQ31TRf-sESER_bKKjCar9FF6A3UA0HrYWa4yfeUN5V0qkk6NmdrI3y7fB7PZ4vfuo-Z8Wd-u-01an4KNvWaqfYmEh14s22yCV9Nb1yMXl4-HTfpX5D-jWQT14FEIBqoiuKwLq?language=EN&key=Your_Key`
 ```
@@ -85,7 +84,7 @@ curl --request GET \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 export PLACEID=AQAAAFUAcrFHu947JATTY9gIGcfNlNVzD3UftkkI9ayJjtquaC7IquYz-_FFnJnzJSQ7JePd-sY0MSpA64V0w4aXLc-lB2fZLJKk6uoAMSgtwvwxzg1fvPxFM9zXsx77EaLXarl7F4gSPTyQ6fiEnj0b0ipOXpnOoIsP
 
 aws geo-places get-place --key ${YourKey} \

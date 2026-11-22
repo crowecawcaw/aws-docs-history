@@ -1,7 +1,6 @@
 
 
 # Optimize route and waypoint sequence
-<a name="optimize-route-waypoint"></a>
 
 ## Optimize routing
 <a name="optimize-routing"></a>

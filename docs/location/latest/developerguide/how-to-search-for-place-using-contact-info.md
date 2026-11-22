@@ -1,7 +1,6 @@
 
 
 # How to search for a place using contact information
-<a name="how-to-search-for-place-using-contact-info"></a>
 
 The SearchText API allows users to search for a place using a phone number, supporting both international and local formats. Users can bias results by setting a position based on device location, IP address, or map viewport center, or by specifying a city or place to refine results based on geocoordinates.
 
@@ -20,7 +19,7 @@ In this example, the Vancouver Aquarium is searched using its phone number "\+1 
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryText": "+1 778-655-9554",
     "BiasPosition": [
@@ -33,7 +32,7 @@ In this example, the Vancouver Aquarium is searched using its phone number "\+1 
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -96,7 +95,7 @@ In this example, the Vancouver Aquarium is searched using its phone number "\+1 
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/search-text?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -112,7 +111,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places search-text --key ${{{YourKey}}} --query-text "+1 778-655-9554" --bias-position -123.11336 49.26038
 ```
 

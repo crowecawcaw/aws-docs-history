@@ -1,7 +1,6 @@
 
 
 # How to add a line on the map
-<a name="how-to-add-line-on-map"></a>
 
 With Amazon Location Service, you can add both pre-recorded GPS traces as line-strings and real-time GPS traces to dynamic maps.
 
@@ -16,7 +15,7 @@ In this example, you will add a pre-recorded GPS trace as a GeoJSON (main.js) to
 ------
 #### [ index.html ]
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -73,7 +72,7 @@ In this example, you will add a pre-recorded GPS trace as a GeoJSON (main.js) to
 ------
 #### [ style.css ]
 
-```
+```css
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
 ```
@@ -81,7 +80,7 @@ html, body, #map { height: 100%; }
 ------
 #### [ main.js ]
 
-```
+```javascript
 const routeGeoJSON = {
     type: "FeatureCollection",
     features: [
@@ -118,7 +117,7 @@ In this example, you will simulate adding new GPS coordinates one by one to crea
 ------
 #### [ index.html ]
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -193,7 +192,7 @@ In this example, you will simulate adding new GPS coordinates one by one to crea
 ------
 #### [ style.css ]
 
-```
+```css
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
 ```
@@ -201,7 +200,7 @@ html, body, #map { height: 100%; }
 ------
 #### [ main.js ]
 
-```
+```javascript
 const routeGeoJSON = {
     type: "FeatureCollection",
     features: [
@@ -232,7 +231,7 @@ const routeGeoJSON = {
 
 **Fitting bounds:** You can fit the line to the map bounds by calculating the bounds of the line's coordinates:
 
-```
+```javascript
 const coordinates = routeGeoJSON.features[0].geometry.coordinates;
 const bounds = coordinates.reduce((bounds, coord) => bounds.extend(coord), new maplibregl.LngLatBounds(coordinates[0], coordinates[0]));
 map.fitBounds(bounds, { padding: 20 });

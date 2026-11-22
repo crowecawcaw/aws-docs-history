@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="auth-best-practices"></a>
 
 This section outlines best practices for securing your Amazon Location Service applications and optimizing authentication usage. By implementing credential isolation, monitoring, and appropriate restrictions, you can minimize security risk and control costs. For guidance on choosing between API keys, Amazon Cognito, and AWS Identity and Access Management, see [Choosing an authentication method](auth-choose-method.md).
 

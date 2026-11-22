@@ -1,7 +1,6 @@
 
 
 # IAM concepts
-<a name="auth-concept-iam"></a>
 
 AWS Identity and Access Management provides fine-grained access control for Amazon Location Service resources. Use IAM for server-side applications, backend services, and administrative tasks where you need full control over permissions.
 

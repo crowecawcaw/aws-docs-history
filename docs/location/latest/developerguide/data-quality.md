@@ -1,7 +1,6 @@
 
 
 # Data quality and coverage
-<a name="data-quality"></a>
 
 Amazon Location Service has extensive global coverage of map data. All Amazon Location Map data quality is categorized as Comprehensive, Good, or Fair per country. Map data is categorized separately for Routing, Place Addresses, Place Points-of-Interest (POI), and Address Validation data.
 

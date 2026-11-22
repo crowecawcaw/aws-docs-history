@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="places-best-practices"></a>
 
 This section outlines best practices for optimizing the performance and accuracy of API interactions in your application. By implementing techniques such as debouncing and browser caching, and leveraging filters and geographical context, you can improve the user experience and ensure that your application delivers the most relevant results.
 

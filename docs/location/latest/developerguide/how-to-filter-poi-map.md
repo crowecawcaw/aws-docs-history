@@ -1,7 +1,6 @@
 
 
 # How to filter POI on the map
-<a name="how-to-filter-poi-map"></a>
 
 With Amazon Location Service, you can control which points of interest (POIs) appear on your map and how many are shown. The recommended approach uses the `PoiCategories` and `PoiDensity` query parameters in the [GetStyleDescriptor](https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetStyleDescriptor.html) API. Filtering is configured server-side, so maps display correctly with no additional client-side code — on web, mobile, and headless renderers alike.
 
@@ -17,7 +16,7 @@ Pass `PoiCategories` and `PoiDensity` as query parameters when requesting the st
 
 Show only food and transportation POIs:
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -55,7 +54,7 @@ Show only food and transportation POIs:
 
 Reduce POI clutter by setting density to Sparse:
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -94,7 +93,7 @@ Reduce POI clutter by setting density to Sparse:
 
 Show only SightsAndMuseums and FoodAndDrink at Dense level — ideal for a tourist map:
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -144,7 +143,7 @@ In this example, you display an interactive map that allows you to filter on POI
 ------
 #### [ Index.html ]
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -287,7 +286,7 @@ In this example, you display an interactive map that allows you to filter on POI
 ------
 #### [ style.css ]
 
-```
+```css
 body {
     margin: 0;
     padding: 0;

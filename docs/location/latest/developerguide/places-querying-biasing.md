@@ -1,7 +1,6 @@
 
 
 # Querying and biasing
-<a name="places-querying-biasing"></a>
 
 Amazon Location Service Places API offers querying and biasing options to retrieve and search location data.
 

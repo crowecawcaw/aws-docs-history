@@ -1,7 +1,6 @@
 
 
 # Create Amazon S3 buckets
-<a name="create-s3-buckets-jobs-apis"></a>
 
 The Amazon Location Jobs API requires input files to be stored in Amazon S3 and writes output files to a designated Amazon S3 location. You can use a single Amazon S3 bucket with different prefixes for input and output data, or use separate buckets.
 

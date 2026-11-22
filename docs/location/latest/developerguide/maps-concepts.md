@@ -1,7 +1,6 @@
 
 
 # Map concepts
-<a name="maps-concepts"></a>
 
 Amazon Location Service provides comprehensive mapping capabilities that enable you to create customized, visually consistent maps for your applications. You can leverage AWS map styles and design principles to customize the look and feel of your maps, ensuring visual consistency and branding.
 

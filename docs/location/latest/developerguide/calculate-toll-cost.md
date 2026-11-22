@@ -1,7 +1,6 @@
 
 
 # Calculate toll cost
-<a name="calculate-toll-cost"></a>
 
 This topic provides an overview of the fields and definitions associated with calculating toll costs. Using these fields, you can specify parameters such as payment methods, currency, and vehicle characteristics to customize toll cost calculations.
 

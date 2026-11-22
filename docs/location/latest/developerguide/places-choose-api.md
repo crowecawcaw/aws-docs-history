@@ -1,7 +1,6 @@
 
 
 # Places APIs
-<a name="places-choose-api"></a>
 
 Places enable applications to search, find, and retrieve details about points of interest, addresses, and specific locations. These capabilities enhance location-based services by providing context and improving user experience in search functions. 
 + **Geocode**: Converts addresses or place names into geographic coordinates (longitude, latitude), supporting applications that require address-to-location transformation for mapping and spatial analysis. For more information, see [Reverse Geocode](reverse-geocode.md).

@@ -1,7 +1,6 @@
 
 
 # Localization and internationalization
-<a name="maps-localization-internationalization"></a>
 
 Amazon Location Service supports localization features that enable you to customize maps for specific languages and regions. This includes support for local place names and the ability to render maps in different languages.
 
@@ -37,7 +36,10 @@ The following table lists the political view values that are currently available
 | --- | --- | 
 | `ARG` | Argentina's view on the Southern Patagonian Ice Field and Tierra Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands | 
 | `BRA` | Brazil's view on Rincon de Artigas in the Brazil/Uruguay dispute | 
+| `CYP` | Cyprus's view on Northern Cyprus | 
 | `EGY` | Egypt's view on Bir Tawil | 
+| `GEO` | Georgia's view on Abkhazia and South Ossetia | 
+| `GRC` | Greece's view on the Aegean Sea and Eastern Mediterranean | 
 | `IND` | India's view on Gilgit-Baltistan | 
 | `ISR` | Israel's view on the West Bank and Gaza Strip | 
 | `KEN` | Kenya's view on the Ilemi Triangle | 

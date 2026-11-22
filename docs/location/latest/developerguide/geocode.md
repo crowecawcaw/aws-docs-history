@@ -1,7 +1,6 @@
 
 
 # Geocode
-<a name="geocode"></a>
 
 Geocoding transforms textual addresses or place names into geographic coordinates, along with detailed address components and additional information. This API supports flexible queries, including both free-form text and structured queries with street names, postal codes, and regions. Optional features include time zone data and political view adjustments.
 

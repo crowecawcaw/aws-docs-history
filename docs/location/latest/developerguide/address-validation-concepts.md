@@ -1,7 +1,6 @@
 
 
 # Address validation
-<a name="address-validation-concepts"></a>
 
 Address validation jobs process address data to verify and standardize addresses. The service supports both free-form address lines and structured address components, and can optionally enhance results with geographic coordinates and country-specific postal attributes.
 
@@ -90,7 +89,7 @@ When combining both AddressLines and AddressComponents in a request, enter first
 
 The following Python script creates a sample Parquet file with address data:
 
-```
+```python
 import pyarrow as pa
 import pyarrow.parquet as pq
 

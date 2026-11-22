@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="routes-best-practices"></a>
 
 This section covers best practices for using compression and choosing between Simple (GeoJSON) and FlexiblePolyline formats when interacting with the API, providing guidance on optimizing performance, bandwidth, and data handling.
 

@@ -1,7 +1,6 @@
 
 
 # How to calculate a route matrix of distance and time for multiple origins and destinations
-<a name="calculate-route-matrix-distance"></a>
 
 The CalculateRouteMatrix API calculates routes and provides travel time and travel distance for each combination of origins and destinations. This capability is useful for applications requiring route planning and optimization across multiple locations.
 
@@ -20,7 +19,7 @@ The response includes `Distance` in meters and `Duration` in seconds for each or
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "Origins": [
         {
@@ -45,7 +44,7 @@ The response includes `Distance` in meters and `Duration` in seconds for each or
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ErrorCount": 0,
     "RouteMatrix": [
@@ -71,7 +70,7 @@ The response includes `Distance` in meters and `Duration` in seconds for each or
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://routes.geo.eu-central-1.amazonaws.com/v2/route-matrix?key=Your_key' \
   --header 'Content-Type: application/json' \
@@ -99,7 +98,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-routes calculate-route-matrix --key ${YourKey} \
 --origins '[{"Position": [-123.11679620827039, 49.28147612192166]}, {"Position": [-123.11179620827039, 49.3014761219]}]' \
 --destinations '[{"Position": [-123.11179620827039, 49.28897192166]}]' \
@@ -115,7 +114,7 @@ aws geo-routes calculate-route-matrix --key ${YourKey} \
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "Origins": [
         {
@@ -145,7 +144,7 @@ aws geo-routes calculate-route-matrix --key ${YourKey} \
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ErrorCount": 0,
     "RouteMatrix": [
@@ -180,7 +179,7 @@ aws geo-routes calculate-route-matrix --key ${YourKey} \
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://routes.geo.eu-central-1.amazonaws.com/v2/route-matrix?key=Your_key' \
   --header 'Content-Type: application/json' \
@@ -213,7 +212,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-routes calculate-route-matrix --key ${YourKey} \
 --origins '[{"Position": [-123.11679620827039, 49.28147612192166]}, {"Position": [-123.11179620827039, 49.3014761219]}]' \
 --destinations '[{"Position": [-123.11179620827039, 49.28897192166]}]' \

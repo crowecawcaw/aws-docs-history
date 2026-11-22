@@ -1,7 +1,6 @@
 
 
 # Amazon Location Service Places
-<a name="places"></a>
 
 ![An overview of Amazon Location Service Places.](https://docs.aws.amazon.com/location/latest/developerguide/images/illustration-places.PNG)
 

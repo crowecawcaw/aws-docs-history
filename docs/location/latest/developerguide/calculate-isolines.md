@@ -1,7 +1,6 @@
 
 
 # Calculate isolines
-<a name="calculate-isolines"></a>
 
 The Calculate Isolines API allows you to determine areas reachable within specified time or distance limits. By considering factors such as road restrictions, traffic conditions, and travel mode, it generates isolines that outline accessible areas, supporting urban planning, logistics, and service accessibility applications. This API can be used for urban planning, real estate analysis, and accessibility studies by visualizing service reach, transportation options, or resources within a set timeframe or distance limit. By displaying these isolines on a map, users can assess travel reach within specific constraints, enhancing decision-making for site selection, service coverage, and resource allocation.
 

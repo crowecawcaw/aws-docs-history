@@ -1,7 +1,6 @@
 
 
 # Address validation
-<a name="places-address-validation"></a>
 
 Amazon Location Service provides address validation through Amazon Location Service Jobs, enabling you to verify and standardize large volumes of addresses in bulk. Address validation checks addresses against authoritative datasets to confirm they exist and are deliverable, then formats them according to official postal standards.
 

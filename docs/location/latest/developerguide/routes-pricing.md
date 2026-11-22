@@ -1,7 +1,6 @@
 
 
 # Routes pricing
-<a name="routes-pricing"></a>
 
 Please see below for pricing buckets for each API:
 

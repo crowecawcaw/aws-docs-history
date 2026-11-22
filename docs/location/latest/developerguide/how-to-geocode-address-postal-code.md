@@ -1,7 +1,6 @@
 
 
 # How to geocode an address number with a postal code
-<a name="how-to-geocode-address-postal-code"></a>
 
 In countries where postal codes are highly specific (linking only a few addresses on the same street), an address can be found using only the house number and postal code. This practice is common in transportation and parcel delivery logistics. This feature is supported in Canada, the United Kingdom, the Netherlands, the United States (ZIP\+4), Israel, Ireland, and Singapore. In both Ireland and Singapore, postal codes provide exact location details down to the specific house number.
 
@@ -16,7 +15,7 @@ In countries where postal codes are highly specific (linking only a few addresse
 
 Use query component
 
-```
+```json
 {
   "QueryComponents": {
     "AddressNumber": "1368",
@@ -36,7 +35,7 @@ Use free text
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -108,7 +107,7 @@ Use free text
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -123,7 +122,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places geocode --key ${YourKey} --query-components '{"AddressNumber" : "1368", "PostalCode": "V5N 1T2"}'
 ```
 
@@ -141,7 +140,7 @@ In Ireland, the Eircode system assigns a unique code to every home and business,
 
 Use query component
 
-```
+```json
 {
   "QueryComponents": {
     "PostalCode": "D02 X285"
@@ -151,7 +150,7 @@ Use query component
 
 Use free text
 
-```
+```json
 {
   "QueryText": "D02 X285"
 }
@@ -160,7 +159,7 @@ Use free text
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -227,7 +226,7 @@ Use free text
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -241,7 +240,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places geocode --key ${YourKey} --query-components '{"PostalCode": "V5N 1T2"}'
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Manage your Amazon Location Service tracker
-<a name="managing-trackers"></a>
 
 You can manage your trackers using the Amazon Location console, the AWS CLI, or the Amazon Location APIs.
 

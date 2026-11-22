@@ -1,7 +1,6 @@
 
 
 # Use AWS Identity and Access Management to authenticate
-<a name="security-iam"></a>
 
 
 
@@ -360,7 +359,7 @@ To ensure that users and roles can use the Amazon Location console, attach the f
 
 The following policy gives access to the Amazon Location Service console, to be able to create, delete, list and view details about Amazon Location resources in your AWS account.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -386,7 +385,7 @@ Alternatively, you can grant read-only permissions to facilitate read-only acces
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -439,7 +438,7 @@ Amazon Location Service uses the following prefixes for resources:
 
 Use the following ARN syntax:
 
-```
+```json
 arn:{{Partition}}:geo:{{Region}}:{{Account}}:{{ResourcePrefix}}/{{ResourceName}}
 ```
 
@@ -448,17 +447,17 @@ For more information about the format of ARNs, see [Amazon Resource Names (ARNs)
 **Examples**
 + Use the following ARN to allow access to a specified map resource.
 
-  ```
+  ```json
   "Resource": "arn:aws:geo:us-west-2:{{account-id}}:map/{{map-resource-name}}"
   ```
 + To specify access to all `map` resources that belong to a specific account, use the wildcard (\*):
 
-  ```
+  ```json
   "Resource": "arn:aws:geo:us-west-2:{{account-id}}:map/*"
   ```
 + Some Amazon Location actions, such as those for creating resources, can't be performed on a specific resource. In those cases, you must use the wildcard (\*).
 
-  ```
+  ```json
   "Resource": "*"
   ```
 
@@ -471,7 +470,7 @@ To see a list of Amazon Location resource types and their ARNs, see [Resources D
 
 In this example, in addition to granting access to the {{Tracker1}} and {{Tracker2}} resources, the following policy grants permission to use the `geo:BatchUpdateDevicePosition` action against the {{Tracker1}} and {{Tracker2}} resources.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -492,7 +491,7 @@ In this example, in addition to granting access to the {{Tracker1}} and {{Tracke
 
 If you want to limit the user to only be able to update device positions for a specific device, you can add a condition key for that device id.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -528,7 +527,7 @@ In this example, the following policy grants permission to the following actions
 + `geo:GetDevicePosition` to retrieve the position of a single device.
 + `geo:GetDevicePositionHistory` to retrieve the position history of a device.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -555,7 +554,7 @@ The policy below grants permission to the following actions on {{Collection}}:
 + `geo:BatchPutGeofence` to create multiple geofences.
 + `geo:PutGeofence` to create a single geofence.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -581,7 +580,7 @@ The policy below grants permission to the following actions on {{Collection}}:
 + `geo:ListGeofences` to list geofences in the specified geofence collection.
 + `geo:GetGeofence` to retrieve a geofence from the geofence collection.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -607,7 +606,7 @@ To grant sufficient permissions to render maps, you'll need to grant access to m
 + `geo:GetMapGlyphs` retrieves the glyphs used for displaying text.
 + `geo:GetMapStyleDescriptor` retrieves the map’s style descriptor, containing rendering rules.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -635,7 +634,7 @@ In this example, in addition to granting access to {{PlaceIndex}}, the following
 + `geo:SearchPlaceIndexForPosition` allows you to search for places, or points of interest near a given position. 
 + `geo:SearchPlaceIndexForText` allows you to search for an address, name, city or region using free-form text.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -660,7 +659,7 @@ You can create a read-only policy to allow a user access to a route calculator r
 In this example, in addition to granting access to {{ExampleCalculator}}, the following policy grants permission to the following operation:
 + `geo:CalculateRoute` calculates a route given a departure position, destination positon, and a list of waypoint positions. 
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -683,7 +682,7 @@ When you create an IAM policy to grant access to use geofences or device positio
 
 The following example policy shows how you might create a policy that allows a user to update device positions for a specific device.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -722,7 +721,7 @@ However, this policy uses the `Condition` element to grant the permission only i
 **Note**  
 The condition tag key `Owner` matches both `Owner` and `owner` because condition key names are not case-sensitive. For more information, see [IAM JSON Policy Elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

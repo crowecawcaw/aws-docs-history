@@ -1,7 +1,6 @@
 
 
 # GrabMaps for Southeast Asia
-<a name="GrabMaps"></a>
 
  Grab is the leading superapp in Southeast Asia with the largest delivery and ride-hailing organization in the region. Their subsidiary, [GrabMaps](https://grabmaps.grab.com/), curates up-to-date and locally relevant data for Maps, Places, and Routing APIs across Southeast Asian markets, for their own use, and others. GrabMaps' location services are built to provide high-quality, authoritative, and ready-to-use location data, specifically for Southeast Asian countries. 
 

@@ -1,7 +1,6 @@
 
 
 # How to
-<a name="jobs-how-to"></a>
 
 This section provides step-by-step instructions for performing specific tasks with the Amazon Location Jobs APIs. These guides are designed to help you quickly and effectively implement key functionality. Each topic focuses on a distinct use case, ensuring you have the practical knowledge needed to integrate Jobs API features into your applications.
 

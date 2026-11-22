@@ -1,7 +1,6 @@
 
 
 # Jobs terminology
-<a name="jobs-terminology"></a>
 
 This section provides essential definitions to understand core concepts within Amazon Location Service Jobs, such as job states, data formats, and processing features.
 

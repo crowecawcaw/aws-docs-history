@@ -1,7 +1,6 @@
 
 
 # How to get secondary addresses of a Place ID
-<a name="how-to-get-secondary-addresses-placeid"></a>
 
 **Note**  
  For customers in `ap-southeast-1` and `ap-southeast-5`, this use case is not supported, as the `SecondaryAddresses` field is not available. Refer to the [GetPlace API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_GetPlace.html) for details. 
@@ -19,14 +18,14 @@ The `SecondaryAddresses` API command allows you to retrieve all secondary addres
 ------
 #### [ Sample request ]
 
-```
+```http
 https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAGAAY8Dw_tn6pyN_R5E9_mfwAP5h9Rd5E_xY2CyyRHpX2wolGeK8O3IY13k5xeHmF4To445fCLg0x3GPnTZnCuUWXbfg9SKpijUskj-xf6jNC_3CUSabHVKy-Or51xHTd3KNi6idTkrfeQOjZOkXZ5TaoXsg0GHGMWqs-sZhmr8npQc?additional-features=SecondaryAddresses&key=Your_Key
 ```
 
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "PlaceId": "<Redacted>",
     "PlaceType": "PointAddress",
@@ -113,7 +112,7 @@ https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAGAAY8Dw_tn6pyN_R5E9_
 ------
 #### [ cURL ]
 
-```
+```bash
 curl ‐‐request GET \
   ‐‐url 'https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAGAAY8Dw_tn6pyN_R5E9_mfwAP5h9Rd5E_xY2CyyRHpX2wolGeK8O3IY13k5xeHmF4To445fCLg0x3GPnTZnCuUWXbfg9SKpijUskj-xf6jNC_3CUSabHVKy-Or51xHTd3KNi6idTkrfeQOjZOkXZ5TaoXsg0GHGMWqs-sZhmr8npQc?key=Your_Key&additional-features=SecondaryAddresses'
 ```
@@ -121,7 +120,7 @@ curl ‐‐request GET \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 export PLACEID=AQAAAGAAY8Dw_tn6pyN_R5E9_mfwAP5h9Rd5E_xY2CyyRHpX2wolGeK8O3IY13k5xeHmF4To445fCLg0x3GPnTZnCuUWXbfg9SKpijUskj-xf6jNC_3CUSabHVKy-Or51xHTd3KNi6idTkrfeQOjZOkXZ5TaoXsg0GHGMWqs-sZhmr8npQc
 
 aws geo-places get-place ‐‐key ${YourKey} \

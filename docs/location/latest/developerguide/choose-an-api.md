@@ -1,7 +1,6 @@
 
 
 # Choose the right API
-<a name="choose-an-api"></a>
 
 This topic helps you choose an Amazon Location Service API based on common use cases that you may want to solve with location-based data and services. 
 

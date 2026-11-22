@@ -1,7 +1,6 @@
 
 
 # How to predict suggestions based on input
-<a name="how-to-predict-suggestions"></a>
 
 The Suggest API enables applications to complete user queries for places or categories of results. These suggestions can be used directly or refined further with the SearchText API to retrieve additional details and results.
 
@@ -18,7 +17,7 @@ The Suggest API enables applications to complete user queries for places or cate
 ------
 #### [ Sample request ]
 
-```
+```json
 {
   "QueryText": "restaura",
   "BiasPosition": [-124.81035775620968, 49.234628873773985],
@@ -29,7 +28,7 @@ The Suggest API enables applications to complete user queries for places or cate
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -57,7 +56,7 @@ The Suggest API enables applications to complete user queries for places or cate
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/suggest?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -71,7 +70,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places suggest --key ${YourKey} \
 --query-text "restaura" \
 --bias-position -124.81035775620968 49.234628873773985 \
@@ -86,7 +85,7 @@ aws geo-places suggest --key ${YourKey} \
 ------
 #### [ Sample request ]
 
-```
+```json
 {
   "QueryText": "Domin",
   "BiasPosition": [-124.81035775620968, 49.234628873773985],
@@ -97,7 +96,7 @@ aws geo-places suggest --key ${YourKey} \
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -125,7 +124,7 @@ aws geo-places suggest --key ${YourKey} \
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/suggest?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -139,7 +138,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places suggest --key ${YourKey} \
 --query-text "Domin" \
 --bias-position -124.81035775620968 49.234628873773985 \
@@ -154,7 +153,7 @@ aws geo-places suggest --key ${YourKey} \
 ------
 #### [ Sample request (SearchText) ]
 
-```
+```json
 {
   "QueryId": "<QueryId from Suggest API>",
   "AdditionalFeatures": ["Core"]
@@ -164,7 +163,7 @@ aws geo-places suggest --key ${YourKey} \
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -390,7 +389,7 @@ aws geo-places suggest --key ${YourKey} \
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/search-text?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -403,7 +402,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places suggest --key ${YourKey} \
 --query-id "<QueryId from Suggest API>" \
 --additional-features "Core"
@@ -416,7 +415,7 @@ aws geo-places suggest --key ${YourKey} \
 
 Use filters such as `Filter.IncludeCountries` or `Filter.BoundingBox` with `BiasPosition`. These filters apply to subsequent queries using the `QueryId`. 
 
-```
+```json
 {
   "QueryText": "Domin",
   "BiasPosition": [-124.81035775620968, 49.234628873773985],

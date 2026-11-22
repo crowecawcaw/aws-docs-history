@@ -1,7 +1,6 @@
 
 
 # How to get administrative address names
-<a name="how-to-reverse-geocode-address-names-mode"></a>
 
 Use `AddressNamesMode` set to `Administrative` to return the official administrative names for address components such as the city name. `Administrative` currently applies only to addresses in the United States.
 
@@ -18,7 +17,7 @@ Use `AddressNamesMode` set to `Administrative` to return the official administra
 ------
 #### [ Sample request ]
 
-```
+```json
 {
     "QueryPosition": [-73.985, 40.748],
     "AddressNamesMode": "Administrative"
@@ -28,7 +27,7 @@ Use `AddressNamesMode` set to `Administrative` to return the official administra
 ------
 #### [ Sample response ]
 
-```
+```json
 {
     "ResultItems": [
         {
@@ -47,7 +46,7 @@ Use `AddressNamesMode` set to `Administrative` to return the official administra
 ------
 #### [ cURL ]
 
-```
+```bash
 curl --request POST \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/reverse-geocode?key=Your_Key' \
   --header 'Content-Type: application/json' \
@@ -60,7 +59,7 @@ curl --request POST \
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws geo-places reverse-geocode --key ${YourKey} --query-position -73.985 40.748 --address-names-mode Administrative
 ```
 
