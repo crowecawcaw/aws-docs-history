@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  The following individuals and organizations contributed to this version of this whitepaper: 
 +  Aaron Bucher, Principal HPC Solutions Architect, Amazon Web Services 

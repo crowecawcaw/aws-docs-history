@@ -1,7 +1,6 @@
 
 
 # Practice Cloud Financial Management
-<a name="practice-cloud-financial-management"></a>
 
 
 | HPCCOST01: How do you keep track of expenditure used for HPC? | 

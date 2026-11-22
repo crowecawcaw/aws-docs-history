@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles"></a>
 
  Consider the following design principles when building an HPC workload in the cloud: 
 +  **Use dynamic architectures**: Avoid defaulting to static architectures and cost estimates that use a steady-state model. Your architecture can be dynamic, growing and shrinking to match your HPC demands over time. Match your architecture design and cost management explicitly to the natural cycles of HPC activity. 

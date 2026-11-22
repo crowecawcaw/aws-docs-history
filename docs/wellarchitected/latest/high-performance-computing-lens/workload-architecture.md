@@ -1,7 +1,6 @@
 
 
 # Workload architecture
-<a name="workload-architecture"></a>
 
 
 | HPCREL01: How does your architecture optimize for capacity pool flexibility? | 

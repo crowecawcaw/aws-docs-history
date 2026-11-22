@@ -1,7 +1,6 @@
 
 
 # Operate
-<a name="operate"></a>
 
 
 | HPCOPS06: How do you monitor your workloads to verify they are operating as expected? | 

@@ -1,7 +1,6 @@
 
 
 # High Performance Computing Lens - AWS Well-Architected Framework
-<a name="high-performance-computing-lens"></a>
 
 Publication date: **June 23, 2025** ([Document revisions](document-revisions.md))
 

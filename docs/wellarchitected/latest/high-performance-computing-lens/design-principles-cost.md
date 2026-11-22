@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-cost"></a>
 
  Several strategies help reduce costs when running high performance computing (HPC) workloads in the cloud such as: 
 +  **Find your desired price-for-performance configuration:** Many HPC workloads are part of a data processing pipeline that includes multiple steps. These will vary depending on the workload and often include; data transfer in, pre-processing, computational calculations, post-processing and data transfer out. In the cloud, rather than on a large and expensive server, the computing platform can be optimized at each step. For example, if a single step in an HPC workflow pipeline requires a large amount of memory such as mesh or grid generation, you only need to pay for a more expensive large-memory server for the memory-intensive application. Other parts of the workflow should be similarly deployed on EC2 or storage configurations best suited for that job. When comparing different configurations, think about the cost as well as the performance. 

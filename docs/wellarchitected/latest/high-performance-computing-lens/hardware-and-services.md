@@ -1,7 +1,6 @@
 
 
 # Hardware and services
-<a name="hardware-and-services"></a>
 
 
 | HPCSUS03: Have you selected the most efficient EC2 instance type for your HPC workload? | 

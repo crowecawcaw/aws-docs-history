@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-rel"></a>
 +  AWS Batch 
 +  Amazon Parallel Computing Service 
 +  AWS ParallelCluster 

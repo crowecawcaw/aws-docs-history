@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-perf"></a>
 
  When designing for HPC in the cloud, a number of principles help you achieve performance efficiency: 
 +  **Design the cluster for the application**: Traditional clusters are static and require that the application is designed for the cluster. AWS offers the capability to design the cluster for the application. A one- size-fits-all model is no longer necessary with individual clusters for each application. When running a variety of applications on AWS, a variety of architectures can be used to meet each application's demands. This allows for the best performance while minimizing cost. 

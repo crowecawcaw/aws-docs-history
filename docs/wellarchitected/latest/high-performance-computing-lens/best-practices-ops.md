@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices-ops"></a>
 
  There are four best practice areas for operational excellence in the cloud. 
 

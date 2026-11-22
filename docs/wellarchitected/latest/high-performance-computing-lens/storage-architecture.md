@@ -1,7 +1,6 @@
 
 
 # Storage architecture
-<a name="storage-architecture"></a>
 
 
 | HPCPERF04: How do you select your storage solution? | 

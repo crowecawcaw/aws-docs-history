@@ -1,7 +1,6 @@
 
 
 # Hybrid scenarios
-<a name="hybrid-scenarios"></a>
 
  Hybrid deployments are primarily considered by organizations that are invested in their on-premises infrastructure and also want to use AWS. This approach allows organizations to augment on-premises resources and creates an alternative path to AWS rather than an immediate full migration. Hybrid-deployment architectures can be used for loosely and tightly coupled workloads. 
 
@@ -33,6 +32,8 @@
  In general, Amazon S3 is a good choice as a target storage system for data transfers due to its durability, low cost, and capability to integrate with other AWS services. Associating an Amazon FSx for Lustre file system with an S3 bucket makes it possible to seamlessly access the objects stored in your S3 bucket from Amazon EC2 instances that mount the Amazon FSx for Lustre file system. Once the job is complete, results can be exported back onto the data repository. 
 
 ![Reference architecture: Hybrid deployment](https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/images/image4.png)
+
+*Reference architecture: Hybrid deployment*
 
 
  **Workflow steps** 

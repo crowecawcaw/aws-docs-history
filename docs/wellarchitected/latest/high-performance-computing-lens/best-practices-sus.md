@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices-sus"></a>
 
  The best practices described in the [Sustainability Pillar - AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html) are valid also for this HPC Lens. 
 

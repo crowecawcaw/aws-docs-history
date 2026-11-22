@@ -1,7 +1,6 @@
 
 
 # Cost effective resources
-<a name="cost-effective-resources"></a>
 
 
 |  HPCCOST02: How have you evaluated the trade-offs between job completion time and cost? | 

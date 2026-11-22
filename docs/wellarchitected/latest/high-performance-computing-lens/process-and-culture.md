@@ -1,7 +1,6 @@
 
 
 # Process and culture
-<a name="process-and-culture"></a>
 
 
 | HPCSUS04: What are your methods to rapidly introduce sustainability improvements? | 

@@ -1,7 +1,6 @@
 
 
 # Failure management
-<a name="failure-management"></a>
 
 
 | HPCREL03: How does your application recover from failures?  | 

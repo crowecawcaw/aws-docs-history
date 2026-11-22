@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-sus"></a>
 
  The following are sustainability design principles to frame your AWS workload: 
 +  **Maximize utilization and reduce the downstream impact of your workloads:** HPC computing nodes are ephemeral in the cloud, you do not need to keep your computing nodes always up and running. Start the computing nodes only when you need to run a job and terminate the instances as soon as the job is completed to minimize the carbon emissions. Do not duplicate your data by copying the results back to your on-premises data center, unless there is a business need to store a local copy. Intermediate data should be removed when no longer needed 

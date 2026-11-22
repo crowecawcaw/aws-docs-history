@@ -1,7 +1,6 @@
 
 
 # Network architecture
-<a name="network-architecture"></a>
 
 
 | HPCPERF05: How do you select your network solution? | 

@@ -1,7 +1,6 @@
 
 
 # Organization
-<a name="organization"></a>
 
 
 | HPCOPS01: What factors drive operational design decisions for your HPC environment?  | 

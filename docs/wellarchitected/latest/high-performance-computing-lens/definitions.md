@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 
  The AWS Well-Architected Framework is based on six pillars: operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability. When architecting solutions, you make tradeoffs between pillars based upon your business context. These business decisions can drive your engineering priorities. You might reduce cost at the expense of reliability in development environments, or for mission-critical solutions, you might improve reliability with increased costs. Security and operational excellence are generally not traded off against other pillars. 
 +  **HPC workloads**: HPC users commonly speak of jobs. AWS refers to these as workloads. 

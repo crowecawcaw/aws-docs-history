@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-rel"></a>
 +  [AWS Batch Dos and Don'ts: Best Practices in a Nutshell](https://aws.amazon.com/blogs/hpc/aws-batch-best-practices/) 
 +  [Multiple Availability Zones Now Supported in AWS ParallelCluster 3.4](https://aws.amazon.com/blogs/hpc/multiple-availability-zones-now-supported-in-aws-parallelcluster-3-4) 
 +  [Deployment and storage options for FSx for Lustre file systems](https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-fsx-lustre.html) 

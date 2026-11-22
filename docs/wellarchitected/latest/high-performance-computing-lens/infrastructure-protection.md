@@ -1,7 +1,6 @@
 
 
 # Infrastructure protection
-<a name="infrastructure-protection"></a>
 
 
 | HPCSEC01: How do you implement network-layer separation in your HPC cluster?  | 

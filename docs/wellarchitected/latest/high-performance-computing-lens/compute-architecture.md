@@ -1,7 +1,6 @@
 
 
 # Compute architecture
-<a name="compute-architecture"></a>
 
 
 | HPCPERF01: How do you select the compute environment for your application? | 

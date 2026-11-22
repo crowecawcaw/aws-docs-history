@@ -1,7 +1,6 @@
 
 
 # Prepare
-<a name="prepare"></a>
 
 
 | HPCOPS02: How do you plan to schedule and run your batch jobs in the cloud?  | 
