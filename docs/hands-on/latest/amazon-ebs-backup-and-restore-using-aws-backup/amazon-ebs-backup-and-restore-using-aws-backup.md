@@ -1,7 +1,6 @@
 
 
 # Amazon EBS Backup & Restore using AWS Backup
-<a name="amazon-ebs-backup-and-restore-using-aws-backup"></a>
 
 
 |  |  | 
