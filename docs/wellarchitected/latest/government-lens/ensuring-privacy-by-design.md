@@ -1,7 +1,6 @@
 
 
 # Verifying privacy-by-design
-<a name="ensuring-privacy-by-design"></a>
 
 
 | GL-SEC-01: What privacy practices have you adopted relating to the use of data? | 

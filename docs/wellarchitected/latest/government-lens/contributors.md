@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  Contributors to this document include:  
 +  Pia Andrews, Strategic Advisor (Public Sector), Strategic Development, APAC 

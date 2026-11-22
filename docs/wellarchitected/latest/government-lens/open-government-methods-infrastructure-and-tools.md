@@ -1,7 +1,6 @@
 
 
 # Open government methods, infrastructure, and tools
-<a name="open-government-methods-infrastructure-and-tools"></a>
 
  To maintain the trust of the people they serve, governments need to be transparent, accountable, and truthful. This covers many different aspects of government operations such as how and with whom taxpayer money is spent, how effective policy initiatives are, what the laws are and the penalties for breaking them, and how decisions are taken. Being open is essential to help avoid perceptions of corruption or unfairness in society. There are a number of open government tools and approaches that can be used by governments as they develop public services that can increase trust, improve outcomes and, in some cases, help verify that legal or regulatory obligations are met. 
 

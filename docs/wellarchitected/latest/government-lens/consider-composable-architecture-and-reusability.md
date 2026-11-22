@@ -1,7 +1,6 @@
 
 
 # Consider composable architecture and reusability
-<a name="consider-composable-architecture-and-reusability"></a>
 
  Designing composable, modular architecture allows the government customer to identify repeatable architectural patterns to inform product design, development, and procurement. Many jurisdictions have established design systems or component catalogs that can be used to simplify and standardize the end-user experience, to accelerate service delivery, reduce operations overheads and improve consistency so users do not have to constantly relearn how to interact with a jurisdiction’s digital services. To promote reuse and reduce complexity, some jurisdictions might have defined core environments or components to be used as part of new services. These elements are usually defined as part of a jurisdiction’s enterprise architecture. 
 

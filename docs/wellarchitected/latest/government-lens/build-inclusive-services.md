@@ -1,7 +1,6 @@
 
 
 # Build inclusive services
-<a name="build-inclusive-services"></a>
 
  Government services are not usually optional for people, so they often need to be accessible to everyone. Services should meet or exceed accessibility standards and be inclusive by design. No person should be excluded by service, which means there will always be a need for offline options to complement online channels. Design omni-channel services, and verify that needs have a pathway to the service. Users with distinct needs should be engaged from the outset to verify what is delivered will work for them. In any project that you do with the government, even if they aren’t asking for it, you need an answer to the question “Is this an inclusive service?” and if not, then what are the alternative options.  
 

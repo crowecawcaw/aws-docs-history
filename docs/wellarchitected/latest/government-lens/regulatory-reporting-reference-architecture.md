@@ -1,7 +1,6 @@
 
 
 # Regulatory reporting reference architecture
-<a name="regulatory-reporting-reference-architecture"></a>
 
  Every government institution deals with volumes of information for legislative or regulatory reporting. Static legacy infrastructure and inefficient reporting processes can make reporting costly and prevent customers from responding quickly to regulatory changes. Building a reporting data lake on AWS and using the rich set of services available can address many of the issues that complicate regulatory reporting, such as data residing in disconnected silos and distributed ETL processes. After customers integrate reporting data into a consistent dataset or data pipeline, they can use that data to gain additional insights through advanced analytics and machine learning.  
 
@@ -12,3 +11,5 @@
 +  They use data catalogs with fine-grained access control and entitlements. 
 
 ![Reference architecture diagram showing a regulatory reporting solution regulatory reporting solution to provide structured output data from a variety of disparate sources. The architecture describes ingesting files and data from on-premises and external sources.](https://docs.aws.amazon.com/wellarchitected/latest/government-lens/images/reg-reporting.png)
+
+*Figure 3: Reference architecture for a regulatory reporting solution*

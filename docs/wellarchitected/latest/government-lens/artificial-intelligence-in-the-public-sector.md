@@ -1,7 +1,6 @@
 
 
 # Artificial intelligence in the public sector
-<a name="artificial-intelligence-in-the-public-sector"></a>
 
  Artificial intelligence (AI) provides significant opportunities for better public policy and services that deliver more equitable and scalable support for the community. But poorly designed AI systems can similarly create difficulty at a scale not possible in other sectors due to the special context of government. For this reason, careful design and governance of AI in government, including in the context of usage patterns and public impact, is critical for maintaining responsible and trustworthy AI systems in government. 
 
@@ -31,6 +30,8 @@
  This reference architecture illustrates a secure, self-service, data science environment using Amazon SageMaker AI Studio. It provides data scientists with access to a secure and persistent experimentation environment as well as continuous integration and continuous deployment (CI/CD) pipelines to perform data science and machine learning at scale. 
 
 ![A reference architecture diagram showing how to enable public sector customers with artificial intelligence.](https://docs.aws.amazon.com/wellarchitected/latest/government-lens/images/ai-arch1.jpg)
+
+*Figure 1: A sample reference architecture to enable public sector customers with AI*
 
 
  This architecture demonstrates a self-service model for enabling multiple project teams to create environments and details the design choices and security controls that your organization can rely on in these environments. Organizations should modify these controls to verify that they meet their specific requirements. 

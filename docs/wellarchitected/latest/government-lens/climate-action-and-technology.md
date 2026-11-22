@@ -1,7 +1,6 @@
 
 
 # Climate action and technology
-<a name="climate-action-and-technology"></a>
 
  Many governments around the world have made commitments to introduce measures to reduce their impact on the climate, and have become signatories to the Paris Agreement committing to introduce specific emission reductions by 2050. The sustainability pillar supports this action by exploring how a government might reduce the environmental impact of its own services. Many jurisdictions have introduced sustainable procurement rules that provide broad guidance of the considerations an entity should undertake when considering the procurement of a new product or service. 
 

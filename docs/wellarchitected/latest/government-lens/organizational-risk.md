@@ -1,7 +1,6 @@
 
 
 # Organizational risk 
-<a name="organizational-risk"></a>
 
  Every service should have a risk management plan to assess and manage risk. Risk management should be comprehensive to consider all hazards, including how the cloud service supports risk mitigation by design. This assessment is essential to make informed design decisions. Service risk must be contextualized as part of the broader organization risk strategy. 
 

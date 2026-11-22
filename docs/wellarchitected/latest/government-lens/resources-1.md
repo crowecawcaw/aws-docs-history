@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-1"></a>
 +  [AWS Shield Advanced Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced-summary-capabilities.html) 
 +  [AWS Digital Sovereignty Pledge](https://aws.amazon.com/blogs/security/aws-digital-sovereignty-pledge-control-without-compromise/) 
 +  [Security, Identity, and Compliance on AWS](https://aws.amazon.com/products/security/) 

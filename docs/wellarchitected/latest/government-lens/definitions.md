@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 
  These definitions mean to provide AWS builders, architects, and technologists with a starting point for commonly used terms and phrases used within the government sector.  Specifics of the terms and how they are applied can vary by jurisdiction.  
 

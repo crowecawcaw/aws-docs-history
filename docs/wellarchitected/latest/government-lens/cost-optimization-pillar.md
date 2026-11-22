@@ -1,7 +1,6 @@
 
 
 # Cost optimization pillar
-<a name="cost-optimization-pillar"></a>
 
  The cost optimization pillar includes the ability to run services which deliver policy intent and user outcome at the best value.  
 

@@ -1,7 +1,6 @@
 
 
 # Operational excellence pillar
-<a name="operational-excellence-pillar"></a>
 
  In the Government Lens, the operational excellence pillar describes the ability to support the departmental mandate and government priorities to run services effectively, gain insight into operations, and to continually improve supporting processes and procedures to deliver policy outcomes and public value. 
 

@@ -1,7 +1,6 @@
 
 
 # Address security and privacy risks
-<a name="address-security-and-privacy-risks"></a>
 
  The privacy requirements of government services can be extremely strict. Take a balanced approach to managing risk by implementing appropriate privacy and security measures, and by understanding the real impact of the system on the people, communities, and businesses affected. Support a security culture where security measures are frictionless for service operations, and do not place additional burden on users. This includes responsible, accountable and auditable stewardship of government data and systems.  
 

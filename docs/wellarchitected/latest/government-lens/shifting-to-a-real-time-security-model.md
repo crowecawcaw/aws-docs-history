@@ -1,7 +1,6 @@
 
 
 # Shifting to a real time security model
-<a name="shifting-to-a-real-time-security-model"></a>
 
 When security is compliance-led or reactive, it can miss opportunities to be proactive in real time. 
 

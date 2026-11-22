@@ -1,7 +1,6 @@
 
 
 # Service context checklist
-<a name="service-context-checklist"></a>
 
 We recommend that you work through this checklist to prepare the service context prior to running your Government Lens review in AWS Well-Architected Tool. The review is performed in your AWS account so that you can record it as a milestone, save it, and use it to track your remediations and progress after the review. The completion of the review produces a detailed report and it's up to you to assess and perform risk remediation activities. 
 

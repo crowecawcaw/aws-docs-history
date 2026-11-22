@@ -1,7 +1,6 @@
 
 
 # Iterate and improve frequently (with end user and staff feedback)
-<a name="iterate-and-improve-frequently-with-end-user-and-staff-feedback"></a>
 
  Continuous improvement of services in response to events or initiatives impacting society, citizens, end users, and public sector employees is vital to maintain trust and verifies that service delivery can evolve in a timely manner. Therefore, mechanisms for collecting and responding to requirements need to be established. People responsible for service delivery can ask themselves how the service will be managed after launch, and if there is a supporting operating model with continuous improvement mechanisms in place. This approach also could include automation of testing and deployment, load testing at scale, and other ways to improve consistency of continuous change deployment to reduce unexpected issues or unnecessary human error. 
 

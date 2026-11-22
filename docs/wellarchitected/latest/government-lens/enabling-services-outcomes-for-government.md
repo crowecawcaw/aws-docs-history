@@ -1,7 +1,6 @@
 
 
 # Enabling services outcomes for government
-<a name="enabling-services-outcomes-for-government"></a>
 
  An additional and necessary set of considerations for government services covers best practices to verify that services measurably meet the intended policy or service outcomes, whether for public facing services (online or offline), grants management, budgeting, law enforcement or any other function of government. Service effectiveness is a responsibility of the government, but understanding the intended purpose and context of a service helps all parties involved to develop effective services with, or for, government customers. As such, this chapter should be considered for government services to maintain appropriate outcomes. 
 

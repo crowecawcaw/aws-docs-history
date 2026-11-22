@@ -1,7 +1,6 @@
 
 
 # Conclusion
-<a name="conclusion"></a>
 
  The goal of the Government Lens for the Well-Architected Framework is to provide architectural and operational best practices for designing and operating reliable, secure, efficient, effective, sustainable, and compliant government services on AWS. The considerations for the traditional Well-Architected pillars, combined with an additional section on enabling service outcomes for government, provides a well-rounded framework for verifying that government services built on AWS are best able to meet the special needs, context, and purpose of government customers. This approach is repeatable, extendable, and able to support meaningful discussions with government customers about the mission, purpose, and intended outcomes of their systems and services. 
 

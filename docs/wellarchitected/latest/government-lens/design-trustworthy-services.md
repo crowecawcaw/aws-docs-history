@@ -1,7 +1,6 @@
 
 
 # Design trustworthy services
-<a name="design-trustworthy-services"></a>
 
  Government services can become contentious if they don’t verify that everyone receives fair and equitable treatment, and governments are expected to deliver value and benefits to the community. It’s critical that government services are explainable so they can be audited and appealed (as per administrative law and other requirements). It is important to verify that ethical considerations are part of the design, implementation and governance models for the service. 
 

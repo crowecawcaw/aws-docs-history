@@ -1,7 +1,6 @@
 
 
 # Pillars of the Well-Architected Framework
-<a name="pillars-of-the-well-architected-framework"></a>
 
   This section maps the six pillars of the Well-Architected Framework to government environments.  
 

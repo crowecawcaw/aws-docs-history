@@ -1,7 +1,6 @@
 
 
 # Collaborate and work in the open by default
-<a name="collaborate-and-work-in-the-open-by-default"></a>
 
  Open Government is a concept that can not only improve public trust, but also improve services and policy outcomes. In addition, some governments have a legal requirement to consider or publish service reporting or open source code. People working with government directly or as a third party must consider how government can share the service’s non-sensitive data, code, evidence, research, and decision making openly. This includes using open standards where possible and open-source licensing where required. The [Digital Nations Charter](https://www.leadingdigitalgovs.org/) recommends that government prioritize open government, open data, open source, open standards, and open markets to maintain sustainable digital transformation of governments. 
 

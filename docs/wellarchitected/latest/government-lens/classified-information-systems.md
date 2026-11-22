@@ -1,7 +1,6 @@
 
 
 # Classified information systems
-<a name="classified-information-systems"></a>
 
  Classified information is information that a government or agency deems sensitive enough to national security that access must be controlled and restricted. Every government has differing levels of classification that are specific to their own context. For example, the U.S. Government uses three levels of classification to designate how sensitive certain information is: confidential, secret, and top secret. The lowest level, confidential, designates information that, if released, could damage U.S. national security. The other designations refer to information, the disclosure of which, could cause *serious* (secret) or *exceptionally grave* (top secret) damage to national security. Some data and information is considered unclassified and low risk, but this scenario is for higher risk and classified information systems. 
 

@@ -1,7 +1,6 @@
 
 
 # Design with end users (citizens, residents, businesses)
-<a name="design-with-end-users-citizens-residents-businesses"></a>
 
  Service design provides a good framework for a multi-disciplinary team to deliver a design-led and end-user engaged service. People responsible for service delivery must engage end users early in the design and iteration process, and consider their feedback for validating the best potential design, governance, and the continuous improvement process for a service. Concept testing should be conducted well before a solution is decided upon or anything is built. It’s important to keep in mind that public-facing services might include third parties delivering services on behalf of Government, suppliers, and business end users in addition to citizens.  
 

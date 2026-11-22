@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources"></a>
 +  [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/) 
 +  [Open source at AWS](https://aws.amazon.com/opensource/) 
 + [The AWS Cloud Adoption Framework (AWS CAF)](https://aws.amazon.com/cloud-adoption-framework/)

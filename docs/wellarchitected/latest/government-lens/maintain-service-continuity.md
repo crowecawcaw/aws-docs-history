@@ -1,7 +1,6 @@
 
 
 # Maintain service continuity
-<a name="maintain-service-continuity"></a>
 
  Particular government services must not have unexpected downtime due to the risk of immediate dangers to the quality of life for citizens, for example, emergency services, social welfare payments, policing systems, and healthcare services. Resilient architectures are key to support this design principle, and the people responsible for service delivery must take a risk-based approach to architectural decisions to support critical government services. Make deliberate use of the [AWS Well-Architected Framework Reliability Pillar](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html) to inform your decision making. 
 

@@ -1,7 +1,6 @@
 
 
 # Performance efficiency pillar
-<a name="performance-efficiency-pillar"></a>
 
  The performance efficiency pillar includes the ability to efficiently adhere to policy and mandate requirements, and to maintain that efficiency as demand or policy changes and technologies evolve. 
 
