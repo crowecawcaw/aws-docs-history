@@ -1,7 +1,6 @@
 
 
 # Configure Slack for AppFabric
-<a name="slack"></a>
 
 Slack is on a mission to make people’s working lives simpler, more pleasant, and more productive. It is the productivity platform for customer companies that improves performance by empowering everyone with no-code automation, making search and knowledge sharing seamless, and keeping teams connected and engaged as they move work forward together. As part of Salesforce, Slack is deeply integrated into the Salesforce Customer 360, supercharging productivity across sales, service and marketing teams. To learn more and get started with Slack for free, visit [slack.com](https://www.slack.com).
 

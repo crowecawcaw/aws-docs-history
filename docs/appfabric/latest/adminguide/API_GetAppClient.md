@@ -1,7 +1,6 @@
 
 
 # GetAppClient
-<a name="API_GetAppClient"></a>
 
 
 |  | 

@@ -1,7 +1,6 @@
 
 
 # AppFabric for productivity APIs (preview)
-<a name="productivity-apis"></a>
 
 
 |  | 

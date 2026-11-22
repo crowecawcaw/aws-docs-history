@@ -1,7 +1,6 @@
 
 
 # Get started with AppFabric for productivity (preview) for application developers
-<a name="getting-started-appdeveloper-productivity"></a>
 
 
 |  | 

@@ -1,7 +1,6 @@
 
 
 # API data types for AppFabric for productivity (preview)
-<a name="productivity-data-types"></a>
 
 
 |  | 

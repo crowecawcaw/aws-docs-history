@@ -1,7 +1,6 @@
 
 
 # Configure Microsoft 365 for AppFabric
-<a name="microsoft-365"></a>
 
 Microsoft 365 is a product family of productivity software, collaboration, and cloud-based services owned by Microsoft.
 

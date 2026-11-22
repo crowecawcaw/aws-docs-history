@@ -1,7 +1,6 @@
 
 
 # Configure Dropbox for AppFabric
-<a name="dropbox"></a>
 
 Dropbox helps your organization get better work done faster by bringing your people together - no matter what they’re working on, where they’re working, or what kind of tools they happen to be using. It enables users to accelerate innovation and efficiency by providing a simple, secure way to share content. Dropbox is one place to keep life organized and keep work moving. With more than 700 million registered users across 180 countries, Dropbox is on a mission to design a more enlightened way of working.
 

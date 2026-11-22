@@ -1,7 +1,6 @@
 
 
 # Get started with AppFabric for productivity (preview) for end users
-<a name="getting-started-users-productivity"></a>
 
 
 |  | 

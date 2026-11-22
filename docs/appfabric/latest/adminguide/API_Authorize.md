@@ -1,7 +1,6 @@
 
 
 # Authorize
-<a name="API_Authorize"></a>
 
 
 |  | 

@@ -1,7 +1,6 @@
 
 
 # ActionableInsights
-<a name="API_ActionableInsights"></a>
 
 
 |  | 

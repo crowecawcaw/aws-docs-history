@@ -1,7 +1,6 @@
 
 
 # Data processing in AppFabric
-<a name="productivity-data-processing"></a>
 
 
 |  | 

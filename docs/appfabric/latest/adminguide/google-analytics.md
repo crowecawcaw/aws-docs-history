@@ -1,7 +1,6 @@
 
 
 # Configure Google Analytics for AppFabric
-<a name="google-analytics"></a>
 
 Google Analytics is a web analytics service that provides statistics and basic analytical tools for search engine optimization (SEO) and marketing purposes. Google Analytics is used to track website performance and collect visitor insights. It can help organizations determine top sources of user traffic, gauge the success of their marketing activities and campaigns, track goal completions (such as purchases, adding products to carts), discover patterns and trends in user engagement and obtain other visitor information such as demographics. Small and medium-sized retail websites often use Google Analytics to obtain and analyze various customer behavior analytics, which can be used to improve marketing campaigns, drive website traffic and better retain visitors.
 

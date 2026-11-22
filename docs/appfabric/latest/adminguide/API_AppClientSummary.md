@@ -1,7 +1,6 @@
 
 
 # AppClientSummary
-<a name="API_AppClientSummary"></a>
 
 
 |  | 

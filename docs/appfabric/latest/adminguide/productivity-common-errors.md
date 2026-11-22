@@ -1,7 +1,6 @@
 
 
 # Common API errors for AppFabric for productivity (preview)
-<a name="productivity-common-errors"></a>
 
 
 |  | 

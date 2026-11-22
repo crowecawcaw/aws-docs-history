@@ -1,7 +1,6 @@
 
 
 # Configure GitHub for AppFabric
-<a name="github"></a>
 
 GitHub is a platform and cloud-based service for software development and version control using Git, allowing developers to store and manage their code. It provides the distributed version control of Git plus access control, bug tracking, software feature requests, task management, continuous integration, and wikis for every project.
 

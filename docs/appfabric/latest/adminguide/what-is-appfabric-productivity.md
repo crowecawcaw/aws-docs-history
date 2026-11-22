@@ -1,7 +1,6 @@
 
 
 # What is AWS AppFabric for productivity?
-<a name="what-is-appfabric-productivity"></a>
 
 
 |  | 

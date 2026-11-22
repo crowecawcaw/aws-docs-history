@@ -1,7 +1,6 @@
 
 
 # Delete AWS AppFabric for security resources
-<a name="delete-resources"></a>
 
 If you don't want to continue using AWS AppFabric for security, be sure to delete the data in the output locations you created during setup and your AppFabric for security resources to avoid incurring additional charges. To clean up your AppFabric resources, you must delete the resources in the reverse order in which you created them for each software as a service (SaaS) application: **Ingestion destinations** > **Ingestions** > **App authorization** > **App bundles**
 

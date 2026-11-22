@@ -1,7 +1,6 @@
 
 
 # Token
-<a name="API_Token"></a>
 
 
 |  | 

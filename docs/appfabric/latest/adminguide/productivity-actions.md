@@ -1,7 +1,6 @@
 
 
 # API actions for AppFabric for productivity (preview)
-<a name="productivity-actions"></a>
 
 
 |  | 

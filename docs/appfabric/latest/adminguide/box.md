@@ -1,7 +1,6 @@
 
 
 # Configure Box for AppFabric
-<a name="box"></a>
 
 Box is the leading Content Cloud, a single platform that empowers organizations to manage the entire content lifecycle, work securely from anywhere, and integrate across best-of-breed apps.
 

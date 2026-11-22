@@ -1,7 +1,6 @@
 
 
 # Configure Okta for AppFabric
-<a name="okta"></a>
 
 Okta is the World’s Identity Company. As the leading independent Identity partner, Okta frees everyone to safely use any technology—anywhere, on any device or app. The most trusted brands trust Okta to enable secure access, authentication, and automation. With flexibility and neutrality at the core of the Okta Workforce Identity and Customer Identity Clouds, business leaders and developers can focus on innovation and accelerate digital transformation, thanks to customizable solutions and more than 7,000 pre-built integrations. Okta is building a world where Identity belongs to you. Learn more at okta.com.
 

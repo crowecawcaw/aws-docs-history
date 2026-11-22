@@ -1,7 +1,6 @@
 
 
 # Open Cybersecurity Schema Framework for AWS AppFabric
-<a name="ocsf-schema"></a>
 
 The [Open Cybersecurity Schema Framework](https://schema.ocsf.io/) (OCSF) is a collaborative, open-source effort by AWS and leading partners in the cybersecurity industry. OCSF provides a standard schema for common security events, defines versioning criteria to facilitate schema evolution, and includes a self-governance process for security log producers and consumers. The public source code for OCSF is hosted on [GitHub](https://github.com/ocsf/ocsf-schema).
 

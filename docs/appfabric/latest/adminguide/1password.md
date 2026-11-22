@@ -1,7 +1,6 @@
 
 
 # Configure 1Password for AppFabric
-<a name="1password"></a>
 
 1Password is a password manager that helps you create, store, and use strong passwords for all your online accounts. It also protects your data with encryption, alerts you about breaches, and lets you share passwords.
 

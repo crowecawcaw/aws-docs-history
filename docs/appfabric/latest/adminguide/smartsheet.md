@@ -1,7 +1,6 @@
 
 
 # Configure Smartsheet for AppFabric
-<a name="smartsheet"></a>
 
 Smartsheet is a work management platform that helps you align work, people, and technology across your enterprise. Smartsheet offers a robust set of enterprise-grade capabilities to empower everyone to manage projects, automate workflows, and rapidly build solutions at scale, creating an environment for innovation while maintaining security and compliance.
 

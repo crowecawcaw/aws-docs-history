@@ -1,7 +1,6 @@
 
 
 # Troubleshoot end user errors in AppFabric for productivity
-<a name="productivity-end-users-errors"></a>
 
 
 |  | 

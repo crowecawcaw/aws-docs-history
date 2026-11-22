@@ -1,7 +1,6 @@
 
 
 # Configure Salesforce for AppFabric
-<a name="salesforce"></a>
 
 Salesforce makes cloud-based software designed to help businesses find more prospects, close more deals, and wow customers with amazing service. Salesforce’s Customer 360 offers a complete suite of products, unites sales, service, marketing, commerce, and IT teams with a single, shared view of customer information, helping organizations grow relationships with customers and employees alike.
 

@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS AppFabric
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify AppFabric resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -60,7 +59,7 @@ The following policy example grants access to app bundles in the AppFabric servi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
 
@@ -89,7 +88,7 @@ The following policy example restricts access to app bundles in the AppFabric se
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
 
@@ -123,7 +122,7 @@ The following policy example restricts the deletion or stopping of ingestions in
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
 
@@ -230,7 +229,7 @@ You might see an invalid action error when adding this policy in the JSON policy
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

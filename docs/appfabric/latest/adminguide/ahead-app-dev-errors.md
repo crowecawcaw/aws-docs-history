@@ -1,7 +1,6 @@
 
 
 # Troubleshoot AppClients in AppFabric for productivity
-<a name="ahead-app-dev-errors"></a>
 
 
 |  | 

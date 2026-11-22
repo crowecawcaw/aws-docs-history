@@ -1,7 +1,6 @@
 
 
 # Configure Azure Monitor for AppFabric
-<a name="azure-monitor"></a>
 
 Azure Monitor is a comprehensive monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. You can use Azure Monitor to maximize the availability and performance of your applications and services. It helps you understand how your applications are performing and allows you to manually and programmatically respond to system events.
 

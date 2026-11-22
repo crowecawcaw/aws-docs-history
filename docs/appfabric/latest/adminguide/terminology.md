@@ -1,7 +1,6 @@
 
 
 # Terminology and concepts in AppFabric
-<a name="terminology"></a>
 
 This topic describes the key terminology and concepts in AWS AppFabric to help you get started.
 

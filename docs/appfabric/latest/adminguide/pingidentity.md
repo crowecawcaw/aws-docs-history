@@ -1,7 +1,6 @@
 
 
 # Configure Ping Identity for AppFabric
-<a name="pingidentity"></a>
 
 At Ping Identity, we believe in making digital experiences both secure and seamless for all users, without compromise. That's why more than half of the Fortune 100 choose Ping Identity to protect digital interactions for their users while making experiences frictionless. On August 23, 2023, Ping Identity and ForgeRock joined together to deliver more choice, deeper expertise, and a more complete identity solution for customers and partners.
 

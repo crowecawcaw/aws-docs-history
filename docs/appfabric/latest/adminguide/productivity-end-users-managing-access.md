@@ -1,7 +1,6 @@
 
 
 # Manage access to AppFabric for productivity (preview) features for IT and security administrators
-<a name="productivity-end-users-managing-access"></a>
 
 
 |  | 

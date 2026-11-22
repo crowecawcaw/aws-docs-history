@@ -1,7 +1,6 @@
 
 
 # ListAppClients
-<a name="API_ListAppClients"></a>
 
 
 |  | 

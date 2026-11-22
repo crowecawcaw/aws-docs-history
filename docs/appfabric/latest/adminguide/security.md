@@ -1,7 +1,6 @@
 
 
 # Security in AWS AppFabric
-<a name="security"></a>
 
 Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data centers and network architectures that are built to meet the requirements of the most security-sensitive organizations.
 

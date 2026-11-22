@@ -1,7 +1,6 @@
 
 
 # Manage AppFabric for productivity AppClients
-<a name="manage-appclients"></a>
 
 
 |  | 

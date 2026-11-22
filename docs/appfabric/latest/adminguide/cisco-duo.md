@@ -1,7 +1,6 @@
 
 
 # Configure Cisco Duo for AppFabric
-<a name="cisco-duo"></a>
 
 Cisco Duo protects against breaches with a leading access management suite that provides strong multi-layered defenses and innovative capabilities that allow legitimate users in and keep bad actors out. For any organization concerned about being breached and needs a solution fast, Cisco Duo quickly enables strong security while also improving user productivity.
 

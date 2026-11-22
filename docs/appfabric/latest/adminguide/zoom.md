@@ -1,7 +1,6 @@
 
 
 # Configure Zoom for AppFabric
-<a name="zoom"></a>
 
 Zoom is an all-in-one intelligent collaboration platform that makes connecting easier, more immersive, and more dynamic for businesses and individuals. Zoom technology puts people at the center, enabling meaningful connections, facilitating modern collaboration, and driving human innovation through solutions like team chat, phone, meetings, omnichannel cloud contact center, smart recordings, whiteboard, and more, in one offering.
 

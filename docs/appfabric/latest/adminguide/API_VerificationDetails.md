@@ -1,7 +1,6 @@
 
 
 # VerificationDetails
-<a name="API_VerificationDetails"></a>
 
 
 |  | 

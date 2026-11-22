@@ -1,7 +1,6 @@
 
 
 # Barracuda XDR
-<a name="barracuda"></a>
 
 Barracuda Networks is a trusted partner and leading provider of cloud-first security solutions, protecting email, networks, data, and applications with innovative solutions that grow and adapt with businesses’ journey. Barracuda XDR is an open extended detection and response solution that combines sophisticated technologies with a team of security analysts in our security operations center (SOC). The Barracuda XDR platform analyzes billions of raw events daily from 40\+ integrated data sources, and together with extensive threat detection rules that map to the MITRE ATT&CK® framework, it can detect threats faster and reduce response time.
 

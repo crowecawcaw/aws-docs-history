@@ -1,7 +1,6 @@
 
 
 # Rapid7
-<a name="rapid7"></a>
 
 Rapid7, Inc. is on a mission to create a safer digital world by making cybersecurity simpler and more accessible. Rapid7 empowers security professionals to manage a modern attack surface through best-in-class technology, leading-edge research, and broad, strategic expertise. Rapid7’s comprehensive security solutions help more than 10,000 global customers unite cloud risk management and threat detection to reduce attack surfaces and eliminate threats with speed and precision.
 

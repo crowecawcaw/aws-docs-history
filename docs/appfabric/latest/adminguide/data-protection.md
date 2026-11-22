@@ -1,7 +1,6 @@
 
 
 # Data protection in AWS AppFabric
-<a name="data-protection"></a>
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in AWS AppFabric. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
@@ -74,7 +73,7 @@ When you create an app bundle, AppFabric creates a grant on your behalf by sendi
 
 Following is an example of a grant.
 
-```
+```json
 {
   "KeyId": "arn:aws:kms:us-east-1:111122223333:key/ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
   "GrantId": "0ab0ac0d0b000f00ea00cc0a0e00fc00bce000c000f0000000c0bc0a0000aaafSAMPLE",
@@ -105,7 +104,7 @@ When you use AWS KMS customer managed keys with AppFabric, you can use AWS Cloud
 
 Following is an example of an CloudTrail event logged when AppFabric uses `CreateGrant` for your customer managed key.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

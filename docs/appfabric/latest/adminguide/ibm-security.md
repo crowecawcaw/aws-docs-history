@@ -1,7 +1,6 @@
 
 
 # Configure IBM Security® Verify for AppFabric
-<a name="ibm-security"></a>
 
 The IBM Security® Verify family provides automated, cloud-based and on-premises capabilities for administering identity governance, managing workforce and consumer identity and access, and controlling privileged accounts. Whether you need to deploy a cloud or on-premises solution, IBM Security® Verify helps you establish trust and protect against insider threats to both your [workforce](https://www.ibm.com/products/verify-identity/workforce-iam) and [consumers](https://www.ibm.com/products/verify-identity/ciam).
 

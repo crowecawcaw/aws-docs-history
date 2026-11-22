@@ -1,7 +1,6 @@
 
 
 # Configure Atlassian Jira suite for AppFabric
-<a name="jira"></a>
 
 Atlassian unleashes the potential of every team. Their agile and DevOps, IT service management and work management software helps teams organize, discuss, and complete shared work. The majority of the Fortune 500 and over 240,000 companies of all sizes worldwide - including NASA, Kiva, Deutsche Bank, and Salesforce - rely on Atlassian solutions to help their teams work better together and deliver quality results on time. Learn more about Atlassian products, including Jira Software, Confluence, Jira Service Management, Trello, Bitbucket, and Jira Align at [Atlassian](https://www.atlassian.com/). 
 

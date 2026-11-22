@@ -1,7 +1,6 @@
 
 
 # DeleteAppClient
-<a name="API_DeleteAppClient"></a>
 
 
 |  | 

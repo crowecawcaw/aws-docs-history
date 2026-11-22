@@ -1,7 +1,6 @@
 
 
 # Configure HubSpot for AppFabric
-<a name="hubspot"></a>
 
 HubSpot is a customer platform with all the software, integrations, and resources you need to connect your marketing, sales, content management, and customer service. HubSpot's connected platform enables you to grow your business faster by focusing on what matters most: your customers.
 

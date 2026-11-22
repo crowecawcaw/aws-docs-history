@@ -1,7 +1,6 @@
 
 
 # Configure Asana for AppFabric
-<a name="asana"></a>
 
 Asana is a work management platform that helps individuals, teams, and organizations orchestrate work, from daily tasks to cross-functional strategic initiatives. It provides a living system of clarity where everyone can communicate, collaborate, and coordinate work. With Asana, teams integrate critical business tools into one place so work moves forward no matter where it happens.
 

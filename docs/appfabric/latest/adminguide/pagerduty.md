@@ -1,7 +1,6 @@
 
 
 # Configure PagerDuty for AppFabric
-<a name="pagerduty"></a>
 
 PagerDuty is a Digital Operations Management Platform that helps teams mitigate customer-impacting issues by turning any signal into action so you can resolve issues faster and operate more efficiently. Integrates with CloudWatch, GuardDuty, CloudTrail, and Personal Health Dashboard.
 

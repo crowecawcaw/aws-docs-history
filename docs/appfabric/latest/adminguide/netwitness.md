@@ -1,7 +1,6 @@
 
 
 # NetWitness
-<a name="netwitness"></a>
 
 NetWitness is a leading developer of extended detection and response (XDR) software. Their global base of highly security-conscious customers relies on NetWitness XDR to defend against sophisticated and aggressive adversaries. With the industry’s most complete, integrated, and mature platform to detect, investigate, and respond to digital attacks, NetWitness XDR is the unifying foundation of a modern and effective SOC.
 
