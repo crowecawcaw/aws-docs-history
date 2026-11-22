@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
  The security pillar addresses how organizations establish and maintain secure, compliant workloads that meet digital sovereignty requirements. This includes building secure foundations, managing access controls, protecting sensitive data, detecting threats, securing infrastructure, and responding to incidents while adhering to jurisdictional regulations. 
 

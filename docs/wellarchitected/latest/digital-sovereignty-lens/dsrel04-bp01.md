@@ -1,7 +1,6 @@
 
 
 # DSREL04-BP01 Plan for disruptions beyond technical failures
-<a name="dsrel04-bp01"></a>
 
  Organizations operating across multiple jurisdictions should consider a broader set of resilience factors beyond technical failures. Changes in international trade policies, regulatory requirements, licensing terms, regional service availability, or natural disasters can affect access to infrastructure, services, or specialist skills. In some cases, these events might affect multiple jurisdictions simultaneously, limiting the availability of nearby recovery sites. Standard disaster recovery planning might not fully address these scenarios, as the disruption isn't a system failure, but a change in the conditions under which the system is permitted or able to operate. 
 

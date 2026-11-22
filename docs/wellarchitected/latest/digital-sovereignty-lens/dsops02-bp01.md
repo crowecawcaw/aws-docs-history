@@ -1,7 +1,6 @@
 
 
 # DSOPS02-BP01 Baseline your compliance requirements
-<a name="dsops02-bp01"></a>
 
  Compliance requirements accumulate from multiple sources: cybersecurity directives, data privacy legislation, industry regulations, and internal policies. These requirements can overlap or diverge, whether you operate in one jurisdiction or many. A compliance baseline maps each requirement to specific technical controls so that teams can implement, test, and audit them consistently. 
 

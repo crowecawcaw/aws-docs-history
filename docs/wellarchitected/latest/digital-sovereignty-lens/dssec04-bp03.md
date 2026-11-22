@@ -1,7 +1,6 @@
 
 
 # DSSEC04-BP03 Establish comprehensive logging and monitoring of operator actions
-<a name="dssec04-bp03"></a>
 
  Enable detailed logging to track operator actions, detect unauthorized access, and retain evidence required for audits. Detailed audit trails provide visibility into change management activities and operator-led actions. This is particularly important for workloads with sovereignty requirements, where you may need to locate operational support teams within specific jurisdictions, strictly control operator actions, and produce documentary evidence of technical and operational controls. 
 
@@ -64,7 +63,7 @@
 **Note**  
  The code snippets shown here are for illustration only and may not be accurate. Validate against your own environment and requirements unique to your workload. 
 
-   ```
+   ```json
    {
    "eventVersion": "1.08",
    "userIdentity": {

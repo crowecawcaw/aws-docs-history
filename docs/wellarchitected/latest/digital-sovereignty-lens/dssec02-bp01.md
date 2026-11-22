@@ -1,7 +1,6 @@
 
 
 # DSSEC02-BP01 Protect data through layered access controls within sovereign boundaries
-<a name="dssec02-bp01"></a>
 
  Access control is one of the lens's five sovereignty design concerns: who can reach your data, from where, and under what authority. A single control layer leaves gaps, because network controls alone can't enforce identity rules and identity controls alone can't account for network paths. Layering network-centric and identity-centric controls, in proportion to data sensitivity and jurisdiction, keeps data within its sovereign boundary and blocks unauthorized access before it happens. 
 

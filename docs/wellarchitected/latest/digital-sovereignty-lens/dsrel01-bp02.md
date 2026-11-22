@@ -1,7 +1,6 @@
 
 
 # DSREL01-BP02 Select and operationalize sovereignty-compliant recovery sites
-<a name="dsrel01-bp02"></a>
 
  Select and configure recovery sites that maintain data residency and regulatory compliance throughout the recovery process. Recovery procedures must not move data outside approved jurisdictions, even temporarily. Automate recovery using infrastructure as code, test regularly, and train teams to operate under time pressure while maintaining compliance. 
 

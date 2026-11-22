@@ -1,7 +1,6 @@
 
 
 # DSSEC08-BP02 Control jurisdiction, access, and auditability of data-at-rest encryption keys
-<a name="dssec08-bp02"></a>
 
  Carefully manage keys that protect data at rest throughout their lifecycle. This includes storage, rotation, and controlling access to key material required to secure data at rest. Monitor and log key usage. Where regulatory requirements mandate specific technical or operational controls, adhere to those requirements. 
 
@@ -46,7 +45,7 @@
 **Note**  
  The code snippet shown here is for illustration only and may not be accurate. Validate against your own environment and requirements unique to your workload. 
 
-   ```
+   ```json
    {
    "Version": "2012-10-17",
    "Statement": [
@@ -83,7 +82,7 @@
 **Note**  
  The code snippet shown here is for illustration only and may not be accurate. Validate against your own environment and requirements unique to your workload. 
 
-   ```
+   ```json
    {
        "Effect": "Allow",
        "Principal": {

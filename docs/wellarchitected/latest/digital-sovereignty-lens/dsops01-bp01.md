@@ -1,7 +1,6 @@
 
 
 # DSOPS01-BP01 Organize compliance for multi-jurisdictional operations
-<a name="dsops01-bp01"></a>
 
  When you have workloads deployed across jurisdictions, your compliance function also needs to scale up to meet a wide range of regulatory requirements consistently across geographic locations. Without a layered approach that separates common controls from jurisdiction-specific ones, teams end up duplicating effort, missing local mandates, or discovering regulatory divergences too late to address them cost-effectively. 
 

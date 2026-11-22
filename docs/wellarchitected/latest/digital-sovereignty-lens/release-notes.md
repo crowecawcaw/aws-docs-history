@@ -1,7 +1,6 @@
 
 
 # Release notes
-<a name="release-notes"></a>
 
  To be notified about updates to this whitepaper, subscribe to the RSS feed. 
 

@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles"></a>
 
  The Digital Sovereignty Lens adds seven design principles that address sovereignty as a cross-cutting concern. They extend, rather than repeat, the design principles in the AWS Well-Architected Framework for [operational excellence](https://docs.aws.amazon.com/wellarchitected/latest/framework/oe-design-principles.html), [security](https://docs.aws.amazon.com/wellarchitected/latest/framework/sec-design.html), [reliability](https://docs.aws.amazon.com/wellarchitected/latest/framework/rel-dp.html), and [performance efficiency](https://docs.aws.amazon.com/wellarchitected/latest/framework/perf-dp.html). Each principle maps to one or more of the five design concerns, and where it builds on an existing Well-Architected principle, it links to that principle instead of restating it. 
 +  **Apply standardized, enforceable controls** *(locality, access control, transparency and auditability)*. Turn regulatory obligations into automated controls, and keep each control traceable to the requirement it satisfies. Automated controls stay consistent across teams and jurisdictions and produce evidence on demand. This means you can demonstrate compliance instead of asserting it. This builds on the security principle [automate security best practices](https://docs.aws.amazon.com/wellarchitected/latest/framework/sec-design.html) and the operational excellence principle [safely automate where possible](https://docs.aws.amazon.com/wellarchitected/latest/framework/oe-design-principles.html). 

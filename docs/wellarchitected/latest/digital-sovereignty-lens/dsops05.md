@@ -1,7 +1,6 @@
 
 
 # Compliance remediation
-<a name="dsops05"></a>
 
  Detecting a compliance finding accomplishes nothing until someone remediates it. When a finding appears, regional teams need to investigate root causes and apply fixes independently, without waiting for a central team to triage and respond. Good remediation gives those teams jurisdiction-scoped access to findings, a standardized root cause analysis process, pre-approved runbooks, and automated fixes that keep audit trails. 
 

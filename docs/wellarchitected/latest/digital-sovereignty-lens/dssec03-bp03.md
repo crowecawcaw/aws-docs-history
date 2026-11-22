@@ -1,7 +1,6 @@
 
 
 # DSSEC03-BP03 Validate resource configurations for sovereignty compliance
-<a name="dssec03-bp03"></a>
 
  Sovereignty configuration validation verifies that resources are provisioned and maintained in line with jurisdictional constraints: Region placement, key residency, replication scope, and classification tagging. Validate resource configurations against sovereignty baselines before and after deployment using rules-based evaluation. 
 
@@ -55,7 +54,7 @@
     **Note:** The code snippets shown here are for illustration only and may not be accurate. Validate against your own environment and requirements unique to your workload. 
    +  **Validate KMS key residency:** 
 
-     ```
+     ```tcl/tk
      # Verify KMS keys are single-region only
      rule check_kms_single_region {
        Resources[ Type == 'AWS::KMS::Key' ].Properties {
@@ -68,7 +67,7 @@
      ```
    +  **Validate S3 replication restrictions:** 
 
-     ```
+     ```tcl/tk
      # Verify S3 buckets do not have cross-region replication
      rule check_s3_no_cross_region_replication {
        Resources[ Type == 'AWS::S3::Bucket' ].Properties {
@@ -81,7 +80,7 @@
      ```
    +  **Validate sovereignty tags:** 
 
-     ```
+     ```tcl/tk
      # Verify resources have required sovereignty tags
      rule check_sovereignty_tags {
        Resources[ Type in ['AWS::S3::Bucket', 'AWS::DynamoDB::Table'] ].Properties {
@@ -104,7 +103,7 @@
      ```
    +  **Validate Secrets Manager replication:** 
 
-     ```
+     ```tcl/tk
      # Verify Secrets Manager secrets are not replicated to other regions
      rule check_secrets_manager_no_replication {
        Resources[ Type == 'AWS::SecretsManager::Secret' ].Properties {

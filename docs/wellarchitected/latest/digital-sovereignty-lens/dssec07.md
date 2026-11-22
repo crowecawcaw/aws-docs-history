@@ -1,7 +1,6 @@
 
 
 # Verifiable data controls
-<a name="dssec07"></a>
 
  Contractual assurances and policy declarations alone do not prove sovereignty. Organizations need to demonstrate that data residency, privacy, and lineage controls are enforced through technical mechanisms. Region deny controls, digital sovereignty governance controls, privacy-enhancing technologies, and data lineage tracking together produce the evidence that connects a claim to what the system actually does. 
 

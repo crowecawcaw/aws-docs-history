@@ -1,7 +1,6 @@
 
 
 # DSREL03-BP01 Design workloads for greater interoperability and portability
-<a name="dsrel03-bp01"></a>
 
  Design workloads so they can be deployed, migrated, or recovered within or across jurisdictions when conditions require. Abstract Region-specific, service-specific dependencies. Use standards-based storage formats, data formats, table formats, and protocols. Plan ahead for data export and migration scenarios. 
 

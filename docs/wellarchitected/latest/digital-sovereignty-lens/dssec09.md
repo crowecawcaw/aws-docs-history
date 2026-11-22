@@ -1,7 +1,6 @@
 
 
 # Incident response
-<a name="dssec09"></a>
 
  A security incident in a sovereign workload triggers jurisdiction-specific obligations that standard incident response plans don't cover. Notification timelines vary by regulatory framework. Evidence preservation has to respect data residency, and coordination with national competent authorities follows jurisdiction-specific protocols. When these regulatory requirements are built into incident response planning and execution, teams meet compliance obligations at the same time as containment and remediation. 
 

@@ -1,7 +1,6 @@
 
 
 # DSOPS05-BP02 Automate compliance remediation
-<a name="dsops05-bp02"></a>
 
  When compliance findings are remediated manually, response times vary, fixes are inconsistent, and audit trails are incomplete. Automated remediation provides consistent, rapid response to known compliance issues while maintaining oversight and audit trails that support regulatory reporting across jurisdictions. 
 
@@ -42,7 +41,7 @@
 
     The following abbreviated example shows the pattern: a detection rule paired with a RemediationConfiguration that invokes an SSM document (AWS-DisableS3BucketPublicReadWrite) in one template. Parameters are omitted for brevity. For the complete version, see [Operational Best Practices for Amazon S3 with Remediation](https://github.com/awslabs/aws-config-rules/blob/master/aws-config-conformance-packs/Operational-Best-Practices-for-Amazon-S3-with-Remediation.yaml). 
 
-   ```
+   ```yaml
    Resources:
      # Detection rule
      S3BucketPublicReadProhibited:

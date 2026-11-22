@@ -1,7 +1,6 @@
 
 
 # DSSEC07-BP02 Provide technical options to enhance privacy
-<a name="dssec07-bp02"></a>
 
  Digital sovereignty requirements demand that organizations secure data and provide verifiable evidence of privacy protection measures. Technical privacy enhancement options enable organizations to process sensitive data while minimizing exposure risks. These options support business objectives and regulatory mandates through cryptographic techniques, data minimization, and privacy-preserving technologies. 
 

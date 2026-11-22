@@ -1,7 +1,6 @@
 
 
 # DSOPS06-BP02 Manage regulatory changes
-<a name="dsops06-bp02"></a>
 
  Regulatory changes directly impact cloud operations, security controls, and compliance status. A regulatory change in one jurisdiction might require updates to the common baseline that affect other jurisdictions. A structured change management process helps you assess impact, implement updates, and verify compliance across jurisdictions. 
 
@@ -28,6 +27,8 @@
  With a regulatory change detected and triaged, the next challenge is determining its scope and implementing the required updates. Impact assessment is the critical decision point, determining whether a change affects the common baseline (affecting all jurisdictions), a jurisdiction-specific extension (affecting one Region), or specific workloads only, and whether it conflicts with obligations in other jurisdictions. Figure 1 illustrates an example change management process: 
 
 ![Flowchart of the regulatory change process: detection and triage, then impact assessment classifying the change as common-baseline, jurisdiction-specific, or workload-only and checking for cross-jurisdictional conflicts, then control updates, then post-implementation verification](https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/images/regulatory-change-flow.png)
+
+*Flowchart of the regulatory change process: detection and triage, then impact assessment classifying the change as common-baseline, jurisdiction-specific, or workload-only and checking for cross-jurisdictional conflicts, then control updates, then post-implementation verification*
 
 
  Consider addressing the following questions during impact assessment: 

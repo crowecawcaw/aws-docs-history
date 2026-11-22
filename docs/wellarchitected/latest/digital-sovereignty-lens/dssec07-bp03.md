@@ -1,7 +1,6 @@
 
 
 # DSSEC07-BP03 Track data lineage
-<a name="dssec07-bp03"></a>
 
  Organizations in highly regulated industries implement data lineage tracking to demonstrate that data localization, data residency, and data privacy requirements are met. Data lineage provides visibility of the complete journey of data from source to consumption. This capability becomes essential for demonstrating audit readiness and maintaining trust in data-driven decision making. 
 

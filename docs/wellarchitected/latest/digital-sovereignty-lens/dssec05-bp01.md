@@ -1,7 +1,6 @@
 
 
 # DSSEC05-BP01 Control operator access to infrastructure from approved locations
-<a name="dssec05-bp01"></a>
 
  For sovereign workloads, what matters isn't just who operates the infrastructure, but also where they connect from and how long their access lasts. Persistent privileges and manual operations each widen the window in which an operator can act beyond their authority. Controlling the location, duration, and necessity of operator access keeps infrastructure administration within sovereign boundaries and leaves an audit trail for each session. 
 

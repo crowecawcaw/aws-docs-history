@@ -1,7 +1,6 @@
 
 
 # DSOPS01-BP04 Organize for operational continuity under disruption
-<a name="dsops01-bp04"></a>
 
  Sovereign workloads require consideration of a broader set of resilience factors beyond technical failures. Regulatory changes, shifts in international trade policies, natural disasters, and vendor dependency issues can affect access to infrastructure, services, or skills. Standard operational structures assume that support teams, tooling, and infrastructure remain available at all times. When those assumptions no longer hold, organizations need a continuity playbook that enables continued operations. 
 

@@ -1,7 +1,6 @@
 
 
 # Sovereignty-aware risk management and recovery
-<a name="dsrel01"></a>
 
  Continuity for sovereign workloads depends on two things: a clear view of the risks that could disrupt operations, and recovery options that stay within approved jurisdictions. Standard risk registers and disaster recovery plans don't account for sovereignty-specific risks such as regulatory change, cross-jurisdictional dependencies, concentration risk, and the constraint that failover must maintain data residency. 
 

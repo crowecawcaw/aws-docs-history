@@ -1,7 +1,6 @@
 
 
 # DSSEC07-BP01 Enhance your digital sovereignty governance posture
-<a name="dssec07-bp01"></a>
 
  In highly regulated industries, you might need to implement technical controls to enhance your digital sovereignty governance posture. This best practice assumes a secure landing zone with baseline security guardrails is already in place, and focuses on the sovereignty-specific governance controls layered on top of that foundation. 
 
@@ -42,7 +41,7 @@
    +  GRREGIONDENY: Also known as Region deny control or landing zone Region deny control. This is [implemented using this Service Control Policy (SCP)](https://docs.aws.amazon.com/controltower/latest/controlreference/primary-region-deny-policy.html). When you enable the control, it applies to all registered, top-level OUs in your hierarchy, and it is inherited by OUs lower in the chain. 
    +  CT.MULTISERVICE.PV.1: Deny access to AWS based on the [requested AWS Region for an organizational unit](https://docs.aws.amazon.com/controltower/latest/controlreference/ou-region-deny.html). The CT.MULTISERVICE.PV.1 control is a configurable and parameterized SCP. You can select specific OUs to which it applies, and add one or more parameters, such as **AllowedRegions**, **ExemptedPrincipalArns**, and **ExemptedActions**. This example shows how to enable this control, with parameters, from the CLI. It activates a Region deny control on OU ou-zzxx-zzx0zzz2, restricting API actions to the us-east-1 and us-west-2 Regions only. The wildcard \* in the account ID position of the role ARN applies the exemption across all accounts in the OU without listing each account individually. The trailing /\* on the STS ARN matches any session name. When a principal assumes a role, AWS appends a session name to the ARN (for example, assumed-role/ReadOnly/username), and without the trailing wildcard, the exemption would not match active sessions. 
 
-   ```
+   ```bash
    # Enable Region deny control for an OU. Allow only us-east-1 and us-west-2. But also add exempted actions and principals.
    AWS controltower enable-control \
        --target-identifier arn:aws:organizations::012345678901:ou/o-EXAMPLE/ou-zzxx-zzx0zzz2 \

@@ -1,7 +1,6 @@
 
 
 # DSSEC03-BP02 Verify network security posture through automated analysis
-<a name="dssec03-bp02"></a>
 
  Network misconfigurations can open a path across a jurisdictional boundary that no one intended. Automated network analysis tools examine your configuration to identify which paths are possible, without sending live traffic, so you can find such paths before they are used. For sovereign workloads, this helps you verify that network paths meet your data residency and privacy requirements. 
 
@@ -41,7 +40,7 @@
    +  Catches any EC2 instance with a direct path to the IGW, bypassing both the NAT Gateway and Network Firewall entirely (instance in a public subnet or misconfigured route). 
    +  Catches the NAT Gateway reaching the IGW directly. In the correct setup, NAT Gateway traffic should route through the Network Firewall endpoint before reaching the IGW. If the NAT GW subnet route table points directly to the IGW instead of the firewall endpoint, this finding fires. 
 
-   ```
+   ```bash
    AWS ec2 create-network-insights-access-scope \
    --match-paths '[
        {
@@ -73,7 +72,7 @@
 
     After creating the scope, run an analysis to identify any matching paths: 
 
-   ```
+   ```bash
    AWS ec2 start-network-insights-access-scope-analysis \
    --network-insights-access-scope-id <scope-id>
    ```

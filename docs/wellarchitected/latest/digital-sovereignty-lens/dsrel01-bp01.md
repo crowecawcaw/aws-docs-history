@@ -1,7 +1,6 @@
 
 
 # DSREL01-BP01 Establish a sovereignty-aware risk management framework
-<a name="dsrel01-bp01"></a>
 
  Establish a risk management framework that identifies, prioritizes, and mitigates business continuity risks specific to sovereign workloads. Beyond standard technical and operational risks, sovereign workloads face risks from large-scale disruptions caused by natural disasters, regional instabilities, and shifts in international trade policies that require dedicated assessment and mitigation. 
 

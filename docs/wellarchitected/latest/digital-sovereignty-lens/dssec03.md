@@ -1,7 +1,6 @@
 
 
 # Sovereignty control verification
-<a name="dssec03"></a>
 
  Claiming sovereignty compliance is different from proving it. Sovereignty controls must be verifiable through automated analysis rather than relying solely on manual audits or periodic reviews. Automated reasoning, network reachability analysis, and configuration validation provide mathematical or evidence-based assurance that policies enforce the jurisdictional boundaries they are designed to protect. 
 

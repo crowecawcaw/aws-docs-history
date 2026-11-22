@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  The following individuals and organizations contributed to this document: 
 +  Swapnonil Mukherjee, Senior Partner Solutions Architect - Sovereignty, Amazon Web Services 

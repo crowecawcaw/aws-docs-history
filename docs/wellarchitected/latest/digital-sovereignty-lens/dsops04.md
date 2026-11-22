@@ -1,7 +1,6 @@
 
 
 # Compliance monitoring
-<a name="dsops04"></a>
 
  Compliance status changes as resources are created, modified, and decommissioned. Without continuous visibility, organizations find compliance gaps only during audits or incidents. Good monitoring aggregates findings across accounts and jurisdictions, scores them by severity, and alerts teams when resources drift. It also scopes views by jurisdiction so regional teams and auditors can assess each jurisdiction on its own. 
 

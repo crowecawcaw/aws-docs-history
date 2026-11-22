@@ -1,7 +1,6 @@
 
 
 # DSOPS04-BP01 Maintain continuous visibility of your compliance status
-<a name="dsops04-bp01"></a>
 
  Point-in-time audits and periodic assessments don't reflect the real state of compliance. A workload that meets regulatory requirements today may fall out of compliance the next day. Continuous visibility into compliance status across jurisdictions helps teams detect drift early, prioritize remediation by regulatory impact, and demonstrate ongoing adherence to auditors. 
 
@@ -43,7 +42,7 @@
    +  Security Hub CSPM calculates a security score for each enabled standard, representing the percentage of passed security checks. Track this measure over time and compare across jurisdictions to quantify compliance posture. When reviewing findings, consider the regulatory context. A finding that an Amazon SQS queue isn't encrypted at rest may be informational for one workload but a critical compliance violation for another, depending on the data it processes and the regulatory frameworks that apply. 
    +  Use Security Hub CSPM [custom insights](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-insights.html) to create jurisdiction-specific views. For example, to track critical findings in a specific Region open for more than 30 days: 
 
-     ```
+     ```bash
      AWS securityhub create-insight --region <your-region> \
        --name "CriticalFindingsOver30Days" \
        --filters '{"SeverityLabel": [{"Value": "CRITICAL", "Comparison": "EQUALS"}], "RecordState": [{"Value": "ACTIVE", "Comparison": "EQUALS"}], "WorkflowStatus": [{"Value": "NEW", "Comparison": "EQUALS"}], "CreatedAt": [{"DateRange": {"Value": 30, "Unit": "DAYS"}}]}' \

@@ -1,7 +1,6 @@
 
 
 # Sovereign solution selection
-<a name="dsperf01"></a>
 
  Not every sovereign workload needs the same level of control, and applying maximum restrictions everywhere drives unnecessary cost and complexity. AWS provides a continuum of deployment options with different combinations of service availability, operational responsibility, and sovereignty controls. Selecting the right option for each workload requires a data-driven approach that matches regulatory obligations, data residency needs, and operational constraints to the deployment model that satisfies them without over-engineering. 
 

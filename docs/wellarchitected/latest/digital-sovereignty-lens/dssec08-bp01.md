@@ -1,7 +1,6 @@
 
 
 # DSSEC08-BP01 Protect sensitive data during compute
-<a name="dssec08-bp01"></a>
 
  If you store and process sensitive datasets, you might need to apply specialized data protection capabilities. This is in addition to at-rest and in-transit encryption. 
 

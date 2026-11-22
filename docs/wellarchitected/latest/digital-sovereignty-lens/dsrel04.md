@@ -1,7 +1,6 @@
 
 
 # Business continuity planning
-<a name="dsrel04"></a>
 
  Trade restrictions, regulatory changes, export controls, regional disruptions, and natural disasters can affect access to infrastructure, services, or skills with little warning. Standard disaster recovery plans don't cover these scenarios because the disruption isn't a system failure. It is a change in the conditions under which the system is permitted to operate. Organizations need response plans that address non-technical disruptions while maintaining sovereignty compliance throughout the response. 
 

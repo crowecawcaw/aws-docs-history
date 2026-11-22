@@ -1,7 +1,6 @@
 
 
 # Data sovereignty requirements
-<a name="dssec06"></a>
 
  Enforcing sovereignty controls on data depends on first classifying it. Before an organization can apply those controls, it must know what data it has, where it resides, and what jurisdictional requirements govern its storage, processing, retention, and access. Sovereignty classification goes beyond standard sensitivity labels to include jurisdiction-specific attributes such as data residency requirements, applicable regulatory frameworks, and cross-border transfer restrictions. 
 

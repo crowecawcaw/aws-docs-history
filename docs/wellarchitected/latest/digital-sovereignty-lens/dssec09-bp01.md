@@ -1,7 +1,6 @@
 
 
 # DSSEC09-BP01 Integrate compliance requirements into incident response
-<a name="dssec09-bp01"></a>
 
  Organizations embed regulatory and compliance requirements into incident response planning and execution to support timely incident reporting, evidence preservation, and regulatory authority notification. This best practice provides guidance on how organizations meet compliance obligations while containing and remediating incidents. By aligning incident response capabilities with specific regulatory requirements, organizations demonstrate adherence during incident investigations and audits. 
 

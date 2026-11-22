@@ -1,7 +1,6 @@
 
 
 # DSREL02-BP01 Implement continuous third-party risk management (TPRM) processes
-<a name="dsrel02-bp01"></a>
 
  In highly regulated industries, a structured third-party risk management (TPRM) process is essential to mitigate risks associated with third-party vendors and service providers. Vendors can introduce sovereignty risks through data processed in non-approved jurisdictions, operators accessing systems from foreign locations, or sub-processors that don't adhere to data residency requirements. 
 

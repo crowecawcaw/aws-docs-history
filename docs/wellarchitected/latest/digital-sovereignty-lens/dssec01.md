@@ -1,7 +1,6 @@
 
 
 # Security foundations
-<a name="dssec01"></a>
 
  Sovereign workloads carry regulatory obligations that span data residency, jurisdictional access, and continuous compliance. These obligations are easier to meet when security and sovereignty controls are part of the architecture from initial deployment rather than added later. A security foundation supplies automated guardrails, standardized baselines, and pre-configured compliance frameworks, so teams can deploy new workloads without rebuilding controls each time. 
 

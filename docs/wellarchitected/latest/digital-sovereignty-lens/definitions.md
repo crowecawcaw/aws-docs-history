@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 
  This document contains sovereignty-specific definitions and terminology used across the AWS Well-Architected Digital Sovereignty Lens pillars. Terms with established AWS definitions are linked rather than redefined. 
 +  **Data residency**: The requirement of keeping data in a certain jurisdiction. 

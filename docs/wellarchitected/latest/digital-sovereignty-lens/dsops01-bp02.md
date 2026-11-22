@@ -1,7 +1,6 @@
 
 
 # DSOPS01-BP02 Enable distributed compliance execution
-<a name="dsops01-bp02"></a>
 
  Effective compliance at scale requires distributing responsibilities across teams while maintaining centralized oversight and standards. Traditional centralized compliance models create bottlenecks that slow business velocity and limit an organization's ability to respond quickly to regulatory changes across jurisdictions. 
 

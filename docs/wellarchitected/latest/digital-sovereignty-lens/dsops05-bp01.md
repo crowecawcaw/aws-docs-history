@@ -1,7 +1,6 @@
 
 
 # DSOPS05-BP01 Enable independent root cause analysis and remediation
-<a name="dsops05-bp01"></a>
 
  When compliance findings are routed to a central team for investigation, remediation slows down and the central team becomes a bottleneck. When regional and account teams can independently investigate and resolve compliance findings within their scope, they reduce mean time to remediation and free specialized security expertise for complex issues. 
 
@@ -47,7 +46,7 @@
 **Note**  
  The code snippets shown here are for illustration only and may not be accurate. Validate against your own environment and requirements unique to your workload. 
 
-     ```
+     ```json
      {
        "AwsAccountId": "XXXXXXX",
        "Compliance": {

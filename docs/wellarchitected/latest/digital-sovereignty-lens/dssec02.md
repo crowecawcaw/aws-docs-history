@@ -1,7 +1,6 @@
 
 
 # Access control within sovereign boundaries
-<a name="dssec02"></a>
 
  A single control layer isn't sufficient to protect sovereign data. Network controls alone can't enforce identity rules, and identity controls alone can't account for network paths. To protect data within its sovereign boundary, you need layered preventive controls that verify identity, constrain network paths, and restrict resource-level access in proportion to data sensitivity and jurisdictional requirements. 
 

@@ -1,7 +1,6 @@
 
 
 # DSPERF01-BP01 Evaluate sovereign solutions using a data-driven approach
-<a name="dsperf01-bp01"></a>
 
  Sovereign workloads require architecture decisions grounded in evidence rather than assumptions. This best practice establishes a three-stage evaluation approach (baseline your sovereignty requirements, define what you expect from your service providers, and document what you need to build on top) that can be tailored to your organization's regulatory environment, risk appetite, and operational maturity. 
 

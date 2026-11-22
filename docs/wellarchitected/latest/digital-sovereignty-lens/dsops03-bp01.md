@@ -1,7 +1,6 @@
 
 
 # DSOPS03-BP01 Plan and prepare for audits
-<a name="dsops03-bp01"></a>
 
  Organizations face audits from multiple regulatory authorities with different evidence requirements, timelines, and scoping criteria, whether within a single jurisdiction or across several. Proactive audit planning and consistent tooling reduce disruption and provide confidence that evidence is complete, accessible, and stored within approved jurisdictions. 
 

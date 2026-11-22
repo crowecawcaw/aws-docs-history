@@ -1,7 +1,6 @@
 
 
 # DSSEC06-BP01 Classify data with sovereignty attributes
-<a name="dssec06-bp01"></a>
 
  Data sovereignty attributes are typically derived from storage, processing, retention, handling, geo-location, transmission, and access control requirements. Attach these attributes as metadata to your datasets. When combined with data classification tags, these attributes can be used to enforce policy as code (PaC), build verifiable identity policies, and implement fine-grained access controls. Metadata is typically expressed as labels, tags, or model parameters and is attached to your resources. 
 

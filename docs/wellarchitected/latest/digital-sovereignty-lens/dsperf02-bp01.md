@@ -1,7 +1,6 @@
 
 
 # DSPERF02-BP01 Validate third-party software components for sovereignty compliance
-<a name="dsperf02-bp01"></a>
 
  Third-party software components (open source libraries, commercial SDKs, and proprietary middleware) can introduce sovereignty risks that standard security scanning doesn't detect. Licensing restrictions, supply chain provenance, runtime behavior, and jurisdiction-specific certification requirements each affect whether a component is suitable for use in a regulated environment. 
 

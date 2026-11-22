@@ -1,7 +1,6 @@
 
 
 # Third-party sovereignty risk management
-<a name="dsrel02"></a>
 
  Third-party vendors can introduce sovereignty risks that remain invisible until an audit or incident exposes them. Data processed in non-approved jurisdictions, operators accessing systems from foreign locations, and sub-processors that don't adhere to data residency requirements are common examples. Standard vendor risk assessments focus on security posture and financial stability but miss sovereignty-specific concerns. 
 
