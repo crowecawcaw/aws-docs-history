@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Security in Amazon Q Developer in chat applications
-<a name="security"></a>
 
  At AWS, cloud security is our highest priority. As an AWS customer, you benefit from a data center and network architecture that we build to meet the requirements of the most security-sensitive organizations.
 

@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Tutorial: Subscribing an Amazon SNS topic to Amazon Q Developer in chat applications
-<a name="subscribe-sns-topic"></a>
 
 You can quickly subscribe existing Amazon SNS topics to the Amazon Q Developer in chat applications. You associate the new subscriptions to a chat channel. After doing so, the messages from those topics appear in the channel. The Amazon SNS topics must be associated with AWS services that Amazon Q Developer in chat applications supports, and may also require further configuration, such as association with a CloudWatch rule. This procedure is most useful if you have Amazon SNS topics that are already doing significant work with CloudWatch Events and CloudWatch alarms in AWS cloud services supported by Amazon Q Developer in chat applications.
 

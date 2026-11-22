@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Editing an IAM role for Amazon Q Developer in chat applications
-<a name="editing-iam-roles-for-chatbot"></a>
 
 You can create new IAM roles in the Amazon Q Developer in chat applications console. You associate these roles with your chat channels or Amazon Chime webhooks. The Amazon Q Developer in chat applications console does not allow editing of IAM roles, including any roles that you've already created in the Amazon Q Developer in chat applications console.
 
@@ -89,7 +88,7 @@ You can use these IAM policies as templates to define your own policies. For exa
 
 You can define custom permissions in a policy to limit actions to specific resources in your AWS account. These are called *resource-based permissions*. For more information on defining resources in a policy, see the section [IAM JSON Policy Elements: Resource](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_resource.html) in the *IAM User Guide*.
 
-For more information on these policies, see [Configuring an IAM Role for Amazon Q Developer in chat applications](#editing-iam-roles-for-chatbot).
+For more information on these policies, see [Configuring an IAM Role for Amazon Q Developer in chat applications](editing-iam-roles-for-chatbot.md).
 
 ### Using the Amazon Q Developer in chat applications read-only command permissions policy
 <a name="about-readonlycommand-chatbot-policy"></a>
@@ -114,7 +113,7 @@ The **ReadOnly Command Permissions** policy JSON code is shown following:
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -161,7 +160,7 @@ The following example shows the **Lambda-Invoke Command Permissions** policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

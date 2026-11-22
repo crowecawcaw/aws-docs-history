@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Troubleshooting Amazon Q Developer in chat applications
-<a name="chatbot-troubleshooting"></a>
 
 Amazon Q Developer in chat applications operates with multiple AWS services, including Amazon CloudWatch, Amazon GuardDuty, and CloudFormation. If you encounter issues when trying to receive notifications, see the following topic for troubleshooting help.
 
@@ -29,7 +28,7 @@ If you configured your AWS service to send notifications to the Amazon Simple No
 
   If you have server-side encryption enabled for your Amazon SNS topics, you must give permissions to the sending services in your AWS KMS key policy to post events to the encrypted SNS topics. The following policy is an example for EventBridge.
 
-  ```
+  ```json
   {
     "Sid": "Allow CWE to use the key",
     "Effect": "Allow",
@@ -117,7 +116,7 @@ For example, the policy below allows Amazon Q Developer in chat applications in 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

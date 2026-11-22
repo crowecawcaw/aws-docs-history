@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Tutorial: Using Amazon Q Developer in chat applications to run an AWS Lambda function remotely
-<a name="chatbot-run-lambda-function-remotely-tutorial"></a>
 
 In this tutorial you use Amazon Q Developer in chat applications to run a Lambda function remotely and check the status of the Lambda function using Amazon CloudWatch. A Lambda function is a self contained block of organized resuable code that you write. Lambda functions are useful because they are run without provisioning or managing servers. Additionally, they are only invoked when needed based on your specifications. There are steps at the end of this tutorial to delete the resources you created. 
 
@@ -55,7 +54,7 @@ In this procedure you create a Lambda function in the console and test it.
 
 1. Copy and paste the following example code into `index.js`.
 
-   ```
+   ```javascript
    export const handler = async (event) => {
      // TODO implement
      const response = 'Hello World!'
@@ -235,7 +234,7 @@ Amazon Q Developer in chat applications also supports certain simplified AWS CLI
 
 1. The following output is shown:
 
-   ```
+   ```javascript
    ExecutedVersion: $LATEST
    Payload: \"Hello World\"
    StatusCode: 200
@@ -261,7 +260,7 @@ In this step, you update the myHelloWorld function so that it returns an error, 
 
 1. Copy and paste the following example code into the Lambda function code:
 
-   ```
+   ```javascript
    exports.handler = async (event) => {
        throw new Error('this is an error');
    };

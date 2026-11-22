@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Getting help from Amazon Q Developer in chat applications
-<a name="getting-help"></a>
 
 You can ask Amazon Q Developer in chat applications for help by entering `@Amazon Q help`. You can choose any of the following buttons to receive additional information about their respective topics.
 

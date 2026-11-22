@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Conversing with your Amazon Bedrock Agent connectors using Amazon Q Developer in chat applications
-<a name="bedrock-converse"></a>
 
 To start a conversation with your agent, run:
 

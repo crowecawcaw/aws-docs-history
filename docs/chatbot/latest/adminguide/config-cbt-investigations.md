@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Tutorial: Configuring Amazon Q Developer operational investigations in chat applications
-<a name="config-cbt-investigations"></a>
 
 To set up Amazon Q operational investigations in your chat applications, you must add the following policies to enable two-way communication between investigations and Amazon Q Developer in chat applications. You can add these policies during step 2 of the Amazon Q Developer in chat applications channel configuration process for [Slack](slack-setup.md#slack-client-setup2) and [Microsoft Teams](teams-setup.md#teams-client-setup-2) when you define your user permissions or by editing your configurations' **Permissions** in the Amazon Q Developer in chat applications console.
 + Add **Notification permissions** and **Amazon Q operations assistant permissions** as policy templates when you define your user permissions. For more information about Channel role templates, see [Role setting](understanding-permissions.md#role-settings). 

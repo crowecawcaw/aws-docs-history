@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Amazon Q Developer in chat applications Service-linked role for performing operations on Amazon SNS topics and CloudWatch Logs
-<a name="slr-permissions"></a>
 
 Amazon Q Developer uses the service-linked role named **AWSServiceRoleForAWSChatbot**. This is a managed IAM policy with scoped permissions that Amazon Q Developer in chat applications needs to run in customers’ accounts.
 
@@ -30,7 +29,7 @@ When you create an Amazon Q Developer in chat applications configuration, it cre
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

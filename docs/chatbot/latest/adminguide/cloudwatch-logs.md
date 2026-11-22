@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Accessing Amazon CloudWatch Logs for Amazon Q Developer in chat applications
-<a name="cloudwatch-logs"></a>
 
 **Note**  
 AWS Chatbot has integrated with Amazon Q Developer. [Learn more](service-rename.md)

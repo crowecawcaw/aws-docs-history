@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Managing AWS Support cases from chat channels using Amazon Q Developer in chat applications
-<a name="manage-support-cases"></a>
 
 You can use Amazon Q Developer in chat applications to monitor and respond to your AWS Support cases in your Microsoft Teams and Slack chat channels. A support case is a way for you to connect with technical support and get help with AWS service-related technical issues. You can use the on-screen action buttons to interact with your support cases. Actions you can perform include viewing correspondence (case history), resolving your case, and replying to your case. You can create support cases using Amazon Q Developer in chat applications and the AWS Management Console. For more information, see [Creating an AWS Support case using Amazon Q Developer in chat applications](Things-to-know-about-cli.md#create-a-support-case) and [Creating support cases and case management](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html) in the *AWS Support User Guide* respectively.
 

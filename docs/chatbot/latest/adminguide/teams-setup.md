@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Tutorial: Get started with Microsoft Teams
-<a name="teams-setup"></a>
 
 To get started using Amazon Q Developer in chat applications to help manage your AWS infrastructure, follow the steps below to set up Amazon Q Developer in chat applications with chat channels and Amazon SNS topic subscriptions. Note that Amazon Q Developer in chat applications is approved by your Microsoft Teams administrator.
 

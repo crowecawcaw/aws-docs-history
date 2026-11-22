@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Managing user roles as a channel member in Amazon Q Developer in chat applications
-<a name="cm-container"></a>
 
 Channel members can switch their user roles from their chat channels. Additionally, channel members can unmap user roles from chat client IDs using the Amazon Q Developer in chat applications console.
 

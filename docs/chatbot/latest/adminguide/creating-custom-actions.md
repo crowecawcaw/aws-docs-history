@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Creating a custom action using Amazon Q Developer in chat applications
-<a name="creating-custom-actions"></a>
 
  You can create custom actions using AWS CLI commands, Automation runbooks and Lambda functions in your account, or by using the [Amazon Q Developer in chat applications in chat applications API](https://docs.aws.amazon.com/chatbot/latest/APIReference/Welcome.html). AWS CLI command Shortcuts function similarly to [Command aliases](creating-aliases.md). 
 

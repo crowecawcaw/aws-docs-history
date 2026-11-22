@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Managing IAM roles for Amazon Q Developer in chat applications
-<a name="manage-user-roles"></a>
 
 You can manage the IAM roles used as channel and user roles by editing them. You can further manage your user roles depending on your user type.
 

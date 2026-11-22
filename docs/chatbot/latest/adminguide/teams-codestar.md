@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Tutorial: Create or configure an Amazon Simple Notification Service topic as a notification target for Microsoft Teams and AWS CodeStar
-<a name="teams-codestar"></a>
 
 The notifications feature in the Developer Tools console is a notifications manager for subscribing to events in AWS CodeBuild, AWS CodeCommit, AWS CodeDeploy, and AWS CodePipeline. It has its own API, AWS CodeStar. Notification rule targets defined within AWS CodeStar are currently Amazon SNS topics or Amazon Q Developer in chat applications clients configured for Slack channels, but not Amazon Q Developer in chat applications clients configured for Microsoft Teams. However, to receive notifications about resources of interest in Microsoft Teams, you can use an Amazon SNS topic as a target in both your Microsoft Teams channel configuration and your AWS CodeStar notification rules. This tutorial describes two methods to achieve this:
 + [Configure an existing Amazon SNS topic to use as a notification target](#teams-codestar-configure-teams).

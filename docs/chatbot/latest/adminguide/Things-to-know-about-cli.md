@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Running commands using Amazon Q Developer in chat applications
-<a name="Things-to-know-about-cli"></a>
 
 Amazon Q Developer in chat applications tracks your use of command options and prompts you for any missing parameters before it runs the command you want. 
 
@@ -93,7 +92,7 @@ The policy's JSON code is shown following:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Tutorial: Creating an Amazon EventBridge rule that sends notifications to Amazon Q Developer in chat applications
-<a name="create-eventbridge-rule"></a>
 
 Amazon Q Developer in chat applications currently supports notifications for most service events that are handled by Amazon EventBridge. When you create a rule for events, you tell EventBridge what action to take for events that match the rule. In this tutorial, you create a rule to use Amazon Q Developer in chat applications to generate an Amazon SNS topic notification that will appear in your Microsoft Teams channel, Slack channel or Amazon Chime chatroom.
 

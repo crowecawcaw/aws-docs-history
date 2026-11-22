@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Amazon Q Developer in chat applications organization policies
-<a name="chatbot-orgs-policy"></a>
 
 Organization administrators can manage multiple Amazon Q Developer in chat applications settings across all accounts within an organization using Amazon Q Developer in chat applications chat applications policies (chat applications policies). Chat applications policies define where Amazon Q Developer in chat applications can deliver notifications and if it can respond to Amazon Q Developer in chat applications mention events. Using chat applications policies, administrators can:
 + Enforce which chat platforms can be used across your organization (Amazon Chime, Microsoft Teams, and Slack)
@@ -34,7 +33,7 @@ Chat application policies are limited to AWS account access to Amazon Q Develope
 
 The following policy allows restricted Amazon Q Developer in chat applications access for selected Slack workspaces and a Microsoft Teams tenant.
 
-```
+```json
 {
     "chatbot":{
        "platforms":{

@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # What is Amazon Q Developer in chat applications?
-<a name="what-is"></a>
 
 Amazon Q Developer in chat applications enables DevOps and software development teams to use messaging program chat channels to monitor and respond to operational events in their AWS Cloud. Amazon Q Developer in chat applications processes AWS service notifications from Amazon Simple Notification Service (Amazon SNS), and forwards them to chat channels so teams can analyze and act on them immediately, regardless of location.
 

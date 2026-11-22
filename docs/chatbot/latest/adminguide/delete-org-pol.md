@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Deleting chat applications policies in Amazon Q Developer in chat applications
-<a name="delete-org-pol"></a>
 
 If you no longer need a Chat applications policy, you can delete it.
 

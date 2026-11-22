@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Tutorial: Creating chat applications policies in Amazon Q Developer in chat applications
-<a name="org-policy-tutorial"></a>
 
 In this tutorial, you use the Amazon Q Developer in chat applications console to create a chat applications policy that:
 + Restricts chat client access to Slack

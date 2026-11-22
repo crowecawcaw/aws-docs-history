@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Monitoring in Amazon Q Developer in chat applications
-<a name="monitoring"></a>
 
 You can use Amazon Q Developer in chat applications to monitor:
 + AWS services

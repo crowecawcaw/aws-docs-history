@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Logging Amazon Q Developer in chat applications API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 **Note**  
 AWS Chatbot has integrated with Amazon Q Developer. [Learn more](service-rename.md)
@@ -44,7 +43,7 @@ CloudTrail log files contain one or more log entries. An event represents a sing
 
 The following example shows a CloudTrail log entry for the Amazon Q Developer in chat applications `DescribeSlackChannels` action.
 
-```
+```json
       
 {
     "eventVersion": "1.05",

@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # AWS CLI command syntax in Amazon Q Developer in chat applications
-<a name="intro-to-the-aws-cli-in-slack"></a>
 
 After you set up the Amazon Q Developer in chat applications, you run commands with the following prefix:
 

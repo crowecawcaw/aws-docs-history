@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # IAM resource-level permissions for Amazon Q Developer
-<a name="security_iam_service-with-iam-resource-based-policies"></a>
 
 *Resource-level permissions* define the AWS resources on which you allow assigned entities (users, groups, and roles) to perform actions. You specify the Amazon Resource Name (ARN) of one or more resources as part of an IAM policy, which you can then attach to IAM entities. 
 
@@ -65,7 +64,7 @@ To add a resource-level permission to a policy, include the channel's ARN in a n
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

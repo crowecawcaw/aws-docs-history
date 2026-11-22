@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Getting started with Amazon Q Developer in chat applications
-<a name="getting-started"></a>
 
 To get started using Amazon Q Developer in chat applications to help manage your AWS infrastructure, follow the steps below to set up Amazon Q Developer in chat applications with chat channels and Amazon SNS topic subscriptions.
 
@@ -83,7 +82,7 @@ Amazon Q Developer in chat applications doesn't support SNS FIFO topics because 
 
 If you have server-side encryption enabled for your Amazon SNS topics, you must give permissions to the sending services in your AWS KMS key policy to post events to the encrypted SNS topics. The following policy is an example for Amazon EventBridge.
 
-```
+```json
 {
   "Sid": "Allow CWE to use the key",
   "Effect": "Allow",

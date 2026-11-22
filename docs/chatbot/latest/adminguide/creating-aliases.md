@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Creating and using command aliases in chat channels
-<a name="creating-aliases"></a>
 
 Amazon Q Developer in chat applications supports the creation of command aliases to make running commonly used CLI commands easier. A command alias is a custom shortcut or shorthand representation of a CLI command that you define. A command alias can be configured to include one or more custom parameters. Additional target actions can be included as part of the alias definition. 
 

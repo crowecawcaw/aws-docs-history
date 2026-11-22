@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Tutorial: Get started with Slack
-<a name="slack-setup"></a>
 
 **Note**  
 To install the Slack application, sign in to your AWS account in the AWS Management Console. Then navigate to the Amazon Q Developer in chat applications console and choose **Configure new client**. The following steps detail the full setup process.

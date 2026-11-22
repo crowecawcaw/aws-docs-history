@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Test notifications from AWS services to chat channels using CloudWatch
-<a name="test-notifications-cw"></a>
 
 To verify that an Amazon Simple Notification Service (Amazon SNS) topic sends notifications to your chat channels, you can test your setup by sending a notification. Any SNS topic can send notifications to your chat channels, but the topic must be assigned to a service supported by Amazon Q Developer in chat applications. For more information about supported services, see [Supported services for Amazon Q Developer in chat applications](chatbot-services.md).
 

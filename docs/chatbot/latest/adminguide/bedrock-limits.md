@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Quotas for Amazon Bedrock in Amazon Q Developer in chat applications
-<a name="bedrock-limits"></a>
 
 Your AWS account has the following default quotas, formerly referred to as limits, for Amazon Bedrock.
 

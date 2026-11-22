@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Service control policies (SCPs) for Amazon Q Developer in chat applications
-<a name="scp"></a>
 
 Service control policies (SCPs) are a type of organization policy that you can use to manage permissions in your organization. SCPs offer central control over the maximum available permissions for the IAM users and IAM roles in your organization. For more information, [Service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) in the *AWS Organizations User Guide*.
 
@@ -25,7 +24,7 @@ SCPs for Amazon Q Developer in chat applications are limited to Amazon Q Develop
 
 The following SCP denies all IAM operations invoked through all Amazon Q Developer in chat applications configurations.
 
-```
+```json
 {
     "Effect": "Deny",
     "Action": "iam:*",
@@ -48,7 +47,7 @@ The following SCP denies S3 put requests on the specified bucket for all request
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

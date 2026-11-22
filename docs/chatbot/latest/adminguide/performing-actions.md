@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Performing actions using Amazon Q Developer in chat applications
-<a name="performing-actions"></a>
 
 Actions you can perform include:
 + Getting help

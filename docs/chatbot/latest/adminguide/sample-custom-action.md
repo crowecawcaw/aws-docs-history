@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Sample use cases
-<a name="sample-custom-action"></a>
 
 This page includes examples of functional use cases for custom actions that you can leverage for your specific needs.
 
@@ -12,7 +11,7 @@ This page includes examples of functional use cases for custom actions that you 
 
  You can use custom notifications to specify metadata for your custom actions. Custom actions display this information as variables that you define in the payload. Before you run a custom action, you're shown a complete summary of that action and its payload. In the following example, a custom notification for allow listing an IP address contains an IP address as metadata: 
 
-```
+```json
 {
     "version": "1.0",
     "source": "custom",
@@ -30,7 +29,7 @@ This page includes examples of functional use cases for custom actions that you 
 
  If you create a custom action based on this notification, `{"message": "I'ved allow listed IP address: $IPAddress"}` is shown as an available notification variable that you can use in your payload. For example, the following Lambda action payload displays the message and the IP address variable. 
 
-```
+```json
 {"message": "I'ved allow listed IP address: $IPAddress"}
 ```
 

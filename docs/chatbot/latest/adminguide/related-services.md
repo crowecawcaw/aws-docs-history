@@ -3,7 +3,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Monitoring AWS services using Amazon Q Developer in chat applications
-<a name="related-services"></a>
 
 You can use Amazon Q Developer in chat applications to monitor and receive notifications about other AWS services. Amazon Q Developer in chat applications works with a number of AWS services, including [Amazon CloudWatch](https://console.aws.amazon.com/cloudwatch/), [AWS Security Hub CSPM](https://console.aws.amazon.com/securityhub/), and [Amazon GuardDuty](https://console.aws.amazon.com/guardduty/). All services that work with Amazon Q Developer in chat applications use [Amazon SNS topics](https://docs.aws.amazon.com/sns/latest/dg/) as targets to send event and alarm notifications. You may already have established Amazon SNS topics that send notifications to DevOps and development personnel as emails. Because Amazon Q Developer in chat applications redirects those Amazon SNS topics' notifications to chat rooms, you can map those Amazon SNS topics to an Amazon Chime webhook, Microsoft Teams channel, or Slack channel in the Amazon Q Developer in chat applications console.
 
