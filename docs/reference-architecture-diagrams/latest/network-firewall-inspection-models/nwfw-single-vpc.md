@@ -1,7 +1,6 @@
 
 
 # Traffic Inspection with AWS Network Firewall
-<a name="nwfw-single-vpc"></a>
 
 Publication date: **March 16, 2022 ([Diagram history](#nwfw1-diagram-history))**
 

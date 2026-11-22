@@ -1,7 +1,6 @@
 
 
 # East-West Inspection with AWS Network Firewall and AWS Transit Gateway
-<a name="nwfw-east-west"></a>
 
 Publication date: **March 16, 2022 ([Diagram history](#nwfw3-diagram-history))**
 

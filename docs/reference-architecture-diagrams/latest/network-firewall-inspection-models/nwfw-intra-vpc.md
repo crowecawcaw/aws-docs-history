@@ -1,7 +1,6 @@
 
 
 # Intra-VPC Inspection with AWS Network Firewall
-<a name="nwfw-intra-vpc"></a>
 
 Publication date: **March 16, 2022 ([Diagram history](#nwfw2-diagram-history))**
 

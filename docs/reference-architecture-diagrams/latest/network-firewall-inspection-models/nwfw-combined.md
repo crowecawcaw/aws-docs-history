@@ -1,7 +1,6 @@
 
 
 # Combined Inspection with AWS Network Firewall and AWS Transit Gateway
-<a name="nwfw-combined"></a>
 
 Publication date: **March 16, 2022 ([Diagram history](#nwfw5-diagram-history))**
 

@@ -1,7 +1,6 @@
 
 
 # North-South Inspection with AWS Network Firewall and AWS Transit Gateway
-<a name="nwfw-north-south"></a>
 
 Publication date: **March 16, 2022 ([Diagram history](#nwfw4-diagram-history))**
 
