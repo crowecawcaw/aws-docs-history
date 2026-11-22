@@ -1,7 +1,6 @@
 
 
 # Operations
-<a name="operations"></a>
 
 The AWS Serverless Application Repository REST API includes the following operations.
 + [CreateApplication](applications.md#CreateApplication)

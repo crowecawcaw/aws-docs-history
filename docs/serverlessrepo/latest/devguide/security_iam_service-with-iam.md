@@ -1,7 +1,6 @@
 
 
 # How the AWS Serverless Application Repository Works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to the AWS Serverless Application Repository, you should understand what IAM features are available to use with the AWS Serverless Application Repository.
 
@@ -25,7 +24,7 @@ The following shows an example of a permissions policy.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -74,7 +73,7 @@ Policy actions in the AWS Serverless Application Repository use the following pr
 
 To specify multiple actions in a single statement, separate them with commas as follows:
 
-```
+```json
 "Action": [
       "serverlessrepo:action1",
       "serverlessrepo:action2"
@@ -83,7 +82,7 @@ To specify multiple actions in a single statement, separate them with commas as 
 
 You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `List`, include the following action:
 
-```
+```json
 "Action": "serverlessrepo:List*"
 ```
 
@@ -119,7 +118,7 @@ The following is an example policy that grants permissions for the `serverlessre
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Applications applicationId Templates
-<a name="applications-applicationid-templates"></a>
 
 ## URI
 <a name="applications-applicationid-templates-url"></a>
@@ -63,7 +62,7 @@ Creates an AWS CloudFormation template.
 #### POST schema
 <a name="applications-applicationid-templates-request-body-post-example"></a>
 
-```
+```json
 {
   "semanticVersion": "string"
 }
@@ -75,7 +74,7 @@ Creates an AWS CloudFormation template.
 #### TemplateDetails schema
 <a name="applications-applicationid-templates-response-body-templatedetails-example"></a>
 
-```
+```json
 {
   "templateId": "string",
   "templateUrl": "string",
@@ -90,7 +89,7 @@ Creates an AWS CloudFormation template.
 #### BadRequestException schema
 <a name="applications-applicationid-templates-response-body-badrequestexception-example"></a>
 
-```
+```json
 {
   "message": "string",
   "errorCode": "string"
@@ -100,7 +99,7 @@ Creates an AWS CloudFormation template.
 #### ForbiddenException schema
 <a name="applications-applicationid-templates-response-body-forbiddenexception-example"></a>
 
-```
+```json
 {
   "message": "string",
   "errorCode": "string"
@@ -110,7 +109,7 @@ Creates an AWS CloudFormation template.
 #### NotFoundException schema
 <a name="applications-applicationid-templates-response-body-notfoundexception-example"></a>
 
-```
+```json
 {
   "message": "string",
   "errorCode": "string"
@@ -120,7 +119,7 @@ Creates an AWS CloudFormation template.
 #### TooManyRequestsException schema
 <a name="applications-applicationid-templates-response-body-toomanyrequestsexception-example"></a>
 
-```
+```json
 {
   "message": "string",
   "errorCode": "string"
@@ -130,7 +129,7 @@ Creates an AWS CloudFormation template.
 #### InternalServerErrorException schema
 <a name="applications-applicationid-templates-response-body-internalservererrorexception-example"></a>
 
-```
+```json
 {
   "message": "string",
   "errorCode": "string"

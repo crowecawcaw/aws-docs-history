@@ -1,7 +1,6 @@
 
 
 # How to Publish Applications
-<a name="serverlessrepo-how-to-publish"></a>
 
 This section provides you with procedures for publishing your serverless application to the AWS Serverless Application Repository by using the AWS SAM CLI or the AWS Management Console. It also shows you how to share your application to allow others to deploy it, and deleting your application from the AWS Serverless Application Repository.
 
@@ -45,7 +44,7 @@ Before you publish an application to the AWS Serverless Application Repository, 
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [

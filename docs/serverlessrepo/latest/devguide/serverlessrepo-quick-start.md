@@ -1,7 +1,6 @@
 
 
 # Quick Start: Publishing Applications
-<a name="serverlessrepo-quick-start"></a>
 
 This guide walks you through the steps to download, build, test and publish an example serverless application to the AWS Serverless Application Repository using AWS SAM CLI. You can use this example application as a starting point for developing and publishing your own serverless application.
 
@@ -123,13 +122,13 @@ In the following steps, you create a .zip file for the contents of the `hello_wo
 
 1. Create an S3 bucket in the location where you want to save the packaged code. If you want to use an existing S3 bucket, skip this step.
 
-   ```
+   ```sh
    sam-app> aws s3 mb s3://{{bucketname}}
    ```
 
 1. Create the Lambda function deployment package by running the following `package` AWS SAM CLI command. 
 
-   ```
+   ```sh
    sam-app> sam package \
        --template-file template.yaml \
        --output-template-file packaged.yaml \
@@ -141,7 +140,7 @@ In the following steps, you create a .zip file for the contents of the `hello_wo
    + Uploads the deployment package, README file, and LICENSE file to the Amazon S3 bucket specified by the `--s3-bucket` option.
    + Outputs a new template file, called `packaged.yaml`, which you use in the next step to publish the application to AWS Serverless Application Repository. The `packaged.yaml` template file is similar to the original template file (`template.yaml`), but has a key difference—the `CodeUri`, `LicenseUrl`, and `ReadmeUrl` properties point to the Amazon S3 bucket and objects that contains the respective artifacts. The following snippet from an example `packaged.yaml` template file shows the `CodeUri` property: 
 
-     ```
+     ```yaml
      HelloWorldFunction:
          Type: AWS::Serverless::Function # For more information about function resources, see https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
          Properties:

@@ -1,7 +1,6 @@
 
 
 # List of Supported AWS Resources
-<a name="list-supported-resources"></a>
 
 This is the complete list of AWS resources that are supported by the AWS Serverless Application Repository.
 + `AWS::AccessAnalyzer::Analyzer`

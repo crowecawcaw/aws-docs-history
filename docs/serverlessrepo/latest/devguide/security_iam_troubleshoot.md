@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS Serverless Application Repository Identity and Access
-<a name="security_iam_troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with the AWS Serverless Application Repository and IAM.
 
@@ -18,7 +17,7 @@ If the AWS Management Console tells you that you're not authorized to perform an
 
 The following example error occurs when the `mateojackson` IAM user tries to use the console to view details about an application but doesn't have `serverlessrepo:{{GetApplication}}` permissions.
 
-```
+```text
 User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: serverlessrepo:{{GetApplication}} on resource: {{my-example-application}}
 ```
 

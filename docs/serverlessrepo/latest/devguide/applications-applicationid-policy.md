@@ -1,7 +1,6 @@
 
 
 # Applications applicationId Policy
-<a name="applications-applicationid-policy"></a>
 
 ## URI
 <a name="applications-applicationid-policy-url"></a>
@@ -89,7 +88,7 @@ Sets the permission policy for an application. For the list of actions supported
 #### PUT schema
 <a name="applications-applicationid-policy-request-body-put-example"></a>
 
-```
+```json
 {
   "statements": [
     {
@@ -114,7 +113,7 @@ Sets the permission policy for an application. For the list of actions supported
 #### ApplicationPolicy schema
 <a name="applications-applicationid-policy-response-body-applicationpolicy-example"></a>
 
-```
+```json
 {
   "statements": [
     {
@@ -136,7 +135,7 @@ Sets the permission policy for an application. For the list of actions supported
 #### BadRequestException schema
 <a name="applications-applicationid-policy-response-body-badrequestexception-example"></a>
 
-```
+```json
 {
   "message": "string",
   "errorCode": "string"
@@ -146,7 +145,7 @@ Sets the permission policy for an application. For the list of actions supported
 #### ForbiddenException schema
 <a name="applications-applicationid-policy-response-body-forbiddenexception-example"></a>
 
-```
+```json
 {
   "message": "string",
   "errorCode": "string"
@@ -156,7 +155,7 @@ Sets the permission policy for an application. For the list of actions supported
 #### NotFoundException schema
 <a name="applications-applicationid-policy-response-body-notfoundexception-example"></a>
 
-```
+```json
 {
   "message": "string",
   "errorCode": "string"
@@ -166,7 +165,7 @@ Sets the permission policy for an application. For the list of actions supported
 #### TooManyRequestsException schema
 <a name="applications-applicationid-policy-response-body-toomanyrequestsexception-example"></a>
 
-```
+```json
 {
   "message": "string",
   "errorCode": "string"
@@ -176,7 +175,7 @@ Sets the permission policy for an application. For the list of actions supported
 #### InternalServerErrorException schema
 <a name="applications-applicationid-policy-response-body-internalservererrorexception-example"></a>
 
-```
+```json
 {
   "message": "string",
   "errorCode": "string"

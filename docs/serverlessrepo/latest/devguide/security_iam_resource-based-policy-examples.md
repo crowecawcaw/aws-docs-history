@@ -1,7 +1,6 @@
 
 
 # AWS Serverless Application Repository Application Policy Examples
-<a name="security_iam_resource-based-policy-examples"></a>
 
 Permissions policies attached to AWS Serverless Application Repository applications are referred to as *application policies*. Application policies determine the actions that a specified principal or principalOrg can perform on an AWS Serverless Application Repository application.
 
@@ -60,7 +59,7 @@ All of the examples in this section use these AWS CLI commands to manage permiss
 
 To share an application with another specific account, but keep it from being shared with others, you specify the AWS account ID that you want to share with as the principal. This is also known as setting the application to *privately shared*. To do this, use the following AWS CLI command.
 
-```
+```sh
 aws serverlessrepo put-application-policy \
 --region {{region}} \
 --application-id {{application-arn}} \
@@ -75,7 +74,7 @@ aws serverlessrepo put-application-policy \
 
 To make an application public, you share it with everyone by specifying "\*" as the principal, as in the following example. Applications that are shared publicly are available in all Regions.
 
-```
+```sh
 aws serverlessrepo put-application-policy \
 --region {{region}} \
 --application-id {{application-arn}} \
@@ -90,7 +89,7 @@ In order to share an application publicly, it must have both the `SemanticVersio
 
 You can make an application private, so it's not shared with anyone and can only be deployed by the AWS account that owns it. To do so, you clear out the principals and actions from the policy, which also removes permissions from other accounts within your AWS organization from deploying your application.
 
-```
+```sh
 aws serverlessrepo put-application-policy \
 --region {{region}} \
 --application-id {{application-arn}} \
@@ -105,7 +104,7 @@ aws serverlessrepo put-application-policy \
 
 You can grant multiple permissions, and you can grant them to more than one AWS account at a time. To do this, you specify lists as the principal and actions, as shown in the following example.
 
-```
+```sh
 aws serverlessrepo put-application-policy \
 --region {{region}} \
 --application-id {{application-arn}} \
@@ -117,7 +116,7 @@ aws serverlessrepo put-application-policy \
 
 Permissions can be granted to all users within an AWS organization. You do this by specifying your organization ID, as in the following example.
 
-```
+```sh
 aws serverlessrepo put-application-policy \
 --region {{region}} \
 --application-id {{application-arn}} \
@@ -135,7 +134,7 @@ To share your application with your AWS organization, you must include permissio
 
 Permissions can be granted to specific accounts within an AWS organization. You do this by specifying a list of AWS accounts as the principal, and your organization ID, as in the following example.
 
-```
+```sh
 aws serverlessrepo put-application-policy \
 --region {{region}} \
 --application-id {{application-arn}} \
@@ -151,7 +150,7 @@ To share your application with your AWS organization, you must include permissio
 
 To view an application's current policy, for example to see whether it's currently being shared, you use the `get-application-policy` command, like in the following example.
 
-```
+```sh
 aws serverlessrepo get-application-policy \
 --region {{region}} \
 --application-id {{application-arn}}
@@ -162,7 +161,7 @@ aws serverlessrepo get-application-policy \
 
 Public applications are allowed to be nested by anyone. If you want to only allow your application to be nested by specific accounts, you must set the following minimal permissions, as shown in the following example.
 
-```
+```sh
 aws serverlessrepo put-application-policy \
 --region {{region}} \
 --application-id {{application-arn}} \

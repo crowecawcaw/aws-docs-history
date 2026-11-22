@@ -1,7 +1,6 @@
 
 
 # Application Deployment Permissions
-<a name="application-deployment-permissions"></a>
 
 To deploy an application in the AWS Serverless Application Repository, you must have permission to do so. There are three categories of applications that you have permissions to deploy:
 + **Private** – Applications that were created with the same account, and haven't been shared with any other account. You have permission to deploy applications that were created using your AWS account.

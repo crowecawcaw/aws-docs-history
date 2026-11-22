@@ -1,7 +1,6 @@
 
 
 # Deploying Applications
-<a name="serverlessrepo-consuming-applications"></a>
 
 This section helps you learn how to find and deploy serverless applications that have been published to the AWS Serverless Application Repository. You can browse for applications that are publicly available without having an AWS account by visiting the [public site](https://aws.amazon.com/serverless/serverlessrepo). Alternatively, you can browse for applications from within the AWS Lambda console.
 

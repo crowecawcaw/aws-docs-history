@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources"></a>
 
 The AWS Serverless Application Repository REST API includes the following resources.
 

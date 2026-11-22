@@ -1,7 +1,6 @@
 
 
 # AWS Serverless Application Repository Quotas
-<a name="quotas"></a>
 
 The AWS Serverless Application Repository has a quota for the number of public applications that an AWS account can have in each AWS Region. This quota applies per Region and can be increased. To request an increase, use the [Support Center console](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase).
 

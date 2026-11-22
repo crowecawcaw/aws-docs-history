@@ -1,7 +1,6 @@
 
 
 # Publishing Applications
-<a name="serverlessrepo-publishing-applications"></a>
 
 When you publish a serverless application to the AWS Serverless Application Repository, you make it available for others to find and deploy.
 
