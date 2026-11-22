@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="feed-policies-prerequisites"></a>
 
 Before you can attach a policy to a feed, you must have the following:
 + An existing Elemental Inference feed. For instructions on creating a feed, see [Step A: Create the feed in Elemental Inference](create-feed.md).

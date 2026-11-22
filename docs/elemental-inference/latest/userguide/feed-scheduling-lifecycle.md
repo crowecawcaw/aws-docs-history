@@ -1,7 +1,6 @@
 
 
 # Lifecycle of a schedule action
-<a name="feed-scheduling-lifecycle"></a>
 
 A schedule action has one of the following statuses:
 

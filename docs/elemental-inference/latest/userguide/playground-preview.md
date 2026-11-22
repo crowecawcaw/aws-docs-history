@@ -1,7 +1,6 @@
 
 
 # Previewing all features
-<a name="playground-preview"></a>
 
 Before you start an All features preview, make sure that you have the following:
 + An MP4 video file in Amazon S3, and an Amazon S3 folder for the output.

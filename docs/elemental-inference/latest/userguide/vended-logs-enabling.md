@@ -1,7 +1,6 @@
 
 
 # Enabling logs
-<a name="vended-logs-enabling"></a>
 
 To enable logging, confirm the prerequisites, and then set up delivery in the console or with the CloudWatch Logs API.
 
@@ -20,7 +19,7 @@ In addition, your IAM user or role must include the `elemental-inference:AllowVe
 
 ****  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -77,7 +76,7 @@ In CloudWatch Logs, you create three elements to represent the pieces of log del
 
 1. Call [PutDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html) to create a delivery source for the feed. Pass the feed ARN as the `resourceArn`, and set `logType` to `APPLICATION_LOGS`.
 
-   ```
+   ```json
    {
      "name": "my-feed-delivery-source",
      "resourceArn": "arn:aws:elemental-inference:us-west-2:111122223333:feed/abc123example",

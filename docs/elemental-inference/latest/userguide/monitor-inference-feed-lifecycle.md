@@ -1,7 +1,6 @@
 
 
 # Lifecycle of an AWS Elemental Inference workflow
-<a name="monitor-inference-feed-lifecycle"></a>
 
 When you use Elemental Inference, you create a feed, include one or more outputs, and associate a resource. Each output represents one Elemental Inference feature, such as smart crop. Each resource represents the source media that works with the feed.
 

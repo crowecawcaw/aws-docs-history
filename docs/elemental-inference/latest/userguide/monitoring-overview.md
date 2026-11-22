@@ -1,7 +1,6 @@
 
 
 # Monitoring Elemental Inference activity
-<a name="monitoring-overview"></a>
 
 You can monitor activity in Elemental Inference on the AWS Elemental Inference console or using the AWS CLI or an AWS API or SDK.
 

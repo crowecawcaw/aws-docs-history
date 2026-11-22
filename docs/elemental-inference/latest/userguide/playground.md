@@ -1,7 +1,6 @@
 
 
 # Using the Elemental Inference playground
-<a name="playground"></a>
 
 Use the Elemental Inference playground to try Elemental Inference on an MP4 video file in Amazon S3, without setting up a live feed. Choose one of two kinds of jobs:
 + **Smart Cropping** – AWS Elemental MediaConvert writes a 1080x1920 portrait MP4 (H.264 video, stereo AAC audio) to your Amazon S3 folder. Choose this to get a cropped video file.

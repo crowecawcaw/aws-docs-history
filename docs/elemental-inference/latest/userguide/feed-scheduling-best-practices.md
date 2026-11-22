@@ -1,7 +1,6 @@
 
 
 # Best practices for editing feeds that have schedule actions
-<a name="feed-scheduling-best-practices"></a>
 
 At the scheduled time, Elemental Inference applies the action's operations to the feed's configuration as it is at that time. Elemental Inference doesn't save a copy of the feed configuration when you create the action. If you edit the feed after you create an action, your edit might make the action invalid. For example, if you create an action that targets `event-clip-output`, and then you delete that output, the action fails with `INVALID_ACTION_TARGET` at the scheduled time.
 

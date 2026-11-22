@@ -1,7 +1,6 @@
 
 
 # Accessing Elemental Inference
-<a name="what-is-accessing"></a>
 
 You can access Elemental Inference using any of the following methods:
 + **AWS Management Console** – The procedures throughout this guide explain how to use the AWS Management Console to perform tasks for AWS Elemental Inference.

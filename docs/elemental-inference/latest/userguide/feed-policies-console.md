@@ -1,7 +1,6 @@
 
 
 # Managing a policy using the console
-<a name="feed-policies-console"></a>
 
 You can attach, update, and remove a feed's resource policy on the **Permissions** tab of the feed details page. When no policy is set, the **Resource policy** section shows the message **No resource policy configured.** Until you add a policy, only your AWS account can read the feed's metadata.
 

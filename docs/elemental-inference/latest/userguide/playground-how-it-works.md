@@ -1,7 +1,6 @@
 
 
 # How the playground works
-<a name="playground-how-it-works"></a>
 
 The playground runs every job in your own AWS account. Both kinds of jobs use two resources there, and the console sets up both for you:
 + An IAM service role named `ElementalInferencePlaygroundServiceRole`. You create it once, from the **Create job** page, and it applies to every AWS Region. For more information, see [Permissions](playground-permissions.md).

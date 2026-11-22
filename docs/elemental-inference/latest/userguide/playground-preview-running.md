@@ -1,7 +1,6 @@
 
 
 # While a preview runs
-<a name="playground-preview-running"></a>
 
 Closing or reloading the browser tab ends the preview before its results are saved. While a preview runs or saves, your browser asks you to confirm before you leave. You can go to other pages of the Elemental Inference console in the same tab while the preview runs.
 

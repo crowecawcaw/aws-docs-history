@@ -1,14 +1,13 @@
 
 
 # Configuring each feature
-<a name="create-feed-outputs"></a>
 
 Following are details about how to configure each feature (output) that you include in a Elemental Inference feed. 
 
 ## Configuring contextual metadata
 <a name="create-feed-console-contextual-metadata"></a>
 
-Contextual metadata uses AI to classify video content at the shot level and at the scene level. It produces IAB Content Taxonomy v3.1 category tags and GARM (Global Alliance for Responsible Media) brand safety ratings. It also produces descriptive labels for the content, such as domains, objects, actions, people, environments, brands, and on-screen text, and a mood profile. For more information about these fields, see [Using the metadata](query-metadata-query.md#query-metadata-contextual-usage). The classifications and labels enable contextual ad targeting when used with AWS Elemental MediaLive and AWS Elemental MediaTailor ad insertion workflows.
+Contextual metadata uses AI to classify video content at the shot level and at the scene level. It produces IAB Content Taxonomy v3.1 category tags and GARM (Global Alliance for Responsible Media) brand safety ratings. It also produces descriptive labels for the content, such as domains, objects, actions, people, environments, brands, and on-screen text, and a mood profile. For more information about these fields, see [Using the metadata](query-metadata-query.md#query-metadata-contextual-usage). The classifications and labels enable contextual ad targeting when used with AWS Elemental MediaLive and AWS Elemental MediaTailor ad insertion workflows. You can also add customer decisions about each shot or scene. For more information, see [Customer decisions for contextual metadata in Elemental Inference](custom-questions.md).
 
 ### Console
 <a name="create-feed-console-contextual-metadata-console"></a>
@@ -245,9 +244,13 @@ You can configure one to four template groups of reference images, where each gr
 **Note**  
 Store your reference images in an Amazon S3 bucket in the same account that creates the feed, and that Elemental Inference can read using the access role (`accessRoleArn`) associated with the feed.
 
+**Template image recommendations**
+
 For the best detection performance, follow these recommendations when you prepare your template images:
 + Provide each template as a PNG image with an alpha channel. Set the alpha value to 0 for any regions that Elemental Inference should ignore when matching. Elemental Inference uses only the non-transparent regions for detection. Make transparent the parts of the graphic that change from frame to frame. Leave the parts that stay the same fully opaque. For example, in a scoreboard template, set the alpha to 0 over the score and clock digits and over any animated or moving elements. Leave the parts that don't change, such as the scoreboard outline and the team labels, fully opaque.
 + Graphic detection runs at a resolution of 2560 x 1440. For the best results, size each template to match how large the graphic appears in a 2560 x 1440 frame.
+
+**CLI example**
 
 The following example shows how to include a smart crop output that detects two graphics, a scoreboard and ads, when creating a feed using the CLI:
 
@@ -397,3 +400,10 @@ To view a dictionary, choose it from the **Dictionaries** list. The **Dictionary
 <a name="create-feed-console-dictionaries-edit"></a>
 
 To edit the entries in a dictionary, on the **Entries** tab, choose **Edit** to open the **Edit entries** page. When you save, Elemental Inference replaces all of the dictionary's entries.
+
+## Configuring functions
+<a name="create-feed-console-functions"></a>
+
+With a function, you can run your own prompt against the feed by using an Amazon Bedrock model that Elemental Inference invokes in your account. You can also use a function to reshape the metadata that Elemental Inference has already produced. Elemental Inference publishes the result to the feed's metadata timeline under the name of the function output, and you read it with `GetMetadata` like any other output.
+
+Unlike the other features, a function is a separate resource that you create once and attach to any number of feeds, and it needs an IAM access role on the feed when it invokes a model. A feed with an enabled function output must also have at least one enabled smart crop, event clipping, smart subtitles, or contextual metadata output. For more information about creating and attaching functions, see [Using functions in Elemental Inference](functions.md).

@@ -1,7 +1,6 @@
 
 
 # Deleting a schedule action
-<a name="feed-scheduling-delete"></a>
 
 To delete a pending schedule action, use the `delete-schedule-action` command. Specify the feed ID and the name of the action.
 
@@ -13,7 +12,7 @@ aws elemental-inference delete-schedule-action \
 
 If the request succeeds, Elemental Inference returns the name of the deleted action. A deleted action never runs.
 
-```
+```json
 { "actionName": "enable-smartcrop-game-1" }
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Elemental Inference events in Amazon EventBridge
-<a name="monitoring-events"></a>
 
 Elemental Inference automatically turns information about event clipping metadata into events in EventBridge. You can use Amazon EventBridge to manage these events. For example, you can create event rules and deliver the events in emails or SMS messages. You can deliver events to a number of destinations. 
 

@@ -1,7 +1,6 @@
 
 
 # Creating using the CLI
-<a name="create-feed-cli"></a>
 
 This section describes how to use the AWS CLI to create an Elemental Inference feed.
 

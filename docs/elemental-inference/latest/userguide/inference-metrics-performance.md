@@ -1,7 +1,6 @@
 
 
 # Elemental Inference performance metrics
-<a name="inference-metrics-performance"></a>
 
 ## GetMetadata request count
 <a name="inference-metrics-getmetadata-count"></a>

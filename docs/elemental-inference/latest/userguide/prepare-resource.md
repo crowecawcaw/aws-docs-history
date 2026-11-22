@@ -1,7 +1,6 @@
 
 
 # Reference
-<a name="prepare-resource"></a>
 
 ## Media requirements
 <a name="source-media-reqs"></a>

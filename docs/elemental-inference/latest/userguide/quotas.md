@@ -1,7 +1,6 @@
 
 
 # Quotas for AWS Elemental Inference
-<a name="quotas"></a>
 
 Your AWS account has default quotas for each AWS service. Unless otherwise noted, each quota is Region-specific. You can request increases for some quotas, and other quotas cannot be increased.
 

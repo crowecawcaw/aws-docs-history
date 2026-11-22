@@ -1,7 +1,6 @@
 
 
 # Policy requirements
-<a name="feed-policies-requirements"></a>
 
 Elemental Inference validates a feed policy when you attach it, and rejects the request with a validation error if the policy does not meet the following requirements:
 + The policy must include the `Version` and `Statement` elements.

@@ -1,7 +1,6 @@
 
 
 # Managing feed policies
-<a name="feed-policies"></a>
 
 A feed policy is a resource-based policy that you attach to an Elemental Inference feed to grant cross-account access. When you attach a policy to a feed, other AWS accounts and services can call `GetMetadata` on that feed without needing IAM credentials in your account.
 

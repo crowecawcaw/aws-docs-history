@@ -1,7 +1,6 @@
 
 
 # Creating a Smart Cropping job
-<a name="playground-create-job"></a>
 
 To submit a Smart Cropping job, use the following procedure. To start an All features preview instead, see [Starting a preview](playground-preview-start.md).
 

@@ -1,7 +1,6 @@
 
 
 # Service availability and API metrics
-<a name="inference-metrics-global"></a>
 
 ## API Latency
 <a name="inference-metrics-api-latency"></a>

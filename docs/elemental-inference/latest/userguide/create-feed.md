@@ -1,7 +1,6 @@
 
 
 # Step A: Create the feed in Elemental Inference
-<a name="create-feed"></a>
 
 You must create a feed that contains the features (outputs) that you want to use. After you've created the feed, you must associate a source media (resource) with it. 
 

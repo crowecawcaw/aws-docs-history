@@ -1,7 +1,6 @@
 
 
 # Service role
-<a name="playground-service-role"></a>
 
 The console creates `ElementalInferencePlaygroundServiceRole` when you choose **Create service role** on the **Create job** page, after you enter the input and output locations. AWS Elemental MediaConvert assumes the role (`sts:AssumeRole`), and its permissions are scoped to your buckets:
 + Elemental Inference – `CreateFeed`, `AssociateFeed`, `PutMedia`, `GetMetadata`, `DeleteFeed`, and `TagResource`

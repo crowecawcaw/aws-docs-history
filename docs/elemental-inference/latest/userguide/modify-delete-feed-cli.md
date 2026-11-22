@@ -1,7 +1,6 @@
 
 
 # Revising using the CLI
-<a name="modify-delete-feed-cli"></a>
 
 To add or delete features in a feed, use the `AssociateFeed` or `UpdateFeed` action. `AssociateFeed` is a PATCH operation. `UpdateFeed` is a PUT operation. 
 

@@ -1,7 +1,6 @@
 
 
 # Creating a schedule action
-<a name="feed-scheduling-create"></a>
 
 To create a schedule action, use the `create-schedule-action` command. Specify the feed ID, a name for the action, the start configuration, and the operations. In the examples that follow, replace `{{feed-id}}` with the ID of your feed, and `{{fixture-id}}` with the ID of the game that you want to clip.
 
@@ -21,7 +20,7 @@ aws elemental-inference create-schedule-action \
 
 If the request succeeds, the response contains the new action, with a status of `PENDING`. If the feed already has an action with the same name, the request returns a `ValidationException`. Choose a different name, or delete the existing action first.
 
-```
+```json
 {
   "actionName": "enable-smartcrop-game-1",
   "startConfiguration": {

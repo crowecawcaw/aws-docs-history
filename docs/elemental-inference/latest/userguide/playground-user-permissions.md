@@ -1,7 +1,6 @@
 
 
 # User permissions
-<a name="playground-user-permissions"></a>
 
 In addition to permission to use the Elemental Inference console, the IAM identity that you sign in with needs the following permissions to use the playground:
 + MediaConvert – `GetQueue`, `CreateQueue`, `CreateJob`, `ListJobs`, `GetJob`

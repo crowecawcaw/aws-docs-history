@@ -1,7 +1,6 @@
 
 
 # Use cases for feed scheduling
-<a name="feed-scheduling-use-cases"></a>
 
 Use feed scheduling to change settings that are specific to Elemental Inference. For example:
 + **Switch games for event clipping** – Before the game, attach the game's fixture to an event clipping output so that clips are aligned to the correct game. For information about fixtures, see [Step 1: Find your game](create-feed-outputs.md#event-clip-find-game).

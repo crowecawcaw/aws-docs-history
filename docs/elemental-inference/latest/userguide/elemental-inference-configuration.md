@@ -1,7 +1,6 @@
 
 
 # Creating an Elemental Inference workflow
-<a name="elemental-inference-configuration"></a>
 
 You must create a feed and enable at least one AI feature in that feed. After you have created the feed, you must associate one resource, which represents the source media that Elemental Inference will work on.
 

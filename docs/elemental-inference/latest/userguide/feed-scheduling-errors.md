@@ -1,7 +1,6 @@
 
 
 # Troubleshooting schedule action requests
-<a name="feed-scheduling-errors"></a>
 
 The schedule action operations can return the following errors.
 
