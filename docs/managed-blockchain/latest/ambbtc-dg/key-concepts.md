@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain. For more information, see [Amazon Managed Blockchain end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Key concepts: Amazon Managed Blockchain (AMB) Access Bitcoin
-<a name="key-concepts"></a>
 
 **Note**  
 This guide assumes that you're familiar with the concepts that are essential to Bitcoin. These concepts include decentralization, nodes, transactions, proof-of-work, wallets, public and private keys, halvings, and others. Before using Amazon Managed Blockchain (AMB) Access Bitcoin, we recommend that you review the [Bitcoin Development Documentation](https://developer.bitcoin.org/) and [Mastering Bitcoin](https://github.com/bitcoinbook/bitcoinbook). 

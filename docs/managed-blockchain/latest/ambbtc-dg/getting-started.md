@@ -3,7 +3,6 @@
 End of support notice: Amazon Managed Blockchain will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain. For more information, see [Amazon Managed Blockchain end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
 
 # Getting started with Amazon Managed Blockchain (AMB) Access Bitcoin
-<a name="getting-started"></a>
 
 Use the step-by-step tutorials in this section to learn how to perform tasks by using Amazon Managed Blockchain (AMB) Access Bitcoin. These examples require you to complete some prerequisites. If you are new to AMB Access Bitcoin, review the *Setting up* section of this guide to make sure you have completed those prerequisites. For more information, see [Setting up Amazon Managed Blockchain (AMB) Access Bitcoin](bitcoin-setting-up.md).
 
@@ -19,7 +18,7 @@ Use the step-by-step tutorials in this section to learn how to perform tasks by 
 
 In order to access the public endpoints for the Bitcoin Mainnet and Testnet to make JSON-RPC calls, you must have user credentials (AWS\_ACCESS\_KEY\_ID and AWS\_SECRET\_ACCESS\_KEY) that have the appropriate IAM permissions for Amazon Managed Blockchain (AMB) Access Bitcoin. In a terminal with the AWS CLI installed, run the following command to create an IAM Policy to access both Bitcoin endpoints: 
 
-```
+```json
 cat <<EOT > ~/amb-btc-access-policy.json
 {
     "Version": "2012-10-17",		 	 	 
@@ -76,18 +75,18 @@ For more information, see the [RPCs supported by AMB Access Bitcoin](https://doc
 Sign requests with your IAM user credentials by using [Signature Version 4 (SigV4)](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) in order to make Bitcoin JSON-RPC calls to the AMB Access Bitcoin endpoints. The [awscurl ](https://github.com/okigan/awscurl) command line tool can help you sign requests to AWS services using SigV4. For more information, see the [awscurl README.md](https://github.com/okigan/awscurl#readme).  
 Install awscurl by using the method appropriate to your operating system. On macOS, HomeBrew is the recommended application:  
 
-```
+```curl
 brew install awscurl
 ```
 If you have already installed and configured the AWS CLI, your IAM user credentials and default AWS Region are set in your environment and have access to awscurl. Using awscurl, submit a request to both the Bitcoin *Mainnet* and *Testnet* by invoking the `getblock` RPC. This call accepts a string parameter corresponding to the block hash for which you want to retrieve information.   
 The following command retrieves the block header data from the Bitcoin Mainnet by using the block hash in the `params` array to select the specific block for which to retrieve the headers. This example uses the `us-east-1` endpoint. You can replace this with your preferred Bitcoin JSON-RPC and AWS Region that is supported by Amazon Managed Blockchain (AMB) Access Bitcoin. Furthermore, you can make a request against the Testnet network, rather than Mainnet, by replacing `mainnet` with `testnet `in the command.  
 
-```
+```curl
 awscurl -X POST -d '{ "jsonrpc": "1.0", "id": "{{getblockheader-curltest}}", "method": "{{getblockheader}}", "params": ["{{0000000000000000000105bebab2f9dd16234a30950d38ec6ddc24d466e750a0}}"] }' --service managedblockchain https://{{mainnet}}.bitcoin.managedblockchain.{{us-east-1}}.amazonaws.com  --region {{us-east-1}} -k
 ```
 The results include details from the block headers and a list of transaction hashes included in the requested block. See the following example:   
 
-```
+```curl
 {"result":{"hash":"0000000000000000000105bebab2f9dd16234a30950d38ec6ddc24d466e750a0",
       "confirmations":2,"height":799243,"version":664485888,"versionHex":"279b4000",
       "merkleroot":"568e79752e1921ecf40c961435abb41bc5700fe2833ecadc4abfc2f615ddc1b8",
@@ -123,7 +122,7 @@ To run this example Node.js script, apply the following prerequisites:
 After you complete all prerequisites, copy the following `package.json` file and `index.js` script into your local environment by using your editor:  
 *package.json*  
 
-```
+```json
 {
   "name": "bitcoin-rpc",
   "version": "1.0.0",
@@ -145,7 +144,7 @@ After you complete all prerequisites, copy the following `package.json` file and
 ```
 *index.js*  
 
-```
+```javascript
 const axios = require('axios');
 const SHA256 = require('@aws-crypto/sha256-js').Sha256
 const defaultProvider = require('@aws-sdk/credential-provider-node').defaultProvider
