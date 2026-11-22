@@ -1,7 +1,6 @@
 
 
 # Troubleshooting failback errors
-<a name="troubleshooting-failback"></a>
 
 Use this section to troubleshoot issues that occur during the failback process — from Failback Client setup through reverse replication.
 

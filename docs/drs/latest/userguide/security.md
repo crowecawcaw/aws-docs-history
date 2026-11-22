@@ -1,7 +1,6 @@
 
 
 # Security in AWS Elastic Disaster Recovery
-<a name="security"></a>
 
 ## Overview
 <a name="security-overview"></a>

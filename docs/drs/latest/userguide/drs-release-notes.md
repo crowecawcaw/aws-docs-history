@@ -1,7 +1,6 @@
 
 
 # Release Notes
-<a name="drs-release-notes"></a>
 
 AWS Elastic Disaster Recovery performs regular Service and Client releases of new features and capabilities.
 

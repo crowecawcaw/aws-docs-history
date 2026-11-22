@@ -1,7 +1,6 @@
 
 
 # Editing the default EC2 launch template
-<a name="edit-default-ec2-launch-template"></a>
 
  To edit the default EC2 launch template, follow these steps:
 

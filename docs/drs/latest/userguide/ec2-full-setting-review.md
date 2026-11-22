@@ -1,7 +1,6 @@
 
 
 # Full launch template setting review
-<a name="ec2-full-setting-review"></a>
 
 The following sections describe each EC2 launch template field and indicate whether you can safely change it. Fields marked **Do not change** must remain at their default values for AWS Elastic Disaster Recovery to function properly.
 

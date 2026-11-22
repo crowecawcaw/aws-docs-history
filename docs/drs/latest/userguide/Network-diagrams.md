@@ -1,7 +1,6 @@
 
 
 # Elastic Disaster Recovery network diagrams
-<a name="Network-diagrams"></a>
 
 AWS Elastic Disaster Recovery supports the following source infrastructure types:
 + **On-premises to AWS** – Protect physical or virtual servers in your data center by replicating to an AWS Region.

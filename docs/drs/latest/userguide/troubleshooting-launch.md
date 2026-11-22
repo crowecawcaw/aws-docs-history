@@ -1,7 +1,6 @@
 
 
 # Troubleshooting launch errors
-<a name="troubleshooting-launch"></a>
 
 Use this section to troubleshoot issues that occur when launching drill or recovery instances.
 

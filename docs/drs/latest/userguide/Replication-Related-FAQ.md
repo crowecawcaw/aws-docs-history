@@ -1,7 +1,6 @@
 
 
 # Replication related
-<a name="Replication-Related-FAQ"></a>
 
 ## Can we set specific IP addresses for the replication server or conversion server in the AWS DRS staging area?
 <a name="specific-ip-addresses"></a>

@@ -1,7 +1,6 @@
 
 
 # Reinstalling the agent
-<a name="reinstalling-agent"></a>
 
 To reinstall the AWS Replication Agent, download the latest version of the agent and follow the installation instructions. You do not need to remove any previous versions prior to reinstalling the agent.
 + [Linux](linux-agent.md)

@@ -1,7 +1,6 @@
 
 
 # AWS DRS Recovery Instances page
-<a name="recovery-instances"></a>
 
 ## Recovery instances overview
 <a name="managing-recovery-instances"></a>

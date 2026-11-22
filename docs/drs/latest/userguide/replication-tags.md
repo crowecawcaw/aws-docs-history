@@ -1,7 +1,6 @@
 
 
 # Elastic Disaster Recovery tags
-<a name="replication-tags"></a>
 
 Add custom **tags** to resources created by AWS Elastic Disaster Recovery in your AWS account. You can add up to 50 tags. 
 

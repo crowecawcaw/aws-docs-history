@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSElasticDisasterRecoveryLaunchActionsPolicy
-<a name="security-iam-awsmanpol-AWSElasticDisasterRecoveryLaunchActionsPolicy"></a>
 
 You can attach the AWSElasticDisasterRecoveryLaunchActionsPolicy policy to your IAM identities. 
 

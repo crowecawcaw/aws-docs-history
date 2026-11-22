@@ -1,7 +1,6 @@
 
 
 # Launch into source instance
-<a name="default-drs-launch-into-source-instance"></a>
 
  This setting is only valid when the replication and recovery are done in-AWS, between 2 AWS regions or availability zones. This default setting applies to newly added source servers. Such servers have their **Launch into instance ID** field in the Launch Settings set to the EC2 instance ID of the source instance, that was the source of the data in the same region or availability zone. See the examples below for more details. 
 

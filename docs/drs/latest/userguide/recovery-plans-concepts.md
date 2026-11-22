@@ -1,7 +1,6 @@
 
 
 # Recovery plan concepts
-<a name="recovery-plans-concepts"></a>
 
 The following terms are used throughout the recovery plan documentation:
 

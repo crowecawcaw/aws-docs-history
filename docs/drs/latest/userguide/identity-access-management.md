@@ -1,7 +1,6 @@
 
 
 # Identity and access management for AWS Elastic Disaster Recovery
-<a name="identity-access-management"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be authenticated (signed in) and authorized (have permissions) to use AWS resources. IAM allows you to create users and groups under your AWS account. You control the permissions that users have to perform tasks using AWS resources. You can use IAM for no additional charge. 
 
@@ -23,7 +22,7 @@ For centralized access management, we recommend AWS IAM Identity Center. For mor
 
 An IAM policy is a JSON document that consists of one or more statements. Each statement is structured as follows: 
 
-```
+```json
 {
 	"Statement": [
 		{

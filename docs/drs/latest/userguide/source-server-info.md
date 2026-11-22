@@ -1,7 +1,6 @@
 
 
 # AWS DRS server info
-<a name="source-server-info"></a>
 
 The **Server info** tab shows general server information, hardware, and network information:
 + **General information**

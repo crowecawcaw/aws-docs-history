@@ -1,7 +1,6 @@
 
 
 # AWS DRS source servers
-<a name="source-servers"></a>
 
 You must add your source servers to the AWS Elastic Disaster Recovery console in order to replicate them into AWS. Source servers are added by installing the AWS Replication Agent on each individual server. The following documentation provides installation paths for both Linux and Windows servers. Ensure that your servers are supported by AWS Elastic Disaster Recovery by reviewing the [supported Windows operating systems](Supported-Operating-Systems-Windows.md) and [supported Linux operating systems](Supported-Operating-Systems-Linux.md) documentation.
 

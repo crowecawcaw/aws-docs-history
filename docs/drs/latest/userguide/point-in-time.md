@@ -1,7 +1,6 @@
 
 
 # Point in time (PIT) policy
-<a name="point-in-time"></a>
 
 AWS Elastic Disaster Recovery allows you to select the number of days for which point in time snapshots are retained through the **Point in time (PIT) policy** field. 
 

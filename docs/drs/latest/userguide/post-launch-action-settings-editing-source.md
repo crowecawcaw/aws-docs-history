@@ -1,7 +1,6 @@
 
 
 # Activating, deactivating, and editing predefined or custom actions
-<a name="post-launch-action-settings-editing-source"></a>
 
  You can activate, deactivate and edit actions available for this source server. Activating an action ensures it runs after launching a recovery instance. Likewise, deactivating it prevents it from being run after launching a recovery instance. The default settings are not affected by activating, deactivating or editing an action for a source server. Editing an action for a source server updates it for that source server. These changes are not reflected on the action, if it exists in the default post-launch actions settings. Changes to actions in the default settings, so as to apply to newly added source servers, can be done from the **Settings → Default post-launch actions** page. 
 

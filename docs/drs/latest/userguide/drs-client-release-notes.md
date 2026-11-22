@@ -1,7 +1,6 @@
 
 
 # AWS Elastic Disaster Recovery Client Release Notes
-<a name="drs-client-release-notes"></a>
 
  AWS Elastic Disaster Recovery is constantly releasing new agent versions; the versions have major and minor version numbers. We recommend to upgrade when a new major version is out, and also once every 1-2 months, to catch up on important fixes deployed through the minor versions. Releases are staggered, and may not be available in all supported regions simultaneously. 
 

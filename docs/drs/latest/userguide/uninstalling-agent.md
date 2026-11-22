@@ -1,7 +1,6 @@
 
 
 # Uninstalling the agent
-<a name="uninstalling-agent"></a>
 
 Uninstalling the AWS Replication Agent from a source server stops the replication of that server. Uninstalling the AWS Replication Agent removes the source server from the Elastic Disaster Recovery Console. 
 

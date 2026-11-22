@@ -1,7 +1,6 @@
 
 
 # Flexible Instance Types
-<a name="flexible-instance-types"></a>
 
 AWS Elastic Disaster Recovery (AWS DRS) uses EC2 Launch Templates to define how each source server will be launched as an EC2 instance. For each source server, you can define an EC2 instance type that will be used to launch, if **Instance-type right-sizing** is not activated. However, you might want to be flexible with the instance type definitions as this can help in certain situations, such as reducing the risk of not finding enough resources to support recovery which results in an **Insufficient Capacity Error (ICE)**. 
 

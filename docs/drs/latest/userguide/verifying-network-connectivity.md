@@ -1,7 +1,6 @@
 
 
 # Verifying network connectivity
-<a name="verifying-network-connectivity"></a>
 
 AWS Elastic Disaster Recovery requires two network paths from the staging area for replication to succeed. TCP port 443 provides API communication with AWS service endpoints. TCP port 1500 provides data replication between source servers and replication servers. Use this page to verify both paths and resolve connectivity issues.
 
@@ -49,7 +48,7 @@ Use the following procedures to verify that the staging area networking configur
 
 1. Verify the route table for the staging area subnet:
 
-   ```
+   ```bash
    aws ec2 describe-route-tables \
        --filters Name=association.subnet-id,Values={{subnet-id}} \
        --query 'RouteTables[0].Routes[*].{Dest:DestinationCidrBlock,GatewayId:GatewayId,NatGatewayId:NatGatewayId,State:State}'
@@ -57,7 +56,7 @@ Use the following procedures to verify that the staging area networking configur
 
 1. Check the network ACL rules for the staging area subnet:
 
-   ```
+   ```bash
    aws ec2 describe-network-acls \
        --filters Name=association.subnet-id,Values={{subnet-id}} \
        --query 'NetworkAcls[0].Entries[*].{RuleNum:RuleNumber,Protocol:Protocol,Action:RuleAction,CIDR:CidrBlock,PortRange:PortRange}'
@@ -65,7 +64,7 @@ Use the following procedures to verify that the staging area networking configur
 
 1. Retrieve the security group IDs assigned to the replication servers:
 
-   ```
+   ```bash
    aws drs get-replication-configuration \
        --source-server-id {{server-id}} \
        --query 'replicationServersSecurityGroupsIDs'
@@ -73,7 +72,7 @@ Use the following procedures to verify that the staging area networking configur
 
 1. Verify the outbound rules for the replication server security group:
 
-   ```
+   ```bash
    aws ec2 describe-security-groups \
        --group-ids {{sg-id}} \
        --query 'SecurityGroups[0].IpPermissionsEgress[*].{Port:ToPort,CIDR:IpRanges[0].CidrIp}'
@@ -91,13 +90,13 @@ Run connectivity tests from your source server to confirm that TCP port 1500 is 
 
 Use `nc` (netcat) to test connectivity:
 
-```
+```bash
 nc -zv {{replication-server-ip}} 1500
 ```
 
 If `nc` is not available, use `telnet`:
 
-```
+```bash
 telnet {{replication-server-ip}} 1500
 ```
 
@@ -108,7 +107,7 @@ A successful connection confirms that TCP port 1500 is open between your source 
 
 Use PowerShell to test connectivity:
 
-```
+```powershell
 Test-NetConnection -ComputerName {{replication-server-ip}} -Port 1500
 ```
 
@@ -143,7 +142,7 @@ Check your network configuration to identify and resolve port 1500 connectivity 
 
 1. Check that the network ACL allows inbound TCP port 1500 and outbound ephemeral ports:
 
-   ```
+   ```bash
    aws ec2 describe-network-acls \
        --filters "Name=association.subnet-id,Values={{staging-subnet-id}}"
    ```
@@ -152,7 +151,7 @@ Check your network configuration to identify and resolve port 1500 connectivity 
 
 1. Get the security group IDs for your replication servers:
 
-   ```
+   ```bash
    aws drs get-replication-configuration \
        --source-server-id {{source-server-id}} \
        --query 'replicationServersSecurityGroupsIDs'
@@ -160,7 +159,7 @@ Check your network configuration to identify and resolve port 1500 connectivity 
 
 1. Verify that the security group allows inbound TCP port 1500:
 
-   ```
+   ```bash
    aws ec2 describe-security-groups \
        --group-ids {{sg-id}} \
        --query 'SecurityGroups[0].IpPermissions[?ToPort==`1500`]'
@@ -169,16 +168,16 @@ Check your network configuration to identify and resolve port 1500 connectivity 
 1. Check the source server firewall rules. Do one of the following:
    + **Linux** — Run one of the following commands to check firewall rules:
 
-     ```
+     ```bash
      iptables -L -n | grep 1500
      ```
 
-     ```
+     ```bash
      firewall-cmd --list-all
      ```
    + **Windows** — Run the following PowerShell command to check firewall rules:
 
-     ```
+     ```powershell
      Get-NetFirewallRule | Where-Object {$_.Enabled -eq 'True'} |
        Get-NetFirewallPortFilter | Where-Object {$_.RemotePort -eq '1500' -or $_.LocalPort -eq '1500'}
      ```

@@ -1,7 +1,6 @@
 
 
 # Elastic Disaster Recovery network setting preparations
-<a name="Network-Settings-Preparations"></a>
 
 **Topics**
 + [Staging area subnet](#Staging-Area)

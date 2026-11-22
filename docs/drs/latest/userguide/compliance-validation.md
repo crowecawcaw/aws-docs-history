@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Elastic Disaster Recovery
-<a name="compliance-validation"></a>
 
 Third-party auditors assess the security and compliance of AWS Elastic Disaster Recovery as part of multiple AWS compliance programs. 
 

@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSElasticDisasterRecoveryStagingAccountPolicy\_v2
-<a name="security-iam-awsmanpol-AWSElasticDisasterRecoveryStagingAccountPolicy_v2"></a>
 
  
 

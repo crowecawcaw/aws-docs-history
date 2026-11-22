@@ -1,7 +1,6 @@
 
 
 # Accessing the AWS Elastic Disaster Recovery Console
-<a name="accessing-console"></a>
 
 You can access AWS Elastic Disaster Recovery directly through the AWS Console or through the following links: 
 + Commercial AWS Regions: [https://console.aws.amazon.com/drs/home ](https://console.aws.amazon.com/drs/home) 

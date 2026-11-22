@@ -1,7 +1,6 @@
 
 
 # Monitoring recovery instances
-<a name="monitoring-recovery-instances"></a>
 
 You can monitor your recovery instances on the **Recovery instances** page. It displays all of your recovery instances and sorts them by **Instance ID**, **Reversed direction launch state**, **Data replication status**, **Pending actions**, **Replicating to source server**, **Last launch result**, and **Launched from source server.** 
 

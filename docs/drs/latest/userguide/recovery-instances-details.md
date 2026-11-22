@@ -1,7 +1,6 @@
 
 
 # Recovery instance details view
-<a name="recovery-instances-details"></a>
 
 The recovery instance details view provides an overview of the recovery instance, including the instance's reversed direction launch process, post-launch action runs and data replication status. It allows you to control instance tags and the instance's failback settings. 
 

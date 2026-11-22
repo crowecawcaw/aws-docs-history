@@ -1,7 +1,6 @@
 
 
 # Cross Availability Zone recovery
-<a name="failback-failover-cross-availability-zone-failback"></a>
 
 You can use DRS to replicate and recover EC2 instances across Availability Zones.
 

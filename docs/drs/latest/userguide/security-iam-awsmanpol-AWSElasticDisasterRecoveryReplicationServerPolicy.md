@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSElasticDisasterRecoveryReplicationServerPolicy
-<a name="security-iam-awsmanpol-AWSElasticDisasterRecoveryReplicationServerPolicy"></a>
 
 This policy is attached to the AWS Elastic Disaster Recovery replication server’s instance role. 
 

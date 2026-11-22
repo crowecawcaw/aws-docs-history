@@ -1,7 +1,6 @@
 
 
 # Failback Client Version History
-<a name="drs-failback-release-notes"></a>
 
  The following table describes the released versions of the AWS Elastic Disaster Recovery Failback Client. The latest version of the Failback Client can be downloaded by following [the failback instructions](failback-performing.md#failback-performing-performing). 
 

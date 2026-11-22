@@ -1,7 +1,6 @@
 
 
 # AWS DRS disk settings
-<a name="disk-settings"></a>
 
 The **Disk settings** tab shows a list of all of the disks on the source server and information for each disk:
 + **Disk name**

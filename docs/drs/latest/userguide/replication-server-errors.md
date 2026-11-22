@@ -1,7 +1,6 @@
 
 
 # Replication infrastructure errors
-<a name="replication-server-errors"></a>
 
 This topic covers errors related to the replication server infrastructure, including launching, booting, disk operations, and firewall rules. Each section describes the error message, cause, and resolution.
 
@@ -35,14 +34,14 @@ This topic covers errors related to the replication server infrastructure, inclu
 
 Run the following command to check the instance type and subnet configured for replication:
 
-```
+```bash
 aws drs get-replication-configuration \
     --source-server-id {{SOURCE_SERVER_ID}}
 ```
 
 Run the following command to check the Amazon EC2 running instances quota:
 
-```
+```bash
 aws service-quotas get-service-quota \
     --service-code ec2 \
     --quota-code L-1216C47A
@@ -115,7 +114,7 @@ Compare the quota value against the number of running instances in the staging a
 ## Error: arm64 replication server instance type is not supported
 <a name="common-replication-server-arm64-instance-type"></a>
 
-**Error message:** Instance type '{{instance-type}}' is not supported. Only instance types with 'x86\_64' architecture are supported.
+**Error message:** `Instance type '{{instance-type}}' is not supported. Only instance types with 'x86_64' architecture are supported.`
 
 **Cause:** You selected an `arm64` instance type for a replication server.
 

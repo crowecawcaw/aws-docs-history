@@ -1,7 +1,6 @@
 
 
 # Agent Version History
-<a name="drs-agent-release-notes"></a>
 
  The following table describes the released versions of the AWS Elastic Disaster Recovery Agent. See the [agent reinstallation instructions](reinstalling-agent.md) on how to upgrade the Replication Agent to the latest version. 
 

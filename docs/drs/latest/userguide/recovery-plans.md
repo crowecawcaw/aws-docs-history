@@ -1,7 +1,6 @@
 
 
 # Orchestrating recovery with recovery plans
-<a name="recovery-plans"></a>
 
 Multi-tier applications usually have to be recovered in a specific order. A database tier must be running before the application tier starts, and the application tier must be running before the web tier accepts traffic. Recovering these servers one at a time, in the right order, during a disaster is slow and error-prone.
 

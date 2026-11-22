@@ -1,7 +1,6 @@
 
 
 # Launch Actions Policy - AWSElasticDisasterRecoveryLaunchActionsPolicy
-<a name="customer_managed_policies_launch_actions"></a>
 
  
 
@@ -18,7 +17,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

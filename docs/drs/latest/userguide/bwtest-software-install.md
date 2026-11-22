@@ -1,7 +1,6 @@
 
 
 # Install the endpoint software
-<a name="bwtest-software-install"></a>
 
 Everything in this task runs on the Amazon EC2 instance, as an ordinary user rather than root. The procedure needs no elevated privilege. Installing the optional diagnostic tools, such as `sysstat` for the `sar` command in [Do not compare headline figures between runs](bwtest-interpreting.md#bwtest-run-variance), does need `sudo`. The whole task takes about 20 seconds after you have a shell.
 
@@ -13,7 +12,7 @@ The endpoint is speedtest-rust, an open-source Rust implementation of the LibreS
 **Important**  
 This procedure uses third-party, open-source software (librespeed/speedtest-rust here, and librespeed/speedtest-cli in [Test with the command line](bwtest-cli-test.md)) that is not developed, maintained, or supported by AWS. It is provided on an "AS IS" basis, with no guarantee of completeness, accuracy or timeliness, and without warranty or representations of any kind, expressed or implied. In no event will AWS and/or its subsidiaries and/or their employees or service providers be liable to you or anyone else for any decision made or action taken in reliance on this software or for any direct, indirect, consequential, special or similar damages (including any kind of loss), even if advised of the possibility of such damages. AWS is not responsible for the update, validation or support of this software. Review each project and confirm it meets your organization's security and licensing requirements before you run it on servers in your account.
 
-```
+```bash
 export LIBRESPEED_RS_VERSION=1.4.0
 export ARCH_TARGET=x86_64-unknown-linux-musl        # aarch64-unknown-linux-gnu on Graviton.
 export PORT=1500                                    # the TLS port the endpoint listens on.
@@ -26,11 +25,11 @@ curl -sSLO "https://github.com/librespeed/speedtest-rust/releases/download/v${LI
 **Note**  
 The project's GitHub release page lists a SHA-256 digest beside each archive. The digest covers the archive, not the extracted binary, so hash the archive and compare it with that digest before you unpack it:  
 
-```
+```bash
 sha256sum "librespeed-rs-${ARCH_TARGET}.tar.xz"
 ```
 
-```
+```bash
 tar -xJf "librespeed-rs-${ARCH_TARGET}.tar.xz"
 chmod +x librespeed-rs
 ```
@@ -41,7 +40,7 @@ The archive is about 11 MB and unpacks to roughly 48 MB, of which a 42 MB ASN da
 Downloading the archive is the only step that needs internet access from the endpoint. Use one of the following three ways to satisfy it, in order of preference:  
 Download the archive on a machine that has egress and copy it in. An endpoint in a subnet with no internet route can be staged this way, and everything downstream behaves identically. Then continue from the `tar -xJf` command.  
 
-   ```
+   ```bash
    scp -i /path/to/key.pem librespeed-rs-*.tar.xz {{USER}}@{{PRIVATE_IP}}:~/bwtest/
    ```
 Put a NAT gateway on the subnet, if one is not already there.
@@ -50,12 +49,12 @@ Give the instance a public IP for the install, and accept the exposure described
 ## Delete the shipped config file
 <a name="bwtest-delete-config"></a>
 
-```
+```bash
 rm configs.toml
 ```
 
 **Important**  
-The shipped file points at an assets directory that does not exist at your install path. Left in place, the program logs Config assets directory failed \! and then serves 404 on `/`, so the browser page is dead although the CLI endpoints keep working, which is easy to misdiagnose.
+The shipped file points at an assets directory that does not exist at your install path. Left in place, the program logs `Config assets directory failed !` and then serves 404 on `/`, so the browser page is dead although the CLI endpoints keep working, which is easy to misdiagnose.
 
 Deleting the file also stops the program from creating a `speedtest.db` in your working directory, and it removes the file as a thing to get wrong: with nothing to load, the defaults are used deterministically. Editing the file instead of deleting it is not a reliable substitute: depending on how the program is invoked, a partial or hand-edited config is either rejected with a parse error or silently ignored in favor of defaults. With no config file present, startup logs `Configs initialized with defaults` and `Config default assets directory.`, and `/` returns 200.
 
@@ -66,7 +65,7 @@ The certificate's SAN must cover the exact address the client connects to, and i
 
 Derive the addresses from the instance metadata service (IMDSv2):
 
-```
+```bash
 TOKEN=$(curl -sS -X PUT "http://169.254.169.254/latest/api/token" \
   -H "X-aws-ec2-metadata-token-ttl-seconds: 300")
 
@@ -85,7 +84,7 @@ printf 'PUB_DNS=[%s]\nPUB_IP=[%s]\nPRIV_DNS=[%s]\nPRIV_IP=[%s]\n' \
 **Important**  
 Use `curl -fsS`, not `curl -sS`. On an instance with no public address, the `public-hostname` and `public-ipv4` metadata paths return a 404 HTML error page with exit status 0. Without `-f`, `curl` prints that page to stdout and succeeds, so `PUB_DNS` and `PUB_IP` fill with an XHTML document instead of being empty, and `openssl` then fails and writes no certificate. With `-f`, the same request fails cleanly and the variables are left empty, which is correct and expected. If those two variables contain HTML, you dropped the `-f`.
 
-```
+```bash
 cd ~/bwtest && mkdir -p certs
 
 SAN="DNS:${PRIV_DNS},IP:${PRIV_IP}"
@@ -115,7 +114,7 @@ The certificate expires after `CERT_DAYS`. The rig should be torn down long befo
 ## Start the endpoint
 <a name="bwtest-endpoint-start"></a>
 
-```
+```bash
 cd ~/bwtest
 nohup ./librespeed-rs -p "$PORT" --enable-tls true \
   --tls-cert-file "$HOME/bwtest/certs/server.crt" \
@@ -124,7 +123,7 @@ nohup ./librespeed-rs -p "$PORT" --enable-tls true \
 
 Starting it with `nohup ... &` keeps it in the same shell you used for the earlier steps, so the `PORT` and certificate variables are still in scope, and the endpoint keeps running after you log out. Read its output from the log file rather than a live foreground:
 
-```
+```bash
 sleep 1 && cat ~/bwtest/server.log
 ```
 
@@ -147,7 +146,7 @@ Do not confirm TLS by reading the log. The log misleads in both directions: it p
 
 The only reliable check is a negative one. Run both of these from the instance:
 
-```
+```bash
 # NEGATIVE control - cleartext on the TLS port. This MUST FAIL.
 curl -sS -m 5 "http://127.0.0.1:${PORT}/" -o /dev/null -w 'http_rc=%{http_code}\n'; echo "curl_rc=$?"
 
@@ -166,7 +165,7 @@ The following table lists the verdict for each pair of results:
 
 Against a correctly configured endpoint, the negative probe returns immediately rather than burning its five-second timeout, reporting `http_rc=000` and `curl_rc=1`. For a second confirmation, the following command reports `wrong version number` against a plaintext endpoint:
 
-```
+```bash
 openssl s_client -connect "127.0.0.1:${PORT}" -brief </dev/null
 ```
 

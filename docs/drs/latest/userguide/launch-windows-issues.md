@@ -1,7 +1,6 @@
 
 
 # Windows post-launch issues
-<a name="launch-windows-issues"></a>
 
 This topic covers Windows-specific issues that can occur after you launch drill or recovery instances with AWS Elastic Disaster Recovery.
 

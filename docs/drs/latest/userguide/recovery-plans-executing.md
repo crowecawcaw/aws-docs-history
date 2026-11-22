@@ -1,7 +1,6 @@
 
 
 # Running a recovery plan
-<a name="recovery-plans-executing"></a>
 
 You can run a plan as a drill or as a recovery:
 
@@ -32,7 +31,7 @@ AWS Elastic Disaster Recovery does not terminate the instances that a plan launc
 
 To start an execution with the AWS CLI, use the `start-recovery-plan-execution` command.
 
-```
+```bash
 aws drs start-recovery-plan-execution \
     --recovery-plan-arn {{PLAN_ARN}} \
     --mode DRILL
@@ -40,7 +39,7 @@ aws drs start-recovery-plan-execution \
 
 To recover specific servers from a specific recovery point, add the `--source-servers` parameter. Every server that you list must belong to the plan and must include a `recoverySnapshotID`. You do not have to list every server in the plan. Any server that you omit is recovered from the latest data available.
 
-```
+```bash
 aws drs start-recovery-plan-execution \
     --recovery-plan-arn {{PLAN_ARN}} \
     --mode RECOVERY \
@@ -56,7 +55,7 @@ A recovery point ID is not an Amazon EBS snapshot ID. An Amazon EBS snapshot ID 
 
 To find the recovery point IDs that are available for a source server, use `describe-recovery-snapshots`. Ordering by `DESC` returns the most recent recovery point first.
 
-```
+```bash
 aws drs describe-recovery-snapshots \
     --source-server-id s-{{EXAMPLE1}} \
     --order DESC \
@@ -65,7 +64,7 @@ aws drs describe-recovery-snapshots \
 
 Each entry in the response `items` list contains the recovery point ID in the `snapshotID` field, along with its `timestamp`. Take the value of `snapshotID` and pass it as `recoverySnapshotID` when you start the execution; the field is named differently in the two APIs.
 
-```
+```json
 {
     "items": [
         {

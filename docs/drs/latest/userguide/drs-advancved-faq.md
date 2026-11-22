@@ -1,7 +1,6 @@
 
 
 # Advanced FAQ
-<a name="drs-advancved-faq"></a>
 
 ## Does AWS DRS support Nutanix?
 <a name="drs-support-Nutanix"></a>

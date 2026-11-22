@@ -1,7 +1,6 @@
 
 
 # Data routing and throttling
-<a name="data-routing"></a>
 
 AWS Elastic Disaster Recovery lets you control how data is routed from your source servers to the replication servers on AWS through the **Data routing and throttling** settings. By default, data is sent from the source servers to the replication servers over the public internet, using the public IPv4 address that was automatically assigned to the replication servers. Transferred data is always encrypted in transit. Choose **Use private IP for data replication...** if you want to route the replicated data from your source servers to the staging area subnet through a private network with a VPN, AWS Direct Connect, VPC peering, or another type of existing private connection. Data replication does not work unless you have already set up the VPN, AWS Direct Connect, or VPC peering in the AWS Console. Use this option if you want to:
 + Allocate a dedicated bandwidth for replication;

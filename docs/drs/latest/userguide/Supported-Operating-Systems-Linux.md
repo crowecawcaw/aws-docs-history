@@ -1,7 +1,6 @@
 
 
 # AWS DRS supported Linux operating systems
-<a name="Supported-Operating-Systems-Linux"></a>
 
 ## General Notes
 <a name="General-Notes"></a>

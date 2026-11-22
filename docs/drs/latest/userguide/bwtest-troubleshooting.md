@@ -1,7 +1,6 @@
 
 
 # Troubleshooting the bandwidth test
-<a name="bwtest-troubleshooting"></a>
 
 ## The connection is refused, or the page will not load
 <a name="bwtest-ts-refused"></a>

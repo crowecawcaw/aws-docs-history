@@ -1,7 +1,6 @@
 
 
 # Common agent installation errors
-<a name="agent-install-common-errors"></a>
 
 This topic covers platform-agnostic installation errors related to AWS credentials, account configuration, IAM, and agent lifecycle. These errors occur on both Linux and Windows.
 
@@ -27,7 +26,7 @@ This topic covers platform-agnostic installation errors related to AWS credentia
 ## DRS-INST-007: Reboot required after uninstallation
 <a name="error-reboot-after-uninstall"></a>
 
-**Error message:** Error code: DRS-INST-007 - Reboot required after uninstallation
+**Error message:** `Error code: DRS-INST-007 - Reboot required after uninstallation`
 
 **Cause:** The previous agent was uninstalled but the kernel driver is still loaded in memory. A reboot is required to fully remove it.
 
@@ -40,7 +39,7 @@ This topic covers platform-agnostic installation errors related to AWS credentia
 ## DRS-INST-010: Outdated agent installer version
 <a name="error-outdated-installer"></a>
 
-**Error message:** Error code: DRS-INST-010 - Outdated agent installer version
+**Error message:** `Error code: DRS-INST-010 - Outdated agent installer version`
 
 **Cause:** You are using an old version of the installer. The installer does not self-update in all scenarios.
 
@@ -61,7 +60,7 @@ This topic covers platform-agnostic installation errors related to AWS credentia
 ## DRS-INST-020: Missing marketplace license permissions
 <a name="error-marketplace-permissions"></a>
 
-**Error message:** Error code: DRS-INST-020 - Missing marketplace license permissions
+**Error message:** `Error code: DRS-INST-020 - Missing marketplace license permissions`
 
 **Cause:** The IAM credentials used for installation do not have permission to access AWS Marketplace product codes. This error only occurs when replicating Amazon EC2 instances that use Marketplace AMIs.
 
@@ -74,7 +73,7 @@ This topic covers platform-agnostic installation errors related to AWS credentia
 ## DRS-INST-021: Server registered to different Region or account
 <a name="error-account-region-mismatch"></a>
 
-**Error message:** Error code: DRS-INST-021 - Server registered to different Region or account
+**Error message:** `Error code: DRS-INST-021 - Server registered to different Region or account`
 
 **Cause:** The source server's agent configuration file references a previous AWS Elastic Disaster Recovery Region or account.
 
@@ -90,7 +89,7 @@ Resolving this requires disconnecting and deleting the existing source server fr
 ## DRS-INST-901: Account not initialized
 <a name="error-uninitialized-account"></a>
 
-**Error message:** Error code: DRS-INST-901 - Account not initialized
+**Error message:** `Error code: DRS-INST-901 - Account not initialized`
 
 **Cause:** AWS Elastic Disaster Recovery has not been initialized in the target Region. Initialization creates the required service-linked roles and replication infrastructure.
 
@@ -103,7 +102,7 @@ Resolving this requires disconnecting and deleting the existing source server fr
 ## DRS-INST-902: Failed to validate AWS credentials
 <a name="error-invalid-credentials"></a>
 
-**Error message:** Error code: DRS-INST-902 - Failed to validate AWS credentials
+**Error message:** `Error code: DRS-INST-902 - Failed to validate AWS credentials`
 
 **Cause:** The AWS Access Key ID or Secret Access Key provided during installation is incorrect, expired, or malformed.
 
@@ -126,7 +125,7 @@ Resolving this requires disconnecting and deleting the existing source server fr
 ## DRS-INST-903: Connection attempt failed on port 443
 <a name="error-connection-timeout"></a>
 
-**Error message:** Error code: DRS-INST-903 - Connection attempt failed on port 443
+**Error message:** `Error code: DRS-INST-903 - Connection attempt failed on port 443`
 
 **Cause:** The installer cannot reach the AWS Elastic Disaster Recovery endpoint. The source server cannot open an outbound TCP connection on port 443 to the AWS Elastic Disaster Recovery endpoints. This error is usually caused by one of the following:
 + A missing route from the source server to the AWS Elastic Disaster Recovery endpoints
@@ -139,13 +138,13 @@ Resolving this requires disconnecting and deleting the existing source server fr
 
 To test connectivity on Linux, run the following command on the source server:
 
-```
+```bash
 $ curl -v https://drs.{{region}}.amazonaws.com
 ```
 
 To test connectivity on Windows, run the following command on the source server:
 
-```
+```powershell
 Test-NetConnection drs.{{region}}.amazonaws.com -Port 443
 ```
 
@@ -154,7 +153,7 @@ To avoid this error, verify connectivity to these endpoints from the source serv
 ## DRS-INST-904: Missing agent installation policy
 <a name="error-missing-installer-policy"></a>
 
-**Error message:** Error code: DRS-INST-904 - Missing agent installation policy
+**Error message:** `Error code: DRS-INST-904 - Missing agent installation policy`
 
 **Cause:** The IAM user or role used for installation does not have the required permissions.
 
@@ -179,7 +178,7 @@ To avoid this error, verify connectivity to these endpoints from the source serv
 ## DRS-INST-905: Source server already exists
 <a name="error-source-server-exists"></a>
 
-**Error message:** Error code: DRS-INST-905 - Source server already exists
+**Error message:** `Error code: DRS-INST-905 - Source server already exists`
 
 **Cause:** The source server is already registered with AWS Elastic Disaster Recovery in this Region and account.
 
@@ -190,7 +189,7 @@ To avoid this error, verify connectivity to these endpoints from the source serv
 ## DRS-INST-906: Volume exceeds size limit
 <a name="error-volume-too-large"></a>
 
-**Error message:** Error code: DRS-INST-906 - Volume exceeds size limit
+**Error message:** `Error code: DRS-INST-906 - Volume exceeds size limit`
 
 **Cause:** A source volume exceeds the AWS Elastic Disaster Recovery size limits.
 
@@ -208,7 +207,7 @@ AWS Elastic Disaster Recovery volume limits:
 ## DRS-INST-907: Request signature mismatch
 <a name="error-request-signature"></a>
 
-**Error message:** Error code: DRS-INST-907 - Request signature mismatch
+**Error message:** `Error code: DRS-INST-907 - Request signature mismatch`
 
 **Cause:** The installer signed the request with a corrupted AWS Secret Access Key, so the computed signature does not match. This commonly occurs when a command shell interprets special characters in the key and alters it during entry. A significantly skewed system clock can also cause this error.
 
@@ -229,13 +228,13 @@ AWS Elastic Disaster Recovery volume limits:
 ## DRS-INST-908: Root or administrator privileges required
 <a name="error-root-privileges"></a>
 
-**Error message:** Error code: DRS-INST-908 - Root or administrator privileges required
+**Error message:** `Error code: DRS-INST-908 - Root or administrator privileges required`
 
 **Cause:** You ran the installer without the privileges it requires. The installer checks for sufficient privileges before it does any work, so it does not modify the source server.
 
 **Resolution:** On Linux, run the installer with `sudo`:
 
-```
+```bash
 $ sudo ./aws-replication-installer-init
 ```
 
@@ -244,7 +243,7 @@ On Windows, open a Command Prompt or PowerShell window with **Run as administrat
 ## DRS-INST-911: Secure connection failed while downloading files
 <a name="error-download-ssl-failure"></a>
 
-**Error message:** Error code: DRS-INST-911 - Secure connection failed while downloading files
+**Error message:** `Error code: DRS-INST-911 - Secure connection failed while downloading files`
 
 **Cause:** The installer could not complete a TLS handshake when it downloaded the agent installation files from Amazon S3. An intercepting proxy or a TLS-inspecting firewall might present a certificate that the installer does not trust. The certificate authority (CA) trust store on the source server might also be missing or outdated.
 
@@ -259,7 +258,7 @@ On Windows, open a Command Prompt or PowerShell window with **Run as administrat
 ## DRS-INST-912: Operating system is not supported
 <a name="error-unsupported-os"></a>
 
-**Error message:** Error code: DRS-INST-912 - Operating system is not supported
+**Error message:** `Error code: DRS-INST-912 - Operating system is not supported`
 
 **Cause:** The source operating system is not supported. For `arm64`, this includes Windows on `arm64`. Elastic Disaster Recovery checks the operating system during installation.
 
@@ -268,7 +267,7 @@ On Windows, open a Command Prompt or PowerShell window with **Run as administrat
 ## DRS-INST-913: Invalid endpoint
 <a name="error-invalid-endpoint"></a>
 
-**Error message:** Error code: DRS-INST-913 - Invalid endpoint
+**Error message:** `Error code: DRS-INST-913 - Invalid endpoint`
 
 **Cause:** The value that you provided for the `--endpoint` parameter, or a malformed `--region` value, is not a well-formed endpoint URL.
 
@@ -280,7 +279,7 @@ On Windows, open a Command Prompt or PowerShell window with **Run as administrat
 ## DRS-INST-918: Operating system has reached its end of life
 <a name="error-end-of-life-os"></a>
 
-**Error message:** Error code: DRS-INST-918 - Operating system has reached its end of life
+**Error message:** `Error code: DRS-INST-918 - Operating system has reached its end of life`
 
 **Cause:** The operating system of the source server has passed the end-of-life date published by its vendor. AWS Elastic Disaster Recovery does not accept new source servers on an operating system that the vendor no longer supports. Unsupported operating systems can no longer receive security or compatibility fixes.
 
@@ -308,7 +307,7 @@ On Windows, open a Command Prompt or PowerShell window with **Run as administrat
 ### DRS cannot confirm that the arm64 source is an EC2 instance
 <a name="error-arm64-requires-ec2"></a>
 
-**Error:** ARM64 recovery is only supported for verified EC2 instances
+**Error:** `ARM64 recovery is only supported for verified EC2 instances`
 
 A verified Amazon EC2 instance is one that Elastic Disaster Recovery can confirm is an `arm64` Amazon EC2 instance with the instance ID that the agent reports. When you install the agent on an `arm64` source server, Elastic Disaster Recovery confirms this from the instance's signed Amazon EC2 instance identity document, which the agent reads from the instance metadata service.
 

@@ -1,7 +1,6 @@
 
 
 # Creating a recovery plan
-<a name="recovery-plans-creating"></a>
 
 Create an empty plan, then add the steps that define your recovery order. A plan cannot be run until it contains at least one server step:
 
@@ -23,7 +22,7 @@ Create an empty plan, then add the steps that define your recovery order. A plan
 
 To create a plan with the AWS CLI, use the `create-recovery-plan` command.
 
-```
+```bash
 aws drs create-recovery-plan \
     --name "Tier1-ecommerce" \
     --description "Database, application, and web tiers for the storefront"

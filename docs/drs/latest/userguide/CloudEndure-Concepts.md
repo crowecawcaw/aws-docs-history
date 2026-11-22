@@ -1,7 +1,6 @@
 
 
 # Elastic Disaster Recovery Concepts
-<a name="CloudEndure-Concepts"></a>
 
 ## What is the Recovery Time Objective (RTO) of Elastic Disaster Recovery?
 <a name="What-is-RTO"></a>

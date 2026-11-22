@@ -1,7 +1,6 @@
 
 
 # Adding and ordering steps
-<a name="recovery-plans-steps"></a>
 
 Steps are numbered from 1 and run in ascending order. A plan can contain up to 20 steps and up to 100 source servers in total across all of its steps.
 
@@ -13,7 +12,7 @@ The following rules apply to steps:
 
 To add a server step with the AWS CLI, use the `create-recovery-plan-step` command with a `serverStepConfiguration`. Servers that you do not give an `impactLevel` default to `CRITICAL`.
 
-```
+```bash
 aws drs create-recovery-plan-step \
     --recovery-plan-arn {{PLAN_ARN}} \
     --step-name "Database tier" \
@@ -29,7 +28,7 @@ aws drs create-recovery-plan-step \
 
 To add a wait step, use a `waitStepConfiguration` instead.
 
-```
+```bash
 aws drs create-recovery-plan-step \
     --recovery-plan-arn {{PLAN_ARN}} \
     --step-name "Wait for database startup" \
@@ -38,7 +37,7 @@ aws drs create-recovery-plan-step \
 
 By default, a new step is added to the end of the plan. To insert a step at a specific position, include `--step-order`; the steps at and after that position move down by one. To reorder the steps that a plan already has, use `reorder-recovery-plan-steps` and pass the complete list of step ARNs in the order that you want.
 
-```
+```bash
 aws drs reorder-recovery-plan-steps \
     --recovery-plan-arn {{PLAN_ARN}} \
     --ordered-step-arns {{STEP_ARN_2}} {{STEP_ARN_1}} {{STEP_ARN_3}}
@@ -57,7 +56,7 @@ arn:{{partition}}:drs:{{region}}:{{account-id}}:source-server/s-{{EXAMPLE1}}
 
 To find the ARNs of your source servers, use `describe-source-servers` and read the `arn` field of each entry in the response.
 
-```
+```bash
 aws drs describe-source-servers \
     --query 'items[].{arn:arn,hostname:sourceProperties.identificationHints.hostname}'
 ```

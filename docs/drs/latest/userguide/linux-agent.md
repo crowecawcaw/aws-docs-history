@@ -1,7 +1,6 @@
 
 
 # Installing the AWS Replication Agent on Linux
-<a name="linux-agent"></a>
 
 To install the agent on a Linux source server, you should ensure that your source meets all the requirements listed in the [supported Linux operating systems](Supported-Operating-Systems-Linux.md) documentation.
 
@@ -23,7 +22,7 @@ Run `uname -m` on the source server to find its architecture. `aarch64` means `a
 ------
 #### [ wget ]
 
-   ```
+   ```bash
    # x86_64
    wget -O ./aws-replication-installer-init https://aws-elastic-disaster-recovery-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/aws-replication-installer-init
    # arm64
@@ -33,7 +32,7 @@ Run `uname -m` on the source server to find its architecture. `aarch64` means `a
 ------
 #### [ curl ]
 
-   ```
+   ```bash
    # x86_64
    curl -o aws-replication-installer-init https://aws-elastic-disaster-recovery-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/aws-replication-installer-init
    # arm64
@@ -88,7 +87,7 @@ You can also enter these values as part of the installation script command param
 **Note**  
 You can also pass credentials through environment variables. We recommend using temporary credentials from AWS STS. Set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_SESSION_TOKEN`. Then run the installer with `sudo -E` and `--no-prompt`:  
 
-   ```
+   ```bash
    export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
    export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
    export AWS_SESSION_TOKEN=AQoDYXdzEJr//////////wEa8AMDSomethingEXAMPLE

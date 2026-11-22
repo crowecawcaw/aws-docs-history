@@ -1,7 +1,6 @@
 
 
 # Trusted accounts
-<a name="trusted-accounts"></a>
 
 Trusted accounts provide enhanced account management capabilities and visibility, including the ability to easily create multiple IAM roles for different users. Use this feature to quickly add the roles you need to use various AWS Elastic Disaster Recovery features and see the permissions of different accounts from a single screen.
 

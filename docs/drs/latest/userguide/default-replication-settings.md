@@ -1,7 +1,6 @@
 
 
 # AWS DRS default replication
-<a name="default-replication-settings"></a>
 
  **Default replication** settings are created during the DRS Service Initialization within a Region. [Learn more about configuring your **Default replication** settings](getting-started-initializing.md). The options configured within the **Default replication** automatically apply to any newly added Source Server. Any changes made to the **Default replication** only apply to any Source Server added after the changes were made, they do not automatically update the corresponding settings on existing Source Servers. 
 

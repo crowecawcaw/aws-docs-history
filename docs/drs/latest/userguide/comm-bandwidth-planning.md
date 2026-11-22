@@ -1,7 +1,6 @@
 
 
 # Replication bandwidth requirements
-<a name="comm-bandwidth-planning"></a>
 
 AWS Elastic Disaster Recovery replicates data changes from your source servers to AWS over TCP port 1500. The required network bandwidth must exceed the combined write throughput of all source servers that replicate through the same network path. If your available bandwidth is lower than the total write rate, replication can't keep up and data won't converge.
 
@@ -38,19 +37,19 @@ Use `iostat` from the `sysstat` package to measure disk write speed.
 
 Install `sysstat`:
 
-```
+```bash
 $ sudo yum install sysstat
 ```
 
 On Debian or Ubuntu, run the following command instead:
 
-```
+```bash
 $ sudo apt-get install sysstat
 ```
 
 Run `iostat` with extended statistics, reporting every 3 seconds:
 
-```
+```bash
 $ iostat -x 3
 ```
 
@@ -79,7 +78,7 @@ Use Performance Monitor (`perfmon`) to measure disk write speed.
 
 Alternatively, use the following PowerShell command to collect write speed samples:
 
-```
+```powershell
 Get-Counter '\PhysicalDisk(*)\Disk Write Bytes/sec' -SampleInterval 3 -MaxSamples 10
 ```
 

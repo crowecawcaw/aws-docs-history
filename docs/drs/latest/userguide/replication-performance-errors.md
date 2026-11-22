@@ -1,7 +1,6 @@
 
 
 # Replication performance errors
-<a name="replication-performance-errors"></a>
 
 This topic covers replication errors related to performance, convergence, and lag in AWS Elastic Disaster Recovery.
 
@@ -33,14 +32,14 @@ This topic covers replication errors related to performance, convergence, and la
 
 Run the following command to check replication lag and ETA:
 
-```
+```bash
 aws drs describe-source-servers \
     --filters sourceServerIDs={{SOURCE_SERVER_ID}}
 ```
 
 Run the following command to check disk type, IOPS, and throughput configuration:
 
-```
+```bash
 aws drs get-replication-configuration \
     --source-server-id {{SOURCE_SERVER_ID}}
 ```

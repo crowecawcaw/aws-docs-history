@@ -1,7 +1,6 @@
 
 
 # Agent related
-<a name="Agent-Related-FAQ"></a>
 
 ## What does the AWS Replication Agent do?
 <a name="What-Agent-Do"></a>

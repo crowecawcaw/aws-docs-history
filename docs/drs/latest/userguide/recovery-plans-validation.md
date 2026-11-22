@@ -1,7 +1,6 @@
 
 
 # Validation that runs before a server is recovered
-<a name="recovery-plans-validation"></a>
 
 AWS Elastic Disaster Recovery validates the source servers in a plan twice: once for the whole plan when an execution starts, and again for the servers in a server step at the moment that step begins. The checks are the same as the ones that run when you recover a source server on its own.
 

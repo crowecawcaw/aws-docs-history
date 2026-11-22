@@ -1,7 +1,6 @@
 
 
 # Predefined post-launch actions
-<a name="predefined-post-launch-actions-default"></a>
 
  AWS Elastic Disaster Recovery allows you to run various predefined post-launch actions on your EC2 launched instance. Use these out-of-the-box actions to validate your launch or improve your launch flexibility. 
 

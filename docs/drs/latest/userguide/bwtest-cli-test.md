@@ -1,7 +1,6 @@
 
 
 # Test with the command line
-<a name="bwtest-cli-test"></a>
 
 In this test you can set the stream count to match what Elastic Disaster Recovery actually does. Except where a step says otherwise, run this task on the source server, against the endpoint from [Install the endpoint software](bwtest-software-install.md).
 
@@ -17,7 +16,7 @@ Five parallel streams can saturate the source server's uplink for about a minute
 
 The client is [librespeed/speedtest-cli](https://github.com/librespeed/speedtest-cli), the LibreSpeed command-line client.
 
-```
+```bash
 export LIBRESPEED_CLI_VERSION=1.0.14
 export CLI_ARCH=linux_amd64                 # see the release page for other platforms
 export PORT=1500                            # must match the port the endpoint listens on
@@ -31,11 +30,11 @@ curl -sSLO "https://github.com/librespeed/speedtest-cli/releases/download/v${LIB
 **Note**  
 The project's GitHub release page lists a SHA-256 digest beside each archive. The digest covers the archive, not the extracted binary, so hash the archive and compare it with that digest before you unpack it:  
 
-```
+```bash
 sha256sum "librespeed-cli_${LIBRESPEED_CLI_VERSION}_${CLI_ARCH}.tar.gz"
 ```
 
-```
+```bash
 tar -xzf "librespeed-cli_${LIBRESPEED_CLI_VERSION}_${CLI_ARCH}.tar.gz" librespeed-cli
 chmod +x librespeed-cli
 ./librespeed-cli --version
@@ -54,13 +53,13 @@ Prefer real certificate verification over a bypass: copy the endpoint's certific
 
 Display the certificate on the endpoint instance, and copy its full output:
 
-```
+```bash
 cat ~/bwtest/certs/server.crt
 ```
 
 On the source server, write the copied certificate to `~/bwclient/target-ca.crt` with the following command. Paste the certificate, including the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` lines, then press `Ctrl+D` on an empty line to end the input:
 
-```
+```bash
 cat > ~/bwclient/target-ca.crt
 ```
 
@@ -74,7 +73,7 @@ If you genuinely cannot move the file, for example on an air-gapped source serve
 
 The client takes its target from a small JSON file. Field names are case-sensitive: note `dlURL`, `ulURL`, and `pingURL`, but `getIpURL` with a lowercase `p`.
 
-```
+```bash
 ENDPOINT_HOST={{ENDPOINT_NAME}}        # the CN= value the certificate step printed; over VPN or Direct Connect, its PRIV_IP value instead
 
 cat > ~/bwclient/servers-1500.json <<JSON
@@ -106,7 +105,7 @@ An in-VPC client measuring the internet path has to use the endpoint's public IP
 ## Run the measurement
 <a name="bwtest-cli-run"></a>
 
-```
+```bash
 cd ~/bwclient
 ./librespeed-cli \
   --local-json servers-1500.json \

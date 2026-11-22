@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSElasticDisasterRecoveryRecoveryInstancePolicy
-<a name="security-iam-awsmanpol-AWSElasticDisasterRecoveryRecoveryInstancePolicy"></a>
 
  
 

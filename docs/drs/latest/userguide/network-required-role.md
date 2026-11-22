@@ -1,7 +1,6 @@
 
 
 # Creating the required role for Elastic Disaster Recovery
-<a name="network-required-role"></a>
 
  In order to replicate network configurations between different accounts, you need to go to the source account and create the **Network role** from the **Trusted accounts** page. This will automatically create the role and attach the required policies.
 
@@ -31,7 +30,7 @@ This role includes the AWSElasticDisasterRecoverySourceNetworkPolicy policy and 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

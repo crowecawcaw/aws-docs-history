@@ -1,7 +1,6 @@
 
 
 # Elastic Disaster Recovery quick start guide
-<a name="quick-start-guide-gs"></a>
 
 This section guides you through your initial Elastic Disaster Recovery setup, including: 
 

@@ -1,7 +1,6 @@
 
 
 # Console Read-Only Access Policy - AWSElasticDisasterRecoveryReadOnlyAccess
-<a name="customer_managed_policies_drs_readonly"></a>
 
 You can attach the AWSElasticDisasterRecoveryReadOnlyAccess policy to your IAM identities. 
 
@@ -18,7 +17,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

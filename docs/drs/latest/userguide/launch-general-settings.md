@@ -1,7 +1,6 @@
 
 
 # DRS launch settings
-<a name="launch-general-settings"></a>
 
 The **DRS launch settings** section allows you to control server-specific settings. 
 

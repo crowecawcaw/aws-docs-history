@@ -1,7 +1,6 @@
 
 
 # Key considerations for EC2 launch templates
-<a name="ec2-key-considerations"></a>
 
 Review the following key rules and interactions before you modify an EC2 launch template for use with AWS Elastic Disaster Recovery.
 

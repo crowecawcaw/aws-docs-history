@@ -1,7 +1,6 @@
 
 
 # Elastic Disaster Recovery security groups
-<a name="drs-security-group"></a>
 
 A security group acts as a virtual firewall, which controls the inbound and outbound traffic of the staging area. We recommend that you have AWS Elastic Disaster Recovery automatically attach and monitor the default Elastic Disaster Recovery security group. This group opens inbound TCP Port 1500 for receiving the transferred replicated data. When you use the default Elastic Disaster Recovery security group, Elastic Disaster Recovery constantly monitors whether the rules within this security group are enforced, in order to maintain uninterrupted data replication. If these rules are altered, Elastic Disaster Recovery automatically fixes the issue. Choose:
 + Recommended - Select **Always use AWS Elastic Disaster Recovery security group** to allow data to flow from your source servers to the replication servers, and so that the replication servers can communicate their state to the AWS Elastic Disaster Recovery servers.

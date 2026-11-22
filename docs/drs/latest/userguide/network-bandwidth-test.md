@@ -1,7 +1,6 @@
 
 
 # Running a network bandwidth test to an EC2 endpoint
-<a name="network-bandwidth-test"></a>
 
 This procedure measures throughput over TLS on TCP port 1500 between a source server and an Amazon Elastic Compute Cloud instance that you launch as a disposable endpoint. The test exercises the same encrypted path that replication uses. As a result, it reveals TLS interception by a middlebox and the maximum transmission unit (MTU) effects that a plain TCP test can hide. You run the test from one of two clients that drive the same endpoint, on the same port, with the same certificate: a command-line client or a browser. Use the command-line client; it produces the figure you should quote and is the only client that lets you set the number of concurrent streams. Choose the browser instead when the source server has a desktop, or when you want to watch the test run.
 

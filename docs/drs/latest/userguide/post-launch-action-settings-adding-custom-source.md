@@ -1,7 +1,6 @@
 
 
 # Adding custom actions with AWS DRS
-<a name="post-launch-action-settings-adding-custom-source"></a>
 
  AWS Elastic Disaster Recovery (AWS DRS) allows you to run any SSM document that you like – public SSM documents, SSM documents that you created and uploaded to your account or SSM documents that are shared with you. You can configure a custom action to run any SSM document that is available in your account. To be able to create, edit or delete a custom action, make sure the post-launch actions are activated for this source server. Custom actions added to the default settings are automatically added to newly added source servers. 
 

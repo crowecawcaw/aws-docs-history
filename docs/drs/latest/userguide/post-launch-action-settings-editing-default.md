@@ -1,7 +1,6 @@
 
 
 # Activating, deactivating and editing predefined or custom actions
-<a name="post-launch-action-settings-editing-default"></a>
 
  You can activate, deactivate and edit actions available in the default post-launch actions settings. Activating an action in the default settings, adds the action as activated to newly added servers. Likewise, deactivating it, adds it as a non-active action to newly added servers. Source servers already created with this action are not affected by changes in the default settings. 
 

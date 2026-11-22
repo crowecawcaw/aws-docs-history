@@ -1,7 +1,6 @@
 
 
 # Launch configuration errors
-<a name="launch-configuration-errors"></a>
 
 The following errors occur when launch configuration settings, IAM permissions, or resource limits prevent AWS Elastic Disaster Recovery from launching recovery instances.
 
@@ -26,7 +25,7 @@ The following errors occur when launch configuration settings, IAM permissions, 
 
 **Error message**
 
-instance not launched because server lifecycle state is not READY\_FOR\_TEST
+`instance not launched because server lifecycle state is not READY_FOR_TEST`
 
 **Cause**
 
@@ -47,7 +46,7 @@ To resolve this error, complete the following steps:
 
 **Error message**
 
-OS BYOL can only be used with EC2 Dedicated Hosts
+`OS BYOL can only be used with EC2 Dedicated Hosts`
 
 **Cause**
 
@@ -64,7 +63,7 @@ Use one of the following options to resolve this error:
 
 **Error message**
 
-The EBS encryption key could not be found in this account
+`The EBS encryption key could not be found in this account`
 
 **Cause**
 
@@ -82,7 +81,7 @@ To resolve this error, verify the following:
 
 **Error message**
 
-Your IAM user do not have permission for ec2:CreateSecurityGroup
+`Your IAM user do not have permission for ec2:CreateSecurityGroup`
 
 **Cause**
 
@@ -114,7 +113,7 @@ Use one of the following options to resolve this error:
 
 **Error message**
 
-Cannot set BASIC right sizing on source server {{source-server-id}}. BASIC right sizing is not supported for arm64/Graviton source servers. Use IN\_AWS or NONE instead.
+`Cannot set BASIC right sizing on source server {{source-server-id}}. BASIC right sizing is not supported for arm64/Graviton source servers. Use IN_AWS or NONE instead.`
 
 **Cause**
 
@@ -129,7 +128,7 @@ Set right-sizing to **Active (in-aws)** or **Inactive**. If the account default 
 
 **Error message**
 
-Could not apply in-AWS right sizing for source server {{source-server-id}} because AWS Elastic Disaster Recovery is unable to successfully make the DescribeInstances API call against the source EC2 instance {{instance-id}}.
+`Could not apply in-AWS right sizing for source server {{source-server-id}} because AWS Elastic Disaster Recovery is unable to successfully make the DescribeInstances API call against the source EC2 instance {{instance-id}}.`
 
 **Cause**
 
@@ -144,7 +143,7 @@ Restore permission to describe the source instance, then retry the launch-settin
 
 **Error message**
 
-Could not apply in-AWS right sizing for source server {{source-server-id}} because source instance {{instance-id}} was not found in its reported account and region.
+`Could not apply in-AWS right sizing for source server {{source-server-id}} because source instance {{instance-id}} was not found in its reported account and region.`
 
 **Cause**
 
@@ -159,7 +158,7 @@ Verify the source account, Region, and instance ID. Restore the source instance 
 
 **Error message**
 
-Could not apply in-AWS right sizing for source server {{source-server-id}} because source instance type {{instance-type}} is not available in the recovery region.
+`Could not apply in-AWS right sizing for source server {{source-server-id}} because source instance type {{instance-type}} is not available in the recovery region.`
 
 **Cause**
 
@@ -174,7 +173,7 @@ Use **Inactive** right-sizing and configure a compatible Graviton type, or keep 
 
 **Error message**
 
-Source server {{source-server-id}} is an arm64 (Graviton) source, but the launch template specifies instance type '{{instance-type}}', which is not an arm64 instance type. An aarch64 root volume cannot boot on an x86\_64 instance. Use a Graviton instance type (such as c6g, m6g, r6g, c7g, or t4g) in your launch template.
+`Source server {{source-server-id}} is an arm64 (Graviton) source, but the launch template specifies instance type '{{instance-type}}', which is not an arm64 instance type. An aarch64 root volume cannot boot on an x86_64 instance. Use a Graviton instance type (such as c6g, m6g, r6g, c7g, or t4g) in your launch template.`
 
 **Cause**
 
@@ -189,7 +188,7 @@ Select a Graviton instance type that is offered in the recovery location.
 
 **Error message**
 
-Source server {{source-server-id}} is an arm64 (Graviton) source, but the launch template's InstanceRequirements cannot be satisfied by any arm64 instance type. An aarch64 root volume cannot boot on an x86\_64 instance. Widen AllowedInstanceTypes to include a Graviton family (for example c6g.\*, m6g.\*, r6g.\*, c7g.\*, or t4g.\*), or relax the attribute constraints so at least one arm64 instance type qualifies.
+`Source server {{source-server-id}} is an arm64 (Graviton) source, but the launch template's InstanceRequirements cannot be satisfied by any arm64 instance type. An aarch64 root volume cannot boot on an x86_64 instance. Widen AllowedInstanceTypes to include a Graviton family (for example c6g.*, m6g.*, r6g.*, c7g.*, or t4g.*), or relax the attribute constraints so at least one arm64 instance type qualifies.`
 
 **Cause**
 
@@ -204,7 +203,7 @@ Widen the allowed instance types or relax the requirements so that they match at
 
 **Error message**
 
-Source server {{source-server-id}} is an arm64 (Graviton) source, but the AMI '{{ami-id}}' specified for launch has architecture '{{ami-architecture}}'. An aarch64 root volume cannot boot from an x86\_64 AMI. Use an arm64 AMI, or remove the AMI override to let DRS create an architecture-matched AMI.
+`Source server {{source-server-id}} is an arm64 (Graviton) source, but the AMI '{{ami-id}}' specified for launch has architecture '{{ami-architecture}}'. An aarch64 root volume cannot boot from an x86_64 AMI. Use an arm64 AMI, or remove the AMI override to let DRS create an architecture-matched AMI.`
 
 **Cause**
 
@@ -219,13 +218,13 @@ Use an `arm64` AMI, or remove the AMI override so that AWS Elastic Disaster Reco
 
 **Error message**
 
-Action could not be completed. Invalid ARM64 recovery settings: {{violations}} in the launch configuration template.
+`Action could not be completed. Invalid ARM64 recovery settings: {{violations}} in the launch configuration template.`
 
 **Cause**
 
 The launch template contains one or more of these violations:
-+ one of InstanceType or InstanceRequirements is required
-+ instance type '{{instance-type}}' is not an arm64 (Graviton) type
++ `one of InstanceType or InstanceRequirements is required`
++ `instance type '{{instance-type}}' is not an arm64 (Graviton) type`
 
 At launch time, the messages described in [Error: AMI architecture does not match the arm64 source](#error-arm64-ami-architecture-mismatch) and [Error: Instance requirements exclude arm64 instance types](#error-arm64-instance-requirements-conflict) can also appear inside this error.
 
@@ -238,7 +237,7 @@ Specify a Graviton instance type or satisfiable instance requirements in the lau
 
 **Error message**
 
-You cannot define the EC2 instance {{ec2-instance-id}} as a launch into instance ID as is has conflicting instance settings to those of the source server ({{source-server-id}}). The following fields have a configuration mismatch: Architecture.
+`You cannot define the EC2 instance {{ec2-instance-id}} as a launch into instance ID as is has conflicting instance settings to those of the source server ({{source-server-id}}). The following fields have a configuration mismatch: Architecture.`
 
 **Cause**
 

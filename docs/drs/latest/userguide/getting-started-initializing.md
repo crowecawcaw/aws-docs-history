@@ -1,7 +1,6 @@
 
 
 # Elastic Disaster Recovery initialization and permissions
-<a name="getting-started-initializing"></a>
 
 In order to use AWS Elastic Disaster Recovery, the service must first be initialized for any AWS Region in which you plan to use Elastic Disaster Recovery. 
 
@@ -84,7 +83,7 @@ Example 1: creating a role for the **AWSElasticDisasterRecoveryAgentRole** with 
 
  **Role: AWSElasticDisasterRecoveryAgentRole** 
 
-```
+```json
 $ aws iam create-role --path "/service-role/" --role-name
 			AWSElasticDisasterRecoveryAgentRole --assume-role-policy-document file://agent-source-drs-trust-policy.json
 ```
@@ -95,7 +94,7 @@ Example 2: creating a role for the **AWSElasticDisasterRecoveryFailbackRole** wi
 
  **Role: AWSElasticDisasterRecoveryFailbackRole** 
 
-```
+```json
 $ aws iam create-role --path "/service-role/" --role-name
 			AWSElasticDisasterRecoveryFailbackRole --assume-role-policy-document file://failback-source-drs-trust-policy.json
 ```
@@ -106,21 +105,21 @@ Example 3: creating roles for the **AWSElasticDisasterRecoveryConversionServerRo
 
  **Role: AWSElasticDisasterRecoveryConversionServerRole** 
 
-```
+```json
 $ aws iam create-role --path "/service-role/" --role-name
 			AWSElasticDisasterRecoveryConversionServerRole --assume-role-policy-document file://source-drs-trust-policy.json
 ```
 
  **Role: AWSElasticDisasterRecoveryRecoveryInstanceRole** 
 
-```
+```json
 $ aws iam create-role --path "/service-role/" --role-name
 			AWSElasticDisasterRecoveryRecoveryInstanceRole --assume-role-policy-document file://source-drs-trust-policy.json
 ```
 
  **Role: AWSElasticDisasterRecoveryReplicationServerRole** 
 
-```
+```json
 $ aws iam create-role --path "/service-role/" --role-name
 			AWSElasticDisasterRecoveryReplicationServerRole --assume-role-policy-document file://source-drs-trust-policy.json
 ```
@@ -132,7 +131,7 @@ $ aws iam create-role --path "/service-role/" --role-name
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -163,7 +162,7 @@ Learn more about [AWS Elastic Disaster Recovery roles and managed policies](secu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

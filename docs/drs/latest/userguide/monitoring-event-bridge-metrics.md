@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch Metrics for DRS
-<a name="monitoring-event-bridge-metrics"></a>
 
 The following are CloudWatch metrics for DRS:
 +  **TotalSourceServerCount** - number of source servers 

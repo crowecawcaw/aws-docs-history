@@ -1,7 +1,6 @@
 
 
 # Post-launch settings
-<a name="post-launch-settings-source"></a>
 
 Post-launch settings allow you to control and automate actions performed after a recovery instance has been launched for the source server in AWS. These settings are created automatically based on the **Default post-launch actions**.
 

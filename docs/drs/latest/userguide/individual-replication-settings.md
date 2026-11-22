@@ -1,7 +1,6 @@
 
 
 # AWS DRS individual replication settings
-<a name="individual-replication-settings"></a>
 
  AWS Elastic Disaster Recovery attempts to reduce costs by consolidating the replication of as many source servers as possible onto the same Replication Server based on the individual Source Server **Replication Settings**. Source Servers must have identical **Replication Settings** to be considered for consolidation, and must not have [Use dedicated replication instance](#dedicated-replication-server) enabled. For example, DRS does not consolidate Source Servers that have a different **Staging area subnet** specified in their **Replication Settings**. To reduce EC2 usage, we recommend having as many as possible Source Servers have identical **Replication Settings** to one another. 
 

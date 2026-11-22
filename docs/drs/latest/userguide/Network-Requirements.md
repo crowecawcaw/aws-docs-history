@@ -1,7 +1,6 @@
 
 
 # Elastic Disaster Recovery network requirements
-<a name="Network-Requirements"></a>
 
 To prepare your network for running Elastic Disaster Recovery, set these connectivity settings: 
 
@@ -56,7 +55,7 @@ When using an S3 VPC Endpoint, you must provide sufficient permissions for servi
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

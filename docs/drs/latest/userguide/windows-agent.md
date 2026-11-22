@@ -1,7 +1,6 @@
 
 
 # Installing the AWS Replication Agent on Windows
-<a name="windows-agent"></a>
 
 To install the AWS Replication Agent on a Windows source server, you should ensure that your source meets all the requirements listed in the [supported Windows operating systems](Supported-Operating-Systems-Windows.md) documentation.
 
@@ -26,7 +25,7 @@ The following is an example command for downloading the installer file from the 
 **Note**  
 If you are using Windows Server 2016 or older, you may need to enable TLS 1.2 in PowerShell before downloading: `[System.Net.ServicePointManager]::SecurityProtocol = 'TLS12'` 
 
-```
+```powershell
 Invoke-WebRequest "https://aws-elastic-disaster-recovery-us-east-1.s3.us-east-1.amazonaws.com/latest/windows/AwsReplicationWindowsInstaller.exe" -OutFile .\AwsReplicationWindowsInstaller.exe
 ```
 
@@ -304,7 +303,7 @@ If you need to validate the installer hash, the correct hash is here:
 
 1.  Run the agent installer file `AwsReplicationWindowsInstaller.exe` as an Administrator. 
 
-   ```
+   ```powershell
    .\AwsReplicationWindowsInstaller.exe
    ```
 
@@ -329,7 +328,7 @@ You can also enter these values as part of the installation script command param
 **Note**  
 You can also pass credentials through environment variables. We recommend using temporary credentials from AWS STS. Set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_SESSION_TOKEN` in your PowerShell session. Then run the installer with `--no-prompt`:  
 
-   ```
+   ```powershell
    $env:AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7EXAMPLE"
    $env:AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
    $env:AWS_SESSION_TOKEN = "AQoDYXdzEJr//////////wEa8AMDSomethingEXAMPLE"

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting the DRSFA Client
-<a name="failback-failover-drsfa-troubleshooting"></a>
 
 The following table describes common issues and resolutions when using the DRSFA client.
 

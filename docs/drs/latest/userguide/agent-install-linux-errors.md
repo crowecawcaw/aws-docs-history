@@ -1,7 +1,6 @@
 
 
 # Linux agent installation errors
-<a name="agent-install-linux-errors"></a>
 
 This topic covers errors that you might encounter during or after installing the AWS Elastic Disaster Recovery agent on Linux source servers. Each section describes an error message, its cause, and the resolution.
 
@@ -16,6 +15,7 @@ This topic covers errors that you might encounter during or after installing the
 + [DRS-INST-015: SUSE kernel headers package not found](#error-suse-kernel-headers)
 + [DRS-INST-022: Failed to create system user](#error-user-creation-failed)
 + [DRS-INST-025: Permission denied when loading kernel driver](#error-selinux-secure-boot)
++ [DRS-INST-027: Driver update environment file could not be prepared](#error-driver-update-env-prepare)
 + [DRS-INST-914: Invalid driver state location](#error-driver-state-location)
 + [DRS-INST-915: Invalid disk path format](#error-disk-path-format)
 + [DRS-INST-916: Multipath disk detection failure](#error-multipath)
@@ -25,7 +25,7 @@ This topic covers errors that you might encounter during or after installing the
 ## DRS-INST-002: Kernel headers link is broken
 <a name="error-kernel-headers-mismatch"></a>
 
-**Error message:** Error code: DRS-INST-002 - Kernel headers link is broken
+**Error message:** `Error code: DRS-INST-002 - Kernel headers link is broken`
 
 **Cause:** The kernel headers link for the running kernel points to a directory that does not exist. This can occur after a kernel update removes the old headers.
 
@@ -33,31 +33,31 @@ This topic covers errors that you might encounter during or after installing the
 
 1. Check the running kernel version:
 
-   ```
+   ```bash
    $ uname -r
    ```
 
 1. Check installed headers:
    + **RHEL/CentOS/SUSE:**
 
-     ```
+     ```bash
      $ rpm -qa | grep 'kernel.*devel'
      ```
    + **Debian/Ubuntu:**
 
-     ```
+     ```bash
      $ dpkg -l | grep linux-headers
      ```
 
 1. Check whether the header directory is a symlink. If it is a symlink, remove it:
    + **RHEL/CentOS/SUSE:**
 
-     ```
+     ```bash
      $ ls -l /usr/src/kernels
      ```
    + **Debian/Ubuntu:**
 
-     ```
+     ```bash
      $ ls -l /usr/src
      ```
 
@@ -66,17 +66,17 @@ This topic covers errors that you might encounter during or after installing the
 1. Install the correct headers:
    + **RHEL/CentOS:**
 
-     ```
+     ```bash
      $ sudo yum install kernel-devel-$(uname -r)
      ```
    + **SUSE:**
 
-     ```
+     ```bash
      $ sudo zypper install kernel-default-devel=$(uname -r | sed "s/-default//")
      ```
    + **Debian/Ubuntu:**
 
-     ```
+     ```bash
      $ sudo apt-get install linux-headers-$(uname -r)
      ```
 
@@ -91,7 +91,7 @@ Multiple kernel-headers versions can coexist safely. Installing new headers does
 ## DRS-INST-003: Kernel headers not found
 <a name="error-kernel-headers-not-found"></a>
 
-**Error message:** Error code: DRS-INST-003 - Kernel headers not found
+**Error message:** `Error code: DRS-INST-003 - Kernel headers not found`
 
 **Cause:** The installer could not find kernel headers for the running kernel, and no headers package that matches `uname -r` was available.
 
@@ -100,7 +100,7 @@ Multiple kernel-headers versions can coexist safely. Installing new headers does
 ## DRS-INST-004: gcc not found
 <a name="error-gcc-not-found"></a>
 
-**Error message:** Error code: DRS-INST-004 - gcc not found
+**Error message:** `Error code: DRS-INST-004 - gcc not found`
 
 **Cause:** The `gcc` compiler is required to compile the replication driver, and the installer could not install it.
 
@@ -109,17 +109,17 @@ Multiple kernel-headers versions can coexist safely. Installing new headers does
 **Unreachable package repositories**  
 Check whether the repositories respond:  
 
-```
+```bash
 $ sudo apt-get update
 ```
 On RHEL, CentOS, and Amazon Linux, use the following command instead:  
 
-```
+```bash
 $ sudo yum makecache
 ```
 On SUSE, use the following command instead:  
 
-```
+```bash
 $ sudo zypper refresh
 ```
 If the command fails, restore repository access and run the installer again. If the server reaches the internet through a web proxy, configure that proxy for the package manager as well.
@@ -127,17 +127,17 @@ If the command fails, restore repository access and run the installer again. If 
 **gcc missing from the repositories**  
 Check whether the configured repositories offer `gcc`:  
 
-```
+```bash
 $ apt-cache policy gcc
 ```
 On RHEL, CentOS, and Amazon Linux, use the following command instead:  
 
-```
+```bash
 $ yum info gcc
 ```
 On SUSE, use the following command instead:  
 
-```
+```bash
 $ zypper info gcc
 ```
 If no candidate version is listed, and this server is not permitted to reach an external repository, install `gcc` and `make` from local media or from an internal repository, and then run the installer again.
@@ -145,7 +145,7 @@ If no candidate version is listed, and this server is not permitted to reach an 
 **Package manager lock contention**  
 Check whether another package operation is running:  
 
-```
+```bash
 $ pgrep -af 'apt|dpkg|yum|dnf|zypper|unattended'
 ```
 The pattern covers the package managers and the unattended upgrade service, which is a common holder of the lock. Because the command matches full command lines, it can also list itself; disregard that entry. If it lists a package operation, wait for that operation to finish and then run the installer again.
@@ -153,7 +153,7 @@ The pattern covers the package managers and the unattended upgrade service, whic
 **Insufficient free space**  
 Check the file systems that hold the package cache and the installation target:  
 
-```
+```bash
 $ df -h /var /usr
 ```
 If either is full, delete unneeded files and run the installer again.
@@ -161,24 +161,24 @@ If either is full, delete unneeded files and run the installer again.
 If none of the preceding conditions applies, install `gcc` and `make` manually and then run the installer again:
 + **RHEL/CentOS/Amazon Linux:**
 
-  ```
+  ```bash
   $ sudo yum install gcc make
   ```
 + **Debian/Ubuntu:**
 
-  ```
+  ```bash
   $ sudo apt-get install gcc make
   ```
 + **SUSE:**
 
-  ```
+  ```bash
   $ sudo zypper install gcc make
   ```
 
 ## DRS-INST-008: Unsupported Linux kernel version
 <a name="error-unsupported-kernel"></a>
 
-**Error message:** Error code: DRS-INST-008 - Unsupported Linux kernel version
+**Error message:** `Error code: DRS-INST-008 - Unsupported Linux kernel version`
 
 **Cause:** The running kernel is not compatible with the AWS Elastic Disaster Recovery replication driver.
 
@@ -187,7 +187,7 @@ If none of the preceding conditions applies, install `gcc` and `make` manually a
 ## DRS-INST-012: Oracle ASM Filter Driver requires a restart
 <a name="error-oracle-asmfd"></a>
 
-**Error message:** Error code: DRS-INST-012 - Oracle ASM Filter Driver requires a restart
+**Error message:** `Error code: DRS-INST-012 - Oracle ASM Filter Driver requires a restart`
 
 **Cause:** The Oracle ASM Filter Driver (ASMFD) is loaded, but the AWS Elastic Disaster Recovery replication driver has not loaded yet. Installation completes successfully, but replication cannot start until the replication driver loads.
 
@@ -196,7 +196,7 @@ If none of the preceding conditions applies, install `gcc` and `make` manually a
 ## DRS-INST-013: Agent driver build configuration failed
 <a name="error-driver-build-config-failed"></a>
 
-**Error message:** Error code: DRS-INST-013 - Agent driver build configuration failed
+**Error message:** `Error code: DRS-INST-013 - Agent driver build configuration failed`
 
 **Cause:** The agent builds a kernel driver at install time. The kernel headers are present, but the `configure` step failed before compilation. This usually means the kernel development package (`kernel-devel` or `linux-headers`) for the running kernel is incomplete. It can also mean the kernel build tree at `/lib/modules/$(uname -r)/build` is missing or invalid.
 
@@ -204,24 +204,24 @@ If none of the preceding conditions applies, install `gcc` and `make` manually a
 
 1. Confirm the kernel build tree exists and resolves to a valid directory:
 
-   ```
+   ```bash
    $ ls -l /lib/modules/$(uname -r)/build
    ```
 
 1. Reinstall the complete kernel development package that matches the running kernel version:
    + **RHEL/CentOS:**
 
-     ```
+     ```bash
      $ sudo yum install kernel-devel-$(uname -r)
      ```
    + **Debian/Ubuntu:**
 
-     ```
+     ```bash
      $ sudo apt-get install --reinstall linux-headers-$(uname -r)
      ```
    + **SUSE/SLES:**
 
-     ```
+     ```bash
      $ sudo zypper install kernel-default-devel=$(uname -r | sed "s/-default//") kernel-source
      ```
 
@@ -232,7 +232,7 @@ If none of the preceding conditions applies, install `gcc` and `make` manually a
 ## DRS-INST-014: Agent driver compilation failed
 <a name="error-driver-compile-failed"></a>
 
-**Error message:** Error code: DRS-INST-014 - Agent driver compilation failed
+**Error message:** `Error code: DRS-INST-014 - Agent driver compilation failed`
 
 **Cause:** The kernel headers are present, but the driver module failed to compile. This error usually occurs when the compiler or toolset is incompatible with the compiler that built the running kernel. For example, a mismatched `gcc` version can cause this error. Insufficient free disk space is another common cause.
 
@@ -240,7 +240,7 @@ If none of the preceding conditions applies, install `gcc` and `make` manually a
 
 1. Confirm that `gcc` and `make` are installed, and compare the `gcc` version with the compiler that built the running kernel:
 
-   ```
+   ```bash
    $ gcc --version
    $ cat /proc/version
    ```
@@ -249,7 +249,7 @@ If none of the preceding conditions applies, install `gcc` and `make` manually a
 
 1. Confirm that there is sufficient free disk space:
 
-   ```
+   ```bash
    $ df -h /
    ```
 
@@ -258,7 +258,7 @@ If none of the preceding conditions applies, install `gcc` and `make` manually a
 ## DRS-INST-015: SUSE kernel headers package not found
 <a name="error-suse-kernel-headers"></a>
 
-**Error message:** Error code: DRS-INST-015 - SUSE kernel headers package not found
+**Error message:** `Error code: DRS-INST-015 - SUSE kernel headers package not found`
 
 **Cause:** On SUSE Linux Enterprise Server, the installer searches for the `kernel-source` package that matches the running kernel. It then installs the matching `kernel-default-devel` headers. The `zypper` search returned no matching package, which usually means the configured repositories do not include the required package.
 
@@ -266,13 +266,13 @@ If none of the preceding conditions applies, install `gcc` and `make` manually a
 
 1. Check the running kernel version:
 
-   ```
+   ```bash
    $ uname -r
    ```
 
 1. Refresh the repositories and install the matching kernel development packages:
 
-   ```
+   ```bash
    $ sudo zypper refresh
    $ sudo zypper install kernel-default-devel=$(uname -r | sed "s/-default//") kernel-source
    ```
@@ -284,7 +284,7 @@ If none of the preceding conditions applies, install `gcc` and `make` manually a
 ## DRS-INST-022: Failed to create system user
 <a name="error-user-creation-failed"></a>
 
-**Error message:** Error code: DRS-INST-022 - Failed to create system user
+**Error message:** `Error code: DRS-INST-022 - Failed to create system user`
 
 **Cause:** The installer cannot create or configure the `aws-replication` system user because of a file-level restriction.
 
@@ -293,12 +293,12 @@ If none of the preceding conditions applies, install `gcc` and `make` manually a
 **Immutable user database files**  
 Check for the immutable attribute:  
 
-```
+```bash
 $ lsattr /etc/passwd /etc/group /etc/shadow
 ```
 Remove the immutable attribute:  
 
-```
+```bash
 $ sudo chattr -i /etc/passwd /etc/group /etc/shadow
 ```
 Run the agent installer. Re-apply the immutable attribute after installation completes.  
@@ -307,18 +307,18 @@ The immutable attribute might be intentional security hardening. Consult your sy
 **Installation directory not writable or immutable**  
 Check whether the file system is mounted read-only:  
 
-```
+```bash
 $ findmnt -T /var/lib/aws-replication-agent
 ```
 If the `OPTIONS` column includes `ro`, remount the file system with write permissions and run the installer again.  
 Check whether the directory has the immutable attribute:  
 
-```
+```bash
 $ lsattr -d /var/lib/aws-replication-agent
 ```
 If the output includes `i`, remove the immutable attribute:  
 
-```
+```bash
 $ sudo chattr -i /var/lib/aws-replication-agent
 ```
 Run the installer again after removing the attribute.
@@ -326,7 +326,7 @@ Run the installer again after removing the attribute.
 **Invalid sudoers file**  
 Validate the existing `/etc/sudoers` file:  
 
-```
+```bash
 $ sudo visudo -c
 ```
 Correct any reported syntax errors, then run the installer again. Your existing `/etc/sudoers` file remains unchanged.
@@ -334,7 +334,7 @@ Correct any reported syntax errors, then run the installer again. Your existing 
 ## DRS-INST-025: Permission denied when loading kernel driver
 <a name="error-selinux-secure-boot"></a>
 
-**Error message:** Error code: DRS-INST-025 - Permission denied when loading kernel driver
+**Error message:** `Error code: DRS-INST-025 - Permission denied when loading kernel driver`
 
 **Cause:** SELinux, Secure Boot, or endpoint protection software is blocking kernel module insertion.
 
@@ -343,19 +343,19 @@ Correct any reported syntax errors, then run the installer again. Your existing 
 **SELinux**  
 Check SELinux status:  
 
-```
+```bash
 $ sestatus
 ```
 Fix the security context on the driver module:  
 
-```
+```bash
 $ restorecon /lib/modules/*/extra/aws-replication-driver.ko
 ```
 
 **Secure Boot**  
 Check Secure Boot status:  
 
-```
+```bash
 $ mokutil --sb-state
 ```
 If Secure Boot is enabled, you must disable it to use the agent.  
@@ -364,10 +364,51 @@ Consult your security team before disabling Secure Boot.
 **Antivirus or endpoint protection**  
 Check your endpoint protection software and add AWS Elastic Disaster Recovery components to the allow list.
 
+## DRS-INST-027: Driver update environment file could not be prepared
+<a name="error-driver-update-env-prepare"></a>
+
+**Error message:** `Error code: DRS-INST-027 - Driver update environment file could not be prepared`
+
+The installer prints the following text before the error code:
+
+`Could not prepare the AWS Replication Agent driver update environment file at /var/lib/aws-replication-agent/aws-replication-driver-update.env. Remove any file, directory, or link at that path that the installer did not create, then run the installer again.`
+
+**Cause:** The installer creates and owns this file, and it could not write it. The file could not be written because a directory already occupies the path, the path is not writable, or the file system is full.
+
+**Resolution:** Inspect the path named in the error message, then clear whatever is blocking it.
+
+1. Inspect the path named in the error message:
+
+   ```bash
+   $ ls -ld /var/lib/aws-replication-agent/aws-replication-driver-update.env
+   ```
+
+1. If a directory, or an object that the installer did not create, occupies the path, remove it:
+
+   ```bash
+   $ sudo rm -r /var/lib/aws-replication-agent/aws-replication-driver-update.env
+   ```
+
+1. If nothing occupies the path, the write failed. Confirm that the file system has free space and is not mounted read-only:
+
+   ```bash
+   $ df -h /var/lib/aws-replication-agent
+   $ findmnt -T /var/lib/aws-replication-agent
+   ```
+
+   If the `OPTIONS` column includes `ro`, remount the file system with write permissions. Check the path for an immutable attribute, and remove it if present:
+
+   ```bash
+   $ lsattr -d /var/lib/aws-replication-agent
+   $ sudo chattr -i /var/lib/aws-replication-agent
+   ```
+
+1. Run the AWS Replication Agent installer again.
+
 ## DRS-INST-914: Invalid driver state location
 <a name="error-driver-state-location"></a>
 
-**Error message:** Error code: DRS-INST-914 - Invalid driver state location
+**Error message:** `Error code: DRS-INST-914 - Invalid driver state location`
 
 **Cause:** The path that you provided for the `--driver-state-location` parameter does not exist. Alternatively, the agent cannot write to that file system early in the boot process. For example, the agent cannot write to a Btrfs subvolume at that stage.
 
@@ -379,13 +420,13 @@ Check your endpoint protection software and add AWS Elastic Disaster Recovery co
 ## DRS-INST-915: Invalid disk path format
 <a name="error-disk-path-format"></a>
 
-**Error message:** Error code: DRS-INST-915 - Invalid disk path format
+**Error message:** `Error code: DRS-INST-915 - Invalid disk path format`
 
 **Cause:** The installer could not find a disk in the list that you provided with the `--devices` option, such as when the path contains apostrophes, brackets, or spaces, or when the device does not exist. The installer skips that disk and continues the installation without it.
 
 **Resolution:** Use comma-separated paths only. Do not include quotes, brackets, or spaces. For example:
 
-```
+```bash
 /dev/sda,/dev/sdb
 ```
 
@@ -394,13 +435,13 @@ Run the installer again with the corrected disk list so that the installer repli
 ## DRS-INST-916: Multipath disk detection failure
 <a name="error-multipath"></a>
 
-**Error message:** Error code: DRS-INST-916 - Multipath disk detection failure
+**Error message:** `Error code: DRS-INST-916 - Multipath disk detection failure`
 
 **Cause:** Automatic disk detection cannot resolve multipath device mappings. The installation continues without interruption.
 
 **Resolution:** Specify disks explicitly with the `--devices` and `--no-prompt` options:
 
-```
+```bash
 $ sudo ./aws-replication-installer-init \
     --region {{region}} \
     --aws-access-key-id {{key}} \
@@ -417,7 +458,7 @@ The `--force-volumes` option disables automatic disk detection. Manually verify 
 ## DRS-INST-917: PowerPath multipath detected
 <a name="error-powerpath"></a>
 
-**Error message:** Error code: DRS-INST-917 - PowerPath multipath detected
+**Error message:** `Error code: DRS-INST-917 - PowerPath multipath detected`
 
 **Cause:** PowerPath block-level I/O management conflicts with the AWS Elastic Disaster Recovery replication driver. The installation continues without interruption.
 
@@ -429,7 +470,7 @@ The `--force-volumes` option disables automatic disk detection. Manually verify 
 ### GLIBC version not found
 <a name="error-glibc-version"></a>
 
-**Error message:** version 'GLIBC\_2.7' not found (required by ./aws-replication-installer-64bit)
+**Error message:** `version 'GLIBC_2.7' not found (required by ./aws-replication-installer-64bit)`
 
 **Cause:** The operating system is unsupported or too old for the agent binary.
 
@@ -438,19 +479,19 @@ The `--force-volumes` option disables automatic disk detection. Manually verify 
 ### Failed to map segment from shared object
 <a name="error-noexec-tmp"></a>
 
-**Error message:** error while loading shared libraries: libz.so.1: failed to map segment from shared object
+**Error message:** `error while loading shared libraries: libz.so.1: failed to map segment from shared object`
 
 **Cause:** The `/tmp` directory is mounted with the `noexec` option.
 
 **Resolution:** Use one of the following options:
 + **Option 1:** Temporarily remount `/tmp` with execute permissions:
 
-  ```
+  ```bash
   $ sudo mount /tmp -o remount,exec
   ```
 + **Option 2:** Set the `TMPDIR` environment variable to a directory with execute permissions:
 
-  ```
+  ```bash
   $ TMPDIR='{{/path/to/exec/dir}}' sudo ./aws-replication-installer-init
   ```
 

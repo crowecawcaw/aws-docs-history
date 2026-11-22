@@ -1,7 +1,6 @@
 
 
 # Adding a trusted account in AWS DRS
-<a name="adding-trusted-account"></a>
 
 To add a trusted account, take the following steps:
 
@@ -28,7 +27,7 @@ This action will create the DRSStagingAccountRole role which includes the AWSEla
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -69,7 +68,7 @@ This action will create the DRSSourceNetworkRole role which includes the AWSElas
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -137,7 +136,7 @@ The **DRSCrossAccountAgentAuthorizedRole** has the following inline policy attac
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

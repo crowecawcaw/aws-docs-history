@@ -1,7 +1,6 @@
 
 
 # Windows agent installation errors
-<a name="agent-install-windows-errors"></a>
 
 This page covers errors that you might encounter when you install the AWS Elastic Disaster Recovery agent on Windows source servers. Each section describes the error message, its cause, and the resolution.
 
@@ -14,7 +13,7 @@ This page covers errors that you might encounter when you install the AWS Elasti
 ## DRS-INST-011: Windows version not supported
 <a name="error-app-cant-run"></a>
 
-**Error message:** Error code: DRS-INST-011 - Windows version not supported
+**Error message:** `Error code: DRS-INST-011 - Windows version not supported`
 
 **Cause:** The installer detected a Windows version or architecture that AWS Elastic Disaster Recovery does not support. AWS Elastic Disaster Recovery requires a 64-bit operating system. On 32-bit Windows, the installer cannot start, so Windows displays a generic compatibility error instead of this error code.
 
@@ -31,7 +30,7 @@ This page covers errors that you might encounter when you install the AWS Elasti
 ## DRS-INST-023: BitLocker is not supported
 <a name="error-bitlocker"></a>
 
-**Error message:** Error code: DRS-INST-023 - BitLocker is not supported
+**Error message:** `Error code: DRS-INST-023 - BitLocker is not supported`
 
 **Cause:** AWS Elastic Disaster Recovery performs block-level replication and cannot read data from BitLocker-encrypted volumes. The replication driver requires direct block access.
 
@@ -39,13 +38,13 @@ This page covers errors that you might encounter when you install the AWS Elasti
 
 1. Disable BitLocker on all volumes to be replicated:
 
-   ```
+   ```powershell
    manage-bde -off C:
    ```
 
 1. Wait for decryption to complete. Check the status:
 
-   ```
+   ```powershell
    manage-bde -status C:
    ```
 
@@ -60,7 +59,7 @@ Disabling BitLocker decrypts the drive. Verify this is acceptable per your organ
 ## DRS-INST-909: net.exe or sc.exe not found
 <a name="error-net-sc-path"></a>
 
-**Error message:** Error code: DRS-INST-909 - net.exe or sc.exe not found
+**Error message:** `Error code: DRS-INST-909 - net.exe or sc.exe not found`
 
 **Cause:** The `C:\Windows\System32` directory is not included in the system PATH environment variable.
 
@@ -68,13 +67,13 @@ Disabling BitLocker decrypts the drive. Verify this is acceptable per your organ
 
 1. Verify in PowerShell:
 
-   ```
+   ```powershell
    $env:Path -split ';' | Where-Object { $_ -like '*System32*' }
    ```
 
 1. If System32 is missing from PATH, add it permanently:
 
-   ```
+   ```powershell
    $machinePath = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
    [System.Environment]::SetEnvironmentVariable('Path', $machinePath + ';C:\Windows\System32', 'Machine')
    ```
@@ -87,7 +86,7 @@ Disabling BitLocker decrypts the drive. Verify this is acceptable per your organ
 ### Cannot open self or archive
 <a name="error-corrupted-installer"></a>
 
-**Error message:** Cannot open self AwsReplicationWindowsInstaller.exe or archive
+**Error message:** `Cannot open self AwsReplicationWindowsInstaller.exe or archive`
 
 **Cause:** The installer file is corrupted or the download was incomplete due to a network interruption or browser timeout.
 
@@ -105,7 +104,7 @@ Disabling BitLocker decrypts the drive. Verify this is acceptable per your organ
 
    1. Compute the local hash in PowerShell:
 
-      ```
+      ```powershell
       Get-FileHash .\AwsReplicationWindowsInstaller.exe -Algorithm SHA512
       ```
 
@@ -116,19 +115,19 @@ Disabling BitLocker decrypts the drive. Verify this is acceptable per your organ
 ### TLS connection error downloading installer
 <a name="error-tls-connection"></a>
 
-**Error message:** The underlying connection was closed: An unexpected error occurred on a send
+**Error message:** `The underlying connection was closed: An unexpected error occurred on a send`
 
 **Cause:** The Windows server is using TLS 1.0 or 1.1 by default. AWS Elastic Disaster Recovery endpoints require TLS 1.2. This is common on Windows Server 2012 and earlier.
 
 **Resolution:**
 + **Per-session fix (PowerShell):**
 
-  ```
+  ```powershell
   [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
   ```
 + **Permanent fix:** Enable TLS 1.2 system-wide through the registry:
 
-  ```
+  ```powershell
   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319' -Name 'SchUseStrongCrypto' -Value 1 -Type DWord
   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319' -Name 'SchUseStrongCrypto' -Value 1 -Type DWord
   ```
@@ -137,7 +136,7 @@ Disabling BitLocker decrypts the drive. Verify this is acceptable per your organ
 ### The directory is not empty
 <a name="error-directory-not-empty"></a>
 
-**Error message:** OSError: [WinError 145] The directory is not empty
+**Error message:** `OSError: [WinError 145] The directory is not empty`
 
 **Cause:** A previous installation attempt was interrupted, leaving temporary files that cannot be cleaned up. This can also be caused by antivirus locking files or Group Policy restrictions.
 
@@ -156,7 +155,7 @@ Disabling BitLocker decrypts the drive. Verify this is acceptable per your organ
 ### Certificate verification failed
 <a name="error-certificate-verify-failed"></a>
 
-**Error message:** CERTIFICATE\_VERIFY\_FAILED or certificate verify failed
+**Error message:** `CERTIFICATE_VERIFY_FAILED` or `certificate verify failed`
 
 **Cause:** The Windows certificate store does not contain the Amazon Trust Services root CA certificates required to validate AWS Elastic Disaster Recovery endpoint TLS connections. This occurs on air-gapped servers or systems that cannot reach Windows Update.
 
@@ -164,7 +163,7 @@ Disabling BitLocker decrypts the drive. Verify this is acceptable per your organ
 + **Option 1 (internet access):** Run Windows Update, or open Microsoft Edge once. Windows auto-downloads trusted root CAs when a browser first connects to HTTPS sites.
 + **Option 2 (no internet or air-gapped):** Download the Amazon root certificates from the [Amazon Trust Services repository](https://www.amazontrust.com/repository/) on the amazontrust.com website, and then import them:
 
-  ```
+  ```powershell
   Import-Certificate -FilePath .\AmazonRootCA1.cer -CertStoreLocation Cert:\LocalMachine\Root
   ```
 

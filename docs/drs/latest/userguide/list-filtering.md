@@ -1,7 +1,6 @@
 
 
 # Filtering on the source servers page
-<a name="list-filtering"></a>
 
 You can customize the **Source servers** page through filtering by recovery readiness. 
 

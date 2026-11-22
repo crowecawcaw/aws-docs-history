@@ -1,7 +1,6 @@
 
 
 # Performing a failback with the DRS Mass Failback Automation Client
-<a name="failback-failover-drsfa"></a>
 
 The DRS Mass Failback Automation Client (DRSFA client) is a command-line tool that automates the failback process for vCenter source servers. Instead of manually initiating failback for each Recovery instance individually, the DRSFA client orchestrates failback across multiple machines simultaneously — handling ISO attachment, network configuration, and replication initiation automatically.
 

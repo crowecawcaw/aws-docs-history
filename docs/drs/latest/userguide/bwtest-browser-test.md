@@ -1,7 +1,6 @@
 
 
 # Test with the browser
-<a name="bwtest-browser-test"></a>
 
 This test is an alternative to the command-line test in [Test with the command line](bwtest-cli-test.md). The endpoint serves its own single-page test UI at `/`. Use the browser instead of the command-line client when you want a quick interactive result from a source server that has a desktop, or when you want a person to watch the test run.
 
@@ -21,7 +20,7 @@ Use whichever name or address you put in the certificate SAN in [Generate the TL
 ## Accept the certificate warning
 <a name="bwtest-browser-cert-warning"></a>
 
-The certificate is self-signed, so every browser shows an interstitial warning. Chrome reports NET::ERR\_CERT\_AUTHORITY\_INVALID under "Your connection is not private", and Firefox reports "Warning: Potential Security Risk Ahead". Choose the advanced or details option and proceed (in Chrome, **Advanced**, **Proceed**; in Firefox, **Advanced**, **Accept the Risk and Continue**; in Safari, **Show Details**, **visit this website**).
+The certificate is self-signed, so every browser shows an interstitial warning. Chrome reports `NET::ERR_CERT_AUTHORITY_INVALID` under "Your connection is not private", and Firefox reports "Warning: Potential Security Risk Ahead". Choose the advanced or details option and proceed (in Chrome, **Advanced**, **Proceed**; in Firefox, **Advanced**, **Accept the Risk and Continue**; in Safari, **Show Details**, **visit this website**).
 
 **Important**  
 Accepting this warning is a deliberate bypass of certificate validation. It is acceptable here because the endpoint is a throwaway instance you launched minutes ago and the test carries no sensitive data. Confirm that the hostname in the warning is your own instance before you proceed. You should not see a name-mismatch complaint; if you do, the SAN in [Generate the TLS certificate](bwtest-software-install.md#bwtest-generate-cert) does not cover the name you connected by.

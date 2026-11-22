@@ -1,7 +1,6 @@
 
 
 # Troubleshooting agent installation
-<a name="troubleshooting-agent-issues"></a>
 
 Use this section to troubleshoot issues with installing or running the AWS Replication Agent on your source servers.
 

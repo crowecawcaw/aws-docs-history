@@ -1,7 +1,6 @@
 
 
 # Working with AWS DRS and AWS Outposts
-<a name="outposts"></a>
 
 AWS Elastic Disaster Recovery supports AWS Outpost racks. AWS Outposts require specific configurations in the default replication settings, individual source server replication settings, default launch templates and source server launch templates to work. The following sections explain how to use AWS Outpost racks with DRS, how to troubleshoot key AWS Outpost issues, and how to monitor AWS Outposts with DRS. [Learn more about AWS Outposts. ](https://docs.aws.amazon.com/outposts/latest/userguide/what-is-outposts.html) 
 

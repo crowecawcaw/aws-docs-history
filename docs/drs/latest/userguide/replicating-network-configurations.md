@@ -1,7 +1,6 @@
 
 
 # Replicating your network configurations in Elastic Disaster Recovery
-<a name="replicating-network-configurations"></a>
 
  Once you install your agent and create the required role, go to the **Source networks** page and take the following steps:
 

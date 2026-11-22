@@ -1,7 +1,6 @@
 
 
 # Launch the endpoint instance
-<a name="bwtest-instance-setup"></a>
 
 Launch a dedicated Amazon EC2 instance to act as the test endpoint, and allow TCP port 1500 to it from your source servers. For instructions on launching and connecting to an instance, see [Get started with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) in the *Amazon EC2 User Guide*. When you launch it, make the following choices:
 + Choose the standard Amazon Linux 2023 AMI, not the minimal AMI. You can resolve it from its public SSM parameter: `/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64` for an x86\_64 instance, or `/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-arm64` for a Graviton (arm64) instance. For the AMI and its SSM parameter names, see [AL2023 on Amazon EC2](https://docs.aws.amazon.com/linux/al2023/ug/ec2.html) in the *Amazon Linux 2023 User Guide*.

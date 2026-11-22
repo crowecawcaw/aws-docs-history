@@ -1,7 +1,6 @@
 
 
 # Troubleshooting replication errors
-<a name="troubleshooting-replication"></a>
 
 Use this section to troubleshoot issues with data replication between your source servers and the AWS Elastic Disaster Recovery staging area.
 

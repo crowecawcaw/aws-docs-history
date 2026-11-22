@@ -1,7 +1,6 @@
 
 
 # Agent installation prerequisites
-<a name="agent-install-prerequisites"></a>
 
 Before installing the AWS Replication Agent, verify that your source server meets the following requirements.
 
@@ -82,7 +81,7 @@ The agent builds a kernel driver at install time to capture block-level writes. 
 
 Verify the following requirements on Windows source servers before running the installer.
 
-If the installer reports Error code: DRS-INST-005 - .NET Framework 3.5 or later not found, install .NET Framework 3.5 or later. If it reports Error code: DRS-INST-006 - .NET Framework 4.5 or later not found, install .NET Framework 4.5 or later. If it reports Error code: DRS-INST-024 - Not enough free disk space, the C:\\ drive does not have at least 1 GB of free disk space.
+If the installer reports `Error code: DRS-INST-005 - .NET Framework 3.5 or later not found`, install .NET Framework 3.5 or later. If it reports `Error code: DRS-INST-006 - .NET Framework 4.5 or later not found`, install .NET Framework 4.5 or later. If it reports `Error code: DRS-INST-024 - Not enough free disk space`, the C:\\ drive does not have at least 1 GB of free disk space.
 + **Administrator access** – The installer must run with Administrator privileges to install the replication driver and system services.
 + **.NET Framework 4.5 or later** – The agent requires .NET Framework 4.5 or later on Windows Server 2008 R2 and later, and on desktop Windows. On Windows Server 2003 and Windows Server 2008, the agent requires .NET Framework 3.5 or later instead.
 

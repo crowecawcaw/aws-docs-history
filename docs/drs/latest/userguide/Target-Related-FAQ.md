@@ -1,7 +1,6 @@
 
 
 # AWS related
-<a name="Target-Related-FAQ"></a>
 
 ## What does the Elastic Disaster Recovery machine conversion server do?
 <a name="What-Conversion-Server-Do"></a>
@@ -91,7 +90,7 @@ For more information, see [Getting Started](https://docs.aws.amazon.com/vpc/late
 
 If the AWS replication agents are installed with a principal using [ AWSElasticDisasterRecoveryAgentInstallationPolicy ](security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.md) and a VPCE policy is used (to scope down access), add the following statement to your policy:
 
-```
+```json
 {
             "Effect": "Allow",
             "Principal": "*",

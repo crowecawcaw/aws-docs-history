@@ -1,7 +1,6 @@
 
 
 # Controlling how server failures affect a plan
-<a name="recovery-plans-impact-levels"></a>
 
 Every server in a server step has an impact level that determines whether its failure stops the plan:
 

@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSElasticDisasterRecoveryConsoleFullAccess\_v2
-<a name="security-iam-awsmanpol-AWSElasticDisasterRecoveryConsoleFullAccess_v2"></a>
 
  
 

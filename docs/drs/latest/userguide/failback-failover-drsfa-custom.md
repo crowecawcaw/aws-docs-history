@@ -1,7 +1,6 @@
 
 
 # Custom failback
-<a name="failback-failover-drsfa-custom"></a>
 
 The custom failback option provides more control over the failback process. You first generate a configuration file, edit settings for individual machines, and then perform failback using that file.
 
@@ -63,7 +62,7 @@ Three formats are supported:
 
 1. JSON format:
 
-   ```
+   ```json
    "DEVICE_MAPPING": {
        "/dev/xvdb":"/dev/sdb",
        "/dev/xvdc":"/dev/sdc",
@@ -73,7 +72,7 @@ Three formats are supported:
 
 1. JSON list DRS API format:
 
-   ```
+   ```json
    [
        {
            "recoveryInstanceDeviceName": "recovery_device1",

@@ -1,7 +1,6 @@
 
 
 # Installing the agent on a secured network
-<a name="installing-agent-blocked"></a>
 
 The AWS Replication Agent installer needs network access to AWS Elastic Disaster Recovery and S3 endpoints. If your on-premises network is not open to AWS Elastic Disaster Recovery and S3 endpoints, you can install the agent by using PrivateLink.
 
@@ -20,7 +19,7 @@ To allow the AWS Replication Agent installer to communicate with AWS Elastic Dis
 
 If the AWS replication agents are installed with a principal using [ AWSElasticDisasterRecoveryAgentInstallationPolicy ](security-iam-awsmanpol-AWSElasticDisasterRecoveryAgentInstallationPolicy.md) and a VPCE policy is used (to scope down access), add the following statement to your policy:
 
-```
+```json
 {
      "Effect": "Allow",
      "Principal": "*",

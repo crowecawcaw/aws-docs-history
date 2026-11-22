@@ -1,7 +1,6 @@
 
 
 # Generating IAM credentials and configuring CloudWatch logging
-<a name="failback-failover-drsfa-credentials"></a>
 
 The DRSFA client requires AWS credentials to operate.
 

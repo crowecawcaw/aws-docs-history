@@ -1,7 +1,6 @@
 
 
 # Recovery plan quotas
-<a name="recovery-plans-quotas"></a>
 
 The following quotas apply to recovery plans in each AWS account and Region:
 

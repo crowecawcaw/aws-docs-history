@@ -1,7 +1,6 @@
 
 
 # Configuring the default post-launch actions
-<a name="post-launch-action-settings-overview"></a>
 
 After finishing the AWS DRS initialization process, you can configure your default post-launch actions settings. The default post-launch actions settings apply to newly added source servers and controls which post-launch actions run when launching new instances. These settings are created automatically for each server based on the default settings and can be modified at any time for any individual source server. 
 
@@ -29,7 +28,7 @@ In order to run an SSM command or Automation document owned by a different accou
 
 **Example**  
 
-```
+```json
             {
                 "Effect": "Allow",
                 "Action": [

@@ -1,7 +1,6 @@
 
 
 # AWS Elastic Disaster Recovery (AWS DRS) settings
-<a name="settings"></a>
 
 AWS Elastic Disaster Recovery includes multiple configuration options for resources consumed and produced by the service. There are three main categories that these configuration options fall into: 
 + **Replication Settings** - Configuration Options for Replication Servers.

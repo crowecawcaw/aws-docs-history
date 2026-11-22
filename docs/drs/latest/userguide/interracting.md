@@ -1,7 +1,6 @@
 
 
 # Interacting with the Source Servers page
-<a name="interracting"></a>
 
 The **Source servers** page shows a list of source servers. Each row on the list represents a single server. 
 

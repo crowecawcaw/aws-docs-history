@@ -1,7 +1,6 @@
 
 
 # How a recovery plan runs
-<a name="recovery-plans-how-it-works"></a>
 
 When you start an execution, AWS Elastic Disaster Recovery does the following:
 

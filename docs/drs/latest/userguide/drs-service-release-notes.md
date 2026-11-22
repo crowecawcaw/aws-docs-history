@@ -1,7 +1,6 @@
 
 
 # AWS Elastic Disaster Recovery Service Release Notes
-<a name="drs-service-release-notes"></a>
 
 ## October 2026
 <a name="release-notes-october-2026"></a>

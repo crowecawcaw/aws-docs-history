@@ -1,7 +1,6 @@
 
 
 # DRSFA prerequisites
-<a name="failback-failover-drsfa-prereques"></a>
 
 Before using the DRSFA client, verify that you meet the following requirements.
 

@@ -1,7 +1,6 @@
 
 
 # Console Full Access Policy - AWSElasticDisasterRecoveryConsoleFullAccess\_v2
-<a name="customer_managed_policies_drs_full_access_v2"></a>
 
  
 
@@ -28,7 +27,7 @@ This policy includes permissions to do the following:
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
