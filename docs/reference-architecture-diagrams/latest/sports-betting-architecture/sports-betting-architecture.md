@@ -1,7 +1,6 @@
 
 
 # Sports Betting Architecture on AWS
-<a name="sports-betting-architecture"></a>
 
 Publication date: **November 16, 2023 ([Diagram history](#diagram-history))**
 
