@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer be open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # How Porting Assistant for .NET Visual Studio IDE extension works
-<a name="porting-assistant-vs-ide-how-it-works"></a>
 
 You can download the Porting Assistant for .NET Visual Studio IDE extension from the [Visual Studio Extensions Marketplace](https://marketplace.visualstudio.com/). When you use the extensions from within a supported Visual Studio version, you can initiate one or more .NET application assessments and port your solutions to .NET Core for Linux. Additional work may be required to address issues for which Porting Assistant for .NET can't find resolution. You can browse the source code repository to find and specify a solution file for your .NET application, and then initiate an assessment task for the application. From within Visual Studio, you can view and analyze the generated report. When an assessment is complete, Porting Assistant for .NET jump-starts the process by converting .csproj files from the Visual Studio 2015 to the Visual Studio 2019 format. It converts the project file structure to match the structure expected by .NET Core.
 

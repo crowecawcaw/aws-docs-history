@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer be open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # AWS .NET Modernization Tools availability change
-<a name="dotnet-modernization-tools-availability-change"></a>
 
 Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET will stop accepting new customers starting November 7, 2025. AWS Transform, launched in 2025, is our next-generation service that provides enhanced capabilities for modernization with AI-driven automation. Existing Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET customers can continue using the service to complete their ongoing modernization projects. All current .NET Modernization Tools features, including Porting Assistant for .NET, AWS App2Container, AWS Toolkit for .NET Refactoring, and AWS Microservice Extractor for .NET, are available in AWS Transform with improved functionality through secure Managed Development Environments and LLM integration.
 

@@ -3,7 +3,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer be open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Use the Porting Assistant for .NET assessment tool
-<a name="porting-assistant-assessment-tool"></a>
 
 This section contains information to help you get started with the Porting Assistant for .NET assessment tool. When you start the assessment tool for the first time, you are prompted to enter your AWS CLI profile information so that the Porting Assistant for .NET can collect metrics to improve your experience. These metrics also help flag issues with the software for AWS to quickly address. If you have not set up your AWS profile, see [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration).
 
