@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Manifest Decoration
-<a name="manifest-decoration"></a>
 
 You can choose to interpret SCTE-35 messages from the original input and insert corresponding instructions into the output manifest for the following outputs:
 + HLS

@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Examples of HLS Rendition Groups
-<a name="hls-rendition-groups-examples"></a>
 
 ## Example 1
 <a name="hls-rendition-groups-example-1"></a>

@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # One Input Format to Multiple Different Formats, One for Each Output
-<a name="use-case-4-one-input-format-converted-to-different-formats-one-format-for-each-output"></a>
 
 The input is set up with one format of captions and two or more languages. You want to produce several different types of output. In each output, you want to convert the captions to a different format but include all the languages.
 

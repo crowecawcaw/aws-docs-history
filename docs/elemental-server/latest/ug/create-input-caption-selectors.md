@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Creating Input Captions Selectors
-<a name="create-input-caption-selectors"></a>
 
 When you set up captions, you begin by creating input captions selectors. Captions selectors identify a particular captions asset on the input and associate a label with it. The captions asset is either a single track or the set of all tracks contained in the input file, depending on your input captions format. For example, you might add **Captions selector 1** and associate the French captions with it. When you [set up an output to include captions](including-captions-in-outputs.md), you do so by specifying these input captions selectors in the streams in your outputs. 
 

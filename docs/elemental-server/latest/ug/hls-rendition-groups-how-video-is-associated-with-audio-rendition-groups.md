@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # How Video Is Associated with Audio Rendition Groups
-<a name="hls-rendition-groups-how-video-is-associated-with-audio-rendition-groups"></a>
 
 The different “sets” of media are created as follows:
 + Create one “video-only” stream assembly containing only one video stream.

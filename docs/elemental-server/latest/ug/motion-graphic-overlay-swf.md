@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Using SWF Files for Motion Graphic Overlay with AWS Elemental Server
-<a name="motion-graphic-overlay-swf"></a>
 
 With Shockwave Flash (SWF) files, the AWS Elemental encoder renders each frame of animation during transcoding. SWF rendering is resource-intensive, so poorly optimized SWF assets may significantly slow down transcoding time. 
 

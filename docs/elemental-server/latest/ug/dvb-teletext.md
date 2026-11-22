@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Teletext
-<a name="dvb-teletext"></a>
 
 You can use Teletext captions in one of the following ways:
 + Teletext can include more data than just captions. If you want to include the entire Teletext input, your input and output captions format must be Teletext. You can't convert the entire set of Teletext data to another captions format. 

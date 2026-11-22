@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Example Manifests for Apple HLS
-<a name="example-manifests-hls"></a>
 
 This section lists example manifests for the Apple HLS manifest styles that AWS Elemental Server supports. These manifests include a range of types.
 

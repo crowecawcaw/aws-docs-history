@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # DVB-Sub or SCTE-27 Formats
-<a name="dvb-sub-or-scte-27"></a>
 
 AWS Elemental Server supports DVB-Sub and SCTE-27 formats only in TS inputs.
 

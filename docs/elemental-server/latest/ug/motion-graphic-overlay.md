@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Motion Image Inserter (Graphic Overlay) in AWS Elemental Server
-<a name="motion-graphic-overlay"></a>
 
 The following procedure walks you through how to set up motion graphic overlays. Motion graphic overlays are global, so they appear in all outputs. 
 

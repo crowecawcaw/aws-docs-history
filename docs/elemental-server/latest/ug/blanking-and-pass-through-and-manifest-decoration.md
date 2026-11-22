@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Blanking and Passthrough and Manifest Decoration
-<a name="blanking-and-pass-through-and-manifest-decoration"></a>
 
 It is important to understand that the logic for blanking ad content works on the video content associated with the “ad avail event” while the logic for passthrough and manifest decoration works with the actual SCTE-35 message.
 

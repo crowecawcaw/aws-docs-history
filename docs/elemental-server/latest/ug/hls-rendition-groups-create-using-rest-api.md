@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Creating HLS Rendition Groups (REST API)
-<a name="hls-rendition-groups-create-using-rest-api"></a>
 
 The following information assumes that you have read [Creating HLS Rendition Groups (Web Interface)](hls-rendition-groups-create-using-web-interface.md) and are therefore familiar with the construction and association of an output containing video and rendition groups.
 

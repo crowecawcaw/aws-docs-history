@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Passthrough or Removal of SCTE Messages from Input
-<a name="pass-through-or-removal"></a>
 
 SCTE-35 messages from the input can be passed through (included) in the data stream for the following outputs.
 + Archive outputs with MPEG-2 as the container.

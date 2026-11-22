@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Stream > Video > Advanced > Preprocessors > Color Corrector
-<a name="stream-video-advanced-preprocessors-color-corrector"></a>
 
 Access the color correction control as follows:
 

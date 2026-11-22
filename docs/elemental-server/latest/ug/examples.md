@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Examples for Setting Up Captions
-<a name="examples"></a>
 
 The following examples walk you through typical captions scenarios. They refer to the procedures in the topics [Creating Input Captions Selectors](create-input-caption-selectors.md) and [Including Captions in the Streams and Outputs](including-captions-in-outputs.md).
 

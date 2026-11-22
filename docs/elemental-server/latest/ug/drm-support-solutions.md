@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Supported DRM Solutions with AWS Elemental Server
-<a name="drm-support-solutions"></a>
 
 
 | Output Container | DRM Technology Provider | Key Provider (DRM Implementer) | Version of AWS Elemental Server API from DRM Implementer | Client Player | Encryption Mode | Key Rotation | Version of AWS Elemental Encoder | 

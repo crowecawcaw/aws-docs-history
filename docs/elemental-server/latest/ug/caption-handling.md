@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # About Captions Handling in Outputs
-<a name="caption-handling"></a>
 
 Depending on the output captions format, AWS Elemental Server creates the captions differently in the outputs. Find information about each captions output format in the following table. Find details about each handling method in the sections following the table.
 

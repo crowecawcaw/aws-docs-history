@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Including Inserted Images (Graphic Overlays) with AWS Elemental Server
-<a name="graphic-overlay"></a>
 
 The image inserter (graphic overlay) feature lets you insert a still image or motion graphic at a specified time and display it as an overlay on the underlying video for a specified duration. With still overlays, you can specify fade-in and fade-out times and adjust the opacity.
 

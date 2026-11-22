@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Encoding – Rate Control Modes
-<a name="vq-rate-control-modes"></a>
 
 For **Rate Control Mode**, you will generally get the best video quality per bit by using the Quality Variable Bitrate (**QVBR**) rate control mode. For more information, see [Using QVBR Rate Control Mode](using-qvbr.md).
 

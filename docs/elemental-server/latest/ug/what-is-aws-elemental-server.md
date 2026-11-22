@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # What Is AWS Elemental Server?
-<a name="what-is-aws-elemental-server"></a>
 
 AWS Elemental Server provides fast and reliable video processing for file-based workflows. It performs simultaneous, faster-than-real-time conversion of multiple video files to create mezzanine deliverables, traditional on-demand assets, and adaptive bitrate outputs for delivery to TVs, PCs, and mobile devices.
 

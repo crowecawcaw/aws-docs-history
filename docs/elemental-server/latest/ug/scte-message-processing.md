@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Including SCTE-35 Markers with AWS Elemental Server
-<a name="scte-message-processing"></a>
 
 You can use AWS Elemental Server to manipulate the SCTE-35 messages in MPEG-2 transport stream (TS) inputs. These messages may or may not include segmentation descriptors. You can also use AWS Elemental Server to remove or include the cueing information conveyed by SCTE messages in the output streams (video, audio, closed captioning, data) and in any associated manifests. The processing instructions are all set up in the AWS Elemental Server job. 
 

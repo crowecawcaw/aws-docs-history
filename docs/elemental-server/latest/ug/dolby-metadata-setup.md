@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Setting Up the Profile or Event Using the Web Interface
-<a name="dolby-metadata-setup"></a>
 
 This section describes how to set up the project or event using the web interface. To set up using the REST API, see [Output with the Dolby Digital Codec](dolby-metadata-output-dolby-digital-codec.md) and [Output with Dolby Digital Plus (EC2, EAC3) Codec](dolby-metadata-output-dolby-digital-plus-codec.md) to map the fields to their XML tags according to the following steps.
 

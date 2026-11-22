@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Setting Up Output Captions in a Sidecar Format (SCC, SMI, SRT, TTML, WebVTT)
-<a name="setting-up-output-captions-sidecar"></a>
 
 To set up sidecar captions in an output, you create separate, captions-only streams. Each stream corresponds to one captions track. You set up a separate output to associate with each stream. On the AWS Elemental Server web interface, your outputs are structured as shown in the following diagram.
 

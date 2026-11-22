@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Setting Up POIS Conditioning via the REST API
-<a name="setting-up-via-the-rest-api"></a>
 
 This set of tables lists the parameters found on the AWS Elemental Server job or profile and specifies the location of those parameters in the XML for a job or profile.
 

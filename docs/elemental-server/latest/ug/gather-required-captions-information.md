@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Gathering Required Captions Information
-<a name="gather-required-captions-information"></a>
 
 To choose an appropriate output captions format and to set up your captions in your job, you need the following information:
 + The *input video container*. You must have this information ahead of time; AWS Elemental Server does not read this from your input files. For a list of supported input containers and information about whether captions can be extracted from them, see [Reference: Supported Input Containers](supported-containers-input.md).

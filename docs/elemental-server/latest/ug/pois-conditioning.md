@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # POIS Conditioning
-<a name="pois-conditioning"></a>
 
 You can configure AWS Elemental jobs to communicate with a POIS server. During processing of the input, each time a SCTE-35 message is encountered, the AWS Elemental encoder sends the message contents to the server. The POIS responds with SCTE-35 content that may be identical to, slightly different from, or completely different from the original.
 

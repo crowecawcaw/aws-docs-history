@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Setting Up Input Captions With 608 XDS Data
-<a name="setting-up-for-608-xds-data"></a>
 
 The Extended Data Services (XDS or EDS) standard is part of EIA-608 and allows for the delivery of ancillary data.
 

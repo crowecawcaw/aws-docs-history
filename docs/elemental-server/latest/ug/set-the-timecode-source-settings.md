@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Setting the Timecode Source Settings
-<a name="set-the-timecode-source-settings"></a>
 
 Before you start setting up the captions themselves, you need to make sure that the timecode settings you make result in correctly synchronized captions. The simplest way to make sure that your captions synchronize correctly with your video is to set both the input and job-wide timecode source to **Start at 0** or to set them both to **Embedded**.
 

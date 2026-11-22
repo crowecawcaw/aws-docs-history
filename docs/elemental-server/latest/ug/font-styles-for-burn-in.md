@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Font Styles for Burn-in
-<a name="font-styles-for-burn-in"></a>
 
 You can specify the look of the captions if the output captions are Burn-in by changing the font styles.
 

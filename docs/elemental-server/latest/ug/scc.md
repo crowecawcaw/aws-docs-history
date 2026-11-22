@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # SCC, SMI, SRT, STL, TTML (Sidecar)
-<a name="scc"></a>
 
 SCC, SMI, SRT, STL, and TTML are sidecar captions formats. With these formats, you provide input captions as a separate file. AWS Elemental Server handles all sidecar formats the same way. The service can pass them through to the output in the same format or convert them into another sidecar format. In all cases, you must create one captions selector for the entire set of captions tracks.
 

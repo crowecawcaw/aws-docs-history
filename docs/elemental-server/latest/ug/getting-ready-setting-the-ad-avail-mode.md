@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Getting Ready: Setting the Ad Avail Mode
-<a name="getting-ready-setting-the-ad-avail-mode"></a>
 
 Read this section if you want to support any of these features:
 + Manifest decoration for all outputs. 

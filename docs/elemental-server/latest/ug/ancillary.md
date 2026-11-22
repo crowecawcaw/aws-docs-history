@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Ancillary (QuickTime Captions Track or Captions in MXF VANC Data)
-<a name="ancillary"></a>
 
 If your input captions are in either of the following formats, the service handles them as "ancillary" data:
 + QuickTime captions track (format QTCC)

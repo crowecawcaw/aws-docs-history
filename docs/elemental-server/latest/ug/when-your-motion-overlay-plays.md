@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Setting Up When Your Motion Graphic Plays
-<a name="when-your-motion-overlay-plays"></a>
 
 When you place a motion graphic overlay, you set up when it starts and how long it runs by specifying the **Action Time** and **Loop Input**. The following image shows how you would specify these settings if you wanted your overlay to start two minutes into the video and to continuously loop over the rest of the video. If you keep **Action Time** and **Loop Input** in their default state, the overlay will begin at the first frame of each output and remain on the video for the duration of the motion graphic played once.
 

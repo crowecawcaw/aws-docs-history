@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Creating Dolby Atmos Outputs with AWS Elemental Server
-<a name="dolby-atmos"></a>
 
 Dolby Atmos provides an immersive audio experience in cinemas and home theaters. With the right audio input files, you can use AWS Elemental Server to create Dolby Atmos outputs. You can create streaming outputs that end viewers can experience in their home theaters or file outputs that you can use in your professional workflows.
 

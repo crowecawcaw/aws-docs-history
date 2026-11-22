@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Setting Up Overlapping Overlays
-<a name="using-multiple-overlays"></a>
 
 The **Layer** setting specifies how overlapping graphic overlays appear in the video. The service overlays graphics with higher values for **Layer** on top of overlays with lower values for **Layer**. Each overlay must have a unique value for **Layer**; you can't assign the same layer number to more than one overlay.
 

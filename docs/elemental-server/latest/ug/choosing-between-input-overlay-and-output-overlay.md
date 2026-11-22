@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Choosing Between Input, Stream, and Global Overlay
-<a name="choosing-between-input-overlay-and-output-overlay"></a>
 
 You can add still image overlays to your inputs, your streams, and throughout the job globally. Where you specify your graphic overlays affects where in your transcoded assets the overlays appear. One job can have any combination of input, stream, and global overlays.
 

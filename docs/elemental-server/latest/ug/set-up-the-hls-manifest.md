@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Setting up the HLS Manifest
-<a name="set-up-the-hls-manifest"></a>
 
 If the captions are embedded captions and the output is HLS, you can choose to include caption language information in the manifest.
 

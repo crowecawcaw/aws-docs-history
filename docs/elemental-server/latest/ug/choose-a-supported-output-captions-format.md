@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Choosing a Supported Output Captions Format
-<a name="choose-a-supported-output-captions-format"></a>
 
 Before you set up captions in your job, make sure that the transcode you want to set up is supported. Support for a particular output caption format depends on the following factors: 
 + *Output container*. A given output caption can appear only in specific output containers.

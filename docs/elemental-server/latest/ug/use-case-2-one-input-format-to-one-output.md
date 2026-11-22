@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # One Input Format to the Same Output Format, One Output
-<a name="use-case-2-one-input-format-to-one-output"></a>
 
 The input is set up with one format of captions and two or more languages. You want to maintain the format in the output. You want to produce only one type of output and include all the languages in that output.
 

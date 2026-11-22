@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Input > Advanced: Managing Overwrite of Source Metadata
-<a name="input-advanced-managing-overwrite-of-source-metadata"></a>
 
 Use the controls under Input > Advanced to either provide missing metadata or to replace incorrect metadata. The new values are passed into every output. 
 

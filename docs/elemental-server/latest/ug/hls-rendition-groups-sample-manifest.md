@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Sample HLS Output Group with Audio Rendition Group Event Manifest
-<a name="hls-rendition-groups-sample-manifest"></a>
 
 ## Video Information for an HLS Output Group with Audio Rendition Group Event
 <a name="hls-rendition-groups-sample-manifest-video-information"></a>

@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Reference: Supported Input Containers
-<a name="supported-containers-input"></a>
 
 If the source captions are inside the input container, you can include them in the input only if the AWS Elemental encoder can extract the captions from the container. The AWS Elemental encoder can extract captions only from specific input containers types.
 

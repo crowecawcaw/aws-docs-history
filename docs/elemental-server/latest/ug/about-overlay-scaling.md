@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Sizing Your Overlay to Account for Scaling
-<a name="about-overlay-scaling"></a>
 
 In jobs that scale the video resolution, whether your overlay scales with your video depends on where you specify the graphic overlay. Global and input overlays scale with the video; stream overlays do not.
 
