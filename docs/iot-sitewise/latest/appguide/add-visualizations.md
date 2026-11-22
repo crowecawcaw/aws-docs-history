@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Add visualizations in AWS IoT SiteWise Monitor
-<a name="add-visualizations"></a>
 
 In AWS IoT SiteWise Monitor, a dashboard is a group of visualizations. As a project owner, you decide which asset properties and alarms appear in each dashboard, and how they are best represented. For more information about the available visualization types, see [Choose visualization types](choose-visualization-types.md).
 

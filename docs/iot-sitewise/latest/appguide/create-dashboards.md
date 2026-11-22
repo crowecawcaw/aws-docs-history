@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Create dashboards in an AWS IoT SiteWise Monitor project
-<a name="create-dashboards"></a>
 
 As a project owner, you create dashboards in AWS IoT SiteWise Monitor to provide a shared view of asset properties and alarms to your project viewers. You can create a dashboard from the **Dashboards** page or while viewing a project's details.
 

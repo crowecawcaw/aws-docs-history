@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Get started as an AWS IoT SiteWise Monitor project viewer
-<a name="project-viewer-getting-started"></a>
 
 When you're invited to a project as a viewer, someone in your organization has set up a project and a set of dashboards to provide you with a consistent way to view data for your company's devices, equipment, and processes. In AWS IoT SiteWise, those devices, equipment, and processes are referred to as assets. You can use AWS IoT SiteWise Monitor to view the properties and alarms for a set of assets. Because the project owner has set up dashboards to visualize those properties, everyone who views the project has the dahboard view to draw insights from the data. As a project viewer, you can view all of the dashboards in the project. You can adjust the time range for the data shown in the dashboard. And you can explore the properties and alarms of individual assets to see a property or alarm that isn't on the dashboard.
 

@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Get started as an AWS IoT SiteWise Monitor project owner
-<a name="project-owner-getting-started"></a>
 
 Each portal in the AWS IoT SiteWise Monitor contains one or more projects. A project is the unit of sharing. If you invite viewers to your project, they can see all dashboards that you created in that project, as well as explore the assets that are associated with the project. If you want viewers to have access to different subsets of your dashboards, you must ask your portal administrator to split the project. As the owner of one or more projects, you can do the following tasks:
 + [Sign in to a portal](getting-started.md#portal-login)

@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # View dashboards in AWS IoT SiteWise
-<a name="view-dashboards"></a>
 
 With AWS IoT SiteWise Monitor, you can provide consistent views of your asset data to the right set of people. Portal administrators, project owners, and project viewers can view all dashboards that are defined for their projects. You can view all of your dashboards in one place on the **Dashboards** page or you can view dashboards from a project page.
 

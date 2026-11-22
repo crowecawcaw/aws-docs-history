@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Configure thresholds
-<a name="configure-thresholds"></a>
 
 As a project owner, you can configure thresholds for your visualizations to indicate when asset properties are outside their normal operating ranges. When you add a threshold, you define a rule and a color. If at least one of a property's data points crosses the threshold for a selected time range, the visualization displays that property's legend in the color that you choose. You can choose if the visualization also displays the property's data in the color that you choose. You can add multiple thresholds to each visualization, and choose colors to represent severities.
 

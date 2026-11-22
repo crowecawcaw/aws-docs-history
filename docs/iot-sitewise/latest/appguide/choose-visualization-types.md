@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Choose visualization types
-<a name="choose-visualization-types"></a>
 
 This section describes the available visualization types. To understand your devices, processes, and equipment, you should choose the right type of visualization for each asset property that you add to a dashboard. Each visualization type is covered in detail in this section. Changing the visualization type doesn't change your data, so you can try different visualizations to discover which type helps you and your project's viewers gain insights from the data.
 

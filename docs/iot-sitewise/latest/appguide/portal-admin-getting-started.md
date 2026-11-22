@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Set up a portal administrator for AWS IoT SiteWise Monitor
-<a name="portal-admin-getting-started"></a>
 
 As the portal administrator, you create projects and associate assets with those projects. You specify an owner for each project. The project owner can then create dashboards with visualizations of the property values and alarms. Only portal administrators can create projects, assign owners, and change the list of assets associated with each project. As the portal administrator, you can do the following tasks:
 + [Sign in to a portal](getting-started.md#portal-login)

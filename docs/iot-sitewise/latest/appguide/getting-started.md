@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Get started with AWS IoT SiteWise Monitor
-<a name="getting-started"></a>
 
 You use AWS IoT SiteWise Monitor portals to view, analyze, and share access to your operational data. Each AWS IoT SiteWise Monitor portal is a managed web application that is created from the AWS IoT SiteWise console. When you are given access to a portal, you receive an email that contains a link to the portal. The topics in this section help you understand what you can do in the portal.
 

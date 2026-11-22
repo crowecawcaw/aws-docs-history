@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # View alarm details in AWS IoT SiteWise Monitor
-<a name="view-alarm-details"></a>
 
 On the **Assets** page, you can view and respond to the alarms on any asset that is associated with your projects. Portal administrators have access to all assets in the portal and can use the **Assets** page to view and configure all assets' alarms.
 

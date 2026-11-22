@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # View asset data in AWS IoT SiteWise Monitor
-<a name="view-asset-data"></a>
 
 On the **Assets** page, you can view all properties and alarms of any asset that is associated with the projects to which you have access. Portal administrators have access to all assets in the portal and can use the **Assets** page to explore individual assets before adding them to projects. Dashboards provide a common visualization for all project viewers. 
 

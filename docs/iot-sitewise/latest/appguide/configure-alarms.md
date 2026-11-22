@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Configure alarms for AWS IoT SiteWise
-<a name="configure-alarms"></a>
 
 On the **Assets** page, project owners can configure each alarm to set it up for their equipment and processes. You can update the alarm's threshold value and notification settings.
 

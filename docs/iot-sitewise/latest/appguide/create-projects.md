@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Create projects in an AWS IoT SiteWise Monitor portal
-<a name="create-projects"></a>
 
 As a portal administrator, you select a set of assets and then create a project for those assets (see [Add assets to a new project](add-assets-to-projects-sd.md#add-assets-new-project-sd)). You can also create an empty project and add assets later.
 

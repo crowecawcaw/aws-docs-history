@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Visualize alarms in dashboards
-<a name="visualize-alarms"></a>
 
 Project owners can add alarms to dashboards to visualize alarm state as data and alarms as thresholds on other properties.
 + Add a property with an alarm to a visualization to display the alarm as a threshold on that property's data.

@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Configure trend lines
-<a name="configure-trend-lines"></a>
 
 As a project owner, you can configure trend lines to display statistical analyses on your data. When you add a trend line, you choose the type of analysis and the property to analyze. This lets you and your team identify trends in your data to better understand your operation.
 

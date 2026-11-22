@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # What is AWS IoT SiteWise Monitor?
-<a name="what-is-monitor-app"></a>
 
 AWS IoT SiteWise Monitor is a feature of AWS IoT SiteWise that provides portals in the form of managed web applications. You can use these applications to view and share your operational data and alarms. You can see data from your processes, devices, and equipment that are connected to AWS IoT SiteWise. Domain experts, such as process engineers, can use these portals to quickly get insights into their operational data to understand device and equipment behavior. They can use these insights to improve efficiency of devices, processes, or equipment and innovate on new initiatives. Operators can monitor data with alarms and respond to alarms when devices and equipment perform sub-optimally.
 

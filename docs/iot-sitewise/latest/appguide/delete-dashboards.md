@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Delete dashboards in AWS IoT SiteWise Monitor
-<a name="delete-dashboards"></a>
 
 You must be a project owner or portal administrator to delete dashboards. You can delete a dashboard from the **Dashboards** page or from the list of dashboards in a specific project.
 

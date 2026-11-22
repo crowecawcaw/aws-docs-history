@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # View project details
-<a name="view-project-details"></a>
 
 You can review the details for any project to which you have access, including:
 + **Project details** – This can include the name, description, date created, and last modified date.

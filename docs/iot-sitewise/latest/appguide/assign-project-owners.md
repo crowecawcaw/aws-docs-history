@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Assign project owners
-<a name="assign-project-owners"></a>
 
 <a name="add-owners-project-intro"></a>As a portal administrator, after you create a project, you can assign project owners. Project owners create dashboards to provide a consistent way to view your asset data. You can send an invitation email to assigned project owners when you are ready for them to work with the project.<a name="add-owners-project"></a>
 

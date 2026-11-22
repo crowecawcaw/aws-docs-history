@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Explore assets in AWS IoT SiteWise
-<a name="explore-assets"></a>
 
 In AWS IoT SiteWise, an asset represents a device, a process, or a piece of equipment. You can use AWS IoT SiteWise Monitor to explore and visualize the properties and alarms for your assets. Each project in AWS IoT SiteWise Monitor is associated with a set of assets by the portal administrator. If you're a portal administrator, you can see all of the assets in the portal. If you're a project owner or a project viewer, you can see only the assets that are associated with the projects for which you are an owner or a viewer.
 

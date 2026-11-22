@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Create alarm definitions
-<a name="create-alarms"></a>
 
 On the **Models** page, you can create AWS IoT Events alarms on models to monitor properties associated with the models. The alarms can also send notifications to you and members of your organization.
 

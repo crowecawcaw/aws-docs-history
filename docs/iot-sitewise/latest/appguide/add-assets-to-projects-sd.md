@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Add assets to projects
-<a name="add-assets-to-projects-sd"></a>
 
 As a portal administrator, you decide how to assign your AWS IoT SiteWise assets to projects. You give access to users at the project level, so you should group related assets into projects that will have a common set of viewers.
 

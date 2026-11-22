@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Change project details
-<a name="edit-project-details"></a>
 
 As a portal administrator, you can change your project name or project owner. If you add a project owner, the new owner receives an email that invites them to the project. If you remove an owner, no email is sent, so you should notify them of the ownership change.
 

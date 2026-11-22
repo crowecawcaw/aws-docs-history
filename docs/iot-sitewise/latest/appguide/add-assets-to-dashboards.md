@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Add properties and alarms to dashboards
-<a name="add-assets-to-dashboards"></a>
 
 As the project owner, you define dashboards to give your viewers a standard way to look at asset properties and alarms. By providing a consistent view, you ensure that everyone sees the data that you want them to see, in the same manner. You group asset properties and alarms on to dashboards in a way that makes sense for your business and viewers.
 

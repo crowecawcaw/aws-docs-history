@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Respond to alarms in AWS IoT SiteWise
-<a name="respond-to-alarms"></a>
 
 On the **Assets** page, you can respond to an alarm so that your team knows that you see the alarm. When you respond to an alarm, you can leave a note with details about the alarm or the actions that you took. If you don't acknowledge an active alarm before it becomes inactive, the alarm becomes latched. The latched state indicates that the alarm became active and wasn't acknowledged. You might need to check on the equipment or process and acknowledge the latched alarm.
 

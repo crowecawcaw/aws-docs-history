@@ -3,7 +3,6 @@
 The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Share data with AWS IoT SiteWise Monitor projects
-<a name="share-data"></a>
 
 In AWS IoT SiteWise Monitor, you share data by inviting viewers to a project. Viewers can view all assets, asset properties, alarms, and dashboards in the project. You can create multiple projects to give groups of viewers access to different sets of assets and dashboards. Only portal administrators can create and update projects and associate assets with projects. Project owners create and update dashboards and invite viewers to projects.
 
