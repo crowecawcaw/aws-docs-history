@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="msk-replicator-best-practices"></a>
 
 This section covers common best practices and implementation strategies for using Amazon MSK Replicator.
 

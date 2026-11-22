@@ -1,7 +1,6 @@
 
 
 # Disable or enable direct Apache ZooKeeper client access
-<a name="zookeeper-disable-access"></a>
 
 You can disable direct Apache ZooKeeper client access on your Amazon MSK Provisioned cluster to verify that your applications do not rely on direct ZooKeeper connections. When ZooKeeper access is disabled, clients can no longer connect to the Apache ZooKeeper nodes on ports 2181 (plaintext) and 2182 (TLS). You can re-enable ZooKeeper access at any time.
 

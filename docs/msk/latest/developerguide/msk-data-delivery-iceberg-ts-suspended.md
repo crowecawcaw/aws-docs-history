@@ -1,7 +1,6 @@
 
 
 # Channel is suspended
-<a name="msk-data-delivery-iceberg-ts-suspended"></a>
 
 ## Suspension on a previously working Channel
 <a name="msk-data-delivery-iceberg-ts-suspended-working"></a>

@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="msk-data-delivery-iceberg-security"></a>
 
 **Topics**
 + [Encryption in transit](msk-data-delivery-iceberg-security-transit.md)

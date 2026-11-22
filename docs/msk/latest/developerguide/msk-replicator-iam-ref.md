@@ -1,7 +1,6 @@
 
 
 # IAM permissions reference
-<a name="msk-replicator-iam-ref"></a>
 
 The following table summarizes the IAM actions that the API caller (the IAM principal that calls `CreateReplicator` and other replicator APIs) needs. For complete policy examples, see [IAM permissions required to create an MSK Replicator](msk-replicator-create-iam-perms.md).
 

@@ -1,7 +1,6 @@
 
 
 # Topic replication permissions
-<a name="msk-replicator-perms-topic-replication"></a>
 
 Use Amazon MSK Replicator to replicate topics between clusters. Grant the service execution role permissions to connect to both clusters, manage internal replicator topics, read data from source topics, and write replicated data to the target cluster.
 
@@ -17,7 +16,7 @@ Attach the following policy to the service execution role. Replace the placehold
 **PREFIXED\_WITH\_SOURCE\_CLUSTER\_ALIAS (default)**  
 Replicated topics on the target are named with the source cluster alias as a prefix (for example, `source-alias.my-topic`). Because the full alias is not known until the replicator is created, use a wildcard prefix with the topic pattern (for example, `*.${topicPattern}`) in the target data topic resource. IAM supports multiple wildcards in a resource ARN.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -113,7 +112,7 @@ Replicated topics on the target are named with the source cluster alias as a pre
 **IDENTICAL**  
 Replicated topics on the target keep the same name as on the source. Replace the `TargetDataTopicPermissions` statement with the following:
 
-```
+```json
 {
     "Sid": "TargetDataTopicPermissions",
     "Effect": "Allow",

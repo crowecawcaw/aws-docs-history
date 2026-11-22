@@ -1,7 +1,6 @@
 
 
 # Amazon MSK multi-VPC private connectivity in a single Region
-<a name="aws-access-mult-vpc"></a>
 
 Multi-VPC private connectivity (powered by [AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html)) for Amazon Managed Streaming for Apache Kafka (Amazon MSK) clusters is a feature that enables you to more quickly connect Kafka clients hosted in different Virtual Private Clouds (VPCs) and AWS accounts to an Amazon MSK cluster.
 

@@ -1,7 +1,6 @@
 
 
 # Best practices for Express brokers
-<a name="bestpractices-express"></a>
 
 This topic outlines some best practices to follow when using Express brokers. Express brokers come pre-configured for high availability and durability. Your data is distributed across three availability zones by default, replication is always set to 3 and the minimum in-sync replica is always set to 2. However, there are still a few factors to consider in order to optimize your cluster's reliability and performance.
 
@@ -43,6 +42,14 @@ The following table lists the recommended maximum throughput per broker for each
 | `express.m7g.8xlarge` | 250.0 | 500.0 | 
 | `express.m7g.12xlarge` | 375.0 | 750.0 | 
 | `express.m7g.16xlarge` | 500.0 | 1000.0 | 
+| `express.m8g.large` | 15.6 | 31.2 | 
+| `express.m8g.xlarge` | 31.2 | 62.5 | 
+| `express.m8g.2xlarge` | 62.5 | 125.0 | 
+| `express.m8g.4xlarge` | 124.9 | 249.8 | 
+| `express.m8g.8xlarge` | 250.0 | 500.0 | 
+| `express.m8g.12xlarge` | 375.0 | 750.0 | 
+| `express.m8g.16xlarge` | 500.0 | 1000.0 | 
+| `express.m8g.24xlarge` | 667.0 | 1334.0 | 
 
 ### Monitor CPU usage
 <a name="bestpractices-monitor-cpu-express"></a>

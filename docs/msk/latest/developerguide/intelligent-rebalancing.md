@@ -1,7 +1,6 @@
 
 
 # Intelligent rebalancing for clusters
-<a name="intelligent-rebalancing"></a>
 
 Amazon MSK provides intelligent rebalancing for all new MSK Provisioned clusters with Express brokers. This feature automatically manages partition distribution and cluster scaling operations, eliminating the need for third-party tools. Intelligent rebalancing automatically rebalances partitions when you scale clusters up or down. It also continuously monitors your cluster’s health for resource imbalance or overload and redistributes workload.
 

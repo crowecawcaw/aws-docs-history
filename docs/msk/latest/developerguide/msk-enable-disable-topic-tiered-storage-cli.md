@@ -1,7 +1,6 @@
 
 
 # Enable and disable tiered storage on an existing Amazon MSK topic
-<a name="msk-enable-disable-topic-tiered-storage-cli"></a>
 
 These sections cover how to enable and disable tiered storage on a topic that you've already created. To create a new cluster and topic with tiered storage enabled, see [Creating a cluster with tiered storage using the AWS Management Console](https://docs.aws.amazon.com//msk/latest/developerguide/msk-create-cluster-tiered-storage-console).
 

@@ -1,7 +1,6 @@
 
 
 # Amazon MSK updates to AWS managed policies
-<a name="security-iam-awsmanpol-updates"></a>
 
 View details about updates to AWS managed policies for Amazon MSK since this service began tracking these changes.
 

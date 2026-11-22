@@ -1,7 +1,6 @@
 
 
 # Tutorial: Externalizing sensitive information using config providers
-<a name="msk-connect-config-provider"></a>
 
 This example shows how to externalize sensitive information for Amazon MSK Connect using an open source configuration provider. A configuration providers lets you specify variables instead of plaintext in a connector or worker configuration, and workers running in your connector resolve these variables at runtime. This prevents credentials and other secrets from being stored in plaintext. The configuration provider in the example supports retrieving configuration parameters from AWS Secrets Manager, Amazon S3 and Systems Manager (SSM). In [Step 2](#msk-connect-config-providers), you can see how to set up storage and retrieval of sensitive information for the service that you want to configure.
 
@@ -98,7 +97,7 @@ Choose one of the tabs below for instructions on setting up parameters and relev
 1. Add worker configuration and connector instructions.  
 ****  
 
-   ```
+   ```json
    {
            "Version":"2012-10-17",		 	 	 
            "Statement": [
@@ -160,7 +159,7 @@ You may also use the above step with more configuration providers.
 1. Add the Systems Manager permissions from the following example policy to your [Service execution role](https://docs.aws.amazon.com/msk/latest/developerguide/msk-connect-service-execution-role.html). Replace {{<arn:aws:ssm:us-east-1:123456789000:parameter/MyParameterName>}} with the ARN of your parameter.  
 ****  
 
-   ```
+   ```json
    {
            "Version":"2012-10-17",		 	 	 
            "Statement": [
@@ -218,7 +217,7 @@ You may also use the above step with more configuration providers.
 1. Add the Amazon S3 Object Read permissions from the following example policy to your [Service execution role](https://docs.aws.amazon.com/msk/latest/developerguide/msk-connect-service-execution-role.html). Replace the example ARN, `arn:aws:s3:::{{<MY_S3_BUCKET/path/to/custom-plugin.zip>}}`, with the ARN of your object.  
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Tiered storage for Standard brokers
-<a name="msk-tiered-storage"></a>
 
 Tiered storage is a low-cost storage tier for Amazon MSK that scales to virtually unlimited storage, making it cost-effective to build streaming data applications.
 

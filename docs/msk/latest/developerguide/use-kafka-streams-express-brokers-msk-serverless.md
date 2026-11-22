@@ -1,7 +1,6 @@
 
 
 # Using Kafka Streams with MSK Serverless
-<a name="use-kafka-streams-express-brokers-msk-serverless"></a>
 
 **Note**  
 If you use MSK Standard brokers or Express brokers, you can use Kafka Streams without manually creating internal topics. The guidance on this page applies only to MSK Serverless.

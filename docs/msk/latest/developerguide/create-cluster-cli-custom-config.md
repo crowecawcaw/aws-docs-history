@@ -1,7 +1,6 @@
 
 
 # Create an MSK Provisioned cluster with a custom Amazon MSK configuration using the AWS CLI
-<a name="create-cluster-cli-custom-config"></a>
 
 For information about custom Amazon MSK configurations and how to create them, see [Amazon MSK Provisioned configuration](msk-configuration.md).
 
@@ -22,7 +21,7 @@ For information about custom Amazon MSK configurations and how to create them, s
 
    The following is an example of a successful response after running this command.
 
-   ```
+   ```JSON
    {
        "ClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/CustomConfigExampleCluster/abcd1234-abcd-dcba-4321-a1b2abcd9f9f-2",
        "ClusterName": "CustomConfigExampleCluster",

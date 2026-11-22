@@ -1,7 +1,6 @@
 
 
 # Manage Channels
-<a name="msk-data-delivery-iceberg-manage"></a>
 
 **Resource states:** `CREATING`, `ACTIVE`, `UPDATING`, `DELETING`, `FAILED`, `SUSPENDING`, `SUSPENDED`. A Channel is suspended by the service when it runs into an unrecoverable error.
 

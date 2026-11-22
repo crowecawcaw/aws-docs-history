@@ -1,7 +1,6 @@
 
 
 # Step 1: Create an MSK Provisioned cluster
-<a name="create-cluster"></a>
 
 In this step of [Getting Started Using Amazon MSK](getting-started.md), you create an Amazon MSK Provisioned cluster. You use the **Quick create** option in the AWS Management Console to create this cluster.
 

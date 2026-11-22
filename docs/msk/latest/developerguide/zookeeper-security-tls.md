@@ -1,7 +1,6 @@
 
 
 # Using TLS security with Apache ZooKeeper
-<a name="zookeeper-security-tls"></a>
 
 You can use TLS security for encryption in transit between your clients and your Apache ZooKeeper nodes. To implement TLS security with your Apache ZooKeeper nodes, do the following:
 + Clusters must use Apache Kafka version 2.5.1 or later to use TLS security with Apache ZooKeeper.

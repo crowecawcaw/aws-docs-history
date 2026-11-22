@@ -1,14 +1,13 @@
 
 
 # Additional permissions for log delivery
-<a name="msk-replicator-create-iam-perms-logs"></a>
 
 If you configure log delivery on the Replicator, append the appropriate statements below to the base policy. You only need the snippets for the destinations you enable.
 
 **Amazon CloudWatch Logs destination**  
 Append the following statement when `cloudWatchLogs.enabled` is `true` in the `logDelivery` configuration.
 
-```
+```json
 {
     "Sid": "CloudWatchLogsLogDeliveryActions",
     "Effect": "Allow",
@@ -28,7 +27,7 @@ Append the following statement when `cloudWatchLogs.enabled` is `true` in the `l
 **Amazon S3 destination**  
 Append the following statements when `s3.enabled` is `true`. Replace `<logBucketName>` with your destination bucket name.
 
-```
+```json
 [
     {
         "Sid": "S3LogDeliveryActions",
@@ -56,7 +55,7 @@ Append the following statements when `s3.enabled` is `true`. Replace `<logBucket
 **Firehose destination**  
 Append the following statements when `firehose.enabled` is `true`. Replace `<accountID>` with your AWS account ID.
 
-```
+```json
 [
     {
         "Sid": "FirehoseLogDeliveryActions",

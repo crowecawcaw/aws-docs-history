@@ -1,7 +1,6 @@
 
 
 # Supported configurations
-<a name="msk-replicator-supported-configs"></a>
 
 The following are requirements for cluster types, Kafka versions, instance types, and network configurations when using MSK Replicator.
 

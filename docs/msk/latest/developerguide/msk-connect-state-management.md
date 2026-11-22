@@ -1,7 +1,6 @@
 
 
 # State management of Amazon MSK Connect applications
-<a name="msk-connect-state-management"></a>
 
 By default, Amazon MSK Connect creates three separate topics in the Kafka cluster for each Amazon MSK Connector to store the connector’s configuration, offset, and status. The default topic names are structured as follows:
 + \_\_msk\_connect\_configs\_{{connector-name}}\_{{connector-id}}

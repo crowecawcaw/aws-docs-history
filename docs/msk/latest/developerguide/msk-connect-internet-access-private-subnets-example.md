@@ -1,7 +1,6 @@
 
 
 # Set up a NAT gateway for Amazon MSK Connect
-<a name="msk-connect-internet-access-private-subnets-example"></a>
 
 The following steps show you how to set up a NAT gateway to enable internet access for a connector. You must complete these steps before you create a connector in a private subnet.
 

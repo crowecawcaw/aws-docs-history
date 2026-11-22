@@ -1,7 +1,6 @@
 
 
 # Create a Amazon MSK cluster that uses IAM access control
-<a name="create-iam-access-control-cluster-in-console"></a>
 
 This section explains how you can use the AWS Management Console, the API, or the AWS CLI to create a Amazon MSK cluster that uses IAM access control. For information about how to turn on IAM access control for an existing cluster, see [Update security settings of a Amazon MSK cluster](msk-update-security.md).
 

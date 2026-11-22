@@ -1,7 +1,6 @@
 
 
 # Create client machine and Apache Kafka topic
-<a name="mkc-create-topic"></a>
 
 In this step you create an Amazon EC2 instance to use as an Apache Kafka client instance. You then use this instance to create a topic on the cluster.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch metrics
-<a name="msk-data-delivery-s3-metrics"></a>
 
 
 | Metric name | Description | Unit | 

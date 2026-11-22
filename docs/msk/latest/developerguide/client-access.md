@@ -1,7 +1,6 @@
 
 
 # Connect to an Amazon MSK Provisioned cluster
-<a name="client-access"></a>
 
 By default, clients can access an MSK Provisioned cluster only if they're in the same VPC as the cluster. All communication between your Kafka clients and your MSK Provisioned cluster are private by default and your streaming data never traverses the internet. To connect to your MSK Provisioned cluster from a client that's in the same VPC as the cluster, make sure the cluster's security group has an inbound rule that accepts traffic from the client's security group. For information about setting up these rules, see [Security Group Rules](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules). For an example of how to access a cluster from an Amazon EC2 instance that's in the same VPC as the cluster, see [Get started using Amazon MSK](getting-started.md).
 

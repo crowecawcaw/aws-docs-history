@@ -1,7 +1,6 @@
 
 
 # Metric dimensions
-<a name="msk-data-delivery-iceberg-metric-dimensions"></a>
 
 
 | Dimension | Description | 

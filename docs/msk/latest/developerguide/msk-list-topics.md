@@ -1,7 +1,6 @@
 
 
 # List topics in an Amazon MSK cluster
-<a name="msk-list-topics"></a>
 
 You can list all topics in your MSK Provisioned cluster to view basic metadata such as partition counts and replication factors. This is useful for monitoring your cluster's topics, performing inventory checks, or identifying topics for further investigation.
 

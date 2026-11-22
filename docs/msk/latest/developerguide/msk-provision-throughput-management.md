@@ -1,7 +1,6 @@
 
 
 # Manage storage throughput for Standard brokers in a Amazon MSK cluster
-<a name="msk-provision-throughput-management"></a>
 
 For information on how to provision throughput using the Amazon MSK console, CLI, and API, see [Provision storage throughput for Standard brokers in a Amazon MSK cluster](msk-provision-throughput.md).
 

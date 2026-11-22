@@ -1,7 +1,6 @@
 
 
 # Delete an Amazon MSK Provisioned cluster
-<a name="msk-delete-cluster"></a>
 
 **Note**  
 If your provisioned Amazon MSK cluster has an auto-scaling policy, we recommend that you remove the policy before you delete the cluster. For more information, see [Automatic scaling for Amazon MSK clusters](msk-autoexpand.md).

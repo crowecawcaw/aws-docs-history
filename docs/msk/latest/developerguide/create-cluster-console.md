@@ -1,7 +1,6 @@
 
 
 # Create an MSK Provisioned cluster using the AWS Management Console
-<a name="create-cluster-console"></a>
 
 The procedures in this topic describe the common task of creating an MSK Provisioned cluster using the **Custom create** option in the AWS Management Console. Using other options available in the AWS Management Console, you can also create the following:
 + [A serverless cluster](create-serverless-cluster.md)

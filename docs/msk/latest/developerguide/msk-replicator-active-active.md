@@ -1,7 +1,6 @@
 
 
 # Active-active replication
-<a name="msk-replicator-active-active"></a>
 
 In an active-active setup, both MSK clusters are actively serving reads and writes. An active-active cluster topology offers near zero recovery time and the capability for your streaming application to operate simultaneously in multiple AWS Regions.
 

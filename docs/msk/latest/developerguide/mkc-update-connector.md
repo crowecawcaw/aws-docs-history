@@ -1,7 +1,6 @@
 
 
 # Update a connector
-<a name="mkc-update-connector"></a>
 
 ## Update connector configuration
 <a name="mkc-update-connector-configuration"></a>

@@ -1,7 +1,6 @@
 
 
 # Set up automatic-scaling for Amazon MSK using the API
-<a name="msk-autoexpand-setup-api"></a>
 
 This process describes how to use the Amazon MSK API to implement automatic scaling for storage.
 

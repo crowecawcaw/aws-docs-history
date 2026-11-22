@@ -1,11 +1,10 @@
 
 
 # Create a provisioned Amazon MSK cluster using the AWS CLI
-<a name="create-cluster-cli"></a>
 
 1. Copy the following JSON and save it to a file. Name the file `brokernodegroupinfo.json`. Replace the subnet IDs in the JSON with the values that correspond to your subnets. These subnets must be in different Availability Zones. Replace {{"Security-Group-ID"}} with the ID of one or more security groups of the client VPC. Clients associated with these security groups get access to the cluster. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission. For an example, see [Amazon EC2: Allows Managing Amazon EC2 Security Groups Associated With a Specific VPC, Programmatically and in the Console](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_ec2_securitygroups-vpc.html). Finally, save the updated JSON file on the computer where you have the AWS CLI installed.
 
-   ```
+   ```JSON
    {
      "InstanceType": "kafka.m5.large",
      "ClientSubnets": [
@@ -29,7 +28,7 @@ For Standard brokers in the US West (N. California) Region, you need two subnets
 
    The output of the command looks like the following JSON:
 
-   ```
+   ```JSON
    {
        "ClusterArn": "...",
        "ClusterName": "AWSKafkaTutorialCluster",

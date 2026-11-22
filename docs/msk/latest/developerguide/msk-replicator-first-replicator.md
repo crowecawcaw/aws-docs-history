@@ -1,7 +1,6 @@
 
 
 # Create your first replicator
-<a name="msk-replicator-first-replicator"></a>
 
 This walkthrough guides you through creating your first MSK Replicator between two MSK clusters using the AWS console. For detailed reference on all creation options, see [Create a replicator using the AWS console](msk-replicator-create-console.md).
 

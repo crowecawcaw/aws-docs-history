@@ -1,7 +1,6 @@
 
 
 # Delete configuration
-<a name="msk-configuration-operations-delete"></a>
 
 The following procedure shows how to delete a configuration that isn't attached to a cluster. You can't delete a configuration that's attached to a cluster.
 

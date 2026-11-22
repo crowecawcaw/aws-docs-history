@@ -1,7 +1,6 @@
 
 
 # Logging and observability
-<a name="ai-vector-embedding-integration-logging-observability"></a>
 
 All logs and metrics for real-time vector embedding blueprints can be enabled using CloudWatch logs.
 

@@ -1,7 +1,6 @@
 
 
 # Mutual TLS client authentication for Amazon MSK
-<a name="msk-authentication"></a>
 
 You can enable client authentication with TLS for connections from your applications to your Amazon MSK brokers. To use client authentication, you need an AWS Private CA. The AWS Private CA can be either in the same AWS account as your cluster, or in a different account. For information about AWS Private CAs, see [Creating and Managing a AWS Private CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/create-CA.html).
 

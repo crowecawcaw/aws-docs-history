@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="msk-data-delivery-iceberg-prerequisites"></a>
 
 1. An Amazon MSK Provisioned cluster with Express brokers.
 

@@ -1,7 +1,6 @@
 
 
 # Scaling Amazon MSK clusters up and down with a single operation
-<a name="intelligent-rebalancing-scaling-clusters"></a>
 
 With intelligent rebalancing, you can scale your clusters up or down by editing the broker count in your clusters in a single action. You can do this in the Amazon MSK console, or by using the AWS CLI, Amazon MSK APIs or AWS SDK, and AWS CloudFormation. When you change the broker count, Amazon MSK does the following:
 + Automatically distributes partitions to new brokers.

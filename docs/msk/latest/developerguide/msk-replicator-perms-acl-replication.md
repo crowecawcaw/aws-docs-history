@@ -1,7 +1,6 @@
 
 
 # ACL replication permissions
-<a name="msk-replicator-perms-acl-replication"></a>
 
 When `copyAccessControlListsForTopics` is enabled (the default), the replicator copies access control lists from the source cluster to the target cluster. Consumers on the target can then use the same authorization configuration.
 
@@ -11,7 +10,7 @@ When `copyAccessControlListsForTopics` is enabled (the default), the replicator 
 **Source cluster**  
 The service execution role must have permission to read ACLs from the source cluster.
 
-```
+```json
 {
     "Sid": "SourceAclReadPermissions",
     "Effect": "Allow",
@@ -28,7 +27,7 @@ The service execution role must have permission to read ACLs from the source clu
 **Target cluster**  
 The service execution role must have permission to write ACLs to the target cluster.
 
-```
+```json
 {
     "Sid": "TargetAclWritePermissions",
     "Effect": "Allow",

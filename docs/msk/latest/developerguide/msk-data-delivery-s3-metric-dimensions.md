@@ -1,7 +1,6 @@
 
 
 # Metric dimensions
-<a name="msk-data-delivery-s3-metric-dimensions"></a>
 
 
 | Dimension | Description | 

@@ -1,14 +1,13 @@
 
 
 # Log delivery permissions
-<a name="msk-replicator-perms-log-delivery"></a>
 
 Grant log delivery permissions to the *caller role* (the IAM principal that calls `CreateReplicator`), not to the service execution role. These permissions do not involve the source or target clusters. You only need the snippets for the destinations you enable.
 
 **Amazon CloudWatch Logs destination**  
 Add the following statement when `cloudWatchLogs.enabled` is `true` in the `logDelivery` configuration.
 
-```
+```json
 {
     "Sid": "CloudWatchLogsLogDeliveryActions",
     "Effect": "Allow",
@@ -28,7 +27,7 @@ Add the following statement when `cloudWatchLogs.enabled` is `true` in the `logD
 **Amazon S3 destination**  
 Add the following statements when `s3.enabled` is `true`. Replace `<logBucketName>` with your destination bucket name.
 
-```
+```json
 [
     {
         "Sid": "S3LogDeliveryActions",
@@ -56,7 +55,7 @@ Add the following statements when `s3.enabled` is `true`. Replace `<logBucketNam
 **Firehose destination**  
 Add the following statements when `firehose.enabled` is `true`. Replace `<accountID>` with your AWS account ID.
 
-```
+```json
 [
     {
         "Sid": "FirehoseLogDeliveryActions",

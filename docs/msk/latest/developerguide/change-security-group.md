@@ -1,7 +1,6 @@
 
 
 # Changing an Amazon MSK cluster's security group
-<a name="change-security-group"></a>
 
 This page explains how to change the security group of an existing MSK cluster. You might need to change a cluster's security group in order to provide access to a certain set of users or to limit access to the cluster. For information about security groups, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the Amazon VPC user guide.
 

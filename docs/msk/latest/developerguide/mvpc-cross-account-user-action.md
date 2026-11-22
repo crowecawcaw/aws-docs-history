@@ -1,7 +1,6 @@
 
 
 # Step 3: Cross-account user actions to configure client-managed VPC connections
-<a name="mvpc-cross-account-user-action"></a>
 
 To set up multi-VPC private connectivity between a client in a different account from the MSK cluster, the cross-account user creates a managed VPC connection for the client. Multiple clients can be connected to the MSK cluster by repeating this procedure. For the purposes of this use case, you’ll configure just one client.
 
@@ -19,7 +18,7 @@ This process requires the following items:
 For reference, the following is an example of the JSON for a basic client identity policy.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

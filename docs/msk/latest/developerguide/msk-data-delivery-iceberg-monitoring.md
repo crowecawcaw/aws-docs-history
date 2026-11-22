@@ -1,7 +1,6 @@
 
 
 # Monitoring
-<a name="msk-data-delivery-iceberg-monitoring"></a>
 
 A Channel publishes data-delivery metrics to Amazon CloudWatch under the `AWS/Kafka` namespace. Metrics for delivery to streaming tables for Apache Iceberg use the `DeliveryToIceberg.*` prefix.
 

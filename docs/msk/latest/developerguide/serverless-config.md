@@ -1,7 +1,6 @@
 
 
 # Configuration properties for MSK Serverless clusters
-<a name="serverless-config"></a>
 
 Amazon MSK sets broker configuration properties for serverless clusters. You can't change these broker configuration property settings. However, you can set or modify the following topic-level configuration properties. All other topic-level configuration properties are not configurable.
 

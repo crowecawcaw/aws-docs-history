@@ -1,7 +1,6 @@
 
 
 # Set up automatic scaling for your Amazon MSK cluster
-<a name="msk-autoexpand-setup"></a>
 
 You can use the Amazon MSK console, the Amazon MSK API, or CloudFormation to implement automatic scaling for storage. CloudFormation support is available through [Application Auto Scaling](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html).
 

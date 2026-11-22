@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch metrics
-<a name="msk-data-delivery-iceberg-metrics"></a>
 
 
 | Metric name | Description | Unit | 

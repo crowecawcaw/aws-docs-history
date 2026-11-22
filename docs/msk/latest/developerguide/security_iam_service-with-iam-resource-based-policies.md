@@ -1,7 +1,6 @@
 
 
 # Amazon MSK resource-based policies
-<a name="security_iam_service-with-iam-resource-based-policies"></a>
 
 Amazon MSK supports a cluster policy (also known as a resource-based policy) for use with Amazon MSK clusters. You can use a cluster policy to define which IAM principals have cross-account permissions to set up private connectivity to your Amazon MSK cluster. When used with IAM client authentication, you can also use the cluster policy to granularly define Kafka data plane permissions for the connecting clients.
 

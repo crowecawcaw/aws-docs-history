@@ -1,7 +1,6 @@
 
 
 # Apache Kafka ACLs
-<a name="msk-acls"></a>
 
 Apache Kafka has a pluggable authorizer and ships with an out-of-box authorizer implementation. Amazon MSK enables this authorizer in the `server.properties` file on the brokers.
 

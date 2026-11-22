@@ -1,7 +1,6 @@
 
 
 # Default Amazon MSK configuration
-<a name="msk-default-configuration"></a>
 
 When you create an MSK cluster and don't specify a custom MSK configuration, Amazon MSK creates and uses a default configuration with the values shown in the following table. For properties that aren't in this table, Amazon MSK uses the defaults associated with your version of Apache Kafka. For a list of these default values, see [Apache Kafka Configuration](https://kafka.apache.org/documentation/#configuration). 
 

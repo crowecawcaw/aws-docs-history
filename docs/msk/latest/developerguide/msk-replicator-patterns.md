@@ -1,7 +1,6 @@
 
 
 # Replication patterns
-<a name="msk-replicator-patterns"></a>
 
 MSK Replicator supports several replication patterns depending on your use case. This section describes how to set up each pattern and how to perform failover and failback operations.
 

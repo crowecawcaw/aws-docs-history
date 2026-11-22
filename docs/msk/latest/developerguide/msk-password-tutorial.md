@@ -1,7 +1,6 @@
 
 
 # Set up SASL/SCRAM authentication for an Amazon MSK cluster
-<a name="msk-password-tutorial"></a>
 
 To set up a secret in AWS Secrets Manager, follow the [Creating and Retrieving a Secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/tutorials_basic.html) tutorial in the [AWS Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html).
 

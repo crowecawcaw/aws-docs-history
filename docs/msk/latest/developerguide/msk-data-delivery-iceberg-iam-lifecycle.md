@@ -1,7 +1,6 @@
 
 
 # Channel lifecycle management permissions
-<a name="msk-data-delivery-iceberg-iam-lifecycle"></a>
 
 The following permissions are for the IAM principal (the user or role) you use to create, update, describe, delete, and list Channels. They are not part of the service execution role.
 

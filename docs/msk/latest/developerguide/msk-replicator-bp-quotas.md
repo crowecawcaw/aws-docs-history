@@ -1,7 +1,6 @@
 
 
 # Managing throughput with Kafka quotas
-<a name="msk-replicator-bp-quotas"></a>
 
 Since MSK Replicator acts as a consumer for your source cluster, replication can cause other consumers to be throttled on your source cluster. The amount of throttling depends on the read capacity you have on your source cluster and the throughput of data you are replicating.
 

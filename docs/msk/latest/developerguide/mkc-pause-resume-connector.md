@@ -1,7 +1,6 @@
 
 
 # Pause and resume a connector
-<a name="mkc-pause-resume-connector"></a>
 
 You can pause a running connector to stop it from processing records, and resume it later. A paused connector keeps its configuration, its capacity settings, and its committed offsets. When you resume the connector, its tasks continue processing from the offsets that they last committed.
 
@@ -98,7 +97,7 @@ Amazon MSK Connect could not confirm whether the connector accepted the change. 
 + A paused connector stops processing records. For a sink connector, records that producers write to the source topics while the connector is paused are processed after you resume it. Records that fall outside the retention period of those topics are not processed.
 + While a pause or resume operation is in progress, you cannot perform other lifecycle operations on the connector, such as update or delete.
 + To update a paused connector with the `UpdateConnector` API, you must set `skipHealthValidation` to `true` in the update request, because Amazon MSK Connect cannot validate the health of a connector that is not processing records.
-+ You can restart a paused connector with the `RestartConnector` API. The connector returns to the `PAUSED` state after the restart completes. Restart is not available for connectors that were created before Amazon MSK Connect supported the operation.
++ You can restart a paused connector with the `RestartConnector` API. The connector returns to the `PAUSED` state after the restart completes.
 + Use `DescribeConnectorOperation` with the returned `connectorOperationArn` to track whether the operation is in progress, complete, or failed.
 
 For more information about using the MSK Connect API to pause or resume a connector, see [PauseConnector](https://docs.aws.amazon.com/MSKC/latest/mskc/API_PauseConnector.html) and [ResumeConnector](https://docs.aws.amazon.com/MSKC/latest/mskc/API_ResumeConnector.html).

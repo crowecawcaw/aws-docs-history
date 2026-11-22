@@ -1,13 +1,12 @@
 
 
 # CloudTrail logging
-<a name="msk-data-delivery-iceberg-cloudtrail"></a>
 
 All Channel API calls are logged in AWS CloudTrail: `CreateChannel`, `DescribeChannel`, `UpdateChannel`, `DeleteChannel`, `ListChannels`. Each event includes the caller identity, timestamp, source IP address, request parameters, and response elements.
 
 The following is an example CloudTrail event.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "eventSource": "kafka.amazonaws.com",

@@ -1,7 +1,6 @@
 
 
 # Create your first Channel
-<a name="msk-data-delivery-iceberg-first-channel"></a>
 
 To create your first Channel, complete the following steps:
 

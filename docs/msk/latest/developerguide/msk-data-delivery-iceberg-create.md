@@ -1,7 +1,6 @@
 
 
 # Create a Channel
-<a name="msk-data-delivery-iceberg-create"></a>
 
 ## Using the AWS Management Console
 <a name="msk-data-delivery-iceberg-create-console"></a>
@@ -55,7 +54,7 @@ The source topic is set in `TopicConfigurationList` (exactly one topic). The des
 
 To create a Channel with a streaming tables for Apache Iceberg destination, use the following command.
 
-```
+```bash
 aws kafka create-channel \
     --cluster-arn "arn:aws:kafka:us-east-1:123456789012:cluster/my-express-cluster/abc123" \
     --channel-name "orders-channel" \
@@ -95,7 +94,7 @@ aws kafka create-channel \
 
 The response is the same for both destinations.
 
-```
+```json
 {
     "ChannelArn": "arn:aws:kafka:us-east-1:123456789012:channel/my-express-cluster/abc123/orders-channel",
     "ClusterOperationArn": "arn:aws:kafka:us-east-1:123456789012:cluster-operation/my-express-cluster/abc123/..."

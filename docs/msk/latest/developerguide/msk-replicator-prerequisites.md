@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="msk-replicator-prerequisites"></a>
 
 Before you create an MSK Replicator, ensure that you have the following prerequisites in place.
 

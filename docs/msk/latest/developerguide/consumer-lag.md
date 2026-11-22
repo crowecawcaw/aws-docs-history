@@ -1,7 +1,6 @@
 
 
 # Monitor consumer lags
-<a name="consumer-lag"></a>
 
 Monitoring consumer lag allows you to identify slow or stuck consumers that aren't keeping up with the latest data available in a topic. When necessary, you can then take remedial actions, such as scaling or rebooting those consumers. To monitor consumer lag, you can use Amazon CloudWatch or open monitoring with Prometheus.
 

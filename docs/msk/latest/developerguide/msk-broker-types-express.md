@@ -1,7 +1,6 @@
 
 
 # Amazon MSK Express brokers
-<a name="msk-broker-types-express"></a>
 
 Express brokers for MSK Provisioned make Apache Kafka simpler to manage, more cost-effective to run at scale, and more elastic with the low latency you expect. Brokers include pay-as-you-go storage that scales automatically and requires no sizing, provisioning, or proactive monitoring. Depending on the instance size selected, each broker node can provide up to 3x more throughput per broker, scale up to 20x faster, and recover 90% quicker compared to standard Apache Kafka brokers. Express brokers come pre-configured with Amazon MSK’s best practice defaults and enforce client throughput quotas to minimize resource contention between clients and Kafka’s background operations.
 
@@ -11,6 +10,7 @@ Here are some key factors and capabilities to consider when using Express broker
 + **Higher throughput**: Express brokers offer up to 3x more throughput per broker than Standard brokers. For example, you can safely write data at up to 500 MBps with each m7g.16xlarge sized Express broker compared to 153.8 MBps on the equivalent Standard broker (both numbers assume sufficient bandwidth allocation towards background operations, such as replication and rebalancing).
 + **Configured for high resilience**: Express brokers automatically offer various best practices to improve your cluster’s resilience. These include guardrails on critical Apache Kafka configurations, throughput quotas, and capacity reservations for background operations and unplanned repairs. These capabilities make it safer and easier to run large scale Apache Kafka applications. See the sections on [Express broker configurations](msk-configuration-express.md) and [Amazon MSK Express broker quota](limits.md#msk-express-quota) for more details.
 + **No Maintenance windows**: There are no maintenance windows for Express brokers. Amazon MSK automatically updates your cluster hardware on an ongoing basis. See [Patching for Express brokers](https://docs.aws.amazon.com/msk/latest/developerguide/patching-impact.html#patching-express-brokers) for more details.
++ **In-place upgrade from Standard brokers**: You can upgrade existing MSK Provisioned clusters from Standard brokers to Express brokers on M7g or M8g instances in place, without creating a new cluster or migrating your applications. The upgrade preserves your cluster ARN and endpoints, maintains application availability, and keeps each message's topic, partition, and offset. For more information, see [Upgrade Standard brokers to Express brokers](msk-upgrade-standard-to-express.md).
 
 ## Additional information about Express brokers
 <a name="msk-broker-types-express-notes"></a>
@@ -20,6 +20,7 @@ Here are some key factors and capabilities to consider when using Express broker
 + Express brokers are supported on the following Apache Kafka versions: 3.6, 3.8, 3.9, and 4.2.
 + Express brokers can be created with KRaft mode from Apache Kafka version 3.9 onwards.
 + KIP-932: Queues for Kafka is not yet supported on Express brokers.
++ Existing MSK Provisioned clusters running Standard brokers on Apache Kafka version 3.9 with KRaft, deployed across three Availability Zones, can be upgraded to Express brokers in place. For more information, see [Upgrade Standard brokers to Express brokers](msk-upgrade-standard-to-express.md).
 
 **See these blogs**  
 For more information about MSK Express brokers and to see a real-world example of Express brokers in use, read the following blogs:  

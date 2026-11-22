@@ -1,7 +1,6 @@
 
 
 # Complete prerequisites to use Debezium source connector
-<a name="mkc-debeziumsource-connector-example-prereqs"></a>
 
 Your connector must be able to access the internet so that it can interact with services such as AWS Secrets Manager that are outside of your Amazon Virtual Private Cloud. The steps in this section help you complete the following tasks to enable internet access.
 + Set up a public subnet that hosts a NAT gateway and routes traffic to an internet gateway in your VPC.

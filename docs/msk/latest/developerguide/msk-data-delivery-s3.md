@@ -1,7 +1,6 @@
 
 
 # Amazon MSK data delivery to Amazon S3
-<a name="msk-data-delivery-s3"></a>
 
 Amazon MSK data delivery to Amazon S3 delivers your Apache Kafka data to general purpose Amazon S3 buckets in its source format. You choose a Kafka topic and a destination bucket, and Amazon MSK Express brokers deliver your records to Amazon S3 as a fully managed capability.
 

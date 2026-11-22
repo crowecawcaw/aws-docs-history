@@ -1,7 +1,6 @@
 
 
 # Limitations when using SCRAM secrets
-<a name="msk-password-limitations"></a>
 
 Note the following limitations when using SCRAM secrets:
 + Amazon MSK only supports SCRAM-SHA-512 authentication.

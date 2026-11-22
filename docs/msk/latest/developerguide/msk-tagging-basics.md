@@ -1,7 +1,6 @@
 
 
 # Tag basics for Amazon MSK clusters
-<a name="msk-tagging-basics"></a>
 
 You can use the Amazon MSK API to complete the following tasks:
 + Add tags to an Amazon MSK resource.

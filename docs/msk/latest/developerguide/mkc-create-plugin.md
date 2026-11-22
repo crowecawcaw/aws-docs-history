@@ -1,7 +1,6 @@
 
 
 # Create custom plugin
-<a name="mkc-create-plugin"></a>
 
 A plugin contains the code that defines the logic of the connector. In this step you create a custom plugin that has the code for the Lenses Amazon S3 Sink Connector. In a later step, when you create the MSK connector, you specify that its code is in this custom plugin. You can use the same plugin to create multiple MSK connectors with different configurations.
 

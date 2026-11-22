@@ -1,7 +1,6 @@
 
 
 # Log API calls with AWS CloudTrail
-<a name="logging-API-using-cloudtrail"></a>
 
 
 
@@ -48,7 +47,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows CloudTrail log entries that demonstrate the `DescribeCluster` and `DeleteCluster` Amazon MSK actions.
 
-```
+```JSON
 {
   "Records": [
     {
@@ -112,7 +111,7 @@ The following example shows CloudTrail log entries that demonstrate the `Describ
 
 The following example shows a CloudTrail log entry that demonstrates the `kafka-cluster:CreateTopic` action.
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {

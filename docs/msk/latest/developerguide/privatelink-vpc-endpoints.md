@@ -1,7 +1,6 @@
 
 
 # Use Amazon MSK APIs with Interface VPC Endpoints
-<a name="privatelink-vpc-endpoints"></a>
 
 You can use an Interface VPC Endpoint, powered by AWS PrivateLink, to prevent traffic between your Amazon VPC and Amazon MSK APIs from leaving the Amazon network. Interface VPC Endpoints don't require an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. [AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html) is an AWS technology that enables private communication between AWS services using an elastic network interface with private IPs in your Amazon VPC. For more information, see [Amazon Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) and [Interface VPC Endpoints (AWS PrivateLink)](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html#create-interface-endpoint).
 
@@ -88,7 +87,7 @@ This sample policy can be attached to a VPC endpoint. It restricts access to a s
 **List connectors and create a new connector**  
 The following is an example of an endpoint policy for MSK Connect. This policy allows the specified role to list connectors and create a new connector.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 		 	 	 
     "Statement": [

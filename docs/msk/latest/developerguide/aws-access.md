@@ -1,7 +1,6 @@
 
 
 # Access from within AWS but outside cluster's VPC
-<a name="aws-access"></a>
 
 To connect to an MSK cluster from inside AWS but outside the cluster's Amazon VPC, the following options exist.
 

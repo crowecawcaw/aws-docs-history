@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for MSK Connect
-<a name="mkc-security-iam-awsmanpol"></a>
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
 
@@ -23,7 +22,7 @@ You can attach the `AmazonMSKConnectReadOnlyAccess` policy to your IAM identitie
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -81,7 +80,7 @@ You can't attach KafkaConnectServiceRolePolicy to your IAM entities. This policy
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

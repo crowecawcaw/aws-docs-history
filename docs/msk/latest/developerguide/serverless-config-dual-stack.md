@@ -1,7 +1,6 @@
 
 
 # Configure dual-stack network type
-<a name="serverless-config-dual-stack"></a>
 
  Amazon MSK supports dual-stack network type for existing MSK Serverless clusters that use Kafka version 3.6.0 or later at no additional cost. With dual-stack networking, your clusters can use both IPv4 and IPv6 addresses. Dual-stack endpoints also support IPv4 thus maintaining backward compatibility. Amazon MSK provides IPv6 support through dual-stack network type, not as IPv6-only.
 
@@ -73,7 +72,7 @@ The following example uses the [UpdateConnectivity](https://docs.aws.amazon.com/
 
 In the following example, replace the sample cluster ARN, arn:aws:kafka:{{us-east-1}}:{{123456789012}}:cluster/{{myCluster}}/{{12345678-1234-1234-1234-123456789012-1}}, with your actual MSK cluster ARN. To get the current cluster version use the [DescribeCluster](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn.html#DescribeCluster) API.
 
-```
+```python
 import boto3
 
 client = boto3.client("kafka")

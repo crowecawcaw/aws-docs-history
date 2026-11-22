@@ -1,7 +1,6 @@
 
 
 # Get started using multi-VPC private connectivity
-<a name="mvpc-getting-started"></a>
 
 **Topics**
 + [Step 1: On the MSK cluster in Account A, turn on multi-VPC connectivity for IAM auth scheme on the cluster](mvpc-cluster-owner-action-turn-on.md)

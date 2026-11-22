@@ -1,7 +1,6 @@
 
 
 # Table maintenance
-<a name="msk-data-delivery-iceberg-maintenance"></a>
 
 S3 Tables provides optional automated table maintenance jobs — compaction, snapshot expiration, and unreferenced file cleanup. Enabling these jobs is recommended: they optimize query performance by merging small data files, reduce storage costs by removing obsolete snapshots, and prevent metadata bloat over time as the Channel continuously writes to your table.
 

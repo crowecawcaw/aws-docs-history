@@ -1,7 +1,6 @@
 
 
 # Produce and consume data in MSK Serverless
-<a name="msk-serverless-produce-consume"></a>
 
 In this step, you produce and consume data using the topic that you created in the previous step.
 

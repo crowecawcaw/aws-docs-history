@@ -1,7 +1,6 @@
 
 
 # Standard broker configurations
-<a name="msk-configuration-standard"></a>
 
 This section describes configuration properties for Standard brokers.
 

@@ -1,7 +1,6 @@
 
 
 # Accessing Amazon MSK clusters based on tags
-<a name="security_iam_id-based-policy-examples-view-widget-tags"></a>
 
 You can use conditions in your identity-based policy to control access to Amazon MSK resources based on tags. This example shows how you might create a policy that allows the user to describe the cluster, get its bootstrap brokers, list its broker nodes, update it, and delete it. However, permission is granted only if the cluster tag `Owner` has the value of that user's user name.
 
@@ -10,7 +9,7 @@ You can use conditions in your identity-based policy to control access to Amazon
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

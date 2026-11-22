@@ -1,7 +1,6 @@
 
 
 # Set up automatic scaling using the CLI
-<a name="msk-autoexpand-setup-cli"></a>
 
 This process describes how to use the Amazon MSK CLI to implement automatic scaling for storage.
 

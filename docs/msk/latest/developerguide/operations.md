@@ -1,7 +1,6 @@
 
 
 # Amazon MSK key features and concepts
-<a name="operations"></a>
 
 Amazon MSK Provisioned clusters offer a wide range of features and capabilities to help you optimize your cluster's performance and meet your streaming needs. The topics below describe these functionalities in detail.
 + The [AWS Management Console](https://console.aws.amazon.com/msk)
@@ -15,6 +14,7 @@ Amazon MSK Provisioned clusters offer a wide range of features and capabilities 
 + [Amazon MSK Provisioned configuration](msk-configuration.md)
 + [Configure custom domain names for your Amazon MSK cluster](custom-domain-names.md)
 + [Intelligent rebalancing for clusters](intelligent-rebalancing.md)
++ [Share groups (queues) on Amazon MSK](msk-share-groups.md)
 + [Patching on MSK Provisioned clusters](patching-impact.md)
 + [Broker offline and client failover](troubleshooting-offlinebroker-clientfailover.md)
 + [Security in Amazon MSK](security.md)

@@ -1,7 +1,6 @@
 
 
 # Create connector
-<a name="mkc-create-connector"></a>
 
 This procedure describes how to create a connector using the AWS Management Console.
 

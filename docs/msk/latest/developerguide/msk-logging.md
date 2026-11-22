@@ -1,7 +1,6 @@
 
 
 # Amazon MSK logging
-<a name="msk-logging"></a>
 
 Amazon MSK supports broker and authorizer logs on Standard and Express brokers. You can deliver these logs to one or more of the following destination types: Amazon CloudWatch Logs, Amazon S3, Amazon Data Firehose. You can also log Amazon MSK API calls with AWS CloudTrail.
 
@@ -23,7 +22,7 @@ When you use the `create-cluster` or the `update-monitoring` commands, you can o
 **Note**  
 You must set the `LogDeliveryEnabled` tag to `true`on Firehose streams to set up log delivery. The service-linked role that AWS creates for CloudWatch logs uses this tag to grant permission for all Firehose delivery streams. If you remove this tag, the service-linked role won't be able to deliver logs to the Firehose stream. To see an example of an IAM policy that shows the permissions that the service-linked role includes, see [IAM roles used for resource permissions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-infrastructure-V2-Firehose.html) in the *Amazon CloudWatch User Guide*.
 
-```
+```JSON
 {
   "BrokerLogs": {
     "S3": {
@@ -61,7 +60,7 @@ Authorizer logs capture authorization decisions made by your MSK cluster. You ca
 
 When you use the `create-cluster` or the `update-monitoring` commands, you can optionally specify the `logging-info` parameter and pass to it a JSON structure like the following example. In this JSON, all three destination types are optional.
 
-```
+```JSON
 {
   "AuthorizerLogs": {
     "S3": {
@@ -98,7 +97,7 @@ To stream logs to an S3 bucket, you also need the `s3:PutBucketPolicy` permissio
 
 If you enabled server-side encryption for your S3 bucket using AWS KMS-managed keys (SSE-KMS) with a customer managed key, add the following to the key policy for your KMS key so that Amazon MSK can write logs to the bucket.
 
-```
+```JSON
 {
   "Sid": "Allow Amazon MSK to use the key.",
   "Effect": "Allow",

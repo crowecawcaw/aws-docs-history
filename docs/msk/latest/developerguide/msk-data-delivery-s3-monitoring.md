@@ -1,7 +1,6 @@
 
 
 # Monitoring
-<a name="msk-data-delivery-s3-monitoring"></a>
 
 A Channel publishes data-delivery metrics to Amazon CloudWatch under the `AWS/Kafka` namespace. Metrics for delivery to Amazon S3 general purpose buckets use the `DeliveryToS3.*` prefix.
 

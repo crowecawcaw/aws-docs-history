@@ -1,7 +1,6 @@
 
 
 # Service-linked role permissions for Amazon MSK
-<a name="slr-permissions"></a>
 
 Amazon MSK uses the service-linked role named **AWSServiceRoleForKafka**. Amazon MSK uses this role to access your resources and perform operations such as:
 + `*NetworkInterface` – create and manage network interfaces in the customer account that make cluster brokers accessible to clients in the customer VPC.

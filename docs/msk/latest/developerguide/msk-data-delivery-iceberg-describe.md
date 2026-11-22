@@ -1,7 +1,6 @@
 
 
 # Describe a Channel
-<a name="msk-data-delivery-iceberg-describe"></a>
 
 ## Using the AWS Management Console
 <a name="msk-data-delivery-iceberg-describe-console"></a>
@@ -21,7 +20,7 @@ The detail page shows source topic, destination, delivery settings, current stat
 ## Using the AWS CLI
 <a name="msk-data-delivery-iceberg-describe-cli"></a>
 
-```
+```bash
 aws kafka describe-channel \
     --cluster-arn "arn:aws:kafka:us-east-1:123456789012:cluster/my-express-cluster/abc123" \
     --channel-arn "arn:aws:kafka:us-east-1:123456789012:channel/my-express-cluster/abc123/orders-channel"
@@ -29,7 +28,7 @@ aws kafka describe-channel \
 
 The following is an example response for a streaming tables for Apache Iceberg destination.
 
-```
+```json
 {
     "ChannelArn": "arn:aws:kafka:us-east-1:123456789012:channel/my-express-cluster/abc123/orders-channel",
     "ChannelName": "orders-channel",

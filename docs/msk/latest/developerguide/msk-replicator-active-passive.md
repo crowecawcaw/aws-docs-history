@@ -1,7 +1,6 @@
 
 
 # Active-passive replication
-<a name="msk-replicator-active-passive"></a>
 
 In an active-passive setup, only one MSK cluster at a time is actively serving streaming data, while the other cluster is on standby. Active-passive setups are suited to applications that can run in only one AWS Region at a time, or when you need more control over the data processing order.
 

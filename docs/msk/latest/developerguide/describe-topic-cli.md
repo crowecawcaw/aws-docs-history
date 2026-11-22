@@ -1,7 +1,6 @@
 
 
 # Describe a topic using the AWS CLI
-<a name="describe-topic-cli"></a>
 
 Run the following command, replacing {{ClusterArn}} with the Amazon Resource Name (ARN) of your cluster and {{TopicName}} with the name of the topic you want to describe.
 

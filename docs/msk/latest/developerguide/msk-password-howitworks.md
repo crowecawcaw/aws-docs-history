@@ -1,7 +1,6 @@
 
 
 # How sign-in credentials authentication works
-<a name="msk-password-howitworks"></a>
 
 Sign-in credentials authentication for Amazon MSK uses SASL/SCRAM (Simple Authentication and Security Layer/ Salted Challenge Response Mechanism) authentication. To set up sign-in credentials authentication for a cluster, you create a Secret resource in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/?id=docs_gateway), and associate sign-in credentials with that secret. 
 

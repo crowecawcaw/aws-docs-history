@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AmazonMSKReadOnlyAccess
-<a name="security-iam-awsmanpol-AmazonMSKReadOnlyAccess"></a>
 
 This policy grants read-only permissions that allow users to view information in Amazon MSK. Principals with this policy attached can't make any updates or delete exiting resources, nor can they create new Amazon MSK resources. For example, principals with these permissions can view the list of clusters and configurations associated with their account, but cannot change the configuration or settings of any clusters. The permissions in this policy are grouped as follows:
 + **`Amazon MSK` permissions** – allow you to list Amazon MSK resources, describe them, and get information about them.
@@ -13,7 +12,7 @@ This policy grants read-only permissions that allow users to view information in
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

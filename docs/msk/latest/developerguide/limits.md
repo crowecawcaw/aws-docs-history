@@ -1,7 +1,6 @@
 
 
 # Amazon MSK quota
-<a name="limits"></a>
 
 Your AWS account has default quotas for Amazon MSK. Unless otherwise stated, each per-account quota is Region-specific within your AWS account.
 
@@ -56,7 +55,7 @@ The following table describes the quotas for Standard brokers.
 | Minimum storage per broker  | 1 GiB |  | 
 | Maximum storage per broker | 16384 GiB |  | 
 | Maximum TCP connections per broker ([IAM Access control](iam-access-control.md)) | 3000 | To increase this limit, you can adjust the `listener.name.client_iam.max.connections` or the `listener.name.client_iam_public.max.connections` configuration property using the Kafka `AlterConfig` API or the `kafka-configs.sh` tool. It's important to note that increasing either property to a high value can result in unavailability.<br />To monitor this quota, use the `ClientConnectionCount` CloudWatch metric with dimensions `Cluster Name`, `Broker ID`, and `Client Authentication` (set to `IAM`). Use the **Sum** statistic with a one-minute period. A single broker reports `ClientConnectionCount` as multiple data points across its network processors. Summing at the broker level aggregates across all network threads for the IAM listener to produce the total IAM connection count for that broker. | 
-| Maximum TCP connections rate per broker (IAM)  | 100 per second (M5 and M7g instance sizes) 4 per second (t3 instance size) | To handle retries on failed connections, you can set the `reconnect.backoff.ms` configuration parameter on the client side. For example, if you want a client to retry connections after 1 second, set `reconnect.backoff.ms` to `1000`. For more information, see [reconnect.backoff.ms](https://kafka.apache.org/documentation/#producerconfigs_reconnect.backoff.ms) in the Apache Kafka documentation.<br />To monitor this quota, use the `ConnectionCreationRate` CloudWatch metric with dimensions `Cluster Name` and `Broker ID`. Use the **Sum** statistic with a one-minute period. A single broker reports `ConnectionCreationRate` as multiple data points across its network processors. Summing at the broker level aggregates across all network threads and client listeners to produce the total connection creation rate for that broker. | 
+| Maximum TCP connections rate per broker (IAM)  | 100 per second (M5, M7g, and M8g instance sizes) 4 per second (t3 instance size) | To handle retries on failed connections, you can set the `reconnect.backoff.ms` configuration parameter on the client side. For example, if you want a client to retry connections after 1 second, set `reconnect.backoff.ms` to `1000`. For more information, see [reconnect.backoff.ms](https://kafka.apache.org/documentation/#producerconfigs_reconnect.backoff.ms) in the Apache Kafka documentation.<br />To monitor this quota, use the `ConnectionCreationRate` CloudWatch metric with dimensions `Cluster Name` and `Broker ID`. Use the **Sum** statistic with a one-minute period. A single broker reports `ConnectionCreationRate` as multiple data points across its network processors. Summing at the broker level aggregates across all network threads and client listeners to produce the total connection creation rate for that broker. | 
 | Maximum TCP connections per broker (non-IAM) | N/A | MSK does not enforce connection limits for non-IAM auth. You should monitor other metrics such as CPU and memory usage to ensure you do not overload your cluster because of excessive connections. | 
 | Configurations per account | 100 | To request higher quota, go to the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/kafka/quotas). To update the configuration or the Apache Kafka version of an MSK cluster, first ensure the number of partitions per broker is under the limits described in [Right-size your cluster: Number of partitions per Standard broker](bestpractices.md#partitions-per-broker). | 
 | Configuration revisions per account | 50 |  | 
@@ -77,8 +76,8 @@ The following table describes the quotas for Express brokers.
 | Maximum TCP connections per broker (non-IAM)  | N/A | MSK does not enforce connection limits for non-IAM auth. You should however monitor other metrics such as CPU and memory usage to ensure you do not overload your cluster because of excessive connections. | 
 | Configurations per account  | 100 | To request higher quota, go to the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/kafka/quotas). To update the configuration or the Apache Kafka version of an MSK cluster, first ensure the number of partitions per broker is under the limits described in [Right-size your cluster: Number of partitions per Express broker](bestpractices-express.md#partitions-per-express-broker). | 
 | Configuration revisions per account | 50 |  | 
-| Max Ingress per broker  | Recommended: 15.6 - 500.0 MBps  | Based on instance size.  | 
-| Max Egress per broker | Recommended: 31.2 - 1000.0 MBps  | Based on instance size.  | 
+| Max Ingress per broker  | Recommended: 15.6 - 667.0 MBps  | Based on instance size.  | 
+| Max Egress per broker | Recommended: 31.2 - 1334.0 MBps  | Based on instance size.  | 
 | Throughput per-partition | Max 15 MB/s |  | 
 
 **Topics**
@@ -100,6 +99,14 @@ The following table lists the recommended and maximum throughput throttle limit 
 | express.m7g.8xlarge | 250 | 375 | 500 | 937.5 | 
 | express.m7g.12xlarge | 375 | 562.5 | 750 | 1406.2 | 
 | express.m7g.16xlarge | 500 | 750 | 1000 | 1875 | 
+| express.m8g.large | 15.6 | 23.4 | 31.2 | 58.5 | 
+| express.m8g.xlarge | 31.2 | 46.8 | 62.5 | 117 | 
+| express.m8g.2xlarge | 62.5 | 93.7 | 125 | 234.2 | 
+| express.m8g.4xlarge | 124.9 | 187.5 | 249.8 | 468.7 | 
+| express.m8g.8xlarge | 250 | 375 | 500 | 937.5 | 
+| express.m8g.12xlarge | 375 | 562.5 | 750 | 1406.2 | 
+| express.m8g.16xlarge | 500 | 750 | 1000 | 1875 | 
+| express.m8g.24xlarge | 667 | 1000.5 | 1334 | 2501.25 | 
 
 ### Express broker partition quota
 <a name="msk-express-broker-partition-quota"></a>
@@ -118,6 +125,14 @@ For information about the best practices to consider while assigning partitions 
 | `express.m7g.8xlarge` | 12000 | 16000 | 
 | `express.m7g.12xlarge` | 16000 | 24000 | 
 | `express.m7g.16xlarge` | 20000 | 32000 | 
+| `express.m8g.large` | 1000 | 1500 | 
+| `express.m8g.xlarge` | 1000 | 2000 | 
+| `express.m8g.2xlarge` | 2500 | 4000 | 
+| `express.m8g.4xlarge` | 6000 | 8000 | 
+| `express.m8g.8xlarge` | 12000 | 16000 | 
+| `express.m8g.12xlarge` | 16000 | 24000 | 
+| `express.m8g.16xlarge` | 20000 | 32000 | 
+| `express.m8g.24xlarge` | 20000 | 32000 | 
 
 ## MSK Replicator quotas
 <a name="msk-replicator-quotas"></a>

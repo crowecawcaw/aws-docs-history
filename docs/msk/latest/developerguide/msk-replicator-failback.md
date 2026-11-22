@@ -1,7 +1,6 @@
 
 
 # Failback
-<a name="msk-replicator-failback"></a>
 
 You can failback to the primary AWS Region after the service event in that Region has ended.
 

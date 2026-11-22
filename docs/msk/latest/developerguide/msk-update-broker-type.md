@@ -1,16 +1,18 @@
 
 
 # Update the Amazon MSK cluster broker size
-<a name="msk-update-broker-type"></a>
 
 You can scale your MSK cluster on demand by changing the size of your brokers without reassigning Apache Kafka partitions. Changing the size of your brokers gives you the flexibility to adjust your MSK cluster's compute capacity based on changes in your workloads, without interrupting your cluster I/O. Amazon MSK uses the same broker size for all the brokers in a given cluster.
 
-For Standard brokers, you can update your cluster broker size from M5 or T3 to M7g, T3 to M5, or from M7g to M5.
+**Note**  
+This page describes how to change the instance size of your brokers (for example, from `kafka.m5.large` to `kafka.m5.2xlarge`). To upgrade your cluster from Standard brokers to Express brokers, see [Upgrade Standard brokers to Express brokers](msk-upgrade-standard-to-express.md).
+
+For Standard brokers, you can update your cluster broker size to the M5, M7g, or M8g family. You can't migrate to a smaller broker size.
 
 **Note**  
 You can't migrate from a larger broker size to a smaller broker size. For example, M7g.large to T3.small.
 
-For Express brokers, you can use only M7g broker sizes.
+For Express brokers, you can use only M7g or M8g broker sizes.
 
 This topic describes how to update the broker size for your MSK cluster.
 

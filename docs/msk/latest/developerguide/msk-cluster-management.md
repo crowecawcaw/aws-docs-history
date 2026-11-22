@@ -1,7 +1,6 @@
 
 
 # Amazon MSK: How it works
-<a name="msk-cluster-management"></a>
 
 Amazon MSK is a fully managed Apache Kafka service that makes it easy to build and run applications that use Apache Kafka to process streaming data. This guide provides information to help developers understand how Amazon MSK works and how to use it effectively in their applications.
 

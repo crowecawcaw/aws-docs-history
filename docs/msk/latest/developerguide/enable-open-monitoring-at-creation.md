@@ -1,7 +1,6 @@
 
 
 # Enable open monitoring on new MSK Provisioned clusters
-<a name="enable-open-monitoring-at-creation"></a>
 
 This procedure describes how to enable open monitoring on a new MSK cluster using the AWS Management Console, the AWS CLI, or the Amazon MSK API.
 

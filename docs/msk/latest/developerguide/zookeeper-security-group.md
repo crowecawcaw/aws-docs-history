@@ -1,7 +1,6 @@
 
 
 # To place your Apache ZooKeeper nodes in a separate security group
-<a name="zookeeper-security-group"></a>
 
 To limit access to Apache ZooKeeper nodes, you can assign a separate security group to them. You can choose who has access to this new security group by setting security group rules.
 

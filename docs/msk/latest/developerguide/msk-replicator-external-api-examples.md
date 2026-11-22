@@ -1,7 +1,6 @@
 
 
 # CreateReplicator API examples for self-managed Kafka clusters
-<a name="msk-replicator-external-api-examples"></a>
 
 ## Forward replication (Self-managed Kafka to MSK Provisioned)
 <a name="msk-replicator-external-forward"></a>

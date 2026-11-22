@@ -1,7 +1,6 @@
 
 
 # IAM permissions required to create an MSK Replicator
-<a name="msk-replicator-create-iam-perms"></a>
 
 The IAM principal (user or role) that calls `CreateReplicator` needs the permissions described in this section. Attach this policy to the IAM identity that corresponds to your client. For general guidance on creating authorization policies, see [Create authorization policies](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#create-iam-access-control-policies).
 
@@ -12,7 +11,7 @@ Start with the **base policy** below. If you also configure log delivery, append
 
 Replace the placeholders with your account ID, AWS Region, service execution role name, and source and target cluster ARNs. The action `kafka:TagResource` is only needed if you provide tags during creation.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [

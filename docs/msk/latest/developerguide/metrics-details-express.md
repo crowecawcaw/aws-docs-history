@@ -1,7 +1,6 @@
 
 
 # Amazon MSK metrics for monitoring Express brokers with CloudWatch
-<a name="metrics-details-express"></a>
 
 Amazon MSK integrates with CloudWatch so that you can collect, view, and analyze CloudWatch metrics for your MSK Express brokers. The metrics that you configure for your MSK Provisioned clusters are automatically collected and pushed to CloudWatch at 1 minute intervals. You can set the monitoring level for an MSK Provisioned cluster to one of the following: `DEFAULT`, `PER_BROKER`, `PER_TOPIC_PER_BROKER`, or `PER_TOPIC_PER_PARTITION`. The tables in the following sections show the metrics that are available starting at each monitoring level.
 

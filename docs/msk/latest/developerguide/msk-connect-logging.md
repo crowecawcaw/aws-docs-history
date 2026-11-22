@@ -1,7 +1,6 @@
 
 
 # Logging for MSK Connect
-<a name="msk-connect-logging"></a>
 
 MSK Connect can write log events that you can use to debug your connector. When you create a connector, you can specify zero or more of the following log destinations:
 + Amazon CloudWatch Logs: You specify the log group to which you want MSK Connect to send your connector's log events. For information on how to create a log group, see [Create a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#Create-Log-Group) in the *CloudWatch Logs User Guide*.

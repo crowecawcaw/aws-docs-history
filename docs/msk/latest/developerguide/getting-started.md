@@ -1,7 +1,6 @@
 
 
 # Get started using Amazon MSK
-<a name="getting-started"></a>
 
 This tutorial shows you an example of how you can create an MSK cluster, produce and consume data, and monitor the health of your cluster using metrics. This example doesn't represent all the options you can choose when you create an MSK cluster. In different parts of this tutorial, we choose default options for simplicity. This doesn't mean that they're the only options that work for setting up an MSK cluster or client instances.
 

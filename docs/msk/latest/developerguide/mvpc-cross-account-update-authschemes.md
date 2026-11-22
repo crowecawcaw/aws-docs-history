@@ -1,7 +1,6 @@
 
 
 # Update the authorization schemes on a cluster
-<a name="mvpc-cross-account-update-authschemes"></a>
 
 Multi-VPC private connectivity supports several authorization schemes: SASL/SCRAM, IAM, and TLS. The cluster owner can turn on/off private connectivity for one or more auth schemes. The cluster has to be in ACTIVE state to perform this action.
 

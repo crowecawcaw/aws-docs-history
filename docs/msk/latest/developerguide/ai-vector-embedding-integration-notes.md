@@ -1,7 +1,6 @@
 
 
 # Notes before enabling real-time vector embedding blueprints
-<a name="ai-vector-embedding-integration-notes"></a>
 
 The Managed Service for Apache Flink application will only support unstructured text or JSON data in the input stream.
 

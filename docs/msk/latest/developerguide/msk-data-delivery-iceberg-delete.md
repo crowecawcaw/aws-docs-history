@@ -1,7 +1,6 @@
 
 
 # Delete a Channel
-<a name="msk-data-delivery-iceberg-delete"></a>
 
 Deleting a Channel stops delivery from the Kafka topic to the destination. Data already delivered (the Iceberg table) is not deleted.
 
@@ -26,7 +25,7 @@ Deleting a Channel is irreversible. Any undelivered data in the topic will not b
 ## Using the AWS CLI
 <a name="msk-data-delivery-iceberg-delete-cli"></a>
 
-```
+```bash
 aws kafka delete-channel \
     --cluster-arn "arn:aws:kafka:us-east-1:123456789012:cluster/my-express-cluster/abc123" \
     --channel-arn "arn:aws:kafka:us-east-1:123456789012:channel/my-express-cluster/abc123/orders-channel"
@@ -34,7 +33,7 @@ aws kafka delete-channel \
 
 Response:
 
-```
+```json
 {
     "ChannelArn": "arn:aws:kafka:us-east-1:123456789012:channel/my-express-cluster/abc123/orders-channel",
     "ClusterOperationArn": "arn:aws:kafka:us-east-1:123456789012:cluster-operation/my-express-cluster/abc123/..."

@@ -1,7 +1,6 @@
 
 
 # Set up a custom domain name end to end
-<a name="custom-domain-setup"></a>
 
 This topic walks through the cluster-side configuration for custom domain names. The networking layer (Network Load Balancer, DNS, and TLS certificate) is a prerequisite that you own, and is covered in detail in [Configure a custom domain name for your Amazon MSK cluster](https://aws.amazon.com/blogs/big-data/configure-a-custom-domain-name-for-your-amazon-msk-cluster/) on the AWS Big Data Blog. With the networking in place, the following steps cover the cluster-side setup.
 

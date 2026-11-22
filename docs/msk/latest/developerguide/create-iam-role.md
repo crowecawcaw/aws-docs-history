@@ -1,7 +1,6 @@
 
 
 # Create an IAM role for topics on MSK Serverless cluster
-<a name="create-iam-role"></a>
 
 In this step, you perform two tasks. The first task is to create an IAM policy that grants access to create topics on the cluster and to send data to those topics. The second task is to create an IAM role and associate this policy with it. In a later step, we create a client machine that assumes this role and uses it to create a topic on the cluster and to send data to that topic.
 
@@ -25,7 +24,7 @@ In this step, you perform two tasks. The first task is to create an IAM policy t
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

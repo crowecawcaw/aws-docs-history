@@ -1,7 +1,6 @@
 
 
 # Monitor an MSK Provisioned cluster with Prometheus
-<a name="open-monitoring"></a>
 
 You can monitor your MSK Provisioned cluster with Prometheus, an open-source monitoring system for time-series metric data. You can publish this data to Amazon Managed Service for Prometheus using Prometheus's remote write feature. You can also use tools that are compatible with Prometheus-formatted metrics or tools that integrate with Amazon MSK Open Monitoring, such as [Datadog](https://docs.datadoghq.com/integrations/amazon_msk/), [Lenses](https://docs.lenses.io/latest/deployment/configuration/agent/automation/kafka/aws-msk), [New Relic](https://docs.newrelic.com/docs/integrations/amazon-integrations/aws-integrations-list/aws-managed-kafka-msk-integration), and [Sumo logic](https://help.sumologic.com/03Send-Data/Collect-from-Other-Data-Sources/Amazon_MSK_Prometheus_metrics_collection). Open monitoring is available for free but charges apply for the transfer of data across Availability Zones.
 

@@ -1,13 +1,12 @@
 
 
 # Set up Amazon S3 sink connector
-<a name="mkc-S3sink-connector-example"></a>
 
 This example shows how to use the Confluent [Amazon S3 sink connector](https://www.confluent.io/hub/confluentinc/kafka-connect-s3) and the AWS CLI to create an Amazon S3 sink connector in MSK Connect.
 
 1. Copy the following JSON and paste it in a new file. Replace the placeholder strings with values that correspond to your Amazon MSK cluster's bootstrap servers connection string and the cluster's subnet and security group IDs. For information about how to set up a service execution role, see [IAM roles and policies for MSK Connect](msk-connect-iam.md).
 
-   ```
+   ```JSON
    {
        "connectorConfiguration": {
            "connector.class": "io.confluent.connect.s3.S3SinkConnector",

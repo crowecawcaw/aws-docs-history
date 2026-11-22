@@ -1,7 +1,6 @@
 
 
 # Turn on public access to an MSK Provisioned cluster
-<a name="public-access"></a>
 
 Amazon MSK gives you the option to turn on public access to the brokers of MSK Provisioned clusters running Apache Kafka 2.6.0 or later versions. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible.
 

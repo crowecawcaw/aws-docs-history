@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="msk-data-delivery-s3-prerequisites"></a>
 
 1. An Amazon MSK Provisioned cluster with Express brokers.
 

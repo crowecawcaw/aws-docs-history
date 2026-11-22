@@ -1,7 +1,6 @@
 
 
 # Set up resources required for MSK Connect
-<a name="mkc-tutorial-setup"></a>
 
 In this step you create the following resources that you need for this getting-started scenario:
 + An Amazon S3 bucket to serve as the destination that receives data from the connector.
@@ -69,7 +68,7 @@ In this step you create the following resources that you need for this getting-s
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -175,7 +174,7 @@ You can't edit the name of the role after it's created because other entities mi
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

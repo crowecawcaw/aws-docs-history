@@ -1,7 +1,6 @@
 
 
 # Permissions for multi-VPC private connectivity
-<a name="mvpc-cross-account-permissions"></a>
 
 This section summarizes the permissions needed for clients and clusters using the multi-VPC private connectivity feature. Multi-VPC private connectivity requires the client admin to create permissions on each client that will have a managed VPC connection to the MSK cluster. It also requires the MSK cluster admin to enable PrivateLink connectivity on the MSK cluster and select authentication schemes to control access to the cluster. 
 
@@ -27,7 +26,7 @@ The following is an example of the JSON for a basic cluster policy, similar to t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -63,7 +62,7 @@ To set up multi-VPC private connectivity between a Kafka client and an MSK clust
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

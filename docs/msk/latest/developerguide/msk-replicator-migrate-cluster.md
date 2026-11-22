@@ -1,9 +1,12 @@
 
 
 # Migrate between Amazon MSK clusters
-<a name="msk-replicator-migrate-cluster"></a>
 
 Amazon MSK Replicator supports migrations between Amazon MSK clusters in the same AWS account. You can use Identical topic name replication for cluster migration, but your consumers must be able to handle duplicate messages without downstream impact. This is because MSK Replicator provides at-least-once replication, which can lead to duplicate messages in rare scenarios. If your consumers meet this requirement, follow these steps.
+
+**Note**  
+To move an existing Amazon MSK Provisioned cluster from Standard brokers to Express brokers, you can upgrade the cluster in place instead of migrating to a new cluster. In-place upgrade keeps your cluster endpoints and consumer offsets, so you don't need to reconfigure producers or consumers. In-place upgrade is available for clusters running Apache Kafka version 3.9 with KRaft across three Availability Zones. For more information, see [Upgrade Standard brokers to Express brokers](msk-upgrade-standard-to-express.md).  
+If your cluster isn't eligible for in-place upgrade, contact AWS Support or your AWS account team for help migrating to Express brokers.
 
 1. Create a Replicator that replicates data from your old cluster to the new cluster with Replicator's starting position set to *Earliest* and using Identical topic name replication (**Keep the same topics name** in console).
 

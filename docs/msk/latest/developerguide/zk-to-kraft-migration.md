@@ -1,7 +1,6 @@
 
 
 # Migrate from ZooKeeper to KRaft mode
-<a name="zk-to-kraft-migration"></a>
 
 You can migrate an existing ZooKeeper-based MSK cluster to KRaft mode using the `UpdateClusterKafkaVersion` API. The migration is performed in-place — your cluster remains available throughout the process and no data is moved. Amazon MSK provisions KRaft controllers, migrates cluster metadata from ZooKeeper to the KRaft quorum, and decommissions ZooKeeper nodes automatically.
 

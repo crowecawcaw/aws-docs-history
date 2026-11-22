@@ -1,7 +1,6 @@
 
 
 # Authorization based on Amazon MSK tags
-<a name="security_iam_service-with-iam-tags"></a>
 
 You can attach tags to Amazon MSK clusters. To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `kafka:ResourceTag/{{key-name}}`, `aws:RequestTag/{{key-name}}`, or `aws:TagKeys` condition keys. For information about tagging Amazon MSK resources, see [Tag an Amazon MSK cluster](msk-tagging.md).
 
@@ -16,7 +15,7 @@ You can use conditions in your identity-based policy to control access to Amazon
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

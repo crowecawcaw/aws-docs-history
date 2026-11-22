@@ -1,7 +1,6 @@
 
 
 # Configure dual-stack network type
-<a name="msk-connect-dual-stack"></a>
 
 Amazon MSK Connect supports dual-stack network type for new connectors. With dual-stack networking, your connectors can connect to destinations over both IPv4 and IPv6. Note that IPv6 connectivity is only available in dual-stack mode (IPv4 \+ IPv6) - IPv6-only networking is not supported.
 

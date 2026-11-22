@@ -1,7 +1,6 @@
 
 
 # Reject a managed VPC connection to an Amazon MSK cluster
-<a name="mvpc-cross-account-reject-connection"></a>
 
 From the Amazon MSK console on the cluster admin account, you can reject a client VPC connection. The client VPC connection must be in the AVAILABLE state to be rejected. You might want to reject a managed VPC connection from a client that is no longer authorized to connect to your cluster. To prevent new managed VPC connections from a connecting to a client, deny access to the client in the cluster policy. A rejected connection still incurs cost until its deleted by the connection owner. See [Delete a managed VPC connection to an Amazon MSK cluster ](https://docs.aws.amazon.com/msk/latest/developerguide/mvpc-cross-account-delete-connection.html).
 

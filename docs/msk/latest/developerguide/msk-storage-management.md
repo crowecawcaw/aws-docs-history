@@ -1,7 +1,6 @@
 
 
 # Storage management for Standard brokers
-<a name="msk-storage-management"></a>
 
 Amazon MSK provides features to help you with storage management on your MSK clusters.
 

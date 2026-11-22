@@ -1,7 +1,6 @@
 
 
 # Use LinkedIn's Cruise Control for Apache Kafka with Amazon MSK
-<a name="cruise-control"></a>
 
 You can use LinkedIn's Cruise Control to rebalance your Amazon MSK cluster, detect and fix anomalies, and monitor the state and health of the cluster.
 

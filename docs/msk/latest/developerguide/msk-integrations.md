@@ -1,7 +1,6 @@
 
 
 # MSK integrations
-<a name="msk-integrations"></a>
 
 This section provides references to AWS features that integrate with Amazon MSK.
 

@@ -1,7 +1,6 @@
 
 
 # Supported configurations
-<a name="msk-data-delivery-s3-supported-configs"></a>
 
 
 | Configuration | Amazon S3 general purpose buckets | 

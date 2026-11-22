@@ -1,7 +1,6 @@
 
 
 # Cross-account migration between Amazon MSK clusters
-<a name="msk-replicator-cross-account"></a>
 
 For migrations across different AWS accounts, you must use Apache MirrorMaker 2.0.
 

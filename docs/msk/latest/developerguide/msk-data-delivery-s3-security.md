@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="msk-data-delivery-s3-security"></a>
 
 **Topics**
 + [Encryption in transit](msk-data-delivery-s3-security-transit.md)

@@ -1,7 +1,6 @@
 
 
 # Recommended alarms
-<a name="msk-data-delivery-s3-alarms"></a>
 
 
 | Alarm | Condition | Recommended threshold | Action | 

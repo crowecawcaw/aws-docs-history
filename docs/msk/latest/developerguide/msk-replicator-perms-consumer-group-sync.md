@@ -1,7 +1,6 @@
 
 
 # Consumer group offset sync permissions
-<a name="msk-replicator-perms-consumer-group-sync"></a>
 
 When `synchroniseConsumerGroupOffsets` is enabled (the default), the replicator translates consumer group offsets from the source cluster and writes them to the target cluster. With this feature enabled, consumers can resume from the correct position after failover.
 
@@ -18,7 +17,7 @@ The following statements add permissions specifically for consumer group offset 
 **Source cluster**  
 The service execution role must have permission to describe consumer groups and the topics they consume on the source.
 
-```
+```json
 [
     {
         "Sid": "SourceGroupPermissions",
@@ -46,7 +45,7 @@ The service execution role must have permission to describe consumer groups and 
 **Target cluster**  
 The service execution role must have permission to describe the replicated topics and alter consumer groups on the target so that translated offsets can be committed.
 
-```
+```json
 [
     {
         "Sid": "TargetCheckpointTopicPermissions",

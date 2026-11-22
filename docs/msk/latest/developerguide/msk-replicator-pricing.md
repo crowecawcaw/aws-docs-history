@@ -1,7 +1,6 @@
 
 
 # Pricing
-<a name="msk-replicator-pricing"></a>
 
 MSK Replicator pricing is based on the amount of data replicated. You pay for the data processed by the Replicator. For cross-region replication, you also pay for cross-region data transfer.
 

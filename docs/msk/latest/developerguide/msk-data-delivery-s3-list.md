@@ -1,7 +1,6 @@
 
 
 # List Channels
-<a name="msk-data-delivery-s3-list"></a>
 
 ## Using the AWS Management Console
 <a name="msk-data-delivery-s3-list-console"></a>
@@ -19,7 +18,7 @@ All Channels for the cluster are listed with name, state, destination type, and 
 ## Using the AWS CLI
 <a name="msk-data-delivery-s3-list-cli"></a>
 
-```
+```bash
 aws kafka list-channels \
     --cluster-arn "arn:aws:kafka:us-east-1:123456789012:cluster/my-express-cluster/abc123"
 ```
@@ -29,7 +28,7 @@ Use `--topic-name-filter "orders-topic"` to return only Channels whose source to
 
 Response:
 
-```
+```json
 {
     "Channels": [
         {

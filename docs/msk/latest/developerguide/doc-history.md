@@ -1,7 +1,6 @@
 
 
 # Document history for Amazon MSK Developer Guide
-<a name="doc-history"></a>
 
 The following table describes the important changes to the Amazon MSK Developer Guide.
 

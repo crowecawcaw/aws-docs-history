@@ -1,7 +1,6 @@
 
 
 # Get started
-<a name="msk-data-delivery-s3-getting-started"></a>
 
 **Topics**
 + [Supported configurations](msk-data-delivery-s3-supported-configs.md)

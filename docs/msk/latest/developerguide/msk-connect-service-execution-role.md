@@ -1,7 +1,6 @@
 
 
 # Understand service execution role
-<a name="msk-connect-service-execution-role"></a>
 
 **Note**  
 Amazon MSK Connect does not support using the [Service-linked role](mkc-using-service-linked-roles.md) as the service execution role. You must create a separate service execution role. For instructions on how to create a custom IAM role, see [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*.
@@ -13,7 +12,7 @@ When you create a connector with MSK Connect, you're required to specify an AWS 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -45,7 +44,7 @@ If the Amazon MSK cluster that you want to use with your connector is a cluster 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

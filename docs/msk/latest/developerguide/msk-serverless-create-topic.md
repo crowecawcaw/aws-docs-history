@@ -1,7 +1,6 @@
 
 
 # Create an Apache Kafka topic
-<a name="msk-serverless-create-topic"></a>
 
 In this step, you use the previously created client machine to create a topic on the serverless cluster.
 

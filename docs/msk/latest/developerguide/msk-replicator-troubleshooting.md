@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Amazon MSK Replicator
-<a name="msk-replicator-troubleshooting"></a>
 
 The following information can help you troubleshoot problems with MSK Replicator. See [Troubleshoot your Amazon MSK cluster](troubleshooting.md) for other Amazon MSK features. You can also post your issue to [AWS re:Post](https://repost.aws/).
 

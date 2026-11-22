@@ -1,7 +1,6 @@
 
 
 # Custom Amazon MSK configurations
-<a name="msk-configuration-properties"></a>
 
 You can use Amazon MSK to create a custom MSK configuration where you set the following Apache Kafka configuration properties. Properties that you don't set explicitly get the values they have in [Default Amazon MSK configuration](msk-default-configuration.md). For more information about configuration properties, see [Apache Kafka Configuration](https://kafka.apache.org/documentation/#configuration).
 
@@ -18,6 +17,10 @@ You can use Amazon MSK to create a custom MSK configuration where you set the fo
 | group.initial.rebalance.delay.ms | Amount of time the group coordinator waits for more data consumers to join a new group before the group coordinator performs the first rebalance. A longer delay means potentially fewer rebalances, but this increases the time until processing begins. | 
 | group.max.session.timeout.ms | Maximum session timeout for registered consumers. Longer timeouts give consumers more time to process messages between heartbeats at the cost of a longer time to detect failures. | 
 | group.min.session.timeout.ms | Minimum session timeout for registered consumers. Shorter timeouts result in quicker failure detection at the cost of more frequent consumer heartbeats. This can overwhelm broker resources. | 
+| group.share.max.size | Maximum number of consumers in a single share group. Default: 200. | 
+| group.share.max.partition.max.record.locks | Broker-level configuration for the maximum number of in-flight records that can be locked for consumption per partition per share group at any time. Default: 4000. | 
+| group.share.delivery.count.limit | Maximum number of delivery attempts for a record before it is considered undeliverable. Dynamic configuration for MSK but not for Apache Kafka. Default: 5. | 
+| share.partition.max.record.locks | Per-group configuration for the maximum number of concurrent acquired (in-flight) record locks allowed per topic-partition for a share group. Dynamic configuration for MSK but not for Apache Kafka. Default: 2000. | 
 | leader.imbalance.per.broker.percentage | The ratio of leader imbalance allowed per broker. The controller triggers a leader balance if it exceeds this value per broker. This value is specified in percentage. | 
 | log.cleaner.delete.retention.ms | Amount of time that you want Apache Kafka to retain deleted records. The minimum value is 0. | 
 | log.cleaner.min.cleanable.ratio | This configuration property can have values between 0 and 1. This value determines how frequently the log compactor attempts to clean the log (if log compaction is enabled). By default, Apache Kafka avoids cleaning a log if more than 50% of the log has been compacted. This ratio bounds the maximum space that  the log wastes with duplicates (at 50%, this means at most 50% of the log could be duplicates). A higher ratio means fewer, more efficient cleanings, but more wasted space in the log. | 

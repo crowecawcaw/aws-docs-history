@@ -1,7 +1,6 @@
 
 
 # Create a Channel
-<a name="msk-data-delivery-s3-create"></a>
 
 ## Using the AWS Management Console
 <a name="msk-data-delivery-s3-create-console"></a>
@@ -54,7 +53,7 @@ The source topic is set in `TopicConfigurationList` (exactly one topic). The des
 
 To create a Channel with an Amazon S3 general purpose bucket destination, use the following command.
 
-```
+```bash
 aws kafka create-channel \
     --cluster-arn "arn:aws:kafka:us-east-1:123456789012:cluster/my-express-cluster/abc123" \
     --channel-name "orders-s3-channel" \
@@ -85,7 +84,7 @@ For Amazon S3 general purpose buckets, `RecordConverter.ValueConverter` may be `
 
 The response is the same for both destinations.
 
-```
+```json
 {
     "ChannelArn": "arn:aws:kafka:us-east-1:123456789012:channel/my-express-cluster/abc123/orders-s3-channel",
     "ClusterOperationArn": "arn:aws:kafka:us-east-1:123456789012:cluster-operation/my-express-cluster/abc123/..."

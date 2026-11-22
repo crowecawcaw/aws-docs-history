@@ -1,7 +1,6 @@
 
 
 # MSK Replicator logs
-<a name="msk-replicator-logs"></a>
 
 MSK Replicator supports forwarding operational logs to help you monitor and troubleshoot replication. Log delivery is disabled by default. Enabling log delivery gives you deeper visibility into replication operations, authentication issues, and configuration problems.
 

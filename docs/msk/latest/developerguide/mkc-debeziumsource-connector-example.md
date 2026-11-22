@@ -1,7 +1,6 @@
 
 
 # Use Debezium source connector with configuration provider
-<a name="mkc-debeziumsource-connector-example"></a>
 
 This example shows how to use the Debezium MySQL connector plugin with a MySQL-compatible [Amazon Aurora](https://aws.amazon.com/rds/aurora/) database as the source. In this example, we also set up the open-source [AWS Secrets Manager Config Provider](https://github.com/jcustenborder/kafka-config-provider-aws) to externalize database credentials in AWS Secrets Manager. To learn more about configuration providers, see [Tutorial: Externalizing sensitive information using config providers](msk-connect-config-provider.md).
 

@@ -1,7 +1,6 @@
 
 
 # Create a configuration
-<a name="msk-configuration-operations-create"></a>
 
 This process describes how to create a custom Amazon MSK configuration and how to perform operations on it.
 
@@ -23,7 +22,7 @@ The name that you choose for your configuration must match the following regex: 
 
    The following is an example of a successful response after you run this command.
 
-   ```
+   ```JSON
    {
        "Arn": "arn:aws:kafka:us-east-1:123456789012:configuration/SomeTest/abcdabcd-1234-abcd-1234-abcd123e8e8e-1",
        "CreationTime": "2019-05-21T19:37:40.626Z",

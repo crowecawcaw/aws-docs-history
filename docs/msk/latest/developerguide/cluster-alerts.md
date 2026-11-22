@@ -1,7 +1,6 @@
 
 
 # Use Amazon MSK storage capacity alerts
-<a name="cluster-alerts"></a>
 
 On Amazon MSK provisioned clusters, you choose the cluster's primary storage capacity. If you exhaust the storage capacity on a broker in your provisioned cluster, it can affect its ability to produce and consume data, leading to costly downtime. Amazon MSK offers CloudWatch metrics to help you monitor your cluster's storage capacity. However, to make it easier for you to detect and resolve storage capacity issues, Amazon MSK automatically sends you dynamic cluster storage capacity alerts. The storage capacity alerts include recommendations for short-term and long-term steps to manage your cluster's storage capacity. From the [Amazon MSK console](https://console.aws.amazon.com/msk/home?region=us-east-1#/home/), you can use quick links within the alerts to take recommended actions immediately.
 

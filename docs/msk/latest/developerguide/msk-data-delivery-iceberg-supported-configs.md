@@ -1,7 +1,6 @@
 
 
 # Supported configurations
-<a name="msk-data-delivery-iceberg-supported-configs"></a>
 
 
 | Configuration | Streaming tables for Apache Iceberg | 

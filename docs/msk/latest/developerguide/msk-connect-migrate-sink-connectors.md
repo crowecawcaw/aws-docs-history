@@ -1,7 +1,6 @@
 
 
 # Migrate sink connectors to Amazon MSK Connect
-<a name="msk-connect-migrate-sink-connectors"></a>
 
 Sink connectors are Apache Kafka Connect applications that export data from Kafka to external systems. This section describes the process for migrating Apache Kafka Connect sink connector applications that are running on-premises or self-managed Kafka Connect clusters that are running on AWS to Amazon MSK Connect.
 

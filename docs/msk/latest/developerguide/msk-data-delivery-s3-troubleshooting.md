@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="msk-data-delivery-s3-troubleshooting"></a>
 
 **Topics**
 + [Channel stuck in CREATING state](msk-data-delivery-s3-ts-creating.md)

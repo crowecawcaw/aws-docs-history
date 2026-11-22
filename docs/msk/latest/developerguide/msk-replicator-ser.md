@@ -1,7 +1,6 @@
 
 
 # Service execution role (SER)
-<a name="msk-replicator-ser"></a>
 
 MSK Replicator uses a service execution role (SER) to read from your source cluster and write to your target cluster. You specify this role when creating the Replicator.
 

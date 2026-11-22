@@ -1,7 +1,6 @@
 
 
 # Control access to Apache ZooKeeper nodes in your Amazon MSK cluster
-<a name="zookeeper-security"></a>
 
 For security reasons you can limit access to the Apache ZooKeeper nodes that are part of your Amazon MSK cluster. To limit access to the nodes, you can assign a separate security group to them. You can then decide who gets access to that security group.
 

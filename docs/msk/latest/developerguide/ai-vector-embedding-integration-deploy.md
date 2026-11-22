@@ -1,7 +1,6 @@
 
 
 # Deploy streaming data vectorization blueprint
-<a name="ai-vector-embedding-integration-deploy"></a>
 
 This topic describes how to deploy a streaming data vectorization blueprint.
 

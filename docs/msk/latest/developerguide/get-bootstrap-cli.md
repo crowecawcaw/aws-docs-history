@@ -1,7 +1,6 @@
 
 
 # Get the bootstrap brokers using the AWS CLI
-<a name="get-bootstrap-cli"></a>
 
 Run the following command, replacing {{ClusterArn}} with the Amazon Resource Name (ARN) that you obtained when you created your cluster. If you don't have the ARN for your cluster, you can find it by listing all clusters. For more information, see [List Amazon MSK clusters](msk-list-clusters.md).
 

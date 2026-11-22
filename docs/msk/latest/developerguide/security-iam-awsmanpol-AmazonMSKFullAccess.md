@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AmazonMSKFullAccess
-<a name="security-iam-awsmanpol-AmazonMSKFullAccess"></a>
 
 This policy grants administrative permissions that allow a principal full access to all Amazon MSK actions. The permissions in this policy are grouped as follows:
 + The Amazon MSK permissions allow all Amazon MSK actions.
@@ -15,7 +14,7 @@ This policy grants administrative permissions that allow a principal full access
 
 ****  
 
-```
+```json
     {
     	"Version":"2012-10-17",		 	 	 
     	"Statement": [{

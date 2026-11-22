@@ -1,7 +1,6 @@
 
 
 # Migration
-<a name="msk-replicator-migration"></a>
 
 MSK Replicator supports several migration scenarios. This section describes how to migrate data between clusters, from self-managed Kafka environments to Amazon MSK, and how to transition from other replication tools.
 

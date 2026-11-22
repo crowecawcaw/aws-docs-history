@@ -1,7 +1,6 @@
 
 
 # Get started
-<a name="msk-data-delivery-iceberg-getting-started"></a>
 
 **Topics**
 + [Supported configurations](msk-data-delivery-iceberg-supported-configs.md)

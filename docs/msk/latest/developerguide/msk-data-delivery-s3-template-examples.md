@@ -1,7 +1,6 @@
 
 
 # Examples
-<a name="msk-data-delivery-s3-template-examples"></a>
 
 ## Valid
 <a name="msk-data-delivery-s3-template-examples-valid"></a>

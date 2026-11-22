@@ -1,7 +1,6 @@
 
 
 # Set up a client to use authentication
-<a name="msk-authentication-client"></a>
 
 This process describes how to set up an Amazon EC2 instance to use as a client to use authentication.
 

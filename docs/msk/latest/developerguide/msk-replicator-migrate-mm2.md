@@ -1,7 +1,6 @@
 
 
 # Migrate from MirrorMaker 2 to Amazon MSK Replicator
-<a name="msk-replicator-migrate-mm2"></a>
 
 To migrate from MirrorMaker (MM2) to MSK Replicator, follow these steps:
 

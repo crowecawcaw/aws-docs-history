@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="msk-data-delivery-iceberg-troubleshooting"></a>
 
 **Topics**
 + [Channel stuck in CREATING state](msk-data-delivery-iceberg-ts-creating.md)

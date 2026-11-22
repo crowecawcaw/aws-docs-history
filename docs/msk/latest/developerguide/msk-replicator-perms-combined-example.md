@@ -1,11 +1,10 @@
 
 
 # Combined policy example
-<a name="msk-replicator-perms-combined-example"></a>
 
 The following example shows a complete service execution role policy for a replicator with all features enabled, including topic configuration replication and LEGACY offset sync mode. The example replicates topics matching `my-app-.*` between two MSK clusters. Replace all placeholder values with your actual resource identifiers.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [

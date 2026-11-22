@@ -1,7 +1,6 @@
 
 
 # Rules
-<a name="msk-data-delivery-s3-template-rules"></a>
 
 If you provide a template, it must satisfy all of the following.
 

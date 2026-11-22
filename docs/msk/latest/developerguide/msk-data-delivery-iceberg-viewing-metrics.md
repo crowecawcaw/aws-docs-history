@@ -1,7 +1,6 @@
 
 
 # Metrics in the console
-<a name="msk-data-delivery-iceberg-viewing-metrics"></a>
 
 1. Open the Amazon MSK console at [https://console.aws.amazon.com/msk/home?region=us-east-1\#/home/](https://console.aws.amazon.com/msk/home?region=us-east-1#/home/).
 

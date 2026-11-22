@@ -1,7 +1,6 @@
 
 
 # Delete a topic in an Amazon MSK cluster
-<a name="msk-delete-topic"></a>
 
 Deleting a topic permanently removes all its data, metadata, and partition information. This operation cannot be undone.
 

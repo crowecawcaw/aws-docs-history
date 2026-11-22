@@ -1,7 +1,6 @@
 
 
 # Variables
-<a name="msk-data-delivery-s3-template-variables"></a>
 
 Variables use the `!{name}` syntax. The supported variables are:
 

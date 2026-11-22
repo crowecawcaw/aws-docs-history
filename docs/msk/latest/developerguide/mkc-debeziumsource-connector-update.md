@@ -1,7 +1,6 @@
 
 
 # Update a Debezium connector configuration
-<a name="mkc-debeziumsource-connector-update"></a>
 
 To update the configuration of the Debezium connector, follow these steps: 
 

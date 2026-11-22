@@ -1,7 +1,6 @@
 
 
 # Analyze best practices with the `managing-amazon-msk` skill
-<a name="bestpractices-msk-skill"></a>
 
 The `managing-amazon-msk` skill is an open-source [Agent Skill](https://agentskills.io/home) on the Agent Skills website from the [AWS Agent Toolkit](https://github.com/aws/agent-toolkit-for-aws) on GitHub that provides domain expertise for operating Amazon MSK Provisioned clusters. After you install the skill in an MCP-compatible AI coding agent (such as Kiro, Cursor, Claude Code, and others), the skill enables the AI agent to help you assess your cluster and clients against best practices, diagnose operational issues, and implement recommended configurations for Standard and Express brokers and Kafka clients. The skill encodes MSK-specific operational knowledge that general-purpose AI models frequently misapply or omit.
 
@@ -54,7 +53,7 @@ For full CLI documentation, see [Managing skills with the AWS CLI](https://docs.
 
 Connect your AI coding agent to the AWS MCP Server, which provides the skill along with sandboxed AWS API execution capabilities.
 
-```
+```json
 {
   "mcpServers": {
     "aws-mcp": {

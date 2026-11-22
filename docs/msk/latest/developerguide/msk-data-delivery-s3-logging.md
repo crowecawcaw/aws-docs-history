@@ -1,7 +1,6 @@
 
 
 # Logging
-<a name="msk-data-delivery-s3-logging"></a>
 
 **Topics**
 + [CloudTrail logging](msk-data-delivery-s3-cloudtrail.md)

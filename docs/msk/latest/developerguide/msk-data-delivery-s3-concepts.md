@@ -1,7 +1,6 @@
 
 
 # Key concepts
-<a name="msk-data-delivery-s3-concepts"></a>
 
 This section describes the key concepts behind Amazon MSK Data Delivery.
 + **Record converters** — The S3 destination supports JSON, ByteArray, and String converters and does not require a schema registry.

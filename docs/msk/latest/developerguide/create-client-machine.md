@@ -1,7 +1,6 @@
 
 
 # Step 3: Create a client machine
-<a name="create-client-machine"></a>
 
 In this step of [Get Started Using Amazon MSK](getting-started.md), you create a client machine. You use this client machine to create a topic that produces and consumes data. For simplicity, you'll create this client machine in the VPC that is associated with the MSK cluster so that the client can easily connect to the cluster.
 

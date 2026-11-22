@@ -1,7 +1,6 @@
 
 
 # Recommended alarms
-<a name="msk-data-delivery-iceberg-alarms"></a>
 
 
 | Alarm | Condition | Recommended threshold | Action | 

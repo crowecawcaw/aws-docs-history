@@ -1,7 +1,6 @@
 
 
 # Create a Amazon MSK cluster that supports client authentication
-<a name="msk-authentication-cluster"></a>
 
 This procedure shows you how to enable client authentication using a AWS Private CA.
 **Note**  

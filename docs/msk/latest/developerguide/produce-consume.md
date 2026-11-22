@@ -1,7 +1,6 @@
 
 
 # Step 5: Produce and consume data
-<a name="produce-consume"></a>
 
 In this step of [Get Started Using Amazon MSK](getting-started.md), you produce and consume data.
 

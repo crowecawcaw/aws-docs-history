@@ -1,7 +1,6 @@
 
 
 # Specify encryption settings when creating a Amazon MSK cluster
-<a name="msk-working-with-encryption-cluster-create"></a>
 
 This process describes how to specify encryption settings when creating a Amazon MSK cluster.
 
@@ -17,7 +16,7 @@ This process describes how to specify encryption settings when creating a Amazon
 
    The following is an example of a successful response after running this command.
 
-   ```
+   ```JSON
    {
        "ClusterArn": "arn:aws:kafka:us-east-1:123456789012:cluster/SecondTLSTest/abcdabcd-1234-abcd-1234-abcd123e8e8e",
        "ClusterName": "ExampleClusterName",
