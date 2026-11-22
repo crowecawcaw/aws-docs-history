@@ -1,7 +1,6 @@
 
 
 # Decoupled Serverless Scheduler, Part 1
-<a name="decoupled-serverless-scheduler-part1"></a>
 
 Publication date: **February 18, 2021 ([Diagram history](#diagram-history))**
 

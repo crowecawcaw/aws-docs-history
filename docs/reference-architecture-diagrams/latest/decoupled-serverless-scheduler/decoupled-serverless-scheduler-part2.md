@@ -1,7 +1,6 @@
 
 
 # Decoupled Serverless Scheduler, Part 2
-<a name="decoupled-serverless-scheduler-part2"></a>
 
 This architecture shows how to extend the decoupled serverless scheduler by using [Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) event triggers and Amazon EC2 Auto Scaling Groups for automatic worker management. You upload input files and executables to Amazon S3 instead of Amazon SQS, eliminating the need for JSON job definitions.
 
