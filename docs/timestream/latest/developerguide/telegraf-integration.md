@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Telegraf integration with Timestream for InfluxDB 3
-<a name="telegraf-integration"></a>
 
  Telegraf is a plugin-based data collection agent with over 300 input plugins for collecting metrics from various sources and output plugins for writing data to different destinations. Its "plug-and-play" architecture makes it ideal for quickly collecting and reporting metrics to InfluxDB 3. 
 

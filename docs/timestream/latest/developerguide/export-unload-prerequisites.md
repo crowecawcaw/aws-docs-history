@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Prerequisites for UNLOAD from Timestream for LiveAnalytics
-<a name="export-unload-prerequisites"></a>
 
 Following are prerequisites for writing data to S3 using `UNLOAD` from Timestream for LiveAnalytics.
 + You must have permission to read data from the Timestream for LiveAnalytics table(s) to be used in an `UNLOAD` command.
@@ -16,7 +15,7 @@ Following are prerequisites for writing data to S3 using `UNLOAD` from Timestrea
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -55,7 +54,7 @@ For additional context on these S3 write permissions, refer to the [Amazon Simpl
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

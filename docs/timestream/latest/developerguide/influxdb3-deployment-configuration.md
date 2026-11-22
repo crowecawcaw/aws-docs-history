@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Size cluster functions independently with deployment configurations
-<a name="influxdb3-deployment-configuration"></a>
 
  An InfluxDB 3 Enterprise cluster does four things: it ingests writes, serves queries, runs processing engine plugins, and compacts data. Each of those has a different appetite for CPU and memory. Compaction is bursty and memory-hungry; query serving scales with concurrency; ingest scales with write throughput. 
 
@@ -111,7 +110,7 @@ For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon
 
  The following AWS CLI command creates a five-node cluster: two nodes that both ingest and query, two query-only read nodes on a smaller instance type, and a dedicated compactor on a larger one. Compaction gets the compute it needs without enlarging the rest of the cluster. 
 
-```
+```sh
 aws timestream-influxdb create-db-cluster \
   --region us-east-1 \
   --name "my-heterogeneous-cluster" \
@@ -134,7 +133,7 @@ aws timestream-influxdb create-db-cluster \
 
  At 3 or fewer non-compact nodes you can skip the dedicated compactor group and add `COMPACT` to a group that already ingests and queries: 
 
-```
+```sh
 aws timestream-influxdb create-db-cluster \
   --region us-east-1 \
   --name "my-small-cluster" \
@@ -163,7 +162,7 @@ aws timestream-influxdb create-db-cluster \
 
  This example resizes only the compactor, from `db.influx.2xlarge` to `db.influx.4xlarge`, by resubmitting the other two groups untouched: 
 
-```
+```sh
 aws timestream-influxdb update-db-cluster \
   --region us-east-1 \
   --db-cluster-id "abcdefgh12" \

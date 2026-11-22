@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Migration Overview
-<a name="timestream-for-influx-getting-started-migrating-data-overview"></a>
 
 After meeting the prerequisites:
 
@@ -39,7 +38,7 @@ After meeting the prerequisites:
 
    1. (Optional) S3 bucket name and credentials; AWS Command Line Interface credentials should be set in the OS environment variables.
 
-      ```
+      ```text
       # AWS credentials (for timestream testing)
           export AWS_ACCESS_KEY_ID="xxx"
           export AWS_SECRET_ACCESS_KEY="xxx"
@@ -47,7 +46,7 @@ After meeting the prerequisites:
 
    1. Construct the command as:
 
-      ```
+      ```text
       python3 influx_migration.py --src-bucket [amzn-s3-demo-source-bucket]  --dest-bucket [amzn-s3-demo-destination-bucket] --src-host [source host] --dest-host [dest host] --s3-bucket [amzn-s3-demo-bucket2](optional) --log-level debug
       ```
 
@@ -65,12 +64,12 @@ After meeting the prerequisites:
 You want to migrate a single bucket, amzn-s3-demo-primary-bucket, from the source server `(http://localhost:8086)` to a destination server `(http://dest-server-address:8086)`.  
 After ensuring you have TCP access (for HTTP access) to both machines hosting the InfluxDB instances on port 8086 and you have both source and destination tokens and have stored them as the environment variables `INFLUX_SRC_TOKEN` and `INFLUX_DEST_TOKEN`, respectively, for added security:  
 
-```
+```text
 python3 influx_migration.py --src-bucket amzn-s3-demo-primary-bucket --src-host http://localhost:8086 --dest-host http://dest-server-address:8086
 ```
 The output should look similar to the following:  
 
-```
+```text
 INFO: influx_migration.py: Backing up bucket data and metadata using the InfluxDB CLI
 2023/10/26 10:47:15 INFO: Downloading metadata snapshot
 2023/10/26 10:47:15 INFO: Backing up TSM for shard 1
@@ -96,12 +95,12 @@ The directory `influxdb-backup-<timestamp>` will be created and stored in the di
 **Example 2: Full Migration Using Local Storage and Debug Logging**  
 Same as above except you want to migrate all buckets, tokens, users, and dashboards, deleting the buckets in the destination server, and proceeding without user confirmation of a complete database migration by using the `--confirm-full` option. You also want to see what the performance measurements are so you enable debug logging.  
 
-```
+```text
 python3 influx_migration.py --full --confirm-full --src-host http://localhost:8086 --dest-host http://dest-server-address:8086 --log-level debug
 ```
 The output should look similar to the following:  
 
-```
+```text
 INFO: influx_migration.py: Backing up bucket data and metadata using the InfluxDB CLI
 2023/10/26 10:55:27 INFO: Downloading metadata snapshot
 2023/10/26 10:55:27 INFO: Backing up TSM for shard 6952
@@ -128,12 +127,12 @@ INFO: influx_migration.py: Migration complete
 **Example 3: Full Migration Using CSV, Destination Organization, and S3 Bucket**  
 Same as the previous example but using Linux or Mac and storing the files in the S3 bucket, `amzn-s3-demo-bucket`. This avoids backup files overloading the local storage capacity.  
 
-```
+```text
 python3 influx_migration.py --full --src-host http://localhost:8086 --dest-host http://dest-server-address:8086 --csv --dest-org MyOrg --s3-bucket amzn-s3-demo-bucket
 ```
 The output should look similar to the following:  
 
-```
+```text
 INFO: influx_migration.py: Creating directory influxdb-backups
 INFO: influx_migration.py: Mounting amzn-s3-demo-influxdb-migration-bucket
 INFO: influx_migration.py: Creating directory influxdb-backups/amzn-s3-demo-bucket/influxdb-backup-1698352128323

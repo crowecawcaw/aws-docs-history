@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Regular expression functions
-<a name="regex-functions"></a>
 
 The regular expression functions in Timestream for LiveAnalytics support the [Java pattern syntax](http://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html). Timestream for LiveAnalytics supports the following regular expression functions.
 

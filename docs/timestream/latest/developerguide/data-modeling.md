@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Data modeling
-<a name="data-modeling"></a>
 
 Amazon Timestream for LiveAnalytics is designed to collect, store, and analyze time series data from applications and devices emitting a sequence of data with a timestamp. For optimal performance, the data being sent to Timestream for LiveAnalytics must have temporal characteristics and time must be a quintessential component of the data.
 
@@ -277,7 +276,7 @@ Here are some code examples to generate the hashed value based on `host_name`.
 
 **Example Python**  
 
-```
+```python
 >>> import xxhash
 >>> from bitstring import BitArray
 >>> b=xxhash.xxh64('HOST-ID-1235').digest()
@@ -287,7 +286,7 @@ Here are some code examples to generate the hashed value based on `host_name`.
 
 **Example Go**  
 
-```
+```Go
 package main
 
 import (
@@ -314,7 +313,7 @@ func abs(x int64) int64 {
 
 **Example Java**  
 
-```
+```Java
 import java.nio.ByteBuffer;
 
 import net.jpountz.xxhash.XXHash64;

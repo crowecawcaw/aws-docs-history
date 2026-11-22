@@ -3,14 +3,13 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Configuration and parameter groups FAQ for Amazon Timestream for InfluxDB 3
-<a name="faq-configuration"></a>
 
 Questions about configuring Amazon Timestream for InfluxDB 3 clusters using parameter groups. For the full parameter reference, see [Parameter Groups for DB Clusters in Amazon Timestream](parameter-groups.md).
 
 **How can I check the current running configuration of my cluster?**  
 You can verify the effective parameter values on a running cluster by querying the `_internal` database's `nodes` table:  
 
-```
+```python
 SELECT * FROM _internal.nodes
 ```
 This returns the active configuration for each node in your cluster. Use this to verify parameter values before and after applying a new parameter group.
@@ -21,7 +20,7 @@ Parameter groups contain engine configuration values that control how your Influ
 **How do I create a custom parameter group?**  
 Use the AWS CLI or the AWS Management Console to create a parameter group. Specify the edition (Core or Enterprise) and the parameters you want to customize. For example:  
 
-```
+```python
 aws timestream-influxdb create-db-parameter-group \
   --name "my-custom-pg" \
   --description "Custom parameter group" \

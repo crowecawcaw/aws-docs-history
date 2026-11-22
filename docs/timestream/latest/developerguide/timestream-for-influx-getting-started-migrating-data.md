@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Migrating data from self-managed InfluxDB to Timestream for InfluxDB
-<a name="timestream-for-influx-getting-started-migrating-data"></a>
 
 The [Influx migration script](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/tools/python/influx-migration) is a Python script that migrates data between InfluxDB OSS instances, whether those instances are managed by AWS or not.
 

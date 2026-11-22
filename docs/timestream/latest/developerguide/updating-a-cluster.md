@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Update a cluster in Timestream for InfluxDB 3
-<a name="updating-a-cluster"></a>
 
  After your cluster is created, you can modify certain configuration parameters to adapt to changing workload requirements in Amazon Timestream. Note that some modifications may cause temporary downtime during the update process. 
 
@@ -36,7 +35,7 @@ For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon
 
 Update instance type:
 
-```
+```sh
 aws timestream-influxdb update-db-cluster \
   --region us-east-1 \
   --identifier "my-influxdb3-cluster" \
@@ -48,7 +47,7 @@ Update parameter group (including cluster scaling):
 
 To modify your cluster configuration—including scaling the number of nodes—create a new parameter group with your desired configuration and apply it to your cluster:
 
-```
+```sh
 # Step 1: Create a new parameter group with desired node configuration
 aws timestream-influxdb create-db-parameter-group \
   --name "scaled-enterprise-pg" \
@@ -137,7 +136,7 @@ Alternatively, use a deployment configuration to size each cluster function (ing
 
 1.  **CLI**: Query cluster status: 
 
-   ```
+   ```sh
    aws timestream-influxdb get-db-cluster \
      --identifier "my-influxdb3-cluster"
    ```

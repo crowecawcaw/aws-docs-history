@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Rebooting a DB instance
-<a name="timestream-for-influx-managing-rebooting-db"></a>
 
 
 
@@ -27,7 +26,7 @@ To reboot a DB instance by using the AWS CLI, call the `reboot-db-instance` comm
 
 For Linux, macOS, or Unix:
 
-```
+```bash
 aws timestream-influxdb reboot-db-instance \
     --region YOUR_REGION \
     --identifier YOUR_INSTANCE_ID
@@ -35,7 +34,7 @@ aws timestream-influxdb reboot-db-instance \
 
 For Windows:
 
-```
+```bash
 aws timestream-influxdb reboot-db-instance ^
     --region YOUR_REGION ^
     --identifier YOUR_INSTANCE_ID

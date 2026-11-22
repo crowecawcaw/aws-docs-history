@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Checking partitioning schema configuration
-<a name="customer-defined-partition-keys-checking-configuration"></a>
 
 You can check how a table configuration for partitioning schema in a couple of ways. From the console, choose **Databases** and choose the table to check. You can also use an SDK to access the `DescribeTable` action.
 
@@ -15,7 +14,7 @@ You can use the following code snippets to describe a table with a partition key
 ------
 #### [  Java  ]
 
-```
+```java
     public void describeTable() {
         System.out.println("Describing table");
         final DescribeTableRequest describeTableRequest = new DescribeTableRequest();
@@ -57,7 +56,7 @@ The following is an example output.
 ------
 #### [  Java v2  ]
 
-```
+```java
   public void describeTable() {
         System.out.println("Describing table");
         final DescribeTableRequest describeTableRequest = DescribeTableRequest.builder()
@@ -98,7 +97,7 @@ The following is an example output.
 ------
 #### [  Go v1 ]
 
-```
+```go
     <tablistentry>
      <tabname> Go </tabname>
      <tabcontent>
@@ -109,7 +108,7 @@ The following is an example output.
 
 The following is an example output.
 
-```
+```json
 {
   Table: {
     Arn: "arn:aws:timestream:us-west-2:533139590831:database/devops/table/host_metrics_dim_pk_1",
@@ -146,7 +145,7 @@ The following is an example output.
 ------
 #### [  Go v2 ]
 
-```
+```go
  func (timestreamBuilder TimestreamBuilder) DescribeTable() (*timestreamwrite.DescribeTableOutput, error) {
          describeTableInput := &timestreamwrite.DescribeTableInput{
              DatabaseName: aws.String(databaseName),
@@ -167,7 +166,7 @@ The following is an example output.
 
 The following is an example output.
 
-```
+```json
 {
   "Table": {
     "Arn":"arn:aws:timestream:us-east-1:351861611069:database/cdpk-wr-db/table/host_metrics_dim_pk",
@@ -205,7 +204,7 @@ The following is an example output.
 ------
 #### [  Python  ]
 
-```
+```python
   def describe_table(self):
         print('Describing table')
         try:

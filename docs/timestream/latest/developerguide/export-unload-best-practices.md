@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Best practices for UNLOAD from Timestream for LiveAnalytics
-<a name="export-unload-best-practices"></a>
 
 Following are best practices related to the UNLOAD command.
 + The amount of data that can be exported to S3 bucket using the `UNLOAD` command is not bounded. However, the query times out in 60 minutes and we recommend exporting no more than 60GB of data in a single query. If you need to export more than 60GB of data, split the job across multiple queries.

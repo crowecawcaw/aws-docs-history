@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Writes
-<a name="writes"></a>
 
  You can collect time series data from connected devices, IT systems, and industrial equipment, and write it into Timestream for Live Analytics. Timestream for Live Analytics enables you to write data points from a single time series and/or data points from many series in a single write request when the time series belong to the same table. For your convenience, Timestream for Live Analytics offers you with a flexible schema that auto detects the column names and data types for your Timestream for Live Analytics tables based on the dimension names and the data types of the measure values you specify when invoking writes into the database. You can also write batches of data into Timestream for Live Analytics.
 
@@ -111,7 +110,7 @@ We will model this scenario with single-measure records and multi-measure record
 
 **Writes**: When you write data into Amazon Timestream for Live Analytics, the records are constructed as follows.
 
-```
+```java
 public void writeRecords() {
     System.out.println("Writing records");
     // Specify repeated values for all records
@@ -197,7 +196,7 @@ When you store single-measure records, the data is logically represented as foll
 
 **Queries**: You can write a query that retrieves all of the data points with the same timestamp received over the past 15 minutes as follows.
 
-```
+```sql
 with cte_video_startup_time as ( SELECT time, device_id, device_type, os_version, region, measure_value::bigint as video_startup_time FROM table where time >= ago(15m) and measure_name=”video_startup_time”),
 cte_rebuffering_ratio as ( SELECT time, device_id, device_type, os_version, region, measure_value::double as rebuffering_ratio FROM table where time >= ago(15m) and measure_name=”rebuffering_ratio”),
 cte_video_playback_failures as ( SELECT time, device_id, device_type, os_version, region, measure_value::bigint as video_playback_failures FROM table where time >= ago(15m) and measure_name=”video_playback_failures”),
@@ -217,7 +216,7 @@ a.time = d.time AND a.device_id = d.device_id AND a.os_version = d.os_version AN
 
 **Writes**: When you write data into Amazon Timestream for Live Analytics, the records are constructed as follows.
 
-```
+```java
 public void writeRecords() {
     System.out.println("Writing records");
     // Specify repeated values for all records
@@ -292,7 +291,7 @@ When you store multi-measure records, the data is logically represented as follo
 
 **Queries**: You can write a query that retrieves all of the data points with the same timestamp received over the past 15 minutes as follows.
 
-```
+```sql
 SELECT time, device_id, device_type, os_version, region, video_startup_time, rebuffering_ratio, video_playback_failures, average_frame_rate FROM table where time >= ago(15m)
 ```
 

@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Query language reference
-<a name="reference"></a>
 
 **Note**  
 This query language reference includes the following third-party documentation from the [Trino Software Foundation](https://trino.io/foundation.html) (formerly Presto Software Foundation), which is licensed under the Apache License, Version 2.0. You may not use this file except in compliance with this license. To get a copy of the Apache License, Version 2.0, see the [Apache website](http://www.apache.org/licenses/LICENSE-2.0).

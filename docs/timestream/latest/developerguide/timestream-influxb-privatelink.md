@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Amazon Timestream for InfluxDB API and interface VPC endpoints (AWS PrivateLink)
-<a name="timestream-influxb-privatelink"></a>
 
 You can establish a private connection between your VPC and Amazon Amazon Timestream for InfluxDB control plane API endpoints by creating an *interface VPC endpoint*. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink). AWS PrivateLink allows you to privately access Amazon Timestream for InfluxDB API operations without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. 
 
@@ -47,7 +46,7 @@ For more information, see [Controlling access to services with VPC endpoints](ht
 **Example VPC endpoint policy for Timestream for InfluxDB API actions**  
 The following is an example of an endpoint policy for the Timestream for InfluxDB API. When attached to an endpoint, this policy grants access to the listed Timestream for InfluxDB API actions for all principals on all resources.  
 
-```
+```json
 {
 	"Statement": [{
 		"Principal": "*",
@@ -64,7 +63,7 @@ The following is an example of an endpoint policy for the Timestream for InfluxD
 **Example VPC endpoint policy that denies all access from a specified AWS account**  
 The following VPC endpoint policy denies AWS account {{123456789012}} all access to resources using the endpoint. The policy allows all actions from other accounts.  
 
-```
+```json
 {
 	"Statement": [{
 			"Action": "*",

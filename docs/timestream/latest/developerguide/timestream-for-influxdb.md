@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # What is Timestream for InfluxDB?
-<a name="timestream-for-influxdb"></a>
 
 Amazon Timestream for InfluxDB is a managed time series database engine that makes it easy for application developers and DevOps teams to run InfluxDB databases on AWS for real-time time series applications using open-source APIs. With Amazon Timestream for InfluxDB, it is easy to set up, operate, and scale time series workloads that can answer queries with single-digit millisecond query response time.
 
@@ -338,7 +337,7 @@ As any other time series database, InfluxDB is built to be able to ingest and pr
   + When using the SDK you can specify the WritePrecision when setting the time attribute of your point. For more information on InfluxDB client libraries, see the [InfluxDB Documentation](https://docs.influxdata.com/influxdb/v2/api-guide/client-libraries/).
   + When using Telegraf, you configure the time precision in the Telegraf agent configuration. Precision is specified as an interval with an integer \+ unit (e.g. 0s,10ms,2us,4s). Valid time units are “ns”, “us”, “ms”, and “s”.
 
-    ```
+    ```json
     [agent]
      interval ="10s"
      metric_batch_size="5000"
@@ -347,7 +346,7 @@ As any other time series database, InfluxDB is built to be able to ingest and pr
 + **Use gzip compression:** – Use gzip compression to speed up writes to InfluxDB and reduce network bandwidth. Benchmarks have shown up to a 5x speed improvement when data is compressed. 
   + When using Telegraf, in the Influxdb\_v2 output plugin configuration in your telegraf.conf, set the content\_encoding option to gzip:
 
-    ```
+    ```json
     [[outputs.influxdb_v2]]
       urls = ["http://localhost:8086"]
       # ...

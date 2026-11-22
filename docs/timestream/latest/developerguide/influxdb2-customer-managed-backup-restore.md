@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Customer-managed backup and restore
-<a name="influxdb2-customer-managed-backup-restore"></a>
 
 Customer-managed backup and restore lets you create, manage, and restore database backups for your Amazon Timestream for InfluxDB DB instances and clusters. You can create on-demand or automated scheduled backups, and restore databases without opening AWS support tickets.
 
@@ -39,7 +38,7 @@ The first backup creates a complete copy of your database. Subsequent backups ar
 
 Create an on-demand backup of a DB instance or cluster:
 
-```
+```bash
 aws timestream-influxdb create-db-backup \
     --db-resource-id {{my-resource-id}} \
     --name {{my-db-backup-2026-07-07}} \
@@ -71,7 +70,7 @@ Automated backups can be enabled at resource creation time or updated afterwards
 
 For a DB instance:
 
-```
+```bash
 aws timestream-influxdb create-db-instance \
     --name {{my-db-instance}} \
     --db-instance-type db.influx.medium \
@@ -104,7 +103,7 @@ aws timestream-influxdb create-db-instance \
 
 For a Read Replicas cluster:
 
-```
+```bash
 aws timestream-influxdb create-db-cluster \
     --name {{my-db-cluster}} \
     --db-instance-type db.influx.medium \
@@ -141,7 +140,7 @@ aws timestream-influxdb create-db-cluster \
 
 DbBackupConfigurations can be enabled, disabled, and retention can be changed after creation:
 
-```
+```bash
 aws timestream-influxdb update-db-instance \
     --identifier {{my-db-instance-id}} \
     --db-backup-configurations '[{
@@ -163,7 +162,7 @@ aws timestream-influxdb update-db-instance \
 
 For a Read Replicas cluster:
 
-```
+```bash
 aws timestream-influxdb update-db-cluster \
     --db-cluster-id {{my-db-cluster-id}} \
     --db-backup-configurations '[{
@@ -197,7 +196,7 @@ aws timestream-influxdb update-db-cluster \
 
 **Example CUSTOM type:**
 
-```
+```bash
 --db-backup-configurations '[{
      "enabled": true,
      "type": "CUSTOM",
@@ -222,20 +221,20 @@ Automated backups can start anytime within an hour of the scheduled time.
 
 List all backups for a resource:
 
-```
+```bash
 aws timestream-influxdb list-db-backups \
     --db-resource-id {{my-resource-id}}
 ```
 
 List all backups in the account:
 
-```
+```bash
 aws timestream-influxdb list-db-backups
 ```
 
 Get backup details:
 
-```
+```bash
 aws timestream-influxdb get-db-backup \
     --identifier {{my-db-backup-id}}
 ```
@@ -262,7 +261,7 @@ A DbBackup can be restored to a new resource, or it can replace the existing res
 
 This is the default and recommended restore mode since it does not impact any existing resources.
 
-```
+```bash
 aws timestream-influxdb restore-from-db-backup \
     --name {{my-new-restored-database}} \
     --db-backup-id {{my-backup-id}} \
@@ -289,7 +288,7 @@ To minimize data not yet persisted to TSM, stop writes to the source instance an
 ### Restore to an existing resource
 <a name="influxdb2-backup-restoring-existing"></a>
 
-```
+```bash
 aws timestream-influxdb restore-from-db-backup \
     --name {{my-existing-resource-name}} \
     --db-backup-id {{my-backup-id}} \
@@ -303,7 +302,7 @@ Restoring to an existing resource is a **destructive operation**. The resource w
 
 You can restrict this operation using an IAM policy:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -339,7 +338,7 @@ You can restrict this operation using an IAM policy:
 ## Deleting backups
 <a name="influxdb2-backup-deleting"></a>
 
-```
+```bash
 aws timestream-influxdb delete-db-backup \
     --identifier {{my-db-backup-id}}
 ```
@@ -351,13 +350,13 @@ If `retentionDays` is set, the DbBackup is automatically deleted on that day.
 
 When deleting a resource, by default all automated DbBackups are deleted and on-demand backups are retained. To retain automated backups on resource deletion, use the `--retain-automated-backups` flag:
 
-```
+```bash
 aws timestream-influxdb delete-db-instance \
     --identifier {{my-db-instance-id}} \
     --retain-automated-backups
 ```
 
-```
+```bash
 aws timestream-influxdb delete-db-cluster \
     --db-cluster-id {{my-db-cluster-id}} \
     --retain-automated-backups

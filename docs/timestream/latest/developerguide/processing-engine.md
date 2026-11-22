@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Extend Timestream for InfluxDB with processing engine plugins
-<a name="processing-engine"></a>
 
  The Processing engine is an embedded Python virtual machine that runs inside your InfluxDB 3 database in Amazon Timestream. It's available in both Core and Enterprise editions. It enables you to extend your database with custom Python code that can automate workflows, transform data, and create custom API endpoints. 
 
@@ -112,7 +111,7 @@ influxdb3 create trigger \
 
  Arguments are passed to the plugin as a dictionary: 
 
-```
+```python
 def process_scheduled_call(influxdb3_local, call_time, args=None):
     if args and "threshold" in args:
         threshold = float(args["threshold"])
@@ -193,7 +192,7 @@ influxdb3 create trigger \
 
 The plugin implementation is as follows: 
 
-```
+```python
 def process_writes(influxdb3_local, table_batches, args=None):
     excluded_tables = set(args.get('exclude_tables', '').split(','))
     
@@ -244,7 +243,7 @@ def process_writes(influxdb3_local, table_batches, args=None):
 
  Query system tables to monitor plugin performance: 
 
-```
+```sql
 -- View processing engine logs
 SELECT * FROM system.processing_engine_logs 
 WHERE time > now() - INTERVAL '1 hour'
@@ -411,7 +410,7 @@ influxdb3 create trigger \
 
  **Example usage:** 
 
-```
+```sql
 # Transform temperature data from Celsius to Fahrenheit with field name standardization
 influxdb3 create trigger \
   --database weather \
@@ -448,7 +447,7 @@ influxdb3 create trigger \
 
  **Example usage:** 
 
-```
+```sql
 # Downsample CPU metrics from 10-second to hourly resolution
 influxdb3 create trigger \
   --database metrics \
@@ -628,7 +627,7 @@ influxdb3 create trigger \
 
 To monitor plugin performance:
 
-```
+```sql
 -- View plugin execution logs
 SELECT 
   event_time,

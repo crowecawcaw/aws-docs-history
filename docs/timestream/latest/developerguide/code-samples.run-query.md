@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Run query
-<a name="code-samples.run-query"></a>
 
 **Topics**
 + [Paginating results](#code-samples.run-query.pagination)
@@ -21,7 +20,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Java  ]
 
-```
+```java
     private void runQuery(String queryString) {
         try {
             QueryRequest queryRequest = new QueryRequest();
@@ -45,7 +44,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Java v2  ]
 
-```
+```java
     private void runQuery(String queryString) {
         try {
             QueryRequest queryRequest = QueryRequest.builder().queryString(queryString).build();
@@ -63,7 +62,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Go  ]
 
-```
+```go
 func runQuery(queryPtr *string, querySvc *timestreamquery.TimestreamQuery, f *os.File) {
     queryInput := &timestreamquery.QueryInput{
         QueryString: aws.String(*queryPtr),
@@ -113,7 +112,7 @@ func runQuery(queryPtr *string, querySvc *timestreamquery.TimestreamQuery, f *os
 ------
 #### [  Python  ]
 
-```
+```python
     def run_query(self, query_string):
         try:
             page_iterator = self.paginator.paginate(QueryString=query_string)
@@ -128,7 +127,7 @@ func runQuery(queryPtr *string, querySvc *timestreamquery.TimestreamQuery, f *os
 
 The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
-```
+```javascript
 async function getAllRows(query, nextToken) {
     const params = {
         QueryString: query
@@ -155,7 +154,7 @@ async function getAllRows(query, nextToken) {
 ------
 #### [  .NET  ]
 
-```
+```cs
         private async Task RunQueryAsync(string queryString)
         {
             try
@@ -194,7 +193,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Java  ]
 
-```
+```java
     private static final DateTimeFormatter TIMESTAMP_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSSSSS");
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss.SSSSSSSSS");
@@ -319,7 +318,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Java v2  ]
 
-```
+```java
     private static final long ONE_GB_IN_BYTES = 1073741824L;
 
     private void parseQueryResult(QueryResponse response) {
@@ -412,7 +411,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Go  ]
 
-```
+```go
 func processScalarType(data *timestreamquery.Datum) string {
     return *data.ScalarValue
 }
@@ -506,7 +505,7 @@ func processRowType(data []*timestreamquery.Datum, metadata []*timestreamquery.C
 ------
 #### [  Python  ]
 
-```
+```python
     def _parse_query_result(self, query_result):
         query_status = query_result["QueryStatus"]
 
@@ -590,7 +589,7 @@ func processRowType(data []*timestreamquery.Datum, metadata []*timestreamquery.C
 
 The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
-```
+```javascript
 function parseQueryResult(response) {
     const queryStatus = response.QueryStatus;
     console.log("Current query status: " + JSON.stringify(queryStatus));
@@ -677,7 +676,7 @@ function parseArray(arrayColumnInfo, arrayValues) {
 ------
 #### [  .NET  ]
 
-```
+```cs
         private void ParseQueryResult(QueryResponse response)
         {
             List<ColumnInfo> columnInfo = response.ColumnInfo;
@@ -780,7 +779,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Java  ]
 
-```
+```java
     private static final long ONE_GB_IN_BYTES = 1073741824L;
     private static final double QUERY_COST_PER_GB_IN_DOLLARS = 0.01; // Assuming the price of query is $0.01 per GB
 
@@ -813,7 +812,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Java v2  ]
 
-```
+```java
     private static final long ONE_GB_IN_BYTES = 1073741824L;
     private static final double QUERY_COST_PER_GB_IN_DOLLARS = 0.01; // Assuming the price of query is $0.01 per GB
 
@@ -839,7 +838,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Go  ]
 
-```
+```go
 const OneGbInBytes = 1073741824
 // Assuming the price of query is $0.01 per GB
 const QueryCostPerGbInDollars = 0.01
@@ -898,7 +897,7 @@ func cancelQueryBasedOnQueryStatus(queryPtr *string, querySvc *timestreamquery.T
 ------
 #### [  Python  ]
 
-```
+```python
 ONE_GB_IN_BYTES = 1073741824
 # Assuming the price of query is $0.01 per GB
 QUERY_COST_PER_GB_IN_DOLLARS = 0.01 
@@ -926,7 +925,7 @@ QUERY_COST_PER_GB_IN_DOLLARS = 0.01
 
 The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
-```
+```javascript
 function parseQueryResult(response) {
     const queryStatus = response.QueryStatus;
     console.log("Current query status: " + JSON.stringify(queryStatus));
@@ -1013,7 +1012,7 @@ function parseArray(arrayColumnInfo, arrayValues) {
 ------
 #### [  .NET  ]
 
-```
+```cs
 private static readonly long ONE_GB_IN_BYTES = 1073741824L;
 private static readonly double QUERY_COST_PER_GB_IN_DOLLARS = 0.01; // Assuming the price of query is $0.01 per GB
 

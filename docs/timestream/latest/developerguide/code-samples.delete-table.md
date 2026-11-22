@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Delete table
-<a name="code-samples.delete-table"></a>
 
 You can use the following code snippets to delete a table.
 
@@ -13,7 +12,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Java  ]
 
-```
+```java
     public void deleteTable() {
         System.out.println("Deleting table");
         final DeleteTableRequest deleteTableRequest = new DeleteTableRequest();
@@ -36,7 +35,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Java v2  ]
 
-```
+```java
     public void deleteTable() {
         System.out.println("Deleting table");
         final DeleteTableRequest deleteTableRequest = DeleteTableRequest.builder()
@@ -58,7 +57,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Go  ]
 
-```
+```go
 deleteTableInput := &timestreamwrite.DeleteTableInput{
         DatabaseName:   aws.String(*databaseName),
         TableName:    aws.String(*tableName),
@@ -76,7 +75,7 @@ deleteTableInput := &timestreamwrite.DeleteTableInput{
 ------
 #### [  Python  ]
 
-```
+```python
     def delete_table(self):
         print("Deleting Table")
         try:
@@ -95,7 +94,7 @@ The following snippet uses AWS SDK for JavaScript v3. For more information about
 
 Also see [Class DeleteTableCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/deletetablecommand.html) and [DeleteTable](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DeleteTable.html).
 
-```
+```javascript
 import { TimestreamWriteClient, DeleteTableCommand } from "@aws-sdk/client-timestream-write";
 const writeClient = new TimestreamWriteClient({ region: "us-east-1" });
 
@@ -121,7 +120,7 @@ try {
 
 The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
-```
+```javascript
 async function deleteTable() { 
     console.log("Deleting Table"); 
     const params = { 
@@ -150,7 +149,7 @@ async function deleteTable() {
 ------
 #### [  .NET  ]
 
-```
+```cs
         public async Task DeleteTable()
         {
             Console.WriteLine("Deleting table");

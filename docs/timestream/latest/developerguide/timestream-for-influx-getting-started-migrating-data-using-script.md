@@ -3,11 +3,10 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # How to use scripts
-<a name="timestream-for-influx-getting-started-migrating-data-using-script"></a>
 
 A simple example of running the script is the command:
 
-```
+```text
 python3 influx_migration.py --src-host <source host> --src-bucket <source bucket> --dest-host <destination host>
 ```
 
@@ -15,13 +14,13 @@ Which migrates a single bucket.
 
 All options can be viewed by running:
 
-```
+```text
 python3 influx_migration.py -h
 ```
 
 **Usage**
 
-```
+```text
 shell   influx_migration.py [-h] [--src-bucket SRC_BUCKET] [--dest-bucket DEST_BUCKET] [--src-host SRC_HOST] --dest-host DEST_HOST [--full] [--confirm-full] [--src-org SRC_ORG] [--dest-org DEST_ORG] [--csv] [--retry-restore-dir RETRY_RESTORE_DIR] [--dir-name DIR_NAME] [--log-level LOG_LEVEL] [--skip-verify] [--s3-bucket S3_BUCKET]
 ```
 

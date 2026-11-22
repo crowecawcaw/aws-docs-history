@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Cost optimization
-<a name="metering-and-pricing.cost-optimization"></a>
 
 To optimize the cost of writes, storage, and queries, use the following best practices with Amazon Timestream for LiveAnalytics:
 + Batch multiple time series events per write to reduce the number of write requests.

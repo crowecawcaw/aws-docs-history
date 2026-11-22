@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Data model mappings for batch load
-<a name="batch-load-data-model-mappings"></a>
 
 The following discusses the schema for data model mappings and gives and example.
 
@@ -89,7 +88,7 @@ In the sample, `region`, `location`, and `hostname` are dimensions. Dimensions a
 
 For measures, the value `TargetMultiMeasureAttributeName` will become a column in the Timestream for LiveAnalytics table. You can keep the same name such as in this example. Or you can specify a new one. `MeasureValueType` is one of `DOUBLE`, `BIGINT`, `BOOLEAN`, `VARCHAR`, or `TIMESTAMP`. 
 
-```
+```json
 {
   "TimeColumn": "time",
   "TimeUnit": "MILLISECONDS",

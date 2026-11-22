@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Example use case for UNLOAD from Timestream for LiveAnalytics
-<a name="export-unload-example-use-case"></a>
 
 Assume you are monitoring user session metrics, traffic sources, and product purchases of your e-commerce website. You are using Timestream for LiveAnalytics to derive real-time insights into user behavior, product sales, and perform marketing analytics on traffic channels (organic search, social media, direct traffic, paid campaigns and others) that drive customers to the website. 
 
@@ -20,7 +19,7 @@ Assume you are monitoring user session metrics, traffic sources, and product pur
 
 You want to export the last two days of your data in CSV format.
 
-```
+```sql
 UNLOAD(SELECT user_id, ip_address, event, session_id, measure_name, time, 
 query, quantity, product_id, channel 
 FROM sample_clickstream.sample_shopping 
@@ -35,7 +34,7 @@ compression='GZIP')
 
 You want to export the last two days of data in CSV format but would like to have the data from each traffic channel in a separate folder. To do this, you need to partition the data using the `channel` column as shown in the following.
 
-```
+```sql
 UNLOAD(SELECT user_id, ip_address, event, session_id, measure_name, time, 
 query, quantity, product_id, channel 
 FROM sample_clickstream.sample_shopping 
@@ -52,7 +51,7 @@ compression='GZIP')
 
 You want to export the last two days of data in CSV format but would like to have the data for each event in a separate folder. To do this, you need to partition the data using the `event` column as shown in the following.
 
-```
+```sql
 UNLOAD(SELECT user_id, ip_address, channel, session_id, measure_name, time, 
 query, quantity, product_id, event 
 FROM sample_clickstream.sample_shopping 
@@ -69,7 +68,7 @@ compression='GZIP')
 
 You want to export the last two days of data in CSV format but would like to have the data for each channel and within channel store each event in a separate folder. To do this, you need to partition the data using both `channel` and `event` column as shown in the following.
 
-```
+```sql
 UNLOAD(SELECT user_id, ip_address, session_id, measure_name, time, 
 query, quantity, product_id, channel,event 
 FROM sample_clickstream.sample_shopping 
@@ -89,7 +88,7 @@ compression='GZIP')
 
 The manifest file provides information on the list of files that are exported with the UNLOAD execution. The manifest file is available in the provided S3 bucket with a file name: `S3://bucket_name/<queryid>_<UUID>_manifest.json`. The manifest file will contain the url of the files in the results folder, the number of records and size of the respective files, and the query metadata (which is total bytes and total rows exported to S3 for the query). 
 
-```
+```json
 {
   "result_files": [
     {
@@ -130,7 +129,7 @@ The metadata file provides additional information about the data set such as col
 
 Following is an example of a metadata file.
 
-```
+```json
 {
     "ColumnInfo": [
         {

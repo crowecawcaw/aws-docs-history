@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Installing Telegraf with the Timestream for LiveAnalytics output plugin
-<a name="Telegraf.installing-output-plugin"></a>
 
 As of version 1.16, the Timestream for LiveAnalytics output plugin is available in the official Telegraf release. To install the output plugin on most major operating systems, follow the steps outlined in the [InfluxData Telegraf Documentation](https://docs.influxdata.com/telegraf/v1.16/introduction/installation/). To install on the Amazon Linux 2 OS, follow the instructions below.
 

@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Encrypting resources with customer managed keys
-<a name="influxdb2-cmk-encryption"></a>
 
 Amazon Timestream for InfluxDB encrypts your data at rest by default using AWS owned encryption keys. You can optionally specify a customer managed key (CMK) when creating a new DB instance or cluster to control data encryption with your own AWS Key Management Service (AWS KMS) key.
 
@@ -37,7 +36,7 @@ To create a DB instance with a customer managed key, specify the `--kms-key-id` 
 
 **InfluxDB 2 instance:**
 
-```
+```bash
 aws timestream-influxdb create-db-instance \
     --name {{my-influxdb-instance}} \
     --db-instance-type db.influx.medium \
@@ -51,7 +50,7 @@ aws timestream-influxdb create-db-instance \
 
 **InfluxDB 2 Read Replicas cluster:**
 
-```
+```bash
 aws timestream-influxdb create-db-cluster \
     --name {{my-influxdb-cluster}} \
     --db-instance-type db.influx.medium \
@@ -85,7 +84,7 @@ Before creating a database with a customer managed key, you must configure the k
 
 Add the following statements to your key policy, replacing {{account-id}}, {{caller-role}}, and {{region}} with your values:
 
-```
+```json
 {
     "Sid": "Allow Timestream InfluxDB to use the key for resource allocations",
     "Effect": "Allow",
@@ -140,7 +139,7 @@ The second statement allows the caller's IAM role to describe the key through th
 
 To view the AWS KMS key used by a DB instance or cluster, use the `GetDbInstance` or `GetDbCluster` API. The response includes the `kmsKeyId` field if a customer managed key was specified during creation.
 
-```
+```bash
 aws timestream-influxdb get-db-instance \
     --db-instance-identifier {{my-influxdb-instance}}
 ```

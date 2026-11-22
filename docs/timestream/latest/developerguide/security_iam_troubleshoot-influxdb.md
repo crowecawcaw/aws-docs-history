@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Troubleshooting Amazon Timestream for InfluxDB identity and access
-<a name="security_iam_troubleshoot-influxdb"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with Timestream for InfluxDB and IAM.
 

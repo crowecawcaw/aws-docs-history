@@ -3,14 +3,13 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Create scheduled query
-<a name="code-samples.create-scheduledquery"></a>
 
 You can use the following code snippets to create a scheduled query with multi-measure mapping.
 
 ------
 #### [  Java  ]
 
-```
+```java
 public static String DATABASE_NAME = "devops_sample_application";
 public static String TABLE_NAME = "host_metrics_sample_application";
 public static String HOSTNAME = "host-24Gju";
@@ -96,7 +95,7 @@ public String createScheduledQuery(String topic_arn,
 ------
 #### [  Java v2  ]
 
-```
+```java
 public static String DATABASE_NAME = "testJavaV2DB";
 public static String TABLE_NAME = "testJavaV2Table";
 public static String HOSTNAME = "host-24Gju";
@@ -319,7 +318,7 @@ return "", err
 ------
 #### [  Python  ]
 
-```
+```python
 HOSTNAME = "host-24Gju"
 SQ_NAME = "daily-sample"
 ERROR_BUCKET_NAME = "scheduledquerysamplerrorbucket" + ''.join([choice(ascii_lowercase) for _ in range(5)])
@@ -404,7 +403,7 @@ def create_valid_scheduled_query(self, topic_arn, role_arn):
 
 The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js).
 
-```
+```javascript
 const DATABASE_NAME = 'devops_sample_application';
 const TABLE_NAME = 'host_metrics_sample_application';
 const SQ_DATABASE_NAME = 'sq_result_database';
@@ -507,7 +506,7 @@ async function createScheduledQuery(topicArn, roleArn, s3ErrorReportBucketName) 
 ------
 #### [  .NET  ]
 
-```
+```cs
 public const string Hostname = "host-24Gju";
 public const string SqName = "timestream-sample";
 public const string SqDatabaseName = "sq_result_database";

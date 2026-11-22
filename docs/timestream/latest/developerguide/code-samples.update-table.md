@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Update table
-<a name="code-samples.update-table"></a>
 
 You can use the following code snippets to update a table.
 
@@ -13,7 +12,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Java  ]
 
-```
+```java
     public void updateTable() {
         System.out.println("Updating table");
         UpdateTableRequest updateTableRequest = new UpdateTableRequest();
@@ -34,7 +33,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Java v2  ]
 
-```
+```java
     public void updateTable() {
         System.out.println("Updating table");
 
@@ -52,7 +51,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Go  ]
 
-```
+```go
 // Update table.
     magneticStoreRetentionPeriodInDays := int64(7 * 365)
     memoryStoreRetentionPeriodInHours := int64(24)
@@ -79,7 +78,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Python  ]
 
-```
+```python
     def update_table(self):
         print("Updating table")
         retention_properties = {
@@ -101,7 +100,7 @@ The following snippet uses AWS SDK for JavaScript v3. For more information about
 
 Also see [Class UpdateTableCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatetablecommand.html) and [UpdateTable](https://docs.aws.amazon.com/timestream/latest/developerguide/API_UpdateTable.html).
 
-```
+```javascript
 import { TimestreamWriteClient, UpdateTableCommand } from "@aws-sdk/client-timestream-write";
 const writeClient = new TimestreamWriteClient({ region: "us-east-1" });
 
@@ -126,7 +125,7 @@ try {
 
 The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
-```
+```javascript
 async function updateTable() {
     console.log("Updating Table");
     const params = {
@@ -155,7 +154,7 @@ async function updateTable() {
 ------
 #### [  .NET  ]
 
-```
+```cs
         public async Task UpdateTable()
         {
             Console.WriteLine("Updating Table");

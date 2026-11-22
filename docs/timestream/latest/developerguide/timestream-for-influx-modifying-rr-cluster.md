@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Modifying a read replica cluster for Amazon Timestream for InfluxDB
-<a name="timestream-for-influx-modifying-rr-cluster"></a>
 
 A read replica cluster has a writer DB instance and a reader DB instance in separate Availability Zones. Read replica clusters provide high availability, increased capacity for read workloads, and faster failover when compared to Multi-AZ deployments. For more information about read replica clusters, see [Overview of Amazon Timestream for InfluxDB read replica clusters](timestream-for-influx-read-replica-overview.md).
 

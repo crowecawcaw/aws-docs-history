@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Connecting to an Amazon Timestream for InfluxDB DB instance
-<a name="timestream-for-influx-db-connecting"></a>
 
 Before you can connect to a DB instance, you must create the DB instance. For information, see [Creating a DB instance](timestream-for-influx-configuring.md#timestream-for-influx-configuring-create-db). After Amazon Timestream provisions your DB instance, use the InfluxDB API, influx CLI, or any compatible client or utility for InfluxDB to connect to the DB instance. 
 
@@ -45,21 +44,21 @@ If you need to find the username and password information, choose the **Configur
 
   For Linux, macOS, or Unix:
 
-  ```
+  ```bash
   aws timestream-influxdb get-db-instance --identifier id \
    --query "[name,endpoint,influxAuthParametersSecretArn]"
   ```
 
   For Windows:
 
-  ```
+  ```bash
   aws timestream-influxdb get-db-instance --identifier id ^
    --query "[name,endpoint,influxAuthParametersSecretArn]"
   ```
 
   Your output should be similar to the following. To access the username information, you will need to check the `InfluxAuthParameterSecret`.
 
-  ```
+  ```json
   [
       [
           "mydb",
@@ -80,13 +79,13 @@ With this information, you are going to be able to connect to your instance to r
 
 1. When configuring your influx CLI config, use `--username-password` to authenticate.
 
-   ```
+   ```bash
    influx config create --config-name YOUR_CONFIG_NAME --host-url "https://yourinstanceid-accountidentifier.timestream-influxdb.us-east-1.on.aws:8086" --org yourorg --username-password admin --active
    ```
 
 1. Use the [influx auth create](https://docs.influxdata.com/influxdb/v2/reference/cli/influx/auth/create/) command to re-create your operator token. Take into account that this process will invalidate the old operator token.
 
-   ```
+   ```bash
    influx auth create --org kronos --operator
    ```
 
@@ -362,7 +361,7 @@ DB instances use DB parameter groups. The following sections describe configurin
 **Using the AWS Command Line Interface**
 + To create a DB parameter group by using the AWS CLI, call the `create-db-parameter-group` command with the following parameters:
 
-  ```
+  ```bash
   --db-parameter-group-name <value>
   --description <value>
   --endpoint_url <value>
@@ -373,7 +372,7 @@ DB instances use DB parameter groups. The following sections describe configurin
 
   For information about each setting, see [Settings for DB instances](timestream-for-influx-configuring.md#timestream-for-influx-configuring-create-db-settings). This example uses default engine configs. 
 
-  ```
+  ```bash
   aws timestream-influxdb create-db-parameter-group 
       --db-parameter-group-name YOUR_PARAM_GROUP_NAME \
       --endpoint-url YOUR_ENDPOINT \
@@ -412,7 +411,7 @@ When you associate a new DB parameter group with a DB instance, the modified sta
 
 For Linux, macOS, or Unix:
 
-```
+```bash
 aws timestream-influxdb update-db-instance 
 --identifier YOUR_DB_INSTANCE_ID \
 --region YOUR_REGION \
@@ -422,7 +421,7 @@ aws timestream-influxdb update-db-instance
 
 For Windows:
 
-```
+```bash
 aws timestream-influxdb update-db-instance 
 --identifier YOUR_DB_INSTANCE_ID ^
 --region YOUR_REGION ^
@@ -447,13 +446,13 @@ You can list the DB parameter groups you've created for your AWS account.
 
 To list all DB parameter groups for an AWS account, use the AWS Command Line Interface `list-db-parameter-groups` command.
 
-```
+```bash
 aws timestream-influxdb list-db-parameter-groups --region {{region}}
 ```
 
 To return a specific DB parameter groups for an AWS account, use the AWS Command Line Interface `get-db-parameter-group` command.
 
-```
+```bash
 aws timestream-influxdb get-db-parameter-group --region {{region}} --identifier {{identifier}}
 ```
 
@@ -476,7 +475,7 @@ You can get a list of all parameters in a DB parameter group and their values.
 
 To view the parameter values for a DB parameter group, use the AWS Command Line Interface `get-db-parameter-group` command. Replace {{parameter-group-identifier}} with your own information.
 
-```
+```bash
 get-db-parameter-group --identifier {{parameter-group-identifier}}
 ```
 

@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Optimizing data access in Amazon Timestream
-<a name="query-insights-optimize-data-access-pattern"></a>
 
 You can optimize the data access patterns in Amazon Timestream using the Timestream partitioning scheme or data organization techniques.
 
@@ -39,7 +38,7 @@ The [QuerySpatialCoverage](https://docs.aws.amazon.com/timestream/latest/develop
 Say that you've a Timestream database that stores weather data. Assume that the temperature is recorded every hour from weather stations located across different states in United States. Imagine that you choose `State` as the [customer-defined partitioning key](customer-defined-partition-keys.md) (CDPK) to partition the data by state.  
 Suppose that you execute a query to retrieve the average temperature for all weather stations in California between 2 PM and 4 PM on a specific day. The following example shows the query for this scenario.  
 
-```
+```sql
 SELECT AVG(temperature) 
 FROM "weather_data"."hourly_weather"
 WHERE time >= '2024-10-01 14:00:00' AND time < '2024-10-01 16:00:00' 
@@ -66,7 +65,7 @@ The `QueryTemporalCoverage` metric provides insights into the temporal range sca
 Say that you've a Timestream database that stores IoT sensor data, with measurements taken every minute from devices located in a manufacturing plant. Assume that you've partitioned your data by `device_ID`.  
 Suppose that you execute a query to retrieve the average sensor reading for a specific device over the last 30 minutes. The following example shows the query for this scenario.  
 
-```
+```sql
 SELECT AVG(sensor_reading) 
 FROM "sensor_data"."factory_1"
 WHERE device_id = 'DEV_123' 

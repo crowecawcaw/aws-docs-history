@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Schema design FAQ for Amazon Timestream for InfluxDB 3
-<a name="faq-schema-design"></a>
 
 Questions about designing schemas for Amazon Timestream for InfluxDB 3, including tags, fields, and best practices for performance. For detailed guidance, see [Schema design recommendations for Timestream for InfluxDB 3](influxdb-schema-design-recommendations.md).
 

@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Run UNLOAD query
-<a name="code-samples.run-query-unload"></a>
 
 The following code examples call an UNLOAD query. For information about `UNLOAD`, see [Using UNLOAD to export query results to S3 from Timestream for LiveAnalytics](export-unload.md). For examples of `UNLOAD` queries, see [Example use case for UNLOAD from Timestream for LiveAnalytics](export-unload-example-use-case.md).
 
@@ -19,7 +18,7 @@ The following code examples call an UNLOAD query. For information about `UNLOAD`
 ------
 #### [  Java  ]
 
-```
+```java
 // When you have a SELECT like below
 
 String QUERY_1 = "SELECT user_id, ip_address, event, session_id, measure_name, time, query, quantity, product_id, channel FROM "
@@ -146,7 +145,7 @@ static class UnloadQuery {
 ------
 #### [  Java v2  ]
 
-```
+```java
 // When you have a SELECT like below
 
 String QUERY_1 = "SELECT user_id, ip_address, event, session_id, measure_name, time, query, quantity, product_id, channel FROM "
@@ -269,7 +268,7 @@ static class UnloadQuery {
 ------
 #### [  Go  ]
 
-```
+```go
 // When you have a SELECT like below
 var Query = "SELECT user_id, ip_address, event, session_id, measure_name, time, query, quantity, product_id, channel FROM "
 + *databaseName + "." + *tableName + " WHERE time BETWEEN ago(2d) AND now()"
@@ -343,7 +342,7 @@ func build_query(unload_query UnloadQuery) *string {
 ------
 #### [  Python  ]
 
-```
+```python
 # When you have a SELECT like below
 QUERY_1 = "SELECT user_id, ip_address, event, session_id, measure_name, time, query, quantity, product_id, channel FROM "
         + database_name + "." + table_name + " WHERE time BETWEEN ago(2d) AND now()"
@@ -388,7 +387,7 @@ class UnloadQuery:
 ------
 #### [  Node.js ]
 
-```
+```javascript
 // When you have a SELECT like below
 QUERY_1 = "SELECT user_id, ip_address, event, session_id, measure_name, time, query, quantity, product_id, channel FROM "
         + database_name + "." + table_name + " WHERE time BETWEEN ago(2d) AND now()"
@@ -463,7 +462,7 @@ class UnloadQuery {
 ------
 #### [  Java  ]
 
-```
+```java
 // Parsing UNLOAD query response is similar to how you parse SELECT query response: 
 // https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html#code-samples.run-query.parsing
 
@@ -497,7 +496,7 @@ class UnloadResponse {
 ------
 #### [  Java v2  ]
 
-```
+```java
 // Parsing UNLOAD query response is similar to how you parse SELECT query response: 
 // https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html#code-samples.run-query.parsing
 
@@ -531,7 +530,7 @@ class UnloadResponse {
 ------
 #### [  Go  ]
 
-```
+```go
 // Parsing UNLOAD query response is similar to how you parse SELECT query response: 
 // https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html#code-samples.run-query.parsing
 
@@ -559,7 +558,7 @@ func parseResponse(columnInfo []*timestreamquery.ColumnInfo, row *timestreamquer
 ------
 #### [  Python  ]
 
-```
+```python
 # Parsing UNLOAD query response is similar to how you parse SELECT query response: 
 # https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html#code-samples.run-query.parsing
 
@@ -592,7 +591,7 @@ def parse_unload_response(self, column_info, row):
 ------
 #### [  Node.js ]
 
-```
+```javascript
 # Parsing UNLOAD query response is similar to how you parse SELECT query response: 
 # https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html#code-samples.run-query.parsing
 
@@ -629,7 +628,7 @@ async parseResponse(columnInfo, row, query) {
 ------
 #### [  Java  ]
 
-```
+```java
 // Read and parse manifest content
 public UnloadManifest getUnloadManifest(UnloadResponse unloadResponse) throws IOException {
    AmazonS3URI s3URI = new AmazonS3URI(unloadResponse.getManifestFile());
@@ -677,7 +676,7 @@ class UnloadManifest {
 ------
 #### [  Java v2  ]
 
-```
+```java
 // Read and parse manifest content
 public UnloadManifest getUnloadManifest(UnloadResponse unloadResponse) throws URISyntaxException {
     // Space needs to encoded to use S3 parseUri function
@@ -729,7 +728,7 @@ class UnloadManifest {
 ------
 #### [  Go  ]
 
-```
+```go
 // Read and parse manifest content
 
 func getManifestFile(s3Svc *s3.S3, response map[string]string) Manifest {
@@ -769,7 +768,7 @@ type Manifest struct {
 ------
 #### [  Python  ]
 
-```
+```python
 def __get_manifest_file(self, response):
     manifest = self.get_object(response['manifestFile']).read().decode('utf-8')
     parsed_manifest = json.loads(manifest)
@@ -789,7 +788,7 @@ def get_object(self, uri):
 ------
 #### [  Node.js ]
 
-```
+```javascript
 // Read and parse manifest content
 
 async getManifestFile(response) {
@@ -827,7 +826,7 @@ getBucketAndKey(uri) {
 ------
 #### [  Java  ]
 
-```
+```java
 // Read and parse metadata content
 public UnloadMetadata getUnloadMetadata(UnloadResponse unloadResponse) throws IOException {
    AmazonS3URI s3URI = new AmazonS3URI(unloadResponse.getMetadataFile());
@@ -858,7 +857,7 @@ class UnloadMetadata {
 ------
 #### [  Java v2  ]
 
-```
+```java
 // Read and parse metadata content
 
 public UnloadMetadata getUnloadMetadata(UnloadResponse unloadResponse) throws URISyntaxException {
@@ -894,7 +893,7 @@ class UnloadMetadata {
 ------
 #### [  Go  ]
 
-```
+```go
 // Read and parse metadata content
 
 func getMetadataFile(s3Svc *s3.S3, response map[string]string) Metadata {
@@ -933,7 +932,7 @@ type Metadata struct {
 ------
 #### [  Python  ]
 
-```
+```python
 def __get_metadata_file(self, response):
     metadata = self.get_object(response['metadataFile']).read().decode('utf-8')
     parsed_metadata = json.loads(metadata)
@@ -953,7 +952,7 @@ def get_object(self, uri):
 ------
 #### [  Node.js ]
 
-```
+```javascript
 // Read and parse metadata content
 async getMetadataFile(response) {
     let metadata;

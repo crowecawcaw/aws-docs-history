@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Using batch load error reports
-<a name="batch-load-using-error-reports"></a>
 
 Batch load tasks have one of the following status values:
 + `CREATED` (**Created**) – Task is created.
@@ -15,7 +14,7 @@ Batch load tasks have one of the following status values:
 
 When there are errors, an error log report is created in the S3 bucket defined for that. Errors are categorized as taskErrors or fileErrors in separate arrays. Following is an example error report.
 
-```
+```json
 {
     "taskId": "9367BE28418C5EF902676482220B631C",
     "taskErrors": [],

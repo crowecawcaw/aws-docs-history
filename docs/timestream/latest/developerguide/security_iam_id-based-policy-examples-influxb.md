@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Identity-based policy examples for Amazon Timestream for InfluxDB
-<a name="security_iam_id-based-policy-examples-influxb"></a>
 
 By default, users and roles don't have permission to create or modify Timestream for InfluxDB resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -45,7 +44,7 @@ To ensure that users and roles can still use the Timestream for InfluxDB console
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -92,7 +91,7 @@ In addition to granting the `s3:PutObject`, `s3:GetObject`, and `s3:DeleteObject
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -141,7 +140,7 @@ The following is a sample policy that allows all operations in Timestream for In
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -168,7 +167,7 @@ The following sample policy allows a user to create, describe, delete and update
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

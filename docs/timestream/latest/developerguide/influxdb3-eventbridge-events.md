@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Amazon EventBridge event notifications
-<a name="influxdb3-eventbridge-events"></a>
 
 Amazon Timestream for InfluxDB 3 publishes events to Amazon EventBridge when your clusters undergo state changes. Events are emitted for lifecycle operations including cluster creation, deletion, compute scaling, parameter group updates, maintenance windows, node addition/removal, engine type conversion, and reboot—covering both successful completions and failures.
 
@@ -17,7 +16,7 @@ You can use EventBridge rules to:
 
 **Example: Match all InfluxDB 3 cluster failure events**
 
-```
+```json
 {
   "source": ["aws.timestream-influxdb"],
   "detail-type": ["Timestream InfluxDB DB Cluster Event"],
@@ -29,7 +28,7 @@ You can use EventBridge rules to:
 
 **Example: Match scaling events for a specific cluster**
 
-```
+```json
 {
   "source": ["aws.timestream-influxdb"],
   "detail": {

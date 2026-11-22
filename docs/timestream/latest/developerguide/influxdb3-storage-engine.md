@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Upgraded storage engine for InfluxDB 3
-<a name="influxdb3-storage-engine"></a>
 
  Amazon Timestream for InfluxDB 3 now includes an upgraded storage engine that improves write, compaction, and query performance for large and complex time series workloads. The upgraded engine reached general availability in InfluxDB 3 Enterprise version 3.11. It changes how data is written, compacted, and read, and it is designed to deliver lower query latency and more predictable resource usage for high cardinality tables, wide and sparse schemas, and query heavy access patterns. Data persisted by the upgraded engine uses a new columnar file format, the `.pt` format, in place of Apache Parquet. 
 
@@ -56,7 +55,7 @@ For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon
 
  When you upgrade an existing cluster, the update workflow can report the cluster as `AVAILABLE` before the data migration has finished. The migration continues in the background after the workflow completes, so an `AVAILABLE` status does not mean the migration is done. To see the actual progress, query the `system.upgrade_parquet_node` system table, which reports migration status for each node in the cluster. 
 
-```
+```sql
 SELECT * FROM system.upgrade_parquet_node
 ```
 

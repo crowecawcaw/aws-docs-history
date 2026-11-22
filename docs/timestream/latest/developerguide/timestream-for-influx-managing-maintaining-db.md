@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Maintenance windows
-<a name="timestream-for-influx-managing-maintaining-db"></a>
 
 Periodically, Amazon Timestream for InfluxDB performs maintenance on Amazon Timestream for InfluxDB resources. Maintenance most often involves updates to the following resources in your DB instance:
 + Underlying hardware
@@ -30,7 +29,7 @@ You can specify a timezone for your maintenance window using the `timezone` fiel
 
 Create a DB instance with a custom maintenance window:
 
-```
+```sh
 aws timestream-influxdb create-db-instance \
   --name "my-influxdb" \
   --db-instance-type db.influx.medium \
@@ -46,7 +45,7 @@ aws timestream-influxdb create-db-instance \
 
 Update the maintenance window on an existing DB instance:
 
-```
+```sh
 aws timestream-influxdb update-db-instance \
   --identifier <instance-identifier> \
   --maintenance-schedule '{
@@ -58,7 +57,7 @@ aws timestream-influxdb update-db-instance \
 
 Revert to service managed:
 
-```
+```sh
 aws timestream-influxdb update-db-instance \
   --identifier <instance-identifier> \
   --maintenance-schedule '{

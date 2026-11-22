@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Cancel query
-<a name="code-samples.cancel-query"></a>
 
 You can use the following code snippets to cancel a query.
 
@@ -96,7 +95,7 @@ cancelQueryInput := &timestreamquery.CancelQueryInput{
 
 The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
-```
+```javascript
 async function tryCancelQuery() { 
     const params = { 
         QueryString: SELECT_ALL_QUERY 

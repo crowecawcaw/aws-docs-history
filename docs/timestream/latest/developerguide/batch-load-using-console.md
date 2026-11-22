@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Using batch load with the console
-<a name="batch-load-using-console"></a>
 
 Following are steps for using batch load with the AWS Management Console. You can download a sample CSV at [sample CSV](samples/batch-load-sample-file.csv.zip).
 

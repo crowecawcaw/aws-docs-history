@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Comparing a query on a base table with a query of scheduled query results
-<a name="scheduledqueries-example4-clickstream"></a>
 
 In this Timestream query example, we use the following schema, example queries, and outputs to compare a query on a base table with a query on a derived table of scheduled query results. With a well-planned scheduled query, you can get a derived table with fewer rows and other characteristics that can lead to faster queries than would be possible on the original base table. 
 
@@ -40,7 +39,7 @@ The following describes the measures for the base table. A *base table* refers t
 + **data** – multi
 + **dimensions**:
 
-  ```
+  ```json
   [ ( user_group, varchar ),( user_id, varchar ),( session_id, varchar ),( ip_address, varchar ),( event, varchar ) ]
   ```
 
@@ -49,7 +48,7 @@ The following describes the measures for the base table. A *base table* refers t
 
 The following is an ad-hoc query that gathers counts by a 5-minute aggregate in a given time range.
 
-```
+```sql
 SELECT BIN(time, 5m) as time, 
 channel, 
 product_id,
@@ -75,7 +74,7 @@ Row count:5
 
 The following is a scheduled query that runs every 5 minutes.
 
-```
+```sql
 SELECT BIN(time, 5m) as time, channel as measure_name, product_id, product, 
 SUM(quantity) as product_quantity 
 FROM "clickstream"."shopping" 
@@ -89,7 +88,7 @@ GROUP BY BIN(time, 5m), channel, product_id, product
 
 The following is an ad-hoc query on a derived table. A *derived table* refers to a Timestream table that contains the results of a scheduled query.
 
-```
+```sql
 SELECT time, measure_name, product_id,product_quantity 
 FROM "clickstream"."aggregate"
 WHERE time BETWEEN '2023-05-11 10:10:00.000000000' AND '2023-05-11 10:30:00.000000000'

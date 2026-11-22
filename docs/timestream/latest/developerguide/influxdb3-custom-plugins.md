@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Use custom plugins with the processing engine
-<a name="influxdb3-custom-plugins"></a>
 
  Amazon Timestream for InfluxDB 3 lets you run your own Python plugins on the managed [processing engine](processing-engine.md). With custom plugins, you host your plugin code in one or more plugin repositories that you control – public or private – and the engine fetches and runs it in response to triggers (data writes, schedules, or HTTP requests). Use custom plugins to implement logic that is specific to your workload: custom data transformations, alerting, aggregation, and integrations with your own services. 
 
@@ -40,7 +39,7 @@ https://raw.githubusercontent.com/my-org/influxdb-plugins/main/transforms/enrich
 
  Create a DB parameter group that sets the custom plugin repository. Set both parameters: the repository URL, and – for a private repository – the ARN of the Secrets Manager secret that holds your repository access token. 
 
-```
+```bash
 aws timestream-influxdb create-db-parameter-group \
   --name my-plugin-parameter-group \
   --description "InfluxDB 3 cluster with a custom plugin repository" \
@@ -61,7 +60,7 @@ Set the parameters under `InfluxDBv3Core`, or `InfluxDBv3Enterprise` for an Ente
 
 For a public repository, set only the URL:
 
-```
+```bash
 aws timestream-influxdb create-db-parameter-group \
   --name my-plugin-parameter-group \
   --description "InfluxDB 3 cluster with a public custom plugin repository" \
@@ -90,7 +89,7 @@ The secret must meet all of the following requirements, which are validated when
 
 1. Store the token in Secrets Manager, with a name that begins with `InfluxDB-RepoToken-`:
 
-   ```
+   ```bash
    aws secretsmanager create-secret \
      --name InfluxDB-RepoToken-my-plugins \
      --secret-string "YOUR_REPOSITORY_ACCESS_TOKEN" \
@@ -106,7 +105,7 @@ The secret must meet all of the following requirements, which are validated when
 
  You can encrypt the repository token secret with a customer managed AWS KMS key. No changes to the key policy are required for the default case: Timestream for InfluxDB reads the secret using its service-linked role in your account, which already has scoped permission to decrypt `InfluxDB-RepoToken-*` secrets. Create the secret with the CMK and reference its ARN as usual: 
 
-```
+```bash
 aws secretsmanager create-secret \
   --name InfluxDB-RepoToken-my-plugins \
   --secret-string "YOUR_REPOSITORY_ACCESS_TOKEN" \
@@ -124,7 +123,7 @@ aws secretsmanager create-secret \
 
 New cluster:
 
-```
+```bash
 aws timestream-influxdb create-db-cluster \
   --name my-cluster \
   --db-instance-type db.influx.large \
@@ -136,7 +135,7 @@ aws timestream-influxdb create-db-cluster \
 
 Existing cluster:
 
-```
+```bash
 aws timestream-influxdb update-db-cluster \
   --db-cluster-id my-cluster-id \
   --db-parameter-group-identifier my-plugin-parameter-group \
@@ -192,7 +191,7 @@ influxdb3 create trigger \
 
 Set the repository URL to the host with no owner or repository path:
 
-```
+```json
 {
   "InfluxDBv3Core": {
     "pluginRepositoryUrl": "https://raw.githubusercontent.com"
@@ -261,7 +260,7 @@ influxdb3 enable trigger \
 **Secret resource policy (Secrets Manager)**  
 Grants only the service-linked role `secretsmanager:GetSecretValue` on the secret:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -280,7 +279,7 @@ Grants only the service-linked role `secretsmanager:GetSecretValue` on the secre
 
 Apply it (`"Resource": "*"` refers to the secret the policy is attached to):
 
-```
+```bash
 aws secretsmanager put-resource-policy \
   --secret-id InfluxDB-RepoToken-my-plugins \
   --resource-policy file://secret-resource-policy.json \
@@ -290,7 +289,7 @@ aws secretsmanager put-resource-policy \
 **CMK key policy (AWS KMS)**  
 If the secret is encrypted with a customer managed key, attach a key policy that grants only the service-linked role `kms:Decrypt` / `kms:DescribeKey`, and only when the key is used through Secrets Manager (`kms:ViaService`). Keep the `EnableIAMRoot` statement so you don't lose administrative control of the key:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Id": "timestream-repo-token-key-policy",
@@ -325,7 +324,7 @@ If the secret is encrypted with a customer managed key, attach a key policy that
 
 Apply it:
 
-```
+```bash
 aws kms put-key-policy \
   --key-id <cmk-key-id> \
   --policy-name default \
@@ -357,7 +356,7 @@ To scope the key even more tightly to this one secret, add a `"kms:EncryptionCon
 
  Custom plugins are monitored the same way as certified plugins. Query the processing engine system tables to confirm a plugin loaded and to troubleshoot failures: 
 
-```
+```sql
 -- View processing engine logs for a trigger
 SELECT * FROM system.processing_engine_logs
 WHERE trigger_name = 'enrich_sensor_data'

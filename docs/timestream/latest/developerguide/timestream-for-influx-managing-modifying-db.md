@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Updating DB instances
-<a name="timestream-for-influx-managing-modifying-db"></a>
 
  You can update the following configuration parameters of your Timestream for InfluxDB instance:
 + Instance class
@@ -45,7 +44,7 @@ To update a DB instance by using the AWS Command Line Interface, call the `updat
  The following code modifies {{my-db-instance}} by setting a different `db-parameter-group-name`. Replace each {{user input placeholder}} with your own information. The changes are applied immediately.  
 For Linux, macOS, or Unix:  
 
-```
+```bash
 aws timestream-influxdb update-db-instance \
     --identifier {{my-db-instance}} \
     --db-storage-type {{desired-storage-type}} \
@@ -57,7 +56,7 @@ aws timestream-influxdb update-db-instance \
 ```
 For Windows:  
 
-```
+```bash
 aws timestream-influxdb update-db-instance ^
     --identifier {{my-db-instance}} ^
     --db-storage-type {{desired-storage-type}} ^

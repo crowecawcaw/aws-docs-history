@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Delete database
-<a name="code-samples.delete-db"></a>
 
 You can use the following code snippet to delete a database.
 
@@ -13,7 +12,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Java  ]
 
-```
+```java
     public void deleteDatabase() {
         System.out.println("Deleting database");
         final DeleteDatabaseRequest deleteDatabaseRequest = new DeleteDatabaseRequest();
@@ -35,7 +34,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Java v2  ]
 
-```
+```java
     public void deleteDatabase() {
         System.out.println("Deleting database");
         final DeleteDatabaseRequest deleteDatabaseRequest = new DeleteDatabaseRequest();
@@ -57,7 +56,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Go  ]
 
-```
+```go
 deleteDatabaseInput := &timestreamwrite.DeleteDatabaseInput{
         DatabaseName:   aws.String(*databaseName),
     }
@@ -75,7 +74,7 @@ deleteDatabaseInput := &timestreamwrite.DeleteDatabaseInput{
 ------
 #### [  Python  ]
 
-```
+```python
     def delete_database(self):
         print("Deleting Database")
         try:
@@ -94,7 +93,7 @@ The following snippet uses AWS SDK for JavaScript v3. For more information about
 
 Also see [Class DeleteDatabaseCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/deletedatabasecommand.html) and [DeleteDatabase](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DeleteDatabase.html).
 
-```
+```javascript
 import { TimestreamWriteClient, DeleteDatabaseCommand } from "@aws-sdk/client-timestream-write";
 const writeClient = new TimestreamWriteClient({ region: "us-east-1" });
 
@@ -119,7 +118,7 @@ try {
 
 The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
-```
+```javascript
 async function deleteDatabase() { 
     console.log("Deleting Database"); 
     const params = { 
@@ -147,7 +146,7 @@ async function deleteDatabase() {
 ------
 #### [  .NET  ]
 
-```
+```cs
         public async Task DeleteDatabase()
         {
             Console.WriteLine("Deleting database");

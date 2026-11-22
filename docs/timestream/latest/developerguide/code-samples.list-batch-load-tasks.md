@@ -3,14 +3,13 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # List batch load tasks
-<a name="code-samples.list-batch-load-tasks"></a>
 
 You can use the following code snippets to list batch load tasks.
 
 ------
 #### [  Java  ]
 
-```
+```java
     public void listBatchLoadTasks() {
             final ListBatchLoadTasksResponse listBatchLoadTasksResponse = amazonTimestreamWrite
                             .listBatchLoadTasks(ListBatchLoadTasksRequest.builder()
@@ -26,7 +25,7 @@ You can use the following code snippets to list batch load tasks.
 ------
 #### [  Go  ]
 
-```
+```go
 package main
 
 import (
@@ -72,7 +71,7 @@ func main() {
 ------
 #### [  Python  ]
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -120,7 +119,7 @@ The following snippet uses AWS SDK for JavaScript v3. For more information about
 
 For API details, see [Class DescribeBatchLoadCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/listbatchloadtaskscommand.html) and [DescribeBatchLoadTask](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DescribeBatchLoadTask.html).
 
-```
+```javascript
 import { TimestreamWriteClient, ListBatchLoadTasksCommand } from "@aws-sdk/client-timestream-write";
 const writeClient = new TimestreamWriteClient({ region: "{{<region>}}", endpoint: "{{<endpoint>}}" });
 
@@ -156,7 +155,7 @@ async function getBatchLoadTasksList(nextToken) {
 ------
 #### [  .NET  ]
 
-```
+```cs
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -214,7 +213,7 @@ namespace TimestreamDotNetSample
 }
 ```
 
-```
+```cs
 using Amazon.TimestreamWrite;
 using Amazon.TimestreamWrite.Model;
 using Amazon;

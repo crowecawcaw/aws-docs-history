@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Key management
-<a name="KeyManagement"></a>
 
  You can manage keys for Amazon Timestream Live Analytics using the [AWS Key Management Service (AWS KMS)](https://docs.aws.amazon.com/kms/latest/developerguide/). **Timestream Live Analytics requires the use of KMS to encrypt your data.** You have the following options for key management, depending on how much control you require over your keys: 
 

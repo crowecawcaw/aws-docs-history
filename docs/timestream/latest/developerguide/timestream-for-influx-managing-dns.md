@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Managing DNS resolution for cluster endpoints
-<a name="timestream-for-influx-managing-dns"></a>
 
 Timestream for InfluxDB for InfluxDB 3 multi-node clusters use DNS-based traffic distribution to balance connections across nodes. When a failover occurs or nodes are replaced, DNS records automatically update to point to available instances. To ensure your application can discover these changes and maintain optimal traffic distribution, proper DNS resolution configuration is essential.
 
@@ -21,24 +20,24 @@ For Java applications connecting to Timestream for InfluxDB for InfluxDB 3 clust
 
 Check your current TTL setting:
 
-```
+```java
 String ttl = java.security.Security.getProperty("networkaddress.cache.ttl");
 ```
 
 Configure the TTL using one of these methods:
 + **Global configuration** — Set `networkaddress.cache.ttl` in `$JAVA_HOME/jre/lib/security/java.security`:
 
-  ```
+  ```bash
   networkaddress.cache.ttl=0
   ```
 + **Application-specific configuration** — Set the property in your application initialization code before establishing network connections:
 
-  ```
+  ```java
   java.security.Security.setProperty("networkaddress.cache.ttl", "0");
   ```
 + **JVM argument** — Pass as a system property when starting your application:
 
-  ```
+  ```bash
   java -Dsun.net.inetaddr.ttl=0 -jar your-application.jar
   ```
 
@@ -54,7 +53,7 @@ If TTL configuration is insufficient — for example, due to intermediate OS-lev
 
 1. Identify the authoritative nameserver for your cluster endpoint:
 
-   ```
+   ```bash
    dig <cluster-endpoint> NS
    ```
 
@@ -62,7 +61,7 @@ If TTL configuration is insufficient — for example, due to intermediate OS-lev
 
 1. Query the authoritative nameserver directly to bypass caches:
 
-   ```
+   ```bash
    dig @ns-1458.awsdns-54.org <cluster-endpoint>
    ```
 
@@ -72,7 +71,7 @@ If TTL configuration is insufficient — for example, due to intermediate OS-lev
 
 **Example:**
 
-```
+```bash
 # Find authoritative nameserver
 dig my-cluster.timestream-influxdb.us-east-1.amazonaws.com NS
 

@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Configuring an InfluxDB 3 cluster in Timestream
-<a name="configuring-a-influxdb-3-instance"></a>
 
 ## Creating a DB cluster in Timestream
 <a name="creating-a-db-cluster"></a>
@@ -52,7 +51,7 @@ Shared VPCs are not currently supported for Timestream for InfluxDB 3.
 
  Using the AWS CLI: 
 
-```
+```sh
 aws timestream-influxdb create-db-cluster \
      --name myinfluxDbinstance \
      --db-instance-type db.influx.4xlarge \

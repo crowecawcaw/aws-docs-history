@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Configuring a DB instance
-<a name="timestream-for-influx-configuring"></a>
 
 This section shows how to set up your Amazon Timestream for InfluxDB DB instance. Before creating a DB instance, decide on the DB instance class that will run the DB instance. Also, decide where the DB instance will run by choosing an AWS Region. Next, create the DB instance.
 
@@ -71,7 +70,7 @@ For information about each setting, see [Settings for DB instances](#timestream-
 
 For Linux, macOS, or Unix:
 
-```
+```bash
 aws timestream-influxdb create-db-instance \
     --name myinfluxDbinstance \
     --allocated-storage 400 \
@@ -85,7 +84,7 @@ aws timestream-influxdb create-db-instance \
 
 For Windows:
 
-```
+```bash
 aws timestream-influxdb create-db-instance \
     --name myinfluxDbinstance \
     --allocated-storage 400 \

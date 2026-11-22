@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Update database
-<a name="code-samples.update-db"></a>
 
 You can use the following code snippets to update your databases.
 
@@ -13,7 +12,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Java  ]
 
-```
+```java
     public void updateDatabase(String kmsId) {
         System.out.println("Updating kmsId to " + kmsId);
         UpdateDatabaseRequest request = new UpdateDatabaseRequest();
@@ -37,7 +36,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Java v2  ]
 
-```
+```java
     public void updateDatabase(String kmsKeyId) {
 
         if (kmsKeyId == null) {
@@ -65,7 +64,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Go  ]
 
-```
+```go
 // Update Database.
         updateDatabaseInput := &timestreamwrite.UpdateDatabaseInput {
             DatabaseName: aws.String(*databaseName),
@@ -86,7 +85,7 @@ These code snippets are based on full sample applications on [GitHub](https://gi
 ------
 #### [  Python  ]
 
-```
+```python
     def update_database(self, kms_id):
         print("Updating database")
         try:
@@ -106,7 +105,7 @@ The following snippet uses AWS SDK for JavaScript v3. For more information about
 
 Also see [Class UpdateDatabaseCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatedatabasecommand.html) and [UpdateDatabase](https://docs.aws.amazon.com/timestream/latest/developerguide/API_UpdateDatabase.html).
 
-```
+```javascript
 import { TimestreamWriteClient, UpdateDatabaseCommand } from "@aws-sdk/client-timestream-write";
 const writeClient = new TimestreamWriteClient({ region: "us-east-1" });
 let updatedKmsKeyId = "{{<updatedKmsKeyId>}}";
@@ -132,7 +131,7 @@ try {
 
 The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
-```
+```javascript
 async function updateDatabase(updatedKmsKeyId) { 
  
     if (updatedKmsKeyId === undefined) { 
@@ -165,7 +164,7 @@ async function updateDatabase(updatedKmsKeyId) {
 ------
 #### [  .NET  ]
 
-```
+```cs
         public async Task UpdateDatabase(String updatedKmsKeyId)
         {
             Console.WriteLine("Updating Database");

@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Creating backups of Amazon Timestream tables
-<a name="backups-creating"></a>
 
 This section describes how to enable AWS Backup and create on-demand and scheduled backups for Amazon Timestream.
 

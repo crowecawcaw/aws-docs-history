@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Rebooting a read replica cluster in Amazon Timestream for InfluxDB
-<a name="timestream-for-influx-rebooting-rr-cluster"></a>
 
 You can reboot a read replica cluster in the event of any health issues.
 

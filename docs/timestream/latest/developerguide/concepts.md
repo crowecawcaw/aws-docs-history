@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Amazon Timestream for LiveAnalytics concepts
-<a name="concepts"></a>
 
  Time series data is a sequence of data points recorded over a time interval. This type of data is used for measuring events that change over time. Examples include the following.
 + Stock prices over time

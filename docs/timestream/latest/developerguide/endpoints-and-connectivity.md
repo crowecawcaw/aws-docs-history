@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Endpoints and connectivity for Timestream for InfluxDB 3
-<a name="endpoints-and-connectivity"></a>
 
  Amazon Timestream for InfluxDB 3 provides multiple endpoints to connect to your cluster, allowing for flexible access patterns based on your application needs. 
 

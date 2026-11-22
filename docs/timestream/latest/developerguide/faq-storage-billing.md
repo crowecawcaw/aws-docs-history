@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Storage and billing FAQ for Amazon Timestream for InfluxDB 3
-<a name="faq-storage-billing"></a>
 
 Questions about how Amazon Timestream for InfluxDB 3 stores data, manages backups, and handles billing. For pricing details, see [DB Cluster Billing for Amazon Timestream for InfluxDB 3](influxdb3.md#db-cluster-billing-for-amazon-timestream-for-influxdb-3).
 

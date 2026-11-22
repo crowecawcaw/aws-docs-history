@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Writing data to your Timestream for InfluxDB 3 cluster
-<a name="writing-data-to-your-influxdb-3-cluster"></a>
 
  Amazon Timestream for InfluxDB 3 provides robust capabilities for ingesting time-series data efficiently. Understanding the proper methods for writing data is essential for maximizing performance and ensuring data integrity. 
 
@@ -84,7 +83,7 @@ POST /api/v3/write_lp?db=DATABASE_NAME&precision=PRECISION&accept_partial=BOOLEA
 
  Example write request: 
 
-```
+```sh
 curl -v "https://your-cluster-endpoint:8086/api/v3/write_lp?db=sensors&precision=s" \
   --header "Authorization: Bearer YOUR_TOKEN" \
   --data-raw "home,room=Living\ Room temp=21.1,hum=35.9,co=0i 1735545600
@@ -138,7 +137,7 @@ home,room=Kitchen temp=21.0,hum=35.9,co=0i 1735545600"
 
  The `/api/v2/write` endpoint provides backwards compatibility for v2 clients: 
 
-```
+```sh
 curl -i "https://your-cluster-endpoint:8086/api/v2/write?bucket=DATABASE_NAME&precision=s" \
   --header "Authorization: Bearer DATABASE_TOKEN" \
   --header "Content-type: text/plain; charset=utf-8" \
@@ -160,7 +159,7 @@ curl -i "https://your-cluster-endpoint:8086/api/v2/write?bucket=DATABASE_NAME&pr
 
  The `/write` endpoint provides backwards compatibility for v1 clients: 
 
-```
+```sh
 curl -i "https://your-cluster-endpoint:8086/write?db=DATABASE_NAME&precision=s" \
   --user "any:DATABASE_TOKEN" \
   --header "Content-type: text/plain; charset=utf-8" \
@@ -199,7 +198,7 @@ V1 authentication options:
 
  Example: Python client 
 
-```
+```python
 from influxdb3 import InfluxDBClient3
 
 client = InfluxDBClient3(
@@ -224,7 +223,7 @@ client.write(point)
 
  Example: Go client 
 
-```
+```go
 import "github.com/InfluxCommunity/influxdb3-go/v2/influxdb3"
 
 client, err := influxdb3.New(influxdb3.ClientConfig{
@@ -253,7 +252,7 @@ err = client.WritePoints(context.Background(), []*influxdb3.Point{point})
 
  Example: Node.js v1 client: 
 
-```
+```javascript
 const Influx = require('influx')
 
 const client = new Influx.InfluxDB({

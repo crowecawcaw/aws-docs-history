@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Sample application
-<a name="sample-apps"></a>
 
 Timestream ships with a fully functional sample application that shows how to create a database and table, populate the table with \~126K rows of sample data, and run sample queries. Follow the steps below to get started with the sample application in any of the supported languages:
 

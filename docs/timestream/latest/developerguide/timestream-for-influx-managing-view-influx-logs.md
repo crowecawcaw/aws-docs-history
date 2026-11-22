@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Setup to view InfluxDB logs on Timestream Influxdb Instances
-<a name="timestream-for-influx-managing-view-influx-logs"></a>
 
 By default InfluxDB generates logs that go to stdout. For more information, see [Manage InfluxDB logs](https://docs.influxdata.com/influxdb/v2/admin/logs)
 
@@ -15,7 +14,7 @@ To view InfluxDB logs generated from the Instance you have created through Times
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Id": "PolicyForInfluxLogs",
@@ -37,7 +36,7 @@ To view InfluxDB logs generated from the Instance you have created through Times
 
   Here is the command you can call to make an instance to receive influx logs:
 
-  ```
+  ```bash
   aws timestream-influxdb create-db-instance \
       --name myinfluxDbinstance \
       --allocated-storage 400 \
@@ -51,7 +50,7 @@ To view InfluxDB logs generated from the Instance you have created through Times
 
   Here is the format of this parameter.
 
-  ```
+  ```json
   -- log-delivery-configuration
   {
       "S3Configuration": {

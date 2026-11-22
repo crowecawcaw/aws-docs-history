@@ -3,12 +3,11 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # UNLOAD Concepts
-<a name="export-unload-concepts"></a>
 
 ## Syntax
 <a name="export-unload-concepts-syntax"></a>
 
-```
+```sql
 UNLOAD (SELECT statement)
  TO 's3://bucket-name/folder'
  WITH ( option = expression [, ...] )
@@ -35,26 +34,26 @@ where `option` is
 SELECT statement  
 The query statement used to select and retrieve data from one or more Timestream for LiveAnalytics tables.   
 
-```
+```sql
 (SELECT column 1, column 2, column 3 from database.table
       where measure_name = "ABC" and timestamp between ago (1d) and now() )
 ```
 
 TO clause  
 
-```
+```sql
 TO 's3://bucket-name/folder'
 ```
 or  
 
-```
+```sql
 TO 's3://access-point-alias/folder'
 ```
 The `TO` clause in the `UNLOAD` statement specifies the destination for the output of the query results. You need to provide the full path, including either Amazon S3 bucket-name or Amazon S3 access-point-alias with folder location on Amazon S3 where Timestream for LiveAnalytics writes the output file objects. The S3 bucket should be owned by the same account and in the same region. In addition to the query result set, Timestream for LiveAnalytics writes the manifest and metadata files to specified destination folder. 
 
 PARTITIONED\_BY clause  
 
-```
+```sql
 partitioned_by = ARRAY [col_name[,…] , (default: none)
 ```
 The `partitioned_by` clause is used in queries to group and analyze data at a granular level. When you export your query results to the S3 bucket, you can choose to partition the data based on one or more columns in the select query. When partitioning the data, the exported data is divided into subsets based on the partition column and each subset is stored in a separate folder. Within the results folder that contains your exported data, a sub-folder `folder/results/partition column = partition value/` is automatically created. However, note that partitioned columns are not included in the output file.   
@@ -105,7 +104,7 @@ Avoid specifying the carriage return character (ASCII 13, hex `0D`, text '\\r') 
 
 ESCAPED\_BY  
 
-```
+```sql
 escaped_by = '<character>', default: (\)
 ```
 When exporting the data in CSV format, this field specifies the character that should be treated as an escape character in the data file written to S3 bucket. Escaping happens in the following scenarios:  
@@ -192,7 +191,7 @@ As the data in CSV format is stored at a file level, when you compress the data 
 
 The manifest file provides information on the list of files that are exported with the UNLOAD execution. The manifest file is available in the provided S3 bucket with a file name: `s3://<bucket_name>/<queryid>_<UUID>_manifest.json`. The manifest file will contain the url of the files in the results folder, the number of records and size of the respective files, and the query metadata (which is total bytes and total rows exported to S3 for the query). 
 
-```
+```json
 {
   "result_files": [
     {
@@ -233,7 +232,7 @@ The metadata file provides additional information about the data set such as col
 
 Following is an example of a metadata file.
 
-```
+```json
 {
     "ColumnInfo": [
         {
@@ -284,7 +283,7 @@ Results folder contains your exported data in either Apache Parquet or CSV forma
 
 When you submit an `UNLOAD` query like below via Query API,
 
-```
+```sql
 UNLOAD(SELECT user_id, ip_address, event, session_id, measure_name, time, query, quantity, product_id, channel 
                     FROM sample_clickstream.sample_shopping WHERE time BETWEEN ago(2d) AND now()) 
                 TO 's3://my_timestream_unloads/withoutpartition/' WITH ( format='CSV', compression='GZIP')
@@ -297,7 +296,7 @@ UNLOAD(SELECT user_id, ip_address, event, session_id, measure_name, time, query,
 
 You will get the following response from Query API:
 
-```
+```json
 {
     "Rows": [
         {

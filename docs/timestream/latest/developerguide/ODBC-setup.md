@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Setting up the Timestream for LiveAnalytics ODBC driver
-<a name="ODBC-setup"></a>
 
 ## Set up access to Timestream for LiveAnalytics in your AWS account
 <a name="ODBC-setup-access"></a>

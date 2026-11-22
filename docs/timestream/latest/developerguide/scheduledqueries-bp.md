@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Scheduled queries
-<a name="scheduledqueries-bp"></a>
 
 Scheduled queries help you optimize your dashboards by pre-computing some fleet-wide aggregate statistics. So a natural question to ask is how do you take your use case and identify which results to pre-compute and how to use these results stored in a derived table to create your dashboard. The first step in this process is to identify which panels to pre-compute. Below are some high-level guidelines:
 + Consider the bytes scanned by the queries that are used to populate the panels, the frequency of dashboard reload, and number of concurrent users who would load these dashboards. You should start with the dashboards loaded most frequently and scanning significant amounts of data. The first two dashboards in the [aggregate dashboard](https://docs.aws.amazon.com/timestream/latest/developerguide/scheduledqueries-example1.html) example as well as the aggregate dashboard in the [drill down](https://docs.aws.amazon.com/timestream/latest/developerguide/scheduledqueries-example2.html) example are good examples of such dashboards. 

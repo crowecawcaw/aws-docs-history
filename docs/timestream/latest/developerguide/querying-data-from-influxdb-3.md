@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Querying data from Timestream for InfluxDB 3
-<a name="querying-data-from-influxdb-3"></a>
 
  Amazon Timestream for InfluxDB 3 provides multiple query APIs and protocols to retrieve your time series data. The platform supports both SQL and InfluxQL query languages through HTTP and Flight (gRPC) protocols, offering flexibility for different use cases and client preferences. 
 
@@ -26,7 +25,7 @@ For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon
 
  GET request example: 
 
-```
+```sh
 curl --get "https://your-cluster-endpoint:8086/api/v3/query_sql" \
   --header "Authorization: Bearer YOUR_TOKEN" \
   --data-urlencode "db=DATABASE_NAME" \
@@ -35,7 +34,7 @@ curl --get "https://your-cluster-endpoint:8086/api/v3/query_sql" \
 
  POST request example (for complex queries): 
 
-```
+```sh
 curl "https://your-cluster-endpoint:8086/api/v3/query_sql" \
   --header "Authorization: Bearer YOUR_TOKEN" \
   --json '{
@@ -50,7 +49,7 @@ curl "https://your-cluster-endpoint:8086/api/v3/query_sql" \
 
 For InfluxQL queries do the following:
 
-```
+```sh
 curl --get "https://your-cluster-endpoint:8086/api/v3/query_influxql" \
   --header "Authorization: Bearer YOUR_TOKEN" \
   --data-urlencode "db=DATABASE_NAME" \
@@ -77,7 +76,7 @@ You can use the following query parameters:
 
  The following shows a basic query:
 
-```
+```sql
 influxdb3 query \
   --host "your-cluster-endpoint:8086" \
   --token "YOUR_TOKEN" \
@@ -87,7 +86,7 @@ influxdb3 query \
 
  The following shows a query with different output formats:
 
-```
+```sql
 # JSON output
 influxdb3 query \
   --database "DATABASE_NAME" \
@@ -120,7 +119,7 @@ The following output formats are supported:
 
  For legacy InfluxQL queries, use the `/query` endpoint: 
 
-```
+```sh
 curl --get "https://your-cluster-endpoint:8086/query" \
   --header "Authorization: Bearer YOUR_TOKEN" \
   --data-urlencode "db=DATABASE_NAME" \
@@ -144,7 +143,7 @@ curl --get "https://your-cluster-endpoint:8086/query" \
 
 The following shows a basic query:
 
-```
+```sql
 -- Select specific fields with time filter
 SELECT temp, humidity, room 
 FROM home 
@@ -161,7 +160,7 @@ SHOW COLUMNS FROM home
 
 The following shows aggregation queries:
 
-```
+```sql
 -- Aggregate by tags
 SELECT 
   room,
@@ -183,7 +182,7 @@ ORDER BY time DESC
 
 The following shows advanced SQL features:
 
-```
+```sql
 -- Parameterized queries (via API)
 SELECT * FROM home 
 WHERE room = $room 
@@ -209,7 +208,7 @@ FROM home
 
 The following shows InfluxQL query examples:
 
-```
+```sql
 -- Basic query with time filter
 SELECT * FROM home WHERE time >= now() - 1d
 
@@ -228,7 +227,7 @@ GROUP BY room
 
 The following shows how to query system tables to understand your database structure and monitor performance: 
 
-```
+```sql
 -- View all tables with schema information
 SELECT * FROM information_schema.tables
 
@@ -263,7 +262,7 @@ SELECT * FROM system.distinct_caches
 
  InfluxDB 3 client libraries use the Flight\+gRPC protocol for optimal performance. The following Python code shows an example of this. 
 
-```
+```sql
 from influxdb3 import InfluxDBClient3
 
 client = InfluxDBClient3(
@@ -371,7 +370,7 @@ influxdb3 create last_cache \
 
 Use the following command to query an LVC:
 
-```
+```sql
 -- Query the last cached values
 SELECT * FROM last_cache('home', 'homeLastCache')
 
@@ -429,7 +428,7 @@ influxdb3 create distinct_cache \
 
 Use the following command to query a DVC:
 
-```
+```sql
 -- Get all distinct values
 SELECT * FROM distinct_cache('wind_data', 'windDistinctCache')
 
@@ -496,7 +495,7 @@ influxdb3 delete file_index \
 
  View cache configurations and statistics using system tables: 
 
-```
+```sql
 -- View Last Value Caches
 SELECT * FROM system.last_caches
 

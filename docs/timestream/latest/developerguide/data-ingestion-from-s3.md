@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Ingesting data from Amazon S3 to Timestream for InfluxDB automation
-<a name="data-ingestion-from-s3"></a>
 
 After the Timestream for LiveAnalytics export tool completes the unload process, the next step in the automation process begins. This automation uses [InfluxDB's import tools](https://docs.influxdata.com/influxdb/v2/write-data/) to transfer the data into its specialized time-series structure. The process transforms Timestream's data model to match InfluxDB' s concepts of measurements, tags, and fields. Finally, it loads the data efficiently using [InfluxDB's line protocol](https://docs.influxdata.com/influxdb/v2/reference/syntax/line-protocol/).
 

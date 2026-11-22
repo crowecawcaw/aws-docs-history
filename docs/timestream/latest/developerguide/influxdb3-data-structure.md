@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # InfluxDB data structure in Timestream for InfluxDB 3
-<a name="influxdb3-data-structure"></a>
 
  InfluxDB 3 Enterprise organizes time-series data into databases and tables: 
 +  Database: A named location where time-series data is stored (equivalent to a bucket in InfluxDB Cloud Serverless). 

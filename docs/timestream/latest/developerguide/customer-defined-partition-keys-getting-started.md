@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Getting started with customer-defined partition keys
-<a name="customer-defined-partition-keys-getting-started"></a>
 
 From the console, choose **Tables** and create a new table. You can also use an SDK to access the `CreateTable` action to create new tables that can include a customer-defined partition key.
 
@@ -15,7 +14,7 @@ You can use the following code snippets to create a table with a dimension type 
 ------
 #### [  Java  ]
 
-```
+```java
 public void createTableWithDimensionTypePartitionKeyExample() {
         System.out.println("Creating table");
         CreateTableRequest createTableRequest = new CreateTableRequest();
@@ -47,7 +46,7 @@ public void createTableWithDimensionTypePartitionKeyExample() {
 ------
 #### [  Java v2  ]
 
-```
+```java
 public void createTableWithDimensionTypePartitionKeyExample() {
         System.out.println("Creating table"); 
         final RetentionProperties retentionProperties = RetentionProperties.builder()
@@ -82,7 +81,7 @@ public void createTableWithDimensionTypePartitionKeyExample() {
 ------
 #### [  Go v1 ]
 
-```
+```go
 func createTableWithDimensionTypePartitionKeyExample(){ 
         // Can specify enforcement level with OPTIONAL or REQUIRED
         partitionKeyWithDimensionAndOptionalEnforcement := []*timestreamwrite.PartitionKey{
@@ -118,7 +117,7 @@ func createTableWithDimensionTypePartitionKeyExample(){
 ------
 #### [  Go v2 ]
 
-```
+```go
   func (timestreamBuilder TimestreamBuilder) CreateTableWithDimensionTypePartitionKeyExample() error {
          partitionKeyWithDimensionAndOptionalEnforcement := []types.PartitionKey{
              {
@@ -158,7 +157,7 @@ func createTableWithDimensionTypePartitionKeyExample(){
 ------
 #### [  Python  ]
 
-```
+```python
 def create_table_with_measure_name_type_partition_key(self):
         print("Creating table")
         retention_properties = {

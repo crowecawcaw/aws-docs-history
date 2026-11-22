@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Clusters and instances FAQ for Amazon Timestream for InfluxDB 3
-<a name="faq-clusters"></a>
 
 Questions about creating, configuring, and scaling Amazon Timestream for InfluxDB 3 clusters and instance types. For detailed instructions, see [Manage InfluxDB 3 Clusters in Timestream](managing-influxdb-3-clusters.md) and [Configuring an InfluxDB 3 cluster in Timestream](configuring-a-influxdb-3-instance.md).
 
@@ -13,7 +12,7 @@ Amazon Timestream for InfluxDB 3 offers instance types ranging from `db.influx.m
 **How do I create an InfluxDB 3 cluster?**  
 You can create a cluster using the AWS Management Console, the AWS CLI, or the Amazon Timestream API. At minimum, you need to specify a cluster name, instance type, VPC subnet IDs, and security group IDs. For example, using the AWS CLI:  
 
-```
+```python
 aws timestream-influxdb create-db-cluster \
   --name "my-cluster" \
   --db-instance-type db.influx.2xlarge \

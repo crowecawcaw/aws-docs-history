@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Scheduled query concepts
-<a name="scheduledqueries-concepts"></a>
 
 **Query string** - This is the query whose result you are pre-computing and storing in another Timestream for LiveAnalytics table. You can define a scheduled query using the full SQL surface area of Timestream for LiveAnalytics, which provides you the flexibility of writing queries with common table expressions, nested queries, window functions, or any kind of aggregate and scalar functions that are supported by [Timestream for LiveAnalytics query language](https://docs.aws.amazon.com/timestream/latest/developerguide/reference.html).
 
@@ -15,7 +14,7 @@ For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon
 
 The following is an example of this kind of notification message.
 
-```
+```json
 {
     "type":"AUTO_TRIGGER_SUCCESS",
     "arn":"arn:aws:timestream:us-east-1:123456789012:scheduled-query/ PT1mPerMinutePerRegionMeasureCount-9376096f7309",

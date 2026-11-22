@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # General security
-<a name="timestream-for-influx-getting-started-security"></a>
 
 **Topics**
 + [Permissions](#timestream-for-influx-getting-started-security-permissions)
@@ -58,7 +57,7 @@ If S3 buckets are used as a temporary storage for migration, we recommend enabli
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

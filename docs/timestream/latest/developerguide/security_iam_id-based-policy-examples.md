@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Amazon Timestream for LiveAnalytics identity-based policy examples
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, IAM users and roles don't have permission to create or modify Timestream for LiveAnalytics resources. They also can't perform tasks using the AWS Management Console, CQLSH, AWS CLI, or AWS API. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the IAM users or groups that require those permissions.
 
@@ -39,7 +38,7 @@ Timestream for LiveAnalytics does not require specific permissions to access the
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -103,7 +102,7 @@ The following is a sample policy that allows all operations in Timestream for Li
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -133,7 +132,7 @@ Replace `<account_ID>` with your Amazon account ID.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -174,7 +173,7 @@ Replace `<account_ID>` with your Amazon account ID.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -216,7 +215,7 @@ The following sample policy allows the user to perform metadata queries, but doe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -252,7 +251,7 @@ Replace `<account_ID>` with your Amazon account ID.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -288,7 +287,7 @@ The following sample policy allows a user to perform CRUD operations in Timestre
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -325,7 +324,7 @@ The following sample policy allows a user to cancel queries and perform `Select`
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -353,7 +352,7 @@ The following sample policy allows a user to create, describe, delete and descri
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -383,7 +382,7 @@ The following sample policy allows a user to list all databases that that are ta
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -415,7 +414,7 @@ The following sample policy to list all tables in database `sampleDB`:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -442,7 +441,7 @@ The following sample policy allows a user to create tables, describe tables, del
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -473,7 +472,7 @@ The following sample policy allows a user to query all tables except `DevOps` in
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -509,7 +508,7 @@ The following example shows how you can create a policy that grants permissions 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -539,7 +538,7 @@ The following policy grants permissions to a user to create tables with tags if 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -570,7 +569,7 @@ The policy below allows use of the `DescribeDatabase` API on any Database that h
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -620,7 +619,7 @@ The following sample policy allows a user to list, delete, update and execute sc
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -651,7 +650,7 @@ The following sample policy allows a user to create a scheduled query that is en
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -696,7 +695,7 @@ The following sample policy allows a user to describe a scheduled query that was
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -731,7 +730,7 @@ Attach the following sample policy to the IAM role specified in the `ScheduledQu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -798,7 +797,7 @@ The following is the trust relationship for the IAM role specified in the `Sched
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -827,7 +826,7 @@ Attach the following sample policy to the IAM role specified in the `ScheduledQu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -862,7 +861,7 @@ Attach the following sample policy to the IAM role specified in the `ScheduledQu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # ALL(), ANY() and SOME()
-<a name="comparison-functions.all-any-some"></a>
 
 The `ALL`, `ANY` and `SOME` quantifiers can be used together with comparison operators in the following way.
 

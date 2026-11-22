@@ -3,7 +3,6 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Date / time functions
-<a name="date-time-functions"></a>
 
 **Note**  
 Timestream for LiveAnalytics does not support negative time values. Any operation resulting in negative time results in error.
