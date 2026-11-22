@@ -1,7 +1,6 @@
 
 
 # List repositories
-<a name="list-repos"></a>
 
 Use the commands in this topic to list repositories in an AWS account or domain.
 
@@ -16,7 +15,7 @@ aws codeartifact list-repositories
 
 Sample output:
 
-```
+```json
 {
     "repositories": [
         {
@@ -61,7 +60,7 @@ aws codeartifact list-repositories-in-domain --domain {{my_domain}} --domain-own
 
 The output shows that some of the repositories are administered by different AWS accounts.
 
-```
+```json
 {
     "repositories": [
         {

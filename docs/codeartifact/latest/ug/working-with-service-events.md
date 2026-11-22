@@ -1,7 +1,6 @@
 
 
 # Monitoring CodeArtifact
-<a name="working-with-service-events"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of CodeArtifact and your other AWS solutions. AWS provides the following monitoring tools to watch CodeArtifact, report when something is wrong, and take automatic actions when appropriate:
 + You can use Amazon EventBridge to automate your AWS services and respond automatically to system events, such as application availability issues or resource changes. Events from AWS services are delivered to EventBridge in near real time. You can write simple rules to indicate which events are of interest to you and which automated actions to take when an event matches a rule. For more information, see [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/) and [CodeArtifact event format and example](monitoring-events.md#service-event-format-example).

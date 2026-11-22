@@ -1,7 +1,6 @@
 
 
 # Configure the Swift Package Manager with CodeArtifact
-<a name="configure-swift"></a>
 
 To use the Swift Package Manager to publish packages to or consume packages from AWS CodeArtifact, you'll first need to set up credentials to access your CodeArtifact repository. The recommended method for configuring the Swift Package Manager CLI with your CodeArtifact credentials and repository endpoint is by using the `aws codeartifact login` command. You can also configure the Swift Package Manager manually.
 

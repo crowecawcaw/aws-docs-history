@@ -1,7 +1,6 @@
 
 
 # Configure and use Yarn with CodeArtifact
-<a name="npm-yarn"></a>
 
 After you create a repository, you can use the Yarn client to manage npm packages.
 

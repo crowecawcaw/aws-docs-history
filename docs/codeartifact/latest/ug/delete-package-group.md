@@ -1,7 +1,6 @@
 
 
 # Delete a package group
-<a name="delete-package-group"></a>
 
 You can delete a package group using the CodeArtifact console or the AWS Command Line Interface (AWS CLI).
 

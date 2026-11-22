@@ -1,7 +1,6 @@
 
 
 # AWS CodeArtifact concepts
-<a name="codeartifact-concepts"></a>
 
  Here are some concepts and terms to know when you use CodeArtifact. 
 

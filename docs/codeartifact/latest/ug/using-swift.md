@@ -1,7 +1,6 @@
 
 
 # Using CodeArtifact with Swift
-<a name="using-swift"></a>
 
 These topics describe how to use the Swift Package Manager with CodeArtifact to install and publish Swift packages.
 

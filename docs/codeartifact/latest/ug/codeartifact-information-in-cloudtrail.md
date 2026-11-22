@@ -1,7 +1,6 @@
 
 
 # Logging CodeArtifact API calls with AWS CloudTrail
-<a name="codeartifact-information-in-cloudtrail"></a>
 
 CodeArtifact is integrated with [AWS CloudTrail](https://aws.amazon.com/cloudtrail), a service that provides a record of actions taken by a user, role, or an AWS service in CodeArtifact. CloudTrail captures all API calls for CodeArtifact as events, including calls from package manager clients.
 
@@ -47,7 +46,7 @@ CloudTrail log files can contain one or more log entries. Each entry lists multi
 
  A log entry created by `[GetAuthorizationToken](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_GetAuthorizationToken.html)` includes the domain name in the `requestParameters` field. 
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {
@@ -96,7 +95,7 @@ CloudTrail log files can contain one or more log entries. Each entry lists multi
 
 Requests made by all package manager clients, including the ** `npm` ** client, have additional data logged including the domain name, repository name, and package name in the `requestParameters` field. The URL path and HTTP method are logged in the `additionalEventData` field.
 
-```
+```json
 {
    "eventVersion": "1.05",
    "userIdentity": {

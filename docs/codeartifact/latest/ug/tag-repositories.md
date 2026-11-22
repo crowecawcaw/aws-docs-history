@@ -1,7 +1,6 @@
 
 
 # Tag a repository in CodeArtifact
-<a name="tag-repositories"></a>
 
 Tags are key-value pairs associated with AWS resources. You can apply tags to your repositories in CodeArtifact. For information about CodeArtifact resource tagging, use cases, tag key and value constraints, and supported resource types, see [Tagging resources](tag-resources.md).
 

@@ -1,7 +1,6 @@
 
 
 # Using tags to control access to CodeArtifact resources
-<a name="tag-based-access-control"></a>
 
 Conditions in IAM user policy statements are part of the syntax that you use to specify permissions to resources required by CodeArtifact actions. Using tags in conditions is one way to control access to resources and requests. For information about tagging CodeArtifact resources, see [Tagging resources](tag-resources.md). This topic discusses tag-based access control.
 
@@ -27,7 +26,7 @@ The `AWSCodeArtifactAdminAccess` managed user policy gives users unlimited permi
 The following policy limits this power and denies unauthorized users permission to create repositories unless the request contains certain tags. To do that, it denies the `CreateRepository` action if the request does not specify a tag named `costcenter` with one of the values `1` or `2`. A customer's administrator must attach this IAM policy to unauthorized IAM users, in addition to the managed user policy.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -63,7 +62,7 @@ The `AWSCodeArtifactAdminAccess` managed user policy gives users unlimited permi
 The following policy limits this power and denies unauthorized users permission to perform actions on repositories in specified domains. To do that, it denies some actions if the resource has a tag named `Key1` with one of the values `Value1` or `Value2`. (The `aws:ResourceTag` condition key is used to control access to the resources based on the tags on those resources.) A customer's administrator must attach this IAM policy to unauthorized IAM users, in addition to the managed user policy.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -98,7 +97,7 @@ The following policy grants users permission to perform actions on, and get info
 To do that, it allows specific actions if the repository has a tag named `Key1` with the value `Value1`. (The `aws:RequestTag` condition key is used to control which tags can be passed in an IAM request.) The `aws:TagKeys` condition ensures tag key case sensitivity. This policy is useful for IAM users who don't have the `AWSCodeArtifactAdminAccess` managed user policy attached. The managed policy gives users unlimited permission to perform any CodeArtifact action on any resource.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -125,7 +124,7 @@ The following policy grants users permission to create repositories in specified
 To do that, it allows the `CreateRepository` and `TagResource` actions if the create resource API in the request specifies a tag named `Key1` with the value `Value1`. (The `aws:RequestTag` condition key is used to control which tags can be passed in an IAM request.) The `aws:TagKeys` condition ensures tag key case sensitivity. This policy is useful for IAM users who don't have the `AWSCodeArtifactAdminAccess` managed user policy attached. The managed policy gives users unlimited permission to perform any CodeArtifact action on any resource.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

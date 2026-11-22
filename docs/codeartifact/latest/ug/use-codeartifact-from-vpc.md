@@ -1,7 +1,6 @@
 
 
 # Use CodeArtifact from a VPC
-<a name="use-codeartifact-from-vpc"></a>
 
 If you cannot or do not want to enable private DNS on your `com.amazonaws.{{region}}.codeartifact.repositories` VPC endpoint that you created in [Create VPC endpoints for CodeArtifact](create-vpc-endpoints.md), you must use a different configuration for the repositories endpoint to use CodeArtifact from a VPC. Follow the instructions in [Use the `codeartifact.repositories` endpoint without private DNS](#use-codeartifact-from-vpc-no-private-dns) to configure CodeArtifact if the `com.amazonaws.{{region}}.codeartifact.repositories` endpoint does not have private DNS enabled.
 
@@ -19,7 +18,7 @@ If you cannot or do not want to enable private DNS on your `com.amazonaws.{{regi
 
     The output looks like the following.
 
-   ```
+   ```json
    [
      [
        "vpce-0743fe535b883ffff-76ddffff.d.codeartifact.us-west-2.vpce.amazonaws.com"

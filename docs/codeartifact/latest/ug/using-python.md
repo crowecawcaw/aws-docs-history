@@ -1,7 +1,6 @@
 
 
 # Using CodeArtifact with Python
-<a name="using-python"></a>
 
 These topics describe how to use `pip`, the Python package manager, and `twine`, the Python package publishing utility, with CodeArtifact.
 

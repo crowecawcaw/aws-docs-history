@@ -1,7 +1,6 @@
 
 
 # AWS CodeArtifact authentication and tokens
-<a name="tokens-authentication"></a>
 
 CodeArtifact requires users to authenticate with the service in order to publish or consume package versions. You must authenticate to the CodeArtifact service by creating an authorization token using your AWS credentials. In order to create an authorization token, you must have the correct permissions. For the permissions needed to create an authorization token, see the `GetAuthorizationToken` entry in the [AWS CodeArtifact permissions reference](auth-and-access-control-permissions-reference.md). For more general information on CodeArtifact permissions, see [How AWS CodeArtifact works with IAM](security_iam_service-with-iam.md).
 

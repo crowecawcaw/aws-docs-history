@@ -1,7 +1,6 @@
 
 
 # Configure and use RubyGems and Bundler with CodeArtifact
-<a name="configure-use-rubygems-bundler"></a>
 
 After you create a repository in CodeArtifact, you can use RubyGems (`gem`) and Bundler (`bundle`) to install and publish gems. This topic describes how to configure the package managers to authenticate with and use a CodeArtifact repository.
 

@@ -1,7 +1,6 @@
 
 
 # Using CodeArtifact with Maven
-<a name="using-maven"></a>
 
 The Maven repository format is used by many different languages, including Java, Kotlin, Scala, and Clojure. It's supported by many different build tools, including Maven, Gradle, Scala SBT, Apache Ivy, and Leiningen. 
 

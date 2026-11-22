@@ -1,7 +1,6 @@
 
 
 # Using CodeArtifact with Cargo
-<a name="using-cargo"></a>
 
 These topics describe how to use Cargo, the Rust package manager, with CodeArtifact.
 

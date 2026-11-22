@@ -1,7 +1,6 @@
 
 
 # Use an event to start a CodePipeline execution
-<a name="configure-service-events-codepipeline"></a>
 
  This example demonstrates how to configure an Amazon EventBridge rule so that an AWS CodePipeline execution starts when a package version in a CodeArtifact repository is published, modified, or deleted. 
 

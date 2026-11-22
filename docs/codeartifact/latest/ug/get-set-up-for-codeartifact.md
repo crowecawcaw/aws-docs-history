@@ -1,7 +1,6 @@
 
 
 # Setting up with AWS CodeArtifact
-<a name="get-set-up-for-codeartifact"></a>
 
  If you've already signed up for Amazon Web Services (AWS), you can start using AWS CodeArtifact immediately. You can open the CodeArtifact console, choose **Create a domain and repository**, and follow the steps in the launch wizard to create your first domain and repository. 
 

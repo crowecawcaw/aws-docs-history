@@ -1,7 +1,6 @@
 
 
 # Dependency substitution attacks
-<a name="dependency-substitution-attacks"></a>
 
 Package managers simplify the process of packaging and sharing reusable code. These packages may be private packages developed by an organization for use in their applications, or they may be public, typically open-source packages that are developed outside an organization and distributed by public package repositories. When requesting packages, developers rely on their package manager to fetch new versions of their dependencies. Dependency substitution attacks, also known as dependency confusion attacks, exploit the fact that a package manager typically has no way to distinguish legitimate versions of a package from malicious versions. 
 

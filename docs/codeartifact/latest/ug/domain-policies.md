@@ -1,7 +1,6 @@
 
 
 # Domain policies
-<a name="domain-policies"></a>
 
 CodeArtifact supports using resource-based permissions to control access. Resource-based permissions let you specify who has access to a resource and which actions they can perform on it. By default, only the AWS account that owns the domain can create and access repositories in the domain. You can apply a policy document to a domain to allow other IAM principals to access it.
 
@@ -27,7 +26,7 @@ For example, the following resource policy grants the account `123456789012` per
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -63,7 +62,7 @@ For example, the following resource policy grants the account `123456789012` per
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -97,7 +96,7 @@ When multiple accounts are using a domain, the accounts should be granted a basi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -135,7 +134,7 @@ You can use the `aws:PrincipalOrgID` condition key to grant access to an CodeArt
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -178,7 +177,7 @@ When you call `put-domains-permissions-policy`, CodeArtifact ignores the resourc
 
 Sample output:
 
-```
+```json
 {
     "policy": {
         "resourceArn": "arn:aws:codeartifact:{{region-id}}:{{111122223333}}:domain/{{my_domain}}",
@@ -207,7 +206,7 @@ Sample output:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

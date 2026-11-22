@@ -1,7 +1,6 @@
 
 
 # Consuming and publishing Swift packages
-<a name="swift-publish-consume"></a>
 
 ## Consuming Swift packages from CodeArtifact
 <a name="consume-swift-packages"></a>

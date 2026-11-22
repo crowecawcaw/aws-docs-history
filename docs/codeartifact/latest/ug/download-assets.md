@@ -1,7 +1,6 @@
 
 
 # Download package version assets
-<a name="download-assets"></a>
 
 An *asset* is an individual file (for example, an npm `.tgz` file or Maven POM or JAR file) stored in CodeArtifact that is associated with a package version. You can download package assets using the `get-package-version-assets command`. This allows you to retrieve assets without using a package manager client such as `npm` or `pip`. To download an asset you must provide the asset's name which can be obtained using the `list-package-version-assets` command, for more information see [List package version assets](list-assets.md). The asset will be downloaded to local storage with a file name that you specify.
 
@@ -18,7 +17,7 @@ aws codeartifact get-package-version-asset --domain {{my_domain}} --domain-owner
 
 The output of the command will be:
 
-```
+```json
 {
     "assetName": "guava-27.1-jre.jar",
     "packageVersion": "27.1-jre",

@@ -1,7 +1,6 @@
 
 
 # Delete a repository
-<a name="delete-repo"></a>
 
 You can delete a repository using the CodeArtifact console or the AWS CLI. After a repository has been deleted, you can no longer push packages to it or pull packages from it. All packages in the repository become permanently unavailable and cannot be restored. You can create a repository with the same name, but its contents will be empty.
 
@@ -33,7 +32,7 @@ aws codeartifact delete-repository --domain {{my_domain}} --domain-owner {{11112
 
 Example output:
 
-```
+```json
 {
     "repository": {
         "name": "{{my_repo}}",
@@ -58,7 +57,7 @@ You can prevent a repository from being accidentally deleted by including a doma
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -86,7 +85,7 @@ This policy prevents all principals from deleting the repository, but if you dec
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -116,7 +115,7 @@ This policy prevents all principals from deleting the repository, but if you dec
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

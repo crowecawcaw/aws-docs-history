@@ -1,7 +1,6 @@
 
 
 # View or modify a repository configuration
-<a name="config-repos"></a>
 
  You can view and update details about your repository using the CodeArtifact console or the AWS Command Line Interface (AWS CLI). 
 
@@ -52,7 +51,7 @@ aws codeartifact describe-repository --domain {{my_domain}} --domain-owner {{111
 
 Example output:
 
-```
+```json
 {
     "repository": {
         "name": "{{my_repo}}",
@@ -78,7 +77,7 @@ aws codeartifact update-repository --domain {{my_domain}} --domain-owner {{11112
 
 Example output:
 
-```
+```json
 {
     "repository": {
         "name": "{{my_repo}}",
@@ -107,7 +106,7 @@ aws codeartifact update-repository --domain {{my_domain}} --domain-owner {{11112
 
 Example output:
 
-```
+```json
 {
     "repository": {
         "name": "{{my_repo}}",

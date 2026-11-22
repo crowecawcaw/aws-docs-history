@@ -1,7 +1,6 @@
 
 
 # Configure and use twine with CodeArtifact
-<a name="python-configure-twine"></a>
 
 [twine](https://pypi.org/project/twine/) is a package publishing utility for Python packages. To use twine to publish Python packages to your CodeArtifact repository, you must first configure twine with your CodeArtifact repository information and credentials.
 
@@ -65,7 +64,7 @@ Before using twine to publish Python package assets, you must first configure Co
 
 After you configure twine, you can run `twine` commands. Use the following command to publish Python package assets.
 
-```
+```bash
 twine upload --repository codeartifact mypackage-1.0.tgz
 ```
 

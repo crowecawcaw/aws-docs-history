@@ -1,7 +1,6 @@
 
 
 # Using Python packages in CodeBuild
-<a name="using-python-packages-in-codebuild"></a>
 
 The following steps have been tested with the operating systems listed in the [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html).
 
@@ -19,7 +18,7 @@ These steps are required when using Python packages from CodeArtifact in CodeBui
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -66,7 +65,7 @@ It is only necessary to upgrade the AWS CLI with `pip3 install awscli --upgrade 
 
  To install Python packages using `pip`: 
 
-```
+```yaml
 pre_build:
   commands:
     - pip3 install awscli --upgrade --user
@@ -78,7 +77,7 @@ build:
 
  To publish Python packages using `twine`: 
 
-```
+```yaml
 pre_build:
   commands:
     - pip3 install awscli --upgrade --user
@@ -93,7 +92,7 @@ build:
 
  To install Python packages using `pip`: 
 
-```
+```yaml
 version: 0.2
 phases:
   install:
@@ -110,7 +109,7 @@ phases:
 
  To publish Python packages using `twine`: 
 
-```
+```yaml
 version: 0.2
 phases:
   install:

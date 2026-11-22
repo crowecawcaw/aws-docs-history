@@ -1,7 +1,6 @@
 
 
 # Requesting Python packages from upstreams and external connections
-<a name="python-upstream-external-connections-request"></a>
 
 When importing a Python package version from [pypi.org](https://pypi.org/), CodeArtifact will import all the assets in that package version. While most Python packages contain a small number of assets, some contain over 100 assets, typically to support multiple hardware architectures and Python interpreters.
 

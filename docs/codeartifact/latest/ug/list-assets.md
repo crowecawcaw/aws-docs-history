@@ -1,7 +1,6 @@
 
 
 # List package version assets
-<a name="list-assets"></a>
 
 An *asset* is an individual file (for example, an npm `.tgz` file or Maven POM or JAR file) stored in CodeArtifact that is associated with a package version. You can use the `list-package-version-assets` command to list the assets in each package version.
 
@@ -20,7 +19,7 @@ aws codeartifact list-package-version-assets --domain {{my_domain}} --domain-own
 
 The following shows the output.
 
-```
+```json
 {
     "format": "{{pypi}}",
     "package": "{{flatten-json}}",

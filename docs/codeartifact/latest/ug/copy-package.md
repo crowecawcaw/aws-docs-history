@@ -1,7 +1,6 @@
 
 
 # Copy packages between repositories
-<a name="copy-package"></a>
 
 You can copy package versions from one repository to another in CodeArtifact. This can be helpful for scenarios such as package promotion workflows or sharing package versions between teams or projects. The source and destination repositories must be in the same domain to copy package versions.
 
@@ -24,7 +23,7 @@ Calling `put-repository-permissions-policy` will replace the current repository 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -51,7 +50,7 @@ Calling `put-repository-permissions-policy` will replace the current repository 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

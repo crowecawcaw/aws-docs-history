@@ -1,7 +1,6 @@
 
 
 # Delete a domain
-<a name="delete-domain"></a>
 
 You can delete a domain using the CodeArtifact console or the AWS Command Line Interface (AWS CLI).
 

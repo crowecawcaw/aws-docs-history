@@ -1,7 +1,6 @@
 
 
 # Requesting packages from external connections
-<a name="external-connection-requesting-packages"></a>
 
 The following sections describe how to request a package from an external connection and expected CodeArtifact behavior when requesting a package.
 
@@ -42,7 +41,7 @@ The following instructions use `npm`, to view configuration and usage instructio
 
    Example output:
 
-   ```
+   ```json
    {
        "packages": [
            {
@@ -61,7 +60,7 @@ The following instructions use `npm`, to view configuration and usage instructio
 
    Example output:
 
-   ```
+   ```json
    {
        "defaultDisplayVersion: "1.2.5"
        "format": "{{npm}}",

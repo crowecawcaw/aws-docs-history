@@ -1,7 +1,6 @@
 
 
 # Install or upgrade and then configure the AWS CLI
-<a name="get-set-up-install-cli"></a>
 
  To call CodeArtifact commands from the AWS Command Line Interface (AWS CLI) on a local development machine, you must install the AWS CLI. 
 

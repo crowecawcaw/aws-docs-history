@@ -1,7 +1,6 @@
 
 
 # Use CodeArtifact with Gradle
-<a name="maven-gradle"></a>
 
 After you have the CodeArtifact auth token in an environment variable as described in [Pass an auth token using an environment variable](tokens-authentication.md#env-var), follow these instructions to consume Maven packages from, and publish new packages to, a CodeArtifact repository.
 
@@ -22,7 +21,7 @@ To fetch dependencies from CodeArtifact in a Gradle build, use the following pro
 
 1. Add a `maven` section to the `repositories` section in the project `build.gradle` file.
 
-   ```
+   ```json
    maven {
             url 'https://{{my_domain}}-{{111122223333}}.d.codeartifact.{{region}}.amazonaws.com/maven/{{my_repo}}/'
             credentials {
@@ -42,7 +41,7 @@ To fetch dependencies from CodeArtifact in a Gradle build, use the following pro
 
    The `get-repository-endpoint` command will return the repository endpoint:
 
-   ```
+   ```json
    url 'https://{{my_domain}}-{{111122223333}}.d.codeartifact.{{region}}.amazonaws.com/maven/{{my_repo}}/'
    ```
 
@@ -54,7 +53,7 @@ To use a dualstack endpoint, use the `codeartifact.{{region}}.on.aws` endpoint.
 
 1. After you configure the repository, you can add project dependencies to the `dependencies` section with standard Gradle syntax.
 
-   ```
+   ```json
    dependencies {
        implementation 'com.google.guava:guava:27.1-jre'
        implementation 'commons-cli:commons-cli:1.4'
@@ -97,7 +96,7 @@ This section describes how to publish a Java library built with Gradle to a Code
 
 First, add the `maven-publish` plugin to the `plugins` section of the project's `build.gradle` file.
 
-```
+```groovy
 plugins {
     id 'java-library'
     id 'maven-publish'
@@ -106,7 +105,7 @@ plugins {
 
 Next, add a `publishing` section to the project `build.gradle` file.
 
-```
+```groovy
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -145,7 +144,7 @@ aws codeartifact list-package-versions --domain {{my_domain}} --domain-owner {{1
 
 Sample output:
 
-```
+```json
 {
     "format": "{{maven}}",
     "namespace": "{{com.company.framework}}",

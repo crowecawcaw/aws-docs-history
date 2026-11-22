@@ -1,7 +1,6 @@
 
 
 # Maven troubleshooting
-<a name="maven-troubleshooting"></a>
 
 The following information might help you troubleshoot common issues with Maven and CodeArtifact.
 

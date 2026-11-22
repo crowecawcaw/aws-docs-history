@@ -1,7 +1,6 @@
 
 
 # Using CodeArtifact with Ruby
-<a name="using-ruby"></a>
 
 These topics describe how to use the RubyGems and Bundler tools with CodeArtifact to install and publish Ruby gems.
 

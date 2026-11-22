@@ -1,7 +1,6 @@
 
 
 # List package versions
-<a name="list-packages-versions"></a>
 
 Use the `list-package-versions` command in AWS CodeArtifact to get a list of all of the versions of a package name in a repository.
 
@@ -13,7 +12,7 @@ aws codeartifact list-package-versions --package {{kind-of}} \
 
 Sample output:
 
-```
+```json
 {
   "defaultDisplayVersion": "1.0.1",
   "format": "{{npm}}",

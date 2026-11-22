@@ -1,7 +1,6 @@
 
 
 # Configure and use pip with CodeArtifact
-<a name="python-configure-pip"></a>
 
 [pip](https://pypi.org/project/pip/) is the package installer for Python packages. To use pip to install Python packages from your CodeArtifact repository, you must first configure the pip client with your CodeArtifact repository information and credentials.
 
@@ -69,12 +68,12 @@ To run `pip` commands, you must configure `pip` with CodeArtifact. For more info
 
 Assuming that a package is present in your repository or one of its upstream repositories, you can install it with `pip install`. For example, use the following command to install the `requests` package.
 
-```
+```bash
 pip install requests
 ```
 
 Use the `-i` option to temporarily revert to installing packages from [https://pypi.org](https://pypi.org) instead of your CodeArtifact repository.
 
-```
+```bash
 pip install -i https://pypi.org/simple requests
 ```

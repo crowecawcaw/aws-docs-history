@@ -1,7 +1,6 @@
 
 
 # Python package name normalization
-<a name="python-name-normalization"></a>
 
 CodeArtifact normalizes package names before storing them, which means the package names in CodeArtifact may be different than the name provided when the package was published.
 

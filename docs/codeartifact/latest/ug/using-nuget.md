@@ -1,7 +1,6 @@
 
 
 # Using CodeArtifact with NuGet
-<a name="using-nuget"></a>
 
 These topics describe how to consume and publish `NuGet` packages using CodeArtifact.
 

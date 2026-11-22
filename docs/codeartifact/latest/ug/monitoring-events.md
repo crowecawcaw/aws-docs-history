@@ -1,7 +1,6 @@
 
 
 # Monitoring CodeArtifact events
-<a name="monitoring-events"></a>
 
  CodeArtifact is integrated with Amazon EventBridge, a service that automates and responds to events, including changes in a CodeArtifact repository. You can create rules for events and configure what happens when an event matches a rule. EventBridge was formerly called CloudWatch Events.
 
@@ -69,7 +68,7 @@ The following are event fields and descriptions along with an example of a CodeA
 
  The following is an example of a CodeArtifact event that might be triggered when an npm package is published. 
 
-```
+```json
 {
       "version":"0",
       "id":"73f03fec-a137-971e-6ac6-07c8ffffffff",

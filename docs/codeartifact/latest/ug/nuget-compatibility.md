@@ -1,7 +1,6 @@
 
 
 # NuGet compatibility
-<a name="nuget-compatibility"></a>
 
  This guide contains information about CodeArtifact's compatibility with different NuGet tools and versions. 
 

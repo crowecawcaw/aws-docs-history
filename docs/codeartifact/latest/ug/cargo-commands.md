@@ -1,7 +1,6 @@
 
 
 # Cargo command support
-<a name="cargo-commands"></a>
 
 The following sections summarize the Cargo commands that are supported by CodeArtifact repositories, in addition to specific commands that are not supported.
 

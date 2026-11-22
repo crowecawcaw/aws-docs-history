@@ -1,7 +1,6 @@
 
 
 # Swift troubleshooting
-<a name="swift-troubleshooting"></a>
 
 The following information might help you troubleshoot common issues with Swift and CodeArtifact.
 

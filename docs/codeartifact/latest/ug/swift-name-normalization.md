@@ -1,7 +1,6 @@
 
 
 # Swift package name and namespace normalization
-<a name="swift-name-normalization"></a>
 
 CodeArtifact normalizes package names and namespaces before storing them, which means the names in CodeArtifact may be different than the ones provided when the package was published.
 

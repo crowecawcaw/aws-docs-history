@@ -1,7 +1,6 @@
 
 
 # Getting started using the AWS CLI
-<a name="getting-started-cli"></a>
 
  Run the following steps to get started with CodeArtifact using the AWS Command Line Interface (AWS CLI). For more information, see [Install or upgrade and then configure the AWS CLI](get-set-up-install-cli.md). This guide uses the `npm` package manager, if you are using a different package manager, you will need to modify some of the following steps.
 

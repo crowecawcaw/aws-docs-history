@@ -1,7 +1,6 @@
 
 
 # List package names
-<a name="list-packages"></a>
 
 Use the `list-packages` command in CodeArtifact to get a list of all the package names in a repository. This command returns only the package names, not the versions.
 
@@ -11,7 +10,7 @@ aws codeartifact list-packages --domain {{my_domain}} --domain-owner {{111122223
 
 Sample output:
 
-```
+```json
 {
     "nextToken": "eyJidWNrZXRJZCI6I...",
     "packages": [
@@ -99,7 +98,7 @@ aws codeartifact list-packages --domain {{my_domain}} --domain-owner {{111122223
 
 Sample output:
 
-```
+```json
 {
     "nextToken": "eyJidWNrZXRJZ...",
     "packages": [
@@ -140,7 +139,7 @@ aws codeartifact list-packages --domain {{my_domain}} --domain-owner {{111122223
 
 Sample output:
 
-```
+```json
 {
     "nextToken": "eyJidWNrZXRJZ...",
     "packages": [
@@ -188,7 +187,7 @@ aws codeartifact list-packages --domain {{my_domain}} --domain-owner {{111122223
 
 Sample output:
 
-```
+```json
 {
     "nextToken": "eyJidWNrZXRJZ...",
     "packages": [
@@ -230,7 +229,7 @@ aws codeartifact list-packages --domain {{my_domain}} --domain-owner {{111122223
 
 Sample output:
 
-```
+```text
 accepts
 array-flatten
 body-parser

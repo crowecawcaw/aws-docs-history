@@ -1,7 +1,6 @@
 
 
 # Use CodeArtifact with deps.edn
-<a name="maven-deps"></a>
 
 You use `deps.edn` with `clj` to manage dependencies for Clojure projects. This section shows how to configure `deps.edn` to use a CodeArtifact repository.
 
@@ -18,7 +17,7 @@ To configure `Clojure` to fetch dependencies from a CodeArtifact repository, you
 **Note**  
 Clojure expects the settings.xml file to be located at `~/.m2/settings.xml`. If elsewhere, create the file in this location.
 
-   ```
+   ```xml
    <settings>
    ...
        <servers>

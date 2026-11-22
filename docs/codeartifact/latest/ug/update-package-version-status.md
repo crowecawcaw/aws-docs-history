@@ -1,7 +1,6 @@
 
 
 # Update package version status
-<a name="update-package-version-status"></a>
 
 Every package version in CodeArtifact has a status that describes the current state and availability of the package version. You can change the package version status using both the AWS CLI and the console.
 

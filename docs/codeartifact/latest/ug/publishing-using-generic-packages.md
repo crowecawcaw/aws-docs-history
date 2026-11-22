@@ -1,7 +1,6 @@
 
 
 # Publishing and consuming generic packages
-<a name="publishing-using-generic-packages"></a>
 
 To publish a generic package version and its related assets, use the `publish-package-version` command. You can list a generic package's assets using the `list-package-version-asset` command and download them using `get-package-version-asset`. The following topic contains step-by-step instructions to publish generic packages or download generic package assets using these commands.
 

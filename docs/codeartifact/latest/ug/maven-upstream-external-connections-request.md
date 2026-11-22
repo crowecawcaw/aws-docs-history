@@ -1,7 +1,6 @@
 
 
 # Requesting Maven packages from upstreams and external connections
-<a name="maven-upstream-external-connections-request"></a>
 
 
 

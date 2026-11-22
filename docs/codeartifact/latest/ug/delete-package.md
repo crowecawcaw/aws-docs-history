@@ -1,7 +1,6 @@
 
 
 # Delete a package or package version
-<a name="delete-package"></a>
 
 You can delete one or more package versions at a time using the `delete-package-versions` command. To remove a package from a repository completely, including all associated versions and configuration, use the `delete-package` command. A package can exist in a repository without any package versions. This can happen when all versions are deleted using the `delete-package-versions` command, or if the package was created without any versions using the `put-package-origin-configuration` API operation (see [Editing package origin controls](package-origin-controls.md)).
 

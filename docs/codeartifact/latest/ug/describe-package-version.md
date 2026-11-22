@@ -1,7 +1,6 @@
 
 
 # View and update package version details and dependencies
-<a name="describe-package-version"></a>
 
 You can view information about a package version, including dependencies, in CodeArtifact. You can also update the status of a package version. For more information on package version status, see [Package version status](packages-overview.md#package-version-status). 
 

@@ -1,7 +1,6 @@
 
 
 # Getting started using the console
-<a name="getting-started-console"></a>
 
  Run the following steps to get started with CodeArtifact using the AWS Management Console. This guide uses the `npm` package manager, if you are using a different package manager, you will need to modify some of the following steps.
 

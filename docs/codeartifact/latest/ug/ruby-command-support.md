@@ -1,7 +1,6 @@
 
 
 # RubyGems command support
-<a name="ruby-command-support"></a>
 
 CodeArtifact supports the `gem install` and `gem push` commands.
 

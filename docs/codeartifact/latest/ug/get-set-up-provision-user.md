@@ -1,7 +1,6 @@
 
 
 # Provision an IAM user
-<a name="get-set-up-provision-user"></a>
 
 Follow these instructions to prepare an IAM user to use CodeArtifact.
 
@@ -20,7 +19,7 @@ This policy grants access to all CodeArtifact APIs. We recommend that you always
 
 ****  
 
-     ```
+     ```json
      {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

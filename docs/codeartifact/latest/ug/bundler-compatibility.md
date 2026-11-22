@@ -1,7 +1,6 @@
 
 
 # Bundler compatibility
-<a name="bundler-compatibility"></a>
 
  This guide contains information about CodeArtifact's compatibility with Bundler. 
 

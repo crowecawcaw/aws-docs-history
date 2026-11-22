@@ -1,7 +1,6 @@
 
 
 # Using CodeArtifact with npm
-<a name="using-npm"></a>
 
 These topics describe how to use npm, the Node.js package manager, with CodeArtifact.
 

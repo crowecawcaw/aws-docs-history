@@ -1,7 +1,6 @@
 
 
 # API behavior with upstream repositories
-<a name="upstream-repo-api-behavior"></a>
 
  When you call certain CodeArtifact APIs on repositories that are connected to upstream repositories, the behavior may be different depending on if the packages or package versions are stored in the target repository or the upstream repository. The behavior of these APIs is documented here. 
 
@@ -22,7 +21,7 @@ To demonstrate this behavior, we have two repositories: `target-repo` and `upstr
 
 When calling the `DescribePackageVersion` API on `upstream-repo`, which contains the `lodash` package, we get the following output:
 
-```
+```json
 {
     "packageVersion": {
         "format": "npm",

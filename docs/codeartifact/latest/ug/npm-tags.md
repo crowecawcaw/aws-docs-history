@@ -1,7 +1,6 @@
 
 
 # npm tag handling
-<a name="npm-tags"></a>
 
  npm registries support *tags*, which are string aliases for package versions. You can use tags to provide an alias instead of version numbers. For example, you might have a project with multiple streams of development and use a different tag (for example, `stable`, `beta`, `dev`, `canary`) for each stream. For more information, see [dist-tag](https://docs.npmjs.com/cli/dist-tag) on the npm website. 
 
@@ -75,6 +74,6 @@ When version 1.0.2 is published to R, npm updates the *latest* tag to 1.0.2.
 
 However, the npm client never sees this tag value because the value of *latest* in U is 1.0.1. Running `npm install` against repository R immediately after publishing 1.0.2 installs 1.0.1 instead of the version that was just published. To install the most recently published version, you must specify the exact package version, as follows.
 
-```
+```bash
 npm install web-helper@1.0.2
 ```

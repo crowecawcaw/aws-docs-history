@@ -1,7 +1,6 @@
 
 
 # Editing package origin controls
-<a name="package-origin-controls"></a>
 
 In AWS CodeArtifact, package versions can be added to a repository by directly publishing them, pulling them down from an upstream repository, or ingesting them from an external, public repository. Allowing package versions of a package to be added both by direct publishing and ingesting from public repositories makes you vulnerable to a dependency substitution attack. For more information, see [Dependency substitution attacks](dependency-substitution-attacks.md). To protect yourself against a dependency substitution attack, you can configure package origin controls on a package in a repository to limit how versions of that package can be added to the repository.
 
