@@ -1,7 +1,6 @@
 
 
 # Monitoring an Amplify application with Amazon CloudWatch
-<a name="monitoring-with-cloudwatch"></a>
 
 AWS Amplify is integrated with Amazon CloudWatch, enabling you to monitor metrics for your Amplify applications in near real-time, and create alarms that send notifications when a metric exceeds a threshold you set. For more information about how the CloudWatch service works, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html).
 

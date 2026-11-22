@@ -1,11 +1,10 @@
 
 
 # Custom header YAML reference
-<a name="custom-header-YAML-format"></a>
 
 Specify custom headers using the following YAML format:
 
-```
+```yaml
 customHeaders:
   - pattern: {{'*.json'}}
     headers:
@@ -21,7 +20,7 @@ customHeaders:
 
 For a monorepo, use the following YAML format:
 
-```
+```yaml
 applications:
   - appRoot: {{app1}}
     customHeaders:

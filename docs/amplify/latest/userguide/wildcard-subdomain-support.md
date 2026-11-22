@@ -1,7 +1,6 @@
 
 
 # Setting up wildcard subdomains
-<a name="wildcard-subdomain-support"></a>
 
 Amplify Hosting now supports wildcard subdomains. A wildcard subdomain is a catch-all subdomain that enables you to point existing and non-existing subdomains to a specific branch of your application. When you use a wildcard to associate all subdomains in an app to a specific branch, you can serve the same content to your app's users in any subdomain and avoid configuring each subdomain individually.
 

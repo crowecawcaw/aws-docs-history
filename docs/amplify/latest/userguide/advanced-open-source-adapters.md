@@ -1,7 +1,6 @@
 
 
 # Advanced: Open source adapters
-<a name="advanced-open-source-adapters"></a>
 
 Framework authors can use the file system based deployment specification to develop open source build adapters customized for their specific frameworks. These adapters will transform an app's build output into a deployment bundle that conforms to Amplify Hosting’s expected directory structure. This deployment bundle will include all the necessary files and assets to host an app, including runtime configuration, such as routing rules.
 

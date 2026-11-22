@@ -1,7 +1,6 @@
 
 
 # Troubleshooting caching
-<a name="troubleshooting-caching"></a>
 
 If you encounter caching issues for an Amplify application, consult the topics in this section for help.
 

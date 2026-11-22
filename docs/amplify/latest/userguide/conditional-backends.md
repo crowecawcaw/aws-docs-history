@@ -1,7 +1,6 @@
 
 
 # Conditional backend builds (Gen 1 apps only)
-<a name="conditional-backends"></a>
 
 **Note**  
 The information in this section is for Gen 1 apps only. Amplify Gen 2 introduces a TypeScript-based, code-first developer experience. Therefore, this feature isn't necessary for Gen 2 backends.

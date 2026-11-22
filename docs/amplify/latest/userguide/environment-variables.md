@@ -1,7 +1,6 @@
 
 
 # Using environment variables in an Amplify application
-<a name="environment-variables"></a>
 
 Environment variables are key-value pairs that you can add to your application's settings to make them available to Amplify Hosting. As a best practice, you can use environment variables to expose application configuration data. All environment variables that you add are encrypted to prevent rogue access.
 

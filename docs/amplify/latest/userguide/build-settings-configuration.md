@@ -1,7 +1,6 @@
 
 
 # Managing the build configuration for an Amplify application
-<a name="build-settings-configuration"></a>
 
 You can customize the build settings and configuration for your Amplify deployments. When you deploy an application, Amplify automatically detects the frontend framework and the associated build settings. You can customize the build settings in the application's build specification (buildspec) to add environment variables, run build commands, and specify build dependencies.
 

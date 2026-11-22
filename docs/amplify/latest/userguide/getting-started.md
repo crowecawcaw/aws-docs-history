@@ -1,7 +1,6 @@
 
 
 # Getting started with deploying an app to Amplify Hosting
-<a name="getting-started"></a>
 
 To help you understand how Amplify Hosting works, the following tutorials walk you through building and deploying applications created using common SSR frameworks that Amplify supports.
 

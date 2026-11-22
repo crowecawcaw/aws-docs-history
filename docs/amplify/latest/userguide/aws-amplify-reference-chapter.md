@@ -1,7 +1,6 @@
 
 
 # AWS Amplify Hosting reference
-<a name="aws-amplify-reference-chapter"></a>
 
 Use the topics in this section to find detailed reference material for AWS Amplify.
 

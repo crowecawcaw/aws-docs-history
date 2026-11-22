@@ -1,7 +1,6 @@
 
 
 # Web previews for pull requests
-<a name="pr-previews"></a>
 
 Web previews offer development and quality assurance (QA) teams a way to preview changes from pull requests (PRs) before merging code to a production or integration branch. Pull requests let you tell others about changes you’ve pushed to a branch in a repository. After a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.
 

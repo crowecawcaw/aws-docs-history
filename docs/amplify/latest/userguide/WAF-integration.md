@@ -1,7 +1,6 @@
 
 
 # Firewall support for Amplify hosted sites
-<a name="WAF-integration"></a>
 
 Firewall support for Amplify hosted sites enables you to protect your web applications with a direct integration with AWS WAF. AWS WAF allows you to configure a set of rules, called a web access control list (web ACL), that allow, block, or monitor (count) web requests based on customizable web security rules and conditions that you define. When you integrate your Amplify app with AWS WAF, you gain more control and visibility into the HTTP traffic accepted by your app. To learn more about AWS WAF, see [How AWS WAF Works](https://docs.aws.amazon.com/waf/latest/developerguide/how-aws-waf-works.html) in the *AWS WAF Developer Guide*. 
 

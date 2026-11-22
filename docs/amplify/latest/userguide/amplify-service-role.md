@@ -1,7 +1,6 @@
 
 
 # Adding a service role with permissions to deploy backend resources
-<a name="amplify-service-role"></a>
 
 Amplify requires permissions to deploy backend resources with your front end. You use a service role to accomplish this. A service role is the AWS Identity and Access Management (IAM) role that provides Amplify Hosting with permissions to deploy, create, and manage backends on your behalf.
 

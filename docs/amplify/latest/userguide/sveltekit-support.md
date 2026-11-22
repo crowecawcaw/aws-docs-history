@@ -1,7 +1,6 @@
 
 
 # Amplify support for SvelteKit
-<a name="sveltekit-support"></a>
 
 SvelteKit is a framework for creating full stack web applications with Svelte.
 
@@ -14,4 +13,4 @@ To learn how to deploy a SvelteKit app to Amplify, see [Deploy a SvelteKit app t
 **Demo**  
 For a video demonstration, see *How to deploy a SvelteKit website (with API) to AWS* on the Amazon Web Services YouTube channel.  
 
-
+[![AWS Videos](https://img.youtube.com/vi/zXs3FPH-_GM/0.jpg)](https://www.youtube.com/watch?v=zXs3FPH-_GM)

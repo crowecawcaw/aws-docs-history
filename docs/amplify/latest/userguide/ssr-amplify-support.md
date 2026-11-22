@@ -1,7 +1,6 @@
 
 
 # Amplify support for Next.js
-<a name="ssr-amplify-support"></a>
 
 Amplify supports deployment and hosting for server-side rendered (SSR) web apps created using Next.js. Next.js is a React framework for developing SPAs with JavaScript. You can deploy apps built with Next.js versions up through Next.js 15, with features such as image optimization and middleware.
 

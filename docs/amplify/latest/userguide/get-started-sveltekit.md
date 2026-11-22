@@ -1,7 +1,6 @@
 
 
 # Deploy a SvelteKit app to Amplify Hosting
-<a name="get-started-sveltekit"></a>
 
 Use the following instructions to deploy a SvelteKit application to Amplify Hosting. You can use your own application, or create a starter app. For more information, see [Creating a project](https://kit.svelte.dev/docs/creating-a-project) in the *SvelteKit documentation*.
 

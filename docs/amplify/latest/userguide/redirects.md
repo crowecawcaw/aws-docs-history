@@ -1,7 +1,6 @@
 
 
 # Setting up redirects and rewrites for an Amplify application
-<a name="redirects"></a>
 
 Redirects enable a web server to reroute navigation from one URL to another. Common reasons for using redirects include to customize the appearance of a URL, to avoid broken links, to move the hosting location of an app or site without changing its address, and to change a requested URL to the form needed by a web app.
 

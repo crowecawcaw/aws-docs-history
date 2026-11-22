@@ -1,7 +1,6 @@
 
 
 # Enabling AWS WAF for an Amplify application in the AWS Management Console
-<a name="getting-started-using-waf"></a>
 
 You can enable AWS WAF protections for an Amplify app either in the Amplify console or in the AWS WAF console.
 +  **Amplify console** — You can enable the Firewall capabilities for an existing Amplify app by associating an AWS WAF web ACL to your app in the Amplify console. Use one-click protection to create a web ACL with pre-configured rules that we consider as best practice for most apps. You have the option to customize access by IP address and country. The instructions in this section describe setting up one-click protections.

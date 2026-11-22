@@ -1,7 +1,6 @@
 
 
 # Setting environment variables
-<a name="setting-env-vars"></a>
 
 Use the following instructions to set environment variables for an application in the Amplify console.
 

@@ -1,7 +1,6 @@
 
 
 # Build specification reference
-<a name="yml-specification-syntax"></a>
 
 The build specification (buildspec) for an Amplify application is a collection of YAML settings and build commands that Amplify uses to run your build. The following list describes these settings and how they are used.
 
@@ -47,7 +46,7 @@ Amplify considers all provided cache paths to be relative to your project root. 
 
 The following example of a build specification demonstrates the basic YAML syntax.
 
-```
+```yaml
 version: 1
 env:
   variables:

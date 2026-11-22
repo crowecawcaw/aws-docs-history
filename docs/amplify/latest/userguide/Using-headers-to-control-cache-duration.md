@@ -1,7 +1,6 @@
 
 
 # Using the Cache-Control header to increase app performance
-<a name="Using-headers-to-control-cache-duration"></a>
 
 Amplify's default hosting architecture optimizes the balance between hosting performance and deployment availability. For most customers, we recommend that you use the default architecture.
 

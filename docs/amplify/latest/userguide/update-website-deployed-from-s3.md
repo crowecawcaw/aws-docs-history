@@ -1,7 +1,6 @@
 
 
 # Updating a static website deployed to Amplify from an S3 bucket
-<a name="update-website-deployed-from-s3"></a>
 
 If you update any of the objects for a static website in general purpose S3  bucket hosted on Amplify, you must redeploy the application to Amplify Hosting to cause the changes to take effect. Amplify Hosting doesn't automatically detect changes to the S3 bucket. We recommend that you use the AWS Command Line Interface (CLI) to update your website.
 

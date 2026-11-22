@@ -1,7 +1,6 @@
 
 
 # Compliance Validation for AWS Amplify
-<a name="Amplify-compliance"></a>
 
 Third-party auditors assess the security and compliance of AWS Amplify as part of multiple AWS compliance programs. These include SOC, PCI, ISO, HIPAA, MTCS, C5, K-ISMS, ENS High, OSPAR, HITRUST CSF, and FINMA.
 

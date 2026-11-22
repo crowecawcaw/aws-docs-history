@@ -1,7 +1,6 @@
 
 
 # Customizing the build image
-<a name="custom-build-image"></a>
 
 You can use a custom build image to provide a customized build environment for an Amplify app. If you have specific dependencies that take a long time to install during a build using Amplify's default container, you can create your own Docker image and reference it during a build. Images can be hosted on Amazon Elastic Container Registry Public.
 

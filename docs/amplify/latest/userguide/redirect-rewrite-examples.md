@@ -1,7 +1,6 @@
 
 
 # Redirects and rewrites example reference
-<a name="redirect-rewrite-examples"></a>
 
 This section provides examples for a variety of common redirect scenarios. 
 

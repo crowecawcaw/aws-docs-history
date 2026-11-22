@@ -1,7 +1,6 @@
 
 
 # Configuring the build instance for an Amplify application
-<a name="custom-build-instance"></a>
 
 Amplify Hosting offers configurable build instance sizes that enable you to provide your application's build instance with the CPU, memory, and disk space resources that it requires. Prior to the release of this feature, Amplify provided a fixed size build instance configuration of 8 GiB of memory and 4 vCPUs.
 
@@ -133,7 +132,7 @@ To work around the Node.js default heap size memory limits, you can do one of th
 
   The following example Amplify build specification sets a Node.js heap memory size to 7000 MB for building a React frontend application:
 
-  ```
+  ```yaml
   version: 1
   frontend:
     phases:

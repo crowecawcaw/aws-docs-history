@@ -1,7 +1,6 @@
 
 
 # Configuring monorepo build settings
-<a name="monorepo-configuration"></a>
 
 When you store multiple projects or microservices in a single repository, it is called a monorepo. You can use Amplify Hosting to deploy applications in a monorepo without creating multiple build configurations or branch configurations.
 
@@ -24,7 +23,7 @@ The `buildpath` attribute is set to `/` to run and build the app from the monore
 ### Monorepo build specification YAML syntax
 <a name="monorepo-build-yaml-syntax"></a>
 
-```
+```yaml
 version: 1
 applications:
   - appRoot: apps/react-app
@@ -247,7 +246,7 @@ Pnpm is not included in the Amplify default build container. For pnpm workspace 
 
 The following example excerpt from a build specification shows a `preBuild` phase with a command to install pnpm.
 
-```
+```yaml
 version: 1
 applications:
   - frontend:

@@ -1,7 +1,6 @@
 
 
 # Disassociate a web ACL from an Amplify application
-<a name="disassociate-web-acl"></a>
 
 You can't delete a web ACL that is associated with an Amplify app. You must first disassociate the web ACL from the app in the Amplify console. Then you can delete it in the AWS WAF console.
 

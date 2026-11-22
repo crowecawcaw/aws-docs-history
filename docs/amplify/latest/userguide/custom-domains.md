@@ -1,7 +1,6 @@
 
 
 # Connecting a custom domain
-<a name="custom-domains"></a>
 
 You can connect an app that you’ve deployed with Amplify Hosting to a custom domain. When you use Amplify to deploy your web app, Amplify hosts it for you on the default `amplifyapp.com` domain with a URL such as `https://branch-name.d1m7bkiki6tdw1.amplifyapp.com`. When you connect your app to a custom domain, users see that your app is hosted on a custom URL, such as `https://www.example.com`.
 

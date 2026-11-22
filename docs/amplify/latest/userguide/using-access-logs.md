@@ -1,7 +1,6 @@
 
 
 # Retrieving and analyzing access logs for an Amplify application
-<a name="using-access-logs"></a>
 
 Amplify stores access logs for all of the apps you host in Amplify. Access logs contain information about requests that are made to your hosted apps. Amplify retains all access logs for an app until you delete the app. All access logs for an app are available in the Amplify console. However, each individual request for access logs is limited to a two week time period that you specify.
 

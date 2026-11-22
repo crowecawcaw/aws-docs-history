@@ -1,7 +1,6 @@
 
 
 # Updating DNS records for a domain managed by GoDaddy
-<a name="to-add-a-custom-domain-managed-by-godaddy"></a>
 
 If GoDaddy is your DNS provider, use the following instructions to update your DNS records in the GoDaddy UI to finish connecting your Amplify app to your GoDaddy domain.
 

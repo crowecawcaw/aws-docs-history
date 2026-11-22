@@ -1,7 +1,6 @@
 
 
 # Using the Deploy to Amplify button to share a GitHub project
-<a name="one-click"></a>
 
 **Important**  
 One-click deployment using the **Deploy to Amplify Hosting** button is no longer available. To deploy from a repository, create a new application in Amplify Hosting. For instructions, see [Getting started with deploying an app to Amplify Hosting](getting-started.md).
@@ -22,13 +21,13 @@ Add the button to your GitHub README.md file, blog post, or any other markup pag
 
 Use the following example to add the button to a markdown file, such as your GitHub README.md. Replace `https://github.com/username/repository` with the URL to your repository.
 
-```
+```md
 [![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo={{https://github.com/username/repository}})
 ```
 
 Use the following example to add the button to any HTML document. Replace `https://github.com/username/repository` with the URL to your repository.
 
-```
+```html
 <a href="https://console.aws.amazon.com/amplify/home#/deploy?repo={{https://github.com/username/repository"}}>
     <img src="https://oneclick.amplifyapp.com/button.svg" alt="Deploy to Amplify Hosting">
 </a>

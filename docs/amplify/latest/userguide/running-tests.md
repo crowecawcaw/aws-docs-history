@@ -1,7 +1,6 @@
 
 
 # Setting up end-to-end Cypress tests for your Amplify application
-<a name="running-tests"></a>
 
 You can run end-to-end (E2E) tests in the test phase of your Amplify app to catch regressions before pushing code to production. The test phase can be configured in the build specification YAML. Currently, you can run only the Cypress testing framework during a build.
 
@@ -23,7 +22,7 @@ Run cypress commands to perform tests using mochawesome.
 **postTest**  
 The mochawesome report is generated from the output JSON. Note that if you are using Yarn, you must run this command in silent mode to generate the mochawesome report. For Yarn, you can use the following command.  
 
-```
+```yml
 yarn run --silent mochawesome-merge cypress/report/mochawesome-report/mochawesome*.json > cypress/report/mochawesome.json
 ```
 
@@ -38,7 +37,7 @@ The generated artifacts (screenshots and videos) available for download.
 
 The following example excerpt from a build specification `amplify.yml` file shows how to add Cypress tests to your app.
 
-```
+```yaml
 test:
   phases:
     preTest:

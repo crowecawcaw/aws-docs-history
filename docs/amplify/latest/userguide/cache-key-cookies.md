@@ -1,7 +1,6 @@
 
 
 # Managing cache key cookies
-<a name="cache-key-cookies"></a>
 
 When you deploy your app to Amplify, you can choose whether you want to include or exclude cookies in the cache key. In the Amplify console, this setting is specified on the **Custom headers and cache** page using the **Cache key settings** toggle. For instructions, see [Including or excluding cookies from the cache key](#set-cache-key-cookies).
 

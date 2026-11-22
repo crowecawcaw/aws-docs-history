@@ -1,7 +1,6 @@
 
 
 # Deploying an Express server using the deployment manifest
-<a name="deploy-express-server"></a>
 
 This example explains how to deploy a basic Express server using the Amplify Hosting deployment specification. You can leverage the provided deployment manifest to specify routing, compute resources, and other configurations.
 

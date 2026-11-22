@@ -1,7 +1,6 @@
 
 
 # Updating DNS records for a domain managed by Cloudflare
-<a name="to-add-a-custom-domain-managed-by-cloudflare"></a>
 
 If Cloudflare is your DNS provider, use the following instructions to update your DNS records in the Cloudflare dashboard to finish connecting your Amplify app to your Cloudflare domain. Cloudflare can also act as a reverse proxy to provide caching, security, and performance features. Because Amplify verifies your DNS records before it issues an SSL/TLS certificate, you must first add your records using Cloudflare's **DNS only** mode. After Amplify verifies your domain, you can optionally enable the Cloudflare proxy for your domain records.
 

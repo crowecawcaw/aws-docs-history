@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon Linux 2023 build image issues
-<a name="troubleshooting-AL2023"></a>
 
 The following information can help you troubleshoot issues with the Amazon Linux 2023 (AL2023) build image.
 
@@ -18,7 +17,7 @@ For backwards compatibility with the Amazon Linux 2 image, the AL2023 build imag
 
 By default, Python version 3.10 is used globally. To build your functions using a specific Python version, run the following commands in your application's build specification file.
 
-```
+```yaml
 version: 1
 backend:
   phases:

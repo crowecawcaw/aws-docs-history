@@ -1,7 +1,6 @@
 
 
 # Making environment variables accessible to server-side runtimes
-<a name="ssr-environment-variables"></a>
 
 Amplify Hosting supports adding environment variables to your application's builds by setting them in the project's configuration in the Amplify console.
 
@@ -15,7 +14,7 @@ To give your SSR compute function access to AWS resources, we recommend [using I
 
 The following build specification example demonstrates how to add environment variables in the build commands section.
 
-```
+```yaml
 version: 1
 frontend:
   phases:
@@ -41,7 +40,7 @@ In this example, the build commands section includes two commands that write env
 
 The following line from the build commands section in the preceding example demonstrates how to take a specific variable from the build environment and add it to the `.env.production` file.
 
-```
+```yaml
 - env | grep -e API_BASE_URL -e APP_ENV >> .env.production
 ```
 
@@ -54,7 +53,7 @@ APP_ENV=dev
 
 The following line from the build commands section in the preceding example demonstrates how to add an environment variable with a specific prefix to the `.env.production` file. In this example, all variables with the prefix `NEXT_PUBLIC_` are added.
 
-```
+```yaml
 - env | grep -e NEXT_PUBLIC_ >> .env.production
 ```
 
@@ -71,7 +70,7 @@ NEXT_PUBLIC_FEATURE_FLAG=true
 
 If you are deploying an SSR app in a monorepo and want to make specific environment variables accessible to Next.js, you must prefix the `.env.production` file with your application root. The following example build specification for a Next.js app within a Nx monorepo demonstrates how to add environment variables in the build commands section.
 
-```
+```yaml
 version: 1
 applications:
   - frontend:
@@ -97,7 +96,7 @@ applications:
 
 The following lines from the build commands section in the preceding example demonstrate how to take specific variables from the build environment and add them to the `.env.production` file for an app in a monorepo with the application root `apps/app`.
 
-```
+```yaml
 - env | grep -e API_BASE_URL -e APP_ENV >> apps/app/.env.production
 - env | grep -e NEXT_PUBLIC_ >> apps/app/.env.production
 ```

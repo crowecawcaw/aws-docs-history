@@ -1,7 +1,6 @@
 
 
 # Adding a custom domain managed by Amazon Route 53
-<a name="to-add-a-custom-domain-managed-by-amazon-route-53"></a>
 
 Amazon Route 53 is a highly available and scalable DNS service. For more information, see [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.html) in the *Amazon Route 53 Developer Guide*. If you already have a Route 53 domain, use the following instructions to connect your custom domain to your Amplify app.
 

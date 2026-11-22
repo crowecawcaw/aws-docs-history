@@ -1,7 +1,6 @@
 
 
 # How skew protection works
-<a name="skew-protection-headers"></a>
 
 In most cases, the default behavior of the \_dpl cookie will serve your skew protection needs. However, in the following advanced scenarios, skew protection is better enabled using the `X-Amplify-Dpl` header and `dpl` query parameter.
 + Loading your website in multiple browser tabs at the same time
@@ -22,7 +21,7 @@ Amplify evaluates the incoming request in the following order when determining t
 
 The following example demonstrates the code for a Next.js SSR page that accesses skew protection through the `X-Amplify-Dpl` header. The page renders its content based on one of its api routes. The deployment to serve to the api route is specified by using the `X-Amplify-Dpl` header, that is set to the value of `process.env.AWS_AMPLIFY_DEPLOYMENT_ID`.
 
-```
+```javascript
 import { useEffect, useState } from 'react';
 
 export default function MyPage({deploymentId}) {

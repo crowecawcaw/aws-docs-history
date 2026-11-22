@@ -1,13 +1,12 @@
 
 
 # Using the Amplify Hosting deployment specification to configure build output
-<a name="ssr-deployment-specification"></a>
 
 The Amplify Hosting deployment specification is a file system based specification that defines the directory structure that facilitates deployments to Amplify Hosting. A framework can generate this expected directory structure as the output of its build command, enabling the framework to take advantage of Amplify Hosting’s service primitives. Amplify Hosting understands the structure of the deployment bundle and deploys it accordingly.
 
 For a video demonstration that explains how to use the deployment specification, see *How to host any website using AWS Amplify* on the Amazon Web Services YouTube channel.
 
-
+[![AWS Videos](https://img.youtube.com/vi/iOlIrU3bhSE/0.jpg)](https://www.youtube.com/watch?v=iOlIrU3bhSE)
 
 
 The following is an example of the folder structure that Amplify expects for the deployment bundle. At a high level, it has a folder named `static`, a folder named `compute` and a deployment manifest file named `deploy-manifest.json`.

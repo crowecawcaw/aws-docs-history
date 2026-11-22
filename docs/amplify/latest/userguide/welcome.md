@@ -1,7 +1,6 @@
 
 
 # Welcome to AWS Amplify Hosting
-<a name="welcome"></a>
 
  Amplify Hosting provides a Git-based workflow for hosting full-stack serverless web applications with continuous deployment. Amplify deploys your app to the AWS global content delivery network (CDN). This user guide provides the information you need to get started with Amplify Hosting.
 

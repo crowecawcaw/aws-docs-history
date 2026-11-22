@@ -1,7 +1,6 @@
 
 
 # Deploy a Nuxt.js app to Amplify Hosting
-<a name="get-started-nuxt"></a>
 
 Use the following instructions to deploy a Nuxt.js application to Amplify Hosting. Nuxt has implemented a preset adapter using the Nitro server. This enables you to deploy a Nuxt project without any additional configuration.
 

@@ -1,7 +1,6 @@
 
 
 # Amplify support for Nuxt.js
-<a name="nuxt-support"></a>
 
 Nuxt is a framework for creating full stack web applications with Vue.js.
 

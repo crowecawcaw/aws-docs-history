@@ -1,7 +1,6 @@
 
 
 # Setting custom headers for an Amplify app
-<a name="custom-headers"></a>
 
 Custom HTTP headers enable you to specify headers for every HTTP response. Response headers can be used for debugging, security, and informational purposes. You can specify headers in the Amplify console, or by downloading and editing an app's `customHttp.yml` file and saving it in the project's root directory. For detailed procedures, see [Setting custom headers](setting-custom-headers.md).
 

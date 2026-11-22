@@ -1,7 +1,6 @@
 
 
 # Skew protection for Amplify deployments
-<a name="skew-protection"></a>
 
 Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to an Amplify application, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. 
 

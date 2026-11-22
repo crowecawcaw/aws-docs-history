@@ -1,7 +1,6 @@
 
 
 # Automatic build-time generation of Amplify config (Gen 1 apps only)
-<a name="amplify-config-autogeneration"></a>
 
 **Note**  
 The information in this section is for Gen 1 apps only. If you want to automatically deploy infrastructure and application code changes from feature branches for a Gen 2 app, see [Fullstack branch deployments](https://docs.amplify.aws/nextjs/deploy-and-host/fullstack-branching/branch-deployments/) in the *Amplify docs*

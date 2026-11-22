@@ -1,7 +1,6 @@
 
 
 # Migrating custom headers out of the build specification and amplify.yml
-<a name="migrate-custom-headers"></a>
 
 Previously, custom HTTP headers were specified for an app either by editing the build specification in the Amplify console or by downloading and updating the `amplify.yml` file and saving it in the project 's root directory. It is strongly recommended that you migrate your custom headers out of the build specification and the `amplify.yml` file.
 

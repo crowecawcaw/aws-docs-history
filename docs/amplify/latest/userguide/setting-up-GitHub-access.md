@@ -1,7 +1,6 @@
 
 
 # Setting up Amplify access to GitHub repositories
-<a name="setting-up-GitHub-access"></a>
 
 Amplify now uses the GitHub Apps feature to authorize Amplify read-only access to GitHub repositories. With the Amplify GitHub App, permissions are more fine-tuned, enabling you to grant Amplify access to only the repositories that you specify. To learn more about GitHub Apps, see [About GitHub Apps](https://docs.github.com/en/developers/apps/getting-started-with-apps/about-apps#about-github-apps) on the GitHub website.
 

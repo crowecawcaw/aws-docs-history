@@ -1,7 +1,6 @@
 
 
 # Amplify Hosting service quotas
-<a name="quotas-chapter"></a>
 
 The following are the service quotas for AWS Amplify Hosting. Service quotas (previously referred to as *limits*) are the maximum number of service resources or operations for your AWS account.
 

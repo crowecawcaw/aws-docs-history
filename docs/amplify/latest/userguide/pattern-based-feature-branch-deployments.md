@@ -1,7 +1,6 @@
 
 
 # Pattern-based feature branch deployments
-<a name="pattern-based-feature-branch-deployments"></a>
 
 Pattern-based branch deployments allow you to automatically deploy branches that match a specific pattern to Amplify. Product teams using feature branch or GitFlow workflows for their releases, can now define patterns such as **release\*\*** to automatically deploy Git branches that begin with ‘release’ to a shareable URL.
 

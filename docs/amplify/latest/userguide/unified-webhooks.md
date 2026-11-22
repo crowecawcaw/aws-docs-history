@@ -1,7 +1,6 @@
 
 
 # Unified webhooks for Git repositories
-<a name="unified-webhooks"></a>
 
 Amplify Hosting uses webhooks to automatically initiate a build after a new commit to your Git repository. The unified webhooks feature improves Amplify's integrations with Git providers and enables you to connect more Amplify applications to a single repository. With unified webhooks, Amplify now uses a single webhook per Region for all associated applications in your repository. For example, if your repository is connected to applications in both the US East (N. Virginia) and US West (Oregon) Regions, you will have two unified webhooks.
 

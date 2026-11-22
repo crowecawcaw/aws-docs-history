@@ -1,7 +1,6 @@
 
 
 # How Amplify integrates with AWS WAF
-<a name="amplify-waf-configuration"></a>
 
 The following list provides specific details about how Firewall support is integrated with AWS WAF and the constraints to consider when creating web ACLs and associating them with Amplify apps.
 + You can enable AWS WAF for any type of Amplify app. This includes any supported framework, server-side rendered (SSR) apps, and fully static sites. AWS WAF is supported for Amplify Gen 1 and Gen 2 apps.

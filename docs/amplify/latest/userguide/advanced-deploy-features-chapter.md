@@ -1,7 +1,6 @@
 
 
 # Advanced deployment features
-<a name="advanced-deploy-features-chapter"></a>
 
 This chapter covers advanced deployment features that enhance your Amplify Hosting workflow. These features provide additional controls and capabilities to help teams manage deployments more effectively, ensure code quality, and maintain security throughout the development lifecycle.
 

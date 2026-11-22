@@ -1,7 +1,6 @@
 
 
 # Feature branch deployments and team workflows
-<a name="multi-environments"></a>
 
 Amplify Hosting is designed to work with feature branch and GitFlow workflows. Amplify uses Git branches to create a new deployment each time you connect a new branch in your repository. After you connect your first branch, you create additional feature branches.
 

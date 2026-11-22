@@ -1,7 +1,6 @@
 
 
 # SSR supported features
-<a name="ssr-supported-features"></a>
 
 This section provides information about Amplify's support for SSR features.
 
@@ -194,7 +193,7 @@ If you experience unexpected issues when deploying a Classic (Next.js 11 only) S
 
 The output directory for a Next.js app deployed with Amplify must be set to `.next`. If your app's output directory is being overridden, check the `next.config.js` file. To have the build output directory default to `.next`, remove the following line from the file:
 
-```
+```js
 distDir: 'build'
 ```
 
@@ -202,7 +201,7 @@ Verify that the output directory is set to `.next` in your build settings. For i
 
 The following is an example of the build settings for an app where `baseDirectory` is set to `.next`.
 
-```
+```yaml
 version: 1
 frontend:
   phases:
@@ -243,7 +242,7 @@ Amplify limits the size of an SSR deployment to 50 MB. If you try to deploy a Ne
 
 The following is an example of code in the `next.config.js` file that performs cache cleanup.
 
-```
+```json
 module.exports = {
     webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
         config.optimization.splitChunks.cacheGroups = { }

@@ -1,7 +1,6 @@
 
 
 # Using IAM roles with Amplify applications
-<a name="add-IAM-roles"></a>
 
 An IAM role is an IAM identity with specific permissions. The role's permissions determine what the identity can and cannot do in AWS. You can create IAM roles in your AWS account and use them to delegate permissions to Amplify Hosting. To learn more about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide*.
 

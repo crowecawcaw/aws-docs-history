@@ -1,7 +1,6 @@
 
 
 # Troubleshooting general Amplify issues
-<a name="troubleshooting-general"></a>
 
 The following information can help you troubleshoot general issues with Amplify Hosting.
 

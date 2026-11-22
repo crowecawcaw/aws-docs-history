@@ -1,7 +1,6 @@
 
 
 # Updating the SSL/TLS certificate for a domain
-<a name="to-update-certificate"></a>
 
 You can change the SSL/TLS certificate that is in use for a domain at any time. For example, you can change from using a managed certificate to using a custom certificate. This is helpful if you want to manage the certificate and its expiration notifications. You can also change the custom certificate that is in use for the domain. Making changes to the SSL certificate won't incur any downtime for your active domain. For more information about certificates, see [Using SSL/TLS certificates](using-certificates.md).
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting server-side rendered applications
-<a name="troubleshooting-SSR"></a>
 
 If you experience unexpected issues when deploying an SSR app with Amplify Hosting compute, review the following troubleshooting topics. If you don't see a solution to your issue here, see the [SSR web compute troubleshooting guide](https://github.com/aws-amplify/amplify-hosting/blob/main/FAQ.md#ssr-web-compute) in the Amplify Hosting GitHub Issues repository.
 
@@ -49,7 +48,7 @@ Use the following instructions to download an app's build output and inspect the
 
 1. In the terminal output, locate the presigned artifacts URL in the `job`, `steps`, `stepName: "BUILD"` section. The URL is highlighted in red in the following example output.
 
-   ```
+   ```bash
    "job": {
        "summary": {
            "jobArn": "arn:aws:amplify:us-west-2:111122223333:apps/abcd1234/main/jobs/0000000002",
@@ -79,7 +78,7 @@ Use the following instructions to download an app's build output and inspect the
 
    The following is an example of the output with size information for the `compute` and `static` directories.
 
-   ```
+   ```bash
     29M    compute
    3.8M    static
     33M    total
@@ -96,7 +95,7 @@ Use the following instructions to download an app's build output and inspect the
 
    The following is an example of the build commands section of an `amplify.yml` file with these commands added *after* running a production build.
 
-   ```
+   ```yaml
    frontend:
      phases:
        build:

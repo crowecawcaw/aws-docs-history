@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amplify Hosting
-<a name="troubleshooting"></a>
 
 If you encounter errors or deployment issues when working with Amplify Hosting, consult the topics in this section.
 
