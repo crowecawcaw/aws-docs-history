@@ -1,7 +1,6 @@
 
 
 # GetDatasetIntegration
-<a name="API_GetDatasetIntegration"></a>
 
 Returns the dataset integration for the caller's account in the current region.
 

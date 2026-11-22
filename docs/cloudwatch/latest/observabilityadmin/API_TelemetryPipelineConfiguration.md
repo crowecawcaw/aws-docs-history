@@ -1,7 +1,6 @@
 
 
 # TelemetryPipelineConfiguration
-<a name="API_TelemetryPipelineConfiguration"></a>
 
 Defines the configuration for a pipeline, including how data flows from sources through processors to destinations. The configuration is specified in YAML format and must include a valid pipeline definition with required source and sink components. This pipeline enables end-to-end telemetry data collection, transformation, and delivery while supporting optional processing steps and extensions for enhanced functionality.
 

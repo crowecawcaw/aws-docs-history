@@ -1,7 +1,6 @@
 
 
 # TelemetryPipelineSummary
-<a name="API_TelemetryPipelineSummary"></a>
 
 Contains summary information about a telemetry pipeline for listing operations.
 

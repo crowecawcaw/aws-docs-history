@@ -1,7 +1,6 @@
 
 
 # StopTelemetryEvaluation
-<a name="API_StopTelemetryEvaluation"></a>
 
  This action begins offboarding the caller AWS account from the telemetry config feature. 
 

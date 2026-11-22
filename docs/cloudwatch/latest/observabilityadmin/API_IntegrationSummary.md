@@ -1,7 +1,6 @@
 
 
 # IntegrationSummary
-<a name="API_IntegrationSummary"></a>
 
 Contains summary information about an S3 Table integration for listing operations.
 

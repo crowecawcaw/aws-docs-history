@@ -1,7 +1,6 @@
 
 
 # UpdateTelemetryPipeline
-<a name="API_UpdateTelemetryPipeline"></a>
 
 Updates the configuration of an existing telemetry pipeline.
 

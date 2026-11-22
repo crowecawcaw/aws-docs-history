@@ -1,7 +1,6 @@
 
 
 # VPCFlowLogParameters
-<a name="API_VPCFlowLogParameters"></a>
 
  Configuration parameters specific to VPC Flow Logs. 
 

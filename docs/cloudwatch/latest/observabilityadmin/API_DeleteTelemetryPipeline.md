@@ -1,7 +1,6 @@
 
 
 # DeleteTelemetryPipeline
-<a name="API_DeleteTelemetryPipeline"></a>
 
 Deletes a telemetry pipeline and its associated resources. This operation stops data processing and removes the pipeline configuration.
 

@@ -1,7 +1,6 @@
 
 
 # DeleteTelemetryRuleForOrganization
-<a name="API_DeleteTelemetryRuleForOrganization"></a>
 
  Deletes an organization-wide telemetry rule. This operation can only be called by the organization's management account or a delegated administrator account. 
 

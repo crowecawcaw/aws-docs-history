@@ -1,7 +1,6 @@
 
 
 # DeleteS3TableIntegration
-<a name="API_DeleteS3TableIntegration"></a>
 
 Deletes an S3 Table integration and its associated data. This operation removes the connection between CloudWatch Observability Admin and S3 Tables.
 

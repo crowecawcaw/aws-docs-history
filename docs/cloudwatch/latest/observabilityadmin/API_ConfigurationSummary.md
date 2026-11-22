@@ -1,7 +1,6 @@
 
 
 # ConfigurationSummary
-<a name="API_ConfigurationSummary"></a>
 
 Provides a summary of pipeline configuration components including sources, processors, and destinations.
 

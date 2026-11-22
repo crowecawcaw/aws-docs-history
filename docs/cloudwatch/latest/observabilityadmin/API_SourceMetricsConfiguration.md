@@ -1,7 +1,6 @@
 
 
 # SourceMetricsConfiguration
-<a name="API_SourceMetricsConfiguration"></a>
 
 Configuration for selecting source metrics for centralization.
 

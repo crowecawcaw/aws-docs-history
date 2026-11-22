@@ -1,7 +1,6 @@
 
 
 # PipelineOutputError
-<a name="API_PipelineOutputError"></a>
 
 Contains detailed error information from pipeline test operations, providing structured error responses for better debugging and troubleshooting capabilities.
 

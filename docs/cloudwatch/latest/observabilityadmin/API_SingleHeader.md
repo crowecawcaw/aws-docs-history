@@ -1,7 +1,6 @@
 
 
 # SingleHeader
-<a name="API_SingleHeader"></a>
 
  Structure containing a name field limited to 64 characters for header or query parameter identification. 
 

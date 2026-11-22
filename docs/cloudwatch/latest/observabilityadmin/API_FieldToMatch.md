@@ -1,7 +1,6 @@
 
 
 # FieldToMatch
-<a name="API_FieldToMatch"></a>
 
  Specifies a field in the request to redact from WAF logs, such as headers, query parameters, or body content. 
 

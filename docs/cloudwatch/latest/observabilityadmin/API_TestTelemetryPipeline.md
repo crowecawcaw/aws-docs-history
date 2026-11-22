@@ -1,7 +1,6 @@
 
 
 # TestTelemetryPipeline
-<a name="API_TestTelemetryPipeline"></a>
 
 Tests a pipeline configuration with sample records to validate data processing before deployment. This operation helps ensure your pipeline configuration works as expected. 
 

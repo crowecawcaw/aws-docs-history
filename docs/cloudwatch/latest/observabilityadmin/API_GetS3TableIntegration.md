@@ -1,7 +1,6 @@
 
 
 # GetS3TableIntegration
-<a name="API_GetS3TableIntegration"></a>
 
 Retrieves information about a specific S3 Table integration, including its configuration, status, and metadata.
 

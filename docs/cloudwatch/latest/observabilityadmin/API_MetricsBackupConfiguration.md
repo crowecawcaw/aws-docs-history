@@ -1,7 +1,6 @@
 
 
 # MetricsBackupConfiguration
-<a name="API_MetricsBackupConfiguration"></a>
 
 Configuration for backing up centralized metrics data to a secondary region.
 

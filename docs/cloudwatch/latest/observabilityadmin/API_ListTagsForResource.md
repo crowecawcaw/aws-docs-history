@@ -1,9 +1,8 @@
 
 
 # ListTagsForResource
-<a name="API_ListTagsForResource"></a>
 
- Lists all tags attached to the specified resource. Supports telemetry rule resources and telemetry pipeline resources. 
+ Lists all tags attached to the specified resource. Supports telemetry rule resources, telemetry pipeline resources, and third-party telemetry enrichment resources. 
 
 ## Request Syntax
 <a name="API_ListTagsForResource_RequestSyntax"></a>

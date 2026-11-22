@@ -1,7 +1,6 @@
 
 
 # WAFLoggingParameters
-<a name="API_WAFLoggingParameters"></a>
 
  Configuration parameters for WAF logging, including redacted fields and logging filters. 
 

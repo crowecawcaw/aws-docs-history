@@ -1,7 +1,6 @@
 
 
 # AdvancedFieldSelector
-<a name="API_AdvancedFieldSelector"></a>
 
  Defines criteria for selecting resources based on field values. 
 

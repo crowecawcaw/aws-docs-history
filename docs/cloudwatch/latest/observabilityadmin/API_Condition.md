@@ -1,7 +1,6 @@
 
 
 # Condition
-<a name="API_Condition"></a>
 
  A single condition that can match based on WAF rule action or label name. 
 

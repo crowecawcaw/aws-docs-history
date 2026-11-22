@@ -1,7 +1,6 @@
 
 
 # TelemetryPipeline
-<a name="API_TelemetryPipeline"></a>
 
 Represents a complete telemetry pipeline resource with configuration, status, and metadata for data processing and transformation.
 
@@ -20,8 +19,18 @@ The configuration that defines how the telemetry pipeline processes data.
 Type: [TelemetryPipelineConfiguration](API_TelemetryPipelineConfiguration.md) object  
 Required: No
 
+ ** ConfigurationSummary **   <a name="cwoa-Type-TelemetryPipeline-ConfigurationSummary"></a>
+A summary of the pipeline configuration components.  
+Type: [ConfigurationSummary](API_ConfigurationSummary.md) object  
+Required: No
+
  ** CreatedTimeStamp **   <a name="cwoa-Type-TelemetryPipeline-CreatedTimeStamp"></a>
 The timestamp when the telemetry pipeline was created.  
+Type: Long  
+Required: No
+
+ ** LastRefreshTimeStamp **   <a name="cwoa-Type-TelemetryPipeline-LastRefreshTimeStamp"></a>
+The timestamp when the most recent refresh of the telemetry pipeline started. This field is only present for external-cloud pipelines that you have refreshed.  
 Type: Long  
 Required: No
 
@@ -35,6 +44,11 @@ The name of the telemetry pipeline.
 Type: String  
 Length Constraints: Minimum length of 3. Maximum length of 28.  
 Pattern: `.*[a-z][a-z0-9\-]+.*`   
+Required: No
+
+ ** SourceProgress **   <a name="cwoa-Type-TelemetryPipeline-SourceProgress"></a>
+The progress of source activation for the telemetry pipeline. This field is only present for external-cloud pipelines.  
+Type: [SourceProgress](API_SourceProgress.md) object  
 Required: No
 
  ** Status **   <a name="cwoa-Type-TelemetryPipeline-Status"></a>

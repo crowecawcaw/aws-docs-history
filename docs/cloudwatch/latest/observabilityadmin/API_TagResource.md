@@ -1,9 +1,8 @@
 
 
 # TagResource
-<a name="API_TagResource"></a>
 
- Adds or updates tags for a resource. Supports telemetry rule resources and telemetry pipeline resources. 
+ Adds or updates tags for a resource. Supports telemetry rule resources, telemetry pipeline resources, and third-party telemetry enrichment resources. 
 
 ## Request Syntax
 <a name="API_TagResource_RequestSyntax"></a>

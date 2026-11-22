@@ -1,7 +1,6 @@
 
 
 # LogsBackupConfiguration
-<a name="API_LogsBackupConfiguration"></a>
 
 Configuration for backing up centralized log data to a secondary region.
 

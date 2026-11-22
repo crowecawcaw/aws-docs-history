@@ -1,7 +1,6 @@
 
 
 # TelemetryPipelineStatusReason
-<a name="API_TelemetryPipelineStatusReason"></a>
 
 Provides detailed information about the status of a telemetry pipeline, including reasons for specific states.
 

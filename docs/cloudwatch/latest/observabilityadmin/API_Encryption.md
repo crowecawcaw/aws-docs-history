@@ -1,7 +1,6 @@
 
 
 # Encryption
-<a name="API_Encryption"></a>
 
 Defines the encryption configuration for S3 Table integrations, including the encryption algorithm and KMS key settings.
 

@@ -1,7 +1,6 @@
 
 
 # GetTelemetryRule
-<a name="API_GetTelemetryRule"></a>
 
  Retrieves the details of a specific telemetry rule in your account. 
 

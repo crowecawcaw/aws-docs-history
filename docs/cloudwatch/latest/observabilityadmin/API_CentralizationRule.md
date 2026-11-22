@@ -1,7 +1,6 @@
 
 
 # CentralizationRule
-<a name="API_CentralizationRule"></a>
 
 Defines how telemetry data should be centralized across an AWS Organization, including source and destination configurations.
 

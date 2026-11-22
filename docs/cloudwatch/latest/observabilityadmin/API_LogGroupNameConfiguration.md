@@ -1,7 +1,6 @@
 
 
 # LogGroupNameConfiguration
-<a name="API_LogGroupNameConfiguration"></a>
 
 Configuration that specifies a naming pattern for destination log groups created during centralization. The pattern supports static text and dynamic variables that are replaced with source attributes when log groups are created.
 

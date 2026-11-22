@@ -1,7 +1,6 @@
 
 
 # TelemetryConfiguration
-<a name="API_TelemetryConfiguration"></a>
 
  A model representing the state of a resource within an account according to telemetry config. 
 
@@ -33,13 +32,13 @@ Required: No
  ** ResourceType **   <a name="cwoa-Type-TelemetryConfiguration-ResourceType"></a>
  The type of resource, for example ` AWS::EC2::Instance`, or ` AWS::EKS::Cluster`, etc.   
 Type: String  
-Valid Values: `AWS::EC2::Instance | AWS::EC2::VPC | AWS::Lambda::Function | AWS::CloudTrail | AWS::EKS::Cluster | AWS::WAFv2::WebACL | AWS::ElasticLoadBalancingV2::LoadBalancer | AWS::Route53Resolver::ResolverEndpoint | AWS::BedrockAgentCore::Runtime | AWS::BedrockAgentCore::Browser | AWS::BedrockAgentCore::CodeInterpreter | AWS::BedrockAgentCore::Gateway | AWS::BedrockAgentCore::Memory | AWS::BedrockAgentCore::WorkloadIdentity | AWS::SecurityHub::Hub | AWS::CloudFront::Distribution | AWS::SecurityHub::HubV2 | AWS::CloudWatch::OTelEnrichment | AWS::MSK::Cluster | AWS::S3::Bucket | AWS::Bedrock::KnowledgeBase`   
+Valid Values: `AWS::EC2::Instance | AWS::EC2::VPC | AWS::Lambda::Function | AWS::CloudTrail | AWS::EKS::Cluster | AWS::WAFv2::WebACL | AWS::ElasticLoadBalancingV2::LoadBalancer | AWS::Route53Resolver::ResolverEndpoint | AWS::BedrockAgentCore::Runtime | AWS::BedrockAgentCore::Browser | AWS::BedrockAgentCore::CodeInterpreter | AWS::BedrockAgentCore::Gateway | AWS::BedrockAgentCore::Memory | AWS::BedrockAgentCore::WorkloadIdentity | AWS::BedrockAgentCore::PaymentManager | AWS::SecurityHub::Hub | AWS::CloudFront::Distribution | AWS::SecurityHub::HubV2 | AWS::CloudWatch::OTelEnrichment | AWS::MSK::Cluster | AWS::S3::Bucket | AWS::Bedrock::KnowledgeBase | AWS::XRay::TransactionSearchConfig`   
 Required: No
 
  ** TelemetryConfigurationState **   <a name="cwoa-Type-TelemetryConfiguration-TelemetryConfigurationState"></a>
- The configuration state for the resource, for example `{ Logs: NotApplicable; Metrics: Enabled; Traces: NotApplicable; }`.   
+ The configuration state for the resource, for example `{ Logs: NotApplicable; Metrics: Enabled; Traces: NotApplicable; Insights: NotApplicable; }`.   
 Type: String to string map  
-Valid Keys: `Logs | Metrics | Traces`   
+Valid Keys: `Logs | Metrics | Traces | Insights`   
 Valid Values: `Enabled | Disabled | NotApplicable`   
 Required: No
 

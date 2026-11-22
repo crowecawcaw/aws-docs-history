@@ -1,9 +1,8 @@
 
 
 # LogDeliveryParameters
-<a name="API_LogDeliveryParameters"></a>
 
-The configuration parameters for log delivery, including `logType` settings. Applies to resource types that support configurable log delivery, such as Amazon Bedrock Knowledge Bases and Elastic Load Balancing Application Load Balancers.
+The configuration parameters for log delivery, including `logType` settings. Applies to resource types that support configurable log delivery, such as Amazon Bedrock Knowledge Bases, Amazon Bedrock AgentCore payment managers, and Elastic Load Balancing Application Load Balancers.
 
 ## Contents
 <a name="API_LogDeliveryParameters_Contents"></a>

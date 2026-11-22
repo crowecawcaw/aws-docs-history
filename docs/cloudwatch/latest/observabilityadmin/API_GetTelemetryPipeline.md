@@ -1,7 +1,6 @@
 
 
 # GetTelemetryPipeline
-<a name="API_GetTelemetryPipeline"></a>
 
 Retrieves information about a specific telemetry pipeline, including its configuration, status, and metadata.
 
@@ -46,9 +45,30 @@ Content-type: application/json
       "Configuration": { 
          "Body": "string"
       },
+      "ConfigurationSummary": { 
+         "DataSources": [ 
+            { 
+               "Name": "string",
+               "Type": "string"
+            }
+         ],
+         "ProcessorCount": number,
+         "Processors": [ "string" ],
+         "Sinks": [ "string" ],
+         "Sources": [ 
+            { 
+               "Type": "string"
+            }
+         ]
+      },
       "CreatedTimeStamp": number,
+      "LastRefreshTimeStamp": number,
       "LastUpdateTimeStamp": number,
       "Name": "string",
+      "SourceProgress": { 
+         "Active": number,
+         "Total": number
+      },
       "Status": "string",
       "StatusReason": { 
          "Description": "string"

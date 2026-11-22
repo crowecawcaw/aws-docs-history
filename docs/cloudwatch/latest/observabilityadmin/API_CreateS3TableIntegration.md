@@ -1,7 +1,6 @@
 
 
 # CreateS3TableIntegration
-<a name="API_CreateS3TableIntegration"></a>
 
 Creates an integration between CloudWatch and S3 Tables for analytics. This integration enables querying CloudWatch telemetry data using analytics engines like Amazon Athena, Amazon Redshift, and Apache Spark.
 

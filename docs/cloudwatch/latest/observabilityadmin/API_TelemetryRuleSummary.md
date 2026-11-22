@@ -1,7 +1,6 @@
 
 
 # TelemetryRuleSummary
-<a name="API_TelemetryRuleSummary"></a>
 
  A summary of a telemetry rule's key properties. 
 
@@ -21,7 +20,7 @@ Required: No
  ** ResourceType **   <a name="cwoa-Type-TelemetryRuleSummary-ResourceType"></a>
  The type of AWS resource the rule applies to.   
 Type: String  
-Valid Values: `AWS::EC2::Instance | AWS::EC2::VPC | AWS::Lambda::Function | AWS::CloudTrail | AWS::EKS::Cluster | AWS::WAFv2::WebACL | AWS::ElasticLoadBalancingV2::LoadBalancer | AWS::Route53Resolver::ResolverEndpoint | AWS::BedrockAgentCore::Runtime | AWS::BedrockAgentCore::Browser | AWS::BedrockAgentCore::CodeInterpreter | AWS::BedrockAgentCore::Gateway | AWS::BedrockAgentCore::Memory | AWS::BedrockAgentCore::WorkloadIdentity | AWS::SecurityHub::Hub | AWS::CloudFront::Distribution | AWS::SecurityHub::HubV2 | AWS::CloudWatch::OTelEnrichment | AWS::MSK::Cluster | AWS::S3::Bucket | AWS::Bedrock::KnowledgeBase`   
+Valid Values: `AWS::EC2::Instance | AWS::EC2::VPC | AWS::Lambda::Function | AWS::CloudTrail | AWS::EKS::Cluster | AWS::WAFv2::WebACL | AWS::ElasticLoadBalancingV2::LoadBalancer | AWS::Route53Resolver::ResolverEndpoint | AWS::BedrockAgentCore::Runtime | AWS::BedrockAgentCore::Browser | AWS::BedrockAgentCore::CodeInterpreter | AWS::BedrockAgentCore::Gateway | AWS::BedrockAgentCore::Memory | AWS::BedrockAgentCore::WorkloadIdentity | AWS::BedrockAgentCore::PaymentManager | AWS::SecurityHub::Hub | AWS::CloudFront::Distribution | AWS::SecurityHub::HubV2 | AWS::CloudWatch::OTelEnrichment | AWS::MSK::Cluster | AWS::S3::Bucket | AWS::Bedrock::KnowledgeBase | AWS::XRay::TransactionSearchConfig`   
 Required: No
 
  ** RuleArn **   <a name="cwoa-Type-TelemetryRuleSummary-RuleArn"></a>
@@ -45,9 +44,9 @@ Valid Values: `VPC_FLOW_LOGS | ROUTE53_RESOLVER_QUERY_LOGS | EKS_AUDIT_LOGS | EK
 Required: No
 
  ** TelemetryType **   <a name="cwoa-Type-TelemetryRuleSummary-TelemetryType"></a>
- The type of telemetry (Logs, Metrics, or Traces) the rule configures.   
+ The type of telemetry (Logs, Metrics, Traces, or Insights) the rule configures.   
 Type: String  
-Valid Values: `Logs | Metrics | Traces`   
+Valid Values: `Logs | Metrics | Traces | Insights`   
 Required: No
 
 ## See Also

@@ -1,7 +1,6 @@
 
 
 # ListResourceTelemetryForOrganization
-<a name="API_ListResourceTelemetryForOrganization"></a>
 
  Returns a list of telemetry configurations for AWS resources supported by telemetry config in the organization. 
 
@@ -82,13 +81,13 @@ Required: No
 +  `AWS::ElasticLoadBalancingV2::LoadBalancer` (Network Load Balancers only)
 Type: Array of strings  
 Array Members: Minimum number of 1 item. Maximum number of 9 items.  
-Valid Values: `AWS::EC2::Instance | AWS::EC2::VPC | AWS::Lambda::Function | AWS::CloudTrail | AWS::EKS::Cluster | AWS::WAFv2::WebACL | AWS::ElasticLoadBalancingV2::LoadBalancer | AWS::Route53Resolver::ResolverEndpoint | AWS::BedrockAgentCore::Runtime | AWS::BedrockAgentCore::Browser | AWS::BedrockAgentCore::CodeInterpreter | AWS::BedrockAgentCore::Gateway | AWS::BedrockAgentCore::Memory | AWS::BedrockAgentCore::WorkloadIdentity | AWS::SecurityHub::Hub | AWS::CloudFront::Distribution | AWS::SecurityHub::HubV2 | AWS::CloudWatch::OTelEnrichment | AWS::MSK::Cluster | AWS::S3::Bucket | AWS::Bedrock::KnowledgeBase`   
+Valid Values: `AWS::EC2::Instance | AWS::EC2::VPC | AWS::Lambda::Function | AWS::CloudTrail | AWS::EKS::Cluster | AWS::WAFv2::WebACL | AWS::ElasticLoadBalancingV2::LoadBalancer | AWS::Route53Resolver::ResolverEndpoint | AWS::BedrockAgentCore::Runtime | AWS::BedrockAgentCore::Browser | AWS::BedrockAgentCore::CodeInterpreter | AWS::BedrockAgentCore::Gateway | AWS::BedrockAgentCore::Memory | AWS::BedrockAgentCore::WorkloadIdentity | AWS::BedrockAgentCore::PaymentManager | AWS::SecurityHub::Hub | AWS::CloudFront::Distribution | AWS::SecurityHub::HubV2 | AWS::CloudWatch::OTelEnrichment | AWS::MSK::Cluster | AWS::S3::Bucket | AWS::Bedrock::KnowledgeBase | AWS::XRay::TransactionSearchConfig`   
 Required: No
 
  ** [TelemetryConfigurationState](#API_ListResourceTelemetryForOrganization_RequestSyntax) **   <a name="cwoa-ListResourceTelemetryForOrganization-request-TelemetryConfigurationState"></a>
  A key-value pair to filter resources in the organization based on the telemetry type and the state of the telemetry configuration. The key is the telemetry type and the value is the state.   
 Type: String to string map  
-Valid Keys: `Logs | Metrics | Traces`   
+Valid Keys: `Logs | Metrics | Traces | Insights`   
 Valid Values: `Enabled | Disabled | NotApplicable`   
 Required: No
 

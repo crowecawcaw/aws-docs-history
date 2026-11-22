@@ -1,7 +1,6 @@
 
 
 # GetTelemetryEnrichmentStatus
-<a name="API_GetTelemetryEnrichmentStatus"></a>
 
  Returns the current status of the resource tags for telemetry feature, which enhances telemetry data with additional resource metadata from AWS Resource Explorer. 
 

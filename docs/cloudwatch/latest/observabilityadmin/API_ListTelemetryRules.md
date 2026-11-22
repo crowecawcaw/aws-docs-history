@@ -1,7 +1,6 @@
 
 
 # ListTelemetryRules
-<a name="API_ListTelemetryRules"></a>
 
  Lists all telemetry rules in your account. You can filter the results by specifying a rule name prefix. 
 

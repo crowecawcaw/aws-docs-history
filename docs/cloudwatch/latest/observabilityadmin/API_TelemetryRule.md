@@ -1,7 +1,6 @@
 
 
 # TelemetryRule
-<a name="API_TelemetryRule"></a>
 
  Defines how telemetry should be configured for specific AWS resources. 
 
@@ -9,9 +8,9 @@
 <a name="API_TelemetryRule_Contents"></a>
 
  ** TelemetryType **   <a name="cwoa-Type-TelemetryRule-TelemetryType"></a>
- The type of telemetry to collect (Logs, Metrics, or Traces).   
+ The type of telemetry to collect (Logs, Metrics, Traces, or Insights).   
 Type: String  
-Valid Values: `Logs | Metrics | Traces`   
+Valid Values: `Logs | Metrics | Traces | Insights`   
 Required: Yes
 
  ** AllowFieldUpdates **   <a name="cwoa-Type-TelemetryRule-AllowFieldUpdates"></a>
@@ -37,9 +36,9 @@ Length Constraints: Minimum length of 1.
 Required: No
 
  ** ResourceType **   <a name="cwoa-Type-TelemetryRule-ResourceType"></a>
- The type of AWS resource to configure telemetry for (for example, `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::ElasticLoadBalancingV2::LoadBalancer`, or `AWS::Bedrock::KnowledgeBase`).   
+ The type of AWS resource to configure telemetry for (for example, `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::ElasticLoadBalancingV2::LoadBalancer`, `AWS::Bedrock::KnowledgeBase`, `AWS::BedrockAgentCore::PaymentManager`, or `AWS::XRay::TransactionSearchConfig`).   
 Type: String  
-Valid Values: `AWS::EC2::Instance | AWS::EC2::VPC | AWS::Lambda::Function | AWS::CloudTrail | AWS::EKS::Cluster | AWS::WAFv2::WebACL | AWS::ElasticLoadBalancingV2::LoadBalancer | AWS::Route53Resolver::ResolverEndpoint | AWS::BedrockAgentCore::Runtime | AWS::BedrockAgentCore::Browser | AWS::BedrockAgentCore::CodeInterpreter | AWS::BedrockAgentCore::Gateway | AWS::BedrockAgentCore::Memory | AWS::BedrockAgentCore::WorkloadIdentity | AWS::SecurityHub::Hub | AWS::CloudFront::Distribution | AWS::SecurityHub::HubV2 | AWS::CloudWatch::OTelEnrichment | AWS::MSK::Cluster | AWS::S3::Bucket | AWS::Bedrock::KnowledgeBase`   
+Valid Values: `AWS::EC2::Instance | AWS::EC2::VPC | AWS::Lambda::Function | AWS::CloudTrail | AWS::EKS::Cluster | AWS::WAFv2::WebACL | AWS::ElasticLoadBalancingV2::LoadBalancer | AWS::Route53Resolver::ResolverEndpoint | AWS::BedrockAgentCore::Runtime | AWS::BedrockAgentCore::Browser | AWS::BedrockAgentCore::CodeInterpreter | AWS::BedrockAgentCore::Gateway | AWS::BedrockAgentCore::Memory | AWS::BedrockAgentCore::WorkloadIdentity | AWS::BedrockAgentCore::PaymentManager | AWS::SecurityHub::Hub | AWS::CloudFront::Distribution | AWS::SecurityHub::HubV2 | AWS::CloudWatch::OTelEnrichment | AWS::MSK::Cluster | AWS::S3::Bucket | AWS::Bedrock::KnowledgeBase | AWS::XRay::TransactionSearchConfig`   
 Required: No
 
  ** Scope **   <a name="cwoa-Type-TelemetryRule-Scope"></a>

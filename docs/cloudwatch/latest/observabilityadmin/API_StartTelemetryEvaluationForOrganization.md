@@ -1,7 +1,6 @@
 
 
 # StartTelemetryEvaluationForOrganization
-<a name="API_StartTelemetryEvaluationForOrganization"></a>
 
  This actions begins onboarding the organization and all member accounts to the telemetry config feature. 
 

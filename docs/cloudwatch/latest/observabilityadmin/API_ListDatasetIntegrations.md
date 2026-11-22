@@ -1,7 +1,6 @@
 
 
 # ListDatasetIntegrations
-<a name="API_ListDatasetIntegrations"></a>
 
 Returns the dataset integrations in your account.
 

@@ -1,7 +1,6 @@
 
 
 # AdvancedEventSelector
-<a name="API_AdvancedEventSelector"></a>
 
 Advanced event selectors let you create fine-grained selectors for management, data, and network activity events.
 

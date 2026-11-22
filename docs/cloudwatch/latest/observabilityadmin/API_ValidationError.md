@@ -1,7 +1,6 @@
 
 
 # ValidationError
-<a name="API_ValidationError"></a>
 
 Represents a detailed validation error with message, reason, and field mapping for comprehensive error reporting.
 

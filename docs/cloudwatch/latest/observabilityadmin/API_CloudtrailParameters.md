@@ -1,7 +1,6 @@
 
 
 # CloudtrailParameters
-<a name="API_CloudtrailParameters"></a>
 
  Parameters specific to AWS CloudTrail telemetry configuration. 
 

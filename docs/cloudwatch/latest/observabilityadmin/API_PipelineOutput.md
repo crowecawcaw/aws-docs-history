@@ -1,7 +1,6 @@
 
 
 # PipelineOutput
-<a name="API_PipelineOutput"></a>
 
 Contains the output from pipeline test operations, including processed records and any errors encountered.
 

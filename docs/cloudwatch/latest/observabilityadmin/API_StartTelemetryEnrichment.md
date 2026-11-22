@@ -1,7 +1,6 @@
 
 
 # StartTelemetryEnrichment
-<a name="API_StartTelemetryEnrichment"></a>
 
  Enables the resource tags for telemetry feature for your account, which enhances telemetry data with additional resource metadata from AWS Resource Explorer to provide richer context for monitoring and observability. 
 

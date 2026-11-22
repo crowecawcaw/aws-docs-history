@@ -1,7 +1,6 @@
 
 
 # MskMonitoringParameters
-<a name="API_MskMonitoringParameters"></a>
 
  Configuration parameters for Amazon MSK cluster monitoring, including enhanced monitoring level settings. 
 
