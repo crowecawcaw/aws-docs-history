@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon SageMaker AI geospatial capabilities
-<a name="get-started-with-amazon-sagemaker-geospatial-capabilities"></a>
 
 
 |  |  | 
@@ -132,7 +131,7 @@ In this example, you'll be using a pre-trained machine learning model for land c
    + This will initialize the geospatial client and import libraries for geospatial processing. 
    + As the geospatial notebook image comes with these libraries already pre-installed and configured, there is no need to install them first. 
 
-   ```
+   ```python
    import boto3
    import sagemaker
    import sagemaker_geospatial_map
@@ -170,7 +169,7 @@ In this example, you'll be using a pre-trained machine learning model for land c
 
    When the job is created, it can be referenced with a dedicated ARN.
 
-   ```
+   ```python
    eoj_input_config = {
        "RasterDataCollectionQuery": {
            "RasterDataCollectionArn": "arn:aws:sagemaker-geospatial:us-west-2:378778860802:raster-data-collection/public/nmqj48dcu3g7ayw8",
@@ -221,7 +220,7 @@ In this example, you'll be using a pre-trained machine learning model for land c
 
    **Copy** and **paste** the following code into a new code cell. Then, select **Run**.
 
-   ```
+   ```python
    search_params = eoj_input_config.copy()
    search_params["Arn"] = "arn:aws:sagemaker-geospatial:us-west-2:378778860802:raster-data-collection/public/nmqj48dcu3g7ayw8"
    search_params["RasterDataCollectionQuery"].pop("RasterDataCollectionArn", None)
@@ -245,7 +244,7 @@ In this example, you'll be using a pre-trained machine learning model for land c
 
    **Copy** and **paste** the following code into a new code cell. Then, select **Run**.
 
-   ```
+   ```python
    cog_urls.sort(key=lambda x: x.split("TFK_")[1])
    
    src_pre = rasterio.open(cog_urls[0])
@@ -272,7 +271,7 @@ In this example, you'll be using a pre-trained machine learning model for land c
 
    Wait until the displayed status has changed to **COMPLETED**. This might take up to 20-25 minutes.
 
-   ```
+   ```python
    # check status of created Earth Observation Job and wait until it is completed
    eoj_completed = False
    while not eoj_completed:
@@ -363,7 +362,7 @@ In this step, the output data from the Earth Observation Job will be exported to
 
    **Copy** and **paste** the following code into a new code cell. Then, select **Run**. 
 
-   ```
+   ```python
    bucket_prefix = "eoj_dixie_wildfire_landcover"
    response = geospatial_client.export_earth_observation_job(
        Arn=eoj_arn,
@@ -387,7 +386,7 @@ In this step, the output data from the Earth Observation Job will be exported to
 
    Copy and paste the following code into a new code cell. Then, select **Run**.
 
-   ```
+   ```python
    s3_bucket = session.resource("s3").Bucket(export_bucket)
    
    mask_dir = "./dixie-wildfire-landcover/masks"
@@ -415,7 +414,7 @@ In this step, you'll use geospatial Python libraries included in the SageMaker A
 
    **Copy** and **paste** the following code into a new code cell. Then, select **Run**. 
 
-   ```
+   ```python
    landcover_simple_colors = {"not vegetated": "khaki","vegetated": "olivedrab", "water": "lightsteelblue"}
    
    def extract_masks(date_str):
@@ -441,7 +440,7 @@ In this step, you'll use geospatial Python libraries included in the SageMaker A
 
    **Copy** and **paste** the following code into a new code cell. Then, select **Run**.
 
-   ```
+   ```python
    fig = plt.figure(figsize=(14,7))
    
    fig.add_subplot(1, 2, 1)
@@ -466,7 +465,7 @@ In this step, you'll use geospatial Python libraries included in the SageMaker A
 
    **Copy** and **paste** the following code into a new code cell. Then, select **Run**.
 
-   ```
+   ```python
    vegetation_loss = round((1 - (masks_20210926[1].sum() / masks_20210603[1].sum())) * 100, 2)
    diff_mask = np.add(masks_20210603[1], masks_20210926[1])
    plt.figure(figsize=(6, 6))
