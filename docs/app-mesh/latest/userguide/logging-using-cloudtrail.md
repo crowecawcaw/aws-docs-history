@@ -1,7 +1,6 @@
 
 
 # Logging AWS App Mesh API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 **Important**  
 End of support notice: On September 30, 2026, AWS will discontinue support for AWS App Mesh. After September 30, 2026, you will no longer be able to access the AWS App Mesh console or AWS App Mesh resources. For more information, visit this blog post [Migrating from AWS App Mesh to Amazon ECS Service Connect](https://aws.amazon.com/blogs/containers/migrating-from-aws-app-mesh-to-amazon-ecs-service-connect). 
@@ -40,7 +39,7 @@ An event represents a single request from any source and includes information ab
 
 The following example shows a CloudTrail log entry that demonstrates the `StreamAggregatedResources` action.
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {

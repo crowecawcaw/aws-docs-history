@@ -1,7 +1,6 @@
 
 
 # Document history for App Mesh
-<a name="doc-history"></a>
 
 **Important**  
 End of support notice: On September 30, 2026, AWS will discontinue support for AWS App Mesh. After September 30, 2026, you will no longer be able to access the AWS App Mesh console or AWS App Mesh resources. For more information, visit this blog post [Migrating from AWS App Mesh to Amazon ECS Service Connect](https://aws.amazon.com/blogs/containers/migrating-from-aws-app-mesh-to-amazon-ecs-service-connect). 
@@ -15,7 +14,7 @@ The following table describes the major updates and new features for the *AWS Ap
 | [Updated policies](https://docs.aws.amazon.com/app-mesh/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-updates) | Updated `AWSServiceRoleForAppMesh` and `AWSAppMeshServiceRolePolicy` to allow for access to the AWS Cloud Map `DiscoverInstancesRevision` API. | October 12, 2023 | 
 | [VPC endpoint policy support for App Mesh](https://docs.aws.amazon.com/app-mesh/latest/userguide/vpc-endpoints.html) | App Mesh now supports VPC endpoint policies. | May 11, 2023 | 
 | [Multiple listeners for App Mesh](https://docs.aws.amazon.com/app-mesh/latest/userguide/metrics.html) | App Mesh now supports multiple listeners. | August 18, 2022 | 
-| [IPv6 for App Mesh](#doc-history) | App Mesh now supports IPv6. | May 18, 2022 | 
+| [IPv6 for App Mesh](doc-history.md) | App Mesh now supports IPv6. | May 18, 2022 | 
 | [CloudTrail logging support for App Mesh Envoy Management Service](https://docs.aws.amazon.com/app-mesh/latest/userguide/logging-using-cloudtrail.html) | App Mesh now supports CloudTrail logging support for App Mesh Envoy Management Service. | March 18, 2022 | 
 | [App Mesh Agent for Envoy](https://docs.aws.amazon.com/app-mesh/latest/userguide/appmesh-agent.html) | App Mesh now supports Agent for Envoy. | February 25, 2022 | 
 | [Multiple listeners for App Mesh](https://docs.aws.amazon.com/app-mesh/latest/userguide/multiple-listeners.html) | ([App Mesh Preview Channel](https://docs.aws.amazon.com/app-mesh/latest/userguide/preview.html) only) You can implement multiple listeners for App Mesh. | November 23, 2021 | 
@@ -47,6 +46,6 @@ The following table describes the major updates and new features for the *AWS Ap
 | [App Mesh Interface VPC Endpoints (AWS PrivateLink)](https://docs.aws.amazon.com/app-mesh/latest/userguide/vpc-endpoints.html) | Improve the security posture of your VPC by configuring App Mesh to use an interface VPC endpoint. Interface endpoints are powered by AWS PrivateLink, a technology that enables you to privately access App Mesh APIs by using private IP addresses. PrivateLink restricts all network traffic between your VPC and App Mesh to the Amazon network. | June 14, 2019 | 
 | [Added AWS Cloud Map as a virtual node service discovery method](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html) | You can specify DNS or AWS Cloud Map as a virtual node service discovery method. To use AWS Cloud Map for service discovery, your account must have the App Mesh [service-linked role](https://docs.aws.amazon.com/app-mesh/latest/userguide/using-service-linked-roles.html). | June 13, 2019 | 
 | [Create App Mesh resources automatically in Kubernetes](https://docs.aws.amazon.com/app-mesh/latest/userguide/mesh-k8s-integration.html) | Create App Mesh resources and add the App Mesh sidecar container images to your Kubernetes deployments automatically when you create resources in Kubernetes. | June 11, 2019 | 
-| [App Mesh General Availability](#doc-history) | The App Mesh service is now generally available for production use. | March 27, 2019 | 
-| [App Mesh API update](#doc-history) | The App Mesh APIs were updated to improve usability. For more information, see [[BUG] Routes to Target Virtual Nodes with Mismatched Ports Blackhole](https://github.com/awslabs/aws-app-mesh-examples/issues/93). | March 7, 2019 | 
-| [App Mesh initial release](#doc-history) | Initial documentation for service public preview | November 28, 2018 | 
+| [App Mesh General Availability](doc-history.md) | The App Mesh service is now generally available for production use. | March 27, 2019 | 
+| [App Mesh API update](doc-history.md) | The App Mesh APIs were updated to improve usability. For more information, see [[BUG] Routes to Target Virtual Nodes with Mismatched Ports Blackhole](https://github.com/awslabs/aws-app-mesh-examples/issues/93). | March 7, 2019 | 
+| [App Mesh initial release](doc-history.md) | Initial documentation for service public preview | November 28, 2018 | 

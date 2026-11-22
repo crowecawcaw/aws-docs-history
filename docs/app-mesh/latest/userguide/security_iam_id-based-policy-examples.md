@@ -1,7 +1,6 @@
 
 
 # AWS App Mesh identity-based policy examples
-<a name="security_iam_id-based-policy-examples"></a>
 
 **Important**  
 End of support notice: On September 30, 2026, AWS will discontinue support for AWS App Mesh. After September 30, 2026, you will no longer be able to access the AWS App Mesh console or AWS App Mesh resources. For more information, visit this blog post [Migrating from AWS App Mesh to Amazon ECS Service Connect](https://aws.amazon.com/blogs/containers/migrating-from-aws-app-mesh-to-amazon-ecs-service-connect). 
@@ -57,7 +56,7 @@ You don't need to allow minimum console permissions for users that are making ca
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -102,7 +101,7 @@ This example shows how you can create a policy that allows a user to create a me
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -127,7 +126,7 @@ This example shows how you can create a policy that allows a user read-only acce
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -155,7 +154,7 @@ You can use tags in your IAM policies to control what tags can be passed in the 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS App Mesh and Amazon EC2
-<a name="getting-started-ec2"></a>
 
 **Important**  
 End of support notice: On September 30, 2026, AWS will discontinue support for AWS App Mesh. After September 30, 2026, you will no longer be able to access the AWS App Mesh console or AWS App Mesh resources. For more information, visit this blog post [Migrating from AWS App Mesh to Amazon ECS Service Connect](https://aws.amazon.com/blogs/containers/migrating-from-aws-app-mesh-to-amazon-ecs-service-connect). 
@@ -93,7 +92,7 @@ Create a virtual node named `serviceB`, since one of the virtual nodes represent
 
 1. Create a file named `create-virtual-node-serviceb.json` with the following contents:
 
-   ```
+   ```json
    {
        "meshName": "apps",
        "spec": {
@@ -156,7 +155,7 @@ Create the following resources:
 
    1. Create a file named `create-virtual-router.json` with the following contents:
 
-      ```
+      ```json
       {
           "meshName": "apps",
           "spec": {
@@ -183,7 +182,7 @@ Create the following resources:
 
    1. Create a file named `create-route.json` with the following contents:
 
-      ```
+      ```json
       {
           "meshName" : "apps",
           "routeName" : "serviceB",
@@ -314,7 +313,7 @@ To complete the scenario, you need to:
 
    1. Create a file named `create-virtual-node-servicebv2.json` with the following contents:
 
-      ```
+      ```json
       {
           "meshName": "apps",
           "spec": {
@@ -346,7 +345,7 @@ To complete the scenario, you need to:
 
    1. Create a file named `create-virtual-node-servicea.json` with the following contents:
 
-      ```
+      ```json
       {
          "meshName" : "apps",
          "spec" : {
@@ -385,7 +384,7 @@ To complete the scenario, you need to:
 
    1. Create a file named `update-virtual-service.json` with the following contents:
 
-      ```
+      ```json
       {
          "meshName" : "apps",
          "spec" : {
@@ -409,7 +408,7 @@ To complete the scenario, you need to:
 
    1. Create a file named `update-route.json` with the following contents:
 
-      ```
+      ```json
       {
          "meshName" : "apps",
          "routeName" : "serviceB",
@@ -446,7 +445,7 @@ To complete the scenario, you need to:
 
    1. Create a file named `create-virtual-servicea.json` with the following contents:
 
-      ```
+      ```json
       {
          "meshName" : "apps",
          "spec" : {
@@ -492,7 +491,7 @@ After creating your mesh, you need to complete the following tasks:
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -524,7 +523,7 @@ After creating your mesh, you need to complete the following tasks:
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -599,19 +598,19 @@ After creating your mesh, you need to complete the following tasks:
 
      ```
      sudo docker run --detach --env APPMESH_RESOURCE_ARN=mesh/{{apps}}/virtualNode/{{serviceB}}  \
-     -u {{1337}} --network host 840364872350.dkr.ecr.{{region-code}}.amazonaws.com/aws-appmesh-envoy:v1.39.4.0-prod
+     -u {{1337}} --network host 840364872350.dkr.ecr.{{region-code}}.amazonaws.com/aws-appmesh-envoy:v1.40.2.1-prod
      ```
    + `me-south-1` Region. You can replace `{{1337}}` with any value between `0` and `2147483647`.
 
      ```
      sudo docker run --detach --env APPMESH_RESOURCE_ARN=mesh/{{apps}}/virtualNode/{{serviceB}}  \
-     -u {{1337}} --network host 772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.39.4.0-prod
+     -u {{1337}} --network host 772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.40.2.1-prod
      ```
    + `ap-east-1` Region. You can replace `{{1337}}` with any value between `0` and `2147483647`.
 
      ```
      sudo docker run --detach --env APPMESH_RESOURCE_ARN=mesh/{{apps}}/virtualNode/{{serviceB}}  \
-     -u {{1337}} --network host 856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.39.4.0-prod
+     -u {{1337}} --network host 856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.40.2.1-prod
      ```
 **Note**  
 The `APPMESH_RESOURCE_ARN` property requires version `1.15.0` or later of the Envoy image. For more information, see [Envoy image](envoy.md).
@@ -620,7 +619,7 @@ Only version v1.9.0.0-prod or later is supported for use with App Mesh.
 
 1. Select `Show more` below. Create a file named `envoy-networking.sh` on your instance with the following contents. Replace {{8000}} with the port that your application code uses for incoming traffic. You can change the value for `APPMESH_IGNORE_UID`, but the value must be the same as the value that you specified in the previous step; for example `1337`. You can add additional addresses to `APPMESH_EGRESS_IGNORED_IP` if necessary. Do not modify any other lines.
 
-   ```
+   ```bash
    #!/bin/bash -e
    
    #

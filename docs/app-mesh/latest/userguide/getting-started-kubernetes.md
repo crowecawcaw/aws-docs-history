@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS App Mesh and Kubernetes
-<a name="getting-started-kubernetes"></a>
 
 **Important**  
 End of support notice: On September 30, 2026, AWS will discontinue support for AWS App Mesh. After September 30, 2026, you will no longer be able to access the AWS App Mesh console or AWS App Mesh resources. For more information, visit this blog post [Migrating from AWS App Mesh to Amazon ECS Service Connect](https://aws.amazon.com/blogs/containers/migrating-from-aws-app-mesh-to-amazon-ecs-service-connect). 
@@ -153,12 +152,12 @@ Replace {{account-id}} and {{Region-code}} with one of the appropriate sets of v
        ```
         --set image.repository={{account-id}}.dkr.ecr.{{Region-code}}.amazonaws.com/amazon/appmesh-controller
        ```
-772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.39.4.0-prod
-856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.39.4.0-prod
-909464085924.dkr.ecr.ap-southeast-3.amazonaws.com/aws-appmesh-envoy:v1.39.4.0-prod
-422531588944.dkr.ecr.eu-south-1.amazonaws.com/aws-appmesh-envoy:v1.39.4.0-prod
-564877687649.dkr.ecr.il-central-1.amazonaws.com/aws-appmesh-envoy:v1.39.4.0-prod
-924023996002.dkr.ecr.af-south-1.amazonaws.com/aws-appmesh-envoy:v1.39.4.0-prod
+772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.40.2.1-prod
+856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.40.2.1-prod
+909464085924.dkr.ecr.ap-southeast-3.amazonaws.com/aws-appmesh-envoy:v1.40.2.1-prod
+422531588944.dkr.ecr.eu-south-1.amazonaws.com/aws-appmesh-envoy:v1.40.2.1-prod
+564877687649.dkr.ecr.il-central-1.amazonaws.com/aws-appmesh-envoy:v1.40.2.1-prod
+924023996002.dkr.ecr.af-south-1.amazonaws.com/aws-appmesh-envoy:v1.40.2.1-prod
 The older image URIs can be found in the [change log](https://github.com/aws/aws-app-mesh-controller-for-k8s/releases) on GitHub. The AWS accounts on which the images are present have changed in version `v1.5.0`. Older version of the images are hosted on AWS accounts found on the Amazon Elastic Kubernetes Service [Amazon container image registries](https://docs.aws.amazon.com/eks/latest/userguide/add-ons-images.html).
 
        ```
@@ -205,13 +204,19 @@ When you deploy an application in Kubernetes, you also create the Kubernetes cus
 **Important**  
 Once the controller has created an App Mesh resource, we recommend that you only make changes to or delete the App Mesh resource using the controller. If you make changes to or delete the resource using App Mesh, the controller won't change or recreate the changed or deleted App Mesh resource for ten hours, by default. You can configure this duration to be less. For more information, see [Configuration](https://github.com/aws/eks-charts/blob/master/stable/appmesh-controller/README.md#configuration) on GitHub.
 
+**Sharing a cluster, mesh, or AWS Cloud Map namespace**  
+If workloads that don't trust each other share a cluster, mesh, or AWS Cloud Map namespace, we recommend that you add the following safety checks:  
+Use an admission controller, such as Kyverno or OPA Gatekeeper, with a fail-closed policy. The policy validates create and update requests for `VirtualNode`, `VirtualService`, `VirtualRouter`, `VirtualGateway`, and `GatewayRoute` resources. Configure the policy to restrict which `namespaceName` and `serviceName` values in `awsCloudMap` each Kubernetes namespace can use in a `VirtualNode`. Require `awsName` to be unset or to include the resource's Kubernetes namespace, except for an approved list of names, such as custom host names. If you upgraded from an older controller, add your existing `awsName` values to this list. Apply this `awsName` rule in every cluster that manages the mesh.
+Put these workloads in separate meshes or AWS accounts, and don't share a AWS Cloud Map namespace between them.
+Run these workloads in separate clusters. Scope each cluster's controller IAM role to that cluster's App Mesh resource names. Also scope the role's `servicediscovery:RegisterInstance` and related permissions to that cluster's AWS Cloud Map namespaces.
+
 **To deploy App Mesh resources**
 
 1. Create a Kubernetes namespace to deploy App Mesh resources to. 
 
    1. Save the following contents to a file named `namespace.yaml` on your computer.
 
-      ```
+      ```yaml
       apiVersion: v1
       kind: Namespace
       metadata:
@@ -231,7 +236,7 @@ Once the controller has created an App Mesh resource, we recommend that you only
 
    1. Save the following contents to a file named `mesh.yaml` on your computer. The file is used to create a mesh resource named `{{my-mesh}}`. A service mesh is a logical boundary for network traffic between the services that reside within it.
 
-      ```
+      ```yaml
       apiVersion: appmesh.k8s.aws/v1beta2
       kind: Mesh
       metadata:
@@ -296,7 +301,7 @@ Once the controller has created an App Mesh resource, we recommend that you only
 
       Output
 
-      ```
+      ```json
       {
           "mesh": {
               "meshName": "my-mesh",
@@ -321,7 +326,7 @@ Once the controller has created an App Mesh resource, we recommend that you only
 
    1. Save the following contents to a file named `virtual-node.yaml` on your computer. The file is used to create an App Mesh virtual node named `{{my-service-a}}` in the {{`my-apps`}} namespace. The virtual node represents a Kubernetes service that is created in a later step. The value for `hostname` is the fully qualified DNS hostname of the actual service that this virtual node represents.
 
-      ```
+      ```yaml
       apiVersion: appmesh.k8s.aws/v1beta2
       kind: VirtualNode
       metadata:
@@ -411,7 +416,7 @@ Even though the name of the virtual node created in Kubernetes is `{{my-service-
 
       Output
 
-      ```
+      ```json
       {
           "virtualNode": {
               "meshName": "my-mesh",
@@ -452,7 +457,7 @@ Even though the name of the virtual node created in Kubernetes is `{{my-service-
 
    1. Save the following contents to a file named `virtual-router.yaml` on your computer. The file is used to create a virtual router to route traffic to the virtual node named `my-service-a` that was created in the previous step. The controller creates the App Mesh virtual router and route resources. You can specify many more capabilities for your routes and use protocols other than `http`. For more information, see [Virtual routers](virtual_routers.md) and [Routes](routes.md). Notice that the virtual node name referenced is the Kubernetes virtual node name, not the App Mesh virtual node name that was created in App Mesh by the controller.
 
-      ```
+      ```yaml
       apiVersion: appmesh.k8s.aws/v1beta2
       kind: VirtualRouter
       metadata:
@@ -753,7 +758,7 @@ Any pods that you want to use with App Mesh must have the App Mesh sidecar conta
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -800,7 +805,7 @@ Any pods that you want to use with App Mesh must have the App Mesh sidecar conta
 
    1. Save the following contents to a file named `example-service.yaml` on your computer. If you change the namespace name and are using Fargate pods, make sure that the namespace name matches the namespace name that you defined in your Fargate profile.
 
-      ```
+      ```yaml
       apiVersion: v1
       kind: Service
       metadata:
