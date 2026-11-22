@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon EventBridge Scheduler with Amazon CloudWatch
-<a name="monitoring-cloudwatch"></a>
 
  You can monitor Amazon EventBridge Scheduler using CloudWatch, which collects raw data and processes it into readable, near real-time metrics. EventBridge Scheduler emits a set of metrics for all schedules, and an additional set of metrics for schedules that have an associated dead-letter queue (DLQ). If you [configure a DLQ](configuring-schedule-dlq.md) for your schedule, EventBridge Scheduler publishes additional metrics when your schedule exhausts its retry policy. 
 

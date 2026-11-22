@@ -1,7 +1,6 @@
 
 
 # Using universal targets in EventBridge Scheduler
-<a name="managing-targets-universal"></a>
 
  A *universal target* is a customizable set of parameters that allow you to invoke a wider set of API operation for many AWS services. For example, you can use a universal target parameter (UTP) to create a new Amazon SQS queue using the [`CreateQueue`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue) operation. 
 
@@ -19,7 +18,7 @@
 
  EventBridge Scheduler does not support read-only API actions, such as common `GET` operations, that begin with the following list of prefixes: 
 
-```
+```text
 get
 describe
 list
@@ -89,7 +88,7 @@ exportDictionaryEntries
 
 **Example Lambda**  
 
-```
+```bash
 $ aws scheduler create-schedule --name lambda-universal-schedule --schedule-expression 'rate(5 minutes)' \
 --target '{"RoleArn": "{{ROLE_ARN}}", "Arn":"arn:aws:scheduler:::aws-sdk:lambda:invoke" "Input": "{\"FunctionName\":\"arn:aws:lambda:{{REGION}}:123456789012:function:HelloWorld\",\"InvocationType\":\"Event\",\"Payload\":\"{\\\"message\\\":\\\"testing function\\\"}\"}" }' \
 --flexible-time-window '{ "Mode": "OFF"}'
@@ -97,7 +96,7 @@ $ aws scheduler create-schedule --name lambda-universal-schedule --schedule-expr
 
 **Example Amazon SQS**  
 
-```
+```python
 import boto3
 scheduler = boto3.client('scheduler')
 
@@ -118,7 +117,7 @@ scheduler.create_schedule(
 
 **Example Step Functions**  
 
-```
+```java
 package com.example;
 
 import software.amazon.awssdk.regions.Region;

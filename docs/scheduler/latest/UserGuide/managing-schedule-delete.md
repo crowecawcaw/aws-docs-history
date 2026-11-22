@@ -1,7 +1,6 @@
 
 
 # Deleting a schedule in EventBridge Scheduler
-<a name="managing-schedule-delete"></a>
 
 You can delete a schedule by either configuring automatic deletion, or by manually deleting an individual schedule. Use the following topics to learn how to delete a schedule using both methods, and why you might choose one method over the other.
 
@@ -38,7 +37,7 @@ You can set up automatic deletion when you first create a schedule, or update pr
 
     This is a recurring schedule with a rate of one invocation per hour. Therefore, you specify an end date when setting the `--action-after-completion` parameter. 
 
-   ```
+   ```bash
    $ aws scheduler update-schedule --name {{schedule-name}} \
    --action-after-completion 'DELETE' \
    --schedule-expression '{{rate(1 hour)}}' \
@@ -56,13 +55,13 @@ You can set up automatic deletion when you first create a schedule, or update pr
 
 **Example AWS CLI**  
 
-```
+```bash
 $ aws scheduler delete-schedule --name {{your-schedule}}
 ```
 
 **Example Python SDK**  
 
-```
+```python
 import boto3
 scheduler = boto3.client('scheduler')
     

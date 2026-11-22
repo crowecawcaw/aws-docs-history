@@ -1,7 +1,6 @@
 
 
 # Deleting a schedule group in EventBridge Scheduler
-<a name="managing-schedule-group-delete"></a>
 
 In the following, you can learn how to delete a schedule group using the AWS Management Console and the AWS Command Line Interface. When you delete a group, it is in the `DELETING` state until EventBridge Scheduler deletes all schedules in the group. After EventBridge Scheduler deletes the schedules in the group, the group is no longer available in your account. 
 
@@ -40,7 +39,7 @@ Once you create a group, you can't remove a schedule from that group, or associa
 
 1. From the AWS Command Line Interface (AWS CLI), enter the following[`delete-schedule-group`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/scheduler/delete-schedule-group.html) command to delete the schedule group. Replace the value for `--name` with your information.
 
-   ```
+   ```bash
    $ aws scheduler delete-schedule-group --name {{TestGroup}}
    ```
 
@@ -48,7 +47,7 @@ Once you create a group, you can't remove a schedule from that group, or associa
 
 1. To verify that the group is in the `DELETING` state, run the following [`get-schedule-group`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/scheduler/get-schedule-group.html) command. 
 
-   ```
+   ```bash
    $ aws scheduler get-schedule-group --name {{TestGroup}}
    ```
 

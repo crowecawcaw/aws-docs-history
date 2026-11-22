@@ -1,7 +1,6 @@
 
 
 # Troubleshooting quotas in EventBridge Scheduler
-<a name="quotas-troubleshooting"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter concerning EventBridge Scheduler quotas.
 

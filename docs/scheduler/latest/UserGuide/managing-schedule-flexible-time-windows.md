@@ -1,7 +1,6 @@
 
 
 # Configuring flexible time windows in EventBridge Scheduler
-<a name="managing-schedule-flexible-time-windows"></a>
 
  When you configure your schedule with a flexible time window, EventBridge Scheduler invokes the target within the time window you set. This is useful in cases that do not require precise scheduled invocation of targets. Setting a flexible time window improves the reliability of your schedule by dispersing your target invocations. 
 
@@ -12,7 +11,7 @@
 
 **Example AWS CLI**  
 
-```
+```bash
 $ aws scheduler update-schedule --name lambda-universal --schedule-expression 'rate(1 hour)' \
 --target '{"RoleArn": "{{ROLE_ARN}}", "Arn":"arn:aws:scheduler:::aws-sdk:lambda:invoke" "Input": "{\"FunctionName\":\"arn:aws:lambda:{{REGION}}:123456789012:function:HelloWorld\",\"InvocationType\":\"Event\",\"Payload\":\"{\\\"message\\\":\\\"testing function\\\"}\"}" }' \
 --flexible-time-window '{ "Mode": "FLEXIBLE", "MaximumWindowInMinutes": 15} \
@@ -26,7 +25,7 @@ $ aws scheduler update-schedule --name lambda-universal --schedule-expression 'r
 
 **Example Python SDK**  
 
-```
+```python
 import boto3
 scheduler = boto3.client('scheduler')
 

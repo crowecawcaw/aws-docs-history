@@ -1,7 +1,6 @@
 
 
 # Adding context attributes in EventBridge Scheduler
-<a name="managing-schedule-context-attributes"></a>
 
  Use of the following keywords in the payload you pass to the target to collect metadata about the schedule. EventBridge Scheduler replaces each keyword with its respective value when your schedule invokes the target. 
 +  **`<aws.scheduler.schedule-arn>`** – The ARN of the schedule. 
@@ -13,7 +12,7 @@
 
 **Example AWS CLI**  
 
-```
+```bash
 $ aws scheduler create-schedule --name {{your-schedule}} \
     --schedule-expression 'rate(5 minutes)' \
     --target '{"RoleArn": "{{ROLE_ARN}}", \
@@ -24,7 +23,7 @@ $ aws scheduler create-schedule --name {{your-schedule}} \
 
 **Example Python SDK**  
 
-```
+```python
 import boto3
 scheduler = boto3.client('scheduler')
 

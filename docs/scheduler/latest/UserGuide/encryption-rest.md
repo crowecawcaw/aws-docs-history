@@ -1,7 +1,6 @@
 
 
 # Encryption at rest in EventBridge Scheduler
-<a name="encryption-rest"></a>
 
  This section describes how Amazon EventBridge Scheduler encrypts and decrypts your data at rest. Data at rest is data stored in EventBridge Scheduler and the service's underlying components. EventBridge Scheduler integrates with AWS Key Management Service (AWS KMS) to encrypt and decrypt your data using an [AWS KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys). EventBridge Scheduler supports two types of KMS keys: [AWS owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk), and [customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk). 
 
@@ -78,7 +77,7 @@ These are in addition to the following actions:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -111,7 +110,7 @@ These are in addition to the following actions:
 
  AWS CloudTrail captures all API calls *events*. This includes API calls whenever EventBridge Scheduler uses your customer managed key to decrypt your data. The following example shows a CloudTrail event entry that demonstrates EventBridge Scheduler using the `kms:Decrypt` action using a customer managed key. 
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Using identity-based policies in EventBridge Scheduler
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify EventBridge Scheduler resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -89,7 +88,7 @@ For more information about best practices in IAM, see [Security best practices i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":
@@ -128,7 +127,7 @@ For more information about best practices in IAM, see [Security best practices i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":
@@ -189,7 +188,7 @@ For more information about best practices in IAM, see [Security best practices i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":
@@ -221,7 +220,7 @@ For more information about best practices in IAM, see [Security best practices i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":
@@ -260,7 +259,7 @@ For more information about best practices in IAM, see [Security best practices i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":
@@ -325,7 +324,7 @@ For more information about best practices in IAM, see [Security best practices i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

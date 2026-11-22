@@ -1,7 +1,6 @@
 
 
 # Changing the schedule state in EventBridge Scheduler
-<a name="managing-schedule-state"></a>
 
  An EventBridge Scheduler schedule has two states: *enabled* and *disabled*. The following example uses `UpdateSchedule` to disable a schedule that fires every five minutes and invokes a Lambda target. 
 
@@ -9,7 +8,7 @@
 
 **Example AWS CLI**  
 
-```
+```bash
 $ aws scheduler update-schedule --name lambda-universal --schedule-expression 'rate(5 minutes)' \
 --target '{"RoleArn": "{{ROLE_ARN}}", "Arn":"arn:aws:scheduler:::aws-sdk:lambda:invoke" "Input": "{\"FunctionName\":\"arn:aws:lambda:{{REGION}}:123456789012:function:HelloWorld\",\"InvocationType\":\"Event\",\"Payload\":\"{\\\"message\\\":\\\"testing function\\\"}\"}" }' \
 --flexible-time-window '{ "Mode": "OFF"}' \
@@ -26,7 +25,7 @@ $ aws scheduler update-schedule --name lambda-universal --schedule-expression 'r
 
 **Example Python SDK**  
 
-```
+```python
 import boto3
 scheduler = boto3.client('scheduler')
 

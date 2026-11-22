@@ -1,7 +1,6 @@
 
 
 # Schedule types in EventBridge Scheduler
-<a name="schedule-types"></a>
 
  The following topic describes the different schedule types that Amazon EventBridge Scheduler supports, as well as how EventBridge Scheduler handles daylight savings time, and scheduling in different time zones. You can choose from three schedule types when configuring your schedule: *rate-based*, *cron-based*, and *one-time* schedules. 
 
@@ -33,7 +32,7 @@
 ### Syntax
 <a name="rate-based-syntax"></a>
 
-```
+```bash
 rate(value unit)
 ```
 
@@ -51,7 +50,7 @@ unit
 
  Because this example does not set a value for the `--start-date` parameter, the schedule starts invoking its target immediately after you create and activate it. 
 
-```
+```bash
 $ aws scheduler create-schedule --schedule-expression 'rate(5 minutes)' --name {{schedule-name}} \
 --target '{"RoleArn": "{{role-arn}}", "Arn": "{{QUEUE_ARN}}", "Input": "{{TEST_PAYLOAD}}" }' \
 --flexible-time-window '{ "Mode": "OFF"}'
@@ -67,7 +66,7 @@ $ aws scheduler create-schedule --schedule-expression 'rate(5 minutes)' --name {
 ### Syntax
 <a name="cron-based-syntax"></a>
 
-```
+```bash
 cron(minutes hours day-of-month month day-of-week year)
 ```
 
@@ -117,7 +116,7 @@ $ aws scheduler create-schedule --schedule-expression "cron(15 10 ? * 6L 2022-20
 ### Syntax
 <a name="one-time-syntax"></a>
 
-```
+```bash
 at(yyyy-mm-ddThh:mm:ss)
 ```
 
@@ -142,7 +141,7 @@ $ aws scheduler create-schedule --schedule-expression "at(2022-11-20T13:00:00)" 
 
  With the AWS CLI, you can set the time zone in which you want EventBridge Scheduler to evaluate your schedule using the `--schedule-expression-timezone` parameter. For example, the following command creates a cron-based schedule that invokes a templated Amazon SQS `SendMessage` target in **America/New\_York** every day at 8:30 a.m. 
 
-```
+```bash
 $ aws scheduler create-schedule --schedule-expression "cron(30 8 * * ? *)" --name schedule-in-est \
     --target '{"RoleArn": "{{role-arn}}", "Arn": "{{QUEUE_ARN}}", "Input": "This schedule runs in the America/New_York time zone." }' \
     --schedule-expression-timezone "America/New_York"

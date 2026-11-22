@@ -1,7 +1,6 @@
 
 
 # Managing a schedule in EventBridge Scheduler
-<a name="managing-schedule"></a>
 
  A *schedule* is the main resource you create, configure, and manage using Amazon EventBridge Scheduler. 
 

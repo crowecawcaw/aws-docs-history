@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon EventBridge Scheduler
-<a name="troubleshooting"></a>
 
 You can use the topics in this section to troubleshoot common Amazon EventBridge Scheduler issues.
 
@@ -333,7 +332,7 @@ The following examples show common invalid input configurations for a AWS Lambda
 
 A schedule with the following input specifies version `2` in the `FunctionName` and version `1` in the `Qualifier` field:
 
-```
+```json
 {
     "FunctionName": "MyFunction:2",
     "Qualifier": "1"
@@ -348,7 +347,7 @@ This schedule is created successfully, but every invocation fails. The DLQ messa
 
 A schedule with the following input specifies a whitespace-only value for `FunctionName`:
 
-```
+```json
 {
     "FunctionName": "     "
 }
