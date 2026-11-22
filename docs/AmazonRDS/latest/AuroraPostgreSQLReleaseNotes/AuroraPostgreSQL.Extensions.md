@@ -1,7 +1,6 @@
 
 
 # Extensions supported for Amazon Aurora PostgreSQL
-<a name="AuroraPostgreSQL.Extensions"></a>
 
 Aurora PostgreSQL support multiple extensions that enhance your database functionality. Each major engine version has a minimum supported extension version. When we release the first minor version of a new major engine, we publish the minimum supported extension version for that major engine version. We recommend that you upgrade to the latest version of each extension when you upgrade your DB cluster. Extension versions don't automatically upgrade during engine version upgrade workflows.
 

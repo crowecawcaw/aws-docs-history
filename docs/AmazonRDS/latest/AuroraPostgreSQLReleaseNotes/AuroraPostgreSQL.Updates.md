@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora PostgreSQL updates
-<a name="AuroraPostgreSQL.Updates"></a>
 
 Following, you can find information about versions of the Amazon Aurora PostgreSQL-Compatible Edition database engine that have been released for Amazon Aurora.
 
@@ -505,7 +504,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 17.10. For more 
 <a name="aurorapostgresql-versions-version1710x-17102"></a>
 
 **Critical stability enhancements**
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
 
 **High priority enhancements**
@@ -614,7 +612,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 17.9. For more i
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -753,7 +750,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 17.7. For more i
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -921,7 +917,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 17.6. For more i
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -1104,7 +1099,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 17.5. For more i
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -1326,7 +1320,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 17.4. For more i
 
 **Critical stability enhancements**
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -1719,7 +1712,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 16.14. For more 
 <a name="aurorapostgresql-versions-version1614x-16142"></a>
 
 **Critical stability enhancements**
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
 
 **High priority enhancements**
@@ -1824,7 +1816,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 16.13. For more 
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -1962,7 +1953,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 16.11. For more 
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -2129,7 +2119,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 16.10. For more 
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -2311,7 +2300,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 16.9. For more i
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -2531,7 +2519,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 16.8. For more i
 
 **Critical stability enhancements**
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -3554,7 +3541,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 15.18. For more 
 <a name="aurorapostgresql-versions-version1518x-15182"></a>
 
 **Critical stability enhancements**
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
 
 **High priority enhancements**
@@ -3655,7 +3641,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 15.17. For more 
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -3792,7 +3777,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 15.15. For more 
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -3954,7 +3938,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 15.14. For more 
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -4124,7 +4107,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 15.13. For more 
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -4339,7 +4321,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 15.12. For more 
 
 **Critical stability enhancements**
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -5980,7 +5961,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.23. For more 
 <a name="aurorapostgresql-versions-version1423x-14232"></a>
 
 **Critical stability enhancements**
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
 
 **High priority enhancements**
@@ -6079,7 +6059,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.22. For more 
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -6217,7 +6196,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.20. For more 
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -6379,7 +6357,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.19. For more 
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -6549,7 +6526,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.18. For more 
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -6762,7 +6738,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.17. For more 
 
 **Critical stability enhancements**
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -8871,7 +8846,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 13.23. For more 
 **Critical stability enhancements**
 + Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
 + HypoPG will only consider hypothetical indexes during EXPLAIN that were created by the current role.
-+ Fixed an issue with index scan prefetch that could return duplicate rows, and increased I/O wait times.
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
@@ -13346,13 +13320,13 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 12.6. For more i
 + Fixed a bug where the database engine would attempt to create shared memory segments larger than the instance total memory and fail repeatedly. For example, attempts to create 128 GiB shared buffers on a db.r5.large instance would fail. With this change, requests for total shared memory allocations larger than the instance memory allow setting the instance to incompatible parameters.
 + Added logic to clean up unnecessary `pg_wal` temporary files on a database startup.
 + Fixed a bug that could lead to outbound replication synchronization errors after a major version upgrade.
-+ Fixed a bug that reported ERROR: rds\_activity\_stream stack item 2 not found on top - cannot pop when attempting to create the `rds_activity_stream` extension.
-+ Fixed a bug that could cause the error failed to build any 3-way joins in a correlated `IN` subquery under an `EXISTS` subquery.
++ Fixed a bug that reported `ERROR: rds_activity_stream stack item 2 not found on top - cannot pop` when attempting to create the `rds_activity_stream` extension.
++ Fixed a bug that could cause the error `failed to build any 3-way joins` in a correlated `IN` subquery under an `EXISTS` subquery.
 + Backported the following performance improvement from the PostgreSQL community: [pg\_stat\_statements: add missing check for pgss\_enabled()](https://github.com/postgres/postgres/commit/6f40ee4f837ec1ac59c8ddc73b67a04978a184d).
 + Fixed a bug that could cause upgrades to Aurora PostgreSQL 12.x to fail due to the inability to open the `pg_control` file.
 + Fixed a bug that could cause brief periods of unavailability due to running out of memory when creating the `postgis` extension with `pgAudit` enabled.
 + Backported the following bug fix from the PostgreSQL community: [Fix use-after-free bug with AfterTriggersTableData.storeslot](https://github.com/postgres/postgres/commit/262eb990c72097bd804e5c747fe38bf9b3a1ded9).
-+ Fixed a bug when using outbound logical replication to synchronize changes to another database that could fail with an error message like ERROR: could not map filenode "base/16395/228486645" to relation OID.
++ Fixed a bug when using outbound logical replication to synchronize changes to another database that could fail with an error message like `ERROR: could not map filenode "base/16395/228486645" to relation OID`.
 + Fixed a bug that could cause a brief period of unavailability when canceling a transaction.
 + Fixed a bug that caused no ICU collations to be shown in the `pg_collation` catalog table after creating a new Aurora PostgreSQL 12.x instance. This issue does not affect upgrading from an older version.
 + Fixed a bug where the `rds_ad` role wasn't created after upgrading from a version of Aurora PostgreSQL that doesn't support Microsoft Active Directory authentication.
@@ -13385,7 +13359,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 12.4. For more i
 **High priority stability enhancements**
 + Fixed a bug where a reader node might render an extra or missing row if the reader restarted while the writer node is processing a long transaction with more than 64 subtransactions.
 + Fixed a bug that can cause vacuum to block on GiST indexes.
-+ Fixed a bug where after upgrade to PostgreSQL 12, vacuum can fail on the system table `pg_catalog.pg_shdescription` with the following error. ERROR: found xmin 484 from before relfrozenxid 
++ Fixed a bug where after upgrade to PostgreSQL 12, vacuum can fail on the system table `pg_catalog.pg_shdescription` with the following error. `ERROR: found xmin 484 from before relfrozenxid` 
 
 **Additional improvements and enhancements**
 + Fixed a bug that could lead to intermittent unavailability due to a race condition when handling responses from storage nodes.
@@ -14381,11 +14355,11 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 11.11. For more 
 + Fixed bugs in the `aurora_replica_status` function where rows were sometimes partially populated and some values such as Replay Latency, and CPU usage were always 0.
 + Fixed a bug where the database engine would attempt to create shared memory segments larger than the instance total memory and fail repeatedly. For example, attempts to create 128 GiB shared buffers on a db.r5.large instance would fail. With this change, requests for total shared memory allocations larger than the instance memory allow setting the instance to incompatible parameters.
 + Added logic to clean up unnecessary `pg_wal` temporary files on a database startup.
-+ Fixed a bug that reported ERROR: rds\_activity\_stream stack item 2 not found on top - cannot pop when attempting to create the `rds_activity_stream` extension.
-+ Fixed a bug that could cause the error failed to build any 3-way joins in a correlated `IN` subquery under an `EXISTS` subquery.
++ Fixed a bug that reported `ERROR: rds_activity_stream stack item 2 not found on top - cannot pop` when attempting to create the `rds_activity_stream` extension.
++ Fixed a bug that could cause the error `failed to build any 3-way joins` in a correlated `IN` subquery under an `EXISTS` subquery.
 + Backported the following performance improvement from the PostgreSQL community: [pg\_stat\_statements: add missing check for pgss\_enabled()](https://github.com/postgres/postgres/commit/6f40ee4f837ec1ac59c8ddc73b67a04978a184d).
 + Fixed a bug that could cause brief periods of unavailability due to running out of memory when creating the `postgis` extension with `pgAudit` enabled.
-+ Fixed a bug when using outbound logical replication to synchronize changes to another database that could fail with an error message like ERROR: could not map filenode "base/16395/228486645" to relation OID.
++ Fixed a bug when using outbound logical replication to synchronize changes to another database that could fail with an error message like `ERROR: could not map filenode "base/16395/228486645" to relation OID`.
 + Fixed a bug that could cause a brief period of unavailability when canceling a transaction.
 + Fixed a bug where the `rds_ad` role wasn't created after upgrading from a version of Aurora PostgreSQL that doesn't support Microsoft Active Directory authentication.
 + Added btree page checks to detect tuple metadata inconsistency.
@@ -14576,7 +14550,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 11.9. For more i
 +  None
 
 **High priority stability enhancements**
-+ Fixed a bug in Aurora PostgreSQL replication that could result in the error message ERROR: `MultiXactId` nnnn has not been created yet -- apparent wraparound.
++ Fixed a bug in Aurora PostgreSQL replication that could result in the error message `ERROR: MultiXactId nnnn has not been created yet -- apparent wraparound`.
 + Fixed a bug where in some cases, DB clusters that have logical replication enabled did not remove truncated WAL segment files from storage. This resulted in volume size growth.
 + Backported fixes for the following PostgreSQL community security issues:
   + [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694)
@@ -14590,13 +14564,13 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 11.9. For more i
 + Reduced the delay when publishing to CloudWatch the `rpo_lag_in_msec` metric for Aurora global database clusters.
 + Aurora PostgreSQL no longer falls behind on a read node when the backend is blocked writing to the database client.
 + Fixed a bug that in rare cases caused a brief period of unavailability on a read replica when the storage volume grew.
-+ Fixed a bug when creating a database that could return the following: ERROR: could not create directory on local disk
++ Fixed a bug when creating a database that could return the following: `ERROR: could not create directory on local disk`
 + Updated data grid files to fix errors or incorrect transformation results from the `ST_Transform` method of the `PostGIS` extension.
 + Fixed a bug where in some cases replaying `XLOG_BTREE_REUSE_PAGE` records on Aurora reader instances caused unnecessary replay lag.
 + Fixed a small memory leak in a b-tree index that could lead to an out of memory condition.
 + Fixed a bug in the `GiST` index that could result in an out of memory condition after promoting an Aurora read replica.
-+ Fixed an S3 import bug that reported ERROR: HTTP 403. Permission denied when importing data from a file inside an S3 subfolder.
-+ Fixed a bug in the `aws_s3` extension for pre-signed URL handling that could result in the error message S3 bucket names with a period (.) are not supported.
++ Fixed an S3 import bug that reported `ERROR: HTTP 403. Permission denied` when importing data from a file inside an S3 subfolder.
++ Fixed a bug in the `aws_s3` extension for pre-signed URL handling that could result in the error message `S3 bucket names with a period (.) are not supported`.
 + Fixed a bug in the `aws_s3` extension where an import might be blocked indefinitely if an exclusive lock was taken on the relation prior to beginning the operation.
 + Fixed a bug related to replication when Aurora PostgreSQL is acting as a physical replica of an RDS for PostgreSQL instance that uses `GiST` indexes. In rare cases, this bug caused a brief period of unavailability after promoting the Aurora cluster.
 + Fixed a bug in database activity streams where customers were not notified of the end of an outage.
@@ -14619,7 +14593,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 11.8. For more i
 + None
 
 **High priority stability enhancements**
-+ Fixed a bug in Aurora PostgreSQL replication that could result in the error message ERROR: `MultiXactId` nnnn has not been created yet -- apparent wraparound.
++ Fixed a bug in Aurora PostgreSQL replication that could result in the error message `ERROR: MultiXactId nnnn has not been created yet -- apparent wraparound`.
 + Fixed a bug where in some cases, DB clusters that have logical replication enabled did not remove truncated WAL segment files from storage. This resulted in volume size growth.
 + Fixed an issue with creating a global database cluster in a secondary region.
 + Backported fixes for the following PostgreSQL community security issues:
@@ -14636,10 +14610,10 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 11.8. For more i
 + Fixed a small memory leak in a b-tree index that could lead to an out of memory condition.
 + Fixed a bug in the `aurora_replica_status()` function where the `server_id` field was sometimes truncated.
 + Fixed a bug where a log record was incorrectly processed causing the Aurora replica to crash.
-+ Fixed an S3 import bug that reported ERROR: HTTP 403. Permission denied when importing data from a file inside an S3 subfolder.
++ Fixed an S3 import bug that reported `ERROR: HTTP 403. Permission denied` when importing data from a file inside an S3 subfolder.
 + You can now use `pg_replication_slot_advance` to advance a logical replication slot for the roles `rds_replication` and `rds_superuser`.
 + Improved performance of the asynchronous mode for database activity streams.
-+ Fixed a bug in the `aws_s3` extension that could result in the error message S3 bucket names with a period (.) are not supported.
++ Fixed a bug in the `aws_s3` extension that could result in the error message `S3 bucket names with a period (.) are not supported`.
 + Fixed a race condition that caused valid imports to intermittently fail.
 + Fixed a bug related to replication when Aurora PostgreSQL is acting as a physical replica of an RDS for PostgreSQL instance that uses GiST indexes. In rare cases, this bug caused a brief period of unavailability after promoting the Aurora DB cluster.
 + Fixed a bug in the `aws_s3` extension where an import may be blocked indefinitely if an exclusive lock was taken on the relation prior to beginning the operation.
@@ -14686,13 +14660,13 @@ You can find the following improvements in this release.
 + Fixed a bug where the Aurora replica crashed when workloads with heavy subtransactions are made on the writer instance.
 + Fixed a bug where the writer instance crashed due to a memory leak and the depletion of memory used to track active transactions.
 + Fixed a bug that lead to a crash due to improper initialization when there is no free memory available during PostgreSQL backend startup.
-+ Fixed a bug where an Aurora PostgreSQL Serverless DB cluster might return the following error after a scaling event: ERROR: prepared statement "S\_6" already exists.
++ Fixed a bug where an Aurora PostgreSQL Serverless DB cluster might return the following error after a scaling event: `ERROR: prepared statement "S_6" already exists`.
 + Fixed an out-of-memory problem when issuing the `CREATE EXTENSION` command with PostGIS when Database Activity Streams is enabled.
-+ Fixed a bug where a `SELECT` query might incorrectly return the error Attempting to read past EOF of relation rrrr. blockno=bbb nblocks=nnn.
++ Fixed a bug where a `SELECT` query might incorrectly return the error `Attempting to read past EOF of relation rrrr. blockno=bbb nblocks=nnn`.
 + Fixed a bug where the database might be unavailable briefly due to error handling in database storage growth.
 + Fixed a bug in Aurora PostgreSQL Serverless where queries that executed on previously idle connections got delayed until the scale operation completed.
 + Fixed a bug where an Aurora PostgreSQL DB cluster with Database Activity Streams enabled might report the beginning of a potential loss window for activity records, but does not report the restoration of connectivity.
-+ Fixed a bug with the `aws_s3.table_import_from_s3` function where a `COPY` from S3 failed with the error HTTP error code: 248. For more information, see [ aws\_s3.table\_import\_from\_s3](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PostgreSQL.S3Import.html#aws_s3.table_import_from_s3) in the *Amazon Aurora User Guide*.
++ Fixed a bug with the `aws_s3.table_import_from_s3` function where a `COPY` from S3 failed with the error `HTTP error code: 248`. For more information, see [ aws\_s3.table\_import\_from\_s3](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PostgreSQL.S3Import.html#aws_s3.table_import_from_s3) in the *Amazon Aurora User Guide*.
 
 ### PostgreSQL 11.7, Aurora PostgreSQL 3.2 (Deprecated)
 <a name="AuroraPostgreSQL.Updates.20180305.32"></a>
@@ -14733,19 +14707,19 @@ You can find the following improvements in this release.
 + None
 
 **High priority stability enhancements**
-+ Fixed a bug in Aurora PostgreSQL replication that might result in the error message, ERROR: `MultiXactId` nnnn has not been created yet -- apparent wraparound.
++ Fixed a bug in Aurora PostgreSQL replication that might result in the error message, `ERROR: MultiXactId nnnn has not been created yet -- apparent wraparound`.
 
 **Additional improvements and enhancements**
 + Fixed a bug that in rare cases caused brief read replica unavailability when storage volume grew.
 + Aurora PostgreSQL Serverless now supports execution of queries on all connections during a scale event.
 + Fixed a bug in Aurora PostgreSQL Serverless where a leaked lock resulted in a prolonged scale event.
 + Fixed a bug where the `aurora_replica_status` function showed truncated server identifiers.
-+ Fixed a bug in Aurora PostgreSQL Serverless where connections being migrated during a scale event disconnected with the message: "ERROR: could not open relation with OID ....
++ Fixed a bug in Aurora PostgreSQL Serverless where connections being migrated during a scale event disconnected with the message: "`ERROR: could not open relation with OID ...`.
 + Fixed a small memory leak in a b-tree index that could lead to an out of memory condition.
 + Fixed a bug in a GiST index that might result in an out-of-memory condition after promoting an Aurora Read Replica.
 + Improved performance for Database Activity Streams.
 + Fixed a bug in Database Activity Streams where customers were not notified when an outage ended.
-+ Fixed a bug in the `aws_s3` extension for pre-signed URL handling that could have resulted in the error message S3 bucket names with a period (.) are not supported.
++ Fixed a bug in the `aws_s3` extension for pre-signed URL handling that could have resulted in the error message `S3 bucket names with a period (.) are not supported`.
 + Fixed a bug in the `aws_s3` extension where incorrect error handling could lead to failures during the import process.
 + Fixed a bug in the `aws_s3` extension where an import may be blocked indefinitely if an exclusive lock was taken on the relation prior to beginning the operation.
 
@@ -14792,8 +14766,8 @@ You can find the following improvements in this release.
 
 **Additional improvements and enhancements**
 + Fixed a bug where the database might be unavailable briefly due to error handling in database storage growth.
-+ Fixed a bug where a SELECT query might incorrectly return the error, Attempting to read past EOF of relation rrrr. blockno=bbb nblocks=nnn.
-+ Fixed a bug where an Aurora PostgreSQL Serverless DB cluster might return the following error after a scaling event: ERROR: prepared statement "S\_6" already exists.
++ Fixed a bug where a SELECT query might incorrectly return the error, `Attempting to read past EOF of relation rrrr. blockno=bbb nblocks=nnn`.
++ Fixed a bug where an Aurora PostgreSQL Serverless DB cluster might return the following error after a scaling event: `ERROR: prepared statement "S_6" already exists`.
 
 #### Aurora PostgreSQL 3.2.1
 <a name="AuroraPostgreSQL.Updates.20180305.321"></a>
@@ -14812,7 +14786,7 @@ None.
 + Fixed a small but continuous memory leak in a diagnostic module that could lead to an out-of-memory condition on smaller DB instance types.
 + Fixed a bug in the `PostGIS` extension which could lead to a database restart. This has been reported to the PostGIS community as [https://trac.osgeo.org/postgis/ticket/4646](https://trac.osgeo.org/postgis/ticket/4646).
 + Fixed a bug where read requests might stop responding due to incorrect error handling in the storage engine.
-+ Fixed a bug that fails for some queries and results in the message ERROR: found xmin xxxxxx from before relfrozenxid yyyyyyy. This could occur following the promotion of a read instance to a write instance.
++ Fixed a bug that fails for some queries and results in the message `ERROR: found xmin xxxxxx from before relfrozenxid yyyyyyy`. This could occur following the promotion of a read instance to a write instance.
 + Fixed a bug where an Aurora serverless DB cluster might crash while rolling back a scale attempt.
 
 **Additional improvements and enhancements**
@@ -14821,14 +14795,14 @@ None.
 + Enabled correlated IN and NOT IN subqueries to be transformed to joins when possible.
 + Improved the filtering estimation for enhanced semi-join filter pushdown by using multi-column statistics or indexes when available.
 + Improved read performance of the `pg_prewarm` extension.
-+ Fixed a bug where an Aurora serverless DB cluster might report the message ERROR: incorrect binary data format in bind parameter ... following a scale event.
-+ Fixed a bug where a serverless DB cluster might report the message ERROR: insufficient data left in message following a scale event.
++ Fixed a bug where an Aurora serverless DB cluster might report the message `ERROR: incorrect binary data format in bind parameter ...` following a scale event.
++ Fixed a bug where a serverless DB cluster might report the message `ERROR: insufficient data left in message` following a scale event.
 + Fixed a bug where an Aurora serverless DB cluster can experience prolonged or failed scale attempts.
-+ Fixed a bug that resulted in the message ERROR: could not create file "base/xxxxxx/yyyyyyy" as a previous version still exists on disk: Success. Please contact AWS customer support. This can occur during object creation after PostgreSQL's 32-bit object identifier has wrapped around. 
++ Fixed a bug that resulted in the message `ERROR: could not create file "base/xxxxxx/yyyyyyy" as a previous version still exists on disk: Success. Please contact AWS customer support`. This can occur during object creation after PostgreSQL's 32-bit object identifier has wrapped around. 
 + Fixed a bug where the write-ahead-log (WAL) segment files for PostgreSQL logical replication were not deleted when changing the `wal_level` value from `logical` to `replica`.
 + Fixed a bug in the `pg_hint_plan` extension where a multi-statement query could lead to a crash when `enable_hint_table` is enabled. This is tracked in the PostgreSQL community as [https://github.com/ossc-db/pg_hint_plan/issues/25](https://github.com/ossc-db/pg_hint_plan/issues/25).
-+ Fixed a bug where JDBC clients might report the message java.io.IOException: Unexpected packet type: 75 following a scale event in an Aurora serverless DB cluster.
-+ Fixed a bug in PostgreSQL logical replication that resulted in the message ERROR: snapshot reference is not owned by resource owner TopTransaction.
++ Fixed a bug where JDBC clients might report the message `java.io.IOException: Unexpected packet type: 75` following a scale event in an Aurora serverless DB cluster.
++ Fixed a bug in PostgreSQL logical replication that resulted in the message `ERROR: snapshot reference is not owned by resource owner TopTransaction`.
 + Changed the following extensions:
   + Updated `orafce` to version 3.8
   + Updated `pgTAP` to version 1.1 
@@ -15470,13 +15444,13 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 10.16. For more 
 
 1. Added logic to clean up unnecessary `pg_wal` temporary files on a database startup.
 
-1. Fixed a bug that reported ERROR: rds\_activity\_stream stack item 2 not found on top - cannot pop when attempting to create the `rds_activity_stream` extension.
+1. Fixed a bug that reported `ERROR: rds_activity_stream stack item 2 not found on top - cannot pop` when attempting to create the `rds_activity_stream` extension.
 
-1. Fixed a bug that could cause the error failed to build any 3-way joins in a correlated `IN` subquery under an `EXISTS` subquery.
+1. Fixed a bug that could cause the error `failed to build any 3-way joins` in a correlated `IN` subquery under an `EXISTS` subquery.
 
 1. Fixed a bug that could cause brief periods of unavailability due to running out of memory when creating the `postgis` extension with `pgAudit` enabled.
 
-1. Fixed a bug when using outbound logical replication to synchronize changes to another database that could fail with an error message like ERROR: could not map filenode "base/16395/228486645" to relation OID.
+1. Fixed a bug when using outbound logical replication to synchronize changes to another database that could fail with an error message like `ERROR: could not map filenode "base/16395/228486645" to relation OID`.
 
 1. Fixed a bug where the `rds_ad` role wasn't created after upgrading from a version of Aurora PostgreSQL that doesn't support Microsoft Active Directory authentication.
 
@@ -15570,7 +15544,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 10.14. For more 
    + [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695)
    + [CVE-2020-25696](https://nvd.nist.gov/vuln/detail/CVE-2020-25696)
 
-1. Fixed a bug in Aurora PostgreSQL replication that could result in the error message ERROR: `MultiXactId` nnnn has not been created yet -- apparent wraparound.
+1. Fixed a bug in Aurora PostgreSQL replication that could result in the error message `ERROR: MultiXactId nnnn has not been created yet -- apparent wraparound`.
 
 1. Fixed a bug where in some cases, DB clusters that have logical replication enabled did not remove truncated WAL segment files from storage. This resulted in volume size growth.
 
@@ -15588,13 +15562,13 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 10.14. For more 
 
 1. Fixed a bug in Aurora Serverless v1 for PostgreSQL where a leaked lock resulted in a prolonged scale event.
 
-1. Fixed a bug in Aurora Serverless v1 for PostgreSQL where connections being migrated during a scale event was disconnected with the following message: ERROR: could not open relation with OID ...
+1. Fixed a bug in Aurora Serverless v1 for PostgreSQL where connections being migrated during a scale event was disconnected with the following message: `ERROR: could not open relation with OID ...`
 
 1. Aurora PostgreSQL no longer falls behind on a read node when the backend is blocked writing to the database client.
 
 1. Fixed a bug that in rare cases caused a brief period of unavailability on a read replica when the storage volume grew.
 
-1. Fixed a bug when creating a database that could return the following error: ERROR: could not create directory on local disk
+1. Fixed a bug when creating a database that could return the following error: `ERROR: could not create directory on local disk`
 
 1. Fixed a bug where in some cases replaying `XLOG_BTREE_REUSE_PAGE` records on Aurora reader instances caused unnecessary replay lag.
 
@@ -15602,9 +15576,9 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 10.14. For more 
 
 1. Fixed a bug where the `aurora_replica_status` function showed truncated server identifiers.
 
-1. Fixed an S3 import bug that reported ERROR: HTTP 403. Permission denied when importing data from a file inside an S3 subfolder.
+1. Fixed an S3 import bug that reported `ERROR: HTTP 403. Permission denied` when importing data from a file inside an S3 subfolder.
 
-1. Fixed a bug in the `aws_s3` extension for pre-signed URL handling that could result in the error message S3 bucket names with a period (.) are not supported.
+1. Fixed a bug in the `aws_s3` extension for pre-signed URL handling that could result in the error message `S3 bucket names with a period (.) are not supported`.
 
 1. Fixed a bug in the `aws_s3` extension where an import might be blocked indefinitely if an exclusive lock was taken on the relation prior to beginning the operation.
 
@@ -15631,7 +15605,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 10.13. For more 
 
 **High priority stability updates**
 
-1. Fixed a bug in Aurora PostgreSQL replication that could result in the error message ERROR: `MultiXactId` nnnn has not been created yet -- apparent wraparound.
+1. Fixed a bug in Aurora PostgreSQL replication that could result in the error message `ERROR: MultiXactId nnnn has not been created yet -- apparent wraparound`.
 
 1. Fixed a bug where in some cases, DB clusters that have logical replication enabled did not remove truncated WAL segment files from storage. This resulted in volume size growth.
 
@@ -15660,11 +15634,11 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 10.13. For more 
 
 1. Fixed a bug where a log record was incorrectly processed causing the Aurora replica to crash.
 
-1. Fixed an S3 import bug that reported ERROR: HTTP 403. Permission denied when importing data from a file inside an S3 subfolder.
+1. Fixed an S3 import bug that reported `ERROR: HTTP 403. Permission denied` when importing data from a file inside an S3 subfolder.
 
 1. Improved performance of the asynchronous mode for database activity streams.
 
-1. Fixed a bug in the `aws_s3` extension that could result in the error message S3 bucket names with a period (.) are not supported.
+1. Fixed a bug in the `aws_s3` extension that could result in the error message `S3 bucket names with a period (.) are not supported`.
 
 1. Fixed a race condition that caused valid imports to intermittently fail.
 
@@ -15727,11 +15701,11 @@ You can find the following improvements in this release.
 
 1. Fixed a bug that lead to a crash due to improper initialization when there is no free memory available during PostgreSQL backend startup.
 
-1. Fixed a bug where an Aurora PostgreSQL Serverless DB cluster might return the following error after a scaling event: ERROR: prepared statement "S\_6" already exists.
+1. Fixed a bug where an Aurora PostgreSQL Serverless DB cluster might return the following error after a scaling event: `ERROR: prepared statement "S_6" already exists`.
 
 1. Fixed an out-of-memory problem when issuing the `CREATE EXTENSION` command with `PostGIS` when Database Activity Streams is enabled.
 
-1. Fixed a bug where a `SELECT` query might incorrectly return the error Attempting to read past EOF of relation rrrr. blockno=bbb nblocks=nnn.
+1. Fixed a bug where a `SELECT` query might incorrectly return the error `Attempting to read past EOF of relation rrrr. blockno=bbb nblocks=nnn`.
 
 1. Fixed a bug where the database might be unavailable briefly due to error handling in database storage growth.
 
@@ -15780,7 +15754,7 @@ You can find the following improvements in this release.
 
 **High priority stability updates**
 
-1. Fixed a bug in Aurora PostgreSQL replication that might result in the error message, ERROR: `MultiXactId` nnnn has not been created yet -- apparent wraparound.
+1. Fixed a bug in Aurora PostgreSQL replication that might result in the error message, `ERROR: MultiXactId nnnn has not been created yet -- apparent wraparound`.
 
 **Additional improvements and enhancements**
 
@@ -15792,7 +15766,7 @@ You can find the following improvements in this release.
 
 1. Fixed a bug where the `aurora_replica_status` function showed truncated server identifiers.
 
-1. Fixed a bug in Aurora PostgreSQL Serverless where connections being migrated during a scale event disconnected with the message: "ERROR: could not open relation with OID ....
+1. Fixed a bug in Aurora PostgreSQL Serverless where connections being migrated during a scale event disconnected with the message: "`ERROR: could not open relation with OID ...`.
 
 1. Fixed a bug in a GiST index that might result in an out-of-memory condition after promoting an Aurora Read Replica.
 
@@ -15800,7 +15774,7 @@ You can find the following improvements in this release.
 
 1. Fixed a bug in Database Activity Streams where customers were not notified when an outage ended.
 
-1. Fixed a bug in the `aws_s3` extension for pre-signed URL handling that could have resulted in the error message S3 bucket names with a period (.) are not supported.
+1. Fixed a bug in the `aws_s3` extension for pre-signed URL handling that could have resulted in the error message `S3 bucket names with a period (.) are not supported`.
 
 1. Fixed a bug in the `aws_s3` extension where incorrect error handling could lead to failures during the import process.
 
@@ -15858,9 +15832,9 @@ You can find the following improvements in this release.
 
 1. Fixed a bug where the database might be unavailable briefly due to error handling in database storage growth.
 
-1. Fixed a bug where a SELECT query might incorrectly return the error, Attempting to read past EOF of relation rrrr. blockno=bbb nblocks=nnn.
+1. Fixed a bug where a SELECT query might incorrectly return the error, `Attempting to read past EOF of relation rrrr. blockno=bbb nblocks=nnn`.
 
-1. Fixed a bug where an Aurora PostgreSQL Serverless DB cluster might return the following error after a scaling event: ERROR: prepared statement "S\_6" already exists.
+1. Fixed a bug where an Aurora PostgreSQL Serverless DB cluster might return the following error after a scaling event: `ERROR: prepared statement "S_6" already exists`.
 
 #### Aurora PostgreSQL 2.5.1
 <a name="AuroraPostgreSQL.Updates.20180305.251"></a>
@@ -15886,7 +15860,7 @@ None.
 
 1. Fixed a bug where read requests might stop responding due to incorrect error handling in the storage engine.
 
-1. Fixed a bug that fails for some queries and results in the message ERROR: found xmin xxxxxx from before relfrozenxid yyyyyyy. This could occur following the promotion of a read instance to a write instance.
+1. Fixed a bug that fails for some queries and results in the message `ERROR: found xmin xxxxxx from before relfrozenxid yyyyyyy`. This could occur following the promotion of a read instance to a write instance.
 
 1. Fixed a bug where an Aurora serverless DB cluster might crash while rolling back a scale attempt.
 
@@ -15900,21 +15874,21 @@ None.
 
 1. Improved read performance of the `pg_prewarm` extension.
 
-1. Fixed a bug where an Aurora serverless DB cluster might report the message ERROR: incorrect binary data format in bind parameter ... following a scale event.
+1. Fixed a bug where an Aurora serverless DB cluster might report the message `ERROR: incorrect binary data format in bind parameter ...` following a scale event.
 
-1. Fixed a bug where a serverless DB cluster might report the message ERROR: insufficient data left in message following a scale event.
+1. Fixed a bug where a serverless DB cluster might report the message `ERROR: insufficient data left in message` following a scale event.
 
 1. Fixed a bug where an Aurora serverless DB cluster may experience prolonged or failed scale attempts.
 
-1. Fixed a bug that resulted in the message ERROR: could not create file "base/xxxxxx/yyyyyyy" as a previous version still exists on disk: Success. Please contact AWS customer support. This can occur during object creation after PostgreSQL's 32-bit object identifier has wrapped around. 
+1. Fixed a bug that resulted in the message `ERROR: could not create file "base/xxxxxx/yyyyyyy" as a previous version still exists on disk: Success. Please contact AWS customer support`. This can occur during object creation after PostgreSQL's 32-bit object identifier has wrapped around. 
 
 1. Fixed a bug where the write-ahead-log (WAL) segment files for PostgreSQL logical replication were not deleted when changing the `wal_level` value from `logical` to `replica`.
 
 1. Fixed a bug in the `pg_hint_plan` extension where a multi-statement query could lead to a crash when `enable_hint_table` is enabled. This is tracked in the PostgreSQL community as [https://github.com/ossc-db/pg_hint_plan/issues/25](https://github.com/ossc-db/pg_hint_plan/issues/25).
 
-1. Fixed a bug where JDBC clients might report the message java.io.IOException: Unexpected packet type: 75 following a scale event in an Aurora serverless DB cluster.
+1. Fixed a bug where JDBC clients might report the message `java.io.IOException: Unexpected packet type: 75` following a scale event in an Aurora serverless DB cluster.
 
-1. Fixed a bug in PostgreSQL logical replication that resulted in the message ERROR: snapshot reference is not owned by resource owner TopTransaction.
+1. Fixed a bug in PostgreSQL logical replication that resulted in the message `ERROR: snapshot reference is not owned by resource owner TopTransaction`.
 
 1. Changed the following extensions:
    + Updated `orafce` to version 3.8
@@ -16544,7 +16518,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 9.6.19. For more
 
 1. Backported fixes for the PostgreSQL community security issues CVE-2020-25694, CVE-2020-25695, and CVE-2020-25696.
 
-1. Fixed a bug in Aurora PostgreSQL replication that might result in the following error message: ERROR: `MultiXactId` nnnn has not been created yet -- apparent wraparound
+1. Fixed a bug in Aurora PostgreSQL replication that might result in the following error message: `ERROR: MultiXactId nnnn has not been created yet -- apparent wraparound`
 
 **Additional improvements and enhancements**
 
@@ -16552,7 +16526,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 9.6.19. For more
 
 1. Fixed a bug that in rare cases caused a brief period of unavailability on a read replica when the storage volume grew.
 
-1. Fixed a bug when creating a database that could return the following error: ERROR: could not create directory on local disk
+1. Fixed a bug when creating a database that could return the following error: `ERROR: could not create directory on local disk`
 
 1. Fixed a bug in the `GiST` index that could result in an out of memory condition after promoting an Aurora read replica.
 
@@ -16581,7 +16555,7 @@ There is no version 1.8.1.
 
 **High priority stability enhancements**
 
-1. Fixed a bug in Aurora PostgreSQL replication that could result in the error message ERROR: `MultiXactId` nnnn has not been created yet -- apparent wraparound.
+1. Fixed a bug in Aurora PostgreSQL replication that could result in the error message `ERROR: MultiXactId nnnn has not been created yet -- apparent wraparound`.
 
 1. Backported fixes for the following PostgreSQL community security issues:
    + [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694)
@@ -16619,7 +16593,7 @@ You can find the following improvements in this release.
 
 1. Fixed a crash during a BTree prefetch that occurred under certain conditions that depended on the shape and data contained in the index.
 
-1. Fixed a bug where a `SELECT` query might incorrectly return the error Attempting to read past EOF of relation rrrr. blockno=bbb nblocks=nnn.
+1. Fixed a bug where a `SELECT` query might incorrectly return the error `Attempting to read past EOF of relation rrrr. blockno=bbb nblocks=nnn`.
 
 1. Fixed a bug where the database might be unavailable briefly due to error handling in database storage growth.
 
@@ -16663,7 +16637,7 @@ You can find the following improvements in this release.
 
 **High priority stability enhancements**
 
-1. Fixed a bug in Aurora PostgreSQL replication that might result in the error message, ERROR: `MultiXactId` nnnn has not been created yet -- apparent wraparound.
+1. Fixed a bug in Aurora PostgreSQL replication that might result in the error message, `ERROR: MultiXactId nnnn has not been created yet -- apparent wraparound`.
 
 **Additional improvements and enhancements**
 
@@ -16704,7 +16678,7 @@ None
 
 1. Fixed a bug where the database might be unavailable briefly due to error handling in database storage growth.
 
-1. Fixed a bug where a SELECT query might incorrectly return the error, Attempting to read past EOF of relation rrrr. blockno=bbb nblocks=nnn.
+1. Fixed a bug where a SELECT query might incorrectly return the error, `Attempting to read past EOF of relation rrrr. blockno=bbb nblocks=nnn`.
 
 1. Fixed an issue with the internal metrics collector that could result in erratic CPU spikes on database instances.
 
@@ -16726,7 +16700,7 @@ None.
 
 1. Fixed a bug where read requests might stop responding due to incorrect error handling in the storage engine.
 
-1. Fixed a bug that fails for some queries and results in the message ERROR: found xmin xxxxxx from before relfrozenxid yyyyyyy. This could occur following the promotion of a read instance to a write instance.
+1. Fixed a bug that fails for some queries and results in the message `ERROR: found xmin xxxxxx from before relfrozenxid yyyyyyy`. This could occur following the promotion of a read instance to a write instance.
 
 **Additional improvements and enhancements**
 
@@ -16734,7 +16708,7 @@ None.
 
 1. Improved performance and availability of reader DB instances during heavy read workload.
 
-1. Fixed a bug that resulted in the message ERROR: could not create file "base/xxxxxx/yyyyyyy" as a previous version still exists on disk: Success. Please contact AWS customer support. This can occur during object creation after PostgreSQL's 32-bit object identifier has wrapped around. 
+1. Fixed a bug that resulted in the message `ERROR: could not create file "base/xxxxxx/yyyyyyy" as a previous version still exists on disk: Success. Please contact AWS customer support`. This can occur during object creation after PostgreSQL's 32-bit object identifier has wrapped around. 
 
 1. Fixed a bug in the `pg_hint_plan` extension where a multi-statement query could lead to a crash when `enable_hint_table` is enabled. This is tracked in the PostgreSQL community as [https://github.com/ossc-db/pg_hint_plan/issues/25](https://github.com/ossc-db/pg_hint_plan/issues/25).
 
