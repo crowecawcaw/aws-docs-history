@@ -1,7 +1,6 @@
 
 
 # AWS CloudShell migrating from AL2 to AL2023
-<a name="cloudshell-AL2023-migration"></a>
 
 AWS CloudShell, which was based on Amazon Linux 2 (AL2), has migrated to Amazon Linux 2023 (AL2023). For more information about AL2023, see [What is Amazon Linux 2023 (AL2023)](https://docs.aws.amazon.com/linux/al2023/ug/what-is-amazon-linux.html) in the *Amazon Linux 2023 User Guide*.
 

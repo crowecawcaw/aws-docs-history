@@ -1,7 +1,6 @@
 
 
 # Creating a presigned URL for Amazon S3 objects using CloudShell
-<a name="tutorial-presigned-url"></a>
 
 This tutorial shows you how to create a presigned URL to share an Amazon S3 object with others. Because object owners specify their own security credentials when sharing, anyone who receives the presigned URL can access the object for a limited time.
 

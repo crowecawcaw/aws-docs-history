@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS CloudShell
-<a name="compliance-validation"></a>
 
 Third-party auditors assess the security and compliance of AWS services as part of multiple AWS compliance programs.
 

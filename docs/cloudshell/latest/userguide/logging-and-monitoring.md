@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in AWS CloudShell
-<a name="logging-and-monitoring"></a>
 
 This topic describes how you can log and monitor AWS CloudShell activity and performance with CloudTrail.
 

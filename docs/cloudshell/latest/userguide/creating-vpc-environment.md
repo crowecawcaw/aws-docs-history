@@ -1,7 +1,6 @@
 
 
 # Creating a CloudShell VPC environment
-<a name="creating-vpc-environment"></a>
 
  This topic walks you through the steps to create a VPC environment in CloudShell.
 

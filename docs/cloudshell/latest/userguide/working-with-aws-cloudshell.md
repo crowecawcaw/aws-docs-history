@@ -1,7 +1,6 @@
 
 
 # AWS CloudShell Concepts
-<a name="working-with-aws-cloudshell"></a>
 
 This section describes how to interact with AWS CloudShell and perform specific actions with supported applications.
 

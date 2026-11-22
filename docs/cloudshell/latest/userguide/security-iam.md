@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS CloudShell
-<a name="security-iam"></a>
 
 
 

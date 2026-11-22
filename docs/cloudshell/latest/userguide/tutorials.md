@@ -1,7 +1,6 @@
 
 
 # AWS CloudShell tutorials
-<a name="tutorials"></a>
 
 The following tutorials show you how to experiment, and test different functionalities and integrations when using AWS CloudShell.
 

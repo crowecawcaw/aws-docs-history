@@ -1,7 +1,6 @@
 
 
 # Running a command in CloudShell from AWS Service consoles
-<a name="cloudshell-commands"></a>
 
 You can run a command in the CloudShell terminal through [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html) and [Amazon DocumentDB (with MongoDB compatibility)](https://docs.aws.amazon.com/documentdb/latest/developerguide/what-is.html) consoles in the AWS Management Console.
 

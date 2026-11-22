@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS CloudShell
-<a name="getting-started"></a>
 
 This introductory tutorial shows you how to launch AWS CloudShell and perform key tasks using the shell command line interface.
 
@@ -25,7 +24,7 @@ For more information, see [Amazon S3 Actions](https://docs.aws.amazon.com/Amazon
 
 This exercise also involves uploading and editing a file that's then run as a program from the command line interface. Open a text editor on your local machine and add the following code snippet.
 
-```
+```python
 import sys
 x=int(sys.argv[1])
 y=int(sys.argv[2])
@@ -411,7 +410,7 @@ If you're creating a bucket outside of the `us-east-1` Region, add `create-bucke
    }
    ```
 **Note**  
-If you don't adhere to the [rules for naming buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html#bucketnamingrules), the following error is displayed: An error occurred (InvalidBucketName) when calling the CreateBucket operation: The specified bucket is not valid.
+If you don't adhere to the [rules for naming buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html#bucketnamingrules), the following error is displayed: `An error occurred (InvalidBucketName) when calling the CreateBucket operation: The specified bucket is not valid.`
 
 1. To upload a file and add the file as an object to the bucket that you just created, call the **PutObject** method.
 

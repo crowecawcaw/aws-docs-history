@@ -1,7 +1,6 @@
 
 
 # AWS CloudShell compute environment: specifications and software
-<a name="vm-specs"></a>
 
 When you launch AWS CloudShell, a compute environment that's based on [Amazon Linux 2023](https://aws.amazon.com/linux/amazon-linux-2023/) is created to host the shell experience. The environment is configured with [compute resources (vCPU and memory)](#vm-configuration) and provides a wide range of [pre-installed software](#pre-installed-software) that can be accessed from the command line interface. Make sure that any software you install in the compute environment is patched and up to date. You can also configure your default environment by installing software and modifying shell scripts.
 

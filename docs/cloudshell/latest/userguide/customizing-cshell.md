@@ -1,7 +1,6 @@
 
 
 # Customizing your AWS CloudShell experience
-<a name="customizing-cshell"></a>
 
 You can customize the following aspects of your AWS CloudShell experience:
 + [Tabs layout](#tabs-layout): Split the command line interface into multiple columns and rows.

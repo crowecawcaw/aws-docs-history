@@ -1,7 +1,6 @@
 
 
 # Using Kiro CLI in CloudShell
-<a name="q-cli-features-in-cloudshell"></a>
 
 With Kiro CLI, you can interact with Kiro from the command line. For more information, see [Kiro CLI](https://kiro.dev/docs/cli/) on the Kiro website.
 
@@ -16,19 +15,19 @@ You can ask questions in plain language and get answers in the terminal. Answers
 
 Start a chat session.
 
-```
+```bash
 kiro-cli
 ```
 
 Display the version of Kiro CLI.
 
-```
+```bash
 kiro-cli --version
 ```
 
 List the available commands and options.
 
-```
+```bash
 kiro-cli --help
 ```
 
@@ -53,19 +52,19 @@ During sign-in, the progress indicator refreshes the display while the sign-in U
 
 To check which sign-in method you are using, run the following command.
 
-```
+```bash
 kiro-cli whoami
 ```
 
 To sign out, run the following command.
 
-```
+```bash
 kiro-cli logout
 ```
 
 To sign in with a different method, sign out first, and then run the following command. If you are still signed in, Kiro CLI returns an error.
 
-```
+```bash
 kiro-cli login
 ```
 
@@ -78,7 +77,7 @@ For more information about the AWS MCP Server, see [AWS MCP Server](https://docs
 
 To configure the server, run the following commands in CloudShell.
 
-```
+```bash
 curl -fsS "https://docs.aws.amazon.com/cloudshell/latest/userguide/samples/kiro-cloudshell-aws-mcp.zip" -o "kiro-cloudshell-aws-mcp.zip"
 unzip -q -o kiro-cloudshell-aws-mcp.zip
 chmod +x kiro-cloudshell-aws-mcp.sh
@@ -101,7 +100,7 @@ For more information about the script, see `kiro-cloudshell-aws-mcp-README.md` i
 
 CloudShell includes a pre-installed version of Kiro CLI, which might not be the latest release. To get the latest version, run the following commands in CloudShell.
 
-```
+```bash
 curl -fsS "https://docs.aws.amazon.com/cloudshell/latest/userguide/samples/kiro-cloudshell-latest.zip" -o "kiro-cloudshell-latest.zip"
 unzip -q -o kiro-cloudshell-latest.zip
 chmod +x kiro-cloudshell-latest.sh
@@ -114,7 +113,7 @@ Any arguments you add after the script name are passed through to Kiro CLI after
 
 Update Kiro CLI and then launch it with a list of previous chats to resume.
 
-```
+```bash
 ./kiro-cloudshell-latest.sh --resume-picker
 ```
 

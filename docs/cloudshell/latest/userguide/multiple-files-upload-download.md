@@ -1,7 +1,6 @@
 
 
 # Copying multiple files between your local machine and CloudShell
-<a name="multiple-files-upload-download"></a>
 
 This tutorial shows how to copy multiple files between your local machine and CloudShell.
 

@@ -1,7 +1,6 @@
 
 
 # Accessibility features for AWS CloudShell
-<a name="accessibility-feature-aws-cloudshell"></a>
 
 This topic describes how to use accessibility features for CloudShell. You can use a keyboard to navigate through the focusable elements on the page. You can also customize the appearance of CloudShell, including font sizes and interface themes.
 

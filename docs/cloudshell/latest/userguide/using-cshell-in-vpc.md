@@ -1,7 +1,6 @@
 
 
 # Using AWS CloudShell in Amazon VPC
-<a name="using-cshell-in-vpc"></a>
 
  AWS CloudShell virtual private cloud (VPC) enables you to create a CloudShell environment in your VPC. For each VPC environment, you can assign a VPC, add a subnet, and associate up to five security groups. AWS CloudShell inherits the network configuration of the VPC and enables you to use AWS CloudShell securely within the same subnet as other resources in the VPC and connect to them. 
 

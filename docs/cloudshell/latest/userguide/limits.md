@@ -1,7 +1,6 @@
 
 
 # Service quotas and restrictions for AWS CloudShell
-<a name="limits"></a>
 
 This page describes the Service quotas and restrictions that apply to the following areas:
 + [Persistent storage](#persistent-storage-limitations)

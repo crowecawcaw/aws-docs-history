@@ -1,7 +1,6 @@
 
 
 # What is AWS CloudShell?
-<a name="welcome"></a>
 
 AWS CloudShell is a browser-based, pre-authenticated shell that you can launch directly from the AWS Management Console. You can navigate to CloudShell from the AWS Management Console a few different ways. For more information, see [Getting started with AWS CloudShell](getting-started.md)
 

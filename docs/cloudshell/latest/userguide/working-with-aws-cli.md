@@ -1,7 +1,6 @@
 
 
 # Manage AWS services from CLI in CloudShell
-<a name="working-with-aws-cli"></a>
 
 A key benefit of AWS CloudShell is that you can use it to manage your AWS services from the command line interface. This means that you don't need to download and install tools or configure your credentials locally beforehand. When you launch AWS CloudShell, a compute environment is created that has the following AWS command line tools already installed:
 + [AWS CLI](#aws-cli-section)

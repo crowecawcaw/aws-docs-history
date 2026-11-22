@@ -1,7 +1,6 @@
 
 
 # Required IAM permissions for creating and using CloudShell VPC environments
-<a name="aws-cloudshell-vpc-permissions-1"></a>
 
 To create and use CloudShell VPC environments, the IAM administrator must enable access to VPC specific Amazon EC2 permissions. This section lists the Amazon EC2 permissions needed to create and use VPC environments.
 
@@ -31,7 +30,7 @@ The following example displays how to enable full permissions, including access 
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -209,7 +208,7 @@ To deny users access to specific VPCs, use `StringEquals` to check the value of 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -247,7 +246,7 @@ To allow users access to specific VPCs, use `StringEquals` to check the value of
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -280,7 +279,7 @@ To allow users access to specific VPCs, use `StringEquals` to check the value of
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
