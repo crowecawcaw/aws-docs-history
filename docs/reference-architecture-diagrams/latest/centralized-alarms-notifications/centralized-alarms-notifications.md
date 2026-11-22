@@ -1,7 +1,6 @@
 
 
 # Centralized Alarms and Notifications
-<a name="centralized-alarms-notifications"></a>
 
 Publication date: **January 10, 2022 ([Diagram history](#diagram-history))**
 
