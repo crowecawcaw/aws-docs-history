@@ -1,7 +1,6 @@
 
 
 # Subscribing to an AMI product with contract pricing
-<a name="sub-public-AMI-contract"></a>
 
 Sellers offer public or private contracts for Amazon Machine Image (AMI)-based software products. You agree to make a one-time upfront payment for discrete quantities of licenses to access the software product.
 

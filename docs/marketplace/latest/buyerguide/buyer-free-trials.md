@@ -1,7 +1,6 @@
 
 
 # Free trials of products listed on AWS Marketplace
-<a name="buyer-free-trials"></a>
 
 Some products listed on AWS Marketplace offer free trials. The free trial enables you to try the software before you buy it. Free trials are limited to a certain amount of free usage, or for a specific amount of time. You can't pause a free trial period once it starts.
 
@@ -38,3 +37,24 @@ If you don't terminate any Amazon SageMaker AI endpoints, batch transform jobs, 
 <a name="free-trials-for-saas-products"></a>
 
 Some software as a service (SaaS) products in AWS Marketplace have free trials. SaaS subscription (usage-based) free trials convert automatically to a paid subscription when they end. SaaS contract free trials expire. For more information, see [Subscribing to SaaS free trials](saas-free-trials.md).
+
+**Note**  
+If you bought with AWS Marketplace Express Checkout, see [Free trials with Express Checkout](express-checkout-free-trials.md).
+
+## Free trials for products integrated with AWS Services
+<a name="free-trials-for-new-product-types"></a>
+
+Some RTB Fabric module products on AWS Marketplace offer free trials. A product that offers a free trial shows a free trial badge on its product detail page. The seller sets the length of the trial and any quantity that's included.
+
+To start a free trial, choose **Try for free** on the product detail page.
+
+A free trial of a contract product is a separate offer from the paid contract.
+
+When the trial ends, it expires and doesn't convert to a paid agreement. To keep access, subscribe to a paid offer or accept a private offer before the trial ends.
+
+You can have one free trial per AWS account for each product. You're responsible for any AWS infrastructure charges that you incur during the trial.
+
+## Free trials for DaaS products
+<a name="free-trials-for-daas-products"></a>
+
+Some Data as a Service (DaaS) products in AWS Marketplace have free trials. Pay as you go free trials convert automatically to a paid subscription when they end. Contract and contract with consumption free trials expire. For more information, see [DaaS free trials](buyer-daas-products.md#buyer-daas-free-trials).

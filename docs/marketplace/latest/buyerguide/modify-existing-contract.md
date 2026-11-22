@@ -1,7 +1,6 @@
 
 
 # Modifying an existing contract
-<a name="modify-existing-contract"></a>
 
 If they have an existing upfront commitment for an AMI product, AWS Marketplace buyers can modify some aspects of a contract. An AMI contract is supported through contract terms based offers as opposed to hourly or annual flexible consumption pricing (FCP) offers. This feature is available only to applications that are integrated with AWS License Manager. Buyers can purchase additional licenses within the entitlement of the same offer in the current contract. However, buyers can't reduce the entitlement counts purchased in the contract. Buyers can also cancel the automatic subscription renewal if the option is enabled by the Seller. 
 

@@ -1,7 +1,6 @@
 
 
 # Buying in the AWS European Sovereign Cloud Marketplace
-<a name="esc-buyer-getting-started"></a>
 
  This guide is for buyers using AWS Marketplace in the AWS European Sovereign Cloud (ESC) partition to discover, procure, and manage software products. It describes how AWS Marketplace in the AWS ESC works, how it differs from the commercial AWS Marketplace, and what you need to get started. 
 

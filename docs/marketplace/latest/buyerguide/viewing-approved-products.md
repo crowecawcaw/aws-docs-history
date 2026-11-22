@@ -1,7 +1,6 @@
 
 
 # Viewing approved products
-<a name="viewing-approved-products"></a>
 
 If you are being governed by a Private Marketplace experience, you will be limited to purchasing products approved in your experience.
 

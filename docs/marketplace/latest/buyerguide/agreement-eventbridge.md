@@ -1,7 +1,6 @@
 
 
 # AWS Marketplace Agreement EventBridge Events
-<a name="agreement-eventbridge"></a>
 
 AWS Marketplace sends notifications to Amazon EventBridge when certain events occur in the lifecycle of your agreements (i.e. offers you have purchased). You can use these events to automate workflows and track your marketplace purchases.
 

@@ -1,7 +1,6 @@
 
 
 # Security on AWS Marketplace
-<a name="buyer-security"></a>
 
  We list software from high-quality sellers, and actively work to maintain the quality of our selection. Because every customer is different, our goal is to provide enough information about the products listed on AWS Marketplace so that customers can make good purchasing decisions. 
 
@@ -24,4 +23,4 @@ Otherwise, we generally do not share customer information with sellers, and any 
 ## Logging API calls with AWS CloudTrail
 <a name="buyer-security-logging"></a>
 
-AWS Marketplace is integrated with AWS CloudTrail for logging API calls. For information about CloudTrail events for invoicing actions used with procurement system integrations, see [Logging procurement system API calls with AWS CloudTrail](buyer-cloudtrail-logging.md).
+AWS Marketplace is integrated with AWS CloudTrail for logging API calls. For information about CloudTrail events for invoicing actions used with procurement system integrations, see [Security for procurement system integration](procurement-system-integration-security.md).

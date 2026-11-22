@@ -1,7 +1,6 @@
 
 
 # Subscribing with SaaS upfront commitments
-<a name="buyer-saas-contracts"></a>
 
 Some companies make SaaS contracts available upfront for purchase through AWS Marketplace. With this option, you can purchase discrete quantities of licenses or data ingest for these products. Then, you can bill these products, in advance, through your AWS account. For example, you might purchase 10 user access licenses for a year, or you might purchase 10 GB of data ingest per day for a year.
 

@@ -1,9 +1,8 @@
 
 
 # Sharing your licenses
-<a name="sharing-licenses"></a>
 
-Only AMI, container, machine learning, data products, Oracle Database@AWS, and third-party Amazon Bedrock model subscriptions have licenses that can be shared.
+Only AMI, container, machine learning, data products, Oracle Database@AWS, RTB Fabric module, and third-party Amazon Bedrock model subscriptions have licenses that can be shared.
 
 Subscriptions in AWS Marketplace have an **Access level** shown in the product details:
 + Products with an **Agreement** level have a license that you can use and share with other accounts in your organization. 
@@ -17,11 +16,11 @@ For products that are restricted to specific AWS Regions, an account you share y
 ## Required permissions for license distribution
 <a name="license-sharing-required-permissions"></a>
 
-To distribute licenses, sign in to your organization's management account or your delegated administrator account. The IAM identity that you use needs the permissions in the following policy. To distribute a private offer when you accept it, the identity also needs permission to view and accept the private offer, for example through the `AWSMarketplaceManageSubscriptions` managed policy.
+To distribute licenses, sign in to your organization's management account or your delegated administrator account. The IAM identity that you use needs the permissions in the following policy. To distribute a private offer when you accept it, the identity also needs permission to view and accept the private offer, for example through the [AWSMarketplaceManageSubscriptions](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.html) managed policy. To distribute a private offer that you already accepted, the identity needs permission to view your subscriptions on the **Manage subscriptions** page, which the same managed policy includes.
 
 The `DistributeMarketplaceSubscription` statement covers the actions used on every distribution. The `FirstTimeOnboarding` statements cover the setup that AWS License Manager performs the first time your organization distributes licenses.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -87,18 +86,21 @@ The `DistributeMarketplaceSubscription` statement covers the actions used on eve
 ## Distributing third-party Amazon Bedrock model licenses
 <a name="license-sharing-bedrock"></a>
 
-If you accept a private offer for a third-party model in Amazon Bedrock from your management account or your delegated administrator account, you can distribute it to every account in your organization on the purchase confirmation page, right after you accept the offer. AWS License Manager completes the license sharing prerequisites for you. It creates the required service-linked roles and links your organization accounts.
+If you accept a private offer for a third-party model in Amazon Bedrock from your management account or your delegated administrator account, you can distribute it to every account in your organization from AWS Marketplace. Distribute on the purchase confirmation page when you accept the offer, or later from the agreement. AWS License Manager completes the license sharing prerequisites for you. It creates the required service-linked roles and links your organization accounts.
 
-You can't distribute private offers that you accept as part of an offer set from the purchase confirmation page. To distribute these offers, public offers, or licenses for specific accounts or organizational units (OUs), use AWS License Manager.
+To distribute a private offer that you already accepted, open the **Manage subscriptions** page and filter the list by **Distribution status** = **Not distributed**. For the agreement that you want to distribute, choose **View distribution**, and then choose **Distribute**. Until you distribute an agreement, member accounts pay public rates.
+
+You can't distribute private offers that you accept as part of an offer set on the purchase confirmation page. After you accept an offer set, each offer has its own agreement, which you can distribute later from the **Manage subscriptions** page. To distribute public offers, or licenses for specific accounts or organizational units (OUs), use AWS License Manager.
 
 For more information, see the following topics in the *Amazon Bedrock User Guide*:
 + [Distribute through AWS Marketplace](https://docs.aws.amazon.com/bedrock/latest/userguide/managed-entitlements-marketplace.html)
++ [Understanding distribution status](https://docs.aws.amazon.com/bedrock/latest/userguide/managed-entitlements-marketplace.html#managed-entitlements-distribute-marketplace-status)
 + [Distribute through AWS License Manager](https://docs.aws.amazon.com/bedrock/latest/userguide/managed-entitlements-license-manager.html)
 
 ## Distributing other licenses
 <a name="license-sharing-other"></a>
 
-For AMI, container, machine learning, data products, and Oracle Database@AWS subscriptions, set up license sharing for your organization, and then share licenses by using grants in AWS License Manager.
+For AMI, container, machine learning, data products, Oracle Database@AWS, and RTB Fabric module subscriptions, set up license sharing for your organization, and then share licenses by using grants in AWS License Manager.
 
 ### Prerequisites for license sharing
 <a name="license-sharing-prereqs"></a>

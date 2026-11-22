@@ -1,7 +1,6 @@
 
 
 # Finding container products in AWS Marketplace
-<a name="buyer-finding-and-subscribing-to-container-products"></a>
 
  Container products are products in AWS Marketplace that can be launched on container images. Container products include any product in AWS Marketplace in which the seller has provided a fulfillment option with a **Container image**, **Helm chart**, or **Add-on for Amazon EKS** delivery method. For more information about container product delivery methods, see [Container product delivery methods](buyer-container-product-delivery-methods.md). 
 

@@ -1,7 +1,6 @@
 
 
 # Private Marketplace concepts
-<a name="private-marketplace-concepts"></a>
 
 This topic explains some of the key concepts for Private Marketplace.
 

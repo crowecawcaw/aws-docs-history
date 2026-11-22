@@ -1,7 +1,6 @@
 
 
 # How auto-renewal for private offers works
-<a name="how-auto-renewal-private-offers-works"></a>
 
 Auto-renewal terms are set by the seller on the private offer. When an agreement with auto-renewal terms reaches its end date, AWS Marketplace generates a renewal offer, auto-accepts it on your behalf, and creates a new agreement with a new agreement ID. Your negotiated terms carry forward automatically, so your software or service continues without interruption. Both you and the seller are notified before a renewal proceeds and again after it completes. No action is required unless you want to opt in or opt out.
 

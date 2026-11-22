@@ -1,7 +1,6 @@
 
 
 # Supported AWS Regions in AWS Marketplace
-<a name="supported-regions"></a>
 
 For software products, the seller chooses which AWS Regions to make their software available in, as well as the instance types. We encourage making products available in all available Regions and on all instance types that make sense. The AWS Marketplace website is available worldwide and supports the following Regions:
 +  North America 

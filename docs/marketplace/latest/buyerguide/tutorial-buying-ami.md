@@ -1,7 +1,6 @@
 
 
 # Tutorial: Buying an AMI-based software product
-<a name="tutorial-buying-ami"></a>
 
 The following tutorial describes how to buy an Amazon Machine Image (AMI) product with AWS Marketplace.
 

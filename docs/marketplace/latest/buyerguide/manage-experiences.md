@@ -1,7 +1,6 @@
 
 
 # Managing experiences
-<a name="manage-experiences"></a>
 
 You can create an experience, view a list of all the experiences, and make edits from the **Experiences** page. This includes active and archived experiences.
 

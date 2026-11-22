@@ -1,7 +1,6 @@
 
 
 # Monitor Private Marketplace
-<a name="monitor-private-marketplace"></a>
 
 Private Marketplace provides multiple ways to visualize the governance controls you have configured in your organization.
 + To view integration status, see [Viewing Private Marketplace settings](view-private-marketplace-settings.md).

@@ -1,7 +1,6 @@
 
 
 # Managing Your Multi-Product Solutions
-<a name="managing-multi-product-solutions"></a>
 
 ## Viewing Your Solutions
 <a name="viewing-your-solutions"></a>

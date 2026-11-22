@@ -1,7 +1,6 @@
 
 
 # Creating future dated agreements
-<a name="creating-future-dated-agreements"></a>
 
 For SaaS contracts and contracts with consumption pricing, with and without a flexible payment schedule, the seller sets the agreement start date as part of generating a private offer. As a buyer, you must work with sellers to make sure that the start date meets your requirements.
 

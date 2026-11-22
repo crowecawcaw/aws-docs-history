@@ -1,7 +1,6 @@
 
 
 # Container products in AWS Marketplace
-<a name="buyer-what-is-aws-marketplace-for-containers"></a>
 
 Container products are standalone products fulfilled as container images. Container products can either be free or must be paid for using a seller-provided pricing option. Container products can be used with multiple container runtimes and services, including [Amazon Elastic Container Service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/) (Amazon ECS), [Amazon Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/latest/userguide/) (Amazon EKS), and even services running on your own infrastructure. For a complete list of supported runtimes and services with more information about each, see [Supported services for container products](#buyer-container-product-launch-environments).
 

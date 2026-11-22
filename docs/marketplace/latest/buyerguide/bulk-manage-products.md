@@ -1,7 +1,6 @@
 
 
 # Bulk managing products
-<a name="bulk-manage-products"></a>
 
 You can bulk approve or decline products in multiple experiences using the bulk update wizard. This wizard can be launched using the **Bulk update products** action on the dashboard. You can also get to this wizard by choosing products in the **Managed products** or the **All products** tables and choosing **Approve** or **Deny**.
 

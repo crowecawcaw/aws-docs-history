@@ -1,7 +1,6 @@
 
 
 # Managing user requests
-<a name="manage-user-requests"></a>
 
 If you enabled product procurement requests for the experiences in your organization, the end users can request for additional products to be approved. You will receive Amazon EventBridge events when a user requests a product. Refer [Private Marketplace notifications](configuring-notifications.md) for details on how you can configure email notifications for these events.
 

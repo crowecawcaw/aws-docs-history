@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="get-started"></a>
 
 To get started, enable Private Marketplace by creating a service-linked role and enabling trusted access in AWS Organizations. You can perform this action only from the management account of your organization using a role or user with AWS Identity and Access Management (IAM) permissions in the [AWSPrivateMarketplaceAdminFullAccess](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-security-iam-awsmanpol.html#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess) managed policy. This policy has all permissions required to enable, configure, and manage Private Marketplace.
 

@@ -1,9 +1,8 @@
 
 
 # What is AWS Marketplace?
-<a name="what-is-marketplace"></a>
 
-AWS Marketplace is a curated digital catalog that you can use to find, buy, deploy, and manage third-party software, data, and services that you need to build solutions and run your businesses. AWS Marketplace includes thousands of software listings from popular categories such as security, networking, storage, machine learning, IoT, business intelligence, database, and DevOps. AWS Marketplace also simplifies software licensing and procurement with flexible pricing options and multiple deployment methods. In addition, AWS Marketplace includes data products available from AWS Data Exchange.
+AWS Marketplace is a curated digital catalog that you can use to find, buy, deploy, and manage third-party software, data, and services that you need to build solutions and run your businesses. AWS Marketplace includes thousands of software listings from popular categories such as security, networking, storage, machine learning, IoT, business intelligence, database, and DevOps. AWS Marketplace also simplifies software licensing and procurement with flexible pricing options and multiple deployment methods. In addition, AWS Marketplace includes data products available from AWS Data Exchange. You can also subscribe to Data as a Service (DaaS) products, where the seller delivers data and content to you directly.
 
 You can quickly launch pre-configured software with just a few clicks. Choose software solutions in Amazon Machine Images (AMIs), software as a service (SaaS) formats, and other formats. Additionally, you can browse and subscribe to data products. Flexible pricing options include free trial, hourly, monthly, annual, multi-year, and a Bring Your Own License (BYOL) model. All of these pricing options are billed from one source. AWS handles billing and payments, and charges appear on your AWS bill.
 

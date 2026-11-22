@@ -1,7 +1,6 @@
 
 
 # Viewing and subscribing to a private offer
-<a name="buyer-private-offers-subscribing"></a>
 
  Private offers are customized agreements between you and AWS Marketplace sellers that may include negotiated pricing, custom terms, and specific configurations. You can access these offers in multiple ways: through the Private offers page, directly from the product page, or via a seller-provided link. This page guides you through accessing, viewing, and subscribing to private offers, including specific steps for different product types (AMI, SaaS, and ML). Before proceeding with any subscription, ensure you review all terms, pricing, and configurations carefully to verify they match your negotiated agreement. 
 

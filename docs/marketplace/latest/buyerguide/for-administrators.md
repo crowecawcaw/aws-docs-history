@@ -1,7 +1,6 @@
 
 
 # Private Marketplace for administrators
-<a name="for-administrators"></a>
 
 Private Marketplace restricts administrative actions to the organization's management account or a member account that is a delegated administrator for the service. An administrator must have the AWS Identity and Access Management (IAM) permissions included in the [AWSPrivateMarketplaceAdminFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPrivateMarketplaceAdminFullAccess.html) managed policy.
 

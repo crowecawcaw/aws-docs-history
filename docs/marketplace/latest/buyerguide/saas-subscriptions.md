@@ -1,7 +1,6 @@
 
 
 # Subscribing with SaaS usage-based subscriptions
-<a name="saas-subscriptions"></a>
 
 With SaaS usage-based subscriptions, the software seller tracks your usage, and you only pay for what you use. This pay-as-you-go model is similar to many AWS services. Billing for your usage of a SaaS product is managed through your AWS bill.
 

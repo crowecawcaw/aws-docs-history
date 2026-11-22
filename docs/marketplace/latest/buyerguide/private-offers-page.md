@@ -1,7 +1,6 @@
 
 
 # Private offers page in AWS Marketplace
-<a name="private-offers-page"></a>
 
 In AWS Marketplace, the **Private offers** page lists all the private offers that have been extended to your AWS account for both private and public products. All offers available to you are displayed for each product. You can accept one offer for each product.
 

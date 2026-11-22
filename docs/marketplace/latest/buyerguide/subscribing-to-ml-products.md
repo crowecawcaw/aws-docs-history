@@ -1,7 +1,6 @@
 
 
 # Subscribing to a machine learning product
-<a name="subscribing-to-ml-products"></a>
 
  AWS Marketplace has a category for machine learning products you can subscribe to through AWS Marketplace. The product category is Machine Learning. The products in this category include machine learning (ML) model packages and algorithms. 
 

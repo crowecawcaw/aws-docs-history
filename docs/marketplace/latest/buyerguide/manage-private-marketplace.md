@@ -1,7 +1,6 @@
 
 
 # Managing Private Marketplace
-<a name="manage-private-marketplace"></a>
 
 You can manage requests from users, approve additional products to their experiences, associate experiences with additional AWS account groups, and update branding to match the needs of your organization.
 + To manage user requests, see [Managing user requests](manage-user-requests.md).

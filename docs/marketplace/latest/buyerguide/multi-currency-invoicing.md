@@ -1,7 +1,6 @@
 
 
 # Multi-currency invoicing and payment considerations
-<a name="multi-currency-invoicing"></a>
 
 When working with private offers in multiple currencies, several payment and invoicing considerations apply:
 + As an AWS customer, you can select a currency as your preferred currency for AWS Marketplace invoices that are priced in USD. This preference is based on your location. For more information about supported currencies, see [Supported currencies](buyer-paying-for-products.md#supported-currencies).

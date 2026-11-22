@@ -1,75 +1,174 @@
 
 
 # Configuring AWS Marketplace to integrate with Coupa
-<a name="procurement-system-integration-coupa"></a>
 
-The topics in this section explain how to integrate AWS Marketplace with a Coupa procurment system 
+The topics in this section explain how to integrate AWS Marketplace with a Coupa procurement system.
 
-## Step 1. Set up IAM permissions
+## Step 1. Check the prerequisites
 <a name="procurement-system-coupa-step1"></a>
 
-To configure the integration between AWS Marketplace and your procurement system, you start the process in AWS Marketplace and complete it in the procurement system. You use the information generated in AWS Marketplace to configure the procurement system punchout. To complete the configuration, the accounts that you use must meet the following requirements:
-+ The AWS account used to complete the AWS Marketplace configuration must be the management account and have the IAM permissions defined in the `AWS managed policy: AWSMarketplaceProcurementSystemAdminFullAccess` managed policy.
+Configuration starts in AWS Marketplace, where you create the connection, and finishes in Coupa, where you create the supplier and the punchout site. You use information from the AWS Marketplace connection to configure Coupa, so you need access to both systems.
 
-  We recommend that you use IAM managed permissions rather than manually configuring permissions. Using this approach is less prone to human error, and if the permissions change, the managed policy is updated. For more information about configuring and using IAM in AWS Marketplace, see [Security on AWS Marketplace](buyer-security.md) later in this guide.
-+  The procurement system account used to complete the configuration must have administration access to set up a contract, supplier, and punchout catalog in the procurement system.
+For the permissions and the other prerequisites, see [Prerequisites for procurement system integration](procurement-system-prerequisites.md).
 
-## Step 2. Configure AWS Marketplace to integrate with Coupa
+## Step 2. Create the connection in AWS Marketplace
 <a name="procurement-system-coupa-step2"></a>
 
-After you have set up your IAM permissions, you are ready to configure AWS Marketplace integration with Coupa. Navigate to **Manage procurement**. In the **Manage procurement systems** pane, you configure a billing entity connection with the credentials and settings for your Coupa integration. You can also switch the integration to test mode so that users can test the integration without creating product subscriptions until you're ready. To configure the AWS Marketplace portion of the integration, complete the following procedure.
+The connection holds the credentials that identify your Coupa system and AWS Marketplace to each other.
 
-**To configure AWS Marketplace for integrating with Coupa**
+### Credentials you choose
+<a name="procurement-system-coupa-credentials"></a>
 
-1.  From [Manage Procurement Systems](https://aws.amazon.com/marketplace/eprocurement/overview), under **Procurement systems**, choose **Set up Coupa integration**. 
+The following credentials identify the two systems to each other. You choose them, enter them in AWS Marketplace here, and enter the same values again in Coupa in step 3. They have to match on both sides.
 
-1.  On the **Manage Coupa integration** page, under **Account information**, enter a name and description for your integration, and then configure the following fields:
-   + **Buyer ID** – Your organization's unique identifier in Coupa. This identifies your organization as the buyer in the cXML exchange with AWS Marketplace.
-   + **Supplier ID** – The AWS Marketplace supplier identifier for your Coupa system. This identifies which AWS endpoint receives purchase orders from your procurement portal.
-   + **Shared secret** – The credential used to authenticate the cXML communication between your Coupa system and AWS Marketplace. Keep this value secure.
-   + **Billing entities** (optional) – Select the AWS Billing entities (Seller of Record) that match the AWS Billing entity that you are setting up. If you don't select any, the connection accepts purchases from all AWS Billing entities. Select specific entities if your procurement portal uses different supplier configurations for different AWS Invoicing regions.
+Buyer ID  
+Your buyer identity. It identifies your organization as the buyer in the cXML exchange. In Coupa it is the **cXML identity**.
+
+Supplier ID  
+Your supplier identity. It identifies AWS Marketplace as the supplier in the cXML exchange. In Coupa it is the **cXML supplier identity**.
+
+Shared secret  
+Your shared secret. It authenticates the cXML messages between Coupa and AWS Marketplace. In Coupa it is the **cXML secret**.  
+You own this credential. Rotate it on the schedule your organization applies to other shared secrets, changing it in AWS Marketplace and in Coupa together so that the two stay in step.
+
+The identities aren't only labels. They're checked alongside the shared secret to authorize the exchange, so treat them as part of what protects the integration. We recommend generating each identity as a universally unique identifier (UUID) rather than choosing a name that someone could guess.
+
+The shared secret is a credential, so generate it rather than choose it. We recommend a value of at least 32 characters from a cryptographically secure random generator, and a value used for this integration alone rather than one reused from another system.
+
+Enter each of these values identically on both sides. They're compared exactly, so a difference in capitalization or a trailing space stops AWS Marketplace and Coupa recognizing each other, and purchase orders are rejected.
+
+### Creating the connection
+<a name="procurement-system-coupa-connection"></a>
+
+**To create the connection in AWS Marketplace**
+
+1. On the [**External system**](https://console.aws.amazon.com/marketplace/buying-policies/approvers-and-routing?region=us-east-1&tab=external-system) tab of the **Approvers and routing** page, choose **Connect**.
+
+1. Choose **Add new Coupa Connection**, and then complete the following fields in the form:
+   + **Buyer ID** – Your buyer identity.
+   + **Shared secret** – Your shared secret.
+   + **Supplier ID** – Your supplier identity.
+   + **Seller of Record** – Select the AWS Billing entities that match the AWS Billing entity that you are setting up. If you don't select any, the connection accepts purchases from all AWS Billing entities. Select specific entities if you plan to use different supplier configurations for different AWS Billing entities.
+   + **Approval request redirect URL** – Where AWS Marketplace sends a buyer who started a purchase in AWS Marketplace rather than in Coupa, so that their request still reaches Coupa for approval. The address comes from Coupa, so leave this empty for now. You can add it after Coupa is configured, in step 4, and you can skip it altogether if your buyers always begin their purchases in Coupa.
+
+1. Choose **Save** to complete the integration on the AWS Marketplace side.
+
+The connection now appears in your list of procurement connections. Saving it also generates the cXML address that Coupa will send purchase orders to, which looks like this:
+
+```
+https://example12345.procurement-portal-cxml.us-east-1.on.aws/purchase-order
+```
+
+Copy that address from the connection, because you enter it in Coupa in step 3.
+
 **Note**  
-If you want your invoices in the AWS Billing and Cost Management console to reference the commerce extensible markup language (cXML) purchase order used to subscribe to your software as a service (SaaS) contract product, enable the AWS Billing and Cost Management integration using a service-linked role in AWS Marketplace settings.
+Creating a connection doesn't send any purchases to Coupa on its own. You decide which purchases go there by writing approval rules. For more information about approval rules, see [Routing purchases to your procurement system](procurement-system-routing.md).
 
-1. You can turn on or turn off the configuration settings for **Enable redirect** and **Test mode**, and then select **Save** to complete the integration in the AWS Marketplace system.
+### Managing your connections
+<a name="procurement-system-coupa-managing-connections"></a>
 
-After your first connection is set up, you can add and manage additional connections for other billing entities from the **Manage Procurement Systems** page. Each connection uses its own set of credentials and can be scoped to different AWS Billing entities. To add a connection and manage the connections in your account, complete the following procedure.
+You can add and manage additional connections for other billing entities from the same page. Each connection uses its own set of credentials and can be scoped to different AWS Billing entities.
 
-**To add and manage additional Coupa connections**
+If you previously onboarded to electronic invoice delivery or to cloud purchase order retrieval, you already have a connection to Coupa and don't need a new one. Edit the existing connection instead, and select **Enable AWS Marketplace PunchOut**, which makes that connection apply to AWS Marketplace as well.
 
-1. From [Manage Procurement Systems](https://aws.amazon.com/marketplace/eprocurement/overview), review your existing connections in the **Portal connections** table. Each row lists the connection's **Buyer ID**, **Supplier ID**, **Seller of Record**, **PunchOut status**, along with the **View**, **Enable**, and **Disable** actions.
+**To manage your Coupa connections**
 
-1. Under **New Coupa connections**, enter the connection details – **Buyer ID**, **Shared secret**, **Supplier ID**, and optionally **Seller of Record (SOR)** to scope the connection to specific billing entities.
+1. On the [**External system**](https://console.aws.amazon.com/marketplace/buying-policies/approvers-and-routing?region=us-east-1&tab=external-system) tab of the **Approvers and routing** page, review your existing connections in the **Portal connections** table. Each row lists the connection's **Buyer ID**, **Supplier ID**, **Seller of Record**, and **AWS Marketplace PunchOut status**.
 
-1. Submit the form to create the connection. The new connection appears in the **Portal connections** table.
-
-1. On the new connection's row, choose **Enable** to activate AWS Marketplace PunchOut for that connection.
-
-1. To stop routing PunchOut through a connection, choose **Disable** on its row.
+1. To turn AWS Marketplace PunchOut on or off for a connection, select the connection. An edit section appears, where you enable or disable it.
 **Note**  
-Disabling a connection is reversible. The connection remains in your account, and you can enable it again later. Disabling the last connection that has a redirect endpoint turns off direct punchout (redirect) for the account.
+Disabling a connection is reversible. The connection remains in your account, and you can enable it again later.
 
-1. To see or edit a connection's details, choose **View** on its row.
-**Note**  
-You can't edit a connection's **Seller of Record** or **Shared secret** from the AWS Marketplace procurement connections page. To update either field, use the [AWS Billing and Cost Management console](https://console.aws.amazon.com/costmanagement/home#/e-invoicing-preference/procurement-portal-preference/).
+1. To edit more of a connection's configuration than this page carries, including electronic invoicing and cloud purchase order retrieval, use the [AWS Billing and Cost Management console](https://console.aws.amazon.com/costmanagement/home#/e-invoicing-preference/procurement-portal-preference/).
 
-After you have completed the integration in AWS Marketplace, you must go on to set up the integration in Coupa. You use the information generated on this page to configure the punchout in your Coupa system. 
-
-The AWS Marketplace configuration defaults to test mode being enabled. In test mode, subscription requests are transmitted to the Coupa backend, but transmitted purchase orders will not result in a subscription and will not generate an invoice. This helps you complete the configuration and enable the punchout in a planned manner.
-
-**Note**  
-You can toggle testing mode on or off, as needed.  
-Don't forget to turn off testing mode when you're finished with your integration. Otherwise, users in your system will appear to be creating requests, but no software will be purchased.
-
-## Step 3. Configure Coupa
+## Step 3. Set up the supplier and punchout site in Coupa
 <a name="procurement-system-coupa-step3"></a>
 
- To configure the integration with AWS Marketplace in your Coupa system, your Coupa administrator will copy the information from the **Purchase information** pane of the **Manage Coupa integration** page in AWS Marketplace. To send purchase orders to AWS Marketplace, your Coupa administrator must turn on **Enable Mutual TLS for PO cXML** under the **PO Transmission** setup section of your Coupa Supplier Portal. Use this information to complete the steps in the following links that guide you through configuring your Coupa procurement system: 
-+  [Coupa Punchout Setup](https://success.coupa.com/Suppliers/For_Customers/Toolkit/Manage_Catalogs/Punchout_Catalogs/Punchout_Setup) 
-+  [Configuring a Supplier for cXML Purchase Orders](https://success.coupa.com/Suppliers/For_Customers/Toolkit/Document_Exchange/cXML/Configuring_a_Supplier_for_cXML_Purchase_Orders) 
+Coupa needs a supplier record for AWS Marketplace and a punchout site that reaches the AWS Marketplace catalog. You create both in Coupa, using the credentials you chose in step 2 and the cXML address the connection gave you.
+
+### Supplier settings
+<a name="procurement-system-coupa-supplier"></a>
+
+On the supplier record for AWS Marketplace, under **PO transmission**, configure the following settings.
+
+
+| Setting | Value | 
+| --- | --- | 
+| PO method | cXML | 
+| cXML URL | The cXML address you copied from the connection in step 2. | 
+| cXML domain | NetworkID | 
+| cXML identity | Your buyer identity. | 
+| cXML supplier identity | Your supplier identity. | 
+| cXML secret | Your shared secret. | 
+| cXML protocol | cXML | 
+| Enable mutual TLS for PO cXML | Selected. This setting is required. | 
+
+**Important**  
+Mutual Transport Layer Security (TLS) is required, and it is what makes this channel trustworthy. It authenticates both ends of the connection, so AWS Marketplace can establish that a purchase order genuinely came from your Coupa system rather than from someone impersonating it. Select this setting when you configure the supplier record.
+
+#### Invoicing settings on the supplier
+<a name="procurement-system-coupa-supplier-invoicing"></a>
+
+Electronic invoice delivery is optional. The punchout carries purchases to Coupa, and invoices travel the other way. Most organizations want both, so that a purchase that began as a requisition in Coupa ends as an invoice there too.
+
+If you want invoices delivered to Coupa, the invoicing settings on the same supplier record take the same values as the purchase order settings, so that invoices and purchase orders travel between the same two identities.
+
+
+| Setting | Value | 
+| --- | --- | 
+| cXML invoicing supplier domain | NetworkID | 
+| cXML invoicing supplier identity | Your supplier identity. | 
+| cXML invoicing buyer domain | NetworkID | 
+| cXML invoicing buyer identity | Your buyer identity. | 
+| cXML invoicing shared key | Your shared secret. | 
+
+For more information about electronic invoice delivery, see [Setting up electronic invoice delivery](procurement-system-invoicing.md).
+
+### Punchout site settings
+<a name="procurement-system-coupa-punchout-site"></a>
+
+The punchout site is what takes your buyers from Coupa to the AWS Marketplace catalog. Configure the following settings.
+
+
+| Setting | Value | 
+| --- | --- | 
+| Punchout URL | https://eprocurement.marketplace.us-east-1.amazonaws.com/v1/punchout/setup?start\_url= | 
+| Domain | NetworkID | 
+| Identity | Your supplier identity, the same value as cXML supplier identity on the supplier. | 
+| Secret | Your shared secret, the same value as cXML secret on the supplier. | 
+| Sender domain | NetworkID | 
+| Sender identity | Your buyer identity, the same value as cXML identity on the supplier. | 
+| Protocol | cXML | 
 
 **Note**  
-For information about UNSPSC codes used by AWS Marketplace, see [UNSPSC codes used by AWS Marketplace](procurement-system-integration.md#procurement-integration-setup-unspsc-codes) .
+The punchout address ends with the `start_url` query parameter, which is part of the address and is the same for everyone. Its value is optional: leave it empty to send your buyers to the default AWS Marketplace landing page, or set it to the page you want them to land on when the punchout session starts.  
+That is how you use the punchout for single sign-on, by pointing your buyers at your own identity provider instead of the default AWS sign-in page. For more information about single sign-on, see [Configuring single sign-on for procurement system integration](procurement-system-sso.md).
 
-**Note**  
-For information about CloudTrail events for invoicing actions used with procurement system integrations, see [Logging procurement system API calls with AWS CloudTrail](buyer-cloudtrail-logging.md).
+#### Letting buyers start in AWS Marketplace instead of Coupa
+<a name="procurement-system-coupa-direct-punchout"></a>
+
+By default, a buyer begins in Coupa and punches out from there to the AWS Marketplace catalog. That punchout is what establishes the session connecting the two systems.
+
+Direct punchout, also called PunchOutAnywhere, removes that first step. Your buyers can begin in AWS Marketplace directly and still have their cart returned to Coupa, without starting in Coupa to set the session up. This suits organizations whose buyers naturally start by browsing the catalog rather than by starting their journey from within Coupa and punching out to the AWS Marketplace catalog.
+
+To allow it, select **Allow 'Anywhere' punchout from suppliers** on the punchout site and copy the address that Coupa gives you. It looks like this:
+
+```
+https://your-instance.coupacloud.com/punchout/checkout?id=19
+```
+
+This address is what you apply to your AWS Marketplace connection, in step 4.
+
+## Step 4. Add the approval redirection address (optional)
+<a name="procurement-system-coupa-step4"></a>
+
+Complete this step if you want to enforce the approval request to Coupa for those users that begin their journey natively in AWS Marketplace.
+
+In AWS Marketplace, edit your connection and enter the address you copied from Coupa as the **Approval request redirect URL**. For where that address comes from, see [Letting buyers start in AWS Marketplace instead of Coupa](#procurement-system-coupa-direct-punchout).
+
+With this in place, confirm that the whole path works, and that your users are permissioned to and know how to use Coupa before your buyers use it. For more information about testing, see [Testing your procurement system integration](procurement-system-testing.md).
+
+## Coupa documentation
+<a name="procurement-system-coupa-resources"></a>
+
+For Coupa's own instructions on the Coupa side of the setup, see [Coupa Punchout Setup](https://success.coupa.com/Suppliers/For_Customers/Toolkit/Manage_Catalogs/Punchout_Catalogs/Punchout_Setup) and [Configuring a Supplier for cXML Purchase Orders](https://success.coupa.com/Suppliers/For_Customers/Toolkit/Document_Exchange/cXML/Configuring_a_Supplier_for_cXML_Purchase_Orders).

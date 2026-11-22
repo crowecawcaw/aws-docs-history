@@ -1,7 +1,6 @@
 
 
 # Future dated agreements and private offers in AWS Marketplace
-<a name="private-offers-buyer-future-dated-private-offers-and-agreements"></a>
 
 With future dated agreements (FDA) in AWS Marketplace, you can subscribe to products where the product usage begins at a future date. You can manage when you buy a product *independently* from when you pay for, and when you use the product.
 
@@ -10,7 +9,7 @@ FDA helps buyers perform the following actions independently for transactions on
 + Begin product usage (license/entitlement activation).
 + Pay for a purchase (invoice generation).
 
-FDA is supported on private offers, creating for software as a service (SaaS) products, for contract and contracts with consumption pricing (CCP), and with or without flexible payments.
+FDA is supported on private offers, creating for software as a service (SaaS) products, for contract and contracts with consumption pricing (CCP), and with or without flexible payments, and for RTB Fabric module products with contract pricing.
 
 When you use future dated agreements, keep the following dates in mind:
 

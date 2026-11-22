@@ -1,7 +1,6 @@
 
 
 # Auto-renewal for private offers
-<a name="buyer-private-offers-auto-renewal"></a>
 
 When you accept a private offer that includes auto-renewal terms, your agreement renews automatically at its end date so your software or service continues without interruption. The seller defines the renewal terms: how the price carries forward, how many times the agreement can renew, and the date by which you can change your decision. You can opt in or opt out when you accept the offer, and you can change that preference any time before the renewal decision deadline. No action is required for a renewal to proceed; you only need to act if you want to opt out.
 

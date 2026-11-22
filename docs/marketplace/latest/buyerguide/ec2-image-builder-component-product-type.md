@@ -1,7 +1,6 @@
 
 
 # EC2 Image Builder component products in AWS Marketplace
-<a name="ec2-image-builder-component-product-type"></a>
 
 EC2 Image Builder integration with AWS Marketplace enables you to discover, deploy, and manage third-party EC2 Image Builder components in your customized Amazon Machine Images (AMIs).
 

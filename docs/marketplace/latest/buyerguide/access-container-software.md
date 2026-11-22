@@ -1,7 +1,6 @@
 
 
 # Accessing container-based software
-<a name="access-container-software"></a>
 
 Once you purchase a container-based software product with contract pricing, you will be directed to the product’s website for account setup and conﬁguration. The usage charges will then appear on your regular AWS account billing report.
 
@@ -24,7 +23,7 @@ Once you purchase a container-based software product with contract pricing, you 
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[

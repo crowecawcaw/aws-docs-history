@@ -1,9 +1,8 @@
 
 
 # Pay for private offers in multiple currencies
-<a name="buyer-private-offers-subscribing-fixed-exchange-rate"></a>
 
-Private offers support multiple currencies: USD, EUR, GBP, AUD, JPY, and INR. You can receive private offers in your preferred currency, eliminating foreign exchange variability for predictable invoicing.
+Private offers support multiple currencies: USD, EUR, GBP, AUD, JPY, CAD, SGD, NZD, and INR. You can receive private offers in your preferred currency, eliminating foreign exchange variability for predictable invoicing.
 
 **Buyers in India**  
 Buyers in India receive private offers in Indian Rupee (INR) or US Dollar (USD) from sellers in India. For detailed information, see [Buyers in India FAQ](india-buyer-faq.md).
@@ -24,7 +23,7 @@ If you receive a private offer in USD currency and your payment method is a non-
 ## Non-USD priced private offers
 <a name="non-usd-private-offer"></a>
 
-All AWS pricing remains in USD. However, you can receive a private offer in EUR, GBP, AUD, JPY, and INR (for buyers and sellers in India only) with no foreign exchange (FX) variability.
+All AWS pricing remains in USD. However, you can receive a private offer in EUR, GBP, AUD, JPY, CAD, SGD, NZD, and INR (for buyers and sellers in India only) with no foreign exchange (FX) variability.
 
 ### Contracts only pricing offers
 <a name="contracts-only-pricing-offers"></a>
@@ -47,5 +46,5 @@ For contracts with consumption pricing (CCP) and pay-as-you-go (PAYG) offers, ex
 For more information, see [Payment methods](buyer-paying-for-products.md#payment-methods).
 
 **Important Note on Cost and Usage Reports (CUR)**  
-When you purchase a Private Offer in a non-USD currency (EUR, GBP, JPY, AUD), please be aware that your AWS Cost and Usage Reports (CUR) will display all usage and costs in USD only. This is intended behavior, as CUR reports currently support pricing in USD only.  
+When you purchase a Private Offer in a non-USD currency (EUR, GBP, JPY, AUD, CAD, SGD, NZD), please be aware that your AWS Cost and Usage Reports (CUR) will display all usage and costs in USD only. This is intended behavior, as CUR reports currently support pricing in USD only.  
 While your invoices will reflect the original currency of your Private Offer with the locked exchange rate, the CUR data will show USD-converted amounts. For accurate financial reconciliation in your original offer currency, please refer to your invoices rather than relying solely on CUR reports.

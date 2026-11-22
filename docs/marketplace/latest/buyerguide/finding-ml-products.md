@@ -1,7 +1,6 @@
 
 
 # Finding a machine learning product
-<a name="finding-ml-products"></a>
 
  You can browse and search for hundreds of ML model packages and algorithms from a broad range of subcategories, such as computer vision, natural language processing, speech recognition, text, data, voice, image, video analysis, fraud detection, and predictive analysis. 
 

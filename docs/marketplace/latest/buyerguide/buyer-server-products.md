@@ -1,7 +1,6 @@
 
 
 # AMI-based products in AWS Marketplace
-<a name="buyer-server-products"></a>
 
 An Amazon Machine Image (AMI) is an image of a server, including an operating system and often additional software, which runs on AWS.
 

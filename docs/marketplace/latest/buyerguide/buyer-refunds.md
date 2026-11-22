@@ -1,9 +1,11 @@
 
 
 # Refunds and cancellations in AWS Marketplace
-<a name="buyer-refunds"></a>
 
 Buyers can request different types of refunds for AWS Marketplace products. For products sold by AWS, refer to the refund policy page and then submit a support case using the [Support Center Console](https://console.aws.amazon.com/support/home?). For products sold by a third-party seller, review the refund policies on the product detail page. Software charges for AWS Marketplace subscriptions are paid to the seller of record. To request a refund for software charges, contact the seller directly using the support contact information on the product detail page.
+
+**Note**  
+If you bought with AWS Marketplace Express Checkout, see [Refunds and cancellations for Express Checkout purchases](express-checkout-refunds-cancellations.md).
 
 **Note**  
 In the AWS Marketplace console, the term *billing adjustment* is used as the umbrella term for any correction to an existing invoice. This includes refunds (returning funds for invoices you have already paid) and adjustments to reduce the outstanding balance on invoices you haven't yet paid.
@@ -31,6 +33,8 @@ Once the seller initiates a request:
 + **For agreement cancellations:** You receive a notification asking you to approve or deny the cancellation request. You have 7 days to respond. If you don't respond within 7 days, the cancellation is automatically approved and the agreement is canceled.
 
 You can track the status of cancellation requests in the AWS Marketplace console under **Manage subscriptions**. For billing adjustments, you can see processed adjustments reflected as negative charges in the Charge summary table on your subscription details page.
+
+Express Checkout buyers contact AWS Marketplace support from their account settings, not the Support Center Console. See [Getting help with Express Checkout purchases](express-checkout-getting-help.md).
 
 ## Contacting your seller
 <a name="buyer-contacting-seller"></a>

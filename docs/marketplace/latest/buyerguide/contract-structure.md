@@ -1,7 +1,6 @@
 
 
 # Contracts for products sold in AWS Marketplace
-<a name="contract-structure"></a>
 
 Usage of the software, services, and data products sold on AWS Marketplace is governed by agreements between buyers and sellers. AWS is not a party to these agreements.
 

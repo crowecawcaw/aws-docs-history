@@ -1,7 +1,6 @@
 
 
 # Container product delivery methods
-<a name="buyer-container-product-delivery-methods"></a>
 
 A product in AWS Marketplace is considered a container product if the seller has provided at least one fulfillment option with either a **Container image**, **Helm chart**, or **Add-on for Amazon EKS** delivery method.
 

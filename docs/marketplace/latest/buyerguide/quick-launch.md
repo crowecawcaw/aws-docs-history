@@ -1,7 +1,6 @@
 
 
 # Using Quick Launch with SaaS products
-<a name="quick-launch"></a>
 
 Quick Launch is a deployment option that the seller can choose when configuring SaaS products on AWS Marketplace. Quick Launch provides buyers with guided, step-by-step instructions and resource deployment using AWS CloudFormation templates. Buyers use the CloudFormation templates to configure and launch products.
 

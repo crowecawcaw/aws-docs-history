@@ -1,7 +1,6 @@
 
 
 # Reviewing your subscription on the confirmation page
-<a name="buyer-confirmation-page"></a>
 
 After you subscribe to a product in AWS Marketplace, a confirmation page appears with a summary of your agreement. Use this page to verify the details of your subscription before proceeding with product setup.
 
@@ -15,3 +14,4 @@ From the confirmation page, you can:
 + Set up your account on the seller's website (for SaaS products).
 + Launch the software or continue to configuration (for AMI and container products).
 + View your subscription in the AWS Marketplace console.
++ Follow the usage instructions for the product (for RTB Fabric module products): deploy the module in the RTB Fabric console.

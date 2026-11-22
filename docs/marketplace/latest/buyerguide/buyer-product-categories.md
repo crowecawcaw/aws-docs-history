@@ -1,7 +1,6 @@
 
 
 # Product categories in AWS Marketplace
-<a name="buyer-product-categories"></a>
 
  The [AWS Marketplace](https://aws.amazon.com/marketplace) website is organized into primary categories, with subcategories under each. You can search and filter based on the categories and subcategories. 
 
@@ -41,6 +40,9 @@ Products from sellers in India are identified with `[IN]` suffix and available e
 
 **Operating Systems**  
  Packaged Linux and Windows operating systems. 
+
+**RTB Fabric**  
+ Bid-traffic modules for AWS RTB Fabric workloads. 
 
 **Security**  
  Security products for your infrastructure. 

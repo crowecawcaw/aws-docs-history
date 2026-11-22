@@ -1,7 +1,6 @@
 
 
 # Subscribing to products in AWS Marketplace
-<a name="buyer-subscribing-to-container-products"></a>
 
  To use a product, you must subscribe to it first. On the subscription page, you can view pricing information for paid products and access the end user license agreement (EULA) for the software.
 

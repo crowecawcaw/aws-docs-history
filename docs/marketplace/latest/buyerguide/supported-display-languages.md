@@ -1,7 +1,6 @@
 
 
 # Supported languages
-<a name="supported-display-languages"></a>
 
 By default, the AWS Marketplace website uses U.S. English. However, AWS Marketplace translates the text for key workflows into the following languages:
 + French (fr-FR)

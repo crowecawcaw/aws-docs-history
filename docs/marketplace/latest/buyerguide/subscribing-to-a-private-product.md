@@ -1,7 +1,6 @@
 
 
 # Subscribing to a private product
-<a name="subscribing-to-a-private-product"></a>
 
 Some products are not publicly available to browse in AWS Marketplace. These products can only be seen when you are given a private offer from the seller. However, you can only subscribe if your Private Marketplace administrator approves the product in your experience. Because of this, the private offer must be extended to both your AWS account and your organization's management account or delegated administrator account for Private Marketplace.
 

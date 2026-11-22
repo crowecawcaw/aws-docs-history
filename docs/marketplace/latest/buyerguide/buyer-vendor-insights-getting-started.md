@@ -1,7 +1,6 @@
 
 
 # Get started with AWS Marketplace Vendor Insights as a buyer
-<a name="buyer-vendor-insights-getting-started"></a>
 
 **AWS Marketplace Vendor Insights will no longer be available after November 26th, 2026.**  
 We're replacing AWS Marketplace Vendor Insights with new compliance validation features, coming soon. As of October 27th, 2026, you can't request access to any AWS Marketplace Vendor Insights profiles you don't already have access to. Any access you already have stays in place until November 26th, 2026. Download any reports or documents you want to keep before then. Your AWS Marketplace subscriptions and purchases are not affected. For more information, see the [AWS Marketplace Vendor Insights FAQ](buyer-vendor-insights-faq.md).

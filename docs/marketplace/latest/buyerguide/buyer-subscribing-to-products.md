@@ -1,9 +1,11 @@
 
 
 # Buying products in AWS Marketplace
-<a name="buyer-subscribing-to-products"></a>
 
 In AWS Marketplace, buying a product means that you have accepted the terms of the product as shown on the product detail page. This includes pricing terms and the seller’s end user license agreement (EULA), and that you agree to use such product in accordance with the [AWS Customer Agreement](https://aws.amazon.com/agreement/). You will receive an email notification to the email address associated with your AWS account for offers accepted in AWS Marketplace.
+
+**Note**  
+If you bought with AWS Marketplace Express Checkout, see [Buying with AWS Marketplace Express Checkout](express-checkout.md).
 
 **Note**  
 AWS offers the option to request guided demonstrations for certain products on AWS Marketplace at no charge. If a guided demonstration is available, a **Request demo** button appears on the product detail page. To request a demo, choose the button and provide your contact details and a description of your use case.  
@@ -15,5 +17,7 @@ If the product has a monthly fee or is purchased with a subscription contract, y
 + Register the product on the seller's website.
 
 If the product has an annual subscription option, you are charged the full annual fee upon subscription. This charge covers product usage base, with subscription renewal due on the anniversary of the original subscription date. If you don't renew at the end of the annual subscription period, the subscription converts to an hourly subscription at the current hourly rate.
+
+For more information about subscribing to Data as a Service (DaaS) products, see [DaaS products through AWS Marketplace](buyer-daas-products.md).
 
 For more information about data product subscriptions, see [Subscribing to data products on AWS Data Exchange](https://docs.aws.amazon.com/data-exchange/latest/userguide/subscribe-to-data-sets.html) in the *AWS Data Exchange User Guide*.

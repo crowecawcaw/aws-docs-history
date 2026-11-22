@@ -1,7 +1,6 @@
 
 
 # Creating a service-linked role for AWS Marketplace
-<a name="buyer-creating-service-linked-role"></a>
 
 AWS Marketplace creates the service-linked role for you when you set up integration with AWS License Manager.
 

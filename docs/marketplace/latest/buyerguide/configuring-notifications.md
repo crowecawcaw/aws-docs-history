@@ -1,7 +1,6 @@
 
 
 # Private Marketplace notifications
-<a name="configuring-notifications"></a>
 
 Private Marketplace administrators and buyers receive notification events from AWS Marketplace when a buyer requests a product, and when a request is approved or declined. Administrators receive notifications for requests from any account in their AWS organization. Buyers only receive notifications for requests from their accounts. The notification events include product details and the seller's name.
 

@@ -1,7 +1,6 @@
 
 
 # AMI products with contract pricing in AWS Marketplace
-<a name="buyer-ami-contracts"></a>
 
 Some sellers offer public Amazon Machine Image (AMI)-based software products with a contract pricing model. In that model, you agree to make a one-time upfront payment for discrete quantities of licenses to access the software product for a duration of your choice. You're billed, in advance, through your AWS account. For example, you might purchase 10 user access licenses and 5 administrative licenses for a year. You can choose to automatically renew the licenses.
 

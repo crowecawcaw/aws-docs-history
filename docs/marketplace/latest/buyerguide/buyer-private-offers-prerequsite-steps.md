@@ -1,7 +1,6 @@
 
 
 # Preparing to accept a private offer
-<a name="buyer-private-offers-prerequsite-steps"></a>
 
 When a typical private offer is negotiated, you pay the entire amount of the offer when you accept it, unless you are using third-party financing. With third-party financing, the financier pays the contract on your behalf and invoices you based on the agreed payment schedule. Before you accept a private offer, verify the billing structure for your company, your method of payment for AWS billing, your preferred currency, and your tax settings.
 
@@ -22,7 +21,7 @@ Before accepting a private offer, verify that your payment method and preferred 
 ## Understanding currency options
 <a name="buyer-private-offers-prerequsite-steps-currency"></a>
 
-Private offers can be created in multiple currencies including USD, EUR, GBP, AUD, JPY, and INR. You will receive invoices in the currency of the private offer. For consumption and pay-as-you-go pricing, foreign exchange rates are updated monthly to maintain consistent local currency pricing.
+Private offers can be created in multiple currencies including USD, EUR, GBP, AUD, JPY, CAD, SGD, NZD, and INR. You will receive invoices in the currency of the private offer. For consumption and pay-as-you-go pricing, foreign exchange rates are updated monthly to maintain consistent local currency pricing.
 
 ## Verifying your tax settings
 <a name="buyer-private-offers-prerequsite-steps-tax-settings"></a>

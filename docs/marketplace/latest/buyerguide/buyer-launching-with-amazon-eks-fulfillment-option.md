@@ -1,7 +1,6 @@
 
 
 # Launching with an Amazon EKS fulfillment option
-<a name="buyer-launching-with-amazon-eks-fulfillment-option"></a>
 
 For a fulﬁllment option with an Add-on for Amazon EKS delivery method, use the Amazon EKS Console to deploy the software on your Amazon EKS cluster. The general steps to launch the product are as follows:
 

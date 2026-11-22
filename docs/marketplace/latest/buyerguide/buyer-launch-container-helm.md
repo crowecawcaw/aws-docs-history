@@ -1,7 +1,6 @@
 
 
 # Launching with a Helm fulfillment option
-<a name="buyer-launch-container-helm"></a>
 
 For a fulfillment option with a **Helm** delivery method, use the seller-provided instructions to launch the product. This is done by installing a Helm chart using the Helm CLI. You can launch the application on an existing Amazon EKS cluster, or a self-managed cluster on EKS Anywhere, Amazon Elastic Compute Cloud (Amazon EC2), or on-premises.
 

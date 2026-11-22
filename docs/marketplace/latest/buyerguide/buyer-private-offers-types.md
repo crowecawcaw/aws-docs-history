@@ -1,7 +1,6 @@
 
 
 # Product types eligible for private offers
-<a name="buyer-private-offers-types"></a>
 
 You can get private offers for the following product types.
 
@@ -18,3 +17,4 @@ You can get private offers for the following product types.
 | Machine learning hourly/per-inference | With hourly or per-inference pricing, you negotiate usage-based rates with the seller for a custom duration. At the end of the duration, pricing reverts to public pricing and any instances that continue to run are billed at the usage rates that the seller sets in the public offer. | 
 | Machine learning contracts | Private offers can be a contract with a fixed upfront fee for a specified number of days. If the seller creates a private offer with a flexible payment schedule, you are billed with the payment schedule dates at the amounts listed on the private offer. At the end of the contract, any instances that continue to run are billed perpetually at the usage rates that the seller sets in the private offer. | 
 | Professional services | All professional services offers are private offers. You must work with the seller to create the private offer. See [Purchasing professional services products in AWS Marketplace](buyer-proserv-products.md) for more information. | 
+| RTB Fabric module contracts | With these contracts, you negotiate a price for each dimension and the quantity that you need. In public offers, contract durations are 1, 12, 24, or 36 months. In private offers, the contract can use any duration up to 144 months and can have a future start date. The seller can add a flexible payment schedule and automatic renewal. | 

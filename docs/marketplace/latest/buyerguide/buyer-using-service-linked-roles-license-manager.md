@@ -1,7 +1,6 @@
 
 
 # Service-linked role to share entitlements for AWS Marketplace
-<a name="buyer-using-service-linked-roles-license-manager"></a>
 
 To share your AWS Marketplace subscriptions to other accounts in your AWS organization with AWS License Manager, you must give AWS Marketplace permissions for each account you want to share with. Do this by using the **AWSServiceRoleForMarketplaceLicenseManagement** role. This role provides AWS Marketplace with permissions to create and manage licenses in AWS License Manager for the products that you subscribe to in AWS Marketplace.
 

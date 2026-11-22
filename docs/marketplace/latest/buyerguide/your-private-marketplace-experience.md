@@ -1,7 +1,6 @@
 
 
 # Your Private Marketplace experience
-<a name="your-private-marketplace-experience"></a>
 
 An Organizations administrator may have created and provided you with a Private Marketplace experience that controls what you can procure from AWS Marketplace.
 

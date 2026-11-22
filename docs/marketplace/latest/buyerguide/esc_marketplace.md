@@ -1,7 +1,6 @@
 
 
 # AWS European Sovereign Cloud (ESC) Marketplace
-<a name="esc_marketplace"></a>
 
  The AWS European Sovereign Cloud (ESC) Marketplace provides a modernized, fully integrated console experience for buyers in European sovereign regions. This implementation brings the latest AWS Marketplace buyer functionality while streamlining the user experience with consolidated console-based operations. ESC Marketplace represents a significant advancement in buyer experience design, offering a unified interface that simplifies procurement workflows. 
 

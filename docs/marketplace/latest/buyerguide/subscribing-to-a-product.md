@@ -1,7 +1,6 @@
 
 
 # Subscribing to a product
-<a name="subscribing-to-a-product"></a>
 
 As a user being governed by a Private Marketplace experience, you will be allowed to subscribe to all products that are approved in your experience by your administrator.
 

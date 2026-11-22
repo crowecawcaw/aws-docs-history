@@ -1,7 +1,6 @@
 
 
 # Viewing changes
-<a name="view-changes"></a>
 
 Private Marketplace administration actions are performed using Catalog API. Actions are started as change sets with one or more changes to create or update Private Marketplace entities. For details, see [Working with Private Marketplace](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/private-marketplace.html) in the *AWS Marketplace API Reference*.
 

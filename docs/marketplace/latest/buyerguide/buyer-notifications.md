@@ -1,7 +1,6 @@
 
 
 # Buyer notifications for AWS Marketplace events
-<a name="buyer-notifications"></a>
 
 AWS Marketplace provides timely notifications to keep you informed about important events related to your purchases. Notifications are delivered through email, chatbots, Amazon EventBridge events, and Amazon Simple Notification Service (Amazon SNS) topics.
 

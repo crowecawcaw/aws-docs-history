@@ -1,7 +1,6 @@
 
 
 # Net payment terms for private offers
-<a name="buyer-net-payment-terms"></a>
 
 When you accept a private offer with net payment terms, your invoice payment due dates reflect the seller's negotiated terms instead of your standard AWS payment terms. For example, if a seller extends `Net 60` terms through a private offer, AWS sets the payment due date to 60 days from the invoice date, regardless of your default AWS terms. If sellers do not specifically set net payment terms in a private offer, you won't see that field defined and AWS continues to charge using your standard payment terms.
 

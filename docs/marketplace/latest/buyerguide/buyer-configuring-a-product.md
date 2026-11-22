@@ -1,7 +1,6 @@
 
 
 # Launching container software from AWS Marketplace
-<a name="buyer-configuring-a-product"></a>
 
 After you have an active subscription to a container product in AWS Marketplace, you launch the software. To do so, follow the instructions included in one of the fulfillment options provided by the seller. In AWS Marketplace, a *fulfillment option* is an optional seller-provided procedure for launching their product in your environment. For container products, the seller can provide up to four fulfillment options, which can use different delivery methods and represent different configurations for the software. For example, a seller might create one fulfillment option that's used for testing the product, and another for deploying the product at scale within an enterprise. 
 

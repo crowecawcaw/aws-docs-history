@@ -1,7 +1,6 @@
 
 
 # Requesting products for procurement
-<a name="requesting-products-for-procurement"></a>
 
 As a user, you can request that your administrator approve a product that is not in your Private Marketplace experience. You will be able to create requests only if your administrator has enabled product procurement requests. For more information, see [Your Private Marketplace experience](your-private-marketplace-experience.md) to check if you can create requests.
 

@@ -1,7 +1,6 @@
 
 
 # Viewing governance hierarchy
-<a name="view-governance-hierarchy"></a>
 
 Private Marketplace uses the hierarchy that you configured in Organizations to provide hierarchical governance. An experience associated with an AWS account group governs all AWS account groups at a lower level unless the lower level AWS account group is directly associated with another experience. When you make updates to the hierarchy in Organizations, the changes are automatically synchronized and the governance is updated in Private Marketplace. To visualize the governance, refer to following sections:
 + For a hierarchical view of all AWS account groups in your organization, see [AWS account groups](#audiences-view).

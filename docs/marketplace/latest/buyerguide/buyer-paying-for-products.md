@@ -1,7 +1,6 @@
 
 
 # Paying for products in AWS Marketplace
-<a name="buyer-paying-for-products"></a>
 
 At the beginning of the month, you receive a bill from Amazon Web Services (AWS) for your AWS Marketplace charges. For software products, the bill includes a calculation of the hourly fee for the software multiplied by the number of hours any Amazon Machine Image (AMI) instance with this software runs. You also receive a bill for usage of infrastructure services such as Amazon Elastic Compute Cloud (Amazon EC2), Amazon Simple Storage Service, Amazon Elastic Block Store (Amazon EBS), and for bandwidth. 
 
@@ -14,22 +13,39 @@ AWS Marketplace products that use complex topologies may incur charges for clust
 
 For example, suppose that you run software for 720 hours on an EC2 small instance type. The seller's fee for software usage is $0.12 per hour and the EC2 charges are $0.085 per hour. At the end of the month, you are billed $147.60. 
 
+For more information about subscribing to Data as a Service (DaaS) products, see [DaaS products through AWS Marketplace](buyer-daas-products.md).
+
 For more information about subscribing to data products, refer to [Subscribing to data products on AWS Data Exchange](https://docs.aws.amazon.com/data-exchange/latest/userguide/subscribe-to-data-sets.html) in the *AWS Data Exchange User Guide*.
 
 For more information about paying your AWS bill, see the [AWS Billing User Guide](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html).
 
 For more information about managing your payments in Amazon Web Services EMEA SARL (AWS Europe), refer to [Managing your payments in AWSEurope](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/emea-payments.html) in the *AWS Billing User Guide*.
 
+## Paying for Agentic Commerce products
+<a name="buyer-paying-agentic-commerce"></a>
+
+For an Agentic Commerce product, your AI agent pays for each request through Amazon Bedrock AgentCore payments. You don't pay a subscription fee. AWS Marketplace meters each payment, and the charges appear on your AWS bill.
+
+To pay for Agentic Commerce products, set up AgentCore payments in your AWS account and create a payment manager that uses the AWS Billing connector. For more information, see [Amazon Bedrock AgentCore payments](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+To let your agent find Agentic Commerce products, add the AWS Marketplace connector as a target in an Amazon Bedrock AgentCore Gateway. The connector returns only Agentic Commerce products, with each product's endpoint and payment details. For more information, see [AWS Marketplace as Connector Target](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-aws-marketplace.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+To request a refund for a charge on an Agentic Commerce product, contact the seller. Use the support contact information on the product's page on the AWS Marketplace console. Refunds follow the seller's refund policy. If the seller approves your refund request, you receive it as a billing adjustment after the charge appears on your invoice. For more information, see [Refunds and cancellations in AWS Marketplace](buyer-refunds.md) and [Agentic Commerce products](buyer-ai-agents-products.md#buyer-agentic-commerce-products).
+
 ## Payment methods
 <a name="payment-methods"></a>
 
 When you first created your AWS account, you set the payment method for that account. You can manage your payment methods in the [AWS Billing and Cost Management console](https://console.aws.amazon.com/billing). For instructions, refer to [Managing your payments](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-payments.html) in the *AWS Billing User Guide*.
+
+If you buy with AWS Marketplace Express Checkout, you pay by credit or debit card. Bank transfers, invoicing and purchase orders aren't available. For subscriptions (SaaS contracts with a set term), you're charged upfront at the start of each term. For usage-based products, you're charged for usage after it happens. To change your card, go to [My Account](https://expresscheckout.marketplace.aws.com/subscriptions) on the AWS Marketplace Express Checkout catalog.
 
 **Payment methods for buyers in India**  
 Buyers in India can use credit cards saved in the AWS Billing console to pay for pay-as-you-go subscriptions purchased from sellers in India. However, buyers in India can't purchase contract pricing and contracts with consumption pricing offers with credit cards as the default payment method. To purchase such subscriptions, switch your payment method to pay by invoice.
 
 ### Payment errors
 <a name="payment-errors"></a>
+
+If you bought with Express Checkout, see [Payment errors with Express Checkout](express-checkout-payment-errors.md) instead of the Billing and Cost Management console steps on this page.
 
 If an error occurs while processing your payment through your payer account, update your payment method and try again. Errors can occur because:
 + The payment method is missing, invalid, or unsupported.
@@ -103,7 +119,7 @@ Your AWS Marketplace purchases are displayed in the currency that you specified 
 
 The following hierarchy determines which currency is used for your AWS Marketplace invoices:
 
-1. **Private offer currency (highest priority):** If you accept a private offer with [non-USD currency](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-private-offers-subscribing-fixed-exchange-rate.html) (EUR, GBP, AUD, or JPY), invoices will always be generated in the offer currency, overriding all other currency preferences.
+1. **Private offer currency (highest priority):** If you accept a private offer with [non-USD currency](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-private-offers-subscribing-fixed-exchange-rate.html) (EUR, GBP, AUD, JPY, CAD, SGD, or NZD), invoices will always be generated in the offer currency, overriding all other currency preferences.
 
 1. **Payment profile currency:** You can create service-specific payment profiles to set different currencies for AWS Marketplace invoices compared to other AWS services. For more information, see [Managing your payment profiles](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-paymentprofiles.html) in the *AWS Billing User Guide*.
 
@@ -129,7 +145,7 @@ The following tables show the billing methods for contract and usage-based prici
 | Usage (pay as you go) | Billed monthly at 00:00 UTC on the second or third day of the month, combined with other AWS charges. | 
 
 **Note**  
-Private offers can be invoiced in multiple currencies (USD, EUR, GBP, AUD, JPY, INR) based on the currency agreed upon between buyer and seller. You may receive separate invoices for each currency if you have private offers in different currencies.
+Private offers can be invoiced in multiple currencies (USD, EUR, GBP, AUD, JPY, CAD, SGD, NZD, INR) based on the currency agreed upon between buyer and seller. You may receive separate invoices for each currency if you have private offers in different currencies.
 
 ### Public subscriptions (self-serve purchases)
 <a name="public-subscriptions"></a>
@@ -139,6 +155,8 @@ Private offers can be invoiced in multiple currencies (USD, EUR, GBP, AUD, JPY, 
 | --- | --- | 
 | Contract | Upfront billing paid immediately upon subscription. | 
 | Usage (pay as you go) | Billed monthly at 00:00 UTC on the second or third day of the month, combined with other AWS charges. | 
+
+Express Checkout buyers view and download invoices in their account settings, not the Billing and Cost Management console.
 
 ## Updating remittance instructions
 <a name="Updating-remittance-instructions"></a>

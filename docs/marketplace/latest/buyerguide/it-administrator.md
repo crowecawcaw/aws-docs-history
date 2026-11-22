@@ -1,7 +1,6 @@
 
 
 # Creating a private marketplace administrator
-<a name="it-administrator"></a>
 
 You can create an administrators group to manage your company’s [private marketplace](private-marketplace-current.md) settings. After private marketplace is enabled for your organization, administrators for the private marketplace can perform many tasks including the following:
 + View and create experiences, and associate them with AWS account groups.
@@ -32,7 +31,7 @@ To create customer managed policies, see [Creating IAM policies](https://docs.aw
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -87,7 +86,7 @@ A policy can also be limited to manage a subset of private marketplace resources
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

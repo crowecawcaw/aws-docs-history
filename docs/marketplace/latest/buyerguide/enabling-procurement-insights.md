@@ -1,7 +1,6 @@
 
 
 # Enabling the Procurement insights dashboard
-<a name="enabling-procurement-insights"></a>
 
 The following sections explain how to meet the general prerequisites for enabling the **Procurement insights** dashboard, and how to activate it.
 
@@ -70,7 +69,7 @@ This example policy contains the permissions described in [Dashboard prerequisit
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

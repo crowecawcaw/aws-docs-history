@@ -1,7 +1,6 @@
 
 
 # Frequently Asked Questions
-<a name="multi-product-solutions-buyer-faq"></a>
 
 **Topics**
 + [How is purchasing a Multi-Product Solution different from buying products individually?](#purchasing-difference)

@@ -1,7 +1,6 @@
 
 
 # Buyers in India FAQ
-<a name="india-buyer-faq"></a>
 
 This FAQ addresses common questions for buyers in India who purchase products from sellers in India on AWS Marketplace.
 

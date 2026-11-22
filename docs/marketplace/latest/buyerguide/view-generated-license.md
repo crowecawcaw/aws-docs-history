@@ -1,7 +1,6 @@
 
 
 # Viewing a generated license
-<a name="view-generated-license"></a>
 
 After you subscribe to an AMI-based product, a license is generated in AWS License Manager. You can review the details of the license including the **Issuer** (AWS/Marketplace) and the **Entitlements** (the units that the license grants the right to use, access, or consume an application or resource).
 

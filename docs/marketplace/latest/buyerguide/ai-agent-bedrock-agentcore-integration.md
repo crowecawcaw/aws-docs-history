@@ -1,7 +1,6 @@
 
 
 # Integration with Amazon Bedrock AgentCore
-<a name="ai-agent-bedrock-agentcore-integration"></a>
 
 AI agents and tools with API deployment options can be integrated with Amazon Bedrock AgentCore, AWS's fully managed capability for developing, deploying, and connecting AI agents. Depending on the specific service and deployment model, you may be able to subscribe to paid agents or use free and open-source options through various AWS interfaces.
 

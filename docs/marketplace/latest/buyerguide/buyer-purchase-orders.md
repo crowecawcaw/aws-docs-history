@@ -1,7 +1,6 @@
 
 
 # Using purchase orders for AWS Marketplace transactions
-<a name="buyer-purchase-orders"></a>
 
 When you use purchase orders (POs) in AWS Marketplace and the AWS Billing console, you receive invoices from AWS that include a purchase order (PO) number that you define. This approach simplifies payment processing and cost allocation. In AWS Marketplace, out-of-cycle invoices include purchases that are billed either immediately or according to a defined payment schedule in a private offer. Generally, pay-as-you-go charges appear on a consolidated AWS Marketplace monthly usage invoice.
 

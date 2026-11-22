@@ -1,7 +1,6 @@
 
 
 # Viewing Private Marketplace settings
-<a name="view-private-marketplace-settings"></a>
 
 To use all features in Private Marketplace, an administrator in the management account of your AWS Organizations must create an integration for Private Marketplace. This is a prerequisite to use the AWS Marketplace console for managing Private Marketplace. The integration is also required to use the organizational unit (OU) support and user request notification features discussed in the following What’s New posts:
 + [AWS Marketplace now supports managing Private Marketplace catalogs for organizational units](https://aws.amazon.com/about-aws/whats-new/2024/02/aws-marketplace-private-marketplace-catalogs-organizational-units/)

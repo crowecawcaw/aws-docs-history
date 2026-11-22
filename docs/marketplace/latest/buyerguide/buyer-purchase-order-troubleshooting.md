@@ -1,7 +1,6 @@
 
 
 # Troubleshooting purchase orders
-<a name="buyer-purchase-order-troubleshooting"></a>
 
 The information in the following table can help you troubleshoot issues with purchase orders (POs) and understand what happens in different scenarios.
 

@@ -1,7 +1,6 @@
 
 
 # Getting started as a buyer using AWS Marketplace
-<a name="buyer-getting-started"></a>
 
 The following topics outline getting started with software products as an AWS Marketplace buyer.
 
@@ -10,6 +9,7 @@ Buyers in India can purchase products from sellers in India with specific billin
 
 **Topics**
 + [Buying in the AWS European Sovereign Cloud Marketplace](esc-buyer-getting-started.md)
++ [Buying with AWS Marketplace Express Checkout](express-checkout.md)
 + [Buying products in AWS Marketplace](buyer-subscribing-to-products.md)
 + [Finding AWS Specialization Partners in AWS Marketplace](product-types-specialization-badges.md)
 + [Launching software in AWS Marketplace](buyer-launching-software.md)
@@ -17,5 +17,7 @@ Buyers in India can purchase products from sellers in India with specific billin
 + [Tutorial: Buying an AMI-based software product](tutorial-buying-ami.md)
 + [Buyers in India FAQ](india-buyer-faq.md)
 + [Buying through Brazil 2P FAQ](brazil-2p-buyer-faq.md)
+
+For information about getting started with Data as a Service (DaaS) products, see [DaaS products through AWS Marketplace](buyer-daas-products.md).
 
 For information about getting started with data products, see [Subscribing to data products on AWS Data Exchange](https://docs.aws.amazon.com/data-exchange/latest/userguide/subscribe-to-data-sets.html) in the *AWS Data Exchange User Guide*.

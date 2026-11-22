@@ -1,7 +1,6 @@
 
 
 # AI agent products
-<a name="buyer-ai-agents-products"></a>
 
 AI agents and tools in AWS Marketplace help you quickly deploy pre-built, production-ready AI capabilities from trusted partners without months of development work. You can discover specialized AI agents for tasks like customer service, content creation, and data analysis, as well as individual AI tools like guardrails, knowledge bases, and integration protocols.
 
@@ -116,3 +115,26 @@ To get started with AI agents and tools:
 For more information about specific deployment methods, refer to:
 + [Container products in AWS Marketplace](buyer-what-is-aws-marketplace-for-containers.md)
 + [SaaS products through AWS Marketplace](buyer-saas-products.md)
+
+## Agentic Commerce products
+<a name="buyer-agentic-commerce-products"></a>
+
+Some API-based AI agent and tool products use Agentic Commerce. With Agentic Commerce, your AI agent pays for each request that it sends to the product's endpoint. You don't subscribe to the product, register with the seller, or manage API credentials. Your agent pays through Amazon Bedrock AgentCore payments, and the charges appear on your AWS bill.
+
+A paid request follows these steps:
+
+1. Your agent sends a request to the product's endpoint. The endpoint responds with HTTP 402 and a price quote, by using the x402 payment protocol.
+
+1. Your agent asks AgentCore payments to pay the quote. Your payment manager in AgentCore payments uses the AWS Billing connector.
+
+1. AWS Marketplace returns a payment token, and your agent sends the request again with the token. The endpoint serves the request.
+
+1. AWS Marketplace meters the charge, and you pay the quoted amount on your AWS bill.
+
+If you open the product's launch page in the AWS Marketplace console, for example from **Manage subscriptions**, it shows the product's endpoint, the authorization method **Payment token**, and the seller's usage instructions. The page has no step to register with the seller and no **Finish later** button, because there's no account to set up.
+
+Agentic Commerce is available in the US East (N. Virginia) Region (`us-east-1`), and prices are in US dollars (USD). For information about payments and refunds, see [Paying for Agentic Commerce products](buyer-paying-for-products.md#buyer-paying-agentic-commerce).
+
+For more information about how your agent pays, see [Amazon Bedrock AgentCore payments](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+To find Agentic Commerce products from your agent, use the AWS Marketplace connector on Amazon Bedrock AgentCore Gateway. For more information, see [AWS Marketplace as Connector Target](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-aws-marketplace.html) in the *Amazon Bedrock AgentCore Developer Guide*.

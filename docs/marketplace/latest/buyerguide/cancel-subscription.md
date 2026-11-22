@@ -1,7 +1,6 @@
 
 
 # Canceling product subscriptions
-<a name="cancel-subscription"></a>
 
 How you cancel an AWS Marketplace subscription depends on the type of agreement:
 + **Buyer self-service cancellation** — For subscriptions with pay-as-you-go (usage-based) pricing, whether from a public or private offer, you can cancel directly from the AWS Marketplace console at any time.
@@ -11,13 +10,17 @@ How you cancel an AWS Marketplace subscription depends on the type of agreement:
 **Note**  
 Canceling stops future charges from being generated. It doesn't automatically refund charges on invoices that have already been issued, and refunds aren't automatic — you have to request them. If you canceled a public contract within 48 hours of purchase, contact AWS Customer Service to request a full refund. For pay-as-you-go (usage-based) subscriptions, you remain responsible for usage you already incurred. In all other cases, including private offers and cancellations more than 48 hours after purchase, contact the seller of record to request a refund. For more information, see [Refunds and cancellations in AWS Marketplace](buyer-refunds.md).
 
-The following sections explain how to cancel Amazon Machine Image (AMI), Container product, Machine Learning, and Software as a Service (SaaS) subscriptions directly from the AWS Marketplace console.
+The following sections explain how to cancel Amazon Machine Image (AMI), Container product, Machine Learning, Software as a Service (SaaS), and RTB Fabric module subscriptions directly from the AWS Marketplace console. For AWS Marketplace Express Checkout purchases, you use [My Account](https://expresscheckout.marketplace.aws.com/subscriptions) on the AWS Marketplace Express Checkout catalog.
+
+To cancel a Data as a Service (DaaS) subscription, see [Canceling a DaaS subscription](buyer-daas-products.md#buyer-daas-cancel).
 
 **Topics**
 + [Canceling your AMI subscription](#cancel-ami-subscription)
 + [Canceling a container subscription](#cancel-container-subscription)
 + [Canceling your machine learning subscription](#cancel-machine-learning-subscription)
 + [Canceling your SaaS subscription](#cancel-saas-subscription)
++ [Canceling an RTB Fabric module subscription](#cancel-new-product-types-subscription)
++ [Canceling an Express Checkout subscription](#cancel-express-checkout-subscription)
 
 ## Canceling your AMI subscription
 <a name="cancel-ami-subscription"></a>
@@ -130,3 +133,49 @@ The process for canceling your SaaS subscription varies depending on the type of
 1. Choose **Continue** to get to the ordering page.
 
 1. Choose the **Modify renewal** tab, then choose **Cancel renewal**.
+
+## Canceling an RTB Fabric module subscription
+<a name="cancel-new-product-types-subscription"></a>
+
+How you cancel depends on the pricing of your subscription:
++ For a contract agreement, whether from a public or a private offer, you can't cancel the agreement yourself. To cancel, contact the seller. The seller cancels the agreement, including public-offer agreements, and issues any refund from AWS Partner Central, and you approve the request in the AWS Marketplace console. You can also contact AWS Support.
++ If your subscription is a free trial, see [Ending a free trial](buyer-managing-subscriptions.md#ending-a-free-trial).
+
+Canceling stops future charges. To request a refund, see [Refunds and cancellations in AWS Marketplace](buyer-refunds.md).
+
+**To cancel a subscription**
+
+1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace](https://console.aws.amazon.com/marketplace).
+
+   The **Manage subscriptions** page appears.
+
+1. Open the **Delivery method** list and choose the delivery method for your product.
+
+1. Choose the subscription that you want to cancel.
+
+1. Under **Agreement**, open the **Actions** list and choose **Cancel subscription**.
+
+1. In the **Cancel subscription** dialog box, enter **confirm**, then choose **Yes, cancel subscription**.
+
+After you cancel, the RTB Fabric module stops serving traffic.
+
+## Canceling an Express Checkout subscription
+<a name="cancel-express-checkout-subscription"></a>
+
+If you bought a SaaS product with Express Checkout, you cancel it in [My Account](https://expresscheckout.marketplace.aws.com/subscriptions) on the Express Checkout catalog, not the AWS Marketplace console.
+
+If the Express Checkout subscription is a SaaS contract with a set term, such as monthly, canceling means turning off the renewal. The contract ends at the end of the current term.
+
+**To cancel an Express Checkout subscription**
+
+1. Go to [My Account](https://expresscheckout.marketplace.aws.com/subscriptions) on the Express Checkout catalog and sign in the same way you did when you purchased.
+
+1. Choose **Subscriptions**, and then choose the subscription you want to cancel.
+
+1. Choose **Actions**, and then choose **Cancel subscription**.
+
+1. On the page that opens, turn off renewal for the next term, and then confirm.
+
+Because you pay upfront for each term, you're paid through the current term and keep full access until it ends. Your subscription then ends and won't renew, and you won't be charged again. You'll get an email confirming the cancellation.
+
+For information about refunds, see [Refunds and cancellations for Express Checkout purchases](express-checkout-refunds-cancellations.md).

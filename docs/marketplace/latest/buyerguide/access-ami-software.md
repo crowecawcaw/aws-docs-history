@@ -1,7 +1,6 @@
 
 
 # Accessing AMI-based software
-<a name="access-ami-software"></a>
 
 Once you purchase an Amazon Machine Image (AMI)-based software product with contract pricing, you will be directed to the product’s website for account setup and conﬁguration. The usage charges will then appear on your regular AWS account billing report.
 
@@ -28,7 +27,7 @@ The following IAM permissions are required in the IAM policy.
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[

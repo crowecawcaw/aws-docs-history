@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Marketplace buyers
-<a name="buyer-security-iam-awsmanpol"></a>
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
 
@@ -88,7 +87,7 @@ To view the permissions for this policy, see [AWSMarketplaceLicenseManagementSer
 
 You can attach the `AWSMarketplaceManageSubscriptions` policy to your IAM identities.
 
-This policy grants contributor permissions that allow subscribing and unsubscribing to AWS Marketplace products. It also allows buyers to access Express Private Offers and manage agreement cancellation requests.
+This policy grants contributor permissions that allow subscribing and unsubscribing to AWS Marketplace products. It also allows buyers to access Express Private Offers, manage agreement cancellation requests, and review agreement requests and request approvals for them.
 
 The permissions are organized into the following groups:
 + `aws-marketplace` – Allows principals to view, subscribe to, and unsubscribe from AWS Marketplace products.
@@ -98,6 +97,9 @@ The permissions are organized into the following groups:
 + `aws-marketplace` – Allows principals to create and manage agent token containers and express private offers through the changeset mechanism. These permissions are limited to specific change types: CreateAgentTokenContainer, RequestExpressPrivateOffer, and ExpireToken.
 + `aws-marketplace` – Allows principals to list and describe entities in the AWS Marketplace catalog, such as products, offers, and agreements.
 + `aws-marketplace` – Allows principals to manage agreement cancellation requests as the accepting party, including listing, retrieving, accepting, rejecting cancellation requests, and directly canceling agreements. These permissions are restricted to PurchaseAgreement type and Acceptor party type.
++ `aws-marketplace` – Allows principals to view the contact information captured on purchase agreements.
++ `aws-marketplace` – Allows principals to view, accept, and cancel agreement requests, view agreement request terms, and start, view, and list approvals for agreement requests. These permissions are restricted to agreements of type PurchaseAgreement, except for listing agreement requests and approvals.
++ `aws-marketplace` – Allows principals to view the deployment configuration of AWS Marketplace products.
 + `aws-marketplace` – Allows principals to search listings, retrieve product and offer details, and list purchase and fulfillment options using the Discovery API.
 
 To view the permissions for this policy, see [AWSMarketplaceManageSubscriptions](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.html) in the *AWS Managed Policy Reference*.
@@ -131,6 +133,9 @@ The permissions are organized into the following groups:
 + `aws-marketplace` – Allows principals to list and describe private marketplace requests, and view agreement payment requests.
 + `aws-marketplace` – Allows principals to list private product listings.
 + `aws-marketplace` – Allows principals to list and view agreement cancellation requests.
++ `aws-marketplace` – Allows principals to view the contact information captured on purchase agreements.
++ `aws-marketplace` – Allows principals to view and list agreement requests, agreement request terms, approval plans, and approvals. Agreement-specific permissions are restricted to agreements of type PurchaseAgreement.
++ `aws-marketplace` – Allows principals to view the deployment configuration of AWS Marketplace products.
 + `aws-marketplace` – Allows principals to search listings, retrieve product and offer details, and list purchase and fulfillment options using the Discovery API.
 
 To view the permissions for this policy, see [AWSMarketplaceRead-only](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSMarketplaceRead-only.html) in the *AWS Managed Policy Reference*.
@@ -252,6 +257,11 @@ In AWS Marketplace Vendor Insights, an assessor is equal to a buyer, and a vendo
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AWSMarketplaceFullAccess](#security-iam-awsmanpol-awsmarketplacefullaccess) — updates to existing policy | AWS Marketplace added permissions that let Agent Mode with deployment capability check an account's capacity, service quotas, and enabled Regions before deploying purchased software. These permissions also let Agent Mode manage the CloudFormation stacks, network interfaces, and security group rules used to deploy and clean up that software. | November 19, 2026 | 
+| [AWSMarketplaceManageSubscriptions](#security-iam-awsmanpol-awsmarketplacemanagesubscriptions) — updates to existing policy | AWS Marketplace added permissions for buyers to review, accept, and cancel agreement requests, start and track approvals for agreement requests, and view product deployment configurations. | November 18, 2026 | 
+| [AWSMarketplaceRead-only](#security-iam-awsmanpol-awsmarketplaceread-only) — updates to existing policy | AWS Marketplace added read-only permissions to view agreement requests, approvals, and product deployment configurations. | November 18, 2026 | 
+| [AWSMarketplaceManageSubscriptions](#security-iam-awsmanpol-awsmarketplacemanagesubscriptions) — updates to existing policy | AWS Marketplace added the aws-marketplace:GetAgreementContacts read-only action to view contact information for purchase agreements. | November 18, 2026 | 
+| [AWSMarketplaceRead-only](#security-iam-awsmanpol-awsmarketplaceread-only) — updates to existing policy | AWS Marketplace added the aws-marketplace:GetAgreementContacts read-only action to view contact information for purchase agreements. | November 18, 2026 | 
 | [AWSMarketplaceAgenticCommerceServiceRolePolicy](#agentic-commerce-slr-manpol) — new policy | AWS Marketplace added a new policy to read product and offer details, create and accept purchase agreements, and meter usage for payments that you make through Amazon Bedrock AgentCore payments. | November 12, 2026 | 
 | [AWSMarketplaceFullAccess](#security-iam-awsmanpol-awsmarketplacefullaccess) — updates to existing policy | AWS Marketplace added permissions to list received licenses, list payment program status, and tag or untag CloudFormation resources during stack creation. | September 11, 2026 | 
 | [AWSMarketplaceManageSubscriptions](#security-iam-awsmanpol-awsmarketplacemanagesubscriptions) — updates to existing policy | AWS Marketplace added Discovery API permissions for searching listings, retrieving product and offer details, and listing purchase and fulfillment options. | May 7, 2026 | 

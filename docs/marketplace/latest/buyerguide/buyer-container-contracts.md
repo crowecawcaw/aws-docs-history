@@ -1,7 +1,6 @@
 
 
 # Container products with contract pricing in AWS Marketplace
-<a name="buyer-container-contracts"></a>
 
 Some sellers offer public container-based software products with a contract pricing model. In that model, you agree to make a one-time upfront payment for discrete quantities of licenses to access the software product for a duration of your choice. You're billed in advance through your AWS account. 
 

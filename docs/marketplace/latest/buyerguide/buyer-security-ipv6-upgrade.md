@@ -1,7 +1,6 @@
 
 
 # Upgrading IAM policies to IPv6
-<a name="buyer-security-ipv6-upgrade"></a>
 
 AWS Marketplace customers use IAM policies to set an allowed range of IP addresses and prevent any IP addresses outside the configured range from being able to access AWS Marketplace resources.
 
@@ -48,7 +47,7 @@ For example, this IAM identity-based policy identifies allowed IPv4 address CIDR
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {

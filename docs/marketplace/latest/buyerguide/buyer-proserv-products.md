@@ -1,7 +1,6 @@
 
 
 # Purchasing professional services products in AWS Marketplace
-<a name="buyer-proserv-products"></a>
 
 AWS Marketplace includes products that are professional services from AWS Marketplace sellers. You can search for professional services using the *Professional Services* category in AWS Marketplace. When you find a product that interests you, request an offer from the seller. Because professional services usually involve working together, you must provide some additional information to the seller in order to complete the purchase. You can also use this as an opportunity to negotiate pricing and any other details of the service that need to be resolved. You will receive a private offer for the product. For more information about private offers, see [Private offers in AWS Marketplace](buyer-private-offers.md).
 

@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices"></a>
 
 ## Create a default experience
 <a name="create-default-experience"></a>

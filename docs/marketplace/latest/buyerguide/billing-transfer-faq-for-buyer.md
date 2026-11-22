@@ -1,7 +1,6 @@
 
 
 # Billing Transfer FAQ for AWS Marketplace Buyers
-<a name="billing-transfer-faq-for-buyer"></a>
 
 Billing transfer allows a management account to designate an external management account to manage and pay for its consolidated bill. This centralizes billing while maintaining security management autonomy. To set up billing transfer, an external account (bill transfer account) sends a billing transfer invitation to a management account (bill source account). If the invitation is accepted, the external account becomes the bill transfer account. The bill transfer account then manages and pays for the bill source account's consolidated bill, starting on the date specified in the invitation.
 

@@ -1,7 +1,6 @@
 
 
 # View governance details and manage products
-<a name="view-governance-details"></a>
 
 The **Dashboard** page provides an overview of Private Marketplace governance in your organization, displaying the default governing experience, the number of live experiences, and all products that you are managing in the experiences in your organization.
 

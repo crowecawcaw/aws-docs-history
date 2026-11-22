@@ -1,7 +1,6 @@
 
 
 # Using the dashboard
-<a name="using-the-dashboard"></a>
 
 The following sections explain how to use the AWS Marketplace **Procurement insights** dashboard.
 

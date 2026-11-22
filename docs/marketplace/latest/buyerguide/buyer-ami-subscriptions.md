@@ -1,7 +1,6 @@
 
 
 # AMI subscriptions in AWS Marketplace
-<a name="buyer-ami-subscriptions"></a>
 
 In AWS Marketplace, some Amazon Machine Image (AMI)-based software products offer an annual subscription pricing model. With this pricing model, you make a one-time upfront payment and pay no hourly usage fee for the next 12 months. You can apply one annual subscription to an AWS Marketplace software product to one Amazon Elastic Compute Cloud (Amazon EC2) instance. 
 

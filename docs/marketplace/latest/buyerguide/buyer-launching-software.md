@@ -1,7 +1,6 @@
 
 
 # Launching software in AWS Marketplace
-<a name="buyer-launching-software"></a>
 
 After buying software, you can launch Amazon Machine Images (AMIs) that contain it by using the 1-Choose Launch view in AWS Marketplace. You can also launch it using other Amazon Web Services (AWS) management tools, including the AWS Management Console, the Amazon Elastic Compute Cloud (Amazon EC2) console, Amazon EC2 APIs, or the AWS CloudFormation console. 
 
@@ -11,3 +10,5 @@ With the 1-Choose Launch view, you can quickly review, modify, and then launch a
 If you're unable to access an instance type or AWS Region, it may not have been supported at the time the private offer was sent to you. Review your agreement details for more information. To obtain access to an instance or a Region, contact the seller and request an updated private offer. After you accept the new offer, you'll have access to the newly added instance or Region.
 
 For AWS Marketplace products with complex topologies, the **Custom Launch** view provides a **Launch with CloudFormation Console** option that loads the product in the CloudFormation console with the appropriate CloudFormation template. You can then follow the steps in the CloudFormation console wizard to create the cluster of AMIs and associated AWS resources for that product. 
+
+RTB Fabric module products aren't launched from AWS Marketplace. For what to do after you subscribe, see the RTB Fabric module product page under [Product types available in AWS Marketplace](buyer-product-types.md).

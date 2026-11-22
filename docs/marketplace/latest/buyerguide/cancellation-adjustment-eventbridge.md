@@ -1,7 +1,6 @@
 
 
 # Cancellation and billing adjustment events
-<a name="cancellation-adjustment-eventbridge"></a>
 
 AWS Marketplace sends notifications to Amazon EventBridge when a seller initiates a cancellation request or billing adjustment for one of your agreements. You can use these events to automate workflows and track cancellation and refund activity.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Marketplace private offer Amazon EventBridge events
-<a name="buyer-eventbridge"></a>
 
 As a buyer, you receive an *event* from AWS Marketplace every time a seller creates a private offer and makes it available to your AWS account. The event contains details such as the seller ID, expiration date, product details, and the seller's name.
 

@@ -1,7 +1,6 @@
 
 
 # Using AMI aliases in AWS Marketplace
-<a name="buyer-ami-aliases"></a>
 
 An Amazon Machine Image (AMI) is identified with an `AMI ID`. You can use the `AMI ID` to indicate which AMI you want to use when launching a product. The `AMI ID` has the form `ami-{{<identifier>}}`, for example, ami-123example456. Each version of each product in each AWS Region has a different AMI (and different `AMI ID`).
 

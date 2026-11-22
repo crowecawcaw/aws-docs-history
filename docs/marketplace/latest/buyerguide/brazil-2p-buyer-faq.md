@@ -1,7 +1,6 @@
 
 
 # Buying through Brazil 2P FAQ
-<a name="brazil-2p-buyer-faq"></a>
 
 AWS Brazil now provides an automated distribution workflow through the AWS Brazil 2P Distribution Program. Eligible non-Brazilian independent software vendors (ISVs) grant AWS Brazil the right to distribute their Software-as-a-Service (SaaS) product licenses, and AWS Brazil distributes them to customers in Brazil. AWS Brazil is the seller of record, acquiring the rights to distribute SaaS product licenses to Brazilian customers and invoicing them in Brazilian Reais (BRL) with applicable Brazilian taxes. The distribution authorizations, seller disbursements, withholding tax calculation, invoicing, and seller reporting are automated.
 

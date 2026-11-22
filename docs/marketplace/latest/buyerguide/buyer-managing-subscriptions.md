@@ -1,9 +1,11 @@
 
 
 # Managing subscriptions in AWS Marketplace
-<a name="buyer-managing-subscriptions"></a>
 
 You can view and manage your subscriptions in the AWS Marketplace console on the [**Manage subscriptions**](https://aws.amazon.com/marketplace/management/subscriptions) page.
+
+**Note**  
+If you bought with AWS Marketplace Express Checkout, see [Managing your Express Checkout purchases in My Account](express-checkout-my-account.md).
 
 ## Viewing your subscriptions
 <a name="view-subscriptions"></a>
@@ -94,3 +96,11 @@ From the **agreement detail** page, you can manage your subscription and access 
 For more information about auto-renewal, see [Auto-renewal for private offers](buyer-private-offers-auto-renewal.md).
 
 ![The agreement detail page showing comprehensive information about a specific agreement](https://docs.aws.amazon.com/marketplace/latest/buyerguide/images/agreement-detail-page.png)
+
+
+## Ending a free trial
+<a name="ending-a-free-trial"></a>
+
+For RTB Fabric module and SaaS products that include a contract free trial, your access ends when the trial ends, because a contract free trial doesn't convert to a paid agreement. For SaaS products, a pay-as-you-go free trial converts automatically to a paid subscription when the trial ends.
+
+For a contract agreement, whether from a public or a private offer, you can't cancel the agreement yourself. To cancel, contact the seller. The seller cancels the agreement, including public-offer agreements, and issues any refund from AWS Partner Central, and you approve the request in the AWS Marketplace console. You can also contact AWS Support.

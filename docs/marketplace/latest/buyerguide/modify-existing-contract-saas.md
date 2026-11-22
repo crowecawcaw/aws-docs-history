@@ -1,7 +1,6 @@
 
 
 # Modifying an existing public contract
-<a name="modify-existing-contract-saas"></a>
 
 If you have an existing upfront commitment for a SaaS product, you can modify some aspects of your existing public contract in AWS Marketplace. You can purchase additional licenses within the entitlement of the same offer in your current contract. However, you can't reduce the entitlement counts purchased in the contract. You can also cancel the automatic subscription renewal if the seller has enabled this option. For information about modifying private offers, see [Modifying or unsubscribing from a private offer in AWS Marketplace](buyer-private-offers-modifying.md).
 

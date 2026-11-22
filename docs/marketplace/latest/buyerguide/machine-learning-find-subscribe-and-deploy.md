@@ -1,7 +1,6 @@
 
 
 # Process overview for finding and deploying machine learning products
-<a name="machine-learning-find-subscribe-and-deploy"></a>
 
 The following diagram shows an overview of the process to find, subscribe, and deploy a machine learning product on Amazon SageMaker AI.
 

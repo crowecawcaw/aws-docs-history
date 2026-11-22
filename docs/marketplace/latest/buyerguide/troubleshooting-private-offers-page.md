@@ -1,7 +1,6 @@
 
 
 # Troubleshooting private offers
-<a name="troubleshooting-private-offers-page"></a>
 
 If you encounter HTTP status code 404 (Not Found) issues or similar difficulties when working with **Private offers** in AWS Marketplace, consult the topics in this section.
 
