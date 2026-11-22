@@ -1,7 +1,6 @@
 
 
 # Traffic Mirroring limitations
-<a name="traffic-mirroring-network-limitations"></a>
 
 This section contains the limitations for Traffic Mirroring.
 

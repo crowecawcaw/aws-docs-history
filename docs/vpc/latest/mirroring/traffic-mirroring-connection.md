@@ -1,7 +1,6 @@
 
 
 # Understand traffic mirror source and target connectivity options
-<a name="traffic-mirroring-connection"></a>
 
 Connecting traffic mirror sources and targets in different VPCs can be useful for monitoring and analyzing network traffic across multiple environments. This allows you to centralize your network monitoring and security analysis, even if your application infrastructure is spread across different VPCs or AWS accounts.
 

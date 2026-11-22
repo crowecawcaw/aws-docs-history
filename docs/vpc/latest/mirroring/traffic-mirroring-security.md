@@ -1,7 +1,6 @@
 
 
 # Identity and access management for Traffic Mirroring
-<a name="traffic-mirroring-security"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. Administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use traffic mirror resources.
 
@@ -15,7 +14,7 @@ You can also use resource-level permissions to restrict what resources users can
 The following IAM policy allows users to use the `CreateTrafficMirrorSession` API, but restricts the action to a specific traffic mirror target (`tmt-12345645678`). To create a traffic mirror session, users must also have permission to use the traffic mirror filter and network interface resources. Therefore, you must include these resources in the IAM policy attached to the role.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

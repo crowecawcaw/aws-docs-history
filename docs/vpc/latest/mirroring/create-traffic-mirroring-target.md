@@ -1,7 +1,6 @@
 
 
 # Create or delete a traffic mirror target
-<a name="create-traffic-mirroring-target"></a>
 
 A traffic mirror target is the destination for mirrored traffic. For more information, see [Understand traffic mirror target concepts](traffic-mirroring-targets.md).
 

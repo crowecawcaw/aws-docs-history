@@ -1,7 +1,6 @@
 
 
 # Work with Traffic Mirroring to copy network traffic
-<a name="working-with-traffic-mirroring"></a>
 
 Use Traffic Mirroring to create, manage, and share traffic mirror targets. These targets capture and forward a copy of your traffic to the destination of your choice. Whether you're a network administrator, security analyst, or DevOps engineer, with Traffic Mirroring you can proactively identify and address network issues, ensure compliance, and optimize your overall network performance.
 

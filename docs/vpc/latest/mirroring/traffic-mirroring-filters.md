@@ -1,7 +1,6 @@
 
 
 # Understand traffic mirror filter concepts
-<a name="traffic-mirroring-filters"></a>
 
 A *traffic mirror filter* is a set of inbound and outbound rules that determines which traffic is copied from the traffic mirror source and sent to the traffic mirror target. You can also choose to mirror certain network services traffic, including Amazon DNS. When you add network services traffic, all traffic (inbound and outbound) related to that network service is mirrored.
 

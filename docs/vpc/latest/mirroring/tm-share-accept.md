@@ -1,7 +1,6 @@
 
 
 # Accept or delete a shared traffic mirror target
-<a name="tm-share-accept"></a>
 
 Before you can use a cross-account traffic mirror target, the traffic mirror target owner shares the target with you by using the AWS Resource Access Manager. When you are in different AWS Organizations from the owner, after the owner shares the traffic mirror target, you accept the share request. After you accept the share request, you can use the traffic mirror target in a traffic mirror session. 
 

@@ -1,7 +1,6 @@
 
 
 # Create, modify, or delete a traffic mirror session
-<a name="create-traffic-mirroring-session"></a>
 
 A traffic mirror session establishes a relationship between a traffic mirror source and a traffic mirror target. For more information, see [Understand traffic mirror session concepts](traffic-mirroring-sessions.md).
 

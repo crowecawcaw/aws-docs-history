@@ -1,7 +1,6 @@
 
 
 # Get started using Traffic Mirroring to monitor network traffic
-<a name="traffic-mirroring-getting-started"></a>
 
 To get started using Amazon VPC Traffic Mirroring, you'll need a VPC with at least one elastic network interface (ENI) that you want to mirror traffic from. In this section, you'll create a traffic mirror target and you'll create a traffic mirror session, which defines the parameters of the traffic mirroring operation, such as the source ENI, the mirror target, and any filtering rules. Once these components are in place, you'll start mirroring traffic to the target for monitoring and analysis. 
 
