@@ -1,7 +1,6 @@
 
 
 # Web Application Architecture on AWS
-<a name="web-application-architecture"></a>
 
 Publication date: **November 19, 2021 ([Diagram history](#diagram-history))**
 
