@@ -1,7 +1,6 @@
 
 
 # Release notes for Aurora DSQL
-<a name="release-notes"></a>
 
 This page describes new features, service launches, and important updates for Aurora DSQL. For documentation-specific changes, see the [Document history](doc-history.html).
 
@@ -10,6 +9,26 @@ This page describes new features, service launches, and important updates for Au
 
 ### November 2026
 <a name="release-notes-2026-11"></a>
+
+November 19, 2026  
+✨ *Feature* — **Higher write throughput** — With upgrades to its storage layer, Aurora DSQL now delivers up to 50% higher write throughput for many transactional workloads. Data loads also finish sooner.  
+Tables whose primary key always increases see larger gains. Examples include tables keyed by a timestamp or by a time-ordered ID. Time-ordered IDs include Universally Unique Lexicographically Sortable Identifiers (ULIDs) and version 7 universally unique identifiers (UUIDv7). In internal testing, an audit log table keyed by event time accepted up to 200% more inserts per second.  
+The improvement applies automatically to new and existing clusters at no additional cost. For more information about choosing a primary key, see [Guidelines for choosing a primary key](working-with-primary-keys.html#dsql-primary-key-guidelines).
+
+November 19, 2026  
+🐘 *PostgreSQL Compatibility* — ** PL/pgSQL** — Aurora DSQL now supports PL/pgSQL, the procedural language for PostgreSQL. You can create functions and procedures with `CREATE FUNCTION` and `CREATE PROCEDURE`, invoke procedures with `CALL`, and run anonymous code blocks with `DO`. For more information about supported statements and Aurora DSQL-specific considerations, see [PL/pgSQL in Aurora DSQL](working-with-plpgsql.html).
+
+November 18, 2026  
+🐘 *PostgreSQL Compatibility* — **Network address data types** — Aurora DSQL now supports the `inet`, `cidr`, `macaddr`, and `macaddr8` data types. You can store IP addresses, networks, and MAC addresses in columns, use them in primary keys and secondary indexes, and query them with the PostgreSQL network address functions and operators. For more information, see [Network address data types](working-with-postgresql-compatibility-supported-data-types.html#network-address-data-types).
+
+November 18, 2026  
+✨ *Feature* — **Multi-Region clusters on different continents** — Aurora DSQL now supports intercontinental, multi-Region clusters. You can choose the peer and witness Regions from any of the AWS Regions that support multi-Region clusters, including Regions on different continents. For more information about Regions for multi-Region clusters, see [Multi-Region cluster availability for Aurora DSQL](what-is-aurora-dsql.html#aurora-dsql-multi-region-availability).
+
+November 18, 2026  
+✨ *Feature* — **Audit logging** — Aurora DSQL now supports audit logging, enabling you to record the SQL statements that run on your clusters and deliver the audit records to an Amazon S3 bucket. For more information, see [Audit logging](audit-logging.html).
+
+November 16, 2026  
+*Monitoring* — **Statement statistics** — Aurora DSQL now records statistics for each statement, such as call counts, planning and execution time, and the number of rows returned or changed. To turn them on, add the `STATEMENT_STATISTICS` metric group to a cluster. You can then view the data in Amazon CloudWatch Database Insights or query it with Prometheus Query Language (PromQL) in CloudWatch Query Studio. Statement statistics incur additional charges for the metrics and logs that they publish to CloudWatch and CloudWatch Logs. For more information about statement statistics and their charges, see [Monitoring SQL statements with Aurora DSQL statement statistics](dsql-statement-statistics.md) and [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
 November 13, 2026  
 🐘 *PostgreSQL Compatibility* — ** `ALTER SYSTEM`** — Aurora DSQL now supports setting a subset of parameters at the system level. For more information, see [ALTER SYSTEM](alter-system-syntax-support.html).

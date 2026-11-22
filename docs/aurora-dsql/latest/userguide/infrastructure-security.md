@@ -1,7 +1,6 @@
 
 
 # Infrastructure Security in Amazon Aurora DSQL
-<a name="infrastructure-security"></a>
 
 As a managed service, Amazon Aurora DSQL is protected by the AWS global network security procedures that are described in [Best Practices for Security, Identity, & Compliance](https://aws.amazon.com/architecture/security-identity-compliance).
 

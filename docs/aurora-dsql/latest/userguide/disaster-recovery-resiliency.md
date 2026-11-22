@@ -1,7 +1,6 @@
 
 
 # Resilience in Amazon Aurora DSQL
-<a name="disaster-recovery-resiliency"></a>
 
 The AWS global infrastructure is built around AWS Regions and Availability Zones (AZ). AWS Regions provide multiple physically separated and isolated Availability Zones, which are connected with low-latency, high-throughput, and highly redundant networking. With Availability Zones, you can design and operate applications and databases that automatically fail over between zones without interruption. Availability Zones are more highly available, fault tolerant, and scalable than traditional single or multiple data center infrastructures. Aurora DSQL is designed so that you can take advantage of AWS Regional infrastructure while providing the highest database availability. By default, single-Region clusters in Aurora DSQL have Multi-AZ availability, providing tolerance to major component failures and infrastructure disruptions that might impact access to a full AZ. Multi-Region clusters provide all of the benefits from Multi-AZ resiliency while still providing the strongly consistent database availability, even in cases in which AWS Region is inaccessible to application clients.
 
@@ -19,7 +18,7 @@ Aurora DSQL supports backup and restore with AWS Backup console. You can perform
 
 By design, Aurora DSQL commits all write transactions to a distributed transaction log and synchronously replicates all committed log data to user storage replicas in three AZs. Multi-Region clusters provide full cross-Region replication capabilities between read and write Regions.
 
-A designated witness Region supports transaction log-only writes and doesn't consume storage. Witness Regions don't have an endpoint. This means that witness Regions store only encrypted transaction logs, require no administration or configuration, and aren't accessible by users. If the witness Region becomes impaired, there is no impact to cluster availability. Write transactions might experience a small increase in latency until the witness Region recovers.
+A designated witness Region supports transaction log-only writes and doesn't consume storage. Witness Regions store encrypted transaction log, do not store encryption keys, have no managed endpoints, and do not make data accessible to users. If the witness Region becomes impaired, there is no impact to cluster availability. Write transactions might experience a temporary increase in latency until the witness Region recovers. The size of this increase depends on the geographic distance between the Regions in your cluster.
 
 Aurora DSQL transaction logs and user storage are distributed with all data presented to Aurora DSQL query processors as a single logical volume. Aurora DSQL automatically splits, merges, and replicates data based on database primary key range and access patterns. Aurora DSQL automatically scales read replicas, both up and down, based on read access frequency.
 
@@ -32,7 +31,19 @@ By default, single-Region and multi-Region clusters in Aurora DSQL are active-ac
 
 Single-Region clusters provide a Multi-AZ redundant endpoint that automatically enables concurrent access with strong data consistency across three AZs. This means that user storage replicas on any of these three AZs always return the same result to one or more readers and are always available to receive writes. This strong consistency and Multi-AZ resiliency is available across all Regions for Aurora DSQL multi-Region clusters. This means that multi-Region clusters provide two strongly consistent Regional endpoints, so clients can read or write indiscriminately to either Region with zero replication lag on commit. 
 
+Aurora DSQL commits writes synchronously across the active Regions of a multi-Region cluster. Write latency depends on the geographic distance between those Regions. When you choose the peer and witness Regions, you balance greater geographic separation against lower write latency. Greater separation increases the isolation of failure domains.
+
 Aurora DSQL provides 99.99% availability for single-Region clusters and 99.999% for multi-Region clusters.
+
+## Ephemeral clusters
+<a name="disaster-recovery-resiliency-ephemeral-clusters"></a>
+
+Use ephemeral clusters for short-lived testing of early-access features. Ephemeral clusters have Multi-AZ availability like other single-Region clusters, with the following considerations:
++ Aurora DSQL permanently deletes the cluster and its data after the lifetime expires, regardless of deletion protection.
++ Ephemeral clusters are single-Region clusters only.
++ Ephemeral clusters don't support data protection features such as backups.
+
+For more information, see [Early-access features and ephemeral clusters in Aurora DSQL](ephemeral-clusters.md).
 
 ## Fault injection testing
 <a name="fault-injection-testing"></a>

@@ -1,14 +1,13 @@
 
 
 # `CREATE INDEX`
-<a name="create-index-syntax-support"></a>
 
 `CREATE INDEX` defines a new index. In Aurora DSQL, index creation is always asynchronous, so you must specify the `ASYNC` keyword. For information about how Aurora DSQL runs asynchronous index builds and how to monitor them, see [Asynchronous indexes in Aurora DSQL](working-with-create-index-async.md).
 
 ## Supported syntax
 <a name="create-index-supported-syntax"></a>
 
-```
+```sql
 CREATE [ UNIQUE ] INDEX ASYNC [ [ IF NOT EXISTS ] name ] ON table_name
     ( { column_name | ( expression ) } [ NULLS { FIRST | LAST } ] [, ...] )
     [ INCLUDE ( column_name [, ...] ) ]
@@ -72,19 +71,19 @@ Aurora DSQL can use a partial index for a query only when it can prove that the 
 
 To create a unique index on the column `title` in the table `films`.
 
-```
+```sql
 CREATE UNIQUE INDEX ASYNC title_idx ON films (title);
 ```
 
 To create a unique index on the column `title` with included columns `director` and `rating` in the table `films`.
 
-```
+```sql
 CREATE UNIQUE INDEX ASYNC title_idx ON films (title) INCLUDE (director, rating);
 ```
 
 To create an index on the expression `lower(title)`, which allows efficient case-insensitive searches.
 
-```
+```sql
 CREATE INDEX ASYNC ON films ((lower(title)));
 ```
 
@@ -92,12 +91,12 @@ This example omits the index name, so Aurora DSQL chooses a name, typically `fil
 
 To create an index with non-default sort ordering of nulls.
 
-```
+```sql
 CREATE INDEX ASYNC title_idx_nulls_low ON films (title NULLS FIRST);
 ```
 
 To create a partial index on `title` that indexes only the rows where `rating` is greater than 5:
 
-```
+```sql
 CREATE INDEX ASYNC high_rating_idx ON films (title) WHERE rating > 5;
 ```

@@ -1,7 +1,6 @@
 
 
 # Considerations for working with Amazon Aurora DSQL
-<a name="considerations"></a>
 
 Consider the following behaviors when you work with Amazon Aurora DSQL. For more information about PostgreSQL compatibility and support, see [SQL feature compatibility in Aurora DSQL](working-with-postgresql-compatibility.md). For quotas and limits, see [Cluster quotas and database limits in Amazon Aurora DSQL](CHAP_quotas.md).
 + Storage limit calculations may take time to reflect freed storage after running a `DROP TABLE` command. If you need additional storage capacity, see [Cluster quotas](CHAP_quotas.md#SECTION_cluster-quotas) to request quota updates.
@@ -15,3 +14,4 @@ Consider the following behaviors when you work with Amazon Aurora DSQL. For more
 + To ensure queries recognize newly created schemas and tables, refresh your connection after creating or dropping database objects. This includes scenarios where you see `Schema Already Exists` errors after dropping a schema, or when querying objects created in another connection. Disconnect and reconnect, or run `SET search_path` again to refresh the catalog cache.
 + For complex queries, use `EXPLAIN ANALYZE VERBOSE` to identify high-latency operations and optimize query plans. Covering indexes can significantly reduce DPU costs by enabling index-only scans instead of full table scans. For more information, see [Working with Aurora DSQL EXPLAIN plans](working-with-explain-plans.md).
 + Connection limits are managed at the cluster level. See [Cluster quotas](CHAP_quotas.md#SECTION_cluster-quotas) to request quota updates.
++ When you create a multi-Region cluster, you choose the two active peer Regions and the witness Region. You can place these Regions on any continent. Consider the tradeoffs among failure-domain separation, synchronous write latency, data residency, and regulatory requirements. Greater geographic separation between Regions increases the isolation of failure domains. However, it also increases write latency, because writes commit synchronously across the active Regions. For the Regions that you can select, see [Multi-Region cluster availability for Aurora DSQL](what-is-aurora-dsql.md#aurora-dsql-multi-region-availability).

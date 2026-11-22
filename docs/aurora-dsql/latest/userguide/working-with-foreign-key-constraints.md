@@ -1,7 +1,6 @@
 
 
 # Working with foreign key constraints in Aurora DSQL
-<a name="working-with-foreign-key-constraints"></a>
 
 With foreign key constraints in Aurora DSQL, you can push an application's referential integrity logic into the database. Aurora DSQL supports the `NO ACTION`, `RESTRICT`, `CASCADE`, `SET NULL`, and `SET DEFAULT` referential actions. It also supports the `MATCH FULL` and `MATCH SIMPLE` match types, and deferrable foreign key constraints. For the full syntax breakdown, see [Foreign key constraints](create-table-syntax-support.md#create-table-foreign-keys).
 
@@ -22,7 +21,7 @@ All data manipulation language (DML) operations on referenced or referencing tab
 
 In the following scenario, the `orders` table has a foreign key constraint on its `product_id` column that references the `products` table. This makes `products` the referenced table and `orders` the referencing table.
 
-```
+```sql
 CREATE TABLE products (
     product_id integer PRIMARY KEY,
     name text,
@@ -41,7 +40,7 @@ INSERT INTO products VALUES (1, 'Widget', 9.99);
 
 In this scenario, one session deletes a referenced row while another session inserts a referencing row.
 
-```
+```sql
 -- Session A
 BEGIN;
 DELETE FROM products WHERE product_id = 1;
@@ -65,7 +64,7 @@ Both sessions run at the same time. Aurora DSQL resolves the conflict at commit.
 
 In this scenario, one session updates a non-key column on the referenced row while another session inserts a referencing row.
 
-```
+```sql
 -- Session A
 BEGIN;
 UPDATE products SET name = 'Super Widget' WHERE product_id = 1;

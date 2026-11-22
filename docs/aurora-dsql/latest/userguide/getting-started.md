@@ -1,7 +1,6 @@
 
 
 # Getting started with Aurora DSQL
-<a name="getting-started"></a>
 
 Amazon Aurora DSQL is a serverless, fully managed, distributed relational database optimized for transactional workloads. In the following sections, you'll learn how to create single-Region and multi-Region Aurora DSQL clusters, connect to them, and create and load a sample schema. You will access clusters with the AWS Console and optionally interact with your database using other PostgreSQL clients. By the end, you'll have a working Aurora DSQL cluster set up that is ready to use for test or production workloads.
 
@@ -109,13 +108,13 @@ Test your Aurora DSQL cluster by running SQL statements. After opening the clust
 ## Step 4 (Optional): Create a multi-Region cluster
 <a name="getting-started-multi-region"></a>
 
-When you create a multi-Region cluster, you specify the following Regions:
+A multi-Region cluster has two active peer Regions and one witness Region. When you create one, your current Region is the first peer Region, and you choose the second peer Region and the witness Region. You can choose these Regions from the Regions that support Aurora DSQL multi-Region clusters. All three Regions must be distinct. For more information about the supported Regions, see [Multi-Region cluster availability](what-is-aurora-dsql.html#aurora-dsql-multi-region-availability).
 
-**Remote Region**  
-This is the Region in which you create a second cluster. You create a second cluster in this Region and peer it to your initial cluster. Aurora DSQL replicates all writes on the initial cluster to the remote cluster. You can read and write on any cluster.
+**Peer Region**  
+This is the Region that hosts the second active cluster. Both peer clusters accept read and write operations and present a single logical database with strong data consistency. Aurora DSQL replicates writes between the two peer Regions.
 
 **Witness Region**  
-This Region receives all data that is written to the multi-Region cluster. However, witness Regions don't host client endpoints and don't provide user data access. A limited window of the encrypted transaction log is maintained in witness Regions. This log facilitates recovery and supports transactional quorum if a Region becomes unavailable.
+This Region stores encrypted transaction logs, does not store encryption keys, has no managed endpoints, and does not make data accessible to users. The witness log supports transactional quorum if a Region becomes unavailable.
 
 Use the following procedure to create a multi-Region cluster. The console creates a cluster in each of the two Regions and peers them for you. The procedures after it show cross-Region write replication and consistent reads from both Regional endpoints.
 
@@ -166,7 +165,7 @@ Use the following procedure to create a multi-Region cluster. The console create
 1. Query the data that you inserted into the second cluster.  
 **Example**  
 
-   ```
+   ```bash,sh,zsh
    SELECT * FROM test.hello_world;
    ```
 

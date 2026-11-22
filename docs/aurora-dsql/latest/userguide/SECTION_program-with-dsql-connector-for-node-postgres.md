@@ -1,7 +1,6 @@
 
 
 # Aurora DSQL Connector for node-postgres
-<a name="SECTION_program-with-dsql-connector-for-node-postgres"></a>
 
  The [Aurora DSQL Connector for node-postgres](https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/node-postgres) is a Node.js connector built on [node-postgres](https://node-postgres.com/) that integrates IAM Authentication for connecting JavaScript/TypeScript applications to Amazon Aurora DSQL clusters. 
 
@@ -51,14 +50,14 @@
 ## Installation
 <a name="installation"></a>
 
-```
+```bash
 npm install @aws/aurora-dsql-node-postgres-connector
 ```
 
 ## Peer Dependencies
 <a name="peer-dependencies"></a>
 
-```
+```bash
 npm install @aws-sdk/credential-providers @aws-sdk/dsql-signer pg tsx
 npm install --save-dev @types/pg
 ```
@@ -69,7 +68,7 @@ npm install --save-dev @types/pg
 ### Client Connection
 <a name="client-connection"></a>
 
-```
+```typescript
 import { AuroraDSQLClient } from "@aws/aurora-dsql-node-postgres-connector";
 
 const client = new AuroraDSQLClient({
@@ -84,7 +83,7 @@ await client.end();
 ### Pool Connection
 <a name="pool-connection"></a>
 
-```
+```typescript
 import { AuroraDSQLPool } from "@aws/aurora-dsql-node-postgres-connector";
 
 const pool = new AuroraDSQLPool({
@@ -100,7 +99,7 @@ const result = await pool.query("SELECT NOW()");
 ### Advanced Usage
 <a name="advanced-usage"></a>
 
-```
+```typescript
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { AuroraDSQLClient } from "@aws/aurora-dsql-node-postgres-connector";
 

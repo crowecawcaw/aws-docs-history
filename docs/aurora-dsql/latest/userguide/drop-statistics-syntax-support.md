@@ -1,12 +1,11 @@
 
 
 # `DROP STATISTICS`
-<a name="drop-statistics-syntax-support"></a>
 
 ## Supported syntax
 <a name="drop-statistics-supported-syntax"></a>
 
-```
+```sql
 DROP STATISTICS [ IF EXISTS ] name [, ...] [ CASCADE | RESTRICT ]
 ```
 
@@ -32,7 +31,7 @@ These key words do not have any effect, since there are no dependencies on stati
 
 To destroy two statistics objects in different schemas, without failing if they don't exist:
 
-```
+```sql
 DROP STATISTICS IF EXISTS
     accounting.users_uid_creation,
     public.grants_user_role;

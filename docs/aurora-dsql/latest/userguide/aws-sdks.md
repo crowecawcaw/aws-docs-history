@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora DSQL cluster connectivity tools
-<a name="aws-sdks"></a>
 
  Aurora DSQL is compatible with many third-party database drivers and ORM libraries. AWS provides two types of tools to simplify working with Aurora DSQL: 
 + **[Connectors](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/SECTION_connectors.html)** – Authentication plugins that extend database drivers to handle IAM token generation automatically. Use connectors when working directly with database drivers.

@@ -1,7 +1,6 @@
 
 
 # Programming with Aurora DSQL
-<a name="programming-with"></a>
 
 Aurora DSQL provides you with the following tools to manage your Aurora DSQL resources programmatically.
 

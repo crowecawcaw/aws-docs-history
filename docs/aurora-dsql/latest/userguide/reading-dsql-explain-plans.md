@@ -1,7 +1,6 @@
 
 
 # Reading Aurora DSQL EXPLAIN plans
-<a name="reading-dsql-explain-plans"></a>
 
 Understanding how to read EXPLAIN plans is key to optimizing query performance. In this section, we’ll walk through real examples of Aurora DSQL query plans, show how different scan types behave, explain where filters are applied, and highlight opportunities for optimization.
 
@@ -14,7 +13,7 @@ The `transaction` table does not have a primary key, which causes Aurora DSQL to
 
 The `account` table has an index on `customer_id`. This index includes `balance` and `status` as covering columns, which allows certain queries to be satisfied directly from the index without reading from the base table. However, the index does not include `created_at`, so queries that reference this column require additional table access.
 
-```
+```sql
 CREATE TABLE transaction (
     account_id uuid,
     transaction_date timestamp,
@@ -38,7 +37,7 @@ Aurora DSQL has both Sequential Scans, which is functionally identical to Postgr
 
 Full Scans will mostly be used on tables with no primary key. Because Aurora DSQL primary keys are by default full covering indexes, Aurora DSQL will most likely use Index Only Scans on the primary key in many situations where PostgreSQL would use a Sequential Scan. As with most other databases, a table with no indexes on it will scale badly.
 
-```
+```sql
 EXPLAIN SELECT account_id FROM transaction WHERE transaction_date > '2025-01-01' AND description LIKE '%external%';
 ```
 
@@ -60,7 +59,7 @@ This plan shows two filters applied at different stages. The `transaction_date >
 
 Index Only Scans are the most optimal scan types in Aurora DSQL as they result in the fewest round trips to the storage layer and can do the most filtering. But just because you see Index Only Scan does not mean that you have the best plan. Because of all the different levels of filtering that can happen, it is essential to still pay attention to the different places filtering can happen.
 
-```
+```sql
 EXPLAIN SELECT balance FROM account
 WHERE customer_id = '4b18a761-5870-4d7c-95ce-0a48eca3fceb'
 AND balance > 100
@@ -89,7 +88,7 @@ Index Scans are similar to Index Only Scans, except they have the extra step of 
 
 To make this clear, Aurora DSQL presents the plan as two nodes. This way, you can clearly see how much adding an include column will help in terms of rows returned from storage.
 
-```
+```sql
 EXPLAIN SELECT balance FROM account
 WHERE customer_id = '4b18a761-5870-4d7c-95ce-0a48eca3fceb'
 AND balance > 100

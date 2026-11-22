@@ -1,7 +1,6 @@
 
 
 # Accessing Aurora DSQL with PostgreSQL-compatible clients
-<a name="accessing"></a>
 
 Aurora DSQL uses the [PostgreSQL wire protocol](https://www.postgresql.org/docs/current/protocol.html). You can connect to PostgreSQL using a variety of tools and clients, such as AWS CloudShell, psql, DBeaver, and DataGrip. The following table summarizes how Aurora DSQL maps common PostgreSQL connection parameters:
 

@@ -1,7 +1,6 @@
 
 
 # Aurora DSQL and PostgreSQL
-<a name="working-with"></a>
 
 Aurora DSQL is a PostgreSQL-compatible, distributed relational database designed for transactional workloads. Aurora DSQL uses core PostgreSQL components such as the parser, planner, optimizer, and type system.
 

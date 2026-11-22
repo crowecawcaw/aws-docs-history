@@ -1,7 +1,6 @@
 
 
 # Adding and editing resource-based policies for clusters
-<a name="rbp-attach-policy"></a>
 
 When you attach a policy or create a cluster with one, the policy must meet these requirements:
 + It's no longer than 20,480 characters.
@@ -71,7 +70,7 @@ To avoid overwriting a change that someone else made after you read the policy, 
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 import json
 
@@ -99,7 +98,7 @@ response = client.put_cluster_policy(
 ------
 #### [ Java ]
 
-```
+```java
 import software.amazon.awssdk.services.dsql.DsqlClient;
 import software.amazon.awssdk.services.dsql.model.PutClusterPolicyRequest;
 

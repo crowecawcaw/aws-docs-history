@@ -1,7 +1,6 @@
 
 
 # Sequence manipulation functions
-<a name="sequence-functions-syntax-support"></a>
 
 This section describes functions for operating on sequence objects, also called sequence generators or just sequences. Sequence objects are special single-row tables created with [`CREATE SEQUENCE`](create-sequence-syntax-support.md). Sequence objects are commonly used to generate unique identifiers for rows of a table. The sequence functions provide simple, multiuser-safe methods for obtaining successive sequence values from sequence objects.
 

@@ -1,7 +1,6 @@
 
 
 # Asynchronous indexes in Aurora DSQL
-<a name="working-with-create-index-async"></a>
 
 The `CREATE INDEX ASYNC` command creates an index on one or more columns of a specified table. This command is an asynchronous DDL operation that doesn't block other transactions. When you run `CREATE INDEX ASYNC`, Aurora DSQL immediately returns a `job_id`. 
 
@@ -35,7 +34,7 @@ The following example demonstrates how to create a schema, a table, and then an 
 
 1. Create a table named `test.departments`.
 
-   ```
+   ```sql
    CREATE SCHEMA test;
    
    CREATE TABLE test.departments (name varchar(255) primary key NOT null,
@@ -45,19 +44,19 @@ The following example demonstrates how to create a schema, a table, and then an 
 
 1. Insert a row into the table.
 
-   ```
+   ```sql
    INSERT INTO test.departments VALUES ('Human Resources', 'John Doe', '10')
    ```
 
 1. Create an asynchronous index.
 
-   ```
+   ```sql
    CREATE INDEX ASYNC test_index on test.departments(name, manager, size);
    ```
 
    The `CREATE INDEX` command returns a job ID, as shown below.
 
-   ```
+   ```sql
    job_id
    --------------------------
    jh2gbtx4mzhgfkbimtgwn5j45y
@@ -70,13 +69,13 @@ The following example demonstrates how to create a schema, a table, and then an 
 
 Query the `sys.jobs` system view to check the creation status of your index, as shown in the following example.
 
-```
+```sql
 SELECT * FROM sys.jobs where job_id = 'wqhu6ewifze5xitg3umt24h5ua';
 ```
 
 Aurora DSQL returns a response similar to the following.
 
-```
+```sql
            job_id           |  status   | details |  job_type   | class_id | object_id |    object_name    |       start_time       |      update_time
 ----------------------------+-----------+---------+-------------+----------+-----------+-------------------+------------------------+------------------------
  wqhu6ewifze5xitg3umt24h5ua | completed |         | INDEX_BUILD |     1259 |     26433 | public.nt2_c1_idx | 2025-09-25 22:07:31+00 | 2025-09-25 22:07:46+00
@@ -94,13 +93,13 @@ The status column can be one of the following values.
 
 You can also query the state of the index via the catalog tables `pg_index`and `pg_class`. Specifically, the attributes `indisvalid` and `indisimmediate` can tell you what state your index is in. While Aurora DSQL creates your index, it has an initial status of `INVALID`. The `indisvalid` flag for the index returns `FALSE` or `f`, which indicates that the index isn't valid. If the flag returns `TRUE` or `t`, the index is ready.
 
-```
+```sql
 SELECT relname AS index_name, indisvalid as is_valid, pg_get_indexdef(indexrelid) AS index_definition
 from pg_index, pg_class
 WHERE pg_class.oid = indexrelid AND indrelid = 'test.departments'::regclass;
 ```
 
-```
+```sql
     index_name    | is_valid |                                                 index_definition
 ------------------+----------+-------------------------------------------------------------------------------------------------------------------
  department_pkey  |     t    | CREATE UNIQUE INDEX department_pkey ON test.departments USING btree_index (title) INCLUDE (name, manager, size)
@@ -129,7 +128,7 @@ The following SQL query helps you identify duplicate values in a specified colum
 
 ** Define table schema **
 
-```
+```sql
 -- Drop the table if it exists
 DROP TABLE IF EXISTS users;
 
@@ -145,7 +144,7 @@ CREATE TABLE users (
 
 **Insert sample data that includes sets of duplicate email addresses**
 
-```
+```sql
 -- Insert sample data with explicit IDs
 INSERT INTO users (user_id, email, first_name, last_name) VALUES
     (1, 'john.doe@example.com', 'John', 'Doe'),
@@ -159,7 +158,7 @@ INSERT INTO users (user_id, email, first_name, last_name) VALUES
 
 ** Run duplicate detection query **
 
-```
+```sql
 -- Query to find duplicates
 WITH duplicates AS (
     SELECT email, COUNT(*) as duplicate_count

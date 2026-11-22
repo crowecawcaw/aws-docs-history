@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for Amazon Aurora DSQL
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Aurora DSQL resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -42,7 +41,7 @@ To ensure that users and roles can still use the Aurora DSQL console, also attac
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -89,7 +88,7 @@ This example uses `dsql:DbConnectAdmin` to connect with the `admin` role. To con
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -129,7 +128,7 @@ You can use conditions in your identity-based policy to control access to Aurora
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -165,7 +164,7 @@ The following policy allows a user to create clusters only if they tag the clust
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

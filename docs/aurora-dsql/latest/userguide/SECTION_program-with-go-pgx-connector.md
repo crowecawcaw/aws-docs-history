@@ -1,7 +1,6 @@
 
 
 # Aurora DSQL Connector for Go pgx
-<a name="SECTION_program-with-go-pgx-connector"></a>
 
 The [Aurora DSQL Connector for Go](https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx) wraps [pgx](https://github.com/jackc/pgx) with automatic IAM authentication. The connector handles token generation, SSL configuration, and connection management so you can focus on your application logic.
 
@@ -64,7 +63,7 @@ The connector uses the [AWS SDK for Go v2 default credential chain](https://docs
 
 Install the connector using Go modules:
 
-```
+```bash
 go get github.com/awslabs/aurora-dsql-connectors/go/pgx/dsql
 ```
 
@@ -73,7 +72,7 @@ go get github.com/awslabs/aurora-dsql-connectors/go/pgx/dsql
 
 The following example shows how to create a connection pool and execute a query:
 
-```
+```go
 package main
 
 import (
@@ -141,7 +140,7 @@ Supported query parameters:
 
 Examples:
 
-```
+```go
 // Full endpoint (region auto-detected)
 pool, _ := dsql.NewPool(ctx, "postgres://admin@cluster.dsql.us-east-1.on.aws/postgres")
 
@@ -165,7 +164,7 @@ The connector supports two host formats:
 
 **Full endpoint** (region auto-detected):
 
-```
+```go
 pool, _ := dsql.NewPool(ctx, dsql.Config{
     Host: "your-cluster.dsql.us-east-1.on.aws",
 })
@@ -173,7 +172,7 @@ pool, _ := dsql.NewPool(ctx, dsql.Config{
 
 **Cluster ID** (region required):
 
-```
+```go
 pool, _ := dsql.NewPool(ctx, dsql.Config{
     Host:   "your-cluster-id",
     Region: "us-east-1",
@@ -185,7 +184,7 @@ pool, _ := dsql.NewPool(ctx, dsql.Config{
 
 Configure the connection pool for your workload:
 
-```
+```go
 pool, err := dsql.NewPool(ctx, dsql.Config{
     Host:              "your-cluster.dsql.us-east-1.on.aws",
     MaxConns:          20,
@@ -201,7 +200,7 @@ pool, err := dsql.NewPool(ctx, dsql.Config{
 
 For simple scripts or when connection pooling is not needed:
 
-```
+```go
 conn, err := dsql.Connect(ctx, dsql.Config{
     Host: "your-cluster.dsql.us-east-1.on.aws",
 })
@@ -219,7 +218,7 @@ rows, err := conn.Query(ctx, "SELECT * FROM users")
 
 Specify an AWS profile for credentials:
 
-```
+```go
 pool, err := dsql.NewPool(ctx, dsql.Config{
     Host:    "your-cluster.dsql.us-east-1.on.aws",
     Profile: "production",
@@ -233,13 +232,13 @@ Aurora DSQL uses optimistic concurrency control (OCC). When two transactions mod
 
 The `occretry` package provides helpers for automatic retry with exponential backoff and jitter. Install it with:
 
-```
+```bash
 go get github.com/awslabs/aurora-dsql-connectors/go/pgx/occretry
 ```
 
 Use `WithRetry` for transactional writes:
 
-```
+```go
 err := occretry.WithRetry(ctx, pool, occretry.DefaultConfig(), func(tx pgx.Tx) error {
     _, err := tx.Exec(ctx, "UPDATE accounts SET balance = balance - $1 WHERE id = $2", 100, fromID)
     if err != nil {
@@ -252,7 +251,7 @@ err := occretry.WithRetry(ctx, pool, occretry.DefaultConfig(), func(tx pgx.Tx) e
 
 For DDL or single statements, use `ExecWithRetry`:
 
-```
+```go
 err := occretry.ExecWithRetry(ctx, pool, occretry.DefaultConfig(),
     "CREATE TABLE IF NOT EXISTS users (id UUID PRIMARY KEY, name TEXT)")
 ```

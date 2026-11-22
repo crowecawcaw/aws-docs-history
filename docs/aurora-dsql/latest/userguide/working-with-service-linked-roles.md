@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles in Aurora DSQL
-<a name="working-with-service-linked-roles"></a>
 
  Aurora DSQL uses AWS Identity and Access Management (IAM) [ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#id_roles_terms-and-concepts). A service-linked role is a unique type of IAM role that is linked directly to Aurora DSQL. Service-linked roles are predefined by Aurora DSQL and include all the permissions that the service requires to call AWS services on behalf of your Aurora DSQL cluster. 
 
@@ -16,14 +15,14 @@ Service-linked roles are available in all supported Aurora DSQL Regions.
 
 Aurora DSQL uses the service-linked role named `AWSServiceRoleForAuroraDsql` – Allows Amazon Aurora DSQL to create and manage AWS resources on your behalf. This service-linked role is attached to the following managed policy: [AuroraDsqlServiceLinkedRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AuroraDsqlServiceLinkedRolePolicy.html).
 
-With this service-linked role, Aurora DSQL publishes metrics to CloudWatch. It can also write to the `/aws/dsql/normalized-sql-text` log group in Amazon CloudWatch Logs in your account, which an upcoming Aurora DSQL feature uses to deliver normalized SQL text.
+With this service-linked role, Aurora DSQL publishes metrics to CloudWatch. It can also write to the `/aws/dsql/normalized-sql-text` log group in Amazon CloudWatch Logs in your account. Aurora DSQL statement statistics use this log group to deliver normalized SQL text. For more information, see [Monitoring SQL statements with Aurora DSQL statement statistics](dsql-statement-statistics.md).
 
 **Note**  
 You must configure permissions to allow an IAM entity (such as a user, group, or role) to create, edit, or delete a service-linked role. You might encounter the following error message: `You don't have the permissions to create an Amazon Aurora DSQL service-linked role`. If you see this message, make sure that you have the following permissions enabled:  
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # `CREATE FUNCTION`
-<a name="create-function-syntax-support"></a>
 
 `CREATE FUNCTION` defines a new function.
 
@@ -11,7 +10,7 @@ In Amazon Aurora DSQL, `CREATE FUNCTION` only supports SQL-language functions (`
 ## Supported syntax
 <a name="create-function-supported-syntax"></a>
 
-```
+```sql
 CREATE [ OR REPLACE ] FUNCTION
     name ( [ [ argmode ] [ argname ] argtype [ { DEFAULT | = } default_expr ] [, ...] ] )
     [ RETURNS rettype
@@ -154,7 +153,7 @@ The `WINDOW` attribute is accepted syntactically but isn't useful for SQL-langua
 
 Create a simple SQL function that adds two integers, using a string-constant body:
 
-```
+```sql
 CREATE FUNCTION add(integer, integer) RETURNS integer
     AS 'SELECT $1 + $2;'
     LANGUAGE sql
@@ -164,7 +163,7 @@ CREATE FUNCTION add(integer, integer) RETURNS integer
 
 Create the same function using the SQL-standard `RETURN` body and named arguments:
 
-```
+```sql
 CREATE FUNCTION add(a integer, b integer) RETURNS integer
     LANGUAGE sql
     IMMUTABLE
@@ -173,7 +172,7 @@ CREATE FUNCTION add(a integer, b integer) RETURNS integer
 
 Create a function that returns a set of rows using `RETURNS TABLE` and a `BEGIN ATOMIC` body:
 
-```
+```sql
 CREATE FUNCTION employees_in_dept(dept_id integer)
     RETURNS TABLE (id integer, name text)
     LANGUAGE sql
@@ -185,7 +184,7 @@ CREATE FUNCTION employees_in_dept(dept_id integer)
 
 Create a function that runs with the privileges of its owner, and sets a configuration parameter for the duration of the call:
 
-```
+```sql
 CREATE FUNCTION current_department() RETURNS text
     LANGUAGE sql
     STABLE

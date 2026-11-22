@@ -1,7 +1,6 @@
 
 
 # Understanding CDC records
-<a name="cdc-record-format"></a>
 
 Aurora DSQL CDC delivers each change as a JSON record. The record uses an envelope structure with operation type, before and after row images, and source metadata.
 
@@ -29,7 +28,7 @@ For tables with a primary key, the primary key column values appear in the paylo
 
 For example, consider a table with a composite primary key:
 
-```
+```sql
 CREATE TABLE order_items (
     order_id INT,
     item_id INT,
@@ -49,7 +48,7 @@ The following examples show the JSON envelope fields available in the current ve
 **INSERT example**  
 The following example shows a CDC record for an `INSERT` operation:
 
-```
+```JSON
 {
     "type": "full",
     "op": "c",
@@ -77,7 +76,7 @@ The following example shows a CDC record for an `INSERT` operation:
 **UPDATE example**  
 The following example shows a CDC record for an `UPDATE` operation:
 
-```
+```JSON
 {
     "type": "full",
     "op": "u",
@@ -105,7 +104,7 @@ The following example shows a CDC record for an `UPDATE` operation:
 **DELETE example**  
 For a `DELETE` on a table with a primary key, the `before` field contains the primary key values:
 
-```
+```JSON
 {
     "type": "full",
     "op": "d",
@@ -201,7 +200,7 @@ A `chunk_id` is stable across retries. If Aurora DSQL redelivers a fragment, it 
 **Main record**  
 A chunked main record replaces the top-level `before` or `after` field for the split image with a `chunked` object that describes how to reassemble it. Each entry under `chunked` has a `chunk_id` (the identifier that links fragments to this record), `total_fragments` (the number of fragments that make up that image), and `crc32c` (a CRC32C checksum, as a decimal string, over the reassembled image text). If one image is inline and the other is chunked, the inline image still appears at the top level as either a value or `null`.
 
-```
+```JSON
 {
     "type": "chunked",
     "op": "c",
@@ -236,7 +235,7 @@ A chunked main record replaces the top-level `before` or `after` field for the s
 **Fragment record**  
 Each fragment is its own Kinesis record with `type` set to `fragment` and three fields: `chunk_id` matches the value in the corresponding `chunked.before.chunk_id` or `chunked.after.chunk_id` on the main record, `index` is the zero-based position of the fragment within the image, and `data` is a segment of the image's JSON text split on UTF-8 character boundaries (each fragment's `data` value is a valid UTF-8 string on its own). Fragment records don't include `source` or `transaction` metadata. Because Aurora DSQL CDC uses `UNORDERED` mode and randomized partition keys, fragments and the main record can arrive on different shards and in any order. To read all fragments, consume all shards on the Kinesis data stream. For more information about delivery ordering, see [Ordering](cdc-streams.md#cdc-ordering).
 
-```
+```JSON
 {
     "type": "fragment",
     "chunk_id": "{{chunk-id}}",
@@ -324,6 +323,10 @@ Values of `bigint` beyond ±2^53 might lose precision in JavaScript environments
 | uuid | JSON string (standard 8-4-4-4-12 hex format) | "550e8400-e29b-41d4-a716-446655440000" | 
 | oidvector | JSON empty array | [] | 
 | json | JSON string containing the raw JSON text | "{\\"key\\": \\"value\\"}" | 
+| inet | JSON string (PostgreSQL text form). A host address omits the /32 or /128 mask. | "10.24.34.10" | 
+| cidr | JSON string (PostgreSQL text form). The mask length is always included. | "10.24.34.0/24" | 
+| macaddr | JSON string (colon-separated lowercase hex) | "08:00:2b:01:02:03" | 
+| macaddr8 | JSON string (colon-separated lowercase hex) | "08:00:2b:01:02:03:04:05" | 
 
 ### NULL values
 <a name="cdc-null-values"></a>

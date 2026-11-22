@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon Aurora DSQL
-<a name="security-iam-awsmanpol"></a>
 
 
 
@@ -36,6 +35,7 @@ This policy grants permissions that allows full administrative access to Aurora 
 + Connect to the database as any user, including admin
 + Pass IAM roles to CDC streams for data delivery to target destinations
 + Perform backup and restore operations for Aurora DSQL clusters, including starting, stopping, and monitoring backup and restore jobs
++ Set up audit log delivery for Aurora DSQL clusters through Amazon CloudWatch Logs
 + Use customer-managed AWS KMS keys for cluster encryption
 + View any metrics from CloudWatch for their account
 + Use AWS Fault Injection Service (AWS FIS) to inject failures into Aurora DSQL clusters for fault tolerance testing
@@ -95,6 +95,7 @@ Allows full administrative access to Amazon Aurora DSQL via the AWS Management C
 + See tags on any resource on your account
 + Connect to the database as any user, including the admin
 + Perform backup and restore operations for Aurora DSQL clusters, including starting, stopping, and monitoring backup and restore jobs
++ Set up audit log delivery for Aurora DSQL clusters through Amazon CloudWatch Logs
 + Use customer-managed AWS KMS keys for cluster encryption
 + Launch AWS CloudShell from the AWS Management Console
 + View any metrics from CloudWatch on your account
@@ -134,7 +135,7 @@ You can't attach AuroraDsqlServiceLinkedRolePolicy to your IAM entities. Aurora 
 
 With this policy, Aurora DSQL can do the following in your account:
 + `cloudwatch` – Publish metrics to the `AWS/AuroraDSQL` and `AWS/Usage` CloudWatch namespaces.
-+ `logs` – Create the `/aws/dsql/normalized-sql-text` log group and its log streams, write log events to it, and set its retention. An upcoming Aurora DSQL feature uses these permissions to deliver normalized SQL text to your account. These permissions apply only to that log group in your own account, and they are limited to writing log data.
++ `logs` – Create the `/aws/dsql/normalized-sql-text` log group and its log streams, write log events to it, and set its retention. Aurora DSQL statement statistics use these permissions to deliver normalized SQL text to your account. These permissions apply only to that log group in your own account, and they are limited to writing log data. For more information, see [Monitoring SQL statements with Aurora DSQL statement statistics](dsql-statement-statistics.md).
 
 You can find the `AuroraDsqlServiceLinkedRolePolicy` policy on the IAM console and [AuroraDsqlServiceLinkedRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AuroraDsqlServiceLinkedRolePolicy.html) in the AWS Managed Policy Reference Guide.
 
@@ -154,7 +155,8 @@ View details about updates to AWS managed policies for Aurora DSQL since this se
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-| AuroraDsqlServiceLinkedRolePolicy update | Added the `logs:CreateLogGroup`, `logs:CreateLogStream`, `logs:PutLogEvents`, and `logs:PutRetentionPolicy` permissions on the `/aws/dsql/normalized-sql-text` log group and its log streams in your own account. With these permissions, an upcoming Aurora DSQL feature can deliver normalized SQL text to your account. | November 11, 2026 | 
+| AuroraDsqlServiceLinkedRolePolicy update | Added the `logs:CreateLogGroup`, `logs:CreateLogStream`, `logs:PutLogEvents`, and `logs:PutRetentionPolicy` permissions on the `/aws/dsql/normalized-sql-text` log group and its log streams in your own account. With these permissions, you can use Aurora DSQL statement statistics to deliver normalized SQL text to your account. | November 11, 2026 | 
+| AmazonAuroraDSQLFullAccess and AmazonAuroraDSQLConsoleFullAccess update | Added the `AllowVendedLogDeliveryForResource` permission. With this permission, you can set up audit log delivery for Aurora DSQL clusters through Amazon CloudWatch Logs.<br />For more information about these policies, see [AmazonAuroraDSQLFullAccess](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonAuroraDSQLFullAccess) and [AmazonAuroraDSQLConsoleFullAccess](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonAuroraDSQLConsoleFullAccess). | November 9, 2026 | 
 | AmazonAuroraDSQLFullAccess and AmazonAuroraDSQLConsoleFullAccess update | Added support for AWS Fault Injection Service (AWS FIS) integration with Aurora DSQL. This allows you to inject failures into single-Region and multi-Region Aurora DSQL clusters to test fault tolerance of your applications. You can create experiment templates in the AWS FIS console to define failure scenarios and target specific Aurora DSQL clusters for testing.<br />For more on these policies, see [AmazonAuroraDSQLFullAccess](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonAuroraDSQLFullAccess) and [AmazonAuroraDSQLConsoleFullAccess](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonAuroraDSQLConsoleFullAccess). | August 19, 2025 | 
 | AmazonAuroraDSQLFullAccess, AmazonAuroraDSQLReadOnlyAccess, and AmazonAuroraDSQLConsoleFullAccess update | Added resource-based policy (RBP) support with new permissions: `PutClusterPolicy`, `GetClusterPolicy`, and `DeleteClusterPolicy`. These permissions allow managing inline policies attached to Aurora DSQL clusters for fine-grained access control.<br />For more information, see [AmazonAuroraDSQLFullAccess](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonAuroraDSQLFullAccess), [AmazonAuroraDSQLReadOnlyAccess](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonAuroraDSQLReadOnlyAccess), and [AmazonAuroraDSQLConsoleFullAccess](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonAuroraDSQLConsoleFullAccess). | October 15, 2025 | 
 | AmazonAuroraDSQLFullAccess update | Adds the capability to perform backup and restore operations for Aurora DSQL clusters, including starting, stopping, and monitoring jobs. It also adds the capability to use customer-managed KMS keys for cluster encryption.<br />For more information, see [AmazonAuroraDSQLFullAccess](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonAuroraDSQLFullAccess) and [Using service-linked roles in Aurora DSQL ](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/working-with-service-linked-roles.html). | May 21, 2025 | 

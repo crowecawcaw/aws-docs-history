@@ -1,7 +1,6 @@
 
 
 # Using database roles and IAM authentication
-<a name="using-database-and-iam-roles"></a>
 
 Aurora DSQL supports authentication using both IAM roles and IAM users. You can use either method to authenticate and access Aurora DSQL databases.
 
@@ -67,7 +66,7 @@ For more information, see [PostgreSQL `GRANT`](https://www.postgresql.org/docs/c
 
 To view the mappings between IAM roles and database roles, query the `sys.iam_pg_role_mappings` system table.
 
-```
+```sql
 SELECT * FROM sys.iam_pg_role_mappings;
 ```
 
@@ -87,7 +86,7 @@ This table shows all the mappings between IAM roles (identified by their ARN) an
 
 To revoke database authorization, use the `AWS IAM REVOKE` operation.
 
-```
+```bash,sh,zsh
 AWS IAM REVOKE example FROM 'arn:aws:iam::{{012345678912}}:role/{{example}}';
 ```
 

@@ -1,7 +1,7 @@
 
 
 # Configuring SSL/TLS certificates for Aurora DSQL connections
-<a name="configure-root-certificates"></a><a name="ssl-certificate-overview"></a>
+<a name="ssl-certificate-overview"></a>
 
 Aurora DSQL requires all connections to use Transport Layer Security (TLS) encryption. To establish secure connections, your client system must trust the Amazon Root Certificate Authority (Amazon Root CA 1). This certificate is pre-installed on many operating systems. This section provides instructions for verifying the pre-installed Amazon Root CA 1 certificate on various operating systems, and guides you through the process of manually installing the certificate if it is not already present. 
 

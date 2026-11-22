@@ -1,7 +1,6 @@
 
 
 # Aurora DSQL API Operations and Resource-Based Policies
-<a name="rbp-api-operations"></a>
 
 Resource-based policies in Aurora DSQL control access to specific API operations. The following sections list all Aurora DSQL API operations organized by category, with an indication of which ones support resource-based policies.
 

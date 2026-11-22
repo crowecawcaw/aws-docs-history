@@ -1,7 +1,6 @@
 
 
 # Using AWS CLI
-<a name="multi-region-aws-cli"></a>
 
 The AWS CLI provides a command-line interface for managing your multi-Region Aurora DSQL clusters. The following examples demonstrate how to create, configure, and delete multi-Region clusters.
 
@@ -13,14 +12,14 @@ Multi-Region peered clusters provide two regional endpoints, one in each peered 
 ## Create multi-Region clusters
 <a name="creating-multi-region-clusters"></a>
 
-To create multi-Region clusters, you first create a cluster with a witness Region. Then you peer this cluster with a second cluster that shares the same witness Region as your first cluster. The following example shows how to create clusters in US East (N. Virginia) and US East (Ohio) with US West (Oregon) as the witness Region. 
+To create multi-Region clusters, you first create a cluster with a witness Region. Then you peer this cluster with a second cluster that shares the same witness Region as your first cluster. The following example shows how to create clusters in US East (N. Virginia) and US East (Ohio) with US West (Oregon) as the witness Region. You can select the two peer Regions and the witness Region from the Regions that support Aurora DSQL multi-Region clusters. The three Regions must be distinct. For the list of supported Regions, see [Multi-Region cluster availability](what-is-aurora-dsql.html#aurora-dsql-multi-region-availability).
 
 ### Step 1: Create cluster one in US East (N. Virginia)
 <a name="create-first-cluster"></a>
 
 To create a cluster in the US East (N. Virginia) AWS Region with multi-Region properties, use the command below. 
 
-```
+```sh
 aws dsql create-cluster \
 --region us-east-1 \
 --multi-region-properties '{"witnessRegion":"us-west-2"}'
@@ -30,14 +29,14 @@ aws dsql create-cluster \
 
 ```
 {
-    "identifier": "abc0def1baz2quux3quuux4",
-    "arn": "arn:aws:dsql:us-east-1:111122223333:cluster/abc0def1baz2quux3quuux4",
-    "status": "UPDATING",
+    "identifier": "foo0bar1baz2quux3quuxquux4",
+    "arn": "arn:aws:dsql:us-east-1:111122223333:cluster/foo0bar1baz2quux3quuxquux4",
+    "status": "PENDING_SETUP",
     "encryptionDetails": {
         "encryptionType": "AWS_OWNED_KMS_KEY",
         "encryptionStatus": "ENABLED"
-   }
-   "creationTime": "2024-05-24T09:15:32.708000-07:00"
+    },
+    "creationTime": "2024-05-24T09:15:32.708000-07:00"
 }
 ```
 
@@ -49,7 +48,7 @@ When the API operation succeeds, the cluster enters the `PENDING_SETUP` state. C
 
 To create a cluster in the US East (Ohio) AWS Region with multi-Region properties, use the command below. 
 
-```
+```sh
 aws dsql create-cluster \
 --region us-east-2 \
 --multi-region-properties '{"witnessRegion":"us-west-2"}'
@@ -80,7 +79,7 @@ When the API operation succeeds, the cluster transitions to `PENDING_SETUP` stat
 
 To peer your US East (N. Virginia) cluster with your US East (Ohio) cluster, use the `update-cluster` command. Specify your US East (N. Virginia) cluster name and a JSON string with the ARN of the US East (Ohio) cluster. 
 
-```
+```sh
 aws dsql update-cluster \
 --region us-east-1 \
 --identifier 'foo0bar1baz2quux3quuxquux4' \
@@ -105,7 +104,7 @@ To peer your US East (Ohio) cluster with your US East (N. Virginia) cluster, use
 
 **Example**  
 
-```
+```shell
 aws dsql update-cluster \
 --region us-east-2 \
 --identifier 'foo0bar1baz2quux3quuxquux5' \
@@ -133,7 +132,7 @@ When you describe a cluster, you can view multi-Region properties for clusters i
 
 **Example**  
 
-```
+```shell
 aws dsql get-cluster \
 --region us-east-1 \
 --identifier 'foo0bar1baz2quux3quuxquux4'
@@ -169,7 +168,7 @@ You can reduce the number of steps by including peering information during clust
 
 **Example**  
 
-```
+```shell
 aws dsql create-cluster \
 --region us-east-2 \
 --multi-region-properties '{"witnessRegion":"us-west-2","clusters": ["arn:aws:dsql:us-east-1:111122223333:cluster/foo0bar1baz2quux3quuxquux4"]}'
@@ -191,7 +190,7 @@ To delete a multi-Region cluster, you need to complete two steps.
 
 1. Turn off deletion protection using the `update-cluster` command.
 
-   ```
+   ```shell
    aws dsql update-cluster \
      --region us-east-1 \
      --identifier 'foo0bar1baz2quux3quuxquux4' \
@@ -200,7 +199,7 @@ To delete a multi-Region cluster, you need to complete two steps.
 
 1. Delete the cluster using the `delete-cluster` command.
 
-   ```
+   ```shell
    aws dsql delete-cluster \
      --region us-east-1 \
      --identifier 'foo0bar1baz2quux3quuxquux4'
@@ -224,16 +223,16 @@ The cluster transitions to `PENDING_DELETE` status. The deletion isn't complete 
 
 1. Turn off deletion protection using the `update-cluster` command.
 
-   ```
+   ```shell
    aws dsql update-cluster \
    --region us-east-2 \
-   --identifier 'foo0bar1baz2quux3quux4quuux' \
+   --identifier 'foo0bar1baz2quux3quuxquux5' \
    --no-deletion-protection-enabled
    ```
 
 1. Delete the cluster using the `delete-cluster` command.
 
-   ```
+   ```shell
    aws dsql delete-cluster \
    --region us-east-2 \
    --identifier 'foo0bar1baz2quux3quuxquux5'

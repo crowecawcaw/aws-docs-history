@@ -1,14 +1,13 @@
 
 
 # `SET CONSTRAINTS`
-<a name="set-constraints-syntax-support"></a>
 
 `SET CONSTRAINTS` sets the behavior of foreign key constraint checking within the current transaction.
 
 ## Supported syntax
 <a name="set-constraints-supported-syntax"></a>
 
-```
+```sql
 SET CONSTRAINTS { ALL | name [, ...] } { DEFERRED | IMMEDIATE }
 ```
 

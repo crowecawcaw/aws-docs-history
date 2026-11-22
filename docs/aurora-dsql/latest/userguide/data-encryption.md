@@ -1,7 +1,6 @@
 
 
 # Data encryption for Amazon Aurora DSQL
-<a name="data-encryption"></a>
 
 Amazon Aurora DSQL encrypts all user data at rest. For enhanced security, this encryption uses AWS Key Management Service (AWS KMS). This functionality helps reduce the operational burden and complexity involved in protecting sensitive data. Encryption at rest helps you:
 + Reduce the operational burden of protecting sensitive data
@@ -139,7 +138,7 @@ For example, the following example key policy provides only the required permiss
 
 Before using an example key policy, replace the example principals with actual principals from your AWS account.
 
-```
+```json
 {
   "Sid": "Enable dsql IAM User Permissions",
   "Effect": "Allow",
@@ -210,7 +209,7 @@ When you enable encryption at rest on a cluster, Aurora DSQL creates a unique cl
 
 The event that records the `GenerateDataKey` operation is similar to the following example event. The user is the Aurora DSQL service account. The parameters include the Amazon Resource Name (ARN) of the AWS KMS key, a key specifier that requires a 256-bit key, and the encryption context that identifies the cluster.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -258,7 +257,7 @@ When you access an encrypted Aurora DSQL cluster, Aurora DSQL needs to decrypt t
 
 The event that records the `Decrypt` operation is similar to the following example event. The user is the principal in your AWS account who is accessing the cluster. The parameters include the encrypted cluster key (as a ciphertext blob) and the encryption context that identifies the cluster. AWS KMS derives the ID of the AWS KMS key from the ciphertext.
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {
@@ -338,7 +337,7 @@ If you select to own and manage your own key, make sure you set the KMS key poli
 **To create a cluster that's encrypted with the default AWS owned key**
 + Use the following command to create an Aurora DSQL cluster.
 
-  ```
+  ```bash,sh,zsh
   aws dsql create-cluster
   ```
 
@@ -354,7 +353,7 @@ As shown in the following encryption details, the encryption status for the clus
 **To create a cluster that's encrypted with your customer managed key**
 + Use the following command to create an Aurora DSQL cluster, replacing the key ID in red text with the ID of your customer managed key.
 
-  ```
+  ```bash,sh,zsh
   aws dsql create-cluster \
   --kms-encryption-key {{d41d8cd98f00b204e9800998ecf8427e}}
   ```
@@ -402,7 +401,7 @@ The following examples show how to use the AWS CLI to update an encrypted cluste
 
 To update an encrypted cluster with the default AWS owned key
 
-```
+```bash,sh,zsh
 aws dsql update-cluster \
 --identifier aiabtx6icfp6d53snkhseduiqq \
 --kms-encryption-key "AWS_OWNED_KMS_KEY"
@@ -423,7 +422,7 @@ To update an encrypted cluster with a customer managed key for Aurora DSQL
 
 Update the encrypted cluster, as in the following example:
 
-```
+```bash,sh,zsh
 aws dsql update-cluster \
 --identifier aiabtx6icfp6d53snkhseduiqq \
 --kms-encryption-key arn:aws:kms:us-east-1:123456789012:key/abcd1234-abcd-1234-a123-ab1234a1b234

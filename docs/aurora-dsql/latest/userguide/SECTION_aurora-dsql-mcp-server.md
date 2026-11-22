@@ -1,7 +1,6 @@
 
 
 # AWS Labs Aurora DSQL MCP Server
-<a name="SECTION_aurora-dsql-mcp-server"></a>
 
  An AWS Labs Model Context Protocol (MCP) server for Aurora DSQL 
 
@@ -68,7 +67,7 @@
 
  Configure the MCP server in your MCP client configuration ([Finding the MCP Config File](#finding-mcp-config-file)) 
 
-```
+```json
 {
   "mcpServers": {
     "awslabs.aurora-dsql-mcp-server": {
@@ -99,7 +98,7 @@
 
  For Windows users, the MCP server configuration format is slightly different: 
 
-```
+```json
 {
   "mcpServers": {
     "awslabs.aurora-dsql-mcp-server": {
@@ -172,7 +171,7 @@
 
  Using an interactive `claude` CLI session enables an improved troubleshooting experience, so this is the recommended path. 
 
-```
+```bash
 claude mcp add amazon-aurora-dsql \
   --scope [one of local, project, or user] \
   --env FASTMCP_LOG_LEVEL="ERROR" \
@@ -187,7 +186,7 @@ claude mcp add amazon-aurora-dsql \
 
  If you've configured Claude Code with a Bedrock AWS account or profile that is distinct from the profile needed to connect to your dsql cluster, you'll need to provide additional environment arguments: 
 
-```
+```bash
   --env AWS_PROFILE="[dsql profile, eg. default]" \
   --env AWS_REGION="[dsql cluster region, eg. us-east-1]" \
 ```
@@ -202,7 +201,7 @@ claude mcp add amazon-aurora-dsql \
 
  Update `~/.claude.json` within the project-specific `mcpServers` field: 
 
-```
+```json
 {
   "projects": {
     "/path/to/project": {
@@ -217,7 +216,7 @@ claude mcp add amazon-aurora-dsql \
 
  Update `/path/to/project/root/.mcp.json` in the `mcpServers` field: 
 
-```
+```json
 {
   "mcpServers": {}
 }
@@ -228,7 +227,7 @@ claude mcp add amazon-aurora-dsql \
 
  Update `~/.claude.json` within the project-specific `mcpServers` field: 
 
-```
+```json
 {
   "mcpServers": {}
 }
@@ -242,7 +241,7 @@ claude mcp add amazon-aurora-dsql \
 
  If you have the Codex CLI installed, you can use the codex mcp command to configure your MCP servers. 
 
-```
+```bash
 codex mcp add amazon-aurora-dsql \
   --env FASTMCP_LOG_LEVEL="ERROR" \
   -- uvx "awslabs.aurora-dsql-mcp-server@latest" \
@@ -256,7 +255,7 @@ codex mcp add amazon-aurora-dsql \
 
  For more fine grained control over MCP server options, you can manually edit the `~/.codex/config.toml` configuration file. Each MCP server is configured with a `[mcp_servers.<server-name>]` table in the config file. 
 
-```
+```toml
 [mcp_servers.amazon-aurora-dsql]
 command = "uvx"
 args = [
@@ -304,7 +303,7 @@ FASTMCP_LOG_LEVEL = "ERROR"
 
  Using the `AWS_PROFILE` environment variable in your MCP configuration is also supported: 
 
-```
+```json
 "env": {
   "AWS_PROFILE": "your-aws-profile"
 }
@@ -324,7 +323,7 @@ FASTMCP_LOG_LEVEL = "ERROR"
 
  Example: 
 
-```
+```bash
 --knowledge-server https://custom-knowledge-server.example.com
 ```
 
@@ -339,7 +338,7 @@ FASTMCP_LOG_LEVEL = "ERROR"
 
  Example: 
 
-```
+```bash
 --knowledge-timeout 60.0
 ```
 

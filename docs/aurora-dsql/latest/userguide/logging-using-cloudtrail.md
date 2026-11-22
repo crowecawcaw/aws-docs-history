@@ -1,13 +1,14 @@
 
 
 # Logging Aurora DSQL operations using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon Aurora DSQL is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. There are two types of events in CloudTrail: management events and data events. Management events are emitted to audit AWS resource configuration changes. Data events capture the AWS resource usage typically in the service data plane.
 
  CloudTrail captures all API calls for Aurora DSQL as events. Aurora DSQL records console activity as management events. It also captures authenticated connection attempts to clusters as data events.
 
 Using the information collected by CloudTrail, you can determine the request that was made to Aurora DSQL, the IP address from which the request was made, when it was made, the user identity making the request, and additional details.
+
+To record the SQL statements that run on your clusters, use audit logging. For more information, see [Audit logging](audit-logging.md).
 
 CloudTrail is enabled by default in your AWS account when you create the account and you have access to the CloudTrail **Event history**. The CloudTrail **Event history** provides a viewable, searchable, downloadable, and immutable record of the past 90 days of recorded management events in an AWS Region. For more information, see [Working with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*. There are no CloudTrail charges for recording the **Event history**.
 
@@ -81,7 +82,7 @@ You can configure advanced event selectors to filter on the `eventName` and `res
 
 The following example shows how to use AWS CLI to configure `dsql-data-events-trail` to receive data events for Aurora DSQL.
 
-```
+```bash
 aws cloudtrail put-event-selectors \
 --region us-east-1 \
 --trail-name dsql-data-events-trail \

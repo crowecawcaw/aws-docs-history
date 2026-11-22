@@ -1,7 +1,6 @@
 
 
 # Query Editors: Using JupyterLab with Aurora DSQL
-<a name="SECTION_program-with-jupyter"></a>
 
  This guide provides step-by-step instructions on how to connect and query Amazon Aurora DSQL using JupyterLab with Python. JupyterLab is a popular interactive computing environment that combines code, text, and visualizations in a single document. It’s widely used for data science and research applications. 
 
@@ -46,18 +45,18 @@ Warning: Using Amazon SageMaker AI may result in charges to your AWS account.
 
  In a Python cell, download the Amazon root certificate from the official trust store: 
 
-```
+```python
 import urllib.request
 urllib.request.urlretrieve('https://www.amazontrust.com/repository/AmazonRootCA1.pem', 'root.pem')
 ```
 
  To connect to Aurora DSQL, first install the [Aurora DSQL Connector for Python](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector) and the Psycopg driver in a Python cell, and then import it: 
 
-```
+```python
 pip install aurora_dsql_python_connector psycopg
 ```
 
-```
+```python
 import aurora_dsql_psycopg as dsql
 ```
 
@@ -75,7 +74,7 @@ conn = dsql.connect(**config)
 
  Upon running your code you should now have a Psycopg connection to Aurora DSQL. You can then run queries using the Psycopg cursor and providing your SQL query. See the [Psycopg documentation](https://www.psycopg.org/psycopg3/docs/) for more information on using Psycopg with a Postgres-compatible database. This query will result in a list of tuples in `results_list`. 
 
-```
+```python
 with conn:
     with conn.cursor() as cur:
         cur.execute("SELECT * FROM table")
@@ -84,7 +83,7 @@ with conn:
 
  You can then use Python frameworks like [Pandas](https://pandas.pydata.org/) to analyze or visualize your query results, for example: 
 
-```
+```python
 pip install pandas
 
 import pandas as pd

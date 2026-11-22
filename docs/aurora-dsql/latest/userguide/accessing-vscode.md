@@ -1,7 +1,6 @@
 
 
 # Use Aurora DSQL driver for SQLTools
-<a name="accessing-vscode"></a>
 
  The Aurora DSQL Driver for SQLTools is a Visual Studio Code extension for Amazon Aurora DSQL that integrates with SQLTools. It enables developers to connect to and query Aurora DSQL databases directly from VS Code. The driver is available for installation from [Visual Studio Marketplace](https://marketplace.visualstudio.com) and [Open VSX Registry](https://open-vsx.org/). Kiro, Cursor and other VSCode-based IDEs can use the [Open VSX Registry](https://open-vsx.org/) to install the driver following the standard installation procedure described in this page. 
 

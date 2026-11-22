@@ -1,14 +1,13 @@
 
 
 # `ALTER FUNCTION`
-<a name="alter-function-syntax-support"></a>
 
 `ALTER FUNCTION` changes the definition of a function.
 
 ## Supported syntax
 <a name="alter-function-supported-syntax"></a>
 
-```
+```sql
 ALTER FUNCTION name [ ( [ [ argmode ] [ argname ] argtype [, ...] ] ) ]
     RENAME TO new_name
 ALTER FUNCTION name [ ( [ [ argmode ] [ argname ] argtype [, ...] ] ) ]
@@ -69,19 +68,19 @@ To add, change, or remove a comment on a function, use the separate `COMMENT ON 
 
 Rename the function `add` (which takes two `integer` arguments) to `sum_two`:
 
-```
+```sql
 ALTER FUNCTION add(integer, integer) RENAME TO sum_two;
 ```
 
 Change the owner of the function `add` to the current user:
 
-```
+```sql
 ALTER FUNCTION add(integer, integer) OWNER TO CURRENT_USER;
 ```
 
 Move the function `add` into the schema `utils`:
 
-```
+```sql
 ALTER FUNCTION add(integer, integer) SET SCHEMA utils;
 ```
 

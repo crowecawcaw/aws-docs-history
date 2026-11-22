@@ -1,7 +1,6 @@
 
 
 # Using AWS CLI
-<a name="single-region-aws-cli"></a>
 
 The AWS CLI provides a command-line interface for managing your Aurora DSQL clusters. The following examples demonstrate common cluster management operations.
 

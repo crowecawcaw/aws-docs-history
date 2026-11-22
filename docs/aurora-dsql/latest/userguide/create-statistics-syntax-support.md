@@ -1,12 +1,11 @@
 
 
 # `CREATE STATISTICS`
-<a name="create-statistics-syntax-support"></a>
 
 ## Supported syntax
 <a name="create-statistics-supported-syntax"></a>
 
-```
+```sql
 CREATE STATISTICS [ [ IF NOT EXISTS ] statistics_name ]
     ON ( expression )
     FROM table_name
@@ -63,7 +62,7 @@ In Aurora DSQL, you can create at most 5 extended statistics objects on a single
 
 Create table `t1` with two functionally dependent columns, i.e., knowledge of a value in the first column is sufficient for determining the value in the other column. Then functional dependency statistics are built on those columns:
 
-```
+```sql
 CREATE TABLE t1 (
     a   int,
     b   int
@@ -89,7 +88,7 @@ Without functional-dependency statistics, the planner would assume that the two 
 
 Create table `t2` with two perfectly correlated columns (containing identical data), and an MCV list on those columns:
 
-```
+```sql
 CREATE TABLE t2 (
     a   int,
     b   int

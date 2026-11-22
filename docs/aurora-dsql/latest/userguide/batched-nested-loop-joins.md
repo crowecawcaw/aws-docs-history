@@ -1,7 +1,6 @@
 
 
 # Batched nested-loop joins in Aurora DSQL EXPLAIN plans
-<a name="batched-nested-loop-joins"></a>
 
 When a query joins a small outer input to an inner input that Aurora DSQL can scan efficiently from storage, Aurora DSQL can choose a `Nested Loop (Batched Join)` plan. This join type reduces round trips between the compute and storage layers by grouping multiple outer rows together before probing the inner side.
 
@@ -31,7 +30,7 @@ Aurora DSQL considers batched nested-loop joins when the inner side of the join 
 
 If another plan shape is cheaper, such as a hash join or merge join, Aurora DSQL chooses that plan instead. To compare plan shapes during tuning, you can disable batched nested-loop joins for the current session:
 
-```
+```sql
 SET dsql.enable_batched_nestloop = off;
 ```
 
@@ -40,7 +39,7 @@ SET dsql.enable_batched_nestloop = off;
 
 The following query uses the sample `transaction` and `account` tables from [Reading Aurora DSQL EXPLAIN plans](reading-dsql-explain-plans.md):
 
-```
+```sql
 EXPLAIN
 SELECT t.account_id, a.balance
 FROM transaction t

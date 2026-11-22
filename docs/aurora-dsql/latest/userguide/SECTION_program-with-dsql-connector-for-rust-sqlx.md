@@ -1,7 +1,6 @@
 
 
 # Aurora DSQL Connector for Rust SQLx
-<a name="SECTION_program-with-dsql-connector-for-rust-sqlx"></a>
 
 The [Aurora DSQL Connector for Rust](https://github.com/awslabs/aurora-dsql-connectors/tree/main/rust/sqlx) is a Rust connector built on [SQLx](https://github.com/launchbadge/sqlx) that integrates IAM authentication for connecting Rust applications to Amazon Aurora DSQL clusters.
 
@@ -50,14 +49,14 @@ For a complete example, see the [example application](https://github.com/awslabs
 
 Add to your `Cargo.toml`:
 
-```
+```toml
 [dependencies]
 aurora-dsql-sqlx-connector = "0.1.2"
 ```
 
 For most applications, enable both the `pool` and `occ` features:
 
-```
+```toml
 [dependencies]
 aurora-dsql-sqlx-connector = { version = "0.1.2", features = ["pool", "occ"] }
 ```
@@ -77,7 +76,7 @@ aurora-dsql-sqlx-connector = { version = "0.1.2", features = ["pool", "occ"] }
 ### Pool connection
 <a name="SECTION_program-with-dsql-connector-for-rust-sqlx-pool-connection"></a>
 
-```
+```rust
 use sqlx::Row;
 
 #[tokio::main]
@@ -111,7 +110,7 @@ async fn main() -> anyhow::Result<()> {
 
 For simple scripts or when you don't need connection pooling:
 
-```
+```rust
 use sqlx::Row;
 
 #[tokio::main]
@@ -139,7 +138,7 @@ Each call to `connection::connect()` generates a fresh IAM token. For operations
 
 The connector supports both full cluster endpoints (region auto-detected) and cluster IDs (region required):
 
-```
+```rust
 // Full endpoint (region auto-detected)
 let opts = DsqlConnectOptions::from_connection_string(
     "postgres://admin@your-cluster.dsql.us-east-1.on.aws/postgres"
@@ -155,7 +154,7 @@ let opts = DsqlConnectOptions::from_connection_string(
 
 Specify an AWS profile for credentials:
 
-```
+```rust
 let pool = aurora_dsql_sqlx_connector::pool::connect(
     "postgres://admin@your-cluster.dsql.us-east-1.on.aws/postgres?profile=production"
 ).await?;
@@ -165,7 +164,7 @@ let pool = aurora_dsql_sqlx_connector::pool::connect(
 
 The connector supports PostgreSQL connection string formats:
 
-```
+```text
 postgres://[user@]host[:port]/[database][?param=value&...]
 postgresql://[user@]host[:port]/[database][?param=value&...]
 ```
@@ -176,7 +175,7 @@ Supported query parameters: `region`, `profile`, `tokenDurationSecs`, `ormPrefix
 
 For custom pool settings, pass `PgPoolOptions` to `connect_with()`:
 
-```
+```rust
 use aurora_dsql_sqlx_connector::DsqlConnectOptions;
 use sqlx::postgres::PgPoolOptions;
 
@@ -194,7 +193,7 @@ let pool = aurora_dsql_sqlx_connector::pool::connect_with(
 
 Use `DsqlConnectOptionsBuilder` for programmatic configuration:
 
-```
+```rust
 use aurora_dsql_sqlx_connector::{DsqlConnectOptionsBuilder, Region};
 use sqlx::postgres::PgConnectOptions;
 
@@ -217,7 +216,7 @@ Aurora DSQL uses optimistic concurrency control (OCC). When two transactions mod
 
 OCC retry is opt-in. Enable the `occ` feature and use `retry_on_occ` to enable automatic retry with exponential backoff and jitter:
 
-```
+```rust
 use aurora_dsql_sqlx_connector::{retry_on_occ, OCCRetryConfig};
 
 let config = OCCRetryConfig::default(); // max_attempts: 3, exponential backoff

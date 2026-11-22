@@ -1,14 +1,13 @@
 
 
 # `ALTER TABLE`
-<a name="alter-table-syntax-support"></a>
 
 `ALTER TABLE` changes the definition of a table.
 
 ## Supported syntax
 <a name="alter-table-supported-syntax"></a>
 
-```
+```sql
 ALTER TABLE [ IF EXISTS ] [ ONLY ] name [ * ]
     action [, ... ]
 ALTER TABLE [ IF EXISTS ] [ ONLY ] name [ * ]

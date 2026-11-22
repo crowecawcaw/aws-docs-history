@@ -1,7 +1,6 @@
 
 
 # Getting started with CDC streams
-<a name="cdc-setup"></a>
 
 This guide walks you through every step required to start streaming committed row-level changes from an Aurora DSQL cluster to an Amazon Kinesis data stream. By the end of this guide, you've created a working CDC pipeline and a Python script that reads and prints change records.
 
@@ -27,7 +26,7 @@ Aurora DSQL CDC delivers the full row on every change. An update that touches a 
 **Estimate average record size**  
 Measure the average on-disk row size to understand the volume that CDC will produce and to anticipate oversized records. The following query returns the average tuple size in bytes for a table:
 
-```
+```sql
 SELECT avg(pg_column_size(t.*)) FROM {{your_table}} t;
 ```
 
@@ -42,7 +41,7 @@ Create CloudWatch alarms on `IncomingBytes` and `WriteProvisionedThroughputExcee
 
 The following example uses the AWS CLI. If your AWS CLI version doesn't support the `--max-record-size-in-ki-b` parameter, use an AWS SDK to call the Kinesis [CreateStream](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html) operation.
 
-```
+```bash
 aws kinesis create-stream \
   --stream-name {{my-cdc-stream}} \
   --stream-mode-details StreamMode=ON_DEMAND \
@@ -52,7 +51,7 @@ aws kinesis create-stream \
 
 Wait for the stream to become active:
 
-```
+```bash
 aws kinesis describe-stream-summary \
   --stream-name {{my-cdc-stream}} \
   --region {{region}} \
@@ -71,7 +70,7 @@ Aurora DSQL assumes an IAM role to write CDC records to your Kinesis data stream
 **Create the trust policy file**  
 Save the following JSON as `trust-policy.json`. Replace {{your-account-id}}, {{region}}, and {{cluster-id}} with your values.
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -98,7 +97,7 @@ Save the following JSON as `trust-policy.json`. Replace {{your-account-id}}, {{r
 **Create the role**  
 Run the following command to create the IAM role:
 
-```
+```bash
 aws iam create-role \
   --role-name {{dsql-cdc-role}} \
   --assume-role-policy-document file://trust-policy.json
@@ -107,7 +106,7 @@ aws iam create-role \
 **Create the permissions policy file**  
 Save the following JSON as `permissions-policy.json`. Replace the placeholder values with your Kinesis data stream ARN. The `KMSAccess` statement is only required if your Kinesis data stream uses an AWS KMS customer managed key, but you can include it preemptively so that adding a customer managed key later doesn't break your CDC stream. For a full explanation of each condition, see [Service role permissions policy](cdc-iam.md#cdc-iam-permissions-policy).
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -142,7 +141,7 @@ Save the following JSON as `permissions-policy.json`. Replace the placeholder va
 **Attach the permissions policy**  
 Run the following command:
 
-```
+```bash
 aws iam put-role-policy \
   --role-name {{dsql-cdc-role}} \
   --policy-name dsql-cdc-kinesis-access \
@@ -156,7 +155,7 @@ Record the role ARN from the `create-role` output. The ARN has the format `arn:a
 
 Use the AWS CLI to create a CDC stream that connects your Aurora DSQL cluster to the Kinesis data stream. Replace the placeholder values with the Kinesis stream ARN from Step 1, the IAM role ARN from Step 2, and your cluster identifier.
 
-```
+```bash
 aws dsql create-stream \
   --cluster-identifier {{cluster-id}} \
   --target-definition '{"kinesis":{"streamArn":"{{kinesis-stream-arn}}","roleArn":"{{role-arn}}"}}' \
@@ -171,7 +170,7 @@ The response includes a stream identifier and a status of `CREATING`. Stream cre
 **Wait for the stream to become active**  
 Poll the stream status until it reaches `ACTIVE`:
 
-```
+```bash
 aws dsql get-stream \
   --cluster-identifier {{cluster-id}} \
   --stream-identifier {{stream-id}} \
@@ -191,7 +190,7 @@ Each Aurora DSQL cluster has a maximum number of CDC streams. If you reach this 
 
 Insert a row into a table on your Aurora DSQL cluster. For example:
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS test_cdc (
     id INT PRIMARY KEY,
     message TEXT
@@ -202,7 +201,7 @@ INSERT INTO test_cdc VALUES (1, 'hello cdc');
 
 Read from the Kinesis data stream to verify that the CDC record arrived. Because Aurora DSQL uses randomized partition keys, the record can land on any shard. The following script reads each shard on the stream up to the latest record, and requires `jq`. Replace {{my-cdc-stream}} and {{region}} with your values. CDC records can take a few seconds to arrive because of replication lag—if the output doesn't include your record, wait a moment and re-run the script.
 
-```
+```bash
 for SHARD_ID in $(aws kinesis list-shards \
   --stream-name {{my-cdc-stream}} \
   --region {{region}} \
@@ -229,7 +228,7 @@ done
 
 Each record's `Data` field contains a JSON payload. When you use the AWS CLI, the payload is Base64-encoded in the response. When you use the `boto3` SDK, the SDK decodes it automatically. The decoded JSON looks like the following:
 
-```
+```JSON
 {
     "type": "full",
     "op": "c",
@@ -261,7 +260,7 @@ For descriptions of the current fields, see [Understanding CDC records](cdc-reco
 
 The following Python script reads CDC records from a Kinesis data stream and prints each change event. The script uses the `boto3` Amazon Kinesis client to iterate over shards and decode each record. Because Aurora DSQL CDC uses at-least-once delivery, the script might print the same record more than one time.
 
-```
+```python
 """
 Read CDC records from an Amazon Kinesis data stream.
 
@@ -352,7 +351,7 @@ if __name__ == "__main__":
 
 Run the script:
 
-```
+```bash
 pip install boto3
 python consume_cdc.py \
   --stream-name {{my-cdc-stream}} \
@@ -361,7 +360,7 @@ python consume_cdc.py \
 
 The script prints each change event as it arrives. You see output similar to the following:
 
-```
+```text
 Reading from my-cdc-stream (4 shard(s))
 [INSERT] public.test_cdc txId=ffthunp5stx6ffs2vyfqoatmfu ts_ns=1705318200000000000 type=full
   after:  {"id": 1, "message": "hello cdc"}
@@ -370,7 +369,7 @@ Reading from my-cdc-stream (4 shard(s))
 **Adding last-writer-wins deduplication**  
 Because Aurora DSQL CDC uses at-least-once delivery, production apps should deduplicate and order records. The following code example shows a high-water-mark approach: for each primary key, it tracks the highest `source.ts_ns` seen so far and discards any record with an equal or earlier timestamp. Set `PK_COLUMNS` to the primary key column names of the table you're processing. For strategies that handle multiple tables or deletes, see [Consumer strategies](cdc-streams.md#cdc-consumer-strategies).
 
-```
+```python
 # Set PK_COLUMNS to the primary key column(s) of your table.
 PK_COLUMNS = ["id"]
 
@@ -410,7 +409,7 @@ def process_record(payload: dict) -> bool:
 **Listing streams**  
 To list all CDC streams for a cluster, use the `ListStreams` operation:
 
-```
+```bash
 aws dsql list-streams \
   --cluster-identifier {{cluster-id}} \
   --region {{region}}
@@ -419,7 +418,7 @@ aws dsql list-streams \
 **Deleting a stream**  
 To delete a CDC stream, run the following command:
 
-```
+```bash
 aws dsql delete-stream \
   --cluster-identifier {{cluster-id}} \
   --stream-identifier {{stream-id}} \

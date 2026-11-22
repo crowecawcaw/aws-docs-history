@@ -1,7 +1,6 @@
 
 
 # Sequences and identity columns
-<a name="sequences-identity-columns"></a>
 
 Sequences and identity columns generate integer values and are useful when compact or human-readable identifiers are needed. These values involve allocation and caching behavior described in the [`CREATE SEQUENCE`](create-sequence-syntax-support.md) documentation.
 

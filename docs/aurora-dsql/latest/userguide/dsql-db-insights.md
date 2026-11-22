@@ -1,7 +1,6 @@
 
 
 # Monitoring Aurora DSQL clusters with Aurora DSQL Database Insights
-<a name="dsql-db-insights"></a>
 
 Aurora DSQL database insights provides access to per-second sampled data for every active session on your cluster, collected by **DSQL Active Session History (DASH)** sampler which records the wait state and normalized SQL statement each session is running. Per-minute aggregated results from DASH are published as CloudWatch OpenTelemetry (OTel) metrics. Use this data to understand your database load, find the queries that consume the most resources, and diagnose performance issues.
 
@@ -11,6 +10,7 @@ You don't need to set up DASH. It is automatically enabled for every Aurora DSQL
 + [What is DASH?](#dash-what-is)
 + [DASH metrics and wait events](#dash-metrics-wait-events)
 + [Accessing DASH data](#dash-accessing-data)
++ [Monitoring SQL statements with Aurora DSQL statement statistics](dsql-statement-statistics.md)
 + [Related resources](#dash-related-resources)
 
 ## What is DASH?
@@ -30,7 +30,7 @@ DASH aggregates these per-second samples and publishes them to CloudWatch once p
 AAS is the foundational signal for Aurora DSQL performance analysis. The wait-event breakdown shows what your sessions spend time on, not only how busy the cluster is. The SQL breakdown attributes load to individual queries.
 
 **Tip**  
-Aurora DSQL scales CPU elastically, so the most useful diagnostic signal is the shape of the wait profile (the proportional distribution of session time across wait events) rather than AAS against a fixed vCPU ceiling. Compare that shape against the baseline you observe during normal operation. A change in those proportions indicates a shift in workload or system behavior.
+Aurora DSQL scales CPU elastically, so the most useful diagnostic signal is the shape of the wait profile (the proportional distribution of session time across wait events) rather than AAS against a fixed vCPU ceiling. Compare that shape against the baseline you observe during normal operation. A change in those proportions indicates a shift in workload or system behavior. For a multi-Region cluster, establish this baseline separately for each Region topology, because `Commit` wait time depends on the distance between the Regions you select.
 
 ## DASH metrics and wait events
 <a name="dash-metrics-wait-events"></a>
@@ -122,7 +122,7 @@ Each `db.active_sessions.avg` time series represents the average active sessions
 **Database load by wait event**  
 Returns average active sessions (AAS) grouped by wait event – the same AAS-by-wait-event view available in the Database Insights DB Load chart, but accessible programmatically.
 
-```
+```promql
 sum by ("db.wait.event") (
   {
     "db.active_sessions.avg",
@@ -136,7 +136,7 @@ The result has one series per distinct `db.wait.event` value, showing the total 
 **Top SQL by average active sessions**  
 Ranks SQL statements by their total AAS contribution to database load. This is the PromQL equivalent of the Database Insights **Top SQL** view.
 
-```
+```promql
 topk(5,
   sum by ("db.query.normalized_text") (
     {
@@ -151,7 +151,7 @@ The nested `sum by` expression combines all time series for the same normalized 
 
 To see the top SQL statement and wait event combinations by their contribution to load, add `db.wait.event` to the grouping clause. Because this ranks every combination together, the results can include several wait events for the same high-contributing statement:
 
-```
+```promql
 topk(5,
   sum by ("db.query.normalized_text", "db.wait.event") (
     {
@@ -165,7 +165,7 @@ topk(5,
 **SQL statements performing the most storage reads**  
 Returns the top five SQL statements spending the most time on storage read operations, by filtering to the storage-read wait events.
 
-```
+```promql
 topk(5,
   sum by ("db.query.normalized_text") (
     {

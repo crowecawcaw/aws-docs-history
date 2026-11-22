@@ -1,7 +1,6 @@
 
 
 # Cluster quotas and database limits in Amazon Aurora DSQL
-<a name="CHAP_quotas"></a>
 
 The following sections describe the cluster quotas and database limits for Aurora DSQL.
 

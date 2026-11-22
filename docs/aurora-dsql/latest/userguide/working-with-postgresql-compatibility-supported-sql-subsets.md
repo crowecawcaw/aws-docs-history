@@ -1,7 +1,6 @@
 
 
 # Supported subsets of SQL commands in Aurora DSQL
-<a name="working-with-postgresql-compatibility-supported-sql-subsets"></a>
 
 This section provides detailed information about supported SQL commands, focusing on commands with extensive parameter sets and subcommands. For example, CREATE TABLE in PostgreSQL offers many clauses and parameters, a subset of which are supported by Aurora DSQL. This section describes the supported subsets of common SQL commands using familiar PostgreSQL syntax elements that Aurora DSQL supports.
 

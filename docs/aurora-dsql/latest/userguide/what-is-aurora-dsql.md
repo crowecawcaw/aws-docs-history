@@ -1,7 +1,6 @@
 
 
 # What is Amazon Aurora DSQL?
-<a name="what-is-aurora-dsql"></a>
 
 Amazon Aurora DSQL is a serverless, distributed relational database service optimized for transactional workloads. Aurora DSQL offers virtually unlimited scale and doesn't require you to manage infrastructure. The active-active highly available architecture provides 99.99% single-Region and 99.999% multi-Region availability.
 
@@ -34,7 +33,7 @@ Aurora DSQL clusters provide the following benefits:
 + Automatic failure recovery
 + Data consistency across multiple AZs or Regions
 If an infrastructure component fails, Aurora DSQL automatically routes requests to healthy infrastructure without manual intervention. Aurora DSQL provides *atomicity, consistency, isolation, and durability (ACID) transactions* with strong consistency, snapshot isolation, atomicity, and cross-AZ and cross-Region durability.  
-Multi-Region peered clusters provide the same resilience and connectivity as single-Region clusters. But they improve availability by offering two Regional endpoints, one in each peered cluster Region. Both endpoints of a peered cluster present a single logical database. They are available for concurrent read and write operations, and provide strong data consistency. You can build applications that run in multiple Regions at the same time for performance and resilience—and know that readers always see the same data.
+Multi-Region peered clusters provide the same resilience and connectivity as single-Region clusters. But they improve availability by offering two Regional endpoints, one in each peered cluster Region. Both endpoints of a peered cluster present a single logical database. They are available for concurrent read and write operations, and provide strong data consistency. You can build applications that run in multiple Regions at the same time for performance and resilience—and know that readers always see the same data. You choose the two peer Regions and the witness Region.
 
 **Compatibility with PostgreSQL**  
 The distributed database layer (compute) in Aurora DSQL is based on a current major version of PostgreSQL. You can connect to Aurora DSQL with familiar PostgreSQL drivers and tools, such as `psql`. Aurora DSQL is currently compatible with PostgreSQL version 16 and supports a wide range of PostgreSQL features, expressions, and data types. For more information about the supported SQL features, see [SQL feature compatibility in Aurora DSQL](working-with-postgresql-compatibility.md).
@@ -73,7 +72,7 @@ The following table shows the AWS Regions where Aurora DSQL is currently availab
 ### Multi-Region cluster availability for Aurora DSQL
 <a name="aurora-dsql-multi-region-availability"></a>
 
-You can create Aurora DSQL multi-Region clusters within specific AWS Region sets. Each Region set groups geographically related Regions that can work together in a multi-Region cluster.
+You can create Aurora DSQL multi-Region clusters in the following AWS Regions. Choose any two of these Regions for your peer clusters, and any other Region from this list as the witness Region. The following lists group the Regions by geography.
 
 #### North American Regions
 <a name="aurora-dsql-north-american-regions"></a>
@@ -101,13 +100,11 @@ You can create Aurora DSQL multi-Region clusters within specific AWS Region sets
 + Europe (Spain)
 + Europe (Stockholm)
 
-#### Important Limitations
+#### Considerations for choosing Regions
 <a name="aurora-dsql-multi-region-limitations"></a>
-
-You must create multi-Region clusters within a single Region set. For example, if you include US East (N. Virginia) in a cluster, you can only add other Regions from the North American set.
-
-**Important**  
-Aurora DSQL currently doesn't support cross-continent multi-Region clusters.
++ Use three different Regions: one for each of the two peer clusters, and one for the witness Region. You can use any listed Region in any of these roles, regardless of its geography.
++ If you choose an opt-in Region as a peer or witness Region, first enable the Region in your AWS account. For more information, see [Enable or disable AWS Regions in your account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html).
++ Placing Regions involves tradeoffs among failure-domain separation, write latency, data residency, and regulatory requirements. For more information about these tradeoffs, see [Considerations for working with Amazon Aurora DSQL](considerations.md).
 
 ## Pricing for Aurora DSQL
 <a name="dsql-pricing"></a>

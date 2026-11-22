@@ -1,7 +1,6 @@
 
 
 # Get started with the Aurora DSQL Query Editor
-<a name="getting-started-query-editor"></a>
 
 With the Aurora DSQL Query Editor, you can securely connect to your Aurora DSQL clusters and run SQL queries directly from the AWS Management Console without installing or configuring external clients. It provides an intuitive workspace with built-in syntax highlighting, auto-completion, and intelligent code assistance. You can quickly explore schema objects, develop and run SQL queries, and view results, all within a single interface.
 

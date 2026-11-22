@@ -1,7 +1,6 @@
 
 
 # How billing works in Aurora DSQL
-<a name="billing-metering"></a>
 
 With Amazon Aurora DSQL, you only pay for what you use with no upfront costs. This section explains how Aurora DSQL meters your database activity and translates it into charges on your AWS bill. For current pricing by Region, see the [Aurora DSQL pricing page](https://aws.amazon.com/rds/aurora/dsql/pricing/).
 
@@ -125,7 +124,7 @@ This example demonstrates a point lookup ReadDPU calculation where the transacti
 
 **Schema:**
 
-```
+```sql
 CREATE TABLE orders (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     customer_id VARCHAR(50) NOT NULL,
@@ -138,7 +137,7 @@ CREATE TABLE orders (
 
 **Query:**
 
-```
+```sql
 SELECT * FROM orders WHERE customer_id = 'cust-12345';
 ```
 
@@ -169,7 +168,7 @@ Total DPU:  0.00675
 
 **Schema:**
 
-```
+```sql
 CREATE TABLE orders (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     customer_id VARCHAR(50) NOT NULL,
@@ -183,7 +182,7 @@ CREATE TABLE orders (
 
 **Query:**
 
-```
+```sql
 SELECT * FROM orders
 WHERE customer_id = 'cust-12345'
   AND total_amount > 500.00;
@@ -219,7 +218,7 @@ To minimize ReadDPU costs, design queries and indexes to scan only the rows you 
 
 **Schema:**
 
-```
+```sql
 CREATE TABLE orders (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     customer_id VARCHAR(50) NOT NULL,
@@ -232,7 +231,7 @@ CREATE TABLE orders (
 
 **Query:**
 
-```
+```sql
 INSERT INTO orders (customer_id, total_amount, status)
 VALUES ('cust-67890', 150.00, 'pending');
 ```
@@ -280,7 +279,7 @@ Total DPU:  0.06175
 
 **Schema:**
 
-```
+```sql
 CREATE TABLE orders (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     customer_id VARCHAR(50) NOT NULL,
@@ -293,7 +292,7 @@ CREATE TABLE orders (
 
 **Query:**
 
-```
+```sql
 INSERT INTO orders (customer_id, total_amount, status)
 VALUES
     ('cust-001', 100.00, 'pending'),
@@ -431,7 +430,7 @@ You must use `EXPLAIN ANALYZE VERBOSE` (with VERBOSE) to see DPU estimates. A pl
 **Warning**  
 `EXPLAIN ANALYZE VERBOSE` runs the statement that it explains. To examine an `INSERT`, `UPDATE`, or `DELETE` statement without changing your data, run it in a transaction and then roll back the transaction. Replace `{{write-statement}}` with the statement that you want to examine.  
 
-```
+```sql
 BEGIN;
 EXPLAIN ANALYZE VERBOSE {{write-statement}};
 ROLLBACK;
@@ -440,7 +439,7 @@ ROLLBACK;
 ### Example 1: SELECT query
 <a name="billing-explain-analyze-select"></a>
 
-```
+```sql
 EXPLAIN ANALYZE VERBOSE SELECT * FROM test_table;
 ```
 
@@ -467,7 +466,7 @@ In this example, the SELECT statement performs an index-only scan, so most of th
 ### Example 2: INSERT query
 <a name="billing-explain-analyze-insert"></a>
 
-```
+```sql
 EXPLAIN ANALYZE VERBOSE INSERT INTO test_table VALUES (1, 'name1'), (2, 'name2'), (3, 'name3');
 ```
 

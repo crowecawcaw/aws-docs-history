@@ -1,9 +1,8 @@
 
 
 # Change data capture streams
-<a name="cdc-streams"></a>
 
-For pricing information, see the [Aurora DSQL pricing page](https://aws.amazon.com/rds/aurora/dsql/pricing/).
+For pricing information, see the [Aurora DSQL pricing](https://aws.amazon.com/rds/aurora/dsql/pricing/).
 
 Amazon Aurora DSQL change data capture (CDC) streams committed database changes in near real time directly to Amazon Kinesis Data Streams. Aurora DSQL delivers the final committed state of each changed row as a structured JSON record to a Kinesis data stream that you configure.
 

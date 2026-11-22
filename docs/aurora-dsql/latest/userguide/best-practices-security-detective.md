@@ -1,7 +1,6 @@
 
 
 # Detective security best practices for Aurora DSQL
-<a name="best-practices-security-detective"></a>
 
 In addition to the following ways to securely use Aurora DSQL, see [Security](https://docs.aws.amazon.com/wellarchitected/latest/framework/security.html) in AWS Well-Architected Tool to learn about how cloud technologies improve your security.
 

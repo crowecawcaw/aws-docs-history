@@ -1,7 +1,6 @@
 
 
 # Incident response in Amazon Aurora DSQL
-<a name="incident-response"></a>
 
 Security is the highest priority at AWS. As part of the AWS Cloud shared responsibility model, AWS manages a data center, network, and software architecture that meets the requirements of the most security-sensitive organizations. AWS is responsible for any incident response with respect to the Amazon Aurora DSQL service itself. Also, as an AWS customer, you share a responsibility for maintaining security in the cloud. This means that you control the security you choose to implement from the AWS tools and features you have access to. In addition, you’re responsible for incident response on your side of the shared responsibility model.
 

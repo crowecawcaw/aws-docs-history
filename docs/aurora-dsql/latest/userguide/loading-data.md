@@ -1,7 +1,6 @@
 
 
 # Loading data into Aurora DSQL
-<a name="loading-data"></a>
 
 Whether you are migrating from an existing database, importing files from Amazon Simple Storage Service, or loading data from your local system, Aurora DSQL provides multiple approaches for getting your data in. This section covers the recommended tools and techniques for data loads of all sizes, from gigabytes to hundreds of terabytes.
 
@@ -72,7 +71,7 @@ The following examples demonstrate common use cases for the Aurora DSQL Loader.
 **Example Loading a local CSV file**  <a name="aurora-dsql-loader-example-basic"></a>
 This example loads a CSV file from your local file system into an existing table:  
 
-```
+```bash
 aurora-dsql-loader load \
   --endpoint {{cluster-id}}.dsql.{{region}}.on.aws \
   --source-uri {{data.csv}} \
@@ -82,7 +81,7 @@ aurora-dsql-loader load \
 **Example Loading data from Amazon S3**  <a name="aurora-dsql-loader-example-s3"></a>
 This example loads a Parquet file from an Amazon S3 bucket:  
 
-```
+```bash
 aurora-dsql-loader load \
   --endpoint {{cluster-id}}.dsql.{{region}}.on.aws \
   --source-uri s3://{{my-bucket}}/{{data.parquet}} \
@@ -92,7 +91,7 @@ aurora-dsql-loader load \
 **Example Automatic table creation**  <a name="aurora-dsql-loader-example-create-table"></a>
 This example creates a new table automatically based on the data schema:  
 
-```
+```bash
 aurora-dsql-loader load \
   --endpoint {{cluster-id}}.dsql.{{region}}.on.aws \
   --source-uri {{data.csv}} \
@@ -103,7 +102,7 @@ aurora-dsql-loader load \
 **Example Validating before loading**  <a name="aurora-dsql-loader-example-dry-run"></a>
 This example validates your configuration without actually loading data:  
 
-```
+```bash
 aurora-dsql-loader load \
   --endpoint {{cluster-id}}.dsql.{{region}}.on.aws \
   --source-uri {{data.csv}} \
@@ -114,7 +113,7 @@ aurora-dsql-loader load \
 **Example Resuming an interrupted load**  <a name="aurora-dsql-loader-example-resume"></a>
 If a load operation is interrupted, you can resume it using the job ID from the previous run:  
 
-```
+```bash
 aurora-dsql-loader load \
   --endpoint {{cluster-id}}.dsql.{{region}}.on.aws \
   --source-uri {{data.csv}} \
@@ -155,7 +154,7 @@ The Aurora DSQL Loader supports the following command-line options:
 
 For a complete list of options and additional configuration parameters, run:
 
-```
+```bash
 aurora-dsql-loader load --help
 ```
 
@@ -196,7 +195,7 @@ To migrate data from an existing PostgreSQL database to Aurora DSQL:
 
 1. Export your data from PostgreSQL to CSV or Parquet format. You can use the PostgreSQL `COPY` command to export each table:
 
-   ```
+   ```sql
    COPY {{my_table}} TO '{{/path/to/my_table.csv}}' WITH (FORMAT csv, HEADER true);
    ```
 
@@ -204,7 +203,7 @@ To migrate data from an existing PostgreSQL database to Aurora DSQL:
 
 1. Load the exported data using the Aurora DSQL Loader:
 
-   ```
+   ```bash
    aurora-dsql-loader load \
      --endpoint {{cluster-id}}.dsql.{{region}}.on.aws \
      --source-uri {{/path/to/my_table.csv}} \
@@ -221,7 +220,7 @@ To migrate data from MySQL to Aurora DSQL:
 
 1. Export your data from MySQL to CSV format using `SELECT INTO OUTFILE` or a tool like **mysqldump** with the `--tab` option:
 
-   ```
+   ```sql
    SELECT * FROM {{my_table}}
    INTO OUTFILE '{{/path/to/my_table.csv}}'
    FIELDS TERMINATED BY ','
@@ -233,7 +232,7 @@ To migrate data from MySQL to Aurora DSQL:
 
 1. Load the exported data using the Aurora DSQL Loader:
 
-   ```
+   ```bash
    aurora-dsql-loader load \
      --endpoint {{cluster-id}}.dsql.{{region}}.on.aws \
      --source-uri {{/path/to/my_table.csv}} \
@@ -248,7 +247,7 @@ MySQL and PostgreSQL have different data type systems. Review your schema and ad
 
 If your data is already in Amazon S3, you can load it directly without downloading to your local system. The Aurora DSQL Loader supports S3 URIs natively:
 
-```
+```bash
 aurora-dsql-loader load \
   --endpoint {{cluster-id}}.dsql.{{region}}.on.aws \
   --source-uri s3://{{my-bucket}}/{{path/to/data.parquet}} \
@@ -264,7 +263,7 @@ If you are already connected to Aurora DSQL through a `psql` session that handle
 
 **Example Loading a CSV file with \\copy**  
 
-```
+```sql
 \copy {{my_table}} FROM '{{/path/to/data.csv}}' WITH (FORMAT csv, HEADER true);
 ```
 

@@ -1,7 +1,6 @@
 
 
 # System tables and commands in Aurora DSQL
-<a name="working-with-systems-tables"></a>
 
 See the following sections to learn about the supported system tables and catalogs in Aurora DSQL as well as useful queries for fetching information about the system, such as the version.
 
@@ -190,13 +189,13 @@ The following table indicates which views are supported and unsupported in Auror
 
 `sys.jobs` provides status information about asynchronous jobs. For example, after you [create an asynchronous index](working-with-create-index-async.md), Aurora DSQL returns a `job_uuid`. You can use this `job_uuid` with `sys.jobs` to look up the status of the job.
 
-```
+```sql
 SELECT * FROM sys.jobs;
 ```
 
 Aurora DSQL returns a response similar to the following.
 
-```
+```sql
            job_id           |  status   | details |  job_type   | class_id | object_id |    object_name    |       start_time       |      update_time
 ----------------------------+-----------+---------+-------------+----------+-----------+-------------------+------------------------+------------------------
  wqhu6ewifze5xitg3umt24h5ua | completed |         | INDEX_BUILD |     1259 |     26433 | public.nt2_c1_idx | 2025-09-25 22:07:31+00 | 2025-09-25 22:07:46+00
@@ -236,7 +235,7 @@ The following table describes the columns in the `sys.jobs` view.
 
 The view `sys.iam_pg_role_mappings` provides information about the permissions granted to IAM users. For example, if `DQSLDBConnect` is an IAM role that gives Aurora DSQL access to non-admins and a user named `testuser` is granted the `DQSLDBConnect` role and corresponding permissions, you can query the `sys.iam_pg_role_mappings` view to see which users are granted which permissions.
 
-```
+```sql
 SELECT * FROM sys.iam_pg_role_mappings;
 ```
 
@@ -250,7 +249,7 @@ Use these queries to get table statistics and system metadata without performing
 
 To get the approximate count of rows in a table without performing a full table scan, use the following query:
 
-```
+```sql
 SELECT reltuples FROM pg_class WHERE relname = '{{table_name}}';
 ```
 
@@ -269,7 +268,7 @@ This approach is more efficient than `SELECT COUNT(*)` for large tables in Auror
 
 To get the current major version of the Aurora DSQL cluster, use the following query:
 
-```
+```sql
 SELECT * FROM sys.dsql_major_version();
 ```
 
@@ -288,7 +287,7 @@ This returns the major version the SQL connection is on in Aurora DSQL.
 
 To get the current PostgreSQL version of the Aurora DSQL cluster, use the following query:
 
-```
+```sql
 SHOW server_version;
 ```
 

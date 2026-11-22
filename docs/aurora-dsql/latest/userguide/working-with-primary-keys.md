@@ -1,7 +1,6 @@
 
 
 # Primary keys in Aurora DSQL
-<a name="working-with-primary-keys"></a>
 
 In Aurora DSQL, a primary key is a feature that physically organizes table data. It's similar to the `CLUSTER` operation in PostgreSQL or a clustered index in other databases. When you define a primary key, Aurora DSQL creates an index that includes all columns in the table. The primary key structure in Aurora DSQL ensures efficient data access and management.
 
@@ -17,7 +16,7 @@ Aurora DSQL also uses the primary key to generate a cluster-wide unique key for 
 
 When choosing and using a primary key in Aurora DSQL, consider the following guidelines:
 + Define a primary key when you create a table. You can't change this key or add a new primary key later. The primary key becomes part of the cluster-wide key used for data partitioning and automatic scaling of write throughput. If you don't specify a primary key, Aurora DSQL assigns a synthetic hidden ID.
-+ For tables with high write volumes, avoid using monotonically increasing integers as primary keys. This can lead to performance issues by directing all new inserts to a single partition. Instead, use primary keys with random distribution to ensure even distribution of writes across storage partitions.
++ For tables with high write volumes, use primary keys with random distribution to spread writes evenly across storage partitions. Monotonically increasing primary keys direct all new inserts to a single partition. Aurora DSQL handles this pattern at high write rates, but well-distributed keys still perform better overall.
 + For tables that change infrequently or are read-only, you can use an ascending key. Examples of ascending keys are timestamps or sequence numbers. A dense key has many closely spaced or duplicate values. You can use an ascending key even if it is dense because write performance is less critical.
 + If a full table scan doesn't meet your performance requirements, choose a more efficient access method. In most cases, this means using a primary key that matches your most common join and lookup key in queries.
 + The maximum combined size of columns in a primary key is 1 kibibyte. For more information, see [Database limits in Aurora DSQL](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/CHAP_quotas.html#SECTION_database-limits) and [Supported data types in Aurora DSQL](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/working-with-postgresql-compatibility-supported-data-types).

@@ -1,7 +1,6 @@
 
 
 # Aurora DSQL adapter for Tortoise ORM
-<a name="SECTION_program-with-dsql-adapter-for-tortoise-orm"></a>
 
 Like the other adapters and dialects for Amazon Aurora DSQL, the Aurora DSQL adapter for Tortoise ORM (`aurora-dsql-tortoise-orm`) integrates an object-relational mapping (ORM) framework with Aurora DSQL. It provides custom backends for both `asyncpg` and `psycopg` drivers, with Aurora DSQL-aware schema generators for asynchronous index creation, IDENTITY columns, and foreign key enforcement through optimistic concurrency control (OCC), and IAM authentication, so you can use the full Tortoise ORM API against a distributed Aurora DSQL cluster. For more information, see the [Aurora DSQL adapter for Tortoise ORM](https://github.com/awslabs/aurora-dsql-orms/tree/main/python/tortoise-orm) and the [Tortoise ORM pet clinic example application](https://github.com/awslabs/aurora-dsql-orms/tree/main/python/tortoise-orm/example) on the GitHub website.
 
@@ -46,7 +45,7 @@ Before you use the adapter, make sure that you have the following:
 ## Installation
 <a name="SECTION_program-with-dsql-adapter-for-tortoise-orm-installation"></a>
 
-```
+```bash
 PROMPT> pip install "aurora-dsql-python-connector>=0.2.7"  # provides is_occ_error for the retry example
 
 # Install the adapter with one or both drivers:
@@ -60,7 +59,7 @@ PROMPT> pip install "aurora-dsql-tortoise-orm[psycopg]"  # psycopg backend
 ### Tortoise.init() — programmatic
 <a name="SECTION_program-with-dsql-adapter-for-tortoise-orm-tortoise-init-programmatic"></a>
 
-```
+```python
 import os
 from tortoise import Tortoise
 
@@ -93,7 +92,7 @@ await Tortoise.init(
 
 Aurora DSQL requires TLS for all connections. To verify the server certificate, set `sslmode` to `verify-full` and `sslrootcert` to a certificate authority (CA) certificate file, such as Amazon Root CA 1. For more information, see [Configuring SSL/TLS certificates for Aurora DSQL connections](configure-root-certificates.md). The asyncpg backend takes these keys in `credentials` and doesn't accept `sslrootcert="system"`. The psycopg backend takes them in `server_settings`:
 
-```
+```python
 # asyncpg
 "credentials": {
     "host": CLUSTER_ENDPOINT,
@@ -115,7 +114,7 @@ Aurora DSQL requires TLS for all connections. To verify the server certificate, 
 
 Before use, call `register_asyncpg()` to register the `dsql+asyncpg://` URL scheme, or `register_psycopg()` to register `dsql+psycopg://`. `register_backends()` registers both and requires both drivers. In the following example, replace {{cluster-id}} and {{region}} with the values for your cluster:
 
-```
+```python
 from aurora_dsql_tortoise import register_asyncpg
 register_asyncpg()
 
@@ -139,7 +138,7 @@ Aurora DSQL enforces a **one-hour maximum connection duration**. The cluster clo
 **psycopg backend**  
 `psycopg_pool` defaults `max_lifetime` to `3600.0` seconds — exactly Aurora DSQL's hard limit. Set it explicitly to a lower value (for example, `3300`) to give the pool time to recycle connections before the cluster closes them:  
 
-```
+```python
 "credentials": {
     "host": CLUSTER_ENDPOINT,
     "user": CLUSTER_USER,
@@ -158,7 +157,7 @@ For non-admin users, set `CLUSTER_USER` to the non-admin user name. The adapter 
 ### UUID primary key (recommended)
 <a name="SECTION_program-with-dsql-adapter-for-tortoise-orm-uuid-primary-key-recommended"></a>
 
-```
+```python
 import uuid
 from tortoise import fields
 from tortoise.models import Model
@@ -175,7 +174,7 @@ class Owner(Model):
 ### BigInt identity column (opt-in)
 <a name="SECTION_program-with-dsql-adapter-for-tortoise-orm-bigint-identity-column-opt-in"></a>
 
-```
+```python
 from tortoise import fields
 from tortoise.models import Model
 
@@ -195,7 +194,7 @@ Use `UUIDField` or `BigIntField` as primary keys. `IntField` and `SmallIntField`
 
 Aurora DSQL supports `NO ACTION`, `RESTRICT`, `CASCADE`, `SET NULL`, `SET DEFAULT`, `MATCH SIMPLE`, `MATCH FULL`, and deferrable foreign keys, and supports `SET CONSTRAINTS` for foreign keys only. Enforcement is OCC-based: FK conflicts raise a serialization error (`OC000` / `SQLSTATE 40001`), which you can detect with `is_occ_error` and retry. FK constraint violations (referencing a non-existent row) raise a distinct exception and aren't retryable. All DML on referenced or referencing tables incurs extra reads, and constraints added to existing tables use `ALTER TABLE ... ADD CONSTRAINT ... NOT VALID` followed by `ALTER TABLE ASYNC ... VALIDATE CONSTRAINT`; the adapter's aerich integration handles this automatically.
 
-```
+```python
 class Pet(Model):
     id     = fields.UUIDField(primary_key=True, default=uuid.uuid4)
     name   = fields.CharField(max_length=30)
@@ -210,7 +209,7 @@ The generated DDL includes an `owner_id` column with a `REFERENCES owner(id)` co
 ### Many-to-many
 <a name="SECTION_program-with-dsql-adapter-for-tortoise-orm-many-to-many"></a>
 
-```
+```python
 class Vet(Model):
     id          = fields.UUIDField(primary_key=True, default=uuid.uuid4)
     name        = fields.CharField(max_length=30)
@@ -232,7 +231,7 @@ class Specialty(Model):
 
 `generate_schemas()` splits the DDL on `;` (respecting quoted strings, dollar-quoted blocks, and comments) and executes each statement individually:
 
-```
+```python
 await Tortoise.generate_schemas()
 ```
 
@@ -241,7 +240,7 @@ This is safe to call — the splitter is quote/comment/dollar-quote aware.
 ## Basic usage
 <a name="SECTION_program-with-dsql-adapter-for-tortoise-orm-basic-usage"></a>
 
-```
+```python
 from tortoise import Tortoise
 import uuid
 
@@ -272,7 +271,7 @@ await Tortoise.close_connections()
 
 Aurora DSQL uses optimistic concurrency control (OCC). Conflicting concurrent transactions raise a serialization failure with SQLSTATE `40001`. The error message contains `OC000` (data conflict: two transactions modified the same row) or `OC001` (schema conflict: the transaction's cached schema catalog has become out of date). Wrap write operations in a retry loop:
 
-```
+```python
 import asyncio
 import random
 from aurora_dsql_asyncpg import is_occ_error  # requires aurora-dsql-python-connector >=0.2.7
@@ -298,12 +297,12 @@ result = await with_retry(lambda: Owner.create(name="Jane", city="Seattle"))
 
 aerich works with the Aurora DSQL backends. Install aerich, and then run `aerich init` to point aerich at an Aurora DSQL backend:
 
-```
+```bash
 PROMPT> pip install "aerich>=0.9.2"
 PROMPT> aerich init -t myapp.config.TORTOISE_ORM
 ```
 
-```
+```python
 # myapp/config.py
 TORTOISE_ORM = {
     "connections": {
@@ -336,7 +335,7 @@ The adapter includes a `split_sql(sql: str) -> list[str]` utility. It correctly 
 
 The following Python code example splits a multi-statement SQL script into individual statements:
 
-```
+```python
 from aurora_dsql_tortoise.common.config import split_sql
 
 statements = split_sql("""

@@ -1,7 +1,6 @@
 
 
 # Authentication and authorization for Aurora DSQL
-<a name="authentication-authorization"></a>
 
 Aurora DSQL uses IAM roles and policies for cluster authorization. You associate IAM roles with [PostgreSQL database roles](https://www.postgresql.org/docs/current/user-manag.html) for database authorization. This approach combines [ benefits from IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-iam-features.html) with [ PostgreSQL privileges](https://www.postgresql.org/docs/current/user-manag.html). Aurora DSQL uses these features to provide a comprehensive authorization and access policy for your cluster, database, and data.
 
@@ -83,13 +82,13 @@ The IAM policy action you use depends on the role you use to connect to your clu
 
 When you connect to your cluster with the default database role of `admin`, use an IAM identity with authorization to perform the following IAM policy action.
 
-```
+```bash,sh,zsh
 "dsql:DbConnectAdmin"
 ```
 
 When you connect to your cluster with a custom database role, first associate the IAM role with the database role. The IAM identity you use to connect to your cluster must have authorization to perform the following IAM policy action.
 
-```
+```bash,sh,zsh
 "dsql:DbConnect"
 ```
 
@@ -105,7 +104,7 @@ When managing your Aurora DSQL clusters, specify policy actions only for the act
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
   "Statement" : [
@@ -130,7 +129,7 @@ The following example policy shows all available IAM policy actions for managing
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
   "Statement" : [

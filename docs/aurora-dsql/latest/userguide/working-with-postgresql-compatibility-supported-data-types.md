@@ -1,7 +1,6 @@
 
 
 # Supported data types in Aurora DSQL
-<a name="working-with-postgresql-compatibility-supported-data-types"></a>
 
 Aurora DSQL supports a subset of the common PostgreSQL types.
 
@@ -9,6 +8,7 @@ Aurora DSQL supports a subset of the common PostgreSQL types.
 + [Numeric data types](#numeric-data-types)
 + [Character data types](#character-data-types)
 + [Date and time data types](#date-time-data-types)
++ [Network address data types](#network-address-data-types)
 + [Miscellaneous data types](#miscellaneous-data-types)
 + [Query runtime data types](#working-with-postgresql-compatibility-query-runtime)
 
@@ -63,6 +63,45 @@ Aurora DSQL supports the following PostgreSQL date and time data types.
 | `timestamp` [ `(`{{p}}`)` ] `with time zone` | `timestamptz` | Date and time, including time zone | 4713 BC – 294276 AD | 1 microsecond | 8 bytes | Yes | 
 | `interval` [ `fields` ] [ `(`{{p}}`)` ] |  | Time span | -178000000 years – 178000000 years | 1 microsecond | 16 bytes | No | 
 
+## Network address data types
+<a name="network-address-data-types"></a>
+
+Aurora DSQL supports the following PostgreSQL network address data types.
+
+
+| Name | Description | Storage size | Index support | 
+| --- | --- | --- | --- | 
+| `inet` | IPv4 or IPv6 host address, with an optional subnet | 10 or 22 bytes1 | Yes | 
+| `cidr` | IPv4 or IPv6 network in Classless Inter-Domain Routing (CIDR) format | 10 or 22 bytes1 | Yes | 
+| `macaddr` | Media access control (MAC) address in EUI-48 format | 6 bytes | Yes | 
+| `macaddr8` | MAC address in EUI-64 format | 8 bytes | Yes | 
+
+1 – An IPv4 value uses 10 bytes and an IPv6 value uses 22 bytes. Each size includes a 4-byte header and 2 bytes for the address family and netmask length.
+
+For more information, see [Network Address Types](https://www.postgresql.org/docs/16/datatype-net-types.html) in the PostgreSQL documentation.
+
+### Network address functions and operators
+<a name="network-address-functions-and-operators"></a>
+
+Aurora DSQL supports the PostgreSQL network address functions and operators. For more information, see [Network Address Functions and Operators](https://www.postgresql.org/docs/16/functions-net.html) in the PostgreSQL documentation.
+
+The following SQL example stores network addresses in a table that uses an `inet` primary key, and then finds the hosts in a subnet:
+
+```sql
+CREATE TABLE hosts (addr inet PRIMARY KEY, mac macaddr);
+INSERT INTO hosts VALUES ('10.24.34.10', '08:00:2b:01:02:03'), ('2001:db8::5', '08:00:2b:01:02:04');
+SELECT host(addr), mac FROM hosts WHERE addr << '10.24.34.0/24'::cidr;
+```
+
+The query returns the following output:
+
+```
+    host     |        mac
+-------------+-------------------
+ 10.24.34.10 | 08:00:2b:01:02:03
+(1 row)
+```
+
 ## Miscellaneous data types
 <a name="miscellaneous-data-types"></a>
 
@@ -93,7 +132,7 @@ The functions `json_populate_record`, `json_populate_recordset`, `jsonb_populate
 
 The following examples show `json_populate_record` and `jsonb_populate_recordset` used with a table row type:
 
-```
+```sql
 CREATE TABLE tt (c1 INT, c2 INT);
 SELECT * FROM json_populate_record(null::tt, '{"c1": 1, "c2": 2}');
 ```
@@ -105,7 +144,7 @@ SELECT * FROM json_populate_record(null::tt, '{"c1": 1, "c2": 2}');
 (1 row)
 ```
 
-```
+```sql
 SELECT * FROM jsonb_populate_recordset(null::tt, '[{"c1":1,"c2":2}, {"c1":3,"c2":4}]');
 ```
 
@@ -127,7 +166,7 @@ The following data types are supported only during query runtime:
 **Array type**  
 Aurora DSQL supports arrays of the supported data types. For example, you can have an array of integers. The function `string_to_array` splits a string into a PostgreSQL-style array with the comma delimiter (`,`) as shown in the following example. You can use arrays in expressions, function outputs, or temporary computations during query execution.  
 
-```
+```sql
 SELECT string_to_array('1,2', ',');
 ```
 The function returns a response similar to the following:  
@@ -138,6 +177,3 @@ The function returns a response similar to the following:
  {1,2}
 (1 row)
 ```
-
-****inet type****  
-The data type represents IPv4, IPv6 host addresses, and their subnets. This type is useful when parsing logs, filtering on IP subnets, or doing network calculations within a query. For more information, see [inet in the PostgreSQL documentation](https://www.PostgreSQL.org/docs/16/datatype-net-types.html#DATATYPE-INET).

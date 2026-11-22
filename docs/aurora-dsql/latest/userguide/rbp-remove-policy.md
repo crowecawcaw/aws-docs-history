@@ -1,7 +1,6 @@
 
 
 # Removing resource-based policies
-<a name="rbp-remove-policy"></a>
 
 You can remove resource-based policies from clusters to change access controls.
 
@@ -40,7 +39,7 @@ aws dsql delete-cluster-policy --identifier {{your_cluster_id}}
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 
 client = boto3.client('dsql')
@@ -55,7 +54,7 @@ print("Policy deleted successfully")
 ------
 #### [ Java ]
 
-```
+```java
 import software.amazon.awssdk.services.dsql.DsqlClient;
 import software.amazon.awssdk.services.dsql.model.DeleteClusterPolicyRequest;
 

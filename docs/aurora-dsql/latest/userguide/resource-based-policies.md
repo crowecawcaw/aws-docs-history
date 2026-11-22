@@ -1,7 +1,6 @@
 
 
 # Resource-based policies for Aurora DSQL
-<a name="resource-based-policies"></a>
 
 Use resource-based policies for Aurora DSQL to restrict or grant access to your clusters through JSON policy documents that attach directly to your cluster resources. These policies provide fine-grained control over who can access your cluster and under what conditions.
 

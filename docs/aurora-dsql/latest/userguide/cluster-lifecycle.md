@@ -1,7 +1,6 @@
 
 
 # Aurora DSQL cluster lifecycle
-<a name="cluster-lifecycle"></a>
 
 Understanding the Aurora DSQL cluster lifecycle helps you manage your clusters effectively. This section covers cluster status definitions and the scale to zero feature that optimizes costs.
 
@@ -23,7 +22,7 @@ The following table describes each possible status for a Aurora DSQL cluster and
 | Deleting | A cluster transitions to the Deleting status when you submit a request to delete it. | 
 | Deleted | The cluster has been successfully deleted. | 
 | Failed | Aurora DSQL couldn't create the cluster because it encountered an error. | 
-| Pending Setup | For multi-Region clusters only. A multi-Region cluster enters the Pending Setup status when you create a multi-Region cluster in your first Region with a witness Region. Cluster creation pauses until you create another cluster in a secondary Region and peer the two clusters together. | 
+| Pending Setup | For multi-Region clusters only. A multi-Region cluster enters the Pending Setup status when you create a multi-Region cluster in your first Region with a witness Region. Cluster creation pauses until you create another cluster in a peer Region and peer the two clusters together. | 
 | Pending Delete | For multi-Region clusters only. A multi-Region cluster enters the Pending Delete status when you delete a cluster from it. The cluster moves to the Deleting state after you delete the last peer cluster. | 
 
 ### Working with Idle and Inactive clusters
@@ -89,13 +88,13 @@ Follow these steps to view cluster status in the AWS Management Console:
 
 Use the following AWS CLI command to check the status of a single cluster.
 
-```
+```bash,sh,zsh
 aws dsql get-cluster --identifier {{cluster-id}} --query status --output text
 ```
 
 Run the following command to list the status of all clusters.
 
-```
+```bash,sh,zsh
 for id in $(aws dsql list-clusters --query 'clusters[*].identifier' --output text); do
   cluster_status=$(aws dsql get-cluster --identifier "$id" --query 'status' --output text)
   echo "$id    $cluster_status"

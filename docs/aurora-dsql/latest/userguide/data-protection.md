@@ -1,7 +1,6 @@
 
 
 # Data protection in Amazon Aurora DSQL
-<a name="data-protection"></a>
 
 The [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in . As described in this model, is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the that you use. For more information about data privacy, see the [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/). For information about data protection in Europe, see the [ Shared Responsibility Model and GDPR](https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/) blog post on the *Security Blog*.
 
@@ -58,9 +57,23 @@ You get access to Aurora DSQL through the network by using AWS-published API ope
 
 When you create a multi-Region cluster, a witness Region helps enable automated failure recovery by participating in synchronous replication of encrypted transactions. If a peered cluster becomes unavailable, the witness Region remains available to validate and process database writes, ensuring no loss of availability. 
 
+Each active peer Region makes a complete copy of your database data available to read and write via Aurora DSQL managed endpoints and the PostgreSQL wire protocol. Witness Regions store encrypted transaction log, do not store encryption keys, have no managed endpoints, and do not make data accessible to users.
+
+Choose Region locations that meet your data residency, data sovereignty, and regulatory requirements. You are responsible for confirming that your chosen Region combination satisfies your legal and compliance obligations. For the Regions that you can select, see [Multi-Region cluster availability for Aurora DSQL](what-is-aurora-dsql.md#aurora-dsql-multi-region-availability).
+
 Witness Regions protect and secure your data through these design features:
 + The witness Region receives and stores only encrypted transaction logs. It never hosts, stores or transmits your encryption keys.
 + The witness Region focuses soley on write transaction logging and quorum functions. It can't read your data by design.
 + The witness Region operates without cluster connection endpoints or query processors. This prevents user database access.
 
 For more information on witness Regions, see [Configuring multi-Region clusters](configuring-multi-region-clusters.md).
+
+## Data protection for ephemeral clusters
+<a name="data-protection-ephemeral-clusters"></a>
+
+Ephemeral clusters use the same encryption at rest and in transit as other Aurora DSQL clusters. Ephemeral clusters don't support data protection features such as backups.
+
+**Warning**  
+After an ephemeral cluster's lifetime expires, Aurora DSQL permanently deletes the cluster and all of its data, even if deletion protection is turned on. You can't extend the lifetime, and you can't recover the data after deletion.
+
+Use ephemeral clusters only for non-production data. Don't store production or sensitive data on an ephemeral cluster. For more information about ephemeral clusters, see [Early-access features and ephemeral clusters in Aurora DSQL](ephemeral-clusters.md).

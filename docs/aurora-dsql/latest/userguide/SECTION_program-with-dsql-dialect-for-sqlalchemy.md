@@ -1,7 +1,6 @@
 
 
 # Aurora DSQL dialect for SQLAlchemy
-<a name="SECTION_program-with-dsql-dialect-for-sqlalchemy"></a>
 
 The Amazon Aurora DSQL dialect for SQLAlchemy (`aurora-dsql-sqlalchemy`) integrates SQLAlchemy object-relational mapping (ORM) with Aurora DSQL. It handles IAM authentication, Secure Sockets Layer (SSL) configuration, DDL generation differences (async indexes, identity columns), and connection management, so you can use the full SQLAlchemy API against a distributed Aurora DSQL cluster with minimal configuration. For more information, see the [Aurora DSQL dialect for SQLAlchemy](https://github.com/awslabs/aurora-dsql-orms/tree/main/python/sqlalchemy) and the [SQLAlchemy pet clinic example application](https://github.com/awslabs/aurora-dsql-orms/tree/main/python/sqlalchemy/examples/pet-clinic-app) on the GitHub website.
 
@@ -65,7 +64,7 @@ The `aurora-dsql-sqlalchemy` dialect supports psycopg and psycopg2. For asyncpg 
 ## Installation
 <a name="SECTION_program-with-dsql-dialect-for-sqlalchemy-installation"></a>
 
-```
+```bash
 PROMPT> pip install aurora-dsql-sqlalchemy
 PROMPT> pip install "aurora-dsql-python-connector[psycopg]>=0.2.7"  # includes psycopg_pool and is_occ_error
 
@@ -82,7 +81,7 @@ Use `pip install "psycopg[binary]"`. The `psycopg-binary` package is a prebuilt-
 
 The following example creates an engine. In this example, replace {{cluster-id}} and {{region}} with the values for your cluster.
 
-```
+```python
 from aurora_dsql_sqlalchemy import create_dsql_engine
 
 engine = create_dsql_engine(
@@ -124,7 +123,7 @@ When you call `create_dsql_engine`, it automatically does the following:
 
 If you need full control over the uniform resource locator (URL) and connector, you can create the engine manually. The following example creates a SQLAlchemy engine with the Aurora DSQL connector:
 
-```
+```python
 from sqlalchemy import create_engine
 from sqlalchemy.engine import URL
 import aurora_dsql_psycopg as dsql_connector
@@ -150,7 +149,7 @@ engine = create_engine(
 
 The following example defines a model, creates its table, and then inserts and queries a row:
 
-```
+```python
 from sqlalchemy import String
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
@@ -190,7 +189,7 @@ with Session(engine) as session:
 
 Server-generated UUIDs are the recommended primary key type for Aurora DSQL.
 
-```
+```python
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import text
 
@@ -204,7 +203,7 @@ id: Mapped[str] = mapped_column(
 ### Sequences
 <a name="SECTION_program-with-dsql-dialect-for-sqlalchemy-sequences"></a>
 
-```
+```python
 from sqlalchemy import BigInteger, Sequence
 
 id: Mapped[int] = mapped_column(
@@ -219,7 +218,7 @@ Aurora DSQL requires sequence cache to be either 1 or >= 65536. The dialect auto
 ### Identity columns
 <a name="SECTION_program-with-dsql-dialect-for-sqlalchemy-identity-columns"></a>
 
-```
+```python
 from sqlalchemy import BigInteger, Identity
 
 id: Mapped[int] = mapped_column(
@@ -238,7 +237,7 @@ id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True
 ### `INCLUDE` clause
 <a name="SECTION_program-with-dsql-dialect-for-sqlalchemy-include-clause"></a>
 
-```
+```python
 from sqlalchemy import Index
 
 Index("idx_name", table.c.id, auroradsql_include=["name", "email"])
@@ -248,7 +247,7 @@ Index("idx_name", table.c.id, auroradsql_include=["name", "email"])
 ### `NULLS NOT DISTINCT`
 <a name="SECTION_program-with-dsql-dialect-for-sqlalchemy-nulls-not-distinct"></a>
 
-```
+```python
 Index("idx_unique_col", table.c.column, unique=True, auroradsql_nulls_not_distinct=True)
 # → CREATE UNIQUE INDEX ASYNC idx_unique_col ON table (column) NULLS NOT DISTINCT
 ```
@@ -262,7 +261,7 @@ Aurora DSQL uses optimistic concurrency control (OCC). Conflicting concurrent tr
 
 Applications should catch both and retry. The following example retries a statement when an OCC conflict occurs:
 
-```
+```python
 import random
 import time
 
@@ -300,7 +299,7 @@ Aurora DSQL requires TLS for all connections. The following table describes the 
 
 `sslrootcert="system"` uses the operating system's CA trust store. On Linux, the `psycopg[binary]` and `psycopg2-binary` wheels can't locate the system trust store. Set the `SSL_CERT_FILE` environment variable to your CA bundle, or pass the bundle path as `sslrootcert`. To pin a specific CA:
 
-```
+```python
 engine = create_dsql_engine(
     host="{{cluster-id}}.dsql.{{region}}.on.aws",
     user="admin",
@@ -311,7 +310,7 @@ engine = create_dsql_engine(
 **Important**  
 The default `sslrootcert="system"` works only with `sslmode="verify-full"`. To use `verify-ca`, set `sslrootcert` to a CA file path. To use `require`, pass `sslrootcert=None` to clear the default:  
 
-```
+```python
 engine = create_dsql_engine(
     host="{{cluster-id}}.dsql.{{region}}.on.aws",
     user="admin",
@@ -325,7 +324,7 @@ engine = create_dsql_engine(
 
 `create_dsql_engine` creates a pooled engine by default.
 
-```
+```python
 engine = create_dsql_engine(
     host="{{cluster-id}}.dsql.{{region}}.on.aws",
     user="admin",
@@ -337,7 +336,7 @@ engine = create_dsql_engine(
 **Important**  
 Aurora DSQL enforces a **one-hour maximum connection duration**. The cluster closes long-lived connections. Set `pool_recycle` below 3600 to avoid race conditions — 3300 provides a safe margin:  
 
-```
+```python
 engine = create_dsql_engine(..., pool_recycle=3300)  # recycle before the 1-hour limit
 ```
 
@@ -347,7 +346,7 @@ engine = create_dsql_engine(..., pool_recycle=3300)  # recycle before the 1-hour
 + The dialect supports foreign key constraints, including referential actions, match types, and deferrable foreign keys. Enforcement is OCC-based: foreign key (FK) conflicts raise a serialization error (`OC000` / `SQLSTATE 40001`) that you can retry in the same way as general write conflicts. FK constraint violations (referencing a non-existent row) raise a separate exception class and aren't retryable; don't use `is_occ_error` to gate retries on those.
 + Aurora DSQL supports `SET CONSTRAINTS` for foreign keys only. For existing tables, add FK or CHECK constraints using `ALTER TABLE ... ADD CONSTRAINT ... NOT VALID`; the dialect appends `NOT VALID` automatically. Validating existing rows requires a separate async step. Record the `job_id` that `ALTER TABLE ASYNC` returns, then check the `succeeded` value that `sys.wait_for_job` returns:
 
-  ```
+  ```sql
   ALTER TABLE t ADD CONSTRAINT fk_name FOREIGN KEY (col) REFERENCES other(id) NOT VALID;
   ALTER TABLE ASYNC t VALIDATE CONSTRAINT fk_name;
   -- Use the job_id returned by the preceding statement:
