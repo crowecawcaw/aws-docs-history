@@ -1,7 +1,6 @@
 
 
 # Improve Demand Forecasting to Boost Sales on Amazon.com
-<a name="demand-forecasting-retail"></a>
 
 Publication date: **April 5, 2022 ([Diagram history](#df-history))**
 
