@@ -1,7 +1,6 @@
 
 
 # Region availability for Incident Detection and Response
-<a name="idr-availability"></a>
 
 AWS Incident Detection and Response is available in English, Japanese, Mandarin, and Korean for AWS Enterprise Support accounts hosted in any of the following AWS Regions:
 

@@ -1,7 +1,6 @@
 
 
 # Suppress alarms at the alarm source
-<a name="suppress-alarms-at-source"></a>
 
 Specify which alarms engage with Incident Detection and Response and when they do so by suppressing alarms at the alarm source.
 

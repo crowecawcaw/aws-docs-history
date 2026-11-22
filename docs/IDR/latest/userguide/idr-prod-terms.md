@@ -1,7 +1,6 @@
 
 
 # Terms of use for Incident Detection and Response
-<a name="idr-prod-terms"></a>
 
 The following list outlines the key requirements and limitations for using AWS Incident Detection and Response. This information is important for you to understand before using the service, as it covers aspects like support plan requirements, onboarding process, and minimum subscription duration.
 + AWS Incident Detection and Response is available to direct and Partner-resold Enterprise Support accounts.

@@ -1,7 +1,6 @@
 
 
 # Ingesting Third Party Application Performance Monitoring Alarms
-<a name="idr-gs-ingest-apm-alarms"></a>
 
 AWS Incident Detection and Response supports alarm ingestion from third-party Application Performance Monitoring(APM) tools through Amazon EventBridge. This integration provides flexibility by ingesting APM alerts, allowing routing of APM events via various AWS services to an Amazon EventBridge event bus in your account.
 

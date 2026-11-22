@@ -1,7 +1,6 @@
 
 
 # Tutorial: Remove a metric math function to un-suppress an alarm
-<a name="suppress-alarms-tutorial-unsuppress"></a>
 
 If you suppress a CloudWatch alarm for a one-time activity, remove the metric math function from the alarm after the activity completes to resume regular monitoring of the alarm. To suppress the alarm on a regular schedule, for example, if you have a scheduled weekly patching routine that results in instance reboots on the same day and time each week, then leave the metric math function in place.
 

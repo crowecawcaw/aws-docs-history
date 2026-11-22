@@ -1,7 +1,6 @@
 
 
 # Roles and responsibilities in Incident Detection and Response
-<a name="idr-raci"></a>
 
 The AWS Incident Detection and Response RACI (Responsible, Accountable, Consulted, and Informed) table outlines the roles and responsibilities for various activities related to incident detection and response. This table helps define the involvement of the customer and the AWS Incident Detection and Response team for tasks such as data collection, operations readiness review, account configuration, incident management, and post-incident review.
 

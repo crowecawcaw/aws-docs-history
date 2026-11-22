@@ -1,7 +1,6 @@
 
 
 # Architecture of Incident Detection and Response
-<a name="idr-arch"></a>
 
 AWS Incident Detection and Response integrates with your existing environment as shown in the following graphic. The architecture includes the following services:
 + Amazon EventBridge: Amazon EventBridge serves as the sole integration point between your workloads and AWS Incident Detection and Response. Alarms are ingested from your monitoring tools, such as Amazon CloudWatch, through Amazon EventBridge using predefined rules managed by AWS. To allow Incident Detection and Response to build and manage the EventBridge rule, you install a service-linked role. To learn more about these services, see [What is Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) and [Amazon EventBridge rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html), [What is Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html), and [Using service-linked roles for AWS Health](https://docs.aws.amazon.com/health/latest/ug/using-service-linked-roles.html).

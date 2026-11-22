@@ -1,7 +1,6 @@
 
 
 # Suppress alarms from engaging Incident Detection and Response
-<a name="idr-workloads-suppress-alarms"></a>
 
 Specify which of your onboarded workload alarms engage with AWS Incident Detection and Response monitoring by suppressing them temporarily or on a schedule. For example, you might temporarily suppress workload alarms during planned maintenance to prevent the alarms from engaging Incident Detection and Response. Or, you might suppress alarms on a schedule if you have daily reboot activity. You can suppress alarms at the alarm source, such as Amazon CloudWatch, or you can submit a workload change request.
 

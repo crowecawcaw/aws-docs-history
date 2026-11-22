@@ -1,7 +1,6 @@
 
 
 # Incident management with Incident Detection and Response
-<a name="incidents-idr"></a>
 
 AWS Incident Detection and Response offers you 24 hours a day, 7 days a week proactive monitoring and incident management delivered by a designated team of incident managers. The following diagram outlines the standard incident management process when an application alarm triggers an incident, including alarm generation, AWS Incident Manager engagement, incident resolution, and post-incident review.
 

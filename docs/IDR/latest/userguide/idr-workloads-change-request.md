@@ -1,7 +1,6 @@
 
 
 # Request changes to an onboarded workload in Incident Detection and Response
-<a name="idr-workloads-change-request"></a>
 
 To request changes to an onboarded workload, complete the following steps to create a support case with AWS Incident Detection and Response.
 

@@ -1,7 +1,6 @@
 
 
 # Alarm definition
-<a name="idr-gs-alarm-definition"></a>
 
 When onboarding your alarms to AWS Incident Detection and Response, you're responsible for defining the metrics and alarm configurations that provide visibility into the performance of your applications. As part of this process, you must also identify the teams within your organization who is responsible for responding to these alarms.
 

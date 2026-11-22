@@ -1,7 +1,6 @@
 
 
 # Ingest Alarms from APMs with direct EventBridge integration
-<a name="idr-gs-ingest_alarms_from_apm_to_eventbridge"></a>
 
 The following topic shows the process for sending alarms to AWS Incident Detection and Response from Application Performance Monitoring (APM) tools that have direct integration with Amazon EventBridge. For a complete list of APMs that have direct integration with Amazon EventBridge, see [Amazon EventBridge integrations](https://aws.amazon.com/eventbridge/integrations).
 

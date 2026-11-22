@@ -1,7 +1,6 @@
 
 
 # Incident Detection and Response security and resiliency
-<a name="security-idr"></a>
 
 The [AWS Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in Support. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. This content includes the security configuration and management tasks for the AWS services that you use.
 

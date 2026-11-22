@@ -1,7 +1,6 @@
 
 
 # Alarm Ingestion
-<a name="idr-gs-alarm-ingestion"></a>
 
 The AWS Incident Detection and Response Customer Command Line Interface (IDR CLI) can create new Amazon CloudWatch alarms or ingest your existing ones and can deploy and test infrastructure through AWS CloudFormation to allow third-party tools to send alerts to AWS Incident Detection and Response.
 

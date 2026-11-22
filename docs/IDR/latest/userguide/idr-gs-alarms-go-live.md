@@ -1,7 +1,6 @@
 
 
 # Alarms go live
-<a name="idr-gs-alarms-go-live"></a>
 
 After alarm ingestion completes, AWS Incident Detection and Response enables monitoring for your workload. From this point forward, your onboarded alarms are actively monitored and AWS Incident Detection and Response engages you per the workload's runbook when your onboarded alarms enter the **ALARM** state.
 

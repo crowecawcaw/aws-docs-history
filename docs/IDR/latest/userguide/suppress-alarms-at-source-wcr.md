@@ -1,7 +1,6 @@
 
 
 # Submit a workload change request to suppress alarms
-<a name="suppress-alarms-at-source-wcr"></a>
 
 If you can’t suppress alarms at the source as described in the previous section, then submit a Workload Change Request to instruct Incident Detection and Response to manually suppress monitoring of some or all of your workload’s alarms.
 

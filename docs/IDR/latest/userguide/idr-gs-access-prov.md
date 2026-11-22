@@ -1,7 +1,6 @@
 
 
 # Provision access for alarm ingestion to Incident Detection and Response
-<a name="idr-gs-access-prov"></a>
 
 **Note**  
 If you didn't create the service-linked role (SLR) during the IDR CLI onboarding, follow the steps below to manually provision access.

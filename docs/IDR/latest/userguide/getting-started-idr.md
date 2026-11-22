@@ -1,7 +1,6 @@
 
 
 # Get started with Incident Detection and Response
-<a name="getting-started-idr"></a>
 
 Workloads and alarms are central to AWS Incident Detection and Response. AWS works closely with you to define and monitor specific workloads that are critical to your business. AWS helps you set up alarms that notify your team of significant performance issues or customer impact. Properly configured alarms are essential for proactive monitoring and rapid incident response within Incident Detection and Response.
 

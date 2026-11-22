@@ -1,7 +1,6 @@
 
 
 # Request an Incident Response
-<a name="inbound-incident-idr"></a>
 
 If a critical incident occurs on your workload that isn't detected by alarms monitored by AWS Incident Detection and Response, you can create a support case to request an Incident Response. You can request an Incident Response for any workload that's subscribed to AWS Incident Detection and Response, including workloads in the process of onboarding, using the AWS Support Center Console, AWS Support API, or AWS Support App in Slack.
 

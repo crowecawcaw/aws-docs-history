@@ -1,7 +1,6 @@
 
 
 # What is AWS Incident Detection and Response?
-<a name="what-is-idr"></a>
 
 AWS Incident Detection and Response offers eligible AWS Enterprise Support customers proactive incident engagement to reduce the potential for failure and accelerate recovery of critical workloads from disruption. Incident Detection and Response facilitates your collaboration with AWS to develop runbooks and response plans customized to each onboarded workload.
 

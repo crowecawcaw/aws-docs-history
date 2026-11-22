@@ -1,7 +1,6 @@
 
 
 # Onboard to Incident Detection and Response with the IDR CLI
-<a name="idr-gs-idrcli"></a>
 
 The AWS Incident Detection and Response Customer Command Line Interface (IDR CLI) is a command line interface tool that streamlines onboarding to AWS Incident Detection and Response.
 

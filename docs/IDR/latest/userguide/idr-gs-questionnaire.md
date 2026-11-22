@@ -1,7 +1,6 @@
 
 
 # Workload onboarding questionnaire in Incident Detection and Response (exception path)
-<a name="idr-gs-questionnaire"></a>
 
 **Note**  
 If you can't use the [IDR CLI](idr-gs-idrcli.md) to onboard your workload, use the following questionnaire for workload onboarding.
