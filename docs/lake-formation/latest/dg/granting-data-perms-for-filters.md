@@ -1,7 +1,6 @@
 
 
 # Granting data permissions provided by data filters
-<a name="granting-data-perms-for-filters"></a>
 
 Data filters represent a subset of data within a table. To provide data access to principals, `SELECT` permissions need to be granted to those principals. With this permission the principals can:
 + View the actual table name in list of tables shared with their account.

@@ -1,7 +1,6 @@
 
 
 # Attribute-based access control considerations, limitations, and supported regions
-<a name="abac-considerations"></a>
 
 The following considerations and limitations apply to Attribute based access control (ABAC).
 + ABAC doesn’t support granting access using LF-Tag policies.

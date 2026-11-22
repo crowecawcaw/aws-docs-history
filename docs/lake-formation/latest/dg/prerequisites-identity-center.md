@@ -1,7 +1,6 @@
 
 
 # Prerequisites for IAM Identity Center integration with Lake Formation
-<a name="prerequisites-identity-center"></a>
 
  The following are the prerequisites for integrating IAM Identity Center with Lake Formation. 
 
@@ -20,7 +19,7 @@
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -54,7 +53,7 @@ The following inline policies contain specific permissions required to view, upd
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -80,7 +79,7 @@ The following inline policies contain specific permissions required to view, upd
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -108,7 +107,7 @@ The following inline policies contain specific permissions required to view, upd
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Prerequisites for managing Amazon Redshift namespaces in the AWS Glue Data Catalog
-<a name="redshift-ns-prereqs"></a>
 
 1. Create a data lake administrator - Create an IAM role that is authorized to accept the namespace invitation, and creates the AWS Glue Data Catalog objects (catalogs, databases, tables/views), and grant Lake Formation permissions to other users.
 
@@ -16,7 +15,7 @@
 
 ****  
 
-   ```
+   ```json
        {
        "Version":"2012-10-17",		 	 	 
        "Id": "glue-enable-datalake-access",
@@ -128,7 +127,7 @@
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Id": "glue-enable-datalake-access",
@@ -154,7 +153,7 @@
 
 ****  
 
-   ```
+   ```json
              {
        "Version":"2012-10-17",		 	 	 
        "Statement": [{
@@ -181,7 +180,7 @@
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Id": "auto-redshift-3",

@@ -1,7 +1,6 @@
 
 
 # Cross-account data sharing using the named resource method
-<a name="cross-account-named-resource"></a>
 
 You can grant permissions to directly to principals in the another AWS account, or to external AWS accounts or AWS Organizations. Granting Lake Formation permissions to Organizations or organizational units is equivalent to granting the permission to every AWS account in that organization or organizational unit. 
 
@@ -14,4 +13,4 @@ Follow instructions in [Granting database permissions using the named resource m
 
  The following video demonstrates how to share data with an AWS organization using Lake Formation. 
 
-[![AWS Videos](https://img.youtube.com/vi/S-Mdcmq6oPM?controls=0&/0.jpg)](https://www.youtube.com/watch?v=S-Mdcmq6oPM?controls=0&)
+[![AWS Videos](https://img.youtube.com/vi/S-Mdcmq6oPM/0.jpg)](https://www.youtube.com/watch?v=S-Mdcmq6oPM)

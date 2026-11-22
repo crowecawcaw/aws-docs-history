@@ -1,7 +1,6 @@
 
 
 # Granting permissions on a database or table shared with your account
-<a name="regranting-shared-resources"></a>
 
 After a Data Catalog resource belonging to another AWS account is shared with your AWS account, as a data lake administrator, you can grant permissions on the shared resource to other principals in your account. You can't, however, grant permissions on the resource to other AWS accounts or organizations.
 

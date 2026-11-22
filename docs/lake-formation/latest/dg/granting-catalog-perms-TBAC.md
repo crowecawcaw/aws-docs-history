@@ -1,7 +1,6 @@
 
 
 # Granting data lake permissions using the LF-TBAC method
-<a name="granting-catalog-perms-TBAC"></a>
 
 You can grant the `DESCRIBE` and `ASSOCIATE` Lake Formation permissions on LF-Tags to principals so that they can view the LF-Tags and assign them to Data Catalog resources (databases, tables, views, and columns). When LF-Tags are assigned to Data Catalog resources, you can use the Lake Formation tag-based access control (LF-TBAC) method to secure those resources. For more information, see [Lake Formation tag-based access control](tag-based-access-control.md).
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Lake Formation
-<a name="troubleshooting"></a>
 
 If you encounter issues when working with AWS Lake Formation, consult the topics in this section. 
 

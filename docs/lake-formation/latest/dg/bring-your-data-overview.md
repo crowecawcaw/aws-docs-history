@@ -1,7 +1,6 @@
 
 
 # Bringing your data into the AWS Glue Data Catalog
-<a name="bring-your-data-overview"></a>
 
 You can create federated catalogs in the AWS Glue Data Catalog (Data Catalog) and unify data across Amazon S3 data lakes and Amazon Redshift data warehouses. You can also integrate data from your operational databases such as Amazon DynamoDB, and third-party data sources such as PostgreSQL, Google BigQuery, MySQL, among others. The Data Catalog provides a centralized metadata repository that makes managing and discovering data across disparate systems easier.
 

@@ -1,7 +1,6 @@
 
 
 # AWS service integrations with Lake Formation
-<a name="service-integrations"></a>
 
 You can use Lake Formation to manage database, table, and column-level access permissions on data stored in Amazon S3. After your data is registered with Lake Formation, you can use AWS analytical services like AWS Glue, Amazon Athena, Amazon Redshift Spectrum, Amazon EMR to query the data. The following AWS services integrate with AWS Lake Formation and honor Lake Formation permissions.
 

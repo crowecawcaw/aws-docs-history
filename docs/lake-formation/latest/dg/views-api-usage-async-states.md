@@ -1,7 +1,6 @@
 
 
 # Asynchronous states and operations
-<a name="views-api-usage-async-states"></a>
 
 When you run a `glue:CreateTable` request, the asynchronous creation of the Data Catalog view begins. In the following sections, this document describes the `Status` of a AWS Glue view that is available in a `glue:GetTable` response. For brevity, this section omits the full response.
 

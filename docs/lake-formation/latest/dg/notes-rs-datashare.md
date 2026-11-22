@@ -1,7 +1,6 @@
 
 
 # Amazon Redshift data sharing limitations
-<a name="notes-rs-datashare"></a>
 
 AWS Lake Formation allows you to securely manage data in a datashare from Amazon Redshift. Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the AWS Cloud. Using the data sharing capability, Amazon Redshift helps you to share data across AWS accounts. For more information about Amazon Redshift data sharing, see [Overview of data sharing in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/data_sharing_intro.html). 
 

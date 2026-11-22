@@ -1,7 +1,6 @@
 
 
 # Granting permissions
-<a name="s3-tables-grant-permissions"></a>
 
  After integrating your S3 tables with AWS Lake Formation, you can grant permissions on the S3 tables catalog and the catalog objects (table buckets, databases, tables) to other IAM roles and users in your account. Lake Formation permissions allows you to define access controls at table, column, and row-level granularity for users of integrated analytical engines such as Amazon Redshift Spectrum and Athena. 
 

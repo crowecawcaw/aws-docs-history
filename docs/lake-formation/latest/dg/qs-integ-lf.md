@@ -1,7 +1,6 @@
 
 
 # Using AWS Lake Formation with Quick
-<a name="qs-integ-lf"></a>
 
  Quick supports exploring datasets managed by Lake Formation permissions in Amazon S3 using Athena.
 

@@ -1,7 +1,6 @@
 
 
 # Metadata permissions
-<a name="metadata-permissions"></a>
 
  Lake Formation provides authorization and access control for the Data Catalog. When an IAM role makes a Data Catalog API call from any system, the Data Catalog verifies the user's data permissions and only returns the metadata that the user has permissions to access. For example, if an IAM role has access to only one table within a database, and a service or a user assuming the role performs the `GetTables` operation, the response will contain only the one table, regardless of the number of tables in the database. 
 

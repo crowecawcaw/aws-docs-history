@@ -1,7 +1,6 @@
 
 
 # Creating a data filter
-<a name="creating-data-filters"></a>
 
 You can create one or more data filters for each Data Catalog table.
 

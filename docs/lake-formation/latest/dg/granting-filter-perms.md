@@ -1,7 +1,6 @@
 
 
 # Granting data filter permissions
-<a name="granting-filter-perms"></a>
 
 You can grant the `SELECT`, `DESCRIBE` and `DROP` Lake Formation permissions on data filters to principals.
 
@@ -42,7 +41,7 @@ You can grant and revoke permissions on data filters by using the AWS Lake Forma
 
   The following are the contents of file `grant-params.json`.
 
-  ```
+  ```json
   {
       "Principal": {"DataLakePrincipalIdentifier": "arn:aws:iam::111122223333:user/datalake_user1"},
       "Resource": {

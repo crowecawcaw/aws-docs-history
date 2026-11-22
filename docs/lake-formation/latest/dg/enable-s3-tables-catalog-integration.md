@@ -1,7 +1,6 @@
 
 
 # Enabling Amazon S3 Tables integration
-<a name="enable-s3-tables-catalog-integration"></a>
 
 You can create Amazon S3 table buckets using Amazon S3 console, and integrate it with AWS analytics services. For more information, see [Using Amazon S3 Tables with AWS analytics services](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-aws.html). 
 

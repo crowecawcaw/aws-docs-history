@@ -1,7 +1,6 @@
 
 
 # Creating a resource link to a shared Data Catalog table
-<a name="create-resource-link-table"></a>
 
 You can create a resource link to a shared table in any AWS Region by using the AWS Lake Formation console, API, or AWS Command Line Interface (AWS CLI).
 

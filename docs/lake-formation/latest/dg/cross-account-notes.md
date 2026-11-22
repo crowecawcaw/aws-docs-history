@@ -1,7 +1,6 @@
 
 
 # Cross-account data sharing best practices and considerations
-<a name="cross-account-notes"></a>
 
  Lake Formation cross-account capabilities allow users to securely share distributed data lakes across multiple AWS accounts, AWS organizations or directly with IAM principals in another account providing fine-grained access to the Data Catalog metadata and underlying data. 
 

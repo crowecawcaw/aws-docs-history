@@ -1,7 +1,6 @@
 
 
 # Granting LF-Tag permissions using the console
-<a name="TBAC-granting-tags-console"></a>
 
 The following steps explain how to grant permissions on LF-Tags by using the **Grant LF-Tag permissions** page on the Lake Formation console. The page is divided into these sections:
 + **Permission types** – The type of permission to grant.

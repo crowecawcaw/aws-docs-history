@@ -1,7 +1,6 @@
 
 
 # Logging AWS Lake Formation API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Lake Formation is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Lake Formation. CloudTrail captures all Lake Formation API calls as events. The calls captured include calls from the Lake Formation console, the AWS Command Line Interface, and code calls to the Lake Formation API actions. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Lake Formation. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Lake Formation, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -75,7 +74,7 @@ The following example shows a CloudTrail event for the `GrantPermissions` action
 
 The next example shows a CloudTrail log entry for the `GetDataAccess` action. Principals do not directly call this API. Rather, `GetDataAccess` is logged whenever a principal or integrated AWS service requests temporary credentials to access data in a data lake location that is registered with Lake Formation.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {
@@ -155,7 +154,7 @@ Enabling Amazon S3 data events in CloudTrail incurs additional charges.
 
 The following log shows the source identity information in an example `s3:GetObject` CloudTrail log.
 
-```
+```json
 "sessionContext": {
     "sessionIssuer": {
         "type": "Role",

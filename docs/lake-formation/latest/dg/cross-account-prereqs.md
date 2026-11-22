@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="cross-account-prereqs"></a>
 
 Before your AWS account can share Data Catalog resources (catalogs, databases and tables) with another account or principals in another account, and before you can access the resources shared with your account, the following prerequisites must be met.
 
@@ -24,7 +23,7 @@ Before your AWS account can share Data Catalog resources (catalogs, databases an
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

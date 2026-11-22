@@ -1,7 +1,6 @@
 
 
 # Implicit Lake Formation permissions
-<a name="implicit-permissions"></a>
 
 AWS Lake Formation grants the following implicit permissions to data lake administrators, database creators, and table creators.
 

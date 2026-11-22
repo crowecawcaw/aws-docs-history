@@ -1,7 +1,6 @@
 
 
 # Assigning LF-Tags to Data Catalog resources
-<a name="TBAC-assigning-tags"></a>
 
 You can assign LF-Tags to Data Catalog resources (databases, tables, and columns) to control access to those resources. Only principals that are granted matching LF-Tags (and principals that are granted access with the named resource method) can access the resources.
 

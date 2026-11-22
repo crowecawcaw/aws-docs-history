@@ -1,7 +1,6 @@
 
 
 # Managing permissions on datasets that use external metastores
-<a name="data-sharing-hms"></a>
 
 With AWS Glue Data Catalog metadata federation (Data Catalog federation), you can connect the Data Catalog to external metastores that store metadata for your Amazon S3 data, and securely manage data access permissions using AWS Lake Formation. You don't have to migrate the metadata from the external metastore into the Data Catalog.
 

@@ -1,7 +1,6 @@
 
 
 # Searching for tables
-<a name="searching-for-tables"></a>
 
 You can use the AWS Lake Formation console to search for Data Catalog tables by name, location, containing database, and more. The search results show only the tables that you have Lake Formation permissions on.
 

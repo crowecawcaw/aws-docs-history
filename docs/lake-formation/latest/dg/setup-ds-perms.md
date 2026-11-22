@@ -1,7 +1,6 @@
 
 
 # Setting up permissions for Amazon Redshift datashares
-<a name="setup-ds-perms"></a>
 
  This topic describes the steps you need to follow to accept a datashare invitation, create a federated database, and grant permissions. You can use the Lake Formation console or the AWS Command Line Interface (AWS CLI). The examples in this topic show the producer cluster, the Data Catalog, and the data consumer in the same account.
 

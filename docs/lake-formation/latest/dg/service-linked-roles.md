@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Lake Formation
-<a name="service-linked-roles"></a>
 
 AWS Lake Formation uses an AWS Identity and Access Management (IAM) *service-linked role*. A service-linked role is a unique type of IAM role that is linked directly to Lake Formation. The service-linked role is predefined by Lake Formation and includes all the permissions that the service requires to call other AWS services on your behalf.
 
@@ -34,7 +33,7 @@ For example, after you register the location `s3://my-kinesis-test/logs`, Lake F
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

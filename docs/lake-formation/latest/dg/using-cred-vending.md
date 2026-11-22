@@ -1,7 +1,6 @@
 
 
 # Using Lake Formation application integration
-<a name="using-cred-vending"></a>
 
 Lake Formation allows third-party services to integrate with Lake Formation and get temporary access to Amazon S3 data on behalf of their users by using [GetTemporaryGlueTableCredentials](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_GetTemporaryGlueTableCredentials.html) and [GetTemporaryGluePartitionCredentials](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_GetTemporaryGluePartitionCredentials.html) operations. This allows third-party services to use the same authorization and credential vending feature that the rest of AWS analytics services use. This section describes how to use these API operations to integrate a third-party query engine with Lake Formation.
 

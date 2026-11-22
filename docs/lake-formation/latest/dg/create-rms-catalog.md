@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon Redshift managed catalog in the AWS Glue Data Catalog
-<a name="create-rms-catalog"></a>
 
  You might not have an Amazon Redshift producer cluster or an Amazon Redshift datashare available today, but want to create and manage Amazon Redshift tables using the AWS Glue Data Catalog. You can get started by creating an AWS Glue managed catalog using the `glue:CreateCatalog` API or the AWS Lake Formation console by setting the catalog type as `Managed` and `Catalog source` as **Redshift.** This step does the following:
 + Creates a catalog in the Data Catalog

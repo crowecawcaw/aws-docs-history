@@ -1,7 +1,6 @@
 
 
 # Hybrid access mode APIs
-<a name="aws-lake-formation-api-hybrid-access-mode"></a>
 
 The Hybrid access mode API section describes operations and data types that are required for setting up hybrid access mode in AWS Lake Formation. See [ Lake Formation API Reference Guide](https://docs.aws.amazon.com/lake-formation/latest/APIReference/Welcome.html) for all AWS Lake Formation API operations and data types.
 

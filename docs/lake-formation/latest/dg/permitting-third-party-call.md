@@ -1,7 +1,6 @@
 
 
 # Enabling permissions for a third-party query engine to call application integration API operations
-<a name="permitting-third-party-call"></a>
 
 Follow these steps to allow a third-party query engine to call application integration API operations through the AWS Lake Formation console, the AWS CLI or API/SDK.
 

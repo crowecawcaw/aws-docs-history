@@ -1,7 +1,6 @@
 
 
 # Managing RLS policies
-<a name="rls-policies-managing"></a>
 
 This section covers how to create, update, delete, list, and manage row-level security (RLS) policies and their attachments.
 

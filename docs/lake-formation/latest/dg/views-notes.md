@@ -1,7 +1,6 @@
 
 
 # Data Catalog views considerations and limitations
-<a name="views-notes"></a>
 
  The following considerations and limitations apply to Data Catalog views. 
 + You cannot create a Data Catalog view from the Lake Formation console. You can create views using the AWS CLI or SDK. 

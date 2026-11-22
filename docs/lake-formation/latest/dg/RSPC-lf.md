@@ -1,7 +1,6 @@
 
 
 # Using AWS Lake Formation with Amazon Redshift Spectrum
-<a name="RSPC-lf"></a>
 
 [Amazon Redshift Spectrum](https://docs.aws.amazon.com/redshift/latest/dg/c-using-spectrum.html) lets you to query and retrieve data in Amazon S3 data lakes without loading data into Amazon Redshift cluster nodes. 
 

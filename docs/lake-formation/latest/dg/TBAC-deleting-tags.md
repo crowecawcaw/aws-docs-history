@@ -1,7 +1,6 @@
 
 
 # Deleting LF-Tags
-<a name="TBAC-deleting-tags"></a>
 
 You can delete LF-Tags that are no longer in use. No check is performed for the presence of the LF-Tag on a Data Catalog resource. If the deleted LF-Tag is associated with a resource, it is no longer visible for the resource, and any principals that were granted permissions on that LF-Tag no longer have the permissions.
 

@@ -1,7 +1,6 @@
 
 
 # Row-level security policies in AWS Lake Formation
-<a name="rls-policies"></a>
 
 Row-level security (RLS) policies in AWS Lake Formation let you grant access to specific rows in a table based on filter expressions. When a principal queries a table with an attached RLS policy, Lake Formation automatically applies the filter so that only matching rows are returned.
 

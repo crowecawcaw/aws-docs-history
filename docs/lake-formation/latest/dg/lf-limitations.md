@@ -1,7 +1,6 @@
 
 
 # Lake Formation best practices, considerations, and limitations
-<a name="lf-limitations"></a>
 
 Use this section to quickly find best practices, considerations, and limitations within AWS Lake Formation.
 

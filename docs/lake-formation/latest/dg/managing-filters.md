@@ -1,7 +1,6 @@
 
 
 # Managing data filters
-<a name="managing-filters"></a>
 
 To implement column-level, row-level, and cell-level security, you can create and maintain data filters. Each data filter belongs to a Data Catalog table. You can create multiple data filters for a table, and then use one or more of them when granting permissions on the table. You can also define and apply data filters on nested columns that have `struct` datatypes allowing users to access only sub-structures of nested columns.
 

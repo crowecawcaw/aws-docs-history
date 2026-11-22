@@ -1,7 +1,6 @@
 
 
 # Creating Amazon Redshift federated catalogs
-<a name="create-ns-catalog"></a>
 
 This topic describes the steps you need to follow to accept a cluster or namespace invitation, create a federated multi-level catalog, and grant permissions to other principals. You can complete these tasks using the Lake Formation console, the AWS Command Line Interface (AWS CLI), or APIs/SDKs. The examples in this topic show the producer cluster/namespace, the Data Catalog, and the data consumer in the same account.
 

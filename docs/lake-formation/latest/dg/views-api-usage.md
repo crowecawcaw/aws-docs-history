@@ -1,7 +1,6 @@
 
 
 # Creating Data Catalog views using AWS Glue APIs
-<a name="views-api-usage"></a>
 
 You can use AWS Glue [CreateTable](https://docs.aws.amazon.com/glue/latest/webapi/API_CreateTable.html), and [UpdateTable](https://docs.aws.amazon.com/glue/latest/webapi/API_UpdateTable.html) APIs to create and update views in the Data Catalog. The `CreateTable` and `UpdateTable` operations have a new `TableInput` structure for `ViewDefinition`, while `SearchTables`, `GetTable`, `GetTables`, `GetTableVersion`, `GetTableVersions` operations provide the `ViewDefinition` in their output syntax for views. Additionally, there is a new `Status` field in the `GetTable` API output. 
 

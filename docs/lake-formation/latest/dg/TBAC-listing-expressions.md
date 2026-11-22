@@ -1,7 +1,6 @@
 
 
 # Listing LF-Tag expressions
-<a name="TBAC-listing-expressions"></a>
 
  You can list the LF-Tag expressions that you have the Describe permissions on. Data lake administrators, LF-Tag expression creators, and Read-only administrators implicitly can see all tag expressions in their account. 
 

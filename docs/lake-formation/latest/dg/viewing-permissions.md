@@ -1,7 +1,6 @@
 
 
 # Viewing database and table permissions in Lake Formation
-<a name="viewing-permissions"></a>
 
 You can view the Lake Formation permissions that are granted on a Data Catalog database or table. You can do so by using the Lake Formation console, the API, or the AWS Command Line Interface (AWS CLI).
 

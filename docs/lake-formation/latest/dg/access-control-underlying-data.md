@@ -1,7 +1,6 @@
 
 
 # Underlying data access control
-<a name="access-control-underlying-data"></a>
 
 When an integrated AWS service requests access to data in an Amazon S3 location that is access-controlled by AWS Lake Formation, Lake Formation supplies temporary credentials to access the data.
 
@@ -32,7 +31,7 @@ When you register a location, you specify an IAM role that grants read/write per
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -76,7 +75,7 @@ For read/write access to underlying data, in addition to Lake Formation permissi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

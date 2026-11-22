@@ -1,7 +1,6 @@
 
 
 # Granting permissions to users and groups
-<a name="grant-permissions-sso"></a>
 
 Your data lake administrator can grant permissions to IAM Identity Center users and groups on Data Catalog resources (databases, tables, and views) to allow easy data access. To grant or revoke data lake permissions, the grantor requires permissions for the following IAM Identity Center actions.
 + [DescribeUser](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DescribeUser.html)

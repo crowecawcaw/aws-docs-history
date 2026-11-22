@@ -1,7 +1,6 @@
 
 
 # Optimizing Iceberg tables
-<a name="data-compaction"></a>
 
 Lake Formation supports multiple table optimization options to enhance the management and performance of Apache Iceberg tables used by the AWS analytical engines and ETL jobs. These optimizers provide efficient storage utilization, improved query performance, and effective data management. There are three types of table optimizers available in Lake Formation: 
 + **Compaction **– Data compaction compacts small data files to reduce storage usage and improve read performance. Data files are merged and rewritten to remove obsolete data and consolidate fragmented data into larger, more efficient files. Compaction can be configured to run automatically or manually triggered as needed. 

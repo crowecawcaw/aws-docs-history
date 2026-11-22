@@ -1,7 +1,6 @@
 
 
 # Granting data permissions using the named resource method
-<a name="granting-cat-perms-named-resource"></a>
 
 The named Data Catalog resource method is a way of granting permissions to AWS Glue Data Catalog objects, such as catalogs, databases, tables, columns, and views, using a centralized approach. It allows you to define resource-based policies that control access to specific resources within your data lake.
 

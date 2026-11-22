@@ -1,7 +1,6 @@
 
 
 # Securing data lakes with row-level access control
-<a name="cbac-tutorial"></a>
 
 AWS Lake Formation row-level permissions allow you to provide access to specific rows in a table based on data compliance and governance policies. If you have large tables storing billions of records, you need a way to enable different users and teams to access only the data they are allowed to see. Row-level access control is a simple and performant way to protect data, while giving users access to the data they need to perform their job. Lake Formation provides centralized auditing and compliance reporting by identifying which principals accessed what data, when, and through which services.
 

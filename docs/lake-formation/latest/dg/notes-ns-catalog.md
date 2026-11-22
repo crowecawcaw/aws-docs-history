@@ -1,7 +1,6 @@
 
 
 # Limitations for bringing Amazon Redshift data warehouse data into the AWS Glue Data Catalog
-<a name="notes-ns-catalog"></a>
 
 You can catalog, and manage access to analytic data in Amazon Redshift data warehouses using the AWS Glue Data Catalog. The following limitations apply:
 + Cross-account sharing is not supported at the federated catalog level. However, you can share individual databases and tables from within a federated catalog across AWS accounts.

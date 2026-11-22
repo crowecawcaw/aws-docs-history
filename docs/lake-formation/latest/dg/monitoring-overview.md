@@ -1,7 +1,6 @@
 
 
 # Security event logging in AWS Lake Formation
-<a name="monitoring-overview"></a>
 
 AWS Lake Formation is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Lake Formation. CloudTrail captures all API calls for Lake Formation as events. The calls captured include calls from the Lake Formation console, the AWS Command Line Interface, and code calls to the Lake Formation API operations. 
 

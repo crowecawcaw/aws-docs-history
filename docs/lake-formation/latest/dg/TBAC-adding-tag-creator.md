@@ -1,7 +1,6 @@
 
 
 # Adding LF-Tag creators
-<a name="TBAC-adding-tag-creator"></a>
 
  By default, data lake administrators can create, update, and delete LF-Tags, assign tags to Data Catalog objects, and grant tag permissions to principals. If you wish to delegate the tag creation and management operations to non-admin principals, the data lake administrator can create LF-Tag creator roles and grant Lake Formation `Create LF-Tag` permission to the roles. With grantable `Create LF-Tag` permission, LF-Tag creators can delegate tag creation and maintenance tasks to other non-administrative principals.
 

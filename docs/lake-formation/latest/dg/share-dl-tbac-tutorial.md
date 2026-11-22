@@ -1,7 +1,6 @@
 
 
 # Sharing a data lake using Lake Formation tag-based access control and named resources
-<a name="share-dl-tbac-tutorial"></a>
 
 This tutorial demonstrates how you can configure AWS Lake Formation to securely share data stored within a data lake with multiple companies, organizations, or business units, without having to copy the entire database. There are two options to share your databases and tables with another AWS account by using Lake Formation cross-account access control:
 + **Lake Formation tag-based access control (recommended)**

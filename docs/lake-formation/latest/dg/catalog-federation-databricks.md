@@ -1,7 +1,6 @@
 
 
 # Federate to Databricks Unity Catalog
-<a name="catalog-federation-databricks"></a>
 
 AWS Glue Data Catalog federates to Databricks using the OAuth2 credentials of a Databricks service principal. This authentication mechanism allows AWS Glue Data Catalog to access the metadata of various objects (such as catalogs, databases, and tables) in Databricks Unity Catalog, based on the privileges associated with the service principal. To ensure access to the right objects, it is essential to grant the service principal with the necessary permissions in Databricks to read metadata of these objects.
 

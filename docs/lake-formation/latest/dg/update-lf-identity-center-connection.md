@@ -1,7 +1,6 @@
 
 
 # Updating IAM Identity Center integration
-<a name="update-lf-identity-center-connection"></a>
 
 After creating the connection, you can add third-party applications for the IAM Identity Center integration to integrate with Lake Formation, and get access to Amazon S3 data on behalf of the users. You can also remove existing applications from the IAM Identity Center integration. You can add or remove applications using Lake Formation console, AWS CLI, and using [UpdateLakeFormationIdentityCenterConfiguration](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_UpdateLakeFormationIdentityCenterConfiguration.html) operation. 
 

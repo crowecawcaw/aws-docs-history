@@ -1,7 +1,6 @@
 
 
 # Onboarding to Lake Formation permissions
-<a name="onboarding-lf-permissions"></a>
 
 AWS Lake Formation uses the AWS Glue Data Catalog (Data Catalog) to store metadata for the Amazon S3 data lakes and external data sources such as Amazon Redshift in the form of catalogs, databases and tables. Metadata in the Data Catalog is organized in a three-level data hierarchy comprising catalogs, databases, and tables. It organizes data from various sources into logical containers called catalogs. Databases are collections of tables. The Data Catalog also contains resource links, which are links to shared databases and tables in external accounts, and are used for cross-account access to data in the data lake. Each AWS account has one Data Catalog per AWS Region.
 

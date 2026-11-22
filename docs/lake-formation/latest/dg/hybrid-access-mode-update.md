@@ -1,7 +1,6 @@
 
 
 # Converting a Lake Formation resource to a hybrid resource
-<a name="hybrid-access-mode-update"></a>
 
 In cases where you're currently using Lake Formation permissions for your Data Catalog databases and tables, you can edit the location registration properties to enable hybrid access mode. This allows you to provide new principals access to the same resources using IAM permission policies for Amazon S3 and AWS Glue actions without interrupting existing Lake Formation permissions.
 

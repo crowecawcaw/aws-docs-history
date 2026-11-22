@@ -1,7 +1,6 @@
 
 
 # Using AWS Lake Formation with Amazon Athena
-<a name="athena-lf"></a>
 
  [Amazon Athena](https://docs.aws.amazon.com/athena/index.html) is a server-less query service that helps you analyze structured, semi-structured, and unstructured data stored in Amazon S3. You can use Athena SQL to query data from CSV, JSON, Parquet, and Avro data formats. Athena SQL also supports table formats like [Apache Hive](https://hive.apache.org/), [Apache Hudi](https://hudi.apache.org/), and [Apache Iceberg](https://iceberg.apache.org/). Athena integrates with the AWS Glue Data Catalog to store metadata of your data sets in Amazon S3. Athena can use Lake Formation to define and maintain access control policies on those data sets.
 

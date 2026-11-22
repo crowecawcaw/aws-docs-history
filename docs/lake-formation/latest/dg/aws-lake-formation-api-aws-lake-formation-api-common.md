@@ -1,7 +1,6 @@
 
 
 # Common data types
-<a name="aws-lake-formation-api-aws-lake-formation-api-common"></a>
 
 The Common Data Types describes miscellaneous common data types in AWS Lake Formation.
 

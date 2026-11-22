@@ -1,7 +1,6 @@
 
 
 # Resource link handling in AWS Glue APIs
-<a name="resource-links-glue-apis"></a>
 
 The following tables explain how the AWS Glue Data Catalog APIs handle database and table resource links. For all `Get*` API operations, only databases and tables that the caller has permissions on get returned. Also, when accessing a target database or table through a resource link, you must have both AWS Identity and Access Management (IAM) and Lake Formation permissions on both the target and the resource link. The Lake Formation permission that is required on resource links is `DESCRIBE`. For more information, see [`DESCRIBE`](lf-permissions-reference.md#perm-describe).
 

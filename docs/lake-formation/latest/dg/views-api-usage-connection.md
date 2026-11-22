@@ -1,7 +1,6 @@
 
 
 # Creating AWS Glue connections to validate status
-<a name="views-api-usage-connection"></a>
 
 To create or update a AWS Glue Data Catalog view using the `CreateTable` or `UpdateTable` operations, you must create a new type of AWS Glue connection for validation, and provide it to the supported analytics engine. These connections are required to use Data Catalog views with Athena or Amazon Redshift. You can create these connections only using the AWS CLI, AWS SDKs, or AWS Glue APIs. You can't use the AWS Management Console to create the AWS Glue connection.
 

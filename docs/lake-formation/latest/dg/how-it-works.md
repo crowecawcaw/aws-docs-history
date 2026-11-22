@@ -1,7 +1,6 @@
 
 
 # AWS Lake Formation: How it works
-<a name="how-it-works"></a>
 
  AWS Lake Formation provides a relational database management system (RDBMS) permissions model to grant or revoke access to Data Catalog resources such as databases, tables, and columns with underlying data in Amazon S3. The easy to manage Lake Formation permissions replace the complex Amazon S3 bucket policies and corresponding IAM policies.
 

@@ -1,7 +1,6 @@
 
 
 # Managing LF-Tag value permissions
-<a name="TBAC-granting-tags"></a>
 
 You can grant the `Drop`, `Alter` permissions on LF-Tags to principals to manage LF-Tag value expressions. You can also grant `Describe`, `Associate`, and `Grant with LF-Tag expressions` permissions on LF-Tags to principals to view the LF-Tags and assign them to Data Catalog resources (databases, tables, and columns). When LF-Tags are assigned to Data Catalog resources, you can use the Lake Formation tag-based access control (LF-TBAC) method to secure those resources. For more information, see [Lake Formation tag-based access control](tag-based-access-control.md).
 

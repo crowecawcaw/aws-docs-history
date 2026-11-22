@@ -1,7 +1,6 @@
 
 
 # Data filter APIs
-<a name="aws-lake-formation-api-data-filter"></a>
 
 The Data Filter APIs describe how to manage data cell filters in AWS Lake Formation.
 

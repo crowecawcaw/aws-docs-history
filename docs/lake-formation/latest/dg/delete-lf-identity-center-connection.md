@@ -1,7 +1,6 @@
 
 
 # Deleting a Lake Formation connection with IAM Identity Center
-<a name="delete-lf-identity-center-connection"></a>
 
  If you would like to delete an existing IAM Identity Center integration, you can do it using Lake Formation console, AWS CLI, or [DeleteLakeFormationIdentityCenterConfiguration](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_DeleteLakeFormationIdentityCenterConfiguration.html) operation.
 

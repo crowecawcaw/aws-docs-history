@@ -1,7 +1,6 @@
 
 
 # Sharing an AWS Glue resource using hybrid access mode
-<a name="hybrid-access-mode-cross-account"></a>
 
 Share data with another AWS account or a principal in another AWS account enforcing Lake Formation permissions without interrupting existing Data Catalog users' IAM based access. 
 

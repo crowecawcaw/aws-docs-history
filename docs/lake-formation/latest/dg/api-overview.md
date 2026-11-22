@@ -1,7 +1,6 @@
 
 
 # Lake Formation workflow for application integration API operations
-<a name="api-overview"></a>
 
 The following is the work flow for application integration API operations:
 
@@ -29,7 +28,7 @@ The application integration API operations for Lake Formation contain additional
 
 1. The query engine makes a `GetInternalUnfilteredMetadata` call, passing in a QSC structure containing a unique query id in the request:
 
-   ```
+   ```JSON
    {
        "QuerySessionContext": {
            "QueryId": "your-unique-identifier-here"
@@ -39,7 +38,7 @@ The application integration API operations for Lake Formation contain additional
 
 1. The `GetInternalUnfilteredMetadata` call will have returned a `QueryAuthorizationId` string in the response. On the next (and any subsequent) query call that accepts a QSC structure in the input, the query engine passes the same QSC structure that now also contains the `QueryAuthorizationId` returned by Lake Formation. Suppose this next call is `GetTemporaryGlueTableCredentials`; the request will contain:
 
-   ```
+   ```JSON
    {
        "QuerySessionContext": {
            "QueryAuthorizationId": "lf-returned-query-authz-id-here",

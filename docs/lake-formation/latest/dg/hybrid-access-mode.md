@@ -1,7 +1,6 @@
 
 
 # Hybrid access mode
-<a name="hybrid-access-mode"></a>
 
 AWS Lake Formation *hybrid access mode* supports two permission pathways to the same AWS Glue Data Catalog objects.  In the first pathway, Lake Formation allows you to select specific principals, and grant them Lake Formation permissions to access catalogs, databases, tables, and views by opting in. The second pathway allows all other principals to access these resources through the default IAM principal policies for Amazon S3 and AWS Glue actions. 
 

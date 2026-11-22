@@ -1,7 +1,6 @@
 
 
 # Data filtering limitations
-<a name="data-filtering-notes"></a>
 
 When you grant Lake Formation permissions on a Data Catalog table, you can include data filtering specifications to restrict access to certain data in query results and engines integrated with Lake Formation. Lake Formation uses data filtering to achieve column-level security, row-level security, and cell-level security. You can define and apply data filters on nested columns if your source data contains nested structures.
 

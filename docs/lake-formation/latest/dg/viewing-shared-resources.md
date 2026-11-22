@@ -1,7 +1,6 @@
 
 
 # Accessing and viewing shared Data Catalog tables and databases
-<a name="viewing-shared-resources"></a>
 
 For the data lake administrator and for principals who have been granted permissions, resources that are shared with your AWS account appear in the Data Catalog as if they were resources in your account. The console displays the account that owns the resource.
 

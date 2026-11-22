@@ -1,7 +1,6 @@
 
 
 # Deleting LF-Tag expressions
-<a name="TBAC-deleting-expressions"></a>
 
 You can delete LF-Tag expressions that are no longer in use. If you have granted permissions to principals on Data Catalog resources using the LF-Tag expression, they will no longer have the permissions.
 

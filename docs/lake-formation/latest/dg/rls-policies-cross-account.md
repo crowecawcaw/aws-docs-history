@@ -1,7 +1,6 @@
 
 
 # Cross-account RLS policies
-<a name="rls-policies-cross-account"></a>
 
 When a table is shared across AWS accounts, row-level security (RLS) policies can be attached by the producer account, the recipient (consumer) account, or both. This section describes how RLS filtering behaves in each cross-account scenario. For general cross-account sharing setup, see [Cross-account data sharing in Lake Formation](cross-account-permissions.md).
 

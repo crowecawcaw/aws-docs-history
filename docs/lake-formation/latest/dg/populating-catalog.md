@@ -1,7 +1,6 @@
 
 
 # Creating objects in the AWS Glue Data Catalog
-<a name="populating-catalog"></a>
 
 AWS Lake Formation uses the AWS Glue Data Catalog (Data Catalog) to store metadata about data lakes, data sources, transforms, and targets. Metadata is data about the underlying data in your dataset. Each AWS account has one Data Catalog per AWS Region.
 

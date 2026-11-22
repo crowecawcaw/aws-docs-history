@@ -1,7 +1,6 @@
 
 
 # Upgrading AWS Glue data permissions to the AWS Lake Formation model
-<a name="upgrade-glue-lake-formation"></a>
 
 AWS Lake Formation permissions enable fine-grained access control for data in your data lake. You can use the Lake Formation permissions model to manage your existing AWS Glue Data Catalog objects and data locations in Amazon Simple Storage Service (Amazon S3).
 
@@ -156,7 +155,7 @@ Create the following policy in IAM and attach it to every user who needs access 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -307,7 +306,7 @@ If you attach this policy to a user before revoking `Super` from `IAMAllowedPrin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

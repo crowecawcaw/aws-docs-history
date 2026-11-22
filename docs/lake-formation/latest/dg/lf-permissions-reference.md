@@ -1,7 +1,6 @@
 
 
 # Lake Formation permissions reference
-<a name="lf-permissions-reference"></a>
 
 To perform AWS Lake Formation operations, principals need both Lake Formation permissions and AWS Identity and Access Management (IAM) permissions. You typically grant IAM permissions using *coarse-grained* access control policies, as described in [Overview of Lake Formation permissions](lf-permissions-overview.md). You can grant Lake Formation permissions by using the console, the API, or the AWS Command Line Interface (AWS CLI). 
 
@@ -32,6 +31,14 @@ Following are the valid Lake Formation permissions available for each type of re
     - CREATE\_TABLE
     - DESCRIBE
     - DROP
+
+- **`User-defined function`**
+  - **Permission:**
+    - ALL (Super)
+    - ALTER
+    - DESCRIBE
+    - DROP
+    - EXECUTE
 
 - ** `Table`**
   - **Permission:**
@@ -100,6 +107,8 @@ Following are the valid Lake Formation permissions available for each type of re
   - **Permission:** SELECT
 
 
+
+For governed Data Catalog user-defined functions, you can use these permissions to control who can discover, run, update, or delete a function. You can also grant the UDF principal `SELECT` on tables. For registration, update, and delete examples, see [Governing AWS Glue Data Catalog user-defined functions with Lake Formation](governing-user-defined-functions.md).
 
 **Topics**
 + [Lake Formation permissions per resource type](#lf-resource-permissions-summary)

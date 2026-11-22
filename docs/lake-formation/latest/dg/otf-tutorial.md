@@ -1,7 +1,6 @@
 
 
 # Setting up permissions for open table storage formats in Lake Formation
-<a name="otf-tutorial"></a>
 
 AWS Lake Formation supports managing access permissions for *Open Table Formats* (OTFs) such as [Apache Iceberg](https://iceberg.apache.org/), [Apache Hudi](https://hudi.incubator.apache.org/), and [Linux foundation Delta Lake](https://delta.io/). In this tutorial, you'll learn how to create Iceberg, Hudi, and Delta Lake with symlink [manifest](https://docs.delta.io/latest/presto-integration.html) tables in the AWS Glue Data Catalog using AWS Glue, set up fine-grained permissions using Lake Formation, and query data using Amazon Athena.
 

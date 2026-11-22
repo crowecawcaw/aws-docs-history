@@ -1,7 +1,6 @@
 
 
 # Creating a data lake from an AWS CloudTrail source
-<a name="getting-started-cloudtrail-tutorial"></a>
 
 This tutorial guides you through the actions to take on the Lake Formation console to create and load your first data lake from an AWS CloudTrail source.
 
@@ -114,7 +113,7 @@ Replace {{<your-s3-cloudtrail-bucket>}} with the Amazon S3 location of your Clou
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

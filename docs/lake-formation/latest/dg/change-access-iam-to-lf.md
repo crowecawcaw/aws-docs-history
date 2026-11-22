@@ -1,7 +1,6 @@
 
 
 # Enable Lake Formation with S3 Tables integration with Data Catalog
-<a name="change-access-iam-to-lf"></a>
 
 This section describes the workflow to migrate access control from IAM privileges to IAM with AWS Lake Formation grants for Amazon S3 Tables integrated with the AWS Glue Data Catalog.
 

@@ -1,7 +1,6 @@
 
 
 # Service-linked role limitations
-<a name="service-linked-role-limitations"></a>
 
  A service-linked role is a special type of IAM role that's linked directly to AWS Lake Formation. This role has pre-defined permissions that allow Lake Formation to perform actions on your behalf across AWS services. 
 

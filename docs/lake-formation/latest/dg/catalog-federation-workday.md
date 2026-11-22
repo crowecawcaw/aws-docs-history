@@ -1,7 +1,6 @@
 
 
 # Federate to Workday Data Connect
-<a name="catalog-federation-workday"></a>
 
 AWS Glue Data Catalog federates to Workday Data Connect using the OAuth2 credentials of a Workday Integration System User (ISU). Workday Data Connect is the zero-copy connector for Workday Data Lake. Workday Data Lake stores Workday data as Apache Iceberg tables and exposes them through an Iceberg REST catalog. With this authentication mechanism, AWS Glue Data Catalog can access the metadata of various objects (such as catalogs, databases, and tables) in your Workday Data Lake. This access is based on the Data Lake access roles assigned to the ISU. To ensure access to the right objects, assign the ISU a Data Lake access role in Workday that includes the tables you want to query.
 

@@ -1,7 +1,6 @@
 
 
 # Managing LF-Tag expressions for metadata access control
-<a name="managing-tag-expressions"></a>
 
  LF-Tag expressions are logical expressions composed of one or more LF-Tags (key-value pairs) used to grant permissions on AWS Glue Data Catalog resources. LF-Tag expressions allow you to define rules that govern access to your data resources based on their metadata tags. You can save these expressions and reuse them across multiple permission grants, ensuring consistency and making it straight-forward to manage changes to the tag ontology over time. 
 

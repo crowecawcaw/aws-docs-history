@@ -1,7 +1,6 @@
 
 
 # Lake Formation tag-based access control best practices and considerations
-<a name="lf-tag-considerations"></a>
 
 You can create, maintain, and assign LF-Tags to control access to Data Catalog databases, tables, and columns.
 

@@ -1,7 +1,6 @@
 
 
 # Row-level security policy limitations
-<a name="rls-policies-limitations"></a>
 
 The following limitations apply to row-level security (RLS) policies in AWS Lake Formation. For more information about RLS policies, see [Row-level security policies in AWS Lake Formation](rls-policies.md).
 

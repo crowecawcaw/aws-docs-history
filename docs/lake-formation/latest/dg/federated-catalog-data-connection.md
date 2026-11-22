@@ -1,7 +1,6 @@
 
 
 # Federating into external data sources in the AWS Glue Data Catalog
-<a name="federated-catalog-data-connection"></a>
 
  You can connect the AWS Glue Data Catalog (Data Catalog) to data warehouses such as Amazon Redshift, Snowflake, cloud databases such as Amazon RDS, Amazon DynamoDB, Oracle, and streaming services such as Amazon MSK, and on-premises systems such as Teradata using AWS Glue connections. These connections are stored in the AWS Glue Data Catalog and registered with AWS Lake Formation, allowing you to create a federated catalog for each available data source. 
 

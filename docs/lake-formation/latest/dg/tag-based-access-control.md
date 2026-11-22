@@ -1,7 +1,6 @@
 
 
 # Lake Formation tag-based access control
-<a name="tag-based-access-control"></a>
 
 Lake Formation tag-based access control (LF-TBAC) is an authorization strategy that defines permissions based on attributes. In Lake Formation, these attributes are called *LF-Tags*. You can attach LF-Tags to Data Catalog resources, and grant permissions to Lake Formation principals on those resources using these LF-Tags. Lake Formation allows operations on those resources when the principal has granted access to a tag value that matches the resource tag value. 
 

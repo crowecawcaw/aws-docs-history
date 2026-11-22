@@ -1,7 +1,6 @@
 
 
 # AWS Lake Formation tutorials
-<a name="getting-started-tutorials"></a>
 
 The following tutorials are organized into three tracks and provide step-by-step instructions on how to build a data lake, ingest data, share, and secure data lakes using AWS Lake Formation:
 

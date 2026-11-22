@@ -1,7 +1,6 @@
 
 
 # Data lake settings APIs
-<a name="aws-lake-formation-api-aws-lake-formation-api-settings"></a>
 
 This section contains the Data lake settings API operations and data types for managing the data lake administrators.
 

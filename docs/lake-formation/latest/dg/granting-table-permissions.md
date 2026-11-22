@@ -1,7 +1,6 @@
 
 
 # Granting table permissions using the named resource method
-<a name="granting-table-permissions"></a>
 
 You can use the Lake Formation console or AWS CLI to grant Lake Formation permissions on Data Catalog tables. You can grant permissions on individual tables, or with a single grant operation, you can grant permissions on all tables in a database. 
 
@@ -144,7 +143,7 @@ aws lakeformation grant-permissions --cli-input-json file://grant-params.json
 ```
 The following are the contents of file `grant-params.json`.  
 
-```
+```json
 {
     "Principal": {"DataLakePrincipalIdentifier": "arn:aws:iam::111122223333:user/datalake_user1"},
     "Resource": {

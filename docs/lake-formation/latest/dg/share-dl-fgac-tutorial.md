@@ -1,7 +1,6 @@
 
 
 # Sharing a data lake using Lake Formation fine-grained access control
-<a name="share-dl-fgac-tutorial"></a>
 
 This tutorial provides step-by-step instructions on how you can quickly and easily share datasets using Lake Formation when managing multiple AWS accounts with AWS Organizations. You define granular permissions to control access to sensitive data.
 

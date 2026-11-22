@@ -1,7 +1,6 @@
 
 
 # Granting permissions on a data location shared with your account
-<a name="regranting-locations"></a>
 
 After a Data Catalog resource is shared with your AWS account, as a data lake administrator, you can grant permissions on the resource to other principals in your account. If the `ALTER` permission is granted on a shared table, and the table points to a registered Amazon S3 location, you must also grant data location permissions on the location. Likewise, if the `CREATE_TABLE` or `ALTER` permission is granted on a shared database and the database has a location property that points to a registered location, you must also grant data location permissions on the location.
 

@@ -1,7 +1,6 @@
 
 
 # Registering an Amazon S3 location in another AWS account
-<a name="register-cross-account"></a>
 
 AWS Lake Formation enables you to register Amazon Simple Storage Service (Amazon S3) locations across AWS accounts. For example, if the AWS Glue Data Catalog is in account A, a user in account A can register an Amazon S3 bucket in account B.
 
@@ -41,7 +40,7 @@ The following procedure assumes that a principal in account 1111-2222-3333, whic
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

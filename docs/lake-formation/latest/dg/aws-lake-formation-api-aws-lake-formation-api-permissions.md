@@ -1,7 +1,6 @@
 
 
 # Permissions APIs
-<a name="aws-lake-formation-api-aws-lake-formation-api-permissions"></a>
 
 The Permissions API section describes operations and data types that are required for granting and revoking permissions in AWS Lake Formation. See [ Lake Formation API Reference Guide](https://docs.aws.amazon.com/lake-formation/latest/APIReference/Welcome.html) for all AWS Lake Formation API operations and data types.
 

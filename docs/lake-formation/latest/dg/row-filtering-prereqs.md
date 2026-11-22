@@ -1,7 +1,6 @@
 
 
 # Permissions required for querying tables with cell-level filtering
-<a name="row-filtering-prereqs"></a>
 
 The following AWS Identity and Access Management (IAM) permissions are required to run queries against tables with cell-level filtering.
 
@@ -10,7 +9,7 @@ The following AWS Identity and Access Management (IAM) permissions are required 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

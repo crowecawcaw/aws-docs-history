@@ -1,7 +1,6 @@
 
 
 # Prerequisites for setting up hybrid access mode
-<a name="hybrid-access-prerequisites"></a>
 
 The following are the prerequisites for setting up hybrid access mode: 
 

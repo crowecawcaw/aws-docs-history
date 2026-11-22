@@ -1,7 +1,6 @@
 
 
 # Running a workflow
-<a name="workflows-running"></a>
 
 You can run a workflow using the Lake Formation console, the AWS Glue console, or the AWS Glue Command Line Interface (AWS CLI), or API.
 

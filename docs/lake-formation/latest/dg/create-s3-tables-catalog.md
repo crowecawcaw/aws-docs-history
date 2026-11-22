@@ -1,7 +1,6 @@
 
 
 # Amazon S3 Tables integration with AWS Glue Data Catalog and AWS Lake Formation
-<a name="create-s3-tables-catalog"></a>
 
 [Amazon S3 Tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables.html) provide S3 storage that's specifically optimized for analytics workloads, improving query performance while reducing costs. The data in S3 Tables is stored in a new bucket type: a *table bucket*, which stores tables as subresources. S3 tables have built-in support for Apache Iceberg standard, which allows you to easily query tabular data in Amazon S3 table buckets using popular query engines like Apache Spark.
 

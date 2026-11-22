@@ -1,7 +1,6 @@
 
 
 # Federate to Snowflake Iceberg Catalog
-<a name="catalog-federation-snowflake"></a>
 
 AWS Glue Data Catalog connects to Snowflake using the OAuth2 credentials of a Snowflake service principal. You can use this feature to connect to Snowflake Horizon and Snowflake Polaris catalogs. AWS Glue Data Catalog requires access to the metadata of various objects (such as catalogs, databases, and tables) in your catalog and uses the privileges associated with the service principal. To ensure access to the right objects, it is essential you configure the service principal in Snowflake with the necessary permissions to read metadata of these objects.
 

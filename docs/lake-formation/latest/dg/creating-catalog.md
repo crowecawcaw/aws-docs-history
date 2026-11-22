@@ -1,7 +1,6 @@
 
 
 # Creating a catalog
-<a name="creating-catalog"></a>
 
 Catalogs represent the highest or top-most level in the three-level metadata hierarchy of the AWS Glue Data Catalog. You can use multiple methods to bring data into the Data Catalog and create multi-level catalogs. 
 

@@ -1,7 +1,6 @@
 
 
 # Lake Formation components
-<a name="how-it-works-components"></a>
 
 AWS Lake Formation relies on the interaction of several components to create and manage your data lake.
 

@@ -1,7 +1,6 @@
 
 
 # Managing LF-Tag permissions using the AWS CLI
-<a name="TBAC-granting-revoking-tags-cli"></a>
 
 You can grant, revoke, and list permissions on LF-Tags by using the AWS Command Line Interface (AWS CLI).
 

@@ -1,7 +1,6 @@
 
 
 # Granting catalog permissions using the named resource method
-<a name="granting-multi-catalog-permissions"></a>
 
 The following steps explain how to grant catalog permissions by using the named resource method.
 

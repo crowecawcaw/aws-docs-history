@@ -1,7 +1,6 @@
 
 
 # How Lake Formation application integration works
-<a name="how-vending-works"></a>
 
 This section describes how to use application integration API operations to integrate a third-party application (query engine) with Lake Formation.
 

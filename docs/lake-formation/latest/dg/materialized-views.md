@@ -1,7 +1,6 @@
 
 
 # Materialized views
-<a name="materialized-views"></a>
 
 **Topics**
 + [Differentiating materialized views from other view types](#materialized-views-differentiating)

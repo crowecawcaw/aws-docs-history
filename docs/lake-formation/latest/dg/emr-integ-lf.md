@@ -1,7 +1,6 @@
 
 
 # Using AWS Lake Formation with Amazon EMR
-<a name="emr-integ-lf"></a>
 
  Amazon EMR is a flexible AWS managed cluster platform on which you can run any custom code on supported big data frameworks like Hadoop Map-Reduce, Spark, Hive, Presto, etc. Organizations also use Amazon EMR to run both batch and stream data processing applications across a highly distributed cluster. Using Apache Spark on Amazon EMR, you can run your data transformations and custom code on database and tables whose permissions are managed by Lake Formation.
 

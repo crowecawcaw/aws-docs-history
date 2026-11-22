@@ -1,7 +1,6 @@
 
 
 # Lake Formation terminology
-<a name="how-it-works-terminology"></a>
 
 The following are some important terms that you will encounter in this guide.
 

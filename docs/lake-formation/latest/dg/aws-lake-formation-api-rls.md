@@ -1,7 +1,6 @@
 
 
 # Row-level security APIs
-<a name="aws-lake-formation-api-rls"></a>
 
 The Row-level security API section describes operations and data types that are required for creating, managing, and attaching row-level security (RLS) policies in AWS Lake Formation. See [ Lake Formation API Reference Guide](https://docs.aws.amazon.com/lake-formation/latest/APIReference/Welcome.html) for all AWS Lake Formation API operations and data types.
 

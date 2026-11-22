@@ -1,7 +1,6 @@
 
 
 # Using AWS Lake Formation with AWS Glue
-<a name="glue-features-lf"></a>
 
 Data engineers and DevOps professionals use AWS Glue with Extract, Transform and Load (ETL) with Apache Spark to perform transformations on their data sets in Amazon S3 and load the transformed data into data lakes and data warehouses for analytics, machine learning, and application development. With different teams accessing the same data set in Amazon S3, it is imperative to grant and restrict permissions based on their roles.
 

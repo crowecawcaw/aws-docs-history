@@ -1,7 +1,6 @@
 
 
 # Prerequisites for granting permissions using attributes
-<a name="abac-prerequisites"></a>
 
 To grant permissions using attribute-based access control (ABAC), you must complete the following prerequisites:
 + Update the **Data Catalog** **settings **to enable Lake Formation permissions for Data Catalog objects. For more information, see the [Change the default permission model or use hybrid access mode](https://docs.aws.amazon.com/lake-formation/latest/dg/initial-lf-config.html#setup-change-cat-settings) section.

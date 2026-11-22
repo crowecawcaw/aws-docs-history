@@ -1,7 +1,6 @@
 
 
 # IAM permissions required to grant or revoke Lake Formation permissions
-<a name="required-permissions-for-grant"></a>
 
 All principals, including the data lake administrator, need the following AWS Identity and Access Management (IAM) permissions to grant or revoke AWS Lake Formation Data Catalog permissions or data location permissions with the Lake Formation API or the AWS CLI:
 + `lakeformation:GrantPermissions`
@@ -21,7 +20,7 @@ The following IAM policy is recommended for principals who are not data lake adm
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -71,7 +70,7 @@ A principal with administrative permissions—for example, with the `Administrat
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

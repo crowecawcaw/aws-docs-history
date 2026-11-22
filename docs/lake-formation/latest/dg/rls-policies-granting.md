@@ -1,7 +1,6 @@
 
 
 # Attaching and detaching RLS policies
-<a name="rls-policies-granting"></a>
 
 This section explains how to attach row-level security (RLS) policies to principals to grant row-level access, and how to detach them to revoke that access. It covers direct attachment, tag-based attachment, ABAC conditions, and default policy setup.
 

@@ -1,7 +1,6 @@
 
 
 # Blueprints and workflows in Lake Formation
-<a name="workflows-about"></a>
 
 A workflow encapsulates a complex multi-job extract, transform, and load (ETL) activity. Workflows generate AWS Glue crawlers, jobs, and triggers to orchestrate the loading and update of data. Lake Formation executes and tracks a workflow as a single entity. You can configure a workflow to run on demand or on a schedule.
 

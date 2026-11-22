@@ -1,7 +1,6 @@
 
 
 # Working with other AWS services
-<a name="working-with-services"></a>
 
  AWS services such as Amazon Athena, AWS Glue, Amazon Redshift Spectrum, and Amazon EMR can use AWS Lake Formation to securely access data in Amazon S3 locations registered with Lake Formation. With Lake Formation, you can define and manage fine-grained access control (FGAC) permissions for your tables in the AWS Glue Data Catalog. Each of these AWS services is a trusted caller to Lake Formation, and Lake Formation provides access to data stored in Amazon S3 through temporary credentials. For more information, see [How Lake Formation application integration works](how-vending-works.md).
 

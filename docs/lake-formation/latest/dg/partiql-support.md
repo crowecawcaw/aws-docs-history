@@ -1,7 +1,6 @@
 
 
 # PartiQL support in row filter expressions
-<a name="partiql-support"></a>
 
 You can construct row filter expressions using a subset of PartiQL data types, operators, and aggregations. Lake Formation does not allow any user defined or standard partiQL functions in the filter expression. You can use comparison operators to compare columns with constants (for example, `views >= 10000`), but you can't compare columns with other columns. 
 

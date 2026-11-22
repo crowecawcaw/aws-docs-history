@@ -1,7 +1,6 @@
 
 
 # Connecting the Data Catalog to an external Hive metastore
-<a name="hms-setup"></a>
 
 To connect the AWS Glue Data Catalog to a Hive metastore, you need to deploy an AWS SAM application called [GlueDataCatalogFederation-HiveMetastore](https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:766175011753:applications/GlueDataCatalogFederation-HiveMetastore). It creates the resources required to connect the external Hive metastore with the Data Catalog. You can access the AWS SAM application in the AWS Serverless Application Repository.
 

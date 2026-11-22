@@ -1,7 +1,6 @@
 
 
 # Granting permissions on Data Catalog resources
-<a name="granting-catalog-permissions"></a>
 
 You can grant **Data permissions** to principals in AWS Lake Formation so that the principals can create and manage Data Catalog resources, and can access underlying data. You can grant **Data lake permissions** on catalogs, databases, tables, and views. When you grant permissions on tables, you can limit access to specific table columns or rows for even more fine-grained access control.
 

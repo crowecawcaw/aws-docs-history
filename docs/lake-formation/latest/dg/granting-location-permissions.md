@@ -1,7 +1,6 @@
 
 
 # Granting data location permissions
-<a name="granting-location-permissions"></a>
 
 Data location permissions in AWS Lake Formation enable principals to create and alter Data Catalog resources that point to designated registered Amazon S3 locations. Data location permissions work in addition to Lake Formation data permissions to secure information in your data lake.
 

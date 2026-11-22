@@ -1,7 +1,6 @@
 
 
 # Including IAM Identity Center user context in CloudTrail logs
-<a name="identity-center-ct-logs"></a>
 
 Lake Formation uses [credential vending](using-cred-vending.md) functionality to provide temporary access to Amazon S3 data. By default, when an IAM Identity Center user submits a query to an integrated analytics service, the CloudTrail logs only include the IAM role assumed by the service to provide short term access. If you use a user-defined role to register the Amazon S3 data location with Lake Formation, you can opt in to include the IAM Identity Center user's context in the CloudTrail events, and then track the users that access your resources.
 

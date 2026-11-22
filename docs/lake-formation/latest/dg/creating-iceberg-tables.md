@@ -1,7 +1,6 @@
 
 
 # Creating Apache Iceberg tables
-<a name="creating-iceberg-tables"></a>
 
  AWS Lake Formation supports creating Apache Iceberg tables that use the Apache Parquet data format in the AWS Glue Data Catalog with data residing in Amazon S3. A table in the Data Catalog is the metadata definition that represents the data in a data store. By default, Lake Formation creates Iceberg v2 tables. For the difference between v1 and v2 tables, see [Format version changes](https://iceberg.apache.org/spec/#appendix-e-format-version-changes) in the Apache Iceberg documentation.
 

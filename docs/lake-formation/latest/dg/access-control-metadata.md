@@ -1,7 +1,6 @@
 
 
 # Metadata access control
-<a name="access-control-metadata"></a>
 
 For access control for Data Catalog resources, the following discussion assumes fine-grained access control with Lake Formation permissions and coarse-grained access control with IAM policies.
 
@@ -54,7 +53,7 @@ The following is an example of a coarse-grained access control IAM policy that c
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -80,7 +79,7 @@ The next example is also coarse-grained but somewhat more restrictive. It permit
 
 ****  
 
-```
+```json
 {  
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -108,7 +107,7 @@ Compare these policies to the following policy, which implements IAM-based fine-
 
 ****  
 
-```
+```json
 {  
     "Version":"2012-10-17",		 	 	 
     "Statement": [

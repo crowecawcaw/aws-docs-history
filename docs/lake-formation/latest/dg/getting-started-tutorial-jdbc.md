@@ -1,7 +1,6 @@
 
 
 # Creating a data lake from a JDBC source in Lake Formation
-<a name="getting-started-tutorial-jdbc"></a>
 
 This tutorial guides you through the steps to take on the AWS Lake Formation console to create and load your first data lake from a JDBC source using Lake Formation. 
 
@@ -25,7 +24,7 @@ This tutorial guides you through the steps to take on the AWS Lake Formation con
 ## Intended audience
 <a name="tut-personas"></a>
 
-The following table lists the roles that are used in this [AWS Lake Formation JDBC tutorial](#getting-started-tutorial-jdbc).
+The following table lists the roles that are used in this [AWS Lake Formation JDBC tutorial](getting-started-tutorial-jdbc.md).
 
 
 | Role | Description | 
@@ -40,7 +39,7 @@ For information about prerequisites for completing the tutorial, see [JDBC tutor
 ## JDBC tutorial prerequisites
 <a name="tut-prereqs"></a>
 
-Before you begin the [AWS Lake Formation JDBC tutorial](#getting-started-tutorial-jdbc), ensure that you've done the following:
+Before you begin the [AWS Lake Formation JDBC tutorial](getting-started-tutorial-jdbc.md), ensure that you've done the following:
 + Complete the tasks in [Getting started with Lake Formation](getting-started-setup.md).
 + Decide on a JDBC-accessible data store that you want to use for the tutorial.
 + Gather the information that is required to create an AWS Glue connection of type JDBC. This Data Catalog object includes the URL to the data store, login credentials, and if the data store was created in an Amazon Virtual Private Cloud (Amazon VPC), additional VPC-specific configuration information. For more information, see [ Defining Connections in the AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html) in the *AWS Glue Developer Guide*.

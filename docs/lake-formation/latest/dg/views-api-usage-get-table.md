@@ -1,7 +1,6 @@
 
 
 # Validating the view generation status
-<a name="views-api-usage-get-table"></a>
 
 When you run the `CreateTable` or `UpdateTable` operations, the `Status` field for the `GetTable` API output shows the details of the view creation status. For `create` requests where the table does not already exist, AWS Glue creates an empty table for the duration of the asynchronous process. When calling `GetTable`, you can pass an optional boolean flag `IncludeStatusDetails`, which shows diagnostic information about the request. In the case of a failure, this flag shows an error message with individual statuses of each dialect.
 

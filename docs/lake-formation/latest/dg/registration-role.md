@@ -1,7 +1,6 @@
 
 
 # Requirements for roles used to register locations
-<a name="registration-role"></a>
 
 You must specify an AWS Identity and Access Management (IAM) role when you register an Amazon Simple Storage Service (Amazon S3) location. AWS Lake Formation assumes that role when accessing the data in that location.
 
@@ -31,7 +30,7 @@ The following are the requirements for a user-defined role:
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -69,7 +68,7 @@ The following are the requirements for a user-defined role:
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -100,7 +99,7 @@ The following are the requirements for a user-defined role:
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -128,7 +127,7 @@ Writing to CloudWatch Logs incurs a charge.
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

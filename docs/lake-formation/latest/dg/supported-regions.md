@@ -1,7 +1,6 @@
 
 
 # Supported Regions
-<a name="supported-regions"></a>
 
 This section has information on supported AWS Regions and functionality for Lake Formation.
 

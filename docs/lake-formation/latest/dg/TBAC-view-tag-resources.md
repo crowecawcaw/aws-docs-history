@@ -1,7 +1,6 @@
 
 
 # Viewing the resources that a LF-Tag is assigned to
-<a name="TBAC-view-tag-resources"></a>
 
 You can view all the Data Catalog resources that a particular LF-Tag key is assigned to. To do so, you need the following Lake Formation permissions:
 + `Describe` or `Associate` on the LF-Tag.

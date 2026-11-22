@@ -1,7 +1,6 @@
 
 
 # Storage access management
-<a name="storage-permissions"></a>
 
  Lake Formation uses [credential vending](using-cred-vending.md) functionality to provide temporary access to Amazon S3 data. Credential vending, or token vending is a common pattern that provides temporary credentials to users, services, or some other entity for the purposes of granting short term access to a resource.
 

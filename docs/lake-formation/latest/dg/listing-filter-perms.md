@@ -1,7 +1,6 @@
 
 
 # Listing data filter permissions
-<a name="listing-filter-perms"></a>
 
 You can use the Lake Formation console to view the permissions granted on data filters. 
 
@@ -33,7 +32,7 @@ To view permissions on a data filter, you must be a Data Lake administrator or h
 
   The following are the contents of file `grant-params.json`.
 
-  ```
+  ```json
   {
       "Principal": {"DataLakePrincipalIdentifier": "arn:aws:iam::111122223333:user/datalake_user1"},
       "Resource": {

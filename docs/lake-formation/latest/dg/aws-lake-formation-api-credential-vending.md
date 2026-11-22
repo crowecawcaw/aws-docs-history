@@ -1,7 +1,6 @@
 
 
 # Credential vending APIs
-<a name="aws-lake-formation-api-credential-vending"></a>
 
 The Credential Vending API section describes the operations and data types related to working with the AWS Lake Formation service to vend credentials and to register and manage a data lake resource.
 

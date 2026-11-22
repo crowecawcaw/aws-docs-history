@@ -1,7 +1,6 @@
 
 
 # Cross-account data sharing in Lake Formation
-<a name="cross-data-sharing-lf"></a>
 
  With Lake Formation, you can share Data Catalog resources (databases and tables) within an AWS account and across accounts in a simple setup using the named resource method or LF-Tags. You can share an entire database or select tables from a database to any IAM principals (IAM roles and users) in an account, to other AWS accounts at the account level, or directly to IAM principals in another account.
 

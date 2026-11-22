@@ -1,7 +1,6 @@
 
 
 # Accepting a resource share invitation from AWS RAM
-<a name="accepting-ram-invite"></a>
 
 If a Data Catalog resource is shared with your AWS account and your account is not in the same AWS organization as the sharing account, you do not have access to the shared resource until you accept a resource share invitation from AWS Resource Access Manager (AWS RAM). As a data lake administrator, you must first query AWS RAM for pending invitations and then accept the invitation.
 

@@ -1,7 +1,6 @@
 
 
 # Deregistering an Amazon S3 location
-<a name="unregister-location"></a>
 
 You can deregister an Amazon Simple Storage Service (Amazon S3) location if you no longer want it to be managed by Lake Formation. Deregistering a location does not affect Lake Formation data location permissions that are granted on that location. You can reregister a location that you deregistered, and the data location permissions remain in effect. You can use a different role to reregister the location.
 

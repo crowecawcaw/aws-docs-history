@@ -1,7 +1,6 @@
 
 
 # Viewing principals and resources in hybrid access mode
-<a name="view-hybrid-access"></a>
 
  Follow these steps to view databases, tables, and principals in hybrid access mode. 
 

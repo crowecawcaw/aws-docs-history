@@ -1,7 +1,6 @@
 
 
 # Querying federated catalogs
-<a name="query-redshift-fed-catalog"></a>
 
 After you grant permissions to other principals, they can sign in and start querying the tables in the federated catalogs by logging into the SQL tools using Amazon Redshift, Amazon EMR, Amazon Athena, and AWS Glue ETL. 
 

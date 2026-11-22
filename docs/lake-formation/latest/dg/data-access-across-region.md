@@ -1,7 +1,6 @@
 
 
 # Accessing tables across Regions
-<a name="data-access-across-region"></a>
 
 Lake Formation supports querying Data Catalog tables across AWS Regions. You can access data in a Region from other Regions using Amazon Athena, Amazon EMR, and AWS Glue ETL by [creating resource links](creating-resource-links.md) in other Regions pointing to the source databases and tables. With cross-Region table access, you can access data across Regions without copying the underlying data or the metadata into the Data Catalog.
 

@@ -1,7 +1,6 @@
 
 
 # Creating a database
-<a name="creating-database"></a>
 
 Metadata tables in the Data Catalog are stored within databases. You can create as many databases as you need, and you can grant different Lake Formation permissions on each database.
 

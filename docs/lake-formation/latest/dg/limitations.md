@@ -1,7 +1,6 @@
 
 
 # Known issues for AWS Lake Formation
-<a name="limitations"></a>
 
 Review these known issues for AWS Lake Formation.
 

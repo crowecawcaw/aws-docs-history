@@ -1,7 +1,6 @@
 
 
 # Using AWS Lake Formation with AWS CloudTrail Lake
-<a name="cloudtrail-lake-integ-lf"></a>
 
 AWS CloudTrail Lake supports exploring event data stores using Amazon Athena with fine-grained permissions in AWS Lake Formation.
 
