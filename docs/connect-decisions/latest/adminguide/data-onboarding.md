@@ -1,7 +1,6 @@
 
 
 # Data Onboarding
-<a name="data-onboarding"></a>
 
 ## 1. Glossary
 <a name="data-onboarding-glossary"></a>

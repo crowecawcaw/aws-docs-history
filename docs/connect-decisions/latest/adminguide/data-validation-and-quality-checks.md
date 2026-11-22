@@ -1,7 +1,6 @@
 
 
 # Data Validation and Quality Checks
-<a name="data-validation-and-quality-checks"></a>
 
 ## Overview
 <a name="data-validation-overview"></a>

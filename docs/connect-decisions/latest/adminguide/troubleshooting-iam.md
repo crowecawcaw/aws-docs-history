@@ -1,7 +1,6 @@
 
 
 # Troubleshooting IAM
-<a name="troubleshooting-iam"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with Amazon Connect Decisions and IAM.
 

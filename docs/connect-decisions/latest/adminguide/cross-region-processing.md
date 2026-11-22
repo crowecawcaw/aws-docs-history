@@ -1,7 +1,6 @@
 
 
 # Cross-region processing
-<a name="cross-region-processing"></a>
 
  Amazon Connect Decisions is powered by Amazon Bedrock and uses cross-region inference (CRIS) to distribute traffic across different AWS Regions to enhance large language model (LLM) inference performance and reliability. With cross-region inference, you get: 
 + Increased throughput and resilience during high demand periods

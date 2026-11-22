@@ -1,7 +1,6 @@
 
 
 # Access Control Filter Toggle
-<a name="access-control-filter-toggle"></a>
 
  As stated earlier, all users can view all exceptions, irrespective of whether they have the appropriate products and sites configured (mutate actions still require appropriate access). While this makes it easier to share knowledge, users that are focused on only specific products and sites can get overwhelmed by exceptions or recommendations for other products and sites. To help users focus on the exceptions and recommendations that matter to them, they can use the access view toggle as follows: 
 +  First, a user with the 'Admin' role must enable the feature on that instance. Navigate to the Instance Settings page from the left navigation bar 

@@ -1,7 +1,6 @@
 
 
 # Data Encryption
-<a name="data-encryption"></a>
 
 This topic provides information specific to Amazon Connect Decisions about encryption in transit and encryption at rest.
 
@@ -34,7 +33,7 @@ The service accesses your key through three mechanisms:
 
 **Encryption context:** All direct KMS operations include the following encryption context:
 
-```
+```json
 {"aws:scn:arn": "arn:aws:scn:<region>:<account-id>:instance/<instance-id>"}
 ```
 
@@ -61,7 +60,7 @@ To use a customer managed KMS key, configure your key policy following these thr
 
 Open the [AWS KMS console](https://console.aws.amazon.com/kms), choose **Create key**, and replace the default policy with the following. Replace `<customer-account-id>` with your AWS account ID and `<region>` with your AWS Region.
 
-```
+```json
 {
           "Version": "2012-10-17",		 	 	 
           "Statement": [
@@ -264,7 +263,7 @@ Updated policy (showing only the statements that change):
 
 **AllowScnRetrievalOfKeyMetadata** — add `ArnLike` condition:
 
-```
+```json
 "Condition": {
           "StringEquals": {
             "aws:SourceAccount": "<customer-account-id>"
@@ -277,7 +276,7 @@ Updated policy (showing only the statements that change):
 
 **AllowScnEncryptDecryptWithContext** — add `EncryptionContext` and `SourceArn` conditions:
 
-```
+```json
 "Condition": {
           "StringEquals": {
             "aws:SourceAccount": "<customer-account-id>",
@@ -291,7 +290,7 @@ Updated policy (showing only the statements that change):
 
 **AllowInstanceRoleEncryptDecrypt** — add `EncryptionContext` condition:
 
-```
+```json
 "Condition": {
           "ArnLike": {
             "aws:PrincipalArn": "arn:aws:iam::<customer-account-id>:role/scn-instance-role-*"

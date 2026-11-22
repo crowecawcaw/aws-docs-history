@@ -1,7 +1,6 @@
 
 
 # Release Notes
-<a name="release-notes"></a>
 
  We recommend subscribing to the RSS feed so updates to these notes are delivered to you automatically. Choose the RSS button at the top of this page and copy the feed URL into your RSS reader. For example, you can subscribe to an RSS feed in Outlook. 
 

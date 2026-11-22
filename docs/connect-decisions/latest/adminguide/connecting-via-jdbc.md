@@ -1,7 +1,6 @@
 
 
 # Connecting via JDBC
-<a name="connecting-via-jdbc"></a>
 
 ## Connecting to Your Database with JDBC
 <a name="connecting-via-jdbc-intro"></a>
@@ -69,7 +68,7 @@ Before connecting your database to Amazon Connect Decisions, you'll need to set 
    + In the KMS key policy editor, append the following statement to your existing "Statement" array
    + This policy grants your account full control and allows Amazon Connect Decisions's services (Secrets Manager and Glue) to decrypt your database credentials
 
-   ```
+   ```json
    {
          "Sid": "Allow GDIS service to decrypt",
          "Effect": "Allow",
@@ -137,7 +136,7 @@ Now that you have a KMS key, you'll create a secret in AWS Secrets Manager to se
 1. **Add Resource Permissions**
    + Click "Edit Permissions". In the policy editor, paste the following policy. This policy allows Amazon Connect Decisions's services to read your secret
 
-   ```
+   ```json
    {
          "Version" : "2012-10-17",		 	 	 
          "Statement" : [ {

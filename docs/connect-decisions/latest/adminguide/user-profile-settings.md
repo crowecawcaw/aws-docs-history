@@ -1,7 +1,6 @@
 
 
 # User Profile Settings
-<a name="user-profile-settings"></a>
 
  Users can access their profile settings by selecting their name in the top right corner of the application and choosing **Profile** from the dropdown menu. The Profile page allows users to manage their account information, notification preferences, and data access settings. 
 

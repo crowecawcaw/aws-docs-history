@@ -1,7 +1,6 @@
 
 
 # Bulk access assignment
-<a name="bulk-access-assignment"></a>
 
 As an Amazon Connect Decisions administrator, you can set data access for many users at once from a single CSV file, instead of updating each user one at a time. In one file you can add users and give them a role, grant access to products and sites, and remove access — for up to 50 users at a time. You review exactly what will change for each user before anything is applied.
 

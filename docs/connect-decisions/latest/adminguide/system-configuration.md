@@ -1,7 +1,6 @@
 
 
 # System Configuration
-<a name="system-configuration"></a>
 
 Settings in Amazon Connect Decisions are organized by scope and audience. Some settings are personal, allowing each user to tailor their own experience. Others are instance-level configurations managed by administrators that affect how the system behaves for all users or how it connects to your broader technology environment.
 

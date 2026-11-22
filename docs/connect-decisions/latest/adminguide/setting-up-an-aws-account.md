@@ -1,7 +1,6 @@
 
 
 # Setting up an AWS account
-<a name="setting-up-an-aws-account"></a>
 
 Use this section to create an AWS account and create an IAM user. For information on best practices to create an AWS account, see [Establishing your best practice AWS environment](https://aws.amazon.com/organizations/getting-started/best-practices/).
 

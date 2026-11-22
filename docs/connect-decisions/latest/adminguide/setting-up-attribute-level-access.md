@@ -1,7 +1,6 @@
 
 
 # Setting up attribute-level access
-<a name="setting-up-attribute-level-access"></a>
 
  Attribute-Based Access Control (ABAC) adds an additional layer of precision by restricting access based on business context. Using product and site attributes, you can ensure that planners only see details for the specific products and locations they manage, while managers maintain visibility across their teams' areas of responsibility. 
 

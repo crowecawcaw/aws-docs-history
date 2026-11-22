@@ -1,7 +1,6 @@
 
 
 # Configuring Connections to your ERP
-<a name="configuring-connections-to-your-erp"></a>
 
  To enable Amazon Connect Decisions to perform operations on your behalf in your Enterprise Resource Planning (ERP) system, you must configure a Connection that specifies the necessary connection parameters and the credentials Amazon Connect Decisions should use during the operation. 
 
@@ -19,7 +18,7 @@
      + Key: `password`; Value: `<{{password}}>`
    +  If using the `Plaintext` tab to enter the secret in the console, enter a JSON object with the two pairs: 
 
-     ```
+     ```json
      {
            "Username": "<{{username}}>",
            "Password": "<{{password}}>"
@@ -39,7 +38,7 @@
 1.  Update your KMS policy to allow Amazon Connect Decisions to access your key through the instance role 
    +  Note: Replace `<YourAccountNumber>` and `<YourInstanceID>` with your AWS account and Amazon Connect Decisions Instance ID. 
 
-   ```
+   ```json
    {
            "Sid": "Allow Amazon Connect Decisions to access the AWS KMS Key",
            "Effect": "Allow",
@@ -62,7 +61,7 @@
 1.  Update the inline policy for your instance role to grant permission on the key 
    +  Note: Replace `<YourSecretArn>`, `<YourAccountNumber>` and `<YourInstanceID>` with your Secret ARN, AWS account and AWS Supply Chain Instance ID. 
 
-   ```
+   ```json
    {
            "Version": "2012-10-17",		 	 	 
            "Statement": [
@@ -91,7 +90,7 @@
 1.  Update the Secrets Manager resource Policy for your Secret 
    +  Note: Replace `<YourSecretArn>` with the ARN of your Secret 
 
-   ```
+   ```json
    {
           "Version":"2012-10-17",		 	 	 
           "Statement":[

@@ -1,7 +1,6 @@
 
 
 # Managing user permission roles
-<a name="managing-user-permission-roles"></a>
 
 ## Adding users
 <a name="managing-user-permission-roles-adding-users"></a>

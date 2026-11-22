@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples
-<a name="identity-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Amazon Connect Decisions resources. They also can't perform tasks by using the AWS Management Console, AWS Command Line Interface (AWS CLI), or AWS API. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies. The administrator can then add the IAM policies to roles, and users can assume the roles.
 
@@ -12,7 +11,7 @@ To learn how to create an IAM identity-based policy by using these example JSON 
 
 Below is the IAM policy needed to create, update, or delete instances through the console or public API (excludes all Webapp operations).
 
-```
+```json
 {
             "Version": "2012-10-17",		 	 	 
             "Statement": [

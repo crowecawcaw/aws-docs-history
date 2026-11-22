@@ -1,7 +1,6 @@
 
 
 # User Assignment
-<a name="user-assignment"></a>
 
 User Assignment is a feature that makes it easier to balance insights between multiple users. Using User Assignment, customers can assign specific insights to users to better reflect how these tasks are shared in real life. It works as follows:
 + Whenever an exception is created, the system checks the product and site for which the exception is created against all users that have the same product OR site configured for their access control

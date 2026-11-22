@@ -1,7 +1,6 @@
 
 
 # Overview of roles and permissions
-<a name="overview-of-roles-and-permissions"></a>
 
  As an Amazon Connect Decisions administrator, you control what users can access by assigning them a role. Each role defines a set of permissions that determine what the user can view and do across the application. Each user can hold one role at a time. 
 

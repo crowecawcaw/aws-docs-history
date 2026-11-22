@@ -1,7 +1,6 @@
 
 
 # Common Setup Issues
-<a name="common-setup-issues"></a>
 
 ## Referential integrity errors: "product\_id values do not match any id in Product dataset"
 <a name="common-setup-issues-referential-integrity-errors"></a>
