@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Activating support in AWS WA Tool for other AWS services
-<a name="activate-integrations"></a>
 
 Activating Organization access permits AWS Well-Architected Tool to gather information about your organization's structure to share resources more easily (see [Activate resource sharing within AWS Organizations](sharing.md#getting-started-sharing-orgs) for more information). Activating Discovery support gathers information from [AWS Trusted Advisor](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html), [AWS Service Catalog AppRegistry](https://docs.aws.amazon.com/servicecatalog/latest/arguide/intro-app-registry.html), and related resources (such as CloudFormation stacks in AppRegistry resource collections) to help you more easily discover the information needed to answer Well-Architected review questions, and tailor the Trusted Advisor checks for a workload. 
 

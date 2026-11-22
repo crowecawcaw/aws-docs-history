@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # AWS Well-Architected Tool Connector for Jira
-<a name="jira"></a>
 
  You can use the AWS Well-Architected Tool Connector for Jira to link your Jira account with AWS Well-Architected Tool and sync improvement items from your workloads to Jira projects to help you create a closed-loop mechanism in implementing improvements. 
 

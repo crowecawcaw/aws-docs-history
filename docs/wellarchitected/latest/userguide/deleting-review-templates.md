@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Deleting a review template in AWS WA Tool
-<a name="deleting-review-templates"></a>
 
 **To delete a review template**
 

@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Sharing a review template in AWS WA Tool
-<a name="sharing-review-templates"></a>
 
 Review templates can be shared with users or accounts, or they can be shared with an entire organization or organizational unit.
 

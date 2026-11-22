@@ -2,8 +2,7 @@
 
 AWS Well-Architected Agent is in preview release and is subject to change.
 
-# Export recommendations in AWS Well-Architected Agent
-<a name="agent-export-rec"></a>
+# Exporting recommendations in AWS Well-Architected Agent
 
 Export your recommendations in AWS WA Agent to share with stakeholders or integrate with external systems for tracking and implementation planning. Recommendations are exported in the CSV file format.
 

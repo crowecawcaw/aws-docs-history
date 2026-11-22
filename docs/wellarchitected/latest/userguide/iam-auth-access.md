@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Providing users, groups, or roles access to AWS WA Tool
-<a name="iam-auth-access"></a>
 
 You can grant users, groups, or roles full control or read-only access to AWS Well-Architected Tool.
 

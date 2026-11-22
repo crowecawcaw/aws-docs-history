@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Share invitations
-<a name="invitations"></a>
 
 A share invitation is a request to share a workload, custom lens, or review template owned by another AWS account. A workload or lens can be shared with all users in an AWS account, individual users, or both. 
 + If you accept a workload invitation, the workload is added to your **Workloads** and **Dashboard** pages. 

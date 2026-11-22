@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # People and culture
-<a name="people-and-culture"></a>
 
  Every workload needs an owner, and many people and teams may be involved in the lifecycle of a workload. However, before running a WAFR, define a single-threaded owner (STO) for the workload. 
 

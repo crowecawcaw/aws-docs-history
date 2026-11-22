@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Well-Architected Framework Review (WAFR)
-<a name="wa-framework-review"></a>
 
  The [Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/) describes key concepts and design principles for creating and running workloads in the cloud. It helps you understand the pros and cons of decisions you make while building systems on AWS. With the help of the Framework you will learn architectural best practices for designing and operating reliable, secure, efficient, cost-effective, and sustainable applications. 
 

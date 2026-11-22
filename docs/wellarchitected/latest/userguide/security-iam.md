@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Identity and access management for AWS Well-Architected
-<a name="security-iam"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use AWS Well-Architected resources. IAM is an AWS service that you can use with no additional charge.
 
@@ -11,10 +10,11 @@ AWS Identity and Access Management (IAM) is an AWS service that helps an adminis
 + [Audience](#security_iam_audience)
 + [Authenticating with identities](#security_iam_authentication)
 + [Managing access using policies](#security_iam_access-manage)
-+ [AWS Well-Architected Tool access model](security_iam_service-with-iam.md)
++ [How AWS Well-Architected works with IAM](security_iam_service-with-iam.md)
 + [AWS Well-Architected Agent access model](security-iam-agent.md)
 + [AWS Well-Architected identity-based policy examples](security_iam_id-based-policy-examples.md)
 + [AWS managed policies for AWS Well-Architected](security-iam-awsmanpol.md)
++ [Using service-linked roles for AWS Well-Architected](using-service-linked-roles.md)
 + [Troubleshooting AWS Well-Architected identity and access](security_iam_troubleshoot.md)
 
 ## Audience
@@ -22,7 +22,7 @@ AWS Identity and Access Management (IAM) is an AWS service that helps an adminis
 
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 + **Service user** - request permissions from your administrator if you cannot access features (see [Troubleshooting AWS Well-Architected identity and access](security_iam_troubleshoot.md))
-+ **Service administrator** - determine user access and submit permission requests (see [AWS Well-Architected Tool access model](security_iam_service-with-iam.md))
++ **Service administrator** - determine user access and submit permission requests (see [How AWS Well-Architected works with IAM](security_iam_service-with-iam.md))
 + **IAM administrator** - write policies to manage access (see [AWS Well-Architected identity-based policy examples](security_iam_id-based-policy-examples.md))
 
 ## Authenticating with identities

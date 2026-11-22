@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # AWS Well-Architected glossary
-<a name="definitions"></a>
 
 The following defines common terms used in AWS Well-Architected Tool, AWS Well-Architected Agent, and the AWS Well-Architected Framework.
 

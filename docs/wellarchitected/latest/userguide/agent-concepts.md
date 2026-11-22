@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # AWS Well-Architected Agent Concepts and terminology
-<a name="agent-concepts"></a>
 
 This topic defines the key concepts you need to understand before using AWS Well-Architected Agent.
 
@@ -17,6 +16,8 @@ AWS Well-Architected Tool also has a feature named profiles. AWS WA Tool profile
 
 When you create a profile, you can create an execution role during the setup process or select an existing one. You create access roles in your workload accounts before or after profile creation, then link them by updating the access role trust policies. If you choose to monitor only the current account during profile creation, AWS WA Agent creates both the execution role and the access role automatically, so you don't need to create any roles manually.
 
+You can also create an organizational profile with AWS Organizations. When you use AWS Organizations during profile creation, AWS WA Agent creates the required roles automatically for the organization accounts you select, and you select accounts from your organization structure rather than entering account IDs manually. For more information, see [Step 1: Enter profile details](agent-getting-started.md#agent-create-profile).
+
 Each profile has the following attributes:
 + A unique name within an AWS account and AWS Region.
 + Business goals that direct the optimization focus.
@@ -27,8 +28,8 @@ Each profile has the following attributes:
 <a name="agent-concept-roles"></a>
 
 AWS WA Agent uses two types of IAM roles to discover and analyze resources across your accounts:
-+ **Execution role** – An IAM role in the same account as your AWS WA Agent profile. You create this role during profile setup or select an existing one. AWS WA Agent assumes this role to orchestrate resource discovery across your configured accounts. The trust policy allows the `wellarchitected.amazonaws.com` service principal to assume the role.
-+ **Access role** – An IAM role that you create in each account you want AWS WA Agent to analyze. The access role is encouraged to use the `WellArchitectedAgentResourceScanning` managed policy, which grants read-only access to resource metadata and configuration. Alternatively, you can scope the access role permissions to only the actions you want AWS WA Agent to perform on your behalf. You update the trust policy on each access role to allow the execution role to assume it.
++ **Execution role:** An IAM role in the same account as your AWS WA Agent profile. You create this role during profile setup or select an existing one. AWS WA Agent assumes this role to orchestrate resource discovery across your configured accounts. The trust policy allows the `wellarchitected.amazonaws.com` service principal to assume the role.
++ **Access role:** An IAM role that you create in each account you want AWS WA Agent to analyze. The access role is encouraged to use the `WellArchitectedAgentResourceScanning` managed policy, which grants read-only access to resource metadata and configuration. Alternatively, you can scope the access role permissions to only the actions you want AWS WA Agent to perform on your behalf. You update the trust policy on each access role to allow the execution role to assume it.
 
 Neither role grants AWS WA Agent permission to modify your resources. The execution role's only permission is to assume your access roles, and access roles grant read-only access to resource metadata and configuration.
 
@@ -65,9 +66,9 @@ Application context includes the following:
 <a name="agent-concept-rec-types"></a>
 
 AWS WA Agent generates three types of recommendations:
-+ **Resource** – Targets a specific resource such as an Amazon EC2 instance, Lambda function, or Amazon RDS database. Identifies optimization opportunities at the individual resource level.
-+ **Application** – Spans multiple related resources within a discovered application. Considers how resources interact and provides guidance that accounts for relationships between components.
-+ **Architecture** – Generated from IaC template analysis. Upload your CloudFormation, Terraform, or AWS CDK templates and receive recommendations aligned to AWS Well-Architected best practices, along with deployment-ready updated templates.
++ **Resource:** Targets a specific resource such as an Amazon EC2 instance, Lambda function, or Amazon RDS database. Identifies optimization opportunities at the individual resource level.
++ **Application:** Spans multiple related resources within a discovered application. Considers how resources interact and provides guidance that accounts for relationships between components.
++ **Architecture:** Generated from IaC template analysis. Upload your CloudFormation, Terraform, or AWS CDK templates and receive recommendations aligned to AWS Well-Architected best practices, along with deployment-ready updated templates.
 
 ## Architecture reviews
 <a name="agent-concept-arch-reviews"></a>
@@ -75,3 +76,8 @@ AWS WA Agent generates three types of recommendations:
 Architecture reviews are on-demand analyses of your Infrastructure as Code (IaC) projects against the AWS Well-Architected Framework. You provide an Amazon S3 URI pointing to your IaC files or upload a single document directly through the console. Select which pillars to review, and AWS WA Agent returns architecture-type recommendations with updated templates.
 
 Architecture reviews differ from resource and application recommendations in that they target templates before deployment, enabling you to identify issues before they reach production.
+
+## Organization reports
+<a name="agent-concept-org-reports"></a>
+
+An Organization report aggregates AWS Well-Architected Agent recommendations across the AWS accounts in your organization so that you can view coverage organization-wide. Organization reports depend on an organizational profile and on trusted access with AWS Organizations. For more information, see [Organization reports](agent-org-reports.md).

@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # The AWS Well-Architected Tool Shares tab
-<a name="details-permissions"></a>
 
 To display or modify your workload invitations, choose the **Shares** tab. This tab is only displayed for the owner of a workload.
 

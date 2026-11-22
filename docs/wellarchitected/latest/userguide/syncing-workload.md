@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Syncing a workload
-<a name="syncing-workload"></a>
 
  For Automatic syncing, the connector automatically syncs improvement items when you update a workload (for example, when you complete a question or select a new best practice). 
 

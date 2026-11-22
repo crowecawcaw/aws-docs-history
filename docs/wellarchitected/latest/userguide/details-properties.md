@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # The AWS Well-Architected Tool Properties tab
-<a name="details-properties"></a>
 
 To display the properties of your workload, choose the **Properties** tab. Initially, these properties are the values that were specified when the workload was defined. Choose **Edit** to make changes. Only the owner of the workload can make changes.
 

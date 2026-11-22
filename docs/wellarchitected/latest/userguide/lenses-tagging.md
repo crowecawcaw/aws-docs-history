@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Adding tags to a custom lens in AWS WA Tool
-<a name="lenses-tagging"></a>
 
 **To add tags to a custom lens**
 

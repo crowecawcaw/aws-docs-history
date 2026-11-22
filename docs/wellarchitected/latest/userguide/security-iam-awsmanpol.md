@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # AWS managed policies for AWS Well-Architected
-<a name="security-iam-awsmanpol"></a>
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
 
@@ -18,7 +17,7 @@ For more information, see [AWS managed policies](https://docs.aws.amazon.com/IAM
 
 You can attach the `WellArchitectedConsoleFullAccess` policy to your IAM identities.
 
-This policy grants full access to AWS Well-Architected, including the Well-Architected Tool for workload reviews and lens management, and AWS Well-Architected Agent for automated architecture analysis. Includes permissions for AWS Organizations delegated administrator management, AWS Trusted Advisor data access, service-linked role management for Well-Architected service principals, IAM role and policy creation scoped to `service-role/*` for console-guided execution role setup, and `iam:PassRole` conditioned to Well-Architected and Agent service principals. 
+This policy grants full access to AWS Well-Architected, including the Well-Architected Tool for workload reviews and lens management, and AWS Well-Architected Agent for automated architecture analysis. It includes permissions for AWS Organizations delegated administrator management, AWS Trusted Advisor data access, service-linked role management for Well-Architected service principals, IAM role and policy creation scoped to `service-role/*` for console-guided execution role setup, and `iam:PassRole` conditioned to Well-Architected and Agent service principals.
 
 For more details about this policy, including the full JSON policy document, see [WellArchitectedConsoleFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/WellArchitectedConsoleFullAccess.html) in the *AWS Managed Policy Reference*.
 
@@ -27,7 +26,7 @@ For more details about this policy, including the full JSON policy document, see
 
 You can attach the `WellArchitectedConsoleReadOnlyAccess` policy to your IAM identities.
 
-This policy grants read-only access to AWS Well-Architected, including the Well-Architected Tool for viewing workloads and lenses, and AWS Well-Architected Agent for viewing architecture analysis results. Includes read-only permissions for AWS Organizations organization structure visibility and AWS Trusted Advisor data access. 
+This policy grants read-only access to AWS Well-Architected, including the Well-Architected Tool for viewing workloads and lenses, and AWS Well-Architected Agent for viewing architecture analysis results. It includes read-only permissions for AWS Organizations organization structure visibility and AWS Trusted Advisor data access.
 
 For more details about this policy, including the full JSON policy document, see [WellArchitectedConsoleReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/WellArchitectedConsoleReadOnlyAccess.html) in the *AWS Managed Policy Reference*.
 
@@ -43,62 +42,53 @@ For more details about this policy, including the full JSON policy document, see
 ## AWS managed policy: AWSWellArchitectedOrganizationsServiceRolePolicy
 <a name="security-iam-awsmanpol-AWSWellArchitectedOrganizationsServiceRolePolicy"></a>
 
-You can attach the `AWSWellArchitectedOrganizationsServiceRolePolicy` policy to your IAM identities.
+This policy is attached to the AWS WA Tool service-linked role (`AWSServiceRoleForWellArchitected`) and cannot be attached to your users, groups, or roles.
 
-This policy grants administrative permissions in AWS Organizations that are required to support AWS Well-Architected Tool integration with Organizations. These permissions allow the organization management account to enable resource sharing with AWS WA Tool. 
-
-**Permissions details**
-
-This policy includes the following permissions.
-+ `organizations:ListAWSServiceAccessForOrganization` – Allows principals to check if the AWS service access is enabled for AWS WA Tool. 
-+ `organizations:DescribeAccount` – Allows principals to retrieve information about an account in the organization.
-+ `organizations:DescribeOrganization` – Allows principals to retrieve information about the organization configuration.
-+ `organizations:ListAccounts` – Allows principals to retrieve the list of accounts that belong to an organization.
-+ `organizations:ListAccountsForParent` – Allows principals to retrieve the list of accounts that belong to an organization from a given root node in the organization.
-+ `organizations:ListChildren` – Allows principals to retrieve the list of accounts and organization units that belong to an organization from a given root node in the organization.
-+ `organizations:ListParents` – Allows principals to retrieve the list of immediate parents specified by the OU or account within an organization.
-+ `organizations:ListRoots` – Allows principals to retrieve the list of all root nodes within an organization.
+This policy grants administrative permissions in AWS Organizations that are required to support AWS Well-Architected Tool integration with Organizations. These permissions allow the organization management account to enable resource sharing with AWS WA Tool. It grants read access to the organization's accounts, organizational units, roots, and service-access status needed to enable and operate resource sharing.
 
 For more details about this policy, including the full JSON policy document, see [AWSWellArchitectedOrganizationsServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSWellArchitectedOrganizationsServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
 
 ## AWS managed policy: AWSWellArchitectedDiscoveryServiceRolePolicy
 <a name="security-iam-awsmanpol-AWSWellArchitectedDiscoveryServiceRolePolicy"></a>
 
-You can attach the `AWSWellArchitectedDiscoveryServiceRolePolicy` policy to your IAM identities.
+This policy is attached to the AWS WA Tool service-linked role (`AWSServiceRoleForWellArchitected`) and cannot be attached to your users, groups, or roles.
 
-This policy allows AWS Well-Architected Tool to access AWS services and resources that relate to AWS WA Tool resources. 
-
-**Permissions details**
-
-This policy includes the following permissions.
-+ `trustedadvisor:DescribeChecks` – Lists Trusted Advisor checks available. 
-+ `trustedadvisor:DescribeCheckItems` – Fetches Trusted Advisor check data, including status and resources flagged by Trusted Advisor.
-+ `servicecatalog:GetApplication` – Fetches details of an AppRegistry application.
-+ `servicecatalog:ListAssociatedResources` –Lists resources associated with an AppRegistry application. 
-+ `cloudformation:DescribeStacks` –Gets details of CloudFormation stacks.
-+ `cloudformation:ListStackResources` –Lists resources associated with the CloudFormation stacks. 
-+ `resource-groups:ListGroupResources` –Lists resources from a ResourceGroup. 
-+ `tag:GetResources` – Required for ListGroupResources.
-+ `servicecatalog:CreateAttributeGroup` – Creates a service-managed attribute group when required.
-+ `servicecatalog:AssociateAttributeGroup` – Associates a service-managed attribute group with an AppRegistry application.
-+ `servicecatalog:UpdateAttributeGroup` – Updates a service-managed attribute group.
-+ `servicecatalog:DisassociateAttributeGroup` –Disassociates a service-managed attribute group from an AppRegistry application.
-+ `servicecatalog:DeleteAttributeGroup` – Deletes a service-managed attribute group when required.
+This policy supports AWS Well-Architected Tool resource discovery by granting read access to Trusted Advisor checks, AppRegistry applications and their associated resources, CloudFormation stacks and their resources, and resource groups (including resource tagging), and by letting the AWS WA Tool manage the service-managed AppRegistry attribute groups for those applications. These permissions let the AWS WA Tool discover and associate the AWS resources related to your Well-Architected workloads.
 
 For more details about this policy, including the full JSON policy document, see [AWSWellArchitectedDiscoveryServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSWellArchitectedDiscoveryServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
+
+## AWS managed policy: AWSWellArchitectedAgentResourceScanningServiceRolePolicy
+<a name="security-iam-awsmanpol-AWSWellArchitectedAgentResourceScanningServiceRolePolicy"></a>
+
+This policy is attached to the `` service-linked role in each account of your organization. AWS Well-Architected Agent uses this role to analyze accounts for organizational profiles. When you enable AWS Organizations integration, AWS Organizations creates this role in your member accounts, and AWS WA Agent creates it in your management account.
+
+This policy grants AWS WA Agent read-only access to AWS resource configurations, security settings, and operational data to generate optimization recommendations. The policy provides broad read-only access beecause AWS WA Agent must evaluate cross-service configurations holistically. All actions are read-only, such as `Get*`, `Describe*`, `List*`, and `BatchGet*`. No create, update, delete, or invoke actions are included. Each permission is limited to resources in the account that contains the service-linked role.
+
+For more details about this policy, including the full JSON policy document, see [AWSWellArchitectedAgentResourceScanningServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSWellArchitectedAgentResourceScanningServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
+
+## AWS managed policy: AWSWellArchitectedAgentOrganizationsServiceRolePolicy
+<a name="security-iam-awsmanpol-AWSWellArchitectedAgentOrganizationsServiceRolePolicy"></a>
+
+This policy is attached to the `` service-linked role in your organization's management account. AWS Well-Architected Agent creates this role when you enable AWS Organizations integration.
+
+This policy grants AWS WA Agent read-only access to your organization structure and delegated administrator information in AWS Organizations. AWS WA Agent uses this access to determine which accounts and organizational units are in scope for organizational profiles and reports. All actions are read-only (`Describe*`, `List*`).
+
+For more details about this policy, including the full JSON policy document, see [AWSWellArchitectedAgentOrganizationsServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSWellArchitectedAgentOrganizationsServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
 
 ## AWS Well-Architected policy updates
 <a name="security-iam-awsmanpol-updates"></a>
 
-View details about updates to AWS managed policies for AWS Well-Architected since this service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed in [Document history](doc-history.md).
+View details about updates to AWS managed policies for AWS Well-Architected since this service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed in [Release notes](release-notes.md).
 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-| [WellArchitectedAgentResourceScanning](#security-iam-awsmanpol-WellArchitectedAgentResourceScanning) – New policy | AWS Well-Architected Agent added a new managed policy for resource scanning access roles. This policy grants read-only access to resource configurations across your AWS accounts for optimization recommendation generation. | July 17, 2025 | 
-| [WellArchitectedConsoleFullAccess](#security-iam-awsmanpol-WellArchitectedConsoleFullAccess) – Updated policy | Updated to include permissions for AWS Well-Architected Agent, including AWS Organizations delegated administrator management, IAM role and policy creation for execution role setup, and `iam:PassRole` for Well-Architected and Agent service principals. | July 17, 2025 | 
-| [WellArchitectedConsoleReadOnlyAccess](#security-iam-awsmanpol-WellArchitectedConsoleReadOnlyAccess) – Updated policy | Updated to include read-only permissions for AWS Well-Architected Agent, including AWS Organizations organization visibility and AWS Trusted Advisor read access. | July 17, 2025 | 
-| AWS Well-Architected started tracking policy changes | AWS Well-Architected started tracking changes for its AWS managed policies. | July 17, 2025 | 
+| [AWSWellArchitectedAgentOrganizationsServiceRolePolicy](#security-iam-awsmanpol-AWSWellArchitectedAgentOrganizationsServiceRolePolicy) – New policy | AWS Well-Architected Agent added a new service-linked role policy that grants read-only access to your organization structure for organizational profiles and reports.  | November 16, 2026 | 
+| [AWSWellArchitectedAgentResourceScanningServiceRolePolicy](#security-iam-awsmanpol-AWSWellArchitectedAgentResourceScanningServiceRolePolicy) – New policy | AWS Well-Architected Agent added a new service-linked role policy that grants read-only access to your organization structure for organizational profiles and reports.  | November 16, 2026 | 
+| [WellArchitectedAgentResourceScanning](#security-iam-awsmanpol-WellArchitectedAgentResourceScanning) – New policy | AWS Well-Architected Agent added a new service-linked role policy that grants read-only access to resource configurations in each account of your organization for recommendation generation. | October 1, 2026 | 
+| [WellArchitectedConsoleFullAccess](#security-iam-awsmanpol-WellArchitectedConsoleFullAccess) – Updated policy | Updated to include permissions for AWS Well-Architected Agent, including AWS Organizations delegated administrator management, IAM role and policy creation for execution role setup, and `iam:PassRole` for Well-Architected and Agent service principals. | October 1, 2026 | 
+| [WellArchitectedConsoleReadOnlyAccess](#security-iam-awsmanpol-WellArchitectedConsoleReadOnlyAccess) – Updated policy | Updated to include read-only permissions for AWS Well-Architected Agent, including AWS Organizations organization visibility and AWS Trusted Advisor read access. | October 1, 2026 | 
+| AWS Well-Architected started tracking policy changes | AWS Well-Architected started tracking changes for its AWS managed policies. | October 1, 2026 | 
 | AWS WA Tool changed managed policy | Added `"wellarchitected:Export*"` to ` WellArchitectedConsoleReadOnlyAccess`. | June 22, 2023 | 
 | AWS WA Tool added service role policy | Added `AWSWellArchitectedDiscoveryServiceRolePolicy` to allow AWS Well-Architected Tool to access AWS services and resources that relate to AWS WA Tool resources. | May 3, 2023 | 
 | AWS WA Tool added permissions | Added a new action to grant `ListAWSServiceAccessForOrganization` to allow AWS WA Tool to check if the AWS service access is enabled for AWS WA Tool. | July 22, 2022 | 

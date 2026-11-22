@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Deleting a profile from AWS WA Tool
-<a name="tool-deleting-profiles"></a>
 
 If you created a profile, you can delete the profile from the list of profiles available in AWS WA Tool. 
 

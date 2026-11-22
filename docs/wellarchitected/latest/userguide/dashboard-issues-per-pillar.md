@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Well-Architected Framework issues per pillar
-<a name="dashboard-issues-per-pillar"></a>
 
 The **Well-Architected Framework issues per pillar** section shows a graphical representation of the number of high and medium risk issues by pillar for all workloads.
 

@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Adding a profile to a workload in AWS WA Tool
-<a name="tool-adding-profiles-to-workloads"></a>
 
 You can add a profile to an existing workload, or when defining a workload, to speed up the workload review process. AWS WA Tool uses the information gathered from your profile to prioritize questions in the workload review that are relevant to your business. 
 

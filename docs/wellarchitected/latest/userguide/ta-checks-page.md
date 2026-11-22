@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Viewing Trusted Advisor checks for your workload
-<a name="ta-checks-page"></a>
 
 If Trusted Advisor is activated for your workload, a **Trusted Advisor checks** tab is displayed next to **Question**. If there are any checks available for the best practice, a notification that there are Trusted Advisor checks available is displayed following the question selection. Selecting **View checks** takes you to the **Trusted Advisor checks** tab. 
 

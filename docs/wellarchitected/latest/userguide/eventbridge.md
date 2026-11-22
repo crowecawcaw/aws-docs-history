@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # EventBridge
-<a name="eventbridge"></a>
 
 AWS Well-Architected Tool sends events to Amazon EventBridge when actions are taken on Well-Architected resources. You can use EventBridge and these events to write rules that take actions, such as notifying you, when a resource change occurs. For more information, see [What is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html) 
 
@@ -36,7 +35,7 @@ This section includes example events from AWS Well-Architected Tool.
 
 **Updating an answer in a workload**
 
-```
+```json
  {
    "version":"0",
    "id":"00de336a-83cc-b80b-f0e6-f44c88a96050",
@@ -104,7 +103,7 @@ This section includes example events from AWS Well-Architected Tool.
 
 **Publishing a custom lens**
 
-```
+```json
 {
    "version":"0",
    "id":"4054a34b-60a9-53c1-3146-c1a384dba41b",

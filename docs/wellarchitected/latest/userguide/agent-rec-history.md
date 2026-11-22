@@ -2,8 +2,7 @@
 
 AWS Well-Architected Agent is in preview release and is subject to change.
 
-# View archived recommendations in AWS Well-Architected Agent
-<a name="agent-rec-history"></a>
+# Viewing archived recommendations in AWS Well-Architected Agent
 
 To view recommendations that were completed or suppressed, choose **View archived recommendations** in the AWS WA Agent dashboard. Each archived recommendation contains information about the status, type, pillars, and closed date. 
 

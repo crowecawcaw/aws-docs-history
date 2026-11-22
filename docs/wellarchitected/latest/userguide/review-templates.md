@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Review templates in AWS WA Tool
-<a name="review-templates"></a>
 
 You can create review templates in AWS WA Tool that contain pre-filled answers for Well-Architected Framework and custom lens best practice questions. Well-Architected review templates reduce the need to manually fill in the same answers for best practices that are common across multiple workloads when performing a Well-Architected review, and they help drive consistency and standardization of best practices across teams and workloads.
 

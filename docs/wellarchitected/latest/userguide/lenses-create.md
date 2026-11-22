@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Creating a custom lens for a workload in AWS WA Tool
-<a name="lenses-create"></a>
 
 **To create a custom lens**
 

@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Share a workload in AWS Well-Architected Tool
-<a name="workloads-sharing"></a>
 
 You can share a workload that you own with other AWS accounts, users, an organization, and organization units (OUs) in the same AWS Region.
 

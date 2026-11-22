@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Activating AWS Trusted Advisor for a workload
-<a name="activate-ta-for-workload"></a>
 
 You can optionally integrate AWS Trusted Advisor and activate it on a per-workload basis for AWS Business and Enterprise Support customers. There is no cost to integrate Trusted Advisor with AWS WA Tool, but for Trusted Advisor pricing details, see [AWS Support Plans](https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html). Activating Trusted Advisor for workloads can provide you a more comprehensive, automated, and monitored approach to reviewing and optimizing your AWS workloads. This can help you improve the reliability, security, performance, and cost optimization for your workloads.
 

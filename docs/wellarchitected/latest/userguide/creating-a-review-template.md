@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Creating a review template in AWS WA Tool
-<a name="creating-a-review-template"></a>
 
 **To create a review template**
 

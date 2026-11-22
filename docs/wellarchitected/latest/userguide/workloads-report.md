@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Generate a workload report in AWS Well-Architected Tool
-<a name="workloads-report"></a>
 
 You can generate a workload report for a lens. The report contains your responses to the workload questions, your notes, and the current number of high and medium risks identified. If a question has one or more risks identified, the improvement plan for that question lists actions to take to mitigate those risks.
 

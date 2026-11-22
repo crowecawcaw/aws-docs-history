@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Setting up the connector
-<a name="setting-up-jira"></a>
 
 **To install the connector**
 **Note**  
@@ -15,7 +14,7 @@ AWS Well-Architected Agent is in preview release and is subject to change.
 
 1. In the **Discover apps and integrations for Jira** page, enter AWS Well-Architected. Then, choose the **AWS Well-Architected Tool Connector for Jira**.
 
-1. On the app page, choose **Get app**.
+1. In the app page, choose **Get app**.
 
 1.  In the **Add to Jira** pane, choose **Get it now**. 
 

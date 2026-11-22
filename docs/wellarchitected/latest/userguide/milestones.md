@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Milestones
-<a name="milestones"></a>
 
 A milestone records the state of a workload at a particular point in time.
 

@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Improving your workload
-<a name="improving-your-workload"></a>
 
  At this point, you've prepared for the WAFR, completed a review, and assessed your workload against AWS best practices. 
 

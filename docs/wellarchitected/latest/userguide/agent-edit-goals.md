@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Editing goals
-<a name="agent-edit-goals"></a>
 
 **Important**  
 Each profile requires at least one goal. If you delete all goals from a profile, scheduled recommendations are not generated until you add a new goal.
@@ -15,7 +14,7 @@ Goals can be added either in **Agent profiles** or in the **Dashboard** for the 
 
 **To add goals from the profile**
 
-1. Choose **Agent profiles** in the left navigation.
+1. Choose **Agent profiles** in the left-hand navigation.
 
 1. Choose **Actions**, then **Edit profile**.
 
@@ -27,7 +26,7 @@ Concrete, specific goals help AWS WA Agent prioritize and recommend actions. For
 
 **To add goals from the dashboard**
 
-1. Choose **Dashboard** in the left navigation.
+1. Choose **Dashboard** in the left-hand navigation.
 
 1. Verify that you have the correct profile selected under **Profile**.
 
@@ -42,7 +41,7 @@ Concrete, specific goals help AWS WA Agent prioritize and recommend actions. For
 
 To create a new goal:
 
-```
+```bash
 aws wellarchitected create-agent-goal \
     --profile-arn "{{profile-arn}}" \
     --title "{{Reduce EC2 spend by 20%}}" \
@@ -51,7 +50,7 @@ aws wellarchitected create-agent-goal \
 
 To update an existing goal:
 
-```
+```bash
 aws wellarchitected update-agent-goal \
     --profile-arn "{{profile-arn}}" \
     --goal-id "{{goal-id}}" \
@@ -60,7 +59,7 @@ aws wellarchitected update-agent-goal \
 
 To delete a goal:
 
-```
+```bash
 aws wellarchitected delete-agent-goal \
     --profile-arn "{{profile-arn}}" \
     --goal-id "{{goal-id}}"

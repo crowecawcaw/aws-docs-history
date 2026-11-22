@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Prioritize improvements
-<a name="prioritize-improvements"></a>
 
  No organization has unlimited time and resources. Addressing all identified HRIs and MRIs at once might not be the right way to get the most out of a WAFR. 
 

@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Activating Trusted Advisor for a workload in IAM
-<a name="activate-ta-in-iam"></a>
 
 **Note**  
 Workload owners should **Activate Discovery support** for their account before creating a Trusted Advisor workload. Choosing to **Activate Discovery support** creates the role required for the workload owner. Use the following steps for all other associated accounts. 
@@ -25,7 +24,7 @@ The owners of associated accounts for workloads that have activated Trusted Advi
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -55,7 +54,7 @@ The `aws:sourceArn` in the condition block of the preceeding custom trust policy
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -94,7 +93,7 @@ Additionally, you have the option to skip creating the permissions during the ro
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -127,7 +126,7 @@ Additionally, you have the option to skip creating the permissions during the ro
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

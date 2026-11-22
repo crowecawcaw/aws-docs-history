@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Custom lenses for workloads in AWS WA Tool
-<a name="lenses-custom"></a>
 
 You can create custom lenses with your own pillars, questions, best practices, and improvement plan. You apply custom lenses to a workload in the same way that you apply AWS provided lenses. You can also share custom lenses that you create with other AWS accounts, and custom lenses owned by others can be shared with you.
 

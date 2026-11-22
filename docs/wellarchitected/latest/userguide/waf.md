@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # What is AWS Well-Architected Framework?
-<a name="waf"></a>
 
 The [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/) documents a set of foundational questions that enable you to understand how a specific architecture aligns with cloud best practices. The framework provides a consistent approach for evaluating systems against the qualities that are expected from modern cloud-based systems. Based on the state of your architecture, the framework suggests improvements that you can make to better achieve those qualities.
 

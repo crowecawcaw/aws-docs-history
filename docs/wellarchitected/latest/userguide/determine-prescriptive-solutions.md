@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Determine prescriptive solutions
-<a name="determine-prescriptive-solutions"></a>
 
  Once risks and improvement opportunities are understood in your organization's context, work with the teams on the mitigation. At this phase, each team needs to work on the HRIs found in their areas and determine a prescriptive solution to address the HRI. 
 

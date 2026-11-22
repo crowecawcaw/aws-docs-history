@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Deactivating Trusted Advisor for a workload
-<a name="deactivate-ta-for-workload"></a>
 
 **To deactivate Trusted Advisor for a workload**
 

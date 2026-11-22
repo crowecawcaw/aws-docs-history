@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # View workload details in AWS Well-Architected Tool
-<a name="workload-details"></a>
 
 The workload details page provides information about your workload including its milestones, improvement plan, and any workload shares. Use the tabs at the top of the page to navigate to the different detail sections.
 

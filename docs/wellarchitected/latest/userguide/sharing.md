@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Sharing your AWS WA Tool resources
-<a name="sharing"></a>
 
 To share a resource that you own, do the following:
 + [Activate resource sharing within AWS Organizations](#getting-started-sharing-orgs) (optional)
@@ -24,7 +23,7 @@ When your account is managed by AWS Organizations, you can take advantage of tha
 
 To share resources within an organization, you must first use the AWS WA Tool console or AWS Command Line Interface (AWS CLI) to enable sharing with AWS Organizations. When you share resources in your organization, AWS WA Tool doesn't send invitations to principals. Principals in your organization gain access to shared resources without exchanging invitations.
 
-When you activate resource sharing within your organization, AWS WA Tool creates a service-linked role called `AWSServiceRoleForWellArchitected`. This role can be assumed by only the AWS WA Tool service, and grants AWS WA Tool permission to retrieve information about the organization it is a member of, by using the AWS managed policy `AWSWellArchitectedOrganizationsServiceRolePolicy`. 
+When you activate resource sharing within your organization, AWS WA Tool creates a service-linked role called `AWSServiceRoleForWellArchitected` that grants AWS WA Tool permission to retrieve information about the organization it is a member of. For details about this service-linked role, including its permissions and how to delete it, see [Service-linked role permissions for AWS Well-Architected Tool organization sharing and resource discovery](using-service-linked-roles-tool-org-sharing.md).
 
 If you no longer need to share resources with your entire organization or OUs, you can disable resource sharing.
 

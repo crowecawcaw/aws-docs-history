@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Tagging your AWS WA Tool resources
-<a name="tagging"></a>
 
 To help you manage your AWS WA Tool resources, you can assign your own metadata to each resource in the form of *tags*. This topic describes tags and shows you how to create them.
 

@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # API actions
-<a name="wa-api-actions"></a>
 
 The following API actions are available for AWS Well-Architected services. All actions use the `wellarchitected` service namespace. For complete API reference documentation, see the [AWS Well-Architected API Reference](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/Welcome.html).
 

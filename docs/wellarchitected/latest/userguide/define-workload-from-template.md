@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Defining a workload from a template in AWS WA Tool
-<a name="define-workload-from-template"></a>
 
 You can define a workload from a review template that you created or a review template that has been shared with you. You cannot define a new workload from a review template that has been deleted, and if the review template contains an outdated version of a lens, you must upgrade the review template before you can define a new workload from it. For information on how to upgrade a review template, see [Upgrading a lens in AWS WA Tool](lenses-upgrading.md).
 

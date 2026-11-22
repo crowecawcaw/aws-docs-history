@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Configuring the connector
-<a name="configuring-jira"></a>
 
  With the AWS Well-Architected Tool Connector for Jira, you can configure Jira syncing at the account level, the workload level, or both. You can configure workload-level Jira settings independent of account-level settings, or override your account-level settings on a specific workload to specify the workload's sync behavior. You can also configure Jira settings when [Defining a workload](define-workload.md). 
 

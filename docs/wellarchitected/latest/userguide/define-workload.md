@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Defining a workload in AWS WA Tool
-<a name="define-workload"></a>
 
 A workload is a set of components that deliver business value. For example, workloads can be marketing websites, ecommerce websites, the backend for a mobile app, and analytic platforms. Accurately defining a workload helps ensure a comprehensive review against the AWS Well-Architected Framework pillars. 
 

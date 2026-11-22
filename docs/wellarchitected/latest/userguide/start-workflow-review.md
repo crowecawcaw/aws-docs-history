@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Documenting a workload in AWS WA Tool
-<a name="start-workflow-review"></a>
 
 After you've defined a workload in AWS Well-Architected Tool, you can document its state by opening the Review workload page. This helps you assess your workload and track its progress over time. 
 

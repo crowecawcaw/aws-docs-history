@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Viewing milestones
-<a name="milestones-view"></a>
 
 You can view milestones for a workload in the following ways:
 + On the workload details page, choose **Milestones** and choose the milestone you want to view.

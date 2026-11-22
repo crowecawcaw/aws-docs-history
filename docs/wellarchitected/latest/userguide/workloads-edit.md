@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Edit a workload in AWS Well-Architected Tool
-<a name="workloads-edit"></a>
 
 You can edit the details of a workload that you own.
 

@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Lens Catalog for AWS WA Tool
-<a name="lens-catalog"></a>
 
  The **Lens Catalog** is a collection of official, AWS lenses created for AWS Well-Architected Tool that offer up-to-date technology and industry-focused best practices. These lenses are available to all users and do not require any additional installation to use. 
 

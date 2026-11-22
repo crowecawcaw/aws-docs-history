@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Viewing lens details for a workload in AWS WA Tool
-<a name="lenses-details"></a>
 
 You can view details about your lenses on the AWS Well-Architected Tool console. To view details about a lens, select the lens.
 

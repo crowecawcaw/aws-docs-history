@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Updating application context
-<a name="agent-update-app-context"></a>
 
 Application context tells AWS WA Agent what your applications are, what they do, and what infrastructure they run on. AWS WA Agent uses this information to scope recommendations to the resources that belong to each application and to personalize guidance based on your architecture, criticality, and constraints.
 
@@ -22,30 +21,30 @@ Follow these guidelines when defining application context:
 
 **To add application context**
 
-1. Choose **Agent profiles** in the left navigation. Then, on the profile to add the application context, choose **Profile Details**.
+1. Choose **Agent profiles** in the left-hand navigation. Then, on the profile to add the application context, choose **Profile Details**.
 
 1. Select the **Application context** tab. Then, choose **Add application context**.
 
 1. Enter details for the application. For additional customization, expand the **Additional details** dropdown.
 
    Application context includes the following fields:
-   + **Application name** – Name of your application.
-   + **Application overview** – Overview of what your application does.
-   + **Accounts in this application** – Any AWS accounts this application includes or uses.
-   + **Regions** – AWS Regions where this application resides or operates in.
-   + **Tags** – Key value pairs included in this application. Tags have two different filtering behaviors depending on what's selected:
-     +  **Only the tag is selected** – Includes every resource carrying that tag (and any type of tag) within the selected AWS accounts or AWS Regions.
+   + **Application name:** Name of your application.
+   + **Application overview:** Overview of what your application does.
+   + **Accounts in this application:** Any AWS accounts this application includes or uses.
+   + **Regions:** AWS Regions where this application resides or operates in.
+   + **Tags:** Key value pairs included in this application. Tags have two different filtering behaviors depending on what's selected:
+     +  **Only the tag is selected:** Includes every resource carrying that tag (and any type of tag) within the selected AWS accounts or AWS Regions.
      +  **Tag selected with services or resource types:** Displays the intersection of the tag with the services or resources. All resources returned in the filter must have that selected tag and be a part of one of the selected services or resource types. 
    + **Additional details:**
-     + **Services** – Which services your application uses. Selecting a service automatically selects all of its associated resources.
+     + **Services:** Which services your application uses. Selecting a service automatically selects all of its associated resources.
 **Note**  
  When adding or updating a service in an application context, use the CloudFormation canonical service name. For example, for `AWS::DynamoDB::Table CloudFormation`, the service name is `DynamoDB`. 
-     + **Resources** – Additional resources your application uses outside of the ones auto-included by the service dropdown. Some resource types are not supported. For more information, see [Unsupported resource types](agent-quotas.md#agent-unsupported-resources).
-     + **Industry** – What industry your application serves.
-     + **Type** – The type of application.
-     + **Criticality** – How critical this application is to your organization.
-     + **Architecture overview** – Plain-text overview of your architecture.
-     + **Additional context** – Any further context you want AWS WA Agent to consider during reviews and recommendations.
+     + **Resources:** Additional resources your application uses outside of the ones auto-included by the service dropdown. Some resource types are not supported. For more information, see [Unsupported resource types](agent-quotas.md#agent-unsupported-resources).
+     + **Industry:** What industry your application serves.
+     + **Type:** The type of application.
+     + **Criticality:** How critical this application is to your organization.
+     + **Architecture overview:** Plain-text overview of your architecture.
+     + **Additional context:** Any further context you want AWS WA Agent to consider during reviews and recommendations.
 
 1. After entering your context, choose **Add application**. You will see the new application context in the **All applications** list.
 
@@ -56,7 +55,7 @@ Follow these guidelines when defining application context:
 
 To add application context:
 
-```
+```bash
 aws wellarchitected create-agent-context \
     --profile-arn "{{profile-arn}}" \
     --title "{{My application}}" \
@@ -69,7 +68,7 @@ aws wellarchitected create-agent-context \
 
 To update existing application context:
 
-```
+```bash
 aws wellarchitected update-agent-context \
     --profile-arn "{{profile-arn}}" \
     --context-id "{{context-id}}" \
@@ -79,7 +78,7 @@ aws wellarchitected update-agent-context \
 
 To delete application context:
 
-```
+```bash
 aws wellarchitected delete-agent-context \
     --profile-arn "{{profile-arn}}" \
     --context-id "{{context-id}}"

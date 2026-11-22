@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # AWS Well-Architected Agent Quotas and limits
-<a name="agent-quotas"></a>
 
 ## Access and entitlements
 <a name="agent-access"></a>
@@ -11,30 +10,32 @@ AWS Well-Architected Agent is in preview release and is subject to change.
 AWS WA Agent access and entitlements depend on your AWS Support plan tier.
 
 
-| Support tier | Access | Max profiles | Max applications per profile | 
-| --- | --- | --- | --- | 
-| Developer | No | — | — | 
-| Business | No | — | — | 
-| Business\+ | Yes | 2 | 7 | 
-| Enterprise On-Ramp | Yes | 10 | 30 | 
-| Enterprise Support | Yes | 10 | 30 | 
-| Unified Operations | Yes | 10 | 30 | 
+**Support tier entitlements**  
+
+| Support tier | Access | Max profiles | Max applications per profile | Max accounts per profile | 
+| --- | --- | --- | --- | --- | 
+| Developer | No | — | — | — | 
+| Business | No | — | — | — | 
+| Business\+ | Yes | 2 | 7 | 500 | 
+| Enterprise On-Ramp | Yes | 10 | 30 | 500 | 
+| Enterprise Support | Yes | No commercial limit | No commercial limit | 1000 | 
+| Unified Operations | Yes | No commercial limit | No commercial limit | 1000 | 
 
 ## Quotas and limits
 <a name="agent-quotas-limits"></a>
 
-The following table lists the default quotas and limits for AWS Well-Architected Agent.
-
 
 | Resource | Default limit | Notes | 
 | --- | --- | --- | 
-| Accounts per profile | 100 | Maximum AWS accounts that a single profile can analyze. | 
+| Maximum accounts per profile | 1000 | System limit on the number of AWS accounts a single profile can analyze. For detail on tier-specific entitlements, see [Access and entitlements](#agent-access). | 
+| Maximum resources scanned per account | 20,000 | System limit for high confidence detection of an account's underlying resources. | 
 | Goals per profile | 10 | Maximum active business goals per profile. | 
-| Profile hosting Regions | 3 | Profiles can be hosted in US East (N. Virginia), US East (Ohio), or US West (Oregon). | 
-| Scannable Regions | All commercial | AWS WA Agent can scan resources in any commercial AWS Region, regardless of where the profile is hosted. | 
+| Profile hosting Regions | All commercial | Profiles can be hosted in any commercial AWS Region. | 
+| Scannable Regions | All commercial | AWS WA Agent can scan resources in any commercial AWS Region. | 
 | Recommendations per generation run | 30 | Maximum recommendations produced per scheduled or manual generation run. There is no limit on total stored recommendations. Future runs can add new recommendations. | 
 | Architecture reviews per day | 5 | Maximum architecture review generations per day, per profile. Reviews can be run consecutively without cooldown while quota remains. | 
-| Scheduled recommendation generation cooldown | 7 days (1 week) | Minimum time between scheduled recommendation generation runs for the same profile. | 
+| Scheduled recommendation generation cooldown | 14 days (2 weeks) | Minimum time between scheduled recommendation generation runs for the same profile. | 
+| On-demand recommendation generation cooldown | 7 days (1 week) | Minimum time between on-demand recommendation generation runs for the same profile. | 
 | Maximum .zip file upload size | 25 MB | Maximum compressed size of an uploaded .zip file for architecture reviews. | 
 | Maximum Amazon S3 folder size | 100 MB | Maximum total size of an Amazon S3 folder referenced for architecture reviews. | 
 | Maximum individual file size (Amazon S3 folder) | 1 MB | Maximum size of each individual file in an Amazon S3 folder referenced for architecture reviews. | 
@@ -46,6 +47,8 @@ AWS WA Agent does not analyze the CloudFormation resource types in the following
 
 For more information about specifying the services and resource types your application uses, see [Updating application context](agent-update-app-context.md).
 
+
+**Resource types not supported by AWS WA Agent**  
 
 | Service | Unsupported resource types | 
 | --- | --- | 

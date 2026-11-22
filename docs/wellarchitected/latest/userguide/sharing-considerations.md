@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Considerations when sharing AWS Well-Architected Tool workloads
-<a name="sharing-considerations"></a>
 
 A workload can be shared with up to 20 different AWS accounts and users. A workload can only be shared with accounts and users that are in the same AWS Region as the workload.
 

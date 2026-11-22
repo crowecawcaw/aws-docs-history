@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Lens upgrades in AWS WA Tool
-<a name="lens-upgrades"></a>
 
 The AWS Well-Architected Framework Lens and other lenses provided by AWS are updated as new services are introduced, existing best practices for cloud-based systems are refined, and new best practices are added. When a new version of a lens is made available, AWS WA Tool is upgraded to reflect the latest best practices. Any new workloads that are defined use the new version of the lens.
 

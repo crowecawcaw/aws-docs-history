@@ -3,7 +3,6 @@
 AWS Well-Architected Agent is in preview release and is subject to change.
 
 # Updating an agent profile
-<a name="agent-update-profile"></a>
 
 You can update a profile's display name, description, pillars, execution role, aggregation configuration, deletion protection, and business overview at any time.
 
@@ -12,7 +11,7 @@ You can update a profile's display name, description, pillars, execution role, a
 
 **To update a profile**
 
-1. Choose **Agent profiles** in the left navigation.
+1. Choose **Agent profiles** in the left-hand navigation.
 
 1. Choose **Actions** on the profile, then **Edit profile**.
 
@@ -28,7 +27,7 @@ When you update a profile using the API or CLI (`UpdateAgentProfile`), you must 
 
 To avoid unintentionally clearing fields, retrieve the current profile configuration first, modify the values you want to change, then pass the full object back:
 
-```
+```bash
 # 1. Get the current profile configuration
 aws wellarchitected get-agent-profile \
     --profile-arn "{{arn:aws:wellarchitected:us-east-1:111122223333:agent-profile/my-profile}}"
