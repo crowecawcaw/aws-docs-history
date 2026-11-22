@@ -1,7 +1,6 @@
 
 
 # Encryption at rest for azimuth elevation ephemeris
-<a name="security.encryption-at-rest-azimuth-elevation"></a>
 
 ## Key policy requirements for azimuth elevation ephemeris
 <a name="w2aac62c22c31b3"></a>
@@ -21,7 +20,7 @@
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -78,7 +77,7 @@
 
  AWS Ground Station specifies the following encryption context when it performs cryptographic operations with your customer managed key on an azimuth elevation ephemeris: 
 
-```
+```json
 {
     "encryptionContext": {
         "aws:groundstation:ground-station-id": "Ohio 1",
@@ -114,7 +113,7 @@ The ARN of the ephemeris stored in Amazon S3.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -158,7 +157,7 @@ The ARN of the ephemeris stored in Amazon S3.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -209,7 +208,7 @@ The ARN of the ephemeris stored in Amazon S3.
 
  The following example event records the [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) operation for azimuth elevation ephemeris: 
 
-```
+```JSON
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -274,7 +273,7 @@ The ARN of the ephemeris stored in Amazon S3.
 
  The following example event records the [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation for azimuth elevation ephemeris: 
 
-```
+```JSON
 {
     "eventVersion": "1.11",
     "userIdentity": {

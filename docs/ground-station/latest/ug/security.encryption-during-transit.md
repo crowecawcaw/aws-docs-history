@@ -1,7 +1,6 @@
 
 
 # Data encryption during transit for AWS Ground Station
-<a name="security.encryption-during-transit"></a>
 
  AWS Ground Station provides encryption by default to protect your sensitive data during transit. Data can be streamed between AWS Ground Station antenna locations and your Amazon EC2 instances in two ways, depending on the mission profile configuration. 
 + AWS Ground Station Agent

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot DataflowEndpointGroups not in a HEALTHY state
-<a name="troubleshooting-dfeg"></a>
 
  Listed below are the reasons your dataflow endpoint groups may not be in a `HEALTHY` state as well as the appropriate corrective action to take. 
 + `NO_REGISTERED_AGENT` - Start your EC2 instance, which will register the agent. Note that you must have a valid controller config file for this call to be successful. Refer to the [Use AWS Ground Station Agent](how-it-works.gs-agent.md) for details on configuring that file. 

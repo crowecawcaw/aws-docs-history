@@ -1,7 +1,6 @@
 
 
 # Public broadcast satellite utilizing a dataflow endpoint (narrowband)
-<a name="examples.pbs-data-dataflow-endpoint"></a>
 
  This example builds off the analysis done in the [JPSS-1 - Public broadcast satellite (PBS) - Evaluation](examples.md#examples.pbs-definition) section of the user guide. 
 
@@ -17,7 +16,7 @@
 
  For the Parameters section, you're going to add the following parameters. You'll specify values for these when creating the stack via the CloudFormation console. 
 
-```
+```yaml
 Parameters:
   EC2Key:
     Description: The SSH key used to access the EC2 receiver instance. Choose any SSH key if you are not creating an EC2 receiver instance. For instructions on how to create an SSH key see [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html)
@@ -35,14 +34,14 @@ Parameters:
 
  The remaining template snippets belong in the Resources section of the CloudFormation template. 
 
-```
+```yaml
 Resources:
   # Resources that you would like to create should be placed within the resource section.
 ```
 
  Given our scenario to deliver a single communication path to an EC2 instance, you'll have a single synchronous delivery path. Per the [Synchronous data delivery](getting-started.step2.md#getting-started.step2.sync-data-delivery) section, you must set up and configure an Amazon EC2 instance with a dataflow endpoint application, and create one or more dataflow endpoint groups. 
 
-```
+```yaml
   # The EC2 instance that will send/receive data to/from your satellite using AWS Ground Station.
   ReceiverInstance:
     Type: AWS::EC2::Instance
@@ -225,7 +224,7 @@ Resources:
 
  In addition, you'll also need to create the appropriate policies and roles to allow AWS Ground Station to create an elastic network interface (ENI) in your account. 
 
-```
+```yaml
   # AWS Ground Station assumes this role to create/delete ENIs in your account in order to stream data.
   DataDeliveryServiceRole:
     Type: AWS::IAM::Role
@@ -290,7 +289,7 @@ Resources:
 
  You'll need a *tracking-config* to set your preference on using autotrack. Selecting *PREFERRED* as autotrack can improve the signal quality, but it isn't required to meet the signal quality due to sufficient JPSS-1 ephemeris quality. 
 
-```
+```yaml
   TrackingConfig:
     Type: AWS::GroundStation::Config
     Properties:
@@ -302,7 +301,7 @@ Resources:
 
  Based on the communication path, you'll need to define an *antenna-downlink* config to represent the satellite portion, as well as a *dataflow-endpoint* config to refer to the dataflow endpoint group that defines the endpoint details. 
 
-```
+```yaml
   # The AWS Ground Station Antenna Downlink Config that defines the frequency spectrum used to
   # downlink data from your satellite.
   SnppJpssDownlinkDigIfAntennaConfig:
@@ -339,7 +338,7 @@ Resources:
 
  Now that you have the associated configs, you can use them to construct the dataflow. You'll use the defaults for the remaining parameters. 
 
-```
+```yaml
   # The AWS Ground Station Mission Profile that groups the above configurations to define how to
   # uplink and downlink data to your satellite.
   SnppJpssMissionProfile:

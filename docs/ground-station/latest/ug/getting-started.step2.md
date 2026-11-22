@@ -1,7 +1,6 @@
 
 
 # Plan your dataflow communication paths
-<a name="getting-started.step2"></a>
 
  You have the choice between synchronous and asynchronous communication for each communication path on your satellite. Depending on your satellite and your use case, you may require one or both types. Synchronous communication paths allow for near real-time uplink as well as narrowband and wideband downlink operations. Asynchronous communication paths support narrowband and wideband downlink operations only. 
 

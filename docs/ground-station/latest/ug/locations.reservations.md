@@ -1,7 +1,6 @@
 
 
 # View ground station reservations
-<a name="locations.reservations"></a>
 
  You can view reservations across antennas at a ground station by using the [ListGroundStationReservations](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListGroundStationReservations.html) API. Reservations represent time blocks on antennas, including your scheduled contacts. [AWS Ground Station Dedicated Antennas](dedicated-antennas.md) customers also see maintenance windows. 
 
@@ -28,7 +27,7 @@ Each reservation has a type that indicates what the antenna time is being used f
 
  The following example lists reservations at a ground station for the next 7 days using the AWS SDK for Python (Boto3), including filtering by reservation type. 
 
-```
+```python
 import boto3
 from datetime import datetime, timezone, timedelta
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot telemetry
-<a name="troubleshooting-telemetry"></a>
 
  Use the following information to troubleshoot common issues with telemetry. 
 

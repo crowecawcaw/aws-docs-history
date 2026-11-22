@@ -1,7 +1,6 @@
 
 
 # Get started
-<a name="getting-started"></a>
 
 Before you begin, you should familiarize yourself with the basic concepts in AWS Ground Station. For more information, see [How AWS Ground Station works](how-it-works.md).
 
@@ -29,7 +28,7 @@ To get started with AWS, you need an AWS account. There are two ways to sign up 
 
 ****  
 
-        ```
+        ```json
         {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -54,7 +53,7 @@ To get started with AWS, you need an AWS account. There are two ways to sign up 
 
 ****  
 
-        ```
+        ```json
         {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -81,7 +80,7 @@ To get started with AWS, you need an AWS account. There are two ways to sign up 
 
 ****  
 
-        ```
+        ```json
         {
             "Version":"2012-10-17",		 	 	 
             "Statement": [

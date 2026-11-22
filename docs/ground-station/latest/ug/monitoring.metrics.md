@@ -1,7 +1,6 @@
 
 
 # View metrics with Amazon CloudWatch
-<a name="monitoring.metrics"></a>
 
 During a contact, AWS Ground Station automatically captures and sends data to CloudWatch for analysis. Your data can be viewed in the Amazon CloudWatch console. For more information about accessing and CloudWatch Metrics, see [Using Amazon CloudWatch Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html). 
 

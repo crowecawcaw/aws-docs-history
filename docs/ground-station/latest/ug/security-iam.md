@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS Ground Station
-<a name="security-iam"></a>
 
 
 

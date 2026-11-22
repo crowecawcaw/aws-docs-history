@@ -1,7 +1,6 @@
 
 
 # Understand contact lifecycle
-<a name="contacts.lifecycle"></a>
 
  Understanding the contact lifecycle can help you to automate and troubleshoot various problems while using AWS Ground Station. The following diagram shows the AWS Ground Station contact lifecycle as well as Event Bridge Events emitted during the lifecycle. It is important to note that the COMPLETED, FAILED, FAILED\_TO\_SCHEDULE, CANCELLED, AWS\_CANCELLED, and AWS\_FAILED are terminal states. Contacts will not transition out of a terminal state. See the [AWS Ground Station contact statuses](#contact-statuses) for details on what each status indicates and whether it is stoppable or cancellable using [ CancelContact](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_CancelContact.html).
 

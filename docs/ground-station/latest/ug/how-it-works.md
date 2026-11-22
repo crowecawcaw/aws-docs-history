@@ -1,7 +1,6 @@
 
 
 # How AWS Ground Station works
-<a name="how-it-works"></a>
 
  AWS Ground Station operates ground-based *antennas* to facilitate communication with your *satellite*. The physical characteristics of what the antennas can do are abstracted and are referred to as *capabilities*. The physical location of the antenna along with its current capabilities can be referenced in the [AWS Ground Station Locations](aws-ground-station-antenna-locations.md) section. Please contact us through the [AWS Support Center Console](https://console.aws.amazon.com/support) if your use case requires additional capabilities, additional location offerings, or more precise antenna locations. 
 

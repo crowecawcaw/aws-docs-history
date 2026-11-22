@@ -1,7 +1,6 @@
 
 
 # Data encryption at rest for AWS Ground Station
-<a name="security.encryption-at-rest"></a>
 
  AWS Ground Station provides encryption by default to protect your sensitive data at rest using AWS owned encryption keys. 
 +  *AWS owned keys* - AWS Ground Station uses these keys by default to automatically encrypt personal, directly identifiable data and ephemerides. You cannot view, manage, or use AWS-owned keys, or audit their use; however, it is unnecessary to take any action or change programs to protect the keys that encrypt data. For more information, see [AWS-owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) in the [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html). 

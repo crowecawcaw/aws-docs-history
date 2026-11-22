@@ -1,7 +1,6 @@
 
 
 # AWS Ground Station site masks
-<a name="locations.site-masks"></a>
 
  Each AWS Ground Station [antenna location](aws-ground-station-antenna-locations.md) has associated site masks. These masks block antennas at that location from transmitting or receiving when pointing in some directions, typically close to the horizon. The masks may take into account: 
 + **Features of the geographic terrain surrounding the antenna** – For example, this includes things like mountains or buildings, that would block a radio frequency (RF) signal or prevent transmitting.

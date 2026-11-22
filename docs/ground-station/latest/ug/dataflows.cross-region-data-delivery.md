@@ -1,7 +1,6 @@
 
 
 # Use cross-region data delivery
-<a name="dataflows.cross-region-data-delivery"></a>
 
  The AWS Ground Station cross-region data delivery feature gives you the flexibility to send your data from an antenna to any AWS Ground Station supported AWS Region. This means you can maintain your infrastructure in a single AWS Region and schedule contacts on any [AWS Ground Station Locations](aws-ground-station-antenna-locations.md) you are onboarded to. 
 

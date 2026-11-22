@@ -1,7 +1,6 @@
 
 
 # Troubleshoot failed contact updates
-<a name="troubleshooting-failed-to-update-contacts"></a>
 
  When you call the [UpdateContact](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_UpdateContact.html) API, AWS Ground Station performs synchronous validation on the request. If validation passes, the update is processed asynchronously to propagate changes to the antenna region. Synchronous validation errors are returned directly in the HTTP response. Asynchronous failures are reported through `failureCodes` and `failureMessage` fields on the contact version, which you can view by calling [DescribeContactVersion](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DescribeContactVersion.html) for the version that failed to update. 
 

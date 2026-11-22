@@ -1,7 +1,6 @@
 
 
 # Default ephemeris data
-<a name="default-ephemeris-data"></a>
 
  By default, AWS Ground Station uses publicly available data from [Space-Track](https://www.space-track.org/), and no action is required to supply AWS Ground Station with these default ephemerides. These ephemerides are [two-line element sets (TLEs)](https://en.wikipedia.org/wiki/Two-line_element_set) associated with your satellite's [NORAD ID](https://en.wikipedia.org/wiki/Satellite_Catalog_Number). All default ephemerides have a priority of `0`. As a result, they will be overridden, always, by any non-expired, custom ephemerides uploaded via the ephemeris API, which must always have a priority of `1`, or greater. 
 

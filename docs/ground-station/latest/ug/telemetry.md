@@ -1,7 +1,6 @@
 
 
 # Work with telemetry
-<a name="telemetry"></a>
 
  AWS Ground Station telemetry delivers near real-time metrics from AWS Ground Station antennas during your satellite contacts. You can use telemetry data to monitor contact performance, detect anomalies, and make informed decisions about your satellite communications. 
 

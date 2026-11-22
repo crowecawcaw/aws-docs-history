@@ -1,7 +1,6 @@
 
 
 # Understand contact billing
-<a name="contacts.billing"></a>
 
  With AWS Ground Station, you pay only for the antenna time you use. AWS Ground Station meters contact usage on a per-minute basis. For each contact, the service calculates the contact duration from start to end time and rounds up to the nearest minute. This metered duration determines your charges for that contact. 
 

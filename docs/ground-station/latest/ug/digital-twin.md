@@ -1,7 +1,6 @@
 
 
 # Use the AWS Ground Station digital twin feature
-<a name="digital-twin"></a>
 
  The digital twin feature for AWS Ground Station provides you with an environment where you can test and integrate your satellite mission management and command and control software. The digital twin feature allows you to test scheduling, verification of configurations, and proper error handling without using production antenna capacity. Testing your AWS Ground Station integration with the digital twin feature enables you to have increased confidence in your system's ability to manage your satellite operations smoothly. It also allows you to test AWS Ground Station APIs without using production capacity or requiring spectrum licensing. 
 

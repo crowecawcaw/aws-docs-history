@@ -1,7 +1,6 @@
 
 
 # Public broadcast satellite utilizing AWS Ground Station Agent (wideband)
-<a name="examples.pbs-agent"></a>
 
  This example builds off the analysis done in the [JPSS-1 - Public broadcast satellite (PBS) - Evaluation](examples.md#examples.pbs-definition) section of the user guide. 
 
@@ -20,7 +19,7 @@
 
  You'll begin by setting up a Mappings section in your CloudFormation template for the AWS Ground Station prefix lists by region. This allows the prefix lists to be easily referenced by the Amazon EC2 instance security group. For more information about using a prefix list, see [VPC Configuration with AWS Ground Station Agent](dataflows.vpc-configuration.md#dataflows.vpc-configuration.agent). 
 
-```
+```yaml
 Mappings:
   PrefixListId:
     us-east-2:
@@ -51,7 +50,7 @@ Mappings:
 
  For the Parameters section, you're going to add the following parameters. You'll specify values for these when creating the stack via the CloudFormation console. 
 
-```
+```yaml
 Parameters:
   EC2Key:
     Description: The SSH key used to access the EC2 receiver instance. Choose any SSH key if you are not creating an EC2 receiver instance. For instructions on how to create an SSH key see [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html)
@@ -73,14 +72,14 @@ Parameters:
 
  The remaining template snippets belong in the Resources section of the CloudFormation template. 
 
-```
+```yaml
 Resources:
   # Resources that you would like to create should be placed within the Resources section.
 ```
 
  Given our scenario to deliver a single communication path to an Amazon EC2 instance, you know that you'll have a single synchronous delivery path. Per the [Synchronous data delivery](getting-started.step2.md#getting-started.step2.sync-data-delivery) section, you must set up and configure an Amazon EC2 instance with AWS Ground Station Agent, and create one or more dataflow endpoint groups. You'll begin by first setting up the Amazon VPC for the AWS Ground Station Agent. 
 
-```
+```yaml
   ReceiverVPC:
     Type: AWS::EC2::VPC
     Properties:
@@ -147,7 +146,7 @@ Resources:
 
  Next, you'll set up the Receiver Amazon EC2 instance. 
 
-```
+```yaml
   # The placement group in which your EC2 instance is placed.
   ClusterPlacementGroup:
     Type: AWS::EC2::PlacementGroup
@@ -261,7 +260,7 @@ Resources:
               EIP: !Ref ReceiverInstanceElasticIp
 ```
 
-```
+```yaml
   # The AWS Ground Station Dataflow Endpoint Group that defines the endpoints that AWS Ground
   # Station will use to send/receive data to/from your satellite.
   DataflowEndpointGroup:
@@ -286,7 +285,7 @@ Resources:
 
  You'll also need the appropriate policies, roles, and profiles to allow AWS Ground Station to create the elastic network interface (ENI) in your account. 
 
-```
+```yaml
   # The security group for your EC2 instance.
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -446,7 +445,7 @@ Resources:
 
  You'll need a *tracking-config* to set your preference on using autotrack. Selecting *PREFERRED* as autotrack can improve the signal quality, but it isn't required to meet the signal quality due to sufficient JPSS-1 ephemeris quality. 
 
-```
+```yaml
   TrackingConfig:
     Type: AWS::GroundStation::Config
     Properties:
@@ -458,7 +457,7 @@ Resources:
 
  Based on the communication path, you'll need to define an *antenna-downlink* config to represent the satellite portion, as well as a *dataflow-endpoint* config to refer to the dataflow endpoint group that defines the endpoint details. 
 
-```
+```yaml
   # The AWS Ground Station Antenna Downlink Config that defines the frequency spectrum used to
   # downlink data from your satellite.
   SnppJpssDownlinkDigIfAntennaConfig:
@@ -495,7 +494,7 @@ Resources:
 
  Now that you have the associated configs, you can use them to construct the dataflow. You'll use the defaults for the remaining parameters. 
 
-```
+```yaml
   # The AWS Ground Station Mission Profile that groups the above configurations to define how to
   # uplink and downlink data to your satellite.
   SnppJpssMissionProfile:

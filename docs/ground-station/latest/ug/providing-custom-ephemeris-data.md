@@ -1,7 +1,6 @@
 
 
 # Provide custom ephemeris data
-<a name="providing-custom-ephemeris-data"></a>
 
 **Important**  
  The ephemeris API is currently in a Preview state 

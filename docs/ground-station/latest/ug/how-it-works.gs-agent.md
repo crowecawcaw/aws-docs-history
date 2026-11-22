@@ -1,7 +1,6 @@
 
 
 # Use AWS Ground Station Agent
-<a name="how-it-works.gs-agent"></a>
 
 The AWS Ground Station Agent enables you to receive (downlink) synchronous Wideband Digital Intermediate Frequency (DigIF) dataflows during AWS Ground Station contacts.
 

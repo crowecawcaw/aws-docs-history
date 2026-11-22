@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Ground Station
-<a name="security-iam-awsmanpol"></a>
 
  
 

@@ -1,7 +1,6 @@
 
 
 # Understand monitoring with AWS Ground Station
-<a name="monitoring"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of AWS Ground Station. AWS provides the following monitoring tools to watch AWS Ground Station, report when something is wrong, and take automatic actions when appropriate.
 +  *Amazon EventBridge Events* delivers a near real-time stream of system events that describe changes in AWS resources. EventBridge Events enables automated event-driven computing, as you can write rules that watch for certain events and trigger automated actions in other AWS services when these events happen. For more information about EventBridge Events, see the [Amazon EventBridge Events User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html). 

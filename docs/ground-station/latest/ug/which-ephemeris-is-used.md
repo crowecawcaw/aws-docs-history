@@ -1,7 +1,6 @@
 
 
 # Understand which ephemeris is used
-<a name="which-ephemeris-is-used"></a>
 
  Ephemerides have a *priority*, *expiration time*, and *enabled* flag. Together, these determine which ephemeris is used for tracking during a contact. 
 

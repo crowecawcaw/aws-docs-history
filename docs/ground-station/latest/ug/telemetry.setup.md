@@ -1,7 +1,6 @@
 
 
 # Set up telemetry
-<a name="telemetry.setup"></a>
 
  Follow these steps to configure telemetry for your AWS Ground Station contacts. After completing this setup, telemetry data will be delivered to your Kinesis Data Streams stream during contacts that use a telemetry-enabled mission profile. For an in-depth understanding of Kinesis Data Streams please refer to the [Kinesis Data Streams User Guide](https://docs.aws.amazon.com/streams/latest/dev/introduction.html). 
 
@@ -10,7 +9,7 @@
 
  The following CloudFormation snippet demonstrates how to create the prerequisite AWS resources for telemetry delivery. This snippet creates a Kinesis Data Streams stream and an IAM role that grants AWS Ground Station permission to write telemetry data to the stream. 
 
-```
+```yaml
 {{TelemetryStream}}:
   Type: AWS::Kinesis::Stream
   Properties:

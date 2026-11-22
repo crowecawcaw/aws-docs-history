@@ -1,7 +1,6 @@
 
 
 # AWS Ground Station Site Capabilities
-<a name="locations.capabilities"></a>
 
  To simplify your experience, AWS Ground Station determines a common set of capabilities for an antenna type and then deploys multiple antenna to a ground station location. Part of the onboarding steps ensures your satellite is compatible with the antenna types at a specific location. When you reserve a contact, you indirectly determine the antenna type used. This ensures your experience at a particular ground station location remains the same over time regardless of which antennas are being used. The specific performance of your contact will vary due to a wide variety of environmental concerns such as weather at the site. 
 

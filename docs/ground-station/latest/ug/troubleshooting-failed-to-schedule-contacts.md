@@ -1,7 +1,6 @@
 
 
 # Troubleshoot FAILED\_TO\_SCHEDULE contacts
-<a name="troubleshooting-failed-to-schedule-contacts"></a>
 
  A contact will end in a **FAILED\_TO\_SCHEDULE** state when AWS Ground Station detects an issue either with your resource configuration or within the internal system. A contact that ends in a **FAILED\_TO\_SCHEDULE** state will optionally provide an `errorMessage` for additional context. For information about describing contacts, see the [DescribeContact](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DescribeContact.html) API. 
 

@@ -1,7 +1,6 @@
 
 
 # Revert to default ephemeris data
-<a name="reverting-to-default-ephemeris-data"></a>
 
  When you upload custom ephemeris data it will override the default ephemerides AWS Ground Station uses for that particular satellite. AWS Ground Station does not use the default ephemeris again until there are no currently enabled, unexpired customer-provided ephemerides available for use. AWS Ground Station also does not list contacts past the expiration time of the current customer-provided ephemeris, even if there is a default ephemeris available past that expiration time. 
 

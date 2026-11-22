@@ -1,7 +1,6 @@
 
 
 # Create configs
-<a name="getting-started.step3"></a>
 
  By this step you have identified the satellite, the communication paths, and the IAM, Amazon EC2, and Amazon S3 resources as needed. In this step you will create AWS Ground Station *configs* that store their respective parameters. 
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
  The following documentation can help you troubleshoot issues that may occur while using AWS Ground Station. 
 

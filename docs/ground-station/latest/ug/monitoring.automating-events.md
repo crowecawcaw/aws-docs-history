@@ -1,7 +1,6 @@
 
 
 # Automate AWS Ground Station with Events
-<a name="monitoring.automating-events"></a>
 
 **Note**  
  This document uses the term “event” throughout. CloudWatch Events and EventBridge are the same underlying service and API. Rules to match incoming events and route them to targets for processing can be built using either service. 

@@ -1,7 +1,6 @@
 
 
 # Get the current ephemeris for a satellite
-<a name="getting-current-ephemeris"></a>
 
  The current ephemeris in use by AWS Ground Station for a specific satellite can be retrieved by calling the [GetSatellite](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GetSatellite.html) or [ListSatellites](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListSatellites.html) actions. Both of these methods will return metadata for the ephemeris currently in use. This ephemeris metadata is different for custom ephemerides uploaded to AWS Ground Station and for default ephemerides. 
 
@@ -17,7 +16,7 @@
 ## Example [GetSatellite](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GetSatellite.html) return for a satellite using a default ephemeris
 <a name="w2aac28c23c13"></a>
 
-```
+```json
 {
     "satelliteId": "e1cfe0c7-67f9-4d98-bad2-EXAMPLE",
     "satelliteArn": "arn:aws:groundstation::111122223333:satellite/e1cfe0c7-67f9-4d98-bad2-EXAMPLE",
@@ -36,7 +35,7 @@
 ## Example [GetSatellite](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GetSatellite.html) for a satellite using a custom ephemeris
 <a name="w2aac28c23c15"></a>
 
-```
+```json
 {
       "satelliteId": "e1cfe0c7-67f9-4d98-bad2-EXAMPLE",
       "satelliteArn": "arn:aws:groundstation::111122223333:satellite/e1cfe0c7-67f9-4d98-bad2-EXAMPLE",
@@ -66,7 +65,7 @@
 
  Example [ListEphemerides](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListEphemerides.html) response including an azimuth elevation ephemeris: 
 
-```
+```json
 {
     "ephemerides": [
         {

@@ -1,7 +1,6 @@
 
 
 # Understand AWS Ground Station Core components
-<a name="how-it-works.core"></a>
 
  This section provides detailed definitions for the core components of AWS Ground Station. 
 

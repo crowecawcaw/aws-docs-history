@@ -1,7 +1,6 @@
 
 
 # Onboard satellite
-<a name="getting-started.step1"></a>
 
  Onboarding a satellite into AWS Ground Station is a multistep process involving data collection, technical validation, spectrum licensing, with integration and testing. There are also non-disclosure agreements (NDAs) required. 
 

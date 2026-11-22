@@ -1,7 +1,6 @@
 
 
 # Work with contacts
-<a name="contacts"></a>
 
  You can enter satellite data, identify antenna locations, communicate, and schedule antenna time for selected satellites by using the AWS Ground Station console, AWS CLI, or the AWS SDK in the language of your choice. You can review, cancel, and reschedule contact reservations up to 15 minutes before contact start\*. You can also update a contact to specify an ephemeris override — including azimuth/elevation, OEM, or TLE tracking data — or change the target satellite. For more information, see [Update contacts and contact versioning](contacts.versioning.md). In addition, you can view the details of your reserved minutes pricing plan if you are using the AWS Ground Station reserved minutes pricing model. 
 

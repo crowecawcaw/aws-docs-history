@@ -1,7 +1,6 @@
 
 
 # Set up and configure Amazon EC2
-<a name="dataflows.ec2-configuration"></a>
 
  Properly configuring your Amazon EC2 instance is required for synchronous delivery of VITA-49 Signal/IP data or VITA-49 Extension data/IP to be delivered via the AWS Ground Station Agent or a dataflow endpoint. Depending on your specific needs, you may perform the Front End (FE) processor or Software Defined Radio (SDR) directly on the same instance, or you may need to utilize additional EC2 instances. Selection and installation of your FE or SDR is beyond the scope of this user guide. For more information on the specific data formats, see [AWS Ground Station data plane interfaces](dataflows.md#dataflows.interfaces). 
 

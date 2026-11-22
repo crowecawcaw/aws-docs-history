@@ -1,7 +1,6 @@
 
 
 # Use AWS Ground Station Mission Profiles
-<a name="how-it-works-mission-profile"></a>
 
 Mission profiles contain configs and parameters for how contacts are executed. When you reserve a contact or search for available contacts, you supply the mission profile that you intend to use. Mission profiles bring all of your configs together and define how the antenna will be configured and where data will go during your contact. 
 

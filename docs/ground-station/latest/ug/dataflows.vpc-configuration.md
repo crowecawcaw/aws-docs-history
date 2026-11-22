@@ -1,7 +1,6 @@
 
 
 # Set up and configure Amazon VPC
-<a name="dataflows.vpc-configuration"></a>
 
 A full guide to set up a VPC is beyond the scope of this guide. For an in-depth understanding please refer to the [Amazon VPC User Guide](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html). 
 
@@ -25,7 +24,7 @@ The below list calls out unique setup considerations when setting up your VPC fo
 
  The following CloudFormation template demonstrates how to create the infrastructure described in this section. 
 
-```
+```yaml
 {{ReceiveInstanceEIP}}:
   Type: AWS::EC2::EIP
   Properties:
@@ -88,7 +87,7 @@ Your satellite data is provided to a dataflow endpoint application instance that
 
  The following CloudFormation template demonstrates how to create the infrastructure described in this section. 
 
-```
+```yaml
 {{DataflowEndpointSecurityGroup}}:
   Type: AWS::EC2::SecurityGroup
   Properties:
