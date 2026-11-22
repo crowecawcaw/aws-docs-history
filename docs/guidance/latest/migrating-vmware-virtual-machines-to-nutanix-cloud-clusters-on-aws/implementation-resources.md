@@ -1,7 +1,6 @@
 
 
 # Implementation resources
-<a name="implementation-resources"></a>
 
  **Step 1 – Prerequisites** 
 

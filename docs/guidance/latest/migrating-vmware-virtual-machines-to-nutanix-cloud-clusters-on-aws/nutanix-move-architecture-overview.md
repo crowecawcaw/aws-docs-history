@@ -1,7 +1,6 @@
 
 
 # Nutanix Move architecture overview
-<a name="nutanix-move-architecture-overview"></a>
 
 Nutanix Move is delivered as a virtual machine (VM) appliance, which is typically hosted on the target Nutanix AHV cluster running on AWS. The Nutanix Move tool is composed of several software services that can be categorized into the following major software components:
 
@@ -16,3 +15,5 @@ The architecture of Nutanix Move for VMware ESXi environments utilizes the vCent
 An architecture diagram for the Nutanix Move solution is provided:
 
 ![Depicts Nutanix Move components](https://docs.aws.amazon.com/guidance/latest/migrating-vmware-virtual-machines-to-nutanix-cloud-clusters-on-aws/images/nutanix-move-architecture.jpeg)
+
+**Figure 1: Architecture diagram – Nutanix Move.**

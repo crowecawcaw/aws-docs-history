@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
 Arpit Shah is a Sr. Partner Solutions Architect at AWS and based in London. Arpit helps Global System Integrators to accelerate cloud adoption and build secure, resilient, scalable, and high-performance cloud applications. Arpit enjoys cycling, following cricket, and spending time with his family. To connect, visit Arpit’s [LinkedIn](https://www.linkedin.com/in/arpitshah-cloud/) profile. 
 
