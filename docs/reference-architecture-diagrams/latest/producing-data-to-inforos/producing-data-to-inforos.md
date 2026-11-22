@@ -1,7 +1,6 @@
 
 
 # Producing Data to InforOS over SFTP
-<a name="producing-data-to-inforos"></a>
 
 Publication date: **March 20, 2021 ([Diagram history](#pdi-diagram-history))**
 
