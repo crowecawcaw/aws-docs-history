@@ -1,7 +1,6 @@
 
 
 # About POIS signal conditioning
-<a name="scte35-pois-about"></a>
 
 You can configure a MediaLive channel so that your POIS server handles SCTE 35 message that are in the content. 
 

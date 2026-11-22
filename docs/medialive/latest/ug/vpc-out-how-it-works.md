@@ -1,7 +1,6 @@
 
 
 # How VPC delivery works
-<a name="vpc-out-how-it-works"></a>
 
 VPC delivery applies to each MediaLive channel. You can have some channels that deliver via your VPC, and other channels that deliver in the regular way.
 

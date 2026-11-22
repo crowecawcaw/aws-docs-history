@@ -1,7 +1,6 @@
 
 
 # Setting up IAM permissions for users
-<a name="setting-up-for-production"></a>
 
 This section describes the permissions that you must assign to users and other AWS identities so that they can work with AWS Elemental MediaLive and other AWS services that your workflows use. After you have identified the required permissions, you will be able to design and create the relevant policies, and attach those policies to groups of users or to roles. 
 

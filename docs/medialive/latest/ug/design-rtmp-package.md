@@ -1,7 +1,6 @@
 
 
 # Organize encodes in an RTMP output group
-<a name="design-rtmp-package"></a>
 
 An RTMP output group can contain the following:
 + One or more outputs.

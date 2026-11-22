@@ -1,7 +1,6 @@
 
 
 # Update the channel class—pipeline redundancy
-<a name="edit-channel-class"></a>
 
 You can change the channel class of an existing channel in order to enable or disable pipeline redundancy in the channel. 
 

@@ -1,7 +1,6 @@
 
 
 # Create the inputs and channel
-<a name="ips-step-create-inputs-channel"></a>
 
 After you perform the planning in steps 1 to 5, you are ready to create the inputs and create the MediaLive channel.
 

@@ -1,7 +1,6 @@
 
 
 # Create the video outputs
-<a name="ARG-step-create-video"></a>
 
 If you want to include video in the HLS output group, then follow this procedure for each video encode.
 

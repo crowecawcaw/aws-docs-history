@@ -1,7 +1,6 @@
 
 
 # Create roles
-<a name="complex-scenario-create-trusted-entity-role-step3"></a>
 
 Any person who is an administrator can perform the procedure to create a role and attach policies to the role. 
 
@@ -22,7 +21,7 @@ Follow this procedure for each role.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

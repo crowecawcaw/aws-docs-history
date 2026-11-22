@@ -1,7 +1,6 @@
 
 
 # Including accessibility data in audio encodes
-<a name="audio-accessibility"></a>
 
 In the audio in CMAF Ingest or Microsoft Smooth output groups, you can include accessibility data. This data describes the type of accessibility that the encode represents. For example, an audio track might actually be a spoken description of what's happening in the video. Accessibility data is also known as accessibility signaling.
 

@@ -1,7 +1,6 @@
 
 
 # How motion graphics overlay works
-<a name="x-actions-in-schedule-mg"></a>
 
 You can set up an action to insert and remove a motion graphics overlay on the video:
 + The activate motion graphics action inserts a motion graphic and activates it so that it is superimposed on the underlying video. If the image overlay information includes a duration, then at the appropriate time the motion graphic is removed.

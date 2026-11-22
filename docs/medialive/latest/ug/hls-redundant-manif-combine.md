@@ -1,7 +1,6 @@
 
 
 # Combining redundant manifests with other features
-<a name="hls-redundant-manif-combine"></a>
 
 ## Combining redundant manifests and custom path feature
 <a name="hls-redundant-manif-with-custom-paths"></a>

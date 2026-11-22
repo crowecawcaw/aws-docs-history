@@ -1,7 +1,6 @@
 
 
 # Monitoring smart crop activity
-<a name="smart-crop-monitor"></a>
 
 You can monitor smart crop activity using these AWS services:
 + Metrics that Amazon CloudWatch produces, using data sent by Elemental Inference. See [ Monitoring AWS Elemental Inference with Amazon CloudWatch ](https://docs.aws.amazon.com/elemental-inference/latest/userguide/monitoring-cloudwatch) in the *AWS Elemental Inference user guide*. 

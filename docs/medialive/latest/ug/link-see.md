@@ -1,7 +1,6 @@
 
 
 # Working with AWS Elemental Link devices
-<a name="link-see"></a>
 
 For an overview of AWS Elemental Link devices, see [Working with AWS Elemental Link](feature-elink.md).
 

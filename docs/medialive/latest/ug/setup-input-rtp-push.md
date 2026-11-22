@@ -1,7 +1,6 @@
 
 
 # Create an RTP input
-<a name="setup-input-rtp-push"></a>
 
 After you have created the input security group, you can create the RTP push input. 
 

@@ -1,7 +1,6 @@
 
 
 # Sample manifests - HLS
-<a name="sample-manifests-hls"></a>
 
 MediaLive supports the following HLS manifest styles for outputs:
 + Adobe

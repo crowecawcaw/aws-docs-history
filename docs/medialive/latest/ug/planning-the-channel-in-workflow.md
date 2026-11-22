@@ -1,7 +1,6 @@
 
 
 # Planning the outputs in the channel
-<a name="planning-the-channel-in-workflow"></a>
 
 You should plan the AWS Elemental MediaLive channel as the second stage of planning a transcoding *workflow*. You should have already performed the first stage of setting up the upstream and downstream systems, as described in [Preparing the upstream and downstream systems in a workflow](container-planning-uss-dss.md).
 

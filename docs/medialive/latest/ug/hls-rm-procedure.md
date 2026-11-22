@@ -1,7 +1,6 @@
 
 
 # Procedure to set up redundant manifests
-<a name="hls-rm-procedure"></a>
 
 There are two parts to setting up redundant manifests in MediaLive HLS outputs. You must turn on the feature in the output group. You must also make adjustments in the design of the output names and destination paths (compared to HLS outputs that don't implement redundant manifests).
 

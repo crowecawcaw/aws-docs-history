@@ -1,7 +1,6 @@
 
 
 # How a batch request works
-<a name="how-batch-schedule-requests-work"></a>
 
 The intention of batching is to pass or fail all the actions together. Therefore, AWS Elemental MediaLive validates batch actions together. MediaLive performs the following validation:
 + It ensures that each action that is created or deleted has an explicit or implied start time that is at least 15 seconds in the future. 

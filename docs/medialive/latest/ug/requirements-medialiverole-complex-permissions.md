@@ -1,7 +1,6 @@
 
 
 # Set up user permissions
-<a name="requirements-medialiverole-complex-permissions"></a>
 
 With the complex option, MediaLive users must have permissions to use the trusted entity wizard. This wizard is in the **IAM Role** section on the **Channel and input details** pane:
 

@@ -1,7 +1,6 @@
 
 
 # Working with KLV metadata
-<a name="klv-metadata"></a>
 
 You can configure MediaLive to pass through KLV metadata in TS outputs. The metadata must be compliant with SMPTE 336M-2007.
 

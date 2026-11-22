@@ -1,7 +1,6 @@
 
 
 # Setting up Elemental Inference features for the first time
-<a name="smart-crop-procedure-cli-create"></a>
 
 This section describes how to set up the first set of Elemental Inference features in MediaLive. You can set up when you are first creating a channel, or you can set up in an existing channel. You can set up one Elemental Inference feature or several features at the same time. 
 

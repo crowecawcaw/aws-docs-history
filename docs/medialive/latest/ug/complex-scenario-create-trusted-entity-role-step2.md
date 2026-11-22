@@ -1,7 +1,6 @@
 
 
 # Create policies
-<a name="complex-scenario-create-trusted-entity-role-step2"></a>
 
 After you have followed [Step A](complex-scenario-create-trusted-entity-role-step1.md) to identify the policies that you need, you must create them on the IAM console. 
 

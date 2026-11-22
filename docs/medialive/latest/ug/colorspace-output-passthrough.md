@@ -1,7 +1,6 @@
 
 
 # Result when passing through color space
-<a name="colorspace-output-passthrough"></a>
 
 Read this section if you set up one or more MediaLive outputs to [pass through the color space](colorspace-output-setup.md#colorspace-output-setup-passthrough). The following table shows how MediaLive handles each type of color space that it encounters in the source.
 

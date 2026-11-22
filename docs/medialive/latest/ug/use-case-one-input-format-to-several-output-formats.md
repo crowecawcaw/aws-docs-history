@@ -1,7 +1,6 @@
 
 
 # Use case C: One input format converted to different formats, one format for each output
-<a name="use-case-one-input-format-to-several-output-formats"></a>
 
 In this use case for including captions in a MediaLive output, the input is set up with one format of captions and two or more languages. Assume that you want to produce several different types of output, and that in each output you want to convert the captions to a different format but include all the languages.
 

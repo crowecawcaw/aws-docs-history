@@ -1,7 +1,6 @@
 
 
 # Setting up AWS Elemental MediaLive Anywhere
-<a name="setup-emla"></a>
 
 Read this section if you plan to deploy AWS Elemental MediaLive Anywhere, which lets you run MediaLive channels on on-premises hardware located in your organization's data center. The MediaLive channels can include standard MediaLive inputs, but can also include inputs such as SDI inputs that apply only to MediaLive Anywhere. 
 

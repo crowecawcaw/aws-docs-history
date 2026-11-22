@@ -1,7 +1,6 @@
 
 
 # Disabling some Elemental Inference features in a channel
-<a name="smart-crop-disable-some"></a>
 
 Follow this procedure if you want to disable some Elemental Inference features in the MediaLive channel, but you want to keep at least one feature. For example:
 + Keep smart crop enabled in at least one output. 

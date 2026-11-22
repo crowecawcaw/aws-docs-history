@@ -1,7 +1,6 @@
 
 
 # Determine Defaults and Selection Rules
-<a name="ARG-step-defaults"></a>
 
 As the second part of planning the audio rendition group, you should identify the following:
 + The rendition (if any) that is the default.

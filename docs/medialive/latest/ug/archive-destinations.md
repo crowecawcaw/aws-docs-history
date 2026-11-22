@@ -1,7 +1,6 @@
 
 
 # Fields for the output destination
-<a name="archive-destinations"></a>
 
 The following fields configure the location and names of the Archive output files (the destination).
 + **Output group** – **Archive group destination** section

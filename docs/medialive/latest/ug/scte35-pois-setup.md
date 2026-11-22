@@ -1,7 +1,6 @@
 
 
 # Setting up for POIS signal conditioning
-<a name="scte35-pois-setup"></a>
 
 With POIS signal conditioning, the MediaLive channel and the POIS server must be set up with identical information.
 

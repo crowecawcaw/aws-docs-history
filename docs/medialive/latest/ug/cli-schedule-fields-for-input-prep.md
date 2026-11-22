@@ -1,7 +1,6 @@
 
 
 # Input prepare action – payload
-<a name="cli-schedule-fields-for-input-prep"></a>
 
 The following sections show the payload for input switch actions. 
 

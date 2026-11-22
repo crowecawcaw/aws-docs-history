@@ -1,7 +1,6 @@
 
 
 # Channel input—CDI VPC push input
-<a name="input-cdi"></a>
 
 To verify that the input is set up correctly, look at the **Input destinations** section. It shows the two locations on MediaLive that the upstream system will push the source to when the channel is running. These locations were automatically generated when you created the input:
 + If the channel is set up as a standard channel, two locations are generated. 

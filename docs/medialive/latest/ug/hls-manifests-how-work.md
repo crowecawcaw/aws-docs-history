@@ -1,7 +1,6 @@
 
 
 # How manifests work
-<a name="hls-manifests-how-work"></a>
 
 The following sections describe how MediaLive handles manifest paths.
 

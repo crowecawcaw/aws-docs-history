@@ -1,7 +1,6 @@
 
 
 # Obtain information
-<a name="setup-mp4-obtain-info"></a>
 
 Obtain the following information from the operator at the upstream system:
 + The URLs on the upstream system for the source file or files. 

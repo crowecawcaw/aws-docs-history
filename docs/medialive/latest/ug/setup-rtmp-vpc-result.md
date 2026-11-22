@@ -1,7 +1,6 @@
 
 
 # Result of this procedure
-<a name="setup-rtmp-vpc-result"></a>
 
 As a result of this setup, an RTMP input exists that specifies one or two *endpoint* URLs. These addresses are fixed for the lifetime of the input, regardless of changes that occur (such as modifying other information in the input, or attaching the input to a different channel). 
 

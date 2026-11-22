@@ -1,7 +1,6 @@
 
 
 # Inserting and removing an overlay
-<a name="image-overlay-insert"></a>
 
 When you are ready, you can create an action in the MediaLive channel schedule to activate (insert) the overlay. You can create the action at any time – before the channel has started or while it is already running. The schedule is a timetable that is attached to each channel. It lets you perform actions at a specific time, on a running (active) channel. You can work with the schedule using either the MediaLive console or an AWS API or SDK.
 

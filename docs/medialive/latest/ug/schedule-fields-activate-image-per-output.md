@@ -1,7 +1,6 @@
 
 
 # Fields for activating a per-outputs image overlay
-<a name="schedule-fields-activate-image-per-output"></a>
 
 This table shows the fields that apply for an action to activate an image overlay. 
 

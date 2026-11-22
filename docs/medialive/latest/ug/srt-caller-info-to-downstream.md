@@ -1,7 +1,6 @@
 
 
 # Provide information to the downstream system
-<a name="srt-caller-info-to-downstream"></a>
 
 The downstream system might need the source IP addresses of the one or two MediaLive streams, so that they can allow these addresses to connect to them. If the downstream system is MediaConnect, it definitely needs this information.
 

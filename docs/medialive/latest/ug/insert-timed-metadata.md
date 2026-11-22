@@ -1,7 +1,6 @@
 
 
 # Inserting ID3 timed metadata when creating the MediaLive channel
-<a name="insert-timed-metadata"></a>
 
 When you create or edit the channel, you can set up the following types of output groups so that MediaLive inserts a timestamp at a regular interval.
 + CMAF Ingest

@@ -1,7 +1,6 @@
 
 
 # Implementing resiliency in the channel
-<a name="resiliency-channel"></a>
 
 AWS Elemental MediaLive has several features that provide resiliency in the channel:
 + Automatic input failover – You can set up two inputs in an *input failover pair*. Setting up this way provides resiliency in case of a failure either in the upstream system, or between the upstream system and the channel. 

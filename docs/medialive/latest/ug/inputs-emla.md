@@ -1,7 +1,6 @@
 
 
 # Input deployments: AWS Cloud and MediaLive Anywhere
-<a name="inputs-emla"></a>
 
 Inputs are categorized by the deployment mode of the channel that they are attached to:
 +  AWS Cloud only. These inputs can be attached only to a channel that is running in the AWS Cloud.

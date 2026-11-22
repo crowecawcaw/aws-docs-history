@@ -1,7 +1,6 @@
 
 
 # MediaLive Reference
-<a name="reference"></a>
 
 This chapter contains reference tables for different features and functions of AWS Elemental MediaLive.
 

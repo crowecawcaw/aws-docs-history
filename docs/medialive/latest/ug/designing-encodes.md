@@ -1,7 +1,6 @@
 
 
 # Design the encodes
-<a name="designing-encodes"></a>
 
 In the first step of planning the channel, you [identified](planning-encodes.md) the video, audio, and captions encodes to include in each output group. In the second step, you organized these encodes into outputs in each output group. 
 

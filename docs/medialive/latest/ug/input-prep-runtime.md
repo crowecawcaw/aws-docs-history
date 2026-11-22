@@ -1,7 +1,6 @@
 
 
 # How input prepare actions behave at runtime
-<a name="input-prep-runtime"></a>
 
 All prepare actions that you add to the MediaLive schedule sit in the schedule until the start time. At the start time (which can be fixed, immediate, or following an input switch), MediaLive stops any input prepare that is currently active, and starts the new input prepare.
 

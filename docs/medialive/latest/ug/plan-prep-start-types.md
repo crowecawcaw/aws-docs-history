@@ -1,7 +1,6 @@
 
 
 # Types of starts for input prepares
-<a name="plan-prep-start-types"></a>
 
 There are three start types for input prepare actions in MediaLive. These start types are the same as the start types for input switches.
 + Fixed – the input prepare starts at a specific time.

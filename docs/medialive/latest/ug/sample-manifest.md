@@ -1,7 +1,6 @@
 
 
 # Sample manifest
-<a name="sample-manifest"></a>
 
 This section provides an example of the audio portion of the manifest that MediaLive produces when you set up an audio-only output. This sample manifest contains the following elements:
 + Two video outputs, as indicated by the presence of two `EXT-STREAM-INF` lines (the last two lines in the example).

@@ -1,7 +1,6 @@
 
 
 # Create captions selectors in the inputs
-<a name="identify-captions-in-the-input"></a>
 
 This section describes the first step for setting up for captions in MediaLive. You must identify the captions that you want to use and assign each to a captions selector. If you don't create any captions selectors, you can't include captions in the output. All the captions will be removed from the media.
 
@@ -13,6 +12,7 @@ Then you must extract the captions that you want by adding a captions selector i
 + [Information for DVB-Sub or SCTE-27](#dvb-sub-or-scte27)
 + [Information for embedded](#embedded)
 + [Information for Teletext](#teletext)
++ [Information for WebVTT](#captions-webvtt-source)
 
 ## Identify the captions that you want
 <a name="identify-source-captions-step-a"></a>
@@ -41,6 +41,7 @@ You end up with a list of captions selectors to create. For example:
 | SCTE-27 | WebVTT | Create one caption selector for each language, to a maximum of three caption selectors in the input. For more information about this limit, see [Constraints for using OCR conversion](captions-languages-ocr.md). | 
 | Teletext | Teletext | Create a single captions selector. All languages are passed through. All the pages in the teletext are passed through. For details, see [Information for Teletext](#teletext). | 
 | Teletext | Another format | If you have Teletext source and want a different format in the output, create one captions selector for each language and format combination. | 
+| WebVTT | WebVTT or embedded | Create one captions selector for each subtitle rendition that you want to extract from the HLS input. For details, see [Information for WebVTT](#captions-webvtt-source). | 
 | Any other combination |  | Create one captions selector for each language and format combination. | 
 
 ## Create captions selectors
@@ -54,7 +55,7 @@ You end up with a list of captions selectors to create. For example:
 
 1. In **Selector settings**, choose the format of the source captions. 
 
-1. For most formats, more fields appear. For details about a field, choose the **Info** link next to the field. In addition, see [DVB-Sub or SCTE-27](#dvb-sub-or-scte27), [Embedded](#embedded), or [Teletext](#teletext).
+1. For most formats, more fields appear. For details about a field, choose the **Info** link next to the field. In addition, see [DVB-Sub or SCTE-27](#dvb-sub-or-scte27), [Embedded](#embedded), [Teletext](#teletext), or [WebVTT](#captions-webvtt-source).
 
 1. Create more captions selectors, as required. 
 
@@ -155,3 +156,54 @@ To define a positioning rectangle, follow this procedure.
 1. In the **Output rectangle** field, choose **Caption rectangle**.
 
 1. Complete the fields for the four sides of the rectangle – **Left offset**, **Width**, **Top offset**, and **Height**.
+
+## Information for WebVTT
+<a name="captions-webvtt-source"></a>
+
+Read this section if the input is an HLS input that contains WebVTT subtitle renditions. Each WebVTT captions selector reads the WebVTT segments of one subtitle rendition from the HLS source.
+
+### WebVTT selector rules
+<a name="captions-webvtt-source-rules"></a>
+
+The following rules apply to WebVTT captions selectors:
++ You can create a WebVTT captions selector only on an HLS input. On any other type of input, you get a validation error when you save the channel.
++ On one input, each WebVTT captions selector must have a different combination of **Language code**, **Group ID**, and **Name**. MediaLive ignores case when it compares language codes.
++ You can convert WebVTT source captions only to WebVTT or to embedded (CEA-608 or CEA-708) captions. For embedded captions, MediaLive uses encode mode. For more information about encode mode, see [Embedded captions encoding](captions-embedded-encoder.md). For more information about the output types that support each format, see [Captions supported in MediaLive](supported-captions.md).
++ An output can't contain captions from a WebVTT captions selector together with captions from a Smart Subtitles captions selector. Put them in different outputs.
+
+### WebVTT selector fields
+<a name="captions-webvtt-source-fields"></a>
+
+Complete the following fields in the captions selector:
++ **Selector settings** – Choose **WebVTT**.
++ **Language code** – Optional. The three-letter language code of the captions. MediaLive uses this field to choose the rendition when you leave **Group ID** and **Name** blank.
++ **Group ID** – Optional. The `GROUP-ID` attribute of the `#EXT-X-MEDIA` subtitle rendition to use from the HLS source.
++ **Name** – Optional. The `NAME` attribute of the `#EXT-X-MEDIA` subtitle rendition to use from the HLS source.
+
+Complete both **Group ID** and **Name**, or leave both blank. If you complete only one of them, you get a validation error.
+
+### WebVTT rendition selection
+<a name="captions-webvtt-source-rendition"></a>
+
+MediaLive chooses the subtitle rendition in one of the following ways, depending on the **Group ID** and **Name** fields:
++ If you complete **Group ID** and **Name**, MediaLive uses the rendition that matches both values exactly. If no rendition matches, this captions selector produces no captions. MediaLive logs a warning and continues to look for the rendition. It doesn't use a different rendition.
++ If you leave **Group ID** and **Name** blank, MediaLive uses the first rendition that meets one of these conditions, in this order:
+
+  1. The `LANGUAGE` attribute of the rendition matches the **Language code** of the captions selector. MediaLive ignores case in this comparison.
+
+  1. The rendition has the attribute `DEFAULT=YES`.
+
+  1. The rendition is the first subtitle rendition in the multivariant playlist.
+
+### WebVTT captions timing
+<a name="captions-webvtt-source-timing"></a>
+
+MediaLive uses the `X-TIMESTAMP-MAP` header in each WebVTT segment to align the captions with the video. If a segment doesn't have this header, MediaLive uses a timestamp of 0 for that segment.
+
+### Embedded output limits
+<a name="captions-webvtt-source-limits"></a>
+
+The following limits apply when you convert WebVTT captions to embedded captions:
++ Embedded captions contain only the text of the WebVTT cues.
++ If two cues overlap in time, MediaLive shows them one after the other.
++ If a cue has more than four rows, CEA-608 captions contain the last four rows, and CEA-708 captions contain the first four rows.

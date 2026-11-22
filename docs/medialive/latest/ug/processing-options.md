@@ -1,7 +1,6 @@
 
 
 # Supported output features
-<a name="processing-options"></a>
 
 MediaLive supports different types of processing that you can implement in different combinations.
 

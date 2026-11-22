@@ -1,7 +1,6 @@
 
 
 # Designing the nameModifier
-<a name="hls-nameModifier-design-emp"></a>
 
 Design the `nameModifier` portions of the file name. The child manifests and media files include this modifier in their file names. 
 

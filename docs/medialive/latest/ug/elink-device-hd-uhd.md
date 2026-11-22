@@ -1,7 +1,6 @@
 
 
 # HD and UHD Link devices
-<a name="elink-device-hd-uhd"></a>
 
 There are two versions of the Link device. Each device can handle different usages, ingest different resolutions, and stream different formats.
 

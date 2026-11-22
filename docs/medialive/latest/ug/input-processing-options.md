@@ -1,7 +1,6 @@
 
 
 # Supported features by input type
-<a name="input-processing-options"></a>
 
 SCTE 35 messages can appear only in the following types of MediaLive inputs:
 + Elemental Link inputs

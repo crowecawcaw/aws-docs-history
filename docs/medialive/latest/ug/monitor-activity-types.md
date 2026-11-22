@@ -1,7 +1,6 @@
 
 
 # Types of activity that can be monitored
-<a name="monitor-activity-types"></a>
 
 The following table summarizes the type of MediaLive activity you can monitor, and the service you can use. In the table, read down the first column to find the type of activity you want to monitor, then read across to find the service to use.
 

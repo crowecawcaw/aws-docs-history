@@ -1,7 +1,6 @@
 
 
 # Setting up dynamic inputs
-<a name="dynamic-inputs"></a>
 
 In MediaLive, you can set up a multiple-input channel with static and dynamic file inputs. You can then use the input switching feature of the channel schedule to switch from one input to another. A static input always connects to the same file. A dynamic input points to a different file each time it is used in an input switch in the schedule. 
 

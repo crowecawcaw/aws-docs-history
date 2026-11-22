@@ -1,7 +1,6 @@
 
 
 # Identify resiliency requirements
-<a name="plan-redundancy"></a>
 
 Resiliency is the ability of the channel to continue to work when problems occur. MediaLive includes two resiliency features that you must plan for now. You must decide which of these features you want to implement. You must make this decision now because these features affect how many sources you need for your content, which requires discussion with your upstream system.
 

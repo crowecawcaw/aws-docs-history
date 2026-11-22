@@ -1,7 +1,6 @@
 
 
 # How SCTE 35 actions work
-<a name="x-actions-in-schedule-SCTE35"></a>
 
 You can set up an action to insert a SCTE 35 message in the channel. There are three types of actions:
 + Action to insert a splice\_insert into the channel: a SCTE 35 message with splice\_command\_type set to splice\_insert.

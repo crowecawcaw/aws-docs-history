@@ -1,7 +1,6 @@
 
 
 # Identifying content in an RTP source
-<a name="extract-contents-rtp"></a>
 
 This procedure applies to both RTP inputs from the internet and inputs from Amazon Virtual Private Cloud. The content in an RTP input is always a transport stream (TS). The TS is made up of one program (SPTS) or multiple programs (MPTS). Each program contains a combination of video, a combination of audio, and optional captions. 
 

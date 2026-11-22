@@ -1,7 +1,6 @@
 
 
 # Creating an Archive output group
-<a name="opg-archive"></a>
 
 When you create an AWS Elemental MediaLive channel, you might want to include an Archive output group. For information about the use cases for an Archive output group, see [Containers, protocols, and downstream systems](outputs-supported-containers-downstream-systems.md).
 

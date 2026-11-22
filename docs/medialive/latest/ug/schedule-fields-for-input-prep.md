@@ -1,7 +1,6 @@
 
 
 # Fields for an input prepare
-<a name="schedule-fields-for-input-prep"></a>
 
 This section describes how to complete the fields for these three types of input prepares:
 + A prepare of a static live input 

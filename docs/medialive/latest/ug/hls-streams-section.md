@@ -1,7 +1,6 @@
 
 
 # Fields for the video, audio, and captions streams (encodes)
-<a name="hls-streams-section"></a>
 
 The following fields relate to the encoding of the video, audio, and captions encodes in each output. 
 + **Stream settings** section

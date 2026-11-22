@@ -1,7 +1,6 @@
 
 
 # Fields for pause
-<a name="schedule-fields-for-pause"></a>
 
 In **Schedule action settings**, complete the following fields.
 

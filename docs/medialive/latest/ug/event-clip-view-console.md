@@ -1,7 +1,6 @@
 
 
 # Viewing the event clipping setup
-<a name="event-clip-view-console"></a>
 
 You can view information about the Elemental Inference features in a channel. 
 

@@ -1,7 +1,6 @@
 
 
 # Coordinate with the downstream system
-<a name="origin-server-mss"></a>
 
 You and the operator of the downstream system must agree about the destination for the output of the Microsoft Smooth output group.
 

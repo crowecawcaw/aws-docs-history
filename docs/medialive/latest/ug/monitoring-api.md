@@ -1,7 +1,6 @@
 
 
 # Monitoring alerts using the AWS SDKs or API
-<a name="monitoring-api"></a>
 
 You can use your preferred AWS SDK or API to monitor alerts about channel activity, multiplex activity, and activity on the nodes in an AWS Elemental MediaLive Anywhere cluster. 
 

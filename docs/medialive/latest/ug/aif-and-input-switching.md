@@ -1,7 +1,6 @@
 
 
 # Automatic input failover and input switching
-<a name="aif-and-input-switching"></a>
 
 When you implement automatic input failover in MediaLive, you can still implement input switching.
 

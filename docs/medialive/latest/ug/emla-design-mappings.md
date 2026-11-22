@@ -1,7 +1,6 @@
 
 
 # Designing mappings for node interfaces
-<a name="emla-design-mappings"></a>
 
 This section is intended for the video engineer who is responsible for designing the MediaLive Anywhere workflows.
 

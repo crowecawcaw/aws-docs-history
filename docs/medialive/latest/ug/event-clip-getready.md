@@ -1,7 +1,6 @@
 
 
 # Get Ready
-<a name="event-clip-getready"></a>
 
 ## Pricing
 <a name="event-clip-pricing"></a>

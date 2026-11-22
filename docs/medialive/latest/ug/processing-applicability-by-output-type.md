@@ -1,7 +1,6 @@
 
 
 # Supported features by output type
-<a name="processing-applicability-by-output-type"></a>
 
 This section describes which SCTE 35 features apply to the various types of outputs that MediaLive supports. 
 

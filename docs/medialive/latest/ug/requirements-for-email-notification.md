@@ -1,7 +1,6 @@
 
 
 # Requirements for CloudWatch and Amazon SNS—setting up email notification
-<a name="requirements-for-email-notification"></a>
 
 MediaLive provides information about channels as they are running. It sends this information to Amazon CloudWatch as events. The details of these events can optionally be distributed to one or more users. Someone must set up this distribution. (For the setup procedure, see [Monitoring a channel or multiplex using Amazon CloudWatch Events](monitoring-via-cloudwatch.md).) 
 

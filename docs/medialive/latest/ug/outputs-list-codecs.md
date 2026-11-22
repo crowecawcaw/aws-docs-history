@@ -1,7 +1,6 @@
 
 
 # Codecs supported in MediaLive outputs
-<a name="outputs-list-codecs"></a>
 
 MediaLive supports the following video codecs in outputs.
 + AV1

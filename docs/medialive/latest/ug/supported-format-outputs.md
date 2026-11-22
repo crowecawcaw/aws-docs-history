@@ -1,7 +1,6 @@
 
 
 # Formats supported in different types of outputs
-<a name="supported-format-outputs"></a>
 
 There are several factors that control your ability to include captions of a specific format in the outputs in a MediaLive channel:
 + **The type of input container** – A given input container can contain captions in some formats and not in others.

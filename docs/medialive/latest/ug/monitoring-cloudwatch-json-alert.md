@@ -1,7 +1,6 @@
 
 
 # JSON for an alert event
-<a name="monitoring-cloudwatch-json-alert"></a>
 
 Events that are based on [alerts](monitor-activity-types-alerts-channels.md) are identified by their `detail-type` property:
 + `MediaLive Channel Alert` for a channel

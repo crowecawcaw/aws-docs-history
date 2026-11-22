@@ -1,7 +1,6 @@
 
 
 # Fields for the video, audio, and captions stream (encode)
-<a name="udp-streams"></a>
 
 The following fields relate to the encoding of the video, audio, and captions streams (encodes) in the output. 
 + **Stream settings** section

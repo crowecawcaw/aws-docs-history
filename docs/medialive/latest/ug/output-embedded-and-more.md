@@ -1,7 +1,6 @@
 
 
 # Create embedded or object captions encodes
-<a name="output-embedded-and-more"></a>
 
 Follow this procedure if the format of the captions asset that you want to add belongs to the category of embedded, burn-in, or object. You set up the captions and video and audio in the same MediaLive output.
 
@@ -30,3 +29,4 @@ Follow this procedure if the format of the captions asset that you want to add b
 | Accessibility, Caption DASH Roles, DVB DASH accessibility | Accessibility data | All formats | [Including accessibility data in captions in MediaLive](captions-accessibility.md) | 
 | PIDs | PID assignment | ARIB, DVB-Sub | [PIDs for ARIB](complete-the-pids-for-arib.md), [PIDs for DVB-Sub](complete-the-pids-for-dvb-sub.md) | 
 | Captions language mappings | Tags in manifest | HLS | [Language information in HLS manifests](set-up-the-hls-manifest.md) | 
+| Embedded mode, Caption service channel | Embedded captions encoding | Embedded | [Embedded captions encoding](captions-embedded-encoder.md) | 

@@ -1,7 +1,6 @@
 
 
 # Scenario D – Metadata can't be corrected
-<a name="color-space-scenario-correct-multiple"></a>
 
 During assessment of the MediaLive input, you might have determined the following:
 + Different portions of the content are in different color spaces. All those color spaces are supported.

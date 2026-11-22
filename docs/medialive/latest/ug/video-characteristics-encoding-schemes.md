@@ -1,7 +1,6 @@
 
 
 # Encoding schemes supported in video outputs in MediaLive
-<a name="video-characteristics-encoding-schemes"></a>
 
 **Topics**
 + [Encoding schemes for the AV1 codec](#video-characteristics-encoding-schema-av1)

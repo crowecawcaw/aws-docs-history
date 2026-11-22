@@ -1,7 +1,6 @@
 
 
 # Creating CDI inputs as partner inputs
-<a name="feature-cdi-partner"></a>
 
 A partner CDI input is a specific configuration of a MediaLive CDI input. You must set up two CDI inputs as partners if you want to support automatic input failover for a CDI source. The two inputs always work together, as the two inputs in an [automatic failover](automatic-input-failover.md) pair. The two inputs can be used only together, as a failover pair.
 

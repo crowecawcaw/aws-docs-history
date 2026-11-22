@@ -1,7 +1,6 @@
 
 
 # Assess audio content
-<a name="assess-uss-audio"></a>
 
 Consult the following table for information about how to assess the audio source. Read across each row.
 

@@ -1,7 +1,6 @@
 
 
 # Input switch action – payload
-<a name="cli-schedule-fields-for-input-switch"></a>
 
 The following sections show the payload for input switch actions. 
 

@@ -1,7 +1,6 @@
 
 
 # Using the workflow wizard
-<a name="wizard-procedure"></a>
 
 ## Creating a workflow
 <a name="wizard-create"></a>

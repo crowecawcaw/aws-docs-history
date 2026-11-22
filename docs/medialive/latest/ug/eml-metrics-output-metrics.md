@@ -1,7 +1,6 @@
 
 
 # Output metrics
-<a name="eml-metrics-output-metrics"></a>
 
 Output metrics relate to the video and audio assets that have been processed by MediaLive as an output.
 

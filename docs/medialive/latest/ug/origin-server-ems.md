@@ -1,7 +1,6 @@
 
 
 # HLS output group to MediaStore
-<a name="origin-server-ems"></a>
 
 Follow this procedure if you [determined](identify-downstream-system.md) that you will create an HLS output group, with AWS Elemental MediaStore as the destination. You and the operator of the downstream system must agree about the destination for the output of the HLS output group
 

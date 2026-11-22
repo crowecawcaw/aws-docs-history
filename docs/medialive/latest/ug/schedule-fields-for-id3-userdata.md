@@ -1,7 +1,6 @@
 
 
 # Fields for ID3 metadata
-<a name="schedule-fields-for-id3-userdata"></a>
 
 This table shows the fields that apply for an action to perform a one-time insertion of ID3 metadata. MediaLive inserts the metadata as base64.
 

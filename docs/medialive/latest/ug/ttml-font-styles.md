@@ -1,7 +1,6 @@
 
 
 # Font styles for TTML
-<a name="ttml-font-styles"></a>
 
 This section applies if you are [setting up TTML captions](output-sidecar-and-smptett-mss.md) from embedded or Teletext source captions. You can optionally specify some of the font style information. 
 

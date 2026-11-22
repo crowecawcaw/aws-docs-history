@@ -1,7 +1,6 @@
 
 
 # MQCS metrics
-<a name="eml-metrics-quality-score"></a>
 
 MQCS metrics relate to the media quality confidence score that MediaLive generates for specific outputs. For more information about MQCS, see [Working with MQCS](mqcs.md).
 

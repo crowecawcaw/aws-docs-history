@@ -1,7 +1,6 @@
 
 
 # Managing channel maintenance
-<a name="maintenance"></a>
 
 The AWS Elemental MediaLive service routinely performs maintenance on underlying systems for security, reliability, and operational performance. The maintenance activities include actions such as patching the operating system, updating drivers, or installing software and patches.
 

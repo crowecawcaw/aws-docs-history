@@ -1,7 +1,6 @@
 
 
 # Enabling decoration – Microsoft Smooth
-<a name="procedure-to-enable-decoration-ms-smooth"></a>
 
 In a Microsoft Smooth output group, if you enable manifest decoration, instructions are inserted in the sparse track.
 

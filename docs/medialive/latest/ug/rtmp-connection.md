@@ -1,7 +1,6 @@
 
 
 # Fields for the RTMP connection
-<a name="rtmp-connection"></a>
 
 The following fields configure the logic for reconnection attempts:
 + **RTMP settings** – **Authentication scheme**

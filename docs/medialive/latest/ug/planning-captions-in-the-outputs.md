@@ -1,7 +1,6 @@
 
 
 # Plan captions for the outputs
-<a name="planning-captions-in-the-outputs"></a>
 
 After you have set up the inputs in the MediaLive channel, you must plan the outputs. If you followed the instructions in [Create captions selectors in the inputs](identify-captions-in-the-input.md), you should have a list of the captions formats and languages that are available for inclusion in the outputs. 
 

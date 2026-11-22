@@ -1,7 +1,6 @@
 
 
 # Obtain information
-<a name="setup-rtp-push-obtain-info"></a>
 
 Obtain the following information from your contact person at the upstream system:
 + The public network IP addresses. You need two sets of IP addresses because an RTP input is always a [standard-class input](class-channel-input.md), even if your channel is a single-pipeline channel. For information about input classes, see [Choosing the channel class and input class](class-channel-input.md).

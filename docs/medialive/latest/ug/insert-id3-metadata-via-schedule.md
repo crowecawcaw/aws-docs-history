@@ -1,7 +1,6 @@
 
 
 # Inserting ID3 metadata using the schedule
-<a name="insert-id3-metadata-via-schedule"></a>
 
 You can create actions in the channel schedule to insert ID3 metadata in one or more outputs. There are two types of ID3 metadata actions:
 + Timed metadata, to insert metadata once, at a specified time. 

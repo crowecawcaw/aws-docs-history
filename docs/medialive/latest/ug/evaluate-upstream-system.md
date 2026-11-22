@@ -1,7 +1,6 @@
 
 
 # Assess the upstream system
-<a name="evaluate-upstream-system"></a>
 
 As part of the planning of the MediaLive workflow, you must assess the upstream system that is the source of the content, to ensure that it is compatible with MediaLive. Then you must assess the source content to ensure that it contains formats that MediaLive can ingest and that MediaLive can include in the outputs you want. 
 

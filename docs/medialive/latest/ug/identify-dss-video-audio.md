@@ -1,7 +1,6 @@
 
 
 # Identify the encode requirements for the output groups
-<a name="identify-dss-video-audio"></a>
 
 After you have identified the output groups that you need to create, you must identify the requirements for the video and audio encodes that you will include in each output group. The downstream system controls these requirements.
 

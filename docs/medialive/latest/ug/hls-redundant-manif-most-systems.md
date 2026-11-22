@@ -1,7 +1,6 @@
 
 
 # Rules for most downstream systems
-<a name="hls-redundant-manif-most-systems"></a>
 
 You can set up redundant manifests in a MediaLive HLS output group so long as the downstream system can work with specific rules. Read this section if you are setting up redundant manifests with any downstream system except Akamai. If your downstream system is an Akamai CDN, see [Rules for Akamai CDNs](hls-redundant-manif-akamai.md).
 

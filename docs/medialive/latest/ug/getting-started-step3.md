@@ -1,7 +1,6 @@
 
 
 # Step 3: Create an input
-<a name="getting-started-step3"></a>
 
 You must create an input. The input defines how the upstream system provides the source video stream to MediaLive. In this tutorial, you create an RTP input. 
 

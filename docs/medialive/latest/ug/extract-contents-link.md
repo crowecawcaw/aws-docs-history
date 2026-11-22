@@ -1,7 +1,6 @@
 
 
 # Identifying content in an AWS Elemental Link source
-<a name="extract-contents-link"></a>
 
 The content in an AWS Elemental Link source is always a transport stream (TS) that contains one video asset, one audio pair, and optional captions. 
 

@@ -1,7 +1,6 @@
 
 
 # Supported codecs by input type
-<a name="inputs-supported-codecs-by-input-type"></a>
 
 The following table lists the video and audio codecs that each type of MediaLive input type supports.
 
@@ -12,7 +11,8 @@ The following table lists the video and audio codecs that each type of MediaLive
 | HLSSee [HLS inputs](#hls-inputs-anchor), after this table. | H.264 (AVC) | AAC<br />Dolby Digital<br />Dolby Digital Plus | 
 | Link HD | Any codec that is included in a Link container is always supported by MediaLive. | Up to 8 channels of PCM audio when using HDMI or SDI input | 
 | Link UHD | Any codec that is included in a Link container is always supported by MediaLive. | Up to 8 channels of PCM audio when using HDMI inputUp to 16 channels of PCM audio when using SDI input<br />Dolby Digital<br />Dolby Digital Plus | 
-| MediaConnect | H.264 (AVC)<br />H.265 (HEVC)<br />MPEG-2 | AAC<br />Dolby Digital<br />Dolby E wrapped in PCM<br />Dolby Digital Plus<br />MPEG Audio<br />PCM | 
+| MediaConnect | H.264 (AVC)<br />H.265 (HEVC)<br />MPEG-2<br />JPEG XS (TR-07). See [Completing the settings – JPEG XS (TR-07)](input-specification.md#input-specification-jpegxs). | AAC<br />Dolby Digital<br />Dolby E wrapped in PCM<br />Dolby Digital Plus<br />MPEG Audio<br />PCM | 
+| MediaConnect Router | H.264 (AVC)<br />H.265 (HEVC)<br />MPEG-2<br />JPEG XS (TR-07). See [Completing the settings – JPEG XS (TR-07)](input-specification.md#input-specification-jpegxs). | AAC<br />Dolby Digital<br />Dolby E wrapped in PCM<br />Dolby Digital Plus<br />MPEG Audio<br />PCM | 
 | MP4 | H.264 (AVC)H.265 (HEVC)<br />MPEG-2 | AACDolby E wrapped in PCM | 
 | RTMP | H.264 (AVC) | AAC | 
 | RTP | H.264 (AVC)<br />H.265 (HEVC)<br />MPEG-2 | AAC<br />Dolby Digital<br />Dolby E wrapped in PCM<br />Dolby Digital Plus<br />MPEG Audio<br />PCM | 

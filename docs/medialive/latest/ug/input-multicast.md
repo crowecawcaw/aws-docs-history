@@ -1,7 +1,6 @@
 
 
 # Channel input—Multicast input
-<a name="input-multicast"></a>
 
 Before you attach the input, check how it is set up. On the **Inputs** page, choose the input. The **Multicast settings** section of the input details shows the multicast URL. It also shows the source IP address and the secondary source, if you set them when you created the input. For example:
 + **Multicast URL: rtp://233.252.0.1:5000**

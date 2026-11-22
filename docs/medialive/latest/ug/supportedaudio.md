@@ -1,7 +1,6 @@
 
 
 # Audio requirements
-<a name="supportedaudio"></a>
 
 ## Supported audio
 <a name="nielsen-watermarks-input-audio"></a>

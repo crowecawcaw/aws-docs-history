@@ -1,7 +1,6 @@
 
 
 # Assess the color space metadata in the sources
-<a name="color-space-input-procedure"></a>
 
 Before you can set up the outputs, you must determine if you need to modify the color space metadata in the inputs. To make this decision, you must assess the quality of the metadata in the inputs. 
 

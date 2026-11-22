@@ -1,7 +1,6 @@
 
 
 # Handling encrypted source content in an HLS source
-<a name="planning-hls-input-encrypted"></a>
 
 MediaLive can ingest an HLS source that is encrypted according to the HTTP Live Streaming specification.
 

@@ -1,7 +1,6 @@
 
 
 # Fields for the UDP transport
-<a name="udp-container"></a>
 
 The following fields configure the transport in each output:
 + **Output** – **Output settings** – **FEC output settings**, choose a value. 

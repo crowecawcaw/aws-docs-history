@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="ab-watermark-troubleshooting"></a>
 
 Use the following guidance to diagnose common issues with A/B forensic video watermarking. If watermarking is configured incorrectly, MediaLive disables watermarking for that output group and the channel continues to run and produce video. You can view alerts on the MediaLive console, and MediaLive also emits them as CloudWatch events with the detail type `MediaLive Channel Alert`. For the full list of channel alerts and for information about how to view alerts, see [List of alerts for channels](monitor-activity-types-alerts-channels.md).
 

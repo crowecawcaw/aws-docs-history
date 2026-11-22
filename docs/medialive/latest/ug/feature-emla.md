@@ -1,7 +1,6 @@
 
 
 # Running channels in AWS Elemental MediaLive Anywhere
-<a name="feature-emla"></a>
 
 Your organization can deploy an AWS Elemental MediaLive Anywhere cluster of on-premises nodes, and run channels on those nodes. This means that you can run channels on your own hardware, as well as running channels in the regular way, in the AWS Cloud.
 
@@ -9,7 +8,7 @@ You decide where to run the channel when you create the channel. In this case th
 
 ## Workflow design and available features
 <a name="feature-emla-supported-features"></a>
-+ The channel must be [single-pipeline channel](#feature-emla). The inputs can be a combination of single-class inputs (such as SMPTE 2110) and standard-class inputs. MediaLive ignores content from the second pipeline, if there is any. You can also instruct the upstream system to send content to just one of the pipelines. See [Choosing the channel class and input class](class-channel-input.md).
++ The channel must be [single-pipeline channel](feature-emla.md). The inputs can be a combination of single-class inputs (such as SMPTE 2110) and standard-class inputs. MediaLive ignores content from the second pipeline, if there is any. You can also instruct the upstream system to send content to just one of the pipelines. See [Choosing the channel class and input class](class-channel-input.md).
 + You can't run the channel on your Amazon VPC.
 + Some input types don't work in a MediaLive Anywhere channel. See [Input deployments: AWS Cloud and MediaLive Anywhere](inputs-emla.md).
 

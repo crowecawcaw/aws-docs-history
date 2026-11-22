@@ -1,7 +1,6 @@
 
 
 # Types of timing for actions
-<a name="sched-timing-types"></a>
 
 There are several ways to specify the timing for an action:
 + Fixed – Perform the action at a specific time that you specify.

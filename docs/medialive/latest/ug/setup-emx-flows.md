@@ -1,7 +1,6 @@
 
 
 # Set up AWS Elemental MediaConnect
-<a name="setup-emx-flows"></a>
 
 A MediaConnect user must set up MediaConnect with flows to deliver source content to MediaLive.
 

@@ -1,7 +1,6 @@
 
 
 # Create a MediaConnect input
-<a name="setup-input-emx"></a>
 
 After MediaConnect is set up, you can create the MediaConnect input. A MediaLive user performs this step.
 

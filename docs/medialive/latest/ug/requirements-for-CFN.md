@@ -1,7 +1,6 @@
 
 
 # Requirements for CloudFormation
-<a name="requirements-for-CFN"></a>
 
 MediaLive includes a workflow wizard. Creation of a workflow always includes automatic creation of a CloudFormation stack. Therefore, to use the workflow wizard, users need permissions in CloudFormation.
 

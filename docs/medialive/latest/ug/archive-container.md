@@ -1,7 +1,6 @@
 
 
 # Fields for the output container
-<a name="archive-container"></a>
 
 The following fields relate to the packaging and delivery of the archive transport stream:
 + In **Output settings** – **Container Settings** section

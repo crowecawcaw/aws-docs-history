@@ -1,7 +1,6 @@
 
 
 # How SCTE 35 events are handled in manifests and sparse tracks
-<a name="how-scte-35-events-are-handled-in-manifests"></a>
 
 When you enable manifest decoration or sparse track in an HLS or Microsoft Smooth output group, MediaLive inserts up to three types of information. The triggers for inserting this information depend on the mode. 
 

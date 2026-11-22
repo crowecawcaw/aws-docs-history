@@ -1,7 +1,6 @@
 
 
 # Collect information about the source content
-<a name="planning-content-extract"></a>
 
 After you have assessed the source content and have identified suitable video, audio, and captions assets in that content, you must obtain information about those assets. The information you need is different for each type of source. 
 

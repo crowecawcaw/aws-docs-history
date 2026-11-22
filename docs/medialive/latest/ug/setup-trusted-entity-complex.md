@@ -1,7 +1,6 @@
 
 
 # Create the trusted entity - complex option
-<a name="setup-trusted-entity-complex"></a>
 
 Read this section if you decided that you should use the [complex option](scenarios-for-medialive-role.md) for setting up the trusted entity. 
 

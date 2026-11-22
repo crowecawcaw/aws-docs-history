@@ -1,7 +1,6 @@
 
 
 # Submitting a batch update schedule command
-<a name="submitting-batch-command"></a>
 
 The command for a batch update schedule command is identical for creating actions, deleting actions, or submitting a combination of create and delete actions. The command is identical. Only the contents of the JSON payload differ.
 

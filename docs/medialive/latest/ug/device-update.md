@@ -1,7 +1,6 @@
 
 
 # Updating software on a Link device
-<a name="device-update"></a>
 
 Link devices automatically install updates when they are powered on, assuming that the MediaLive channels that use the device have stopped. 
 

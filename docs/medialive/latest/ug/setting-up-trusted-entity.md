@@ -1,7 +1,6 @@
 
 
 # IAM permissions for MediaLive as a trusted entity
-<a name="setting-up-trusted-entity"></a>
 
 AWS Elemental MediaLive must be set up so that when a channel is running, MediaLive itself has access to perform operations on resources that belong to your organization's AWS account. In other words, MediaLive must be set up as a *trusted entity* in your organization's AWS account. 
 

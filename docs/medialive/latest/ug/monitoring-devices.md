@@ -1,7 +1,6 @@
 
 
 # Monitoring Link hardware devices
-<a name="monitoring-devices"></a>
 
 You can monitor AWS Elemental Link activity on the AWS Elemental MediaLive console.
 

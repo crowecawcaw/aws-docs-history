@@ -1,7 +1,6 @@
 
 
 # Collect the information for standard MediaPackage
-<a name="hls-destinations-emp-info"></a>
 
 For standard MediaPackage, the two URLs for a channel look like these examples:
 

@@ -1,7 +1,6 @@
 
 
 # Deleting an input
-<a name="delete-input"></a>
 
 1. Open the MediaLive console at [https://console.aws.amazon.com/medialive/](https://console.aws.amazon.com/medialive/).
 

@@ -1,7 +1,6 @@
 
 
 # Containers, protocols, and downstream systems
-<a name="outputs-supported-containers-downstream-systems"></a>
 
 The following table lists the output formats and protocols that MediaLive supports. In the table, find a type of output in the first column, then read across the row for information about how the type is supported.
 

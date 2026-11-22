@@ -1,7 +1,6 @@
 
 
 # Overview of multiplex and MPTS
-<a name="mpts-general"></a>
 
 A multi-program transport stream (MPTS) is a UDP transport stream (TS) that carries multiple programs. AWS Elemental MediaLive lets you create an MPTS that contains all variable bitrate programs, a mix of variable and constant bitrate programs, or all constant bitrate programs. 
 

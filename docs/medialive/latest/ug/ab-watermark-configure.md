@@ -1,7 +1,6 @@
 
 
 # Setting up A/B video watermarking
-<a name="ab-watermark-configure"></a>
 
 Before you begin, complete the [A/B watermarking prerequisites](feature-ab-watermark.md#ab-watermark-prerequisites). This section assumes that you are familiar with creating a channel, as described in [Creating a channel from scratch](creating-channel-scratch.md), and that you have already set up the video encodes in a supported output group.
 

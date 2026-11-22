@@ -1,7 +1,6 @@
 
 
 # Enabling decoration – HLS
-<a name="procedure-to-enable-decoration-hls"></a>
 
 In an HLS output group, manifest decoration is enabled at the output group level, which means that the manifests for all outputs in that group include instructions based on the SCTE 35 content.
 

@@ -1,7 +1,6 @@
 
 
 # Create an RTMP input
-<a name="setup-input-rtmp-vpc"></a>
 
 After the Amazon VPC user has set up on the VPC, you can create the RTMP VPC push input in MediaLive. 
 

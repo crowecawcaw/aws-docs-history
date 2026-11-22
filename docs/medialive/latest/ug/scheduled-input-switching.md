@@ -1,7 +1,6 @@
 
 
 # Setting up for input switching
-<a name="scheduled-input-switching"></a>
 
 You can set up a MediaLive channel to ingest multiple sequential inputs, rather than setting it up to ingest only one input. You set up this *multiple-input channel* by attaching more than one input to the channel, and then adding actions in the channel's schedule that specify when to switch from one input to another. 
 

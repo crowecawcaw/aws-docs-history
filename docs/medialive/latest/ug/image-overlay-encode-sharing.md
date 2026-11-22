@@ -1,7 +1,6 @@
 
 
 # Handling encode sharing
-<a name="image-overlay-encode-sharing"></a>
 
 Read this section if you plan to use the per-output option to insert overlays in MediaLive outputs, and you have already set up output groups to use video encode sharing. Video encode sharing involves creating one video encode, and then sharing it among two or more outputs in the same channel. For example, you might use the same video encode in the outputs in an ABR stack in an HLS output group and in an ABR stack in a Microsoft Smooth output group.
 

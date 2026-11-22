@@ -1,7 +1,6 @@
 
 
 # Assess source formats and packaging
-<a name="uss-obtain-info"></a>
 
 Consult the following table for information about how to assess the source formats and packaging. Read across each row.
 

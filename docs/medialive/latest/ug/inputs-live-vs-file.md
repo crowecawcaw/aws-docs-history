@@ -1,7 +1,6 @@
 
 
 # Support for live and file sources
-<a name="inputs-live-vs-file"></a>
 
 A source might be a live source or a file (VOD) source:
 + A streaming source is continually being published.

@@ -1,7 +1,6 @@
 
 
 # Create an RTMP pull input
-<a name="setup-input-rtmp-pull"></a>
 
 After you have obtained information from the upstream system, you can create an HLS input.
 

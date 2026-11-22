@@ -1,7 +1,6 @@
 
 
 # Channel input—RTP push input
-<a name="input-rtp-push"></a>
 
 Follow these guidelines to verify that the input is set up correctly.
 

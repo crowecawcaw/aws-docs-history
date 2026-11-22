@@ -1,7 +1,6 @@
 
 
 # ID3 metadata item – payload
-<a name="cli-schedule-fields-for-id3"></a>
 
 For information about the meaning and values for the fields in the following JSON, see [Fields for ID3 metadata](schedule-fields-for-id3-userdata.md).
 

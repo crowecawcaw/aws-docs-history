@@ -1,7 +1,6 @@
 
 
 # Automatic input failover in a standard channel
-<a name="aif-standard-pipeline-how"></a>
 
 You can implement automatic input failover in a standard MediaLive channel to protect the MediaLive channel from failure in the upstream system or the network connection that is upstream of MediaLive. 
 

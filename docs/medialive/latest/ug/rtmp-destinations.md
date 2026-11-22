@@ -1,7 +1,6 @@
 
 
 # Fields for the output destination
-<a name="rtmp-destinations"></a>
 
 The following fields configure the location and names of the RTMP output files (the destination).
 + **Output** – **RTMP destination** sections

@@ -1,7 +1,6 @@
 
 
 # Coordinate with downstream systems
-<a name="setting-up-downstream-system"></a>
 
 As the final step in preparing the downstream and upstream systems in your workflow, you must speak to the operator of the downstream system and coordinate information.
 

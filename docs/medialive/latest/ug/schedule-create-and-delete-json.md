@@ -1,7 +1,6 @@
 
 
 # JSON payload for combining create and delete
-<a name="schedule-create-and-delete-json"></a>
 
 To combine a batch of creates and deletes, include both a `Creates` section and a `Deletes` section in the JSON payload. 
 

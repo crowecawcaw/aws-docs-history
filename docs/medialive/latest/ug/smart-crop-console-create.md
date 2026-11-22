@@ -1,7 +1,6 @@
 
 
 # Setting up with the MediaLive console
-<a name="smart-crop-console-create"></a>
 
 You set up the smart crop feature in one or more video outputs of a MediaLive channel. In each video output where you want the feature, you set the video scaling to SMART\_CROP. You must have an Elemental Inference feed selected in the channel's Elemental Inference settings. If the feed already has a cropping output, MediaLive uses it. If not, MediaLive creates a cropping output on the feed automatically when you save the channel. For information about creating a feed, see [ Creating an Elemental Inference workflow](https://docs.aws.amazon.com/elemental-inference/latest/userguide/elemental-inference-configuration) in the *AWS Elemental Inference user guide*.
 

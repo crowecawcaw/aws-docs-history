@@ -1,18 +1,28 @@
 
 
 # Document history for user guide
-<a name="doc-history"></a>
 
 The following table describes the documentation for this release of AWS Elemental MediaLive
 + **API version: latest** 
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [JPEG XS (TR-07) usage types](billing-usage-reports.md) | The usage type components now include the JPEGXS codec and the L500 input bitrate level. | November 18, 2026 | 
+| [JPEG XS (TR-07) input; MediaConnect Router row](inputs-supported-codecs-by-input-type.md) | The table now lists JPEG XS as a video codec for MediaConnect inputs. The table also now includes a row for MediaConnect Router inputs. | November 18, 2026 | 
+| [JPEG XS (TR-07) input specification](input-specification.md) | A new section describes how to complete the input specification for a channel that ingests JPEG XS (TR-07) video from MediaConnect inputs or MediaConnect Router inputs, including the API field `jpegXsInputSpecification`. | November 18, 2026 | 
+| [JPEG XS (TR-07) input rules](eml-limitations-and-rules.md#limits-inputs) | The table now includes the rules for channels that ingest JPEG XS (TR-07) video. | November 18, 2026 | 
+| [JPEG XS (TR-07) input reservations](reservations.md) | You can now purchase input reservations for JPEG XS (TR-07) inputs. The matching rules describe how a reservation applies to a channel that uses the JPEG XS input specification. | November 18, 2026 | 
+| [JPEG XS (TR-07) input pricing](pricing.md) | The running input charge description now includes channels that use the JPEG XS input specification. | November 18, 2026 | 
+| [JPEG XS (TR-07) input codec](creating-a-channel-step1.md) | In the **Input specifications** section, you can now choose **JPEGXS** as the input codec for a channel that ingests JPEG XS (TR-07) video from MediaConnect inputs or MediaConnect Router inputs. | November 18, 2026 | 
+| [JPEG XS (TR-07) input](input-create-push-mediaconnect.md) | A new note describes how to use this input type with JPEG XS (TR-07) video. | November 18, 2026 | 
+| [JPEG XS (TR-07) input](input-create-mediaconnect-router.md) | A new note describes how to use this input type with JPEG XS (TR-07) video. | November 18, 2026 | 
+| [JPEG XS (TR-07) input](inputs-supported-list.md) | MediaLive now supports JPEG XS video in a MediaConnect or MediaConnect Router input. | November 18, 2026 | 
 | [Multicast inputs with SMPTE 2022-7 seamless protection switching](input-create-multicast.md) | The guide now includes information about working with multicast inputs in AWS Elemental MediaLive Anywhere, including the optional secondary source for SMPTE 2022-7 seamless protection switching. | October 28, 2026 | 
 | [AWS Elemental Inference support](monitor-with-workflow-monitor.md#monitor-with-workflow-monitor-supported-services) | With workflow monitor, you can now discover AWS Elemental Inference (Elemental Inference) feeds and add them to signal maps. You can also create Amazon CloudWatch alarm templates that monitor Elemental Inference feed metrics. | October 8, 2026 | 
 | [New feature: Contextual metadata enrichment](elemental-inference-cm-enrichment.md) | MediaLive can now add Elemental Inference query parameters to outgoing SCTE-35 cue-out messages, so that downstream systems can query Elemental Inference for contextual metadata. The guide also includes a reference for the format of the added descriptors. | September 9, 2026 | 
 | [Manual style-control option for TTML and WebVTT captions](support-for-font-styles-in-output-captions.md) | TTML and WebVTT output captions now support a Manual style-control option. With this option, you can manually configure the output captions. Currently, only the vertical position (Y position) is supported; all other settings use default values. | September 9, 2026 | 
 | [Dynamic Multiview](dynamic-multiview.md) | The guide now includes a section for Dynamic Multiview. The section describes how to configure MediaLive outputs so that AWS Elemental MediaPackage can dynamically combine several live feeds into one video stream, including the encoding constraints that apply and how MediaLive adds borders to the participating encodes. | September 9, 2026 | 
+| [Embedded captions encoding in MediaLive](captions-embedded-encoder.md) | You can use MediaLive to generate CEA-608 and CEA-708 embedded captions from non-embedded sources. | August 31, 2026 | 
 | [A/B forensic video watermarking](feature-ab-watermark.md) | The guide now includes information about configuring A/B forensic video watermarking for CMAF Ingest and MediaPackage v2 output groups. | July 27, 2026 | 
 | [New feature: Smart Subtitles](elemental-inference-automatic-subtitling.md) | MediaLive now supports automatic subtitle generation using AWS Elemental Inference. | May 27, 2026 | 
 | [Using Elemental Inference features using the CLI](elemental-inference-cli.md) | The guide now includes a section about setting up and monitoring Elemental Inference features that you have included in a channel. | April 7, 2026 | 

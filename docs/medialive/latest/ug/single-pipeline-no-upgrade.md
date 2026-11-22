@@ -1,7 +1,6 @@
 
 
 # Setting up a single-pipeline channel without upgrade potential
-<a name="single-pipeline-no-upgrade"></a>
 
 When you followed the [guidelines](pipeline-redundancy-guidelines.md) for implementing pipeline redundancy in a MediaLive channel, you might have decided one of the following:
 + You might have decided that you don't want to implement pipeline redundancy in the channel now or in the future. 

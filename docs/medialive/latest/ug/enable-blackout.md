@@ -1,7 +1,6 @@
 
 
 # Enabling blackout in the output
-<a name="enable-blackout"></a>
 
 In a MediaLive channel, you can enable blackout to blank out the content for an SCTE 35 message that is of type *other event* (as defined by the mode in [Getting ready: Set the ad avail mode](getting-ready-set-the-ad-avail-mode.md)). For example, chapters and programs.
 

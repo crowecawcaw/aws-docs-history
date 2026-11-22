@@ -1,7 +1,6 @@
 
 
 # HLS output
-<a name="hls-output"></a>
 
 In an HLS output (a transport stream), MediaLive supports SCTE 35 features as follows:
 + Passthrough of the SCTE 35 messages – Supported.

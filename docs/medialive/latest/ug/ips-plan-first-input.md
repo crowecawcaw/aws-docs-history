@@ -1,7 +1,6 @@
 
 
 # Identify the first input for the channel
-<a name="ips-plan-first-input"></a>
 
 Identify an input that you will set up as the first input in the list of input attachments for the MediaLive channel:
 + This input won't be the first input to ingest because you will use the schedule to switch to the first input to ingest.

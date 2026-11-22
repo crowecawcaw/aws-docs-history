@@ -1,7 +1,6 @@
 
 
 # Working with ID3 metadata
-<a name="id3-metadata"></a>
 
 
 

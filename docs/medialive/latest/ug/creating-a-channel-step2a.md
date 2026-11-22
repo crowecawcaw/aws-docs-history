@@ -1,7 +1,6 @@
 
 
 # Complete the settings for each input
-<a name="creating-a-channel-step2a"></a>
 
 As soon as you attach the input on the **Attach input** sections, the **Input attachment** section closes and the **General input settings** section appears for that input. You must complete these fields to configure the input:
 + Configure the input connection.

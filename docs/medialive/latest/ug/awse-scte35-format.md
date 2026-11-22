@@ -1,7 +1,6 @@
 
 
 # AWSE SCTE-35 format
-<a name="awse-scte35-format"></a>
 
 AWSE is a `format_identifier` value used in the SCTE-35 MPU UPID structure. Some AWS Elemental MediaLive features use this format to carry additional information in SCTE-35 `splice_info_section` messages.
 

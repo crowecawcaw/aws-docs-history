@@ -1,7 +1,6 @@
 
 
 # Handling of metadata when converting
-<a name="color-space-simplified-options-metadata"></a>
 
 When you set up in MediaLive to convert the color space, you can set up to include or omit the color space metadata.
 + Include color space metadata. MediaLive will convert the color space metadata to accurately describe the new color space.

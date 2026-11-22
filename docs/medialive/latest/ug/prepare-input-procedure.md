@@ -1,7 +1,6 @@
 
 
 # Setting up input prepare actions in the schedule
-<a name="prepare-input-procedure"></a>
 
 Follow this procedure to add input prepare actions to the channel schedule, in order to prepare any input ahead of the switch action to that input.
 

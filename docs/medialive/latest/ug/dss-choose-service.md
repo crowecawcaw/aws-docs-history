@@ -1,7 +1,6 @@
 
 
 # Choosing among the AWS media services
-<a name="dss-choose-service"></a>
 
 If your preferred downstream system is another AWS media service, following are some useful tips for choosing the service to use: 
 + If you need to choose between AWS Elemental MediaPackage or AWS Elemental MediaStore for HLS outputs, follow these guidelines: 

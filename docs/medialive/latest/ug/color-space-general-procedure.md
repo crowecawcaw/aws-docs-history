@@ -1,7 +1,6 @@
 
 
 # General procedure for handling color space
-<a name="color-space-general-procedure"></a>
 
 The procedure for handling color space in the channel is the same for both passing through and converting the color space in the outputs.
 

@@ -1,7 +1,6 @@
 
 
 # Implementing low latency outputs
-<a name="mediapackage-v2-low-latency"></a>
 
 You can create a glass-to-glass low latency workflow that uses AWS Elemental MediaLive and AWS Elemental MediaPackage. The channel in AWS Elemental MediaPackage must use MediaPackage v2.
 

@@ -1,7 +1,6 @@
 
 
 # Guidelines for choosing the start type
-<a name="plan-prep-tips"></a>
 
 Following are some guidelines for deciding which start type to use with an input prepare in the MediaLive schedule. 
 

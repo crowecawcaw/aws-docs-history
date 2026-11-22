@@ -1,7 +1,6 @@
 
 
 # Viewing maintenance information
-<a name="viewing-maintenance"></a>
 
 You can view maintenance information from the MediaLive console or from the Personal Health Dashboard in Health Dashboard.
 

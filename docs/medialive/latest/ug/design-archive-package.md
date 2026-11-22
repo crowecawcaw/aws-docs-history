@@ -1,7 +1,6 @@
 
 
 # Organize encodes in an Archive output group
-<a name="design-archive-package"></a>
 
 An Archive output group can contain the following:
 + One or more outputs.

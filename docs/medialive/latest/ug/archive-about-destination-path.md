@@ -1,7 +1,6 @@
 
 
 # Design the path for the output destination
-<a name="archive-about-destination-path"></a>
 
 1. Design the destination path or paths, following this syntax:
 

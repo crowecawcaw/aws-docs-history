@@ -1,7 +1,6 @@
 
 
 # The procedure to attach inputs
-<a name="attach-inputs-procedure"></a>
 
 **To attach one MediaLive input**
 

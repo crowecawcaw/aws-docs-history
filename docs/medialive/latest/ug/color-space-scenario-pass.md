@@ -1,7 +1,6 @@
 
 
 # Scenario A – Metadata is accurate
-<a name="color-space-scenario-pass"></a>
 
 During assessment of the MediaLive input, you might have determined the following:
 + The content is in one color space, the color space is supported, and the color space metadata is accurate.

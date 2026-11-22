@@ -1,7 +1,6 @@
 
 
 # Color space versus video resolution
-<a name="color-space-vs-resolution"></a>
 
 Color space refers to the range of color. MediaLive supports the following color spaces:
 + SDR (standard dynamic range)

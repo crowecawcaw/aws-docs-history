@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaLive tutorial
-<a name="getting-started-tutorial"></a>
 
 This tutorial describes how to ingest a video source from an RTP source and generate one HLS output that contains one H.264 video encode and one audio encode. MediaLive will send the output to AWS Elemental MediaPackage. The output will consist of the following: 
 + One parent manifest: channel.m3u8

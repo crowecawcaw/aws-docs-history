@@ -1,7 +1,6 @@
 
 
 # Customizing the paths inside HLS manifests
-<a name="hls-manifest-paths"></a>
 
 When you create an HLS output group in a standard MediaLive channel, you can set up custom manifests. 
 

@@ -1,7 +1,6 @@
 
 
 # Alphabetical list of MediaLive metrics
-<a name="eml-metrics-alpha-list"></a>
 
 [Active alerts](eml-metrics-global.md#eml-metrics-active-alerts)
 

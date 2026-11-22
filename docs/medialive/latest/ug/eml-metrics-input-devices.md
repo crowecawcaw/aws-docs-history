@@ -1,7 +1,6 @@
 
 
 # Input device metrics
-<a name="eml-metrics-input-devices"></a>
 
 You can use Amazon CloudWatch metrics to monitor input devices such as [AWS Elemental Link](feature-elink.md). CloudWatch collects raw data that from these input devices, and processes it into readable, near real-time metrics that are kept for 15 months. You use CloudWatch to view the metrics. Metrics can help you gain a better perspective about how MediaLive is performing over the short term and long term.
 

@@ -1,7 +1,6 @@
 
 
 # Assess the sources
-<a name="ips-step-plan-inputs"></a>
 
 When planning a multiple-input MediaLive channel, you must identify all the sources that you need. You must then assess the audio and captions in each source to ensure that the source is suitable for an input-switching scenario.
 

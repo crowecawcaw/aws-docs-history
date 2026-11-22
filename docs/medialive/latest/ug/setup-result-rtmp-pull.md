@@ -1,7 +1,6 @@
 
 
 # Result of this procedure
-<a name="setup-result-rtmp-pull"></a>
 
 As a result of this setup, an RTMP pull input exists that specifies one or two *source* URLs. These sources are the URLs for the source content on the upstream system. 
 

@@ -1,7 +1,6 @@
 
 
 # Channel input—SRT listener input
-<a name="input-srt-push"></a>
 
 Follow these guidelines to verify that the input is set up correctly.
 

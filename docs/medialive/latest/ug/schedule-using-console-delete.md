@@ -1,7 +1,6 @@
 
 
 # Deleting actions from the schedule (console)
-<a name="schedule-using-console-delete"></a>
 
 These rule apply when you add delete actions to the schedule:
 + In a single-input channel (a channel that doesn't involve input switching), you can delete actions as follows: 

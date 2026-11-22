@@ -1,7 +1,6 @@
 
 
 # Blackout restriction flags
-<a name="blackout-restriction-flags"></a>
 
 This section provides information about the restriction flags that you can set in a MediaLive channel, when you set up for blackout.
 

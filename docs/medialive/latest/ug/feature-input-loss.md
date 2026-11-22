@@ -1,7 +1,6 @@
 
 
 # Handling loss of video input
-<a name="feature-input-loss"></a>
 
 You can customize the way that MediaLive handles media when the video input into the channel is lost.
 

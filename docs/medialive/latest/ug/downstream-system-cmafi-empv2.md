@@ -1,7 +1,6 @@
 
 
 # Obtain destination for a CMAF Ingest output group
-<a name="downstream-system-cmafi-empv2"></a>
 
 1. Decide if you need two destination URLs for the output: 
    + You need two destinations in a [standard channel](plan-redundancy.md).

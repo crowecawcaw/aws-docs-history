@@ -1,7 +1,6 @@
 
 
 # About message processing
-<a name="about-message-processing"></a>
 
 SCTE 35 messages are messages that can be included in a source MPEG-2 transport stream (TS). SCTE-104 messages are messages that can be included in source content from SMPTE 2110 stream or an AWS Elemental Link hardware device. SCTE-104 messages are automatically converted into SCTE 35 messages as soon as MediaLive ingests the input. 
 

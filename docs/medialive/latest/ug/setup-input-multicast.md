@@ -1,7 +1,6 @@
 
 
 # Create a multicast input
-<a name="setup-input-multicast"></a>
 
 Use the following procedure to create a multicast input in the MediaLive console. Before you start, collect the details that are listed in [Obtain information](setup-multicast-obtain-info.md).
 

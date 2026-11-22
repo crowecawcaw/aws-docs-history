@@ -1,7 +1,6 @@
 
 
 # Setting up an SRT Listener input
-<a name="input-listener-srt"></a>
 
 This section describes how to set up to receive transport stream (TS) content that is pushed from an upstream system that is set up as an SRT caller. This section describes how to set up the source content on the upstream system, and how to create an input that connects the upstream system to MediaLive. 
 

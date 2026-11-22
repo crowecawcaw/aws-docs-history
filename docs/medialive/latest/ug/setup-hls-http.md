@@ -1,7 +1,6 @@
 
 
 # Obtain information
-<a name="setup-hls-http"></a>
 
 Obtain the following information from the operator at the upstream system:
 + The locations (URLs) on the upstream server where the M3U8 manifest files are stored.

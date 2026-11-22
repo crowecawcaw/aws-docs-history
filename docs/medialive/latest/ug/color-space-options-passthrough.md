@@ -1,7 +1,6 @@
 
 
 # Passing through the color space
-<a name="color-space-options-passthrough"></a>
 
 You can set up to *pass through* the color space from the source to a MediaLive output. You can set up to include or remove the color space metadata. For passthrough to produce the desired quality in the video output, the color space metadata must be accurate. 
 

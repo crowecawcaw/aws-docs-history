@@ -1,7 +1,6 @@
 
 
 # Create sidecar or SMPTE-TT captions encodes
-<a name="output-sidecar-and-smptett-mss"></a>
 
 Follow this procedure if the format of the captions asset that you want to add in the MediaLive channel is [a sidecar](categories-captions.md), or if the format is SMPTE-TT for a Microsoft Smooth output group. 
 

@@ -1,7 +1,6 @@
 
 
 # Result of this procedure
-<a name="setup-result-emx"></a>
 
 The results of this setup are illustrated in the diagram that follows. There are three main components:
 + The upstream system (purple box)

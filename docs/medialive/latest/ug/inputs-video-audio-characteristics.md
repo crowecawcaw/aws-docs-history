@@ -1,7 +1,6 @@
 
 
 # Characteristics for video and audio sources
-<a name="inputs-video-audio-characteristics"></a>
 
 **Orientation**
 

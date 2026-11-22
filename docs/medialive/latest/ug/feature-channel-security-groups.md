@@ -1,7 +1,6 @@
 
 
 # Using channel security groups
-<a name="feature-channel-security-groups"></a>
 
 You can configure a MediaLive channel to use a channel security group. A channel security group controls inbound traffic associated with the channel's outputs. This feature enables pull-style outputs, where downstream systems initiate connections to MediaLive.
 

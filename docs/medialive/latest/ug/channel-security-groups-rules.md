@@ -1,7 +1,6 @@
 
 
 # Rules and constraints
-<a name="channel-security-groups-rules"></a>
 
 The following rules apply to channel security groups:
 + **Maximum one per channel** – You can attach at most one channel security group to a channel.

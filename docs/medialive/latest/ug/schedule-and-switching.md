@@ -1,7 +1,6 @@
 
 
 # Multiple-input channels and the schedule
-<a name="schedule-and-switching"></a>
 
 Input switching in a MediaLive channel works as follows: You create a channel that contains more than one input attachment. After the channel is created, you go into the schedule for that channel and add input switches, to create rules for moving from one input attachment to another. When you start the channel, the channel will automatically switch inputs according to the schedule.
 

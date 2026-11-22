@@ -1,7 +1,6 @@
 
 
 # Input types supported in MediaLive
-<a name="inputs-supported-containers"></a>
 
 This section provides lookup information about the types of input sources that AWS Elemental MediaLive can ingest.
 

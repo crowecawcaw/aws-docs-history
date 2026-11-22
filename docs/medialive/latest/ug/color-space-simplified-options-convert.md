@@ -1,7 +1,6 @@
 
 
 # Converting the color space
-<a name="color-space-simplified-options-convert"></a>
 
 You can set up to *convert* the color space itself, to change the pixels in the video. MediaLive can perform specific color space conversions. 
 

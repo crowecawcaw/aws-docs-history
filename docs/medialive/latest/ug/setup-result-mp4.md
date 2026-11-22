@@ -1,7 +1,6 @@
 
 
 # Result of this procedure
-<a name="setup-result-mp4"></a>
 
 As a result of this setup, a MediaLive input exists that specifies one or two *source* URLs. These sources are the URLs for the source content on the upstream server. 
 

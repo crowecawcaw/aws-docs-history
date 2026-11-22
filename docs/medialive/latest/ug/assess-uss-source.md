@@ -1,7 +1,6 @@
 
 
 # Assess video content
-<a name="assess-uss-source"></a>
 
 Consult the following table for information about how to assess video source. Read across each row.
 

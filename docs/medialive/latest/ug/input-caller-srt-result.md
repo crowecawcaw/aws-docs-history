@@ -1,7 +1,6 @@
 
 
 # Result of this procedure
-<a name="input-caller-srt-result"></a>
 
 As a result of this setup, an SRT caller input exists that specifies one or two *source* URLs. These sources are the URLs for the source content on the upstream system. 
 

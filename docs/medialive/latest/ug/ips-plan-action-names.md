@@ -1,7 +1,6 @@
 
 
 # Plan the action names
-<a name="ips-plan-action-names"></a>
 
 You should plan the names for the input switch action in the MediaLive schedule. Action names must be unique in the schedule for each channel.
 

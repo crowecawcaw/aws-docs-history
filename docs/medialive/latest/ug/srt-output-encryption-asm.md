@@ -1,7 +1,6 @@
 
 
 # Set up the passphrase in AWS Secrets Manager
-<a name="srt-output-encryption-asm"></a>
 
 You must set up for the mandatory encryption of the SRT output. Follow these steps:
 

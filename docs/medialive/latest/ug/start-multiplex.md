@@ -1,7 +1,6 @@
 
 
 # Starting the multiplex
-<a name="start-multiplex"></a>
 
 To start streaming the MPTS, start the multiplex and the channels. You can start the channels and then start the multiplex. Or you can start the multiplex and then start the channels. 
 

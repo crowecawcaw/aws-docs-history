@@ -1,7 +1,6 @@
 
 
 # Setting up an RTP VPC input
-<a name="rtp-push-vpc-input"></a>
 
 This section describes how to set up an upstream system that uses the RTP Push protocol to deliver source content from an upstream system that is in your Amazon Virtual Private Cloud (Amazon VPC). It describes how to set up the source content on the upstream system, and how to create an input that connects the upstream system to MediaLive. 
 

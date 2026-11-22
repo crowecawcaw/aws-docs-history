@@ -1,7 +1,6 @@
 
 
 # Create SDI sources
-<a name="emla-setup-cl-sdi"></a>
 
 If some of the nodes in a cluster include SDI cards and ports, you must create SDI sources and SDI mappings:
 + SDI sources: MediaLive Anywhere supports single-link and quad-link SDI interfaces, assuming that you have nodes that have the corresponding cards. For quad-link sources, MediaLive Anywhere supports quadrant or interleave mode.

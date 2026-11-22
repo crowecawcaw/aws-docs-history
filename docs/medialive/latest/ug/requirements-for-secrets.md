@@ -1,7 +1,6 @@
 
 
 # Requirements for Secrets Manager secrets
-<a name="requirements-for-secrets"></a>
 
 Your deployment might include the following resources:
 + SRT inputs for SRT content that is encrypted by the upstream system. 

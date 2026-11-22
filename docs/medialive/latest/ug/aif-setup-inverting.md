@@ -1,7 +1,6 @@
 
 
 # Changing the roles of the failover pair
-<a name="aif-setup-inverting"></a>
 
 When you set up for input failover in a MediaLive channel, you can reverse the roles of the two failover inputs, so that the primary input becomes the secondary input. 
 

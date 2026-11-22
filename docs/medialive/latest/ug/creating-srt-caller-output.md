@@ -1,7 +1,6 @@
 
 
 # Creating SRT outputs in caller mode
-<a name="creating-srt-caller-output"></a>
 
 This section describes how to create SRT outputs in caller mode, where MediaLive initiates connections to downstream systems.
 

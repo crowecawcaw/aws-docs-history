@@ -1,7 +1,6 @@
 
 
 # Monitoring event clipping activity
-<a name="event-clip-monitor"></a>
 
 You can monitor event clipping activity using these services:
 + Metrics that Amazon CloudWatch produces, using data sent by Elemental Inference. See [ Monitoring AWS Elemental Inference with Amazon CloudWatch ](https://docs.aws.amazon.com/elemental-inference/latest/userguide/monitoring-cloudwatch) in the *AWS Elemental Inference user guide*. 

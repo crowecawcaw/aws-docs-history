@@ -1,7 +1,6 @@
 
 
 # Disabling smart crop
-<a name="smart-crop-disable-console"></a>
 
 **To disable smart crop in all outputs**
 

@@ -1,7 +1,6 @@
 
 
 # PIDs for DVB-Sub
-<a name="complete-the-pids-for-dvb-sub"></a>
 
 This section applies if you are [setting up DVB-Sub captions](output-embedded-and-more.md) in an output group that supports a transport stream. For example, UDP or SRT. You must specify the output PID.
 + In the relevant UDP output group, choose the output that has the DVB-Sub captions.

@@ -1,7 +1,6 @@
 
 
 # Use case A – no VPC inputs
-<a name="vpc-out-caseA"></a>
 
 This use case applies if the MediaLive channel won't have inputs that use the VPC:
 + No MediaConnect inputs

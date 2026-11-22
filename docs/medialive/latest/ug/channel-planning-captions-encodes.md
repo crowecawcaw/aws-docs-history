@@ -1,7 +1,6 @@
 
 
 # Identify the captions encodes
-<a name="channel-planning-captions-encodes"></a>
 
 You must decide on the number of captions encodes. Follow this procedure for each output group. 
 

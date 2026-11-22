@@ -1,7 +1,6 @@
 
 
 # MediaLive feature rules and limits
-<a name="eml-limitations-and-rules"></a>
 
 The following table provides a summary of many of the rules and constraints that apply to AWS Elemental MediaLive features. You can't change any of these constraints. 
 
@@ -44,6 +43,9 @@ MediaLive also includes quotas, which you can change. For more information about
   - You can attach multiple inputs to a channel, in order to implement input switching. You can't include an HLS input that is a VOD asset. For the definition of a VOD asset, see [Support for live and file sources](inputs-live-vs-file.md).
   - For the inputs that you attach in order to implement input switching, there are restrictions related to input types and Availability Zones:+  You can have multiple MediaConnect inputs attached to one channel, but all those inputs must be in the same two Availability Zones.  <br />+  You can have multiple VPC inputs attached to one channel, but all these inputs must be in the same two Availability Zones. VPC inputs include CDI inputs, RTP VPC inputs, and RTMP VPC inputs.  <br />+  If the channel has both MediaConnect inputs and VPC inputs, all these inputs must be in the same two Availability Zones. 
 
+- **Input – JPEG XS (TR-07)**
+  - A channel that uses the JPEG XS input specification has the following rules:+  All attached inputs must be MediaConnect inputs or MediaConnect Router inputs. <br />+  The resolution is HD and the maximum bitrate is 500 Mbps. <br />+  The channel can't be an MediaLive Anywhere channel, can't have a multiplex output destination, and can't have a CDI input specification. <br />For more information, see [Completing the settings – JPEG XS (TR-07)](input-specification.md#input-specification-jpegxs).
+
 - **Input – audio and captions selectors**
   - Maximum of 32 audio and captions selectors (in any combination) in one channel.
 
@@ -62,7 +64,7 @@ MediaLive also includes quotas, which you can change. For more information about
   - Maximum of one Archive output groups in a channel. Maximum of one MediaConnect Router output group in a channel.<br />Maximum of five outputs in a MediaConnect Router output group.<br />Maximum of 100 Mbps on a MediaConnect Router output.<br />MediaConnect Router output groups are not yet supported in opt-in regions.<br />For information about output types, see [Output types supported in MediaLive](outputs-supported-containers.md).
 
 - **Output encodes, frame capture**
-  - For frame capture encodes:+  Maximum of three frame capture encodes in a channel. The single encode in a Frame capture output group, and each (optional) [frame capture encode](#eml-limitations-and-rules) in an HLS output group both count towards this limit. <br />+  Maximum of three Frame capture outputs in each HLS output group. For information about output types, see [Output types supported in MediaLive](outputs-supported-containers.md). 
+  - For frame capture encodes:+  Maximum of three frame capture encodes in a channel. The single encode in a Frame capture output group, and each (optional) [frame capture encode](eml-limitations-and-rules.md) in an HLS output group both count towards this limit. <br />+  Maximum of three Frame capture outputs in each HLS output group. For information about output types, see [Output types supported in MediaLive](outputs-supported-containers.md). 
 
 - **Output video encodes, UHD resolution, and input type**
   - A channel with a CDI input allows one UHD output encode (maximum).<br />The maximum number of *channels *with UHD is a quota that you can change, as described in [Quotas in MediaLive](limits.md). If you are using a CDI input, the maximum number of UHD *outputs* is a limitation. You can't change it.

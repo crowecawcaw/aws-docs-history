@@ -1,7 +1,6 @@
 
 
 # Changing the maintenance window
-<a name="set-maintenance-change-steps"></a>
 
 There are two ways to change the maintenance window (red mark). You can edit the maintenance window, or you can seta specific date. The method to choose depends on your reasons for wanting the change. The following table compares the reason and period for the two methods. Read across each row to compare the two methods.
 

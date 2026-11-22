@@ -1,7 +1,6 @@
 
 
 # RTMP output
-<a name="adobe-rtmp-output"></a>
 
 In an RTMP output, MediaLive supports SCTE 35 features as follows:
 + Passthrough of the SCTE 35 messages – Not applicable.

@@ -1,7 +1,6 @@
 
 
 # Input metrics
-<a name="eml-metrics-input-metrics"></a>
 
 Input metrics relate to the video and audio input assets that are presented to MediaLive.
 

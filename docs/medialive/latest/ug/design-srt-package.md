@@ -1,7 +1,6 @@
 
 
 # Organize encodes in an SRT output group
-<a name="design-srt-package"></a>
 
 An SRT output group can contain the following:
 + One or more outputs.

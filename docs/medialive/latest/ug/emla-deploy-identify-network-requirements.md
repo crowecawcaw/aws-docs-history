@@ -1,7 +1,6 @@
 
 
 # Identifying network resources
-<a name="emla-deploy-identify-network-requirements"></a>
 
 This section is intended for the network engineer who is responsible for connecting the MediaLive Anywhere nodes to your organization's network. The network engineer performs these task in consultation with the video engineer who designs the MediaLive Anywhere channels. 
 

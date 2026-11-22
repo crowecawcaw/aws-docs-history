@@ -1,7 +1,6 @@
 
 
 # Trick-play track via the Image Media Playlist specification
-<a name="trick-play-roku"></a>
 
 In a MediaLive HLS or MediaPackage output group, you can support a trick-play track by providing an asset that follows the Image Media Playlist specification, version 0.4. The MediaLive implementation follows the time-based method of the specification. The specification is located here:
 

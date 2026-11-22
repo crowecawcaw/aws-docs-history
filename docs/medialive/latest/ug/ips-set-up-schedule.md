@@ -1,7 +1,6 @@
 
 
 # Set up the schedule with input switches
-<a name="ips-set-up-schedule"></a>
 
 After you create the inputs and the channel (step 6), you must create actions in the MediaLive schedule to set up the input switches that you want. For detailed information about creating input switch actions, see [Creating actions in the schedule (console)](schedule-using-console-create.md). 
 

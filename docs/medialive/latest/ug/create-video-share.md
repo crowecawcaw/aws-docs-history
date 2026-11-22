@@ -1,7 +1,6 @@
 
 
 # Sharing a video encode
-<a name="create-video-share"></a>
 
 You can create one video encode and share it among several outputs. Follow the [earlier procedure](create-video-scratch.md) to create the encode once. Then set up the encode for the other outputs using the following steps.
 

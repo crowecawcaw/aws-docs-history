@@ -1,7 +1,6 @@
 
 
 # Create an input security group
-<a name="setup-isg-rtmp"></a>
 
 You must create an input security group. The security group must allow the *public network IP addresses* to push to MediaLive. Following from the earlier example, it must allow these addresses:
 

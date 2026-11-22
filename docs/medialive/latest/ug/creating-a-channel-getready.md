@@ -1,7 +1,6 @@
 
 
 # Getting ready
-<a name="creating-a-channel-getready"></a>
 
 We recommend that before you start creating the MediaLive channel, you [plan the workflow](container-planning-workflow.md). In both these planning procedures, you obtain information that you need to create the channel. In addition, you must create the inputs that you need. You won't be able to create the channel unless you have created these inputs.
 

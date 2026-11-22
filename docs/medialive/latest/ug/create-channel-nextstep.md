@@ -1,7 +1,6 @@
 
 
 # Next step
-<a name="create-channel-nextstep"></a>
 
 For your next step in creating a MediaLive channel, we recommend that you read the chapter about the channel schedule. It is likely that there are features of the schedule that you want to use. For more information, see [Creating an AWS Elemental MediaLive schedule](working-with-schedule.md).
 

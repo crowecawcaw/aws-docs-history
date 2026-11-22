@@ -1,7 +1,6 @@
 
 
 # Setting up for locking
-<a name="pipeline-locking-set-up"></a>
 
 Pipeline locking is enabled by default in a standard channel. You can disable it. If you decide to keep it enabled, you should configure the mode to use in a specific channel. And you should configure the output groups to ensure that MediaLive can successfully lock the pipelines.
 

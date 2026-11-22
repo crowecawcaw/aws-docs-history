@@ -1,7 +1,6 @@
 
 
 # Working with channels
-<a name="container-channel"></a>
 
 A MediaLive channel ingests and transcodes (decodes and encodes) source content from the inputs that are attached to that channel, and packages the new content into outputs. You create and configure the channel with the details that instruct the channel how to perform this processing. You then run the channel to start processing.
 

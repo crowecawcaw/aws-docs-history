@@ -1,7 +1,6 @@
 
 
 # Creating an input security group
-<a name="create-input-security-groups"></a>
 
 In MediaLive, you create an input security group to specify a list of access rules. When you create a push input, you must attach an input security group, in order to restrict access to the input
 

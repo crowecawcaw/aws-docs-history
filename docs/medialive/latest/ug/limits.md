@@ -1,7 +1,6 @@
 
 
 # Quotas in MediaLive
-<a name="limits"></a>
 
 There are quotas (formerly referred to as limits) that apply to the resources and operations of AWS Elemental MediaLive. A *quota* is a resource or operation cap that you can increase. 
 

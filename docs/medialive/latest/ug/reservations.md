@@ -1,7 +1,6 @@
 
 
 # Working with reservations in MediaLive
-<a name="reservations"></a>
 
 A reservation is a one-year commitment to a particular input or output configuration. The reservation is allocated and billed on a monthly basis through that year. You can configure reservations to renew automatically. You can cancel a reservation during the calendar month (UTC) in which you purchased it. For more information, see [Canceling or deleting a reservation](deleting-reservations.md).
 

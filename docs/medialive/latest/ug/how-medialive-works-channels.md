@@ -1,7 +1,6 @@
 
 
 # How MediaLive works
-<a name="how-medialive-works-channels"></a>
 
 From the point of view of AWS Elemental MediaLive, a live streaming workflow that includes MediaLive involves three systems: 
 + A MediaLive *channel*, which ingests and transcodes source content.

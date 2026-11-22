@@ -1,7 +1,6 @@
 
 
 # About audio rendition groups
-<a name="ARGs-about"></a>
 
 ## Standards compliance
 <a name="ARG-compliance"></a>

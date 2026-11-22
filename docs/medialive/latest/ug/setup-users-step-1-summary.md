@@ -1,7 +1,6 @@
 
 
 # Reference: summary of non-administrator user access requirements
-<a name="setup-users-step-1-summary"></a>
 
 The following table shows all the types of permissions that you might need to assign to users. Each row in the column describes an activity or set of related activities that you might want to allow the user to perform. The last column lists the IAM actions that control access to those activities. 
 

@@ -1,7 +1,6 @@
 
 
 # How channel security groups work
-<a name="channel-security-groups-how-it-works"></a>
 
 When you attach a channel security group to a channel, MediaLive performs the following actions:
 

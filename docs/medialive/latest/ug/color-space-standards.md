@@ -1,7 +1,6 @@
 
 
 # Supported color space standards
-<a name="color-space-standards"></a>
 
 Each color space standard follows a specific standard for the color space, and specific standards for the three sets of color data. 
 

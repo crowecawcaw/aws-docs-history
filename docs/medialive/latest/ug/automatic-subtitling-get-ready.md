@@ -1,7 +1,6 @@
 
 
 # Get ready
-<a name="automatic-subtitling-get-ready"></a>
 
 ## Pricing
 <a name="automatic-subtitling-pricing"></a>
@@ -35,9 +34,11 @@ Smart Subtitles generates subtitles in the following formats:
 + **TTML** – You can output TTML as sidecar captions in MediaPackage V2, CMAF Ingest, and Microsoft Smooth output groups.
 + **WebVTT** – You can output WebVTT as sidecar captions in HLS, MediaPackage, MediaPackage V2, and CMAF Ingest output groups.
 + **Burn-in** – You can burn the subtitles into the video in any output group that supports burn-in captions.
++ **Embedded** – CEA-608/CEA-708 captions encoded into the video stream. This option requires the embedded caption encoder settings (**Embedded mode** and **Caption service channel**). For more information, see [Embedded captions encoding](captions-embedded-encoder.md).
 
 For the subtitle formats supported in each output group, see [Captions supported in MediaLive](supported-captions.md).
 
 **Important**  
 When you output subtitles as TTML or WebVTT sidecar captions, you must create a separate captions-only output within your output group specifically for the subtitles. The subtitle output should contain only the captions encode, with no video or audio encodes. For detailed instructions on creating a sidecar captions output, see [Create sidecar or SMPTE-TT captions encodes](output-sidecar-and-smptett-mss.md).  
-When you burn in subtitles, add the captions description to the video output that should carry them, instead of creating a captions-only output.
+When you burn in subtitles, add the captions description to the video output that should carry them, instead of creating a captions-only output.  
+Embedded captions are different. They are carried inside the video elementary stream, so you must place them in an output that contains video, not in a captions-only output.

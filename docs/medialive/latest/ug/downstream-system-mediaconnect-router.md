@@ -1,7 +1,6 @@
 
 
 # Coordinate with the downstream system for a MediaConnect Router output group
-<a name="downstream-system-mediaconnect-router"></a>
 
 One advantage of MediaConnect Router is that you don't need to create any AWS Elemental MediaConnect resources before creating the MediaLive output. When you create a MediaLive channel with a MediaConnect Router output group, the outputs automatically appear as options in the MediaConnect Router API.
 

@@ -1,7 +1,6 @@
 
 
 # How pause and unpause actions work
-<a name="x-actions-in-schedule-pause"></a>
 
 You can insert an action to pause and unpause one or both pipelines in the channel. The action pauses the specified pipelines and unpauses any unspecified pipelines:
 + Action with *one* pipeline specified–The action pauses the specified pipeline and unpauses the other pipeline.

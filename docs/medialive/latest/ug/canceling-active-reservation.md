@@ -1,7 +1,6 @@
 
 
 # Canceling an active reservation
-<a name="canceling-active-reservation"></a>
 
 You can cancel an active reservation during the calendar month (UTC) in which you purchased it. The reservation ends when you cancel it. You pay On-Demand rates for usage that the reservation would have covered that month.
 

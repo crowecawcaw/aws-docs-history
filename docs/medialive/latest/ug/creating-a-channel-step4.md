@@ -1,7 +1,6 @@
 
 
 # Configure outputs
-<a name="creating-a-channel-step4"></a>
 
 The **Outputs **section lets you create output groups in the channel. The **Outputs** section provides access to the following content:
 + The output group, which contains settings that configure the output packages and output containers in the channel.

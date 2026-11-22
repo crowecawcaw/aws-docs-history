@@ -1,7 +1,6 @@
 
 
 # Using Link with a MediaConnect flow
-<a name="device-use-flow"></a>
 
 You can set up a Link UHD as the source for a MediaConnect flow.
 

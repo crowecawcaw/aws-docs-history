@@ -1,7 +1,6 @@
 
 
 # Dynamic Multiview
-<a name="dynamic-multiview"></a>
 
 Dynamic Multiview presents multiple live video feeds to a viewer at the same time in a single encoded video stream — camera angles from one event, or several independent events arranged in a grid. The player requests a particular layout of a particular set of source feeds, and AWS Elemental MediaPackage assembles the live multiview stream on demand.
 

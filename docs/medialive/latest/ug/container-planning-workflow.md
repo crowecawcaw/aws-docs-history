@@ -1,7 +1,6 @@
 
 
 # Planning a MediaLive workflow
-<a name="container-planning-workflow"></a>
 
 From the point of view of AWS Elemental MediaLive, a live streaming workflow that includes MediaLive involves three systems: 
 + An *upstream system* that provides the video content to MediaLive.

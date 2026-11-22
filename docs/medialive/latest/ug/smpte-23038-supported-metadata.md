@@ -1,7 +1,6 @@
 
 
 # Metadata that MediaLive can extract
-<a name="smpte-23038-supported-metadata"></a>
 
 MediaLive can extract the following data from a SMPTE 2038 stream that is in the source.
 

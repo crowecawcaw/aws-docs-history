@@ -1,7 +1,6 @@
 
 
 # Channel input—RTMP push input
-<a name="input-rtmp-push"></a>
 
 Follow these guidelines to verify that the input is set up correctly.
 

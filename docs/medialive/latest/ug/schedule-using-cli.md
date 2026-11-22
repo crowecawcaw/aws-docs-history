@@ -1,7 +1,6 @@
 
 
 # Working with the schedule (AWS CLI)
-<a name="schedule-using-cli"></a>
 
 You can use the AWS CLI to work with the schedule programmatically. The sections later in this chapter describe how to enter the appropriate commands. These sections assume that you are familiar with the basics of using the AWS CLI. For information about the basics, see the [AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/). 
 

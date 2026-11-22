@@ -1,7 +1,6 @@
 
 
 # The media contents of an HLS manifest
-<a name="hls-rm-manifests-contents"></a>
 
 When you set up redundant manifests in an HLS output, MediaLive changes the contents of the manifest. It changes the media information (the video, audio, and captions information) inside the manifests. All of this information appears as `#EXT-X-STREAM-INF` tags.
 

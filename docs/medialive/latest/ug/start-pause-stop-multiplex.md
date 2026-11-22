@@ -1,7 +1,6 @@
 
 
 # Starting, pausing, or stopping a multiplex
-<a name="start-pause-stop-multiplex"></a>
 
 At runtime, you start both the multiplex and the channels in the multiplex. You can stop the multiplex and the channels independently of each other. You don't start or stop a program. (You can't perform any actions on a program except for create and delete.)
 

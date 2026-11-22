@@ -1,7 +1,6 @@
 
 
 # Other fields
-<a name="rtmp-other"></a>
 
 The following field relates to implementing resiliency in an RTMP output:
 + **RTMP settings** – **Input loss action** – For details about a field on the MediaLive console, choose the **Info** link next to the field. For more information, see [Handling loss of video input](feature-input-loss.md).

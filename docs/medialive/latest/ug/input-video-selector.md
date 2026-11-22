@@ -1,7 +1,6 @@
 
 
 # Input settings—Video selector
-<a name="input-video-selector"></a>
 
 This section lets you identify the video to extract from the input, and lets you enable the optional color space feature. 
 

@@ -1,7 +1,6 @@
 
 
 # Setting up an HLS input
-<a name="input-create-hls-pull"></a>
 
 This section describes how to create an HLS input. With an HLS input, MediaLive connects to the upstream system when the channel starts and *pulls* the sources. 
 

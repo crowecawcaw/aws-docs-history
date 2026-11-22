@@ -1,7 +1,6 @@
 
 
 # Enabling SCTE 35 passthrough or removal
-<a name="scte-35-passthrough-or-removal"></a>
 
 You can set up the MediaLive channel so that SCTE 35 messages from the input are passed through (included) in the data stream for the following outputs:
 + Outputs in an Archive output group.

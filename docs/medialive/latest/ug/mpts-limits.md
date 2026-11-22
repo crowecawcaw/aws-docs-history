@@ -1,7 +1,6 @@
 
 
 # Restrictions for multiplexes
-<a name="mpts-limits"></a>
 
 Following is a summary of the restrictions associated with multiplexes:
 + There are service quotas for the number of multiplexes you can create. For more information, see [Quotas in MediaLive](limits.md).

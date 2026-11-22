@@ -1,7 +1,6 @@
 
 
 # Working with MediaLive resources
-<a name="container-resources"></a>
 
 This section provides detailed instructions about how to create, view, edit and delete MediaLive resources: channels, devices, inputs, input security groups, and multiplexes.
 

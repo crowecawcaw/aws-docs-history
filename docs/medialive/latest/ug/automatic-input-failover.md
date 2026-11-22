@@ -1,7 +1,6 @@
 
 
 # Implementing automatic input failover
-<a name="automatic-input-failover"></a>
 
 When you set up the inputs for a MediaLive channel, you can set up inputs as an *input failover pair* (or failover pair). Setting up this way provides resiliency for the source, in case of a failure in the upstream system, or a failure between the upstream system and the channel. 
 

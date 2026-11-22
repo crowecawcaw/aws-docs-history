@@ -1,7 +1,6 @@
 
 
 # Viewing purchased reservations
-<a name="view-reservations"></a>
 
 On the console, you can view the reservations that you have purchased. You can also view or edit any auto-renewals that you have created.
 

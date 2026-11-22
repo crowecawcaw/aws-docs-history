@@ -1,7 +1,6 @@
 
 
 # Fields for the output destination
-<a name="smooth-destinations"></a>
 
 The following fields configure the destination of each Microsoft Smooth output.
 + **Output group** – **Microsoft Smooth group destination** section

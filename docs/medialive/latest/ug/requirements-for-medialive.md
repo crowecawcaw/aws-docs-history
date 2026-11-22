@@ -1,7 +1,6 @@
 
 
 # Requirements for AWS Elemental MediaLive features
-<a name="requirements-for-medialive"></a>
 
 You must give your users access to AWS Elemental MediaLive features. The permissions for MediaLive can be divided into three categories:
 + Permissions to create

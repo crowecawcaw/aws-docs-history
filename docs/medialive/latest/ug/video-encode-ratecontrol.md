@@ -1,7 +1,6 @@
 
 
 # Setting the rate control mode
-<a name="video-encode-ratecontrol"></a>
 
 If the codec in a video encode is AV1, H.264 (AVC), or H.265 (HEVC), you can configure the rate control mode. The rate control mode lets you configure the video quality and video bitrate in MediaLive.
 

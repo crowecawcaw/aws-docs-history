@@ -1,7 +1,6 @@
 
 
 # Changing the setup
-<a name="vpc-out-change"></a>
 
 If you have set up a MediaLive channel for VPC delivery, note the following:
 + You can't change an existing channel to either start delivering via your VPC or stop delivering via your VPC.

@@ -1,7 +1,6 @@
 
 
 # Organize sources into static and dynamic inputs
-<a name="ips-step-design-inputs"></a>
 
 This section is a supplement to the information in [Working with inputs](creating-input.md). It provides information that applies to inputs used in a multiple-input MediaLive channel. 
 

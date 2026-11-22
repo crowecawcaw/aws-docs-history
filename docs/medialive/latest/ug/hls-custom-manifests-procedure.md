@@ -1,7 +1,6 @@
 
 
 # Procedure to set up custom paths
-<a name="hls-custom-manifests-procedure"></a>
 
 Customizing the manifest paths involves working with the following fields:
 + **HLS output group – Location** – the **Base URL manifest** fields

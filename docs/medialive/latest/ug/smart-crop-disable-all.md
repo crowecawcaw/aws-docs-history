@@ -1,7 +1,6 @@
 
 
 # Disabling all Elemental Inference features in a channel
-<a name="smart-crop-disable-all"></a>
 
 Follow this procedure to disable all Elemental Inference features in a MediaLive channel. 
 

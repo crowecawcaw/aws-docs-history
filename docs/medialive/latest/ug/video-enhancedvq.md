@@ -1,7 +1,6 @@
 
 
 # Setting up enhanced VQ mode
-<a name="video-enhancedvq"></a>
 
  Enhanced VQ is an optional mode that affects the video quality of MediaLive outputs. It affects the video encode where both of the following apply: 
 + The encode uses H.264 (AVC).

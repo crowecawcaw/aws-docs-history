@@ -1,7 +1,6 @@
 
 
 # Complete the fields on the console
-<a name="archive-specify-destination"></a>
 
 1. Enter the different portions of the destination in the appropriate fields. 
 

@@ -1,7 +1,6 @@
 
 
 # Summary of actions
-<a name="multiplex-create-delete-edit-summary"></a>
 
 The following table summarizes the create, edit, and delete capabilities for the MediaLive multiplex, program, and channel.
 

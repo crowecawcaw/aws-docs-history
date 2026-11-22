@@ -1,7 +1,6 @@
 
 
 # Fixed, immediate, and follow switches
-<a name="ips-switch-types"></a>
 
 In MediaLive, you can categorize input switches according to the start types for the switch. 
 + Fixed – A fixed input switch starts at a specific time.

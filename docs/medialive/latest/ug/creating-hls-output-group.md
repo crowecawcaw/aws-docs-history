@@ -1,7 +1,6 @@
 
 
 # Create an HLS output group
-<a name="creating-hls-output-group"></a>
 
 You create the output group and its outputs when you [create or edit a MediaLive channel](creating-a-channel-step4.md). 
 

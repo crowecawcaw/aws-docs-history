@@ -1,7 +1,6 @@
 
 
 # Create the networks
-<a name="emla-setup-cl-networks"></a>
 
 Create the networks that you identified when you [designed the cluster](emla-deploy-design-cluster.md). Creating the network integrates the [resources that you identified](emla-deploy-identify-network-requirements.md) into AWS Elemental MediaLive Anywhere. You must create the networks before you create other MediaLive Anywhere resources.
 

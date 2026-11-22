@@ -1,7 +1,6 @@
 
 
 # Implementing pipeline locking
-<a name="pipeline-lock"></a>
 
 You can configure MediaLive to use pipeline locking to synchronize outputs. Pipeline locking works with standard channels (which have two pipelines) and with single-pipeline channels using linked channels. Pipeline locking ensures that the outputs are frame-accurate with each other. Pipeline locking is enabled by default.
 

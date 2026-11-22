@@ -1,7 +1,6 @@
 
 
 # Creating a transport stream (TS) file input
-<a name="ts-file-input"></a>
 
 This section describes how to set up to ingest transport stream (TS) content that is stored as a file. 
 

@@ -1,7 +1,6 @@
 
 
 # Creating an audio encode by cloning
-<a name="create-audio-clone"></a>
 
 You can create one audio encode and clone it among several outputs. The *source* encode could be an encode that you created from scratch, or it could be an encode that was itself created by cloning. For example, create *audio-1*, then clone it to *audio-2*, then clone *audio-2* to *audio-3*.
 

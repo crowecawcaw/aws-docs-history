@@ -1,7 +1,6 @@
 
 
 # Viewing channel security group details
-<a name="channel-security-groups-view"></a>
 
 **To view the channel security group for a channel**
 

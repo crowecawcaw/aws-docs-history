@@ -1,7 +1,6 @@
 
 
 # Dynamic Multiview: Requirements and Limitations
-<a name="dynamic-multiview-requirements"></a>
 
 AWS Elemental MediaLive requires specific configuration to produce outputs that are Dynamic Multiview compatible. This section describes the primary ones, but MediaLive also includes validation errors returned when creating or updating a channel that helpfully indicate configuration mistakes. The multiview specific validations are activated by setting the `outputUsage` field under `MediaPackageV2DestinationSettings` to indicate one or more multiview usage types (for example, `MULTIVIEW_EQUAL_SIZE_VIEW`, `MULTIVIEW_PRIMARY_VIEW`, or `MULTIVIEW_SECONDARY_VIEW`).
 

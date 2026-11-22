@@ -1,7 +1,6 @@
 
 
 # How MediaLive Anywhere works
-<a name="about-emla"></a>
 
 An AWS Elemental MediaLive Anywhere deployment involves several components:
 + Networks in your organization. These networks are represented by the bright blue boxes in the diagram that follows.

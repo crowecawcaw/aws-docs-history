@@ -1,7 +1,6 @@
 
 
 # HLS output group to Amazon S3
-<a name="origin-server-hls-s3"></a>
 
 Follow this procedure if you [determined](identify-downstream-system.md) that you will create an HLS output group with Amazon S3 as the destination. You and the operator of the downstream system must agree about the destination for the output of the HLS output group. 
 

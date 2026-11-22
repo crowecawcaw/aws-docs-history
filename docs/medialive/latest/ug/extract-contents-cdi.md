@@ -1,7 +1,6 @@
 
 
 # Identifying content in a CDI source
-<a name="extract-contents-cdi"></a>
 
 The content in a CDI source always consists of uncompressed video, uncompressed audio, and captions. 
 

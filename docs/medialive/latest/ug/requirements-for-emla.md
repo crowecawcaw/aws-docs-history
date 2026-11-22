@@ -1,7 +1,6 @@
 
 
 # Requirements for MediaLive Anywhere
-<a name="requirements-for-emla"></a>
 
 Your organization might be deploying MediaLive Anywhere, which lets you run MediaLive channels on on-premises hardware located in your organization's data center.
 

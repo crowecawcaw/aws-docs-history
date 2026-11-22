@@ -1,7 +1,6 @@
 
 
 # Ensure correct setup on the MP4 upstream system
-<a name="setup-uss-mp4"></a>
 
 An operator at the upstream server must set up the source content on the upstream system. Make sure that the operator sets up as follows:
 + They set up to deliver the correct number of sources:

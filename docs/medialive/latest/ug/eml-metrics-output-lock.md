@@ -1,7 +1,6 @@
 
 
 # Pipeline locking metrics
-<a name="eml-metrics-output-lock"></a>
 
 Pipeline locking metrics relate to the synchronization of MediaLive pipelines.
 

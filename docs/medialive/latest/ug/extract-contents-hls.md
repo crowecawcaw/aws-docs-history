@@ -1,7 +1,6 @@
 
 
 # Identifying content in an HLS source
-<a name="extract-contents-hls"></a>
 
 The content in an HLS container is always a transport stream (TS) that contains only one video rendition (program). 
 

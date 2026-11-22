@@ -1,7 +1,6 @@
 
 
 # Plan the order of input switches
-<a name="ips-order-switches"></a>
 
 We recommend that you plan the order of the input switches before you create the actions in the MediaLive schedule.
 

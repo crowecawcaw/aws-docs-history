@@ -1,7 +1,6 @@
 
 
 # Coordinate with the downstream system
-<a name="framecapture-op-origin-server-s3"></a>
 
 The destination for a Frame capture output group is always in an Amazon S3 bucket. You and the Amazon S3 operator must agree about the bucket to use.
 

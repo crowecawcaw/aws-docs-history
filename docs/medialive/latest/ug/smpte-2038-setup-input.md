@@ -1,7 +1,6 @@
 
 
 # Configuring inputs
-<a name="smpte-2038-setup-input"></a>
 
 If you want MediaLive to use the data in a SMPTE 2038 stream, you must configure the input to read the SMPTE 2038.
 

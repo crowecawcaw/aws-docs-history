@@ -1,7 +1,6 @@
 
 
 # Create an RTMP push input
-<a name="setup-input-rtmp-push"></a>
 
 After you have created the input security group, you can create the RTMP push input. 
 

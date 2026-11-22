@@ -1,7 +1,6 @@
 
 
 # Modify or disable contextual metadata enrichment
-<a name="cm-enrichment-modify"></a>
 
 You can modify or disable contextual metadata enrichment using the AWS CLI or the MediaLive console.
 

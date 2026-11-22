@@ -1,7 +1,6 @@
 
 
 # Obtain information
-<a name="setup-multicast-obtain-info"></a>
 
 Obtain the following information from the video engineer in your organization who operates the multicast source:
 + The protocol, the multicast group address, and the port of the stream. The protocol is RTP or UDP. The group address is an IPv4 multicast address, for example `233.252.0.1`.

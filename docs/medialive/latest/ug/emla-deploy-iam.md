@@ -1,7 +1,6 @@
 
 
 # Setting up in IAM for MediaLive Anywhere
-<a name="emla-deploy-iam"></a>
 
 You must perform some setup in AWS Identity and Access Management. You must perform this setup before you or any other user can create the network, cluster, and nodes on the MediaLive Console.
 

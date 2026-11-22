@@ -1,7 +1,6 @@
 
 
 # Creating an audio encode by sharing
-<a name="create-audio-share"></a>
 
 You can create one audio encode and share it among several outputs. Follow the [earlier procedure](create-audio-scratch.md) to create the encode once. Then set up the encode for the other outputs using the following steps.
 

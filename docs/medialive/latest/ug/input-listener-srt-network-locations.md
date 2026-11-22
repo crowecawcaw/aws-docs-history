@@ -1,7 +1,6 @@
 
 
 # Network locations for SRT Listener inputs
-<a name="input-listener-srt-network-locations"></a>
 
 SRT Listener inputs support the following network locations:
 + **AWS**: Standard cloud deployment. MediaLive allocates Elastic IP addresses for the input destinations.

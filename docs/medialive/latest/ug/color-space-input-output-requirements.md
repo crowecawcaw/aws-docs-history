@@ -1,7 +1,6 @@
 
 
 # Input and output requirements
-<a name="color-space-input-output-requirements"></a>
 
 **Topics**
 + [Supported inputs](#color-space-supported-inputs)

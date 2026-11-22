@@ -1,7 +1,6 @@
 
 
 # Step 5: Attach the input
-<a name="getting-started-step4b"></a>
 
 Now you are ready to identify the input that the channel will ingest.
 

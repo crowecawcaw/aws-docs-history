@@ -1,7 +1,6 @@
 
 
 # Scenario B – Metadata can be corrected with force
-<a name="color-space-scenario-correct"></a>
 
 During assessment of the MediaLive input, you might have determined the following:
 + The content is in one color space, and that is a supported color space.

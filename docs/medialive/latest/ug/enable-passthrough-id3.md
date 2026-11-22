@@ -1,7 +1,6 @@
 
 
 # Passing through ID3 metadata
-<a name="enable-passthrough-id3"></a>
 
 You can set up one or more outputs in a MediaLive channel so that ID3 metadata that is in a source is automatically passed through to the output. Passthrough is supported in the following types of output groups:
 + Archive

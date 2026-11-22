@@ -1,7 +1,6 @@
 
 
 # Two options: global overlay and per-output overlay
-<a name="image-overlay-features"></a>
 
 There are two options for inserting and removing image overlays in a MediaLive channel — the global option and the per-output option.
 + Global image overlay: Insert a static image overlay in every output in every output group. The action is called Static Image Activate. 

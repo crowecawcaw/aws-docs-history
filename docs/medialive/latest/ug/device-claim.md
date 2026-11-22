@@ -1,7 +1,6 @@
 
 
 # Claiming a Link device
-<a name="device-claim"></a>
 
 If you purchase a device from an AWS reseller, you must claim the device. 
 

@@ -1,7 +1,6 @@
 
 
 # Setup: Creating inputs
-<a name="medialive-inputs"></a>
 
 This section describes how to create inputs for the content sources for an AWS Elemental MediaLive channel. You must create these inputs before you start to create the channel. 
 

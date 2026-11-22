@@ -1,7 +1,6 @@
 
 
 # Trick-play track via I-frames
-<a name="trick-play-i-frames"></a>
 
 In a MediaLive HLS output group, you can support trick-play track by providing an I-frame-only manifest.
 

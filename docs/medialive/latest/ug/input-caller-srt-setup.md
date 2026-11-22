@@ -1,7 +1,6 @@
 
 
 # Create an SRT input
-<a name="input-caller-srt-setup"></a>
 
 After you have obtained the necessary information from the upstream system, you can create the SRT input.
 

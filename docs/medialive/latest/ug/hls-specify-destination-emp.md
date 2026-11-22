@@ -1,7 +1,6 @@
 
 
 # Complete the fields on the console
-<a name="hls-specify-destination-emp"></a>
 
 After you have designed the output names and destination paths, you can set up the HLS output group.
 

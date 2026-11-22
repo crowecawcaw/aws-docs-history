@@ -1,7 +1,6 @@
 
 
 # Organize encodes in an HLS output group
-<a name="design-hls-package"></a>
 
 An HLS output group is typically set up as a video ABR stack. A video ABR stack is an output group that contains the following:
 + More than one outputs.

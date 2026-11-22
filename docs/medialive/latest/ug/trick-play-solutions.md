@@ -1,7 +1,6 @@
 
 
 # Implementing a trick-play track
-<a name="trick-play-solutions"></a>
 
 Trick-play is used in digital video players to mimic some capabilities of analog players, including fast-forward and rewind capabilities. These capabilities often include a trick-play *track*—a visual cue for the person using the video player. In AWS Elemental MediaLive, you can include track assets in the output group. The downstream system for that output group can use these assets to implement the visual cue in their trick-play implementation. 
 

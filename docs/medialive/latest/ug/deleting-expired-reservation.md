@@ -1,7 +1,6 @@
 
 
 # Deleting an expired reservation
-<a name="deleting-expired-reservation"></a>
 
 When a reservation has expired, you can delete it.
 

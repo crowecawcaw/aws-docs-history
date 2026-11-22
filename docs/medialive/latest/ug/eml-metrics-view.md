@@ -1,7 +1,6 @@
 
 
 # Viewing metrics
-<a name="eml-metrics-view"></a>
 
 You can view some metrics in the MediaLive console. You can view all metrics in the CloudWatch console. You can also retrieve metrics using the CLI, the REST API, or any AWS SDK.
 

@@ -1,7 +1,6 @@
 
 
 # Selecting the SRT connection mode
-<a name="srt-connection-mode-selection"></a>
 
 When you create an SRT output group, you must choose the connection mode for each output. The connection mode determines how MediaLive and the downstream system establish the SRT connection.
 

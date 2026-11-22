@@ -1,7 +1,6 @@
 
 
 # HLS output group to HTTP
-<a name="origin-server-http"></a>
 
 Follow this procedure if you [determined](identify-downstream-system.md) that you will create an HLS output group with one of the following downstream systems as the destination:
 + An HTTP or HTTPS PUT server.

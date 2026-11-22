@@ -1,7 +1,6 @@
 
 
 # Coordinate with the MediaPackage operator
-<a name="origin-server-emp"></a>
 
 You and the operator of the AWS Elemental MediaPackage service must agree about the destination for the output of your MediaPackage output group.
 

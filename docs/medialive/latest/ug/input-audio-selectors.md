@@ -1,7 +1,6 @@
 
 
 # Input settings—Audio selectors
-<a name="input-audio-selectors"></a>
 
 If you want to extract audio from the input, this section is required. You create one or more audio selectors to identify the audio asset to extract. Typically, you identify different languages from the input, but you could also extract different audio codecs (such as AAC and Dolby).
 

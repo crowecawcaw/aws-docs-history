@@ -1,7 +1,6 @@
 
 
 # Activate motion graphic overlay – payload
-<a name="cli-schedule-fields-activate-mgi"></a>
 
 For information about the meaning and values for the fields in the following JSON, see [Fields for activating a motion graphics overlay](schedule-fields-for-mg.md).
 

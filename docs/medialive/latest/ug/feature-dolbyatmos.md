@@ -1,7 +1,6 @@
 
 
 # Working with Dolby Digital Plus with Dolby Atmos
-<a name="feature-dolbyatmos"></a>
 
 Dolby Atmos is a surround sound technology built on the codec of Dolby Digital Plus (Dolby Digital Plus is also known as Enhanced AC-3). In addition to the multi-channel surround sound capabilities of Dolby Digital Plus, Dolby Atmos adds additional height-based audio channels.
 

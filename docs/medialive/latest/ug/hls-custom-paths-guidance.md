@@ -1,7 +1,6 @@
 
 
 # Guidance for setting up for custom paths
-<a name="hls-custom-paths-guidance"></a>
 
 The content in the customized path in an HLS output must be appropriate for the system that is downstream of MediaLive. Following is some guidance for using the *base URL* fields for different downstream systems.
 

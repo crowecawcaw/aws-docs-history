@@ -1,7 +1,6 @@
 
 
 # Fields for the container
-<a name="smooth-container"></a>
 
 The following fields configure the container in each output.
 + **Microsoft Smooth settings** section – **General configuration** section – **Fragment length** 

@@ -1,7 +1,6 @@
 
 
 # Identify the output group types for the downstream system
-<a name="identify-downstream-system"></a>
 
 The first step in planning any AWS Elemental MediaLive workflow is to determine which types of [*output groups*](what-is-terminology.md) you need to produce, based on the requirements and capabilities of the systems that are downstream of MediaLive.
 

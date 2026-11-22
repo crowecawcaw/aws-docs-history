@@ -1,7 +1,6 @@
 
 
 # Modifying the MediaLive trusted entity
-<a name="emla-deploy-modify-ml-trusted-entity"></a>
 
 You must modify the trusted entity role that you created for MediaLive. You should have already [set up this trust entity](setting-up-trusted-entity.md). 
 
@@ -26,7 +25,7 @@ Follow this procedure to modify each role that you identified.
 
 ****  
 
-   ```
+   ```json
    {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

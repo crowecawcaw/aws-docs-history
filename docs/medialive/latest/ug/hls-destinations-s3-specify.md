@@ -1,7 +1,6 @@
 
 
 # Complete the fields on the Console
-<a name="hls-destinations-s3-specify"></a>
 
 After you have designed the output names and destination paths, you can set up the HLS output group.
 

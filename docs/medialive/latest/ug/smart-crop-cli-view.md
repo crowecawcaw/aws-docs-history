@@ -1,7 +1,6 @@
 
 
 # Viewing features using the AWS CLI
-<a name="smart-crop-cli-view"></a>
 
 To view information about Elemental Inference features, use `get-feed` to obtain this information:
 + The ARN of a feed.

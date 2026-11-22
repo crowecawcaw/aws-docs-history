@@ -1,7 +1,6 @@
 
 
 # Creating a video encode by cloning
-<a name="create-video-clone"></a>
 
 You can create one video encode and clone it among several outputs. The *source* encode could be an encode that you created from scratch, or it could be an encode that was itself created by cloning. For example, create *video-1*, then clone it to *video-2*, then clone *video-2* to *video-3*.
 

@@ -1,7 +1,6 @@
 
 
 # Setting up Smart Subtitles (console)
-<a name="automatic-subtitling-setup-console"></a>
 
 Follow these steps to enable Smart Subtitles in a channel using the MediaLive console.
 

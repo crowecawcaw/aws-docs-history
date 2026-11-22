@@ -1,7 +1,6 @@
 
 
 # Input Prepare
-<a name="ips-input-prepare"></a>
 
 The MediaLive schedule includes an input prepare action that is a helper action for input switches. 
 

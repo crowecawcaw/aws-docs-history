@@ -1,7 +1,6 @@
 
 
 # Global metrics
-<a name="eml-metrics-global"></a>
 
 Global metrics relate to general performance and information for AWS Elemental MediaLive.
 

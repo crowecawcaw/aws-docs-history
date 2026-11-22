@@ -1,7 +1,6 @@
 
 
 # Supported sampling rate and bitrate for AAC output
-<a name="aac-four-characteristics"></a>
 
 This section explains how to set the following four properties of the AAC audio codec when you are setting up an audio encode in MediaLive:
 + Profile

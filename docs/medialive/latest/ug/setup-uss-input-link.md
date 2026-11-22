@@ -1,7 +1,6 @@
 
 
 # Create an Elemental Link input
-<a name="setup-uss-input-link"></a>
 
 After you have obtained information about the AWS Elemental Link hardware device, you can create an Elemental Link input.
 

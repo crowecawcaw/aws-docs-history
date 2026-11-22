@@ -1,7 +1,6 @@
 
 
 # Return-to-network message – payload
-<a name="cli-schedule-fields-for-return-network"></a>
 
 For information about the meaning and values for the fields in the following JSON, see [Fields for a return-to-network message](schedule-fields-for-return-to-network.md).
 

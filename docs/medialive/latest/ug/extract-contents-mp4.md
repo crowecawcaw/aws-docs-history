@@ -1,7 +1,6 @@
 
 
 # Identifying content in an MP4 source
-<a name="extract-contents-mp4"></a>
 
 The content in an MP4 source always consists of one video track, one or more audio tracks, and optional captions. 
 

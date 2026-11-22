@@ -1,7 +1,6 @@
 
 
 # Creating a channel from a template
-<a name="creating-channel-template"></a>
 
 You can create a MediaLive channel by using a custom template or by using one of the built-in templates that MediaLive provides. 
 

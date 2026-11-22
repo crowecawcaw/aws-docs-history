@@ -1,7 +1,6 @@
 
 
 # Fields for the output destination
-<a name="udp-destinations"></a>
 
 The following fields configure the destination of the output:
 + **Output group** – **UDP destination** sections

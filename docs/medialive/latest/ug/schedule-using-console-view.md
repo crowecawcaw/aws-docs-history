@@ -1,7 +1,6 @@
 
 
 # Viewing the schedule (console)
-<a name="schedule-using-console-view"></a>
 
 You can display the list of actions currently in the schedule and view them in list or timeline view.
 

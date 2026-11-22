@@ -1,7 +1,6 @@
 
 
 # Obtain information
-<a name="setup-s2110-pull-obtain-info"></a>
 
 Obtain the following information from the video engineer who created the SMPTE 2110 SDP files:
 + The location (URL) and file name of all the SDP files for the video, audio, and ancillary streams for the SMPTE 2110 source. 

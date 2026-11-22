@@ -1,7 +1,6 @@
 
 
 # Identifying subnet and Availability Zone requirements
-<a name="vpc-out-AZ-subnet-reqs"></a>
 
 Subnets and Availability Zones apply as follows:
 + **Inputs **– Some MediaLive input types are in your VPC, which means that they are in a specific subnet. For example, an RTMP input can be in your VPC. For more information, see [Input types, protocols, and upstream systems](inputs-supported-formats.md).

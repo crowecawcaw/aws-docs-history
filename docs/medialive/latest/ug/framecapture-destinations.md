@@ -1,7 +1,6 @@
 
 
 # Frame capture destination
-<a name="framecapture-destinations"></a>
 
 The following fields configure the location and names of the frame capture files (the destination).
 + **Output group** – **Frame capture group destination** section

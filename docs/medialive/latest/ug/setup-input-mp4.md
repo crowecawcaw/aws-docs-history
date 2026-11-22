@@ -1,7 +1,6 @@
 
 
 # Create an MP4 input
-<a name="setup-input-mp4"></a>
 
 After you have obtained information from the upstream system, you can create an MP4 input.
 

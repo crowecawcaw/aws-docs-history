@@ -1,7 +1,6 @@
 
 
 # Examples of destination fields for an Archive output group
-<a name="archive-examples"></a>
 
 These examples show how to set up the fields that relate to file locations. They don't show how to set up other fields such as fields in the individual outputs.
 

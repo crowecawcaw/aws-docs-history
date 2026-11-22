@@ -1,7 +1,6 @@
 
 
 # Akamai example
-<a name="hls-example-akamai"></a>
 
 This example shows how to set up the destination fields if the downstream system is an Akamai server. 
 

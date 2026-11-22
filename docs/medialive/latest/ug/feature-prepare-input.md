@@ -1,7 +1,6 @@
 
 
 # Preparing inputs in AWS Elemental MediaLive
-<a name="feature-prepare-input"></a>
 
 When you implement input swtitching in MediaLive, you can prepare an input that is associated with an immediate input switch in order to reduce the delay that occurs when MediaLive performs the switch. 
 

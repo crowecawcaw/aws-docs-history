@@ -1,7 +1,6 @@
 
 
 # Output types supported in MediaLive
-<a name="supported-containers-output"></a>
 
 This section provides information about the output content types and output video and codecs that MediaLive can produce.
 

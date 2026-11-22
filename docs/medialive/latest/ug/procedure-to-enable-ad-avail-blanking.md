@@ -1,7 +1,6 @@
 
 
 # Enabling blanking
-<a name="procedure-to-enable-ad-avail-blanking"></a>
 
 Follow this procedure if you want to enable the ad avail blanking feature in a MediaLive channel.
 

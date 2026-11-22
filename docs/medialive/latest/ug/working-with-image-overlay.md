@@ -1,7 +1,6 @@
 
 
 # Working with image overlays
-<a name="working-with-image-overlay"></a>
 
 You can impose static images onto a video in a MediaLive channel. A static image is a still image that doesn't have motion. You prepare the image or images and store them outside of MediaLive. You then use the [schedule](working-with-schedule.md) feature in MediaLive to set up a timetable that specifies when images will be inserted in the running channel, and when each will be removed. 
 

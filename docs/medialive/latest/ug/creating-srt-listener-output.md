@@ -1,7 +1,6 @@
 
 
 # Creating SRT outputs in listener mode
-<a name="creating-srt-listener-output"></a>
 
 This section describes how to create SRT outputs in listener mode, where downstream systems initiate connections to MediaLive.
 

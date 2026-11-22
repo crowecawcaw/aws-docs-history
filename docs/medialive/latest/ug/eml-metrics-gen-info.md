@@ -1,7 +1,6 @@
 
 
 # Components of a metric
-<a name="eml-metrics-gen-info"></a>
 
 AWS Elemental MediaLive collects data that is the basis for metrics. It collects these *datapoints* every second and sends them immediately to Amazon CloudWatch. You can use CloudWatch to generate *metrics* for these datapoints.
 

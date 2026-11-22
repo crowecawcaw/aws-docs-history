@@ -1,7 +1,6 @@
 
 
 # Audio channel mixing and remixing
-<a name="feature-audio-mixing"></a>
 
 AWS Elemental MediaLive provides a two-stage audio processing pipeline that you can use to combine audio from multiple sources and remap channels for your output. You can pre-mix multiple audio PIDs or tracks into a single combined stream, and then remix that stream into your desired output channel layout.
 
@@ -48,7 +47,7 @@ The following constraints apply:
 
 The following example shows two PIDs being pre-mixed. PID 101 contains stereo audio remixed to mono (1 channel) with -3 dB gain. PID 102 contains stereo audio kept as stereo (2 channels). The result is a 3-channel interleaved output.
 
-```
+```json
 {
   "AudioSelectors": {
     "my_mixed_audio": {
@@ -89,7 +88,7 @@ The same constraints apply: you must specify at least 2 tracks when using `Premi
 
 The following example shows two tracks being pre-mixed. Track 1 contains stereo audio remixed to mono. Track 2 contains stereo audio kept as stereo.
 
-```
+```json
 {
   "AudioSelectors": {
     "my_mixed_tracks": {
@@ -133,7 +132,7 @@ The `RemixSettings` object contains the following fields:
 
 The following example shows a 5.1 surround to stereo downmix. Input channels 0–5 represent the standard 5.1 layout (L, R, C, LFE, LS, RS). The output maps left-facing channels to output channel 0 and right-facing channels to output channel 1.
 
-```
+```json
 {
   "RemixSettings": {
     "ChannelsIn": 6,

@@ -1,7 +1,6 @@
 
 
 # Examples
-<a name="billing-examples"></a>
 
 The following examples show how to decode MediaLive usage type strings.
 

@@ -1,7 +1,6 @@
 
 
 # Set up outputs to process color space
-<a name="colorspace-output-setup"></a>
 
 Follow this procedure to configure color space handling in each MediaLive output. You can set up each output with different color space handling. For example, you can create one output that passes through the original color space, and another that converts it.
 

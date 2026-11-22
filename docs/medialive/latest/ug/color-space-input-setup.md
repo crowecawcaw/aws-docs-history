@@ -1,7 +1,6 @@
 
 
 # Set up inputs to correct metadata
-<a name="color-space-input-setup"></a>
 
 In the previous step, you identified how to correct color space metadata in each MediaLive input. This section describes how to set up each input for the required correction.
 

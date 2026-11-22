@@ -1,16 +1,18 @@
 
 
 # Captions formats supported in RTMP outputs
-<a name="supported-formats-rtmp-output"></a>
 
 In this table, look up your input container and captions type. Then read across to find the caption formats that are supported in MediaLive in an RTMP output, when you have this input container and captions type. 
+
+**Note**  
+You can also produce captions without a caption source in your input. Enable the Smart Subtitles feature, which uses AWS Elemental Inference to generate subtitles from the audio. MediaLive can then encode those subtitles as embedded CEA-608 or CEA-708 captions. For more information, see [Smart Subtitles using Elemental Inference](elemental-inference-automatic-subtitling.md) and [Embedded captions encoding](captions-embedded-encoder.md).
 
 
 
 - **CDI container**
   - **Source caption input:** ARIB / **Supported output captions:** None
   - **Source caption input:** Embedded / **Supported output captions:** Burn-inEmbeddedRTMP CaptionInfo
-  - **Source caption input:** Teletext / **Supported output captions:** None
+  - **Source caption input:** Teletext / **Supported output captions:** Embedded
 
 - **HLS container**
   - **Source caption input:** Embedded / **Supported output captions:** Burn-inEmbedded<br />RTMP CaptionInfo
@@ -18,7 +20,7 @@ In this table, look up your input container and captions type. Then read across 
 
 - **Link container**
   - **Source caption input:** Embedded / **Supported output captions:** Burn-inEmbedded<br />RTMP CaptionInfo
-  - **Source caption input:** Teletext / **Supported output captions:** None
+  - **Source caption input:** Teletext / **Supported output captions:** Embedded
 
 - **MP4 container**
   - **Source caption input:** Ancillary / **Supported output captions:** Burn-inEmbedded<br />RTMP CaptionInfo
@@ -34,13 +36,13 @@ In this table, look up your input container and captions type. Then read across 
   - **Source caption input:** Embedded or Embedded\+SCTE-20 / **Supported output captions:** Burn-inEmbedded<br />RTMP CaptionInfo
   - **Source caption input:** SCTE-20 / **Supported output captions:** EmbeddedRTMP CaptionInfo
   - **Source caption input:** SCTE-27 / **Supported output captions:** Burn-in
-  - **Source caption input:** Teletext / **Supported output captions:** None
+  - **Source caption input:** Teletext / **Supported output captions:** Embedded
 
 - **SMPTE 2110**
   - **Source caption input:** Embedded / **Supported output captions:** Burn-inRTMP CaptionInfo<br />Embedded<br />Embedded\+SCTE-20<br />SCTE-20<br />SCTE-20\+Embedded
-  - **Source caption input:** Teletext / **Supported output captions:** None
+  - **Source caption input:** Teletext / **Supported output captions:** Embedded
 
 - **All input containers(Smart Subtitles generates subtitles from the source audio, not from captions in the source.)**
   - **Source caption input:** Smart Subtitles
-  - **Supported output captions:** Burn-in
+  - **Supported output captions:** Burn-in<br />Embedded
 

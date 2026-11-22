@@ -1,7 +1,6 @@
 
 
 # Creating a channel from scratch
-<a name="creating-channel-scratch"></a>
 
 A channel ingests and transcodes (decodes and encodes) source content from the inputs that are attached to the MediaLive channel, and packages the new content into outputs. You create and configure the channel with the details that instruct the channel how to perform this processing. 
 

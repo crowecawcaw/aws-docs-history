@@ -1,7 +1,6 @@
 
 
 # Create an SRT Listener input
-<a name="input-listener-srt-setup"></a>
 
 After you have obtained the necessary information from the upstream system and created an input security group, you can create the SRT Listener input.
 

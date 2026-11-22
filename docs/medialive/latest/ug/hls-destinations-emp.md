@@ -1,7 +1,6 @@
 
 
 # Fields for the output destination – sending to MediaPackage
-<a name="hls-destinations-emp"></a>
 
 When you [planned the output to MediaPackage](delivering-to-mediapackage.md), you might have decided to send the output by creating an HLS output group. (Or you might have decided to create a [MediaPackage output group](creating-mediapackage-output-group.md).)
 

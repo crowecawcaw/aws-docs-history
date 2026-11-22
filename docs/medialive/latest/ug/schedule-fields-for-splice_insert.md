@@ -1,7 +1,6 @@
 
 
 # Fields for a splice\_insert message
-<a name="schedule-fields-for-splice_insert"></a>
 
 This table shows the fields that apply for an action to insert a splice\_insert SCTE 35 message. 
 

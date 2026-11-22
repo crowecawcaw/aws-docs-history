@@ -1,7 +1,6 @@
 
 
 # Setting up MediaLive as a trusted entity
-<a name="device-iam-for-medialive"></a>
 
 An IAM administrator must consider the special permissions that MediaLive requires if your organization will use a Link device as the source for a MediaConnect flow. 
 
@@ -46,7 +45,7 @@ In this step, you create a policy that makes the statement "Let a principal have
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -106,7 +105,7 @@ In this step, you create a role that consists of a trust policy ("let MediaLive 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

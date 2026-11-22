@@ -1,7 +1,6 @@
 
 
 # Output requirements
-<a name="color-space-simplified-input-output-requirements"></a>
 
 **Supported output types**
 

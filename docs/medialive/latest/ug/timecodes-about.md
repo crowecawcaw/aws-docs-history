@@ -1,7 +1,6 @@
 
 
 # About timecodes and timestamps
-<a name="timecodes-about"></a>
 
 MediaLive has timecodes for the input pipeline and the output pipeline. The two timecodes are separate from each other.
 

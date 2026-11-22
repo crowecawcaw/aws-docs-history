@@ -1,7 +1,6 @@
 
 
 # Configuring the inputs
-<a name="color-space-simplified-setup-input"></a>
 
 **Note**  
 This section assumes that you are familiar with creating or editing a channel, as described in [Creating a channel from scratch](creating-channel-scratch.md). 

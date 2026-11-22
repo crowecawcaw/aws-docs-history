@@ -1,7 +1,6 @@
 
 
 # How to read the supported captions information
-<a name="how-to-read-the-support-information"></a>
 
 With captions, there are constraints on the ability to produce a specific output format from the input format. 
 

@@ -1,7 +1,6 @@
 
 
 # Inserting SCTE 35 messages using the schedule
-<a name="setup-scte35-insertion"></a>
 
 Use the [channel schedule](x-actions-in-schedule-SCTE35.md) to insert SCTE 35 messages into the outptus of a MediaLive CHANNEL. For example, you can add an action in the channel schedule to insert a splice insert in the running channel at a specific time. 
 

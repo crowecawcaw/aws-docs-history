@@ -1,7 +1,6 @@
 
 
 # Configuring outputs for KLV metadata
-<a name="smpte-2038-klv-setup"></a>
 
 You can choose to pass through the KLV metadata in specific types of output groups. You can pass through the data in one or more the output groups.
 

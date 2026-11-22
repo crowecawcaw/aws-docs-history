@@ -1,7 +1,6 @@
 
 
 # Obtain information
-<a name="setup-input-link-obtain-info"></a>
 
 Obtain the following information from the operator of the AWS Elemental Link device:
 + The name of the device or devices that will provide your source. For example:

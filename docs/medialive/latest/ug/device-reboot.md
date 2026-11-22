@@ -1,7 +1,6 @@
 
 
 # Rebooting a Link device
-<a name="device-reboot"></a>
 
 You can remotely reboot a Link device from the AWS console. You don't need physical access to the device. 
 

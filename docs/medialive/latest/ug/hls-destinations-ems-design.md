@@ -1,7 +1,6 @@
 
 
 # Design the path for the output destination
-<a name="hls-destinations-ems-design"></a>
 
 Perform this step if you haven't yet designed the full destination path or paths. If you've already designed the paths, go to [Complete the fields on the console](hls-specify-destination-ems.md).
 

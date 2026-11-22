@@ -1,7 +1,6 @@
 
 
 # Organize encodes in a CMAF Ingest output group
-<a name="design-cmafi-package"></a>
 
 A CMAF Ingest output group typically set up as a video ABR stack. A video ABR stack is an output group that contains the following:
 + More than one outputs.

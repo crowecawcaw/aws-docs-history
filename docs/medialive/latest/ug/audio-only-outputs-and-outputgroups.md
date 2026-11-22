@@ -1,7 +1,6 @@
 
 
 # Setting up the output
-<a name="audio-only-outputs-and-outputgroups"></a>
 
 To set up an audio-only output in a MediaLive channel, you must verify that the output groups you want to create can include audio-only encodes, then you must set up the outputs in a specific way. 
 

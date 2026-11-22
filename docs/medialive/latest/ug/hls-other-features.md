@@ -1,7 +1,6 @@
 
 
 # Fields for other HLS features
-<a name="hls-other-features"></a>
 
 **Topics**
 + [Fields for connection retries](#hls-reconnection-fields)

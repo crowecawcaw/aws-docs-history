@@ -1,7 +1,6 @@
 
 
 # Creating an audio encode from scratch
-<a name="create-audio-scratch"></a>
 
 1. On the **Create channel** page, find the output group that you [created](creating-a-channel-step4.md). 
 

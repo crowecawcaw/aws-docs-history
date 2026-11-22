@@ -1,7 +1,6 @@
 
 
 # Disabling Smart Subtitles
-<a name="automatic-subtitling-disable"></a>
 
 To disable Smart Subtitles and stop incurring charges:
 

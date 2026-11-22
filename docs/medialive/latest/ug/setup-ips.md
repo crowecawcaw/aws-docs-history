@@ -1,7 +1,6 @@
 
 
 # Setting up for input switching
-<a name="setup-ips"></a>
 
 When you plan for a MediaLive channel that includes multiple inputs that you will switch between, there are special requirements that you must consider. 
 

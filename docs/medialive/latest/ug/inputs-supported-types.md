@@ -1,7 +1,6 @@
 
 
 # Input types supported in MediaLive
-<a name="inputs-supported-types"></a>
 
 MediaLive supports the following input types. For more information about these types, see the sections that follow.
 + CDI

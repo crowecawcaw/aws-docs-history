@@ -1,7 +1,6 @@
 
 
 # Handling complex color space conversions
-<a name="color-space"></a>
 
 **Important**  
 Read [Which section to read](#color-space-which-section) to determine if you should read this section.

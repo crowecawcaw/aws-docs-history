@@ -1,7 +1,6 @@
 
 
 # Tagging resources
-<a name="tagging"></a>
 
 A *tag* is a metadata label that you assign or that AWS assigns to an AWS resource. Each tag consists of a *key* and a *value*. For tags that you assign, you define the key and value. For example, you might define the key as `stage` and the value for one resource as `test`.
 

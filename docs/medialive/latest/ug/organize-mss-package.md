@@ -1,7 +1,6 @@
 
 
 # Organize encodes in a Microsoft Smooth output group
-<a name="organize-mss-package"></a>
 
 A Microsoft Smooth output group is typically set up as a video ABR stack. A video ABR stack is an output group that contains the following:
 + More than one outputs.

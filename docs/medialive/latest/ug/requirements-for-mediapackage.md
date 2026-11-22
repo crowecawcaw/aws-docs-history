@@ -1,7 +1,6 @@
 
 
 # Requirements for AWS Elemental MediaPackage
-<a name="requirements-for-mediapackage"></a>
 
 Your deployment might send outputs to AWS Elemental MediaPackage, either by creating an [HLS output group or by creating a MediaPackage output group](delivering-to-mediapackage.md). (Note that both MediaLive and MediaPackage have "channels"; however, they are different objects.)
 

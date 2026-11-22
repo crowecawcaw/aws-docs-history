@@ -1,7 +1,6 @@
 
 
 # Transferring a Link device to another account
-<a name="device-transfers"></a>
 
 You can transfer a device to a different AWS account, to transfer ownership of the device to that account. The recipient of a transfer must accept or reject the incoming transfer in order for the transfer to be finalized. After the transfer is finalized, all charges for use of the device are applied to the new account.
 

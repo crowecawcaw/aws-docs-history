@@ -1,7 +1,6 @@
 
 
 # Getting ready: Set the ad avail mode
-<a name="getting-ready-set-the-ad-avail-mode"></a>
 
 You must set the mode for SCTE 35 handling. The blanking, blackout, and manifest decoration features of MediaLive work different depending on the mode.
 

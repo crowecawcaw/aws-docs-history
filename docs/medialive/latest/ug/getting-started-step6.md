@@ -1,7 +1,6 @@
 
 
 # Step 8: Set up the output and encodes
-<a name="getting-started-step6"></a>
 
 Now that you have defined one output group in the channel, you can set up an output in that output group, and specify how you want to encode the video output and the audio output.
 

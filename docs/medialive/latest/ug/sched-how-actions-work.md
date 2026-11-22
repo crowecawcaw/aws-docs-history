@@ -1,7 +1,6 @@
 
 
 # How schedule actions work
-<a name="sched-how-actions-work"></a>
 
 This section describes how MediaLive handles each combination of [action type](x-actions-in-schedule.md) and [start type](sched-timing-types.md). 
 

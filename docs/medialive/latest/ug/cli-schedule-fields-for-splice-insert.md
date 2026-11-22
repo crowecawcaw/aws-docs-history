@@ -1,7 +1,6 @@
 
 
 # Splice\_insert message – payload
-<a name="cli-schedule-fields-for-splice-insert"></a>
 
 For information about the meaning and values for the fields in the following JSON, see [Fields for a splice\_insert message](schedule-fields-for-splice_insert.md).
 

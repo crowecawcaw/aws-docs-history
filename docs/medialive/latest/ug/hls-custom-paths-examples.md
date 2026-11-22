@@ -1,7 +1,6 @@
 
 
 # Examples of custom paths
-<a name="hls-custom-paths-examples"></a>
 
 Following are examples of the different ways that you might customize the manifests in a MediaLive HLS output group. In all these examples, assume the following:
 + In the main manifest, the default path to the child manifests is this relative path:

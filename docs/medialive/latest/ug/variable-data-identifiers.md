@@ -1,7 +1,6 @@
 
 
 # Identifiers for variable data in MediaLive
-<a name="variable-data-identifiers"></a>
 
 Identifiers for variable data are `$` codes that you can include in a field value to represent variable data. Typically, MediaLive resolves the variable data (for example, `$dt$` for the date and time) when you run the channel. For example, `$dt$` resolves to the current date and time.
 

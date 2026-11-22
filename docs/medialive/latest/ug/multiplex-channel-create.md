@@ -1,7 +1,6 @@
 
 
 # Creating a channel
-<a name="multiplex-channel-create"></a>
 
 The MediaLive channel attached to a program is a regular channel in which the output group is always a multiplex output group. 
 

@@ -1,7 +1,6 @@
 
 
 # Creating a video encode from scratch
-<a name="create-video-scratch"></a>
 
 You can create a video encode by entering values in all the appropriate fields. Follow this procedure for video in all types of outputs except for Frame capture outputs. 
 

@@ -1,7 +1,6 @@
 
 
 # Complete channel and input details
-<a name="creating-a-channel-step1"></a>
 
 The **Channel and input details** section of the **Create channel** page lets you do the following in the MediaLive that you are creating:
 + Select the IAM role that AWS Elemental MediaLive will use to access the channel when the channel is running (started).
@@ -38,6 +37,8 @@ Don't arbitrarily choose a channel placement group and cluster. If you do, it's 
      With a MediaLive Anywhere channel, you must set up the channel as a single-pipeline channel.
    + If you selected **SINGLE\_PIPELINE** for channel class, you can optionally configure **Linked channel settings** to set up this channel as a primary or follower channel for pipeline locking. See [Linked channels for single-pipeline channels](channel-class.md#linked-channels).
    + In **Input specifications** and **CDI input specifications**, complete the fields to match your input. See [Input specifications settings](input-specification.md).
+
+     If the channel ingests JPEG XS (TR-07) video, choose **JPEGXS** in the **Input codec** field. See [Completing the settings – JPEG XS (TR-07)](input-specification.md#input-specification-jpegxs).
    + In **Output delivery**, set up the channel to deliver output via the public internet or your Amazon VPC. 
 
      With a regular MediaLive channel, you can set up in either way. For information about delivering via Amazon VPC, see [Delivering outputs via your VPC](delivery-out-vpc.md). 

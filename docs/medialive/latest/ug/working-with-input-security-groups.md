@@ -1,7 +1,6 @@
 
 
 # Working with input security groups
-<a name="working-with-input-security-groups"></a>
 
 In MediaLive, an *input security group* contains a list of rules. Each rule is a range of IP addresses (CIDR blocks) that are allowed to push content to MediaLive. When you attach an input security group to an input, you apply a rule to that input—only an upstream system with an IP address from one of the ranges in that input security group is allowed to push content to that input. MediaLive will ignore push requests from IP addresses not covered by that input security group. 
 

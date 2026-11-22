@@ -1,7 +1,6 @@
 
 
 # How input and output reservations work
-<a name="input-output-reservations"></a>
 
 MediaLive offers input and output reservations.
 
@@ -24,6 +23,8 @@ An *input reservation* applies to the cost of processing input. An input reserva
 **How matching works**
 
 For a reservation to apply to an input, the attributes of the input reservation must match the fields in the channel's **Input specification**. The channel must also run in the Region that is specified in the reservation. For example, suppose that your input specification for a channel is **AVC**, **HD**, and **Max 20 Mbps**. A reservation that matches those attributes could apply to the input in that channel.
+
+For a channel that uses the JPEG XS input specification, the reservation must have the codec **JPEGXS**, the resolution **HD**, and the bitrate **Max 500 Mbps**. These match the values that are fixed in the channel's JPEG XS input specification. See [Completing the settings – JPEG XS (TR-07)](input-specification.md#input-specification-jpegxs).
 
 ## Output reservation attributes and matching
 <a name="output-reservation-attributes-matching"></a>

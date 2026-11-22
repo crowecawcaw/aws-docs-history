@@ -1,7 +1,6 @@
 
 
 # Result of this procedure
-<a name="input-listener-srt-result"></a>
 
 As a result of this setup, an SRT Listener input exists with one or two *destination* URLs. These destinations are the URLs that MediaLive allocated for receiving the source content. 
 

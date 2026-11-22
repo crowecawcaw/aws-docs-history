@@ -1,7 +1,6 @@
 
 
 # Get ready
-<a name="smart-crop-get-ready"></a>
 
 ## Pricing
 <a name="smart-crop-pricing"></a>

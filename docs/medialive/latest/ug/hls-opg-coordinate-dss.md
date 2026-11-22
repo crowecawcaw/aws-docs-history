@@ -1,7 +1,6 @@
 
 
 # Coordinate with the downstream system
-<a name="hls-opg-coordinate-dss"></a>
 
 The HLS output group in AWS Elemental MediaLive supports several types of downstream systems. Read the information that applies to the system you are working with.
 

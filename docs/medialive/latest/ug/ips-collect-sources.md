@@ -1,7 +1,6 @@
 
 
 # Identify the sources
-<a name="ips-collect-sources"></a>
 
 1. Identify all the sources that you will need through the lifetime of the MediaLive channel or at least until the next planned maintenance period.
 

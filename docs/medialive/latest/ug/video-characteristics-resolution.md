@@ -1,7 +1,6 @@
 
 
 # Resolutions supported in video outputs in MediaLive
-<a name="video-characteristics-resolution"></a>
 
 In the following table, each row defines the video resolutions that apply to the terms SD, HD, and UHD. The table also specifies the resolutions that are supported with each codec.
 

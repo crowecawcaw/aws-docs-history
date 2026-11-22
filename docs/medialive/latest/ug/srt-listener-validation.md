@@ -1,7 +1,6 @@
 
 
 # Validation rules for listener mode
-<a name="srt-listener-validation"></a>
 
 MediaLive enforces the following validation rules when you create or update SRT outputs in listener mode:
 + **Channel security group required (Public delivery method only)**: For channels using the Public delivery method, if the channel includes at least one SRT output configured in listener mode, you must attach a channel security group to the channel. If you attempt to create or start a channel using Public delivery with SRT outputs in listener mode but no channel security group, MediaLive returns an error. For channels using VPC delivery or MediaLive Anywhere channels, the channel security group is not required; you must configure your network to allow SRT connections from the caller destination.

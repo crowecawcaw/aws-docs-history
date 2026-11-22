@@ -1,7 +1,6 @@
 
 
 # Alerts for multiplexes
-<a name="monitor-activity-types-alerts-multiplex"></a>
 
 The following table lists the alerts that MediaLive might generate for a multiplex. You can view these alerts in these ways:
 + You can view the alerts for each multiplex on the MediaLive console. For more information, see [Alerts tab – Viewing alerts](monitoring-console-general.md#view-alerts).

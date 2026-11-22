@@ -1,7 +1,6 @@
 
 
 # Burning the timecode into output
-<a name="timecode-configure-burnin"></a>
 
 You can set up any video encode in a MediaLive channel to burn in the output timecode. The time code will become part of the video.
 

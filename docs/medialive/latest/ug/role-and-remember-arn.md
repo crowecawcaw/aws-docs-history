@@ -1,7 +1,6 @@
 
 
 # IAM role and ARN
-<a name="role-and-remember-arn"></a>
 
 This section describes how to complete the **IAM role** section in the **General info** section of the **Channel and input details** pane.
 

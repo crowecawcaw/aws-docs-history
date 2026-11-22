@@ -1,7 +1,6 @@
 
 
 # HLS output group to MediaPackage
-<a name="origin-server-hls-emp"></a>
 
 Follow this procedure if you [determined](identify-downstream-system.md) that you will create an HLS output group, and will send to AWS Elemental MediaPackage over HTTPS. You and the operator of the downstream system must agree about the destination for the output of the HLS output group.
 

@@ -1,7 +1,6 @@
 
 
 # Set up the captions encodes
-<a name="creating-a-channel-step8"></a>
 
 In [Configure outputs](creating-a-channel-step4.md), you created the output groups and outputs that you identified when you planned the channel. Each output section contains a **Stream settings** section. You must now create all the captions encodes for the outputs. 
 

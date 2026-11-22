@@ -1,7 +1,6 @@
 
 
 # Setting up a CDI input
-<a name="input-create-cdi-push"></a>
 
 This section describes how to create a CDI push input. With a CDI source, the upstream system *pushes* the content to MediaLive. 
 

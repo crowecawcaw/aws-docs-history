@@ -1,7 +1,6 @@
 
 
 # Manually forcing a failover
-<a name="aif-and-input-switching-failoverpair"></a>
 
 You can set up automatic input failover to allow the MediaLive operator to perform a manual failover.
 

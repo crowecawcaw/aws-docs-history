@@ -1,7 +1,6 @@
 
 
 # Obtain information
-<a name="setup-rtmp-push-obtain-info"></a>
 
 Obtain the following information from your contact person at the upstream system:
 + The application name and application instance for the source content. (The application instance is also known as the *stream* or *stream key*.) There are two sources for a standard-class input, or one source for a single-class input. For information about input classes and their uses, see [Choosing the channel class and input class](class-channel-input.md). For information about input classes and their uses, see [Choosing the channel class and input class](class-channel-input.md). 

@@ -1,7 +1,6 @@
 
 
 # Supported codecs by output type
-<a name="outputs-supported-codecs"></a>
 
 The following table lists the video and audio codecs that each type of MediaLive output container (output group) supports.
 

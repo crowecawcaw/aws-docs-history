@@ -1,7 +1,6 @@
 
 
 # About the workflow wizard
-<a name="wizard-about"></a>
 
 ## Supported inputs
 <a name="wizard-inputs"></a>

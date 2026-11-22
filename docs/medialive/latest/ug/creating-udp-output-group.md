@@ -1,7 +1,6 @@
 
 
 # Creating a UDP output group
-<a name="creating-udp-output-group"></a>
 
 When you [planned the workflow for your channel](identify-downstream-system.md), you might have determined that you want to include a UDP output group.
 

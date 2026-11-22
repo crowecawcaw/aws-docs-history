@@ -1,7 +1,6 @@
 
 
 # Requirements for Amazon S3
-<a name="requirements-for-s3"></a>
 
 Your deployment might include using files in an Amazon S3 bucket. For example, your deployment might use files in the following ways:
 + As the source for an HLS input

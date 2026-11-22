@@ -1,7 +1,6 @@
 
 
 # Fields for a return-to-network message
-<a name="schedule-fields-for-return-to-network"></a>
 
 This table shows the fields that apply for an action to insert a return-to-network SCTE 35 message.
 

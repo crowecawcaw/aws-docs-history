@@ -1,7 +1,6 @@
 
 
 # Use case D: One captions output shared by multiple video encodes
-<a name="use-case-one-captions-output-multiple-video-encodes"></a>
 
 This use case for deals with including captions in an ABR workflow in MediaLive.
 

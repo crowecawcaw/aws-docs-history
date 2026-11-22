@@ -1,7 +1,6 @@
 
 
 # Creating a captions encode by sharing
-<a name="create-captions-share"></a>
 
 You can create one captions encode and share it among several outputs. Follow the [earlier procedure](create-captions-scratch.md) to create the encode once. Then set up the encode for the other outputs using the following steps.
 

@@ -1,7 +1,6 @@
 
 
 # Ensure correct setup on the RTMP upstream system
-<a name="setup-uss-rtmp-pull"></a>
 
 An operator at the upstream server must set up the source content on the upstream system. Make sure that the operator sets up as follows:
 + They set up to deliver the correct number of sources:

@@ -1,7 +1,6 @@
 
 
 # Handling a straightforward color space conversion
-<a name="color-space-simplified"></a>
 
 You can control how MediaLive takes the color space and color space metadata in a video source and manipulates it in the video output. You can set up each output video encode to convert or pass through the color space, and to include or omit the color space metadata.
 

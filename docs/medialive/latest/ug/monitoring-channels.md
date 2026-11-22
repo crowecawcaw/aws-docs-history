@@ -1,7 +1,6 @@
 
 
 # Monitoring activity in AWS Elemental MediaLive
-<a name="monitoring-channels"></a>
 
 You can monitor activity on channels and multiplexes on the AWS Elemental MediaLive console, or using Amazon CloudWatch Events, Amazon CloudWatch Logs, or AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # Converting Nielsen watermarks to ID3
-<a name="feature-nielsen-id3"></a>
 
 If one or more inputs in a channel includes Nielsen watermarks in the audio, you have the option of setting up the channel to convert those watermarks to ID3 metadata. These watermarks are part of the measurement and analytics capabilities supported by Nielsen.
 

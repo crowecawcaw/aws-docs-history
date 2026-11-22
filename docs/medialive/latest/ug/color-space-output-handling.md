@@ -1,7 +1,6 @@
 
 
 # Configuring color space handling in each output
-<a name="color-space-output-handling"></a>
 
 In [Options for handling color space](color-space-handling-options.md), you should have identified how you want to handle the color space in each MediaLive output. When you [assessed the inputs](color-space-input-handling.md), you might have adjusted your plan. You should now have a clear plan for handling the color space in the outputs.
 

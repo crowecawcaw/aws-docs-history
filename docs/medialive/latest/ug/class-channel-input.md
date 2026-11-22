@@ -1,7 +1,6 @@
 
 
 # Choosing the channel class and input class
-<a name="class-channel-input"></a>
 
 One of the characteristics of a MediaLive channel is its class. One of the characteristics of a MediaLive input is its class. You set both the channel class and input class to implement or to omit pipeline redundancy.
 

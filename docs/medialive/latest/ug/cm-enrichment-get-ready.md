@@ -1,7 +1,6 @@
 
 
 # Get ready
-<a name="cm-enrichment-get-ready"></a>
 
 **Important**  
 Turn on the Elemental Inference feed output and the channel-level enrichment configuration together. If you create a feed with a `ContextualMetadataConfig` output without enabling `EnrichmentMethods` on the channel (or vice versa), the feature does not work as expected.  

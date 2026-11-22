@@ -1,7 +1,6 @@
 
 
 # About multiple-input channels and input switching
-<a name="ips-overview"></a>
 
 You set up input switching in a MediaLive channel in order to ingest the inputs in a multiple-input channel. 
 

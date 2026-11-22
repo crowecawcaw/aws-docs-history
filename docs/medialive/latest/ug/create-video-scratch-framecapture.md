@@ -1,7 +1,6 @@
 
 
 # Setting up the video encodes in a Frame capture output
-<a name="create-video-scratch-framecapture"></a>
 
 You can create a video encode by entering values in all the appropriate fields. Follow this procedure for video in a Frame capture output. 
 

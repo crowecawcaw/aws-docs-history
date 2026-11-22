@@ -1,7 +1,6 @@
 
 
 # Creating and inserting Nielsen watermarks
-<a name="feature-nielsen-watermark"></a>
 
 You can set up MediaLive to create new Nielsen watermarks and insert them in the output audio. Typically, only content and distribution providers use Nielsen watermarks. If you're not working with The Nielsen Company to implement watermarks, you don't need to read this section. 
 

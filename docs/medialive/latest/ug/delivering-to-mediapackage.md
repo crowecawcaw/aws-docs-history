@@ -1,7 +1,6 @@
 
 
 # Delivering to MediaPackage
-<a name="delivering-to-mediapackage"></a>
 
 The **MediaPackage output group** provides a simplified setup experience. MediaLive is preconfigured with most of the information needed to package and deliver output to the MediaPackage channel you specify. Both v2 and v1 workflows use this output group type.
 

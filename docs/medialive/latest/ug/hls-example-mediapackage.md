@@ -1,7 +1,6 @@
 
 
 # Standard MediaPackage example
-<a name="hls-example-mediapackage"></a>
 
 This example shows how to set up the destination fields if the downstream system for the HLS output group is standard MediaPackage.
 

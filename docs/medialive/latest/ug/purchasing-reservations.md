@@ -1,7 +1,6 @@
 
 
 # Purchasing a reservation
-<a name="purchasing-reservations"></a>
 
 On the console, use the **Reservations** tab to purchase one or more reservations. 
 

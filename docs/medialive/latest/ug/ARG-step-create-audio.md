@@ -1,7 +1,6 @@
 
 
 # Create the audio outputs
-<a name="ARG-step-create-audio"></a>
 
 Follow this procedure for each audio encode in the HLS output group.
 

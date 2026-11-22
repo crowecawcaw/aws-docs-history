@@ -1,7 +1,6 @@
 
 
 # Enabling blackout
-<a name="procedure-enable-blackout"></a>
 
 Follow this procedure if you want to enable the blackout feature in a MediaLive channel.
 

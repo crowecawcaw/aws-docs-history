@@ -1,7 +1,6 @@
 
 
 # Option 1: Send all MediaLive events to an email address
-<a name="option-1"></a>
 
 This option shows how to set up to send all events to a single email address. The drawback of this setup is that the email account will receive a large volume of emails. Therefore, we recommend that you don't use this setup in a production environment. 
 

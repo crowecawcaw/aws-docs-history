@@ -1,7 +1,6 @@
 
 
 # Step 10: Start the upstream system and the channel
-<a name="getting-started-step8"></a>
 
 You can now start the upstream system in order to push the streaming content to MediaLive, encode the content, and send it to AWS Elemental MediaPackage. You can preview the output on MediaPackage.
 

@@ -1,7 +1,6 @@
 
 
 # Create the SRT output in caller mode
-<a name="creating-srt-caller-output-group"></a>
 
 After you have designed the contents of the output and you have coordinated delivery of the output with the downstream system, you can create the SRT output in caller mode.
 

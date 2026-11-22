@@ -1,7 +1,6 @@
 
 
 # Working with inputs
-<a name="creating-input"></a>
 
 In MediaLive, an *input* is a video asset that is to be transcoded and packaged. The source of the video asset is the [upstream system](container-planning-workflow.md)—the system in your end-to-end workflow whose activities occur before those of AWS Elemental MediaLive. The upstream system can be on the public internet or in a virtual private cloud (VPC) that you created using Amazon Virtual Private Cloud (Amazon VPC).
 

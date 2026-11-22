@@ -1,7 +1,6 @@
 
 
 # Updating CIDR rules
-<a name="channel-security-groups-update-rules"></a>
 
 To update the CIDR allow list rules for a channel security group, you update the underlying input security group. The changes automatically apply to all channels using that input security group as a channel security group.
 

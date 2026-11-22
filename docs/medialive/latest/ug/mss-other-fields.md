@@ -1,7 +1,6 @@
 
 
 # Fields for other Microsoft Smooth features
-<a name="mss-other-fields"></a>
 
 ## Fields for resiliency
 <a name="smooth-resiliency"></a>

@@ -1,7 +1,6 @@
 
 
 # Getting ready
-<a name="vpc-out-get-ready-subnets"></a>
 
 An Amazon VPC user must set up the VPC and identify subnets and security groups for the MediaLive channel. 
 

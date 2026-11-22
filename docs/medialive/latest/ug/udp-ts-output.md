@@ -1,7 +1,6 @@
 
 
 # UDP or SRT output
-<a name="udp-ts-output"></a>
 
 In a transport stream output (for example, UDP or SRT), MediaLive supports SCTE 35 features as follows:
 + Passthrough of the SCTE 35 messages – Supported.

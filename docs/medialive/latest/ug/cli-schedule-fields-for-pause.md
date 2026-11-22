@@ -1,7 +1,6 @@
 
 
 # Pause pipeline action – payload
-<a name="cli-schedule-fields-for-pause"></a>
 
 For information about the meaning and values for the fields in the following JSON, see [Fields for pause](schedule-fields-for-pause.md).
 

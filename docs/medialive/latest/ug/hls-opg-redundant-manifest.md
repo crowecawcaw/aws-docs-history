@@ -1,7 +1,6 @@
 
 
 # Fields for redundant manifests
-<a name="hls-opg-redundant-manifest"></a>
 
 MediaLive supports redundant manifests as specified in the HLS specification. You can enable this feature in a standard channel. 
 

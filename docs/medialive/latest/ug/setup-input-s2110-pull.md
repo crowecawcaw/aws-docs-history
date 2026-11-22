@@ -1,7 +1,6 @@
 
 
 # Create a SMPTE 2110 input
-<a name="setup-input-s2110-pull"></a>
 
 After you have obtained information from the upstream system, you can create a SMPTE 2110 input.
 

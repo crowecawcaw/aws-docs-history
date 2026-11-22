@@ -1,7 +1,6 @@
 
 
 # Requirements for AWS Systems Manager password parameters
-<a name="requirements-for-EC2"></a>
 
 The AWS Elemental MediaLive console includes a feature that lets a user create a password parameter in the AWS Systems Manager Parameter Store. This feature is part of the **Create Channel** page. This feature does not exist in the AWS CLI or REST API.
 

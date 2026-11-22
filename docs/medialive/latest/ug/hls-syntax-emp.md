@@ -1,7 +1,6 @@
 
 
 # The syntax for the paths for the outputs
-<a name="hls-syntax-emp"></a>
 
 An HLS output always includes three categories of files: 
 

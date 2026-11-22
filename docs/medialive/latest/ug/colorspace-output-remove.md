@@ -1,7 +1,6 @@
 
 
 # Result when removing color space metadata
-<a name="colorspace-output-remove"></a>
 
 Read this section if you set up one or more MediaLive outputs to [pass through the color space](colorspace-output-setup.md#colorspace-output-setup-passthrough) or [convert the color space](colorspace-output-setup.md#colorspace-output-setup-convert) and you chose to remove the color space metadata. The following table shows how MediaLive handles each type of color space that it encounters in the source.
 

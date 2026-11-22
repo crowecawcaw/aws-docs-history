@@ -1,7 +1,6 @@
 
 
 # Setup: Creating output encodes in a channel
-<a name="container-output-encodes"></a>
 
 This section describes how to create video, audio, and captions output encodes in a MediaLive channel. You create these encodes as part of the task of [creating the output groups and outputs](medialive-outputs) in a channel. You should have already [identified](planning-the-channel-in-workflow.md) and [planned the outputs and encodes to include](plan-encodes.md) in each output group. 
 

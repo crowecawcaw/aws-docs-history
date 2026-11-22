@@ -1,7 +1,6 @@
 
 
 # Captions supported in MediaLive
-<a name="supported-captions"></a>
 
 This section contains tables that specify the caption formats that are supported in MediaLive inputs and the caption formats that are supported in outputs.
 

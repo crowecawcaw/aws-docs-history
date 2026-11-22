@@ -1,7 +1,6 @@
 
 
 # Processing features – default behavior
-<a name="processing-options-default"></a>
 
 The default handling of SCTE 35 by MediaLive is the following:
 + No passthrough – Remove SCTE 35 messages in any data stream outputs. There is one exception: for MediaPackage outputs, passthrough is always enabled.

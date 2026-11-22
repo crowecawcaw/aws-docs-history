@@ -1,7 +1,6 @@
 
 
 # Detaching an input
-<a name="detach-input"></a>
 
 You can detach an input from a MediaLive channel. The channel must be idle.
 

@@ -1,7 +1,6 @@
 
 
 # How Dynamic Multiview works
-<a name="dynamic-multiview-how-it-works"></a>
 
 A multiview is assembled from several MediaLive channels that deliver into one MediaPackage channel group. This section describes how those pieces fit together and what each one contributes.
 

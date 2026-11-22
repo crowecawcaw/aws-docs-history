@@ -1,7 +1,6 @@
 
 
 # Billing operations
-<a name="billing-operations"></a>
 
 The *Operation* field in your billing report identifies the type of MediaLive charge. The following table describes each operation.
 

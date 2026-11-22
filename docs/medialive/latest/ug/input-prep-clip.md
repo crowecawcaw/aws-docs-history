@@ -1,7 +1,6 @@
 
 
 # Input prepare with clipping
-<a name="input-prep-clip"></a>
 
 You can prepare for an input switch in a MediaLive channel when the associated input is a file input that includes [input clipping](input-clipping.md).
 

@@ -1,7 +1,6 @@
 
 
 # Create a CDI input
-<a name="setup-input-cdi-vpc"></a>
 
 After the Amazon VPC user has set up on the VPC, you can create the CDI input in MediaLive.
 

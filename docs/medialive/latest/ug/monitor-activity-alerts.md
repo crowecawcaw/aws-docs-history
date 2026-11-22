@@ -1,7 +1,6 @@
 
 
 # Alerts that MediaLive generates
-<a name="monitor-activity-alerts"></a>
 
 MediaLive can generate alerts when a channel is running. For a list of alerts, see [List of alerts for channels](monitor-activity-types-alerts-channels.md).
 

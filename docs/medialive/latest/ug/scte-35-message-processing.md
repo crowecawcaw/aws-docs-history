@@ -1,7 +1,6 @@
 
 
 # Processing SCTE 35 messages
-<a name="scte-35-message-processing"></a>
 
 You can configure a MediaLive channel to handle SCTE 35 messages and SCTE-104 messages. These messages provide information about ad avails (advertisement availability events), and other non-ad avail events, and other non-ad avail events (such as programs and chapters).
 

@@ -1,7 +1,6 @@
 
 
 # Identify the video and audio encodes
-<a name="ARG-step-create-mapping"></a>
 
 You must plan the requirements for the audio rendition group. You must identify the video encodes that you want in the output group. You then decide on the individual audio encodes. Finally, you identify the audio rendition groups you want each encode to belong to.
 

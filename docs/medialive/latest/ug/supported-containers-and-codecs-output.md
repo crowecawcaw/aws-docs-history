@@ -1,7 +1,6 @@
 
 
 # Output codecs in MediaLive
-<a name="supported-containers-and-codecs-output"></a>
 
 This section provides information about the output audio and video codecs that MediaLive can produce.
 

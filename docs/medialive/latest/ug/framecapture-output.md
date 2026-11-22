@@ -1,7 +1,6 @@
 
 
 # Frame capture output
-<a name="framecapture-output"></a>
 
 In a Frame capture output, MediaLive supports SCTE 35 features as follows:
 + Passthrough of the SCTE 35 messages – Not applicable. 

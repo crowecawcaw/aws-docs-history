@@ -1,7 +1,6 @@
 
 
 # Assess the audio in the sources
-<a name="ips-assess-audio"></a>
 
 MediaLive provides flexibility in extracting audio from sources in a multiple-input MediaLive channel. It also has some special requirements for the audio in these sources. 
 

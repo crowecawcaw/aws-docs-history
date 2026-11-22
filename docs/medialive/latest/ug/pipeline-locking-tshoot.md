@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="pipeline-locking-tshoot"></a>
 
 Pipeline locking ensures that the pipelines are frame accurate with each other, in the output groups where MediaLive performs pipeline locking.
 

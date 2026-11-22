@@ -1,7 +1,6 @@
 
 
 # Deploying the Link hardware
-<a name="elink-setup-device"></a>
 
 You must deploy the Link device into the AWS cloud. 
 

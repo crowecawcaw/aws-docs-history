@@ -1,7 +1,6 @@
 
 
 # Streams section
-<a name="mediapackage-encode-packaging"></a>
 
 The following fields relate to the encoding of the video, audio, and captions streams (encodes) in the output. 
 + **Stream settings** section

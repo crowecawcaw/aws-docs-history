@@ -1,7 +1,6 @@
 
 
 # Fields for deactivating a motion graphics overlay
-<a name="schedule-fields-for-mg-deactivate"></a>
 
 This table shows the fields that apply for an action to deactivate a motion graphics overlay. 
 

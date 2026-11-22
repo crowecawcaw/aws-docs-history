@@ -1,7 +1,6 @@
 
 
 # Create the clusters
-<a name="emla-setup-cl-create"></a>
 
 Create the clusters after you have created the networks. 
 

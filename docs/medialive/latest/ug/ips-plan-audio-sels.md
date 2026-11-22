@@ -1,7 +1,6 @@
 
 
 # Plan the audio selectors
-<a name="ips-plan-audio-sels"></a>
 
 There are several rules you must follow when planning the audio selectors for MediaLive inputs. When you set up the audio selectors for an input, you specify the language to extract but you don't specify the format of the audio in that input. AWS Elemental MediaLive extracts that input so it can be included in the output. The output expects to be able to find the specific extracted language. 
 

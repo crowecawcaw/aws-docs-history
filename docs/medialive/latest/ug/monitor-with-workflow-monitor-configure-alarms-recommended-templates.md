@@ -1,7 +1,6 @@
 
 
 # Recommended alarm templates for monitoring your AWS media workflow
-<a name="monitor-with-workflow-monitor-configure-alarms-recommended-templates"></a>
 
 Workflow monitor's recommended templates are a curated selection of AWS Elemental service metrics with predefined alarm settings appropriate for the metric. If you do not want to create customized alarm templates, recommended templates provide you with best-practice monitoring templates that are created by AWS.
 

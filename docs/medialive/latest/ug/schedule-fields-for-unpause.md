@@ -1,7 +1,6 @@
 
 
 # Fields for unpause
-<a name="schedule-fields-for-unpause"></a>
 
 In **Schedule action settings**, complete the following fields.
 

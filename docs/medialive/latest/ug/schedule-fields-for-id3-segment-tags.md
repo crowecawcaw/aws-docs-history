@@ -1,7 +1,6 @@
 
 
 # Fields for ID3 segment tags
-<a name="schedule-fields-for-id3-segment-tags"></a>
 
 This table shows the fields that apply for an action to insert ID3 metadata in every segment. There are two options for inserting the metadata:
 + The **tag** option, to insert metadata as plain text.

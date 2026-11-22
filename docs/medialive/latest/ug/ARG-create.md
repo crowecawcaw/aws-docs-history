@@ -1,7 +1,6 @@
 
 
 # Creating an output with an audio rendition group
-<a name="ARG-create"></a>
 
 This section describes how to create audio rendition groups in an HLS output group and how to associate those groups with the appropriate video outputs (if any). The encodes and associations that you create are the following:
 + If you want to include video in the output group, then for each video asset, you create one video output containing one video encode. The output can also contain embedded captions, but it can't include sidecar captions. The output can't contain audio encodes.

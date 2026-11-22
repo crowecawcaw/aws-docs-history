@@ -1,7 +1,6 @@
 
 
 # Step 11: Clean up
-<a name="getting-started-step9"></a>
 
 To avoid extraneous charges, delete this channel and input when you have finished working with it.
 

@@ -1,7 +1,6 @@
 
 
 # Viewing your Link devices
-<a name="device-view"></a>
 
 1. Open the MediaLive console at [https://console.aws.amazon.com/medialive/](https://console.aws.amazon.com/medialive/).
 

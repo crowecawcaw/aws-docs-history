@@ -1,7 +1,6 @@
 
 
 # Attach inputs to the channel
-<a name="creating-a-channel-step2"></a>
 
 Before you started to create the MediaLive channel, you should have [created all of inputs](medialive-inputs.md) for all the content sources for the channel. 
 

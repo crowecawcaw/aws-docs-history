@@ -1,7 +1,6 @@
 
 
 # Encoding schemes for an HEVC (H.265) source
-<a name="inputs-video-h265-characteristics"></a>
 
 The HEVC (H.265) codec encoding schemes for input video include profile, bit depth, chroma sampling, and tier. In the following table, each row is a different scheme that MediaLive supports.
 

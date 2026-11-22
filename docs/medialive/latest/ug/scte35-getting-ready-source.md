@@ -1,7 +1,6 @@
 
 
 # Getting ready: Set the SCTE 35 source—segments or manifest
-<a name="scte35-getting-ready-source"></a>
 
 If you have HLS inputs in a MediaLive channel, you must configure the input to identify the source of the SCTE 35 messages. There are two possible sources:
 + The segments in the transport stream (TS). This type of source applies to all inputs that can include SCTE 35 messages. Unless a specific SCTE 35 packet identifier (PID) is selected, the first PID present in the TS will be used.

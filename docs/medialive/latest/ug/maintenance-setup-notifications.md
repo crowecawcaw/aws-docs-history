@@ -1,7 +1,6 @@
 
 
 # Managing maintenance notifications
-<a name="maintenance-setup-notifications"></a>
 
 When a channel needs maintenance, you receive notification in the Health Dashboard, one notification for each channel. In addition, AWS sends an email to the email address associated with your AWS account. 
 

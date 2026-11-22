@@ -1,7 +1,6 @@
 
 
 # Working with logs
-<a name="working-with-logs"></a>
 
 You view both encoder logs and as-run logs on the CloudWatch Logs console, in the same way that you view logs for any service. 
 

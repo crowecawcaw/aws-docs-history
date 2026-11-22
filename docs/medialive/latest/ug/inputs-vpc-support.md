@@ -1,7 +1,6 @@
 
 
 # Support for setup as a VPC input in MediaLive
-<a name="inputs-vpc-support"></a>
 
 Some MediaLive inputs can be set up in Amazon Virtual Private Cloud (Amazon VPC). For more information, see [Creating an input](create-input.md).
 
