@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Setting up Amazon Cognito users
-<a name="setting-up-cognito-users"></a>
 
 Research and Engineering Studio (RES) allows you to set up Amazon Cognito as a native user directory. This allows users to log in to the web portal and Linux-based VDIs with Amazon Cognito user identities. Administrators can import multiple users into the user pool using a csv file from the AWS Console. For more details on bulk user import, see [Importing users into user pools from a CSV file](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html) in the *Amazon Cognito Developer Guide*. RES supports using a Amazon Cognito-based native user directory and SSO together. 
 

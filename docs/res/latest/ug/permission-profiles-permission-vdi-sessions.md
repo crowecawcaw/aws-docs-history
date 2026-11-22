@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # VDI session management permissions
-<a name="permission-profiles-permission-vdi-sessions"></a>
 
 **Create a session**  
 Controls whether or not a user is allowed to launch their own VDI session from the **My Virtual Desktops** page. Disable this to deny non-admin users the ability to launch their own VDI sessions. Users can always stop and terminate their own VDI sessions.  

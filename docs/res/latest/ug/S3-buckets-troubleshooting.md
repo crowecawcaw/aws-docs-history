@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Troubleshooting
-<a name="S3-buckets-troubleshooting"></a>
 
 **How to check if a bucket fails to mount on a VDI** 
 
@@ -21,7 +20,7 @@ If a bucket fails to mount on a VDI, there are a few locations where you can che
 
    1. Run the following commands:
 
-      ```
+      ```bash
       sudo su
       cd ~/bootstrap/logs
       ```

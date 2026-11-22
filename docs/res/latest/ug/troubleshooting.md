@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 This section contains information about how to monitor the system and how to troubleshoot specific issues. 
 

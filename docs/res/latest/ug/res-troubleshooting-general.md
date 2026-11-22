@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # General Debugging and Monitoring
-<a name="res-troubleshooting-general"></a>
 
 This section contains information about where information can be found within RES.
 + [Useful log and event information sources](#res-troubleshooting-general-info)
@@ -91,7 +90,7 @@ An example is to create a widget that counts the occurrence of the strings error
 
 The following is an example of that for the infrastructure hosts. To use this, concatenate the query lines and replace the `<envname>` and `<region>` attributes with the appropriate values.
 
-```
+```JSON
 {
     "widgets": [
         {
@@ -197,7 +196,7 @@ The following image shows desktop instances that have been terminated.
 
 The following are examples of ldap related commands that can be entered on infrastructure hosts to view AD configuration related information. The domain and other parameters used should reflect those entered at environment creation time.
 
-```
+```bash
 ldapsearch "(cn=AWS Delegated Add Workstations To Domain Users)" -x -h corp.res.com 
     -b "DC=corp,DC=res,DC=com" -D "CN=Admin,OU=Users,OU=CORP,DC=corp,DC=res,DC=com" 
     -w {{<password>}}
@@ -212,7 +211,7 @@ ldapsearch "(&(objectClass=group))" -x -h corp.res.com
 
 On a Windows desktop, you can list the session associated with it using the following:
 
-```
+```bash
 PS C:\Windows\System32\config\systemprofile\AppData\Local\NICE\dcv> & 'C:\Program Files\NICE\DCV\Server\bin\dcv.exe'list-sessions
 Session: 'a7953489-9dbf-492b-8135-7709dccc4cab' (owner:admin2 type:console name:windows1)
 ```
@@ -224,7 +223,7 @@ Amazon DCV is utilized for virtual desktop sessions. [AWS Amazon DCV](https://aw
 
 Linux
 
-```
+```bash
 [root@ip-10-3-157-194 ~]# /usr/bin/dcv version
 
 Amazon DCV 2023.0 (r14852)

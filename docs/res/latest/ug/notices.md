@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Notices
-<a name="notices"></a>
 
 Each Amazon EC2 instance comes with two Remote Desktop Services (Terminal Services) licenses for administration purposes. This [ information](https://aws.amazon.com/solutions/implementations/rd-gateway/) is available to help you provision these licenses for your administrators. You can also use [AWS Systems Manager Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html), which enables remotely logging into Amazon EC2 instances without RDP and without a need for RDP licenses. If additional Remote Desktop Services licenses are needed, Remote Desktop user CALs should be purchased from Microsoft or a Microsoft license reseller. Remote Desktop users CALs with active Software Assurance have License Mobility benefits and can be brought to AWS default (shared) tenant environments. For information on bringing licenses without Software Assurance or License Mobility benefits, please see [ this section](https://aws.amazon.com/windows/faq/#need-lm) of the FAQ.
 

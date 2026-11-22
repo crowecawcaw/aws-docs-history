@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Create a snapshot
-<a name="create-snapshot"></a>
 
 Before you can create a snapshot, you must provide an Amazon S3 bucket with the necessary permissions. For information on creating a bucket, see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html). Enable bucket versioning and server access logging. These settings can be enabled from the bucket's **Properties** tab after provisioning. 
 
@@ -30,7 +29,7 @@ There are limited version strings supported by AWS. For more information, see [h
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

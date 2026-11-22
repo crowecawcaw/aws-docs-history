@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Data Isolation
-<a name="S3-buckets-data-isolation"></a>
 
 When you add an S3 bucket to RES, you have options to isolate the data within the bucket to specific projects and users. On the **Add Bucket** page, you can select a mode of Read Only (R) or Read and Write (R/W).
 

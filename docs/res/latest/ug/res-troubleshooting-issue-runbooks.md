@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Issue RunBooks
-<a name="res-troubleshooting-issue-runbooks"></a>
 
 The following section contains issues that may occur, how to detect them, and suggestions on how to resolve the issue.
 + [Installation issues](#installation-issues)
@@ -131,6 +130,8 @@ The most probable cause of this issue is the inability of resource(s) to connect
 If the status is inactive, failed, or you see errors in the logs, then the instance was unable to join Active Directory. 
 
 ![SSM error log](https://docs.aws.amazon.com/res/latest/ug/images/instancecyclingssmerrors.png)
+
+*SSM error log*
 
 
 **To solve the issue:**
@@ -485,7 +486,7 @@ For example, if a volume uses UNIX security style, SMB clients can still access 
 
 Permissions can be configured by the sudoer for other users. For example, the following would give all members of `<group-ID>` full read/write permissions on the `/<project-name>` directory:
 
-```
+```bash
 sudo chown root:{{<group-ID>}} /{{<project-name>}}
 sudo chmod 770 /{{<project-name>}}
 ```
@@ -543,7 +544,7 @@ Alternatively, you may onboard an existing file system which is already joined t
 
 On the RES Snapshots page, if a snapshot has a status of Failed, the cause can be determined by going to the Amazon CloudWatch log group for the cluster-manager for the time that the error occurred.
 
-```
+```bash
 [2023-11-19 03:39:20,208] [INFO] [snapshots-service] creating snapshot in S3 Bucket:
   asdf at path s31
 [2023-11-19 03:39:20,381] [ERROR] [snapshots-service] An error occurred while
@@ -641,7 +642,7 @@ The Amazon CloudWatch log group `{{<envname>}}/vdc/dcv-connection-gateway` may l
 
 1. Go to [Lambda](https://console.aws.amazon.com/lambda). You should see a Lambda function named `*-CertificateRenewalLambda-*` , check the Lambda code for something similar to the following:
 
-   ```
+   ```bash
    export HOME=/tmp/home
    mkdir -p $HOME
    
@@ -659,7 +660,7 @@ The Amazon CloudWatch log group `{{<envname>}}/vdc/dcv-connection-gateway` may l
 
 1. Find the latest external resource Certs stack template [ here](https://github.com/aws-samples/aws-hpc-recipes/blob/main/recipes/security/public_certs/assets/main.yaml). Find the Lambda code in the template: **Resources** → **CertificateRenewalLambda** → **Properties** → **Code**. You might find something similar to the following:
 
-   ```
+   ```bash
    sudo yum install -y wget
    export HOME=/tmp/home
    mkdir -p $HOME
@@ -716,7 +717,7 @@ If a Windows desktop connection fails with the UI error "The connection has been
 
 The Amazon CloudWatch log group `<envname>/vdc/dcv-connection-gateway` may log the connection attempt error with messages similar to the following:
 
-```
+```bash
 Nov 24 20:24:27.631 DEBUG HTTP:Splicer Connection{id=9}:
 Websocket{session_id="1291e75f-7816-48d9-bbb2-7371b3b911cd"}:
 Resolver lookup{client_ip=Some(52.94.36.19) 
@@ -817,13 +818,13 @@ When a VDI session with Console Session type is blank and unresponsive after you
 
 **Debian based Linux:**
 
-```
+```bash
 dpkg-divert --package nice-xdcv --divert /usr/bin/Xorg.orig --rename /usr/bin/Xorg ln -sf /usr/bin/Xdcv-console /usr/bin/Xorg 
 ```
 
 **Red Hat based Linux:**
 
-```
+```bash
 rpm -q --whatprovides /usr/bin/Xorg && \
 cp /usr/bin/Xorg /usr/bin/Xorg.orig && \
 ln -sf /usr/bin/Xdcv-console /usr/bin/Xorg
@@ -852,7 +853,7 @@ If an infrastructure instance is repeatedly showing as terminated in the Amazon 
 
 If the vdc-controller instance shows repeated terminated states in the Amazon EC2 console, this can be due to an incorrect Secret tag. Secrets that are maintained by RES have tags that are used as a part of the IAM access control policies attached to the infrastructure Amazon EC2 instances. If the vdc-controller is cycling and the following error appears in the CloudWatch log group, the cause may be that a secret has not been tagged correctly. Note that the secret needs to be tagged with the following:
 
-```
+```JSON
 {
     "res:EnvironmentName": "{{<envname>}}" # e.g. "res-demo"
     "res:ModuleName": "virtual-desktop-controller"
@@ -897,7 +898,7 @@ Possible issues:
 
   Example log line:
 
-  ```
+  ```JSON
   {'msgtype': 97, 'msgid': 1, 'result': 49, 'desc': 'Invalid credentials', 'ctrls': [], 'info': '80090308: LdapErr: DSID-0C090569, comment: AcceptSecurityContext error, data 532, v4563'}
   ```
   + You can read the password you entered during env creation by accessing the secret that stores the password in the [Secrets Manager console](https://console.aws.amazon.com/secretsmanager/listsecrets). Select the secret (for example, `<env_name>directoryserviceServiceAccountPassword`) and choose **Retrieve plain text**.
@@ -1061,7 +1062,7 @@ One of the ways to get the logs would be to upload them to s3 and then download 
 
 1. Follow these steps to copy the dcv logs under the `/root/bootstrap/logs` directory:
 
-   ```
+   ```bash
    sudo su - 
    cd /root/bootstrap
    mkdir -p logs/dcv_logs
@@ -1107,7 +1108,7 @@ All VDIs use the same IAM role which is `<env-name>-vdc-host-role-<region>`
 
 Login to the EC2 instance from which you want to download logs and run the following commands to upload all the logs to an s3 bucket:
 
-```
+```bash
 sudo su -
 ENV_NAME={{<environment_name>}}
 REGION={{<region>}}
@@ -1128,7 +1129,7 @@ After this, go to the S3 console, select the bucket with name `<environment_name
 
 Login to the EC2 instance from which you want to download logs and run the following commands to upload all the logs to an S3 bucket:
 
-```
+```bash
 $ENV_NAME="<environment_name>"
 $REGION="{{<region>}}"
 $ACCOUNT="{{<aws_account_number>}}"
@@ -1246,7 +1247,7 @@ If you find an error message saying that the instance failed to join Active Dire
   + For LDAPS connection, the `DomainTLSCertificateSecretArn` parameter is required and you must provide a valid CA cert to secure the connection. You will need to cycle the Cluster Manager instance by terminating the existing instance and allowing the auto scaling group to launch a new one automatically after changing the TLS certificate secret. Then launch new VDIs to apply the change.
   + To test the connection between RES and your AD, run the following ldapsearch command on the Cluster Manager instance (replace the Users OU, LDAP connection URI, Service Account username and password). This command should return all the users under the provided OU if your AD is configured properly to allow the connection.
 
-    ```
+    ```bash
     ldapsearch -x -b "OU=Users,OU=RES,OU=CORP,DC=corp,DC=res,DC=com" -D "ServiceAccount@corp.res.com" -H ldap://corp.res.com -w {{service-account-password}} "(objectClass=group)"
     ```
 

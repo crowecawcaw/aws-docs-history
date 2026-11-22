@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Cross account bucket access
-<a name="S3-buckets-cross-account-access"></a>
 
 RES has the ability to mount buckets from other AWS accounts, provided these buckets have the right permissions. In the following scenario, a RES environment in Account A wants to mount an S3 bucket in Account B.
 
@@ -30,7 +29,7 @@ RES has the ability to mount buckets from other AWS accounts, provided these buc
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -83,7 +82,7 @@ RES has the ability to mount buckets from other AWS accounts, provided these buc
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -155,7 +154,7 @@ RES has the ability to mount buckets from other AWS accounts, provided these buc
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

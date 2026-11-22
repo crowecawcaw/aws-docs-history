@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Virtual desktop infrastructure autostop
-<a name="virtual-desktops-autostop"></a>
 
 Administrators can configure settings to allow idle VDIs to be stopped or terminated. There are 4 configurable settings:
 

@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Setting up single sign-on (SSO) with IAM Identity Center
-<a name="sso-idc"></a>
 
 If you do not already have an identity center connected to the managed Active Directory, start with [Step 1: Set up an identity center](#set-up-identity-center). If you already have an identity center connected with the managed Active Directory, start with [Step 2: Connect to an identity center](#connect-identity-center).
 

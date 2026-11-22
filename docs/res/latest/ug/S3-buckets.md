@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Amazon S3 buckets
-<a name="S3-buckets"></a>
 
 Research and Engineering Studio (RES) supports mounting [Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) to Linux Virtual Desktop Infrastructure (VDI) instances. RES Administrators can onboard S3 buckets to RES, attach them to projects, edit their configuration, and remove buckets in the S3 buckets tab under **Environment Management**.
 

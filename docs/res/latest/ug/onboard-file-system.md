@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Onboard a file system
-<a name="onboard-file-system"></a>
 
 **Note**  
 To successfully onboard a file system, it must share the same VPC and at least one of your RES subnets. You must also ensure you have the security group configured properly so your VDIs have access to the file system's contents.

@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Configuring File browser access
-<a name="configuring-file-browser-access"></a>
 
 RES Administrators can toggle **Access data** on or off under **File browser permissions**. If **Access data** is turned off, users will not see **File Browser** navigation in their web portal and cannot upload or download data attached to their global file system. When **Access data** is enabled, users have access to **File Browser** navigation in their web portal which allows them to upload or download data that is attached to their global file system.
 

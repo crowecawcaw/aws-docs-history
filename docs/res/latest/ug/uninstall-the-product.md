@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Uninstall the product
-<a name="uninstall-the-product"></a>
 
 You can uninstall the Research and Engineering Studio on AWS product from the AWS Management Console or by using the AWS Command Line Interface. You must manually delete the Amazon Simple Storage Service (Amazon S3) buckets created by this product. This product does not automatically delete <EnvironmentName>-shared-storage-security-group in case you have stored data to retain. 
 
@@ -21,7 +20,7 @@ You can uninstall the Research and Engineering Studio on AWS product from the AW
 
 Determine whether the AWS Command Line Interface (AWS CLI) is available in your environment. For installation instructions, see [ What Is the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) in the *AWS CLI User Guide*. After confirming that the AWS CLI is available and configured to the administrator account in the Region where the product was deployed, run the following command. 
 
-```
+```bash
 $ aws cloudformation delete-stack --stack-name {{<RES-stack-name>}}
 ```
 
@@ -56,7 +55,7 @@ This product is configured to retain the product-created Amazon S3 bucket (for d
 
 To delete S3 buckets using AWS CLI, run the following command: 
 
-```
+```bash
 $ aws s3 rb s3://<bucket-name> --force
 ```
 

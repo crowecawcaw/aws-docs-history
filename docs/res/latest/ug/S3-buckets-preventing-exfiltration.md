@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Preventing data exfiltration in a private VPC
-<a name="S3-buckets-preventing-exfiltration"></a>
 
 To prevent users from exfiltrating data from secure S3 buckets into their own S3 buckets in their account, you can attach a VPC endpoint to secure your private VPC. The following steps show how to create a VPC endpoint for the S3 service that supports access to S3 buckets within your account, as well as any additional accounts that have cross-account buckets. 
 
@@ -46,7 +45,7 @@ This example policy uses `s3:*` and does not restrict S3 control plane operation
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

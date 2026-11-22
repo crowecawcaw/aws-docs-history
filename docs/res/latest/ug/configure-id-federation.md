@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Configuring your identity provider for single sign-on (SSO)
-<a name="configure-id-federation"></a>
 
 Research and Engineering Studio integrates with any SAML 2.0 identity provider to authenticate user access to the RES portal. These steps provide directions to integrate with your chosen SAML 2.0 identity provider. If you intend to use IAM Identity Center, see [Setting up single sign-on (SSO) with IAM Identity Center](sso-idc.md).
 

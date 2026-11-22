@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Snapshot management
-<a name="snapshots"></a>
 
 Snapshot management simplifies the process of saving and migrating data between environments, ensuring consistency and accuracy. With snapshots, you can save your environment state and migrate data into a new environment with the same state.
 

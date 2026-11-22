@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Desktop sharing profiles
-<a name="permission-profiles-desktop-sharing-profiles"></a>
 
 Administrators can create new profiles and customize them. These profiles can be accessed by all users and are used when sharing a session with others. The maximum permissions granted within these profiles cannot exceed the desktop permissions allowed globally.
 

@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Prerequisites
-<a name="prerequisites"></a>
 
 **Topics**
 + [Create an AWS account with an administrative user](#aws-account)
@@ -246,7 +245,7 @@ Replace **latest** in the download URI with with the exact version number (for e
 `AddEnvironmentVariables` is optional, and you may remove it if you do not require custom environment variables in your infrastructure hosts.  
 If you are setting up `http_proxy` and `https_proxy` environment variables, the `no_proxy` parameters are required to prevent the instance from using proxy to query localhost, instance metadata IP addresses, and the services that support VPC endpoints.
 
-         ```
+         ```YAML
          #  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
          #
          #  Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance

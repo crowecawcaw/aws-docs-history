@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Creating subdomains
-<a name="create-subdomains"></a>
 
 If you are using a custom domain, you will need to set up subdomains to support the web and VDI portions of your portal.
 

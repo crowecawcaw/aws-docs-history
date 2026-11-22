@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Environment management
-<a name="environment-management"></a>
 
 From the Environment management section of Research and Engineering Studio, administrative users can create and manage isolated environments for their research and engineering projects. These environments can include compute resources, storage, and other necessary components, all within a secure environment. Users can configure and customize these environments to meet the specific requirements of their projects, making it easier to experiment, test, and iterate on their solutions without impacting other projects or environments.
 

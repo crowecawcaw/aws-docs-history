@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Create an ACM certificate
-<a name="acm-certificate"></a>
 
 By default, RES hosts the web portal under an application load balancer using the domain amazonaws.com. To use your own domain, you will need to configure a public SSL/TLS certificate provided by you or requested from AWS Certificate Manager (ACM). If you use ACM, you will receive an AWS resource name you will need to provide as a parameter to encrypt the SSL/TLS channel between the client and web services host.
 

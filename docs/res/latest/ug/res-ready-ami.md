@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Configure RES-ready AMIs
-<a name="res-ready-ami"></a>
 
 With RES-ready Amazon Machine Images (AMIs), you can pre-install RES dependencies for virtual desktop instances (VDIs) on your custom AMIs. Using RES-ready AMIs improve boot times for VDI instances using the pre-baked images. Using EC2 Image Builder, you can build and register your AMIs as new software stacks. For more information on Image Builder, see the [ Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/what-is-image-builder.html). 
 
@@ -52,7 +51,7 @@ In the definition file, replace **latest** in the download URI (`- source: 's3:/
 ------
 #### [ Linux ]
 
-   ```
+   ```YAML
    #  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    #
    #  Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance
@@ -126,7 +125,7 @@ In the definition file, replace **latest** in the download URI (`- source: 's3:/
 ------
 #### [ Windows ]
 
-   ```
+   ```YAML
    #  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    #
    #  Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance
@@ -213,7 +212,7 @@ For information on how to install an SSM agent, see:
 
 1. For Ubuntu 24.04 based recipes, add a custom component to install `unzip` before adding the AWS CLI component. Create a component with the following content:
 
-   ```
+   ```yaml
    name: unzip-ubuntu
    description: An RES EC2 Image Builder component to install unzip
    schemaVersion: 1.0
@@ -250,7 +249,7 @@ If you have an existing EC2 Image Builder recipe, you can use it by adding the f
 
 1. For Ubuntu 24.04 based recipes, add a custom component to install `unzip` before adding the AWS CLI component. Create a component with the following content:
 
-   ```
+   ```yaml
    name: unzip-ubuntu
    description: An RES EC2 Image Builder component to install unzip
    schemaVersion: 1.0

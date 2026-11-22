@@ -3,11 +3,10 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Setting custom permission boundaries
-<a name="permission-boundaries"></a>
 
  As of 2024.04, you can optionally modify roles created by RES by attaching custom permission boundaries. A custom permission boundary may be defined as part of the RES CloudFormation installation by supplying the permission boundary’s ARN as part of the IAMPermissionBoundary parameter. No permission boundary is set on any RES roles if this parameter is left empty. Below is the list of actions that RES roles require to operate. Make sure that any permission boundary that you plan to use explicitly allows for the following actions: 
 
-```
+```JSON
 [
     {
         "Effect": "Allow",

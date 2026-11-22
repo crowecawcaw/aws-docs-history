@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Configuring SSH access
-<a name="configuring-ssh-access"></a>
 
 Administrators can enable or disable SSH for the RES environment from the **Environment boundaries** section. SSH Access to VDIs is facilitated through a bastion host. When you activate this toggle, RES deploys a bastion host and makes the SSH Access Instructions page visible for users. When you deactivate the toggle, RES disables SSH access, terminates the bastion host and removes the SSH access instructions page for users. This toggle is deactivated by default.
 

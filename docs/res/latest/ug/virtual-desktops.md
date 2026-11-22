@@ -3,7 +3,6 @@
 End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
 
 # Virtual desktops
-<a name="virtual-desktops"></a>
 
 The virtual desktop infrastructure (VDI) module allows users to create and manage Windows or Linux virtual desktops on AWS. Users can launch Amazon EC2 instances with their favorite tools and application pre-installed and configured.
 
