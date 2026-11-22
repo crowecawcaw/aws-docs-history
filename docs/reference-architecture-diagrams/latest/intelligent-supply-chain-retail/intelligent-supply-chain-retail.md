@@ -1,7 +1,6 @@
 
 
 # Intelligent Supply Chain - Retail
-<a name="intelligent-supply-chain-retail"></a>
 
 Publication date: **February 14, 2022 ([Diagram history](#diagram-history))**
 
