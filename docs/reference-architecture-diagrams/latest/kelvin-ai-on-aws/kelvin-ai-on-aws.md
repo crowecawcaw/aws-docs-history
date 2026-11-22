@@ -1,7 +1,6 @@
 
 
 # Kelvin AI on AWS
-<a name="kelvin-ai-on-aws"></a>
 
 Publication date: **October 20, 2023 ([Diagram history](#diagram-history))**
 
