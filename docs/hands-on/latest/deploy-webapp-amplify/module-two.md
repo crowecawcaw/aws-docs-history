@@ -1,7 +1,6 @@
 
 
 # Task 2: Initialize the Amplify Backend
-<a name="module-two"></a>
 
 
 |  |  | 

@@ -1,7 +1,6 @@
 
 
 # Task 4: Deploy the App
-<a name="module-four"></a>
 
 
 |  |  | 

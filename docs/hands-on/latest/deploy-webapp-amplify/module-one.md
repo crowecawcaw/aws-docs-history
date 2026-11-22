@@ -1,7 +1,6 @@
 
 
 # Task 1: Create a new Amplify Project
-<a name="module-one"></a>
 
 
 |  |  | 

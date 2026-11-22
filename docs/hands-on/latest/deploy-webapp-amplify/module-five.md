@@ -1,7 +1,6 @@
 
 
 # Task 5: Clean up Resources
-<a name="module-five"></a>
 
 
 |  |  | 

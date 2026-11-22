@@ -1,7 +1,6 @@
 
 
 # Deploy a Web App on AWS Amplify
-<a name="deploy-webapp-amplify"></a>
 
 ## Overview
 <a name="overview"></a>
