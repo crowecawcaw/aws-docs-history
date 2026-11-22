@@ -1,7 +1,6 @@
 
 
 # Task 1: Create the web app
-<a name="module-1"></a>
 
 
 |  |  | 

@@ -1,7 +1,6 @@
 
 
 # Task 3: Create the instance
-<a name="module-3"></a>
 
 
 |  |  | 

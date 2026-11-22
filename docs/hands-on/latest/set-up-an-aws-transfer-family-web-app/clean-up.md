@@ -1,7 +1,6 @@
 
 
 # Task 5: Clean up resources
-<a name="clean-up"></a>
 
 
 |  |  | 

@@ -1,7 +1,6 @@
 
 
 # Set up an AWS Transfer Family web app
-<a name="set-up-an-aws-transfer-family-web-app"></a>
 
 
 |  |  | 
@@ -38,6 +37,8 @@ Before starting this tutorial, you will need:
 <a name="watch-video"></a>
 
 [![AWS Videos](https://img.youtube.com/vi/Ie9M0qBGrCE/0.jpg)](https://www.youtube.com/watch?v=Ie9M0qBGrCE)
+
+This twenty-one-minute video by Pichaimani Rajesh Kumar, a solutions architect at AWS, provides a walkthrough of the tutorial.
 
 
 ## Application architecture
