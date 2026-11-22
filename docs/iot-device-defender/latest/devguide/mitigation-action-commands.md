@@ -1,7 +1,6 @@
 
 
 # Mitigation action commands
-<a name="mitigation-action-commands"></a>
 
 You can use these mitigation action commands to define a set of actions for your AWS account that you can later apply to one or more sets of audit findings. There are three command categories: 
 + Those used to define and manage actions.

@@ -1,7 +1,6 @@
 
 
 # ML Detect guide
-<a name="dd-detect-ml-getting-started"></a>
 
 **Note**  
 The AWS IoT Device Defender detect feature is no longer available to new customers. To learn about alternatives to AWS IoT Device Defender detect, see [AWS IoT Device Defender detect feature availability change](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/dd-detect-availability-change.html). There is no change to AWS IoT Device Defender audit availability.
@@ -154,7 +153,7 @@ Mark your alarms by setting the verification state and providing a description o
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

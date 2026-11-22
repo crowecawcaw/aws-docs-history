@@ -1,7 +1,6 @@
 
 
 # Security best practices for device agents
-<a name="device-defender-DetectMetricsMessagesBestPract"></a>
 
 Least Privilege  
 The agent process should be granted only the minimum permissions required to perform its duties.  

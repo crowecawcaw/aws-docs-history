@@ -1,7 +1,6 @@
 
 
 # Cloud-side metrics
-<a name="detect-cloud-side-metrics"></a>
 
 **Note**  
 The AWS IoT Device Defender detect feature is no longer available to new customers. To learn about alternatives to AWS IoT Device Defender detect, see [AWS IoT Device Defender detect feature availability change](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/dd-detect-availability-change.html). There is no change to AWS IoT Device Defender audit availability.
@@ -23,7 +22,7 @@ Units: bytes
 
 **Example**  
 
-```
+```JSON
 {
   "name": "Max Message Size",
   "metric": "aws:message-byte-size",
@@ -41,7 +40,7 @@ Units: bytes
 
 **Example using a `statisticalThreshold`**  
 
-```
+```JSON
 {
 
   "name": "Large Message Size",
@@ -61,7 +60,7 @@ Units: bytes
 
 **Example using ML Detect**  
 
-```
+```JSON
 {
   "name": "Message size ML behavior",
   "metric": "aws:message-byte-size",
@@ -97,7 +96,7 @@ Duration: a non-negative integer. Valid values are 300, 600, 900, 1800, or 3600 
 
 **Example**  
 
-```
+```JSON
 {
 
   "name": "Out bound message count",
@@ -117,7 +116,7 @@ Duration: a non-negative integer. Valid values are 300, 600, 900, 1800, or 3600 
 
 **Example using a `statisticalThreshold`**  
 
-```
+```JSON
 {
 
   "name": "Out bound message rate",
@@ -137,7 +136,7 @@ Duration: a non-negative integer. Valid values are 300, 600, 900, 1800, or 3600 
 
 **Example using ML Detect**  
 
-```
+```JSON
 {
   "name": "Messages sent ML behavior",
   "metric": "aws:num-messages-sent",
@@ -171,7 +170,7 @@ Duration: a non-negative integer. Valid values are 300, 600, 900, 1800, or 3600 
 
 **Example**  
 
-```
+```JSON
 {
   "name": "In bound message count",
   "metric": "aws:num-messages-received",
@@ -190,7 +189,7 @@ Duration: a non-negative integer. Valid values are 300, 600, 900, 1800, or 3600 
 
 **Example using a `statisticalThreshold`**  
 
-```
+```JSON
 {
   "name": "In bound message rate",
   "metric": "aws:num-messages-received",
@@ -209,7 +208,7 @@ Duration: a non-negative integer. Valid values are 300, 600, 900, 1800, or 3600 
 
 **Example using ML Detect**  
 
-```
+```JSON
 {
   "name": "Messages received ML behavior",
   "metric": "aws:num-messages-received",
@@ -241,7 +240,7 @@ Duration: a non-negative integer. Valid values are 300, 600, 900, 1800, or 3600 
 
 **Example**  
 
-```
+```JSON
 {
   "name": "Authorization Failures",
   "metric": "aws:num-authorization-failures",
@@ -260,7 +259,7 @@ Duration: a non-negative integer. Valid values are 300, 600, 900, 1800, or 3600 
 
 **Example using a `statisticalThreshold`**  
 
-```
+```JSON
 {
   "name": "Authorization Failures",
   "metric": "aws:num-authorization-failures",
@@ -279,7 +278,7 @@ Duration: a non-negative integer. Valid values are 300, 600, 900, 1800, or 3600 
 
 **Example using ML Detect**  
 
-```
+```JSON
 {
   "name": "Authorization failures ML behavior",
   "metric": "aws:num-authorization-failures",
@@ -311,7 +310,7 @@ Units: n/a
 
 **Example**  
 
-```
+```JSON
 {
   "name": "Denied source IPs",
   "metric": "aws:source-ip-address",
@@ -344,7 +343,7 @@ Duration: a non-negative integer. Valid values are 300, 600, 900, 1800, or 3600 
 
 **Example**  
 
-```
+```JSON
 {
   "name": "Connection Attempts",
   "metric": "aws:num-connection-attempts",
@@ -363,7 +362,7 @@ Duration: a non-negative integer. Valid values are 300, 600, 900, 1800, or 3600 
 
 **Example using a `statisticalThreshold`**  
 
-```
+```JSON
 {
   "name": "Connection Attempts",
   "metric": "aws:num-connection-attempts",
@@ -382,7 +381,7 @@ Duration: a non-negative integer. Valid values are 300, 600, 900, 1800, or 3600 
 
 **Example using ML Detect**  
 
-```
+```JSON
 {
   "name": "Connection attempts ML behavior",
   "metric": "aws:num-connection-attempts",
@@ -416,7 +415,7 @@ Duration: a non-negative integer. Valid values are 300, 600, 900, 1800, or 3600 
 
 **Example**  
 
-```
+```JSON
 {
   "name": "Disconnections",
   "metric": "aws:num-disconnects",
@@ -435,7 +434,7 @@ Duration: a non-negative integer. Valid values are 300, 600, 900, 1800, or 3600 
 
 **Example using a `statisticalThreshold`**  
 
-```
+```JSON
 {
   "name": "Disconnections",
   "metric": "aws:num-disconnects",
@@ -454,7 +453,7 @@ Duration: a non-negative integer. Valid values are 300, 600, 900, 1800, or 3600 
 
 **Example using ML Detect**  
 
-```
+```JSON
 {
   "name": "Disconnects ML behavior",
   "metric": "aws:num-disconnects",
@@ -484,7 +483,7 @@ Value: a non-negative integer (in minutes)
 
 **Example**  
 
-```
+```JSON
 {
 "name": "DisconnectDuration",
   "metric": "aws:disconnect-duration",

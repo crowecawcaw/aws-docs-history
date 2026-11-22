@@ -1,7 +1,6 @@
 
 
 # Security use cases
-<a name="dd-detect-security-use-cases"></a>
 
 **Note**  
 The AWS IoT Device Defender detect feature is no longer available to new customers. To learn about alternatives to AWS IoT Device Defender detect, see [AWS IoT Device Defender detect feature availability change](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/dd-detect-availability-change.html). There is no change to AWS IoT Device Defender audit availability.

@@ -1,7 +1,6 @@
 
 
 # Mitigation actions
-<a name="dd-mitigation-actions"></a>
 
 You can use AWS IoT Device Defender to take actions to mitigate issues that were found in an Audit finding or Detect alarm. 
 
@@ -281,7 +280,7 @@ For each mitigation action that you define, you must provide the role used to ap
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -301,7 +300,7 @@ For each mitigation action that you define, you must provide the role used to ap
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -321,7 +320,7 @@ For each mitigation action that you define, you must provide the role used to ap
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -342,7 +341,7 @@ For each mitigation action that you define, you must provide the role used to ap
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -362,7 +361,7 @@ For each mitigation action that you define, you must provide the role used to ap
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -387,7 +386,7 @@ For each mitigation action that you define, you must provide the role used to ap
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -411,7 +410,7 @@ For all mitigation action types, use the following trust policy template:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

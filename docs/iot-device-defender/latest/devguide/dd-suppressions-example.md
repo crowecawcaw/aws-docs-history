@@ -1,7 +1,6 @@
 
 
 # Customize when and how you view AWS IoT Device Defender audit results
-<a name="dd-suppressions-example"></a>
 
 AWS IoT Device Defender audit provides periodic security checks to confirm AWS IoT devices and resources are following best practices. For each check, the audit results are categorized as compliant or non-compliant, where non-compliance results in console warning icons. To reduce noise from repeating known issues, the audit finding suppression feature allows you to temporarily silence these non-compliance notifications.
 

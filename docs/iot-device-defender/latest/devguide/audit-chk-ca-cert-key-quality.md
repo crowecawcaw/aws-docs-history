@@ -1,7 +1,6 @@
 
 
 # CA certificate key quality
-<a name="audit-chk-ca-cert-key-quality"></a>
 
 AWS IoT customers often rely on TLS mutual authentication using X.509 certificates for authenticating to AWS IoT message broker. These certificates and their certificate authority certificates must be registered in their AWS IoT account before they are used. AWS IoT performs basic sanity checks on these certificates when they are registered, including:
 + The certificates are in a valid format.

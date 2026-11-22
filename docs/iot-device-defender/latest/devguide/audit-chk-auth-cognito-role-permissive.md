@@ -1,7 +1,6 @@
 
 
 # Authenticated Cognito role overly permissive
-<a name="audit-chk-auth-cognito-role-permissive"></a>
 
 A policy attached to an authenticated Amazon Cognito identity pool role is considered too permissive because it grants permission to perform the following AWS IoT actions:
 + Manage or modify things.
@@ -96,7 +95,7 @@ The following AWS IoT API actions are used to read thing data, so devices that c
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -126,7 +125,7 @@ The following AWS IoT API actions are used to read thing data, so devices that c
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -163,7 +162,7 @@ The following AWS IoT API actions are used to read thing data, so devices that c
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -193,7 +192,7 @@ The following AWS IoT API actions are used to read thing data, so devices that c
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -243,7 +242,7 @@ MQTT messages are sent through the AWS IoT message broker and are used by device
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -285,7 +284,7 @@ MQTT messages are sent through the AWS IoT message broker and are used by device
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -333,7 +332,7 @@ MQTT messages are sent through the AWS IoT message broker and are used by device
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -391,7 +390,7 @@ A policy that grants permission to a device to perform an API action to access o
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

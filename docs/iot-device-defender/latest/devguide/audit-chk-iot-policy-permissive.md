@@ -1,7 +1,6 @@
 
 
 # AWS IoT policies overly permissive
-<a name="audit-chk-iot-policy-permissive"></a>
 
 An AWS IoT policy gives permissions that are too broad or unrestricted. It grants permission to send or receive MQTT messages for a broad set of devices, or grants permission to access or modify shadow and job execution data for a broad set of devices. 
 
@@ -67,7 +66,7 @@ MQTT messages are sent through the AWS IoT message broker and are used by device
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -109,7 +108,7 @@ MQTT messages are sent through the AWS IoT message broker and are used by device
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -157,7 +156,7 @@ MQTT messages are sent through the AWS IoT message broker and are used by device
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -215,7 +214,7 @@ A policy that grants permission to a device to perform an API action to access o
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

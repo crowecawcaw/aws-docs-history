@@ -1,7 +1,6 @@
 
 
 # Revoked device certificate still active
-<a name="audit-chk-revoked-device-cert"></a>
 
 A revoked device certificate is still active.
 

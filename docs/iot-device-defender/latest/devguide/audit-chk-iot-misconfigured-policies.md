@@ -1,7 +1,6 @@
 
 
 # AWS IoT policy potentially misconfigured
-<a name="audit-chk-iot-misconfigured-policies"></a>
 
 An AWS IoT policy was identified as potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources.
 
@@ -37,7 +36,7 @@ The **AWS IoT policy potentially misconfigured** check will flag this policy wit
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -69,7 +68,7 @@ The following is an example of a properly configured policy. Devices don't have 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -113,7 +112,7 @@ The following example policy has permissions to receive message on `building/con
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -145,7 +144,7 @@ The following is an example of a properly configured policy. Devices don't have 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

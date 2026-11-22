@@ -1,7 +1,6 @@
 
 
 # Audit commands
-<a name="AuditCommands"></a>
 
 ## Manage audit settings
 <a name="AuditCommandsManageSettings"></a>
@@ -30,7 +29,7 @@ aws iot  update-account-audit-configuration \
 
  `cli-input-json` format
 
-```
+```JSON
 {
   "roleArn": "string",
   "auditNotificationTargetConfigurations": {
@@ -92,14 +91,14 @@ aws iot  describe-account-audit-configuration  \
 
  `cli-input-json` format
 
-```
+```JSON
 {
 }
 ```
 
 Output
 
-```
+```JSON
 {
   "roleArn": "string",
   "auditNotificationTargetConfigurations": {
@@ -155,7 +154,7 @@ aws iot  delete-account-audit-configuration \
 
  `cli-input-json` format
 
-```
+```JSON
 {
   "deleteScheduledAudits": "boolean"
 }
@@ -216,7 +215,7 @@ aws iot  create-scheduled-audit \
 
  `cli-input-json` format
 
-```
+```JSON
 {
   "frequency": "string",
   "dayOfMonth": "string",
@@ -250,7 +249,7 @@ aws iot  create-scheduled-audit \
 
 Output
 
-```
+```JSON
 {
   "scheduledAuditArn": "string"
 }
@@ -294,7 +293,7 @@ aws iot  list-scheduled-audits \
 
  `cli-input-json` format
 
-```
+```JSON
 {
   "nextToken": "string",
   "maxResults": "integer"
@@ -311,7 +310,7 @@ aws iot  list-scheduled-audits \
 
 Output
 
-```
+```JSON
 {
   "scheduledAudits": [
     {
@@ -366,7 +365,7 @@ aws iot  describe-scheduled-audit \
 
  `cli-input-json` format
 
-```
+```JSON
 {
   "scheduledAuditName": "string"
 }
@@ -381,7 +380,7 @@ aws iot  describe-scheduled-audit \
 
 Output
 
-```
+```JSON
 {
   "frequency": "string",
   "dayOfMonth": "string",
@@ -440,7 +439,7 @@ aws iot  update-scheduled-audit \
 
  `cli-input-json` format
 
-```
+```JSON
 {
   "frequency": "string",
   "dayOfMonth": "string",
@@ -465,7 +464,7 @@ aws iot  update-scheduled-audit \
 
 Output
 
-```
+```JSON
 {
   "scheduledAuditArn": "string"
 }
@@ -508,7 +507,7 @@ aws iot  delete-scheduled-audit \
 
  `cli-input-json` format
 
-```
+```JSON
 {
   "scheduledAuditName": "string"
 }
@@ -560,7 +559,7 @@ aws iot  start-on-demand-audit-task \
 
  `cli-input-json` format
 
-```
+```JSON
 {
   "targetCheckNames": [
     "string"
@@ -577,7 +576,7 @@ aws iot  start-on-demand-audit-task \
 
 Output
 
-```
+```JSON
 {
   "taskId": "string"
 }
@@ -629,7 +628,7 @@ aws iot  describe-audit-task \
 
  `cli-input-json` format
 
-```
+```JSON
 {
   "taskId": "string"
 }
@@ -644,7 +643,7 @@ aws iot  describe-audit-task \
 
 Output
 
-```
+```JSON
 {
   "taskStatus": "string",
   "taskType": "string",
@@ -732,7 +731,7 @@ aws iot  list-audit-tasks \
 
  `cli-input-json` format
 
-```
+```JSON
 {
   "startTime": "timestamp",
   "endTime": "timestamp",
@@ -757,7 +756,7 @@ aws iot  list-audit-tasks \
 
 Output
 
-```
+```JSON
 {
   "tasks": [
     {
@@ -808,7 +807,7 @@ aws iot  cancel-audit-task \
 
  `cli-input-json` format
 
-```
+```JSON
 {
   "taskId": "string"
 }
@@ -868,7 +867,7 @@ aws iot  list-audit-findings \
 
  `cli-input-json` format
 
-```
+```JSON
 {
   "taskId": "string",
   "checkName": "string",
@@ -916,7 +915,7 @@ aws iot  list-audit-findings \
 
 Output
 
-```
+```JSON
 {
   "findings": [
     {

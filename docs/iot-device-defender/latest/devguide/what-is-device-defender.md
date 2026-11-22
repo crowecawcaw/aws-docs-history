@@ -1,7 +1,6 @@
 
 
 # What is AWS IoT Device Defender?
-<a name="what-is-device-defender"></a>
 
 Use AWS IoT Device Defender, a security and monitoring service, to audit the configuration of your devices, monitor connected devices, and mitigate security risks. With AWS IoT Device Defender, you can enforce consistent security policies across your AWS IoT device fleet and respond quickly when devices are compromised. IoT fleets can consist of large numbers of devices that have diverse capabilities, are long-lived, and are geographically distributed. These characteristics make fleet setup complex and error-prone. Because devices are often constrained in computational power, memory, and storage capabilities, this limits the use of encryption and other forms of security on the devices themselves.
 

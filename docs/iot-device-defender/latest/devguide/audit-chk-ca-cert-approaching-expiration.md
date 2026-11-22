@@ -1,7 +1,6 @@
 
 
 # CA certificate expiring
-<a name="audit-chk-ca-cert-approaching-expiration"></a>
 
 A CA certificate is expiring within 30 days or has expired.
 

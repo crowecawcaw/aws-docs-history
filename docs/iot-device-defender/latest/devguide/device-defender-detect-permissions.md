@@ -1,7 +1,6 @@
 
 
 # Permissions
-<a name="device-defender-detect-permissions"></a>
 
 **Note**  
 The AWS IoT Device Defender detect feature is no longer available to new customers. To learn about alternatives to AWS IoT Device Defender detect, see [AWS IoT Device Defender detect feature availability change](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/dd-detect-availability-change.html). There is no change to AWS IoT Device Defender audit availability.
@@ -21,7 +20,7 @@ If you use the `alertTargets` parameter in [CreateSecurityProfile](https://docs.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -48,7 +47,7 @@ If you use the `alertTargets` parameter in [CreateSecurityProfile](https://docs.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -76,7 +75,7 @@ You also need an IAM permissions policy attached to the IAM user that allows the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Setting up
-<a name="dd-setting-up"></a>
 
 Before you use AWS IoT Device Defender for the first time, complete the following tasks:
 

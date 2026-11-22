@@ -1,7 +1,6 @@
 
 
 # Device certificate age check
-<a name="device-certificate-age-check"></a>
 
 This audit check alerts you when a device certificate has been active for a number of days greater than or equal to the number you specify. This check helps you stay informed about your certificates’ status, enabling timely action on a periodic basis, regardless of when the certificate reaches the end of its lifespan, improving security by reducing the risk of certificate compromise.
 

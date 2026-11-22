@@ -1,7 +1,6 @@
 
 
 # Permissions
-<a name="detect-metrics-export-permissions"></a>
 
 This section contains information about how to set up the IAM roles and policies required to manage AWS IoT Device Defender Detect metrics export. For more information, see the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/).
 
@@ -18,7 +17,7 @@ If you enable metrics export in [CreateSecurityProfile](https://docs.aws.amazon.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -45,7 +44,7 @@ If you enable metrics export in [CreateSecurityProfile](https://docs.aws.amazon.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -73,7 +72,7 @@ You also need an IAM permissions policy attached to the IAM user that allows the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
