@@ -1,7 +1,6 @@
 
 
 # Managing multiple accounts in Amazon Inspector with AWS Organizations
-<a name="managing-multiple-accounts"></a>
 
  You can use Amazon Inspector to manage multiple accounts in [an organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html). Amazon Inspector supports two approaches for multi-account management: 
 +  **Delegated administrator for AWS Organizations policies** - Provides centralized governance to delegated administrator with automatic enablement of Amazon Inspector across organization accounts across regions. Organization policies enforce which scan types are enabled and take precedence over non policy managed delegated administrator and member account enablements. 

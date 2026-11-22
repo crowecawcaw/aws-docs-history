@@ -1,12 +1,11 @@
 
 
 # Programming language dependency collection
-<a name="sbom-generator-dependency-collection"></a>
 
  The Amazon Inspector SBOM Generator supports different programming languages and frameworks, which make up a robust and detailed collection of dependencies. Generating an SBOM helps you understand the composition of your software, so you can identify vulnerabilities and maintain compliance with security standards. The Amazon Inspector SBOM Generator supports the following programming languages and file formats. 
 
 ## Go dependency scanning
-<a name="w2aac39c25b5"></a>
+<a name="w2aac41c25b5"></a>
 
 
 | Programming language | Package manager | Supported artifacts | Toolchain support | Development dependencies | Transitive dependencies | Private flag | Recursively | 
@@ -14,7 +13,7 @@
 | Go | Go | `go.mod`<br />`go.sum`<br />`Go Binaries`<br />`GOMODCACHE` | N/A<br />N/A<br />Yes<br />N/A | N/A<br />N/A<br />N/A<br />N/A | N/A<br />N/A<br />N/A<br />N/A | N/A<br />N/A<br />N/A<br />N/A | Yes<br />Yes<br />Yes<br />No | 
 
 ### go.mod/go.sum
-<a name="w2aac39c25b5b5"></a>
+<a name="w2aac41c25b5b5"></a>
 
  Use `go.mod` and `go.sum` files to define and lock dependencies in Go projects. The Amazon Inspector SBOM Generator manages these files differently based on the Go toolchain version. 
 
@@ -51,7 +50,7 @@ golang.org/x/crypto v0.0.0-20210616213533-5cf6c0f8e123/go.mod h1:K5Dkpb0Q4ewZW/E
  Each of these files produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### Go Binaries
-<a name="w2aac39c25b5b7"></a>
+<a name="w2aac41c25b5b7"></a>
 
  The Amazon Inspector SBOM Generator extracts dependencies from compiled Go binaries to provide assurance about the code in use. 
 
@@ -64,7 +63,7 @@ golang.org/x/crypto v0.0.0-20210616213533-5cf6c0f8e123/go.mod h1:K5Dkpb0Q4ewZW/E
 +  Detects and extracts the Go toolchain version used for compiling the binary. 
 
 ### GOMODCACHE
-<a name="w2aac39c25b5b9"></a>
+<a name="w2aac41c25b5b9"></a>
 
  The Amazon Inspector SBOM Generator scans the Go module cache to collect information about installed dependencies. This cache stores downloaded modules to make sure the same versions are used across different builds. 
 
@@ -85,7 +84,7 @@ golang.org/x/crypto v0.0.0-20210616213533-5cf6c0f8e123/go.mod h1:K5Dkpb0Q4ewZW/E
  This structure produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ## Java dependency scanning
-<a name="w2aac39c25b7"></a>
+<a name="w2aac41c25b7"></a>
 
 
 | Programming language | Package manager | Supported artifacts | Toolchain support | Development dependencies | Transitive dependencies | Private flag | Recursively | 
@@ -98,7 +97,7 @@ golang.org/x/crypto v0.0.0-20210616213533-5cf6c0f8e123/go.mod h1:K5Dkpb0Q4ewZW/E
  The Amazon Inspector SBOM Generator performs Java dependency scanning by analyzing compiled Java applications and `pom.xml` files. When scanning compiled applications, the scanner generates SHA–1 hashes for integrity verification, extracts embedded `pom.properties` files, and parses nested `pom.xml` files. 
 
 ### SHA–1 hash collection (for compiled .jar, .war, .ear files)
-<a name="w2aac39c25b7b9"></a>
+<a name="w2aac41c25b7b9"></a>
 
  The Amazon Inspector SBOM Generator tries to collect SHA–1 hashes for all `.ear`, `.jar`, and `.war` files in a project to guarantee the integrity and traceability of compiled Java artifacts. 
 
@@ -134,7 +133,7 @@ golang.org/x/crypto v0.0.0-20210616213533-5cf6c0f8e123/go.mod h1:K5Dkpb0Q4ewZW/E
  This artifact produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### pom.properties
-<a name="w2aac39c25b7c11"></a>
+<a name="w2aac41c25b7c11"></a>
 
  The `pom.properties` file is used in Maven projects to store project metadata, including package names and package versions. The Amazon Inspector SBOM Generator parses this file to collect project information. 
 
@@ -160,7 +159,7 @@ artifactId=datafaker
  If you want to exclude `pom.xml` parsing when scanning compiled Java applications, use the `--skip-nested-pomxml` argument. 
 
 ### pom.xml
-<a name="w2aac39c25b7c13"></a>
+<a name="w2aac41c25b7c13"></a>
 
  The `pom.xml` file is the core configuration file for Maven projects. It contains information about projects and project dependencies. The Amazon Inspector SBOM Generator parses pom.xml files to collect dependencies, scanning standalone files in repositories and files inside compiled .jar files. 
 
@@ -223,7 +222,7 @@ artifactId=datafaker
  Each of these files produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ## JavaScript dependency scanning
-<a name="w2aac39c25b9"></a>
+<a name="w2aac41c25b9"></a>
 
 
 | Programming language | Package manager | Supported artifacts | Toolchain support | Development dependencies | Transitive dependencies | Private flag | Recursively | 
@@ -231,7 +230,7 @@ artifactId=datafaker
 | Javascript | `Node Modules`<br />`NPM`<br />`PNPM`<br />`YARN` | `node_modules/*/package.json`<br />`package-lock.json (v1, v2, and v3) / npm-shrinkwrap.json`<br />`pnpm-lock.yaml`<br />`yarn.lock` | N/A<br />N/A<br />N/A<br />N/A | N/A<br />Yes<br />Yes<br />Yes | Yes<br />N/A<br />N/A<br />N/A | Yes<br />N/A<br />N/A<br />N/A | Yes<br />No<br />No<br />No | 
 
 ### package.json
-<a name="w2aac39c25b9b5"></a>
+<a name="w2aac41c25b9b5"></a>
 
  The `package.json` file is a core component of Node.js projects. It contains metadata about installed packages. The Amazon Inspector SBOM Generator scans this file to identify package names and package versions. 
 
@@ -257,7 +256,7 @@ artifactId=datafaker
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### package-lock.json
-<a name="w2aac39c25b9b7"></a>
+<a name="w2aac41c25b9b7"></a>
 
  The `package-lock.json` file is automatically generated by npm to lock exact versions of dependencies installed for a project. It ensures consistency in environments by storing exact versions of all dependencies and their sub-dependencies. This file can distinguish between regular dependencies and development dependencies. 
 
@@ -296,7 +295,7 @@ artifactId=datafaker
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### npm-shrinkwrap.json
-<a name="w2aac39c25b9b9"></a>
+<a name="w2aac41c25b9b9"></a>
 
  npm automatically generates`package-lock.json` and `npm-shrinkwrap.json` files to lock exact versions of dependencies installed for a project. This guarantees consistency in environments by storing exact versions of all dependencies and sub-dependencies. The files distinguish between regular dependencies and development dependencies. 
 
@@ -333,7 +332,7 @@ artifactId=datafaker
 ```
 
 ### pnpm-yaml.lock
-<a name="w2aac39c25b9c11"></a>
+<a name="w2aac41c25b9c11"></a>
 
  The `pnpm-lock.yaml` file is generated by pnpm to maintain a record of installed dependency versions. It also tracks development dependencies separately. 
 
@@ -372,7 +371,7 @@ dev: true
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### yarn.lock
-<a name="w2aac39c25b9c13"></a>
+<a name="w2aac41c25b9c13"></a>
 
  The Amazon Inspector SBOM Generator tries to collect SHA–1 hashes for `.ear`, `.jar`, and `.war` files in a project to guarantee the integrity and traceability of compiled Java artifacts. 
 
@@ -407,7 +406,7 @@ linkType: hard
  This artifact produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ## .NET dependency scanning
-<a name="w2aac39c25c11"></a>
+<a name="w2aac41c25c11"></a>
 
 
 | Programming language | Package manager | Supported artifacts | Toolchain support | Development dependencies | Transitive dependencies | Private flag | Recursively | 
@@ -415,7 +414,7 @@ linkType: hard
 | .NET | `.NET Core`<br />`Nuget`<br />`Nuget`<br />`.NET` | `*.deps.json`<br />`Packages.config`<br />`packages.lock.json`<br />`.csproj` | N/A<br />N/A<br />N/A<br />N/A | N/A<br />N/A<br />N/A<br />N/A | N/A<br />N/A<br />Yes<br />N/A | N/A<br />N/A<br />N/A<br />N/A | Yes<br />Yes<br />Yes<br />Yes | 
 
 ### Packages.config
-<a name="w2aac39c25c11b5"></a>
+<a name="w2aac41c25c11b5"></a>
 
  The `Packages.config` file is an XML file used by an older version of Nuget to manage project dependencies. It lists all the packages referenced by the project, including specific versions. 
 
@@ -442,7 +441,7 @@ linkType: hard
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### \*.deps.json
-<a name="w2aac39c25c11b7"></a>
+<a name="w2aac41c25c11b7"></a>
 
  The `*.deps.json` file is generated by .NET Core projects and contains detailed information about all dependencies, including paths, versions, and runtime dependencies. This file makes sure the runtime has necessary information to load correct versions of dependencies. 
 
@@ -479,7 +478,7 @@ linkType: hard
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### packages.lock.json
-<a name="w2aac39c25c11b9"></a>
+<a name="w2aac41c25c11b9"></a>
 
  The `packages.lock.json` file is used by newer versions of Nuget to lock exact versions of dependencies for a .NET project to guarantee the same versions are used consistently across different environments. 
 
@@ -529,7 +528,7 @@ linkType: hard
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### .csproj
-<a name="w2aac39c25c11c11"></a>
+<a name="w2aac41c25c11c11"></a>
 
  The `.csproj` file is written in XML and the project file for .NET projects. It includes references to Nuget packages, project properties, and build configurations. 
 
@@ -572,7 +571,7 @@ linkType: hard
  Each of these files produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ## PHP dependency scanning
-<a name="w2aac39c25c13"></a>
+<a name="w2aac41c25c13"></a>
 
 
 | Programming language | Package manager | Supported artifacts | Toolchain support | Development dependencies | Transitive dependencies | Private flag | Recursively | 
@@ -580,7 +579,7 @@ linkType: hard
 | PHP | Composer | `composer.lock`<br />`/vendor/composer/installed.json` | N/A<br />N/A | N/A<br />N/A | Yes<br />Yes | N/A<br />N/A | Yes<br />Yes | 
 
 ### composer.lock
-<a name="w2aac39c25c13b5"></a>
+<a name="w2aac41c25c13b5"></a>
 
  The `composer.lock` file is automatically generated when running the composer install or composer update commands. This file guarantees the same versions of dependencies are installed in every environment. This provides a consistent and reliable build process. 
 
@@ -618,7 +617,7 @@ linkType: hard
  This produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### /vendor/composer/installed.json
-<a name="w2aac39c25c13b7"></a>
+<a name="w2aac41c25c13b7"></a>
 
  The `/vendor/composer/installed.json` file is located in the `vendor/composer` directory and provides a comprehensive list of all installed packages and package versions. 
 
@@ -657,7 +656,7 @@ linkType: hard
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ## Python dependency scanning
-<a name="w2aac39c25c15"></a>
+<a name="w2aac41c25c15"></a>
 
 
 | Programming language | Package manager | Supported artifacts | Toolchain support | Development dependencies | Transitive dependencies | Private flag | Recursively | 
@@ -665,7 +664,7 @@ linkType: hard
 | Python | `pip`<br />`Poetry`<br />`Pipenv`<br />`uv`<br />`Egg/Wheel` | `requirements.txt`<br />`Poetry.lock`<br />`Pipfile.lock`<br />`uv.lock`<br />`.egg-info/PKG-INFO`<br />`.dist-info/METADATA` | N/A<br />N/A<br />N/A<br />N/A<br />N/A<br />N/A | N/A<br />N/A<br />N/A<br />Yes<br />N/A<br />N/A | N/A<br />N/A<br />N/A<br />N/A<br />N/A<br />N/A | N/A<br />N/A<br />N/A<br />N/A<br />N/A<br />N/A | Yes<br />Yes<br />Yes<br />Yes<br />Yes<br />Yes | 
 
 ### requirements.txt
-<a name="w2aac39c25c15b5"></a>
+<a name="w2aac41c25c15b5"></a>
 
  The `requirements.txt` file is a widely used format in Python projects to specify project dependencies. Each line in this file includes a package with its version constraints. The Amazon Inspector SBOM Generator parses this file to identify and catalog dependencies accurately. 
 
@@ -692,7 +691,7 @@ scipy. # invalid
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### Pipfile.lock
-<a name="w2aac39c25c15b9"></a>
+<a name="w2aac41c25c15b9"></a>
 
  Pipenv is a tool bringing the best of all packaging worlds (bundled, pinned, and unpinned). The `Pipfile.lock` locks exact versions of dependencies to facilitate deterministic builds. The Amazon Inspector SBOM Generator reads this file to list dependencies and their resolved versions. 
 
@@ -730,7 +729,7 @@ scipy. # invalid
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### Poetry.lock
-<a name="w2aac39c25c15c11"></a>
+<a name="w2aac41c25c15c11"></a>
 
  Poetry is a dependency management and packaging tool for Python. The `Poetry.lock` file locks exact versions of dependencies to facilitate consistent environments. The Amazon Inspector SBOM Generator extracts detailed dependency information from this file. 
 
@@ -762,7 +761,7 @@ python-versions = ">=3.5"
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### uv.lock
-<a name="w2aac39c25c15c13"></a>
+<a name="w2aac41c25c15c13"></a>
 
  uv is a fast Python package manager written in Rust. The `uv.lock` file locks exact versions of dependencies to facilitate consistent environments. The Amazon Inspector SBOM Generator extracts detailed dependency information from this file. 
 
@@ -812,7 +811,7 @@ dev = [
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### Egg/Wheel
-<a name="w2aac39c25c15c15"></a>
+<a name="w2aac41c25c15c15"></a>
 
  For globally installed Python packages, the Amazon Inspector SBOM Generator supports parsing metadata files found in the `.egg-info/PKG-INFO` and `.dist-info/METADATA` directories. These files provide detailed metadata about installed packages. 
 
@@ -842,7 +841,7 @@ Home-page: https://palletsprojects.com/p/flask/
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ## Ruby dependency scanning
-<a name="w2aac39c25c17"></a>
+<a name="w2aac41c25c17"></a>
 
 
 | Programming language | Package manager | Supported artifacts | Toolchaing support | Development dependencies | Transitive dependencies | Private flag | Recursively | 
@@ -850,7 +849,7 @@ Home-page: https://palletsprojects.com/p/flask/
 | Ruby | Bundler | `Gemfile.lock`<br />`.gemspec`<br />`globall installed Gems` | N/A<br />N/A<br />N/A | N/A<br />N/A<br />N/A | Yes<br />N/A<br />N/A | N/A<br />N/A<br />N/A | Yes<br />Yes<br />Yes | 
 
 ### Gemfile.lock
-<a name="w2aac39c25c17b5"></a>
+<a name="w2aac41c25c17b5"></a>
 
  The `Gemfile.lock` file locks exact versions of all dependencies to make sure the same versions are used in every environment. 
 
@@ -878,7 +877,7 @@ nokogiri (1.16.6-aarch64-linux)
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### .gemspec
-<a name="w2aac39c25c17b7"></a>
+<a name="w2aac41c25c17b7"></a>
 
  The `.gemspec` file is a RubyGem file containing metadata about a gem. The Amazon Inspector SBOM Generator parses this file to collect detailed information about a gem. 
 
@@ -919,7 +918,7 @@ s.version     = &foo.bar.version
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### Globally installed gems
-<a name="w2aac39c25c17b9"></a>
+<a name="w2aac41c25c17b9"></a>
 
  The Amazon Inspector SBOM Generator supports scanning globally installed gems, which are located in standard directories, such as `/usr/local/lib/ruby/gems/<ruby_version>/gems/` in Amazon EC2/Amazon ECR and `ruby/gems/<ruby_version>/gems/` in Lambda. This makes sure all globally installed dependencies are identified and cataloged. 
 
@@ -942,7 +941,7 @@ s.version     = &foo.bar.version
  This structure produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ## Rust dependency scanning
-<a name="w2aac39c25c19"></a>
+<a name="w2aac41c25c19"></a>
 
 
 | Programming language | Package manager | Supported artifacts | Toolchain support | Development dependencies | Transitive dependencies | Private flag | Recursively | 
@@ -950,7 +949,7 @@ s.version     = &foo.bar.version
 | Rust | Cargo.toml | `Cargo.toml`<br />`Cargo.lock`<br /> `Rust binary (built with cargo-auditable)` | N/A<br />N/A<br />Yes | N/A<br />N/A<br />N/A | N/A<br />Yes<br />N/A | N/A<br />N/A<br />N/A | Yes<br />Yes<br />Yes | 
 
 ### Cargo.toml
-<a name="w2aac39c25c19b5"></a>
+<a name="w2aac41c25c19b5"></a>
 
  The `Cargo.toml` file is the manifest file for Rust projects. 
 
@@ -981,7 +980,7 @@ repository = "alexcrichton/wait-timeout"
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### Cargo.lock
-<a name="w2aac39c25c19b7"></a>
+<a name="w2aac41c25c19b7"></a>
 
  The `Cargo.lock` file locks dependency versions to make sure the same versions are used whenever a project is built. 
 
@@ -1009,7 +1008,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ### Rust binaries with cargo-auditable
-<a name="w2aac39c25c19b9"></a>
+<a name="w2aac41c25c19b9"></a>
 
  The Amazon Inspector SBOM Generator collects dependencies from Rust binaries built with the `cargo-auditable` library. This provides additional dependency information by enabling dependency extraction from compiled binaries. 
 
@@ -1021,7 +1020,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
  This file produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ## Swift dependency scanning
-<a name="w2aac39c25c21"></a>
+<a name="w2aac41c25c21"></a>
 
 
 | Programming language | Package manager | Supported artifacts | Toolchain support | Development dependencies | Transitive dependencies | Private flag | Recursively | 
@@ -1029,7 +1028,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 | Swift | Swift Package Manager | `Package.resolved (v1, v2, and v3)` | N/A | N/A | N/A | N/A | Yes | 
 
 ### Package.resolved
-<a name="w2aac39c25c21b5"></a>
+<a name="w2aac41c25c21b5"></a>
 
  The `Package.resolved` file is generated by Swift Package Manager to lock exact versions of dependencies for a Swift project. The Amazon Inspector SBOM Generator parses this file to collect dependency names, versions, and source repository information. Schema versions 1, 2, and 3 of the `Package.resolved` format are supported. 
 
@@ -1113,17 +1112,17 @@ pkg:swift/github.com/Alamofire/Alamofire@5.8.1
  Each of these files produces an output that contains a package URL. This URL can be used to specify information about software packages when generating a software bill of materials and can be included in the [ScanSbom](https://docs.aws.amazon.com/inspector/v2/APIReference/API_inspector-scan_ScanSbom.html) API. For more information, see [package-url](https://github.com/package-url/purl-spec) on the GitHub Website. 
 
 ## Unsupported artifacts
-<a name="w2aac39c25c23"></a>
+<a name="w2aac41c25c23"></a>
 
  This section describes unsupported artifacts. 
 
 ### Java
-<a name="w2aac39c25c23b5"></a>
+<a name="w2aac41c25c23b5"></a>
 
  The Amazon Inspector SBOM Generator generator only supports vulnerability detection for dependencies sourced from [the mainstream Maven repository](https://repo1.maven.org/maven2). Private or custom Maven repositories, such as Red Hat Maven and Jenkins, aren't supported. For accurate vulnerability detection, make sure Java dependencies are pulled from the mainstream Maven repository. Dependencies from other repositories won't be covered in vulnerability scans. 
 
 ### JavaScript
-<a name="w2aac39c25c23b7"></a>
+<a name="w2aac41c25c23b7"></a>
 
 **esbuild bundles**  
  For esbuild minified bundles, the Amazon Inspector SBOM Generator doesn't support dependency scanning for projects using esbuild. Source maps generated by esbuild don't include sufficient metadata(dependency names and versions) required for accurate Sbomgen generation. For reliable results, scan the original project files, such as the `node_modules/directory` and `package-lock.json`, prior to the bundling process. 
@@ -1132,17 +1131,17 @@ pkg:swift/github.com/Alamofire/Alamofire@5.8.1
  The Amazon Inspector SBOM Generator doesn't support scanning the root-level package.json file for dependency information. This file only specifies package names and version ranges, but doesn't include fully resolved package versions. For accurate scanning results, use `package.json` or other lock files, such as `yarn.lock` and `pnpm.lock`, that include resolved versions. 
 
 ### Dotnet
-<a name="w2aac39c25c23b9"></a>
+<a name="w2aac41c25c23b9"></a>
 
  When using floating versions or version ranges in `PackageReference`, it becomes more challenging to determine the exact package version used in a project without performing package resolution. Floating versions and version ranges allow developers to specify a range of acceptable package versions rather than a fixed version. 
 
 ### Go binaries
-<a name="w2aac39c25c23c11"></a>
+<a name="w2aac41c25c23c11"></a>
 
  The Amazon Inspector SBOM Generator doesn't scan Go binaries that are built with build flags configured to exclude the build ID. These build flags prevent Amazon Inspector SBOM Generator from accurately mapping the binary to its original source. Unclear Go binaries aren't supported due to the inability to extract package information. For accurate dependency scanning, make sure that Go binaries are built with default settings, including the build ID. 
 
 ### Rust binaries
-<a name="w2aac39c25c23c13"></a>
+<a name="w2aac41c25c23c13"></a>
 
  The Amazon Inspector SBOM Generator only scans Rust binaries if the binaries are built using [the cargo-auditable library](https://github.com/rust-secure-code/cargo-auditable). Rust binaries not utilizing this library lack necessary metadata for accurate dependency extraction. The Amazon Inspector SBOM Generator extract the compiled Rust toolchain version starting from Rust 1.7.3, but only for binaries in a Linux environment. For comprehensive scanning, build Rust binaries on Linux using cargo-auditable. 
 

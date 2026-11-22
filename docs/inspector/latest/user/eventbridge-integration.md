@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge event schema for Amazon Inspector events
-<a name="eventbridge-integration"></a>
 
  [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) delivers a stream of real-time data from applications and other AWS services to targets, such as AWS Lambda functions, Amazon Simple Notification Service topics, and data streams in Amazon Kinesis Data Streams. To support integration with other applications, services, and systems, Amazon Inspector automatically publishes findings to EventBridge as [events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html). You can use Amazon Inspector to publish events for findings, coverage, and scans. This section provides example schemas for EventBridge events. 
 
@@ -18,7 +17,7 @@
 
 The following is an example of the basic schema for an EventBridge event for Amazon Inspector. Event details differ based on the type of event.
 
-```
+```JSON
 {
     "version": "0",
     "id": "Event ID",
@@ -49,17 +48,18 @@ The following is an example of the basic schema for an EventBridge event for Ama
  Each object in `detail.resources` can also include the following fields. These fields are present for all resources, including AWS resources. 
 
  For AWS resources, these fields appear alongside the AWS-specific fields. You can rely on a single, provider-agnostic representation regardless of where the resource is hosted. 
-+  `provider` is the cloud provider of the resource, for example `AWS` or `AZURE`. 
-+  `providerAccountId` is the cloud provider account identifier for the resource, such as an Azure subscription ID. For AWS resources, this matches the `account` field. 
-+  `providerOrgId` is the cloud provider organization or tenant identifier for the resource, such as an Azure tenant ID. Amazon Inspector populates this field for `AZURE` resources. 
++  `provider` is the cloud provider of the resource, for example `AWS`, `AZURE`, or `GCP`. 
++  `providerAccountId` is the cloud provider account identifier for the resource, such as an Azure subscription ID or a Google Cloud Platform (GCP) project ID. For AWS resources, this matches the `account` field. For GCP resources, this is the project ID, not the project number. 
++  `providerOrgId` is the cloud provider organization or tenant identifier for the resource, such as an Azure tenant ID or a numeric GCP organization ID. Amazon Inspector populates this field for `AZURE` and `GCP` resources. 
 +  `detail.resources.details` contains a provider-agnostic resource detail object that corresponds to the resource `type`: `vm` for a virtual machine, `image` for a container image, or `serverlessFunction` for a serverless function. These are the multi-cloud equivalents of the `awsEc2Instance`, `awsEcrContainerImage`, and `awsLambdaFunction` objects. For AWS resources, Amazon Inspector also includes the provider-agnostic object alongside the corresponding AWS-specific object. For example, an Amazon EC2 instance finding includes both `awsEc2Instance` and `vm`. 
++  For a GCP resource, `region` is the location that GCP reports: the zone for a VM instance (for example, `us-central1-a`), the region for a function, and the repository location for a container image, which can be a multi-region such as `us`. GCP resources have no partition, so they don't include a `partition` field. 
 
  You can filter the tabs to see finding event schemas for different resources and finding types. 
 
 ------
 #### [ Amazon EC2 package vulnerability finding ]
 
-```
+```JSON
 {
     "version": "0",
     "id": "4d621919-f1f4-4201-a0e2-37e4e330ff51",
@@ -191,7 +191,7 @@ The following is an example of the basic schema for an EventBridge event for Ama
 ------
 #### [ Amazon EC2 network reachability finding ]
 
-```
+```JSON
 {
     "version": "0",
     "id": "9eb1603b-4263-19ec-8be2-33184694cb92",
@@ -281,7 +281,7 @@ The following is an example of the basic schema for an EventBridge event for Ama
 ------
 #### [ Amazon ECR package vulnerability finding ]
 
-```
+```JSON
 {
     "version": "0",
     "id": "5325facf-a1aa-7d97-6bce-25fde6f6d2fc",
@@ -395,7 +395,7 @@ The following is an example of the basic schema for an EventBridge event for Ama
 ------
 #### [  Lambda package vulnerability finding ]
 
-```
+```JSON
 {
     "version": "0",
     "id": "9eadd71a-e49c-9864-6ba9-2a5d3f83c88f",
@@ -515,7 +515,7 @@ The following is an example of the basic schema for an EventBridge event for Ama
 ------
 #### [ Lambda code vulnerability finding ]
 
-```
+```JSON
 {
     "version": "0",
     "id": "e764f7be-f931-ff1b-204b-8cab2d91724b",
@@ -608,7 +608,7 @@ The following is an example of the basic schema for an EventBridge event for Ama
 ------
 #### [ Azure virtual machine package vulnerability finding ]
 
-```
+```JSON
 {
     "version": "0",
     "id": "a1b2c3d4-1111-2222-3333-444455556666",
@@ -706,7 +706,7 @@ The following is an example of the basic schema for an EventBridge event for Ama
 ------
 #### [ Azure container image package vulnerability finding ]
 
-```
+```JSON
 {
     "version": "0",
     "id": "b2c3d4e5-2222-3333-4444-555566667777",
@@ -789,7 +789,7 @@ The following is an example of the basic schema for an EventBridge event for Ama
 ------
 #### [ Azure function app package vulnerability finding ]
 
-```
+```JSON
 {
     "version": "0",
     "id": "c3d4e5f6-3333-4444-5555-666677778888",
@@ -874,6 +874,271 @@ The following is an example of the basic schema for an EventBridge event for Ama
 ```
 
 ------
+#### [ GCP Compute Engine VM instance package vulnerability finding ]
+
+```JSON
+{
+    "version": "0",
+    "id": "d4e5f6a7-4444-5555-6666-777788889999",
+    "detail-type": "Inspector2 Finding",
+    "source": "aws.inspector2",
+    "account": "123456789012",
+    "time": "2024-09-04T17:00:36Z",
+    "region": "us-east-1",
+    "resources": [
+        "projects/my-project/zones/us-central1-a/instances/example-vm"
+    ],
+    "detail": {
+        "awsAccountId": "123456789012",
+        "description": "A package vulnerability was detected on a GCP VM instance monitored by Amazon Inspector.",
+        "exploitAvailable": "NO",
+        "findingArn": "arn:aws:inspector2:us-east-1:123456789012:finding/{{FINDING_ID}}",
+        "firstObservedAt": "Wed Sep 04 16:59:44.356 UTC 2024",
+        "fixAvailable": "YES",
+        "lastObservedAt": "Wed Sep 04 16:59:44.476 UTC 2024",
+        "packageVulnerabilityDetails": {
+            "cvss": [
+                {
+                    "baseScore": 4.8,
+                    "scoringVector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:L",
+                    "source": "UBUNTU_CVE",
+                    "version": "3.1"
+                }
+            ],
+            "referenceUrls": [
+                "https://www.cve.org/CVERecord?id=CVE-2024-29069"
+            ],
+            "relatedVulnerabilities": [],
+            "source": "UBUNTU_CVE",
+            "sourceUrl": "https://people.canonical.com/~ubuntu-security/cve/2024/CVE-2024-29069.html",
+            "vendorSeverity": "medium",
+            "vulnerabilityId": "CVE-2024-29069",
+            "vulnerablePackages": [
+                {
+                    "arch": "ALL",
+                    "epoch": 0,
+                    "filePath": "/var/lib/dpkg/status",
+                    "fixedInVersion": "0:2.63+22.04ubuntu0.1",
+                    "name": "snapd",
+                    "packageManager": "OS",
+                    "remediation": "apt-get update && apt-get upgrade",
+                    "version": "2.63"
+                }
+            ]
+        },
+        "remediation": {
+            "recommendation": {
+                "text": "None Provided"
+            }
+        },
+        "resources": [
+            {
+                "details": {
+                    "vm": {
+                        "type": "e2-medium",
+                        "vmName": "example-vm",
+                        "ipV4Addresses": [
+                            "10.128.0.2",
+                            "203.0.113.10"
+                        ],
+                        "ipV6Addresses": [],
+                        "networkId": "projects/my-project/global/networks/default",
+                        "subnetIds": [
+                            "projects/my-project/regions/us-central1/subnetworks/default"
+                        ],
+                        "securityGroupIds": [],
+                        "platform": "UBUNTU_22_04"
+                    }
+                },
+                "id": "projects/my-project/zones/us-central1-a/instances/example-vm",
+                "provider": "GCP",
+                "providerAccountId": "my-project",
+                "providerOrgId": "987654321098",
+                "region": "us-central1-a",
+                "tags": {
+                    "env": "prod"
+                },
+                "type": "compute.googleapis.com/Instance"
+            }
+        ],
+        "severity": "MEDIUM",
+        "status": "ACTIVE",
+        "title": "CVE-2024-29069 - snapd",
+        "type": "PACKAGE_VULNERABILITY",
+        "updatedAt": "Wed Sep 04 17:00:36.951 UTC 2024"
+    }
+}
+```
+
+------
+#### [ GCP Artifact Registry container image package vulnerability finding ]
+
+```JSON
+{
+    "version": "0",
+    "id": "e5f6a7b8-5555-6666-7777-888899990000",
+    "detail-type": "Inspector2 Finding",
+    "source": "aws.inspector2",
+    "account": "123456789012",
+    "time": "2024-09-04T16:55:38Z",
+    "region": "us-east-1",
+    "resources": [
+        "projects/my-project/locations/us/repositories/example-repo/dockerImages/example-image@sha256:84f507df33c6864d49c296fb734192696e4cb6f78166ac51ac8b9b118181085d"
+    ],
+    "detail": {
+        "awsAccountId": "123456789012",
+        "description": "A package vulnerability was detected in a GCP Artifact Registry image monitored by Amazon Inspector.",
+        "exploitAvailable": "NO",
+        "findingArn": "arn:aws:inspector2:us-east-1:123456789012:finding/{{FINDING_ID}}",
+        "firstObservedAt": "Wed Sep 04 16:55:38.411 UTC 2024",
+        "fixAvailable": "YES",
+        "lastObservedAt": "Wed Sep 04 16:55:38.411 UTC 2024",
+        "packageVulnerabilityDetails": {
+            "cvss": [],
+            "referenceUrls": [
+                "https://www.cve.org/CVERecord?id=CVE-2024-6119"
+            ],
+            "relatedVulnerabilities": [],
+            "source": "UBUNTU_CVE",
+            "sourceUrl": "https://people.canonical.com/~ubuntu-security/cve/2024/CVE-2024-6119.html",
+            "vendorSeverity": "medium",
+            "vulnerabilityId": "CVE-2024-6119",
+            "vulnerablePackages": [
+                {
+                    "arch": "AMD64",
+                    "epoch": 0,
+                    "filePath": "/var/lib/dpkg/status",
+                    "fixedInVersion": "0:3.0.13-0ubuntu3.4",
+                    "name": "openssl",
+                    "packageManager": "OS",
+                    "remediation": "apt-get update && apt-get upgrade",
+                    "sourceLayerHash": "sha256:5f1ee22ffb5e68686db3dcb6584eb1c73b5570615b0f14fabb070b96117e351d",
+                    "version": "3.0.13"
+                }
+            ]
+        },
+        "remediation": {
+            "recommendation": {
+                "text": "None Provided"
+            }
+        },
+        "resources": [
+            {
+                "details": {
+                    "image": {
+                        "repositoryName": "example-repo/example-image",
+                        "registry": "us-docker.pkg.dev/my-project",
+                        "imageTags": [
+                            "latest"
+                        ],
+                        "imageDigest": "sha256:84f507df33c6864d49c296fb734192696e4cb6f78166ac51ac8b9b118181085d",
+                        "pushedAt": "Wed Sep 04 16:55:28.000 UTC 2024",
+                        "architecture": "amd64",
+                        "platform": "UBUNTU_24_04"
+                    }
+                },
+                "id": "projects/my-project/locations/us/repositories/example-repo/dockerImages/example-image@sha256:84f507df33c6864d49c296fb734192696e4cb6f78166ac51ac8b9b118181085d",
+                "provider": "GCP",
+                "providerAccountId": "my-project",
+                "providerOrgId": "987654321098",
+                "region": "us",
+                "tags": {},
+                "type": "artifactregistry.googleapis.com/DockerImage"
+            }
+        ],
+        "severity": "MEDIUM",
+        "status": "ACTIVE",
+        "title": "CVE-2024-6119 - openssl",
+        "type": "PACKAGE_VULNERABILITY",
+        "updatedAt": "Wed Sep 04 16:55:38.411 UTC 2024"
+    }
+}
+```
+
+------
+#### [ GCP Cloud Run functions package vulnerability finding ]
+
+```JSON
+{
+    "version": "0",
+    "id": "f6a7b8c9-6666-7777-8888-999900001111",
+    "detail-type": "Inspector2 Finding",
+    "source": "aws.inspector2",
+    "account": "123456789012",
+    "time": "2024-09-04T16:50:37Z",
+    "region": "us-east-1",
+    "resources": [
+        "projects/my-project/locations/us-central1/functions/example-function"
+    ],
+    "detail": {
+        "awsAccountId": "123456789012",
+        "description": "A package vulnerability was detected in a GCP Cloud Run function monitored by Amazon Inspector.",
+        "exploitAvailable": "YES",
+        "findingArn": "arn:aws:inspector2:us-east-1:123456789012:finding/{{FINDING_ID}}",
+        "firstObservedAt": "Wed Sep 04 16:50:37.627 UTC 2024",
+        "fixAvailable": "YES",
+        "lastObservedAt": "Wed Sep 04 16:50:37.627 UTC 2024",
+        "packageVulnerabilityDetails": {
+            "cvss": [
+                {
+                    "baseScore": 7.5,
+                    "scoringVector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+                    "source": "NVD",
+                    "version": "3.1"
+                }
+            ],
+            "referenceUrls": [],
+            "relatedVulnerabilities": [],
+            "source": "NVD",
+            "sourceUrl": "https://nvd.nist.gov/vuln/detail/CVE-2023-30861",
+            "vendorSeverity": "HIGH",
+            "vulnerabilityId": "CVE-2023-30861",
+            "vulnerablePackages": [
+                {
+                    "epoch": 0,
+                    "filePath": "requirements.txt",
+                    "fixedInVersion": "2.3.2",
+                    "name": "flask",
+                    "packageManager": "PIP",
+                    "version": "2.0.0"
+                }
+            ]
+        },
+        "remediation": {
+            "recommendation": {
+                "text": "None Provided"
+            }
+        },
+        "resources": [
+            {
+                "details": {
+                    "serverlessFunction": {
+                        "serverlessFunctionName": "example-function",
+                        "runtime": "PYTHON_3_12",
+                        "lastModifiedAt": "Wed Sep 04 16:50:20.000 UTC 2024"
+                    }
+                },
+                "id": "projects/my-project/locations/us-central1/functions/example-function",
+                "provider": "GCP",
+                "providerAccountId": "my-project",
+                "providerOrgId": "987654321098",
+                "region": "us-central1",
+                "tags": {
+                    "env": "prod"
+                },
+                "type": "cloudfunctions.googleapis.com/Function"
+            }
+        ],
+        "severity": "HIGH",
+        "status": "ACTIVE",
+        "title": "CVE-2023-30861 - flask",
+        "type": "PACKAGE_VULNERABILITY",
+        "updatedAt": "Wed Sep 04 16:50:37.627 UTC 2024"
+    }
+}
+```
+
+------
 
 **Note**  
 The detail value returns the JSON details of a single finding as an object. It does not return the entire findings response syntax, which supports multiple findings within an array.
@@ -892,7 +1157,7 @@ Select from the options to see different initial scan event schemas by resource 
 ------
 #### [ Amazon EC2 instance initial scan ]
 
-```
+```JSON
 {
     "version": "0",
     "id": "28a46762-6ac8-6cc4-4f55-bc9ab99af928",
@@ -921,7 +1186,7 @@ Select from the options to see different initial scan event schemas by resource 
 ------
 #### [ Amazon ECR image initial scan ]
 
-```
+```JSON
 {
     "version": "0",
     "id": "fdaa751a-984c-a709-44f9-9a9da9cd3606",
@@ -954,7 +1219,7 @@ Select from the options to see different initial scan event schemas by resource 
 ------
 #### [ Lambda function initial scan ]
 
-```
+```JSON
 {
   "version": "0",
   "id": "4f290a7c-361b-c442-03c8-a629f6f20d6c",
@@ -982,7 +1247,7 @@ Select from the options to see different initial scan event schemas by resource 
 ------
 #### [ Machine image initial scan ]
 
-```
+```JSON
 {
   "version": "0",
   "id": "6b1f9d0e-2c47-4a52-9f10-7a1b8c3d5e2f",
@@ -1026,7 +1291,7 @@ Select from the options to see the different on-demand scan event schemas.
 ------
 #### [ Scan complete – successful ]
 
-```
+```JSON
 {
     "version": "0",
     "id": "7bf7f4b1-9f6c-4d3e-8a2b-5c1d0e9f3a44",
@@ -1063,7 +1328,7 @@ Select from the options to see the different on-demand scan event schemas.
 ------
 #### [ Scan complete – failed ]
 
-```
+```JSON
 {
     "version": "0",
     "id": "3c2e9a17-8b4d-4f61-9a0c-2d7e6f1b8c33",
@@ -1094,7 +1359,7 @@ Select from the options to see the different on-demand scan event schemas.
 ------
 #### [ Findings ]
 
-```
+```JSON
 {
     "source": "inspector2.ami.ondemand",
     "detail-type": "OnDemand AMI Scan Findings",
@@ -1169,17 +1434,19 @@ The following is an example of the EventBridge event schema for an Amazon Inspec
 + The `detail` object contains a `scanStatus` object that indicates the new scanning status for the resource.
 
 The `detail` object also includes the following fields. These fields are present for all resources, including AWS resources.
-+ `provider` is the cloud provider of the resource, for example `AWS` or `AZURE`.
-+ `providerAccountId` is the cloud provider account identifier for the resource, such as an Azure subscription ID. For AWS resources, this matches the `account` field.
-+ `providerRegion` is the cloud provider region of the resource. For AWS resources, this matches the `region` field.
-+ `providerOrgId` is the cloud provider organization or tenant identifier for the resource, such as an Azure tenant ID. Amazon Inspector populates this field for `AZURE` resources.
++ `provider` is the cloud provider of the resource, for example `AWS`, `AZURE`, or `GCP`.
++ `providerAccountId` is the cloud provider account identifier for the resource, such as an Azure subscription ID or a GCP project ID. For AWS resources, this matches the `account` field.
++ `providerRegion` is the cloud provider region of the resource. For AWS resources, this matches the `region` field. For GCP resources, this is the location that GCP reports, such as the zone for a VM instance.
++ `providerOrgId` is the cloud provider organization or tenant identifier for the resource, such as an Azure tenant ID or a numeric GCP organization ID. Amazon Inspector populates this field for `AZURE` and `GCP` resources.
+
+The coverage event doesn't include a resource type field. For GCP Artifact Registry resources, use the resource ID in `resources` to tell an image from a repository. An image ID includes `/dockerImages/`, and a repository ID ends with the repository name.
 
 Select from the options to see different coverage event schemas by resource type.
 
 ------
 #### [ Amazon EC2 instance coverage ]
 
-```
+```JSON
 {
     "version": "0",
     "id": "000adda5-0fbf-913e-bc0e-10f0376412aa",
@@ -1209,7 +1476,7 @@ Select from the options to see different coverage event schemas by resource type
 ------
 #### [ Azure virtual machine coverage ]
 
-```
+```JSON
 {
     "version": "0",
     "id": "111b1dda-0fbf-913e-bc0e-10f0376412bb",
@@ -1238,6 +1505,130 @@ Select from the options to see different coverage event schemas by resource type
 ```
 
 ------
+#### [ GCP Compute Engine VM instance coverage ]
+
+```JSON
+{
+    "version": "0",
+    "id": "222c2dda-0fbf-913e-bc0e-10f0376412cc",
+    "detail-type": "Inspector2 Coverage",
+    "source": "aws.inspector2",
+    "account": "111122223333",
+    "time": "2023-01-20T22:51:39Z",
+    "region": "us-east-1",
+    "resources": [
+        "projects/my-project/zones/us-central1-a/instances/example-vm"
+    ],
+    "detail": {
+        "scanStatus": {
+            "reason": "SUCCESSFUL",
+            "statusCodeValue": "ACTIVE"
+        },
+        "scanType": "PACKAGE",
+        "provider": "GCP",
+        "providerAccountId": "my-project",
+        "providerRegion": "us-central1-a",
+        "providerOrgId": "987654321098",
+        "eventTimestamp": "2023-01-20T22:51:35.665501Z",
+        "version": "1.0"
+    }
+}
+```
+
+------
+#### [ GCP Artifact Registry container image coverage ]
+
+```JSON
+{
+    "version": "0",
+    "id": "333d3dda-0fbf-913e-bc0e-10f0376412dd",
+    "detail-type": "Inspector2 Coverage",
+    "source": "aws.inspector2",
+    "account": "111122223333",
+    "time": "2023-01-20T22:51:39Z",
+    "region": "us-east-1",
+    "resources": [
+        "projects/my-project/locations/us/repositories/example-repo/dockerImages/example-image@sha256:84f507df33c6864d49c296fb734192696e4cb6f78166ac51ac8b9b118181085d"
+    ],
+    "detail": {
+        "scanStatus": {
+            "reason": "SUCCESSFUL",
+            "statusCodeValue": "ACTIVE"
+        },
+        "scanType": "PACKAGE",
+        "provider": "GCP",
+        "providerAccountId": "my-project",
+        "providerRegion": "us",
+        "providerOrgId": "987654321098",
+        "eventTimestamp": "2023-01-20T22:51:35.665501Z",
+        "version": "1.0"
+    }
+}
+```
+
+------
+#### [ GCP Artifact Registry repository coverage ]
+
+```JSON
+{
+    "version": "0",
+    "id": "444e4dda-0fbf-913e-bc0e-10f0376412ee",
+    "detail-type": "Inspector2 Coverage",
+    "source": "aws.inspector2",
+    "account": "111122223333",
+    "time": "2023-01-20T22:51:39Z",
+    "region": "us-east-1",
+    "resources": [
+        "projects/my-project/locations/us/repositories/example-repo"
+    ],
+    "detail": {
+        "scanStatus": {
+            "reason": "SUCCESSFUL",
+            "statusCodeValue": "ACTIVE"
+        },
+        "scanType": "PACKAGE",
+        "provider": "GCP",
+        "providerAccountId": "my-project",
+        "providerRegion": "us",
+        "providerOrgId": "987654321098",
+        "eventTimestamp": "2023-01-20T22:51:35.665501Z",
+        "version": "1.0"
+    }
+}
+```
+
+------
+#### [ GCP Cloud Run functions coverage ]
+
+```JSON
+{
+    "version": "0",
+    "id": "555f5dda-0fbf-913e-bc0e-10f0376412ff",
+    "detail-type": "Inspector2 Coverage",
+    "source": "aws.inspector2",
+    "account": "111122223333",
+    "time": "2023-01-20T22:51:39Z",
+    "region": "us-east-1",
+    "resources": [
+        "projects/my-project/locations/us-central1/functions/example-function"
+    ],
+    "detail": {
+        "scanStatus": {
+            "reason": "SUCCESSFUL",
+            "statusCodeValue": "ACTIVE"
+        },
+        "scanType": "PACKAGE",
+        "provider": "GCP",
+        "providerAccountId": "my-project",
+        "providerRegion": "us-central1",
+        "providerOrgId": "987654321098",
+        "eventTimestamp": "2023-01-20T22:51:35.665501Z",
+        "version": "1.0"
+    }
+}
+```
+
+------
 
 ## Amazon Inspector auto enable schema example
 <a name="event-auto-enable"></a>
@@ -1246,7 +1637,7 @@ Select from the options to see different coverage event schemas by resource type
 +  The `detail-type` field is set to `Inspector2 AutoEnable`. 
 +  The `detail` object describes why the auto enable event failed. 
 
-```
+```JSON
 { 
     "version": "0",
     "id": "85fc3613-e913-7fc4-a80c-a3753e4aa9ae", 

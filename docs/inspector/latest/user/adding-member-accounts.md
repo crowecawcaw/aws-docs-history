@@ -1,7 +1,6 @@
 
 
 # Activating Amazon Inspector scans for member accounts
-<a name="adding-member-accounts"></a>
 
  You can activate Amazon Inspector for member accounts in your organization through multiple methods. The method you choose depends on your governance requirements and organizational structure. 
 
@@ -15,7 +14,7 @@
  Member accounts can activate Amazon Inspector for their own account when not restricted by organization policies. Once activated, the account becomes associated with the delegated administrator. 
 
 ## Activate scanning for member accounts
-<a name="w2aac47c13c11b7"></a>
+<a name="w2aac49c13c11b7"></a>
 
  The following procedures describe how to activate scanning for member accounts using the delegated administrator and member account methods. For information about Amazon Inspector scanning types, see [Automated scan types in Amazon Inspector](scanning-resources.md). 
 

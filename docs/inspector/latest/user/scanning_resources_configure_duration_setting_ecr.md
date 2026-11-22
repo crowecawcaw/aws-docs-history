@@ -1,7 +1,6 @@
 
 
 # Configuring the Amazon ECR re-scan duration
-<a name="scanning_resources_configure_duration_setting_ecr"></a>
 
  The Amazon ECR re-scan duration setting determines how long Amazon Inspector continuously monitors container images in repositories. You configure the re-scan duration for the image last-in-use date, last pull date, and push date. As a best practice, configure the re-scan duration to best suit your environment. 
 

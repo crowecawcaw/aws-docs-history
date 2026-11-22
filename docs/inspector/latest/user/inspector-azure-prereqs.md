@@ -1,9 +1,10 @@
 
 
 # Prerequisites for integrating Amazon Inspector with Microsoft Azure
-<a name="inspector-azure-prereqs"></a>
 
 Before you create a connector, verify that your AWS account and Azure environment meet the following requirements. The Azure setup script handles most Azure configuration automatically (app registration, Event Hub, diagnostic settings, Azure role assignments, and Microsoft Graph API permissions).
+
+**AWS account setup – all capabilities**
 
 IAM Outbound Identity Federation and OIDC provider  
 Your AWS account must have an IAM Token Issuer URL configured for outbound identity federation. This enables Amazon Inspector to securely authenticate to your Azure environment using short-lived tokens.  
@@ -20,7 +21,7 @@ A connector ARN is required when creating a connector via API. The Config connec
 Console IAM permissions  
 The IAM principal (user or role) that creates the connector requires the following permissions:  
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -44,9 +45,13 @@ The IAM principal (user or role) that creates the connector requires the followi
 }
 ```
 
+**AWS account setup – VM scanning only**
+
 In addition to the requirements above, VM scanning requires:
 + Amazon EC2 Systems Manager configured in the same Region as the connector
 + Amazon EC2 Systems Manager Automation permissions for managed deployment of the Amazon Inspector VM Scanner agent
+
+**Azure account setup**
 
 Before you run the Azure setup script, ensure that you have the following:
 

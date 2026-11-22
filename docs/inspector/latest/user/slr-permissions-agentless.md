@@ -1,7 +1,6 @@
 
 
 # Service-linked role permissions for Amazon Inspector agentless scans
-<a name="slr-permissions-agentless"></a>
 
 Amazon Inspector agentless scanning uses the service-linked role named `AWSServiceRoleForAmazonInspector2Agentless`. This SLR allows Amazon Inspector to create an Amazon EBS volume snapshot in your account, and then access the data from that snapshot. This service-linked role trusts the `agentless.inspector2.amazonaws.com` service to assume the role.
 
@@ -22,7 +21,7 @@ The role is configured with the following permissions policy.
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

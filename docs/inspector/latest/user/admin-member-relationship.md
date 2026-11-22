@@ -1,7 +1,6 @@
 
 
 # Understanding the delegated administrator account and member account in Amazon Inspector
-<a name="admin-member-relationship"></a>
 
  When using Amazon Inspector in a multi-account environment, the delegated administrator account has access to specific metadata. The metadata includes standard scanning for Amazon EC2, Amazon ECR, and Lambda, and Lambda code scanning. It also includes security finding results for member accounts. This section provides information about which actions the delegated adminstrator account can make and member accounts can make. 
 

@@ -1,12 +1,11 @@
 
 
 # Amazon Inspector SBOM Generator comprehensive ecosystem collection
-<a name="sbom-generator-ecosystem-collection"></a>
 
  The Amazon Inspector SBOM Generator is a tool for creating a software bill of materials (SBOM) and performing vulnerability scanning for supported packages from operating systems and programming languages. It supports the scanning of various ecosystems beyond core operating systems, ensuring a robust and detailed analysis of infrastructure components. By generating an SBOM, you can understand the composition of modern technology stacks, identify vulnerabilities in ecosystem components, and gain visibility into third-party software. 
 
 ## Supported ecosystems
-<a name="w2aac39c27b5"></a>
+<a name="w2aac41c27b5"></a>
 
  The ecosystem collection extends SBOM generation beyond packages installed through OS package managers. This is done through the collection of applications deployed through alternative methods, such as manual installation. These application collectors run under the `extra-ecosystems` scanner group, which is applied by default for container and localhost scans. For other scan types, add a scanner with the `--additional-scanners` option. For more information, see [Using the Amazon Inspector SBOM Generator](https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html#using-sbomgen). The Amazon Inspector SBOM Generator supports scanning for the following ecosystems: 
 
@@ -56,7 +55,7 @@
 | Zed Industries | Zed | 
 
 ## 7-Zip ecosystem collection
-<a name="w2aac39c27b7"></a>
+<a name="w2aac41c27b7"></a>
 
 **Supported applications**
 +  7-Zip archiver (version 21.07 and higher) 
@@ -85,7 +84,7 @@ pkg:generic/7zip/7zip@25.01
 ```
 
 ## AI agent skills ecosystem collection
-<a name="w2aac39c27b9"></a>
+<a name="w2aac41c27b9"></a>
 
 **Supported applications**
 +  Claude 
@@ -126,7 +125,7 @@ pkg:generic/agentskills/cross-client/web-design-guidelines
 ```
 
 ## AI IDE extensions ecosystem collection
-<a name="w2aac39c27c11"></a>
+<a name="w2aac41c27c11"></a>
 
  The `ai-ide-extensions` collector is a single consolidated scanner that detects AI coding assistant extensions installed in Visual Studio Code and JetBrains IDEs. Detected extensions are reported as CycloneDX components with the `application` type and a `generic` Package URL type. 
 
@@ -163,7 +162,7 @@ pkg:generic/cline/cline@<version>
 ```
 
 ## Amazon Q Developer ecosystem collection
-<a name="w2aac39c27c13"></a>
+<a name="w2aac41c27c13"></a>
 
 **Supported applications**
 +  Amazon Q Developer CLI 
@@ -196,12 +195,12 @@ Sample PURL: pkg:generic/amazon/amazon-q@1.19.7?distro=linux
 ```
 
 ## Apache ecosystem collection
-<a name="w2aac39c27c15"></a>
+<a name="w2aac41c27c15"></a>
 
  This section provides details about Apache Cassandra, Apache httpd, Apache Struts, and Apache tomcat applications. 
 
 ### Apache Cassandra
-<a name="w2aac39c27c15b5"></a>
+<a name="w2aac41c27c15b5"></a>
 
 **Supported applications**
 +  Apache Cassandra 
@@ -248,7 +247,7 @@ Sample PURL: pkg:generic/apache/cassandra@4.1.3
 ```
 
 ### Apache httpd
-<a name="w2aac39c27c15b7"></a>
+<a name="w2aac41c27c15b7"></a>
 
 **Supported applications**
 +  Apache httpd 
@@ -296,7 +295,7 @@ Sample PURL: pkg:generic/apache/httpd@2.4.1
 ```
 
 ### Apache Struts
-<a name="w2aac39c27c15b9"></a>
+<a name="w2aac41c27c15b9"></a>
 
 **Supported applications**
 +  Apache Struts 
@@ -342,7 +341,7 @@ Sample PURL: pkg:generic/apache/struts@6.4.0
 ```
 
 ### Apache tomcat
-<a name="w2aac39c27c15c11"></a>
+<a name="w2aac41c27c15c11"></a>
 
 **Supported applications**
 +  Apache tomcat 
@@ -390,12 +389,12 @@ Sample PURL: pkg:generic/apache/tomcat@10.1.31
 ```
 
 ## Atlassian ecosystem collection
-<a name="w2aac39c27c17"></a>
+<a name="w2aac41c27c17"></a>
 
  This section provides details about Atlassian server products and applications. 
 
 ### Atlassian Server Products
-<a name="w2aac39c27c17b5"></a>
+<a name="w2aac41c27c17b5"></a>
 
 **Supported applications**
 + Jira Core
@@ -424,7 +423,7 @@ pkg:generic/atlassian/confluence@9.2.7?distro=linux
 ```
 
 ### Atlassian Applications
-<a name="w2aac39c27c17b7"></a>
+<a name="w2aac41c27c17b7"></a>
 
 **Supported applications**
 + Jira Software
@@ -453,7 +452,7 @@ pkg:generic/atlassian/jira-service-management@10.3.9?distro=linux
 ```
 
 ## Claude Code ecosystem collection
-<a name="w2aac39c27c19"></a>
+<a name="w2aac41c27c19"></a>
 
 **Supported applications**
 +  Claude Code CLI (Anthropic) 
@@ -482,7 +481,7 @@ Sample PURL: pkg:generic/anthropic/claude-code@1.0.5?distro=linux
 ```
 
 ## Conda ecosystem collection
-<a name="w2aac39c27c21"></a>
+<a name="w2aac41c27c21"></a>
 
 **Supported applications**
 +  Miniconda environments 
@@ -534,12 +533,12 @@ pkg:conda/flask@3.0.0?build=pyhd8ed1ab_0&subdir=noarch&type=conda
 ```
 
 ## Curl ecosystem collection
-<a name="w2aac39c27c23"></a>
+<a name="w2aac41c27c23"></a>
 
  This section provides details about Curl and Libcurl applications. 
 
 ### Curl
-<a name="w2aac39c27c23b5"></a>
+<a name="w2aac41c27c23b5"></a>
 
 **Supported applications**
 +  Curl 
@@ -571,7 +570,7 @@ Sample PURL: pkg:generic/curl/curl@8.14.1
 ```
 
 ### Libcurl
-<a name="w2aac39c27c23b7"></a>
+<a name="w2aac41c27c23b7"></a>
 
 **Supported applications**
 +  Libcurl 
@@ -605,7 +604,7 @@ Sample PURL: pkg:generic/curl/libcurl@8.14.1
 ```
 
 ## Cursor ecosystem collection
-<a name="w2aac39c27c25"></a>
+<a name="w2aac41c27c25"></a>
 
 **Supported applications**
 +  Cursor (by Anysphere) 
@@ -633,7 +632,7 @@ Sample PURL: pkg:generic/cursor/cursor@0.42.3?distro=linux
 ```
 
 ## Docker binaries ecosystem collection
-<a name="w2aac39c27c27"></a>
+<a name="w2aac41c27c27"></a>
 
 **Supported applications**
 +  docker (docker version 20.10.18\+) 
@@ -670,7 +669,7 @@ pkg:generic/docker/runc@1.3.5
 ```
 
 ## Elasticsearch ecosystem collection
-<a name="w2aac39c27c29"></a>
+<a name="w2aac41c27c29"></a>
 
 **Supported applications**
 +  Elasticsearch 
@@ -709,7 +708,7 @@ pkg:generic/elastic/elasticsearch@8.19.0-SNAPSHOT
 ```
 
 ## Generic AI/ML Models ecosystem collection
-<a name="w2aac39c27c31"></a>
+<a name="w2aac41c27c31"></a>
 
 **Supported applications**
 +  Locally stored AI/ML model files across common frameworks and tools 
@@ -738,7 +737,7 @@ pkg:generic/elastic/elasticsearch@8.19.0-SNAPSHOT
 +  `~/stable-diffusion-webui/models` 
 
 ## GitHub Copilot ecosystem collection
-<a name="w2aac39c27c33"></a>
+<a name="w2aac41c27c33"></a>
 
 **Supported applications**
 +  GitHub Copilot CLI 
@@ -771,7 +770,7 @@ Sample PURL: pkg:generic/github/copilot@0.1.36?distro=linux
 ```
 
 ## Google ecosystem collection
-<a name="w2aac39c27c35"></a>
+<a name="w2aac41c27c35"></a>
 
 **Supported applications**
 +  Google Chrome 
@@ -842,7 +841,7 @@ pkg:generic/google/puppeteer@22.15.0?distro=linux&skip_chromium_download=true
 ```
 
 ## Homebrew ecosystem collection
-<a name="w2aac39c27c37"></a>
+<a name="w2aac41c27c37"></a>
 
 **Supported applications**
 +  Homebrew package manager 
@@ -871,7 +870,7 @@ pkg:brew/<name>@<version>
 ```
 
 ## HuggingFace ecosystem collection
-<a name="w2aac39c27c39"></a>
+<a name="w2aac41c27c39"></a>
 
 **Supported applications**
 +  HuggingFace `hf` CLI 
@@ -896,7 +895,7 @@ pkg:huggingface/MiniMaxAI/MiniMax-M2.5@<hash>
 ```
 
 ## Java ecosystem collection
-<a name="w2aac39c27c41"></a>
+<a name="w2aac41c27c41"></a>
 
 **Supported applications**
 +  Oracle JDK 
@@ -955,7 +954,7 @@ pkg:generic/oracle/jre@20
 ```
 
 ## Jenkins ecosystem collection
-<a name="w2aac39c27c43"></a>
+<a name="w2aac41c27c43"></a>
 
 **Supported applications**
 +  Jenkins Core 
@@ -1010,7 +1009,7 @@ Regular: pkg:generic/jenkins/jenkins-core@2.414
 ```
 
 ## Kiro CLI ecosystem collection
-<a name="w2aac39c27c45"></a>
+<a name="w2aac41c27c45"></a>
 
 **Supported applications**
 +  Kiro CLI (Amazon AI coding assistant) 
@@ -1039,10 +1038,10 @@ Sample PURL: pkg:generic/amazon/kiro@1.29.5?distro=linux
 ```
 
 ## MariaDB and MySQL ecosystem collection
-<a name="w2aac39c27c47"></a>
+<a name="w2aac41c27c47"></a>
 
 ### MariaDB
-<a name="w2aac39c27c47b3"></a>
+<a name="w2aac41c27c47b3"></a>
 
 **Supported applications**
 +  MariaDB Server (10.6\+, 11.x, 12.x) 
@@ -1076,7 +1075,7 @@ pkg:generic/mysql/mariadb-server@10.11.8
 ```
 
 ### MySQL
-<a name="w2aac39c27c47b5"></a>
+<a name="w2aac41c27c47b5"></a>
 
 **Supported applications**
 +  Oracle MySQL Server (8.0, 8.4, 9.4\+) 
@@ -1286,7 +1285,7 @@ Sample PURL: pkg:generic/microsoft/outlook@16.0.19127.20264
 ```
 
 ## Microsoft SQL Server ecosystem collection
-<a name="w2aac39c27c51"></a>
+<a name="w2aac41c27c51"></a>
 
 **Supported applications**
 +  Microsoft SQL Server 
@@ -1314,7 +1313,7 @@ pkg:generic/microsoft/sqlserver@16.0.1000.6
 ```
 
 ## MongoDB ecosystem collection
-<a name="w2aac39c27c53"></a>
+<a name="w2aac41c27c53"></a>
 
 **Supported applications**
 +  MongoDB Server (7.0\+, 8.0\+) 
@@ -1346,7 +1345,7 @@ pkg:generic/mongodb/mongodb-server@8.2.4?platform=linux
 ```
 
 ## Mozilla ecosystem collection
-<a name="w2aac39c27c55"></a>
+<a name="w2aac41c27c55"></a>
 
 **Supported applications**
 +  Firefox 
@@ -1415,7 +1414,7 @@ pkg:generic/mozilla/thunderbird@153.0.3?distro=darwin
 ```
 
 ## Nginx ecosystem collection
-<a name="w2aac39c27c57"></a>
+<a name="w2aac41c27c57"></a>
 
 **Supported applications**
 +  Nginx 
@@ -1458,7 +1457,7 @@ Sample PURL: pkg:generic/nginx/nginx@1.27.5
 ```
 
 ## Node.js runtime collection
-<a name="w2aac39c27c59"></a>
+<a name="w2aac41c27c59"></a>
 
 **Supported applications**
 +  `node` runtime binary for Node.js 
@@ -1504,7 +1503,7 @@ Sample PURL: pkg:generic/nodejs/node@24.11.1
 ```
 
 ## Ollama ecosystem collection
-<a name="w2aac39c27c61"></a>
+<a name="w2aac41c27c61"></a>
 
 **Supported applications**
 +  Ollama (local LLM runtime) 
@@ -1547,7 +1546,7 @@ Sample PURL: pkg:generic/ollama/ollama@0.21.0?distro=linux
 ```
 
 ## Ollama Model Collector ecosystem collection
-<a name="w2aac39c27c63"></a>
+<a name="w2aac41c27c63"></a>
 
 **Supported applications**
 +  Ollama CLI 
@@ -1571,7 +1570,7 @@ pkg:ollama/gemma4@<hash>
 ```
 
 ## OpenSSH ecosystem collection
-<a name="w2aac39c27c65"></a>
+<a name="w2aac41c27c65"></a>
 
 **Supported applications**
 +  OpenSSH (version 9) 
@@ -1608,7 +1607,7 @@ Sample PURL: pkg:generic/openssh/openssh@9.9p2
 ```
 
 ## OpenSSL ecosystem collection
-<a name="w2aac39c27c67"></a>
+<a name="w2aac41c27c67"></a>
 
 **Supported applications**  
  Support for OpenSSL libraries and development packages is limited to software built with official OpenSSL 3.0.0 releases and later. The software also must follow semantic versioning. Custom or forked OpenSSL variants and versions lower than 3.0.0 are not supported. 
@@ -1648,7 +1647,7 @@ Sample PURL: pkg:generic/openssl/openssl@3.4.0
 ```
 
 ## Oracle Database Server collection
-<a name="w2aac39c27c69"></a>
+<a name="w2aac41c27c69"></a>
 
 **Supported applications**
 +  Oracle Database 
@@ -1682,7 +1681,7 @@ Sample PURL: pkg:generic/oracle/database@23.7.0.25.01
 ```
 
 ## PHP ecosystem collection
-<a name="w2aac39c27c71"></a>
+<a name="w2aac41c27c71"></a>
 
 **Supported applications**
 +  PHP (version 8.1 and higher) 
@@ -1726,7 +1725,7 @@ pkg:generic/php/php@8.4.12
 ```
 
 ## Redis ecosystem collection
-<a name="w2aac39c27c73"></a>
+<a name="w2aac41c27c73"></a>
 
 **Supported applications**
 +  Redis (version 7.2 and higher) 
@@ -1762,7 +1761,7 @@ pkg:generic/redis/redis@7.2.6
 ```
 
 ## Standalone AI applications ecosystem collection
-<a name="w2aac39c27c75"></a>
+<a name="w2aac41c27c75"></a>
 
  The Amazon Inspector SBOM Generator detects standalone AI desktop and local LLM applications that are installed outside a package manager. Detected applications are reported as CycloneDX components with the `application` type and a `generic` Package URL type. The version-extraction method differs per application, as described in the following table. 
 
@@ -1782,7 +1781,7 @@ pkg:generic/redis/redis@7.2.6
  Installations in non-default install prefixes require the `--path` argument. A build that lacks the expected version anchor yields no component. 
 
 ## Windsurf ecosystem collection
-<a name="w2aac39c27c77"></a>
+<a name="w2aac41c27c77"></a>
 
 **Supported applications**
 +  Windsurf (by Codeium) 
@@ -1809,7 +1808,7 @@ Sample PURL: pkg:generic/codeium/windsurf@1.10.5?distro=linux
 ```
 
 ## WordPress ecosystem collection
-<a name="w2aac39c27c79"></a>
+<a name="w2aac41c27c79"></a>
 
 **Supported components**
 +  WordPress core 
@@ -1899,7 +1898,7 @@ Sample PURL: pkg:generic/wordpress/theme/avada@1.0.0
 ```
 
 ## Zed ecosystem collection
-<a name="w2aac39c27c81"></a>
+<a name="w2aac41c27c81"></a>
 
 **Supported applications**
 +  Zed (by Zed Industries) 

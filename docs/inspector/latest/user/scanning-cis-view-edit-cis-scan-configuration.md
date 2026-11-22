@@ -1,7 +1,6 @@
 
 
 # Editing a CIS scan configuration
-<a name="scanning-cis-view-edit-cis-scan-configuration"></a>
 
  This topic describes how to edit a CIS scan configuration. 
 

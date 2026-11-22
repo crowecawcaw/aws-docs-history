@@ -1,12 +1,11 @@
 
 
 # Amazon Inspector SBOM Generator license collection
-<a name="sbom-generator-license-collection"></a>
 
  The Amazon Inspector SBOM Generator helps track license information in a software bill of materials (SBOM). It collects license information from supported packages across operating systems and programming languages. With standardized license expressions in your generated SBOM, you can understand your licensing obligations. 
 
 ## Collect license information
-<a name="w2aac39c31b5"></a>
+<a name="w2aac41c31b5"></a>
 
 **Example command**  
  The following example shows how to collect license information from a directory. 
@@ -39,7 +38,7 @@
  When a package nests child components – for example DPKG and RPM binary packages under a source package – each child reports its own license rather than inheriting the parent's license or being omitted. Nested-component license reporting applies to container, localhost, and volume scans run with `--collect-licenses`. 
 
 ## Supported packages
-<a name="w2aac39c31b7"></a>
+<a name="w2aac41c31b7"></a>
 
  The following programming languages and operating system packages are supported for license collection. 
 
@@ -68,7 +67,7 @@
 | Rust | crate | Cargo.toml | Programming language | 
 
 ### License expression standardization
-<a name="w2aac39c31b7b7"></a>
+<a name="w2aac41c31b7b7"></a>
 
  The SPDX license expressions format provides accurate representation of licensing terms found in open source software. The Amazon Inspector SBOM Generator standardizes all license information into SPDX license expressions through rules described in this section. The rules provide consistency and compatibility across licensing information. 
 

@@ -1,12 +1,11 @@
 
 
 # What is a package URL?
-<a name="sbom-generator-purl-sbom"></a>
 
  [A package URL or PURL](https://github.com/package-url/purl-spec) is a standardized format used to identify software packages, components, and libraries across different package management systems. The format makes it easier to track, analyze, and manage dependencies in software projects, particularly when generating a Software Bill of Materials (SBOMs). 
 
 ## PURL structure
-<a name="w2aac39c33b5"></a>
+<a name="w2aac41c33b5"></a>
 
  The PURL structure is similar to a URL and is composed of multiple components: 
 +  `pkg` – The literal prefix 
@@ -25,7 +24,7 @@ pkg:<type>/<namespace>/<name>@<version>?<qualifiers>#<subpath>
 ```
 
 ### The generic PURL
-<a name="w2aac39c33b5c11"></a>
+<a name="w2aac41c33b5c11"></a>
 
  A generic PURL is used to represent software packages and components that don't fit into established package ecosystems, such as npm, pypi, or maven. It identifies software components and captures metadata that might not align with specific package management systems. A generic PURL is useful for a variety of software projects, from compiled binaries to platforms, such as Apache and WordPress. Its allows it to be applied across a wide range of use cases, including compiled binaries, web platforms, and custom software distributions. 
 
@@ -43,7 +42,7 @@ pkg:generic/<namespace>/<name>@<version>?<qualifiers>
 ```
 
 #### Additional examples of the generic PURL format
-<a name="w2aac39c33b5c11c13"></a>
+<a name="w2aac41c33b5c11c13"></a>
 
  The following are additional examples of the generic PURL format. 
 

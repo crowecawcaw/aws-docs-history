@@ -1,14 +1,17 @@
 
 
 # Configuring Microsoft Azure to integrate with Amazon Inspector
-<a name="inspector-azure-setup-azure"></a>
 
 The Azure setup process configures your Azure environment to allow Amazon Inspector to authenticate and receive resource change notifications. Amazon Inspector generates a customized setup script during connector creation. The script performs the following steps.
 
 **Note**  
 If you have already completed Azure environment setup for AWS Security Hub CSPM or AWS Security Hub CSPM CSPM, the same app registration is shared. The script detects the existing registration and adds the required federated identity credential for Amazon Inspector without modifying existing configuration.
 
+**What the setup script does**
+
 The setup script performs a series of tasks. The following sections describe each task that the script performs. If your organization restricts script execution, you can perform these tasks manually, using this topic as a guide.
+
+**Step 1: Register an Azure application**
 
 Register a new application in Microsoft Entra ID. This application serves as the identity that AWS uses to authenticate to your Azure environment using federated credentials. No client secrets are required.
 
@@ -18,6 +21,8 @@ $ az ad app create --display-name "AWSSecurityHubIntegration"
 
 Note the **Application (client) ID** from the output (the `appId` attribute). You will provide this value when creating the connector in the Amazon Inspector console.
 
+**Step 2: Create a service principal**
+
 Create a service principal for the registered application. You use Azure role assignments to grant permissions to the service principal. The service principal performs actions in your Azure environment.
 
 ```
@@ -25,6 +30,8 @@ $ az ad sp create --id {{application-client-id}}
 ```
 
 Where {{application-client-id}} is the Application (client) ID from the previous step.
+
+**Step 3: Configure federated identity credentials**
 
 Configure federated identity credentials on the application to enable AWS to authenticate without client secrets. This establishes an OIDC trust between AWS and Azure. No long-lived secrets or credentials are stored.
 
@@ -45,6 +52,8 @@ Key values:
 + **Subject** – The ARN of the `AWSServiceRoleForConfigThirdParty` service-linked role in your AWS account. AWS creates this service-linked role automatically when you create the connector.
 + **Audience** – `api://AzureADTokenExchange` (standard value for workload identity federation).
 
+**Step 4: Assign the Reader role**
+
 Assign the **Reader** role to the service principal at the tenant root management group scope. This grants read-only access to all Azure resources across all subscriptions in the tenant.
 
 ```
@@ -57,7 +66,11 @@ $ az role assignment create \
 **Note**  
 If this step fails, verify that *Access management for Azure resources* is set to **Yes** in Microsoft Entra ID > Properties. Then sign out and sign back in to refresh your token.
 
+**Step 5: Configure Microsoft Graph API permissions**
+
 Grant the required Microsoft Graph API permissions (Application type) to the application: `Directory.Read.All`, `AuditLog.Read.All`, and `Policy.Read.All`. Then grant admin consent.
+
+**Step 6: Set up Azure Event Hub**
 
 AWS Config uses an Azure Event Hub to receive near real-time notifications of resource configuration changes in your Azure environment. The setup script creates the Event Hub infrastructure and tags it for discovery.
 
@@ -109,6 +122,8 @@ Key configuration:
 **Note**  
 The tag format is `AWSConfig-{{account-id}}-{{region}}` where {{account-id}} is your 12-digit AWS account identifier and {{region}} is the AWS Region where you created the connector (for example, `us-east-1`).
 
+**Step 7: Configure Activity Log and Entra ID Audit Log export**
+
 Configure Azure to export Activity Logs and Entra ID Audit Logs to the Event Hub.
 
 **Activity Log export:**
@@ -118,6 +133,8 @@ Configure diagnostic settings on each subscription to export Activity Logs to th
 **Entra ID Audit Log export:**
 
 Configure diagnostic settings on Microsoft Entra ID to export audit logs to the same Event Hub. Navigate to *Microsoft Entra ID > Monitoring > Diagnostic settings > Add diagnostic setting*. Enable **AuditLogs** and route them to your Event Hub.
+
+**Running the setup script**
 
 To run the Azure setup script:
 

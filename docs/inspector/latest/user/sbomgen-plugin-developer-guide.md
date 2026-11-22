@@ -1,7 +1,6 @@
 
 
 # Plugin developer guide
-<a name="sbomgen-plugin-developer-guide"></a>
 
  This guide explains how to extend Amazon Inspector SBOM Generator (inspector-sbomgen) with custom Lua plugins. Plugins let you add support for new package ecosystems without modifying sbomgen's source code or having to re-compile. 
 
@@ -33,7 +32,7 @@
 
  The fastest way to create a new plugin is using the built-in scaffolding command: 
 
-```
+```bash
 inspector-sbomgen plugin new
 ```
 
@@ -46,7 +45,7 @@ Project directory [my-sbomgen-plugins]:
 
  You can also pass arguments directly: 
 
-```
+```bash
 inspector-sbomgen plugin new --name cmake --path /tmp/custom-plugins
 ```
 
@@ -55,7 +54,7 @@ inspector-sbomgen plugin new --name cmake --path /tmp/custom-plugins
 
  If you want to experiment with plugins before writing your own logic, create a new plugin using the `--with-example` flag: 
 
-```
+```bash
 inspector-sbomgen plugin new --with-example
 ```
 
@@ -63,7 +62,7 @@ inspector-sbomgen plugin new --with-example
 
  For advanced scaffolding that includes all optional override functions (`get_scanner_name`, `get_event_name`, `get_scanner_groups`, multi-event discovery, etc.), use the `--with-overrides` flag (more on this later): 
 
-```
+```bash
 inspector-sbomgen plugin new --with-overrides
 ```
 
@@ -82,7 +81,7 @@ inspector-sbomgen plugin new --with-overrides
 
  **1. Built-in test harness** — Use `inspector-sbomgen plugin test` to validate plugin logic during development. This runs your `init_test.lua` test files without needing a real artifact to scan: 
 
-```
+```bash
 inspector-sbomgen plugin test --path ./my-plugins
 ```
 
@@ -90,7 +89,7 @@ inspector-sbomgen plugin test --path ./my-plugins
 
  **2. End-to-end scan** — Invoke your plugin using standard sbomgen commands to verify it works against real artifacts. For this approach, you need to provide both an artifact containing the files your plugin targets (e.g., a directory with `requirements.txt` or equivalent) and the path to your plugin directory: 
 
-```
+```bash
 inspector-sbomgen directory \
     --path /path/to/test/dir \
     --plugin-dir ./my-plugins \
@@ -187,7 +186,7 @@ inspector-sbomgen directory \
 
  Most discovery plugins work by locating files whose names or paths identify a specific ecosystem — for example, `requirements.txt` for Python pip, `package.json` for npm, or `Cargo.lock` for Rust cargo. The `sbomgen.find_files_by_*` functions perform this matching outside the Lua VM, which makes them significantly faster than iterating the full file list in Lua: 
 
-```
+```lua
 -- REQUIRED: Scans the artifact and returns a table of file paths.
 function discover()
     return sbomgen.find_files_by_name({"requirements.txt"})
@@ -210,7 +209,7 @@ end
 
  When your logic requires post-filtering — for example, keeping files matching a suffix but excluding build-output directories — combine a `find_files_by_*` call with a Lua loop: 
 
-```
+```lua
 function discover()
     local found = {}
     for _, f in ipairs(sbomgen.find_files_by_suffix({".conda-meta.json"})) do
@@ -229,7 +228,7 @@ end
 
  By default, all files returned by `discover()` are published to a single event (from `get_event_name()`). If your scanner needs to route different files to different collectors, return a keyed table instead: 
 
-```
+```lua
 function discover()
     return {
         EventNameFoundCurl = sbomgen.find_files_by_name({"curl", "curl.exe"}),
@@ -266,7 +265,7 @@ end
 
  Define `get_localhost_scan_paths()` to return directories or file paths that the localhost walker should include: 
 
-```
+```lua
 function get_localhost_scan_paths()
     return {
         "/usr/bin",
@@ -282,7 +281,7 @@ end
 
  When the files you care about live at different locations on Windows, macOS, and Linux, branch on `sbomgen.get_platform()` and return the appropriate paths for the host: 
 
-```
+```lua
 function get_localhost_scan_paths()
     local platform = sbomgen.get_platform()
 
@@ -318,7 +317,7 @@ end
 + **Parse** the contents — string matching for simple manifests, `sbomgen.json_decode()` for JSON, `sbomgen.xml_decode()` for XML, or `sbomgen.search_binary()` for compiled binaries.
 + **Publish** each discovered package by calling `sbomgen.push_package()` with the package's metadata.
 
-```
+```lua
 -- REQUIRED: Called once per discovered file.
 -- Parse the file and call sbomgen.push_package() for each package found.
 function collect(file_path)
@@ -363,7 +362,7 @@ end
 
  Set qualifiers via the `qualifiers` table on `sbomgen.push_package()`: 
 
-```
+```lua
 sbomgen.push_package({
     name = "curl",
     version = "7.88.1",
@@ -392,7 +391,7 @@ sbomgen.push_package({
 
  Use your own namespace (typically your organization or plugin identifier) when defining properties: 
 
-```
+```lua
 sbomgen.push_package({
     name = "requests",
     version = "2.28.1",
@@ -413,7 +412,7 @@ sbomgen.push_package({
 + A key that **contains a colon** is used verbatim in the SBOM. Always include at least one colon in your keys so you control the namespace.
 + A key that **does not contain a colon** is automatically prefixed with `amazon:inspector:sbom_generator:` — placing it inside the reserved Inspector namespace. Avoid this shape for custom properties.
 
-```
+```lua
 properties = {
     ["acme:my_plugin:detected_via"] = "lockfile",  -- used as-is (recommended)
     detected_via                   = "lockfile",  -- becomes "amazon:inspector:sbom_generator:detected_via" (avoid)
@@ -446,27 +445,27 @@ properties = {
 ### Basic usage
 <a name="sbomgen-plugin-developer-guide-basic-usage"></a>
 
-```
+```bash
 inspector-sbomgen <artifact type> <arguments> --plugin-dir /path/to/plugins
 ```
 
  Example: 
 
-```
+```bash
 inspector-sbomgen directory --path /target -o /tmp/sbom.json --plugin-dir /path/to/plugins
 ```
 
 ### With native scanners disabled (Lua-only mode)
 <a name="sbomgen-plugin-developer-guide-with-native-scanners-disabled-lua-only-mode"></a>
 
-```
+```bash
 inspector-sbomgen directory --path /target --plugin-dir /path/to/plugins --disable-native-scanners -o sbom.json
 ```
 
 ### With verbose logging
 <a name="sbomgen-plugin-developer-guide-with-verbose-logging"></a>
 
-```
+```bash
 inspector-sbomgen directory --path /target --plugin-dir /path/to/plugins --verbose -o sbom.json
 ```
 
@@ -475,7 +474,7 @@ inspector-sbomgen directory --path /target --plugin-dir /path/to/plugins --verbo
 
  Use `list-scanners` to see every scanner available to sbomgen. This includes the built-in native scanners, any official Lua plugins bundled with sbomgen, and any custom Lua plugins you've supplied via `--plugin-dir`: 
 
-```
+```bash
 inspector-sbomgen list-scanners --plugin-dir /path/to/plugins
 ```
 
@@ -508,7 +507,7 @@ inspector-sbomgen list-scanners --plugin-dir /path/to/plugins
 
  To list only Lua scanners without native scanners: 
 
-```
+```bash
 inspector-sbomgen list-scanners --plugin-dir /path/to/plugins --disable-native-scanners
 ```
 
@@ -522,7 +521,7 @@ inspector-sbomgen list-scanners --plugin-dir /path/to/plugins --disable-native-s
 
  Use `--scanners` to run only the named scanners. All other scanners are excluded: 
 
-```
+```bash
 inspector-sbomgen directory --path /target \
     --plugin-dir /path/to/plugins \
     --scanners python-requirements \
@@ -536,7 +535,7 @@ inspector-sbomgen directory --path /target \
 
  Use `--skip-scanners` to exclude named scanners while running everything else: 
 
-```
+```bash
 inspector-sbomgen directory --path /target \
     --plugin-dir /path/to/plugins \
     --skip-scanners python-poetry \
@@ -553,7 +552,7 @@ inspector-sbomgen directory --path /target \
 
  The default scanner set depends on the artifact type being scanned (see the matrix in [How groups affect selection](#sbomgen-plugin-developer-guide-how-groups-affect-selection) below). A scanner whose groups are not part of the default set for the artifact type will not run unless you opt it in. Use `--additional-scanners` to append scanners to the default set without replacing it: 
 
-```
+```bash
 inspector-sbomgen directory --path /target \
     --plugin-dir /path/to/plugins \
     --additional-scanners my-extra-scanner \
@@ -643,7 +642,7 @@ unique event name. Rename get_event_name() in your plugin to use a unique name.
 
  All log output from a plugin is automatically prefixed with the plugin's source and path (e.g., `[custom:python-pip]`), so messages from different plugins are easy to distinguish. `log_info`, `log_warn`, and `log_error` always print; `log_debug` only prints when sbomgen is invoked with `--verbose`. 
 
-```
+```lua
 function discover()
     sbomgen.log_info("starting discovery")
     local files = sbomgen.find_files_by_name({"requirements.txt"})
@@ -660,7 +659,7 @@ end
 
  Use `sbomgen.breakpoint()` to pause plugin execution and block until you press Enter. This acts as a crude debugger — combine it with log statements to inspect state at specific points. 
 
-```
+```lua
 function discover()
     local files = sbomgen.find_files_by_name({"requirements.txt"})
 
@@ -712,7 +711,7 @@ end
 
  API functions that can fail return two values: `value, err`. On success, `err` is `nil`. On failure, the first value is `nil` and `err` is an error string. 
 
-```
+```lua
 local content, err = sbomgen.read_file(path)
 if err then
     sbomgen.log_error("failed to read " .. path .. ": " .. err)
@@ -763,7 +762,7 @@ my-ecosystem/
 └── helpers.lua
 ```
 
-```
+```lua
 -- helpers.lua
 local M = {}
 function M.parse_version(s)
@@ -772,7 +771,7 @@ end
 return M
 ```
 
-```
+```lua
 -- init.lua
 local helpers = require("helpers")
 
@@ -795,7 +794,7 @@ my-ecosystem/
     └── init.lua
 ```
 
-```
+```lua
 local parsers = require("parsers")
 ```
 

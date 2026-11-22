@@ -1,7 +1,6 @@
 
 
 # Scanning Amazon Elastic Container Registry container images with Amazon Inspector
-<a name="scanning-ecr"></a>
 
  Amazon Inspector scans container images stored in Amazon Elastic Container Registry for software vulnerabilities to generate [package vulnerability findings](https://docs.aws.amazon.com/). When you activate Amazon ECR scanning, you set Amazon Inspector as the preferred scanning service for your private registry. 
 

@@ -1,7 +1,6 @@
 
 
 # Creating a custom CI/CD pipeline integration with Amazon Inspector Scan
-<a name="cicd-custom"></a>
 
  We recommend that you use the [Amazon Inspector CI/CD plugins](https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html) if the Amazon Inspector CI/CD plugins are available for your CI/CD solution. If the Amazon Inspector CI/CD plugins aren't available for your CI/CD solution, you can use a combination of the Amazon Inspector SBOM Generator and the Amazon Inspector Scan API to create a custom CI/CD integration. The following steps describe how to create a custom CI/CD pipeline integration with Amazon Inspector Scan. 
 

@@ -1,7 +1,6 @@
 
 
 # Service-linked role permissions for Amazon Inspector
-<a name="slr-permissions"></a>
 
  Amazon Inspector uses the managed policy named [`AWSServiceRoleForAmazonInspector2`](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonInspector2ServiceRolePolicy.html). This service-linked role trusts the `inspector2.amazonaws.com` service to assume the role. 
 

@@ -1,7 +1,6 @@
 
 
 # Plugin API reference
-<a name="sbomgen-plugin-api-reference"></a>
 
  Complete API reference for inspector-sbomgen Lua plugins. For a guide on writing plugins, see [Plugin developer guide](sbomgen-plugin-developer-guide.md). For testing, see [Plugin testing guide](sbomgen-plugin-testing-guide.md). 
 
@@ -107,7 +106,7 @@
 These functions perform matching outside the Lua VM and return only the matched paths, completing in under 1 millisecond even on 300K-file artifacts. Use `get_file_list()` only when your matching logic cannot be expressed with any of the above.  
 The `find_files_by_*` and `glob_find_files` helpers skip symlinks, returning only concrete files, so a symlink alias and its target are not both inventoried. `get_file_list()` returns every entry, including symlinks.
 
-```
+```lua
 -- AVOID in discovery plugins when possible:
 local files = sbomgen.get_file_list()
 for _, f in ipairs(files) do
@@ -125,7 +124,7 @@ local matches = sbomgen.find_files_by_name({"target-file.txt"})
 + **Returns:** `string, err`
 + On failure: `nil, error_string`
 
-```
+```lua
 local content, err = sbomgen.read_file("/app/package.json")
 if err then
     sbomgen.log_error("read failed: " .. err)
@@ -139,7 +138,7 @@ end
  Opens a file for streaming reads. Returns a FileHandle object. Use this for large files where loading the entire content into memory is impractical. 
 + **Returns:** `FileHandle, err`
 
-```
+```lua
 local fh, err = sbomgen.open_file(path)
 if err then return end
 local line = fh:read_line()
@@ -156,7 +155,7 @@ fh:close()
  Returns files matching a Go `filepath.Match` glob pattern. The pattern is matched against the base filename. Symlinks are skipped; only concrete files are returned. 
 + **Returns:** `{string, ...}, err`
 
-```
+```lua
 local files, err = sbomgen.glob_find_files("*.txt")
 ```
 
@@ -169,7 +168,7 @@ local files, err = sbomgen.glob_find_files("*.txt")
 + **Parameters:** `names` — table of strings (basenames to match)
 + **Returns:** `{string, ...}` — matching file paths, excluding symlinks (no error tuple)
 
-```
+```lua
 local curl_bins = sbomgen.find_files_by_name({"curl", "curl.exe"})
 local headers = sbomgen.find_files_by_name({"curlver.h"})
 ```
@@ -181,7 +180,7 @@ local headers = sbomgen.find_files_by_name({"curlver.h"})
 + **Parameters:** `names` — table of strings (basenames to match, case-insensitive)
 + **Returns:** `{string, ...}` — matching file paths, excluding symlinks (no error tuple)
 
-```
+```lua
 local version_files = sbomgen.find_files_by_name_icase({"version"})
 local war_files = sbomgen.find_files_by_name_icase({"jenkins.war"})
 ```
@@ -193,7 +192,7 @@ local war_files = sbomgen.find_files_by_name_icase({"jenkins.war"})
 + **Parameters:** `suffixes` — table of strings (path suffixes to match)
 + **Returns:** `{string, ...}` — matching file paths, excluding symlinks (no error tuple)
 
-```
+```lua
 local pom_files = sbomgen.find_files_by_suffix({"/pom.properties"})
 local release_headers = sbomgen.find_files_by_suffix({"ap_release.h", "opensslv.h"})
 ```
@@ -206,7 +205,7 @@ local release_headers = sbomgen.find_files_by_suffix({"ap_release.h", "opensslv.
 + **Returns:** `{string, ...}` — matching file paths, excluding symlinks (no error tuple)
 + **Raises:** a Lua error if any pattern fails to compile
 
-```
+```lua
 local configs = sbomgen.find_files_by_path_regex({"/etc/.*\\.conf$", "/opt/.*/config\\.json$"})
 ```
 
@@ -223,7 +222,7 @@ local configs = sbomgen.find_files_by_path_regex({"/etc/.*\\.conf$", "/opt/.*/co
  Lists entries in a directory. 
 + **Returns:** `{{name, is_dir}, ...}, err`
 
-```
+```lua
 local entries, err = sbomgen.read_dir("/app/node_modules")
 if err then return end
 for _, e in ipairs(entries) do
@@ -239,7 +238,7 @@ end
  Returns metadata about a file. 
 + **Returns:** `{is_regular, is_dir, size}, err`
 
-```
+```lua
 local info, err = sbomgen.file_stat(path)
 if err then return end
 if info.is_regular and info.size > 0 then
@@ -253,7 +252,7 @@ end
  Reads a single entry from a ZIP, JAR, or WAR archive. 
 + **Returns:** `string, err`
 
-```
+```lua
 local manifest, err = sbomgen.read_zip_entry(
     "/app/lib/example.jar",
     "META-INF/MANIFEST.MF"
@@ -266,7 +265,7 @@ local manifest, err = sbomgen.read_zip_entry(
  Parses a file as an ELF, PE, or Mach-O binary and searches the default constant/variable section for a Go regex match. 
 + **Returns:** `string|nil, err` — the matched string, or nil if no match
 
-```
+```lua
 local version, err = sbomgen.search_binary(path, "Version:\\s+([\\d.]+)")
 if version then
     sbomgen.log_info("found version: " .. version)
@@ -279,7 +278,7 @@ end
  Parses a file as an ELF, PE, or Mach-O binary and returns all unique first capture group matches from the default constant/variable section. Pass `n` to limit results. 
 + **Returns:** `{string, ...}|nil, err` — table of matched strings, or nil if no matches
 
-```
+```lua
 local versions, err = sbomgen.search_binary_all(path, "version[= ]+([\\d.]+)", 5)
 if versions then
     for _, v in ipairs(versions) do
@@ -294,7 +293,7 @@ end
  Searches the entire binary file for the first regex match, not limited to a specific section. Use when section-based search (`search_binary`) is insufficient — for example, when version strings are in non-standard sections. 
 + **Returns:** `string|nil, err` — the matched string, or nil if no match
 
-```
+```lua
 local version, err = sbomgen.search_binary_raw(path, "ProductVersion[\\x00\\s]+([\\d.]+)")
 ```
 
@@ -330,7 +329,7 @@ local version, err = sbomgen.search_binary_raw(path, "ProductVersion[\\x00\\s]+(
 + **Returns:** `string, err`
 + **Algorithms:** see [Component Hashes](#sbomgen-plugin-api-reference-component-hashes) for the list of accepted algorithm constants.
 
-```
+```lua
 local data, err = sbomgen.read_file("/path/to/manifest.json")
 if data then
     local sha256 = sbomgen.hash(data, sbomgen.hash_algorithms.SHA256)
@@ -344,7 +343,7 @@ end
  Returns the hex-encoded digest of a file's contents under the given algorithm. Routes the read through the artifact I/O layer, so it works uniformly across directory, container, archive, volume, and localhost artifacts. Use this when the digest is the only thing you need from the file. 
 + **Returns:** `string, err`
 
-```
+```lua
 local sha256, err = sbomgen.hash_file("/app/bin/server", sbomgen.hash_algorithms.SHA256)
 if sha256 then
     sbomgen.log_info("SHA-256: " .. sha256)
@@ -360,7 +359,7 @@ end
  Equivalent to `sbomgen.hash_file(path, "SHA-256")`. 
 + **Returns:** `string, err`
 
-```
+```lua
 local hash, err = sbomgen.sha256("/app/bin/server")
 if hash then
     sbomgen.log_info("SHA-256: " .. hash)
@@ -373,7 +372,7 @@ end
  Checks whether a file contains each of the given byte patterns. Returns a table of booleans in the same order as the input patterns. 
 + **Returns:** `{bool, ...}, err`
 
-```
+```lua
 local results, err = sbomgen.contains_bytes(path, {
     "\xff Go buildinf:",   -- Go build identifier
     "/rustc/",             -- Rust build identifier
@@ -392,7 +391,7 @@ end
 
  The `product_version` and `file_version` fields come from the PE `FixedFileInfo` structure, formatted as `"major.minor.build.revision"`. The `string_table` field is a nested table keyed by **locale code** (e.g., `"040904B0"` for US English Unicode). Each locale maps to a table of name/value pairs drawn from the PE `StringFileInfo` (`ProductVersion`, `ProductName`, `FileDescription`, etc.). A PE binary may expose one or more locales. 
 
-```
+```lua
 local info, err = sbomgen.get_pe_version_info(file_path)
 if err then return end
 
@@ -419,7 +418,7 @@ end
  Convenience wrapper that returns just the product version string from a PE binary's FixedFileInfo. Equivalent to calling `get_pe_version_info(path)` and reading `product_version`. 
 + **Returns:** `string, err`
 
-```
+```lua
 local version, err = sbomgen.parse_product_version(file_path)
 if version then
     sbomgen.log_info("product version: " .. version)
@@ -432,7 +431,7 @@ end
  Convenience wrapper that returns just the file version string from a PE binary's FixedFileInfo. Equivalent to calling `get_pe_version_info(path)` and reading `file_version`. 
 + **Returns:** `string, err`
 
-```
+```lua
 local version, err = sbomgen.parse_file_version(file_path)
 if version then
     sbomgen.log_info("file version: " .. version)
@@ -466,7 +465,7 @@ end
 | source\_paths | table | No | List of provenance paths recorded as source\_path properties. Defaults to the file collect() was invoked with. Set it to point at a directory, at several paths, or to give a child its own path | 
 | provenance | string | No | Where the package was read from; use sbomgen.provenance.\* constants. Defaults to sbomgen.provenance.FILE. See [Package Provenance](#sbomgen-plugin-api-reference-package-provenance) | 
 
-```
+```lua
 sbomgen.push_package({
     name = "requests",
     version = "2.28.1",
@@ -498,7 +497,7 @@ sbomgen.push_package({
 
  An unrecognized `provenance` drops the package with a warning rather than silently falling back to file provenance. 
 
-```
+```lua
 sbomgen.push_package({
     name = "Example App",
     purl_name = "exampleapp",
@@ -518,7 +517,7 @@ sbomgen.push_package({
 
  A collector normally runs once per discovered file, so an event with no files never reaches it. A discovery plugin can list events that should fire anyway, for collectors that read the registry or another non-file source: 
 
-```
+```lua
 function get_fileless_events()
     return { "FoundExampleApp" }
 end
@@ -533,7 +532,7 @@ end
 
  Accumulate across calls and emit from `finalize()`, which runs once after the last file of the event: 
 
-```
+```lua
 local pending = {}
 
 function collect(file_path)
@@ -590,7 +589,7 @@ end
 ### Example: hashing a manifest and attaching the digest
 <a name="sbomgen-plugin-api-reference-component-hashes-example"></a>
 
-```
+```lua
 function collect(file_path)
     local data, err = sbomgen.read_file(file_path)
     if err then return end
@@ -616,7 +615,7 @@ end
 
  The optional `licenses` field on `sbomgen.push_package()` records the licenses a package declares. Pass the license texts as you read them; sbomgen normalizes them into a single SPDX license expression and serializes it into the CycloneDX `components[].licenses` array. 
 
-```
+```lua
 sbomgen.push_package({
     name = "docker",
     version = "29.7.1",
@@ -661,7 +660,7 @@ sbomgen.push_package({
 
  Reading license data can be expensive, for example when it means opening a separate license file per package. Check `sbomgen.should_collect_licenses()` and skip that work when it is not needed: 
 
-```
+```lua
 function collect(file_path)
     local licenses = nil
     if sbomgen.should_collect_licenses() then
@@ -714,7 +713,7 @@ end
 
  Always include at least one colon in property keys you define. Use a namespace unique to your organization or plugin (for example `acme:python-pip:*`): 
 
-```
+```lua
 properties = {
     -- Custom namespace — safe to use (recommended)
     ["acme:python-pip:manifest_path"] = file_path,
@@ -797,7 +796,7 @@ properties = {
 
  Example: 
 
-```
+```lua
 function get_scanner_groups()
     return {sbomgen.groups.PROGRAMMING_LANGUAGE, sbomgen.groups.PACKAGE_COLLECTOR}
 end
@@ -826,7 +825,7 @@ end
 
  Example: 
 
-```
+```lua
 sbomgen.push_package({
     name = "requests",
     version = "2.28.1",
@@ -849,7 +848,7 @@ sbomgen.push_package({
 
  `purl_type` remains required. Omitting it, or misspelling the field name, drops the package with a warning rather than silently producing a component without a package URL. 
 
-```
+```lua
 sbomgen.push_package({
     name = "model.gguf",
     purl_type = sbomgen.purl_types.NONE,
@@ -871,7 +870,7 @@ sbomgen.push_package({
 
  Example: 
 
-```
+```lua
 if sbomgen.get_platform() == sbomgen.platform.WINDOWS then
     -- Windows-specific logic
 end
@@ -890,7 +889,7 @@ end
 
  Example: 
 
-```
+```lua
 local digest = sbomgen.hash_file(path, sbomgen.hash_algorithms.SHA256)
 sbomgen.push_package({
     name = "example",
@@ -923,7 +922,7 @@ sbomgen.push_package({
 
  Returns environment variables from the artifact as a table of `{key, value}` entries. 
 
-```
+```lua
 local env_vars = sbomgen.get_env_vars()
 for _, env in ipairs(env_vars) do
     if env.key == "NODE_ENV" then
@@ -937,7 +936,7 @@ end
 
  Returns the system drive letter (e.g., `"C:"`) from the artifact's environment. Reads the `SystemDrive` environment variable, defaulting to `"C:"` if not set. This is the Lua equivalent of `strutils.GetSystemDriverLetter()`. 
 
-```
+```lua
 local drive = sbomgen.get_system_drive()
 local program_files = drive .. "/Program Files/"
 ```
@@ -947,7 +946,7 @@ local program_files = drive .. "/Program Files/"
 
  Expands filesystem glob patterns against the host filesystem. Localhost-only: returns `nil` plus an error on other artifact types. 
 
-```
+```lua
 function get_localhost_scan_paths()
     return sbomgen.resolve_glob_paths({
         "/home/*/.cache/huggingface/hub",
@@ -975,7 +974,7 @@ end
 
  This is the artifact-aware way to locate per-user directories (such as model caches or tool configuration) without hardcoding `/home/*` or `/Users/*`. It includes root's home directory and skips well-known non-user directories (built-in profiles such as `Public` and `Default` on Windows, `Shared` on macOS, and `lost+found` on Linux). 
 
-```
+```lua
 function get_localhost_scan_paths()
     local patterns = {}
     for _, home in ipairs(sbomgen.get_home_dirs()) do
@@ -1022,7 +1021,7 @@ end
  Returns the first match of a Go regex pattern, or `nil` if no match. 
 + **Returns:** `string|nil, err`
 
-```
+```lua
 local version = sbomgen.regex_find(content, "\\d+\\.\\d+\\.\\d+")
 ```
 
@@ -1032,7 +1031,7 @@ local version = sbomgen.regex_find(content, "\\d+\\.\\d+\\.\\d+")
  Returns capture groups from the first match. Index 1 is the full match, 2\+ are capture groups. 
 + **Returns:** `{string, ...}|nil, err`
 
-```
+```lua
 local groups = sbomgen.regex_match(content, "(MySQL|MariaDB) (\\d+)\\.(\\d+)\\.(\\d+)")
 if groups then
     local db_type = groups[2]   -- "MySQL" or "MariaDB"
@@ -1046,7 +1045,7 @@ end
  Returns all non-overlapping matches. Pass `n` to limit results (default: all). 
 + **Returns:** `{string, ...}|nil, err`
 
-```
+```lua
 local versions = sbomgen.regex_find_all(content, "\\d+\\.\\d+\\.\\d+")
 ```
 
@@ -1056,7 +1055,7 @@ local versions = sbomgen.regex_find_all(content, "\\d+\\.\\d+\\.\\d+")
  Replaces all matches. The replacement string can use `$1`, `$2`, etc. for capture group references. 
 + **Returns:** `string, err`
 
-```
+```lua
 local cleaned = sbomgen.regex_replace(raw_version, "(1[6-9]\\d{8,}|buildkitsandbox.*)$", "")
 ```
 
@@ -1079,7 +1078,7 @@ local cleaned = sbomgen.regex_replace(raw_version, "(1[6-9]\\d{8,}|buildkitsandb
  Parses a JSON string into a Lua table. 
 + **Returns:** `table|nil, err`
 
-```
+```lua
 local doc, err = sbomgen.json_decode('{"name":"requests","version":"2.28.1"}')
 if err then return end
 sbomgen.log_info(doc.name)
@@ -1097,7 +1096,7 @@ sbomgen.log_info(doc.name)
 + `_text` — trimmed text content, when present
 + numeric indices `1..n` — child elements
 
-```
+```lua
 local doc, err = sbomgen.xml_decode('<package id="Newtonsoft.Json" version="13.0.3" />')
 if err then return end
 sbomgen.log_info(doc._attr.id)
@@ -1114,7 +1113,7 @@ sbomgen.log_info(doc._attr.id)
  Opens a registry key. Returns a key handle that must be closed with `registry_close`. 
 + **Returns:** `key, err`
 
-```
+```lua
 local key, err = sbomgen.registry_open_key("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\7-Zip")
 if err then return end
 -- use key...
@@ -1127,7 +1126,7 @@ sbomgen.registry_close(key)
  Reads a string value from an open registry key. 
 + **Returns:** `string, err`
 
-```
+```lua
 local version, err = sbomgen.registry_get_string(key, "DisplayVersion")
 ```
 
@@ -1143,7 +1142,7 @@ local version, err = sbomgen.registry_get_string(key, "DisplayVersion")
  Reads a multi-string (REG\_MULTI\_SZ) value from an open registry key. Returns a table of strings. 
 + **Returns:** `{string, ...}, err`
 
-```
+```lua
 local paths, err = sbomgen.registry_get_strings(key, "DependsOnService")
 if paths then
     for _, p in ipairs(paths) do
@@ -1158,7 +1157,7 @@ end
  Returns all subkey names under an open registry key. 
 + **Returns:** `{string, ...}, err`
 
-```
+```lua
 local subkeys, err = sbomgen.registry_get_subkeys(key)
 for _, name in ipairs(subkeys) do
     local subkey, err = sbomgen.registry_open_key(parent_path .. "\\" .. name)
@@ -1192,7 +1191,7 @@ end
 
  Use `string.format` for formatted messages: 
 
-```
+```lua
 sbomgen.log_info(string.format("found %d packages in %s", count, file_path))
 ```
 
@@ -1206,7 +1205,7 @@ sbomgen.log_info(string.format("found %d packages in %s", count, file_path))
 
  Use this as a crude debugger by placing breakpoints at key points in your plugin and running with `--verbose` to see surrounding log output. 
 
-```
+```lua
 sbomgen.log_info("state: " .. some_variable)
 sbomgen.breakpoint("paused after state dump — press Enter to continue")
 ```
@@ -1238,7 +1237,7 @@ sbomgen.breakpoint("paused after state dump — press Enter to continue")
 
  Each finding table projects only the fields listed below. In particular, `namespace` and `purl_type` are not projected separately — they are incorporated into the full `purl` string. 
 
-```
+```lua
 local result = testing.scan_directory("_testdata/example")
 -- result.findings                        -- array of finding tables
 -- result.findings[i].name                -- string
@@ -1284,7 +1283,7 @@ local result = testing.scan_directory("_testdata/example")
 
  API functions that can fail return two values: `value, err`. On success, `err` is `nil`. On failure, the first value is `nil` and `err` is an error string. 
 
-```
+```lua
 local content, err = sbomgen.read_file(path)
 if err then
     sbomgen.log_error("failed to read " .. path .. ": " .. err)

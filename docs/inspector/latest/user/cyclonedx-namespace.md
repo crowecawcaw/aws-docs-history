@@ -1,7 +1,6 @@
 
 
 # Using CycloneDX namespaces with Amazon Inspector
-<a name="cyclonedx-namespace"></a>
 
  Amazon Inspector provides you with CycloneDX namespaces and property names that you can use with SBOMs. This section describes all of the custom key/value properties that might be added to components in CycloneDX SBOMs. For more information, see [CycloneDX property taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy) on the GitHub website. 
 
@@ -57,7 +56,7 @@
 | amazon:inspector:sbom\_generator:duplicate\_purl | Indicates the duplicated package PURL found by another scanner. | 
 | amazon:inspector:sbom\_generator:kernel\_name | The kernel name of the system being inventoried. | 
 | amazon:inspector:sbom\_generator:kernel\_version | The kernel version of the system being inventoried. | 
-| amazon:inspector:sbom\_generator:kernel\_component | A boolean value indicating whether a subject package is a kernel component | 
+| amazon:inspector:sbom\_generator:kernel\_component | A boolean value indicating whether a subject package is a kernel component. | 
 | amazon:inspector:sbom\_generator:running\_kernel | A boolean value that indicates if a subject package is the running kernel | 
 | amazon:inspector:sbom\_generator:layer\_diff\_id | The hash of the uncompressed container image layer. | 
 | amazon:inspector:sbom\_generator:replaced\_by | The value that replaces the current Go module. | 
@@ -68,7 +67,7 @@
 | amazon:inspector:sbom\_generator:source\_package\_collector | The collector that extracted the package name and version from a specific file. | 
 | amazon:inspector:sbom\_generator:source\_path | The path to the file that the subject package information was extracted from. | 
 | amazon:inspector:sbom\_generator:file\_size\_bytes | Indicates file size of a given artifact. | 
-| amazon:inspector:sbom\_generator:unresolved\_version | Indicates a version string that has not been resolved by package manager.. | 
+| amazon:inspector:sbom\_generator:unresolved\_version | Indicates a version string that has not been resolved by package manager. | 
 | amazon:inspector:sbom\_generator:experimental:transitive\_dependency | Indicates indirect dependencies from a package manager. | 
 | amazon:inspector:sbom\_generator:subscription:enabled | A boolean value indicating whether a subscription is enabled, such as RHEL EUS/E4S or Ubuntu Pro. | 
 | amazon:inspector:sbom\_generator:subscription:name | The name of the active subscription (e.g., EUS, E4S, Pro). | 
@@ -87,10 +86,10 @@
 | amazon:inspector:sbom\_generator:metadata:host:network\_interfaces:{{name}}:ipv6 | IPv6 address(es) assigned to the interface. | 
 | amazon:inspector:sbom\_generator:metadata:host:sbomgen\_tag:{{key}} | Custom user-defined tags passed via the --tag CLI argument. | 
 | amazon:inspector:sbom\_generator:metadata:imds:provider | The cloud provider detected via IMDS (aws, azure, gcp). | 
-| amazon:inspector:sbom\_generator:metadata:imds:instance\_id | The Amazon EC2 instance ID or Azure VM name. | 
-| amazon:inspector:sbom\_generator:metadata:imds:instance\_type | The instance type (e.g., t3.micro, Standard\_D2s\_v3). | 
-| amazon:inspector:sbom\_generator:metadata:imds:instance\_location | The region/location of the instance. | 
-| amazon:inspector:sbom\_generator:metadata:imds:instance\_partition | The cloud partition (aws, aws-cn, aws-us-gov for AWS, or AzurePublicCloud for Azure). | 
+| amazon:inspector:sbom\_generator:metadata:imds:instance\_id | The Amazon EC2 instance ID, the Azure VM name, or the Google Cloud Platform (GCP) Compute Engine VM instance ID. | 
+| amazon:inspector:sbom\_generator:metadata:imds:instance\_type | The instance type (e.g., t3.micro, Standard\_D2s\_v3), or the machine type for a GCP Compute Engine VM instance (for example, e2-medium). | 
+| amazon:inspector:sbom\_generator:metadata:imds:instance\_location | The region/location of the instance. For a GCP Compute Engine VM instance, this is the zone, such as us-central1-a. | 
+| amazon:inspector:sbom\_generator:metadata:imds:instance\_partition | The cloud partition (aws, aws-cn, aws-us-gov for AWS, or AzurePublicCloud for Azure). GCP has no partition, so this property isn't set for GCP Compute Engine VM instances. | 
 | amazon:inspector:sbom\_generator:metadata:imds:account\_id | The AWS account ID of the Amazon EC2 instance, obtained from the instance identity document (AWS only). | 
 | amazon:inspector:sbom\_generator:metadata:imds:resource\_type | The type of cloud resource being scanned (e.g., aws\_ec2\_instance). | 
 | amazon:inspector:sbom\_generator:metadata:imds:instance\_managed\_id | Amazon EC2 Systems Manager managed instance ID (AWS only). | 
@@ -98,8 +97,8 @@
 | amazon:inspector:sbom\_generator:metadata:imds:resource\_group | The Azure resource group the instance belongs to (Azure only). | 
 | amazon:inspector:sbom\_generator:metadata:imds:subscription\_id | The Azure subscription ID associated with the instance (Azure only). | 
 | amazon:inspector:sbom\_generator:metadata:imds:vm\_id | Azure VM unique identifier (Azure only). | 
-| amazon:inspector:sbom\_generator:metadata:imds:project\_id | The Google Cloud project ID the instance belongs to (GCP only). | 
-| amazon:inspector:sbom\_generator:metadata:imds:numeric\_project\_id | The numeric Google Cloud project ID the instance belongs to (GCP only). | 
-| amazon:inspector:sbom\_generator:metadata:imds:instance\_name | The instance name as reported by the GCP metadata service (GCP only). | 
+| amazon:inspector:sbom\_generator:metadata:imds:project\_id | The GCP project ID that the GCP Compute Engine VM instance belongs to (GCP only). | 
+| amazon:inspector:sbom\_generator:metadata:imds:numeric\_project\_id | The numeric GCP project ID (the project number) that the GCP Compute Engine VM instance belongs to (GCP only). | 
+| amazon:inspector:sbom\_generator:metadata:imds:instance\_name | The name of the GCP Compute Engine VM instance, as reported by the GCP metadata server (GCP only). | 
 | amazon:inspector:sbom\_generator:metadata:host:open\_port:{{port}}:{{protocol}} | Indicates an open port of a runtime resource (i.e. EC2) | 
 | amazon:inspector:sbom\_generator:hardened\_image:vendor | The vendor of a hardened container image | 

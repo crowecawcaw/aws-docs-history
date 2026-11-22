@@ -1,7 +1,6 @@
 
 
 # Regions and endpoints
-<a name="inspector_regions"></a>
 
  This topic includes tables that show endpoints for Amazon Inspector and Amazon Inspector Scan. It also includes tables that show which AWS Regions support Amazon Inspector features. To view the AWS Regions where Amazon Inspector is available, see [Amazon Inspector endpoint and quotas](https://docs.aws.amazon.com/general/latest/gr/inspector2.html) in the *Amazon Web Services General Reference*. 
 
@@ -194,21 +193,6 @@ An error occurred (AccessDeniedException) when calling the Enable operation: Lam
   <tr><td>Europe (London)</td><td>eu-west-2</td></tr>
   <tr><td>Europe (Stockholm)</td><td>eu-north-1</td></tr>
   <tr><td>Asia Pacific (Singapore)</td><td>ap-southeast-1</td></tr>
-</tbody>
-</table>
-
-
-**Machine image scanning Regions**  
- Amazon Inspector supports machine image (AMI) scanning in the commercial AWS Regions and the AWS GovCloud (US) Regions, but not in the China Regions. The following table shows where continuous machine image scanning and on-demand machine image scans are available.   
-
-
-<table>
-<thead>
-  <tr><th>Feature</th><th>Commercial AWS Regions</th><th>AWS GovCloud (US) Regions</th><th>China Regions</th></tr>
-</thead>
-<tbody>
-  <tr><td>Continuous machine image scanning</td><td>Available</td><td>Available</td><td>Not available</td></tr>
-  <tr><td>On-demand machine image scans</td><td>Available</td><td>Available</td><td>Not available</td></tr>
 </tbody>
 </table>
 

@@ -1,7 +1,6 @@
 
 
 # Viewing CIS scan results
-<a name="scanning-cis-view-cis-scan-configuration"></a>
 
  Amazon Inspector creates a scan job for every scan configuration that runs and collects results of a scan with a unique scan ID. CIS scan results are available for 90 days. You can view CIS scan results by its checks or scanned resources: 
 +  **Scan results aggregated by checks** – Groups the results of a scan by each individual check performed during the scan. For each check, you get a report of how many resources failed, skipped, or passed. 

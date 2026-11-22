@@ -1,17 +1,16 @@
 
 
 # Adding tags
-<a name="tagging-add"></a>
 
  You can add tags to Amazon Inspector resources. These resources include suppression rules and CIS scan configurations. Tags help you categorize AWS resources based on specific criteria. This topic describes how to add tags to Amazon Inspector resources. 
 
 ## Adding tags to Amazon Inspector resources
-<a name="w2aac50c10b5"></a>
+<a name="w2aac52c10b5"></a>
 
  You can tag [suppression rules](https://docs.aws.amazon.com/inspector/latest/user/findings-managing-supression-rules.html) and [CIS scan configurations](https://docs.aws.amazon.com/inspector/latest/user/scanning-cis-create-cis-scan-configuration.html). The following procedures describe how to add tags in the console and with the Amazon Inspector API. 
 
 ### Adding tags in the console
-<a name="w2aac50c10b5b5"></a>
+<a name="w2aac52c10b5b5"></a>
 
  You can add tags to Amazon Inspector resources in the console. 
 
@@ -26,7 +25,7 @@
  You can also edit a CIS scan configuration to include tags. For more information, see [Editing a CIS scan configuration](https://docs.aws.amazon.com/inspector/latest/user/scanning-cis-view-edit-cis-scan-configuration.html). 
 
 ### Adding tags with the Amazon Inspector API
-<a name="w2aac50c10b5b7"></a>
+<a name="w2aac52c10b5b7"></a>
 
  You can add tags to Amazon Inspector resources with the Amazon Inspector API. 
 

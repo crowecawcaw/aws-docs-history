@@ -1,7 +1,6 @@
 
 
 # Working with the dashboard in Amazon Inspector
-<a name="understanding-dashboard"></a>
 
  The dashboard provides a snapshot of aggregated statistics for resources that Amazon Inspector scans. Use the dashboard to learn about coverage for your environment and critical findings. 
 

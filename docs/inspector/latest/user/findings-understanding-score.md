@@ -1,7 +1,6 @@
 
 
 # Viewing the Amazon Inspector score and understanding vulnerability intelligence details
-<a name="findings-understanding-score"></a>
 
  Amazon Inspector creates a score for Amazon Elastic Compute Cloud (Amazon EC2) instance findings. You can view the Amazon Inspector score and vulnerability intelligence details in the Amazon Inspector console. The Amazon Inspector score provides you with details that you can compare with metrics in the [Common Vulnerability Scoring System](https://www.first.org/cvss/v3.1/specification-document). These details are only available for [package vulnerability](https://docs.aws.amazon.com/inspector/latest/user/findings-types.html#findings-types-package) findings. This section describes how to interpret the Amazon Inspector score and understand vulnerability intelligence details. 
 

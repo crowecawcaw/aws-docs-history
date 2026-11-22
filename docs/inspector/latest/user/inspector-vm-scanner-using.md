@@ -1,7 +1,6 @@
 
 
 # Manual installation and configuration
-<a name="inspector-vm-scanner-using"></a>
 
  This section describes how to manually install and configure Inspector VM Scanner on your Amazon EC2 instances. Manual installation is considered *agent-based scanning* and does not require Amazon EC2 Systems Manager (SSM). 
 

@@ -1,7 +1,6 @@
 
 
 # Viewing details for your Amazon Inspector findings
-<a name="findings-understanding-details"></a>
 
  The procedure in this section describes how to view details for Amazon Inspector findings. 
 

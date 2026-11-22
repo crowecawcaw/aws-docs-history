@@ -1,7 +1,6 @@
 
 
 # Amazon Inspector Security Research
-<a name="security-research"></a>
 
  Amazon Inspector Security Research is a continuous monitoring program that identifies malicious packages published to public package registries. Software supply chain attacks targeting open-source ecosystems are a growing threat, and malicious packages are frequently removed from upstream registries only after they have been downloaded by unsuspecting developers. Amazon Inspector Security Research helps protect your applications by detecting these packages, publishing advisories, and incorporating this intelligence into Amazon Inspector findings so that workloads consuming a known-malicious package are surfaced automatically. 
 

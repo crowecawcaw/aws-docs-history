@@ -1,7 +1,6 @@
 
 
 # Performing an on-demand scan
-<a name="code-security-assessments-on-demand-scan"></a>
 
  You can perform an on-demand for your projects. When you perform an on-demand scan, a union of all your configured scan configurations is applied to your selected project. If your account is the delegated administrator account for an organization, you can perform an on-demand scan for projects that belong to member accounts. The following procedure describes how to perform an on-demand scan in the Amazon Inspector console. 
 

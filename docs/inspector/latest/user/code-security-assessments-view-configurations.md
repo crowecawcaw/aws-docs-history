@@ -1,7 +1,6 @@
 
 
 # Viewing scan configurations
-<a name="code-security-assessments-view-configurations"></a>
 
  The following procedure describes how to view scan configurations in the Amazon Inspector console. 
 

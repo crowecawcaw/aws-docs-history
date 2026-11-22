@@ -1,7 +1,6 @@
 
 
 # Deactivating a scan type in Amazon Inspector
-<a name="deactivate-scans"></a>
 
 When you deactivate a scan type, you lose access to any findings the scan type produced. If you [reactivate the scan type](https://docs.aws.amazon.com/inspector/latest/user/activate-scans.html), Amazon Inspector scans all eligible resources to generate new findings. If you want to keep a record of your findings, you can export them to an Amazon Simple Storage Service (Amazon S3) bucket as a findings report. For more information, see [Exporting Amazon Inspector findings reports](findings-managing-exporting-reports.md). When you deactivate a scan type, you might encounter the following changes in the AWS account where you deactivated the scan type: 
 

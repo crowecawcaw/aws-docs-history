@@ -1,7 +1,6 @@
 
 
 # Enabling Inspector VM Scanner
-<a name="inspector-vm-scanner-enabling"></a>
 
  When you enable Enhanced EC2 Scanning in the Amazon Inspector console, Amazon Inspector uses Amazon EC2 Systems Manager (SSM) to automatically install the VM Scanner on your managed Amazon EC2 instances. Once installed, the scanner executes periodically (every 3 hours by default) and sends results to the Amazon Inspector Telemetry Service. 
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Inspector VM Scanner
-<a name="inspector-vm-scanner"></a>
 
 ## Overview
 <a name="inspector-vm-scanner-overview"></a>

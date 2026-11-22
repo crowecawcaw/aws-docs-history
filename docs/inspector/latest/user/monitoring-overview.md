@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon Inspector
-<a name="monitoring-overview"></a>
 
  Monitoring is an important part of maintaining the availability, reliability, and performance of Amazon Inspector and other AWS solutions. AWS provides tools to monitor Amazon Inspector, report issues that occur, and take actions to remediate these issues: 
 +  [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) is an AWS service that uses events to connect application components together, making it easier for you to build scalable event-driven applications. EventBridge delivers a stream of real-time data from your applications, Software-as-a-Service (SaaS) applications, and AWS services and routes, so you can monitor events that happen in services and build event-driven architectures. 

@@ -1,7 +1,6 @@
 
 
 # Exporting SBOMs with Amazon Inspector
-<a name="sbom-export"></a>
 
  A software bill of materials (SBOM) is a nested inventory of all the open-source and third-party software components in your codebase. Amazon Inspector provides SBOMs for individual resources in your environment. You can use the Amazon Inspector console or Amazon Inspector API to generate SBOMs for your resources. You can export SBOMs for all resources that Amazon Inspector supports and monitors. Exported SBOMs provide information about your software supply. You can review the status of your resources by [assessing the coverage of your AWS environment](https://docs.aws.amazon.com/inspector/latest/user/assessing-coverage.html). This section describes how to configure and export SBOMs. 
 
@@ -21,7 +20,7 @@ SPDX format exports from Amazon Inspector are compatible with systems using **SP
 ### Example of CycloneDX 1.4 SBOM format from Amazon Inspector
 <a name="cyclone-schema"></a>
 
-```
+```JSON
                     {
   "bomFormat": "CycloneDX",
   "specVersion": "1.4",
@@ -105,7 +104,7 @@ SPDX format exports from Amazon Inspector are compatible with systems using **SP
 ### Example of SPDX 2.3 SBOM format from Amazon Inspector
 <a name="cyclone-schema"></a>
 
-```
+```JSON
 {
 	"name": "409870544328/EC2/i-022fba820db137c64/ami-074ea14c08effb2d8",
 	"spdxVersion": "SPDX-2.3",
@@ -225,9 +224,24 @@ When you export SBOMs you can include filters to create reports for specific sub
 + **Function name** — This filter can be used to export SBOMs for specific Lambda functions. 
 +  **Image tag** — This filter can be used to export SBOMs for container images with specific tags. 
 +  **Lambda function tag** — This filter can be used to export SBOMs for Lambda functions with specific tags. 
-+  **Resource type** — This filter can be used to filter resource type: EC2/ECR/Lambda. 
++  **Resource type** — This filter can be used to filter resource type: EC2/ECR/Lambda. For Google Cloud Platform (GCP) resources, choose **GCP VM instance**, **GCP Docker image**, or **GCP Function**. 
 +  **Resource ID** — This filter can be used to export an SBOM for a specific resource. 
 +  **Repository name** —This filter can be used to generate SBOMs for container images in specific repositories. 
+
+**Filters for Azure and GCP resources**
+
+To export SBOMs for Azure and GCP resources, use the following cloud filters. The filters for Amazon EC2, Amazon ECR, and Lambda resources apply only to AWS resources. An export includes every scanned resource that matches the filter, including resources that have no findings. Filters marked API only aren't in the console. You can use them only with the `CreateSbomExport` API.
++  **Cloud provider** — Use this filter to export SBOMs for resources in a specific cloud provider, Azure or GCP. 
++  **Account** — Use this filter to export SBOMs for resources in specific cloud provider accounts. For Azure, use the subscription ID. For GCP, use the project ID (for example, `my-project`), not the project number. 
++  **Organization ID** (API only) — Use this filter to export SBOMs for resources in a specific cloud provider organization. For Azure, use the tenant ID. For GCP, use the numeric organization ID. 
++  **Region** — Use this filter to export SBOMs for resources in specific cloud provider locations. For Azure, use the region, such as `eastus`. For GCP, use the location that GCP reports for the resource. The filter is an exact match. VM instances are in zones, such as `us-central1-a`, so a filter on `us-central1` doesn't include them. 
++  **Instance tag** — Use this filter to export SBOMs for Azure virtual machines with specific tags, or Compute Engine VM instances with specific labels. 
++  **Registry** (API only) — Use this filter to export SBOMs for container images in a specific cloud provider registry. For GCP, use `{{location}}-docker.pkg.dev/{{project-id}}`, for example `us-central1-docker.pkg.dev/my-project`. 
++  **Repository name** — Use this filter to export SBOMs for container images in specific Azure Container Registry or Artifact Registry repositories. For GCP, use `{{repository}}/{{image}}`, for example `example-repo/example-image`. 
++  **Image tag** — Use this filter to export SBOMs for cloud provider container images with specific tags. 
++  **Function name** — Use this filter to export SBOMs for specific Azure Function Apps or Cloud Run functions. 
++  **Runtime** (API only) — Use this filter to export SBOMs for cloud provider functions that use specific runtimes. 
++  **Function tag** — Use this filter to export SBOMs for Azure Function Apps with specific tags, or Cloud Run functions with specific labels. 
 
 ## Configure and export SBOMs
 <a name="sbom-create"></a>

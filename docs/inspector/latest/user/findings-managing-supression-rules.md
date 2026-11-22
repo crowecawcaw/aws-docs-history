@@ -1,7 +1,6 @@
 
 
 # Suppressing Amazon Inspector findings
-<a name="findings-managing-supression-rules"></a>
 
  You can create suppression rules to hide findings that match criteria. For example, you can create a suppression rule to hide findings based on their severity ratings. If Amazon Inspector generates a finding that matches your suppression rule, Amazon Inspector suppresses the finding and hides it from view. Amazon Inspector stores suppressed findings until they're remediated. Once a suppressed finding is remediated, Amazon Inspector closes the finding. You can view suppressed findings in the console. 
 

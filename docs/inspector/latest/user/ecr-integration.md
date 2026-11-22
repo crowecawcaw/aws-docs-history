@@ -1,7 +1,6 @@
 
 
 # Amazon Inspector integration with Amazon Elastic Container Registry (Amazon ECR)
-<a name="ecr-integration"></a>
 
  Amazon Elastic Container Registry is a fully managed container registry that supports Docker and OCI images and AWS artifacts. If you use Amazon ECR, you can activate [Enhanced Scanning](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning-enhanced.html) for your container registry. When you activate enhanced scanning, Amazon Inspector automatically detects and scans your container images for vulnerable operating system and programming language packages. This integration allows you to view Amazon Inspector findings for container images and manage the frequency and scope of scans in the Amazon ECR console. For more information, see [Scanning Amazon ECR container images with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html). 
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Inspector quotas
-<a name="quotas"></a>
 
  This section lists Amazon Inspector quotas per AWS Region. 
 

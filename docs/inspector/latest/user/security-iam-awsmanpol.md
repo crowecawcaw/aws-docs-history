@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon Inspector
-<a name="security-iam-awsmanpol"></a>
 
 
 
@@ -190,7 +189,9 @@ This policy includes the following permissions.
 ## AWS managed policy: AmazonInspector2ThirdPartyServiceRolePolicy
 <a name="security-iam-awsmanpol-AmazonInspector2ThirdPartyServiceRolePolicy"></a>
 
-You can't attach the `AmazonInspector2ThirdPartyServiceRolePolicy` policy to your IAM entities. This policy is attached to a service-linked role that allows Amazon Inspector to perform actions on your behalf for multi-cloud resource scanning. For more information, see [Using service-linked roles for Amazon Inspector](using-service-linked-roles.md).
+You can't attach the `AmazonInspector2ThirdPartyServiceRolePolicy` policy to your IAM entities. This policy is attached to a service-linked role that allows Amazon Inspector to perform actions on your behalf for multi-cloud resource scanning of Microsoft Azure and Google Cloud Platform (GCP) resources. For more information, see [Using service-linked roles for Amazon Inspector](using-service-linked-roles.md).
+
+ To view more details about the policy, including the latest version of the JSON policy document, see [AmazonInspector2ThirdPartyServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonInspector2ThirdPartyServiceRolePolicy.html) in the *AWS Managed Policy Reference Guide*. 
 
 ## AWS managed policy: AmazonInspector2ManagedTelemetryPolicy
 <a name="security-iam-awsmanpol-AmazonInspector2ManagedTelemetryPolicy"></a>
@@ -220,6 +221,7 @@ View details about updates to AWS managed policies for Amazon Inspector since th
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+|  [AmazonInspector2ThirdPartyServiceRolePolicy](#security-iam-awsmanpol-AmazonInspector2ThirdPartyServiceRolePolicy) – Updates to an existing policy  |  Amazon Inspector added the GCP token audience (`https://sts.googleapis.com`) to the `sts:GetWebIdentityToken` permission. Amazon Inspector also added the `AWS-InstallDistributorPackageOnGcp` SSM documents to the permissions for SSM associations, automation executions, and `ssm:GetDocument`. These permissions support multi-cloud scanning of GCP resources.  | October 27, 2026 | 
 |  [AmazonInspector2AmiServiceRolePolicy](#security-iam-awsmanpol-AmazonInspector2AmiServiceRolePolicy) – New policy  |  Amazon Inspector has added a new service-linked role policy to allow scanning of the machine images (AMIs) that your account owns. The policy allows Amazon Inspector to retrieve information about your machine images and the Amazon EBS snapshots that back them, read the contents of those snapshots, and decrypt snapshots that are encrypted with AWS KMS customer managed keys.  | September 8, 2026 | 
 |  [AmazonInspector2FullAccess\_v2](#security-iam-awsmanpol-AmazonInspector2FullAccessV2) – Updates to an existing policy  |  Amazon Inspector added `iam` permissions that allow Amazon Inspector to create the service-linked role for multi-cloud connectors (`AWSServiceRoleForAmazonInspector2ThirdParty`) and the third-party service-linked role (`AWSServiceRoleForConfigThirdParty`). Amazon Inspector also added the multi-cloud service principal (`multicloud.inspector2.amazonaws.com`) to the conditions for `organizations` actions, and added connector permissions for multi-cloud resource discovery.  | July 7, 2026 | 
 |  [AmazonInspector2ReadOnlyAccess](#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess) – Updates to an existing policy  |  Amazon Inspector added read-only and AWS Systems Manager permissions for viewing multi-cloud connector health status.  | July 7, 2026 | 

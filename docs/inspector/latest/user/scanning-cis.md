@@ -1,7 +1,6 @@
 
 
 # Center for Internet Security (CIS) scans for Amazon EC2 instance operating systems
-<a name="scanning-cis"></a>
 
  Amazon Inspector CIS scans (CIS scans) benchmark your Amazon EC2 instance operating systems to make sure you configured them according to best practice recommendations established by the Center for Internet Security. [CIS Security Benchmarks](https://aws.amazon.com/what-is/cis-benchmarks/) provides industry standard configuration baselines and best practices for configuring a system securely. You can perform or schedule CIS scans after you enable Amazon Inspector EC2 scanning for an account. For information about how to activate Amazon EC2 scanning, see [Activating a scan type](https://docs.aws.amazon.com/inspector/latest/user/activate-scans.html). 
 

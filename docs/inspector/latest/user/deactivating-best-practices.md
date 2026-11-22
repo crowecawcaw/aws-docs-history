@@ -1,7 +1,6 @@
 
 
 # Deactivating Amazon Inspector
-<a name="deactivating-best-practices"></a>
 
  You can deactivate Amazon Inspector in the Amazon Inspector console or with the Amazon Inspector API. If you deactivate all scan types for an account;, Amazon Inspector is deactivated for that account automatically. 
 

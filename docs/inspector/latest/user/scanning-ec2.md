@@ -1,7 +1,6 @@
 
 
 # Scanning Amazon EC2 instances with Amazon Inspector
-<a name="scanning-ec2"></a>
 
  Amazon Inspector Amazon EC2 scanning extracts metadata from your EC2 instance before comparing the metadata against rules collected from security advisories. Amazon Inspector scans instances for package vulnerabilities and network reachability issues to produce [findings](https://docs.aws.amazon.com/inspector/latest/user/findings-types.html). Amazon Inspector performs network reachability scans once every 12 hours and package vulnerability scans on a variable cadence that depends on the scan method associated with the EC2 instance. 
 

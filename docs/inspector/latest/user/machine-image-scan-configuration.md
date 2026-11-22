@@ -1,7 +1,6 @@
 
 
 # Configuring machine image scanning
-<a name="machine-image-scan-configuration"></a>
 
  Your scan configuration determines which of the machine images that your account owns are in scope. It has three parts, which Amazon Inspector applies in this order: 
 
@@ -136,7 +135,7 @@
 
  The following example continuously scans all eligible machine images except the ones tagged with `InspectorExclude=true`, and excludes copied machine images. 
 
-```
+```JSON
 {
     "amiConfiguration": {
         "createdWithin": "180_DAYS",
@@ -158,7 +157,7 @@
 
  The following example continuously scans only the eligible machine images that have the `InspectorScan` tag key, regardless of the tag value, and excludes backup machine images. 
 
-```
+```JSON
 {
     "amiConfiguration": {
         "scanModeConfiguration": {

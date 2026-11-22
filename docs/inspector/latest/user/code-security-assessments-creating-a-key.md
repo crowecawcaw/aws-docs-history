@@ -1,7 +1,6 @@
 
 
 # Creating a customer managed key to access AWS KMS
-<a name="code-security-assessments-creating-a-key"></a>
 
  By default, your data is encrypted with an [AWS owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk). This means the key is created, owned, and managed by the service. If you want to own and manage the key used to encrypt your data, you can create a [customer managed KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk). Amazon Inspector doesn't interact with your data. Amazon Inspector only ingests metadata from repositories in your source code provider. For information about how to create a customer managed KMS key, see [Create a KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service User Guide*. 
 
@@ -16,7 +15,7 @@
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "key-policy",

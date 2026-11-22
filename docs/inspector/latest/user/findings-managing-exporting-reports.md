@@ -1,9 +1,10 @@
 
 
 # Exporting Amazon Inspector findings reports
-<a name="findings-managing-exporting-reports"></a>
 
  A findings report is a CSV or JSON file that provides a detailed snapshot of your findings. You can export a findings report to AWS Security Hub CSPM, Amazon EventBridge, and Amazon Simple Storage Service (Amazon S3). When you configure a findings report, you specify which findings to include in it. By default, your findings report includes data for all of your active findings. If you're the delegated administrator for an organization, your findings report includes data for all member accounts in the organization. To customize a findings report, create and apply [a filter](https://docs.aws.amazon.com/inspector/latest/user/findings-managing-filtering.html) to it. 
+
+ You can export findings for resources in all of your connected cloud providers, including Azure and Google Cloud Platform (GCP). 
 
  When you export a findings report, Amazon Inspector encrypts your findings data with an AWS KMS key that you specify. After Amazon Inspector encrypts your findings data, it stores your finding report in an Amazon S3 bucket that you specify. Your AWS KMS key must be used in the same AWS Region as your Amazon S3 bucket. Your AWS KMS key policy must allow Amazon Inspector to use it, and your Amazon S3 bucket policy must allow Amazon Inspector to add objects to it. After you export your findings report, you can download it from your Amazon S3 bucket or transfer it to new location. You can also use your Amazon S3 bucket as a repository for other exported findings reports. 
 
@@ -89,7 +90,7 @@ If you want to store your report in an S3 bucket that's owned by another account
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -137,14 +138,14 @@ For example, if you're using Amazon Inspector in the Middle East (Bahrain) Regio
 
      To store reports for additional accounts in the bucket, add the account ID for each additional account to this condition. For example:
 
-     ```
+     ```JSON
      "aws:SourceAccount": ["111122223333","444455556666","123456789012"]
      ```
    + [aws:SourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn) – This condition restricts access to the bucket based on the source of the objects that are being added to the bucket. It prevents other AWS services from adding objects to the bucket. It also prevents Amazon Inspector from adding objects to the bucket while performing other actions for your account. More specifically, the condition allows Amazon Inspector to add objects to the bucket only if the objects are findings reports, and only if those reports are created by the account and in the Region specified in the condition.
 
      To allow Amazon Inspector to perform the specified actions for additional accounts, add Amazon Resource Names (ARNs) for each additional account to this condition. For example:
 
-     ```
+     ```JSON
      "aws:SourceArn": [
          "arn:aws:inspector2:{{Region}}:{{111122223333}}:report/*",
          "arn:aws:inspector2:{{Region}}:{{444455556666}}:report/*",
@@ -182,7 +183,7 @@ After you determine which KMS key you want to use, give Amazon Inspector permiss
 
 1. Copy the following example statement to your clipboard:
 
-   ```
+   ```JSON
    {
        "Sid": "Allow Amazon Inspector to use the key",
        "Effect": "Allow",
@@ -220,14 +221,14 @@ If you're using Amazon Inspector in a manually enabled AWS Region, also add the 
 
      To allow Amazon Inspector to perform the specified actions for additional accounts, add the account ID for each additional account to this condition. For example:
 
-     ```
+     ```JSON
      "aws:SourceAccount": ["111122223333","444455556666","123456789012"]
      ```
    + [aws:SourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn) – This condition prevents other AWS services from performing the specified actions. It also prevents Amazon Inspector from using the key while performing other actions for your account. In other words, it allows Amazon Inspector to encrypt S3 objects with the key only if the objects are findings reports, and only if those reports are created by the account and in the Region specified in the condition.
 
      To allow Amazon Inspector to perform the specified actions for additional accounts, add ARNs for each additional account to this condition. For example:
 
-     ```
+     ```JSON
      "aws:SourceArn": [
          "arn:aws:inspector2:us-east-1:111122223333:report/*",
          "arn:aws:inspector2:us-east-1:444455556666:report/*",

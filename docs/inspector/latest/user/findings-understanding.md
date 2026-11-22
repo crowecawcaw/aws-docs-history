@@ -1,7 +1,6 @@
 
 
 # Understanding Amazon Inspector findings
-<a name="findings-understanding"></a>
 
  Amazon Inspector generates a finding when it detects a vulnerability with a fix or pending fix in Amazon EC2 instances, Amazon ECR containers images, and Lambda functions. It also generates findings for code vulnerabilities detected in first-party application source code, third-party application dependencies, and Infrastructure as Code. A finding is a detailed report about a vulnerability impacting one of your AWS resources. 
 
@@ -31,3 +30,4 @@
 + [Viewing details for your Amazon Inspector findings](findings-understanding-details.md)
 + [Viewing the Amazon Inspector score and understanding vulnerability intelligence details](findings-understanding-score.md)
 + [Understanding severity levels for your Amazon Inspector findings](findings-understanding-severity.md)
++ [Understanding runtime reachability for your Amazon Inspector findings](findings-understanding-runtime-reachability.md)

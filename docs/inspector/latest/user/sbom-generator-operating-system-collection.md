@@ -1,12 +1,11 @@
 
 
 # Amazon Inspector SBOM Generator comprehensive operating system collection
-<a name="sbom-generator-operating-system-collection"></a>
 
  The Amazon Inspector SBOM Generator scans different operating systems to guarantee a robust and detailed analysis of system components. Generating an SBOM helps you understand the composition of your operating system, so you can identify vulnerabilities in system managed packages. This topic describes key features of different operating system package collections the Amazon Inspector SBOM Generator supports. For information about the operating systems that Amazon Inspector supports, see [Supported operating systems and programming languages for Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/supported.html). 
 
 ## Supported operating system artifacts
-<a name="w2aac39c23b7"></a>
+<a name="w2aac41c23b7"></a>
 
  The Amazon Inspector SBOM Generator supports the following operating system artifacts: 
 
@@ -32,12 +31,12 @@
 | Windows | N/A | N/A | N/A | 
 
 ## APK-based OS package collection
-<a name="w2aac39c23b9"></a>
+<a name="w2aac41c23b9"></a>
 
  This section includes the supported platforms and key features for the APK-based OS package collection. For more information, see [Alpine Package Keeper](https://wiki.alpinelinux.org/wiki/Alpine_Package_Keeper) on the Alpine Linux website. 
 
 ### Supported platforms
-<a name="w2aac39c23b9b5"></a>
+<a name="w2aac41c23b9b5"></a>
 
  The following are supported platforms. 
 +  Alpine Linux 
@@ -46,13 +45,13 @@
  For APK-based systems, the Amazon Inspector SBOM Generator collects package metadata from the [`/lib/apk/db/`](https://wiki.alpinelinux.org/wiki/Apk_spec) file. 
 
 ### Key features
-<a name="w2aac39c23b9b7"></a>
+<a name="w2aac41c23b9b7"></a>
 +  **Package name collection** – Extracts the name of each installed package 
 +  **Version collection** – Extracts the version of each installed package 
 +  **Source package identification** – Identifies the source package for each installed package 
 
 ### Example
-<a name="w2aac39c23b9b9"></a>
+<a name="w2aac41c23b9b9"></a>
 
  The following snippet is an example of an APK database file. 
 
@@ -70,12 +69,12 @@ o:zlib
 ```
 
 ## DPKG-based OS package collection
-<a name="w2aac39c23c11"></a>
+<a name="w2aac41c23c11"></a>
 
  This section includes the supported platforms and key features for the DPKG-based OS package collection. For more information, see [Debian Package](https://wiki.debian.org/dpkg) on the Debian website. 
 
 ### Supported platforms
-<a name="w2aac39c23c11b5"></a>
+<a name="w2aac41c23c11b5"></a>
 
  The following platforms are supported. 
 +  Debian 
@@ -85,7 +84,7 @@ o:zlib
  For DPKG-based systems, the Amazon Inspector SBOM Generator collects package metadata from the [`/var/lib/dpkg/status`](https://www.debian.org/doc/manuals/debian-reference/ch02.en.html) file. 
 
 ### Key features
-<a name="w2aac39c23c11b7"></a>
+<a name="w2aac41c23c11b7"></a>
 
  The following are key features for DPKG-based OS packages. 
 +  **Package name collection** – Extracts the name of each installed package 
@@ -93,7 +92,7 @@ o:zlib
 +  **[Source package identification](https://www.debian.org/doc/debian-policy/ch-source.html)** – Identifies the source package for each installed package 
 
 ### Example
-<a name="w2aac39c23c11b9"></a>
+<a name="w2aac41c23c11b9"></a>
 
  The following snippet is an example of a `/var/lib/dpkg/` file. 
 
@@ -119,12 +118,12 @@ Homepage: http://zlib.net/
 ```
 
 ## RPM-based OS package collection
-<a name="w2aac39c23c13"></a>
+<a name="w2aac41c23c13"></a>
 
  This section includes the supported platforms and key features for the RPM-based OS package collection. For more information, see [RPM Package Manager](https://rpm.org/) on the RPM website. 
 
 ### Supported platforms
-<a name="w2aac39c23c13b5"></a>
+<a name="w2aac41c23c13b5"></a>
 
  The following platforms are supported. 
 +  Alma Linux 
@@ -142,7 +141,7 @@ Homepage: http://zlib.net/
  For RPM-based systems, the Amazon Inspector SBOM Generator collects package metadata from the [`/var/lib/rpm`](https://access.redhat.com/solutions/439953) file. 
 
 ### Key features
-<a name="w2aac39c23c13b7"></a>
+<a name="w2aac41c23c13b7"></a>
 
  The following are key features for RPM-based OS package collections. 
 +  **Package name collection** – Extracts the name of each installed package 
@@ -151,7 +150,7 @@ Homepage: http://zlib.net/
 +  **[Stream support](https://www.redhat.com/en/blog/introduction-appstreams-and-modules-red-hat-enterprise-linux)** – Extracts stream metadata of each installed package 
 
 ### Example
-<a name="w2aac39c23c13b9"></a>
+<a name="w2aac41c23c13b9"></a>
 
  The following is an example of an RPM database file snippet. 
 
@@ -165,16 +164,16 @@ Homepage: http://zlib.net/
 ```
 
 ## Windows OS version collection
-<a name="w2aac39c23c15"></a>
+<a name="w2aac41c23c15"></a>
 
  Unlike Linux-based operating systems, Windows does not use a package management system for the operating system itself. The Amazon Inspector SBOM Generator collects only the Windows OS version information. For Windows application scanning, use the windows-apps scanner instead. The windows-apps scanner collects information about installed applications on Windows systems. For more information, See [Microsoft applications ecosystem collection](sbom-generator-ecosystem-collection.md#microsoft-app-ecosystem-collection). 
 
 ### Key features
-<a name="w2aac39c23c15b5"></a>
+<a name="w2aac41c23c15b5"></a>
 +  **OS version collection** – Extracts the Windows OS version from the Windows Registry. The extracted OS version is used for vulnerability detection for Windows OS. 
 
 ### Registry keys and values
-<a name="w2aac39c23c15b7"></a>
+<a name="w2aac41c23c15b7"></a>
 
  The following Windows Registry keys and values are used to collect OS name and version information. 
 + **Registry Key** 
@@ -190,12 +189,12 @@ Homepage: http://zlib.net/
   +  UBR – The revision number of OS 
 
 ## Chainguard image package collection
-<a name="w2aac39c23c17"></a>
+<a name="w2aac41c23c17"></a>
 
  This section includes the supported platforms and key features for Chainguard image package collection. For more information, see [Images](https://edu.chainguard.dev/chainguard/chainguard-images/) on the Chainguard website. 
 
 ### Supported platforms
-<a name="w2aac39c23c17b5"></a>
+<a name="w2aac41c23c17b5"></a>
 
  The following platforms are supported 
 +  Wolfi Linux 
@@ -204,7 +203,7 @@ Homepage: http://zlib.net/
  For Chainguard images, the Amazon Inspector SBOM Generator collects package metadata from the `/lib/apk/db/installed` file. 
 
 ### Key features
-<a name="w2aac39c23c17b7"></a>
+<a name="w2aac41c23c17b7"></a>
 
  The following are key features. 
 +  **Package name collection** – Extracts the name of each installed package 
@@ -212,7 +211,7 @@ Homepage: http://zlib.net/
 +  **Source package identification** – Identifies the source package for each installed package 
 
 ### Example
-<a name="w2aac39c23c17b9"></a>
+<a name="w2aac41c23c17b9"></a>
 
  The following snippet is an example of a Chainguard image file. 
 
@@ -226,7 +225,7 @@ o:wolfi-keys
 ```
 
 ## Distroless image package collection
-<a name="w2aac39c23c19"></a>
+<a name="w2aac41c23c19"></a>
 
  Distroless containers are container images that exclude package managers, shells, and other utilities in Linux distributions. Distroless containers only include essential dependencies required to run the application and improve performance and security. 
 
@@ -234,12 +233,12 @@ o:wolfi-keys
  For [Distroless images](https://edu.chainguard.dev/chainguard/chainguard-images/about/getting-started-distroless/), the Amazon Inspector SBOM Generator collects package metadata from the `/var/lib/dpkg/status.d` file. Only Debian and Ubuntu-based distributions are supported. These can be identified by the `NAME` field in the `/etc/os-release` file system, which shows "Debian" or "Ubuntu." 
 
 ### Key features
-<a name="w2aac39c23c19b7"></a>
+<a name="w2aac41c23c19b7"></a>
 +  **Package name collection** – Extracts the name of each installed package 
 +  **Version collection** – Extracts the version of each installed package 
 
 ### Example
-<a name="w2aac39c23c19b9"></a>
+<a name="w2aac41c23c19b9"></a>
 
  The following is an example of a Distroless image file. 
 
@@ -264,7 +263,7 @@ Description: time zone and daylight-saving time data
 ```
 
 ## MinimOS package collection
-<a name="w2aac39c23c21"></a>
+<a name="w2aac41c23c21"></a>
 
  This section includes the supported platforms and key features for Minimus image package collection. For more information, see the [Minimus](https://www.minimus.io/) website. 
 
@@ -293,12 +292,12 @@ o:ca-certificates
 ```
 
 ## Docker Hardened Images package collection
-<a name="w2aac39c23c23"></a>
+<a name="w2aac41c23c23"></a>
 
  [Docker Hardened Images](https://docs.docker.com/dhi/) (DHI) are minimal, security-hardened container images. The Amazon Inspector SBOM Generator detects DHI images and namespaces their packages under `dhi` so that vulnerabilities are matched against the hardened distribution. 
 
 ### Detection
-<a name="w2aac39c23c23b5"></a>
+<a name="w2aac41c23c23b5"></a>
 
  DHI version 2 images report `ID=dhi` in the `/etc/os-release` file, with `ID_LIKE=alpine` or `ID_LIKE=debian` indicating the underlying base operating system. The Amazon Inspector SBOM Generator detects DHI images directly from this `ID` value and does not parse the `PRETTY_NAME` field. 
 
@@ -311,7 +310,7 @@ ID_LIKE=debian
 ```
 
 ### Package namespace
-<a name="w2aac39c23c23b7"></a>
+<a name="w2aac41c23c23b7"></a>
 
  Every package in a DHI image is namespaced under `dhi`, yielding a Package URL of the form `pkg:deb/dhi/<name>@<version>` or `pkg:apk/dhi/<name>@<version>`. The PURL type (`deb` or `apk`) reflects the underlying base operating system. 
 
@@ -327,7 +326,7 @@ pkg:apk/dhi/<name>@<version>
 ```
 
 ### Hardened-image markers
-<a name="w2aac39c23c23b9"></a>
+<a name="w2aac41c23c23b9"></a>
 
  When the Amazon Inspector SBOM Generator detects `ID=dhi`, it annotates the image with hardened-image markers: 
 +  The operating-system component name is annotated with `<base> (Docker Hardened Image)` – for example, `Debian GNU/Linux (Docker Hardened Image)`. 
@@ -337,12 +336,12 @@ pkg:apk/dhi/<name>@<version>
  DHI detection applies to container, localhost, and volume scans. 
 
 ## Red Hat Hardened Images package collection
-<a name="w2aac39c23c25"></a>
+<a name="w2aac41c23c25"></a>
 
  Red Hat Hardened Images are minimal, security-hardened container images built on Hummingbird OS. The Amazon Inspector SBOM Generator detects these images and namespaces their packages under `hummingbird` so that vulnerabilities are matched against the hardened distribution. 
 
 ### Detection
-<a name="w2aac39c23c25b5"></a>
+<a name="w2aac41c23c25b5"></a>
 
  Red Hat Hardened Images report `ID=hummingbird` in the `/etc/os-release` file. The Amazon Inspector SBOM Generator detects these images directly from this `ID` value. 
 
@@ -354,7 +353,7 @@ ID=hummingbird
 ```
 
 ### Package namespace
-<a name="w2aac39c23c25b7"></a>
+<a name="w2aac41c23c25b7"></a>
 
  Every package in a Red Hat Hardened Image is namespaced under `hummingbird`, yielding a Package URL of the form `pkg:rpm/hummingbird/<name>@<version>`. 
 
@@ -366,7 +365,7 @@ pkg:rpm/hummingbird/<name>@<version>
 ```
 
 ### Hardened-image markers
-<a name="w2aac39c23c25b9"></a>
+<a name="w2aac41c23c25b9"></a>
 
  When the Amazon Inspector SBOM Generator detects `ID=hummingbird`, it annotates the image with hardened-image markers: 
 +  The container or operating-system component carries the `amazon:inspector:sbom_generator:hardened_image:vendor` property with a value of `Red Hat`. 
@@ -375,12 +374,12 @@ pkg:rpm/hummingbird/<name>@<version>
  Red Hat Hardened Images detection applies to container, localhost, and volume scans. 
 
 ## CleanStart hardened images package collection
-<a name="w2aac39c23c27"></a>
+<a name="w2aac41c23c27"></a>
 
  CleanStart images are minimal, security-hardened container images built on an Alpine base. The Amazon Inspector SBOM Generator detects these images and namespaces their packages under `cleanstart` so that vulnerabilities are matched against the hardened distribution. 
 
 ### Detection
-<a name="w2aac39c23c27b5"></a>
+<a name="w2aac41c23c27b5"></a>
 
  CleanStart images report `ID=clnstrt` in the `/etc/os-release` file. The Amazon Inspector SBOM Generator detects these images directly from this `ID` value. 
 
@@ -393,7 +392,7 @@ ID_LIKE=alpine
 ```
 
 ### Package namespace
-<a name="w2aac39c23c27b7"></a>
+<a name="w2aac41c23c27b7"></a>
 
  Every package in a CleanStart image is namespaced under `cleanstart`, yielding a Package URL of the form `pkg:apk/cleanstart/<name>@<version>`. 
 
@@ -405,7 +404,7 @@ pkg:apk/cleanstart/<name>@<version>
 ```
 
 ### Hardened-image markers
-<a name="w2aac39c23c27b9"></a>
+<a name="w2aac41c23c27b9"></a>
 
  When the Amazon Inspector SBOM Generator detects `ID=clnstrt`, it annotates the image with hardened-image markers: 
 +  The container or operating-system component carries the `amazon:inspector:sbom_generator:hardened_image:vendor` property with a value of `CleanStart`. 

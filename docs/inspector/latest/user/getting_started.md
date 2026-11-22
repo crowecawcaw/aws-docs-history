@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Inspector
-<a name="getting_started"></a>
 
  This section provides information to consider before activating Amazon Inspector and a getting started tutorial describing how to activate Amazon Inspector and view your [findings](https://docs.aws.amazon.com/inspector/latest/user/findings-understanding.html) in the Amazon Inspector console and with the Amazon Inspector API. 
 
@@ -18,7 +17,7 @@
  Your data is stored in the AWS Region where you activate Amazon Inspector. Repeat the steps in the first part of the [getting started tutorial](https://docs.aws.amazon.com/inspector/latest/user/getting_started_tutorial.html#getting-started-tutorial) for all AWS Regions where you plan to use Amazon Inspector. 
 
 **Amazon Inspector creates the service-linked roles AWSServiceRoleForAmazonInspector2 and AWSServiceRoleForAmazonInspector2Agentless**  
- A [service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is a role in AWS Identity and Access Management (IAM) that's linked to an AWS servce. [AWSServiceRoleForAmazonInspector2](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonInspector2AgentlessServiceRolePolicy.html) and [AWSServiceRoleForAmazonInspector2Agentless](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonInspector2ServiceRolePolicy.html) allow Amazon Inspector to access AWS services required to perform security assessments. 
+ A [service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is a role in AWS Identity and Access Management (IAM) that's linked to an AWS service. [AWSServiceRoleForAmazonInspector2](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonInspector2AgentlessServiceRolePolicy.html) and [AWSServiceRoleForAmazonInspector2Agentless](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonInspector2ServiceRolePolicy.html) allow Amazon Inspector to access AWS services required to perform security assessments. 
 
 **IAM identities with administrator permissions can enable Amazon Inspector**  
  Protect your credentials by creating users with [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html) or [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/users-groups-provisioning.html). This helps you make sure users only have the permissions required to manage Amazon Inspector. For more information, see [AWS managed policy: AmazonInspectorFullAccess](https://docs.aws.amazon.com/inspector/latest/user/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonInspector2FullAccess). 

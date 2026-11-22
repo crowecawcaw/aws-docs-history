@@ -1,7 +1,6 @@
 
 
 # Previous versions of the Amazon Inspector SBOM Generator
-<a name="sbom-generator-versions"></a>
 
  This topic includes links to the latest and previous versions of the Amazon Inspector SBOM Generator. For information about installing Sbomgen, see [Installing Sbomgen](https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html#install-sbomgen). 
 

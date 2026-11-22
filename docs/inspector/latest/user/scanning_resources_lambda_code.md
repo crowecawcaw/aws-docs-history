@@ -1,7 +1,6 @@
 
 
 # Amazon Inspector Lambda code scanning
-<a name="scanning_resources_lambda_code"></a>
 
 **Important**  
  This feature captures snippets of Lambda functions to highlight detected vulnerabilities. These snippets can show hardcoded credentials and other sensitive materials. 

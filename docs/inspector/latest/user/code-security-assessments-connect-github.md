@@ -1,14 +1,14 @@
 
 
 # Creating an integration between Amazon Inspector and GitHub
-<a name="code-security-assessments-connect-github"></a>
 
- This topic describes how to create an integration between Amazon Inspector and GitHub. 
+ This topic describes how to create an integration between Amazon Inspector and GitHub. Amazon Inspector supports integrations with GitHub SaaS through public internet connections. 
 
 **Note**  
  If this is your first time creating an integration, you're prompted to create a default scan configuration on Step 2. When you [create a scan configuration](https://docs.aws.amazon.com/inspector/latest/user/code-security-assessments-create-configuration.html), you choose the scan frequency, scan analysis, and repositories to be scanned. Creating a default scan configuration is the same as creating a general scan configuration. However, the default scan configuration is automatically associated with any new and existing projects imported into Amazon Inspector. If you want to create a default scan configuration, choose **Continue with this configuration**. You can only create a default scan configuration once. If you create a default scan configuration, you won't be prompted to create a default scan configuration again. You can only create a default scan configuration once per account and once per organization. If you don't want to configure a default scan configuration, choose **Skip configuration**. However, will be prompted to create a default scan configuration the next time you create an integration. After you create a default scan configuration or skip creating a default scan configuration, you're directed to Step 3 of the integration workflow where you enter your integration details. 
 
- Integrations with GitHub SaaS, GitHub Enterprise Cloud, and GitHub Enterprise Server require public internet access. 
+**Note**  
+ Integrations with GitHub SaaS require public internet access. 
 
 **Note**  
  Amazon Inspector only scans and monitors your default branch. If you create a new default branch, Amazon Inspector scans and updates the new default branch. 

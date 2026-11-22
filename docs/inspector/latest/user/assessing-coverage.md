@@ -1,7 +1,6 @@
 
 
 # Assessing Amazon Inspector coverage of your AWS environment
-<a name="assessing-coverage"></a>
 
  You can assess Amazon Inspector coverage of your AWS environment from the **Account management** screen in the Amazon Inspector console, which shows details and statistics about the status of Amazon Inspector scans for your accounts and resources. 
 

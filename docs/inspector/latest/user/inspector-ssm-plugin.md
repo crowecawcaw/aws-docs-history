@@ -1,7 +1,6 @@
 
 
 # Amazon Inspector SSM plugin for Linux and Windows
-<a name="inspector-ssm-plugin"></a>
 
  This topic describes the Amazon Inspector SSM plugin for Linux and Windows instances. 
 

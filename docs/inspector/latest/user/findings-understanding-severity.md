@@ -1,7 +1,6 @@
 
 
 # Understanding severity levels for your Amazon Inspector findings
-<a name="findings-understanding-severity"></a>
 
  When Amazon Inspector generates a finding, it assigns a severity rating to the finding. Severity ratings help you assess and prioritize your findings. The severity rating for a finding corresponds to a numerical score and level: **informational**, **low**, **medium**, **high**, and **critical**. Amazon Inspector determines the severity rating for a finding based on the [finding type](https://docs.aws.amazon.com/inspector/latest/user/findings-types.html). This section describes how Amazon Inspector determines a severity rating for each finding type. 
 

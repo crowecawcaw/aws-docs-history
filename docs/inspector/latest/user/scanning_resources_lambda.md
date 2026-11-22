@@ -1,7 +1,6 @@
 
 
 # Amazon Inspector Lambda standard scanning
-<a name="scanning_resources_lambda"></a>
 
 Amazon Inspector Lambda standard scanning identifies software vulnerabilities in the application package dependencies you add to your Lambda function code and layers. For example, if your Lambda function uses a version of the `python-jwt` package with a known vulnerability, Lambda standard scanning will generate a finding for that function.
 

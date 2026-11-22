@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for Amazon Inspector
-<a name="security-iam"></a>
 
 
 

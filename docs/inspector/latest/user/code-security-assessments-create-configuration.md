@@ -1,7 +1,6 @@
 
 
 # Creating a scan configuration
-<a name="code-security-assessments-create-configuration"></a>
 
  Before you create a scan configuration, you must [create an integration with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/code-security-assessments-create-integration.html). The first time you create an integration, you're prompted to create a default scan configuration. This topic describes how to create a general scan configuration. The difference between a default scan configuration and a general scan configuration is that a default scan configuration is automatically attached to new projects. You can skip creating a default scan configuration. 
 
@@ -14,6 +13,11 @@
  When you create a scan configuration, you choose the scan frequency, scan analysis, and repositories to be scanned. The scan frequency can be change based and periodic or customized. Change-based and periodic scanning gives you the option to enable periodic scanning. If you enable periodic scanning, you set the scan frequency to the day of the week or month when a scan occurs. Customized scanning gives you the option to enable scanning when code is changed and periodic scanning. If you enable scanning when code is changed, you specify the scan trigger to include in merge and pull requests. 
 
  Scans can be skipped if a commit ID hasn't changed in a set amount of time. For periodic scanning, scans are skipped if a commit ID hasn't changed between scans in 1 week. For on-demand scans, scans are skipped if a commit ID hasn't changed between scans in 24 hours. 
+
+ Automatic fix pull requests is a Code Security feature of Amazon Inspector that automatically creates pull requests to fix Static Application Security Testing (SAST) findings. Amazon Inspector generates only fixes that it has high confidence in and that won't break the build. You enable automatic fix pull requests and set a **Minimum finding severity** so that findings at or above that severity trigger an automatic fix pull request. 
+
+**Note**  
+ Automatic fix pull requests is in preview release and is subject to change. 
 
 **Note**  
  If a scan configuration only has triggers for merge requests and pull requests, only the top 25 critical or high findings are presented and only in the source code management platform. None will be visible in Amazon Inspector. 
@@ -50,6 +54,12 @@
       +  *Static software composition analysis* – Examines open source packages in applications. 
 
    1.  (Option 2) If you choose **Customized scanning analysis**, you must choose at least one type of the previously mentioned scan analysis types from the dropdown menu: 
+
+1.  Under **Automatic fix pull requests**, choose whether to enable or disable automatic fix pull requests: 
+
+   1.  Choose **Enable automatic fix pull requests** or **Disable automatic fix pull requests**. 
+
+   1.  If you chose **Enable automatic fix pull requests**, choose a **Minimum finding severity** of **Critical**, **High**, **Medium**, or **Low**. Findings at or above the severity that you choose trigger an automatic fix pull request. 
 
 1.  (Optional) For **Tags**, create a key-value pair to apply to your project. You can create up to 50 tags. 
 

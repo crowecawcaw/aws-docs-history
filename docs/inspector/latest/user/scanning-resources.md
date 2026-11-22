@@ -1,7 +1,6 @@
 
 
 # Automated scan types in Amazon Inspector
-<a name="scanning-resources"></a>
 
  Amazon Inspector uses a purpose-built scanning engine that monitors your resources for actionable software vulnerabilities and unintended network exposure. When Amazon Inspector detects a software vulnerability or unintended network exposure, it creates a [finding](https://docs.aws.amazon.com/inspector/latest/user/findings-understanding.html). When you activate Amazon Inspector for the first time, your account is automatically enrolled in [all scan types](https://docs.aws.amazon.com/inspector/latest/user/scanning-resources.html#scan-types), which include Amazon Amazon EC2 scanning, Amazon ECR Scanning, and Lambda standard scanning. 
 

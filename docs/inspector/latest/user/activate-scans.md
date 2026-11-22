@@ -1,7 +1,6 @@
 
 
 # Activating a scan type
-<a name="activate-scans"></a>
 
  You can activate a scan type at any time. When you activate a scan type, Amazon Inspector begins scanning eligible resources for the scan type. 
 

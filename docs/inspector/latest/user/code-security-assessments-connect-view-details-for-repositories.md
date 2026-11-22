@@ -1,7 +1,6 @@
 
 
 # Viewing details for a project
-<a name="code-security-assessments-connect-view-details-for-repositories"></a>
 
  This topic describes how to view details for a project in the Amazon Inspector console. If your account is the delegated administrator for an organization, you can view details for projects that belong to member accounts. 
 

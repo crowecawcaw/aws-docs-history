@@ -1,7 +1,6 @@
 
 
 # Creating custom responses to Amazon Inspector findings with Amazon EventBridge
-<a name="findings-managing-automating-responses"></a>
 
  Amazon Inspector creates an event in [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) for newly generated findings and aggregated findings. Amazon Inspector also creates an event for any changes to the state of a finding. This means Amazon Inspector creates a new event for a finding when you take actions like restarting a resource or changing tags associated with a resource. When Amazon Inspector creates a new event for an updated finding, the finding `id` stays the same. 
 

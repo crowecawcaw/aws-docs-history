@@ -1,7 +1,6 @@
 
 
 # Monitoring Usage and Cost in Amazon Inspector
-<a name="usage"></a>
 
  You can use the Amazon Inspector console and API to project monthly Amazon Inspector costs for your environment. If you're the Amazon Inspector administrator for a multiple-account environment, you can view the total cost for your environment and cost metrics for all member accounts. This section describes how to access usage statistics and calculate usage costs. 
 
@@ -58,8 +57,22 @@ The Amazon Inspector usage console tracks the following metrics for Azure Contai
 + **Initial scans** — The total number of first-time scans of Azure container images within the last 30 days.
 + **Rescans** — The total number of rescans for Azure container images within the last 30 days. A rescan occurs automatically when Amazon Inspector adds a new CVE to its database that affects a previously scanned image.
 
-**Note**  
-Each Azure resource type includes a 30-day free trial. The free trial starts independently for each resource type when Amazon Inspector begins scanning that resource type in your account.
+**GCP VM instance scanning**  
+The Amazon Inspector usage console tracks the following metrics for Google Cloud Platform (GCP) VM instance scanning:  
++ **GCP VM instances (Avg)** — The average number of Compute Engine VM instances monitored by Amazon Inspector VM Scanner during the 30-day period.
++ **GCP VM instance coverage hours** — The sum total number of hours that Amazon Inspector provided active vulnerability scanning coverage for each GCP VM instance in an account.
+Amazon Inspector counts a renamed or moved GCP VM instance as a new VM instance.
+
+**GCP container image scanning**  
+The Amazon Inspector usage console tracks the following metrics for Artifact Registry image scanning:  
++ **GCP container image initial scans** — The total number of first-time scans of Artifact Registry images within the last 30 days.
++ **GCP container image rescans** — The total number of rescans for Artifact Registry images within the last 30 days. A rescan occurs automatically when Amazon Inspector adds a new CVE to its database that affects a previously scanned image.
+As with Amazon ECR and Azure container images, Amazon Inspector charges for each initial scan and each rescan.
+
+**GCP Cloud Run function scanning**  
+The Amazon Inspector usage console tracks the following metrics for Cloud Run function scanning:  
++ **GCP Cloud Run functions (Avg)** — The average number of Cloud Run functions monitored during the 30-day period.
++ **GCP Cloud Run function coverage hours** — The sum total number of hours that Amazon Inspector provided active code dependency scanning coverage for each Cloud Run function in an account.
 
 ## Understanding how Amazon Inspector calculates usage costs
 <a name="usage-understanding"></a>
@@ -81,7 +94,9 @@ Note the following about how Amazon Inspector calculates cost on the **Usage** p
 ## About the Amazon Inspector free trial
 <a name="free-trial"></a>
 
- In Amazon Inspector, each [scan type](https://docs.aws.amazon.com/inspector/latest/user/scanning-resources.html#scan-types) has a free trail. When you activate a scan type, you automatically enroll in a 15-day free trial for that scan type. Once the free trial starts, it automatically expires in 15 days, even if you deactivate the scan type. 
+ In Amazon Inspector, each [scan type](https://docs.aws.amazon.com/inspector/latest/user/scanning-resources.html#scan-types) has a free trial. When you activate a scan type, you automatically enroll in a 15-day free trial for that scan type. Once the free trial starts, it automatically expires in 15 days, even if you deactivate the scan type. 
+
+ Each Azure and Google Cloud Platform (GCP) resource type includes its own 15-day free trial. The free trial for a resource type starts when Amazon Inspector begins scanning that resource type in your account, independently of other resource types and cloud providers. 
 
 **Note**  
  The free trial does not apply to [CIS scanning](https://docs.aws.amazon.com/inspector/latest/user/scanning-cis.html). 

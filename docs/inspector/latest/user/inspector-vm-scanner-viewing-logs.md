@@ -1,7 +1,6 @@
 
 
 # Viewing logs
-<a name="inspector-vm-scanner-viewing-logs"></a>
 
  Inspector VM Scanner logs always start with `inspector-vm-scanner` and end with `.log`. 
 

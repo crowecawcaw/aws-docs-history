@@ -1,7 +1,6 @@
 
 
 # Amazon Inspector integrations
-<a name="integrations"></a>
 
  Amazon Inspector integrates with other AWS services. These services can ingest data from Amazon Inspector, so you can view your findings in different ways. Review the following integration options to learn more. 
 

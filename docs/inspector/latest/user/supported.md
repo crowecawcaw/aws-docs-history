@@ -1,7 +1,6 @@
 
 
 # Supported operating systems and programming languages for Amazon Inspector
-<a name="supported"></a>
 
  Amazon Inspector can scan software applications that are installed on the following: 
 +  Amazon Elastic Compute Cloud (Amazon EC2) instances 
@@ -27,8 +26,8 @@
 **Topics**
 + [Supported operating systems](#supported-os)
 + [Discontinued operating systems](#formerly-supported-os)
-+ [Supported programming languages](#w2aac66c19)
-+ [Supported runtimes](#w2aac66c21)
++ [Supported programming languages](#w2aac68c19)
++ [Supported runtimes](#w2aac68c21)
 
 ## Supported operating systems
 <a name="supported-os"></a>
@@ -67,6 +66,9 @@ Ubuntu
  Linux operating system detections are supported only for the default package manager repository (rpm and dpkg). Detections don't include third-party applications, extended support repositories, or optional repositories (application streams) unless otherwise specified below. Amazon Inspector scans the running kernel for vulnerabilities. For some operating systems, like Ubuntu, a reboot is required for upgrades to show in active findings. 
 
  For definitions of the advisory status values and details about advisory sources, see [Supported operating systems](#supported-os). 
+
+**Note**  
+ Amazon Inspector uses the operating systems in this table to scan Google Cloud Platform (GCP) Compute Engine VM instances. Amazon Inspector doesn't install the VM scanner on VM instances that run Container-Optimized OS. 
 
 
 | Operating system | Version | Advisory source | Advisory status | Agentless scan support | Agent-based scan support | 
@@ -166,6 +168,9 @@ Ubuntu
  The following table lists the operating systems Amazon Inspector supports for the scanning of container images in Amazon ECR repositories. It also specifies the advisory source and advisory status for each operating system. 
 
  For definitions of the advisory status values and details about advisory sources, see [Supported operating systems](#supported-os). 
+
+**Note**  
+ Amazon Inspector uses the operating systems in this table to scan container images in Google Cloud Platform (GCP) Artifact Registry. Amazon Inspector scans images in standard Docker-format repositories only. 
 
 
 | Operating system | Version | Advisory source | Advisory status | Basic scanning | Enhanced scanning | 
@@ -391,7 +396,7 @@ Ubuntu
 | Windows Server | 2012 R2 | October 10, 2023 | 
 
 ## Supported programming languages
-<a name="w2aac66c19"></a>
+<a name="w2aac68c19"></a>
 
  This section lists the programming languages Amazon Inspector supports. 
 
@@ -452,7 +457,7 @@ Deep inspection is not supported for Bottlerocket operating systems.
 + Rust
 
 ## Supported runtimes
-<a name="w2aac66c21"></a>
+<a name="w2aac68c21"></a>
 
  This section lists the runtimes Amazon Inspector supports. 
 
@@ -535,3 +540,39 @@ Deep inspection is not supported for Bottlerocket operating systems.
   + ruby2.7
   + ruby3.2
   + ruby3.3
+
+### Supported runtimes: Google Cloud Platform function scanning
+<a name="supported-programming-languages-gcp-functions"></a>
+
+ Amazon Inspector currently supports the following runtimes for the programming languages it can use when scanning the deployed source of Cloud Run functions, including 1st gen and 2nd gen functions, for vulnerabilities in third-party software packages: 
+
+**Note**  
+ Amazon Inspector doesn't scan Cloud Run function code for code vulnerabilities. Amazon Inspector scans only Cloud Run functions. It doesn't scan Cloud Run services or jobs as functions. 
++ Go
+  + go122
+  + go123
+  + go124
+  + go125
+  + go126
++ Java
+  + java17
+  + java21
+  + java25
++ .NET
+  + dotnet8
+  + dotnet10
++ Node.js
+  + nodejs20
+  + nodejs22
+  + nodejs24
++ Python
+  + python310
+  + python311
+  + python312
+  + python313
+  + python314
++ Ruby
+  + ruby32
+  + ruby33
+
+ Amazon Inspector doesn't support nodejs26, ruby34, ruby40, or any PHP runtime. A function that uses an unsupported runtime shows as unsupported in coverage and gets no findings. 

@@ -1,7 +1,6 @@
 
 
 # Disassociating member accounts in Amazon Inspector
-<a name="disassociating-member-accounts"></a>
 
  As the delegated administrator, you might need to disassociate a member account from your account. When you disassociate a member account, Amazon Inspector is still activated in the account, and the account becomes a standalone account. You also don't have permission to manage Amazon Inspector for the account anymore. However, you can associate previously disassociated member accounts with your account at any time. This section describes how to disassociate member accounts as the delegated administrator. 
 

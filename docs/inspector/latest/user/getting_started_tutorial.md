@@ -1,7 +1,6 @@
 
 
 # Getting started tutorial: Activating Amazon Inspector
-<a name="getting_started_tutorial"></a>
 
  This topic describes how to activate Amazon Inspector for a standalone account environment (member account) and multi-account environment (delegated administrator account). When you activate Amazon Inspector, it automatically begins discovering workloads and scanning them for software vulnerabilities and unintended network exposure. 
 

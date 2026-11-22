@@ -1,16 +1,15 @@
 
 
 # Amazon Inspector Dockerfile checks
-<a name="dockerfile-checks"></a>
 
  This section describes how to use the Amazon Inspector SBOM Generator to scan Dockerfiles and Docker container images for misconfigurations that introduce security vulnerabilities. 
 
 **Topics**
-+ [Using Sbomgen Dockerfile checks](#w2aac41c13b7)
-+ [Supported Dockerfile checks](#w2aac41c13b9)
++ [Using Sbomgen Dockerfile checks](#w2aac43c13b7)
++ [Supported Dockerfile checks](#w2aac43c13b9)
 
 ## Using Sbomgen Dockerfile checks
-<a name="w2aac41c13b7"></a>
+<a name="w2aac43c13b7"></a>
 
  Dockerfile checks are conducted automatically when a file named `Dockerfile` or `*.Dockerfile` is discovered and when a Docker image is scanned. 
 
@@ -94,7 +93,7 @@
  If you invoke Sbomgen without the `--scan-sbom` flag, you can only view raw Dockerfile findings. 
 
 ## Supported Dockerfile checks
-<a name="w2aac41c13b9"></a>
+<a name="w2aac43c13b9"></a>
 
  Sbomgen Dockerfile checks are supported for the following: 
 +  The Sudo binary package 
@@ -110,7 +109,7 @@
  The recommendations described in the following topics are based on industry best practices. 
 
 ### The Sudo binary package
-<a name="w2aac41c13b9c11"></a>
+<a name="w2aac43c13b9c11"></a>
 
 **Note**  
  The severity rating for this check is **Info**. 
@@ -118,7 +117,7 @@
  We recommend not installing or using the Sudo binary package because it has unpredictable TTY and signal-forwarding behavior. For more information, see [User](https://docs.docker.com/build/building/best-practices/#user) in the Docker Docs website. If your use case requires functionality similar the Sudo binary package, we recommened using [Gosu](https://github.com/tianon/gosu). 
 
 ### Debian APT utilities
-<a name="w2aac41c13b9c13"></a>
+<a name="w2aac43c13b9c13"></a>
 
 **Note**  
  The severity rating for this check is **High**. 
@@ -135,7 +134,7 @@
  We recommend using the APT command-line utility interactively. The APT command-line utility is designed as an end-user tool, and its behavior changes between versions. For more information, see [Script Usage and differences from other APT tools](https://manpages.debian.org/stretch/apt/apt.8.en.html#SCRIPT_USAGE_AND_DIFFERENCES_FROM_OTHER_APT_TOOLS) in the Debian website. 
 
 ### Hard-coded secrets
-<a name="w2aac41c13b9c15"></a>
+<a name="w2aac43c13b9c15"></a>
 
 **Note**  
  The severity rating for this check is **Critical**. 
@@ -148,7 +147,7 @@
 +  GitLab personal access tokens – `glpat-12345example12345678` 
 
 ### Root containers
-<a name="w2aac41c13b9c17"></a>
+<a name="w2aac43c13b9c17"></a>
 
 **Note**  
  The severity marker for this check is **Info**. 
@@ -156,7 +155,7 @@
  We recommend running Docker containers without root privileges. For containerized workloads that cannot run without root privileges, we recommend building your applications using a principle with the least amount of privileges. For more information, see [User](https://docs.docker.com/build/building/best-practices/#user) in the Docker Docs website. 
 
 ### Runtime weakening environment variables
-<a name="w2aac41c13b9c19"></a>
+<a name="w2aac43c13b9c19"></a>
 
 **Note**  
  The severity rating for this check is **High**. 
@@ -176,7 +175,7 @@
  When Node.js npm command line processes run with `NPM_CONFIG_STRICT_SSL` set to false, the Node Package Manager (npm) utility will connect to the NPM registry without validating TLS certificates. For more information, see [strict-ssl](https://docs.npmjs.com/cli/v10/using-npm/config#strict-ssl) in the npm Docs website website. 
 
 ### Runtime weakening command flags
-<a name="w2aac41c13b9c21"></a>
+<a name="w2aac43c13b9c21"></a>
 
 **Note**  
  The severity rating for this check is **High**. 
@@ -211,7 +210,7 @@
  When `wget` is run with the `--no-check-certificate` flag, TLS certificate validation is disabled. For more information, see the following [Wget manual page](https://www.gnu.org/software/wget/manual/wget.html#index-SSL-certificate_002c-check) in the GNU website. 
 
 ### Removal checks for OS package databases within containers
-<a name="w2aac41c13b9c23"></a>
+<a name="w2aac43c13b9c23"></a>
 
 **Note**  
  The severity rating for this check is **Info**. 

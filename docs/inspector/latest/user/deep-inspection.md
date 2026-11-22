@@ -1,7 +1,6 @@
 
 
 # Amazon Inspector deep inspection for Linux-based Amazon EC2 instances
-<a name="deep-inspection"></a>
 
 **Note**  
 This page applies to customers that have not opted in to Enhanced EC2 Scanning. Customers opted into Enhanced EC2 Scanning do not need any additional policy configuration.

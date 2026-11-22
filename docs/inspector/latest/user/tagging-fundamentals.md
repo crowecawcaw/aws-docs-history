@@ -1,7 +1,6 @@
 
 
 # Tagging fundamentals
-<a name="tagging-fundamentals"></a>
 
  A tag consists of a key-value pair. The tag key is a general label. The tag value is a description of the tag key. This topic descibes the fundamentals of tagging Amazon Inspector resources. When tagging Amazon Inspector resources, consider the following: 
 +  You can tag [suppression rules](https://docs.aws.amazon.com/inspector/latest/user/findings-managing-supression-rules.html) and [CIS scan configurations](https://docs.aws.amazon.com/inspector/latest/user/scanning-cis-create-cis-scan-configuration.html). 

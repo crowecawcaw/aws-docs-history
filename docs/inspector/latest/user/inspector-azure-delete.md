@@ -1,9 +1,10 @@
 
 
 # Deleting an Azure connector in Amazon Inspector
-<a name="inspector-azure-delete"></a>
 
 You can delete an Azure connector when you no longer want Amazon Inspector to scan resources in that Azure tenant.
+
+**What happens when you delete a connector**
 
 When you delete an Azure connector:
 + Amazon Inspector stops scanning all Azure resources associated with the connector.
@@ -14,6 +15,10 @@ When you delete an Azure connector:
 
 **Note**  
 If you share the Azure app registration with AWS Security Hub CSPM or AWS Security Hub CSPM CSPM, do not delete the app registration after removing the Amazon Inspector connector. Other services still depend on it.
+
+**Deleting a connector**
+
+**To delete an Azure connector**
 
 1. Open the Amazon Inspector console at [https://console.aws.amazon.com/inspector/v2/home](https://console.aws.amazon.com/inspector/v2/home).
 
