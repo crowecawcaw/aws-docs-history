@@ -1,7 +1,6 @@
 
 
 # Adobe Commerce and Magento Open Source on AWS
-<a name="magento-ecommerce-on-aws"></a>
 
 Publication date: **April 25, 2022 ([Diagram history](#magento-history))**
 
