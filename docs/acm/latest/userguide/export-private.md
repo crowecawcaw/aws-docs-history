@@ -1,7 +1,6 @@
 
 
 # Export an AWS Certificate Manager private certificate
-<a name="export-private"></a>
 
 You can export a certificate issued by AWS Private CA for use anywhere in your private PKI environment. The exported file contains the certificate, the certificate chain, and the encrypted private key. This file must be stored securely. For more information about AWS Private CA, see [AWS Private Certificate Authority User Guide](https://docs.aws.amazon.com/privateca/latest/userguide/).
 
@@ -91,7 +90,7 @@ Fs5kw5mvEoe5DAe3rSKsSUJ1tM4RagJj2WH+BC04SZWNH8kxfOC1E/GSLBCixv3v
 
 To output everything to a file, append the `>` redirect to the previous example, yielding the following. 
 
-```
+```bash
 $ aws acm export-certificate \
      --certificate-arn arn:aws:acm:{{Region}}:{{444455556666}}:certificate/{{certificate_ID}} \
      --passphrase fileb://{{path-to-passphrase-file}} \

@@ -1,7 +1,6 @@
 
 
 # AWS Certificate Manager concepts
-<a name="acm-concepts"></a>
 
 This section provides definitions of concepts used by AWS Certificate Manager.
 
@@ -38,14 +37,14 @@ ACM provides a managed ACME server implementation for automating public certific
 ## ACM Certificate
 <a name="concept-acm-cert"></a>
 
-ACM generates X.509 version 3 certificates. Each is valid for 198 days and contains the following extensions. 
+ACM generates X.509 version 3 certificates. Each public certificate is valid for 198 days and contains the following extensions. The validity of an Amazon N2 certificate depends on its root hierarchy. For more information, see [Validity period](acm-amazon-n2-characteristics.md#amazon-n2-validity). 
 + **Basic Constraints**- specifies whether the subject of the certificate is a certification authority (CA)
 + **Authority Key Identifier**- enables identification of the public key corresponding to the private key used to sign the certificate. 
 + **Subject Key Identifier**- enables identification of certificates that contain a particular public key. 
 + **Key Usage**- defines the purpose of the public key embedded in the certificate. 
 + **Extended Key Usage**- specifies one or more purposes for which the public key may be used in addition to the purposes specified by the **Key Usage** extension. 
 **Important**  
-Effective June 11, 2025 AWS Certificate Manager no longer issues certificates with the "TLS Web Client Authentication" (clientAuth) extended key usage (EKU) to align with new browser requirements for website certificates.
+Effective June 11, 2025 AWS Certificate Manager no longer issues certificates with the "TLS Web Client Authentication" (clientAuth) extended key usage (EKU) to align with new browser requirements for website certificates. This applies to ACM public certificates. To obtain a certificate that carries the clientAuth EKU for authentication between workloads, request an Amazon N2 certificate. For more information, see [Amazon N2 certificates](acm-amazon-n2-certificates.md).
 + **CRL Distribution Points**- specifies where CRL information can be obtained. 
 
 The plaintext of an ACM-issued certificate resembles the following example:
@@ -132,7 +131,7 @@ The public end-entity certificates issued by ACM derive their trust from the fol
 | CN=Amazon Root CA 3,O=Amazon,C=US | Elliptic Prime Curve 256 bit (EC\_prime256v1) | 
 | CN=Amazon Root CA 4,O=Amazon,C=US | Elliptic Prime Curve 384 bit (EC\_secp384r1) | 
 
-The default root of trust for ACM-issued certificates is CN=Amazon Root CA 1,O=Amazon,C=US, which offers 2048-bit RSA security. The other roots are reserved for future use. All of the roots are cross-signed by the Starfield Services Root Certificate Authority certificate.
+The default root of trust for ACM-issued certificates is CN=Amazon Root CA 1,O=Amazon,C=US, which offers 2048-bit RSA security. The other roots are reserved for future use. Amazon Root CA 1 to 4 are cross-signed by the Starfield Services Root Certificate Authority certificate. Amazon N2 certificates chain to separate roots. For more information, see [Amazon N2 roots and trust](acm-amazon-n2-certificates.md#acm-amazon-n2-trust).
 
 For more information, see [Amazon Trust Services](https://www.amazontrust.com/repository/).
 
@@ -182,7 +181,7 @@ Before the Amazon CA issues a publicly trusted SSL/TLS certificate for your doma
                      {{30:45:02:...29:8F:6C}}
 ```
 
-All public certificates issued by ACM are automatically recorded in certificate transparency logs. Per browser policy requirements, you cannot opt out of certificate transparency logging. 
+All ACM public certificates are automatically recorded in certificate transparency logs. Per browser policy requirements, you cannot opt out of certificate transparency logging. ACM does not record Amazon N2 certificates in certificate transparency logs. For more information, see [Certificate transparency logging](acm-amazon-n2-characteristics.md#amazon-n2-transparency). 
 
 ## Domain Name System
 <a name="concept-dns"></a>

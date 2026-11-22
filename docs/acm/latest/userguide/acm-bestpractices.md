@@ -1,9 +1,8 @@
 
 
 # Best practices
-<a name="acm-bestpractices"></a>
 
- Best practices are recommendations that can help you use AWS Certificate Manager (AWS Certificate Manager) more effectively. The following best practices are based on real-world experience from current ACM customers. 
+ Best practices are recommendations that can help you use AWS Certificate Manager (ACM) more effectively. The following best practices are based on real-world experience from current ACM customers. 
 
 **Topics**
 + [Account-level separation](#best-practices-account-separation)
@@ -27,7 +26,7 @@ If you want more granular control than restricting the use of `kms:CreateGrant` 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -63,7 +62,9 @@ Include the wildcard certificate in the template that CloudFormation uses to cre
 ## Custom Trust Stores
 <a name="best-practices-custom-trust-stores"></a>
 
- In order to ensure connectivity to endpoints protected by ACM certificates, we recommend the [Amazon roots](https://www.amazontrust.com/repository/) be included in your custom trust store. Amazon Root certificate authorities can represent different key types and algorithms. Starfield Services Root Certificate Authority - G2 is an older root that is compatible with other older trust stores and clients that can not be updated. By including all root CAs, you'll be able to ensure maximum compatibility for your application.
+ In order to ensure connectivity to endpoints protected by ACM public certificates, we recommend the [Amazon roots](https://www.amazontrust.com/repository/) be included in your custom trust store. Amazon Root certificate authorities can represent different key types and algorithms. Starfield Services Root Certificate Authority - G2 is an older root that is compatible with other older trust stores and clients that can not be updated. By including all of these root CAs, you'll be able to ensure maximum compatibility for your application.
+
+Amazon N2 certificates chain to different roots. For the roots to include in the trust store of each verifying peer, see [Amazon N2 roots and trust](acm-amazon-n2-certificates.md#acm-amazon-n2-trust).
 
 ## Certificate pinning
 <a name="best-practices-pinning"></a>
@@ -75,7 +76,7 @@ We recommend that your application **not** pin an ACM certificate. ACM performs 
 
 If you decide to pin a certificate, the following options will not hinder your application from connecting to your domain:
 + [Import your own certificate](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) into ACM and then pin your application to the imported certificate. ACM doesn't try to automatically renew imported certificates.
-+ If you're using a public certificate, pin your application to all available [ Amazon root certificates](https://www.amazontrust.com/repository/). If you're using a private certificate, pin your application to the CA's root certificate.
++ If you're using a public certificate or an Amazon N2 certificate, pin your application to the public keys of all of the [Amazon root certificates](https://www.amazontrust.com/repository/) in the root hierarchy that your certificate chains to. If you're using a private certificate, pin your application to the CA's root certificate.
 
 ## Domain validation
 <a name="best-practices-validating"></a>
@@ -97,7 +98,7 @@ If you use DNS validation instead, you must write one new DNS record to the data
 ## Domain name privacy
 <a name="best-practices-domain-name-privacy"></a>
 
-Do not include confidential or sensitive information in public certificate domain names. Public certificates, including ACM public certificates, are logged to public, append-only Certificate Transparency logs. For more information, see [Certificate Transparency Logging](acm-concepts.md#concept-transparency).
+Do not include confidential or sensitive information in public certificate domain names. Public certificates, including ACM public certificates, are logged to public, append-only Certificate Transparency logs. Amazon N2 certificates are not logged, but the domain names in them are still customer data and should be treated as confidential. For more information, see [Certificate Transparency Logging](acm-concepts.md#concept-transparency).
 
 ## Turn on AWS CloudTrail
 <a name="best-practices-ct"></a>

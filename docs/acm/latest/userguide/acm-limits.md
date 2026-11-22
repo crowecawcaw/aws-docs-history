@@ -1,7 +1,6 @@
 
 
 # Quotas
-<a name="acm-limits"></a>
 
 The following AWS Certificate Manager (ACM) service quotas apply to each AWS region per each AWS account. 
 
@@ -16,8 +15,8 @@ To see what quotas can be adjusted, see the [ACM quotas table](https://docs.aws.
 
 | Item | Default quota | 
 | --- | --- | 
-| Number of ACM certificatesExpired and revoked certificates continue to count toward this total.<br />Certificates signed by a CA from AWS Private CA do not count toward this total.<br />Certificates issued through ACME do not count toward this total. | 2500 | 
-| Number of ACM certificates per year (last 365 days)You can request up to twice your quota of ACM certificates per year, region, and account. For example, if your quota is 2,500, you can request up to 5,000 ACM certificates per year in a given region and account. You can only have 2,500 certificates at any given time. To request 5,000 certificates in a year, you must delete 2,500 during the year to stay within the quota. If you need more than 2,500 certificates at any given time, you must contact the **[Support Center](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-acm)**. <br />Certificates signed by a CA from AWS Private CA do not count toward this total.<br />Certificates issued through ACME do not count toward this total. | 5,000 | 
+| Number of ACM certificatesExpired and revoked certificates continue to count toward this total.<br />Certificates signed by a CA from AWS Private CA do not count toward this total.<br />Certificates issued through ACME do not count toward this total.<br />This total includes Amazon N2 certificates issued by ACM. | 2500 | 
+| Number of ACM certificates per year (last 365 days)You can request up to twice your quota of ACM certificates per year, region, and account. For example, if your quota is 2,500, you can request up to 5,000 ACM certificates per year in a given region and account. You can only have 2,500 certificates at any given time. To request 5,000 certificates in a year, you must delete 2,500 during the year to stay within the quota. If you need more than 2,500 certificates at any given time, you must contact the **[Support Center](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-acm)**. <br />Certificates signed by a CA from AWS Private CA do not count toward this total.<br />Certificates issued through ACME do not count toward this total.<br />This total includes Amazon N2 certificates issued by ACM. | 5,000 | 
 | Number of imported certificates | 2,500 | 
 | Number of imported certificates per year (last 365 days) | 5,000 | 
 | Number of domain names per ACM certificateThe default quota is 10 domain names for each ACM certificate. Your quota may be greater. <br />The first domain name that you submit is included as the subject common name (CN) of the certificate. All names are included in the Subject Alternative Name extension. <br />You can request up to 100 domain names. To request an increase to your quota, create a request in the Service Quotas console for the ACM service. Before creating a case, however, make sure you understand how adding more domain names can create more administrative work for you if you use email validation. For more information, see [Domain validation](acm-bestpractices.md#best-practices-validating). <br />The quota for the number of domain names per ACM certificate applies only to certificates that are provided by ACM. This quota does not apply to certificates that you import into ACM. The following sections apply only to ACM certificates. | 10 | 

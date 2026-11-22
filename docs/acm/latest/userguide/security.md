@@ -1,7 +1,6 @@
 
 
 # Security in AWS Certificate Manager
-<a name="security"></a>
 
 Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data centers and network architectures that are built to meet the requirements of the most security-sensitive organizations.
 
@@ -16,4 +15,3 @@ This documentation helps you understand how to apply the shared responsibility m
 + [Identity and Access Management for AWS Certificate Manager](security-iam.md)
 + [Resilience in AWS Certificate Manager](disaster-recovery-resiliency.md)
 + [Infrastructure security in AWS Certificate Manager](infrastructure-security.md)
-+ [Best practices](acm-bestpractices.md)

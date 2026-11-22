@@ -1,7 +1,6 @@
 
 
 # Troubleshoot email validation problems
-<a name="troubleshooting-email-validation"></a>
 
 **Important**  
 Throughout 2027, AWS Certificate Manager will deprecate email validation for new public certificates and renewals. Use DNS validation instead. For more information, see [AWS Certificate Manager will discontinue email validation to prove domain validation for certificates](https://aws.amazon.com/blogs/security/aws-certificate-manager-will-discontinue-email-validation-to-prove-domain-validation-for-certificates/) on the AWS Security Blog.
@@ -12,6 +11,7 @@ Consult the following guidance if you are having trouble validating a certificat
 + [Not receiving validation email](#troubleshooting-no-mail)
 + [Persistent initial timestamp for email validation](#initial-dates)
 + [How to switch to DNS validation](#troubleshoot-switch-to-dns)
++ [My email-to-DNS migration timed out](#troubleshoot-migration-timeout)
 
 ## Not receiving validation email
 <a name="troubleshooting-no-mail"></a>
@@ -39,3 +39,18 @@ The timestamp of a certificate's first email-validation request persists through
 <a name="troubleshoot-switch-to-dns"></a>
 
 To switch an existing certificate from email validation to DNS validation, use the [`UpdateCertificateOptions`](https://docs.aws.amazon.com/acm/latest/APIReference/API_UpdateCertificateOptions.html) API.
+
+## My email-to-DNS migration timed out
+<a name="troubleshoot-migration-timeout"></a>
+
+If you initiate an email-to-DNS migration, you must add the CNAME records to your DNS configuration within 72 hours. If you don't, the migration request expires. The certificate remains email-validated and continues to work normally.
+
+To resolve a timed-out migration:
+
+1. Make sure the CNAME records returned by `ListCertificateDomainValidations` are correctly configured at your DNS provider. Use a tool such as **dig** or **nslookup** to confirm that the records resolve as expected.
+
+1. Reinitiate the migration by calling `UpdateCertificateOptions` again, or by repeating the procedure in the ACM console. A new 72-hour window begins.
+
+1. Monitor progress with `ListCertificateDomainValidations`. Migration completes when the active validation configuration for each domain shows `DNS`.
+
+For more information, see [Migrating from email to DNS validation](email-to-dns-migration.md).

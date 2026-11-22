@@ -1,7 +1,6 @@
 
 
 # Request a private certificate in AWS Certificate Manager
-<a name="gs-acm-request-private"></a>
 
 ## Request a private certificate (console)
 <a name="request-private-console"></a>
@@ -50,7 +49,7 @@ Use the [request-certificate](https://docs.aws.amazon.com/cli/latest/reference/a
 **Note**  
 When you request a private PKI certificate signed by a CA from AWS Private CA, the specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
 
-```
+```bash
 aws acm request-certificate \
 --domain-name www.example.com \
 --idempotency-token 12563 \
@@ -60,7 +59,7 @@ certificate-authority/{{CA_ID}}
 
 This command outputs the Amazon Resource Name (ARN) of your new private certificate.
 
-```
+```json
 {
     "CertificateArn": "arn:aws:acm:{{Region}}:{{444455556666}}:certificate/{{certificate_ID}}"
 }
@@ -68,13 +67,13 @@ This command outputs the Amazon Resource Name (ARN) of your new private certific
 
 In most cases, ACM automatically attaches a service-linked role (SLR) to your account the first time that you use a shared CA. The SLR enables automatic renewal of end-entity certificates that you issue. To check whether the SLR is present, you can query IAM with the following command:
 
-```
+```bash
 aws iam get-role --role-name AWSServiceRoleForCertificateManager
 ```
 
 If the SLR is present, the command output should resemble the following:
 
-```
+```json
 {
    "Role":{
       "Path":"/aws-service-role/acm.amazonaws.com/",

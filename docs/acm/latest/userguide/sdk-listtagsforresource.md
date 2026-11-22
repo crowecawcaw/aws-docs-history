@@ -1,11 +1,10 @@
 
 
 # Listing tags for a resource
-<a name="sdk-listtagsforresource"></a>
 
 The following example shows how to use the [ListTagsForResource](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListTagsForResource.html) function. This API supports all ACM resource types except the `certificate` resource type. For certificate resources, use [ListTagsForCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListTagsForCertificate.html).
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.services.certificatemanager.AWSCertificateManagerClientBuilder;

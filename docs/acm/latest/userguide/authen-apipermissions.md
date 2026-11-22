@@ -1,7 +1,6 @@
 
 
 # ACM API permissions: Actions and resources reference
-<a name="authen-apipermissions"></a>
 
 When you set up access control and write permissions policies that you can attach to an IAM user or role, you can use the following table as a reference. The first column in the table lists each AWS Certificate Manager API operation. You specify actions in a policy's `Action` element. The remaining columns provide the additional information: 
 

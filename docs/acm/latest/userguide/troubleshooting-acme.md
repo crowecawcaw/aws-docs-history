@@ -1,7 +1,6 @@
 
 
 # Troubleshoot ACME certificate automation
-<a name="troubleshooting-acme"></a>
 
 This section describes common issues with ACME certificate automation and how to resolve them.
 
@@ -65,7 +64,7 @@ An ACME domain validation requires that its CNAME record remain in DNS for as lo
 
 When this happens, the ACME client sees the order transition to `invalid` status and the order's `error` field carries a `type` of `urn:ietf:params:acme:error:dns` with a `detail` that names the CNAME records that could not be resolved. For example:
 
-```
+```json
 {
     "status": "invalid",
     "error": {
@@ -104,7 +103,7 @@ Certificate issuance through the ACM ACME endpoint can take up to two minutes. I
 
 For Certbot, use the `--issuance-timeout` flag:
 
-```
+```bash
 certbot certonly --issuance-timeout 120 ...
 ```
 

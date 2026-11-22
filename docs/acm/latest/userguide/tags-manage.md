@@ -1,7 +1,6 @@
 
 
 # Managing tags
-<a name="tags-manage"></a>
 
 You can add, edit, and delete tags by using the AWS Management Console, the AWS Command Line Interface, or the AWS Certificate Manager API. 
 

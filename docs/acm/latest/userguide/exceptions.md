@@ -1,7 +1,6 @@
 
 
 # Handling exceptions
-<a name="exceptions"></a>
 
 An AWS Certificate Manager command might fail for several reasons. For information about each exception, see the table below. 
 

@@ -1,7 +1,6 @@
 
 
 # Reimport a certificate
-<a name="import-reimport"></a>
 
 If you imported a certificate and associated it with other AWS services, you can reimport that certificate before it expires while preserving the AWS service associations of the original certificate. For more information about AWS services integrated with ACM, see [Managed automation with integrated services](acm-services.md). 
 

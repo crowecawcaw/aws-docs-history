@@ -1,7 +1,6 @@
 
 
 # Renewal for domains validated by HTTP
-<a name="http-renewal-validation"></a>
 
 ACM provides automated managed renewal for certificates that were originally issued using HTTP validation through CloudFront.
 

@@ -1,7 +1,6 @@
 
 
 # Managed automation with integrated services
-<a name="acm-services"></a>
 
 AWS Certificate Manager supports a growing number of AWS services that can use ACM certificates directly.
 
@@ -10,6 +9,10 @@ To automate public certificate issuance and renewal outside integrated services 
 
 **Note**  
 ACME certificates (certificates with `CertificateKeyPairOrigin` of `ACME`) cannot be used with AWS integrated services. To use certificates with the services listed below, use ACM-managed certificates with a key pair origin of `AWS_MANAGED` or `CUSTOMER_PROVIDED`.
+
+**Note**  
+You can associate an Amazon N2 certificate with an integrated service by specifying the certificate ARN. You do not need to export the certificate.  
+`ListCertificates` excludes Amazon N2 certificates by default, so the certificate pickers in integrated service consoles might not show them. For more information about Amazon N2 certificates, see [Amazon N2 certificates](acm-amazon-n2-certificates.md).
 
 ACM certificates are supported by the following services: 
 

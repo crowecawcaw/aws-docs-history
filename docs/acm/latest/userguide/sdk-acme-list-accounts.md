@@ -1,11 +1,10 @@
 
 
 # Listing ACME accounts
-<a name="sdk-acme-list-accounts"></a>
 
 The following example shows how to use the [ListAcmeAccounts](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeAccounts.html) function.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.services.certificatemanager.AWSCertificateManagerClientBuilder;

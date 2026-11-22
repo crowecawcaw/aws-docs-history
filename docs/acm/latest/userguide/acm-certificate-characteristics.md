@@ -1,12 +1,11 @@
 
 
 # AWS Certificate Manager public certificate characteristics and limitations
-<a name="acm-certificate-characteristics"></a>
 
-Public certificates provided by ACM have the following characteristics and limitations. These apply only to certificates provided by ACM. They might not apply to [imported certificates](import-certificate.md).
+Public certificates provided by ACM have the following characteristics and limitations. These apply only to certificates provided by ACM. They might not apply to [imported certificates](import-certificate.md). For how these characteristics differ for Amazon N2 certificates, see [Compare certificate types](certificate-types.md#certificate-types-compare).
 
 **Browser and application trust**  <a name="trust-term"></a>
-ACM certificates are trusted by all major browsers including Google Chrome, Microsoft Edge, Mozilla Firefox, and Apple Safari. Browsers display a lock icon when connected by TLS to sites using ACM certificates. Java also trusts ACM certificates.
+ACM public certificates are trusted by all major browsers including Google Chrome, Microsoft Edge, Mozilla Firefox, and Apple Safari. Browsers display a lock icon when connected by TLS to sites using ACM public certificates. Java also trusts ACM public certificates. For more information, see the [repository](https://www.amazontrust.com/repository/) on the Amazon Trust Services website. Amazon N2 certificates are not intended for browser clients. For more information, see [Amazon N2 roots and trust](acm-amazon-n2-certificates.md#acm-amazon-n2-trust).
 
 **Certificate authority and hierarchy**  <a name="authority-term"></a>
 Public certificates requested through ACM come from [Amazon Trust Services](https://www.amazontrust.com/repository/), an Amazon-managed public [certificate authority (CA)](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-ca). Amazon Root CAs 1 to 4 are cross-signed by Starfield G2 Root Certificate Authority – G2. Starfield root is trusted on Android (later Gingerbread versions) and iOS (version 4.1\+). Amazon roots are trusted by iOS 11\+. Browsers, applications, or OSes including Amazon or Starfield roots will trust ACM public certificates.  
@@ -110,7 +109,7 @@ The following [Punycode](https://datatracker.ietf.org/doc/html/rfc3492) requirem
 
 
 **Validity Period**  <a name="validity-term"></a>
-ACM certificates are valid for 198 days.
+ACM public certificates are valid for 198 days. The validity of an Amazon N2 certificate depends on its root hierarchy. For more information, see [Validity period](acm-amazon-n2-characteristics.md#amazon-n2-validity).
 
 **Wildcard Names**  <a name="wildcard-term"></a>
 ACM allows an asterisk (\*) in the domain name to create a wildcard certificate protecting multiple sites in the same domain. For example, `*.example.com` protects `www.example.com` and `images.example.com`.  

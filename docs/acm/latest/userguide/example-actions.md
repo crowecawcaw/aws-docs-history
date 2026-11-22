@@ -1,7 +1,6 @@
 
 
 # Initiating actions with Amazon EventBridge in ACM
-<a name="example-actions"></a>
 
 You can create Amazon EventBridge rules based on these events and use the Amazon EventBridge console to configure actions that take place when the events are detected. This section provides sample procedures for configuring Amazon EventBridge rules and resulting actions.
 

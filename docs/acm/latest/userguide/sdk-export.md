@@ -1,14 +1,13 @@
 
 
 # Exporting a certificate
-<a name="sdk-export"></a>
 
 The following example shows how to use the [ExportCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExportCertificate.html) function. The function exports a certificate in the PKCS \#8 format. It also exports the certificate chain and private key. In the example, the passphrase for the key is stored in a local file. 
 
 **Note**  
 If you want to export public certificates issued through ACM, see [ACM exportable public certificates](https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html). 
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.AmazonClientException;

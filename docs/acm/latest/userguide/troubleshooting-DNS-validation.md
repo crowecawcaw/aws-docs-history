@@ -1,7 +1,6 @@
 
 
 # Troubleshoot DNS validation problems
-<a name="troubleshooting-DNS-validation"></a>
 
 Consult the following guidance if you are having trouble validating a certificate with DNS.
 

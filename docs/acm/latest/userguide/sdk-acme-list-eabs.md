@@ -1,11 +1,10 @@
 
 
 # Listing ACME external account bindings
-<a name="sdk-acme-list-eabs"></a>
 
 The following example shows how to use the [ListAcmeExternalAccountBindings](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeExternalAccountBindings.html) function.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.services.certificatemanager.AWSCertificateManagerClientBuilder;

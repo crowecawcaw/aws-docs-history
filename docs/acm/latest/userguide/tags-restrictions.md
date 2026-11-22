@@ -1,7 +1,6 @@
 
 
 # Tag restrictions
-<a name="tags-restrictions"></a>
 
 The following basic restrictions apply to ACM certificate tags:
 + The maximum number of tags per ACM certificate is 50.

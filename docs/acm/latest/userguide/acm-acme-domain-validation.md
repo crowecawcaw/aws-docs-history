@@ -1,7 +1,6 @@
 
 
 # ACME domain validation
-<a name="acm-acme-domain-validation"></a>
 
 ACME domain validation resources pre-authorize which domains an ACME endpoint can issue certificates for. Unlike standard ACM domain validation (which you set up as part of a certificate request), ACME domain validations are persistent resources that the PKI administrator configures in advance. This separation enables application owners to request certificates without having to perform domain validation themselves.
 
@@ -121,7 +120,7 @@ You can create an ACME domain validation by using the ACM console or the AWS CLI
 
 Run the following command to create an ACME domain validation:
 
-```
+```bash
 aws acm create-acme-domain-validation \
     --acme-endpoint-arn arn:aws:acm:{{region}}:{{111122223333}}:acme-endpoint/{{00000000-0000-0000-0000-000000000000}} \
     --domain-name {{example.com}} \
@@ -139,7 +138,7 @@ aws acm create-acme-domain-validation \
 
 To check the status and get CNAME details, run the following command:
 
-```
+```bash
 aws acm describe-acme-domain-validation \
     --acme-domain-validation-arn arn:aws:acm:{{region}}:{{111122223333}}:acme-endpoint/{{00000000-0000-0000-0000-000000000000}}/acme-domain-validation/{{11111111-1111-1111-1111-111111111111}}
 ```

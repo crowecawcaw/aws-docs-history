@@ -1,11 +1,10 @@
 
 
 # Creating an ACME endpoint
-<a name="sdk-acme-create-endpoint"></a>
 
 The following example shows how to use the [CreateAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_CreateAcmeEndpoint.html) function.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.services.certificatemanager.AWSCertificateManagerClientBuilder;

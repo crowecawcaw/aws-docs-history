@@ -1,7 +1,6 @@
 
 
 # ACM API actions supported in CloudTrail logging
-<a name="acm-supported-actions-in-cloudtrail"></a>
 
 ACM supports logging the following actions as events in CloudTrail log files:
 

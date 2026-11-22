@@ -1,7 +1,6 @@
 
 
 # Condition keys for ACME certificate requests
-<a name="acm-conditions-acme"></a>
 
 Certificate issuance and revocation through an ACME endpoint are authorized as standard ACM actions. This authorization uses the IAM role attached to the ACME client's external account binding. The ACM condition keys therefore apply to ACME requests as well, and you can use them in the role's permissions policy, in an IAM policy, in a Service Control Policy (SCP), or in a VPC endpoint policy.
 
@@ -69,7 +68,7 @@ The following permissions policy for an external account binding role allows ACM
 
 Issuance and revocation are separate statements because the two actions do not carry the same condition keys. Adding the `acm:KeyAlgorithm` or `acm:DomainNames` condition to the revocation statement would prevent the client from revoking anything.
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

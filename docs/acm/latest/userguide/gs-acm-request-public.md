@@ -1,7 +1,6 @@
 
 
 # AWS Certificate Manager public certificates
-<a name="gs-acm-request-public"></a>
 
 After you request a public certificate you must validate domain ownership, as described in [Validate domain ownership for AWS Certificate Manager public certificates](domain-ownership-validation.md).
 

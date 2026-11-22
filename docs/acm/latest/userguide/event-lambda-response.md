@@ -1,7 +1,6 @@
 
 
 # Responding to an event with a Lambda function
-<a name="event-lambda-response"></a>
 
 This procedure demonstrates how to use AWS Lambda to listen on Amazon EventBridge, create notifications with Amazon Simple Notification Service (SNS), and publish findings to AWS Security Hub CSPM, providing visibility to administrators and security teams. <a name="lambda-setup"></a>
 
@@ -18,7 +17,7 @@ This procedure demonstrates how to use AWS Lambda to listen on Amazon EventBridg
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -98,7 +97,7 @@ This procedure demonstrates how to use AWS Lambda to listen on Amazon EventBridg
 
    1. Under **Function code**, insert the following code:
 
-      ```
+      ```python
       # Copyright 2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
       # SPDX-License-Identifier: MIT-0
       #

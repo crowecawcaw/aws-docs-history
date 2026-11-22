@@ -1,11 +1,10 @@
 
 
 # Tagging a resource
-<a name="sdk-tagresource"></a>
 
 The following example shows how to use the [TagResource](https://docs.aws.amazon.com/acm/latest/APIReference/API_TagResource.html) function. This API supports all ACM resource types except the `certificate` resource type. For certificate resources, use [AddTagsToCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_AddTagsToCertificate.html).
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.services.certificatemanager.AWSCertificateManagerClientBuilder;

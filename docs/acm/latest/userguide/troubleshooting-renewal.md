@@ -1,7 +1,6 @@
 
 
 # Troubleshoot managed certificate renewal
-<a name="troubleshooting-renewal"></a>
 
 ACM tries to automatically renew your ACM certificates before they expire so that no action is required from you. Consult the following topics if you have trouble with [Managed certificate renewal in AWS Certificate Manager](managed-renewal.md). 
 
@@ -38,8 +37,12 @@ You can find the CNAME records for your domains by expanding your certificate an
 
 ![Select the target certificate from the console.](https://docs.aws.amazon.com/acm/latest/userguide/images/Dns-renewal-1.png)
 
+Choose the target certificate from the console.
+
 
 ![Expand the certificate window to find the certificate's CNAME information.](https://docs.aws.amazon.com/acm/latest/userguide/images/Dns-renewal-2.png)
+
+Expand the certificate window to find the certificate's CNAME information.
 
 
 If the problem persists, contact the [Support Center](https://console.aws.amazon.com/support).

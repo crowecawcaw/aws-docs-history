@@ -1,7 +1,6 @@
 
 
 # Secure Kubernetes Workloads with ACM Certificates
-<a name="exportable-certificates-kubernetes"></a>
 
 You can use AWS Certificate Manager exportable public certificates with AWS Controllers for Kubernetes (ACK) to issue and export public TLS certificates from ACM to your Kubernetes workloads. This integration enables you to secure Amazon Elastic Kubernetes Service (Amazon EKS) pods and terminate TLS at your Kubernetes Ingress. To get started, see the [ACM Controller for Kubernetes](https://github.com/aws-controllers-k8s/acm-controller) on GitHub.
 

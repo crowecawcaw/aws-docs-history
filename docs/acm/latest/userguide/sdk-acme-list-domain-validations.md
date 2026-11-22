@@ -1,11 +1,10 @@
 
 
 # Listing ACME domain validations
-<a name="sdk-acme-list-domain-validations"></a>
 
 The following example shows how to use the [ListAcmeDomainValidations](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeDomainValidations.html) function.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.services.certificatemanager.AWSCertificateManagerClientBuilder;

@@ -1,11 +1,10 @@
 
 
 # Searching certificates
-<a name="sdk-search"></a>
 
 The following Java example shows how to use the [SearchCertificates](https://docs.aws.amazon.com/acm/latest/APIReference/API_SearchCertificates.html) function.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.services.certificatemanager.AWSCertificateManagerClientBuilder;
@@ -157,3 +156,5 @@ The preceding sample creates output similar to the following.
     }]
 }
 ```
+
+For an Amazon N2 certificate, `AcmCertificateMetadata` also contains `RootHierarchyType` and `CertificateUsage`.

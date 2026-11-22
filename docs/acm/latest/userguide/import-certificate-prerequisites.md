@@ -1,7 +1,6 @@
 
 
 # Prerequisites for importing ACM certificates
-<a name="import-certificate-prerequisites"></a>
 
 To import a self–signed SSL/TLS certificate into ACM, you must provide both the certificate and its private key. To import a certificate signed by a non-AWS certificate authority (CA), you must also include the private and public keys of certificate. Your certificate must satisfy all of the criteria described in this topic.
 

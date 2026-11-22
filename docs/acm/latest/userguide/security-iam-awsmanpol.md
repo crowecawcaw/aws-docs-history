@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Certificate Manager
-<a name="security-iam-awsmanpol"></a>
 
 
 

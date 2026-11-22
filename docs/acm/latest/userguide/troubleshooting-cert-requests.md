@@ -1,7 +1,6 @@
 
 
 # Troubleshoot certificate requests
-<a name="troubleshooting-cert-requests"></a>
 
 Consult the following topics if you encounter problems when requesting an ACM certificate.
 

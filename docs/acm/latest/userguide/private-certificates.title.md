@@ -1,7 +1,6 @@
 
 
 # Private certificates in AWS Certificate Manager
-<a name="private-certificates.title"></a>
 
 If you have access to an existing private CA created by AWS Private CA, AWS Certificate Manager (ACM) can request a certificate suited for use in your private key infrastructure (PKI). The CA may either reside in your account or be shared with you by a different account. For information about creating a private CA, see [Create a Private Certificate Authority](https://docs.aws.amazon.com/privateca/latest/userguide/create-CA.html). 
 

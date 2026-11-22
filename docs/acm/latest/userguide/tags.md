@@ -1,7 +1,6 @@
 
 
 # Tag AWS Certificate Manager resources
-<a name="tags"></a>
 
 A *tag* is a label that you can assign to an ACM certificate. Each tag consists of a *key* and a *value*. You can use the AWS Certificate Manager console, AWS Command Line Interface (AWS CLI), or ACM API to add, view, or remove tags for ACM certificates. You can choose which tags to display in the ACM console.
 

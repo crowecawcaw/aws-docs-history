@@ -1,9 +1,8 @@
 
 
 # AWS Workload Credentials Provider
-<a name="acm-certificate-automation"></a>
 
-The AWS Workload Credentials Provider automates the use of [public](https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html) and [private](https://docs.aws.amazon.com/acm/latest/userguide/export-private.html) TLS certificates exported from ACM. The provider periodically retrieves certificates and their private keys, writes them to configured paths, and optionally runs a command to reload dependent services such as web servers.
+The AWS Workload Credentials Provider automates the use of [public](https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html), [private](https://docs.aws.amazon.com/acm/latest/userguide/export-private.html), and Amazon N2 certificates exported from ACM. The provider periodically retrieves certificates and their private keys, writes them to configured paths, and optionally runs a command to reload dependent services such as web servers.
 
 **Tip**  
 For publicly trusted certificates, you can instead use the ACME protocol to automate issuance and renewal directly on your hosts with industry-standard ACME clients, without exporting certificates from ACM. For more information, see [ACME certificate automation](acm-acme.md).
@@ -11,13 +10,14 @@ For publicly trusted certificates, you can instead use the ACME protocol to auto
 You can use the Workload Credentials Provider with the following compute environments:
 + Amazon Elastic Compute Cloud (Amazon EC2)
 + On-premises servers with AWS credentials
++ Containers on Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), and Docker on Amazon EC2, where the provider runs as a sidecar
 
-The Workload Credentials Provider uses IAM role assumption to retrieve certificates. It runs natively as a system service on both Linux and Windows under a dedicated low-privilege user and writes certificate files with restricted permissions.
+The Workload Credentials Provider uses IAM role assumption to retrieve certificates. On hosts, it runs as a system service on Linux and Windows under a dedicated low-privilege user and writes certificate files with restricted permissions. In containers, it runs as the container's process and writes certificate files to a shared volume.
 
 **Important**  
 Only exportable certificates can be used with this provider. For more information, see [AWS Certificate Manager exportable public certificates](acm-exportable-certificates.md) and [Exporting a private certificate](https://docs.aws.amazon.com/acm/latest/userguide/export-private.html).
 
-The AWS Workload Credentials Provider is open source. For source code and contributions, see the [GitHub repository](https://github.com/aws/aws-workload-credentials-provider).
+The AWS Workload Credentials Provider is open source. For source code and contributions, see the [GitHub repository](https://github.com/aws/aws-workload-credentials-provider). Container deployments don't use the installer. For container setup steps, see Running as a Certificate Manager Sidecar in the repository's README.
 
 ## How certificate automation works
 <a name="acm-cert-automation-refresh"></a>
@@ -51,9 +51,9 @@ The following table lists download links for pre-built provider binaries. Releas
 
 | Platform | Architecture | Download URL | Checksum (SHA-256) | 
 | --- | --- | --- | --- | 
-| Linux | x86-64 | [Download for Linux x86-64 (3.1.1)](https://artifacts.awcp.global.on.aws/3.1.1/x86_64-unknown-linux-gnu/aws-workload-credentials-provider) | 471c1978f8bf63a0aeefb425e974ac3c816c7e04feb302236512eea375160de4 | 
-| Linux | Aarch64 | [Download for Linux AArch64 (3.1.1)](https://artifacts.awcp.global.on.aws/3.1.1/aarch64-unknown-linux-gnu/aws-workload-credentials-provider) | 8b09dc4e58b84379f580a9ae179940bcb3de0338421f638a43376bf73380ffb6 | 
-| Windows | x86-64 | [Download for Windows x86-64 (3.1.1)](https://artifacts.awcp.global.on.aws/3.1.1/x86_64-pc-windows-msvc/aws-workload-credentials-provider.exe) | 5fbdac4017e630556b94b90e5ed9ed11be69ac7a47e67655e20181ce990dbe12 | 
+| Linux | x86-64 | [Download for Linux x86-64 (3.2.0)](https://artifacts.awcp.global.on.aws/3.2.0/x86_64-unknown-linux-gnu/aws-workload-credentials-provider) | bccc74d27cd6da97937c131b028e6a9deae945b4cbec77c6fe63a27d465447e3 | 
+| Linux | Aarch64 | [Download for Linux AArch64 (3.2.0)](https://artifacts.awcp.global.on.aws/3.2.0/aarch64-unknown-linux-gnu/aws-workload-credentials-provider) | 3d939c48b9f1cc061027522398f744d2bc34900c862d6bdfb94fcab37aee9dc3 | 
+| Windows | x86-64 | [Download for Windows x86-64 (3.2.0)](https://artifacts.awcp.global.on.aws/3.2.0/x86_64-pc-windows-msvc/aws-workload-credentials-provider.exe) | 06e97a10dd58d88ec54d6dc57b3f1aade43fab9164e72c813373d5532daa4849 | 
 
 ------
 #### [ Linux ]
@@ -68,7 +68,7 @@ On Amazon EC2 and other Linux instances, you can install the provider using the 
 
    Install the RPM package. The package manager finds the latest version for you:
 
-   ```
+   ```bash
    sudo dnf install aws-workload-credentials-provider
    ```
 
@@ -86,7 +86,7 @@ On Amazon EC2 and other Linux instances, you can install the provider using the 
 
    Run the ACM setup script with your configuration file to install, enable, and start the certificate automation service:
 
-   ```
+   ```bash
    sudo /opt/aws/workload-credentials-provider/bin/install-acm.sh --config /path/to/your/config.toml
    ```
 
@@ -104,7 +104,7 @@ On Amazon EC2 and other Linux instances, you can install the provider using the 
 
    Alternatively, you can build the provider from source. Follow the instructions at [Install Rust](https://www.rust-lang.org/tools/install) on the Rust website to install the Rust toolchain.
 
-   ```
+   ```bash
    cargo build --release
    ```
 
@@ -122,7 +122,7 @@ On Amazon EC2 and other Linux instances, you can install the provider using the 
 
    Run the install script as root:
 
-   ```
+   ```bash
    cd aws_workload_credentials_provider_common/configuration
    sudo ./install --config /path/to/your/config.toml
    ```
@@ -133,7 +133,7 @@ On Amazon EC2 and other Linux instances, you can install the provider using the 
 
    On Amazon EC2 instances with an attached instance profile, the provider obtains credentials automatically. For other environments, create a systemd override file to inject credentials:
 
-   ```
+   ```bash
    sudo mkdir -p /etc/systemd/system/aws-workload-credentials-provider-acm.service.d
    sudo tee /etc/systemd/system/aws-workload-credentials-provider-acm.service.d/creds.conf > /dev/null <<EOF
    [Service]
@@ -154,7 +154,7 @@ On Amazon EC2 and other Linux instances, you can install the provider using the 
 
    Alternatively, you can build the provider from source for Windows. Follow the instructions at [Install Rust](https://www.rust-lang.org/tools/install) on the Rust website to install the Rust toolchain.
 
-   ```
+   ```powershell
    cargo build --release
    ```
 
@@ -172,14 +172,14 @@ On Amazon EC2 and other Linux instances, you can install the provider using the 
 
    Run the install script as Administrator:
 
-   ```
+   ```powershell
    cd aws_workload_credentials_provider_common\configuration
    .\install.ps1 -Config C:\path\to\your\config.toml
    ```
 
    To install without starting the service:
 
-   ```
+   ```powershell
    .\install.ps1 -Config C:\path\to\your\config.toml -NoStart
    ```
 
@@ -189,7 +189,7 @@ On Amazon EC2 and other Linux instances, you can install the provider using the 
 
    On Amazon EC2 instances with an attached instance profile, the provider obtains credentials automatically through IMDS. For other environments, set environment variables for the service through the Windows Registry:
 
-   ```
+   ```powershell
    $regPath = "HKLM:\SYSTEM\CurrentControlSet\Services\AWSWorkloadCredentialsProvider-ACM"
    $envVars = @(
        "AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE",
@@ -210,7 +210,7 @@ Create a TOML configuration file with your certificate details. The installer co
 ------
 #### [ NGINX ]
 
-```
+```ini
 [logging]
 log_level = "info"
 log_to_file = true
@@ -230,7 +230,7 @@ refresh_command = "/usr/sbin/nginx -s reload"
 ------
 #### [ Apache ]
 
-```
+```ini
 [logging]
 log_level = "info"
 log_to_file = true
@@ -250,7 +250,7 @@ refresh_command = "/bin/systemctl reload httpd"
 ------
 #### [ Apache (Windows) ]
 
-```
+```ini
 [logging]
 log_level = "info"
 log_to_file = true
@@ -282,14 +282,14 @@ Certificates removed from the configuration stop being refreshed. New certificat
 ------
 #### [ Linux ]
 
-```
+```bash
 aws-workload-credentials-provider acm reload --config /path/to/new-config.toml
 ```
 
 ------
 #### [ Windows ]
 
-```
+```powershell
 & 'C:\Program Files\AWS\WorkloadCredentialsProvider\bin\aws-workload-credentials-provider.exe' acm reload -Config C:\path\to\new-config.toml
 ```
 
@@ -303,7 +303,7 @@ aws-workload-credentials-provider acm reload --config /path/to/new-config.toml
 
 The provider's base credentials (instance profile or environment) must be able to assume the role specified in each certificate's `role_arn`:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "sts:AssumeRole",
@@ -316,7 +316,7 @@ The provider's base credentials (instance profile or environment) must be able t
 
 The role specified in `role_arn` requires the following permissions:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -331,7 +331,7 @@ The role specified in `role_arn` requires the following permissions:
 
 The role's trust policy must allow the provider's base identity to assume it:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -366,26 +366,26 @@ After installation, verify the provider is running and certificates are being wr
 
 1. **Check service status:**
 
-   ```
+   ```bash
    sudo systemctl status aws-workload-credentials-provider-acm
    ```
 
 1. **Review provider logs:**
 
-   ```
+   ```bash
    cat /opt/aws/workload-credentials-provider/logs/acm_provider.log
    ```
 
 1. **Verify certificate files exist:**
 
-   ```
+   ```bash
    ls -la /etc/pki/tls/certs/example.com.crt
    ls -la /etc/pki/tls/private/example.com.key
    ```
 
 1. **Validate certificate content:**
 
-   ```
+   ```bash
    openssl x509 -in /etc/pki/tls/certs/example.com.crt -noout -subject -dates
    ```
 
@@ -394,26 +394,26 @@ After installation, verify the provider is running and certificates are being wr
 
 1. **Check service status:**
 
-   ```
+   ```powershell
    Get-Service AWSWorkloadCredentialsProvider-ACM | Format-List Name, Status, StartType
    ```
 
 1. **Review provider logs:**
 
-   ```
+   ```powershell
    Get-Content "C:\ProgramData\AWS\WorkloadCredentialsProvider\logs\acm_provider.log" -Tail 20
    ```
 
 1. **Verify certificate files exist:**
 
-   ```
+   ```powershell
    Get-Item C:\certs\example.com.crt
    Get-Item C:\certs\example.com.key
    ```
 
 1. **Validate certificate content:**
 
-   ```
+   ```powershell
    $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2("C:\certs\example.com.crt")
    $cert | Select-Object Subject, NotBefore, NotAfter
    ```
@@ -437,6 +437,8 @@ After installation, verify the provider is running and certificates are being wr
 | certificates[].refresh\_command | No | — | Command to run after certificate files are updated. Must be an absolute path | 
 | certificates[].certificate\_and\_chain\_permission | No | 0600 | File permissions for cert and chain files (Linux mode format) | 
 | certificates[].key\_permission | No | 0600 | File permissions for the private key file (Linux mode format) | 
+
+Container deployments use additional fields, such as `watcher_id`, `watcher_config_dir`, and `watcher_requests_dir`. For container setup, see the README in the GitHub repository linked earlier on this page.
 
 ## Logging
 <a name="acm-cert-automation-logging"></a>

@@ -1,7 +1,6 @@
 
 
 # Use condition keys with ACM
-<a name="acm-conditions"></a>
 
 AWS Certificate Manager uses AWS Identity and Access Management (IAM)[ condition keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) to limit access to certificate requests. With condition keys from IAM policies or Service Control Policies (SCP) you can create certificate requests that conform to your organization's guidelines. 
 
@@ -38,7 +37,7 @@ The following policy denies new certificate requests using the [Email Validation
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":{
@@ -69,7 +68,7 @@ The following policy denies any new ACM certificate request that uses wildcard d
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":{
@@ -99,7 +98,7 @@ The following policy denies any new ACM certificate request for domains that don
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":{
@@ -124,7 +123,7 @@ The policy could be further restricted to specific subdomains. This policy would
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":{
@@ -152,7 +151,7 @@ The following policy uses the condition key `StringNotLike` to allow only certif
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
         "Statement":{
@@ -177,7 +176,7 @@ The following policy uses the condition key `StringLike` and wildcard `*` matchi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":{
@@ -205,7 +204,7 @@ The following policy would only allow requests for private certificates using th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":{
@@ -230,7 +229,7 @@ This policy uses the `acm:CertificateAuthority` condition to allow only requests
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
     "Statement":{
@@ -253,7 +252,7 @@ This policy uses the `acm:CertificateAuthority` condition to allow only requests
 
 The following policy allows tagging only on ACME certificates. This is useful when you want to restrict tagging operations to certificates issued through the ACME protocol.
 
-```
+```JSON
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

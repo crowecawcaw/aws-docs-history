@@ -1,7 +1,6 @@
 
 
 # Import a certificate
-<a name="import-certificate-api-cli"></a>
 
 You can import an externally obtained certificate (that is, one provided by a third-party trust services provider) into ACM by using the AWS Management Console, the AWS CLI, or the ACM API. The following topics show you how to use the AWS Management Console and the AWS CLI. Procedures for obtaining a certificate from a non-AWS issuer are outside the scope of this guide.
 

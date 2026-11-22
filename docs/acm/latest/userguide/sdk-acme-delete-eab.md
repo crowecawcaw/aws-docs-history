@@ -1,11 +1,10 @@
 
 
 # Deleting an ACME external account binding
-<a name="sdk-acme-delete-eab"></a>
 
 The following example shows how to use the [DeleteAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteAcmeExternalAccountBinding.html) function.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.services.certificatemanager.AWSCertificateManagerClientBuilder;

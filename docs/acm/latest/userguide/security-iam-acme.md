@@ -1,7 +1,6 @@
 
 
 # IAM for ACME certificate automation
-<a name="security-iam-acme"></a>
 
 ACME certificate automation uses IAM roles to authorize certificate issuance and revocation. This section describes the permissions model for ACME.
 
@@ -10,7 +9,7 @@ ACME certificate automation uses IAM roles to authorize certificate issuance and
 
 PKI administrators who create and manage ACME resources need the following permissions:
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -59,7 +58,7 @@ Each external account binding is associated with an IAM role. ACM uses this role
 
 The role must trust the ACME service principal, granting `sts:AssumeRole`, `sts:TagSession`, and `sts:SetSourceIdentity`. The following trust policy also uses a condition on `sts:SourceIdentity` to allow only sessions that ACM establishes for ACME (source identities that begin with `acm-acme-`):
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -87,7 +86,7 @@ The role must trust the ACME service principal, granting `sts:AssumeRole`, `sts:
 
 The role needs permissions for the certificate operations you want to allow. The same ACM actions and condition keys that apply to direct API calls apply here:
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [{

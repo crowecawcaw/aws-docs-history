@@ -1,7 +1,6 @@
 
 
 # Use AWS Certificate Manager with the SDK for Java
-<a name="sdk"></a>
 
 You can use the AWS Certificate Manager API to interact with the service programmatically by sending HTTP requests. For more information, see the [AWS Certificate Manager API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/).
 
@@ -41,7 +40,9 @@ The following topics show you how to use one of the AWS SDKs, the [AWS SDK for J
 + [Revoking an ACME account](sdk-acme-revoke-account.md)
 + [Revoking an ACME external account binding](sdk-acme-revoke-eab.md)
 + [Searching certificates](sdk-search.md)
++ [Updating a certificate's validation method](sdk-update.md)
 + [Tagging a resource](sdk-tagresource.md)
++ [Listing domain validation status](sdk-listdomainvalidations.md)
 + [Removing tags from a resource](sdk-untagresource.md)
 + [Updating an ACME domain validation](sdk-acme-update-domain-validation.md)
 + [Updating an ACME endpoint](sdk-acme-update-endpoint.md)

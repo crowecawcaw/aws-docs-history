@@ -1,7 +1,6 @@
 
 
 # External account bindings
-<a name="acm-acme-eab"></a>
 
 External account bindings (EABs) are credentials that authorize ACME clients to register accounts with an ACME endpoint. An ACME client cannot request certificates from an endpoint without first registering an account, and registration requires valid EAB credentials. When a PKI administrator creates an EAB, they associate it with an IAM role that controls what certificate operations the ACME client can perform. The administrator then distributes the EAB credentials out-of-band to the teams or systems that need certificates.
 
@@ -15,7 +14,7 @@ Each EAB is associated with an IAM role. This role determines what the ACME clie
 Trust policy  
 The role must allow the ACME service principal (`acm-acme.amazonaws.com`) to assume it. The trust policy must grant `sts:AssumeRole`, `sts:TagSession`, and `sts:SetSourceIdentity`. The condition on `sts:SourceIdentity` allows only the sessions that ACM establishes for ACME:  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -123,7 +122,7 @@ Treat the MAC key as a secret. You can retrieve the key identifier and MAC key a
 
 Run the following command to create an EAB:
 
-```
+```bash
 aws acm create-acme-external-account-binding \
     --acme-endpoint-arn arn:aws:acm:{{region}}:{{111122223333}}:acme-endpoint/{{00000000-0000-0000-0000-000000000000}} \
     --role-arn arn:aws:iam::{{111122223333}}:role/{{AcmeIssuanceRole}} \
@@ -132,14 +131,14 @@ aws acm create-acme-external-account-binding \
 
 Then retrieve the credentials:
 
-```
+```bash
 aws acm get-acme-external-account-binding-credentials \
     --acme-external-account-binding-arn arn:aws:acm:{{region}}:{{111122223333}}:acme-endpoint/{{00000000-0000-0000-0000-000000000000}}/acme-external-account-binding/{{22222222-2222-2222-2222-222222222222}}
 ```
 
 The response contains the key identifier and MAC key that you provide to the ACME client. You can retrieve these credentials again at any time by calling `GetAcmeExternalAccountBindingCredentials`.
 
-```
+```json
 {
     "KeyId": "{{e06b7974-a684-4cc2-b4b1-1fd87ac81baa}}",
     "MacKey": "{{txvweHF1-COvXAKNlGk-58SX6ZVzEaaXaBPrwNAKCTo}}"

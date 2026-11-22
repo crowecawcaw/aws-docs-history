@@ -1,11 +1,10 @@
 
 
 # Deleting an ACME domain validation
-<a name="sdk-acme-delete-domain-validation"></a>
 
 The following example shows how to use the [DeleteAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteAcmeDomainValidation.html) function.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.services.certificatemanager.AWSCertificateManagerClientBuilder;

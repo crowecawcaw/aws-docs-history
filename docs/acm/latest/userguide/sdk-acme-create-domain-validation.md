@@ -1,11 +1,10 @@
 
 
 # Creating an ACME domain validation
-<a name="sdk-acme-create-domain-validation"></a>
 
 The following example shows how to use the [CreateAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_CreateAcmeDomainValidation.html) function.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.services.certificatemanager.AWSCertificateManagerClientBuilder;

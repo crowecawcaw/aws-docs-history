@@ -1,11 +1,10 @@
 
 
 # Getting ACME external account binding credentials
-<a name="sdk-acme-get-eab-credentials"></a>
 
 The following example shows how to use the [GetAcmeExternalAccountBindingCredentials](https://docs.aws.amazon.com/acm/latest/APIReference/API_GetAcmeExternalAccountBindingCredentials.html) function.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.services.certificatemanager.AWSCertificateManagerClientBuilder;

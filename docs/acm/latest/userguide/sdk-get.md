@@ -1,11 +1,10 @@
 
 
 # Retrieve a certificate and certificate chain
-<a name="sdk-get"></a>
 
 The following example shows how to use the [GetCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_GetCertificate.html) function. 
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.regions.Regions;

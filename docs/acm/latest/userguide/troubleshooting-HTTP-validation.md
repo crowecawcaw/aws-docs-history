@@ -1,7 +1,6 @@
 
 
 # Troubleshooting HTTP validation problems
-<a name="troubleshooting-HTTP-validation"></a>
 
 Consult the following guidance if you're having trouble validating a certificate with HTTP.
 

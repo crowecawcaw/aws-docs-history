@@ -1,11 +1,10 @@
 
 
 # Describing an ACME account
-<a name="sdk-acme-describe-account"></a>
 
 The following example shows how to use the [DescribeAcmeAccount](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeAccount.html) function.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.services.certificatemanager.AWSCertificateManagerClientBuilder;

@@ -1,7 +1,6 @@
 
 
 # ACME certificate automation
-<a name="acm-acme"></a>
 
 AWS Certificate Manager (ACM) supports the Automated Certificate Management Environment (ACME) protocol, an industry-standard method for automating certificate issuance and lifecycle management. With ACME certificate automation, you can issue publicly trusted certificates for workloads running on customer-managed infrastructure such as on-premises servers, Kubernetes clusters, and hybrid environments.
 

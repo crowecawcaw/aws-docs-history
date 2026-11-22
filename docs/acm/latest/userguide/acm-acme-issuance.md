@@ -1,7 +1,6 @@
 
 
 # Issuing certificates through ACME
-<a name="acm-acme-issuance"></a>
 
 After your PKI administrator sets up an ACME endpoint with domain validations and external account bindings, application owners can use ACME clients to issue certificates. This section describes the issuance flow, provides a brief example using Certbot, and explains how ACME-issued certificates appear in ACM.
 
@@ -41,7 +40,7 @@ Certificate issuance through the ACM ACME endpoint can take up to two minutes. C
 
 Run the following command:
 
-```
+```bash
 certbot certonly \
     --standalone \
     --non-interactive \
@@ -78,7 +77,7 @@ In the ACM console, use the filter to include certificates with an ACME key pair
 
 Use `list-certificates` with the `CertificateKeyPairOrigins` filter:
 
-```
+```bash
 aws acm list-certificates \
     --certificate-key-pair-origins ACME
 ```
@@ -87,7 +86,7 @@ aws acm list-certificates \
 
 Use `search-certificates` with the `CertificateKeyPairOrigin` filter to find ACME certificates by additional criteria:
 
-```
+```bash
 aws acm search-certificates \
     --filter-statement '{"Filter": {"AcmCertificateMetadataFilter": {"CertificateKeyPairOrigin": "ACME"}}}'
 ```
@@ -98,7 +97,7 @@ You can also search for certificates issued through a specific endpoint or ACME 
 
 Run the following command:
 
-```
+```bash
 aws acm describe-certificate \
     --certificate-arn arn:aws:acm:{{region}}:{{account-id}}:certificate/{{certificate-id}}
 ```
@@ -113,7 +112,7 @@ ACME-issued certificates cannot be revoked using the ACM `RevokeCertificate` API
 
 The following example shows revocation using Certbot:
 
-```
+```bash
 certbot revoke \
     --cert-path /etc/letsencrypt/live/{{www.example.com}}/cert.pem \
     --server https://acm-acme-enroll.{{region}}.api.aws/{{00000000-0000-0000-0000-000000000000}}/directory
@@ -134,6 +133,6 @@ If the original certificate has been removed from ACM (for example, because it e
 
 Certbot auto-renewal example (typically configured automatically during Certbot installation):
 
-```
+```bash
 certbot renew --quiet
 ```

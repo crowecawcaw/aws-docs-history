@@ -1,7 +1,6 @@
 
 
 # Certificate and key format for importing
-<a name="import-certificate-format"></a>
 
 ACM requires you to separately import the certificate, certificate chain, and private key (if any), and to encode each component in PEM format. PEM stands for Privacy Enhanced Mail. The PEM format is often used to represent certificates, certificate requests, certificate chains, and keys. The typical extension for a PEM–formatted file is `.pem`, but it doesn't need to be. 
 
