@@ -1,13 +1,18 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # The shared responsibility model
-<a name="the-shared-responsibility-model"></a>
 
  Environmental sustainability is a shared responsibility between customers and AWS. 
 +  AWS is responsible for optimizing the sustainability *of* the cloud – delivering efficient, shared infrastructure, water stewardship, and sourcing renewable power. 
 +  Customers are responsible for sustainability *in* the cloud – optimizing workloads and resource utilization, and minimizing the total resources required to be deployed for your workloads. 
 
 ![Diagram showing the AWS shared responsibility model.](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/images/sustainability-in-the-cloud.jpeg)
+
+*Shared responsibility model *
 
 
 ## Sustainability of the cloud

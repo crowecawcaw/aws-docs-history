@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SUS02-BP04 Optimize geographic placement of workloads based on their networking requirements
-<a name="sus_sus_user_a5"></a>
 
 Select cloud location and services for your workload that reduce the distance network traffic must travel and decrease the total network resources required to support your workload.
 

@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Identify targets for improvement
-<a name="identify-targets-for-improvement"></a>
 
  Understand the best practices that can help you achieve your sustainability goals. You can find detailed descriptions of these [best practices](best-practices-for-sustainability-in-the-cloud.md) and recommendations for improvement later in this document. 
 

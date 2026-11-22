@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SUS05-BP02 Use instance types with the least impact
-<a name="sus_sus_hardware_a3"></a>
 
 Continually monitor and use new instance types to take advantage of energy efficiency improvements.
 

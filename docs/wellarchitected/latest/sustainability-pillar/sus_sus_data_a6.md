@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SUS04-BP05 Remove unneeded or redundant data
-<a name="sus_sus_data_a6"></a>
 
 Remove unneeded or redundant data to minimize the storage resources required to store your datasets. 
 

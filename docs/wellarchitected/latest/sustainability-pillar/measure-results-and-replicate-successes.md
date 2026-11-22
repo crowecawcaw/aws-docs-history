@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Measure results and replicate successes
-<a name="measure-results-and-replicate-successes"></a>
 
 Measure results and replicate successes in the following ways: 
 + Measure the initial improvement to provisioned resources per unit of work and the quantitative decrease in resources provisioned. 

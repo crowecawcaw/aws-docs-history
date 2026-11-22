@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SUS03-BP02 Remove or refactor workload components with low or no use
-<a name="sus_sus_software_a3"></a>
 
 Remove components that are unused and no longer required, and refactor components with little utilization to minimize waste in your workload.
 

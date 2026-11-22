@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SUS04-BP04 Use elasticity and automation to expand block storage or file system
-<a name="sus_sus_data_a5"></a>
 
 Use elasticity and automation to expand block storage or file system as data grows to minimize the total provisioned storage.
 

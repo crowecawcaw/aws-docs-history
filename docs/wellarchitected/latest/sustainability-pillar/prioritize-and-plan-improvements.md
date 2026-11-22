@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Prioritize and plan improvements
-<a name="prioritize-and-plan-improvements"></a>
 
  Prioritize your identified improvements based on the greatest anticipated impact with the lowest costs and acceptable risk. 
 

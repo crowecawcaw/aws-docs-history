@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SUS06-BP03 Keep your workload up-to-date
-<a name="sus_sus_dev_a3"></a>
 
  Keep your workload up-to-date to adopt efficient features, remove issues, and improve the overall efficiency of your workload. 
 

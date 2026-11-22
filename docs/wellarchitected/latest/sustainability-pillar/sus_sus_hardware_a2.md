@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SUS05-BP01 Use the minimum amount of hardware to meet your needs
-<a name="sus_sus_hardware_a2"></a>
 
 Use the minimum amount of hardware for your workload to efficiently meet your business needs.
 

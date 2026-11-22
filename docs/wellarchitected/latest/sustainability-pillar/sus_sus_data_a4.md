@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SUS04-BP03 Use policies to manage the lifecycle of your datasets
-<a name="sus_sus_data_a4"></a>
 
 Manage the lifecycle of all of your data and automatically enforce deletion to minimize the total storage required for your workload.
 

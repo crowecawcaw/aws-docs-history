@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SUS03-BP03 Optimize areas of code that consume the most time or resources
-<a name="sus_sus_software_a4"></a>
 
 Optimize your code that runs within different components of your architecture to minimize resource usage while maximizing performance.
 

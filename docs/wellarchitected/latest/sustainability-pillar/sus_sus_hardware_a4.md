@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SUS05-BP03 Use managed services
-<a name="sus_sus_hardware_a4"></a>
 
 Use managed services to operate more efficiently in the cloud.
 
