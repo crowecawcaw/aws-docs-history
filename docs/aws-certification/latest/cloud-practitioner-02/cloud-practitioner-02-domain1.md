@@ -1,7 +1,6 @@
 
 
 # Content Domain 1: Cloud Concepts
-<a name="cloud-practitioner-02-domain1"></a>
 
 Domain 1 covers Cloud Concepts and represents 24% of the scored content on the exam.
 

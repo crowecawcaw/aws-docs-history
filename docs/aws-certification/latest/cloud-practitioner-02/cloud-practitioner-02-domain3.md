@@ -1,7 +1,6 @@
 
 
 # Content Domain 3: Cloud Technology and Services
-<a name="cloud-practitioner-02-domain3"></a>
 
 Domain 3 covers Cloud Technology and Services and represents 34% of the scored content on the exam.
 

@@ -1,7 +1,6 @@
 
 
 # Content Domain 4: Billing, Pricing, and Support
-<a name="cloud-practitioner-02-domain4"></a>
 
 Domain 4 covers Billing, Pricing, and Support and represents 12% of the scored content on the exam.
 
