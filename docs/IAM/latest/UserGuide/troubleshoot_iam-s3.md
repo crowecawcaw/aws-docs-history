@@ -1,7 +1,6 @@
 
 
 # Troubleshoot IAM and Amazon S3
-<a name="troubleshoot_iam-s3"></a>
 
 Use the information here to help you troubleshoot and fix issues that you might encounter when working with Amazon S3 and IAM.
 
@@ -15,6 +14,6 @@ You use an Amazon S3 bucket policy that specifies a wildcard (\*) in the `princi
 
 In some cases, you might have an IAM user with full access to IAM and Amazon S3. If the IAM user assigns a bucket policy to an Amazon S3 bucket and doesn't specify the root user as a principal, the root user is denied access to that bucket. However, as the root user, you can still access the bucket. To do that, modify the bucket policy to allow root user access from the Amazon S3 console or the AWS CLI. Use the following principal, replacing {{123456789012}} with the ID of the AWS account.
 
-```
+```json
 "Principal": { "AWS": "arn:aws:iam::{{123456789012}}:root" }
 ```

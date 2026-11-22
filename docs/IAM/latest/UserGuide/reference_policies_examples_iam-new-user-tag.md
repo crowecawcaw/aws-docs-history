@@ -1,7 +1,6 @@
 
 
 # IAM: Create new users only with specific tags
-<a name="reference_policies_examples_iam-new-user-tag"></a>
 
 This example shows how you might create an identity-based policy that allows the creation of IAM users but only with one or both of the `Department` and `JobFunction` tag keys. The `Department` tag key must have either the `Development` or `QualityAssurance` tag value. The `JobFunction` tag key must have the `Employee` tag value. You can use this policy to require that new users have a specific job function and department. This policy grants the permissions necessary to complete this action programmatically from the AWS API or AWS CLI. To use this policy, replace the {{italicized placeholder text}} in the example policy with your own information. Then, follow the directions in [create a policy](access_policies_create.md) or [edit a policy](access_policies_manage-edit.md). 
 
@@ -14,7 +13,7 @@ The second condition uses the `ForAllValues:StringEquals` condition operator. Th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Use `GetPolicy` with an AWS SDK or CLI
-<a name="iam_example_iam_GetPolicy_section"></a>
 
 The following code examples show how to use `GetPolicy`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get information about an IAM policy.
     /// </summary>
@@ -36,7 +35,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
-```
+```cpp
 bool AwsDoc::IAM::getPolicy(const Aws::String &policyArn,
                             const Aws::Client::ClientConfiguration &clientConfig) {
     Aws::IAM::IAMClient iam(clientConfig);
@@ -100,7 +99,7 @@ For more information, see [Policies and permissions in IAM](https://docs.aws.ama
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -143,7 +142,7 @@ func (wrapper PolicyWrapper) GetPolicy(ctx context.Context, policyArn string) (*
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 Get the policy.  
 
-```
+```javascript
 import { GetPolicyCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -166,7 +165,7 @@ export const getPolicy = (policyArn) => {
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -196,7 +195,7 @@ iam.getPolicy(params, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
-```
+```kotlin
 suspend fun getIAMPolicy(policyArnVal: String?) {
     val request =
         GetPolicyRequest {
@@ -217,7 +216,7 @@ suspend fun getIAMPolicy(policyArnVal: String?) {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
-```
+```php
 $uuid = uniqid();
 $service = new IAMService();
 
@@ -236,7 +235,7 @@ $service = new IAMService();
 **Tools for PowerShell V4**  
 **Example 1: This example returns details about the managed policy whose ARN is `arn:aws:iam::123456789012:policy/MySamplePolicy`.**  
 
-```
+```powershell
 Get-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy
 ```
 **Output:**  
@@ -258,7 +257,7 @@ UpdateDate       : 2/6/2015 10:40:08 AM
 **Tools for PowerShell V5**  
 **Example 1: This example returns details about the managed policy whose ARN is `arn:aws:iam::123456789012:policy/MySamplePolicy`.**  
 
-```
+```powershell
 Get-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy
 ```
 **Output:**  
@@ -283,7 +282,7 @@ UpdateDate       : 2/6/2015 10:40:08 AM
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def get_default_policy_statement(policy_arn):
     """
     Gets the statement of the default version of the specified policy.
@@ -312,7 +311,7 @@ def get_default_policy_statement(policy_arn):
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
-```
+```ruby
   # Fetches an IAM policy by its ARN
   # @param policy_arn [String] the ARN of the IAM policy to retrieve
   # @return [Aws::IAM::Types::GetPolicyResponse] the policy object if found
@@ -337,7 +336,7 @@ def get_default_policy_statement(policy_arn):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_iam->getpolicy( iv_policyarn = iv_policy_arn ).
         MESSAGE 'Retrieved policy information.' TYPE 'I'.
@@ -353,7 +352,7 @@ def get_default_policy_statement(policy_arn):
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
-```
+```swift
 import AWSIAM
 import AWSS3
 

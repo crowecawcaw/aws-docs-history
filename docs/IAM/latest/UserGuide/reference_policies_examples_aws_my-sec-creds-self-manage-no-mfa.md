@@ -1,7 +1,6 @@
 
 
 # AWS: Allows IAM users to manage their own credentials on the Security credentials page
-<a name="reference_policies_examples_aws_my-sec-creds-self-manage-no-mfa"></a>
 
 This example shows how you might create an identity-based policy that allows IAM users to manage all of their own credentials on the **Security credentials** page. This AWS Management Console page displays account information such as the account ID and canonical user ID. Users can also view and edit their own passwords, access keys, X.509 certificates, SSH keys, and Git credentials. This example policy includes the permissions required to view and edit all information on the page *except* the user's MFA device. To allow users to manage their own credentials with MFA, see [AWS: Allows MFA-authenticated IAM users to manage their own credentials on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage.md).
 
@@ -24,7 +23,7 @@ This policy does not allow users to view or manage their own MFA devices. They a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

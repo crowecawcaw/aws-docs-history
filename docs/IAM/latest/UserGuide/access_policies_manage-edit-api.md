@@ -1,7 +1,6 @@
 
 
 # Edit IAM policies (AWS API)
-<a name="access_policies_manage-edit-api"></a>
 
 A [policy](access_policies.md) is an entity that, when attached to an identity or resource, defines their permissions. You can use the AWS API to edit *customer managed policies* and *inline policies* in IAM. AWS managed policies cannot be edited. The number and size of IAM resources in an AWS account are limited. For more information, see [IAM and AWS STS quotas](reference_iam-quotas.md).
 

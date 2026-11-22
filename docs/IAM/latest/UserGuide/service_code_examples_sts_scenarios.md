@@ -1,7 +1,6 @@
 
 
 # Scenarios for AWS STS using AWS SDKs
-<a name="service_code_examples_sts_scenarios"></a>
 
 The following code examples show you how to implement common scenarios in AWS STS with AWS SDKs. These scenarios show you how to accomplish specific tasks by calling multiple functions within AWS STS or combined with other AWS services. Each scenario includes a link to the complete source code, where you can find instructions on how to set up and run the code. 
 

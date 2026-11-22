@@ -1,7 +1,6 @@
 
 
 # AWS Signature Version 4 for API requests
-<a name="reference_sigv"></a>
 
 **Important**  
 If you use an AWS SDK (see [Sample Code and Libraries](https://aws.amazon.com/developer/)) or AWS Command Line Interface (AWS CLI) tool to send API requests to AWS, you can skip the signature process, as the SDK and CLI clients authenticate your requests by using the access keys that you provide. Unless you have a good reason not to, we recommend that you always use an SDK or the CLI.  

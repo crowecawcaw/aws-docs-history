@@ -1,7 +1,6 @@
 
 
 # Troubleshoot access denied error messages
-<a name="troubleshoot_access-denied"></a>
 
 The following information can help you identify, diagnose, and resolve access denied errors with AWS Identity and Access Management. Access denied errors appear when AWS explicitly or implicitly denies an authorization request.
 + An *explicit denial* occurs when a policy contains a `Deny` statement for the specific AWS action.
@@ -22,7 +21,7 @@ When you make a request to a service or resource, multiple policies may apply to
 
   The following example error occurs when the `mateojackson` IAM user attempts to use the console to view details about a fictional `{{my-example-widget}}` resource but does not have the fictional `widgets:{{GetWidget}}` permissions.
 
-  ```
+  ```yaml
   User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: widgets:{{GetWidget}} on resource: {{my-example-widget}}
   ```
 
@@ -49,7 +48,7 @@ When you make a request to a service or resource, multiple policies may apply to
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -85,7 +84,7 @@ The following examples show the format for different types of access denied erro
 
 1. Update your SCP by adding the `Allow` statement. For more information, see [Updating an SCP](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_create.html#update_policy) in the *AWS Organizations User Guide*.
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: codecommit:ListRepositories
 because no service control policy allows the codecommit:ListRepositories action
 ```
@@ -101,14 +100,14 @@ because no service control policy allows the codecommit:ListRepositories action
 
 Error message with a policy ARN:
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: codecommit:ListRepositories
 with an explicit deny in a service control policy: arn:aws:organizations::777788889999:policy/o-exampleorgid/service_control_policy/p-examplepolicyid123
 ```
 
 Error message without a policy ARN:
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: codecommit:ListRepositories
 with an explicit deny in a service control policy
 ```
@@ -124,7 +123,7 @@ with an explicit deny in a service control policy
 
 Error message with a policy ARN:
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: secretsmanager:GetSecretValue
 on resource: arn:aws:secretsmanager:us-east-1:123456789012:secret:*
 with an explicit deny in a resource control policy: arn:aws:organizations::777788889999:policy/o-exampleorgid/resource_control_policy/p-examplepolicyid456
@@ -132,7 +131,7 @@ with an explicit deny in a resource control policy: arn:aws:organizations::77778
 
 Error message without a policy ARN:
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: secretsmanager:GetSecretValue
 on resource: arn:aws:secretsmanager:us-east-1:123456789012:secret:*
 with an explicit deny in a resource control policy
@@ -145,7 +144,7 @@ with an explicit deny in a resource control policy
 
 1. Update your VPC endpoint policy by adding the `Allow` statement. For more information, see [Update a VPC endpoint policy](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html#update-vpc-endpoint-policy) in the *AWS PrivateLink Guide*.
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: codecommit:ListRepositories
 because no VPC endpoint policy allows the codecommit:ListRepositories action
 ```
@@ -157,7 +156,7 @@ because no VPC endpoint policy allows the codecommit:ListRepositories action
 
 1. Update your VPC endpoint policy by removing the `Deny` statement. For more information, see [Update a VPC endpoint policy](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html#update-vpc-endpoint-policy) in the *AWS PrivateLink Guide*.
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: codedeploy:ListDeployments
 on resource: arn:aws:codedeploy:us-east-1:123456789012:deploymentgroup:*
 with an explicit deny in a VPC endpoint policy
@@ -170,7 +169,7 @@ with an explicit deny in a VPC endpoint policy
 
 1. Update your permissions boundary by adding the `Allow` statement to your IAM policy. For more information, see [Permissions boundaries for IAM entities](access_policies_boundaries.md) and [Edit IAM policies](access_policies_manage-edit.md).
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: codedeploy:ListDeployments
 on resource: arn:aws:codedeploy:us-east-1:123456789012:deploymentgroup:*
 because no permissions boundary allows the codedeploy:ListDeployments action
@@ -187,14 +186,14 @@ because no permissions boundary allows the codedeploy:ListDeployments action
 
 Error message with a policy ARN:
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: sagemaker:ListModels
 with an explicit deny in a permissions boundary: arn:aws:iam::123456789012:policy/DeveloperPermissionBoundary
 ```
 
 Error message without a policy ARN:
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: sagemaker:ListModels
 with an explicit deny in a permissions boundary
 ```
@@ -206,7 +205,7 @@ with an explicit deny in a permissions boundary
 
 1. Update your session policy by adding the `Allow` statement. For more information, see [Session policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session) and [Edit IAM policies](access_policies_manage-edit.md).
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: codecommit:ListRepositories
 because no session policy allows the codecommit:ListRepositories action
 ```
@@ -222,7 +221,7 @@ because no session policy allows the codecommit:ListRepositories action
 
 Error message with a policy ARN:
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: codedeploy:ListDeployments
 on resource: arn:aws:codedeploy:us-east-1:123456789012:deploymentgroup:*
 with an explicit deny in a session policy: arn:aws:iam::123456789012:policy/DeveloperSessionPolicy
@@ -230,7 +229,7 @@ with an explicit deny in a session policy: arn:aws:iam::123456789012:policy/Deve
 
 Error message without a policy ARN:
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: codedeploy:ListDeployments
 on resource: arn:aws:codedeploy:us-east-1:123456789012:deploymentgroup:*
 with an explicit deny in a session policy
@@ -243,7 +242,7 @@ with an explicit deny in a session policy
 
 1. Update your policy by adding the `Allow` statement. For more information, see [Resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_resource-based) and [Edit IAM policies](access_policies_manage-edit.md).
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: secretsmanager:GetSecretValue
 because no resource-based policy allows the secretsmanager:GetSecretValue action
 ```
@@ -255,7 +254,7 @@ because no resource-based policy allows the secretsmanager:GetSecretValue action
 
 1. Update your policy by removing the `Deny` statement. For more information, see [Resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_resource-based) and [Edit IAM policies](access_policies_manage-edit.md).
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: secretsmanager:GetSecretValue
 on resource: arn:aws:secretsmanager:us-east-1:123456789012:secret:*
 with an explicit deny in a resource-based policy
@@ -268,7 +267,7 @@ with an explicit deny in a resource-based policy
 
 1. Update your policy by adding the `Allow` statement. For more information, see [Resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_resource-based) and [Edit IAM policies](access_policies_manage-edit.md).
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: sts:AssumeRole
 because no role trust policy allows the sts:AssumeRole action
 ```
@@ -280,7 +279,7 @@ because no role trust policy allows the sts:AssumeRole action
 
 1. Update your policy by removing the `Deny` statement. For more information, see [Resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_resource-based) and [Edit IAM policies](access_policies_manage-edit.md).
 
-```
+```json
 User: arn:aws:iam::123456789012:user/John is not authorized to perform: sts:AssumeRole
 with an explicit deny in the role trust policy
 ```
@@ -292,7 +291,7 @@ with an explicit deny in the role trust policy
 
 1. Update your policy by adding the `Allow` statement. For more information, see [Identity-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_id-based) and [Edit IAM policies](access_policies_manage-edit.md).
 
-```
+```json
 User: arn:aws:iam::123456789012:role/HR is not authorized to perform: codecommit:ListRepositories
 because no identity-based policy allows the codecommit:ListRepositories action
 ```
@@ -308,7 +307,7 @@ because no identity-based policy allows the codecommit:ListRepositories action
 
 Error message with a policy ARN:
 
-```
+```json
 User: arn:aws:iam::123456789012:role/HR is not authorized to perform: codedeploy:ListDeployments
 on resource: arn:aws:codedeploy:us-east-1:123456789012:deploymentgroup:*
 with an explicit deny in an identity-based policy: arn:aws:iam::123456789012:policy/HRAccessPolicy
@@ -316,7 +315,7 @@ with an explicit deny in an identity-based policy: arn:aws:iam::123456789012:pol
 
 Error message without a policy ARN:
 
-```
+```json
 User: arn:aws:iam::123456789012:role/HR is not authorized to perform: codedeploy:ListDeployments
 on resource: arn:aws:codedeploy:us-east-1:123456789012:deploymentgroup:*
 with an explicit deny in an identity-based policy

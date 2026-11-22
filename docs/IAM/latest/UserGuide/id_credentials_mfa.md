@@ -1,7 +1,6 @@
 
 
 # AWS Multi-factor authentication in IAM
-<a name="id_credentials_mfa"></a>
 
 For increased security, we recommend that you configure multi-factor authentication (MFA) to help protect your AWS resources. You can enable MFA for the AWS account root user of all AWS accounts, including standalone accounts, management accounts, and member accounts, as well as for your IAM users. We recommend that you use phishing-resistant MFA such as passkeys and security keys whenever possible. These FIDO-based authenticators use public key cryptography and are resistant to phishing, man-in-the-middle, and replay attacks, providing a stronger level of security than TOTP-based options.
 

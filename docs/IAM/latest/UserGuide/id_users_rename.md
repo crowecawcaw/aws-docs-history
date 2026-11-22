@@ -1,7 +1,6 @@
 
 
 # Rename an IAM user
-<a name="id_users_rename"></a>
 
 **Note**  
 As a [best practice](best-practices.md), we recommend that you require human users to use federation with an identity provider to access AWS using temporary credentials. If you follow the best practices, you are not managing IAM users and groups. Instead, your users and groups are managed outside of AWS and are able to access AWS resources as a *federated identity*. A federated identity is a user from your enterprise user directory, a web identity provider, the AWS Directory Service, the Identity Center directory, or any user that accesses AWS services by using credentials provided through an identity source. Federated identities use the groups defined by their identity provider. If you are using AWS IAM Identity Center, see [Manage identities in IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-sso.html) in the *AWS IAM Identity Center User Guide* for information about creating users and groups in IAM Identity Center.

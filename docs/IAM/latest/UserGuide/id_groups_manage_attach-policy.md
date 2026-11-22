@@ -1,7 +1,6 @@
 
 
 # Attach a policy to an IAM user group
-<a name="id_groups_manage_attach-policy"></a>
 
 You can attach an [AWS managed policy](access_policies_managed-vs-inline.md#aws-managed-policies)—that is, a prewritten policy provided by AWS—to a user group, as explained in the following steps. To attach a customer managed policy—that is, a policy with custom permissions that you create—you must first create the policy. For information about creating customer managed policies, see [Define custom IAM permissions with customer managed policies](access_policies_create.md). 
 

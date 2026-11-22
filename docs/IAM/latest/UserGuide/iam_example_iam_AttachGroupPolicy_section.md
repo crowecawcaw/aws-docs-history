@@ -1,7 +1,6 @@
 
 
 # Use `AttachGroupPolicy` with a CLI
-<a name="iam_example_iam_AttachGroupPolicy_section"></a>
 
 The following code examples show how to use `AttachGroupPolicy`.
 
@@ -27,12 +26,12 @@ For more information, see [Managed policies and inline policies](https://docs.aw
 **Tools for PowerShell V4**  
 **Example 1: This example attaches the customer managed policy named `TesterPolicy` to the IAM group `Testers`. The users in that group are immediately affected by the permissions defined in the default version of that policy.**  
 
-```
+```powershell
 Register-IAMGroupPolicy -GroupName Testers -PolicyArn arn:aws:iam::123456789012:policy/TesterPolicy
 ```
 **Example 2: This example attaches the AWS managed policy named `AdministratorAccess` to the IAM group `Admins`. The users in that group are immediately affected by the permissions defined in the latest version of that policy.**  
 
-```
+```powershell
 Register-IAMGroupPolicy -GroupName Admins -PolicyArn arn:aws:iam::aws:policy/AdministratorAccess
 ```
 +  For API details, see [AttachGroupPolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -40,12 +39,12 @@ Register-IAMGroupPolicy -GroupName Admins -PolicyArn arn:aws:iam::aws:policy/Adm
 **Tools for PowerShell V5**  
 **Example 1: This example attaches the customer managed policy named `TesterPolicy` to the IAM group `Testers`. The users in that group are immediately affected by the permissions defined in the default version of that policy.**  
 
-```
+```powershell
 Register-IAMGroupPolicy -GroupName Testers -PolicyArn arn:aws:iam::123456789012:policy/TesterPolicy
 ```
 **Example 2: This example attaches the AWS managed policy named `AdministratorAccess` to the IAM group `Admins`. The users in that group are immediately affected by the permissions defined in the latest version of that policy.**  
 
-```
+```powershell
 Register-IAMGroupPolicy -GroupName Admins -PolicyArn arn:aws:iam::aws:policy/AdministratorAccess
 ```
 +  For API details, see [AttachGroupPolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

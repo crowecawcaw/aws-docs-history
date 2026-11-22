@@ -1,7 +1,6 @@
 
 
 # Use `ListUsers` with an AWS SDK or CLI
-<a name="iam_example_iam_ListUsers_section"></a>
 
 The following code examples show how to use `ListUsers`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// List IAM users.
     /// </summary>
@@ -40,7 +39,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -113,7 +112,7 @@ function iam_list_users() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
-```
+```cpp
 bool AwsDoc::IAM::listUsers(const Aws::Client::ClientConfiguration &clientConfig) {
     const Aws::String DATE_FORMAT = "%Y-%m-%d";
     Aws::IAM::IAMClient iam(clientConfig);
@@ -199,7 +198,7 @@ For more information, see [Listing IAM users](https://docs.aws.amazon.com/IAM/la
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -242,7 +241,7 @@ func (wrapper UserWrapper) ListUsers(ctx context.Context, maxUsers int32) ([]typ
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.services.iam.model.AttachedPermissionsBoundary;
 import software.amazon.awssdk.services.iam.model.IamException;
 import software.amazon.awssdk.services.iam.model.ListUsersRequest;
@@ -319,7 +318,7 @@ public class ListUsers {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 List the users.  
 
-```
+```javascript
 import { ListUsersCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -341,7 +340,7 @@ export const listUsers = async () => {
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -374,7 +373,7 @@ iam.listUsers(params, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
-```
+```kotlin
 suspend fun listAllUsers() {
     IamClient.fromEnvironment { region = "AWS_GLOBAL" }.use { iamClient ->
         val response = iamClient.listUsers(ListUsersRequest { })
@@ -396,7 +395,7 @@ suspend fun listAllUsers() {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
-```
+```php
 $uuid = uniqid();
 $service = new IAMService();
 
@@ -424,7 +423,7 @@ $service = new IAMService();
 **Tools for PowerShell V4**  
 **Example 1: This example retrieves a collection of users in the current AWS account.**  
 
-```
+```powershell
 Get-IAMUserList
 ```
 **Output:**  
@@ -456,7 +455,7 @@ Get-IAMUserList
 **Tools for PowerShell V5**  
 **Example 1: This example retrieves a collection of users in the current AWS account.**  
 
-```
+```powershell
 Get-IAMUserList
 ```
 **Output:**  
@@ -491,7 +490,7 @@ Get-IAMUserList
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def list_users():
     """
     Lists the users in the current account.
@@ -515,7 +514,7 @@ def list_users():
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
-```
+```ruby
   # Lists all users in the AWS account
   #
   # @return [Array<Aws::IAM::Types::User>] An array of user objects
@@ -540,7 +539,7 @@ def list_users():
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
-```
+```rust
 pub async fn list_users(
     client: &iamClient,
     path_prefix: Option<String>,
@@ -565,7 +564,7 @@ pub async fn list_users(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_iam->listusers( ).
         MESSAGE 'Retrieved user list.' TYPE 'I'.
@@ -581,7 +580,7 @@ pub async fn list_users(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
-```
+```swift
 import AWSIAM
 import AWSS3
 

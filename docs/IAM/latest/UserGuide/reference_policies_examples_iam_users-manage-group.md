@@ -1,7 +1,6 @@
 
 
 # IAM: Allows specific IAM users to manage a group programmatically and in the console
-<a name="reference_policies_examples_iam_users-manage-group"></a>
 
 This example shows how you might create an identity-based policy that allows specific IAM users to manage the `AllUsers` group. This policy defines permissions for programmatic and console access. To use this policy, replace the {{italicized placeholder text}} in the example policy with your own information. Then, follow the directions in [create a policy](access_policies_create.md) or [edit a policy](access_policies_manage-edit.md).
 
@@ -15,7 +14,7 @@ What does this policy do?
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

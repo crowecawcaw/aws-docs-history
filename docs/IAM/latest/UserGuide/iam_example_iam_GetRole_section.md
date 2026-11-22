@@ -1,7 +1,6 @@
 
 
 # Use `GetRole` with an AWS SDK or CLI
-<a name="iam_example_iam_GetRole_section"></a>
 
 The following code examples show how to use `GetRole`.
 
@@ -23,7 +22,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Get information about an IAM role.
     /// </summary>
@@ -83,7 +82,7 @@ For more information, see [Creating IAM roles](https://docs.aws.amazon.com/IAM/l
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -125,7 +124,7 @@ func (wrapper RoleWrapper) GetRole(ctx context.Context, roleName string) (*types
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 Get the role.  
 
-```
+```javascript
 import { GetRoleCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -150,7 +149,7 @@ export const getRole = (roleName) => {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
-```
+```php
 $uuid = uniqid();
 $service = new IAMService();
 
@@ -169,7 +168,7 @@ $service = new IAMService();
 **Tools for PowerShell V4**  
 **Example 1: This example returns the details of the `lamda_exec_role`. It includes the trust policy document that specifies who can assume this role. The policy document is URL encoded and can be decoded using the .NET `UrlDecode` method. In this example, the original policy had all white space removed before it was uploaded to the policy. To see the permissions policy documents that determine what someone who assumes the role can do, use the `Get-IAMRolePolicy` for inline policies, and `Get-IAMPolicyVersion` for attached managed policies.**  
 
-```
+```powershell
 $results = Get-IamRole -RoleName lambda_exec_role
 $results | Format-List
 ```
@@ -187,7 +186,7 @@ RoleId                   : 2YBIKAIBHNKB4EXAMPLE1
 RoleName                 : lambda_exec_role
 ```
 
-```
+```powershell
 $policy = [System.Web.HttpUtility]::UrlDecode($results.AssumeRolePolicyDocument)
 $policy
 ```
@@ -201,7 +200,7 @@ $policy
 **Tools for PowerShell V5**  
 **Example 1: This example returns the details of the `lamda_exec_role`. It includes the trust policy document that specifies who can assume this role. The policy document is URL encoded and can be decoded using the .NET `UrlDecode` method. In this example, the original policy had all white space removed before it was uploaded to the policy. To see the permissions policy documents that determine what someone who assumes the role can do, use the `Get-IAMRolePolicy` for inline policies, and `Get-IAMPolicyVersion` for attached managed policies.**  
 
-```
+```powershell
 $results = Get-IamRole -RoleName lambda_exec_role
 $results | Format-List
 ```
@@ -219,7 +218,7 @@ RoleId                   : 2YBIKAIBHNKB4EXAMPLE1
 RoleName                 : lambda_exec_role
 ```
 
-```
+```powershell
 $policy = [System.Web.HttpUtility]::UrlDecode($results.AssumeRolePolicyDocument)
 $policy
 ```
@@ -236,7 +235,7 @@ $policy
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def get_role(role_name):
     """
     Gets a role by name.
@@ -262,7 +261,7 @@ def get_role(role_name):
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
-```
+```ruby
   # Gets data about a role.
   #
   # @param name [String] The name of the role to look up.
@@ -288,7 +287,7 @@ def get_role(role_name):
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
-```
+```rust
 pub async fn get_role(
     client: &iamClient,
     role_name: String,
@@ -305,7 +304,7 @@ pub async fn get_role(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_iam->getrole( iv_rolename = iv_role_name ).
         MESSAGE 'Retrieved role information.' TYPE 'I'.
@@ -321,7 +320,7 @@ pub async fn get_role(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
-```
+```swift
 import AWSIAM
 import AWSS3
 

@@ -1,7 +1,6 @@
 
 
 # Use `ListUserPolicies` with an AWS SDK or CLI
-<a name="iam_example_iam_ListUserPolicies_section"></a>
 
 The following code examples show how to use `ListUserPolicies`.
 
@@ -35,7 +34,7 @@ For more information, see [Creating an IAM user in your AWS account](https://doc
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -78,7 +77,7 @@ func (wrapper UserWrapper) ListUserPolicies(ctx context.Context, userName string
 **Tools for PowerShell V4**  
 **Example 1: This example retrieves the list of names of the inline policies that are embedded in the IAM user named `David`.**  
 
-```
+```powershell
 Get-IAMUserPolicyList -UserName David
 ```
 **Output:**  
@@ -91,7 +90,7 @@ Davids_IAM_Admin_Policy
 **Tools for PowerShell V5**  
 **Example 1: This example retrieves the list of names of the inline policies that are embedded in the IAM user named `David`.**  
 
-```
+```powershell
 Get-IAMUserPolicyList -UserName David
 ```
 **Output:**  

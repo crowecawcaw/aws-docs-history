@@ -1,7 +1,6 @@
 
 
 # Security best practices in IAM
-<a name="best-practices"></a>
 
 To help secure your AWS resources, follow these best practices for AWS Identity and Access Management (IAM).
 

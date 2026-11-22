@@ -1,7 +1,6 @@
 
 
 # Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity
-<a name="id_credentials_temp_control-access_assumerole"></a>
 
 The permissions policy of the role that is being assumed determines the permissions for the temporary security credentials that are returned by `AssumeRole`, `AssumeRoleWithSAML`, and `AssumeRoleWithWebIdentity`. You define these permissions when you create or update the role. 
 
@@ -25,7 +24,7 @@ In this example, you call the `AssumeRole` API operation without specifying the 
 **Example role permissions policy**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -63,7 +62,7 @@ In the following session policy, the `s3:DeleteObject` permission is filtered ou
 **Example session policy passed with `AssumeRole` API call**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -94,7 +93,7 @@ When you attach the following resource-based policy to the `productionapp` bucke
 **Example bucket policy**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

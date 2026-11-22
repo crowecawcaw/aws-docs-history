@@ -1,7 +1,6 @@
 
 
 # Assign and remove access
-<a name="aam-assign-remove-access"></a>
 
 ## Assign user or group access to an AWS account
 <a name="aam-assign-account-access"></a>
@@ -76,7 +75,7 @@ For all procedures in this section, sign in to the management account (or delega
 
 The following AWS CLI command can be used to create an account assignment for a user:
 
-```
+```bash
 aws account-access create-entitlement \
   --region <Region> \
   --application-arn "<Account_access_manager_ARN>" \
@@ -94,7 +93,7 @@ aws account-access create-entitlement \
 
 The following AWS CLI command can be used to create an account assignment for a group:
 
-```
+```bash
 aws account-access create-entitlement \
   --region <Region> \
   --application-arn "<Account_access_manager_ARN>" \
@@ -153,7 +152,7 @@ For all procedures in this section, sign in to the management account (or delega
 
 To remove access with the CLI, you first need to find the account assignment (entitlement) and then use its ID in the following command. You can see later in this topic how to search for account assignments for a specific account, user, group, or role. The CLI refers to assignments as entitlements.
 
-```
+```bash
 aws account-access delete-entitlement \
     --region <Region> \
     --application-arn "<Account_access_manager_ARN>" \

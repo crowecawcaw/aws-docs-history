@@ -1,7 +1,6 @@
 
 
 # Manage IAM roles using an AWS SDK
-<a name="iam_example_iam_Scenario_RoleManagement_section"></a>
 
 The following code example shows how to:
 + Create an IAM role.
@@ -15,7 +14,7 @@ The following code example shows how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 Create functions that wrap IAM role actions.  
 
-```
+```python
 import json
 import logging
 import pprint
@@ -108,7 +107,7 @@ def delete_role(role_name):
 ```
 Use the wrapper functions to create a role, then attach and detach a policy.  
 
-```
+```python
 def usage_demo():
     """Shows how to use the role functions."""
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")

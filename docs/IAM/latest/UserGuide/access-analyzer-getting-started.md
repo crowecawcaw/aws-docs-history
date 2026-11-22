@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Identity and Access Management Access Analyzer
-<a name="access-analyzer-getting-started"></a>
 
 Use the information in this topic to learn about the requirements necessary to use and manage AWS Identity and Access Management Access Analyzer.
 

@@ -1,7 +1,6 @@
 
 
 # Update a role trust policy
-<a name="id_roles_update-role-trust-policy"></a>
 
 To change who can assume a role, you must modify the role's trust policy. You cannot modify the trust policy for a *[service-linked role](id_roles.md#iam-term-service-linked-role)*.
 
@@ -25,7 +24,7 @@ To allow users to assume the current role again within a role session, specify t
 
 1. Edit the trust policy as needed. To add additional principals that can assume the role, specify them in the `Principal` element. For example, the following policy snippet shows how to reference two AWS accounts in the `Principal` element:
 
-   ```
+   ```json
    "Principal": {
      "AWS": [
        "arn:aws:iam::111122223333:root",
@@ -38,7 +37,7 @@ To allow users to assume the current role again within a role session, specify t
 
    The following policy snippet shows how to reference two AWS services in the `Principal` element:
 
-   ```
+   ```json
    "Principal": {
      "Service": [
        "opsworks.amazonaws.com",
@@ -67,7 +66,7 @@ For more information and detail about this procedure, see [Grant a user permissi
 
 1. In the policy editor, add a new `Statement` element that specifies the following:
 
-   ```
+   ```json
    {
      "Effect": "Allow",
      "Action": "sts:AssumeRole",
@@ -101,7 +100,7 @@ You can use the AWS CLI to change who can assume a role.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -133,7 +132,7 @@ For more information and detail about this procedure, see [Grant a user permissi
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -183,7 +182,7 @@ You can use the AWS API to change who can assume a role.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -215,7 +214,7 @@ For more information and detail about this procedure, see [Grant a user permissi
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {

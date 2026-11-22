@@ -1,7 +1,6 @@
 
 
 # Understand how IAM Access Analyzer findings work
-<a name="access-analyzer-concepts"></a>
 
 This topic describes the concepts and terms that are used in IAM Access Analyzer to help you become familiar with how IAM Access Analyzer monitors access to your AWS resources.
 

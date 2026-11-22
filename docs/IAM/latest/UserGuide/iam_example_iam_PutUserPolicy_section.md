@@ -1,7 +1,6 @@
 
 
 # Use `PutUserPolicy` with an AWS SDK or CLI
-<a name="iam_example_iam_PutUserPolicy_section"></a>
 
 The following code examples show how to use `PutUserPolicy`.
 
@@ -46,7 +45,7 @@ For more information, see [Adding and removing IAM identity permissions](https:/
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -105,7 +104,7 @@ func (wrapper UserWrapper) CreateUserPolicy(ctx context.Context, userName string
 **Tools for PowerShell V4**  
 **Example 1: This example creates an inline policy named `EC2AccessPolicy` and embeds it in the IAM user `Bob`. If an inline policy with the same name already exists, then it is overwritten. The JSON policy content comes from the file `EC2AccessPolicy.json`. Note that you must use the `-Raw` parameter to successfully process the content of the JSON file.**  
 
-```
+```powershell
 Write-IAMUserPolicy -UserName Bob -PolicyName EC2AccessPolicy -PolicyDocument (Get-Content -Raw EC2AccessPolicy.json)
 ```
 +  For API details, see [PutUserPolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -113,7 +112,7 @@ Write-IAMUserPolicy -UserName Bob -PolicyName EC2AccessPolicy -PolicyDocument (G
 **Tools for PowerShell V5**  
 **Example 1: This example creates an inline policy named `EC2AccessPolicy` and embeds it in the IAM user `Bob`. If an inline policy with the same name already exists, then it is overwritten. The JSON policy content comes from the file `EC2AccessPolicy.json`. Note that you must use the `-Raw` parameter to successfully process the content of the JSON file.**  
 
-```
+```powershell
 Write-IAMUserPolicy -UserName Bob -PolicyName EC2AccessPolicy -PolicyDocument (Get-Content -Raw EC2AccessPolicy.json)
 ```
 +  For API details, see [PutUserPolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -124,7 +123,7 @@ Write-IAMUserPolicy -UserName Bob -PolicyName EC2AccessPolicy -PolicyDocument (G
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
-```
+```ruby
   # Creates an inline policy for a specified user.
   # @param username [String] The name of the IAM user.
   # @param policy_name [String] The name of the policy to create.
@@ -152,7 +151,7 @@ Write-IAMUserPolicy -UserName Bob -PolicyName EC2AccessPolicy -PolicyDocument (G
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
-```
+```swift
 import AWSIAM
 import AWSS3
 

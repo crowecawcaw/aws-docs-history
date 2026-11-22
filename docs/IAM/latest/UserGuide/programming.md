@@ -1,7 +1,6 @@
 
 
 # Calling the IAM API using HTTP query requests
-<a name="programming"></a>
 
 **Topics**
 + [Endpoints](#IAMEndpoints)

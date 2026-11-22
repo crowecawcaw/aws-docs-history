@@ -1,7 +1,6 @@
 
 
 # Use `ListGroupPolicies` with a CLI
-<a name="iam_example_iam_ListGroupPolicies_section"></a>
 
 The following code examples show how to use `ListGroupPolicies`.
 
@@ -35,7 +34,7 @@ For more information, see [Managing IAM policies](https://docs.aws.amazon.com/IA
 **Tools for PowerShell V4**  
 **Example 1: This example returns a list of the inline policies that are embedded in the group `Testers`. To get the managed policies that are attached to the group, use the command `Get-IAMAttachedGroupPolicyList`.**  
 
-```
+```powershell
 Get-IAMGroupPolicyList -GroupName Testers
 ```
 **Output:**  
@@ -49,7 +48,7 @@ PowerUserAccess-Testers
 **Tools for PowerShell V5**  
 **Example 1: This example returns a list of the inline policies that are embedded in the group `Testers`. To get the managed policies that are attached to the group, use the command `Get-IAMAttachedGroupPolicyList`.**  
 
-```
+```powershell
 Get-IAMGroupPolicyList -GroupName Testers
 ```
 **Output:**  

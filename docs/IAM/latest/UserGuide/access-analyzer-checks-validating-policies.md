@@ -1,7 +1,6 @@
 
 
 # Checks for validating policies
-<a name="access-analyzer-checks-validating-policies"></a>
 
 IAM Access Analyzer provides policy checks that help validate your IAM policies before you attach them to an entity. These include basic policy checks provided by policy validation to validate your policy against [policy grammar](reference_policies_grammar.md) and [AWS best practices](best-practices.md). You can view policy validation check findings that include security warnings, errors, general warnings, and suggestions for your policy.
 

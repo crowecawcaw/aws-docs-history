@@ -1,7 +1,6 @@
 
 
 # Validate policies with IAM Access Analyzer custom policy checks
-<a name="access-analyzer-custom-policy-checks"></a>
 
 You can use custom policy checks to check for new access based on your security standards. A charge is associated with each check for new access. For more details about pricing, see [IAM Access Analyzer pricing](https://aws.amazon.com/iam/access-analyzer/pricing).
 

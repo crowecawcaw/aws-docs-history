@@ -1,7 +1,6 @@
 
 
 # Create a role for SAML 2.0 federation (console)
-<a name="id_roles_create_for-idp_saml"></a>
 
  You can use SAML 2.0 federation instead of creating IAM users in your AWS account. With an identity provider (IdP), you can manage your user identities outside of AWS and give these external user identities permissions to access AWS resources in your account. For more information about federation and identity providers, see [Identity providers and federation into AWS](id_roles_providers.md).
 
@@ -35,7 +34,7 @@ Before you can create a role for SAML 2.0 federation, you must first complete th
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {

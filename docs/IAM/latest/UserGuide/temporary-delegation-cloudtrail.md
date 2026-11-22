@@ -1,7 +1,6 @@
 
 
 # CloudTrail
-<a name="temporary-delegation-cloudtrail"></a>
 
 All actions performed by product providers using temporary delegated access are automatically logged in AWS CloudTrail. This provides complete visibility and auditability of product provider activity in your AWS account. You can identify which actions were taken by product providers, when they occurred, and which product provider account performed them.
 
@@ -12,7 +11,7 @@ To help you distinguish between actions taken by your own IAM principals and tho
 
 The following example shows a CloudTrail event for an action performed by a product provider using temporary delegated access:
 
-```
+```json
 {
     "eventVersion": "1.09",		 	 	 
     "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Create a signed AWS API request
-<a name="reference_sigv-create-signed-request"></a>
 
 **Important**  
 If you use an AWS SDK (see [Sample Code and Libraries](https://aws.amazon.com/developer/)) or AWS Command Line Interface (AWS CLI) tool to send API requests to AWS, you can skip this section because the SDK and CLI clients authenticate your requests by using the access keys that you provide. Unless you have a good reason not to, we recommend that you always use an SDK or the CLI.  
@@ -81,12 +80,12 @@ To create a canonical request, concatenate the following strings, separated by n
 + {{HTTPMethod}} – The HTTP method, such as `GET`, `PUT`, `HEAD`, and `DELETE`.
 + {{CanonicalUri}} – The URI-encoded version of the absolute path component URI, starting with the `/` that follows the domain name and up to the end of the string or to the question mark character (`?`) if you have query string parameters. If the absolute path is empty, use a forward slash character (`/`). The URI in the following example, `/amzn-s3-demo-bucket/myphoto.jpg`, is the absolute path and you don't encode the `/` in the absolute path:
 
-  ```
+  ```yaml
   http://s3.amazonaws.com/amzn-s3-demo-bucket/myphoto.jpg
   ```
 + {{CanonicalQueryString}} – The URI-encoded query string parameters. You URI-encode each name and value individually. You must also sort the parameters in the canonical query string alphabetically by key name. The sorting occurs after encoding. The query string in the following URI example is:
 
-  ```
+  ```yaml
   http://s3.amazonaws.com/amzn-s3-demo-bucket?prefix=somePrefix&marker=someMarker&max-keys=2
   ```
 
@@ -102,7 +101,7 @@ To create a canonical request, concatenate the following strings, separated by n
 
    
 
-  ```
+  ```yaml
   http://s3.amazonaws.com/amzn-s3-demo-bucket?acl
   ```
 
@@ -155,7 +154,7 @@ The `x-amz-content-sha256` header is required for Amazon S3 AWS requests. It pro
 
    
 
-  ```
+  ```yaml
   host:s3.amazonaws.com
   x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
   x-amz-date:20130708T220855Z

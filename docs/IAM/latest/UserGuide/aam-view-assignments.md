@@ -1,7 +1,7 @@
 
 
 # View or search account assignments
-<a name="aam-view-assignments"></a><a name="aam-view-account-access"></a>
+<a name="aam-view-account-access"></a>
 
 You can view account assignments in several ways.
 
@@ -52,7 +52,7 @@ The following commands illustrate how to retrieve account assignments using diff
 
 **Retrieve first 100 assignments (entitlements) for a specific account**
 
-```
+```bash
 aws account-access list-entitlements \
     --region <Region> \
     --application-arn "<Account_access_manager_ARN>" \
@@ -66,7 +66,7 @@ aws account-access list-entitlements \
 
 **Retrieve all assignments (entitlements) for a specific user**
 
-```
+```bash
 aws account-access list-entitlements \
     --region <Region> \
     --application-arn "<Account_access_manager_ARN>" \
@@ -80,7 +80,7 @@ aws account-access list-entitlements \
 
 **Retrieve all assignments (entitlements) for a specific group**
 
-```
+```bash
 aws account-access list-entitlements \
     --region <Region> \
     --application-arn "<Account_access_manager_ARN>" \

@@ -1,7 +1,6 @@
 
 
 # IAM JSON policy elements: Id
-<a name="reference_policies_elements_id"></a>
 
 The `Id` element specifies an optional identifier for the policy. The ID is used differently in different services. ID is allowed in resource-based policies, but not in identity-based policies.
 
@@ -12,7 +11,7 @@ For services that let you set an `ID` element, we recommend you use a UUID (GUID
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "cd3ad3d9-2776-4ef1-a904-4c229d1642ee",

@@ -1,7 +1,6 @@
 
 
 # IAM JSON policy elements: Condition operators
-<a name="reference_policies_elements_condition_operators"></a>
 
 <a name="topiclist"></a>
 
@@ -45,7 +44,7 @@ String condition operators let you construct `Condition` elements that restrict 
 For example, the following statement contains a `Condition` element that uses [`aws:PrincipalTag`](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-principaltag) key to specify that the principal making the request must be tagged with the `iamuser-admin` job category.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -74,7 +73,7 @@ The following table shows how AWS evaluates this policy based on the condition k
 The following example uses the `StringLike` condition operator to perform string matching with a [policy variable](reference_policies_variables.md) to create a policy that lets an IAM user use the Amazon S3 console to manage his or her own "home directory" in an Amazon S3 bucket. The policy allows the specified actions on an S3 bucket as long as the `s3:prefix` matches any one of the specified patterns.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -143,7 +142,7 @@ This example shows how you might create an identity-based policy that allows usi
 When you add the `ForAnyValue` modifier with the [aws:TagKeys](reference_policies_condition-keys.md#condition-keys-tagkeys) condition key, at least one tag key value in the request must match the value `environment`. `ForAnyValue` comparison is case sensitive, which stops users from using the incorrect case for the tag key, such as using `Environment` instead of `environment`.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -189,7 +188,7 @@ This example shows how you might create a boundary around resources in your orga
 The condition requires that `aws:ResourceOrgPaths` contains any of the listed OU paths. Because `aws:ResourceOrgPaths` is a multi-value condition, the policy uses the `ForAllValues:StringNotLike` operator to compare the values of `aws:ResourceOrgPaths` to the list of OUs in the policy.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -246,7 +245,7 @@ For example, the following statement contains a `Condition` element that uses th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -287,7 +286,7 @@ For example, the following statement contains a `Condition` element that uses th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -329,7 +328,7 @@ The following identity-based policy uses the `Bool` condition operator with the 
 This policy does not allow any actions. Use this policy in combination with other policies that allow specific actions.   
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -366,7 +365,7 @@ The `BinaryEquals` condition operator lets you construct `Condition` elements th
 +  **Policy variables** – Not supported
 + **Wildcards** – Not supported
 
-```
+```json
 "Condition" : {
   "BinaryEquals": {
     "{{key}}" : "QmluYXJ5VmFsdWVJbkJhc2U2NA=="
@@ -401,7 +400,7 @@ Some AWS services support IPv6, using :: to represent a range of 0s. To learn wh
 The following statement uses the `IpAddress` condition operator with the `aws:SourceIp` key to specify that the request must come from the IP range 203.0.113.0 to 203.0.113.255.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -428,7 +427,7 @@ The following table shows how AWS evaluates this policy based on the condition k
 The following example shows how to mix IPv4 and IPv6 addresses to cover all of your organization's valid IP addresses. We recommend that you update your organization's policies with your IPv6 address ranges in addition to IPv4 ranges you already have to ensure the policies continue to work as you make the transition to IPv6.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -466,7 +465,7 @@ Amazon Resource Name (ARN) condition operators let you construct `Condition` ele
 The following resource-based policy example shows a policy attached to an Amazon SQS queue to which you want to send SNS messages. It gives Amazon SNS permission to send messages to the queue (or queues) of your choice, but only if the service is sending the messages on behalf of a particular Amazon SNS topic (or topics). You specify the queue in the `Resource` field, and the Amazon SNS topic as the value for the `SourceArn` key.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -511,7 +510,7 @@ If a key in the request contains multiple values, ARN operators can be qualified
 The following example uses `ForAllValues:ArnLike` to create or update a logical delivery source for Amazon CloudWatch Logs logs. The condition block includes the condition key [`logs:LogGeneratingResourceArns`](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoncloudwatchlogs.html#amazoncloudwatchlogs-policy-keys) to filter the log generating resource ARNs passed in the request. Using this condition operator, all of the ARNs in the request must match at least one ARN in the policy.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -560,7 +559,7 @@ For example, consider the following policy example:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -588,7 +587,7 @@ To address this, use the `StringLikeIfExists` condition operator instead. This w
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -649,7 +648,7 @@ For example, you can use this condition operator to determine whether a user is 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":{

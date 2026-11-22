@@ -1,7 +1,6 @@
 
 
 # View IAM groups
-<a name="id_groups_manage_list"></a>
 
 You can list all the IAM groups in your account, list the users in a user group, and list the IAM groups a user belongs to. If you use the CLI or API, you can list all the IAM groups with a particular path prefix.
 

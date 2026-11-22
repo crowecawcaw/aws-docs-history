@@ -1,7 +1,6 @@
 
 
 # How an IAM user changes their own password
-<a name="id_credentials_passwords_user-change-own"></a>
 
 If you have been granted permission to change your own IAM user password, you can use a special page in the AWS Management Console to do this. You can also use the AWS CLI or AWS API.
 

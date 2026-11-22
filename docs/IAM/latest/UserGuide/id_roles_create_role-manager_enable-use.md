@@ -1,7 +1,6 @@
 
 
 # Manage access to role manager
-<a name="id_roles_create_role-manager_enable-use"></a>
 
 You control access to role manager at two levels. IAM permissions determine who in an account can enable role manager and who can use the roles it provides. In an organization, service control policies (SCPs) determine what member accounts can do.
 
@@ -20,7 +19,7 @@ When role manager creates a role, AWS CloudTrail records the creation as a singl
 
 The following example shows that role manager called the `AcquireRole` operation on behalf of a user who assumed the role `Admin`, using the `PowerUserRoleTemplate` role template to create the role `PowerUserRole`. 
 
-```
+```JSON
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -99,7 +98,7 @@ These examples use the [deny list strategy](https://docs.aws.amazon.com/organiza
 
 To prevent member accounts from enabling role manager through the console or the API, deny the `iam:PutAccountProperties` permission. We recommend this policy when you create new accounts directly through Organizations.
 
-```
+```JSON
 {
     "Sid": "DenyRoleManagerEnablement",
     "Effect": "Deny",
@@ -118,7 +117,7 @@ To prevent member accounts from enabling role manager through the console or the
 
 To block the use of role manager, use the `iam:RoleTemplateARN` context key, which is present on the IAM actions that create a role from a template. The following policy denies all IAM actions that have a non-null value for the `iam:RoleTemplateARN` context key. This policy doesn't prevent all role creation—it blocks only role creation through role manager and template-based role creation through the SDK.
 
-```
+```JSON
 {
     "Sid": "DenyTemplatedRoleCreation",
     "Effect": "Deny",
@@ -137,7 +136,7 @@ To block the use of role manager, use the `iam:RoleTemplateARN` context key, whi
 
 To allow role creation only through role manager, use the following policy to block non-role manager role creation. This policy still allows template-based role creation directly through the SDK.
 
-```
+```JSON
 {
     "Sid": "DenyNonTemplatedRoleCreation",
     "Effect": "Deny",

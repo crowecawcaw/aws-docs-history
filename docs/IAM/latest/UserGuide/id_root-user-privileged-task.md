@@ -1,7 +1,6 @@
 
 
 # Perform a privileged task on an AWS Organizations member account
-<a name="id_root-user-privileged-task"></a>
 
 The AWS Organizations management account or a delegated administrator account for IAM can perform some privileged tasks on member accounts that would otherwise require root user credentials. With centralized root access, these tasks are performed through short-term privileged sessions. These sessions provide temporary credentials scoped to specific privileged actions, without requiring root user sign-in on the member account.
 
@@ -72,7 +71,7 @@ The global endpoint is not supported for `sts:AssumeRoot`. You must send this re
 
     In the following example, the delegated administrator assumes root to delete the root user credentials for the member account ID {{111122223333}}. 
 
-   ```
+   ```bash
    aws sts assume-root \
      --target-principal {{111122223333}} \
      --task-policy-arn arn={{arn:aws:iam::aws:policy/root-task/IAMDeleteRootUserCredentials}} \
@@ -126,7 +125,7 @@ The global endpoint is not supported for AssumeRoot. You must send this request 
 
    In the following example, the delegated administrator assumes root to read, edit and delete a misconfigured resource-based policy for an Amazon S3 bucket for the member account ID {{111122223333}}.
 
-   ```
+   ```yaml
    https://sts.us-east-2.amazonaws.com/
      ?Version=2011-06-15
      &Action=AssumeRoot

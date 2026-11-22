@@ -1,7 +1,6 @@
 
 
 # IAM Identities
-<a name="id"></a>
 
 An IAM identity can be associated with one or more policies, which determine what actions an identity is authorized to perform, on which AWS resources, and under what conditions. IAM identities include IAM users, IAM groups, and IAM roles. An IAM entity is a type of identity that represents a human user or programmatic workload that can be authenticated and then authorized to perform actions in AWS accounts. IAM entities include IAM users and IAM roles. For definitions for commonly used terms, see [Terms](introduction_identity-management.md#intro-structure-terms).
 

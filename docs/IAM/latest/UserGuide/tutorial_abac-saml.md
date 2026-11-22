@@ -1,7 +1,6 @@
 
 
 # IAM tutorial: Use SAML session tags for ABAC
-<a name="tutorial_abac-saml"></a>
 
 Attribute-based access control (ABAC) is an authorization strategy that defines permissions based on attributes. In AWS, these attributes are called tags. You can attach tags to IAM resources, including IAM entities (users or roles), and to AWS resources. When the entities are used to make requests to AWS, they become principals and those principals include tags.
 
@@ -49,7 +48,7 @@ The following role trust policy allows your SAML identity provider and the `test
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -88,7 +87,7 @@ Configure your SAML IdP to pass the `cost-center`, `access-project`, and `access
 
 To pass these attributes as session tags, include the following elements in your SAML assertion.
 
-```
+```xml
 <Attribute Name="https://aws.amazon.com/SAML/Attributes/PrincipalTag:cost-center">
   <AttributeValue>987654</AttributeValue>
 </Attribute>

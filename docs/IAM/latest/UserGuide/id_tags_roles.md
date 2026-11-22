@@ -1,7 +1,6 @@
 
 
 # Tag IAM roles
-<a name="id_tags_roles"></a>
 
 You can use IAM tag key-value pairs to add custom attributes to an IAM role. For example, to add location information to a role, you can add the tag key **location** and the tag value **us\_wa\_seattle**. Or you could use three separate location tag key-value pairs: **loc-country = us**, **loc-state = wa**, and **loc-city = seattle**. You can use tags to control a role's access to resources or to control what tags can be attached to a role. To learn more about using tags to control access, see [Controlling access to and for IAM users and roles using tags](access_iam-tags.md).
 
@@ -21,7 +20,7 @@ You must configure permissions to allow an IAM role to tag other entities (users
 **To allow an IAM role to add, list, or remove a tag for a specific user**  
 Add the following statement to the permissions policy for the IAM role that needs to manage tags. Use your account number and replace {{<username>}} with the name of the user whose tags need to be managed. To learn how to create a policy using this example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor).
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -38,7 +37,7 @@ Add the following statement to the permissions policy for the IAM role that need
 
 To use this policy, replace {{<username>}} with the name of the user whose tags need to be managed. To learn how to create a policy using this example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor).
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -52,7 +51,7 @@ To use this policy, replace {{<username>}} with the name of the user whose tags 
 **To allow an IAM role to add, list, or remove a tag for a specific role**  
 Add the following statement to the permissions policy for the IAM role that needs to manage tags. Replace {{<rolename>}} with the name of the role whose tags need to be managed. To learn how to create a policy using this example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor).
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [

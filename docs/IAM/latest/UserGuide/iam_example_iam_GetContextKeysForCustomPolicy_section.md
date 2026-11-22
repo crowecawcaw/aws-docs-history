@@ -1,7 +1,6 @@
 
 
 # Use `GetContextKeysForCustomPolicy` with a CLI
-<a name="iam_example_iam_GetContextKeysForCustomPolicy_section"></a>
 
 The following code examples show how to use `GetContextKeysForCustomPolicy`.
 
@@ -59,7 +58,7 @@ For more information, see [Using the IAM Policy Simulator (AWS CLI and AWS API)]
 **Tools for PowerShell V4**  
 **Example 1: This example fetches all the context keys present in the provided policy json.In order to provide multiple policies you can provide as comma separated list of values.**  
 
-```
+```powershell
 $policy1 = '{"Version":"2012-10-17",		 	 	 "Statement":{"Effect":"Allow","Action":"dynamodb:*","Resource":"arn:aws:dynamodb:us-west-2:123456789012:table/","Condition":{"DateGreaterThan":{"aws:CurrentTime":"2015-08-16T12:00:00Z"}}}}'
 $policy2 = '{"Version":"2012-10-17",		 	 	 "Statement":{"Effect":"Allow","Action":"dynamodb:*","Resource":"arn:aws:dynamodb:us-west-2:123456789012:table/"}}'
 Get-IAMContextKeysForCustomPolicy -PolicyInputList $policy1,$policy2
@@ -69,7 +68,7 @@ Get-IAMContextKeysForCustomPolicy -PolicyInputList $policy1,$policy2
 **Tools for PowerShell V5**  
 **Example 1: This example fetches all the context keys present in the provided policy json.In order to provide multiple policies you can provide as comma separated list of values.**  
 
-```
+```powershell
 $policy1 = '{"Version":"2012-10-17",		 	 	 "Statement":{"Effect":"Allow","Action":"dynamodb:*","Resource":"arn:aws:dynamodb:us-west-2:123456789012:table/","Condition":{"DateGreaterThan":{"aws:CurrentTime":"2015-08-16T12:00:00Z"}}}}'
 $policy2 = '{"Version":"2012-10-17",		 	 	 "Statement":{"Effect":"Allow","Action":"dynamodb:*","Resource":"arn:aws:dynamodb:us-west-2:123456789012:table/"}}'
 Get-IAMContextKeysForCustomPolicy -PolicyInputList $policy1,$policy2

@@ -1,7 +1,6 @@
 
 
 # Archive IAM Access Analyzer findings
-<a name="access-analyzer-findings-archive"></a>
 
 When you get a finding for access to a resource that is intentional, you can archive the findings. For example, an external or internal access finding for an Amazon S3 bucket that is accessed for approved workflows or an unused access finding for an access key that may still be necessary. When you archive a finding, it is cleared from active findings list. Archived findings aren't deleted. You can filter the **Findings** page to display your archived findings, and unarchive them at any time.
 

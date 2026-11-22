@@ -1,7 +1,6 @@
 
 
 # IAM temporary delegation
-<a name="access_policies-temporary-delegation"></a>
 
 ## Overview
 <a name="temporary-delegation-overview"></a>

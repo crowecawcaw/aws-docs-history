@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Passkeys and FIDO Security Keys
-<a name="troubleshoot_mfa-fido"></a>
 
 Use the information here to help you diagnose common issues that you might encounter when working with FIDO2 security keys.
 

@@ -1,7 +1,6 @@
 
 
 # Identity-provider controls for shared OIDC providers
-<a name="id_roles_providers_oidc_secure-by-default"></a>
 
 For recognized shared OpenID Connect (OIDC) identity providers (IdPs), IAM requires explicit evaluation of specific claims in role trust policies. These required claims, called *identity-provider controls*, are evaluated by IAM during role creation and trust policy updates. If the role trust policy does not evaluate the controls required by the shared OIDC IdP, the role creation or update would fail. This ensures that only authorized identities from the intended organization can assume roles and access AWS resources. This security control is crucial when OIDC providers are shared across multiple AWS customers.
 

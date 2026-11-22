@@ -1,7 +1,6 @@
 
 
 # Getting started with internet of things messaging
-<a name="sts_example_iot_GettingStarted_063_section"></a>
 
 The following code example shows how to:
 + Create IoT resources
@@ -15,7 +14,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/063-aws-iot-core-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # AWS IoT Core Getting Started Script

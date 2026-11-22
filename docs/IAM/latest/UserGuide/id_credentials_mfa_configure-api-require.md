@@ -1,7 +1,6 @@
 
 
 # Secure API access with MFA
-<a name="id_credentials_mfa_configure-api-require"></a>
 
 With IAM policies, you can specify which API operations a user is allowed to call. You can apply additional security by requiring users to authenticate with multi-factor authentication (MFA) before you allow them to perform particularly sensitive actions.
 
@@ -47,7 +46,7 @@ The following example shows the trust policy of an IAM role that includes an MFA
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -111,7 +110,7 @@ Imagine that you have account A (the trusting account that owns the resource to 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": {
@@ -134,7 +133,7 @@ The permissions policy does not include an MFA condition. It is important to und
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -165,7 +164,7 @@ The permissions policy does not include an MFA condition. It is important to und
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -210,7 +209,7 @@ In this scenario, one of those trusted users is user Sofía. User Anaya is an ad
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [{
@@ -257,7 +256,7 @@ In this scenario, user Anaya is an administrator in account A. User Nikhil is an
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [{

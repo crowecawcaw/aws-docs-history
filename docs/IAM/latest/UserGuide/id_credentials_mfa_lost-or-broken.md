@@ -1,7 +1,6 @@
 
 
 # Recover an MFA protected identity in IAM
-<a name="id_credentials_mfa_lost-or-broken"></a>
 
 If your [virtual MFA device](id_credentials_mfa_enable_virtual.md) or [hardware TOTP token](id_credentials_mfa_enable_physical.md) appears to be functioning properly, but you can't use it to access your AWS resources, it might be out of synchronization with AWS. For information about synchronizing a virtual MFA device or hardware MFA device, see [Resynchronize virtual and hardware MFA devices](id_credentials_mfa_sync.md). [FIDO security keys](id_credentials_mfa_enable_fido.md) do not go out of sync.
 

@@ -1,7 +1,6 @@
 
 
 # Cross-account policy evaluation logic
-<a name="reference_policies_evaluation-logic-cross-account"></a>
 
 You can allow a principal in one account to access resources in a second account. This is called cross-account access. When you allow cross-account access, the account where the principal exists is called the *trusted* account. The account where the resource exists is the *trusting* account. 
 
@@ -51,7 +50,7 @@ Also assume that the following policy is attached to the `Demo` IAM role.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -91,7 +90,7 @@ Additionally, the following resource-based policy (called a bucket policy) is at
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

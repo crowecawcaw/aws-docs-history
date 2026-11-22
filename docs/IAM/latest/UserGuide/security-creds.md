@@ -1,7 +1,6 @@
 
 
 # AWS security credentials
-<a name="security-creds"></a>
 
 When you interact with AWS, you specify your AWS *security credentials* to verify who you are and whether you have permission to access the resources that you are requesting. AWS uses the security credentials to authenticate and authorize your requests.
 

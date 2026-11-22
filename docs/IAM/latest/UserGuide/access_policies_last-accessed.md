@@ -1,7 +1,6 @@
 
 
 # Refine permissions in AWS using last accessed information
-<a name="access_policies_last-accessed"></a>
 
 As an administrator, you might grant permissions to IAM resources (roles, users, user groups, or policies) beyond what they require. IAM provides last accessed information to help you identify unused permissions so that you can remove them. You can use last accessed information to refine your policies and allow access to only the services and actions that your IAM identities and policies use. This helps you to better adhere to the [best practice of least privilege.](best-practices.md#grant-least-privilege) You can view last accessed information for identities or policies that exist in IAM or AWS Organizations.
 
@@ -86,7 +85,7 @@ This example shows how you might create an identity-based policy that allows vie
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -136,7 +135,7 @@ This example shows how you might create an identity-based policy that allows vie
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {

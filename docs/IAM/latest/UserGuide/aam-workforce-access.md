@@ -1,7 +1,6 @@
 
 
 # Workforce access
-<a name="aam-workforce-access"></a>
 
 Account access manager enables you to assign AWS account access to your workforce users and groups in IAM Identity Center by mapping them to IAM roles in your AWS accounts. If you are new to IAM Identity Center, see [Set up workforce access to AWS resources](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-workforce-access.html) in the *AWS IAM Identity Center User Guide* for information about authentication sessions, user access management, password management, and multi-factor authentication.
 

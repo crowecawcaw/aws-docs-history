@@ -1,7 +1,6 @@
 
 
 # Convert an inline policy to a managed policy
-<a name="access_policies-convert-inline-to-managed"></a>
 
 If you have inline policies in your account, you can convert them to managed policies. To do this, copy the policy to a new managed policy. Next, attach the new policy to the identity that has the inline policy. Then delete the inline policy. 
 

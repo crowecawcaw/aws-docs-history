@@ -1,7 +1,6 @@
 
 
 # Use `UploadSigningCertificate` with a CLI
-<a name="iam_example_iam_UploadSigningCertificate_section"></a>
 
 The following code examples show how to use `UploadSigningCertificate`.
 
@@ -47,7 +46,7 @@ For more information, see [Set up the Amazon EC2 AMI tools](https://docs.aws.ama
 **Tools for PowerShell V4**  
 **Example 1: This example uploads a new X.509 signing certificate and associates it with the IAM user named `Bob`. The file containing the certificate body is PEM encoded. The `CertificateBody` parameter requires the actual contents of the certificate file rather than the file name. You must use the `-Raw` switch parameter to successfully process the file.**  
 
-```
+```powershell
 Publish-IAMSigningCertificate -UserName Bob -CertificateBody (Get-Content -Raw SampleSigningCert.pem)
 ```
 **Output:**  
@@ -79,7 +78,7 @@ UserName        : Bob
 **Tools for PowerShell V5**  
 **Example 1: This example uploads a new X.509 signing certificate and associates it with the IAM user named `Bob`. The file containing the certificate body is PEM encoded. The `CertificateBody` parameter requires the actual contents of the certificate file rather than the file name. You must use the `-Raw` switch parameter to successfully process the file.**  
 
-```
+```powershell
 Publish-IAMSigningCertificate -UserName Bob -CertificateBody (Get-Content -Raw SampleSigningCert.pem)
 ```
 **Output:**  

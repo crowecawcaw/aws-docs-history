@@ -1,7 +1,6 @@
 
 
 # Use `UpdateGroup` with a CLI
-<a name="iam_example_iam_UpdateGroup_section"></a>
 
 The following code examples show how to use `UpdateGroup`.
 
@@ -27,12 +26,12 @@ For more information, see [Renaming an IAM user group](https://docs.aws.amazon.c
 **Tools for PowerShell V4**  
 **Example 1: This example renames the IAM group `Testers` to `AppTesters`.**  
 
-```
+```powershell
 Update-IAMGroup -GroupName Testers -NewGroupName AppTesters
 ```
 **Example 2: This example changes the path of the IAM group `AppTesters` to `/Org1/Org2/`. This changes the ARN for the group to `arn:aws:iam::123456789012:group/Org1/Org2/AppTesters`.**  
 
-```
+```powershell
 Update-IAMGroup -GroupName AppTesters -NewPath /Org1/Org2/
 ```
 +  For API details, see [UpdateGroup](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -40,12 +39,12 @@ Update-IAMGroup -GroupName AppTesters -NewPath /Org1/Org2/
 **Tools for PowerShell V5**  
 **Example 1: This example renames the IAM group `Testers` to `AppTesters`.**  
 
-```
+```powershell
 Update-IAMGroup -GroupName Testers -NewGroupName AppTesters
 ```
 **Example 2: This example changes the path of the IAM group `AppTesters` to `/Org1/Org2/`. This changes the ARN for the group to `arn:aws:iam::123456789012:group/Org1/Org2/AppTesters`.**  
 
-```
+```powershell
 Update-IAMGroup -GroupName AppTesters -NewPath /Org1/Org2/
 ```
 +  For API details, see [UpdateGroup](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

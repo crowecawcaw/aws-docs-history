@@ -1,7 +1,6 @@
 
 
 # Centralize root access for member accounts
-<a name="id_root-enable-root-access"></a>
 
 Root user credentials are the initial credentials assigned to each AWS account that has complete access to all AWS services and resources in the account. When you enable AWS Organizations, you combine all your AWS accounts into an organization for central management. Each member account has its own root user with default permissions to perform any action in the member account. We recommend you centrally secure the root user credentials of AWS accounts managed using AWS Organizations to prevent root user credential recovery and access at scale.
 
@@ -84,7 +83,7 @@ If you see **Root access management is disabled**, enable trusted access for AWS
 
    The following example assigns account 111111111111 as the delegated administrator for the IAM service.
 
-   ```
+   ```bash
    aws organizations register-delegated-administrator 
    --service-principal iam.amazonaws.com
    --account-id {{111111111111}}

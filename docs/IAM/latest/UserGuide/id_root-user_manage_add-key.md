@@ -1,7 +1,6 @@
 
 
 # Create access keys for the root user
-<a name="id_root-user_manage_add-key"></a>
 
 **Warning**  
 We strongly recommend that you do **not** create access key pairs for your root user. Because [only a few tasks require the root user](id_root-user.md#root-user-tasks) and you typically perform those tasks infrequently, we recommend signing in to the AWS Management Console to perform the root user tasks. Before creating access keys, review the [alternatives to long-term access keys](security-creds-programmatic-access.md#security-creds-alternatives-to-long-term-access-keys).
@@ -45,7 +44,7 @@ To run the following command or API operation as the root user, you must already
 + AWS CLI: [aws iam create-access-key](https://docs.aws.amazon.com/cli/latest/reference/iam/create-access-key.html)  
 **Example**  
 
-  ```
+  ```bash
   $ aws iam create-access-key
   {
       "AccessKey": {

@@ -1,7 +1,6 @@
 
 
 # IAM identifiers
-<a name="reference_identifiers"></a>
 
 IAM uses a few different identifiers for users, IAM groups, roles, policies, and server certificates. This section describes the identifiers and when you use each.
 
@@ -43,7 +42,7 @@ You can specify IAM and AWS STS ARNs using the following syntax. The Region port
 
 Syntax:
 
-```
+```json
 arn:aws:iam::{{account}}:root  
 arn:aws:iam::{{account}}:user/{{user-name-with-path}}
 arn:aws:iam::{{account}}:group/{{group-name-with-path}}
@@ -65,7 +64,7 @@ Many of the following examples include paths in the resource part of the ARN. Pa
 
 Examples:
 
-```
+```json
 arn:aws:iam::123456789012:root
 arn:aws:iam::123456789012:user/John
 arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/Jane
@@ -97,101 +96,101 @@ The following examples provide more detail to help you understand the ARN format
 **Note**  
 Each IAM user name is unique. The user name is case-insensitive for the user, such as during the sign in process, but is case-sensitive when you use it in a policy or as part of an ARN.
 
-  ```
+  ```json
   arn:aws:iam::123456789012:user/John
   ```
 + Another user with a path reflecting an organization chart:
 
-  ```
+  ```json
   arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/Jane
   ```
 + An IAM user group:
 
-  ```
+  ```json
   arn:aws:iam::123456789012:group/Developers
   ```
 + An IAM user group with a path:
 
-  ```
+  ```json
   arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/product_A/Developers
   ```
 + An IAM role:
 
-  ```
+  ```json
   arn:aws:iam::123456789012:role/S3Access
   ```
 + A [service-linked role](id_roles.md#iam-term-service-linked-role):
 
-  ```
+  ```json
   arn:aws:iam::123456789012:role/aws-service-role/access-analyzer.amazonaws.com/AWSServiceRoleForAccessAnalyzer
   ```
 + A [service role](id_roles.md#iam-term-service-role):
 
-  ```
+  ```json
   arn:aws:iam::123456789012:role/service-role/QuickSightAction
   ```
 + A managed policy:
 
-  ```
+  ```json
   arn:aws:iam::123456789012:policy/ManageCredentialsPermissions
   ```
 + An instance profile that can be associated with an Amazon EC2 instance:
 
-  ```
+  ```json
   arn:aws:iam::123456789012:instance-profile/Webserver
   ```
 + An AWS STS federated user principal identified in IAM as "Paulo":
 
-  ```
+  ```json
   arn:aws:sts::123456789012:federated-user/Paulo
   ```
 + The active session of someone assuming the role of "Accounting-Role", with a role session name of "Mary":
 
-  ```
+  ```json
   arn:aws:sts::123456789012:assumed-role/Accounting-Role/Mary
   ```
 + Represents the caller's own session when used as a resource in an API call, such as the AWS STS [SetContext](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecuritytokenservice.html) API, that operates on the calling session:
 
-  ```
+  ```json
   arn:aws:sts::123456789012:self
   ```
 + The multi-factor authentication device assigned to the user named Jorge:
 
-  ```
+  ```json
   arn:aws:iam::123456789012:mfa/Jorge
   ```
 + A server certificate:
 
-  ```
+  ```json
   arn:aws:iam::123456789012:server-certificate/ProdServerCert
   ```
 + A server certificate with a path that reflects an organization chart:
 
-  ```
+  ```json
   arn:aws:iam::123456789012:server-certificate/division_abc/subdivision_xyz/ProdServerCert
   ```
 + Identity providers (SAML and OIDC):
 
-  ```
+  ```json
   arn:aws:iam::123456789012:saml-provider/ADFSProvider
   arn:aws:iam::123456789012:oidc-provider/GoogleProvider
   arn:aws:iam::123456789012:oidc-provider/server.example.org
   ```
 + OIDC identity provider with a path that reflects an Amazon EKS OIDC identity provider URL:
 
-  ```
+  ```json
   arn:aws:iam::123456789012:oidc-provider/oidc.eks.us-west-2.amazonaws.com/id/a1b2c3d4567890abcdefEXAMPLE11111
   ```
 + The context provider ARN used with AWS IAM Identity Center trusted identity propagation, from which the trusted context assertion was generated:
 
-  ```
+  ```json
   arn:aws:iam::aws:contextProvider/IdentityCenter
   ```
 
 Another important ARN is the root user ARN. Although this is not an IAM resource, you should be familiar with the format of this ARN. It is often used in the [`Principal` element](reference_policies_elements_principal.md) of a resource-based policy.
 + The AWS account displays the following:
 
-  ```
+  ```json
   arn:aws:iam::123456789012:root
   ```
 
@@ -202,7 +201,7 @@ The following example shows a policy you could assign to Richard to allow him to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -235,19 +234,19 @@ When you use ARNs to identify resources in an IAM policy, you can include *polic
 
 You can use wildcards in the {{resource}} portion of the ARN to specify multiple users or IAM groups or policies. For example, to specify all users working on product\_1234, you use:
 
-```
+```json
 arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/product_1234/*
 ```
 
 If you have users whose names start with the string `app_`, you could refer to them all with the following ARN.
 
-```
+```json
 arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/product_1234/app_*
 ```
 
 To specify all users, IAM groups, or policies in your AWS account, use a wildcard after the `user/`, `group/`, or `policy/` part of the ARN, respectively.
 
-```
+```json
 arn:aws:iam::123456789012:user/*
 arn:aws:iam::123456789012:group/*
 arn:aws:iam::123456789012:policy/*
@@ -255,21 +254,21 @@ arn:aws:iam::123456789012:policy/*
 
 If you specify the following ARN for a user `arn:aws:iam::111122223333:user/*` it matches both of the following examples.
 
-```
+```json
 arn:aws:iam::111122223333:user/John
 arn:aws:iam::111122223333:user/division_abc/subdivision_xyz/JaneDoe
 ```
 
 But, if you specify the following ARN for a user `arn:aws:iam::111122223333:user/division_abc*` it matches the second example, but not the first.
 
-```
+```json
 arn:aws:iam::111122223333:user/John
 arn:aws:iam::111122223333:user/division_abc/subdivision_xyz/Jane
 ```
 
 Don't use a wildcard in the `user/`, `group/`, or `policy/` part of the ARN. For example, IAM does not allow the following:
 
-```
+```json
 arn:aws:iam::123456789012:u*
 ```
 
@@ -282,7 +281,7 @@ In this example, Jules in the Marketing\_Admin user group creates a project-base
 The marketing group has a new product they'll be launching, so Jules creates a new user group in the /marketing/ path called Widget\_Launch. Jules then assigns the following policy to the user group, which gives the user group access to objects in the part of the `example_bucket` that is designated to this particular launch.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -319,7 +318,7 @@ In general, we recommend that you specify the ARN for the resource in your polic
 
 The following example shows how you might specify unique IDs in the [`Principal` element](reference_policies_elements_principal.md) of a resource-based policy.
 
-```
+```json
 "Principal": {
   "AWS": [
     "arn:aws:iam::{{111122223333}}:role/{{role-name}}",
@@ -330,7 +329,7 @@ The following example shows how you might specify unique IDs in the [`Principal`
 
 The following example shows how you might specify unique IDs in the [`Condition` element](reference_policies_elements_condition.md) of a policy using global condition key [`aws:userid`](reference_policies_condition-keys.md#condition-keys-userid).
 
-```
+```json
 "Condition": {
     "StringLike": {
       "aws:userId": [

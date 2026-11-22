@@ -1,7 +1,6 @@
 
 
 # Use `DetachRolePolicy` with an AWS SDK or CLI
-<a name="iam_example_iam_DetachRolePolicy_section"></a>
 
 The following code examples show how to use `DetachRolePolicy`.
 
@@ -30,7 +29,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Detach an IAM policy from an IAM role.
     /// </summary>
@@ -56,7 +55,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -147,7 +146,7 @@ function iam_detach_role_policy() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
-```
+```cpp
     Aws::IAM::IAMClient iam(clientConfig);
 
     Aws::IAM::Model::DetachRolePolicyRequest detachRequest;
@@ -191,7 +190,7 @@ For more information, see [IAM role management](https://docs.aws.amazon.com/IAM/
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -231,7 +230,7 @@ func (wrapper RoleWrapper) DetachRolePolicy(ctx context.Context, roleName string
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.services.iam.model.DetachRolePolicyRequest;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.iam.IamClient;
@@ -300,7 +299,7 @@ public class DetachRolePolicy {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 Detach the policy.  
 
-```
+```javascript
 import { DetachRolePolicyCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -325,7 +324,7 @@ export const detachRolePolicy = (policyArn, roleName) => {
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -371,7 +370,7 @@ iam.listAttachedRolePolicies(paramsRoleList, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
-```
+```kotlin
 suspend fun detachPolicy(
     roleNameVal: String,
     policyArnVal: String,
@@ -396,12 +395,12 @@ suspend fun detachPolicy(
 **Tools for PowerShell V4**  
 **Example 1: This example detaches the managed group policy whose ARN is `arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy` from the role named `FedTesterRole`.**  
 
-```
+```powershell
 Unregister-IAMRolePolicy -RoleName FedTesterRole -PolicyArn arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy
 ```
 **Example 2: This example finds all of the managed policies that are attached to the role named `FedTesterRole` and detaches them from the role.**  
 
-```
+```powershell
 Get-IAMAttachedRolePolicyList -RoleName FedTesterRole | Unregister-IAMRolePolicy -Rolename FedTesterRole
 ```
 +  For API details, see [DetachRolePolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -409,12 +408,12 @@ Get-IAMAttachedRolePolicyList -RoleName FedTesterRole | Unregister-IAMRolePolicy
 **Tools for PowerShell V5**  
 **Example 1: This example detaches the managed group policy whose ARN is `arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy` from the role named `FedTesterRole`.**  
 
-```
+```powershell
 Unregister-IAMRolePolicy -RoleName FedTesterRole -PolicyArn arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy
 ```
 **Example 2: This example finds all of the managed policies that are attached to the role named `FedTesterRole` and detaches them from the role.**  
 
-```
+```powershell
 Get-IAMAttachedRolePolicyList -RoleName FedTesterRole | Unregister-IAMRolePolicy -Rolename FedTesterRole
 ```
 +  For API details, see [DetachRolePolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -426,7 +425,7 @@ Get-IAMAttachedRolePolicyList -RoleName FedTesterRole | Unregister-IAMRolePolicy
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 Detach a policy from a role using the Boto3 Policy object.  
 
-```
+```python
 def detach_from_role(role_name, policy_arn):
     """
     Detaches a policy from a role.
@@ -445,7 +444,7 @@ def detach_from_role(role_name, policy_arn):
 ```
 Detach a policy from a role using the Boto3 Role object.  
 
-```
+```python
 def detach_policy(role_name, policy_arn):
     """
     Detaches a policy from a role.
@@ -471,7 +470,7 @@ def detach_policy(role_name, policy_arn):
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 This example module lists, creates, attaches, and detaches role policies.  
 
-```
+```ruby
 # Manages policies in AWS Identity and Access Management (IAM)
 class RolePolicyManager
   # Initialize with an AWS IAM client
@@ -568,7 +567,7 @@ end
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
-```
+```rust
 pub async fn detach_role_policy(
     client: &iamClient,
     role_name: &str,
@@ -592,7 +591,7 @@ pub async fn detach_role_policy(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_iam->detachrolepolicy(
           iv_rolename = iv_role_name
@@ -610,7 +609,7 @@ pub async fn detach_role_policy(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
-```
+```swift
 import AWSIAM
 import AWSS3
 

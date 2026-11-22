@@ -1,7 +1,6 @@
 
 
 # AWS: Allows IAM users to manage their own password, access keys, and SSH public keys on the Security credentials page
-<a name="reference_policies_examples_aws_my-sec-creds-self-manage-pass-accesskeys-ssh"></a>
 
 This example shows how you might create an identity-based policy that allows IAM users to manage their own password, access keys, and X.509 certificates on the **Security credentials** page. This AWS Management Console page displays account information such as the account ID and canonical user ID. Users can also view and edit their own passwords, access keys, MFA devices, X.509 certificates, SSH keys, and Git credentials. This example policy includes the permissions that are required to view and edit only their password, access keys, and X.509 certificate. To allow users to manage all of their own credentials with MFA, see [AWS: Allows MFA-authenticated IAM users to manage their own credentials on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage.md). To allow users to manage their own credentials without using MFA, see [AWS: Allows IAM users to manage their own credentials on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage-no-mfa.md).
 
@@ -22,7 +21,7 @@ This policy does not allow users to view or manage their own MFA devices. They a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

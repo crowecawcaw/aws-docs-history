@@ -1,7 +1,6 @@
 
 
 # Use `DeleteUserPolicy` with an AWS SDK or CLI
-<a name="iam_example_iam_DeleteUserPolicy_section"></a>
 
 The following code examples show how to use `DeleteUserPolicy`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Delete an IAM user policy.
     /// </summary>
@@ -53,7 +52,7 @@ For more information, see [Creating an IAM user in your AWS account](https://doc
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -94,12 +93,12 @@ func (wrapper UserWrapper) DeleteUserPolicy(ctx context.Context, userName string
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the inline policy named `AccessToEC2Policy` that is embedded in the IAM user named `Bob`.**  
 
-```
+```powershell
 Remove-IAMUserPolicy -PolicyName AccessToEC2Policy -UserName Bob
 ```
 **Example 2: This example finds all of the inline polices that are embedded in the IAM user named `Theresa` and then deletes them.**  
 
-```
+```powershell
 $inlinepols = Get-IAMUserPolicies -UserName Theresa
 foreach ($pol in $inlinepols) { Remove-IAMUserPolicy -PolicyName $pol -UserName Theresa -Force}
 ```
@@ -108,12 +107,12 @@ foreach ($pol in $inlinepols) { Remove-IAMUserPolicy -PolicyName $pol -UserName 
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the inline policy named `AccessToEC2Policy` that is embedded in the IAM user named `Bob`.**  
 
-```
+```powershell
 Remove-IAMUserPolicy -PolicyName AccessToEC2Policy -UserName Bob
 ```
 **Example 2: This example finds all of the inline polices that are embedded in the IAM user named `Theresa` and then deletes them.**  
 
-```
+```powershell
 $inlinepols = Get-IAMUserPolicies -UserName Theresa
 foreach ($pol in $inlinepols) { Remove-IAMUserPolicy -PolicyName $pol -UserName Theresa -Force}
 ```
@@ -125,7 +124,7 @@ foreach ($pol in $inlinepols) { Remove-IAMUserPolicy -PolicyName $pol -UserName 
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
-```
+```ruby
   # Deletes a user and their associated resources
   #
   # @param user_name [String] The name of the user to delete
@@ -150,7 +149,7 @@ foreach ($pol in $inlinepols) { Remove-IAMUserPolicy -PolicyName $pol -UserName 
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
-```
+```rust
 pub async fn delete_user_policy(
     client: &iamClient,
     user: &User,
@@ -174,7 +173,7 @@ pub async fn delete_user_policy(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
-```
+```swift
 import AWSIAM
 import AWSS3
 

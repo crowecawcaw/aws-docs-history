@@ -1,7 +1,6 @@
 
 
 # Access to externally authenticated users (identity federation)
-<a name="id_roles_common-scenarios_federated-users"></a>
 
 Your users might already have identities outside of AWS, such as in your corporate directory. If those users need to work with AWS resources (or work with applications that access those resources), then those users also need AWS security credentials. You can use an IAM role to specify permissions for users whose identity is federated from your organization or a third-party identity provider (IdP).
 

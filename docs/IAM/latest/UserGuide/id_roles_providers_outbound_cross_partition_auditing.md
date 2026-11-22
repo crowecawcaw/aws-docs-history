@@ -1,7 +1,6 @@
 
 
 # Auditing cross-partition identity federation
-<a name="id_roles_providers_outbound_cross_partition_auditing"></a>
 
 The `GetWebIdentityToken` CloudTrail event captures the token request in the source account. The `AssumeRoleWithWebIdentity` CloudTrail event captures the role assumption request in the destination account. Match `webIdentityTokenId` values to connect the source and destination events, and use `sourcePrincipalArn` and `sourceRegion` to identify who requested the token and where it was issued.
 
@@ -16,7 +15,7 @@ Use these fields together to trace a destination role assumption back to the sou
 
 The following example shows a `GetWebIdentityToken` event in the source account.
 
-```
+```json
 {
   "eventVersion": "1.11",
   "userIdentity": {
@@ -81,7 +80,7 @@ The following example shows a `GetWebIdentityToken` event in the source account.
 
 The following example shows the corresponding `AssumeRoleWithWebIdentity` event. Its `requestParameters.webIdentityTokenId` value matches the token identifier in the source event.
 
-```
+```json
 {
   "eventVersion": "1.11",
   "userIdentity": {

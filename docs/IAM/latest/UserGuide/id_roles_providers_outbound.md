@@ -1,11 +1,16 @@
 
 
 # Federating AWS identities to external services
-<a name="id_roles_providers_outbound"></a>
 
 IAM outbound identity federation enables your AWS workloads to securely access external services without storing long-term credentials. Your AWS workloads can request short-lived JSON Web Tokens (JWTs) from AWS Security Token Service (AWS STS) by calling the [GetWebIdentityToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetWebIdentityToken.html) API. These tokens are cryptographically signed, publicly verifiable and contain a comprehensive set of claims that assert your AWS workload's identity to external services. You can use these tokens with a wide range of third-party cloud providers, SaaS platforms, and self-hosted applications. External services verify the token's authenticity using AWS's verification keys published at well-known endpoints and use the information in the tokens to make authentication and authorization decisions.
 
-Outbound identity federation eliminates the need to store long-term credentials such as API keys or passwords in your application code or environment variables, improving your security posture. You can control access to token generation and enforce token properties such as signing algorithms, permitted audiences and duration using IAM policies. All token requests are logged in AWS CloudTrail, providing complete audit trails for security monitoring and compliance reporting. You can also customize tokens with tags that appear as custom claims, enabling external services to implement fine-grained, attribute-based access control.
+By default, `sub` identifies the IAM principal that requests the token. When credentials that contain [trusted identity propagation (TIP)](id_roles_providers_tip.md) context call `GetWebIdentityToken`, AWS STS includes each applicable `origin_identity` and `transaction_context` claim from that context in the resulting JWT, regardless of `SubjectMode`. Setting `SubjectMode` to `OriginIdentity` places the TIP Subject in `sub`. The `principal_id` claim identifies the requesting IAM principal. With `OriginIdentity`, the caller can also request Scope values that the external service interprets according to its own authorization model.
+
+Outbound identity federation eliminates the need to store long-term credentials such as API keys or passwords in your application code or environment variables, improving your security posture.
+
+You can control access to token generation and enforce token properties such as signing algorithms, permitted audiences, duration, subject selection, and Scope values using IAM policies.
+
+All token requests are logged in AWS CloudTrail, providing complete audit trails for security monitoring and compliance reporting. You can also customize tokens with tags that appear as custom claims, enabling external services to implement fine-grained, attribute-based access control.
 
 For instructions on setting up outbound federation, see [Getting started with outbound identity federation](id_roles_providers_outbound_getting_started.md). For more information about token contents, see [Understanding token claims](id_roles_providers_outbound_token_claims.md). For instructions on controlling which workloads can request tokens, see [Controlling access with IAM policies](id_roles_providers_outbound_policies.md). To use these tokens to assume a role in a different AWS partition, see [Federating AWS identities across AWS partitions](id_roles_providers_outbound_cross_partition.md).
 
@@ -23,14 +28,14 @@ Using outbound identity federation, your AWS workloads can securely:
 ![Authentication flow between Lambda function, Security Token Service, External Service, and OIDC Issuer URL Discovery Endpoint.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/outbound-use-cases.png)
 
 
-1. The Lambda function calls the [GetWebIdentityToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetWebIdentityToken.html) API to request a JSON Web Token (JWT) from AWS Security Token Service (AWS STS).
+1. The Lambda function calls the [GetWebIdentityToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetWebIdentityToken.html) API to request a JSON Web Token (JWT) from AWS Security Token Service (AWS STS). The request can include optional `SubjectMode` and Scope values.
 
-1. AWS STS validates the request and returns a signed JWT to the Lambda function.
+1. AWS STS validates and authorizes the request, then returns a signed JWT to the Lambda function. The token contains the applicable AWS identity and session-context claims, the selected identity in `sub`, and, when requested and accepted, a Scope value in the top-level `scope` claim.
 
 1. The Lambda function sends the JWT to the external service.
 
 1. The external service extracts the issuer URL from the token, verifies it matches a known trusted issuer, and fetches AWS's verification keys and metadata from the OIDC discovery endpoint.
 
-1. The external service uses the verification keys to verify the token's signature and validates claims such as expiration time, subject and audience.
+1. The external service uses the verification keys to verify the token's signature and validates claims such as expiration, issuer, audience, and subject. It also validates any AWS identity, session-context, `subject_mode`, and `scope` claims used by its authorization model.
 
-1. After successful validation, the external service grants access to the Lambda function.
+1. After successful validation, the external service grants access according to the identity and claims in the token.

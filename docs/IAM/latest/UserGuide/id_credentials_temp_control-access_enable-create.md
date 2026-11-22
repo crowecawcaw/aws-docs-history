@@ -1,13 +1,13 @@
 
 
 # Granting permissions to create temporary security credentials
-<a name="id_credentials_temp_control-access_enable-create"></a>
 
 By default, IAM users do not have permission to create temporary security credentials for AWS STS federated user sessions and roles. You must use a policy to provide your users with these permissions. Although you can grant permissions directly to a user, we strongly recommend that you grant permissions to a group. This makes management of the permissions much easier. When someone no longer needs to perform the tasks associated with the permissions, you simply remove them from the group. If someone else needs to perform that task, add them to the group to grant the permissions.
 
-To grant an IAM group permission to create temporary security credentials for AWS STS federated user sessions or roles, you attach a policy that grants one or both of the following privileges:
+To grant an IAM group permission to create temporary security credentials for AWS STS federated user sessions or roles, you attach a policy that grants one or more of the following privileges:
 + For OIDC and SAML federated principals to access an IAM role, grant access to AWS STS `AssumeRole`.
 + <a name="para_gsy_hxg_1t"></a>For AWS STS federated users that don't need a role, grant access to AWS STS `GetFederationToken`.
++ For principals that need to scope down the permissions of a session they already hold, grant access to AWS STS `GetScopedCredentials`.
 
  For more information about the differences between the `AssumeRole` and `GetFederationToken` API operations, see [Request temporary security credentials](id_credentials_temp_request.md).
 
@@ -17,7 +17,7 @@ IAM users can also call [`GetSessionToken`](https://docs.aws.amazon.com/STS/late
 The following example policy grants permission to call `AssumeRole` for the `UpdateApp` role in AWS account `123123123123`. When `AssumeRole` is used, the user (or application) that creates the security credentials on behalf of a federated user cannot delegate any permissions that are not already specified in the role permission policy.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -32,7 +32,7 @@ The following example policy grants permission to call `AssumeRole` for the `Upd
 The following example policy grants permission to access `GetFederationToken`.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -50,7 +50,7 @@ When you give IAM users permission to create temporary security credentials for 
 When you let an IAM user call `GetFederationToken`, it is a best practice to restrict the permissions that the IAM user can delegate. For example, the following policy shows how to let an IAM user create temporary security credentials only for AWS STS federated users whose names start with *Manager*.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -58,5 +58,23 @@ When you let an IAM user call `GetFederationToken`, it is a best practice to res
     "Action": "sts:GetFederationToken",
     "Resource": ["arn:aws:sts::123456789012:federated-user/Manager*"]
   }]
+}
+```
+
+Unlike `AssumeRole`, `GetScopedCredentials` does not require a trust policy on a target role, because there is no target role. The caller is scoping down its own existing credentials. The only permission required is the `sts:GetScopedCredentials` action on the caller's own identity-based policy or an identity-based policy attached to the role whose session the caller holds.
+
+**Example policy that grants permission to create scoped down credentials from an existing session**  
+The following sample policy grants permission to call `GetScopedCredentials`. Because `GetScopedCredentials` operates on the caller's own session (there is no separate resource ARN), the resource is specified as `"*"`.  
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "sts:GetScopedCredentials",
+            "Resource": "*"
+        }
+    ]
 }
 ```

@@ -1,7 +1,6 @@
 
 
 # AWS STS Regions and endpoints
-<a name="id_credentials_temp_region-endpoints"></a>
 
 **Note**  
 AWS has made changes to the AWS Security Token Service (AWS STS) global endpoint (`https://sts.amazonaws.com`) in Regions [enabled by default](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html) to enhance its resiliency and performance. AWS STS requests to the global endpoint are automatically served in the same AWS Region as your workloads. These changes will not be deployed to opt-in Regions. We recommend that you use the appropriate AWS STS regional endpoints. For more information, see [AWS STS global endpoint changes](#reference_sts_global_endpoint_changes).

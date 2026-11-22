@@ -1,7 +1,6 @@
 
 
 # Use `CreateOpenIdConnectProvider` with a CLI
-<a name="iam_example_iam_CreateOpenIdConnectProvider_section"></a>
 
 The following code examples show how to use `CreateOpenIdConnectProvider`.
 
@@ -55,7 +54,7 @@ For more information about obtaining thumbprints for an OIDC provider, see [Obta
 **Tools for PowerShell V4**  
 **Example 1: This example creates an IAM OIDC provider associated with the OIDC compatible provider service found at the URL `https://example.oidcprovider.com` and the client ID `my-testapp-1`. The OIDC provider supplies the thumbprint. To authenticate the thumbprint, follow the steps at http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html.**  
 
-```
+```powershell
 New-IAMOpenIDConnectProvider -Url https://example.oidcprovider.com -ClientIDList my-testapp-1 -ThumbprintList 990F419EXAMPLEECF12DDEDA5EXAMPLE52F20D9E
 ```
 **Output:**  
@@ -68,7 +67,7 @@ arn:aws:iam::123456789012:oidc-provider/example.oidcprovider.com
 **Tools for PowerShell V5**  
 **Example 1: This example creates an IAM OIDC provider associated with the OIDC compatible provider service found at the URL `https://example.oidcprovider.com` and the client ID `my-testapp-1`. The OIDC provider supplies the thumbprint. To authenticate the thumbprint, follow the steps at http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html.**  
 
-```
+```powershell
 New-IAMOpenIDConnectProvider -Url https://example.oidcprovider.com -ClientIDList my-testapp-1 -ThumbprintList 990F419EXAMPLEECF12DDEDA5EXAMPLE52F20D9E
 ```
 **Output:**  

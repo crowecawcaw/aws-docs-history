@@ -1,7 +1,6 @@
 
 
 # Create a rest API with function proxy integration
-<a name="sts_example_api_gateway_GettingStarted_087_section"></a>
 
 The following code example shows how to:
 + Create an IAM role for Lambda execution
@@ -17,7 +16,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/087-apigateway-lambda-integration) repository. 
 
-```
+```bash
 #!/bin/bash
 
 set -euo pipefail

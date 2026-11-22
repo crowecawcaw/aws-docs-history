@@ -1,7 +1,6 @@
 
 
 # Use `UpdateSamlProvider` with a CLI
-<a name="iam_example_iam_UpdateSamlProvider_section"></a>
 
 The following code examples show how to use `UpdateSamlProvider`.
 
@@ -53,7 +52,7 @@ For more information, see [Creating IAM SAML identity providers](https://docs.aw
 **Tools for PowerShell V4**  
 **Example 1: This example updates the SAML provider in IAM whose ARN is `arn:aws:iam::123456789012:saml-provider/SAMLADFS` with a new SAML metadata document from the file `SAMLMetaData.xml`. Note that you must use the `-Raw` switch parameter to successfully process the contents of the JSON file.**  
 
-```
+```powershell
 Update-IAMSAMLProvider -SAMLProviderArn arn:aws:iam::123456789012:saml-provider/SAMLADFS -SAMLMetadataDocument (Get-Content -Raw SAMLMetaData.xml)
 ```
 +  For API details, see [UpdateSamlProvider](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -61,7 +60,7 @@ Update-IAMSAMLProvider -SAMLProviderArn arn:aws:iam::123456789012:saml-provider/
 **Tools for PowerShell V5**  
 **Example 1: This example updates the SAML provider in IAM whose ARN is `arn:aws:iam::123456789012:saml-provider/SAMLADFS` with a new SAML metadata document from the file `SAMLMetaData.xml`. Note that you must use the `-Raw` switch parameter to successfully process the contents of the JSON file.**  
 
-```
+```powershell
 Update-IAMSAMLProvider -SAMLProviderArn arn:aws:iam::123456789012:saml-provider/SAMLADFS -SAMLMetadataDocument (Get-Content -Raw SAMLMetaData.xml)
 ```
 +  For API details, see [UpdateSamlProvider](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

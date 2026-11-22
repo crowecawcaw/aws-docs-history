@@ -1,7 +1,6 @@
 
 
 # Use `ListPolicies` with an AWS SDK or CLI
-<a name="iam_example_iam_ListPolicies_section"></a>
 
 The following code examples show how to use `ListPolicies`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// List IAM policies.
     /// </summary>
@@ -40,7 +39,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
-```
+```cpp
 bool AwsDoc::IAM::listPolicies(const Aws::Client::ClientConfiguration &clientConfig) {
     const Aws::String DATE_FORMAT("%Y-%m-%d");
     Aws::IAM::IAMClient iam(clientConfig);
@@ -152,7 +151,7 @@ For more information, see [Policies and permissions in IAM](https://docs.aws.ama
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -195,7 +194,7 @@ func (wrapper PolicyWrapper) ListPolicies(ctx context.Context, maxPolicies int32
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 List the policies.  
 
-```
+```javascript
 import { ListPoliciesCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -243,7 +242,7 @@ export async function* listPolicies() {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
-```
+```php
 $uuid = uniqid();
 $service = new IAMService();
 
@@ -271,7 +270,7 @@ $service = new IAMService();
 **Tools for PowerShell V4**  
 **Example 1: This example returns a collection of the first three managed policies available in the current AWS account. Because `-scope` is not specified, it defaults to `all` and includes both AWS managed and customer managed policies.**  
 
-```
+```powershell
 Get-IAMPolicyList -MaxItem 3
 ```
 **Output:**  
@@ -312,7 +311,7 @@ UpdateDate       : 2/11/2015 9:21:45 AM
 ```
 **Example 2: This example returns a collection of the first two customer managed policies available in current AWS account. It uses `-Scope local` to limit the output to only customer managed policies. **  
 
-```
+```powershell
 Get-IAMPolicyList -Scope local -MaxItem 2
 ```
 **Output:**  
@@ -345,7 +344,7 @@ UpdateDate       : 2/18/2015 8:52:31 AM
 **Tools for PowerShell V5**  
 **Example 1: This example returns a collection of the first three managed policies available in the current AWS account. Because `-scope` is not specified, it defaults to `all` and includes both AWS managed and customer managed policies.**  
 
-```
+```powershell
 Get-IAMPolicyList -MaxItem 3
 ```
 **Output:**  
@@ -386,7 +385,7 @@ UpdateDate       : 2/11/2015 9:21:45 AM
 ```
 **Example 2: This example returns a collection of the first two customer managed policies available in current AWS account. It uses `-Scope local` to limit the output to only customer managed policies. **  
 
-```
+```powershell
 Get-IAMPolicyList -Scope local -MaxItem 2
 ```
 **Output:**  
@@ -422,7 +421,7 @@ UpdateDate       : 2/18/2015 8:52:31 AM
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def list_policies(scope):
     """
     Lists the policies in the current account.
@@ -449,7 +448,7 @@ def list_policies(scope):
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 This example module lists, creates, attaches, and detaches role policies.  
 
-```
+```ruby
 # Manages policies in AWS Identity and Access Management (IAM)
 class RolePolicyManager
   # Initialize with an AWS IAM client
@@ -546,7 +545,7 @@ end
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
-```
+```rust
 pub async fn list_policies(
     client: iamClient,
     path_prefix: String,
@@ -583,7 +582,7 @@ pub async fn list_policies(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_iam->listpolicies( iv_scope = iv_scope ).
         MESSAGE 'Retrieved policy list.' TYPE 'I'.
@@ -599,7 +598,7 @@ pub async fn list_policies(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
-```
+```swift
 import AWSIAM
 import AWSS3
 

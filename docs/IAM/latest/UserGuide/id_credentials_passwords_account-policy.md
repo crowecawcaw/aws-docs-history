@@ -1,7 +1,6 @@
 
 
 # Set an account password policy for IAM users
-<a name="id_credentials_passwords_account-policy"></a>
 
 You can set a custom password policy on your AWS account to specify complexity requirements and mandatory rotation periods for your IAM users' passwords. If you don't set a custom password policy, IAM user passwords must meet the default AWS password policy. For more information, see [Custom password policy options](#password-policy-details).
 
@@ -42,7 +41,7 @@ The following policy allows full access to view and edit the account password po
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

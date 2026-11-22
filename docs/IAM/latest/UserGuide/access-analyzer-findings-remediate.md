@@ -1,7 +1,6 @@
 
 
 # Resolve IAM Access Analyzer findings
-<a name="access-analyzer-findings-remediate"></a>
 
 ## Resolving resource findings
 <a name="access-analyzer-findings-remediate-external"></a>

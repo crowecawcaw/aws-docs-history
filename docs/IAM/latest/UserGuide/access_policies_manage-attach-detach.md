@@ -1,7 +1,6 @@
 
 
 # Adding and removing IAM identity permissions
-<a name="access_policies_manage-attach-detach"></a>
 
 You use policies to define the permissions for an identity (user, user group, or role). You can add and remove permissions by attaching and detaching IAM policies for an identity using the AWS Management Console, the AWS Command Line Interface (AWS CLI), or the AWS API. You can also use policies to set [permissions boundaries](access_policies_boundaries.md) for only entities (users or roles) that are using the same methods. Permissions boundaries are an advanced AWS feature that control the maximum permissions that an entity can have.
 

@@ -1,7 +1,6 @@
 
 
 # Filter IAM Access Analyzer findings
-<a name="access-analyzer-findings-filter"></a>
 
 The default filtering for a findings page is to display all active findings. To view all findings, choose **All** from the **Status** dropdown. To view archived findings, choose **Archived**. To view resolved findings, choose **Resolved**. When you first start using IAM Access Analyzer, there are no archived findings.
 

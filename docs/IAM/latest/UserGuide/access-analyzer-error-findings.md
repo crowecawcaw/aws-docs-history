@@ -1,7 +1,6 @@
 
 
 # IAM Access Analyzer error findings
-<a name="access-analyzer-error-findings"></a>
 
 When IAM Access Analyzer analyzes resources, it typically generates findings that show who has access to your resources. However, in some cases, the analyzer might encounter issues that prevent it from completing the analysis. In these situations, IAM Access Analyzer generates error findings instead.
 
@@ -13,7 +12,7 @@ Error findings indicate that IAM Access Analyzer couldn't complete the analysis 
 External access analyzers, which identify resources shared outside your account or organization, can generate two types of error findings:
 + INTERNAL\_ERROR – Indicates that IAM Access Analyzer encountered an internal issue while analyzing the resource. This could be due to service limitations or temporary issues.
 
-  ```
+  ```json
   {
   	"findingDetails": [
   		{
@@ -34,7 +33,7 @@ External access analyzers, which identify resources shared outside your account 
   ```
 + ACCESS\_DENIED – Indicates that IAM Access Analyzer doesn't have the required permissions to analyze the resource. This typically happens when the service-linked role (SLR) for IAM Access Analyzer is denied access to the resource.
 
-  ```
+  ```json
   {
   	"findingDetails": [
   		{
@@ -62,7 +61,7 @@ Internal access analyzers, which identify access within your account or organiza
 
   If you make changes to the resource or principals in your environment that bring the number of principals below the limit, the analyzer will generate normal findings during the next scan, and the error finding will be marked as resolved.
 
-  ```
+  ```json
   {
   	"id": "efec28fe-b304-412f-af0f-704d0d70c79c",
   	"status": "ACTIVE",
@@ -83,7 +82,7 @@ Internal access analyzers, which identify access within your account or organiza
   ```
 + Resource-level errors (INTERNAL\_ERROR or ACCESS\_DENIED) – Similar to external access errors, these indicate that the analyzer couldn't analyze a specific resource due to internal issues or permission problems. When a resource-level error occurs, the analyzer generates a single error finding for the resource instead of normal findings.
 
-  ```
+  ```json
   {
   	"id": "efec28fe-b304-412f-af0f-704d0d70c79c",
   	"status": "ACTIVE",
@@ -104,7 +103,7 @@ Internal access analyzers, which identify access within your account or organiza
   ```
 + Principal-level errors (INTERNAL\_ERROR or ACCESS\_DENIED) – Indicates that the analyzer couldn't analyze access for a specific principal to a specific resource. Unlike resource-level errors, a resource can have both normal findings for some principals and error findings for other principals.
 
-  ```
+  ```json
   {
   	"id": "efec28fe-b304-412f-af0f-704d0d70c79c",
   	"status": "ACTIVE",
@@ -132,7 +131,7 @@ Internal access analyzers, which identify access within your account or organiza
   ```
 + PRINCIPAL\_ERRORS\_LIMIT\_EXCEEDED – Generated when there are too many principal-level error findings for a single resource. This is a resource-level error finding that may appear alongside normal findings for the same resource.
 
-  ```
+  ```json
   {
   	"id": "efec28fe-b304-412f-af0f-704d0d70c79c",
   	"status": "ACTIVE",

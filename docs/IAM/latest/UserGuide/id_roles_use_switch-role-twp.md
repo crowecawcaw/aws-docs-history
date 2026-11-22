@@ -1,7 +1,6 @@
 
 
 # Switch to an IAM role (Tools for Windows PowerShell)
-<a name="id_roles_use_switch-role-twp"></a>
 
 A *role* specifies a set of permissions that you can use to access AWS resources that you need. In that sense, it is similar to a [user in AWS Identity and Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) (IAM). When you sign in as a user, you get a specific set of permissions. However, you don't sign in to a role, but once signed in you can switch to a role. This temporarily sets aside your original user permissions and instead gives you the permissions assigned to the role. The role can be in your own account or any other AWS account. For more information about roles, their benefits, and how to create and configure them, see [IAM roles](id_roles.md), and [IAM role creation](id_roles_create.md).
 
@@ -21,7 +20,7 @@ Note that all access keys and tokens are examples only and cannot be used as sho
 
 1. Open a PowerShell command prompt and configure the default profile to use the access key from your current IAM user or from your federated role. If you have previously used the Tools for Windows PowerShell, then this is likely already done. Note that you can switch roles only if you are signed in as an IAM user, not the AWS account root user.
 
-   ```
+   ```powershell
    PS C:\> Set-AWSCredentials -AccessKey {{AKIAIOSFODNN7EXAMPLE}} -SecretKey {{wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY}} -StoreAs {{MyMainUserProfile}}
    PS C:\> Initialize-AWSDefaults -ProfileName {{MyMainUserProfile}} -Region {{us-east-2}}
    ```
@@ -30,13 +29,13 @@ Note that all access keys and tokens are examples only and cannot be used as sho
 
 1. To retrieve credentials for the new role, run the following command to switch to the `{{RoleName}}` role in the 123456789012 account. You get the role ARN from the account administrator who created the role. The command requires that you provide a session name as well. You can choose any text for that. The following command requests the credentials and then captures the `Credentials` property object from the returned results object and stores it in the `$Creds` variable.
 
-   ```
+   ```powershell
    PS C:\> $Creds = (Use-STSRole -RoleArn "arn:aws:iam::{{123456789012}}:role/{{RoleName}}" -RoleSessionName "{{MyRoleSessionName}}").Credentials
    ```
 
    `$Creds` is an object that now contains the `AccessKeyId`, `SecretAccessKey`, and `SessionToken` elements that you need in the following steps. The following sample commands illustrate typical values:
 
-   ```
+   ```powershell
    PS C:\> $Creds.AccessKeyId
    AKIAIOSFODNN7EXAMPLE
    
@@ -55,7 +54,7 @@ Note that all access keys and tokens are examples only and cannot be used as sho
 
 1. To use these credentials for any subsequent command, include them with the `-Credential` parameter. For example, the following command uses the credentials from the role and works only if the role is granted the `iam:ListRoles` permission and can therefore run the `Get-IAMRoles` cmdlet:
 
-   ```
+   ```powershell
            PS C:\> get-iamroles -Credential $Creds
    ```
 

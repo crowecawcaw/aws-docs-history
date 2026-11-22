@@ -1,7 +1,6 @@
 
 
 # View last accessed information for AWS Organizations
-<a name="access_policies_last-accessed-view-data-orgs"></a>
 
 You can view service last accessed information for AWS Organizations using the IAM console, AWS CLI, or AWS API. For important information about the data, permissions required, troubleshooting, and supported Regions, see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md).
 

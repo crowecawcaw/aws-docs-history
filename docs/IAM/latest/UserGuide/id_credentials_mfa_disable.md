@@ -1,7 +1,6 @@
 
 
 # Deactivate an MFA device
-<a name="id_credentials_mfa_disable"></a>
 
 If you are having trouble signing in with a multi-factor authentication (MFA) device as an IAM user, contact your administrator for help.
 

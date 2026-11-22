@@ -1,7 +1,6 @@
 
 
 # IAM temporary delegation for AWS Partners
-<a name="access_policies-temporary-delegation-partner-guide"></a>
 
 ## Overview
 <a name="temporary-delegation-partner-overview"></a>

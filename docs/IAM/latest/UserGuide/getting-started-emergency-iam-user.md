@@ -1,7 +1,6 @@
 
 
 # Create an IAM user for emergency access
-<a name="getting-started-emergency-iam-user"></a>
 
 An *[IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html)* is an identity within your AWS account that has specific permissions for a single person or application. 
 
@@ -78,7 +77,7 @@ The new IAM user is displayed in the **Users** list. Select the **User name** li
 1. Create a user named **EmergencyAccess**.
    + [aws iam create-user](https://docs.aws.amazon.com/cli/latest/reference/iam/create-user.html)
 
-   ```
+   ```bash
    aws iam create-user \
       --user-name EmergencyAccess
    ```
@@ -86,14 +85,14 @@ The new IAM user is displayed in the **Users** list. Select the **User name** li
 1. (Optional) Give the user access to the AWS Management Console. This requires a password. To create a password for an IAM user you can use the `--cli-input-json` parameter to pass a JSON file that contains the password.You must also give the user the [URL of your account's sign-in page.](id_users_sign-in.md)
    +  [aws iam create-login-profile](https://docs.aws.amazon.com/cli/latest/reference/iam/create-login-profile.html)
 
-     ```
+     ```bash
       
      aws iam create-login-profile \
         --generate-cli-skeleton > create-login-profile.json
      ```
    + Open the `create-login-profile.json` file in a text editor and enter a password that complies with your password policy, then save the file. For example: 
 
-     ```
+     ```json
      {
       "UserName": "EmergencyAccess",
       "Password": "Ex@3dRA0djs",
@@ -102,7 +101,7 @@ The new IAM user is displayed in the **Users** list. Select the **User name** li
      ```
    + Use the `aws iam create-login-profile` command again, passing the `--cli-input-json` parameter to specify your JSON file.
 
-     ```
+     ```bash
      aws iam create-login-profile \
         --cli-input-json file://create-login-profile.json
      ```
@@ -114,27 +113,27 @@ If the password you provided in the JSON file violates your account's password p
 An *AWS managed policy* is a standalone policy that is created and administered by AWS. Each policy has its own Amazon Resource Name (ARN) that includes the policy name. For example, `arn:aws:iam::aws:policy/IAMReadOnlyAccess` is an AWS managed policy. For more information about ARNs, see [IAM ARNs](reference_identifiers.md#identifiers-arns). For a list of AWS managed policies for AWS services, see [AWS managed policies](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/policy-list.html).
    + [aws iam create-group](https://docs.aws.amazon.com/cli/latest/reference/iam/create-group.html) 
 
-     ```
+     ```bash
      aws iam create-group \
         --group-name EmergencyAccessGroup
      ```
    + [aws iam attach-group-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-group-policy.html)
 
-     ```
+     ```bash
      aws iam attach-group-policy \
         --policy-arn arn:aws:iam::aws:policy/AdministratorAccess \
         --group-name >EmergencyAccessGroup
      ```
    + [aws iam add-user-to-group](https://docs.aws.amazon.com/cli/latest/reference/iam/add-user-to-group.html) 
 
-     ```
+     ```bash
      aws iam add-user-to-group \
         --user-name EmergencyAccess \
         --group-name EmergencyAccessGroup
      ```
    + Run the [aws iam get-group](https://docs.aws.amazon.com/cli/latest/reference/iam/get-group.html) command to list the**EmergencyAccessGroup** and its members.
 
-     ```
+     ```bash
      aws iam get-group \
         --group-name EmergencyAccessGroup
      ```

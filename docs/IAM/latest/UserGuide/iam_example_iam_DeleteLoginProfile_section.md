@@ -1,7 +1,6 @@
 
 
 # Use `DeleteLoginProfile` with a CLI
-<a name="iam_example_iam_DeleteLoginProfile_section"></a>
 
 The following code examples show how to use `DeleteLoginProfile`.
 
@@ -26,7 +25,7 @@ For more information, see [Managing passwords for IAM users](https://docs.aws.am
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the login profile from the IAM user named `Bob`. This prevents the user from signing-in to the AWS console. It does not prevent the user from running any AWS CLI, PowerShell, or API calls using AWS access keys that might still be attached to the user account.**  
 
-```
+```powershell
 Remove-IAMLoginProfile -UserName Bob
 ```
 +  For API details, see [DeleteLoginProfile](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -34,7 +33,7 @@ Remove-IAMLoginProfile -UserName Bob
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the login profile from the IAM user named `Bob`. This prevents the user from signing-in to the AWS console. It does not prevent the user from running any AWS CLI, PowerShell, or API calls using AWS access keys that might still be attached to the user account.**  
 
-```
+```powershell
 Remove-IAMLoginProfile -UserName Bob
 ```
 +  For API details, see [DeleteLoginProfile](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

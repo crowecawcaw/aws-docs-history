@@ -1,7 +1,6 @@
 
 
 # Use `CreatePolicy` with an AWS SDK or CLI
-<a name="iam_example_iam_CreatePolicy_section"></a>
 
 The following code examples show how to use `CreatePolicy`.
 
@@ -22,7 +21,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Create an IAM policy.
     /// </summary>
@@ -48,7 +47,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -139,7 +138,7 @@ function iam_create_policy() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
-```
+```cpp
 Aws::String AwsDoc::IAM::createPolicy(const Aws::String &policyName,
                                       const Aws::String &rsrcArn,
                                       const Aws::Client::ClientConfiguration &clientConfig) {
@@ -362,7 +361,7 @@ For more information on Tagging policies, see [Tagging customer managed policies
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -436,7 +435,7 @@ func (wrapper PolicyWrapper) CreatePolicy(ctx context.Context, policyName string
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.core.waiters.WaiterResponse;
 import software.amazon.awssdk.services.iam.model.CreatePolicyRequest;
 import software.amazon.awssdk.services.iam.model.CreatePolicyResponse;
@@ -538,7 +537,7 @@ public class CreatePolicy {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 Create the policy.  
 
-```
+```javascript
 import { CreatePolicyCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -571,7 +570,7 @@ export const createPolicy = (policyName) => {
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -624,7 +623,7 @@ iam.createPolicy(params, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
-```
+```kotlin
 suspend fun createIAMPolicy(policyNameVal: String?): String {
     val policyDocumentVal = """
     {
@@ -665,7 +664,7 @@ suspend fun createIAMPolicy(policyNameVal: String?): String {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
-```
+```php
 $uuid = uniqid();
 $service = new IAMService();
 
@@ -703,7 +702,7 @@ echo "Created policy: {$listAllBucketsPolicy['PolicyName']}\n";
 **Tools for PowerShell V4**  
 **Example 1: This example creates a new IAM policy in the current AWS account named `MySamplePolicy` The file `MySamplePolicy.json` provides the policy content. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file.**  
 
-```
+```powershell
 New-IAMPolicy -PolicyName MySamplePolicy -PolicyDocument (Get-Content -Raw MySamplePolicy.json)
 ```
 **Output:**  
@@ -725,7 +724,7 @@ UpdateDate       : 4/14/2015 2:45:59 PM
 **Tools for PowerShell V5**  
 **Example 1: This example creates a new IAM policy in the current AWS account named `MySamplePolicy` The file `MySamplePolicy.json` provides the policy content. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file.**  
 
-```
+```powershell
 New-IAMPolicy -PolicyName MySamplePolicy -PolicyDocument (Get-Content -Raw MySamplePolicy.json)
 ```
 **Output:**  
@@ -750,7 +749,7 @@ UpdateDate       : 4/14/2015 2:45:59 PM
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def create_policy(name, description, actions, resource_arn):
     """
     Creates a policy that contains a single statement.
@@ -791,7 +790,7 @@ def create_policy(name, description, actions, resource_arn):
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 This example module lists, creates, attaches, and detaches role policies.  
 
-```
+```ruby
 # Manages policies in AWS Identity and Access Management (IAM)
 class RolePolicyManager
   # Initialize with an AWS IAM client
@@ -888,7 +887,7 @@ end
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
-```
+```rust
 pub async fn create_policy(
     client: &iamClient,
     policy_name: &str,
@@ -911,7 +910,7 @@ pub async fn create_policy(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_iam->createpolicy(
           iv_policyname = iv_policy_name
@@ -934,7 +933,7 @@ pub async fn create_policy(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
-```
+```swift
 import AWSIAM
 import AWSS3
 

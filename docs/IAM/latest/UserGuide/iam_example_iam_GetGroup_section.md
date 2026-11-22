@@ -1,7 +1,6 @@
 
 
 # Use `GetGroup` with a CLI
-<a name="iam_example_iam_GetGroup_section"></a>
 
 The following code examples show how to use `GetGroup`.
 
@@ -39,7 +38,7 @@ For more information, see [IAM Identities (users, user groups, and roles)](https
 **Tools for PowerShell V4**  
 **Example 1: This example returns details about the IAM group `Testers`, including a collection of all the IAM users that belong to the group. **  
 
-```
+```powershell
 $results = Get-IAMGroup -GroupName "Testers"
 $results
 ```
@@ -51,7 +50,7 @@ Group                                     IsTruncated           Marker          
 Amazon.IdentityManagement.Model.Group     False                                       {Theresa, David}
 ```
 
-```
+```powershell
 $results.Group
 ```
 **Output:**  
@@ -64,7 +63,7 @@ GroupName  : Testers
 Path       : /
 ```
 
-```
+```powershell
 $results.Users
 ```
 **Output:**  
@@ -89,7 +88,7 @@ UserName         : David
 **Tools for PowerShell V5**  
 **Example 1: This example returns details about the IAM group `Testers`, including a collection of all the IAM users that belong to the group. **  
 
-```
+```powershell
 $results = Get-IAMGroup -GroupName "Testers"
 $results
 ```
@@ -101,7 +100,7 @@ Group                                     IsTruncated           Marker          
 Amazon.IdentityManagement.Model.Group     False                                       {Theresa, David}
 ```
 
-```
+```powershell
 $results.Group
 ```
 **Output:**  
@@ -114,7 +113,7 @@ GroupName  : Testers
 Path       : /
 ```
 
-```
+```powershell
 $results.Users
 ```
 **Output:**  

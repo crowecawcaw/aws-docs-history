@@ -1,7 +1,6 @@
 
 
 # Temporary security credentials in IAM
-<a name="id_credentials_temp"></a>
 
 You can use the AWS Security Token Service (AWS STS) to create and provide trusted users with temporary security credentials that can control access to your AWS resources. Temporary security credentials work almost identically to long-term access key credentials, with the following differences:
 + Temporary security credentials are *short-term*, as the name implies. They can be configured to last for anywhere from a few minutes to several hours. After the credentials expire, AWS no longer recognizes them or allows any kind of access from API requests made with them.
@@ -57,7 +56,7 @@ You can use temporary security credentials to access most AWS services. For a li
 ## Sample applications that use temporary credentials
 <a name="id_credentials_temp_sample-apps"></a>
 
-You can use AWS Security Token Service (AWS STS) to create and provide trusted users with temporary security credentials that can control access to your AWS resources. For more information about AWS STS, see [Temporary security credentials in IAM](#id_credentials_temp). To see how you can use AWS STS to manage temporary security credentials, you can download the following sample applications that implement complete example scenarios:
+You can use AWS Security Token Service (AWS STS) to create and provide trusted users with temporary security credentials that can control access to your AWS resources. For more information about AWS STS, see [Temporary security credentials in IAM](id_credentials_temp.md). To see how you can use AWS STS to manage temporary security credentials, you can download the following sample applications that implement complete example scenarios:
 + [Enabling Federation to AWS Using Windows Active Directory, ADFS, and SAML 2.0](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/). Demonstrates how to delegate access using enterprise federation to AWS using Windows Active Directory (AD), Active Directory Federation Services (ADFS) 2.0, and SAML (Security Assertion Markup Language) 2.0.
 + [Enable custom identity broker access to the AWS console](id_roles_providers_enable-console-custom-url.md). Demonstrates how to create a custom federation proxy that enables single sign-on (SSO) so that existing Active Directory users can sign in to the AWS Management Console.
 + [How to Use Shibboleth for Single Sign-On to the AWS Management Console.](https://aws.amazon.com/blogs/security/how-to-use-shibboleth-for-single-sign-on-to-the-aws-management-console/). Shows how to use [Shibboleth](http://shibboleth.net/) and [SAML](id_roles_providers_saml.md) to provide users with single sign-on (SSO) access to the AWS Management Console.

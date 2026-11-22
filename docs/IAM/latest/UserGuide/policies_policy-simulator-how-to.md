@@ -1,7 +1,6 @@
 
 
 # How to simulate policies
-<a name="policies_policy-simulator-how-to"></a>
 
 You can run simulations in the IAM console or with the AWS CLI and AWS API. For an overview of what the simulator evaluates, the two modes, and how it reaches a result, see [IAM policy testing with the IAM policy simulator](access_policies_testing-policies.md). For the permissions you need, see [Permissions for using the policy simulator](permissions-required_policy-simulator.md).
 

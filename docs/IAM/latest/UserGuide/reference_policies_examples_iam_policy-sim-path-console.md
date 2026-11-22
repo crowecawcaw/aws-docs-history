@@ -1,7 +1,6 @@
 
 
 # IAM: Access the policy simulator console based on user path
-<a name="reference_policies_examples_iam_policy-sim-path-console"></a>
 
 This example shows how you might create an identity-based policy that allows using the policy simulator console only for those users that have the path `Department/Development`. To use this policy, replace the {{italicized placeholder text}} in the example policy with your own information. Then, follow the directions in [create a policy](access_policies_create.md) or [edit a policy](access_policies_manage-edit.md).
 
@@ -10,7 +9,7 @@ This example shows how you might create an identity-based policy that allows usi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

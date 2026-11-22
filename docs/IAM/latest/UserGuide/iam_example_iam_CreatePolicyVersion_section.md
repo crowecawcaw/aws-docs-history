@@ -1,7 +1,6 @@
 
 
 # Use `CreatePolicyVersion` with an AWS SDK or CLI
-<a name="iam_example_iam_CreatePolicyVersion_section"></a>
 
 The following code examples show how to use `CreatePolicyVersion`.
 
@@ -61,7 +60,7 @@ For more information, see [Versioning IAM policies](https://docs.aws.amazon.com/
 **Tools for PowerShell V4**  
 **Example 1: This example creates a new "v2" version of the IAM policy whose ARN is `arn:aws:iam::123456789012:policy/MyPolicy` and makes it the default version. The `NewPolicyVersion.json` file provides the policy content. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file.**  
 
-```
+```powershell
 New-IAMPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyPolicy -PolicyDocument (Get-content -Raw NewPolicyVersion.json) -SetAsDefault $true
 ```
 **Output:**  
@@ -76,7 +75,7 @@ CreateDate                           Document                  IsDefaultVersion 
 **Tools for PowerShell V5**  
 **Example 1: This example creates a new "v2" version of the IAM policy whose ARN is `arn:aws:iam::123456789012:policy/MyPolicy` and makes it the default version. The `NewPolicyVersion.json` file provides the policy content. Note that you must use the `-Raw` switch parameter to successfully process the JSON policy file.**  
 
-```
+```powershell
 New-IAMPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyPolicy -PolicyDocument (Get-content -Raw NewPolicyVersion.json) -SetAsDefault $true
 ```
 **Output:**  
@@ -94,7 +93,7 @@ CreateDate                           Document                  IsDefaultVersion 
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def create_policy_version(policy_arn, actions, resource_arn, set_as_default):
     """
     Creates a policy version. Policies can have up to five versions. The default
@@ -136,7 +135,7 @@ def create_policy_version(policy_arn, actions, resource_arn, set_as_default):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_iam->createpolicyversion(
           iv_policyarn = iv_policy_arn

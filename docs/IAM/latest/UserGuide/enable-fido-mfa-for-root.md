@@ -1,7 +1,6 @@
 
 
 # Enable a passkey or security key for the root user (console)
-<a name="enable-fido-mfa-for-root"></a>
 
 You can configure and enable a passkey for your root user from the AWS Management Console only, not from the AWS CLI or AWS API. <a name="enable_fido_root"></a>
 

@@ -1,7 +1,6 @@
 
 
 # Use `CreateVirtualMfaDevice` with a CLI
-<a name="iam_example_iam_CreateVirtualMfaDevice_section"></a>
 
 The following code examples show how to use `CreateVirtualMfaDevice`.
 
@@ -36,7 +35,7 @@ For more information, see [Using multi-factor authentication (MFA) in AWS](https
 **Tools for PowerShell V4**  
 **Example 1: This example creates a new virtual MFA device. Lines 2 and 3 extract the `Base32StringSeed` value that the virtual MFA software program needs to create an account (as an alternative to the QR code). After you configure the program with the value, get two sequential authentication codes from the program. Finally, use the last command to link the virtual MFA device to the IAM user `Bob` and synchronize the account with the two authentication codes.**  
 
-```
+```powershell
 $Device = New-IAMVirtualMFADevice -VirtualMFADeviceName BobsMFADevice
 $SR = New-Object System.IO.StreamReader($Device.Base32StringSeed)
 $base32stringseed = $SR.ReadToEnd()
@@ -52,7 +51,7 @@ Enable-IAMMFADevice -SerialNumber $Device.SerialNumber -UserName Bob -Authentica
 ```
 **Example 2: This example creates a new virtual MFA device. Lines 2 and 3 extract the `QRCodePNG` value and write it to a file. This image can be scanned by the virtual MFA software program to create an account (as an alternative to manually entering the Base32StringSeed value). After you create the account in your virtual MFA program, get two sequential authentication codes and enter them in the last commands to link the virtual MFA device to the IAM user `Bob` and synchronize the account.**  
 
-```
+```powershell
 $Device = New-IAMVirtualMFADevice -VirtualMFADeviceName BobsMFADevice
 $BR = New-Object System.IO.BinaryReader($Device.QRCodePNG)
 $BR.ReadBytes($BR.BaseStream.Length) | Set-Content -Encoding Byte -Path QRCode.png
@@ -69,7 +68,7 @@ Enable-IAMMFADevice -SerialNumber $Device.SerialNumber -UserName Bob -Authentica
 **Tools for PowerShell V5**  
 **Example 1: This example creates a new virtual MFA device. Lines 2 and 3 extract the `Base32StringSeed` value that the virtual MFA software program needs to create an account (as an alternative to the QR code). After you configure the program with the value, get two sequential authentication codes from the program. Finally, use the last command to link the virtual MFA device to the IAM user `Bob` and synchronize the account with the two authentication codes.**  
 
-```
+```powershell
 $Device = New-IAMVirtualMFADevice -VirtualMFADeviceName BobsMFADevice
 $SR = New-Object System.IO.StreamReader($Device.Base32StringSeed)
 $base32stringseed = $SR.ReadToEnd()
@@ -85,7 +84,7 @@ Enable-IAMMFADevice -SerialNumber $Device.SerialNumber -UserName Bob -Authentica
 ```
 **Example 2: This example creates a new virtual MFA device. Lines 2 and 3 extract the `QRCodePNG` value and write it to a file. This image can be scanned by the virtual MFA software program to create an account (as an alternative to manually entering the Base32StringSeed value). After you create the account in your virtual MFA program, get two sequential authentication codes and enter them in the last commands to link the virtual MFA device to the IAM user `Bob` and synchronize the account.**  
 
-```
+```powershell
 $Device = New-IAMVirtualMFADevice -VirtualMFADeviceName BobsMFADevice
 $BR = New-Object System.IO.BinaryReader($Device.QRCodePNG)
 $BR.ReadBytes($BR.BaseStream.Length) | Set-Content -Encoding Byte -Path QRCode.png

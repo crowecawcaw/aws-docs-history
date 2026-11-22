@@ -1,7 +1,6 @@
 
 
 # Use `DeactivateMfaDevice` with a CLI
-<a name="iam_example_iam_DeactivateMfaDevice_section"></a>
 
 The following code examples show how to use `DeactivateMfaDevice`.
 
@@ -27,12 +26,12 @@ For more information, see [Using multi-factor authentication (MFA) in AWS](https
 **Tools for PowerShell V4**  
 **Example 1: This command disables the hardware MFA device associated with the user `Bob` that has the serial number `123456789012`.**  
 
-```
+```powershell
 Disable-IAMMFADevice -UserName "Bob" -SerialNumber "123456789012"
 ```
 **Example 2: This command disables the virtual MFA device associated with the user `David` that has the ARN `arn:aws:iam::210987654321:mfa/David`. Note that virtual MFA device is not deleted from the account. The virtual device is still present and appears in the output of the `Get-IAMVirtualMFADevice` command. Before you can create a new virtual MFA device for the same user, you must delete the old one by using the `Remove-IAMVirtualMFADevice` command.**  
 
-```
+```powershell
 Disable-IAMMFADevice -UserName "David" -SerialNumber "arn:aws:iam::210987654321:mfa/David"
 ```
 +  For API details, see [DeactivateMfaDevice](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -40,12 +39,12 @@ Disable-IAMMFADevice -UserName "David" -SerialNumber "arn:aws:iam::210987654321:
 **Tools for PowerShell V5**  
 **Example 1: This command disables the hardware MFA device associated with the user `Bob` that has the serial number `123456789012`.**  
 
-```
+```powershell
 Disable-IAMMFADevice -UserName "Bob" -SerialNumber "123456789012"
 ```
 **Example 2: This command disables the virtual MFA device associated with the user `David` that has the ARN `arn:aws:iam::210987654321:mfa/David`. Note that virtual MFA device is not deleted from the account. The virtual device is still present and appears in the output of the `Get-IAMVirtualMFADevice` command. Before you can create a new virtual MFA device for the same user, you must delete the old one by using the `Remove-IAMVirtualMFADevice` command.**  
 
-```
+```powershell
 Disable-IAMMFADevice -UserName "David" -SerialNumber "arn:aws:iam::210987654321:mfa/David"
 ```
 +  For API details, see [DeactivateMfaDevice](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

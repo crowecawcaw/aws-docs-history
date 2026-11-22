@@ -1,7 +1,6 @@
 
 
 # Tag IAM SAML identity providers
-<a name="id_tags_saml"></a>
 
 You can use IAM tag key-value pairs to add custom attributes to SAML identity providers. For example, to identify a provider, you can add the tag key **okta** and the tag value **saml**. You can use tags to control access to resources or to control what tags can be attached to an object. To learn more about using tags to control access, see [Controlling access to and for IAM users and roles using tags](access_iam-tags.md).
 
@@ -16,7 +15,7 @@ You must configure permissions to allow an IAM entity (users or roles) to tag SA
 **To allow an IAM entity (user or role) to add, list, or remove a tag for a SAML identity provider**  
 Add the following statement to the permissions policy for the IAM entity that needs to manage tags. Use your account number and replace {{<SAMLProviderName>}} with the name of the SAML provider whose tags need to be managed. To learn how to create a policy using this example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor).
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -36,7 +35,7 @@ The `iam:TagSAMLProvider` action requires that you also include the `iam:ListSAM
 
 To use this policy, replace {{<SAMLProviderName>}} with the name of the SAML provider whose tags need to be managed. To learn how to create a policy using this example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor).
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [

@@ -1,7 +1,6 @@
 
 
 # Delete IAM policies (AWS API)
-<a name="access_policies_manage-delete-api"></a>
 
 You can use the AWS API to delete *customer managed policies* and *inline policies* in IAM. The number and size of IAM resources in an AWS account are limited. For more information, see [IAM and AWS STS quotas](reference_iam-quotas.md).
 

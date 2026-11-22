@@ -1,7 +1,6 @@
 
 
 # Manage IAM policies
-<a name="access_policies_manage"></a>
 
 IAM gives you the tools to create and manage all types of IAM policies (managed policies and inline policies). To add permissions to an IAM identity (IAM user, group, or role), you create a policy, validate the policy, and then attach the policy to the identity. You can attach multiple policies to an identity, and each policy can contain multiple permissions.
 

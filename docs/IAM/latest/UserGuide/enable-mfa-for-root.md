@@ -1,7 +1,6 @@
 
 
 # Multi-factor authentication for AWS account root user
-<a name="enable-mfa-for-root"></a>
 
 **Important**  
 AWS recommends that you use a passkey or security key for MFA to AWS, wherever possible as they are more resistant to attacks such as phishing. For more information, see [Passkeys and security keys](#passkeys-security-keys-for-root).

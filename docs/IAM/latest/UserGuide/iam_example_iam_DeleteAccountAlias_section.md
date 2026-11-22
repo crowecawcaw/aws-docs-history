@@ -1,7 +1,6 @@
 
 
 # Use `DeleteAccountAlias` with an AWS SDK or CLI
-<a name="iam_example_iam_DeleteAccountAlias_section"></a>
 
 The following code examples show how to use `DeleteAccountAlias`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
-```
+```cpp
 bool AwsDoc::IAM::deleteAccountAlias(const Aws::String &accountAlias,
                                      const Aws::Client::ClientConfiguration &clientConfig) {
     Aws::IAM::IAMClient iam(clientConfig);
@@ -58,7 +57,7 @@ For more information, see [Your AWS account ID and its alias](https://docs.aws.a
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.services.iam.model.DeleteAccountAliasRequest;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.iam.IamClient;
@@ -124,7 +123,7 @@ public class DeleteAccountAlias {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 Delete the account alias.  
 
-```
+```javascript
 import { DeleteAccountAliasCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -145,7 +144,7 @@ export const deleteAccountAlias = (alias) => {
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -171,7 +170,7 @@ iam.deleteAccountAlias({ AccountAlias: process.argv[2] }, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
-```
+```kotlin
 suspend fun deleteIAMAccountAlias(alias: String) {
     val request =
         DeleteAccountAliasRequest {
@@ -192,7 +191,7 @@ suspend fun deleteIAMAccountAlias(alias: String) {
 **Tools for PowerShell V4**  
 **Example 1: This example removes the account alias from your AWS account. The user sign in page with the alias at https://mycompanyaws.signin.aws.amazon.com/console no longer works. You must instead use the original URL with your AWS account ID number at https://<accountidnumber>.signin.aws.amazon.com/console.**  
 
-```
+```powershell
 Remove-IAMAccountAlias -AccountAlias mycompanyaws
 ```
 +  For API details, see [DeleteAccountAlias](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -200,7 +199,7 @@ Remove-IAMAccountAlias -AccountAlias mycompanyaws
 **Tools for PowerShell V5**  
 **Example 1: This example removes the account alias from your AWS account. The user sign in page with the alias at https://mycompanyaws.signin.aws.amazon.com/console no longer works. You must instead use the original URL with your AWS account ID number at https://<accountidnumber>.signin.aws.amazon.com/console.**  
 
-```
+```powershell
 Remove-IAMAccountAlias -AccountAlias mycompanyaws
 ```
 +  For API details, see [DeleteAccountAlias](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -211,7 +210,7 @@ Remove-IAMAccountAlias -AccountAlias mycompanyaws
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def delete_alias(alias):
     """
     Removes the alias from the current account.
@@ -234,7 +233,7 @@ def delete_alias(alias):
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 List, create, and delete account aliases.  
 
-```
+```ruby
 class IAMAliasManager
   # Initializes the IAM client and logger
   #
@@ -291,7 +290,7 @@ end
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_iam->deleteaccountalias(
           iv_accountalias = iv_account_alias ).

@@ -1,7 +1,6 @@
 
 
 # Use `DeleteAccountPasswordPolicy` with a CLI
-<a name="iam_example_iam_DeleteAccountPasswordPolicy_section"></a>
 
 The following code examples show how to use `DeleteAccountPasswordPolicy`.
 
@@ -25,7 +24,7 @@ For more information, see [Setting an account password policy for IAM users](htt
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the password policy for the AWS account and resets all values to their original defaults. If a password policy does not currently exist, the following error message appears: The account policy with name PasswordPolicy cannot be found.**  
 
-```
+```powershell
 Remove-IAMAccountPasswordPolicy
 ```
 +  For API details, see [DeleteAccountPasswordPolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -33,7 +32,7 @@ Remove-IAMAccountPasswordPolicy
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the password policy for the AWS account and resets all values to their original defaults. If a password policy does not currently exist, the following error message appears: The account policy with name PasswordPolicy cannot be found.**  
 
-```
+```powershell
 Remove-IAMAccountPasswordPolicy
 ```
 +  For API details, see [DeleteAccountPasswordPolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

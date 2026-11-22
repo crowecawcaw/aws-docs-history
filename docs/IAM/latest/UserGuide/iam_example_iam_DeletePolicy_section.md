@@ -1,7 +1,6 @@
 
 
 # Use `DeletePolicy` with an AWS SDK or CLI
-<a name="iam_example_iam_DeletePolicy_section"></a>
 
 The following code examples show how to use `DeletePolicy`.
 
@@ -20,7 +19,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Delete an IAM policy.
     /// </summary>
@@ -41,7 +40,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function iecho
 #
@@ -139,7 +138,7 @@ function iam_delete_policy() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
-```
+```cpp
 bool AwsDoc::IAM::deletePolicy(const Aws::String &policyArn,
                                const Aws::Client::ClientConfiguration &clientConfig) {
     Aws::IAM::IAMClient iam(clientConfig);
@@ -182,7 +181,7 @@ For more information, see [Policies and permissions in IAM](https://docs.aws.ama
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -221,7 +220,7 @@ func (wrapper PolicyWrapper) DeletePolicy(ctx context.Context, policyArn string)
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.services.iam.model.DeletePolicyRequest;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.iam.IamClient;
@@ -287,7 +286,7 @@ public class DeletePolicy {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam/#code-examples). 
 Delete the policy.  
 
-```
+```javascript
 import { DeletePolicyCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -309,7 +308,7 @@ export const deletePolicy = (policyArn) => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
-```
+```kotlin
 suspend fun deleteIAMPolicy(policyARNVal: String?) {
     val request =
         DeletePolicyRequest {
@@ -330,12 +329,12 @@ suspend fun deleteIAMPolicy(policyARNVal: String?) {
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the policy whose ARN is `arn:aws:iam::123456789012:policy/MySamplePolicy`. Before you can delete the policy, you must first delete all versions except the default by running `Remove-IAMPolicyVersion`. You must also detach the policy from any IAM users, groups, or roles.**  
 
-```
+```powershell
 Remove-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy
 ```
 **Example 2: This example deletes a policy by first deleting all the non-default policy versions, detaching it from all attached IAM entities, and finally deleting the policy itself. The first line retrieves the policy object. The second line retrieves all the policy versions that are not flagged as the default version into a collection and then deletes each policy in the collection. The third line retrieves all of the IAM users, groups, and roles to which the policy is attached. Lines four through six detach the policy from each attached entity. The last line uses this command to remove the managed policy as well as the remaining default version. The example includes the `-Force` switch parameter on any line that needs it to suppress prompts for confirmation.**  
 
-```
+```powershell
 $pol = Get-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy
 Get-IAMPolicyVersions -PolicyArn $pol.Arn | where {-not $_.IsDefaultVersion} | Remove-IAMPolicyVersion -PolicyArn $pol.Arn -force
 $attached = Get-IAMEntitiesForPolicy -PolicyArn $pol.Arn
@@ -349,12 +348,12 @@ Remove-IAMPolicy $pol.Arn -Force
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the policy whose ARN is `arn:aws:iam::123456789012:policy/MySamplePolicy`. Before you can delete the policy, you must first delete all versions except the default by running `Remove-IAMPolicyVersion`. You must also detach the policy from any IAM users, groups, or roles.**  
 
-```
+```powershell
 Remove-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy
 ```
 **Example 2: This example deletes a policy by first deleting all the non-default policy versions, detaching it from all attached IAM entities, and finally deleting the policy itself. The first line retrieves the policy object. The second line retrieves all the policy versions that are not flagged as the default version into a collection and then deletes each policy in the collection. The third line retrieves all of the IAM users, groups, and roles to which the policy is attached. Lines four through six detach the policy from each attached entity. The last line uses this command to remove the managed policy as well as the remaining default version. The example includes the `-Force` switch parameter on any line that needs it to suppress prompts for confirmation.**  
 
-```
+```powershell
 $pol = Get-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy
 Get-IAMPolicyVersions -PolicyArn $pol.Arn | where {-not $_.IsDefaultVersion} | Remove-IAMPolicyVersion -PolicyArn $pol.Arn -force
 $attached = Get-IAMEntitiesForPolicy -PolicyArn $pol.Arn
@@ -371,7 +370,7 @@ Remove-IAMPolicy $pol.Arn -Force
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def delete_policy(policy_arn):
     """
     Deletes a policy.
@@ -393,7 +392,7 @@ def delete_policy(policy_arn):
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
-```
+```rust
 pub async fn delete_policy(client: &iamClient, policy: Policy) -> Result<(), iamError> {
     client
         .delete_policy()
@@ -411,7 +410,7 @@ pub async fn delete_policy(client: &iamClient, policy: Policy) -> Result<(), iam
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_iam->deletepolicy( iv_policyarn = iv_policy_arn ).
         MESSAGE 'Policy deleted successfully.' TYPE 'I'.
@@ -429,7 +428,7 @@ pub async fn delete_policy(client: &iamClient, policy: Policy) -> Result<(), iam
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
-```
+```swift
 import AWSIAM
 import AWSS3
 

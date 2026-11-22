@@ -1,7 +1,6 @@
 
 
 # Generate credential reports for your AWS account
-<a name="id_credentials_getting-report"></a>
 
 You can generate and download a *credential report* that lists all users in your account and the status of their various credentials, including passwords, access keys, and MFA devices. You can get a credential report from the AWS Management Console, the [AWS SDKs](https://aws.amazon.com/tools) and [Command Line Tools](https://aws.amazon.com/tools/#Command_Line_Tools), or the IAM API. 
 

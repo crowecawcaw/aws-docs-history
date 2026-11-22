@@ -1,7 +1,6 @@
 
 
 # View service summaries
-<a name="access_policies_view-service-summary"></a>
 
 You can view a service summary for each service listed in the policy summary that grants permissions. 
 

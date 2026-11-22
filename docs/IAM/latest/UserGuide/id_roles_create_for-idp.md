@@ -1,7 +1,6 @@
 
 
 # Create a role for a third-party identity provider
-<a name="id_roles_create_for-idp"></a>
 
 You can use identity providers instead of creating IAM users in your AWS account. With an identity provider (IdP), you can manage your user identities outside of AWS and give these external user identities permissions to access AWS resources in your account. For more information about federation and identity providers, see [Identity providers and federation into AWS](id_roles_providers.md).
 
@@ -48,7 +47,7 @@ The following example trust policy is designed for a mobile app if the user sign
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -70,7 +69,7 @@ The following permissions policy allows anyone who assumes the role to perform o
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

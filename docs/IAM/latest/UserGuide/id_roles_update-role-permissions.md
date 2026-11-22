@@ -1,7 +1,6 @@
 
 
 # Update permissions for a role
-<a name="id_roles_update-role-permissions"></a>
 
 Use the following procedures to update a role's permissions policies and permissions boundaries.
 

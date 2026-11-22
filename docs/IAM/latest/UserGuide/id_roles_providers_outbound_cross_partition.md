@@ -1,7 +1,6 @@
 
 
 # Federating AWS identities across AWS partitions
-<a name="id_roles_providers_outbound_cross_partition"></a>
 
 Cross-partition identity federation allows a workload to obtain short-lived access across [AWS partitions](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html). AWS partitions are hard isolation boundaries with independent instances of AWS Identity and Access Management (IAM), so a credential issued in one partition isn't valid in another. As a result, direct role assumption with the [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API doesn't work across partition boundaries.
 
@@ -18,6 +17,8 @@ If your workload requires cross-partition access, consult your compliance team t
 Your workload first requests a token from AWS STS in the source partition, then sends the token to AWS STS in the destination partition. To validate the request, AWS STS in the destination partition retrieves verification keys from the source account's OIDC issuer, verifies the token, and evaluates the destination role's trust policy. If the request is allowed, AWS STS returns temporary credentials to the workload, which uses them to call services and access resources in the destination partition.
 
 <a name="cross-partition-flow-diagram"></a>![Source STS issues a token; destination STS validates it and returns credentials the workload uses to access resources.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/outbound-cross-partition-flow.png)
+
+The numbered steps that follow describe each request and response in the diagram.
 
 
 The flow works as follows:

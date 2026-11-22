@@ -1,7 +1,6 @@
 
 
 # Condition policy examples
-<a name="reference_policies_condition_examples"></a>
 
 In IAM policies, you can specify multiple values for both single-valued and multivalued context keys for comparison against the request context. The following set of policy examples demonstrates policy conditions with multiple context keys and values.
 

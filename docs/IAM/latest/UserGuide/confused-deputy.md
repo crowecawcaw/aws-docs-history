@@ -1,7 +1,6 @@
 
 
 # The confused deputy problem
-<a name="confused-deputy"></a>
 
 The confused deputy problem is a security issue where an entity that doesn't have permission to perform an action can coerce a more-privileged entity to perform the action. To prevent this, AWS provides tools that help you protect your account if you provide third parties (known as *cross-account*) or other AWS services (known as *cross-service*) access to resources in your account.
 
@@ -48,7 +47,7 @@ Example Corp gives the external ID value of 12345 to you. You must then add a `C
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -122,7 +121,7 @@ The following example policy grants the service principal `cloudtrail.amazonaws.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -163,7 +162,7 @@ This example bucket policy grants the service principal `appstream.amazonaws.com
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -202,7 +201,7 @@ This policy applies the control only on requests by service principals (`"Bool":
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

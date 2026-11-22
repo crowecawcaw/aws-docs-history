@@ -1,7 +1,6 @@
 
 
 # Track privileged tasks in AWS CloudTrail
-<a name="cloudtrail-track-privileged-tasks"></a>
 
 The AWS Organizations management account or a delegated administrator account for IAM can perform some root user tasks on member accounts using short-term root access. Short-term privileged sessions give you temporary credentials that you can scope to [take privileged actions](id_root-user-privileged-task.md) on a member account in your organization. You can use the following steps to identify the actions taken by the management account or a delegated administrator during the [`sts:AssumeRoot`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoot.html) session.
 
@@ -14,7 +13,7 @@ The global endpoint is not supported for `sts:AssumeRoot`. CloudTrail records `C
 
    In the following example, the CloudTrail event for AssumeRoot is logged in the `eventName` field.
 
-   ```
+   ```json
    {
        "eventVersion": "1.08",
        "userIdentity": {
@@ -66,7 +65,7 @@ The global endpoint is not supported for `sts:AssumeRoot`. CloudTrail records `C
 
    In the following example, the `targetPrincipal` is 222222222222 and the `accessKeyId` is ASIAIOSFODNN7EXAMPLE.
 
-   ```
+   ```json
    "eventTime": "2024-10-25T20:52:11Z",
        "eventSource": "sts.amazonaws.com",
        "eventName": "AssumeRoot",
@@ -91,7 +90,7 @@ The global endpoint is not supported for `sts:AssumeRoot`. CloudTrail records `C
 
    In the following example, the management account or delegated administrator deleted the resource-based policy for an Amazon S3 bucket.
 
-   ```
+   ```json
    {
        "eventVersion": "1.10",
        "userIdentity": {

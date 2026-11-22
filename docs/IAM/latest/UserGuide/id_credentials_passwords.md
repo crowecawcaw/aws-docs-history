@@ -1,7 +1,6 @@
 
 
 # User passwords in AWS
-<a name="id_credentials_passwords"></a>
 
 You can manage passwords for IAM users in your account. IAM users need passwords in order to access the AWS Management Console. Users do not need passwords to access AWS resources programmatically by using the AWS CLI, Tools for Windows PowerShell, the AWS SDKs or APIs. For those environments, you have the option of assigning IAM users [access keys](id_credentials_access-keys.md). However, there are other more secure alternatives to access keys that we recommend you consider first. For more information, see [AWS security credentials](security-creds.md).
 

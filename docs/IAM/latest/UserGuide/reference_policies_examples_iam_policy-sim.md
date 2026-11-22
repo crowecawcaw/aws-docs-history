@@ -1,7 +1,6 @@
 
 
 # IAM: Access the policy simulator API
-<a name="reference_policies_examples_iam_policy-sim"></a>
 
 This example shows how you might create an identity-based policy that allows using the policy simulator API for policies attached to a user, group, or role in the current AWS account. This policy also allows access to simulate less sensitive policies passed to the API as strings. This policy grants the permissions necessary to complete this action programmatically from the AWS API or AWS CLI.
 
@@ -10,7 +9,7 @@ This example shows how you might create an identity-based policy that allows usi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

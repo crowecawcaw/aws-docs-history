@@ -1,7 +1,6 @@
 
 
 # Use `DetachUserPolicy` with an AWS SDK or CLI
-<a name="iam_example_iam_DetachUserPolicy_section"></a>
 
 The following code examples show how to use `DetachUserPolicy`.
 
@@ -30,12 +29,12 @@ For more information, see [Changing permissions for an IAM user](https://docs.aw
 **Tools for PowerShell V4**  
 **Example 1: This example detaches the managed policy whose ARN is `arn:aws:iam::123456789012:policy/TesterPolicy` from the IAM user named `Bob`.**  
 
-```
+```powershell
 Unregister-IAMUserPolicy -UserName Bob -PolicyArn arn:aws:iam::123456789012:policy/TesterPolicy
 ```
 **Example 2: This example finds all the managed policies that are attached to the IAM user named `Theresa` and detaches those policies from the user.**  
 
-```
+```powershell
 Get-IAMAttachedUserPolicyList -UserName Theresa | Unregister-IAMUserPolicy -Username Theresa
 ```
 +  For API details, see [DetachUserPolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -43,12 +42,12 @@ Get-IAMAttachedUserPolicyList -UserName Theresa | Unregister-IAMUserPolicy -User
 **Tools for PowerShell V5**  
 **Example 1: This example detaches the managed policy whose ARN is `arn:aws:iam::123456789012:policy/TesterPolicy` from the IAM user named `Bob`.**  
 
-```
+```powershell
 Unregister-IAMUserPolicy -UserName Bob -PolicyArn arn:aws:iam::123456789012:policy/TesterPolicy
 ```
 **Example 2: This example finds all the managed policies that are attached to the IAM user named `Theresa` and detaches those policies from the user.**  
 
-```
+```powershell
 Get-IAMAttachedUserPolicyList -UserName Theresa | Unregister-IAMUserPolicy -Username Theresa
 ```
 +  For API details, see [DetachUserPolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -59,7 +58,7 @@ Get-IAMAttachedUserPolicyList -UserName Theresa | Unregister-IAMUserPolicy -User
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def detach_policy(user_name, policy_arn):
     """
     Detaches a policy from a user.
@@ -84,7 +83,7 @@ def detach_policy(user_name, policy_arn):
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
-```
+```ruby
   # Detaches a policy from a user
   #
   # @param user_name [String] The name of the user
@@ -113,7 +112,7 @@ def detach_policy(user_name, policy_arn):
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
-```
+```rust
 pub async fn detach_user_policy(
     client: &iamClient,
     user_name: &str,
@@ -137,7 +136,7 @@ pub async fn detach_user_policy(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_iam->detachuserpolicy(
           iv_username = iv_user_name

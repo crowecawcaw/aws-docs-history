@@ -1,7 +1,6 @@
 
 
 # Use `UpdateRole` with a CLI
-<a name="iam_example_iam_UpdateRole_section"></a>
 
 The following code examples show how to use `UpdateRole`.
 
@@ -28,7 +27,7 @@ For more information, see [IAM role management](https://docs.aws.amazon.com/IAM/
 **Tools for PowerShell V4**  
 **Example 1: This example updates the role description and the maximum session duration value(in seconds) for which a role's session can be requested.**  
 
-```
+```powershell
 Update-IAMRole -RoleName MyRoleName -Description "My testing role" -MaxSessionDuration 43200
 ```
 +  For API details, see [UpdateRole](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -36,7 +35,7 @@ Update-IAMRole -RoleName MyRoleName -Description "My testing role" -MaxSessionDu
 **Tools for PowerShell V5**  
 **Example 1: This example updates the role description and the maximum session duration value(in seconds) for which a role's session can be requested.**  
 
-```
+```powershell
 Update-IAMRole -RoleName MyRoleName -Description "My testing role" -MaxSessionDuration 43200
 ```
 +  For API details, see [UpdateRole](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

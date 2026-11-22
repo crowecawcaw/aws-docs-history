@@ -1,7 +1,6 @@
 
 
 # Delegated administrator for IAM Access Analyzer
-<a name="access-analyzer-delegated-administrator"></a>
 
 If you're configuring AWS Identity and Access Management Access Analyzer in your AWS Organizations management account, you can add a member account in the organization as the delegated administrator to manage IAM Access Analyzer for your organization. The delegated administrator has permissions to create and manage analyzers within the organization. Only the management account can add a delegated administrator.
 

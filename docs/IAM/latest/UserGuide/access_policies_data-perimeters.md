@@ -1,7 +1,6 @@
 
 
 # Establish permissions guardrails using data perimeters
-<a name="access_policies_data-perimeters"></a>
 
 Data perimeter guardrails are meant to serve as always-on boundaries to help protect your data across a broad set of AWS accounts and resources. Data perimeters follow IAM security best practices to [establish permissions guardrails across multiple accounts](best-practices.md#bp-permissions-guardrails). These organization-wide permissions guardrails do not replace your existing fine-grained access controls. Instead, they work as **coarse-grained access controls** that help improve your security strategy by ensuring users, roles, and resources adhere to a set of defined security standards. 
 

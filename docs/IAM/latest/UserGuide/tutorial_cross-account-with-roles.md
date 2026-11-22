@@ -1,7 +1,6 @@
 
 
 # IAM tutorial: Delegate access across AWS accounts using IAM roles
-<a name="tutorial_cross-account-with-roles"></a>
 
 **Important**  
  IAM [best practices](best-practices.md) recommend that you require human users to use federation with an identity provider to access AWS using temporary credentials instead of using IAM users with long-term credentials. We recommend that you only use IAM users for [specific use cases](gs-identities-iam-users.md) not supported by federated users.
@@ -95,7 +94,7 @@ Before you can create a role, you need the *account ID* of the **Originating** A
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -201,7 +200,7 @@ At this point, both Analysts and Developers have permissions that allow them to 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -239,7 +238,7 @@ In most environments, you may not need the following procedure. If, however, you
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -327,7 +326,7 @@ David's default environment uses the `David` user credentials from his default p
 
    David then sees the following in the output:
 
-   ```
+   ```json
    {
        "Credentials": {
            "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",

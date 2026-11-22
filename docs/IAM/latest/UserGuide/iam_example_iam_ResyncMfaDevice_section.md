@@ -1,7 +1,6 @@
 
 
 # Use `ResyncMfaDevice` with a CLI
-<a name="iam_example_iam_ResyncMfaDevice_section"></a>
 
 The following code examples show how to use `ResyncMfaDevice`.
 
@@ -29,12 +28,12 @@ For more information, see [Using multi-factor authentication (MFA) in AWS](https
 **Tools for PowerShell V4**  
 **Example 1: This example synchronizes the MFA device that is associated with the IAM user `Bob` and whose ARN is `arn:aws:iam::123456789012:mfa/bob` with an authenticator program that provided the two authentication codes.**  
 
-```
+```powershell
 Sync-IAMMFADevice -SerialNumber arn:aws:iam::123456789012:mfa/theresa -AuthenticationCode1 123456 -AuthenticationCode2 987654 -UserName Bob
 ```
 **Example 2: This example synchronizes the IAM MFA device that is associated with the IAM user `Theresa` with a physical device that has the serial number `ABCD12345678` and that provided the two authentication codes.**  
 
-```
+```powershell
 Sync-IAMMFADevice -SerialNumber ABCD12345678 -AuthenticationCode1 123456 -AuthenticationCode2 987654 -UserName Theresa
 ```
 +  For API details, see [ResyncMfaDevice](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -42,12 +41,12 @@ Sync-IAMMFADevice -SerialNumber ABCD12345678 -AuthenticationCode1 123456 -Authen
 **Tools for PowerShell V5**  
 **Example 1: This example synchronizes the MFA device that is associated with the IAM user `Bob` and whose ARN is `arn:aws:iam::123456789012:mfa/bob` with an authenticator program that provided the two authentication codes.**  
 
-```
+```powershell
 Sync-IAMMFADevice -SerialNumber arn:aws:iam::123456789012:mfa/theresa -AuthenticationCode1 123456 -AuthenticationCode2 987654 -UserName Bob
 ```
 **Example 2: This example synchronizes the IAM MFA device that is associated with the IAM user `Theresa` with a physical device that has the serial number `ABCD12345678` and that provided the two authentication codes.**  
 
-```
+```powershell
 Sync-IAMMFADevice -SerialNumber ABCD12345678 -AuthenticationCode1 123456 -AuthenticationCode2 987654 -UserName Theresa
 ```
 +  For API details, see [ResyncMfaDevice](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

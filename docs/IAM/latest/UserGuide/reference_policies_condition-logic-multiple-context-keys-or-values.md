@@ -1,7 +1,6 @@
 
 
 # Conditions with multiple context keys or values
-<a name="reference_policies_condition-logic-multiple-context-keys-or-values"></a>
 
 You can use the `Condition` element of a policy to test multiple context keys or multiple values for a single context key in a request. When you make a request to AWS, either programmatically or through the AWS Management Console, your request includes information about your principal, operation, tags, and more. You can use context keys to test the values of the matching context keys in the request, with the context keys specified in the policy condition. To learn about information and data included in a request, see [The request context](reference_policies_elements_condition.md#AccessPolicyLanguage_RequestContext).
 
@@ -30,7 +29,7 @@ For example, the following S3 bucket policy illustrates how the previous figure 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -96,7 +95,7 @@ For example, the following S3 bucket policy illustrates how the previous figure 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

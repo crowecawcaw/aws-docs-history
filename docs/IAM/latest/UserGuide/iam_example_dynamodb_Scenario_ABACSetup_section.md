@@ -1,7 +1,6 @@
 
 
 # Set up Attribute-Based Access Control for DynamoDB using AWS Command Line Interface v2
-<a name="iam_example_dynamodb_Scenario_ABACSetup_section"></a>
 
 The following code example shows how to implement Attribute-Based Access Control (ABAC) for DynamoDB.
 + Create an IAM policy for ABAC.
@@ -14,7 +13,7 @@ The following code example shows how to implement Attribute-Based Access Control
 **AWS CLI with Bash script**  
 Create an IAM policy for ABAC.  
 
-```
+```bash
 # Step 1: Create a policy document for ABAC
 cat > abac-policy.json << 'EOF'
 {
@@ -62,7 +61,7 @@ aws iam create-policy \
 ```
 Create tables with tags for different departments.  
 
-```
+```bash
 # Create a DynamoDB table with tags for ABAC
 aws dynamodb create-table \
     --table-name FinanceData \
@@ -89,7 +88,7 @@ aws dynamodb create-table \
 ```
 List and filter tables based on tags.  
 
-```
+```bash
 # List all DynamoDB tables
 echo "Listing all tables:"
 aws dynamodb list-tables

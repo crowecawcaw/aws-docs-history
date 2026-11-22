@@ -1,7 +1,6 @@
 
 
 # Switch from a user to an IAM role (console)
-<a name="id_roles_use_switch-role-console"></a>
 
 You can switch roles when you sign in as an IAM user, a user in IAM Identity Center, a SAML-federated role, or a web-identity federated role. A *role* specifies a set of permissions that you can use to access AWS resources that you need. However, you don't sign in to a role, but once signed in as an IAM user you can switch to an IAM role. This temporarily sets aside your original user permissions and instead gives you the permissions assigned to the role. The role can be in your own account or any other AWS account. For more information about roles, their benefits, and how to create them, see [IAM roles](id_roles.md), and [IAM role creation](id_roles_create.md).
 

@@ -1,7 +1,6 @@
 
 
 # Policy evaluation guidelines
-<a name="temporary-delegation-policy-evaluation-guidelines"></a>
 
 AWS will evaluate your submitted policies against a set of guidelines. The same evaluation guidelines apply to both policy templates and permission boundaries, with minor differences noted where appropriate.
 

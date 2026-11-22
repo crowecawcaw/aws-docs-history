@@ -1,7 +1,6 @@
 
 
 # Use `PutRolePermissionsBoundary` with a CLI
-<a name="iam_example_iam_PutRolePermissionsBoundary_section"></a>
 
 The following code examples show how to use `PutRolePermissionsBoundary`.
 
@@ -36,7 +35,7 @@ For more information, see [IAM role management](https://docs.aws.amazon.com/IAM/
 **Tools for PowerShell V4**  
 **Example 1: This example shows how to set the Permission boundary for a IAM Role. You can set AWS Managed policies or Custom policies as permission boundary.**  
 
-```
+```powershell
 Set-IAMRolePermissionsBoundary -RoleName MyRoleName -PermissionsBoundary arn:aws:iam::123456789012:policy/intern-boundary
 ```
 +  For API details, see [PutRolePermissionsBoundary](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -44,7 +43,7 @@ Set-IAMRolePermissionsBoundary -RoleName MyRoleName -PermissionsBoundary arn:aws
 **Tools for PowerShell V5**  
 **Example 1: This example shows how to set the Permission boundary for a IAM Role. You can set AWS Managed policies or Custom policies as permission boundary.**  
 
-```
+```powershell
 Set-IAMRolePermissionsBoundary -RoleName MyRoleName -PermissionsBoundary arn:aws:iam::123456789012:policy/intern-boundary
 ```
 +  For API details, see [PutRolePermissionsBoundary](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

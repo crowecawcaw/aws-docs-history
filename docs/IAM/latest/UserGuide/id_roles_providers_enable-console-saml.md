@@ -1,7 +1,6 @@
 
 
 # Enabling SAML 2.0 federated principals to access the AWS Management Console
-<a name="id_roles_providers_enable-console-saml"></a>
 
 You can use a role to configure your SAML 2.0-compliant identity provider (IdP) and AWS to permit SAML federated principals to access the AWS Management Console. The role grants the user permissions to carry out tasks in the console. If you want to give SAML federated principals other ways to access AWS, see one of these topics:
 + AWS CLI: [Switch to an IAM role (AWS CLI)](id_roles_use_switch-role-cli.md)
@@ -61,7 +60,7 @@ If SAML encryption is required, the sign-in URL must include the unique identifi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

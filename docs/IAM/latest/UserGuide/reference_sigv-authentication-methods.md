@@ -1,7 +1,6 @@
 
 
 # Authentication methods
-<a name="reference_sigv-authentication-methods"></a>
 
 **Important**  
 Unless you are using the AWS SDKs or CLI, you must write code to calculate signatures that provide authentication information in your requests. Signature calculation in AWS Signature Version 4 can be a complex undertaking, and we recommend that you use the AWS SDKs or CLI whenever possible.
@@ -63,7 +62,7 @@ X-Amz-SignedHeaders=host &X-Amz-Signature=<signature-value>
 
 **Example SigV4a**  
 
-```
+```yaml
 https://s3.amazonaws.com/amzn-s3-demo-bucket/test.txt ?
 X-Amz-Algorithm=AWS4-ECDSA-P256-SHA256 &
 X-Amz-Credential=<your-access-key-id>/20240721/s3/aws4_request &

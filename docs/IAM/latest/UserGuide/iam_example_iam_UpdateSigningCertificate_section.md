@@ -1,7 +1,6 @@
 
 
 # Use `UpdateSigningCertificate` with a CLI
-<a name="iam_example_iam_UpdateSigningCertificate_section"></a>
 
 The following code examples show how to use `UpdateSigningCertificate`.
 
@@ -29,7 +28,7 @@ For more information, see [Manage signing certificates](https://docs.aws.amazon.
 **Tools for PowerShell V4**  
 **Example 1: This example updates the certificate that is associated with the IAM user named `Bob` and whose certificate ID si `Y3EK7RMEXAMPLESV33FCREXAMPLEMJLU` to mark it as inactive.**  
 
-```
+```powershell
 Update-IAMSigningCertificate -CertificateId Y3EK7RMEXAMPLESV33FCREXAMPLEMJLU -UserName Bob -Status Inactive
 ```
 +  For API details, see [UpdateSigningCertificate](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -37,7 +36,7 @@ Update-IAMSigningCertificate -CertificateId Y3EK7RMEXAMPLESV33FCREXAMPLEMJLU -Us
 **Tools for PowerShell V5**  
 **Example 1: This example updates the certificate that is associated with the IAM user named `Bob` and whose certificate ID si `Y3EK7RMEXAMPLESV33FCREXAMPLEMJLU` to mark it as inactive.**  
 
-```
+```powershell
 Update-IAMSigningCertificate -CertificateId Y3EK7RMEXAMPLESV33FCREXAMPLEMJLU -UserName Bob -Status Inactive
 ```
 +  For API details, see [UpdateSigningCertificate](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

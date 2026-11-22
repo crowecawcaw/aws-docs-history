@@ -1,7 +1,6 @@
 
 
 # Use `SetDefaultPolicyVersion` with an AWS SDK or CLI
-<a name="iam_example_iam_SetDefaultPolicyVersion_section"></a>
 
 The following code examples show how to use `SetDefaultPolicyVersion`.
 
@@ -31,7 +30,7 @@ For more information, see [Policies and permissions in IAM](https://docs.aws.ama
 **Tools for PowerShell V4**  
 **Example 1: This example sets the `v2` version of the policy whose ARN is `arn:aws:iam::123456789012:policy/MyPolicy` as the default active version.**  
 
-```
+```powershell
 Set-IAMDefaultPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyPolicy -VersionId v2
 ```
 +  For API details, see [SetDefaultPolicyVersion](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -39,7 +38,7 @@ Set-IAMDefaultPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyPolicy
 **Tools for PowerShell V5**  
 **Example 1: This example sets the `v2` version of the policy whose ARN is `arn:aws:iam::123456789012:policy/MyPolicy` as the default active version.**  
 
-```
+```powershell
 Set-IAMDefaultPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyPolicy -VersionId v2
 ```
 +  For API details, see [SetDefaultPolicyVersion](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -50,7 +49,7 @@ Set-IAMDefaultPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyPolicy
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_iam->setdefaultpolicyversion(
           iv_policyarn = iv_policy_arn

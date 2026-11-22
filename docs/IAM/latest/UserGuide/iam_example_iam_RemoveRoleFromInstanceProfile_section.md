@@ -1,7 +1,6 @@
 
 
 # Use `RemoveRoleFromInstanceProfile` with a CLI
-<a name="iam_example_iam_RemoveRoleFromInstanceProfile_section"></a>
 
 The following code examples show how to use `RemoveRoleFromInstanceProfile`.
 
@@ -31,7 +30,7 @@ For more information, see [Using instance profiles](https://docs.aws.amazon.com/
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the role named `MyNewRole` from the EC2 instance profile named `MyNewRole`. An instance profile that is created in the IAM console always has the same name as the role, as in this example. If you create them in the API or CLI, then they can have different names.**  
 
-```
+```powershell
 Remove-IAMRoleFromInstanceProfile -InstanceProfileName MyNewRole -RoleName MyNewRole -Force
 ```
 +  For API details, see [RemoveRoleFromInstanceProfile](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -39,7 +38,7 @@ Remove-IAMRoleFromInstanceProfile -InstanceProfileName MyNewRole -RoleName MyNew
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the role named `MyNewRole` from the EC2 instance profile named `MyNewRole`. An instance profile that is created in the IAM console always has the same name as the role, as in this example. If you create them in the API or CLI, then they can have different names.**  
 
-```
+```powershell
 Remove-IAMRoleFromInstanceProfile -InstanceProfileName MyNewRole -RoleName MyNewRole -Force
 ```
 +  For API details, see [RemoveRoleFromInstanceProfile](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

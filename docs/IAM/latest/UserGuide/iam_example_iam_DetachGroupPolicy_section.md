@@ -1,7 +1,6 @@
 
 
 # Use `DetachGroupPolicy` with a CLI
-<a name="iam_example_iam_DetachGroupPolicy_section"></a>
 
 The following code examples show how to use `DetachGroupPolicy`.
 
@@ -27,12 +26,12 @@ For more information, see [Managing IAM user groups](https://docs.aws.amazon.com
 **Tools for PowerShell V4**  
 **Example 1: This example detaches the managed group policy whose ARN is `arn:aws:iam::123456789012:policy/TesterAccessPolicy` from the group named `Testers`.**  
 
-```
+```powershell
 Unregister-IAMGroupPolicy -GroupName Testers -PolicyArn arn:aws:iam::123456789012:policy/TesterAccessPolicy
 ```
 **Example 2: This example finds all the managed policies that are attached to the group named `Testers` and detaches them from the group.**  
 
-```
+```powershell
 Get-IAMAttachedGroupPolicies -GroupName Testers | Unregister-IAMGroupPolicy -Groupname Testers
 ```
 +  For API details, see [DetachGroupPolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -40,12 +39,12 @@ Get-IAMAttachedGroupPolicies -GroupName Testers | Unregister-IAMGroupPolicy -Gro
 **Tools for PowerShell V5**  
 **Example 1: This example detaches the managed group policy whose ARN is `arn:aws:iam::123456789012:policy/TesterAccessPolicy` from the group named `Testers`.**  
 
-```
+```powershell
 Unregister-IAMGroupPolicy -GroupName Testers -PolicyArn arn:aws:iam::123456789012:policy/TesterAccessPolicy
 ```
 **Example 2: This example finds all the managed policies that are attached to the group named `Testers` and detaches them from the group.**  
 
-```
+```powershell
 Get-IAMAttachedGroupPolicies -GroupName Testers | Unregister-IAMGroupPolicy -Groupname Testers
 ```
 +  For API details, see [DetachGroupPolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

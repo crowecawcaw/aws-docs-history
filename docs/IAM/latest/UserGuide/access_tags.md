@@ -1,7 +1,6 @@
 
 
 # Controlling access to AWS resources using tags
-<a name="access_tags"></a>
 
 You can use tags to control access to your AWS resources that support tagging, including IAM resources. You can tag IAM users and roles to control what they can access. To learn how to tag IAM users and roles, see [Tags for AWS Identity and Access Management resources](id_tags.md). Additionally, you can control access to the following IAM resources: customer managed policies, IAM identity providers, instance profiles, server certificates, and virtual MFA devices. To view a tutorial for creating and testing a policy that allows IAM roles with principal tags to access resources with matching tags, see [IAM tutorial: Define permissions to access AWS resources based on tags](tutorial_attribute-based-access-control.md). Use the information in the following section to control access to other AWS resources, including IAM resources, without tagging IAM users or roles.
 
@@ -38,7 +37,7 @@ Do not try to control who can pass a role by tagging the role and then using the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -73,7 +72,7 @@ This example shows how you might create an identity-based policy that uses the `
 
 ****  
 
-```
+```json
 {
       "Version":"2012-10-17",		 	 	 
       "Statement": {
@@ -99,7 +98,7 @@ This example shows how you might create an identity-based policy that allows usi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -130,7 +129,7 @@ We recommend that when you use policies to control access using tags, you use th
 
 This example shows how you might create an identity-based policy that allows creating and tagging a Secrets Manager secret, but only with the tag keys `environment` or `cost-center`. The `Null` condition ensures that the condition evaluates to `false` if there are no tags in the request.
 
-```
+```json
 {
         "Effect": "Allow",
         "Action": [

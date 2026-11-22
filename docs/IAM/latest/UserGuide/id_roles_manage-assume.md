@@ -1,7 +1,6 @@
 
 
 # Methods to assume a role
-<a name="id_roles_manage-assume"></a>
 
 Before a user, application, or service can use a role that you created, you must [grant permissions to switch](id_roles_use_permissions-to-switch.md) to the role. You can use any policy attached to groups or users to grant the necessary permissions. After permissions are granted, the user can assume a role from the AWS Management Console, the Tools for Windows PowerShell, the AWS Command Line Interface (AWS CLI) and the [`AssumeRole`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API.
 

@@ -1,7 +1,6 @@
 
 
 # AWS: Allows IAM users to change their own console password on the Security credentials page
-<a name="reference_policies_examples_aws_my-sec-creds-self-manage-password-only"></a>
 
 This example shows how you might create an identity-based policy that allows IAM users to change their own AWS Management Console password on the **Security credentials** page. This AWS Management Console page displays account and user information, but the user can only access their own password. To allow users to manage all of their own credentials with MFA, see [AWS: Allows MFA-authenticated IAM users to manage their own credentials on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage.md). To allow users to manage their own credentials without using MFA, see [AWS: Allows IAM users to manage their own credentials on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage-no-mfa.md).
 
@@ -18,7 +17,7 @@ This policy does not allow users to view the **Users** page in the IAM console o
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # IAM JSON policy elements: NotAction
-<a name="reference_policies_elements_notaction"></a>
 
 `NotAction` is an advanced policy element that explicitly matches everything *except* the specified list of actions. Using `NotAction` can result in a shorter policy by listing only a few actions that should not match, rather than including a long list of actions that will match. Actions specified in `NotAction` are not impacted by the `Allow` or `Deny` effect in a policy statement. This, in turn, means that all of the applicable actions or services that are not listed are allowed if you use the `Allow` effect. In addition, such unlisted actions or services are denied if you use the `Deny` effect. When you use `NotAction` with the `Resource` element, you provide scope for the policy. This is how AWS determines which actions or services are applicable. For more information, see the following example policy. 
 
@@ -11,7 +10,7 @@ You can use the `NotAction` element in a statement with `"Effect": "Allow"` to p
 
 The following example allows users to access all of the Amazon S3 actions that can be performed on any S3 resource *except* for deleting a bucket. This policy also does not allow actions in other services, because other service actions are not applicable to the S3 resources.
 
-```
+```json
 "Effect": "Allow",
 "NotAction": "s3:DeleteBucket",
 "Resource": "arn:aws:s3:::*",
@@ -21,7 +20,7 @@ Sometimes, you might want to allow access to a large number of actions. By using
 
 The following example allows users to access every action in every AWS service except for IAM.
 
-```
+```json
 "Effect": "Allow",
 "NotAction": "iam:*",
 "Resource": "*"
@@ -40,7 +39,7 @@ The following conditional example denies access to non-IAM actions if the user i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

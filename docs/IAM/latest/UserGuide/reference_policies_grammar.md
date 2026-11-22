@@ -1,7 +1,6 @@
 
 
 # Grammar of the IAM JSON policy language
-<a name="reference_policies_grammar"></a>
 
 This page presents a formal grammar for the language used to create JSON policies in IAM. We present this grammar so that you can understand how to construct and validate policies.
 
@@ -142,7 +141,7 @@ This section provides additional information about string values that are used i
 **`action_string`**  
 Consists of a service namespace, a colon, and the name of an action. Action names can include wildcards. Examples:  
 
-```
+```json
 "Action":"ec2:StartInstances"
 
 "Action":[
@@ -165,7 +164,7 @@ Provides a way to include information about the policy as a whole. Some services
 The `id_block` is allowed in resource-based policies, but not in identity-based policies.
 There is no limit to the length, although this string contributes to the overall length of the policy, which is limited.   
 
-```
+```json
 "Id":"Admin_Policy"
 
 "Id":"cd3ad3d9-2776-4ef1-a904-4c229d1642ee"
@@ -174,7 +173,7 @@ There is no limit to the length, although this string contributes to the overall
 **`sid_string`**  
 Provides a way to include information about an individual statement. For IAM policies, basic alphanumeric characters (A-Z,a-z,0-9) are the only allowed characters in the `Sid` value. Other AWS services that support resource policies may have other requirements for the `Sid` value. For example, some services require this value to be unique within an AWS account, and some services allow additional characters such as spaces in the `Sid` value.  
 
-```
+```json
 "Sid":"1" 
 
 "Sid": "ThisStatementProvidesPermissionsForConsoleAccess"
@@ -188,7 +187,7 @@ Note that you can use \* only to specify "everyone/anonymous." You cannot use it
 In most cases, consists of an [Amazon Resource Name](reference_identifiers.md#identifiers-arns) (ARN). You can use wildcards (\* and ?) in the resource portion of the ARN. For more information about using wildcards in ARNs, see [Using wildcards in paths](reference-arns.md#arns-paths-wildcards).  
 When you specify an incomplete ARN (one with fewer than the standard six fields) in an identity-based policy, AWS automatically completes the ARN by adding wildcard characters (\*) to all missing fields. For example, specifying `arn:aws:sqs` is equivalent to `arn:aws:sqs:*:*:*`, which grants access to all Amazon Amazon SQS resources across all regions and accounts. However, session policies passed to AWS STS AssumeRole, AssumeRoleWithWebIdentity, and AssumeRoleWithSAML requests, do not support incomplete ARNs. Using an incomplete ARN in a session policy will result in a `MalformedPolicyDocumentException` error.
 
-```
+```json
 "Resource":"arn:aws:iam::123456789012:user/Bob"
 
 "Resource":"arn:aws:s3:::amzn-s3-demo-bucket/*"
@@ -197,7 +196,7 @@ When you specify an incomplete ARN (one with fewer than the standard six fields)
 **`condition_type_string`**  
 Identifies the type of condition being tested, such as `StringEquals`, `StringLike`, `NumericLessThan`, `DateGreaterThanEquals`, `Bool`, `BinaryEquals`, `IpAddress`, `ArnEquals`, etc. For a complete list of condition types, see [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md).   
 
-```
+```json
 "Condition": {
   "NumericLessThanEquals": {
     "s3:max-keys": "10"
@@ -223,7 +222,7 @@ For a list of AWS condition keys, see [AWS global condition context keys](refere
 + [Specifying Conditions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazon-s3-policy-keys.html) in the *Amazon Simple Storage Service User Guide*
 + [IAM Policies for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html) in the *Amazon EC2 User Guide*.
 
-```
+```json
 "Condition":{
   "Bool": {
       "aws:SecureTransport": "true"
@@ -246,7 +245,7 @@ For a list of AWS condition keys, see [AWS global condition context keys](refere
 **`condition_value_string`**  
 Identifies the value of the condition\_key\_string that determines whether the condition is met. For a complete list of valid values for a condition type, see [IAM JSON policy elements: Condition operators](reference_policies_elements_condition_operators.md).  
 
-```
+```json
 "Condition":{
   "ForAnyValue:StringEquals": {
 		"dynamodb:Attributes": [

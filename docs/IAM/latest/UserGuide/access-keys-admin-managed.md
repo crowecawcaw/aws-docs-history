@@ -1,7 +1,6 @@
 
 
 # How an IAM administrator can manage IAM user access keys
-<a name="access-keys-admin-managed"></a>
 
 IAM administrators can create, activate, deactivate, and delete the access keys associated with individual IAM users. They can also list the IAM users in the account which have access keys and locate which IAM user has a specific access key.
 

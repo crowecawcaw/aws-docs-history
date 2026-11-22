@@ -1,7 +1,6 @@
 
 
 # Use `ListAttachedUserPolicies` with a CLI
-<a name="iam_example_iam_ListAttachedUserPolicies_section"></a>
 
 The following code examples show how to use `ListAttachedUserPolicies`.
 
@@ -42,7 +41,7 @@ For more information, see [Policies and permissions in IAM](https://docs.aws.ama
 **Tools for PowerShell V4**  
 **Example 1: This command returns the names and ARNs of the managed policies for the IAM user named `Bob` in the AWS account. To see the list of inline policies that are embedded in the IAM user, use the `Get-IAMUserPolicyList` command.**  
 
-```
+```powershell
 Get-IAMAttachedUserPolicyList -UserName "Bob"
 ```
 **Output:**  
@@ -57,7 +56,7 @@ arn:aws:iam::aws:policy/TesterPolicy                      TesterPolicy
 **Tools for PowerShell V5**  
 **Example 1: This command returns the names and ARNs of the managed policies for the IAM user named `Bob` in the AWS account. To see the list of inline policies that are embedded in the IAM user, use the `Get-IAMUserPolicyList` command.**  
 
-```
+```powershell
 Get-IAMAttachedUserPolicyList -UserName "Bob"
 ```
 **Output:**  

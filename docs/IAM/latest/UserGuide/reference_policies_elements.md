@@ -1,7 +1,6 @@
 
 
 # IAM JSON policy element reference
-<a name="reference_policies_elements"></a>
 
 JSON policy documents are made up of elements. The elements are listed here in the general order you use them in a policy. The order of the elements doesn't matter—for example, the `Resource` element can come before the `Action` element. You're not required to specify any `Condition` elements in the policy. To learn more about the general structure and purpose of a JSON policy document, see [Overview of JSON policies](access_policies.md#access_policies-json).
 

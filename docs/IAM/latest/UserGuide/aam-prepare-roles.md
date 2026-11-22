@@ -1,7 +1,7 @@
 
 
 # Prepare your IAM roles
-<a name="aam-prepare-roles"></a><a name="aam-identify-and-update-roles"></a>
+<a name="aam-identify-and-update-roles"></a>
 
 Before you start assigning IAM roles to IAM Identity Center users and groups, you need to:
 
@@ -13,7 +13,7 @@ If the role has an existing trust policy, add this statement to its Statement ar
 
 Replace `<your-account-id>` with your AWS account ID, `<region>` with your IAM Identity Center primary Region, and `<application-id>` with your account access manager application ID. You can find the application ARN on the **Settings** page in the account access manager console.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -40,7 +40,7 @@ Replace `<your-account-id>` with your AWS account ID, `<region>` with your IAM I
 
 **Optional — `sts:TagSession`**. Add `sts:TagSession` to the `Action` list if you want upstream assertion attributes from your identity provider (for example, group memberships, department, cost-center) to propagate as principal tags on the session that account access manager issues. Without this action, role assumption still succeeds; only session-tag propagation is suppressed. Add it when downstream IAM policies in the target account use principal tags (`aws:PrincipalTag/<key>`); leave it out otherwise. Keep the same `Condition` block.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

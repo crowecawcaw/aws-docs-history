@@ -1,7 +1,6 @@
 
 
 # IAM Access Analyzer policy generation
-<a name="access-analyzer-policy-generation"></a>
 
 As an administrator or developer, you might grant permissions to IAM entities (users or roles) beyond what they require. IAM provides several options to help you refine the permissions that you grant.
 
@@ -74,7 +73,7 @@ The first example policy shows the permissions policy for the service role that 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -115,7 +114,7 @@ The following example policy shows the role trust policy with the permissions th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -140,7 +139,7 @@ To generate policies in the AWS Management Console, an IAM user must have a perm
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -161,7 +160,7 @@ To generate policies in the AWS Management Console, an IAM user must have a perm
 
 You must also have the following IAM Access Analyzer permissions to generate policies in the AWS Management Console, AWS API, or AWS CLI as shown in the following policy statement.
 
-```
+```json
 {
   "Sid": "AllowUserToGeneratePolicy",
   "Effect": "Allow",
@@ -178,7 +177,7 @@ You must also have the following IAM Access Analyzer permissions to generate pol
 **For both first-time and subsequent uses**  
 When you use the AWS Management Console to generate a policy, you must have `cloudtrail:ListTrails` permission to list the CloudTrail trails in your account as shown in the following policy statement.
 
-```
+```json
 {
   "Sid": "AllowUserToListTrails",
   "Effect": "Allow",
@@ -307,7 +306,7 @@ To successfully generate a policy, the objects in the bucket must be owned by th
 
    The following example policy allows `ListBucket` and `GetObject` for the bucket named `amzn-s3-demo-bucket`. It allows access if the role accessing the bucket belongs to an account in your organization and has a name that starts with `AccessAnalyzerMonitorServiceRole`. Using [`aws:PrincipalArn`](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-principalarn) as a `Condition` in the `Resource` element ensures that the role can only access activity for the account if it belongs to account A. You can replace `amzn-s3-demo-bucket` with your bucket name, `optional-prefix` with an optional prefix for the bucket, and `organization-id` with your organization ID.
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",
      "Statement": [
@@ -340,7 +339,7 @@ To successfully generate a policy, the objects in the bucket must be owned by th
 
 1. If you encrypt your logs using AWS KMS, update your AWS KMS key policy in the account where you store the CloudTrail logs to grant IAM Access Analyzer access to use your key, as shown in the following policy example. Replace `CROSS_ACCOUNT_ORG_TRAIL_FULL_ARN` with the ARN for your trail and `organization-id` with your organization ID.
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",
      "Statement": [

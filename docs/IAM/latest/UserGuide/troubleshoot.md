@@ -1,7 +1,6 @@
 
 
 # Troubleshoot IAM
-<a name="troubleshoot"></a>
 
 Use the information here to help you diagnose and fix common issues when you work with AWS Identity and Access Management (IAM).
 
@@ -14,7 +13,7 @@ Use the information here to help you diagnose and fix common issues when you wor
 + [How do I securely create IAM users?](#troubleshoot_general_securely-create-iam-users)
 + [Additional resources](#troubleshoot_general_resources)
 + [Troubleshoot access denied error messages](troubleshoot_access-denied.md)
-+ [Troubleshoot access denied error messages with authorization ID (Preview)](troubleshoot_access-denied-authorization-id.md)
++ [Troubleshoot access denied error messages with authorization ID](troubleshoot_access-denied-authorization-id.md)
 + [Troubleshoot issues with the root user](troubleshooting_root-user.md)
 + [Troubleshoot IAM policies](troubleshoot_policies.md)
 + [Troubleshoot Passkeys and FIDO Security Keys](troubleshoot_mfa-fido.md)
@@ -68,7 +67,7 @@ For more information about how some other AWS services are affected by this, con
 
 You might receive the following error when you attempt to assign or remove a virtual MFA device for yourself or others:
 
-```
+```yaml
 User: arn:aws:iam::123456789012:user/Diego is not authorized to perform: iam:DeleteVirtualMFADevice on resource: arn:aws:iam::123456789012:mfa/Diego with an explicit deny
 ```
 

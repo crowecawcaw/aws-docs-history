@@ -1,7 +1,6 @@
 
 
 # Troubleshoot issues with the root user
-<a name="troubleshooting_root-user"></a>
 
 Use the information here to help you troubleshoot issues related to the root user of an AWS account.
 

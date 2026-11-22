@@ -1,7 +1,6 @@
 
 
 # Amazon EC2: Limits terminating EC2 instances to an IP address range
-<a name="reference_policies_examples_ec2_terminate-ip"></a>
 
 This example shows how you might create an identity-based policy that limits EC2 instances by allowing the action, but explicitly denying access when the request comes from outside the specified IP range. The policy is useful when the IP addresses for your company are within the specified ranges. This policy grants the permissions necessary to complete this action programmatically from the AWS API or AWS CLI. To use this policy, replace the {{italicized placeholder text}} in the example policy with your own information. Then, follow the directions in [create a policy](access_policies_create.md) or [edit a policy](access_policies_manage-edit.md).
 
@@ -15,7 +14,7 @@ The `aws:SourceIp` condition key denies access to an AWS service, such as AWS Cl
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

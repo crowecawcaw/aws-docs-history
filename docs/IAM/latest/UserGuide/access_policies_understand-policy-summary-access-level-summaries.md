@@ -1,7 +1,6 @@
 
 
 # Access levels in policy summaries
-<a name="access_policies_understand-policy-summary-access-level-summaries"></a>
 
 ## AWS access level summary
 <a name="access_policies_access-level-summaries"></a>

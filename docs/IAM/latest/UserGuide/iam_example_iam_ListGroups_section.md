@@ -1,7 +1,6 @@
 
 
 # Use `ListGroups` with an AWS SDK or CLI
-<a name="iam_example_iam_ListGroups_section"></a>
 
 The following code examples show how to use `ListGroups`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `ListGroups`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// List IAM groups.
     /// </summary>
@@ -72,7 +71,7 @@ For more information, see [Managing IAM user groups](https://docs.aws.amazon.com
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"log"
@@ -114,7 +113,7 @@ func (wrapper GroupWrapper) ListGroups(ctx context.Context, maxGroups int32) ([]
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 List the groups.  
 
-```
+```javascript
 import { ListGroupsCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -156,7 +155,7 @@ export async function* listGroups() {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
-```
+```php
 $uuid = uniqid();
 $service = new IAMService();
 
@@ -184,7 +183,7 @@ $service = new IAMService();
 **Tools for PowerShell V4**  
 **Example 1: This example returns a collection of all the IAM groups defined in the current AWS account.**  
 
-```
+```powershell
 Get-IAMGroupList
 ```
 **Output:**  
@@ -213,7 +212,7 @@ Path       : /
 **Tools for PowerShell V5**  
 **Example 1: This example returns a collection of all the IAM groups defined in the current AWS account.**  
 
-```
+```powershell
 Get-IAMGroupList
 ```
 **Output:**  
@@ -245,7 +244,7 @@ Path       : /
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def list_groups(count):
     """
     Lists the specified number of groups for the account.
@@ -267,7 +266,7 @@ def list_groups(count):
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
-```
+```ruby
 # A class to manage IAM operations via the AWS SDK client
 class IamGroupManager
   # Initializes the IamGroupManager class
@@ -301,7 +300,7 @@ end
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
-```
+```rust
 pub async fn list_groups(
     client: &iamClient,
     path_prefix: Option<String>,
@@ -327,7 +326,7 @@ pub async fn list_groups(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_iam->listgroups( ).
         MESSAGE 'Retrieved group list.' TYPE 'I'.
@@ -343,7 +342,7 @@ pub async fn list_groups(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
-```
+```swift
 import AWSIAM
 import AWSS3
 

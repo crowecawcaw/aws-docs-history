@@ -1,7 +1,6 @@
 
 
 # Amazon RDS: Allows tag owners full access to RDS resources that they have tagged
-<a name="reference_policies_examples_rds_tag-owner"></a>
 
 This example shows how you might create an identity-based policy that allows tag owners full access to RDS resources that they have tagged. This policy grants the permissions necessary to complete this action programmatically from the AWS API or AWS CLI.
 
@@ -10,7 +9,7 @@ This example shows how you might create an identity-based policy that allows tag
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Use `GetPolicyVersion` with an AWS SDK or CLI
-<a name="iam_example_iam_GetPolicyVersion_section"></a>
 
 The following code examples show how to use `GetPolicyVersion`.
 
@@ -51,7 +50,7 @@ For more information, see [Policies and permissions in IAM](https://docs.aws.ama
 **Tools for PowerShell V4**  
 **Example 1: This example returns the policy document for the `v2` version of the policy whose ARN is `arn:aws:iam::123456789012:policy/MyManagedPolicy`. The policy document in the `Document` property is URL encoded and is decoded in this example with the `UrlDecode` .NET method.**  
 
-```
+```powershell
 $results = Get-IAMPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyManagedPolicy -VersionId v2
 $results
 ```
@@ -84,7 +83,7 @@ $policy
 **Tools for PowerShell V5**  
 **Example 1: This example returns the policy document for the `v2` version of the policy whose ARN is `arn:aws:iam::123456789012:policy/MyManagedPolicy`. The policy document in the `Document` property is URL encoded and is decoded in this example with the `UrlDecode` .NET method.**  
 
-```
+```powershell
 $results = Get-IAMPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyManagedPolicy -VersionId v2
 $results
 ```
@@ -120,7 +119,7 @@ $policy
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def get_default_policy_statement(policy_arn):
     """
     Gets the statement of the default version of the specified policy.
@@ -149,7 +148,7 @@ def get_default_policy_statement(policy_arn):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_iam->getpolicyversion(
           iv_policyarn = iv_policy_arn

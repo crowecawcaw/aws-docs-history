@@ -1,7 +1,6 @@
 
 
 # API keys for AWS services
-<a name="id_credentials_api_keys_for_aws_services"></a>
 
 Some AWS services support API keys for authenticating programmatic requests in addition to standard IAM credentials such as temporary security credentials and long-term access keys. AWS offers two types of API keys:
 + **Long-term API keys** – Long-term API keys are associated with an IAM user and generated using IAM [service-specific credentials](id_credentials_service-specific-creds.md). These credentials are designed for use with only a single AWS service, enhancing security by limiting credential scope. You can set an expiration time for when the long-term API key expires. To generate long-term API keys, you can use the IAM or service-specific console, the AWS CLI, or AWS API.
@@ -39,7 +38,7 @@ Before you can generate a long-term API key in the IAM console, you must meet th
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -96,7 +95,7 @@ To generate a long-term API key using the AWS CLI, use the following steps:
 
 1. Create an IAM user that will be used with the service using the [ create-user](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-user.html) command:
 
-   ```
+   ```bash
    aws iam create-user \
        --user-name {{APIKeyUser_1}}
    ```
@@ -105,28 +104,28 @@ To generate a long-term API key using the AWS CLI, use the following steps:
 
    For Amazon Bedrock:
 
-   ```
+   ```bash
    aws iam attach-user-policy --user-name {{APIKeyUser_1}} \
        --policy-arn arn:aws:iam::aws:policy/AmazonBedrockLimitedAccess
    ```
 
    For Claude Platform on AWS:
 
-   ```
+   ```bash
    aws iam attach-user-policy --user-name {{APIKeyUser_1}} \
        --policy-arn arn:aws:iam::aws:policy/AnthropicInferenceAccess
    ```
 
    For Amazon CloudWatch:
 
-   ```
+   ```bash
    aws iam attach-user-policy --user-name {{APIKeyUser_1}} \
        --policy-arn arn:aws:iam::aws:policy/CloudWatchAPIKeyAccess
    ```
 
    For Amazon CloudWatch Logs:
 
-   ```
+   ```bash
    aws iam attach-user-policy --user-name {{APIKeyUser_1}} \
        --policy-arn arn:aws:iam::aws:policy/CloudWatchLogsAPIKeyAccess
    ```
@@ -135,7 +134,7 @@ To generate a long-term API key using the AWS CLI, use the following steps:
 
    For Amazon Bedrock:
 
-   ```
+   ```bash
    aws iam create-service-specific-credential \
        --user-name {{APIKeyUser_1}} \
        --service-name bedrock.amazonaws.com \
@@ -144,7 +143,7 @@ To generate a long-term API key using the AWS CLI, use the following steps:
 
    For Claude Platform on AWS:
 
-   ```
+   ```bash
    aws iam create-service-specific-credential \
        --user-name {{APIKeyUser_1}} \
        --service-name aws-external-anthropic.amazonaws.com \
@@ -153,7 +152,7 @@ To generate a long-term API key using the AWS CLI, use the following steps:
 
    For Amazon CloudWatch:
 
-   ```
+   ```bash
    aws iam create-service-specific-credential \
        --user-name {{APIKeyUser_1}} \
        --service-name cloudwatch.amazonaws.com \
@@ -162,7 +161,7 @@ To generate a long-term API key using the AWS CLI, use the following steps:
 
    For Amazon CloudWatch Logs:
 
-   ```
+   ```bash
    aws iam create-service-specific-credential \
        --user-name {{APIKeyUser_1}} \
        --service-name logs.amazonaws.com \
@@ -178,7 +177,7 @@ The returned `ServiceApiKeyValue` in the response is your long-term API key for 
 
 To list long-term API keys metadata for a specific user, use the [ list-service-specific-credentials](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-service-specific-credentials.html) command with the `--user-name` parameter:
 
-```
+```bash
 aws iam list-service-specific-credentials \
     --service-name bedrock.amazonaws.com \
     --user-name {{APIKeyUser_1}}
@@ -189,7 +188,7 @@ Replace `bedrock.amazonaws.com` with the appropriate service name (for example, 
 
 To list all long-term API keys metadata in the account, use the [ list-service-specific-credentials](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-service-specific-credentials.html) command with the `--all-users` parameter:
 
-```
+```bash
 aws iam list-service-specific-credentials \
     --service-name bedrock.amazonaws.com \
     --all-users
@@ -200,7 +199,7 @@ aws iam list-service-specific-credentials \
 
 To update the status of a long-term API key, use the [ update-service-specific-credential](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-service-specific-credential.html) command:
 
-```
+```bash
 aws iam update-service-specific-credential \
     --user-name "{{APIKeyUser_1}}" \
     --service-specific-credential-id "{{ACCA1234EXAMPLE1234}}" \

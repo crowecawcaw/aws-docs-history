@@ -1,7 +1,6 @@
 
 
 # Control the use of access keys by attaching an inline policy to an IAM user
-<a name="access-keys_inline-policy"></a>
 
 As a best practice we recommend that [workloads use temporary credentials with IAM roles](best-practices.md#bp-workloads-use-roles) to access AWS. IAM users with access keys should be assigned least privilege access and have [multi-factor authentication (MFA)](id_credentials_mfa.md) enabled. For more information about assuming IAM roles, see [Methods to assume a role](id_roles_manage-assume.md).
 
@@ -30,7 +29,7 @@ For both these use cases, you can use an inline policy that's attached to the IA
 
 ****  
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -77,7 +76,7 @@ The IP addresses must not be obfuscated by a VPN or a proxy server.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -118,7 +117,7 @@ You could also apply this policy as a service control policy (SCP) across multip
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

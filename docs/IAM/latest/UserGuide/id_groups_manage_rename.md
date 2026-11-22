@@ -1,7 +1,6 @@
 
 
 # Rename an IAM user group
-<a name="id_groups_manage_rename"></a>
 
 When you change a user group's name or path, the following happens: 
 + Any policies attached to the user group stay with the group under the new name.

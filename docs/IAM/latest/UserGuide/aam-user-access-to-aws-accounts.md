@@ -1,7 +1,6 @@
 
 
 # User access to AWS accounts
-<a name="aam-user-access-to-aws-accounts"></a>
 
 This topic describes how users access the AWS accounts assigned to them with account access manager.
 

@@ -1,7 +1,6 @@
 
 
 # Change permissions for an IAM user
-<a name="id_users_change-permissions"></a>
 
 You can change the permissions for an IAM user in your AWS account by changing its group memberships, by copying permissions from an existing user, by attaching policies directly to a user, or by setting a [permissions boundary](access_policies_boundaries.md). A permissions boundary controls the maximum permissions that a user can have. Permissions boundaries are an advanced AWS feature.
 

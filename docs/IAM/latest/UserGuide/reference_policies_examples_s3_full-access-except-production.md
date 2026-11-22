@@ -1,7 +1,6 @@
 
 
 # Amazon S3: S3 Bucket access, but production bucket denied without recent MFA
-<a name="reference_policies_examples_s3_full-access-except-production"></a>
 
 This example shows how you might create an identity-based policy that allows an Amazon S3 administrator to access any bucket, including updating, adding, and deleting objects. However, it explicitly denies access to the `amzn-s3-demo-bucket-production` bucket if the user has not signed in using [multi-factor authentication (MFA)](id_credentials_mfa.md) within the last thirty minutes. This policy grants the permissions necessary to perform this action in the console or programmatically using the AWS CLI or AWS API. To use this policy, replace the {{italicized placeholder text}} in the example policy with your own information. Then, follow the directions in [create a policy](access_policies_create.md) or [edit a policy](access_policies_manage-edit.md).
 
@@ -12,7 +11,7 @@ This policy never allows programmatic access to the `amzn-s3-demo-bucket` bucket
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

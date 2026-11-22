@@ -1,7 +1,6 @@
 
 
 # Permissions required to access IAM resources
-<a name="access_permissions-required"></a>
 
 *Resources* are objects within a service. IAM resources include groups, users, roles, and policies. If you are signed in with AWS account root user credentials, you have no restrictions on administering IAM credentials or IAM resources. However, IAM users must explicitly be given permissions to administer credentials or IAM resources. You can do this by attaching an identity-based policy to the user.
 
@@ -18,7 +17,7 @@ The permissions that are required to administer IAM groups, users, roles, and cr
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -38,7 +37,7 @@ In a policy, the value of the `Resource` element depends on the action and what 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -73,7 +72,7 @@ Using a wildcard character (`*`) in the action name often makes it easier to gra
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {

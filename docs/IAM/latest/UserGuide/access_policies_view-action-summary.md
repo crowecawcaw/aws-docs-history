@@ -1,7 +1,6 @@
 
 
 # View action summaries
-<a name="access_policies_view-action-summary"></a>
 
 You can view an action summary for each action listed in the policy summary that grants permissions. 
 

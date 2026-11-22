@@ -1,7 +1,6 @@
 
 
 # Use `ListPolicyVersions` with an AWS SDK or CLI
-<a name="iam_example_iam_ListPolicyVersions_section"></a>
 
 The following code examples show how to use `ListPolicyVersions`.
 
@@ -48,7 +47,7 @@ For more information, see [Policies and permissions in IAM](https://docs.aws.ama
 **Tools for PowerShell V4**  
 **Example 1: This example returns the list of available versions of the policy whose ARN is `arn:aws:iam::123456789012:policy/MyManagedPolicy`. To get the policy document for a specific version, use the `Get-IAMPolicyVersion` command and specify the `VersionId` of the one you want.**  
 
-```
+```powershell
 Get-IAMPolicyVersionList -PolicyArn arn:aws:iam::123456789012:policy/MyManagedPolicy
 ```
 **Output:**  
@@ -64,7 +63,7 @@ CreateDate                   Document                 IsDefaultVersion          
 **Tools for PowerShell V5**  
 **Example 1: This example returns the list of available versions of the policy whose ARN is `arn:aws:iam::123456789012:policy/MyManagedPolicy`. To get the policy document for a specific version, use the `Get-IAMPolicyVersion` command and specify the `VersionId` of the one you want.**  
 
-```
+```powershell
 Get-IAMPolicyVersionList -PolicyArn arn:aws:iam::123456789012:policy/MyManagedPolicy
 ```
 **Output:**  
@@ -83,7 +82,7 @@ CreateDate                   Document                 IsDefaultVersion          
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_iam->listpolicyversions(
           iv_policyarn = iv_policy_arn ).

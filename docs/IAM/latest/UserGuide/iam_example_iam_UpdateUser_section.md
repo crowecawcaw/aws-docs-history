@@ -1,7 +1,6 @@
 
 
 # Use `UpdateUser` with an AWS SDK or CLI
-<a name="iam_example_iam_UpdateUser_section"></a>
 
 The following code examples show how to use `UpdateUser`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
-```
+```cpp
 bool AwsDoc::IAM::updateUser(const Aws::String &currentUserName,
                              const Aws::String &newUserName,
                              const Aws::Client::ClientConfiguration &clientConfig) {
@@ -62,7 +61,7 @@ For more information, see [Renaming an IAM user group](https://docs.aws.amazon.c
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.iam.IamClient;
 import software.amazon.awssdk.services.iam.model.IamException;
@@ -131,7 +130,7 @@ public class UpdateUser {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 Update the user.  
 
-```
+```javascript
 import { UpdateUserCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -156,7 +155,7 @@ export const updateUser = (currentUserName, newUserName) => {
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -187,7 +186,7 @@ iam.updateUser(params, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
-```
+```kotlin
 suspend fun updateIAMUser(
     curName: String?,
     newName: String?,
@@ -212,12 +211,12 @@ suspend fun updateIAMUser(
 **Tools for PowerShell V4**  
 **Example 1: This example renames the IAM user `Bob` to `Robert`.**  
 
-```
+```powershell
 Update-IAMUser -UserName Bob -NewUserName Robert
 ```
 **Example 2: This example changes the path of the IAM User `Bob` to `/Org1/Org2/`, which effectively changes the ARN for the user to `arn:aws:iam::123456789012:user/Org1/Org2/bob`.**  
 
-```
+```powershell
 Update-IAMUser -UserName Bob -NewPath /Org1/Org2/
 ```
 +  For API details, see [UpdateUser](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -225,12 +224,12 @@ Update-IAMUser -UserName Bob -NewPath /Org1/Org2/
 **Tools for PowerShell V5**  
 **Example 1: This example renames the IAM user `Bob` to `Robert`.**  
 
-```
+```powershell
 Update-IAMUser -UserName Bob -NewUserName Robert
 ```
 **Example 2: This example changes the path of the IAM User `Bob` to `/Org1/Org2/`, which effectively changes the ARN for the user to `arn:aws:iam::123456789012:user/Org1/Org2/bob`.**  
 
-```
+```powershell
 Update-IAMUser -UserName Bob -NewPath /Org1/Org2/
 ```
 +  For API details, see [UpdateUser](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -241,7 +240,7 @@ Update-IAMUser -UserName Bob -NewPath /Org1/Org2/
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def update_user(user_name, new_user_name):
     """
     Updates a user's name.
@@ -267,7 +266,7 @@ def update_user(user_name, new_user_name):
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
-```
+```ruby
   # Updates an IAM user's name
   #
   # @param current_name [String] The current name of the user
@@ -288,7 +287,7 @@ def update_user(user_name, new_user_name):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_iam->updateuser(
           iv_username = iv_user_name

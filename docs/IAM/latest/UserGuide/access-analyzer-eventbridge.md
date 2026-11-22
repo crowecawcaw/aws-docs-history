@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Identity and Access Management Access Analyzer with Amazon EventBridge
-<a name="access-analyzer-eventbridge"></a>
 
 Use the information in this topic to learn how to monitor IAM Access Analyzer findings and access previews with Amazon EventBridge. EventBridge is the new version of Amazon CloudWatch Events.
 
@@ -29,7 +28,7 @@ The following is an example IAM Access Analyzer external access finding event se
 
 In the `detail` object, the values for the `accountId` and `region` attributes refer to the account and region reported in the finding. The `isDeleted` attribute indicates whether the event was from the finding being deleted. The `id` is the finding ID. The `resources` array is a singleton with the ARN of the analyzer that generated the finding.
 
-```
+```json
 {
     "account": "111122223333",
     "detail": {
@@ -67,7 +66,7 @@ In the `detail` object, the values for the `accountId` and `region` attributes r
 
 IAM Access Analyzer also sends events to EventBridge for error findings. An error finding is a finding generated when IAM Access Analyzer can't analyze the resource. Events for error findings include an `error` attribute as shown in the following example.
 
-```
+```json
 {
     "account": "111122223333",
     "detail": {
@@ -103,7 +102,7 @@ The following is an example IAM Access Analyzer internal access finding event se
 
 In the `detail` object, the values for the `accountId` and `principalOwnerAccount` attributes refer to the account of the principal reported in the finding. The `isDeleted` attribute indicates whether the event was from the finding being deleted. The `id` is the finding ID. The `resource` is the ARN of the analyzer that generated the finding.
 
-```
+```json
 {
     "version": "0",
     "id": "b45c3678-c278-b593-6121-c155259ce1b5",
@@ -145,7 +144,7 @@ In the `detail` object, the values for the `accountId` and `principalOwnerAccoun
 
 IAM Access Analyzer also sends events to EventBridge for error findings. An error finding is a finding generated when IAM Access Analyzer can't analyze the resource. Events for error findings include an `error` attribute as shown in the following example.
 
-```
+```json
 {
     "version": "0",
     "id": "5a94b99b-e87d-a6a7-58c7-f47871532860",
@@ -181,7 +180,7 @@ The following is an example IAM Access Analyzer unused access finding event sent
 
 In the `detail` object, the values for the `accountId` and `region` attributes refer to the account and region reported in the finding. The `isDeleted` attribute indicates whether the event was from the finding being deleted. The `id` is the finding ID.
 
-```
+```json
 {
     "version": "0",
     "id": "dc7ce3ee-114b-3243-e249-7f10f9054b21",
@@ -214,7 +213,7 @@ In the `detail` object, the values for the `accountId` and `region` attributes r
 
 IAM Access Analyzer also sends events to EventBridge for error findings. An error finding is a finding generated when IAM Access Analyzer can't analyze the resource. Events for error findings include an `error` attribute as shown in the following example.
 
-```
+```json
 {
     "version": "0",
     "id": "c2e7aa1a-4df7-7652-f33e-64113b8997d4",
@@ -249,7 +248,7 @@ IAM Access Analyzer also sends events to EventBridge for error findings. An erro
 
 The following example shows data for the first event that is sent to EventBridge when you create an access preview. The `resources` array is a singleton with the ARN of the analyzer that the access preview is associated with. In the `detail` object, the `id` refers to the access preview ID and `configuredResources` refers to the resource for which the access preview was created. The `status` is `Creating` and refers to the access preview status. The `previousStatus` is not specified because the access preview was just created. 
 
-```
+```json
 {
     "account": "111122223333",
     "detail": {
@@ -276,7 +275,7 @@ The following example shows data for the first event that is sent to EventBridge
 
 The following example shows data for an event that is sent to EventBridge for an access preview with a status change from `Creating` to `Completed`. In the detail object, the `id` refers to the access preview ID. The `status` and `previousStatus` refer to the access preview status, where the previous status was `Creating` and the current status is `Completed`. 
 
-```
+```json
 {
     "account": "111122223333",
     "detail": {
@@ -304,7 +303,7 @@ The following example shows data for an event that is sent to EventBridge for an
 
 The following example shows data for an event that is sent to EventBridge for an access preview with a status change from `Creating` to `Failed`. In the `detail` object, the `id` refers to the access preview ID. The `status` and `previousStatus` refer to the access preview status, where the previous status was `Creating` and the current status is `Failed`. The `statusReason` field provides the reason code indicating that the access preview failed due to an invalid resource configuration.
 
-```
+```json
 {
     "account": "111122223333",
     "detail": {
@@ -346,7 +345,7 @@ The following procedure describes how to create an event rule using the console.
    + For **Event pattern**, choose **Custom patterns (JSON editor)**, and paste one of the following event pattern examples into the text area:
      + To create a rule based on any IAM Access Analyzer event, use the following pattern example:
 
-       ```
+       ```json
        {
          "source": [
            "aws.access-analyzer"
@@ -355,7 +354,7 @@ The following procedure describes how to create an event rule using the console.
        ```
      + To create a rule based on an external access, internal access, or unused access findings event, use the following pattern example:
 
-       ```
+       ```json
        {
          "source": [
            "aws.access-analyzer"
@@ -369,7 +368,7 @@ The following procedure describes how to create an event rule using the console.
        ```
      + To create a rule based only on an external access findings event, use the following pattern example:
 
-       ```
+       ```json
        {
          "source": [
            "aws.access-analyzer"
@@ -381,7 +380,7 @@ The following procedure describes how to create an event rule using the console.
        ```
      + To create a rule based only on an internal access findings event, use the following pattern example:
 
-       ```
+       ```json
        {
          "source": [
            "aws.access-analyzer"
@@ -393,7 +392,7 @@ The following procedure describes how to create an event rule using the console.
        ```
      + To create a rule based only on an unused access findings event, use the following pattern example:
 
-       ```
+       ```json
        {
          "source": [
            "aws.access-analyzer"
@@ -405,7 +404,7 @@ The following procedure describes how to create an event rule using the console.
        ```
      + To create a rule based on an access preview event, use the following pattern example:
 
-       ```
+       ```json
        {
          "source": [
            "aws.access-analyzer"
@@ -424,30 +423,30 @@ The following procedure describes how to create an event rule using the console.
 
 1. Use the following to create a rule for Amazon EventBridge using the AWS CLI. Replace the rule name {{TestRule}} with the name for your rule.
 
-   ```
+   ```json
    aws events put-rule --name {{TestRule}} --event-pattern "{\"source\":[\"aws.access-analyzer\"]}"
    ```
 
 1. You can customize the rule to trigger target actions only for a subset of generated findings, such as findings with specific attributes. The following example demonstrates how to create a rule that triggers a target action only for findings with a status of Active.
 
-   ```
+   ```json
    aws events put-rule --name {{TestRule}} --event-pattern "{\"source\":[\"aws.access-analyzer\"],\"detail-type\":[\"Access Analyzer Finding\"],\"detail\":{\"status\":[\"ACTIVE\"]}}"
    ```
 
    The following example demonstrates how to create a rule that triggers a target action only for access previews with a status from `Creating` to `Completed`.
 
-   ```
+   ```json
    aws events put-rule --name TestRule --event-pattern "{\"source\":[\"aws.access-analyzer\"],\"detail-type\":[\"Access Preview State Change\"],\"detail\":{\"status\":[\"COMPLETED\"]}}"
    ```
 
 1. To define a Lambda function as a target for the rule you created, use the following example command. Replace the Region and the function name in the ARN as appropriate for your environment.
 
-   ```
+   ```json
    aws events put-targets --rule {{TestRule}} --targets Id=1,Arn=arn:aws:lambda:{{us-east-1}}:{{111122223333}}:function:{{MyFunction}}
    ```
 
 1. Add the permissions required to invoke the rule target. The following example demonstrates how to grant permissions to a Lambda function, following the preceding examples.
 
-   ```
+   ```json
    aws lambda add-permission --function-name {{MyFunction}} --statement-id 1 --action 'lambda:InvokeFunction' --principal events.amazonaws.com
    ```

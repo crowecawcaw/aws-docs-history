@@ -1,7 +1,6 @@
 
 
 # Resources to learn more about IAM
-<a name="resources"></a>
 
 IAM is a rich product, and you'll find many resources to help you learn more about how IAM can help you secure your AWS account and resources. 
 

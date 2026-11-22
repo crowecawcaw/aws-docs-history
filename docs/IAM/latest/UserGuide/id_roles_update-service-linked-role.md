@@ -1,7 +1,6 @@
 
 
 # Update a service-linked role
-<a name="id_roles_update-service-linked-role"></a>
 
 The method that you use to edit a service-linked role depends on the service. Some services might allow you to edit the permissions for a service-linked role from the service console, API, or CLI. However, after you create a service-linked role, you cannot change the name of the role because various entities might reference the role. You can edit the description of any role from the IAM console, API, or CLI.
 

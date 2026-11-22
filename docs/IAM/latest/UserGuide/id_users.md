@@ -1,7 +1,6 @@
 
 
 # IAM users
-<a name="id_users"></a>
 
 **Important**  
  IAM [best practices](best-practices.md) recommend that you require human users to use federation with an identity provider to access AWS using temporary credentials instead of using IAM users with long-term credentials. We recommend that you only use IAM users for [specific use cases](gs-identities-iam-users.md) not supported by federated users.  

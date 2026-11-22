@@ -1,7 +1,6 @@
 
 
 # Manage AWS STS in an AWS Region
-<a name="id_credentials_temp_enable-regions"></a>
 
 A Regional endpoint is the URL of the entry point within a particular region for an AWS web service. AWS recommends using Regional AWS Security Token Service (AWS STS) endpoints instead of the global endpoint to reduce latency, build in redundancy, and increase session token validity.
 
@@ -51,7 +50,7 @@ For Regions that must be enabled, we activate AWS STS automatically when you ena
 
 After you activate a Region, you can direct AWS STS API calls to that Region. The following Java code snippet demonstrates how to configure an `AWSSecurityTokenService` object to make requests to the Europe (Milan) (eu-south-1) Region.
 
-```
+```java
 EndpointConfiguration regionEndpointConfig = new EndpointConfiguration("https://sts.eu-south-1.amazonaws.com", "eu-south-1");
 AWSSecurityTokenService stsRegionalClient = AWSSecurityTokenServiceClientBuilder.standard()
 .withCredentials(credentials)

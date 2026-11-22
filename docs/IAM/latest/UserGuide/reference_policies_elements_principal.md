@@ -1,7 +1,6 @@
 
 
 # AWS JSON policy elements: Principal
-<a name="reference_policies_elements_principal"></a>
 
 Use the `Principal` element in a resource-based JSON policy to specify the principal that is allowed or denied access to a resource. 
 
@@ -47,7 +46,7 @@ You cannot identify a user group as a principal in a policy (such as a resource-
 
 You can specify more than one principal for each of the principal types in following sections using an array. Arrays can take one or more values. When you specify more than one principal in an element, you grant permissions to each principal. This is a logical `OR` and not a logical `AND`, because you authenticate as one principal at a time. If you include more than one value, use square brackets (`[` and `]`) and comma-delimit each entry for the array. The following example policy defines permissions for the 123456789012 account or the 555555555555 account.
 
-```
+```json
 "Principal" : { 
 "AWS": [ 
   "123456789012",
@@ -66,11 +65,11 @@ You can specify AWS account identifiers in the `Principal` element of a resource
 
 For example, given an account ID of `123456789012`, you can use either of the following methods to specify that account in the `Principal` element:
 
-```
+```json
 "Principal": { "AWS": "arn:aws:iam::123456789012:root" }
 ```
 
-```
+```json
 "Principal": { "AWS": "123456789012" }
 ```
 
@@ -81,13 +80,13 @@ When you save a resource-based policy that includes the shortened account ID, th
 
 Some AWS services support additional options for specifying an account principal. For example, Amazon S3 lets you specify a [canonical user ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId) using the following format:
 
-```
+```json
 "Principal": { "CanonicalUser": "79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be" }
 ```
 
 You can also specify more than one AWS account, (or canonical user ID) as a principal using an array. For example, you can specify a principal in a bucket policy using all three methods.
 
-```
+```json
 "Principal": { 
   "AWS": [
     "arn:aws:iam::123456789012:root",
@@ -106,7 +105,7 @@ When you specify a role principal in a resource-based policy, the effective perm
 
 To specify the role ARN in the `Principal` element, use the following format:
 
-```
+```json
 "Principal": { "AWS": "arn:aws:iam::{{AWS-account-ID}}:role/{{role-name}}" }
 ```
 
@@ -129,7 +128,7 @@ AWS recommends using [IAM role principals](#principal-roles) in your policies in
 
 To specify the role session principal ARN in the `Principal` element, use the following format:
 
-```
+```json
 "Principal": { "AWS": "arn:aws:sts::{{AWS-account-ID}}:assumed-role/role-name/role-session-name" }
 ```
 
@@ -144,31 +143,31 @@ Users, workloads, or systems who’ve been issued a JWT from their OIDC IDP can 
 
 Use this principal type in your role trust policy to allow or deny permissions to call `AssumeRoleWIthWebIdentity` using an OIDC IDP that exists in your AWS account, or one of the four built in IDPs. To specify the OIDC federated principal ARN in the `Principal` element of a role trust policy, use one of the following four formats for the built in OIDC IDPs:
 
-```
+```json
 "Principal": { "Federated": "cognito-identity.amazonaws.com" }
 ```
 
-```
+```json
 "Principal": { "Federated": "www.amazon.com" }
 ```
 
-```
+```json
 "Principal": { "Federated": "graph.facebook.com" }
 ```
 
-```
+```json
 "Principal": { "Federated": "accounts.google.com" }
 ```
 
 When using a OIDC provider you add to your account, such as GitHub, you specify the provider's ARN in your role's trust policy. This configuration allows you to write IAM policies that control access specifically for users authenticated through your custom identity provider.
 
-```
+```json
 "Principal": { "Federated": "arn:aws:iam::{{AWS-account-ID}}:oidc-provider/{{full-OIDC-identity-provider-URL}}" }
 ```
 
 For example, if GitHub was the trusted web identity provider, the OIDC role session ARN in the `Principal` element of a role trust policy uses the following format:
 
-```
+```json
 "Principal": { "Federated": "arn:aws:iam::{{AWS-account-ID}}:oidc-provider/tokens.actions.githubusercontent.com" }
 ```
 
@@ -183,7 +182,7 @@ A *SAML federated principal* is a principal that is used when calling AWS STS `A
 
 Use this principal type in your role trust policy to allow or deny permissions based on the trusted SAML identity provider. To specify the SAML identity role session ARN in the `Principal` element of a role trust policy, use the following format:
 
-```
+```json
 "Principal": { "Federated": "arn:aws:iam::{{AWS-account-ID}}:saml-provider/{{provider-name}}" }
 ```
 
@@ -195,11 +194,11 @@ You can specify IAM users in the `Principal` element of a resource-based policy 
 **Note**  
 In a `Principal` element, the user name part of the [*Amazon Resource Name* (ARN)](reference_identifiers.md#identifiers-arns) is case sensitive.
 
-```
+```json
 "Principal": { "AWS": "arn:aws:iam::{{AWS-account-ID}}:user/{{user-name}}" }
 ```
 
-```
+```json
 "Principal": {
   "AWS": [
     "arn:aws:iam::{{AWS-account-ID}}:user/{{user-name-1}}", 
@@ -238,7 +237,7 @@ When an IAM user or root user requests temporary credentials from AWS STS using 
 
 To specify the federated user session ARN in the `Principal` element, use the following format:
 
-```
+```json
 "Principal": { "AWS": "arn:aws:sts::{{AWS-account-ID}}:federated-user/{{user-name}}" }
 ```
 
@@ -257,7 +256,7 @@ The service principal is defined by the service. You can find the service princi
 
 The following example shows a policy that can be attached to a service role. The policy enables two services, Amazon ECS and Elastic Load Balancing, to assume the role. The services can then perform any tasks granted by the permissions policy assigned to the role (not shown). To specify multiple service principals, you do not specify two `Service` elements; you can have only one. Instead, you use an array of multiple service principals as the value of a single `Service` element.
 
-```
+```json
 "Principal": {
     "Service": [
         "ecs.amazonaws.com",
@@ -283,13 +282,13 @@ For example, you have an Amazon SNS topic located in Region `ap-southeast-1` and
 
 If you specify the non-regionalized version of the S3 service principal, `s3.amazonaws.com`, in the topic access policy, the `sns:Publish` request from the bucket to the topic will fail. The following example specifies the non-regionalized S3 service principal in the `Principal` policy element of the SNS topic access policy.
 
-```
+```json
 "Principal": { "Service": "s3.amazonaws.com" }
 ```
 
 Since the bucket is located in an opt-in Region and the request is made outside of that same Region, the S3 service principal appears as the regionalized service principal name, `s3.ap-east-1.amazonaws.com`. You must use the regionalized service principal name when an AWS service in an opt-in Region makes a request to another Region. After you specify the regionalized service principal name, if the bucket makes an `sns:Publish` request to the SNS topic located in another Region, the request will be successful. The following example specifies the regionalized S3 service principal in the `Principal` policy element of the SNS topic access policy.
 
-```
+```json
 "Principal": { "Service": "s3.ap-east-1.amazonaws.com" }
 ```
 
@@ -310,11 +309,11 @@ For resource-based policies, using a wildcard (\*) with an `Allow` effect grants
 
 For anonymous users, the following elements are equivalent:
 
-```
+```json
 "Principal": "*"
 ```
 
-```
+```json
 "Principal" : { "AWS" : "*" }
 ```
 
@@ -327,7 +326,7 @@ The following example shows a resource-based policy that can be used instead of 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

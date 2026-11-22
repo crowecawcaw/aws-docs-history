@@ -1,7 +1,6 @@
 
 
 # Use `ListGroupsForUser` with a CLI
-<a name="iam_example_iam_ListGroupsForUser_section"></a>
 
 The following code examples show how to use `ListGroupsForUser`.
 
@@ -47,7 +46,7 @@ For more information, see [Managing IAM user groups](https://docs.aws.amazon.com
 **Tools for PowerShell V4**  
 **Example 1: This example returns the list of IAM groups that the IAM user `David` belongs to.**  
 
-```
+```powershell
 Get-IAMGroupForUser -UserName David
 ```
 **Output:**  
@@ -76,7 +75,7 @@ Path       : /
 **Tools for PowerShell V5**  
 **Example 1: This example returns the list of IAM groups that the IAM user `David` belongs to.**  
 
-```
+```powershell
 Get-IAMGroupForUser -UserName David
 ```
 **Output:**  

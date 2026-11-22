@@ -1,7 +1,6 @@
 
 
 # AWS: Denies access to AWS based on the requested Region
-<a name="reference_policies_examples_aws_deny-requested-region"></a>
 
 This example shows how you might create an identity-based policy that denies access to any actions outside the Regions specified using the [`aws:RequestedRegion` condition key](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requestedregion), except for actions in the services specified using `NotAction`. This policy defines permissions for programmatic and console access. To use this policy, replace the {{italicized placeholder text}} in the example policy with your own information. Then, follow the directions in [create a policy](access_policies_create.md) or [edit a policy](access_policies_manage-edit.md).
 
@@ -15,7 +14,7 @@ This policy does not allow any actions. Use this policy in combination with othe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

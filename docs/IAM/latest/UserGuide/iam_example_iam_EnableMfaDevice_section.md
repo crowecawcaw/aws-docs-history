@@ -1,7 +1,6 @@
 
 
 # Use `EnableMfaDevice` with a CLI
-<a name="iam_example_iam_EnableMfaDevice_section"></a>
 
 The following code examples show how to use `EnableMfaDevice`.
 
@@ -29,12 +28,12 @@ For more information, see [Enabling a virtual multi-factor authentication (MFA) 
 **Tools for PowerShell V4**  
 **Example 1: This command enables the hardware MFA device with the serial number `987654321098` and associates the device with the user `Bob`. It includes the first two codes in sequence from the device.**  
 
-```
+```powershell
 Enable-IAMMFADevice -UserName "Bob" -SerialNumber "987654321098" -AuthenticationCode1 "12345678" -AuthenticationCode2 "87654321"
 ```
 **Example 2: This example creates and enables a virtual MFA device. The first command creates the virtual device and returns the device's object representation in the variable `$MFADevice`. You can use the `.Base32StringSeed` or `QRCodePng` properties to configure the user's software application. The final command assigns the device to the user `David`, identifying the device by its serial number. The command also synchronizes the device with AWS by including the first two codes in sequence from the virtual MFA device.**  
 
-```
+```powershell
 $MFADevice = New-IAMVirtualMFADevice -VirtualMFADeviceName "MyMFADevice"
 # see example for New-IAMVirtualMFADevice to see how to configure the software program with PNG or base32 seed code
 Enable-IAMMFADevice -UserName "David" -SerialNumber -SerialNumber $MFADevice.SerialNumber -AuthenticationCode1 "24681357" -AuthenticationCode2 "13572468"
@@ -44,12 +43,12 @@ Enable-IAMMFADevice -UserName "David" -SerialNumber -SerialNumber $MFADevice.Ser
 **Tools for PowerShell V5**  
 **Example 1: This command enables the hardware MFA device with the serial number `987654321098` and associates the device with the user `Bob`. It includes the first two codes in sequence from the device.**  
 
-```
+```powershell
 Enable-IAMMFADevice -UserName "Bob" -SerialNumber "987654321098" -AuthenticationCode1 "12345678" -AuthenticationCode2 "87654321"
 ```
 **Example 2: This example creates and enables a virtual MFA device. The first command creates the virtual device and returns the device's object representation in the variable `$MFADevice`. You can use the `.Base32StringSeed` or `QRCodePng` properties to configure the user's software application. The final command assigns the device to the user `David`, identifying the device by its serial number. The command also synchronizes the device with AWS by including the first two codes in sequence from the virtual MFA device.**  
 
-```
+```powershell
 $MFADevice = New-IAMVirtualMFADevice -VirtualMFADeviceName "MyMFADevice"
 # see example for New-IAMVirtualMFADevice to see how to configure the software program with PNG or base32 seed code
 Enable-IAMMFADevice -UserName "David" -SerialNumber -SerialNumber $MFADevice.SerialNumber -AuthenticationCode1 "24681357" -AuthenticationCode2 "13572468"

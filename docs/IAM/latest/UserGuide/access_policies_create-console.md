@@ -1,7 +1,6 @@
 
 
 # Create IAM policies (console)
-<a name="access_policies_create-console"></a>
 
 A [policy](access_policies.md) is an entity that, when attached to an identity or resource, defines their permissions. You can use the AWS Management Console to create *customer managed policies* in IAM. Customer managed policies are standalone policies that you administer in your own AWS account. You can then attach the policies to identities (users, groups, and roles) in your AWS account.
 

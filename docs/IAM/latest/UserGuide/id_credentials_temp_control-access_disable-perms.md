@@ -1,7 +1,6 @@
 
 
 # Disabling permissions for temporary security credentials
-<a name="id_credentials_temp_control-access_disable-perms"></a>
 
 Temporary security credentials are valid until they expire. These credentials are valid for the specified duration, from 900 seconds (15 minutes) up to a maximum of 129,600 seconds (36 hours). The default session duration is 43,200 seconds (12 hours). You can revoke these credentials, but you must also change permissions for the IAM user or role to stop the use of compromised credentials for malicious account activity. Permissions assigned to temporary security credentials are evaluated each time they are used to make an AWS request. Once you remove all permissions from the credentials, AWS requests that use them fail.
 
@@ -58,7 +57,7 @@ These permissions are the same as those in the AWS managed policy [AWSDenyAll](h
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -121,7 +120,7 @@ You can use condition context key [aws:PrincipalArn](reference_policies_conditio
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -161,7 +160,7 @@ The following policy shows an example of how you can deny access to temporary se
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -202,7 +201,7 @@ The caller-specified role session name, which is part of the unique identifier f
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -241,7 +240,7 @@ When you use the `aws:PrincipalARN` context key, specify the ARN of the IAM user
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -271,7 +270,7 @@ When you use the `aws:SourceIdentity` context key, specify the source identity v
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

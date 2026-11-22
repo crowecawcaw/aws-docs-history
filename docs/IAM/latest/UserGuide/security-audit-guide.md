@@ -1,7 +1,6 @@
 
 
 # AWS security audit guidelines
-<a name="security-audit-guide"></a>
 
 Periodically audit your security configuration to make sure it meets your current business needs. An audit gives you an opportunity to remove unneeded IAM users, roles, groups, and policies, and to make sure that your users and software don't have excessive permissions. 
 

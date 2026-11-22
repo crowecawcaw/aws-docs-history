@@ -1,7 +1,6 @@
 
 
 # Use `UpdateLoginProfile` with a CLI
-<a name="iam_example_iam_UpdateLoginProfile_section"></a>
 
 The following code examples show how to use `UpdateLoginProfile`.
 
@@ -30,7 +29,7 @@ For more information, see [Managing passwords for IAM users](https://docs.aws.am
 **Tools for PowerShell V4**  
 **Example 1: This example sets a new temporary password for the IAM user `Bob`, and requires the user to change the password the next time the user signs in.**  
 
-```
+```powershell
 Update-IAMLoginProfile -UserName Bob -Password "P@ssw0rd1234" -PasswordResetRequired $true
 ```
 +  For API details, see [UpdateLoginProfile](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -38,7 +37,7 @@ Update-IAMLoginProfile -UserName Bob -Password "P@ssw0rd1234" -PasswordResetRequ
 **Tools for PowerShell V5**  
 **Example 1: This example sets a new temporary password for the IAM user `Bob`, and requires the user to change the password the next time the user signs in.**  
 
-```
+```powershell
 Update-IAMLoginProfile -UserName Bob -Password "P@ssw0rd1234" -PasswordResetRequired $true
 ```
 +  For API details, see [UpdateLoginProfile](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

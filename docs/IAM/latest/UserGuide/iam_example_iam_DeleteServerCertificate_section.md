@@ -1,7 +1,6 @@
 
 
 # Use `DeleteServerCertificate` with an AWS SDK or CLI
-<a name="iam_example_iam_DeleteServerCertificate_section"></a>
 
 The following code examples show how to use `DeleteServerCertificate`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `DeleteServerCertificate`.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
-```
+```cpp
 bool AwsDoc::IAM::deleteServerCertificate(const Aws::String &certificateName,
                                           const Aws::Client::ClientConfiguration &clientConfig) {
     Aws::IAM::IAMClient iam(clientConfig);
@@ -64,7 +63,7 @@ For more information, see [Managing server certificates in IAM](https://docs.aws
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 Delete a server certificate.  
 
-```
+```javascript
 import { DeleteServerCertificateCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -87,7 +86,7 @@ export const deleteServerCertificate = (certName) => {
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -116,7 +115,7 @@ iam.deleteServerCertificate(
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the server certificate named `MyServerCert`.**  
 
-```
+```powershell
 Remove-IAMServerCertificate -ServerCertificateName MyServerCert
 ```
 +  For API details, see [DeleteServerCertificate](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -124,7 +123,7 @@ Remove-IAMServerCertificate -ServerCertificateName MyServerCert
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the server certificate named `MyServerCert`.**  
 
-```
+```powershell
 Remove-IAMServerCertificate -ServerCertificateName MyServerCert
 ```
 +  For API details, see [DeleteServerCertificate](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -136,7 +135,7 @@ Remove-IAMServerCertificate -ServerCertificateName MyServerCert
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 List, update, and delete server certificates.  
 
-```
+```ruby
 class ServerCertificateManager
   def initialize(iam_client, logger: Logger.new($stdout))
     @iam_client = iam_client

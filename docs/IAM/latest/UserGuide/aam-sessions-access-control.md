@@ -1,7 +1,6 @@
 
 
 # Sessions and access control
-<a name="aam-sessions-access-control"></a>
 
 ## Understanding sessions
 <a name="aam-understanding-sessions"></a>

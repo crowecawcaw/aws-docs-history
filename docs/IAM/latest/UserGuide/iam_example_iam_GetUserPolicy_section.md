@@ -1,7 +1,6 @@
 
 
 # Use `GetUserPolicy` with a CLI
-<a name="iam_example_iam_GetUserPolicy_section"></a>
 
 The following code examples show how to use `GetUserPolicy`.
 
@@ -45,7 +44,7 @@ For more information, see [Policies and permissions in IAM](https://docs.aws.ama
 **Tools for PowerShell V4**  
 **Example 1: This example retrieves the details of the inline policy named `Davids_IAM_Admin_Policy` that is embedded in the IAM user named `David`. The policy document is URL encoded.**  
 
-```
+```powershell
 $results = Get-IAMUserPolicy -PolicyName Davids_IAM_Admin_Policy -UserName David
 $results
 ```
@@ -79,7 +78,7 @@ PolicyDocument                                            PolicyName            
 **Tools for PowerShell V5**  
 **Example 1: This example retrieves the details of the inline policy named `Davids_IAM_Admin_Policy` that is embedded in the IAM user named `David`. The policy document is URL encoded.**  
 
-```
+```powershell
 $results = Get-IAMUserPolicy -PolicyName Davids_IAM_Admin_Policy -UserName David
 $results
 ```

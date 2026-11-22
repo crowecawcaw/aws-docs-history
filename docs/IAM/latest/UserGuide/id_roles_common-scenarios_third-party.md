@@ -1,7 +1,6 @@
 
 
 # Access to AWS accounts owned by third parties
-<a name="id_roles_common-scenarios_third-party"></a>
 
 When third parties require access to your organization's AWS resources, you can use roles to delegate access to them. For example, a third party might provide a service for managing your AWS resources. With IAM roles, you can grant these third parties access to your AWS resources without sharing your AWS security credentials. Instead, the third party can access your AWS resources by assuming a role that you create in your AWS account. To learn whether principals in accounts outside of your zone of trust (trusted organization or account) have access to assume your roles, see [What is IAM Access Analyzer?](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
 
@@ -54,7 +53,7 @@ Example Corp can use any string value they want for the ExternalId, as long as i
 
 1. You sign in to AWS and create an IAM role that gives Example Corp access to your resources. Like any IAM role, the role has two policies, a permission policy and a trust policy. The role's trust policy specifies who can assume the role. In our sample scenario, the policy specifies the AWS account number of Example Corp as the `Principal`. This allows identities from that account to assume the role. In addition, you add a `[Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#Condition)` element to the trust policy. This `Condition` tests the `ExternalId` context key to ensure that it matches the unique customer ID from Example Corp. For example:
 
-   ```
+   ```json
        "Principal": {"AWS": "{{Example Corp's AWS account ID}}"},
        "Condition": {"StringEquals": {"sts:ExternalId": "{{Unique ID Assigned by Example Corp}}"}}
    ```

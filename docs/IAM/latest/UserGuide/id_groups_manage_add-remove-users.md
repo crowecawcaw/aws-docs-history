@@ -1,7 +1,6 @@
 
 
 # Edit users in IAM groups
-<a name="id_groups_manage_add-remove-users"></a>
 
 Use IAM groups to apply the same permissions policies across multiple users at once. You can then add users to or remove users from an IAM group. This is useful as people enter and leave your organization.
 

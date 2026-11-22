@@ -1,7 +1,6 @@
 
 
 # Dual-stack endpoint support
-<a name="reference_dual-stack_endpoint_support"></a>
 
 Dual-stack endpoints enable clients to communicate with AWS services using either IPv4 or IPv6 addresses. Both IAM and AWS STS provide dual-stack endpoint support. For more information about how to configure your VPC for dual-stack mode, see [IPv6 support for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-migrate-ipv6.html) in the *Amazon VPC User Guide*.
 

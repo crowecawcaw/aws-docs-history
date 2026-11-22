@@ -1,7 +1,6 @@
 
 
 # IAM JSON policy elements: NotResource
-<a name="reference_policies_elements_notresource"></a>
 
 `NotResource` is an advanced policy element that explicitly matches every resource except those specified. Using `NotResource` can result in a shorter policy by listing only a few resources that should not match, rather than including a long list of resources that will match. This is particularly useful for policies that apply within a single AWS service. 
 
@@ -12,7 +11,7 @@ For example, imagine you have a group named `HRPayroll`. Members of `HRPayroll` 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

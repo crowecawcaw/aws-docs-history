@@ -1,7 +1,6 @@
 
 
 # Business use cases for IAM
-<a name="business-use-cases"></a>
 
 A simple business use case for IAM can help you understand basic ways you might implement the service to control the AWS access that your users have. The use case is described in general terms, without the mechanics of how you'd use the IAM API to achieve the results you want. 
 

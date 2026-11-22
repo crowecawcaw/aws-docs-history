@@ -1,7 +1,6 @@
 
 
 # Use `GetSessionToken` with an AWS SDK or CLI
-<a name="sts_example_sts_GetSessionToken_section"></a>
 
 The following code examples show how to use `GetSessionToken`.
 
@@ -42,7 +41,7 @@ For more information, see [Requesting Temporary Security Credentials](https://do
 **Tools for PowerShell V4**  
 **Example 1: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for a set period of time. The credentials used to request temporary credentials are inferred from the current shell defaults. To specify other credentials, use the -ProfileName or -AccessKey/-SecretKey parameters.**  
 
-```
+```powershell
 Get-STSSessionToken
 ```
 **Output:**  
@@ -54,7 +53,7 @@ EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    
 ```
 **Example 2: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for one hour. The credentials used to make the request are obtained from the specified profile.**  
 
-```
+```powershell
 Get-STSSessionToken -DurationInSeconds 3600 -ProfileName myprofile
 ```
 **Output:**  
@@ -66,7 +65,7 @@ EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    
 ```
 **Example 3: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for one hour using the identification number of the MFA device associated with the account whose credentials are specified in the profile 'myprofilename' and the value provided by the device.**  
 
-```
+```powershell
 Get-STSSessionToken -DurationInSeconds 3600 -ProfileName myprofile -SerialNumber YourMFADeviceSerialNumber -TokenCode 123456
 ```
 **Output:**  
@@ -81,7 +80,7 @@ EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    
 **Tools for PowerShell V5**  
 **Example 1: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for a set period of time. The credentials used to request temporary credentials are inferred from the current shell defaults. To specify other credentials, use the -ProfileName or -AccessKey/-SecretKey parameters.**  
 
-```
+```powershell
 Get-STSSessionToken
 ```
 **Output:**  
@@ -93,7 +92,7 @@ EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    
 ```
 **Example 2: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for one hour. The credentials used to make the request are obtained from the specified profile.**  
 
-```
+```powershell
 Get-STSSessionToken -DurationInSeconds 3600 -ProfileName myprofile
 ```
 **Output:**  
@@ -105,7 +104,7 @@ EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    
 ```
 **Example 3: Returns an `Amazon.RuntimeAWSCredentials` instance containing temporary credentials valid for one hour using the identification number of the MFA device associated with the account whose credentials are specified in the profile 'myprofilename' and the value provided by the device.**  
 
-```
+```powershell
 Get-STSSessionToken -DurationInSeconds 3600 -ProfileName myprofile -SerialNumber YourMFADeviceSerialNumber -TokenCode 123456
 ```
 **Output:**  
@@ -124,7 +123,7 @@ EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples). 
 Get a session token by passing an MFA token and use it to list Amazon S3 buckets for the account.  
 
-```
+```python
 def list_buckets_with_session_token_with_mfa(mfa_serial_number, mfa_totp, sts_client):
     """
     Gets a session token with MFA credentials and uses the temporary session

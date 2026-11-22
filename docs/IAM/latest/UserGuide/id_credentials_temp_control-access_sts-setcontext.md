@@ -1,7 +1,6 @@
 
 
 # Granting permissions to use identity-enhanced console sessions
-<a name="id_credentials_temp_control-access_sts-setcontext"></a>
 
 Identity-enhanced console sessions enables AWS IAM Identity Center user and session IDs to be included in users' AWS console sessions when they sign in. For example, Amazon Q Developer Pro uses identity-enhanced console sessions to personalize the service experience. For more information about identity-enhanced console sessions, see [Enabling identity-enhanced console sessions](https://docs.aws.amazon.com/singlesignon/latest/userguide/identity-enhanced-sessions.html) in the *AWS IAM Identity Center User Guide*. For information about Amazon Q Developer setup, see [Setting up Amazon Q Developer](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/setting-up.html) in the *Amazon Q Developer User Guide*.
 
@@ -17,7 +16,7 @@ The following example identity-based policy grants the `sts:SetContext` permissi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Create a role using custom trust policies
-<a name="id_roles_create_for-custom"></a>
 
 You can create a custom trust policy to delegate access and allow others to perform actions in your AWS account. For more information, see [Creating IAM policies](access_policies_create-console.md#access_policies_create-start).
 

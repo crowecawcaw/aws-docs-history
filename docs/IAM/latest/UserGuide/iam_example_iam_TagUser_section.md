@@ -1,7 +1,6 @@
 
 
 # Use `TagUser` with a CLI
-<a name="iam_example_iam_TagUser_section"></a>
 
 The following code examples show how to use `TagUser`.
 
@@ -27,7 +26,7 @@ For more information, see [Tagging IAM resources](https://docs.aws.amazon.com/IA
 **Tools for PowerShell V4**  
 **Example 1: This example adds tag to User in Identity Management Service**  
 
-```
+```powershell
 Add-IAMUserTag -UserName joe -Tag @{ Key = 'abac'; Value = 'testing'}
 ```
 +  For API details, see [TagUser](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -35,7 +34,7 @@ Add-IAMUserTag -UserName joe -Tag @{ Key = 'abac'; Value = 'testing'}
 **Tools for PowerShell V5**  
 **Example 1: This example adds tag to User in Identity Management Service**  
 
-```
+```powershell
 Add-IAMUserTag -UserName joe -Tag @{ Key = 'abac'; Value = 'testing'}
 ```
 +  For API details, see [TagUser](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

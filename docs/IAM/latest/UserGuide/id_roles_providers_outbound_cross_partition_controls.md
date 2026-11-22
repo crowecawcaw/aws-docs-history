@@ -1,7 +1,6 @@
 
 
 # Controls for cross-partition identity federation
-<a name="id_roles_providers_outbound_cross_partition_controls"></a>
 
 Cross-partition identity federation involves three access decisions: who can request a token in the source account, which JWTs can be used to assume a role in the destination account, and what the resulting role session can access. [IAM](access_policies.md) and [AWS Organizations policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html) govern these decisions. This page explains where each policy applies and provides examples for controlling access at each stage.
 
@@ -37,7 +36,7 @@ After role assumption, [identity-based policies](access_policies.md#policies_id-
 
 The destination role's trust policy allows the specified source role to assume it when the token has the expected audience and was issued in `us-east-1`. The source partition is `aws` and the destination partition is `aws-cn`. Replace the issuer host in the provider ARN and condition keys with your source account's issuer host, and replace `your-audience` with the audience configured for your destination OIDC provider. Replace `us-east-1` with the source AWS Region you want to allow.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -68,7 +67,7 @@ The [aws:FederatedProvider](reference_policies_condition-keys.md#condition-keys-
 
 The following RCP enforces an allowlist of approved source issuers for cross-partition role assumption. The `StringLike` condition scopes the deny to OIDC provider ARNs that match the AWS STS issuer pattern. Replace the example issuer host with your approved source issuer host.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -107,7 +106,7 @@ To include all issuers from an approved source partition, match the issuer host 
 
 The following RCP enforces an allowlist of approved source partitions for cross-partition role assumption. This example includes the `aws` partition in the allowlist. The `StringLike` condition scopes the deny to OIDC provider ARNs that match the AWS STS issuer pattern. The wildcard before the issuer host suffix matches every account's issuer in the approved partition. Add an ARN pattern for each approved source partition.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -141,7 +140,7 @@ The following examples use an SCP to block requests by source issuer and an RCP 
 
 This SCP denies requests from destination role sessions that federated through the specified source issuer. It applies to destination roles in member accounts covered by the SCP. The example uses destination accounts in the `aws-cn` partition. Replace the example issuer host with the source issuer host you want to block.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -164,7 +163,7 @@ This SCP denies requests from destination role sessions that federated through t
 
 This RCP denies access to Amazon S3 resources in your AWS organization's member accounts covered by the policy when a request uses a cross-partition federated session whose source token was issued in `us-east-1`. Replace `us-east-1` with the source AWS Region you want to block. Both SCPs and RCPs support the `aws:FederatedProvider` and `aws:CrossPartitionSourceRegion` condition keys.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

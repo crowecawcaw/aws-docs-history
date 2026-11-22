@@ -1,7 +1,6 @@
 
 
 # Use `RemoveUserFromGroup` with a CLI
-<a name="iam_example_iam_RemoveUserFromGroup_section"></a>
 
 The following code examples show how to use `RemoveUserFromGroup`.
 
@@ -27,18 +26,18 @@ For more information, see [Adding and removing users in an IAM user group](https
 **Tools for PowerShell V4**  
 **Example 1: This example removes the IAM user `Bob` from the group `Testers`. **  
 
-```
+```powershell
 Remove-IAMUserFromGroup -GroupName Testers -UserName Bob
 ```
 **Example 2: This example finds any groups of which IAM user `Theresa` is a member, and then removes `Theresa` from those groups.**  
 
-```
+```powershell
 $groups = Get-IAMGroupForUser -UserName Theresa 
 foreach ($group in $groups) { Remove-IAMUserFromGroup -GroupName $group.GroupName -UserName Theresa -Force }
 ```
 **Example 3: This example shows an alternate way of removing the IAM user `Bob` from the `Testers` group.**  
 
-```
+```powershell
 Get-IAMGroupForUser -UserName Bob | Remove-IAMUserFromGroup -UserName Bob -GroupName Testers -Force
 ```
 +  For API details, see [RemoveUserFromGroup](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -46,18 +45,18 @@ Get-IAMGroupForUser -UserName Bob | Remove-IAMUserFromGroup -UserName Bob -Group
 **Tools for PowerShell V5**  
 **Example 1: This example removes the IAM user `Bob` from the group `Testers`. **  
 
-```
+```powershell
 Remove-IAMUserFromGroup -GroupName Testers -UserName Bob
 ```
 **Example 2: This example finds any groups of which IAM user `Theresa` is a member, and then removes `Theresa` from those groups.**  
 
-```
+```powershell
 $groups = Get-IAMGroupForUser -UserName Theresa 
 foreach ($group in $groups) { Remove-IAMUserFromGroup -GroupName $group.GroupName -UserName Theresa -Force }
 ```
 **Example 3: This example shows an alternate way of removing the IAM user `Bob` from the `Testers` group.**  
 
-```
+```powershell
 Get-IAMGroupForUser -UserName Bob | Remove-IAMUserFromGroup -UserName Bob -GroupName Testers -Force
 ```
 +  For API details, see [RemoveUserFromGroup](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

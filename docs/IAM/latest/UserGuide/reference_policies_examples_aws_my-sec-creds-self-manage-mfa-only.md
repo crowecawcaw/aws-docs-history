@@ -1,7 +1,6 @@
 
 
 # AWS: Allows MFA-authenticated IAM users to manage their own MFA device on the Security credentials page
-<a name="reference_policies_examples_aws_my-sec-creds-self-manage-mfa-only"></a>
 
 This example shows how you might create an identity-based policy that allows IAM users that are authenticated through [multi-factor authentication (MFA)](id_credentials_mfa.md) to manage their own MFA device on the **Security credentials** page. This AWS Management Console page displays account and user information, but the user can only view and edit their own MFA device. To allow users to manage all of their own credentials with MFA, see [AWS: Allows MFA-authenticated IAM users to manage their own credentials on the Security credentials page](reference_policies_examples_aws_my-sec-creds-self-manage.md).
 
@@ -30,7 +29,7 @@ Do not add permission to delete an MFA device without MFA authentication. Users 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Create IAM policies (AWS API)
-<a name="access_policies_create-api"></a>
 
 A [policy](access_policies.md) is an entity that, when attached to an identity or resource, defines their permissions. You can use the AWS API to create *customer managed policies* in IAM. Customer managed policies are standalone policies that you administer in your own AWS account. As a [best practice](best-practices.md), we recommend that you use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions. By [validating your policies](access_policies_policy-validator.md) you can address any errors or recommendations before you attach the policies to identities (users, groups, and roles) in your AWS account.
 

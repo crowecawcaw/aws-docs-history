@@ -1,7 +1,6 @@
 
 
 # IAM tutorial: Define permissions to access AWS resources based on tags
-<a name="tutorial_attribute-based-access-control"></a>
 
 Attribute-based access control (ABAC) is an authorization strategy that defines permissions based on attributes. In AWS, these attributes are called *tags*. You can attach tags to IAM resources, including IAM entities (users or roles) and to AWS resources. You can define policies that use tag condition keys to grant permissions to your principals based on their tags. When you use tags to control access to your AWS resources, you allow your teams and resources to grow with fewer changes to AWS policies. ABAC policies are more flexible than traditional AWS policies, which require you to list each individual resource. For more information about ABAC and its advantage over traditional policies, see [Define permissions based on attributes with ABAC authorization](introduction_attribute-based-access-control.md).
 
@@ -81,7 +80,7 @@ The following policy allows a user to assume any role in your account with the `
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -144,7 +143,7 @@ The following policy allows principals to create, read, edit, and delete resourc
 
 ****  
 
-```
+```json
 {
  "Version":"2012-10-17",		 	 	 
  "Statement": [
@@ -408,7 +407,7 @@ This policy allows Saanvi to assume the engineering roles for the **Pegasus** an
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

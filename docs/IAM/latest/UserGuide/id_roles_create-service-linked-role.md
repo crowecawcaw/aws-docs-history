@@ -1,7 +1,6 @@
 
 
 # Create a service-linked role
-<a name="id_roles_create-service-linked-role"></a>
 
 A service-linked role is a unique type of IAM role that is linked directly to an AWS service. Service-linked roles are predefined by the service and include all the permissions that the service requires to call other AWS services on your behalf. The linked service also defines how you create, modify, and delete a service-linked role. A service might automatically create or delete the role. It might allow you to create, modify, or delete the role as part of a wizard or process in the service. Or it might require that you use IAM to create or delete the role. Regardless of the method, service-linked roles simplify the process of setting up a service because you don't have to manually add permissions for the service to complete actions on your behalf.
 
@@ -32,7 +31,7 @@ Add the following policy to the IAM entity that needs to create the service-link
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -60,7 +59,7 @@ Add the following policy to the IAM entity that needs to create the service-link
 
 Add the following statement to the permissions policy for the IAM entity that needs to create a service-linked role, or any service role that includes the needed policies. This policy statement does not allow the IAM entity to attach a policy to the role.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "iam:CreateServiceLinkedRole",
@@ -72,7 +71,7 @@ Add the following statement to the permissions policy for the IAM entity that ne
 
 Add the following statement to the permissions policy for the IAM entity that needs to edit the description of a service-linked role, or any service role.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "iam:UpdateRoleDescription",
@@ -84,7 +83,7 @@ Add the following statement to the permissions policy for the IAM entity that ne
 
 Add the following statement to the permissions policy for the IAM entity that needs to delete the service-linked role.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -99,7 +98,7 @@ Add the following statement to the permissions policy for the IAM entity that ne
 
 Add the following statement to the permissions policy for the IAM entity that needs to delete a service-linked role, but not service role.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -114,7 +113,7 @@ Add the following statement to the permissions policy for the IAM entity that ne
 
 Some AWS services allow you to pass an existing role to the service, instead of creating a new service-linked role. To do this, a user must have permissions to *pass the role* to the service. Add the following statement to the permissions policy for the IAM entity that needs to pass a role. This policy statement also allows the entity to view a list of roles from which they can choose the role to pass. For more information, see [Grant a user permissions to pass a role to an AWS service](id_roles_use_passrole.md).
 
-```
+```json
 {
   "Sid": "PolicyStatementToAllowUserToListRoles",
   "Effect": "Allow",

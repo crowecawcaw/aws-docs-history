@@ -1,7 +1,6 @@
 
 
 # IAM JSON policy elements: Resource
-<a name="reference_policies_elements_resource"></a>
 
 The `Resource` element in an IAM policy statement defines the object or objects that the statement applies to. Statements must include either a `Resource` or a `NotResource` element.
 
@@ -12,7 +11,7 @@ Some AWS services do not allow you to specify actions for individual resources. 
 
 The following example refers to a specific Amazon SQS queue.
 
-```
+```json
 "Resource": "arn:aws:sqs:us-east-2:{{account-ID-without-hyphens}}:queue1"
 ```
 
@@ -21,7 +20,7 @@ The following example refers to the IAM user named `Bob` in an AWS account.
 **Note**  
 In the `Resource` element, the IAM user name is case sensitive.
 
-```
+```json
 "Resource": "arn:aws:iam::{{account-ID-without-hyphens}}:user/Bob"
 ```
 
@@ -39,19 +38,19 @@ You can't use a wildcard in the service segment that identifies the AWS product.
 
 The following example refers to all IAM users whose path is `/accounting`. 
 
-```
+```json
 "Resource": "arn:aws:iam::{{account-ID-without-hyphens}}:user/accounting/*"
 ```
 
 The following example refers to all items within a specific Amazon S3 bucket.
 
-```
+```json
 "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/*"
 ```
 
 The asterisk (`*`) character can expand to replace everything within a segment, including characters like a forward slash (`/`) that may otherwise appear to be a delimiter within a given service namespace. For example, consider the following Amazon S3 ARN as the same wildcard expansion logic applies to all services.
 
-```
+```json
 "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/*/test/*"
 ```
 
@@ -81,7 +80,7 @@ amzn-s3-demo-bucket/1/2/test.jpg
 
 You can specify multiple resources in the `Resource` element by using an array of ARNs. The following example refers to two DynamoDB tables.
 
-```
+```json
 "Resource": [
     "arn:aws:dynamodb:us-east-2:{{account-ID-without-hyphens}}:table/books_table",
     "arn:aws:dynamodb:us-east-2:{{account-ID-without-hyphens}}:table/magazines_table"
@@ -98,7 +97,7 @@ In the `Resource` element, you can use JSON [policy variables](reference_policie
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {

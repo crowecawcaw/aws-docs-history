@@ -1,7 +1,6 @@
 
 
 # Permissions for GetFederationToken
-<a name="id_credentials_temp_control-access_getfederationtoken"></a>
 
 The `GetFederationToken` operation is called by an IAM user and returns temporary credentials for that user. This operation *federates* the user. The permissions assigned to an AWS STS federated user session are defined in one of two places: 
 + The session policies passed as a parameter of the `GetFederationToken` API call. (This is most common.)
@@ -31,7 +30,7 @@ Your authentication server calls the `GetFederationToken` API with the long-term
 **Example policy attached to IAM user `token-app` that calls `GetFederationToken`**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -78,7 +77,7 @@ The AWS STS federated user could not perform actions in Amazon SNS, Amazon SQS, 
 **Example session policy passed as parameter of `GetFederationToken` API call**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -112,7 +111,7 @@ Remember, an AWS STS federated user is granted permissions only when those permi
 **Example bucket policy that allows access to federated user**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {

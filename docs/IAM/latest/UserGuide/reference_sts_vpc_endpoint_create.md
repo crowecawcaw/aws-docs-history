@@ -1,7 +1,6 @@
 
 
 # Create a VPC endpoint for AWS STS
-<a name="reference_sts_vpc_endpoint_create"></a>
 
 To start using AWS STS with your VPC, create an interface VPC endpoint for AWS STS. For more information, see [Access an AWS service using an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the *Amazon VPC User Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # Logging IAM Access Analyzer API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 IAM Access Analyzer is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in IAM Access Analyzer. CloudTrail captures all API calls for IAM Access Analyzer as events. The calls captured include calls from the IAM Access Analyzer console and code calls to the IAM Access Analyzer API operations. 
 
@@ -38,7 +37,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateAnalyzer` operation made by an assumed-role session named `Alice-tempcreds` on "June 14, 2021". The role session was issued by the role named `admin-tempcreds`.
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity":   {

@@ -1,7 +1,6 @@
 
 
 # Use `GetFederationToken` with a CLI
-<a name="sts_example_sts_GetFederationToken_section"></a>
 
 The following code examples show how to use `GetFederationToken`.
 
@@ -78,7 +77,7 @@ For more information, see [Requesting Temporary Security Credentials](https://do
 **Tools for PowerShell V4**  
 **Example 1: Requests a federated token valid for one hour using "Bob" as the name of the federated user. This name can be used to reference the federated user name in a resource-based policy (such as an Amazon S3 bucket policy). The supplied IAM policy, in JSON format, is used to scope down the permissions that are available to the IAM user. The supplied policy cannot grant more permissions than those granted to the requesting user, with the final permissions for the federated user being the most restrictive set based on the intersection of the passed policy and the IAM user policy.**  
 
-```
+```powershell
 Get-STSFederationToken -Name "Bob" -Policy "...JSON policy..." -DurationInSeconds 3600
 ```
 +  For API details, see [GetFederationToken](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -86,7 +85,7 @@ Get-STSFederationToken -Name "Bob" -Policy "...JSON policy..." -DurationInSecond
 **Tools for PowerShell V5**  
 **Example 1: Requests a federated token valid for one hour using "Bob" as the name of the federated user. This name can be used to reference the federated user name in a resource-based policy (such as an Amazon S3 bucket policy). The supplied IAM policy, in JSON format, is used to scope down the permissions that are available to the IAM user. The supplied policy cannot grant more permissions than those granted to the requesting user, with the final permissions for the federated user being the most restrictive set based on the intersection of the passed policy and the IAM user policy.**  
 
-```
+```powershell
 Get-STSFederationToken -Name "Bob" -Policy "...JSON policy..." -DurationInSeconds 3600
 ```
 +  For API details, see [GetFederationToken](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # Use `AddRoleToInstanceProfile` with a CLI
-<a name="iam_example_iam_AddRoleToInstanceProfile_section"></a>
 
 The following code examples show how to use `AddRoleToInstanceProfile`.
 
@@ -33,7 +32,7 @@ For more information, see [Using an IAM role to grant permissions to application
 **Tools for PowerShell V4**  
 **Example 1: This command adds the role named `S3Access` to an existing instance profile named `webserver`. To create the instance profile, use the `New-IAMInstanceProfile` command. After you create the instance profile and associate it with a role using this command, you can attach it to an EC2 instance. To do that, use the `New-EC2Instance` cmdlet with either the `InstanceProfile_Arn` or the `InstanceProfile-Name` parameter to launch the new instance.**  
 
-```
+```powershell
 Add-IAMRoleToInstanceProfile -RoleName "S3Access" -InstanceProfileName "webserver"
 ```
 +  For API details, see [AddRoleToInstanceProfile](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -41,7 +40,7 @@ Add-IAMRoleToInstanceProfile -RoleName "S3Access" -InstanceProfileName "webserve
 **Tools for PowerShell V5**  
 **Example 1: This command adds the role named `S3Access` to an existing instance profile named `webserver`. To create the instance profile, use the `New-IAMInstanceProfile` command. After you create the instance profile and associate it with a role using this command, you can attach it to an EC2 instance. To do that, use the `New-EC2Instance` cmdlet with either the `InstanceProfile_Arn` or the `InstanceProfile-Name` parameter to launch the new instance.**  
 
-```
+```powershell
 Add-IAMRoleToInstanceProfile -RoleName "S3Access" -InstanceProfileName "webserver"
 ```
 +  For API details, see [AddRoleToInstanceProfile](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

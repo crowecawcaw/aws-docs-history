@@ -1,7 +1,6 @@
 
 
 # Programmatic access with AWS security credentials
-<a name="security-creds-programmatic-access"></a>
 
 We recommend using short-term access keys when possible to make programmatic calls to AWS or to use the AWS Command Line Interface or AWS Tools for PowerShell. However, you can also use long-term AWS access keys for these purposes.
 

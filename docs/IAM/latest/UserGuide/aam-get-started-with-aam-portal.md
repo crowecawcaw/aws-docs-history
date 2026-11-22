@@ -1,7 +1,6 @@
 
 
 # Getting started with the account access portal
-<a name="aam-get-started-with-aam-portal"></a>
 
 ## Finding the account access portal URL
 <a name="aam-find-aam-portal-url"></a>
@@ -10,13 +9,13 @@ To find the account access portal URL, choose the **Settings** tab in the accoun
 
 If you use the AWS CLI, you can find the tenant ID by running the following CLI command in your organization's management or delegated administrator account.
 
-```
+```bash
 aws account-access list-applications
 ```
 
 The response contains information about account access manager including the application ARN and the tenant ID. Use the tenant ID and the Region code of account access manager to construct the application URL. Follow the pattern provided earlier in this section.
 
-```
+```json
 {
     "applications": [
         {

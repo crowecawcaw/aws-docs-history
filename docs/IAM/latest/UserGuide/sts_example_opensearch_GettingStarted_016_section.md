@@ -1,7 +1,6 @@
 
 
 # Getting started with search and analytics engines
-<a name="sts_example_opensearch_GettingStarted_016_section"></a>
 
 The following code example shows how to:
 + Create an OpenSearch Service domain
@@ -14,7 +13,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/016-opensearch-service-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # Amazon OpenSearch Service Getting Started Script - Version 8 Fixed

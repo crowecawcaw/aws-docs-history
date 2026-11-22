@@ -1,7 +1,6 @@
 
 
 # Create a role to give permissions to an IAM user
-<a name="id_roles_create_for-user"></a>
 
 You can use IAM roles to provide access to your AWS resources. With IAM roles, you can establish trust relationships between your *trusting* account and other AWS *trusted* accounts. The trusting account owns the resource to be accessed and the trusted account contains the users who need access to the resource. However, it is possible for another account to own a resource in your account. For example, the trusting account might allow the trusted account to create new resources, such as creating new objects in an Amazon S3 bucket. In that case, the account that creates the resource owns the resource and controls who can access that resource.
 
@@ -110,7 +109,7 @@ In this example, include the following trust policy in the first command when yo
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -136,7 +135,7 @@ When you use the second command, you must attach an existing managed policy to t
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

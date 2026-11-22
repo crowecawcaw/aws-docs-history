@@ -1,7 +1,6 @@
 
 
 # Example scenarios for using last accessed information
-<a name="access_policies_last-accessed-example-scenarios"></a>
 
 You can use last accessed information to make decisions about the permissions that you grant to your IAM entities or AWS Organizations entities. For more information, see [Refine permissions in AWS using last accessed information](access_policies_last-accessed.md). 
 
@@ -27,7 +26,7 @@ Paulo's power users might need `iam:CreateServiceLinkedRole` permissions to use 
 
 ****  
 
-```
+```json
 {
 
     "Version":"2012-10-17",		 	 	 
@@ -69,7 +68,7 @@ Paulo's power users might need `iam:CreateServiceLinkedRole` permissions to use 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -146,25 +145,25 @@ For example, Arnav Desai is a developer and AWS administrator for Example Corp. 
 
 To do this, Arnav first lists the customer managed permissions policies in his account that are attached to an identity, using the following command:
 
-```
+```bash
 aws iam list-policies --scope Local --only-attached --policy-usage-filter PermissionsPolicy
 ```
 
 From the response, he captures the ARN for each policy. Arnav then generates a report for last accessed information for each policy using the following command.
 
-```
+```bash
 aws iam generate-service-last-accessed-details --arn arn:aws:iam::123456789012:policy/ExamplePolicy1
 ```
 
 From that response, he captures the ID of the generated report from the `JobId` field. Arnav then polls the following command until the `JobStatus` field returns a value of `COMPLETED` or `FAILED`. If the job failed, he captures the error.
 
-```
+```bash
 aws iam get-service-last-accessed-details --job-id 98a765b4-3cde-2101-2345-example678f9
 ```
 
 When the job has a status of `COMPLETED`, Arnav parses the contents of the JSON-formatted `ServicesLastAccessed` array.
 
-```
+```json
  "ServicesLastAccessed": [
         {
             "TotalAuthenticatedEntities": 1,
@@ -194,19 +193,19 @@ From this information, Arnav learns that the `ExamplePolicy1` policy allows acce
 
 This means that Arnav can safely remove the Amazon EC2 actions from the policy. Arnav wants to review the current JSON document for the policy. First, he must determine the version number of the policy using the following command.
 
-```
+```bash
 aws iam list-policy-versions --policy-arn arn:aws:iam::123456789012:policy/ExamplePolicy1
 ```
 
 From the response, Arnav collects the current default version number from the `Versions` array. He then uses that version number (`v2`) to request the JSON policy document using the following command.
 
-```
+```bash
 aws iam get-policy-version --policy-arn arn:aws:iam::123456789012:policy/ExamplePolicy1 --version-id v2
 ```
 
 Arnav stores the JSON policy document returned in the `Document` field of the `PolicyVersion` array. Within the policy document, Arnav searches for actions with in the `ec2` namespace. If there are no actions from other namespaces remaining in the policy, then he detaches the policy from the affected identities (users, groups, and roles). He then deletes the policy. In this case, the policy does include the Amazon DynamoDB and Amazon S3 services. So Arnav removes the Amazon EC2 actions from the document and saves his changes. He then uses the following command to update the policy using the new version of the document and to set that version as the default policy version.
 
-```
+```bash
 aws iam create-policy-version --policy-arn arn:aws:iam::123456789012:policy/ExamplePolicy1 --policy-document file://UpdatedPolicy.json --set-as-default
 ```
 

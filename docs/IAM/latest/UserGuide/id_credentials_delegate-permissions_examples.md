@@ -1,7 +1,6 @@
 
 
 # Example policies for administering IAM resources
-<a name="id_credentials_delegate-permissions_examples"></a>
 
 Following are examples of IAM policies that allow users to perform tasks associated with managing IAM users, groups, and credentials. This includes policies that permit users manage their own passwords, access keys, and multi-factor authentication (MFA) devices.
 
@@ -40,7 +39,7 @@ The following policy allows a user to perform all the tasks associated with mana
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -113,7 +112,7 @@ When you give a user full access to IAM, there is no limit to the permissions th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

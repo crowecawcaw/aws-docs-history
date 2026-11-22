@@ -1,7 +1,6 @@
 
 
 # Use VPC condition keys to control federated access
-<a name="reference_sts_vpc_condition_keys_federated"></a>
 
 Federated users can assume roles using `AssumeRoleWithSAML` or `AssumeRoleWithWebIdentity` through a VPC endpoint. When they do, you can use VPC-specific condition keys in the role's trust policy or in resource control policies (RCPs) to restrict where these requests can originate. This provides a network-level boundary in addition to the identity-level controls in the trust policy.
 
@@ -45,7 +44,7 @@ The audience (`aud`) value in the following OIDC examples uses `sts.amazonaws.co
 
 The following trust policy allows an OIDC provider to assume the role only when the request originates from a specific VPC through a VPC endpoint.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -74,7 +73,7 @@ AWS implicitly denies requests from outside the specified VPC because the `aws:S
 
 The following trust policy allows a SAML provider to assume the role only when the request comes through a specific VPC endpoint.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -103,7 +102,7 @@ Using `aws:SourceVpce` instead of `aws:SourceVpc` provides more granular control
 
 The following trust policy restricts federation to requests originating from a specific subnet within the VPC. Use `aws:VpcSourceIp` for IP-based restrictions on requests made through a VPC endpoint.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -136,7 +135,7 @@ Do not use `aws:SourceIp` with private IP ranges for requests through a VPC endp
 
 The following trust policy allows a SAML provider to assume the role from any of several VPCs. This is useful when your organization has multiple VPCs across different environments or Regions that need federated access to the same role.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -166,7 +165,7 @@ The following trust policy allows a SAML provider to assume the role from any of
 
 You can combine VPC condition keys with provider-specific conditions such as audience (`aud`) and subject (`sub`) for fine-grained access control. The following trust policy restricts role assumption to a specific federated user and requires the request to originate from a specific VPC.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -196,7 +195,7 @@ This combines identity-level controls (restricting to a specific federated user)
 
 The following resource control policy (RCP) denies `AssumeRoleWithSAML` and `AssumeRoleWithWebIdentity` requests unless they originate from a specific VPC. Unlike trust policies that apply per-role, a resource control policy (RCP) applies across all roles in the target accounts. This provides a centralized network boundary.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

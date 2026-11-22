@@ -1,7 +1,6 @@
 
 
 # Cross account resource access in IAM
-<a name="access_policies-cross-account-resource-access"></a>
 
 For some AWS services, you can grant cross-account access to your resources using IAM. To do this, you can attach a resource policy directly to the resource that you want to share, or use a role as a proxy.
 
@@ -33,7 +32,7 @@ Let’s take a look at the overall process as it applies to APN Partner software
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -57,7 +56,7 @@ Let’s take a look at the overall process as it applies to APN Partner software
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -76,7 +75,7 @@ Let’s take a look at the overall process as it applies to APN Partner software
 
 1. The customer gives the Amazon Resource Name (ARN) of the role to the APN partner. The ARN is the fully qualified name of the role.
 
-   ```
+   ```yaml
    arn:aws:iam::{{Customer-Account-ID}}:role/{{APNPartner}}
    ```
 **Note**  
@@ -127,7 +126,7 @@ For example, assume that you manage `AccountA` and `AccountB`. In AccountA, you 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -157,7 +156,7 @@ For example, assume that you manage `AccountA` and `AccountB`. In AccountA, you 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

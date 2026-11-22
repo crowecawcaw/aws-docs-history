@@ -1,7 +1,6 @@
 
 
 # Use `PutRolePolicy` with an AWS SDK or CLI
-<a name="iam_example_iam_PutRolePolicy_section"></a>
 
 The following code examples show how to use `PutRolePolicy`.
 
@@ -18,7 +17,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Update the inline policy document embedded in a role.
     /// </summary>
@@ -47,7 +46,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
-```
+```cpp
 bool AwsDoc::IAM::putRolePolicy(
         const Aws::String &roleName,
         const Aws::String &policyName,
@@ -113,7 +112,7 @@ For more information, see [IAM role management](https://docs.aws.amazon.com/IAM/
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 
-```
+```javascript
 import { PutRolePolicyCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const examplePolicyDocument = JSON.stringify({
@@ -174,7 +173,7 @@ export const putRolePolicy = async (roleName, policyName, policyDocument) => {
 **Tools for PowerShell V4**  
 **Example 1: This example creates an inline policy named `FedTesterRolePolicy` and embeds it in the IAM role `FedTesterRole`. If an inline policy with the same name already exists, then it is overwritten. The JSON policy content comes from the file `FedTesterPolicy.json`. Note that you must use the `-Raw` parameter to successfully process the content of the JSON file.**  
 
-```
+```powershell
 Write-IAMRolePolicy -RoleName FedTesterRole -PolicyName FedTesterRolePolicy -PolicyDocument (Get-Content -Raw FedTesterPolicy.json)
 ```
 +  For API details, see [PutRolePolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -182,7 +181,7 @@ Write-IAMRolePolicy -RoleName FedTesterRole -PolicyName FedTesterRolePolicy -Pol
 **Tools for PowerShell V5**  
 **Example 1: This example creates an inline policy named `FedTesterRolePolicy` and embeds it in the IAM role `FedTesterRole`. If an inline policy with the same name already exists, then it is overwritten. The JSON policy content comes from the file `FedTesterPolicy.json`. Note that you must use the `-Raw` parameter to successfully process the content of the JSON file.**  
 
-```
+```powershell
 Write-IAMRolePolicy -RoleName FedTesterRole -PolicyName FedTesterRolePolicy -PolicyDocument (Get-Content -Raw FedTesterPolicy.json)
 ```
 +  For API details, see [PutRolePolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

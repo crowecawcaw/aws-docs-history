@@ -1,7 +1,6 @@
 
 
 # Use `UploadServerCertificate` with an AWS SDK or CLI
-<a name="iam_example_iam_UploadServerCertificate_section"></a>
 
 The following code examples show how to use `UploadServerCertificate`.
 
@@ -66,7 +65,7 @@ For more information, see [Manage server certificates in IAM](https://docs.aws.a
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 
-```
+```javascript
 import { UploadServerCertificateCommand, IAMClient } from "@aws-sdk/client-iam";
 import { readFileSync } from "node:fs";
 import { dirnameFromMetaUrl } from "@aws-doc-sdk-examples/lib/utils/util-fs.js";
@@ -124,7 +123,7 @@ export const uploadServerCertificate = (certificateName) => {
 **Tools for PowerShell V4**  
 **Example 1: This example uploads a new server certificate to the IAM account. The files containing the certificate body, the private key, and (optionally) the certificate chain must all be PEM encoded. Note that the parameters require the actual content of the files rather than the file names. You must use the `-Raw` switch parameter to successfully process the file contents. **  
 
-```
+```powershell
 Publish-IAMServerCertificate -ServerCertificateName MyTestCert -CertificateBody (Get-Content -Raw server.crt) -PrivateKey (Get-Content -Raw server.key)
 ```
 **Output:**  
@@ -142,7 +141,7 @@ UploadDate            : 4/21/2015 11:14:16 AM
 **Tools for PowerShell V5**  
 **Example 1: This example uploads a new server certificate to the IAM account. The files containing the certificate body, the private key, and (optionally) the certificate chain must all be PEM encoded. Note that the parameters require the actual content of the files rather than the file names. You must use the `-Raw` switch parameter to successfully process the file contents. **  
 
-```
+```powershell
 Publish-IAMServerCertificate -ServerCertificateName MyTestCert -CertificateBody (Get-Content -Raw server.crt) -PrivateKey (Get-Content -Raw server.key)
 ```
 **Output:**  

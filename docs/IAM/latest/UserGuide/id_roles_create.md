@@ -1,7 +1,6 @@
 
 
 # IAM role creation
-<a name="id_roles_create"></a>
 
 To create a role, you can use the AWS Management Console, the AWS CLI, the Tools for Windows PowerShell, or the IAM API.
 

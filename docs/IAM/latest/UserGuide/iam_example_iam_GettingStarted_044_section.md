@@ -1,7 +1,6 @@
 
 
 # Creating a managed monitoring workspace
-<a name="iam_example_iam_GettingStarted_044_section"></a>
 
 The following code example shows how to:
 + Create an IAM role for your workspace
@@ -16,7 +15,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/044-amazon-managed-grafana-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # Amazon Managed Grafana Workspace Creation Script

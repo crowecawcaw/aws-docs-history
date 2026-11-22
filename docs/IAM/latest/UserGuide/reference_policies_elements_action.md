@@ -1,7 +1,6 @@
 
 
 # IAM JSON policy elements: Action
-<a name="reference_policies_elements_action"></a>
 
 The `Action` element describes the specific action or actions that will be allowed or denied. Statements must include either an `Action` or `NotAction` element. Each AWS service has its own set of actions that describe tasks that you can perform with that service. For example, the list of actions for Amazon S3 can be found at [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html) in the *Amazon Simple Storage Service User Guide*, the list of actions for Amazon EC2 can be found in the [Amazon EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-apis.html), and the list of actions for AWS Identity and Access Management can be found in the [IAM API Reference](https://docs.aws.amazon.com/IAM/latest/APIReference/API_Operations.html). To find the list of actions for other services, consult the API reference [documentation](http://aws.amazon.com/documentation) for the service.
 
@@ -11,43 +10,43 @@ You specify a value using a service namespace as an action prefix (`iam`, `ec2`,
 
 **Amazon SQS action**
 
-```
+```json
 "Action": "sqs:SendMessage"
 ```
 
 **Amazon EC2 action**
 
-```
+```json
 "Action": "ec2:StartInstances"
 ```
 
 **IAM action**
 
-```
+```json
 "Action": "iam:ChangePassword"
 ```
 
 **Amazon S3 action**
 
-```
+```json
 "Action": "s3:GetObject"
 ```
 
 You can specify multiple values for the `Action` element.
 
-```
+```json
 "Action": [ "sqs:SendMessage", "sqs:ReceiveMessage", "ec2:StartInstances", "iam:ChangePassword", "s3:GetObject" ]
 ```
 
 You can use multi-character match wildcards (`*`) and single-character match wildcards (`?`) to give access to all the actions the specific AWS product offers. For example, the following `Action` element applies to all S3 actions.
 
-```
+```json
 "Action": "s3:*"
 ```
 
 You can also use wildcards (`*` or `?`) as part of the action name. For example, the following `Action` element applies to all IAM actions that include the string `AccessKey`, including `CreateAccessKey`, `DeleteAccessKey`, `ListAccessKeys`, and `UpdateAccessKey`.
 
-```
+```json
 "Action": "iam:*AccessKey*"
 ```
 

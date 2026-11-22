@@ -1,7 +1,6 @@
 
 
 # Identify AWS resources with Amazon Resource Names (ARNs)
-<a name="reference-arns"></a>
 
 Amazon Resource Names (ARNs) uniquely identify AWS resources. We require an ARN when you need to specify a resource unambiguously across all of AWS, such as in IAM policies, Amazon Relational Database Service (Amazon RDS) tags, and API calls. While ARNs, like any identifying information, should be used and shared carefully, they are not considered secret, sensitive, or confidential information.
 

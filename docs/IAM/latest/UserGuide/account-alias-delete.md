@@ -1,7 +1,6 @@
 
 
 # Deleting an account alias
-<a name="account-alias-delete"></a>
 
 To perform the following steps, you must have at least the following IAM permissions:
 + `iam:ListAccountAliases`

@@ -1,7 +1,6 @@
 
 
 # IAM tutorial: Use a CloudFormation template to create a SAML Identity Provider (IdP) and SAML federated IAM role
-<a name="tutorial_saml-idp-and-federated-role"></a>
 
 To get familiar with SAML federation and its capabilities, you'll use a CloudFormation template to set up a SAML Identity Provider (IdP) and associated federated IAM role. This tutorial shows you how to create both resources together in a single stack.
 
@@ -66,7 +65,7 @@ Next, use the template you've saved to provision a CloudFormation stack.
 
       Use the following Python command to reformat your XML file:
 
-      ```
+      ```bash
       python3 -c "import sys, re; content=open(sys.argv[1]).read(); print(re.sub(r'>\s+<', '><', content.replace('\n', '').replace('\r', '').strip()))" {{saml-metadata.xml}}
       ```
 **Note**  
@@ -76,7 +75,7 @@ The IdP's SAML metadata document must be formatted as a single line for console 
 
       Example of formatted SAML metadata document (abbreviated):
 
-      ```
+      ```xml
       <?xml version="1.0" encoding="UTF-8"?><md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://portal.sso.example.com/saml/assertion/CompanyIdP"><md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><md:KeyDescriptor use="signing"><ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:X509Data><ds:X509Certificate>MIIDXTCCAkWgAwIBAgIJAJC1HiIAZAiIMA0GCSqGSIb3DQEBBQUAMEUxCzAJBgNV...</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portal.sso.example.com/saml/logout/CompanyIdP"/><md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portal.sso.example.com/saml/assertion/CompanyIdP"/></md:IDPSSODescriptor></md:EntityDescriptor>
       ```
 
@@ -196,7 +195,7 @@ Save the following JSON or YAML code as a separate file to use as the CloudForma
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "[AWSDocs] IAM: tutorial_saml-idp-and-federated-role",
@@ -367,7 +366,7 @@ Save the following JSON or YAML code as a separate file to use as the CloudForma
 ------
 #### [ YAML ]
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: '[AWSDocs] IAM: tutorial_saml-idp-and-federated-role'
 

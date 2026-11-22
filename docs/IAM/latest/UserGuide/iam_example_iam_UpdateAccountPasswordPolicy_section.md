@@ -1,7 +1,6 @@
 
 
 # Use `UpdateAccountPasswordPolicy` with a CLI
-<a name="iam_example_iam_UpdateAccountPasswordPolicy_section"></a>
 
 The following code examples show how to use `UpdateAccountPasswordPolicy`.
 
@@ -28,7 +27,7 @@ For more information, see [Setting an account password policy for IAM users](htt
 **Tools for PowerShell V4**  
 **Example 1: This example updates the password policy for the account with the specified settings. Note that any parameters that are not included in the command are not left unmodified. Instead, they are reset to default values.**  
 
-```
+```powershell
 Update-IAMAccountPasswordPolicy -AllowUsersToChangePasswords $true -HardExpiry $false -MaxPasswordAge 90 -MinimumPasswordLength 8 -PasswordReusePrevention 20 -RequireLowercaseCharacters $true -RequireNumbers $true -RequireSymbols $true -RequireUppercaseCharacters $true
 ```
 +  For API details, see [UpdateAccountPasswordPolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -36,7 +35,7 @@ Update-IAMAccountPasswordPolicy -AllowUsersToChangePasswords $true -HardExpiry $
 **Tools for PowerShell V5**  
 **Example 1: This example updates the password policy for the account with the specified settings. Note that any parameters that are not included in the command are not left unmodified. Instead, they are reset to default values.**  
 
-```
+```powershell
 Update-IAMAccountPasswordPolicy -AllowUsersToChangePasswords $true -HardExpiry $false -MaxPasswordAge 90 -MinimumPasswordLength 8 -PasswordReusePrevention 20 -RequireLowercaseCharacters $true -RequireNumbers $true -RequireSymbols $true -RequireUppercaseCharacters $true
 ```
 +  For API details, see [UpdateAccountPasswordPolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

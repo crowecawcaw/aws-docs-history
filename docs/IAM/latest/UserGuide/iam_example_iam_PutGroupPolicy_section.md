@@ -1,7 +1,6 @@
 
 
 # Use `PutGroupPolicy` with a CLI
-<a name="iam_example_iam_PutGroupPolicy_section"></a>
 
 The following code examples show how to use `PutGroupPolicy`.
 
@@ -43,7 +42,7 @@ For more information, see [Managing IAM policies](https://docs.aws.amazon.com/IA
 **Tools for PowerShell V4**  
 **Example 1: This example creates an inline policy named `AppTesterPolicy` and embeds it in the IAM group `AppTesters`. If an inline policy with the same name already exists, then it is overwritten. The JSON policy content comes the file `apptesterpolicy.json`. Note that you must use the `-Raw` parameter to successfully process the content of the JSON file.**  
 
-```
+```powershell
 Write-IAMGroupPolicy -GroupName AppTesters -PolicyName AppTesterPolicy -PolicyDocument (Get-Content -Raw apptesterpolicy.json)
 ```
 +  For API details, see [PutGroupPolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -51,7 +50,7 @@ Write-IAMGroupPolicy -GroupName AppTesters -PolicyName AppTesterPolicy -PolicyDo
 **Tools for PowerShell V5**  
 **Example 1: This example creates an inline policy named `AppTesterPolicy` and embeds it in the IAM group `AppTesters`. If an inline policy with the same name already exists, then it is overwritten. The JSON policy content comes the file `apptesterpolicy.json`. Note that you must use the `-Raw` parameter to successfully process the content of the JSON file.**  
 
-```
+```powershell
 Write-IAMGroupPolicy -GroupName AppTesters -PolicyName AppTesterPolicy -PolicyDocument (Get-Content -Raw apptesterpolicy.json)
 ```
 +  For API details, see [PutGroupPolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

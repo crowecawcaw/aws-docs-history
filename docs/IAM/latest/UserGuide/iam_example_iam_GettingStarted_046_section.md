@@ -1,7 +1,6 @@
 
 
 # Setting up systems management
-<a name="iam_example_iam_GettingStarted_046_section"></a>
 
 The following code example shows how to:
 + Create IAM permissions for Systems Manager
@@ -16,7 +15,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/046-aws-systems-manager-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # AWS Systems Manager Setup Script

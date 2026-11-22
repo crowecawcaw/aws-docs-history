@@ -1,7 +1,6 @@
 
 
 # Generating a policy based on access activity
-<a name="getting-started_reduce-permissions-edit-policy"></a>
 
 You can use the access activity recorded in AWS CloudTrail for an IAM user or IAM role to have IAM Access Analyzer generate a customer managed policy to allow access to only the services that specific users and roles need. 
 
@@ -41,7 +40,7 @@ In the following procedure we are going to reduce the permissions given to a rol
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Supported configurations for using passkeys and security keys
-<a name="id_credentials_mfa_fido_supported_configurations"></a>
 
 You can use FIDO2 device-bound passkeys, also known as security keys, as a multi-factor authentication (MFA) method with IAM using currently supported configurations. These include FIDO2 devices supported by IAM and browsers that support FIDO2.
 
@@ -76,7 +75,7 @@ The following use cases show sample policies that allow you to register MFA devi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -114,7 +113,7 @@ The following use cases show sample policies that allow you to register MFA devi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -153,7 +152,7 @@ The following use cases show sample policies that allow you to register MFA devi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -202,7 +201,7 @@ The following use cases show sample policies that allow you to register MFA devi
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

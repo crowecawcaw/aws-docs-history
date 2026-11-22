@@ -1,7 +1,6 @@
 
 
 # Use `GetRolePolicy` with a CLI
-<a name="iam_example_iam_GetRolePolicy_section"></a>
 
 The following code examples show how to use `GetRolePolicy`.
 
@@ -49,7 +48,7 @@ For more information, see [Creating IAM roles](https://docs.aws.amazon.com/IAM/l
 **Tools for PowerShell V4**  
 **Example 1: This example returns the permissions policy document for the policy named `oneClick_lambda_exec_role_policy` that is embedded in the IAM role `lamda_exec_role`. The resulting policy document is URL encoded. It is decoded in this example with the `UrlDecode` .NET method.**  
 
-```
+```powershell
 $results = Get-IAMRolePolicy -RoleName lambda_exec_role -PolicyName oneClick_lambda_exec_role_policy
 $results
 ```
@@ -61,7 +60,7 @@ PolicyDocument                                            PolicyName            
 %7B%0A%20%20%22Version%22%3A%20%222012-10-17%22%2C%...    oneClick_lambda_exec_role_policy     lambda_exec_role
 ```
 
-```
+```powershell
 [System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
 [System.Web.HttpUtility]::UrlDecode($results.PolicyDocument)
 ```
@@ -96,7 +95,7 @@ PolicyDocument                                            PolicyName            
 **Tools for PowerShell V5**  
 **Example 1: This example returns the permissions policy document for the policy named `oneClick_lambda_exec_role_policy` that is embedded in the IAM role `lamda_exec_role`. The resulting policy document is URL encoded. It is decoded in this example with the `UrlDecode` .NET method.**  
 
-```
+```powershell
 $results = Get-IAMRolePolicy -RoleName lambda_exec_role -PolicyName oneClick_lambda_exec_role_policy
 $results
 ```
@@ -108,7 +107,7 @@ PolicyDocument                                            PolicyName            
 %7B%0A%20%20%22Version%22%3A%20%222012-10-17%22%2C%...    oneClick_lambda_exec_role_policy     lambda_exec_role
 ```
 
-```
+```powershell
 [System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
 [System.Web.HttpUtility]::UrlDecode($results.PolicyDocument)
 ```

@@ -1,7 +1,6 @@
 
 
 # View policy summaries
-<a name="access_policies_view-policy-summary"></a>
 
 You can view the policy summaries for any policies that are attached to an IAM user or role. For managed policies, you can view policy summaries on the **Policies** page. If your policy does not include a policy summary, see [Missing policy summary](troubleshoot_policies.md#missing-policy-summary) to learn why.
 

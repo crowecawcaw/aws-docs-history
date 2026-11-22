@@ -1,9 +1,8 @@
 
 
 # IAM and AWS STS quotas
-<a name="reference_iam-quotas"></a>
 
-AWS Identity and Access Management (IAM) and AWS Security Token Service (STS) have quotas that limit the size of objects. This affects how you name an object, the number of objects you can create, and the number of characters you can use when you pass an object. 
+AWS Identity and Access Management (IAM) and AWS Security Token Service (AWS STS) have quotas that limit the size of objects. This affects how you name an object, the number of objects you can create, and the number of characters you can use when you pass an object. 
 
 **Note**  
 To get account-level information about IAM usage and quotas, use the [GetAccountSummary](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html) API operation or the [get-account-summary](https://docs.aws.amazon.com/cli/latest/reference/iam/get-account-summary.html) AWS CLI command. 
@@ -95,6 +94,14 @@ Requests to AWS STS by AWS service principals, such as those used to assume role
 For example, if an AWS account makes 100 GetCallerIdentity requests per second and 100 AssumeRole calls per second in the same region, that account is consuming 200 of its available 600 STS requests per second for that region.
 
 For cross-account AssumeRole requests, only the account making the AssumeRole request impacts the STS quota. The target account does not have any of it’s quota consumed.
+
+The following AWS STS operations have their own dedicated request quotas, separate from the shared 600 requests per second quota.
+
+
+| AWS STS operation | Default request quota (per account, per Region) | 
+| --- | --- | 
+| GetScopedCredentials | 200 requests per second | 
+| GetWebIdentityToken | 200 requests per second | 
 
 To request an increase to STS request quotas, please open a ticket with AWS support.
 

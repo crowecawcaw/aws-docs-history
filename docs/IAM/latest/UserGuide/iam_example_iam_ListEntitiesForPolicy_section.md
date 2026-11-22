@@ -1,7 +1,6 @@
 
 
 # Use `ListEntitiesForPolicy` with a CLI
-<a name="iam_example_iam_ListEntitiesForPolicy_section"></a>
 
 The following code examples show how to use `ListEntitiesForPolicy`.
 
@@ -50,7 +49,7 @@ For more information, see [Policies and permissions in IAM](https://docs.aws.ama
 **Tools for PowerShell V4**  
 **Example 1: This example returns a list of IAM groups, roles, and users who have the policy `arn:aws:iam::123456789012:policy/TestPolicy` attached.**  
 
-```
+```powershell
 Get-IAMEntitiesForPolicy -PolicyArn "arn:aws:iam::123456789012:policy/TestPolicy"
 ```
 **Output:**  
@@ -67,7 +66,7 @@ PolicyUsers  : {Bob, Theresa}
 **Tools for PowerShell V5**  
 **Example 1: This example returns a list of IAM groups, roles, and users who have the policy `arn:aws:iam::123456789012:policy/TestPolicy` attached.**  
 
-```
+```powershell
 Get-IAMEntitiesForPolicy -PolicyArn "arn:aws:iam::123456789012:policy/TestPolicy"
 ```
 **Output:**  

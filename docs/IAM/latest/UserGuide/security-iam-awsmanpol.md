@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Identity and Access Management, IAM Access Analyzer, and account access manager
-<a name="security-iam-awsmanpol"></a>
 
 
 
@@ -55,7 +54,7 @@ This policy is grouped into statements based on the set of permissions provided.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -116,7 +115,7 @@ This policy provides read-only access to IAM Access Analyzer. No other service p
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -180,7 +179,7 @@ You can't attach `IAMAuditRootUserCredentials` to your IAM entities. This policy
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -236,7 +235,7 @@ You can't attach `IAMCreateRootUserPassword` to your IAM entities. This policy i
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -283,7 +282,7 @@ You can't attach `IAMDeleteRootUserCredentials` to your IAM entities. This polic
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -348,7 +347,7 @@ You can't attach `S3UnlockBucketPolicy` to your IAM entities. This policy is att
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

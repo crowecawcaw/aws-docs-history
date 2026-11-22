@@ -1,7 +1,6 @@
 
 
 # Policy evaluation for requests within a single account
-<a name="reference_policies_evaluation-logic_policy-eval-basics"></a>
 
 ## Policy evaluation for an IAM role
 <a name="policy-eval-basics-single-account-role"></a>
@@ -36,7 +35,7 @@ Also assume that the following policy is attached to the `carlossalazar` IAM use
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -81,7 +80,7 @@ Additionally, the following resource-based policy (called a bucket policy) is at
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

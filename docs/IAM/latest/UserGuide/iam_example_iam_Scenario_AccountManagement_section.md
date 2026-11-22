@@ -1,7 +1,6 @@
 
 
 # Manage your IAM account using an AWS SDK
-<a name="iam_example_iam_Scenario_AccountManagement_section"></a>
 
 The following code example shows how to:
 + Get and update the account alias.
@@ -16,7 +15,7 @@ The following code example shows how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 Create functions that wrap IAM account actions.  
 
-```
+```python
 import logging
 import pprint
 import sys
@@ -158,7 +157,7 @@ def get_authorization_details(response_filter):
 ```
 Call wrapper functions to change the account alias and to get reports about the account.  
 
-```
+```python
 def usage_demo():
     """Shows how to use the account functions."""
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")

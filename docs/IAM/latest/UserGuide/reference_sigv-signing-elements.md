@@ -1,7 +1,6 @@
 
 
 # Elements of an AWS API request signature
-<a name="reference_sigv-signing-elements"></a>
 
 **Important**  
 Unless you are using the AWS SDKs or CLI, you must write code to calculate signatures that provide authentication information in your requests. Signature calculation in AWS Signature Version 4 can be a complex undertaking, and we recommend that you use the AWS SDKs or CLI whenever possible.

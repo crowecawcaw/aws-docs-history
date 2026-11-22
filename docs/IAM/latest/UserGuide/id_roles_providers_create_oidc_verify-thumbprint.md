@@ -1,7 +1,6 @@
 
 
 # Obtain the thumbprint for an OpenID Connect identity provider
-<a name="id_roles_providers_create_oidc_verify-thumbprint"></a>
 
 When you [create an OpenID Connect (OIDC) identity provider](id_roles_providers_create_oidc.md) in IAM, IAM requires the thumbprint for the top intermediate certificate authority (CA) that signed the certificate used by the external identity provider (IdP). The thumbprint is a signature for the CA's certificate that was used to issue the certificate for the OIDC-compatible IdP. When you create an IAM OIDC identity provider, you are trusting identities authenticated by that IdP to have access to your AWS account. By using the CA's certificate thumbprint, you trust any certificate issued by that CA with the same DNS name as the one registered. This eliminates the need to update trusts in each account when you renew the IdP's signing certificate.
 
@@ -40,7 +39,7 @@ You use a web browser and the OpenSSL command line tool to obtain the certificat
 
 1. <a name="thumbstep3"></a>In the displayed document, use your web browser **Find** feature to locate the text `"jwks_uri"`. Immediately following the text `"jwks_uri"`, there is a colon (:) followed by a URL. Copy the fully qualified domain name of the URL. Do not include `https://` or any path that comes after the top-level domain. 
 
-   ```
+   ```json
    {
     "issuer": "https://accounts.example.com",
     "authorization_endpoint": "https://accounts.example.com/o/oauth2/v2/auth",
@@ -56,7 +55,7 @@ If your discovery and JWKS endpoints use different hosts, note the fully qualifi
 
 1. <a name="thumbstep4"></a>Use the OpenSSL command line tool to run the following command. Replace {{keys.example.com}} with the domain name you obtained in [Step 3](#thumbstep3).
 
-   ```
+   ```bash
    openssl s_client -servername {{keys.example.com}} -showcerts -connect {{keys.example.com}}:443
    ```
 

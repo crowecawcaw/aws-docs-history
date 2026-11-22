@@ -1,7 +1,6 @@
 
 
 # Permissions boundaries for IAM entities
-<a name="access_policies_boundaries"></a>
 
 AWS supports *permissions boundaries* for IAM entities (users or roles). A permissions boundary is an advanced feature for using a managed policy to set the maximum permissions that an identity-based policy can grant to an IAM entity. An entity's permissions boundary allows it to perform only the actions that are allowed by both its identity-based policies and its permissions boundaries.
 
@@ -20,7 +19,7 @@ For example, assume that the IAM user named `Shirley` should be allowed to manag
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -46,7 +45,7 @@ When you use a policy to set the permissions boundary for a user, it limits the 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -131,7 +130,7 @@ To enforce these rules, María completes the following tasks, for which details 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -207,7 +206,7 @@ Each statement serves a different purpose:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -319,7 +318,7 @@ María then assigns the `DelegatedUserBoundary` policy [as the permissions bound
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # AWS account root user
-<a name="id_root-user"></a>
 
 When you first create an Amazon Web Services (AWS) account, you begin with a single sign-in identity that has complete access to all AWS services and resources in the account. This identity is called the AWS account *root user*. The email address and password that you used to create your AWS account are the credentials you use to sign in as your root user.
 + Use the root user only to perform the tasks that require root-level permissions. For the complete list of tasks that require you to sign in as the root user, see [Tasks that require root user credentials](#root-user-tasks). 

@@ -1,7 +1,6 @@
 
 
 # Use `AddUserToGroup` with a CLI
-<a name="iam_example_iam_AddUserToGroup_section"></a>
 
 The following code examples show how to use `AddUserToGroup`.
 
@@ -27,7 +26,7 @@ For more information, see [Adding and removing users in an IAM user group](https
 **Tools for PowerShell V4**  
 **Example 1: This command adds the user named `Bob` to the group named `Admins`.**  
 
-```
+```powershell
 Add-IAMUserToGroup -UserName "Bob" -GroupName "Admins"
 ```
 +  For API details, see [AddUserToGroup](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -35,7 +34,7 @@ Add-IAMUserToGroup -UserName "Bob" -GroupName "Admins"
 **Tools for PowerShell V5**  
 **Example 1: This command adds the user named `Bob` to the group named `Admins`.**  
 
-```
+```powershell
 Add-IAMUserToGroup -UserName "Bob" -GroupName "Admins"
 ```
 +  For API details, see [AddUserToGroup](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

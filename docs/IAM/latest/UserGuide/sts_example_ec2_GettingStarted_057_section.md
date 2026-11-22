@@ -1,7 +1,6 @@
 
 
 # Getting started with managed streaming
-<a name="sts_example_ec2_GettingStarted_057_section"></a>
 
 The following code example shows how to:
 + Create an MSK cluster
@@ -18,7 +17,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/057-amazon-managed-streaming-for-apache-kafka-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # Amazon MSK Getting Started Tutorial Script - Version 8

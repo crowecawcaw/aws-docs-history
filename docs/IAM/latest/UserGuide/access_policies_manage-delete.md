@@ -1,7 +1,6 @@
 
 
 # Delete IAM policies
-<a name="access_policies_manage-delete"></a>
 
 You can delete IAM policies using the AWS Management Console, the AWS Command Line Interface (AWS CLI), or the AWS API.
 

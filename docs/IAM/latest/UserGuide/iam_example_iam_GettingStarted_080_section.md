@@ -1,7 +1,6 @@
 
 
 # Getting started with workflow orchestration
-<a name="iam_example_iam_GettingStarted_080_section"></a>
 
 The following code example shows how to:
 + Create an IAM role for Step Functions
@@ -15,7 +14,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/080-aws-step-functions-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # AWS Step Functions Getting Started Tutorial Script

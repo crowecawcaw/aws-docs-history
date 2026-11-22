@@ -1,7 +1,6 @@
 
 
 # Change the password for the AWS account root user
-<a name="root-user-password"></a>
 
 You can change the email address and password from either the [Security Credentials](https://console.aws.amazon.com/iam/home?#security_credential) or the **Account** page. You can also choose **Forgot password?** on the AWS sign-in page to reset your password.
 

@@ -1,7 +1,6 @@
 
 
 # Account access manager
-<a name="account-access-manager"></a>
 
 ## What is account access manager?
 <a name="what-is-account-access-manager"></a>

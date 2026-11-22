@@ -1,7 +1,6 @@
 
 
 # IAM Access Analyzer supported resource types for external and internal access
-<a name="access-analyzer-resources"></a>
 
 For external and internal access analyzers, IAM Access Analyzer analyzes the resource-based policies that are applied to AWS resources in the Region where you enabled IAM Access Analyzer. It only analyzes resource-based policies. For details about how IAM Access Analyzer generates findings for each resource type, review the resource type information.
 
@@ -74,11 +73,15 @@ An IAM role is a global resource. If a role trust policy grants access to an ext
 ## AWS Key Management Service keys
 <a name="access-analyzer-kms-key"></a>
 
-For AWS KMS keys, IAM Access Analyzer analyzes the key policies and grants applied to a key. IAM Access Analyzer generates a finding if a key policy or grant allows an external entity to access the key. For example, if you use the [kms:CallerAccount](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-caller-account) condition key in a policy statement to allow access to all users in a specific AWS account, and you specify an account other than the current account (the zone of trust for the current analyzer), IAM Access Analyzer generates a finding. To learn more about AWS KMS condition keys in IAM policy statements, see [AWS KMS Condition Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#awskeymanagementservice-policy-keys).
+For AWS KMS keys, IAM Access Analyzer analyzes the key policies and grants applied to a key. IAM Access Analyzer generates a finding if a key policy or grant allows an external entity to access the key.
+
+A AWS KMS key can have two key policies: a `default` key policy that you author, and an `AWS_RAM` key policy that AWS Resource Access Manager (AWS RAM) creates and manages when you share the key in a resource share. IAM Access Analyzer analyzes both key policies. If the `default` key policy, the `AWS_RAM` key policy, or a grant allows an external entity to access the key, IAM Access Analyzer generates a finding. The finding does not currently distinguish which key policy granted the access.
+
+For example, if you use the [kms:CallerAccount](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-caller-account) condition key in a policy statement to allow access to all users in a specific AWS account, and you specify an account other than the current account (the zone of trust for the current analyzer), IAM Access Analyzer generates a finding. To learn more about AWS KMS condition keys in IAM policy statements, see [AWS KMS Condition Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#awskeymanagementservice-policy-keys).
 
 When IAM Access Analyzer analyzes a KMS key it reads key metadata, such as the key policy and list of grants. If the key policy doesn't allow the IAM Access Analyzer role to read the key metadata, an Access Denied error finding is generated. For example, if the following example policy statement is the only policy applied to a key, it results in an Access denied error finding in IAM Access Analyzer.
 
-```
+```JSON
 {
     "Sid": "Allow access for Key Administrators",
     "Effect": "Allow",
@@ -92,7 +95,7 @@ When IAM Access Analyzer analyzes a KMS key it reads key metadata, such as the k
 
 Because this statement allows only the role named *Admin* from the AWS account 111122223333 to access the key, an Access Denied error finding is generated because IAM Access Analyzer isn't able to fully analyze the key. An error finding is displayed in red text in the **Findings** table. The finding looks similar to the following.
 
-```
+```JSON
 {
     "error": "ACCESS_DENIED",
     "id": "12345678-1234-abcd-dcba-111122223333",
@@ -106,7 +109,7 @@ Because this statement allows only the role named *Admin* from the AWS account 1
 
 When you create a KMS key, the permissions granted to access the key depend on how you create the key. If you receive an Access Denied error finding for a key resource, apply the following policy statement to the key resource to grant IAM Access Analyzer permission to access the key.
 
-```
+```JSON
 {
     "Sid": "Allow IAM Access Analyzer access to key metadata",
     "Effect": "Allow",

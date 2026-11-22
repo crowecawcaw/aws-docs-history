@@ -1,7 +1,6 @@
 
 
 # Use `DeleteSAMLProvider` with an AWS SDK or CLI
-<a name="iam_example_iam_DeleteSAMLProvider_section"></a>
 
 The following code examples show how to use `DeleteSAMLProvider`.
 
@@ -26,7 +25,7 @@ For more information, see [Creating IAM SAML identity providers](https://docs.aw
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 
-```
+```javascript
 import { DeleteSAMLProviderCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -54,7 +53,7 @@ export const deleteSAMLProvider = async (providerArn) => {
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the IAM SAML 2.0 provider whose ARN is `arn:aws:iam::123456789012:saml-provider/SAMLADFSProvider`.**  
 
-```
+```powershell
 Remove-IAMSAMLProvider -SAMLProviderArn arn:aws:iam::123456789012:saml-provider/SAMLADFSProvider
 ```
 +  For API details, see [DeleteSAMLProvider](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -62,7 +61,7 @@ Remove-IAMSAMLProvider -SAMLProviderArn arn:aws:iam::123456789012:saml-provider/
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the IAM SAML 2.0 provider whose ARN is `arn:aws:iam::123456789012:saml-provider/SAMLADFSProvider`.**  
 
-```
+```powershell
 Remove-IAMSAMLProvider -SAMLProviderArn arn:aws:iam::123456789012:saml-provider/SAMLADFSProvider
 ```
 +  For API details, see [DeleteSAMLProvider](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

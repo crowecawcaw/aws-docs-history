@@ -1,7 +1,6 @@
 
 
 # IAM policy testing with the IAM policy simulator
-<a name="access_policies_testing-policies"></a>
 
 With the IAM policy simulator, you can test identity-based policies, IAM permissions boundaries, service control policies (SCPs), and resource-based policies that you provide. You simulate how AWS would evaluate a request against those policies, without sending a real request to any AWS service. Each simulation returns a binary authorization outcome for every action and resource you test: the action is either allowed or denied. When the result is an allow or explicit deny, the simulator also shows you which policy produced that outcome, so you can understand and fix the cause.
 

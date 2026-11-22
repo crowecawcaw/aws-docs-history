@@ -1,7 +1,6 @@
 
 
 # Use `AttachRolePolicy` with an AWS SDK or CLI
-<a name="iam_example_iam_AttachRolePolicy_section"></a>
 
 The following code examples show how to use `AttachRolePolicy`.
 
@@ -33,7 +32,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Attach an IAM policy to a role.
     /// </summary>
@@ -59,7 +58,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -150,7 +149,7 @@ function iam_attach_role_policy() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
-```
+```cpp
 bool AwsDoc::IAM::attachRolePolicy(const Aws::String &roleName,
                                    const Aws::String &policyArn,
                                    const Aws::Client::ClientConfiguration &clientConfig) {
@@ -224,7 +223,7 @@ For more information, see [Managed policies and inline policies](https://docs.aw
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -264,7 +263,7 @@ func (wrapper RoleWrapper) AttachRolePolicy(ctx context.Context, policyArn strin
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.iam.IamClient;
 import software.amazon.awssdk.services.iam.model.IamException;
@@ -357,7 +356,7 @@ public class AttachRolePolicy {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 Attach the policy.  
 
-```
+```javascript
 import { AttachRolePolicyCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -382,7 +381,7 @@ export const attachRolePolicy = (policyArn, roleName) => {
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -431,7 +430,7 @@ iam.listAttachedRolePolicies(paramsRoleList, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
-```
+```kotlin
 suspend fun attachIAMRolePolicy(
     roleNameVal: String,
     policyArnVal: String,
@@ -487,7 +486,7 @@ fun checkList(
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
-```
+```php
 $uuid = uniqid();
 $service = new IAMService();
 
@@ -532,7 +531,7 @@ $service->attachRolePolicy($assumeRoleRole['RoleName'], $listAllBucketsPolicy['A
 **Tools for PowerShell V4**  
 **Example 1: This example attaches the AWS managed policy named `SecurityAudit` to the IAM role `CoSecurityAuditors`. The users who assume that role are immediately affected by the permissions defined in the latest version of that policy.**  
 
-```
+```powershell
 Register-IAMRolePolicy -RoleName CoSecurityAuditors -PolicyArn arn:aws:iam::aws:policy/SecurityAudit
 ```
 +  For API details, see [AttachRolePolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -540,7 +539,7 @@ Register-IAMRolePolicy -RoleName CoSecurityAuditors -PolicyArn arn:aws:iam::aws:
 **Tools for PowerShell V5**  
 **Example 1: This example attaches the AWS managed policy named `SecurityAudit` to the IAM role `CoSecurityAuditors`. The users who assume that role are immediately affected by the permissions defined in the latest version of that policy.**  
 
-```
+```powershell
 Register-IAMRolePolicy -RoleName CoSecurityAuditors -PolicyArn arn:aws:iam::aws:policy/SecurityAudit
 ```
 +  For API details, see [AttachRolePolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -552,7 +551,7 @@ Register-IAMRolePolicy -RoleName CoSecurityAuditors -PolicyArn arn:aws:iam::aws:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 Attach a policy to a role using the Boto3 Policy object.  
 
-```
+```python
 def attach_to_role(role_name, policy_arn):
     """
     Attaches a policy to a role.
@@ -569,7 +568,7 @@ def attach_to_role(role_name, policy_arn):
 ```
 Attach a policy to a role using the Boto3 Role object.  
 
-```
+```python
 def attach_policy(role_name, policy_arn):
     """
     Attaches a policy to a role.
@@ -593,7 +592,7 @@ def attach_policy(role_name, policy_arn):
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 This example module lists, creates, attaches, and detaches role policies.  
 
-```
+```ruby
 # Manages policies in AWS Identity and Access Management (IAM)
 class RolePolicyManager
   # Initialize with an AWS IAM client
@@ -690,7 +689,7 @@ end
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
-```
+```rust
 pub async fn attach_role_policy(
     client: &iamClient,
     role: &Role,
@@ -712,7 +711,7 @@ pub async fn attach_role_policy(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_iam->attachrolepolicy(
           iv_rolename = iv_role_name
@@ -732,7 +731,7 @@ pub async fn attach_role_policy(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
-```
+```swift
 import AWSIAM
 import AWSS3
 

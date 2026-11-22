@@ -1,7 +1,6 @@
 
 
 # Troubleshoot IAM roles
-<a name="troubleshoot_roles"></a>
 
 Use the information here to help you diagnose and fix common issues that you might encounter when working with IAM roles.
 
@@ -26,14 +25,14 @@ Check the following:
 + When you assume a role using a SAML-based federated identity provider and SAML encryption is enabled, make sure you have uploaded a valid private decryption key for the SAML identity provider. For more information, see [Manage SAML encryption keys](id_roles_providers_create_saml.md#id_federation_manage-saml-encryption).
 + Verify that your IAM policy grants you permission to call `sts:AssumeRole` for the role that you want to assume. The `Action` element of your IAM policy must allow you to call the `AssumeRole` action. In addition, the `Resource` element of your IAM policy must specify the role that you want to assume. For example, the `Resource` element can specify a role by its Amazon Resource Name (ARN) or by a wildcard (\*). For example, at least one policy applicable to you must grant permissions similar to the following:
 
-  ```
+  ```json
       "Effect": "Allow",
       "Action": "sts:AssumeRole",
       "Resource": "arn:aws:iam::{{account_id_number}}:role/{{role-name-you-want-to-assume}}"
   ```
 + Verify that your IAM identity is tagged with any tags that the IAM policy requires. For example, in the following policy permissions, the `Condition` element requires that you, as the principal requesting to assume the role, must have a specific tag. You must be tagged with `department = HR` or `department = CS`. Otherwise, you cannot assume the role. To learn about tagging IAM users and roles, see [Tags for AWS Identity and Access Management resources](id_tags.md).
 
-  ```
+  ```json
       "Effect": "Allow",
       "Action": "sts:AssumeRole",
       "Resource": "*",
@@ -44,7 +43,7 @@ Check the following:
   ```
 + Verify that you meet all the conditions that are specified in the role's trust policy. A `Condition` can specify an expiration date, an external ID, or that a request must come only from specific IP addresses. Consider the following example: If the current date is any time after the specified date, then the policy never matches and cannot grant you the permission to assume the role.
 
-  ```
+  ```json
       "Effect": "Allow",
       "Action": "sts:AssumeRole",
       "Resource": "arn:aws:iam::{{account_id_number}}:role/{{role-name-you-want-to-assume}}"
@@ -56,7 +55,7 @@ Check the following:
   ```
 + Verify that the AWS account from which you are calling `AssumeRole` is a trusted entity for the role that you are assuming. Trusted entities are defined as a `Principal` in a role's trust policy. The following example is a trust policy that is attached to the role that you want to assume. In this example, the account ID with the IAM user that you signed in with must be 123456789012. If your account number is not listed in the `Principal` element of the role's trust policy, then you cannot assume the role. It does not matter what permissions are granted to you in access policies. Note that the example policy limits permissions to actions that occur between July 1, 2017 and December 31, 2017 (UTC), inclusive. If you log in before or after those dates, then the policy does not match, and you cannot assume the role. 
 
-  ```
+  ```json
       "Effect": "Allow",
       "Principal": { "AWS": "arn:aws:iam::{{123456789012}}:root" },
       "Action": "sts:AssumeRole",
@@ -185,13 +184,13 @@ You can manually create a service role using [AWS CLI commands](id_roles_create_
 
 1. Open the role and edit the trust relationship. Instead of trusting the account, the role must trust the service. For example, update the following `Principal` element:
 
-   ```
+   ```json
    "Principal": { "AWS": "arn:aws:iam::{{123456789012}}:root" }
    ```
 
    Change the principal to the value for your service, such as IAM.
 
-   ```
+   ```json
    "Principal": { "Service": "{{iam}}.amazonaws.com" }
    ```
 

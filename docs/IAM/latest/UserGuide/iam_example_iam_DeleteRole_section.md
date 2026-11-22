@@ -1,7 +1,6 @@
 
 
 # Use `DeleteRole` with an AWS SDK or CLI
-<a name="iam_example_iam_DeleteRole_section"></a>
 
 The following code examples show how to use `DeleteRole`.
 
@@ -32,7 +31,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Delete an IAM role.
     /// </summary>
@@ -52,7 +51,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function iecho
 #
@@ -167,7 +166,7 @@ For more information, see [Creating IAM roles](https://docs.aws.amazon.com/IAM/l
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -208,7 +207,7 @@ func (wrapper RoleWrapper) DeleteRole(ctx context.Context, roleName string) erro
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 Delete the role.  
 
-```
+```javascript
 import { DeleteRoleCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -230,12 +229,12 @@ export const deleteRole = (roleName) => {
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the role named `MyNewRole` from the current IAM account. Before you can delete the role you must first use the `Unregister-IAMRolePolicy` command to detach any managed policies. Inline policies are deleted with the role.**  
 
-```
+```powershell
 Remove-IAMRole -RoleName MyNewRole
 ```
 **Example 2: This example detaches any managed policies from the role named `MyNewRole` and then deletes the role. The first line retrieves any managed policies attached to the role as a collection and then detaches each policy in the collection from the role. The second line deletes the role itself. Inline policies are deleted along with the role.**  
 
-```
+```powershell
 Get-IAMAttachedRolePolicyList -RoleName MyNewRole | Unregister-IAMRolePolicy -RoleName MyNewRole
 Remove-IAMRole -RoleName MyNewRole
 ```
@@ -244,12 +243,12 @@ Remove-IAMRole -RoleName MyNewRole
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the role named `MyNewRole` from the current IAM account. Before you can delete the role you must first use the `Unregister-IAMRolePolicy` command to detach any managed policies. Inline policies are deleted with the role.**  
 
-```
+```powershell
 Remove-IAMRole -RoleName MyNewRole
 ```
 **Example 2: This example detaches any managed policies from the role named `MyNewRole` and then deletes the role. The first line retrieves any managed policies attached to the role as a collection and then detaches each policy in the collection from the role. The second line deletes the role itself. Inline policies are deleted along with the role.**  
 
-```
+```powershell
 Get-IAMAttachedRolePolicyList -RoleName MyNewRole | Unregister-IAMRolePolicy -RoleName MyNewRole
 Remove-IAMRole -RoleName MyNewRole
 ```
@@ -261,7 +260,7 @@ Remove-IAMRole -RoleName MyNewRole
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def delete_role(role_name):
     """
     Deletes a role.
@@ -283,7 +282,7 @@ def delete_role(role_name):
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
-```
+```ruby
   # Deletes a role and its attached policies.
   #
   # @param role_name [String] The name of the role to delete.
@@ -320,7 +319,7 @@ def delete_role(role_name):
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
-```
+```rust
 pub async fn delete_role(client: &iamClient, role: &Role) -> Result<(), iamError> {
     let role = role.clone();
     while client
@@ -343,7 +342,7 @@ pub async fn delete_role(client: &iamClient, role: &Role) -> Result<(), iamError
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_iam->deleterole( iv_rolename = iv_role_name ).
         MESSAGE 'Role deleted successfully.' TYPE 'I'.
@@ -361,7 +360,7 @@ pub async fn delete_role(client: &iamClient, role: &Role) -> Result<(), iamError
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
-```
+```swift
 import AWSIAM
 import AWSS3
 

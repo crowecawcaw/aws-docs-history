@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for AWS Identity and Access Management Access Analyzer
-<a name="access-analyzer-using-service-linked-roles"></a>
 
 AWS Identity and Access Management Access Analyzer uses an IAM [ service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role linked directly to IAM Access Analyzer. Service-linked roles are predefined by IAM Access Analyzer and include all the permissions that the feature requires to call other AWS services on your behalf.
 

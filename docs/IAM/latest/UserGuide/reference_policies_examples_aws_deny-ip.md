@@ -1,7 +1,6 @@
 
 
 # AWS: Denies access to AWS based on the source IP
-<a name="reference_policies_examples_aws_deny-ip"></a>
 
 This example shows how you might create an identity-based policy that denies access to all AWS actions in the account when the request comes from *principals* outside the specified IP range. The policy is useful when the IP addresses for your company are within the specified ranges. In this example, the request will be denied unless it originates from the CIDR range 192.0.2.0/24 or 203.0.113.0/24. The policy does not deny requests made by AWS services using [Forward access sessions](access_forward_access_sessions.md) as the original requester’s IP address is preserved.
 
@@ -19,7 +18,7 @@ For more information about using the `aws:SourceIp` condition key, including inf
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {

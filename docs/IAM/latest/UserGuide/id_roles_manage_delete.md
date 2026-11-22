@@ -1,7 +1,6 @@
 
 
 # Delete roles or instance profiles
-<a name="id_roles_manage_delete"></a>
 
 If you no longer need a role, we recommend that you delete the role and its associated permissions. That way you don't have an unused entity that is not actively monitored or maintained. 
 

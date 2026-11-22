@@ -1,7 +1,6 @@
 
 
 # Processing the request context
-<a name="reference_policies_evaluation-logic_policy-eval-reqcontext"></a>
 
 When AWS evaluates and authorizes a request, it assembles the request information into a *request context*. The request context contains any information that can be used in policy evaluation.
 + **Principal** – The user, role, or federated user principal that sent the request. Information about the principal includes the policies that are associated with that principal. 
@@ -23,7 +22,7 @@ The PARC model represents the request context based on the four JSON elements in
 
 The following shows an example of how the PARC model might represent a request context:
 
-```
+```json
 Principal: AIDA123456789EXAMPLE
 Action: s3:CreateBucket
 Resource: arn:aws:s3:::amzn-s3-demo-bucket1
@@ -85,7 +84,7 @@ To illustrate how the request context interacts with policy evaluation, let's co
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

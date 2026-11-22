@@ -1,7 +1,6 @@
 
 
 # Manage IAM access keys using an AWS SDK
-<a name="iam_example_iam_Scenario_ManageAccessKeys_section"></a>
 
 The following code example shows how to manage access keys. 
 
@@ -18,7 +17,7 @@ To avoid security risks, don't use IAM users for authentication when developing 
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 Create functions that wrap IAM access key actions.  
 
-```
+```python
 import logging
 import boto3
 from botocore.exceptions import ClientError
@@ -136,7 +135,7 @@ def delete_key(user_name, key_id):
 ```
 Use the wrapper functions to perform access key actions for the current user.  
 
-```
+```python
 def usage_demo():
     """Shows how to create and manage access keys."""
 

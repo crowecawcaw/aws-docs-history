@@ -1,7 +1,7 @@
 
 
 # Delegated administration
-<a name="aam-delegated-admin"></a><a name="aam-account-types"></a>
+<a name="aam-account-types"></a>
 
 When you enable account access manager, AWS creates it in the management account in AWS Organizations because account access manager manages IAM role assignments for an entire AWS Organization. You can choose to delegate administration of account access manager to a member account in AWS Organizations.
 

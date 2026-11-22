@@ -1,7 +1,6 @@
 
 
 # Previewing access with IAM Access Analyzer APIs
-<a name="access-analyzer-preview-access-apis"></a>
 
 You can use [IAM Access Analyzer APIs](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.html) to preview public and cross-account access for your Amazon S3 buckets, AWS KMS keys, IAM roles, Amazon SQS queues and Secrets Manager secrets. You can preview access by providing proposed permissions for an existing resource you own or a new resource you want to deploy.
 

@@ -1,7 +1,6 @@
 
 
 # Grant a user permissions to pass a role to an AWS service
-<a name="id_roles_use_passrole"></a>
 
 To configure many AWS services, you must *pass* an IAM role to the service. This allows the service to assume the role later and perform actions on your behalf. For most services, you only have to pass the role to the service once during setup, and not every time that the service assumes the role. For example, assume that you have an application running on an Amazon EC2 instance. That application requires temporary credentials for authentication, and permissions to authorize the application to perform actions in AWS. When you set up the application, you must pass a role to Amazon EC2 to use with the instance that provides those credentials. You define the permissions for the applications running on the instance by attaching an IAM policy to the role. The application assumes the role every time it needs to perform the actions that are allowed by the role.
 
@@ -28,7 +27,7 @@ Suppose you want to grant a user the ability to pass any of an approved set of r
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": {
@@ -47,7 +46,7 @@ Suppose you want to grant a user the ability to pass any of an approved set of r
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": {
@@ -67,7 +66,7 @@ Suppose you want to grant a user the ability to pass any of an approved set of r
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -114,7 +113,7 @@ The role automatically gets a trust policy that grants the `monitoring.rds.amazo
 
 The user that you want to access Enhanced Monitoring needs a policy that includes a statement that allows the user to list the RDS roles and a statement that allows the user to pass the role, like the following. Use your account number and replace the role name with the name you provided in step 6.
 
-```
+```json
     {
       "Sid": "PolicyStatementToAllowUserToListRoles",
       "Effect": "Allow",
@@ -131,7 +130,7 @@ The user that you want to access Enhanced Monitoring needs a policy that include
 
 You can combine this statement with statements in another policy or put it in its own policy. To instead specify that the user can pass any role that begins with `RDS-`, you can replace the role name in the resource ARN with a wildcard, as follows.
 
-```
+```json
         "Resource": "arn:aws:iam::{{account-id}}:role/RDS-*"
 ```
 

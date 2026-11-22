@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Identity and Access Management
-<a name="iam-compliance-validation"></a>
 
 Third-party auditors assess the security and compliance of AWS Identity and Access Management (IAM) as part of multiple AWS compliance programs. These include SOC, PCI, FedRAMP, ISO, and others.
 

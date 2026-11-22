@@ -1,7 +1,6 @@
 
 
 # How permissions and policies provide access management
-<a name="introduction_access-management"></a>
 
 The access management portion of AWS Identity and Access Management (IAM) helps you define what a principal entity can do in an account. A principal entity is a person or application authenticated using an IAM entity (IAM user or IAM role). Access management is often referred to as *authorization*. You manage access in AWS by creating policies and attaching them to IAM identities (IAM users, IAM groups, or IAM roles) or AWS resources. A policy is an object in AWS that, when associated with an identity or resource, defines their permissions. AWS evaluates these policies when a principal uses an IAM entity (IAM user or IAM role) to make a request. Permissions in the policies determine whether the request is allowed or denied. Most policies are stored in AWS as JSON documents. For more information about policy types and uses, see [Policies and permissions in AWS Identity and Access Management](access_policies.md).
 
@@ -20,7 +19,7 @@ IAM users are identities in the AWS account. When you create an IAM user, they c
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

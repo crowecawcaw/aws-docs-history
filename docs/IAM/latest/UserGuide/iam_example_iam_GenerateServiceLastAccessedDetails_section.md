@@ -1,7 +1,6 @@
 
 
 # Use `GenerateServiceLastAccessedDetails` with a CLI
-<a name="iam_example_iam_GenerateServiceLastAccessedDetails_section"></a>
 
 The following code examples show how to use `GenerateServiceLastAccessedDetails`.
 
@@ -46,7 +45,7 @@ For more information, see [Refining permissions in AWS using last accessed infor
 **Tools for PowerShell V4**  
 **Example 1: This example is equivalent cmdlet of GenerateServiceLastAccessedDetails API. This provides with a job id which can be used in Get-IAMServiceLastAccessedDetail and Get-IAMServiceLastAccessedDetailWithEntity**  
 
-```
+```powershell
 Request-IAMServiceLastAccessedDetail -Arn arn:aws:iam::123456789012:user/TestUser
 ```
 +  For API details, see [GenerateServiceLastAccessedDetails](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -54,7 +53,7 @@ Request-IAMServiceLastAccessedDetail -Arn arn:aws:iam::123456789012:user/TestUse
 **Tools for PowerShell V5**  
 **Example 1: This example is equivalent cmdlet of GenerateServiceLastAccessedDetails API. This provides with a job id which can be used in Get-IAMServiceLastAccessedDetail and Get-IAMServiceLastAccessedDetailWithEntity**  
 
-```
+```powershell
 Request-IAMServiceLastAccessedDetail -Arn arn:aws:iam::123456789012:user/TestUser
 ```
 +  For API details, see [GenerateServiceLastAccessedDetails](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

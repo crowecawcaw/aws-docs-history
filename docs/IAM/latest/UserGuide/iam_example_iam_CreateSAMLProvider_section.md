@@ -1,7 +1,6 @@
 
 
 # Use `CreateSAMLProvider` with an AWS SDK or CLI
-<a name="iam_example_iam_CreateSAMLProvider_section"></a>
 
 The following code examples show how to use `CreateSAMLProvider`.
 
@@ -53,7 +52,7 @@ For more information, see [Creating IAM SAML identity providers](https://docs.aw
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 
-```
+```javascript
 import { CreateSAMLProviderCommand, IAMClient } from "@aws-sdk/client-iam";
 import { readFileSync } from "node:fs";
 import * as path from "node:path";
@@ -96,7 +95,7 @@ export const createSAMLProvider = async (providerName) => {
 **Tools for PowerShell V4**  
 **Example 1: This example creates a new SAML provider entity in IAM. It is named `MySAMLProvider` and is described by the SAML metadata document found in the file `SAMLMetaData.xml`, which was separately downloaded from the SAML service provider's web site.**  
 
-```
+```powershell
 New-IAMSAMLProvider -Name MySAMLProvider -SAMLMetadataDocument (Get-Content -Raw SAMLMetaData.xml)
 ```
 **Output:**  
@@ -109,7 +108,7 @@ arn:aws:iam::123456789012:saml-provider/MySAMLProvider
 **Tools for PowerShell V5**  
 **Example 1: This example creates a new SAML provider entity in IAM. It is named `MySAMLProvider` and is described by the SAML metadata document found in the file `SAMLMetaData.xml`, which was separately downloaded from the SAML service provider's web site.**  
 
-```
+```powershell
 New-IAMSAMLProvider -Name MySAMLProvider -SAMLMetadataDocument (Get-Content -Raw SAMLMetaData.xml)
 ```
 **Output:**  

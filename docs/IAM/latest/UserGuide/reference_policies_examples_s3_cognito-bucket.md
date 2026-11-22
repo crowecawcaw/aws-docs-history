@@ -1,7 +1,6 @@
 
 
 # Amazon S3: Allows Amazon Cognito users to access objects in their bucket
-<a name="reference_policies_examples_s3_cognito-bucket"></a>
 
 This example shows how you might create an identity-based policy that allows Amazon Cognito users to access objects in a specific Amazon S3 bucket. This policy allows access only to objects with a name that includes `cognito`, the name of the application, and the federated principal ID, represented by the ${cognito-identity.amazonaws.com:sub} variable. This policy grants the permissions necessary to complete this action programmatically from the AWS API or AWS CLI. To use this policy, replace the {{italicized placeholder text}} in the example policy with your own information. Then, follow the directions in [create a policy](access_policies_create.md) or [edit a policy](access_policies_manage-edit.md).
 
@@ -13,7 +12,7 @@ The 'sub' value used in the object key is not the user's sub value in the User P
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

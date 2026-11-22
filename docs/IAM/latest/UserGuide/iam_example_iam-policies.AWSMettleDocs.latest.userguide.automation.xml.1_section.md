@@ -1,7 +1,6 @@
 
 
 # Policy to enable Automation for your account
-<a name="iam_example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.1_section"></a>
 
 The following code example shows how to This permission-based policy enablesAutomation for your account
 
@@ -10,7 +9,7 @@ The following code example shows how to This permission-based policy enablesAuto
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	                    
     "Statement": [

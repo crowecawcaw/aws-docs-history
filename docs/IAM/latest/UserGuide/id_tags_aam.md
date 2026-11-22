@@ -1,7 +1,6 @@
 
 
 # Tag account access manager instances
-<a name="id_tags_aam"></a>
 
 You must configure permissions to allow an IAM entity (roles or users) to tag account access manager instances. You can specify one or all of the following account-access tag actions in an IAM policy:
 + `account-access:TagResource`
@@ -12,7 +11,7 @@ You must configure permissions to allow an IAM entity (roles or users) to tag ac
 
 Add the following statement to the permissions policy for the IAM entity that needs to manage tags. Use your account number and instance IDs of your IAM Identity Center and account access manager instances to replace the placeholders. To learn how to create a policy using this example JSON policy document, see [Create IAM policies (console)](access_policies_create-console.md).
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -33,7 +32,7 @@ The `account-access:TagResource` action requires that you also include the `acco
 
 Use your account number and instance IDs of your IAM Identity Center and account access manager instances to replace the placeholders. To learn how to create a policy using this example JSON policy document, see [Create IAM policies (console)](access_policies_create-console.md).
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [

@@ -1,7 +1,6 @@
 
 
 # Create IAM resources with CloudFormation
-<a name="creating-resources-with-cloudformation"></a>
 
 AWS Identity and Access Management is integrated with AWS CloudFormation, a service that helps you to model and set up your AWS resources so that you can spend less time creating and managing your resources and infrastructure. You create a template that describes all the AWS resources that you want (such as access keys, groups, group policies, instance profiles, managed policies, OIDC providers, inline policies, roles, role policies, SAML providers, server certificates, service-linked roles, users (and adding users to groups), user policies, and virtual MFA devices), and CloudFormation provisions and configures those resources for you. 
 

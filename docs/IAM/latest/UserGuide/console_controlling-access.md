@@ -1,7 +1,6 @@
 
 
 # Control IAM user access to the AWS Management Console
-<a name="console_controlling-access"></a>
 
 IAM users with permission who sign in to your AWS account through the AWS Management Console can access your AWS resources. The following list shows the ways that you can grant IAM users access to your AWS account resources through the AWS Management Console. It also shows how IAM users can access other AWS account features through the AWS website.
 

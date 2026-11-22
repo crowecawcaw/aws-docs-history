@@ -1,7 +1,6 @@
 
 
 # Use `ListInstanceProfiles` with a CLI
-<a name="iam_example_iam_ListInstanceProfiles_section"></a>
 
 The following code examples show how to use `ListInstanceProfiles`.
 
@@ -88,7 +87,7 @@ For more information, see [Using instance profiles](https://docs.aws.amazon.com/
 **Tools for PowerShell V4**  
 **Example 1: This example returns a collection of the instance profiles defined in the current AWS account.**  
 
-```
+```powershell
 Get-IAMInstanceProfileList
 ```
 **Output:**  
@@ -106,7 +105,7 @@ Roles               : {ec2instancerole}
 **Tools for PowerShell V5**  
 **Example 1: This example returns a collection of the instance profiles defined in the current AWS account.**  
 
-```
+```powershell
 Get-IAMInstanceProfileList
 ```
 **Output:**  

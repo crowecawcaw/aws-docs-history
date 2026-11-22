@@ -1,7 +1,6 @@
 
 
 # Use `DeleteOpenIdConnectProvider` with a CLI
-<a name="iam_example_iam_DeleteOpenIdConnectProvider_section"></a>
 
 The following code examples show how to use `DeleteOpenIdConnectProvider`.
 
@@ -26,7 +25,7 @@ For more information, see [Creating OpenID Connect (OIDC) identity providers](ht
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the IAM OIDC provider that connects to the provider `example.oidcprovider.com`. Ensure that you update or delete any roles that reference this provider in the `Principal` element of the role's trust policy.**  
 
-```
+```powershell
 Remove-IAMOpenIDConnectProvider -OpenIDConnectProviderArn arn:aws:iam::123456789012:oidc-provider/example.oidcprovider.com
 ```
 +  For API details, see [DeleteOpenIdConnectProvider](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -34,7 +33,7 @@ Remove-IAMOpenIDConnectProvider -OpenIDConnectProviderArn arn:aws:iam::123456789
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the IAM OIDC provider that connects to the provider `example.oidcprovider.com`. Ensure that you update or delete any roles that reference this provider in the `Principal` element of the role's trust policy.**  
 
-```
+```powershell
 Remove-IAMOpenIDConnectProvider -OpenIDConnectProviderArn arn:aws:iam::123456789012:oidc-provider/example.oidcprovider.com
 ```
 +  For API details, see [DeleteOpenIdConnectProvider](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

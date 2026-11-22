@@ -1,7 +1,6 @@
 
 
 # Tag OpenID Connect (OIDC) identity providers
-<a name="id_tags_oidc"></a>
 
 You can use IAM tag key-values to add custom attributes to IAM OpenID Connect (OIDC) identity providers. For example, to identify an OIDC identity provider, you can add the tag key **google** and the tag value **oidc**. You can use tags to control access to resources or to control what tags can be attached to an object. To learn more about using tags to control access, see [Controlling access to and for IAM users and roles using tags](access_iam-tags.md).
 
@@ -16,7 +15,7 @@ You must configure permissions to allow an IAM entity (user or role) to tag IAM 
 **To allow an IAM entity to add, list, or remove a tag for an IAM OIDC identity provider**  
 Add the following statement to the permissions policy for the IAM entity that needs to manage tags. Use your account number and replace {{<OIDCProviderName>}} with the name of the OIDC provider whose tags need to be managed. To learn how to create a policy using this example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor).
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -36,7 +35,7 @@ The `iam:TagOpenIDConnectProvider` action requires that you also include the `ia
 
 To use this policy, replace {{<OIDCProviderName>}} with the name of the OIDC provider whose tags need to be managed. To learn how to create a policy using this example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor).
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [

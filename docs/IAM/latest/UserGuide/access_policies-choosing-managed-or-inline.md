@@ -1,7 +1,6 @@
 
 
 # Choose between managed policies and inline policies
-<a name="access_policies-choosing-managed-or-inline"></a>
 
 Consider your use cases when deciding between managed and inline policies. In most cases, we recommend that you use managed policies instead of inline policies.
 

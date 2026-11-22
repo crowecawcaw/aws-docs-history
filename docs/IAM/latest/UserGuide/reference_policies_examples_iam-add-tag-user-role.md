@@ -1,7 +1,6 @@
 
 
 # IAM: Add a specific tag with specific values
-<a name="reference_policies_examples_iam-add-tag-user-role"></a>
 
 This example shows how you might create an identity-based policy that allows adding only the tag key `CostCenter` and either the tag value `A-123` or the tag value `B-456` to any IAM user or role. You can use this policy to limit tagging to a specific tag key and set of tag values. This policy defines permissions for programmatic and console access. To use this policy, replace the {{italicized placeholder text}} in the example policy with your own information. Then, follow the directions in [create a policy](access_policies_create.md) or [edit a policy](access_policies_manage-edit.md). 
 
@@ -16,7 +15,7 @@ The second condition uses the `ForAllValues:StringEquals` condition operator. Th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

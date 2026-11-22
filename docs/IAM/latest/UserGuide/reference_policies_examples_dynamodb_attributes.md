@@ -1,7 +1,6 @@
 
 
 # Amazon DynamoDB: Allows access to specific attributes
-<a name="reference_policies_examples_dynamodb_attributes"></a>
 
 This example shows how you might create an identity-based policy that allows access to the specific DynamoDB attributes. This policy grants the permissions necessary to complete this action programmatically from the AWS API or AWS CLI. To use this policy, replace the {{italicized placeholder text}} in the example policy with your own information. Then, follow the directions in [create a policy](access_policies_create.md) or [edit a policy](access_policies_manage-edit.md).
 
@@ -12,7 +11,7 @@ The `dynamodb:Select` requirement prevents the API action from returning any att
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

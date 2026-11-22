@@ -1,7 +1,6 @@
 
 
 # How do I manage IAM?
-<a name="intro-managing-iam"></a>
 
 Managing AWS Identity and Access Management within an AWS environment involves leveraging a variety of tools and interfaces. The most common method is through the AWS Management Console, a web-based interface that allows you to perform a wide range of IAM administrative tasks, from creating users and roles to configuring permissions.
 

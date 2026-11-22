@@ -1,9 +1,8 @@
 
 
 # Policies and permissions in AWS Identity and Access Management
-<a name="access_policies"></a>
 
-Manage access in AWS by creating policies and attaching them to IAM identities (users, groups of users, or roles) or AWS resources. A policy is an object in AWS that, when associated with an identity or resource, defines their permissions. AWS evaluates these policies when an IAM principal (user or role) makes a request. Permissions in the policies determine whether the request is allowed or denied. Most policies are stored in AWS as JSON documents. AWS supports nine types of policies: identity-based policies, resource-based policies, VPC endpoint policies, permissions boundaries, AWS Organizations service control policies (SCPs), AWS Organizations resource control policies (RCPs), access control lists (ACLs), Resource Access Manager shares (RAM) and session policies.
+Manage access in AWS by creating policies and attaching them to IAM identities (users, groups of users, or roles) or AWS resources. A policy is an object in AWS that, when associated with an identity or resource, defines their permissions. AWS evaluates these policies when an IAM principal (user or role) makes a request. Permissions in the policies determine whether the request is allowed or denied. Most policies are stored in AWS as JSON documents. AWS supports ten types of policies: identity-based policies, resource-based policies, VPC endpoint policies, permissions boundaries, AWS Organizations service control policies (SCPs), AWS Organizations resource control policies (RCPs), access control lists (ACLs), AWS Resource Access Manager (AWS RAM) resource shares, session policies, and scope down policies.
 
 IAM policies define permissions for an action regardless of the method that you use to perform the operation. For example, if a policy allows the [GetUser](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html) action, then a user with that policy can get user information from the AWS Management Console, the AWS CLI, or the AWS API. When you create an IAM user, you can choose to allow console or programmatic access. If console access is allowed, the IAM user can sign in to the console using their sign-in credentials. If programmatic access is allowed, the user can use access keys to work with the CLI or API.
 
@@ -20,6 +19,7 @@ The following policy types, listed in order from most frequently used to less fr
 + **[Access control lists (ACLs)](#policies_acl)** – Use ACLs to control which principals in other accounts can access the resource to which the ACL is attached. ACLs are similar to resource-based policies, although they are the only policy type that does not use the JSON policy document structure. ACLs are cross-account permissions policies that grant permissions to the specified principal. ACLs cannot grant permissions to entities within the same account.
 + **[AWS RAM resource shares](#policies_ram)** – Use AWS Resource Access Manager to share resources across AWS accounts, organizational units, or an entire organization without writing individual resource-based policies for each shared resource.
 + **[Session policies](#policies_session)** – Pass advanced session policies when you use the AWS CLI or AWS API to assume a role or a federated user. Session policies limit the permissions that the role or user's identity-based policies grant to the session. Session policies limit permissions for a created session, but do not grant permissions. For more information, see [Session Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session).
++ **[Scope down policies](#policies_scope-down)** – Pass a scope down policy when you use the AWS STS [GetScopedCredentials](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetScopedCredentials.html) API operation to derive temporary security credentials from existing temporary security credentials. The `GetDelegatedAccessToken` API also uses scope down policies where the approved policy that is carried in the trade-in token is a scope down policy. Scope down policies can only limit the permissions available to the resulting credentials and do not grant additional permissions. The resulting permissions are the intersection of the source session's permissions and each scope down policy that was added.
 
 ### Identity-based policies
 <a name="policies_id-based"></a>
@@ -107,6 +107,22 @@ A permissions boundary can set the maximum permissions for a user or role that i
 ![Evaluation of the session policy with a permissions boundary.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/EffectivePermissions-session-boundary-id.png)
 
 
+### Scope down policies
+<a name="policies_scope-down"></a>
+
+Scope down policies are advanced policies that AWS STS operations apply to temporary security credentials to further limit their permissions. For example, you provide a scope down policy when you call the [GetScopedCredentials](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetScopedCredentials.html) API operation.
+
+AWS evaluates a scope down policy independently from the other policies that apply to a request. A request is allowed only when the normal policy evaluation allows it and the scope down policy also allows it, unless the operation does not require authorization. For example, `GetCallerIdentity` requires no permissions, so a scope down policy cannot prevent it. For all other operations, if any scope down policy does not include an applicable `Allow`, the request is implicitly denied. An explicit deny in any applicable policy overrides an allow. Therefore, a scope down policy can only limit permissions but cannot grant any additional permissions.
+
+When you author a scope down policy, explicitly allow every action and resource that the scoped credentials must access. Do not rely on a same-account resource-based policy that grants permissions directly to the session principal.
+
+#### Session policies vs Scope down policies
+<a name="policies_scope-down_vs-session"></a>
+
+Scope down policies behave differently from session policies when a resource-based policy grants permissions to the session principal in the same AWS account. When you create temporary security credentials with `AssumeRole`, a same-account resource-based policy can grant permissions that the session policy does not limit. This happens when the resource-based policy uses a wildcard principal, such as `"Principal": "*"`, or names the session principal directly. Scope down policies do not work this way. Every scope down policy must explicitly allow the requested action and resource, even when a same-account resource-based policy grants that permission to the session principal. If no scope down policy allows the action and resource, AWS denies the request with `AccessDenied`.
+
+This difference applies only to same-account resource-based policies that use a wildcard principal or name the session principal directly. An example is `arn:aws:sts::123456789012:assumed-role/MyRole/my-session`. It does not apply to cross-account access. It also does not apply to resource-based policies that specify an AWS account principal or an IAM role ARN, such as `arn:aws:iam::123456789012:role/MyRole`. In those cases, session policies and scope down policies interact with the resource-based permission in the same way.
+
 ## Policies and the root user
 <a name="access_policies-root"></a>
 
@@ -115,7 +131,7 @@ The AWS account root user is affected by some policy types but not others. You c
 ## Overview of JSON policies
 <a name="access_policies-json"></a>
 
-Most policies are stored in AWS as JSON documents. Identity-based policies and policies used to set permissions boundaries are JSON policy documents that you attach to a user or role. Resource-based policies are JSON policy documents that you attach to a resource. SCPs and RCPs are JSON policy documents with restricted syntax that you attach to the AWS Organizations' organization root, organizational unit (OU), or an account. ACLs are also attached to a resource, but you must use a different syntax. Session policies are JSON policies that you provide when you assume a role or federated user session.
+Most policies are stored in AWS as JSON documents. Identity-based policies and policies used to set permissions boundaries are JSON policy documents that you attach to a user or role. Resource-based policies are JSON policy documents that you attach to a resource. SCPs and RCPs are JSON policy documents with restricted syntax that you attach to the AWS Organizations' organization root, organizational unit (OU), or an account. ACLs are also attached to a resource, but you must use a different syntax. Session policies are JSON policies that you provide when you assume a role or federated user session. Scope down policies are JSON policies that you provide when you call [GetScopedCredentials](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetScopedCredentials.html) to further limit the permissions of an existing temporary session.
 
 It is not necessary for you to understand the JSON syntax. You can use the visual editor in the AWS Management Console to create and edit customer managed policies without ever using JSON. However, if you use inline policies for groups or complex policies, you must still create and edit those policies in the JSON editor using the console. For more information about using the visual editor, see [Define custom IAM permissions with customer managed policies](access_policies_create.md) and [Edit IAM policies](access_policies_manage-edit.md).
 
@@ -128,7 +144,7 @@ As illustrated in the following figure, a JSON policy document includes these el
 + Optional policy-wide information at the top of the document
 + One or more individual statements**
 
-Each statement includes information about a single permission. If a policy includes multiple statements, AWS applies a logical `OR` across the statements when evaluating them. If multiple policies apply to a request, AWS applies a logical `OR` across all of those policies when evaluating them. 
+Each statement includes information about a single permission. If a policy includes multiple statements, AWS applies a logical `OR` across the statements when evaluating them. Within a single policy evaluation, if multiple policies apply to a request, AWS applies a logical `OR` across the applicable statements in those policies. Some policy types are evaluated as separate permissions limits. For example, every scope down policy associated with temporary security credentials must independently allow the request, which translates to a logical `AND`.
 
 ![JSON policy document structure.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/AccessPolicyLanguage_General_Policy_Structure.diagram.png)
 
@@ -164,7 +180,7 @@ For example, the following policy has three statements, each of which defines a 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -209,7 +225,7 @@ The following identity-based policy allows the implied principal to list a singl
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -229,7 +245,7 @@ The following resource-based policy can be attached to an Amazon S3 bucket. The 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

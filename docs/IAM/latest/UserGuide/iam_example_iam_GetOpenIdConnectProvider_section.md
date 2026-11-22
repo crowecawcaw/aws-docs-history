@@ -1,7 +1,6 @@
 
 
 # Use `GetOpenIdConnectProvider` with a CLI
-<a name="iam_example_iam_GetOpenIdConnectProvider_section"></a>
 
 The following code examples show how to use `GetOpenIdConnectProvider`.
 
@@ -39,7 +38,7 @@ For more information, see [Creating OpenID Connect (OIDC) identity providers](ht
 **Tools for PowerShell V4**  
 **Example 1: This example returns details about the OpenID Connect provider whose ARN is `arn:aws:iam::123456789012:oidc-provider/accounts.google.com`. The `ClientIDList` property is a collection that contains all the Client IDs defined for this provider.**  
 
-```
+```powershell
 Get-IAMOpenIDConnectProvider -OpenIDConnectProviderArn arn:aws:iam::123456789012:oidc-provider/oidc.example.com
 ```
 **Output:**  
@@ -54,7 +53,7 @@ ClientIDList         CreateDate                ThumbprintList                   
 **Tools for PowerShell V5**  
 **Example 1: This example returns details about the OpenID Connect provider whose ARN is `arn:aws:iam::123456789012:oidc-provider/accounts.google.com`. The `ClientIDList` property is a collection that contains all the Client IDs defined for this provider.**  
 
-```
+```powershell
 Get-IAMOpenIDConnectProvider -OpenIDConnectProviderArn arn:aws:iam::123456789012:oidc-provider/oidc.example.com
 ```
 **Output:**  

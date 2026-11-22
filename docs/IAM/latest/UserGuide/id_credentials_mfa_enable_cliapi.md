@@ -1,7 +1,6 @@
 
 
 # Assign MFA devices in the AWS CLI or AWS API
-<a name="id_credentials_mfa_enable_cliapi"></a>
 
 You can use AWS CLI commands or AWS API operations to enable a virtual MFA device for an IAM user. You cannot enable an MFA device for the AWS account root user with the AWS CLI, AWS API, Tools for Windows PowerShell, or any other command line tool. However, you can use the AWS Management Console to enable an MFA device for the root user. 
 

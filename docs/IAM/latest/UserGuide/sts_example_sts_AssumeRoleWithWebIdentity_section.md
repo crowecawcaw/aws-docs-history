@@ -1,7 +1,6 @@
 
 
 # Use `AssumeRoleWithWebIdentity` with a CLI
-<a name="sts_example_sts_AssumeRoleWithWebIdentity_section"></a>
 
 The following code examples show how to use `AssumeRoleWithWebIdentity`.
 
@@ -49,7 +48,7 @@ For more information, see [Requesting Temporary Security Credentials](https://do
 **Tools for PowerShell V4**  
 **Example 1: Returns a temporary set of credentials, valid for one hour, for a user who has been authenticated with the Login with Amazon identity provider. The credentials assume the access policy associated with the role identified by the role ARN. Optionally, you can pass a JSON policy to the -Policy parameter that further refine the access permissions (you cannot grant more permissions than are available in the permissions associated with the role). The value supplied to the -WebIdentityToken is the unique user identifier that was returned by the identity provider. **  
 
-```
+```powershell
 Use-STSWebIdentityRole -DurationInSeconds 3600 -ProviderId "www.amazon.com" -RoleSessionName "app1" -RoleArn "arn:aws:iam::123456789012:role/FederatedWebIdentityRole" -WebIdentityToken "Atza...DVI0r1"
 ```
 +  For API details, see [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -57,7 +56,7 @@ Use-STSWebIdentityRole -DurationInSeconds 3600 -ProviderId "www.amazon.com" -Rol
 **Tools for PowerShell V5**  
 **Example 1: Returns a temporary set of credentials, valid for one hour, for a user who has been authenticated with the Login with Amazon identity provider. The credentials assume the access policy associated with the role identified by the role ARN. Optionally, you can pass a JSON policy to the -Policy parameter that further refine the access permissions (you cannot grant more permissions than are available in the permissions associated with the role). The value supplied to the -WebIdentityToken is the unique user identifier that was returned by the identity provider. **  
 
-```
+```powershell
 Use-STSWebIdentityRole -DurationInSeconds 3600 -ProviderId "www.amazon.com" -RoleSessionName "app1" -RoleArn "arn:aws:iam::123456789012:role/FederatedWebIdentityRole" -WebIdentityToken "Atza...DVI0r1"
 ```
 +  For API details, see [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

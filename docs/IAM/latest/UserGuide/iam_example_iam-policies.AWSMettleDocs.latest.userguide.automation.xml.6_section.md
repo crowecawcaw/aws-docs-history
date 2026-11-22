@@ -1,7 +1,6 @@
 
 
 # Policy to grant read-only access to Compute Optimizer Automation for a management account of an organization
-<a name="iam_example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.6_section"></a>
 
 The following code example shows how to This permission-based policy grants read-only access to Compute Optimizer Automation for a management account of an organization
 
@@ -10,7 +9,7 @@ The following code example shows how to This permission-based policy grants read
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	                    
     "Statement": [

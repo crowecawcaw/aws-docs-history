@@ -1,7 +1,6 @@
 
 
 # Root user best practices for your AWS account
-<a name="root-user-best-practices"></a>
 
 When you first create an AWS account, you begin with a default set of credentials with complete access to all AWS resources in your account. This identity is called the [AWS account root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html). We strongly recommend you don’t access the AWS account root user unless you have a [task that requires root user credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-tasks.html#root-user-tasks). You need to secure your root user credentials and your account recovery mechanisms to help make sure you don’t expose your highly privileged credentials for unauthorized use.
 

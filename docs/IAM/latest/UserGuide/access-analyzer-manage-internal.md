@@ -1,7 +1,6 @@
 
 
 # Manage an IAM Access Analyzer internal access analyzer
-<a name="access-analyzer-manage-internal"></a>
 
 To enable an internal access analyzer in a Region, you must create an analyzer in that Region. You must create an internal access analyzer in each Region in which you want to monitor access to your resources.
 

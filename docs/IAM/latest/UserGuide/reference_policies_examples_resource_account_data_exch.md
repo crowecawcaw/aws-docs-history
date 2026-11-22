@@ -1,7 +1,6 @@
 
 
 # AWS: Deny access to Amazon S3 resources outside your account except AWS Data Exchange
-<a name="reference_policies_examples_resource_account_data_exch"></a>
 
 This example shows how you might create an identity-based policy that denies access to all resources in AWS that don't belong to your account, except for the resources that AWS Data Exchange requires for normal operation. To use this policy, replace the {{italicized placeholder text}} in the example policy with your own information. Then, follow the directions in [create a policy](access_policies_create.md) or [edit a policy](access_policies_manage-edit.md). 
 
@@ -21,7 +20,7 @@ The following example shows how you can configure the policy to allow access to 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

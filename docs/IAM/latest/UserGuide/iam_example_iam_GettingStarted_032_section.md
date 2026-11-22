@@ -1,7 +1,6 @@
 
 
 # Using property variables in monitoring dashboards to monitor multiple serverless functions
-<a name="iam_example_iam_GettingStarted_032_section"></a>
 
 The following code example shows how to:
 + Create Lambda functions for monitoring
@@ -15,7 +14,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/032-cloudwatch-streams) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # CloudWatch Dashboard with Lambda Function Variable Script

@@ -1,11 +1,10 @@
 
 
 # IAM JSON policy elements: Condition
-<a name="reference_policies_elements_condition"></a>
 
 The `Condition` element (or `Condition` *block*) lets you specify conditions for when a policy is in effect. The `Condition` element is optional. In the `Condition` element, you build expressions in which you use [condition operators](reference_policies_elements_condition_operators.md) (equal, less than, and others) to match the context keys and values in the policy against keys and values in the request context. To learn more about the request context, see [Components of a request](intro-structure.md#intro-structure-request).
 
-```
+```json
 "Condition" : { "{{{condition-operator}}}" : { "{{{condition-key}}}" : "{{{condition-value}}}" }}
 ```
 
@@ -13,13 +12,13 @@ The context key that you specify in a policy condition can be a [global conditio
 
 Context key *names* are not case-sensitive. For example, including the `aws:SourceIP` context key is equivalent to testing for `AWS:SourceIp`. Case-sensitivity of context key *values* depends on the [condition operator](reference_policies_elements_condition_operators.md) that you use. For example, the following condition includes the `StringEquals` operator to make sure that only requests made by `john` match. Users named `John` are denied access.
 
-```
+```json
 "Condition" : { "StringEquals" : { "aws:username" : "john" }}
 ```
 
 The following condition uses the [`StringEqualsIgnoreCase`](reference_policies_elements_condition_operators.md#Conditions_String) operator to match users named `john` or `John`.
 
-```
+```json
 "Condition" : { "StringEqualsIgnoreCase" : { "aws:username" : "john" }}
 ```
 
@@ -44,7 +43,7 @@ You can use the `Condition` element of a JSON policy to test specific context ke
 
 The following example shows a representation of the request context when Martha Rivera sends a request to deactivate her MFA device.
 
-```
+```yaml
 Principal: AROA123456789EXAMPLE
 Action: iam:DeactivateMFADevice
 Resource: arn:aws:iam::user/martha
@@ -67,7 +66,7 @@ The request context is matched against a policy that allows users to remove thei
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -103,13 +102,13 @@ In some cases, when the condition key value is not present, the condition can st
 
 The following example shows the basic format of a `Condition` element:
 
-```
+```json
 "Condition": {"StringLike": {"s3:prefix": ["jane/*"]}}
 ```
 
 A value from the request is represented by a context key, in this case `s3:prefix`. The context key value is compared to a value that you specify as a literal value, such as `jane/*`. The type of comparison to make is specified by the [condition operator](reference_policies_elements_condition_operators.md) (here, `StringLike`). You can create conditions that compare strings, dates, numbers, and more using typical Boolean comparisons such as equals, greater than, and less than. When you use [string operators](reference_policies_elements_condition_operators.md#Conditions_String) or [ARN operators](reference_policies_elements_condition_operators.md#Conditions_ARN), you can also use a [policy variable](reference_policies_variables.md) in the context key value. The following example includes the `aws:username` variable. 
 
-```
+```json
 "Condition": {"StringLike": {"s3:prefix": ["${aws:username}/*"]}}
 ```
 

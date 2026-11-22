@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for job functions
-<a name="access_policies_job-functions"></a>
 
 We recommend using policies that [grant least privilege](best-practices.md#grant-least-privilege), or granting only the permissions required to perform a task. The most secure way to grant least privilege is to write a custom policy with only the permissions needed by your team. You must create a process to allow your team to request more permissions when necessary. It takes time and expertise to [create IAM customer managed policies](access_policies_create-console.md) that provide your team with only the permissions they need.
 

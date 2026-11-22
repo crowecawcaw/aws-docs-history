@@ -1,7 +1,6 @@
 
 
 # Manage access to AWS accounts
-<a name="aam-manage-access-to-aws-accounts"></a>
 
 Account access manager is integrated with IAM Identity Center and AWS Organizations to centrally manage the assignment of existing IAM roles across multiple AWS accounts without configuring each of your accounts individually. With account access manager, you assign existing IAM roles in your AWS accounts to IAM Identity Center users and groups to control their access to specific AWS accounts.
 

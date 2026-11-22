@@ -1,7 +1,6 @@
 
 
 # IAM tutorial: Permit users to manage their credentials and MFA settings
-<a name="tutorial_users-self-manage-mfa-and-creds"></a>
 
 You can permit your users to manage their own multi-factor authentication (MFA) devices and credentials on the **Security credentials** page. You can use the AWS Management Console to configure credentials (access keys, passwords, signing certificates, and SSH public keys), delete or deactivate credentials that are not needed, and enable MFA devices for your users. This is useful for a small number of users, but that task could quickly become time consuming as the number of users grows. This tutorial shows you how to enable these best practices without burdening your administrators.
 

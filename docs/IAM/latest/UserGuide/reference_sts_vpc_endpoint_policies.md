@@ -1,7 +1,6 @@
 
 
 # Control access to AWS STS with VPC endpoint policies
-<a name="reference_sts_vpc_endpoint_policies"></a>
 
 When you create an interface VPC endpoint for AWS Security Token Service (AWS STS), you can attach an endpoint policy. The policy controls which principals can use the endpoint and which AWS STS actions they can perform. If you don't attach a policy, the endpoint uses the default policy that allows unrestricted access to all AWS STS actions for all principals.
 
@@ -23,7 +22,7 @@ For more information about VPC endpoint policies, see [Control access to VPC end
 
 If you don't attach a custom policy when you create the endpoint, AWS attaches the following default policy. This policy allows unrestricted access to the endpoint.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -89,7 +88,7 @@ For authenticated AWS principals (IAM users and roles), `aws:PrincipalIsAWSServi
 
 The following endpoint policy restricts your AWS STS VPC endpoint to your organization while supporting federated access. It allows all AWS STS actions for authenticated principals in your organization and separately permits federated callers to assume roles within your organization. Federated callers (`AssumeRoleWithSAML` and `AssumeRoleWithWebIdentity`) require a separate statement because they don't have an `aws:PrincipalOrgID` in the request context.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -135,7 +134,7 @@ For more information about implementing network perimeter controls, see [Buildin
 
 The following endpoint policy allows all AWS STS actions for principals in specific accounts. Use this policy when your accounts are not part of an organization. Federated callers are allowed in a separate statement because they don't have an `aws:PrincipalAccount` in the request context.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -185,7 +184,7 @@ The first statement uses `"Principal": {"AWS": "*"}` with `aws:PrincipalAccount`
 
 The following endpoint policy allows only `AssumeRole` for authenticated principals and `AssumeRoleWithSAML` for federated callers, both scoped to roles in your organization.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -226,7 +225,7 @@ This policy blocks other AWS STS actions such as `GetCallerIdentity`, `GetSessio
 
 The following endpoint policy uses an explicit deny to block authenticated principals outside your organization, while preserving access for federated callers. This approach starts with a broad allow and adds a targeted deny statement.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

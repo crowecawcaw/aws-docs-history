@@ -1,7 +1,6 @@
 
 
 # Quotas and limits in account access manager
-<a name="aam-quotas"></a>
 
 The following tables describe quotas within account access manager. Quota increase requests must come from a management or delegated administrator account. To increase a quota, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html).
 

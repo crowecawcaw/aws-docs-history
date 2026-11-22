@@ -1,7 +1,6 @@
 
 
 # Policy summary (list of services)
-<a name="access_policies_understand-policy-summary"></a>
 
 Policies are summarized in three tables: the policy summary, the [service summary](access_policies_understand-service-summary.md), and the [action summary](access_policies_understand-action-summary.md). The *policy summary* table includes a list of services and summaries of the permissions that are defined by the chosen policy. 
 
@@ -99,7 +98,7 @@ The **SummaryAllElements** policy is not intended for you to use to define permi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

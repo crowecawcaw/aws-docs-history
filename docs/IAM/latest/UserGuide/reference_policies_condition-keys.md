@@ -1,7 +1,6 @@
 
 
 # AWS global condition context keys
-<a name="reference_policies_condition-keys"></a>
 
 When a [principal](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html?icmpid=docs_homepage_addtlrcs#principal) makes a [request](intro-structure.md#intro-structure-request) to AWS, AWS gathers the request information into a [request context](intro-structure.md#intro-structure-request). You can use the `Condition` element of a JSON policy to compare keys in the request context with key values that you specify in your policy. Request information is provided by different sources, including the principal making the request, the resource the request is made against, and the metadata about the request itself.
 
@@ -14,7 +13,7 @@ Some individual services create their own condition keys that are available in t
 **Note**  
 If you use condition keys that are available only in some circumstances, you can use the [IfExists](reference_policies_elements_condition_operators.md#Conditions_IfExists) versions of the condition operators. If the condition keys are missing from a request context, the policy can fail the evaluation. For example, use the following condition block with `...IfExists` operators to match when a request comes from a specific IP range or from a specific VPC. If either or both keys are not included in the request context, the condition still returns `true`. The values are only checked if the specified key is included in the request context. For more information about how a policy is evaluated when a key is not present for other operators, see [ Condition operators](reference_policies_elements_condition_operators.md).  
 
-```
+```json
 "Condition": {
     "IpAddressIfExists": {"aws:SourceIp" : ["xxx"] },
     "StringEqualsIfExists" : {"aws:SourceVpc" : ["yyy"]} 
@@ -101,7 +100,7 @@ In the following example, access is denied except to principals with the account
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -139,7 +138,7 @@ Organization IDs are globally unique but OU IDs and root IDs are unique only wit
 
 For example, the following condition returns `true` for principals in accounts that are attached directly to the `ou-ab12-22222222` OU, but not in its child OUs.
 
-```
+```json
 "Condition" : { "ForAnyValue:StringEquals" : {
      "aws:PrincipalOrgPaths":["o-a1b2c3d4e5/r-ab12/ou-ab12-11111111/ou-ab12-22222222/"]
 }}
@@ -147,7 +146,7 @@ For example, the following condition returns `true` for principals in accounts t
 
 The following condition returns `true` for principals in an account that is attached directly to the OU or any of its child OUs. When you include a wildcard, you must use the `StringLike` condition operator.
 
-```
+```json
 "Condition" : { "ForAnyValue:StringLike" : {
      "aws:PrincipalOrgPaths":["o-a1b2c3d4e5/r-ab12/ou-ab12-11111111/ou-ab12-22222222/*"]
 }}
@@ -155,7 +154,7 @@ The following condition returns `true` for principals in an account that is atta
 
 The following condition returns `true` for principals in an account that is attached directly to any of the child OUs, but not directly to the parent OU. The previous condition is for the OU or any children. The following condition is for only the children (and any children of those children).
 
-```
+```json
 "Condition" : { "ForAnyValue:StringLike" : {
      "aws:PrincipalOrgPaths":["o-a1b2c3d4e5/r-ab12/ou-ab12-11111111/ou-ab12-22222222/ou-*"]
 }}
@@ -163,7 +162,7 @@ The following condition returns `true` for principals in an account that is atta
 
 The following condition allows access for every principal in the `o-a1b2c3d4e5` organization, regardless of their parent OU.
 
-```
+```json
 "Condition" : { "ForAnyValue:StringLike" : {
      "aws:PrincipalOrgPaths":["o-a1b2c3d4e5/*"]
 }}
@@ -171,7 +170,7 @@ The following condition allows access for every principal in the `o-a1b2c3d4e5` 
 
 `aws:PrincipalOrgPaths` is a multivalued condition key. Multivalued keys can have multiple values in the request context. When you use multiple values with the `ForAnyValue` condition operator, the principal's path must match one of the paths listed in the policy. For more information about multivalued condition keys, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys).
 
-```
+```json
     "Condition": {
         "ForAnyValue:StringLike": {
             "aws:PrincipalOrgPaths": [
@@ -199,7 +198,7 @@ For example, the following Amazon S3 bucket policy allows members of any account
 
 ****  
 
-```
+```json
  {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -239,7 +238,7 @@ This example shows how you might create an identity-based policy that allows use
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -280,7 +279,7 @@ In the following Amazon S3 bucket policy example, access to the bucket is restri
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -331,7 +330,7 @@ In the following Amazon S3 bucket policy example, access to the bucket is restri
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -414,7 +413,7 @@ In the following example, when used as a service control policy, denies the usag
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[
@@ -466,7 +465,7 @@ Use this key to compare the AWS Region where AWS STS issued a web identity token
 
 The following example SCP denies every request made with credentials whose token was issued in `us-east-1`.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -513,7 +512,7 @@ Use ARN operators instead of string operators when you compare ARNs.
 
 The following policy denies all actions associated with a specific AWS Sign-In session, although requests from other active sessions continue:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -574,7 +573,7 @@ The `aws:MultiFactorAuthPresent` key is not present when an API or CLI command i
 
 It is important to understand that the following `Condition` element is ***not*** a reliable way to check whether a request is authenticated using MFA.
 
-```
+```json
 #####   WARNING: NOT RECOMMENDED   #####
 "Effect" : "Deny",
 "Condition" : { "Bool" : { "aws:MultiFactorAuthPresent" : "false" } }
@@ -587,7 +586,7 @@ Also do not use the combination of the `Deny` effect, `Null` element, and `true`
 **Recommended Combination**  
 We recommend that you use the [`BoolIfExists`](reference_policies_elements_condition_operators.md#Conditions_IfExists) operator to check whether a request is authenticated using MFA.
 
-```
+```json
 "Effect" : "Deny",
 "Condition" : { "BoolIfExists" : { "aws:MultiFactorAuthPresent" : "false" } }
 ```
@@ -597,7 +596,7 @@ This combination of `Deny`, `BoolIfExists`, and `false` denies requests that are
 **Alternative Combinations**  
 You can also use the [`BoolIfExists`](reference_policies_elements_condition_operators.md#Conditions_IfExists) operator to allow MFA-authenticated requests and AWS CLI or AWS API requests that are made using long-term credentials.
 
-```
+```json
 "Effect" : "Allow",
 "Condition" : { "BoolIfExists" : { "aws:MultiFactorAuthPresent" : "true" } }
 ```
@@ -608,7 +607,7 @@ When you create a policy using the IAM console visual editor and choose **MFA re
 
 Alternatively, you can use the `Bool` operator to allow programmatic and console requests only when authenticated using MFA.
 
-```
+```json
 "Effect" : "Allow",
 "Condition" : { "Bool" : { "aws:MultiFactorAuthPresent" : "true" } }
 ```
@@ -617,7 +616,7 @@ This combination of the `Allow`, `Bool`, and `true` allows only MFA-authenticate
 
 ***Do not*** use a policy construct similar to the following to check whether the MFA key is present:
 
-```
+```json
 #####   WARNING: USE WITH CAUTION   #####
 
 "Effect" : "Allow",
@@ -642,7 +641,7 @@ The following policy denies Amazon S3 put requests on the specified bucket for a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -678,7 +677,7 @@ This key can be used with VPC identifier values, but is most useful when used as
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -727,7 +726,7 @@ The following example is a service control policy (SCP) that denies access to al
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -790,7 +789,7 @@ The following role trust policy for `CriticalRole` in account `111122223333` con
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -838,7 +837,7 @@ In the following example, access is denied if the ec2:RoleDelivery value in the 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -883,7 +882,7 @@ The AWS Glue service sets this condition key for each AWS API request where AWS 
 
 The following example adds a condition to allow the AWS Glue service to get an object from an Amazon S3 bucket.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "s3:GetObject",
@@ -907,7 +906,7 @@ The AWS Glue service sets this key for each AWS API request using a service role
 
 The following example adds a condition that is attached to an IAM role that is used by an AWS Glue job. This ensures certain actions are allowed/denied based on whether the role session is used for an AWS Glue job runtime environment.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "s3:GetObject",
@@ -934,7 +933,7 @@ The full value of `codebuild:BuildArn` is not known in advance because it contai
 
 The following example allows a specific CodeBuild build to have `s3:GetObject` access to the specified bucket.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "s3:GetObject",
@@ -958,7 +957,7 @@ This key identifies the CodeBuild project ARN that IAM role credentials were del
 
 The following example allows any build from a specific CodeBuild project to have `s3:GetObject` access to the specified bucket.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "s3:GetObject",
@@ -987,7 +986,7 @@ The following example allows one specific Lambda function to have `s3:PutObject`
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1055,7 +1054,7 @@ For example, you can attach the following identity-based policy to an IAM role. 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1083,7 +1082,7 @@ If you need to restrict access from networks that support both IPv4 and IPv6 add
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1132,7 +1131,7 @@ This policy does not allow any actions. Use this policy in combination with othe
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1211,7 +1210,7 @@ Use this key to verify the ARN of the VPC that a request passed through using a 
 
 The following is an example of a bucket policy that denies access to `amzn-s3-demo-bucket` and its objects from anywhere outside VPC `vpc-1a2b3c4d`.
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -1305,7 +1304,7 @@ You can use this condition key to restrict access to resources so that requests 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1407,7 +1406,7 @@ The following resource control policy example denies access to your Amazon S3 an
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1502,7 +1501,7 @@ Since `aws:VpceOrgPaths` is a multivalued condition key, you must use the `ForAn
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1614,7 +1613,7 @@ This policy does not allow any actions. Instead, it uses the `Deny` effect which
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1690,7 +1689,7 @@ For additional considerations for the above unsupported actions, see the [Data P
 
 For example, the following condition returns `True` for resources that belong to the organization `o-a1b2c3d4e5`. When you include a wildcard, you must use the [StringLike](reference_policies_elements_condition_operators.md) condition operator.
 
-```
+```json
 "Condition": { 
       "ForAnyValue:StringLike": {
              "aws:ResourceOrgPaths":["o-a1b2c3d4e5/*"]
@@ -1700,7 +1699,7 @@ For example, the following condition returns `True` for resources that belong to
 
 The following condition returns `True` for resources with the OU ID `ou-ab12-11111111`. It will match resources owned by accounts attached to the OU ou-ab12-11111111 or any of the child OUs.
 
-```
+```json
 "Condition": { "ForAnyValue:StringLike" : {
      "aws:ResourceOrgPaths":["o-a1b2c3d4e5/r-ab12/ou-ab12-11111111/*"]
 }}
@@ -1708,7 +1707,7 @@ The following condition returns `True` for resources with the OU ID `ou-ab12-111
 
 The following condition returns `True` for resources owned by accounts attached directly to the OU ID `ou-ab12-22222222`, but not the child OUs. The following example uses the [StringEquals](reference_policies_elements_condition_operators.md) condition operator to specify the exact match requirement for the OU ID and not a wildcard match.
 
-```
+```json
 "Condition": { "ForAnyValue:StringEquals" : {
      "aws:ResourceOrgPaths":["o-a1b2c3d4e5/r-ab12/ou-ab12-11111111/ou-ab12-22222222/"]
 }}
@@ -1771,7 +1770,7 @@ This policy does not allow any actions. Instead, it uses the `Deny` effect which
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -1851,7 +1850,7 @@ For example, the following policy allows managing the AWS KMS key named `my-exam
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1887,7 +1886,7 @@ If you want to enforce which service makes the first or last call in the chain, 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1958,7 +1957,7 @@ Use this condition key in AWS Identity and Access Management (IAM) policies to s
 
 The following example shows a deny policy for sessions obtained through temporary access delegation from a specific partner account. The policy applies only to sessions issued before a specified time. This example uses a wildcard (`*`) for `Action` and `Resource` in the `Deny` statement, which is the standard pattern for revoking all access from a specific session. To revoke only specific actions, replace the wildcard with the appropriate action list.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -1989,7 +1988,7 @@ Use this key to compare the services in the policy with the AWS MCP services tha
 
 You can use this condition key to allow or deny access based on which specific MCP server initiated the request. For example, the following policy denies sensitive delete operations when they are initiated through a specific MCP server:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -2022,7 +2021,7 @@ Use this key to check whether an AWS MCP service makes a request to another AWS 
 
 You can use this key to restrict specific actions when they come through MCP servers. For example, the following policy denies sensitive delete operations when initiated through any AWS MCP server:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -2097,7 +2096,7 @@ You can use this context key to limit access to AWS services within a given set 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -2160,7 +2159,7 @@ This example shows that while the key is single-valued, you can still use multip
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -2224,7 +2223,7 @@ You can use this condition key to help make sure that a calling service can acce
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -2291,7 +2290,7 @@ You can use this condition key to help make sure that a calling service can acce
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -2336,7 +2335,7 @@ Use this condition key to help make sure that a calling service can access your 
 
 Similarly to `aws:SourceOrgID`, to help prevent impact on service integrations that don't require the use of this key, use the `Null` condition operator with the `aws:SourceAccount` condition key so that the control still applies if the request originates from an account that doesn’t belong to an organization.
 
-```
+```JSON
 {
       "Condition": {
         "ForAllValues:StringNotLikeIfExists": {

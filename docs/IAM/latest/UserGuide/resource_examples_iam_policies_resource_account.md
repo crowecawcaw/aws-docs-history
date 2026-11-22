@@ -1,7 +1,6 @@
 
 
 # AWS: Deny access to resources outside your account except AWS managed IAM policies
-<a name="resource_examples_iam_policies_resource_account"></a>
 
 Using `aws:ResourceAccount` in your identity-based policies can impact the user or the role's ability to utilize some services that require interaction with resources in accounts owned by a service.
 
@@ -12,7 +11,7 @@ You can create a policy with an exception to allow for AWS managed IAM policies.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

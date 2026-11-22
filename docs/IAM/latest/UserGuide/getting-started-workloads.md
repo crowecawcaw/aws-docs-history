@@ -1,7 +1,6 @@
 
 
 # Create an IAM user for workloads that can't use IAM roles
-<a name="getting-started-workloads"></a>
 
 **Important**  
 As a [best practice](best-practices.md#lock-away-credentials), we recommend you require your human users to use [temporary credentials](id_credentials_temp.md) when accessing AWS.  
@@ -110,7 +109,7 @@ You can use this same process to give additional workloads programmatic access t
 1. Create a user named **Automation**.
    + [aws iam create-user](https://docs.aws.amazon.com/cli/latest/reference/iam/create-user.html)
 
-   ```
+   ```bash
                  aws iam create-user \
                      --user-name Automation
    ```
@@ -120,27 +119,27 @@ You can use this same process to give additional workloads programmatic access t
 An *AWS managed policy* is a standalone policy that is created and administered by AWS. Each policy has its own Amazon Resource Name (ARN) that includes the policy name. For example, `arn:aws:iam::aws:policy/IAMReadOnlyAccess` is an AWS managed policy. For more information about ARNs, see [IAM ARNs](reference_identifiers.md#identifiers-arns). For a list of AWS managed policies for AWS services, see [AWS managed policies](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/policy-list.html).
    + [aws iam create-group](https://docs.aws.amazon.com/cli/latest/reference/iam/create-group.html) 
 
-     ```
+     ```bash
                        aws iam create-group \
                            --group-name AutomationGroup
      ```
    + [aws iam attach-group-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-group-policy.html)
 
-     ```
+     ```bash
                        aws iam attach-group-policy \
                            --policy-arn arn:aws:iam::aws:policy/PowerUserAccess \
                            --group-name AutomationGroup
      ```
    + [aws iam add-user-to-group](https://docs.aws.amazon.com/cli/latest/reference/iam/add-user-to-group.html) 
 
-     ```
+     ```bash
                       aws iam add-user-to-group \
                           --user-name Automation \
                           --group-name AutomationGroup
      ```
    + Run the [aws iam get-group](https://docs.aws.amazon.com/cli/latest/reference/iam/get-group.html) command to list the **AutomationGroup** and its members.
 
-     ```
+     ```bash
                      aws iam get-group \
                           --group-name AutomationGroup
      ```
@@ -148,7 +147,7 @@ An *AWS managed policy* is a standalone policy that is created and administered 
 1. Create the security credentials needed for the workload.
    + **Create access keys for testing**–[aws iam create-access-key](https://docs.aws.amazon.com/cli/latest/reference/iam/create-access-key.html)
 
-     ```
+     ```bash
                             aws iam create-access-key \
                                 --user-name Automation
      ```
@@ -160,7 +159,7 @@ These IAM user access keys are long-term credentials that present a security-ris
 
      The following example assumes that you have your SSH public keys stored in the file `sshkey.pub`.
 
-     ```
+     ```bash
                             aws upload-ssh-public-key \
                                 --user-name Automation \
                                 --ssh-public-key-body file://sshkey.pub
@@ -171,7 +170,7 @@ These IAM user access keys are long-term credentials that present a security-ris
 
      The following example assumes that you have your X.509 signing certificate stored in the file `certificate.pem`.
 
-     ```
+     ```bash
                            aws iam upload-signing-certificate \
                            --user-name Automation \
                            --certificate-body file://certificate.pem

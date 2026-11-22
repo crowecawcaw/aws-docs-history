@@ -1,7 +1,6 @@
 
 
 # IAM and AWS STS condition context keys
-<a name="reference_policies_iam-condition-keys"></a>
 
 You can use the `Condition` element in a JSON policy to test the value of keys that are included in the request context of all AWS requests. These keys provide information about the request itself or the resources that the request references. You can check that keys have specified values before allowing the action requested by the user. This gives you granular control over when your JSON policy statements match or don't match an incoming request. For information about how to use the `Condition` element in a JSON policy, see [IAM JSON policy elements: Condition](reference_policies_elements_condition.md).
 
@@ -30,7 +29,7 @@ This condition key applies to only the [PassRole](id_roles_use_passrole.md) acti
 When using the `iam:AssociatedResourceArn` condition in a policy to restrict the [PassRole](id_roles_use_passrole.md) action, special considerations apply if the policy is intended to define access for the [AddRoleToInstanceProfile](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AddRoleToInstanceProfile.html) action. In this case, you cannot specify a Region or instance ID in the EC2 instance ARN. The ARN value must be `arn:aws:ec2:*:CallerAccountId:instance/*`. Using any other ARN value might lead to unexpected evaluation results.
 Use this condition key in an identity-based policy to allow an entity to pass a role, but only if that role is associated with the specified resource. For example, you can allow an IAM user or role to pass any role to the Amazon EC2 service to be used with instances in the AWS account. The IAM user or role would not be allowed to pass roles to other services.  
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "iam:PassRole",
@@ -57,7 +56,7 @@ For information about which services support using service-linked roles, see [AW
 In this example, you allow an entity to create a service-linked role using the [`CreateServiceLinkedRole`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html) API operation if the service name is *access-analyzer.amazonaws.com.*    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [{
@@ -80,7 +79,7 @@ Possible values of L1, L1plus, L2, L2plus, L3, L3plus
 In this example, you register a security key and retrieve the FIDO Level 1 plus certification for your device.    
 ****  
 
-```
+```json
 {
       "Version":"2012-10-17",		 	 	 
       "Statement": [{
@@ -116,7 +115,7 @@ Possible values of L1, L2, L3, L4
 In this example, you register a security key and retrieve the FIPS-140-2 Level 2 certification for your device.    
 ****  
 
-```
+```json
 {
       "Version":"2012-10-17",		 	 	 
       "Statement": [{
@@ -152,7 +151,7 @@ Possible values of L1, L2, L3, L4
 In this example, you register a security key and retrieve the FIPS-140-3 Level 3 certification for your device.    
 ****  
 
-```
+```json
 {
       "Version":"2012-10-17",		 	 	 
       "Statement": [{
@@ -213,7 +212,7 @@ Possible values of `Create` or `Activate`.
 In this example, you register a security key and retrieve the FIPS-140-3 Level 1 certification for your device.    
 ****  
 
-```
+```json
 {
       "Version":"2012-10-17",		 	 	 
       "Statement": [{
@@ -250,7 +249,7 @@ You can add custom attributes to IAM resources in the form of a key-value pair. 
 This example shows how you might create an identity-based policy that allows deleting users with the **status=terminated** tag. To use this policy, replace the {{italicized placeholder text}} in the example policy with your own information. Then, follow the directions in [create a policy](access_policies_create.md) or [edit a policy](access_policies_manage-edit.md).    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -270,7 +269,7 @@ This condition key is supported by the [`CreateServiceSpecificCredential`](https
 In this example, you allow a user to create service-specific credentials for the Amazon Bedrock service only if they expire within 90 days.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -306,7 +305,7 @@ The following services are supported for service-specific credentials with their
 In this example, you allow a user to create service-specific credentials using the [`CreateServiceSpecificCredential`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceSpecificCredential.html) API operation only for the Amazon Bedrock service.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -331,7 +330,7 @@ Product providers can use this condition key to control the maximum duration the
 This condition key is supported by the `CreateDelegationRequest` API operation.  
 In this example, you allow creating delegation requests only if the requested duration is 7200 seconds (2 hours) or less.  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -356,7 +355,7 @@ Product providers can use this condition key to restrict which SNS topics can be
 This condition key is supported by the `CreateDelegationRequest` API operation.  
 In this example, you allow creating delegation requests only if they use a specific SNS topic for notifications.  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -381,7 +380,7 @@ Product providers can use this condition key to control which policy templates c
 This condition key is supported by the `CreateDelegationRequest` API operation.  
 In this example, you allow creating delegation requests only if they use a policy template from a specific partner domain.  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -412,7 +411,7 @@ This condition key is supported by the following API operations:
 + `UpdateDelegationRequest`
 In this example, you allow users to manage only delegation requests that they own.  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -430,6 +429,202 @@ In this example, you allow users to manage only delegation requests that they ow
             "Condition": {
                 "ArnEquals": {
                     "iam:DelegationRequestOwner": "${aws:PrincipalArn}"
+                }
+            }
+        }
+    ]
+}
+```
+
+**iam:EnableIdentityPropagation**  
+Works with [Boolean operators](reference_policies_elements_condition_operators.md#Conditions_Boolean).  
+Filters access by whether the request enables or disables trusted identity propagation (TIP) for an identity provider. Enabling TIP means attaching a context provider to the identity provider; disabling TIP means removing it.  
+This key is available only in requests to `CreateSAMLProvider`, `UpdateSAMLProvider`, `CreateOpenIDConnectProvider`, and `UpdateOpenIDConnectProvider`. The value is `true` when the request includes the `ContextProvider` parameter, which attaches or updates the context provider. This applies to all four actions. The value is `false` when the request sets `RemoveContextProvider` to `true`. This applies to `UpdateSAMLProvider` and `UpdateOpenIDConnectProvider`. The key is absent from requests that don't change the context provider. A Deny statement that checks for `true` or `false` affects only requests that attach, update, or remove the context provider. For more information about TIP, see [Trusted identity propagation for IAM federation](id_roles_providers_tip.html).  
+The following example SCP prevents anyone from enabling TIP on, or updating the context provider of, any SAML or OIDC identity provider.  
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyEnablingTIP",
+            "Effect": "Deny",
+            "Action": [
+                "iam:CreateSAMLProvider",
+                "iam:UpdateSAMLProvider",
+                "iam:CreateOpenIDConnectProvider",
+                "iam:UpdateOpenIDConnectProvider"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Bool": {
+                    "iam:EnableIdentityPropagation": "true"
+                }
+            }
+        }
+    ]
+}
+```
+To prevent anyone from removing TIP, use `"iam:EnableIdentityPropagation": "false"` with the `UpdateSAMLProvider` and `UpdateOpenIDConnectProvider` actions.
+
+**iam:RequestIdentityProviderIssuers**  
+Works with [string operators](reference_policies_elements_condition_operators.md#Conditions_String).  
+Filters access by the issuer identifiers that the request supplies. An issuer identifier identifies the external identity provider (IdP) that issues the OIDC tokens or SAML assertions that the IAM identity provider trusts. This key is not supported for `UpdateOpenIDConnectProvider`, because that request doesn't supply a provider URL. It is also not supported for the `DeleteSAMLProvider` and `DeleteOpenIDConnectProvider` operations, which don't supply issuer values. The value depends on the identity provider type:  
+OIDC identity providers. The value is the host and path of the provider URL in the request, without the `https://` prefix. For example, if the provider URL is `https://idp.example.com/oauth2/default`, the value is `idp.example.com/oauth2/default`. This is the same as the resource name in the provider ARN, the part after `oidc-provider/`. The value is not normalized: letter case and any trailing slash are kept exactly as they appear in the provider URL. The key has a single value for OIDC providers.  
+SAML identity providers. The value is the list of key hashes of the signing certificates in the SAML metadata document in the request. A key hash uniquely identifies a certificate's signing public key. If the metadata document describes more than one identity provider, or has more than one signing certificate, the key contains one hash for each distinct signing public key.  
+This key is multivalued. To use it in a policy, use the `ForAnyValue` or `ForAllValues` set operators. `ForAllValues` is true when the key is missing or empty, because there are no values to fail. An Allow statement that uses `ForAllValues` therefore also allows requests that carry no issuer. For more information, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys). For more information about TIP, see [Trusted identity propagation for IAM federation](id_roles_providers_tip.html).  
+Use this key to control which issuers can be registered, either in a new identity provider or in a new SAML metadata document. The following example SCP denies creating an identity provider, or uploading SAML metadata, with an issuer that isn't in the approved list. `ForAnyValue:StringNotEquals` is true if any issuer in the request is not in the list. When the key is absent, as in an `UpdateSAMLProvider` request without a metadata document, the condition is false and the statement doesn't apply.  
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyUnapprovedRequestIssuers",
+            "Effect": "Deny",
+            "Action": [
+                "iam:CreateSAMLProvider",
+                "iam:UpdateSAMLProvider",
+                "iam:CreateOpenIDConnectProvider"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ForAnyValue:StringNotEquals": {
+                    "iam:RequestIdentityProviderIssuers": [
+                        "idp.example.com/oauth2/default",
+                        "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2cEXAMPLE"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+This example applies to all SAML and OIDC identity providers in the accounts the SCP covers, not only providers that use TIP.
+
+**iam:ResourceIdentityProviderIssuers**  
+Works with [string operators](reference_policies_elements_condition_operators.md#Conditions_String).  
+Filters access by the issuer identifiers of the identity provider that the request acts on. An issuer identifier identifies the external identity provider (IdP) that issues the OIDC tokens or SAML assertions that the IAM identity provider trusts. The value depends on the identity provider type:  
+OIDC identity providers. The value is the host and path of the provider URL, without the `https://` prefix. For example, if the provider URL is `https://idp.example.com/oauth2/default`, the value is `idp.example.com/oauth2/default`. This is the same as the resource name in the provider ARN, the part after `oidc-provider/`. The value is not normalized: letter case and any trailing slash are kept exactly as they appear in the provider URL. The key has a single value for OIDC providers.  
+SAML identity providers. The value is the list of key hashes of the signing certificates in the provider's SAML metadata document. If the metadata document describes more than one identity provider, or has more than one signing certificate, the key contains one hash for each distinct signing public key. To get the key hashes for an existing SAML provider, call `GetSAMLProvider` and check the `SAMLKeyHashes` response element.  
+This key is multivalued. To use it in a policy, use the `ForAnyValue` or `ForAllValues` set operators. `ForAllValues` is true when the key is missing or empty, because there are no values to fail. An Allow statement that uses `ForAllValues` therefore also allows requests that carry no issuer. For more information, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys). For more information about TIP, see [Trusted identity propagation for IAM federation](id_roles_providers_tip.html).  
+This key is available for the `CreateSAMLProvider`, `UpdateSAMLProvider`, `CreateOpenIDConnectProvider`, and `UpdateOpenIDConnectProvider` API operations.  
+Use this key to control changes to existing identity providers based on their issuer. An `UpdateSAMLProvider` request that enables TIP can't include a metadata document, and `UpdateOpenIDConnectProvider` requests never include a URL. So in these requests the issuer is available only in the resource key. The following example SCP prevents anyone from enabling TIP on an identity provider whose issuer isn't in the approved list. This applies both to new and to existing providers.  
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyTIPForUnapprovedIssuers",
+            "Effect": "Deny",
+            "Action": [
+                "iam:CreateSAMLProvider",
+                "iam:UpdateSAMLProvider",
+                "iam:CreateOpenIDConnectProvider",
+                "iam:UpdateOpenIDConnectProvider"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Bool": {
+                    "iam:EnableIdentityPropagation": "true"
+                },
+                "ForAnyValue:StringNotEquals": {
+                    "iam:ResourceIdentityProviderIssuers": [
+                        "idp.example.com/oauth2/default",
+                        "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2cEXAMPLE"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+**iam:RequestIdentityCenterInstanceArn**  
+Works with [ARN operators](reference_policies_elements_condition_operators.md#Conditions_ARN).  
+Filters access by the ARN of the IAM Identity Center instance that the request associates with the identity provider. The key is absent from requests that remove an IAM Identity Center association. To control removal, use [iam:EnableIdentityCenterAssociation](#ck_EnableIdentityCenterAssociation) and [iam:ResourceIdentityCenterInstanceArn](#ck_ResourceIdentityCenterInstanceArn). For more information about TIP, see [Trusted identity propagation for IAM federation](id_roles_providers_tip.html).  
+This key is available for the `CreateSAMLProvider`, `UpdateSAMLProvider`, `CreateOpenIDConnectProvider`, and `UpdateOpenIDConnectProvider` API operations.  
+The following example SCP allows identity providers to be associated only with the specified IAM Identity Center instance. The `Null` condition makes sure the statement applies only to requests that include an instance ARN. Without it, the `ArnNotEquals` condition would be true for every request that doesn't include the key, and the statement would deny those requests too.  
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyUnapprovedIdentityCenterInstance",
+            "Effect": "Deny",
+            "Action": [
+                "iam:CreateSAMLProvider",
+                "iam:UpdateSAMLProvider",
+                "iam:CreateOpenIDConnectProvider",
+                "iam:UpdateOpenIDConnectProvider"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Null": {
+                    "iam:RequestIdentityCenterInstanceArn": "false"
+                },
+                "ArnNotEquals": {
+                    "iam:RequestIdentityCenterInstanceArn": "arn:aws:sso:::instance/ssoins-1234567890abcdef"
+                }
+            }
+        }
+    ]
+}
+```
+
+**iam:ResourceIdentityCenterInstanceArn**  
+Works with [ARN operators](reference_policies_elements_condition_operators.md#Conditions_ARN).  
+Filters access by the ARN of the IAM Identity Center instance associated with the identity provider that the request acts on. The key is absent if the provider has no association. For more information about TIP, see [Trusted identity propagation for IAM federation](id_roles_providers_tip.html).  
+This key is available for the `CreateSAMLProvider`, `UpdateSAMLProvider`, `CreateOpenIDConnectProvider`, and `UpdateOpenIDConnectProvider` API operations.  
+This key is present in every update to an associated provider, and thus a Deny statement that uses only this key blocks all updates to those providers, including SAML metadata rotation. To block a specific change, combine it with another key. The following example SCP prevents anyone from removing the association between an identity provider and the specified IAM Identity Center instance. Other updates to those providers are still allowed.  
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyDisassociationFromProtectedInstance",
+            "Effect": "Deny",
+            "Action": [
+                "iam:UpdateSAMLProvider",
+                "iam:UpdateOpenIDConnectProvider"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Bool": {
+                    "iam:EnableIdentityCenterAssociation": "false"
+                },
+                "ArnEquals": {
+                    "iam:ResourceIdentityCenterInstanceArn": "arn:aws:sso:::instance/ssoins-1234567890abcdef"
+                }
+            }
+        }
+    ]
+}
+```
+
+**iam:EnableIdentityCenterAssociation**  
+Works with [Boolean operators](reference_policies_elements_condition_operators.md#Conditions_Boolean).  
+Filters access by whether the request associates an IAM Identity Center instance with an identity provider, or removes the association. The key is available only in requests to `CreateSAMLProvider`, `UpdateSAMLProvider`, `CreateOpenIDConnectProvider`, and `UpdateOpenIDConnectProvider`. For more information about TIP, see [Trusted identity propagation for IAM federation](id_roles_providers_tip.html).  
+The following example SCP prevents anyone from removing an IAM Identity Center association from any SAML or OIDC identity provider. Other updates to the provider are still allowed. To protect only providers associated with a specific instance, see the example for [iam:ResourceIdentityCenterInstanceArn](#ck_ResourceIdentityCenterInstanceArn).  
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyIdentityCenterDisassociation",
+            "Effect": "Deny",
+            "Action": [
+                "iam:UpdateSAMLProvider",
+                "iam:UpdateOpenIDConnectProvider"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Bool": {
+                    "iam:EnableIdentityCenterAssociation": "false"
                 }
             }
         }
@@ -487,7 +682,7 @@ When you write a policy using the `accounts.google.com:aud` condition key, you m
 The following example policy works for non-hybrid apps that do not set the `azp` field. In this case the Google ID Token `aud` field value matches both the `accounts.google.com:aud` and the `accounts.google.com:oaud` condition key values.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -510,7 +705,7 @@ The following example policy works for non-hybrid apps that do not set the `azp`
 The following example policy works for hybrid apps that do set the `azp` field. In this case, the Google ID Token `aud` field value matches only the `accounts.google.com:oaud` condition key value. The `azp` field value matches the `accounts.google.com:aud` condition key value.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -549,7 +744,7 @@ Use these keys to verify that the subject matches the one that you specify in th
 In the following role trust policy, the `sub` condition key limits the role to the GitHub branch named `demo`.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -712,7 +907,7 @@ The destination role's trust policy must allow `sts:SetSourceIdentity`. Apply `s
 
 The following example trust policy allows a single role in the source partition to assume the destination role when the token has the expected audience and was issued in `us-east-1`. The source partition is `aws` and the destination partition is `aws-cn`. The `Federated` principal identifies the OIDC provider in the destination account. Replace the issuer host in the provider ARN and condition keys with your source account's issuer host, and replace `your-audience` with the audience configured for your destination OIDC provider. Replace `us-east-1` with the source AWS Region you want to allow.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -762,7 +957,7 @@ Authentication Methods Reference includes login information about the user. The 
 + If the user is authenticated, the key contains the value `authenticated` and the name of the login provider used in the call (`cognito-identity.amazonaws.com`).
 As an example, the following condition in the trust policy for an Amazon Cognito role tests whether the user is unauthenticated.  
 
-```
+```json
 "Condition": {
   "StringEquals": 
     { "cognito-identity.amazonaws.com:aud": "us-east-2:{{identity-pool-id}}" },
@@ -786,7 +981,7 @@ Works with [string operators](reference_policies_elements_condition_operators.md
 **Example** – `cognito-identity.amazonaws.com:sub`  
 A unique identifier (UUID), or subject, for the authenticated user. The username might not be unique in your user pool. The sub claim is the best way to identify a given user. You can use the `sub` key with the `aud` key for the same identity provider.  
 
-```
+```json
 "Condition": {
          "StringEquals": {
             "cognito-identity.amazonaws.com:aud": "us-east-1:12345678-abcd-abcd-abcd-123456790ab",
@@ -921,7 +1116,7 @@ On GitHub, repository, organization, and user names can change. A name that is f
 
 The following example trust policy uses custom claims in GitHub OIDC token to limit access to a role.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -963,7 +1158,7 @@ This key verifies that a token represents a Google identity belonging to a speci
 
 The following example trust policy uses the `google/organization_number` claim to limit access to a role.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -1000,7 +1195,7 @@ This key identifies the CircleCI project in which the job is running. Its value 
 
 The following example trust policy uses the `oidc.circleci.com/project-id` claim to limit access to a role.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -1038,7 +1233,7 @@ This key uniquely identifies the resource principal in OCI. Use this to restrict
 
 The following example trust policy uses the `rpst_id` claim to limit access to a role.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -1130,7 +1325,7 @@ On GitLab.com SaaS, deleted group or project paths could previously be recreated
 
 The following example trust policy uses the `namespace_id` claim together with `sub` to limit access to a specific GitLab.com project and branch.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -1207,7 +1402,7 @@ On Buildkite, a deleted organization or pipeline slug can be immediately re-regi
 
 The following example trust policy uses custom claims in the Buildkite OIDC token to limit access to a role.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -1388,7 +1583,7 @@ For general information about `eduPerson` and `eduOrg` attributes, see the [REFE
 
 Condition keys whose type is a list can include multiple values. To create conditions in the policy for list values, you can use [set operators](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys) (`ForAllValues`, `ForAnyValue`). For example, to allow any user whose affiliation is "faculty" or "staff" (but not "student"), you might use a condition like the following: 
 
-```
+```json
 "Condition": {
    "ForAllValues:StringLike": {
      "saml:edupersonaffiliation":[ "faculty", "staff"] 
@@ -1439,7 +1634,7 @@ When you use this condition key in a policy, specify the audience value that mat
 This key is multivalued. In an `Allow` statement, use `ForAllValues:StringEquals` to require every requested audience to match an allowed value. Include a `Null` condition with `false` to require the key to be present and nonempty. For more information, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys).  
 The following example policy allows a principal to request tokens for the specified external services:  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -1470,7 +1665,7 @@ Use this key to specify the cryptographic algorithm AWS AWS STS uses to sign JSO
 You can use this condition key to enforce that IAM principals request tokens using signing algorithms compatible with your security requirements or the external services you integrate with. ES384 provides optimal security and performance, while RS256 offers broader compatibility with systems that do not support ECDSA.  
 The following example policy requires principals to use the ES384 signing algorithm:  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -1509,7 +1704,7 @@ Use this key to compare the context provider ARN in the request with the context
 The following example condition checks that the context provider ARN passed in the request matches the ARN specified in the role trust policy condition. We recommend you add a null check with `ForAllValues` to prevent missing context keys or context keys with empty values from evaluating to true. For details, see [Condition operator to check existence of condition keys](reference_policies_elements_condition_operators.md#Conditions_Null).    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -1579,7 +1774,7 @@ The following role trust policy requires that IAM users in account `111122223333
 You can use any single-valued condition key as a [variable](reference_policies_variables.md). You can't use a multivalued condition key as a variable.  
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1597,7 +1792,7 @@ You can use any single-valued condition key as a [variable](reference_policies_v
 ```
 When an administrator views the AWS CloudTrail log for an action, they can compare the session name to the user names in their account. In the following example, the user named `matjac` performed the operation using the role named `MateoRole`. The administrator can then contact Mateo Jackson, who has the user named `matjac`.  
 
-```
+```json
     "assumedRoleUser": {
         "assumedRoleId": "AROACQRSTUVWRAOEXAMPLE:{{matjac}}",
         "arn": "arn:aws:sts::111122223333:assumed-role/{{MateoRole}}/{{matjac}}"
@@ -1616,7 +1811,7 @@ You can use the [`aws:SourceIdentity`](reference_policies_condition-keys.md#cond
 The following role trust policy allows the IAM user `AdminUser` to assume a role in account `111122223333`. It also grants permission to the `AdminUser` to set a source identity, as long as the source identity set is `DiegoRamirez`.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

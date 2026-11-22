@@ -1,7 +1,6 @@
 
 
 # Versioning IAM policies
-<a name="access_policies_managed-versioning"></a>
 
 When you make changes to an IAM customer managed policy, and when AWS makes changes to an AWS managed policy, the changed policy doesn't overwrite the existing policy. Instead, IAM creates a new *version* of the managed policy. IAM stores up to five versions of your customer managed policies. IAM does not support versioning for inline policies. 
 
@@ -55,7 +54,7 @@ You can use the following policy to deny a user access to change an existing cus
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

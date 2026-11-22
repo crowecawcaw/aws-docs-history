@@ -1,7 +1,6 @@
 
 
 # Service-specific credentials for IAM users
-<a name="id_credentials_service-specific-creds"></a>
 
 Service-specific credentials are specialized authentication mechanisms designed for specific AWS services. These credentials provide simplified authentication compared to standard AWS credentials, and are tailored to the authentication requirements of individual AWS services. Unlike access keys, which can be used across multiple AWS services, service-specific credentials are designed for use with only the service for which they were created. This targeted approach enhances security by limiting the scope of the credentials.
 

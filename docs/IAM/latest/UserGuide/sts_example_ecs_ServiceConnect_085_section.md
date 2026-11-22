@@ -1,7 +1,6 @@
 
 
 # Configure container service connectivity
-<a name="sts_example_ecs_ServiceConnect_085_section"></a>
 
 The following code example shows how to:
 + Create the VPC infrastructure
@@ -18,7 +17,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/085-amazon-ecs-service-connect) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # ECS Service Connect Tutorial Script v4 - Modified to use Default VPC

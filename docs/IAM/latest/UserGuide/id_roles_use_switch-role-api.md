@@ -1,7 +1,6 @@
 
 
 # Switch to an IAM role (AWS API)
-<a name="id_roles_use_switch-role-api"></a>
 
 A *role* specifies a set of permissions that you can use to access AWS resources. In that sense, it is similar to an [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html). A principal (person or application) assumes a role to receive temporary permissions to carry out required tasks and interact with AWS resources. The role can be in your own account or any other AWS account. For more information about roles, their benefits, and how to create and configure them, see [IAM roles](id_roles.md), and [IAM role creation](id_roles_create.md). To learn about the different methods that you can use to assume a role, see [Methods to assume a role](id_roles_manage-assume.md).
 
@@ -39,7 +38,7 @@ To avoid security risks, don't use IAM users for authentication when developing 
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
 global using Amazon.IdentityManagement;
 global using Amazon.S3;
 global using Amazon.SecurityToken;
@@ -937,7 +936,7 @@ public class UIWrapper
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function iam_create_user_assume_role
 #
@@ -1170,7 +1169,7 @@ function iam_create_user_assume_role() {
 ```
 The IAM functions used in this scenario.  
 
-```
+```bash
 ###############################################################################
 # function iam_user_exists
 #
@@ -1970,7 +1969,7 @@ function iam_delete_user() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
-```
+```cpp
 namespace AwsDoc {
     namespace IAM {
   
@@ -2378,7 +2377,7 @@ bool AwsDoc::IAM::DeleteCreatedEntities(const Aws::IAM::IAMClient &client,
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 Run an interactive scenario at a command prompt.  
 
-```
+```go
 import (
 	"context"
 	"errors"
@@ -2718,7 +2717,7 @@ func (helper ScenarioHelper) Pause(secs int) {
 ```
 Define a struct that wraps account actions.  
 
-```
+```go
 import (
 	"context"
 	"log"
@@ -2766,7 +2765,7 @@ func (wrapper AccountWrapper) ListSAMLProviders(ctx context.Context) ([]types.SA
 ```
 Define a struct that wraps policy actions.  
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -2879,7 +2878,7 @@ func (wrapper PolicyWrapper) DeletePolicy(ctx context.Context, policyArn string)
 ```
 Define a struct that wraps role actions.  
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -3068,7 +3067,7 @@ func (wrapper RoleWrapper) DeleteRole(ctx context.Context, roleName string) erro
 ```
 Define a struct that wraps user actions.  
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -3286,7 +3285,7 @@ func (wrapper UserWrapper) ListAccessKeys(ctx context.Context, userName string) 
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 Create functions that wrap IAM user actions.  
 
-```
+```java
 /*
   To run this Java V2 code example, set up your development environment, including your credentials.
 
@@ -3671,7 +3670,7 @@ public class IAMScenario {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 Create an IAM user and a role that grants permission to list Amazon S3 buckets. The user has rights only to assume the role. After assuming the role, use temporary credentials to list buckets for the account.  
 
-```
+```javascript
 import {
   CreateUserCommand,
   GetUserCommand,
@@ -3953,7 +3952,7 @@ const listBuckets = async (s3Client) => {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 Create functions that wrap IAM user actions.  
 
-```
+```kotlin
 suspend fun main(args: Array<String>) {
     val usage = """
     Usage:
@@ -4223,7 +4222,7 @@ fun readJsonSimpleDemo(filename: String): Any? {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
-```
+```php
 namespace Iam\Basics;
 
 require 'vendor/autoload.php';
@@ -4337,7 +4336,7 @@ echo "Delete user: {$user['UserName']}\n";
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 Create an IAM user and a role that grants permission to list Amazon S3 buckets. The user has rights only to assume the role. After assuming the role, use temporary credentials to list buckets for the account.  
 
-```
+```python
 import json
 import sys
 import time
@@ -4628,7 +4627,7 @@ if __name__ == "__main__":
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 Create an IAM user and a role that grants permission to list Amazon S3 buckets. The user has rights only to assume the role. After assuming the role, use temporary credentials to list buckets for the account.  
 
-```
+```ruby
 # Wraps the scenario actions.
 class ScenarioCreateUserAssumeRole
   attr_reader :iam_client
@@ -4909,7 +4908,7 @@ run_scenario(ScenarioCreateUserAssumeRole.new(Aws::IAM::Client.new)) if $PROGRAM
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
-```
+```rust
 use aws_config::meta::region::RegionProviderChain;
 use aws_sdk_iam::Error as iamError;
 use aws_sdk_iam::{config::Credentials as iamCredentials, config::Region, Client as iamClient};

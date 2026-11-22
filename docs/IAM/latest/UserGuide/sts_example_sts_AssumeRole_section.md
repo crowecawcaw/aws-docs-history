@@ -1,7 +1,6 @@
 
 
 # Use `AssumeRole` with an AWS SDK or CLI
-<a name="sts_example_sts_AssumeRole_section"></a>
 
 The following code examples show how to use `AssumeRole`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/STS#code-examples). 
 
-```
+```csharp
 using System;
 using System.Threading.Tasks;
 using Amazon;
@@ -85,7 +84,7 @@ namespace AssumeRoleExample
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function iecho
 #
@@ -179,7 +178,7 @@ function sts_assume_role() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sts#code-examples). 
 
-```
+```cpp
 bool AwsDoc::STS::assumeRole(const Aws::String &roleArn,
                              const Aws::String &roleSessionName,
                              const Aws::String &externalId,
@@ -254,7 +253,7 @@ For AWS CLI use, you can set up a named profile associated with a role. When you
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sts#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sts.StsClient;
 import software.amazon.awssdk.services.sts.model.AssumeRoleRequest;
@@ -360,7 +359,7 @@ public class AssumeRole {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sts#code-examples). 
 Create the client.  
 
-```
+```javascript
 import { STSClient } from "@aws-sdk/client-sts";
 // Set the AWS Region.
 const REGION = "us-east-1";
@@ -369,7 +368,7 @@ export const client = new STSClient({ region: REGION });
 ```
 Assume the IAM role.  
 
-```
+```javascript
 import { AssumeRoleCommand } from "@aws-sdk/client-sts";
 
 import { client } from "../libs/client.js";
@@ -401,7 +400,7 @@ export const main = async () => {
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sts#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 const AWS = require("aws-sdk");
 // Set the region
@@ -453,22 +452,22 @@ function stsGetCallerIdentity(creds) {
 **Tools for PowerShell V4**  
 **Example 1: Returns a set of temporary credentials (access key, secret key and session token) that can be used for one hour to access AWS resources that the requesting user might not normally have access to. The returned credentials have the permissions that are allowed by the access policy of the role being assumed and the policy that was supplied (you cannot use the supplied policy to grant permissions in excess of those defined by the access policy of the role being assumed).**  
 
-```
+```powershell
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -Policy "...JSON policy..." -DurationInSeconds 3600
 ```
 **Example 2: Returns a set of temporary credentials, valid for one hour, that have the same permissions that are defined in the access policy of the role being assumed.**  
 
-```
+```powershell
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -DurationInSeconds 3600
 ```
 **Example 3: Returns a set of temporary credentials supplying the serial number and generated token from an MFA associated with the user credentials used to execute the cmdlet.**  
 
-```
+```powershell
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -DurationInSeconds 3600 -SerialNumber "GAHT12345678" -TokenCode "123456"
 ```
 **Example 4: Returns a set of temporary credentials that have assumed a role defined in a customer account. For each role that the third party can assume, the customer account must create a role using an identifier that must be passed in the -ExternalId parameter each time the role is assumed.**  
 
-```
+```powershell
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -DurationInSeconds 3600 -ExternalId "ABC123"
 ```
 +  For API details, see [AssumeRole](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -476,22 +475,22 @@ Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo
 **Tools for PowerShell V5**  
 **Example 1: Returns a set of temporary credentials (access key, secret key and session token) that can be used for one hour to access AWS resources that the requesting user might not normally have access to. The returned credentials have the permissions that are allowed by the access policy of the role being assumed and the policy that was supplied (you cannot use the supplied policy to grant permissions in excess of those defined by the access policy of the role being assumed).**  
 
-```
+```powershell
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -Policy "...JSON policy..." -DurationInSeconds 3600
 ```
 **Example 2: Returns a set of temporary credentials, valid for one hour, that have the same permissions that are defined in the access policy of the role being assumed.**  
 
-```
+```powershell
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -DurationInSeconds 3600
 ```
 **Example 3: Returns a set of temporary credentials supplying the serial number and generated token from an MFA associated with the user credentials used to execute the cmdlet.**  
 
-```
+```powershell
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -DurationInSeconds 3600 -SerialNumber "GAHT12345678" -TokenCode "123456"
 ```
 **Example 4: Returns a set of temporary credentials that have assumed a role defined in a customer account. For each role that the third party can assume, the customer account must create a role using an identifier that must be passed in the -ExternalId parameter each time the role is assumed.**  
 
-```
+```powershell
 Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -DurationInSeconds 3600 -ExternalId "ABC123"
 ```
 +  For API details, see [AssumeRole](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -503,7 +502,7 @@ Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples). 
 Assume an IAM role that requires an MFA token and use temporary credentials to list Amazon S3 buckets for the account.  
 
-```
+```python
 def list_buckets_from_assumed_role_with_mfa(
     assume_role_arn, session_name, mfa_serial_number, mfa_totp, sts_client
 ):
@@ -550,7 +549,7 @@ def list_buckets_from_assumed_role_with_mfa(
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
-```
+```ruby
   # Creates an AWS Security Token Service (AWS STS) client with specified credentials.
   # This is separated into a factory function so that it can be mocked for unit testing.
   #
@@ -584,7 +583,7 @@ def list_buckets_from_assumed_role_with_mfa(
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sts/#code-examples). 
 
-```
+```rust
 async fn assume_role(config: &SdkConfig, role_name: String, session_name: Option<String>) {
     let provider = aws_config::sts::AssumeRoleProvider::builder(role_name)
         .session_name(session_name.unwrap_or("rust_sdk_example_session".into()))
@@ -617,7 +616,7 @@ async fn assume_role(config: &SdkConfig, role_name: String, session_name: Option
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
-```
+```swift
 import AWSSTS
 
     public func assumeRole(role: IAMClientTypes.Role, sessionName: String)

@@ -1,7 +1,6 @@
 
 
 # Use `ListAccessKeys` with an AWS SDK or CLI
-<a name="iam_example_iam_ListAccessKeys_section"></a>
 
 The following code examples show how to use `ListAccessKeys`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/iam#code-examples). 
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -99,7 +98,7 @@ function iam_list_access_keys() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iam#code-examples). 
 
-```
+```cpp
 bool AwsDoc::IAM::listAccessKeys(const Aws::String &userName,
                                  const Aws::Client::ClientConfiguration &clientConfig) {
     Aws::IAM::IAMClient iam(clientConfig);
@@ -190,7 +189,7 @@ For more information, see [Managing access keys for IAM users](https://docs.aws.
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -233,7 +232,7 @@ func (wrapper UserWrapper) ListAccessKeys(ctx context.Context, userName string) 
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.services.iam.model.AccessKeyMetadata;
 import software.amazon.awssdk.services.iam.model.IamException;
 import software.amazon.awssdk.services.iam.model.ListAccessKeysRequest;
@@ -327,7 +326,7 @@ public class ListAccessKeys {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 List the access keys.  
 
-```
+```javascript
 import { ListAccessKeysCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -372,7 +371,7 @@ export async function* listAccessKeys(userName) {
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/iam#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -403,7 +402,7 @@ iam.listAccessKeys(params, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iam#code-examples). 
 
-```
+```kotlin
 suspend fun listKeys(userNameVal: String?) {
     val request =
         ListAccessKeysRequest {
@@ -425,7 +424,7 @@ suspend fun listKeys(userNameVal: String?) {
 **Tools for PowerShell V4**  
 **Example 1: This command lists the access keys for the IAM user named `Bob`. Note that you cannot list the secret access keys for IAM users. If the secret access keys are lost, you must create new access keys with the `New-IAMAccessKey` cmdlet.**  
 
-```
+```powershell
 Get-IAMAccessKey -UserName "Bob"
 ```
 **Output:**  
@@ -441,7 +440,7 @@ AKIAI44QH8DHBEXAMPLE       6/6/2013 8:42:26 PM          Inactive            Bob
 **Tools for PowerShell V5**  
 **Example 1: This command lists the access keys for the IAM user named `Bob`. Note that you cannot list the secret access keys for IAM users. If the secret access keys are lost, you must create new access keys with the `New-IAMAccessKey` cmdlet.**  
 
-```
+```powershell
 Get-IAMAccessKey -UserName "Bob"
 ```
 **Output:**  
@@ -460,7 +459,7 @@ AKIAI44QH8DHBEXAMPLE       6/6/2013 8:42:26 PM          Inactive            Bob
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def list_keys(user_name):
     """
     Lists the keys owned by the specified user.
@@ -486,7 +485,7 @@ def list_keys(user_name):
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 This example module lists, creates, deactivates, and deletes access keys.  
 
-```
+```ruby
 # Manages access keys for IAM users
 class AccessKeyManager
   def initialize(iam_client, logger: Logger.new($stdout))
@@ -572,7 +571,7 @@ end
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_iam->listaccesskeys(
           iv_username = iv_user_name ).

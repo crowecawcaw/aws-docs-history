@@ -1,7 +1,6 @@
 
 
 # Controlling access to and for IAM users and roles using tags
-<a name="access_iam-tags"></a>
 
 Use the information in the following section to control who can access your IAM users and roles and what resources your users and roles can access. For more general information and examples of controlling access to other AWS resources, including other IAM resources, see [Tags for AWS Identity and Access Management resources](id_tags.md).
 
@@ -33,7 +32,7 @@ This example shows how you might create an identity-based policy that allows any
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -63,7 +62,7 @@ This example shows how you might create an identity-based policy that allows rem
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

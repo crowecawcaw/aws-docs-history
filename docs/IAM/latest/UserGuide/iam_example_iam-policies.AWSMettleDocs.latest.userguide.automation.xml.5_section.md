@@ -1,7 +1,6 @@
 
 
 # Policy to grant full access to Compute Optimizer Automation for a management account of an organization
-<a name="iam_example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.5_section"></a>
 
 The following code example shows how to This permission-based policy grants full access to Compute Optimizer Automation for a management account of an organization
 
@@ -10,7 +9,7 @@ The following code example shows how to This permission-based policy grants full
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	                    
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Reference information for AWS Identity and Access Management
-<a name="reference"></a>
 
 Use the topics in this section to find detailed reference material for various aspects of IAM and AWS STS.
 

@@ -1,7 +1,6 @@
 
 
 # IAM Access Analyzer filter keys
-<a name="access-analyzer-reference-filter-keys"></a>
 
 You can use the filter keys below to define an archive rule ([`CreateArchiveRule`](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_CreateArchiveRule.html)), update an archive rule ([`UpdateArchiveRule`](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_UpdateArchiveRule.html)), retrieve a list of findings ([`ListFindings`](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_ListFindings.html) and [`ListFindingsV2`](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_ListFindingsV2.html)), or retrieve a list of access preview findings for a resource ([`ListAccessPreviewFindings`](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_ListAccessPreviewFindings.html)). There is no difference between using IAM API and CloudFormation for configuring archive rules.
 

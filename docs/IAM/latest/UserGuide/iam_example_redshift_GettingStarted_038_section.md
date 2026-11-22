@@ -1,7 +1,6 @@
 
 
 # Get started with serverless data warehouses using the CLI
-<a name="iam_example_redshift_GettingStarted_038_section"></a>
 
 The following code example shows how to:
 + Use secrets-manager CreateSecret
@@ -18,7 +17,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/038-redshift-serverless) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # Amazon Redshift Serverless Tutorial Script with Secrets Manager (No jq dependency)

@@ -1,7 +1,6 @@
 
 
 # Example IAM identity-based policies
-<a name="access_policies_examples"></a>
 
 A [policy](access_policies.md) is an object in AWS that, when associated with an identity or resource, defines their permissions. AWS evaluates these policies when an IAM principal (user or role) makes a request. Permissions in the policies determine whether the request is allowed or denied. Most policies are stored in AWS as JSON documents that are attached to an IAM identity (user, group of users, or role). Identity-based policies include AWS managed policies, customer managed policies, and inline policies. To learn how to create an IAM policy using these example JSON policy documents, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor).
 

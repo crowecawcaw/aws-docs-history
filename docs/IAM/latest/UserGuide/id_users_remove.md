@@ -1,7 +1,6 @@
 
 
 # Remove or deactivate an IAM user
-<a name="id_users_remove"></a>
 
 [Best practices](best-practices.md#remove-credentials) recommend that you remove unused IAM users from your AWS account. If you want to retain the IAM users credentials for future use, instead of deleting them from the account you can deactivate the user's access. For more information, see [Deactivating an IAM user](#id_users_deactivating).
 
@@ -110,7 +109,7 @@ The following policy does not include a time limit. You must remove the policy t
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [ 
@@ -132,7 +131,7 @@ The following policy includes a condition that starts the policy on December 24,
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Creating roles and attaching policies (console)
-<a name="access_policies_job-functions_create-policies"></a>
 
 Several of the previously listed policies grant the ability to configure AWS services with roles that enable those services to perform operations on your behalf. The job function policies either specify exact role names that you must use or at least include a prefix that specifies the first part of the name that can be used. To create one of these roles, perform the steps in the following procedure.
 
@@ -102,7 +101,7 @@ This example shows the steps required to configure Jorge, an IAM user, as a [Net
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -149,7 +148,7 @@ You can switch between the **Visual** and **JSON** editor options any time. Howe
 
 1. Change the "Service" line to read as follows, replacing the entry for `ec2.amazonaws.com`:
 
-   ```
+   ```json
            "Service": "vpc-flow-logs.amazonaws.com"
    ```
 

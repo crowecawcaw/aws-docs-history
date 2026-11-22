@@ -1,7 +1,6 @@
 
 
 # Creating an account alias
-<a name="account-alias-create"></a>
 
 To perform the following steps, you must have at least the following IAM permissions:
 + `iam:ListAccountAliases`

@@ -1,7 +1,6 @@
 
 
 # Examples of policy summaries
-<a name="access_policies_policy-summary-examples"></a>
 
 The following examples include JSON policies with their associated [policy summaries](access_policies_understand-policy-summary.md), the [service summaries](access_policies_understand-service-summary.md), and the [action summaries](access_policies_understand-action-summary.md) to help you understand the permissions given through a policy.
 
@@ -15,7 +14,7 @@ This policy demonstrates an allow and a deny for the same service.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -62,7 +61,7 @@ This policy provides row-level access to Amazon DynamoDB based on the user's Ama
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -116,7 +115,7 @@ This policy includes multiple resources and conditions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -172,7 +171,7 @@ The following policy allows users to get a screenshot of a running Amazon EC2 in
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -225,7 +224,7 @@ This policy provides access to specific CodeBuild, CodeCommit, and CodeDeploy re
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

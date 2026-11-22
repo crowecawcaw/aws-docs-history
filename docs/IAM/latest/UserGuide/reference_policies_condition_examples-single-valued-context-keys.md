@@ -1,7 +1,6 @@
 
 
 # Single-valued context key policy examples
-<a name="reference_policies_condition_examples-single-valued-context-keys"></a>
 
 The following set of policy examples demonstrate how to create policy conditions with single-valued context keys.
 
@@ -17,7 +16,7 @@ The following example lets users create EC2 volumes and apply tags to the volume
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -54,7 +53,7 @@ The following example lets users create EC2 volumes and apply tags to the volume
 
 The request context must include a project tag-value and cannot be created for a production resource to invoke the `Allow` effect. The following EC2 volume is successfully created because the project name is `Feature3` with a `QA` resource tag.
 
-```
+```bash
 aws ec2 create-volume \
     --availability-zone us-east-1a \
     --volume-type gp2 \
@@ -76,7 +75,7 @@ The following example allows users to start and run tasks on Amazon Elastic Cont
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

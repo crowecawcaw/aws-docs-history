@@ -1,7 +1,6 @@
 
 
 # Update settings for a role
-<a name="id_roles_update-role-settings"></a>
 
 Use the following procedures to update a role's description or change the maximum session duration for a role.
 

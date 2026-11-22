@@ -1,7 +1,6 @@
 
 
 # Use `DeleteRolePolicy` with an AWS SDK or CLI
-<a name="iam_example_iam_DeleteRolePolicy_section"></a>
 
 The following code examples show how to use `DeleteRolePolicy`.
 
@@ -18,7 +17,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Delete an IAM role policy.
     /// </summary>
@@ -60,7 +59,7 @@ For more information, see [IAM role management](https://docs.aws.amazon.com/IAM/
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 
-```
+```javascript
 import { DeleteRolePolicyCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -86,7 +85,7 @@ export const deleteRolePolicy = (roleName, policyName) => {
 **Tools for PowerShell V4**  
 **Example 1: This example deletes the inline policy `S3AccessPolicy` that is embedded in the IAM role `S3BackupRole`.**  
 
-```
+```powershell
 Remove-IAMRolePolicy -PolicyName S3AccessPolicy -RoleName S3BackupRole
 ```
 +  For API details, see [DeleteRolePolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -94,7 +93,7 @@ Remove-IAMRolePolicy -PolicyName S3AccessPolicy -RoleName S3BackupRole
 **Tools for PowerShell V5**  
 **Example 1: This example deletes the inline policy `S3AccessPolicy` that is embedded in the IAM role `S3BackupRole`.**  
 
-```
+```powershell
 Remove-IAMRolePolicy -PolicyName S3AccessPolicy -RoleName S3BackupRole
 ```
 +  For API details, see [DeleteRolePolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

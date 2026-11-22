@@ -1,7 +1,6 @@
 
 
 # IAM JSON policy reference
-<a name="reference_policies"></a>
 
 This section presents detailed syntax, descriptions, and examples of the elements, variables, and evaluation logic of JSON policies in IAM. For more general information, see [Overview of JSON policies](access_policies.md#access_policies-json).
 

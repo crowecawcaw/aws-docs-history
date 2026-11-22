@@ -1,7 +1,6 @@
 
 
 # Use `CreateInstanceProfile` with an AWS SDK or CLI
-<a name="iam_example_iam_CreateInstanceProfile_section"></a>
 
 The following code examples show how to use `CreateInstanceProfile`.
 
@@ -17,7 +16,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Create a policy, role, and profile that is associated with instances with a specified name.
     /// An instance's associated profile defines a role that is assumed by the
@@ -186,7 +185,7 @@ For more information, see [Using an IAM role to grant permissions to application
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples). 
 
-```
+```javascript
   const { InstanceProfile } = await iamClient.send(
     new CreateInstanceProfileCommand({
       InstanceProfileName: NAMES.ssmOnlyInstanceProfileName,
@@ -205,7 +204,7 @@ For more information, see [Using an IAM role to grant permissions to application
 **Tools for PowerShell V4**  
 **Example 1: This example creates a new IAM instance profile named `ProfileForDevEC2Instance`. You must separately run the `Add-IAMRoleToInstanceProfile` command to associate the instance profile with an existing IAM role that provides permissions to the instance. Finally, attach the instance profile to an EC2 instance when you launch it. To do that, use the `New-EC2Instance` cmdlet with either the `InstanceProfile_Arn` or `InstanceProfile_Name` parameter.**  
 
-```
+```powershell
 New-IAMInstanceProfile -InstanceProfileName ProfileForDevEC2Instance
 ```
 **Output:**  
@@ -223,7 +222,7 @@ Roles               : {}
 **Tools for PowerShell V5**  
 **Example 1: This example creates a new IAM instance profile named `ProfileForDevEC2Instance`. You must separately run the `Add-IAMRoleToInstanceProfile` command to associate the instance profile with an existing IAM role that provides permissions to the instance. Finally, attach the instance profile to an EC2 instance when you launch it. To do that, use the `New-EC2Instance` cmdlet with either the `InstanceProfile_Arn` or `InstanceProfile_Name` parameter.**  
 
-```
+```powershell
 New-IAMInstanceProfile -InstanceProfileName ProfileForDevEC2Instance
 ```
 **Output:**  
@@ -245,7 +244,7 @@ Roles               : {}
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 This example creates a policy, role, and instance profile and links them all together.  
 
-```
+```python
 class AutoScalingWrapper:
     """
     Encapsulates Amazon EC2 Auto Scaling and EC2 management actions.

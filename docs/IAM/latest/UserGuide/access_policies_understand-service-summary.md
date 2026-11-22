@@ -1,7 +1,6 @@
 
 
 # Service summary (list of actions)
-<a name="access_policies_understand-service-summary"></a>
 
 Policies are summarized in three tables: the [policy summary](access_policies_understand-policy-summary.md), the service summary, and the [action summary](access_policies_understand-action-summary.md). The *service summary* table includes a list of the actions and summaries of the permissions that are defined by the policy for the chosen service.
 

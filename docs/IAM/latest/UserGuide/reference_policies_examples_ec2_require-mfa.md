@@ -1,7 +1,6 @@
 
 
 # Amazon EC2: Requires MFA (GetSessionToken) for specific EC2 operations
-<a name="reference_policies_examples_ec2_require-mfa"></a>
 
 This example shows how you might create an identity-based policy that allows full access to all AWS API operations in Amazon EC2. However, it explicitly denies access to `StopInstances` and `TerminateInstances` API operations if the user is not authenticated using [multi-factor authentication (MFA)](id_credentials_mfa.md). To do this programmatically, the user must include optional `SerialNumber` and `TokenCode` values while calling the `GetSessionToken` operation. This operation returns temporary credentials that were authenticated using MFA. To learn more about GetSessionToken, see [Requesting credentials for users in untrusted environments](id_credentials_temp_request.md#api_getsessiontoken).
 
@@ -17,7 +16,7 @@ The condition check for `MultiFactorAuthPresent` in the `Deny` statement should 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

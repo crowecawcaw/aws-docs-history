@@ -1,7 +1,6 @@
 
 
 # Delete IAM policies (console)
-<a name="access_policies_manage-delete-console"></a>
 
 You can use the AWS Management Console to delete *customer managed policies* and *inline policies* in IAM. The number and size of IAM resources in an AWS account are limited. For more information, see [IAM and AWS STS quotas](reference_iam-quotas.md).
 

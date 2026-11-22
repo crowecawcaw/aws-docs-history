@@ -1,7 +1,6 @@
 
 
 # Use `ListRoles` with an AWS SDK or CLI
-<a name="iam_example_iam_ListRoles_section"></a>
 
 The following code examples show how to use `ListRoles`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `ListRoles`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/IAM#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// List IAM roles.
     /// </summary>
@@ -100,7 +99,7 @@ For more information, see [Creating IAM roles](https://docs.aws.amazon.com/IAM/l
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/iam#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -143,7 +142,7 @@ func (wrapper RoleWrapper) ListRoles(ctx context.Context, maxRoles int32) ([]typ
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/iam#code-examples). 
 List the roles.  
 
-```
+```javascript
 import { ListRolesCommand, IAMClient } from "@aws-sdk/client-iam";
 
 const client = new IAMClient({});
@@ -188,7 +187,7 @@ export async function* listRoles() {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/iam#code-examples). 
 
-```
+```php
 $uuid = uniqid();
 $service = new IAMService();
 
@@ -222,7 +221,7 @@ $service = new IAMService();
 **Tools for PowerShell V4**  
 **Example 1: This example retrieves a list of all of the IAM roles in the AWS account.**  
 
-```
+```powershell
 Get-IAMRoleList
 ```
 +  For API details, see [ListRoles](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -230,7 +229,7 @@ Get-IAMRoleList
 **Tools for PowerShell V5**  
 **Example 1: This example retrieves a list of all of the IAM roles in the AWS account.**  
 
-```
+```powershell
 Get-IAMRoleList
 ```
 +  For API details, see [ListRoles](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -241,7 +240,7 @@ Get-IAMRoleList
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iam#code-examples). 
 
-```
+```python
 def list_roles(count):
     """
     Lists the specified number of roles for the account.
@@ -266,7 +265,7 @@ def list_roles(count):
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/iam#code-examples). 
 
-```
+```ruby
   # Lists IAM roles up to a specified count.
   # @param count [Integer] the maximum number of roles to list.
   # @return [Array<String>] the names of the roles.
@@ -300,7 +299,7 @@ def list_roles(count):
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iam#code-examples). 
 
-```
+```rust
 pub async fn list_roles(
     client: &iamClient,
     path_prefix: Option<String>,
@@ -325,7 +324,7 @@ pub async fn list_roles(
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_iam->listroles( ).
         MESSAGE 'Retrieved role list.' TYPE 'I'.
@@ -341,7 +340,7 @@ pub async fn list_roles(
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/iam#code-examples). 
 
-```
+```swift
 import AWSIAM
 import AWSS3
 

@@ -1,7 +1,6 @@
 
 
 # Construct a URL with AWS STS for federated users using an AWS SDK
-<a name="sts_example_sts_Scenario_ConstructFederatedUrl_section"></a>
 
 The following code example shows how to:
 + Create an IAM role that grants read-only access to the current account's Amazon S3 resources.
@@ -15,7 +14,7 @@ The following code example shows how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sts#code-examples). 
 Create a role that grants read-only access to the current account's S3 resources.  
 
-```
+```python
 def setup(iam_resource):
     """
     Creates a role that can be assumed by the current user.
@@ -50,7 +49,7 @@ def setup(iam_resource):
 ```
 Get a security token from the AWS federation endpoint and construct a URL that can be used to access the console with federated credentials.  
 
-```
+```python
 def construct_federated_url(assume_role_arn, session_name, issuer, sts_client):
     """
     Constructs a URL that gives federated users direct access to the AWS Management
@@ -113,7 +112,7 @@ def construct_federated_url(assume_role_arn, session_name, issuer, sts_client):
 ```
 Destroy the resources created for the demo.  
 
-```
+```python
 def teardown(role):
     """
     Removes all resources created during setup.
@@ -128,7 +127,7 @@ def teardown(role):
 ```
 Run this scenario by using the previously defined functions.  
 
-```
+```python
 def usage_demo():
     """Drives the demonstration."""
     print("-" * 88)

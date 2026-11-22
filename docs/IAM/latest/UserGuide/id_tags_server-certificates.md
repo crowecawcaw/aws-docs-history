@@ -1,7 +1,6 @@
 
 
 # Tag server certificates
-<a name="id_tags_server-certificates"></a>
 
 If you use IAM to manage SSL/TLS certificates, you can tag server certificates in IAM using the AWS CLI or AWS API. For certificates in a Region supported by AWS Certificate Manager (ACM), we recommend that you use ACM instead of IAM to provision, manage, and deploy your server certificates. In unsupported Regions, you must use IAM as a certificate manager. To learn which Regions ACM supports, see [AWS Certificate Manager endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/acm.html) in the *AWS General Reference*.
 
@@ -20,7 +19,7 @@ You must configure permissions to allow an IAM entity (user or role) to tag serv
 **To allow an IAM entity (user or role) to add, list, or remove a tag for a server certificate**  
 Add the following statement to the permissions policy for the IAM entity that needs to manage tags. Use your account number and replace {{<CertificateName>}} with the name of the server certificate whose tags need to be managed. To learn how to create a policy using this example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor).
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -40,7 +39,7 @@ The `iam:TagServerCertificate` action requires that you also include the `iam:Li
 
 To use this policy, replace {{<CertificateName>}} with the name of the server certificate whose tags need to be managed. To learn how to create a policy using this example JSON policy document, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor).
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [

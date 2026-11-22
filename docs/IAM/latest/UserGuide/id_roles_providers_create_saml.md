@@ -1,7 +1,6 @@
 
 
 # Create a SAML identity provider in IAM
-<a name="id_roles_providers_create_saml"></a>
 
 An IAM SAML 2.0 identity provider is an entity in IAM that describes an external identity provider (IdP) service that supports the [SAML 2.0 (Security Assertion Markup Language 2.0)](https://wiki.oasis-open.org/security) standard. You use an IAM identity provider when you want to establish trust between a SAML-compatible IdP such as Shibboleth or Active Directory Federation Services and AWS, so that your users can access AWS resources. IAM SAML identity providers are used as principals in an IAM trust policy. 
 
@@ -99,7 +98,7 @@ You can configure IAM SAML providers to receive encrypted assertions in the SAML
 
 SAML encryption ensures that assertions are secure when passed through intermediaries or third parties. In addition, this feature helps you meet FedRAMP or any internal compliance policy requirements that mandate SAML assertions to be encrypted.
 
-To configure an IAM SAML identity provider, see [Create a SAML identity provider in IAM](#id_roles_providers_create_saml). For help with SAML federation, see [Troubleshooting SAML federation](troubleshoot_saml.md).
+To configure an IAM SAML identity provider, see [Create a SAML identity provider in IAM](id_roles_providers_create_saml.md). For help with SAML federation, see [Troubleshooting SAML federation](troubleshoot_saml.md).
 
 ### Rotate SAML encryption key
 <a name="id_federation_manage-saml-keys-rotate"></a>
