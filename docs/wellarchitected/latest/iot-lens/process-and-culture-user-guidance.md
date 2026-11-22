@@ -1,7 +1,6 @@
 
 
 # Process and culture - User guidance
-<a name="process-and-culture-user-guidance"></a>
 
 
 | IOTSUS05: How do you educate users to encourage lower carbon footprint of their devices? | 

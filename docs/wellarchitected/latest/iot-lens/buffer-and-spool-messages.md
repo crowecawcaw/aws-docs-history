@@ -1,7 +1,6 @@
 
 
 # Buffer and spool messages
-<a name="buffer-and-spool-messages"></a>
 
  Message buffering and spooling can contribute to power consumption optimization in IoT devices in several ways.  
 

@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-rel"></a>
 
  In addition to the overall Well-Architected Framework design principles, there are three design principles for reliability for IoT: 
 +  **Simulate device behavior at production scale**: Create a production-scale test environment that closely mirrors your production deployment. Leverage a multi-step simulation plan that allows you to test your applications with a more significant load before your go-live date. During development, ramp up your simulation tests over a period of time starting with 10% of overall traffic for a single test and incrementing over time (that is, 25%, 50%, then 100% of day one device traffic). During simulation tests, monitor performance and review logs to make sure that the entire solution behaves as expected. 

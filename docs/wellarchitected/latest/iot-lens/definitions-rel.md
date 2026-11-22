@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions-rel"></a>
 
  Reliability encompasses four focus areas: 
 

@@ -1,7 +1,6 @@
 
 
 # Hardware and services - Power management
-<a name="hardware-and-services-power-management"></a>
 
 
 | IOTSUS04: How do you minimize power usage and wastage? | 

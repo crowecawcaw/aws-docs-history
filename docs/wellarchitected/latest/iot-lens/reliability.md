@@ -1,7 +1,6 @@
 
 
 # Reliability
-<a name="reliability"></a>
 
  The reliability pillar focuses on the ability to prevent and quickly recover from failures to meet business and customer demand. Key topics include foundational elements around setup, cross-project requirements, recovery planning, and change management. 
 

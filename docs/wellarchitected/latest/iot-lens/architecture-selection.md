@@ -1,7 +1,6 @@
 
 
 # Architecture selection
-<a name="architecture-selection"></a>
 
  The optimal embedded software for a particular system varies based on the hardware footprint of the device. For example, network security protocols, while necessary for preserving data privacy and integrity, can have a relatively large RAM footprint. For intranet and internet connections, use TLS with a combination of a strong cipher suite and minimal footprint. 
 

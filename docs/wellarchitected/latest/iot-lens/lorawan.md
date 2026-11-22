@@ -1,7 +1,6 @@
 
 
 # LoRaWAN
-<a name="lorawan"></a>
 
  LoRaWAN is suitable for long-range, low power applications such as smart agriculture, asset tracking and smart cities. 
 

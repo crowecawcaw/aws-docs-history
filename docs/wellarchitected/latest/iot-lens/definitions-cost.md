@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions-cost"></a>
 
  There are four focus areas for cost optimization: 
 + [ Practice Cloud Financial Management ](practice-cloud-financial-management.md)

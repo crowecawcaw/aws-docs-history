@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions-sec"></a>
 
  There are nine focus areas for security. These are inspired by the AWS Cloud Adoption Framework. For more information, see [Security Perspective: compliance and assurance](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/security-perspective.html). 
 + [ Identity and access management (IAM) ](identity-and-access-management.md)

@@ -1,7 +1,6 @@
 
 
 # Networking and content delivery
-<a name="networking-and-content-delivery"></a>
 
  Maintaining optimal connectivity between edge devices and cloud infrastructure is ideal for the performance and reliability of IoT solutions. 
 

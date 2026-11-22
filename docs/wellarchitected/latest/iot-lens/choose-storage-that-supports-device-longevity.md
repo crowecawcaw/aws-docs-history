@@ -1,7 +1,6 @@
 
 
 # Choose storage that supports device longevity
-<a name="choose-storage-that-supports-device-longevity"></a>
 
  There are several low-power memory storage options that are suitable for IoT devices due to their energy-efficient characteristics. When choosing storage, the use case and workload dictates much of the decision. For example, for a device that is deployed to a harsh environment that is not easy to access, choose storage that is durable and resilient.  Also consider the wear and tear on flash memory due to the workload, and its impact on device longevity.  Provision the amount of storage beyond current requirements for the application to allow for additional use cases in the future, thereby extending the device's useful life. In summary, the appropriate type and amount of storage for the device application should be carefully chosen as it can have an impact on the operational phase of the device as well as the overall cost. 
 

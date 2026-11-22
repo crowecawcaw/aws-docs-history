@@ -1,7 +1,6 @@
 
 
 # Failure management
-<a name="failure-management"></a>
 
 
 | IOTREL10: How do you implement your IoT workload to withstand component and system faults? | 

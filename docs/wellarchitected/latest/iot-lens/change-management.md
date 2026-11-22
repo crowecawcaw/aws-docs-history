@@ -1,7 +1,6 @@
 
 
 # Change management
-<a name="change-management"></a>
 
 
 | IOTREL08: How do you update device firmware on your IoT device? | 

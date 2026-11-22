@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-rel"></a>
 
  Refer to the following resources to learn more about our best practices related to reliability: 
 

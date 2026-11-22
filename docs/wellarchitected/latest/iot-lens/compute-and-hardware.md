@@ -1,7 +1,6 @@
 
 
 # Compute and hardware
-<a name="compute-and-hardware"></a>
 
 
 | IOTPERF02: How do you measure and maintain the performance of your IoT solution? | 

@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-ops"></a>
 
  In addition to the overall Well-Architected Framework operational excellence design principles, there are five design principles for operational excellence for IoT: 
 +  **Plan for device provisioning**: Design your device provisioning process to create your initial device identity in a secure location. Implement a public key infrastructure (PKI) that is responsible for distributing unique certificates to IoT devices. As described above, selection of crypto hardware with a pre-generated private key and certificate alleviates the operational cost of running a PKI. Otherwise, PKI can be done offline with a Hardware Security Module (HSM) during the manufacturing process, or during device bootstrapping. Use technologies that can manage the Certificate Authority (CA) and HSM in the cloud. 

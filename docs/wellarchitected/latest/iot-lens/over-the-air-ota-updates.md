@@ -1,7 +1,6 @@
 
 
 # Over-the-air (OTA) updates
-<a name="over-the-air-ota-updates"></a>
 
  OTA updates enable IoT devices to receive and install software or configuration updates without the need for physical access to the devices.  This mechanism is supported across a variety of embedded operating systems, including embedded Linux and FreeRTOS, and can be powered by the [AWS IoT Jobs](https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html) agent and cloud service . 
 

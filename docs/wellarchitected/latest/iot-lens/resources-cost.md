@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-cost"></a>
 
  Refer to the following resources to learn more about AWS best practices for cost optimization. 
 +  [AWS IoT Blogs](https://aws.amazon.com/blogs/iot/) 

@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-sec"></a>
 
  The essential AWS security services in IoT are the [AWS IoT Core](https://aws.amazon.com/iot-core/), [AWS IoT Device Management](https://aws.amazon.com/iot-device-management/), [AWS IoT Device Defender](https://aws.amazon.com/iot-device-defender/), [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/), and [Amazon Cognito](https://aws.amazon.com/pm/cognito/). In combination, these services along with other AWS security services allow you to securely control access to IoT devices, AWS services, IoT applications and resources for your users. Additional AWS services such as [AWS IoT Greengrass](https://aws.amazon.com/greengrass/), [Amazon S3](https://aws.amazon.com/s3/), [Amazon DynamoDB](https://aws.amazon.com/dynamodb/), and [Amazon Relational Database Service](https://aws.amazon.com/rds/) are often used in IoT applications. The following services and features support IoT security: 
 

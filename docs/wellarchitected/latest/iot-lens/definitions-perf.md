@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions-perf"></a>
 
  There are five focus areas for performance efficiency: 
 + [ Architecture selection ](architecture-selection.md)

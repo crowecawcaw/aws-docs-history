@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-sus"></a>
 
  Refer to the following resources to learn more about our best practices related to sustainability. 
 +  [Amazon Sustainability - The Cloud](https://sustainability.aboutamazon.com/products-services/the-cloud) 

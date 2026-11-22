@@ -1,7 +1,6 @@
 
 
 # Perform analytics at the edge
-<a name="perform-analytics-at-the-edge"></a>
 
  Data preparation is usually required before analytics can be performed at the edge.  There are various types of preparation and transformation that can be done at the edge to improve the sustainability of the solution: 
 +  Data filtering: IoT edge devices can filter out irrelevant data or noise from sensor data streams. For example, temperature sensors may monitor and report temperature at a high rate, but reflecting those changes as they come may not be useful to a specific application or use case. By filtering out the unnecessary data points, edge devices can reduce the amount of data that needs to be transmitted and processed, reducing communication related power and cloud processing costs. 

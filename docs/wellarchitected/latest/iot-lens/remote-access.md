@@ -1,7 +1,6 @@
 
 
 # Remote Access
-<a name="remote-access"></a>
 
  To reduce the need to send people on site in case of a malfunctioning system, it is recommended to provide a remote access capability on the device.  When IoT devices are deployed in the field, remote access provides a way to troubleshoot, change the configuration, access files such as logs, and perform other operational tasks even if the device is behind a firewall or private network. Users can update devices through its command line interface or access the device's package manager to add new software via Secure Shell (SSH) or Remote Desktop Protocol (RDP) 
 

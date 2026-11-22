@@ -1,7 +1,6 @@
 
 
 # Reduce the amount of data transmitted
-<a name="reduce-the-amount-of-data-transmitted"></a>
 
  Data transmission is one of the most power-intensive operations for IoT devices, especially when using wireless communication protocols such as Wi-Fi, Bluetooth, or cellular networks. The overarching principles to be followed for messaging are to reduce the amount of data transmitted and reduce the distance traveled by that data. 
 

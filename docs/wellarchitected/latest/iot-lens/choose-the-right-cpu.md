@@ -1,7 +1,6 @@
 
 
 # Choose the right CPU
-<a name="choose-the-right-cpu"></a>
 
  To optimize energy consumption, choose a CPU that meets the performance requirements of your application without exceeding them.  Keep in mind that a more powerful processor may have higher performance per watt compared to a less powerful processor, and can perform more work per unit of power consumed, resulting in lower energy consumption. Newer CPU architectures or higher-end processors may have better power efficiency at higher workloads due to advancements in technology or microarchitecture, resulting in a more energy-efficient solution overall.  Use performance per watt as a guideline, and test CPUs against your actual workload to make a final choice. 
 

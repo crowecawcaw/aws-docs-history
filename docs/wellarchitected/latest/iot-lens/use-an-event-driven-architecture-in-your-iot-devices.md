@@ -1,7 +1,6 @@
 
 
 # Use an event driven architecture in your IoT devices
-<a name="use-an-event-driven-architecture-in-your-iot-devices"></a>
 
  Using an event-driven architecture in IoT device firmware reduces processing and communication overhead, and helps reduce energy consumption.  There are a number of mechanisms that can be used in IoT devices to realize an event-driven architecture. 
 

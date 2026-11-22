@@ -1,7 +1,6 @@
 
 
 # Use accelerators for machine learning inference
-<a name="use-accelerators-for-machine-learning-inference"></a>
 
  Performing Machine Learning (ML) inference on the IoT device can greatly reduce the amount of data transmitted to the cloud.  ML inference is a computationally intensive process which might not be energy optimal when run on a CPU without the right instruction set.  For ML applications, the use of a CPU with additional vector operations and specialized acceleration hardware can lower the energy consumption of IoT devices. 
 

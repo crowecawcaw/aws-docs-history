@@ -1,7 +1,6 @@
 
 
 # Application security
-<a name="application-security"></a>
 
  IoT applications encompass application code running in multiple locations, from on device application code to cloud-hosted processing to work with information from devices, to browser or mobile-device application code used to deliver a user experience for the IoT application. Each of these pieces of the application must be managed, maintained, updated, and improved over time. 
 

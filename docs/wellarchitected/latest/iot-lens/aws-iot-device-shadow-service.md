@@ -1,7 +1,6 @@
 
 
 # AWS IoT Device Shadow service Service
-<a name="aws-iot-device-shadow-service"></a>
 
  AWS provides a feature called AWS IoT Device Shadow services to implement command and control over MQTT using these best practices. The Device Shadow has several benefits over using standard MQTT topics, such as a clientToken, to track the origin of a request, version numbers for managing conflict resolution, and the ability to store commands in the cloud in the event that a device is offline and unable to receive the command when it is issued. The device's shadow is commonly used in cases where a command needs to be persisted in the cloud even if the device is currently not online. When the device is back online, the device requests the latest shadow information and executes the command. 
 
@@ -10,6 +9,8 @@
  
 
 ![Using Device Shadow with devices](https://docs.aws.amazon.com/wellarchitected/latest/iot-lens/images/image5.png)
+
+*Using Device Shadow with devices*
 
 
 

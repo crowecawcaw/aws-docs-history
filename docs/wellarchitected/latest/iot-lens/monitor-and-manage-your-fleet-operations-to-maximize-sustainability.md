@@ -1,7 +1,6 @@
 
 
 # Monitor and manage your fleet operations to maximize sustainability
-<a name="monitor-and-manage-your-fleet-operations-to-maximize-sustainability"></a>
 
  It is recommended that your solution be monitored and managed efficiently across its lifecycle to reduce the carbon footprint of your operations.  Common operational tasks such as inspecting the connectivity state of a device, verifying device credentials are configured correctly, and querying devices based on their current state must be in place before launch so that your system has the required visibility to troubleshoot applications and reduce the need for site visits. From a sustainability point of view, inaccurate information about device status can result in delayed or erroneous actions such as unnecessary truck rolls or mis-directed corrective actions. This can lead to decreased efficiency and increased costs.  
 

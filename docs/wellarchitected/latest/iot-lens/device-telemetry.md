@@ -1,7 +1,6 @@
 
 
 # Device telemetry
-<a name="device-telemetry"></a>
 
  There are many uses cases where the value for IoT is in collecting telemetry on how a machine or asset is performing. For example, this data can be used to predict costly, unforeseen equipment failures. Telemetry must be collected from the machine and sent to an IoT application. Another benefit of sending telemetry is the ability of your cloud applications to use this data for analysis and to interpret optimizations that can be made to your firmware over time. 
 
@@ -10,6 +9,8 @@
  From a logical perspective, we have defined several scenarios for capturing and interacting with device data telemetry. 
 
 ![Options for capturing telemetry](https://docs.aws.amazon.com/wellarchitected/latest/iot-lens/images/image2.png)
+
+*Options for capturing telemetry*
 
 
  

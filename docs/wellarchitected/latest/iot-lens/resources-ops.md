@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-ops"></a>
 
  Refer to the following resources to learn more about our best practices for operations: 
 +  [Empowering operations: A scalable remote asset health monitoring solution](https://aws.amazon.com/blogs/iot/empowering-operations-a-scalable-remote-asset-health-monitoring-solution-the-internet-of-things-aws-official-blog/) 

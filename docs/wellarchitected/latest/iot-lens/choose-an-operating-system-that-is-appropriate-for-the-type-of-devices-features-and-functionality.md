@@ -1,7 +1,6 @@
 
 
 # Choose an operating system that is appropriate for the type of device's features and functionality
-<a name="choose-an-operating-system-that-is-appropriate-for-the-type-of-devices-features-and-functionality"></a>
 
  The operating system can greatly impact how power efficient an IoT device is. 
 

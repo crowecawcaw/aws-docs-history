@@ -1,7 +1,6 @@
 
 
 # Optimize ML models for the edge
-<a name="optimize-ml-models-for-the-edge"></a>
 
  Leveraging edge computing for machine learning (ML) inference and analytics can offer several benefits compared to processing data in the cloud. Pre-processing and real-time data analysis and decision making can be done locally, reducing the need for frequent data transfers to the cloud, thereby reducing messaging costs, computing power requirements, and the energy consumption associated with data transmission as well as processing in the cloud. 
 

@@ -1,7 +1,6 @@
 
 
 # IoT Edge computing
-<a name="iot-edge-computing"></a>
 
  IoT Edge computing involves hardware and software technologies that enable storage, computing, processing, and networking close to the devices that generates or consumes data within a smart home, connected vehicle, factory or other industrial environments. IoT Edge computing moves processing and analysis closer to endpoints where data is generated, delivering real-time responsiveness and reducing costs associated with transferring large amounts of data to cloud services. 
 
@@ -28,6 +27,8 @@
  This architecture pattern describes how to set up AWS IoT Greengrass for IoT edge computing. 
 
 ![Solution architecture for setting up AWS IoT Greengrass with client devices](https://docs.aws.amazon.com/wellarchitected/latest/iot-lens/images/image7.png)
+
+*IoT edge computing using AWS IoT Greengrass*
 
 
 

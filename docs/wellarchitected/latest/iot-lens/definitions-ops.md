@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions-ops"></a>
 
  There are four focus areas for operational excellence: 
 

@@ -1,7 +1,6 @@
 
 
 # Device provisioning
-<a name="device-provisioning"></a>
 
  In IoT, device provisioning is composed of sequential steps. The most important outcome is that each device must be given a unique identity and authenticated by your IoT application using that identity. 
 
@@ -16,6 +15,8 @@
  Device makers must load each device with a shared claim certificate in firmware. This claim certificate should be unique per batch of devices. The firmware containing the claim certificate is loaded by the contract manufacturer without the need to perform customization. When the device establishes a connection with AWS IoT for the first time, it exchanges the claim certificate for a unique X.509 certificate signed by the AWS certificate authority and a private key. The device should send a unique token, such as a serial number or embedded hardware secret with its provisioning request that the fleet provisioning service can use to verify against an allow list. 
 
 ![Registration flow](https://docs.aws.amazon.com/wellarchitected/latest/iot-lens/images/image1.png)
+
+*Registration flow*
 
 
  

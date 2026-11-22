@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-perf"></a>
 
  The key AWS services for performance efficiency include [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html), [AWS IoT Core](https://aws.amazon.com/iot-core/), [AWS IoT Device Defender](https://aws.amazon.com/iot-device-defender/), [AWS IoT Device Management](https://aws.amazon.com/iot-device-management/), [AWS Lambda](https://aws.amazon.com/lambda/), and [Amazon DynamoDB](https://aws.amazon.com/dynamodb/). Amazon CloudWatch provides visibility into your application's overall performance and operational health. The following services support performance efficiency for IoT workloads: 
 +  **Architecture selection:** [:AWS hardware partners](https://partners.amazonaws.com/qualified-devices) provide production ready IoT devices that can be used as part of you IoT application. Consider using AWS device software such as AWS device SDK's, FreeRTOS, AWS IoT Greengrass for software on IoT devices. 

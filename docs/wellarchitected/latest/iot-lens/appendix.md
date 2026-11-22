@@ -1,7 +1,6 @@
 
 
 # Appendix: Best practices by pillar
-<a name="appendix"></a>
 
 ## Operational excellence
 <a name="operational-excellence"></a>

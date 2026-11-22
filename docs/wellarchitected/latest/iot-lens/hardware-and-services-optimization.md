@@ -1,7 +1,6 @@
 
 
 # Hardware and services - Hardware optimization
-<a name="hardware-and-services-optimization"></a>
 
 
 | IOTSUS03: How do you pick the right hardware components? | 

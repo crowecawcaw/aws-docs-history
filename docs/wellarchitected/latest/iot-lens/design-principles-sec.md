@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-sec"></a>
 
  In addition to the overall Well-Architected Framework security design principles, there are specific design principles for IoT security: 
 +  **Manage device security lifecycle holistically**: Device security starts at the design phase, and ends with the retirement, re-purposing, and destruction of the hardware and data. It is important to take an end-to-end approach to the security lifecycle of your IoT solution in order to maintain your competitive advantage and retain customer trust. 

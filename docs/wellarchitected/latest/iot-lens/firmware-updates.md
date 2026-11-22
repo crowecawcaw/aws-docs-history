@@ -1,7 +1,6 @@
 
 
 # Firmware updates
-<a name="firmware-updates"></a>
 
  Supporting firmware upgrades without human intervention is critical for security, scalability, and delivering new capabilities. 
 
@@ -10,6 +9,8 @@
  To implement firmware updates using AWS IoT Device Management and AWS IoT Jobs, see the following diagram. 
 
 ![Updating firmware on devices](https://docs.aws.amazon.com/wellarchitected/latest/iot-lens/images/image6.png)
+
+*Updating firmware on devices*
 
 
 

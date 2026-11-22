@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-rel"></a>
 
  Use [Amazon CloudWatch](https://aws.amazon.com/pm/cloudwatch/) to monitor runtime metrics and support reliability. Other services and features that support the three areas of reliability are as follows: 
 

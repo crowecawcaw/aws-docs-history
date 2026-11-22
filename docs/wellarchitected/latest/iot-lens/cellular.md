@@ -1,7 +1,6 @@
 
 
 # Cellular
-<a name="cellular"></a>
 
  In addition to the broad use cases mentioned above, there are a number of considerations to take into account to make an energy efficient choice for cellular connectivity.  For devices that communicate using LTE modems, select network operators that support eDRX (Extended Discontinuous Reception) and PSM (Power Save Mode).  These are two complementary features that can be used together to optimize power consumption in LTE devices. 
 

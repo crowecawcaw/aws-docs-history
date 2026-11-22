@@ -1,7 +1,6 @@
 
 
 # Considerations for General Purpose IoT Devices
-<a name="considerations-for-general-purpose-iot-devices"></a>
 
  For general purpose IoT devices, the application and use case will determine the choice between microcontroller (MCU) and microprocessor (MPU). MCU devices are typically designed for low-power, often autonomously battery-operated, and resource constrained applications. MPU class devices are designed for applications that require higher computational power, multitasking, and higher-level services provided by more capable operating systems. 
 
