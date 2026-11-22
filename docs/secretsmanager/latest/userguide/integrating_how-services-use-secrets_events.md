@@ -1,7 +1,6 @@
 
 
 # How Amazon EventBridge uses AWS Secrets Manager
-<a name="integrating_how-services-use-secrets_events"></a>
 
 Amazon EventBridge is a serverless event bus service that you can use to connect your applications with data from a variety of sources. 
 

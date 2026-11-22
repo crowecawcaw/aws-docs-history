@@ -1,7 +1,6 @@
 
 
 # Set up automatic rotation using the AWS CLI
-<a name="rotate-secrets_turn-on-cli"></a>
 
 This tutorial describes how to set up [Rotation by Lambda function](rotate-secrets_lambda.md) by using the AWS CLI. When you rotate a secret, you update the credentials in both the secret and the database or service that the secret is for. 
 

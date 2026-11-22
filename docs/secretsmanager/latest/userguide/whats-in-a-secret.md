@@ -1,13 +1,12 @@
 
 
 # What's in a Secrets Manager secret?
-<a name="whats-in-a-secret"></a>
 
 In Secrets Manager, a *secret* consists of secret information, the *secret value*, plus metadata about the secret. A secret value can be a string or binary. 
 
 To store multiple string values in one secret, we recommend that you use a JSON text string with key-value pairs, for example:
 
-```
+```json
 {
   "host"       : "ProdServer-01.databases.example.com",
   "port"       : "8888",

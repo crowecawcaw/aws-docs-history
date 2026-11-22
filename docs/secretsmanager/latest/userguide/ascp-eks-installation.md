@@ -1,7 +1,6 @@
 
 
 # Install ASCP for Amazon EKS
-<a name="ascp-eks-installation"></a>
 
 This section explains how to install the AWS Secrets and Configuration Provider for Amazon EKS. With ASCP, you can mount secrets from Secrets Manager and parameters from AWS Systems Manager as files in Amazon EKS Pods.
 

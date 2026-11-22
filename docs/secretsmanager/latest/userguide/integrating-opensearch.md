@@ -1,7 +1,6 @@
 
 
 # How Amazon OpenSearch Ingestion uses Secrets Manager
-<a name="integrating-opensearch"></a>
 
 Amazon OpenSearch Ingestion is a fully managed, serverless data collector that streams real-time logs, metrics, and trace data to Amazon OpenSearch Service domains and OpenSearch Serverless collections. You can use OpenSearch Ingestion pipelines with Secrets Manager to securely manage your credentials. For more information, see:
 + [Using an OpenSearch Ingestion pipeline with Atlassian Services](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/configure-client-atlassian.html)

@@ -1,7 +1,6 @@
 
 
 # AWS Secrets Manager secrets managed by other AWS services
-<a name="service-linked-secrets"></a>
 
 Many AWS services store and use secrets in AWS Secrets Manager. In some cases, these secrets are *managed secrets*, which means that the service that created them helps manage them. For example, some managed secrets include [managed rotation](rotate-secrets_managed.md), so you don't have to configure rotation yourself. The managing service might also restrict you from updating secrets or deleting them without a recovery period, which helps prevent outages because the managing service depends on the secret.
 
@@ -17,6 +16,7 @@ Secret ARN : arn:aws:us-east-1:ServiceID!MySecret-a1b2c3
 
 **IDs for services that manage secrets**
 + `appflow` – [How Amazon AppFlow uses AWS Secrets Manager](integrating_how-services-use-secrets_appflow.md)
++ `cognito-idp` – [How Amazon Cognito uses AWS Secrets Manager](integrating_how-services-use-secrets_cognito-idp.md)
 + `databrew` – [How AWS Glue DataBrew uses AWS Secrets Manager](integrating_how-services-use-secrets_databrew.md)
 + `datasync` – [How AWS DataSync uses AWS Secrets Manager](integrating_how-services-use-secrets_datasync.md)
 + `directconnect` – [How AWS Direct Connect uses AWS Secrets Manager](integrating_how-services-use-secrets_directconnect.md)

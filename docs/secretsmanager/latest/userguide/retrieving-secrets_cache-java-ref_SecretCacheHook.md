@@ -1,7 +1,6 @@
 
 
 # SecretCacheHook
-<a name="retrieving-secrets_cache-java-ref_SecretCacheHook"></a>
 
 An interface to hook into a [SecretCache](retrieving-secrets_cache-java-ref_SecretCache.md) to perform actions on the secrets being stored in the cache. 
 

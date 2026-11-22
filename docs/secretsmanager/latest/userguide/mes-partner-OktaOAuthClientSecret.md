@@ -1,14 +1,13 @@
 
 
 # Okta OAuth Client Secret
-<a name="mes-partner-OktaOAuthClientSecret"></a>
 
 ## Secret Value Fields
-<a name="w2aac29c13c43b3"></a>
+<a name="w2aac29c13c45b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
-```
+```json
 {
   "clientId": "{{0oa followed by 17 letters or digits}}",
   "clientSecret": "{{current client secret}}",
@@ -31,11 +30,11 @@ secretId
 (Optional) The Okta identifier of the stored client secret, which begins with `ocs`. Leave this field blank. The first rotation finds the identifier by matching the stored value, and Secrets Manager records it after each rotation.
 
 ## Secret Metadata Fields
-<a name="w2aac29c13c43b5"></a>
+<a name="w2aac29c13c45b5"></a>
 
 The following are the metadata fields for Okta OAuth Client Secret:
 
-```
+```json
 {
   "adminSecretArn": "arn:aws:secretsmanager:us-east-1:111122223333:secret:{{OktaAdminJwtKey}}"
 }
@@ -45,7 +44,7 @@ adminSecretArn
 The Amazon Resource Name (ARN) of a secret of type OktaAdminJwtKey. The administrator secret must use the same Okta domain as this secret.
 
 ## Usage Flow
-<a name="w2aac29c13c43b7"></a>
+<a name="w2aac29c13c45b7"></a>
 
 This rotation uses a two-secret architecture. A secret of type OktaAdminJwtKey holds the administrator credential that creates and revokes client secrets at Okta.
 

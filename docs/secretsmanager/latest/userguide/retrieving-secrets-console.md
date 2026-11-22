@@ -1,7 +1,6 @@
 
 
 # Get a secret value using the AWS console
-<a name="retrieving-secrets-console"></a>
 
 **To retrieve a secret (console)**
 

@@ -1,9 +1,10 @@
 
 
 # Use AWS Secrets Manager secrets in Amazon Elastic Kubernetes Service
-<a name="integrate_eks"></a>
 
 To show secrets from AWS Secrets Manager (ASCP) as files mounted in Amazon EKS Pods, you can use the AWS Secrets and Configuration Provider for the Kubernetes Secrets Store CSI Driver. The ASCP works with Amazon Elastic Kubernetes Service 1.17\+ running an Amazon EC2 node group. AWS Fargate node groups are not supported. With the ASCP, you can store and manage your secrets in Secrets Manager and then retrieve them through your workloads running on Amazon EKS. If your secret contains multiple key-value pairs in JSON format, you can choose which ones to mount in Amazon EKS. The ASCP uses JMESPath syntax to query the key-value pairs in your secret. The ASCP also works with Parameter Store parameters. The ASCP offers two methods of authentication with Amazon EKS The first approach uses IAM Roles for Service Accounts (IRSA). The second approach uses Pod Identities. Each approach has its benefits and use cases.
+
+With either method, you can also have the ASCP assume another IAM role, such as a role in the account that owns the secrets, before it retrieves them. For more information, see [Assume an IAM role to retrieve secrets with the ASCP](integrating_ascp_assume_role.md).
 
 ## ASCP with IAM Roles for Service Accounts (IRSA)
 <a name="csi_driver_overview"></a>

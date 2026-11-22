@@ -1,7 +1,6 @@
 
 
 # Move hardcoded secrets to AWS Secrets Manager
-<a name="hardcoded"></a>
 
 If you have plaintext secrets in your code, we recommend that you rotate them and store them in Secrets Manager. Moving the secret to Secrets Manager solves the problem of the secret being visible to anyone who sees the code, because going forward, your code retrieves the secret directly from Secrets Manager. Rotating the secret revokes the current hardcoded secret so that it is no longer valid. 
 
@@ -89,7 +88,7 @@ The first step is to copy the existing hardcoded secret into Secrets Manager. If
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Get a batch of Secrets Manager secret values using the Python AWS SDK
-<a name="retrieving-secrets-python-batch"></a>
 
 The following code example shows how to get a batch of Secrets Manager secret values.
 
@@ -15,7 +14,7 @@ For an example permissions policy, see [Example: Permission to retrieve a group 
 **Important**  
 If you have a VPCE policy that denies permission to retrieve an individual secret in the group you are retrieving, `BatchGetSecretValue` will not return any secret values, and it will return an error.
 
-```
+```python
 class BatchGetSecretsWrapper:
     def __init__(self, secretsmanager_client):
         self.client = secretsmanager_client

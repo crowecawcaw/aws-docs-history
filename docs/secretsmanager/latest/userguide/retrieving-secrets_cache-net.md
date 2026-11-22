@@ -1,7 +1,6 @@
 
 
 # Get a Secrets Manager secret value using .NET with client-side caching
-<a name="retrieving-secrets_cache-net"></a>
 
 When you retrieve a secret, you can use the Secrets Manager .NET-based caching component to cache it for future use. Retrieving a cached secret is faster than retrieving it from Secrets Manager. Because there is a cost for calling Secrets Manager APIs, using a cache can reduce your costs. For all of the ways you can retrieve secrets, see [Get secrets](retrieving-secrets.md).
 
@@ -46,7 +45,7 @@ For more information, see [Permissions reference](auth-and-access.md#reference_i
 **Example Retrieve a secret**  
 The following code example shows a method that retrieves a secret named {{MySecret}}.  
 
-```
+```csharp
 using Amazon.SecretsManager.Extensions.Caching;
 
 namespace LambdaExample 
@@ -71,7 +70,7 @@ namespace LambdaExample
 **Example Configure the time to live (TTL) cache refresh duration**  
 The following code example shows a method that retrieves a secret named {{MySecret}} and sets the TTL cache refresh duration to 24 hours.  
 
-```
+```csharp
 using Amazon.SecretsManager.Extensions.Caching;
 
 namespace LambdaExample

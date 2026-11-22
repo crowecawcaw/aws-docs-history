@@ -1,14 +1,13 @@
 
 
 # Cisco Security Platform API Key
-<a name="mes-partner-CiscoSecurityPlatformApiKey"></a>
 
 ## Secret Value Fields
 <a name="w2aac29c13c17b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
-```
+```json
 {
   "refreshToken": "{{refresh token value}}",
   "organizationId": "{{organization ID}}",

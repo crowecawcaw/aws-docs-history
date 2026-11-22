@@ -1,7 +1,6 @@
 
 
 # Managed external secrets Partners
-<a name="mes-partners"></a>
 
 Secrets Manager natively integrates with third party applications to rotate secrets held by the partner. Each partner defines the metadata and secret value fields required to rotate the secrets. 
 
@@ -25,6 +24,7 @@ The following topics include a description of each of the metadata fields requir
 | Datadog | [DatadogApiKey](mes-partner-DatadogApiKey.md) | 
 | Datadog | [DatadogApplicationKey](mes-partner-DatadogApplicationKey.md) | 
 | Datadog | [DatadogAdminKey](mes-partner-DatadogAdminKey.md) | 
+| Fortinet | [FortiSASEApiKey](mes-partner-FortiSASEApiKey.md) | 
 | GitLab | [GitLabAccessToken](mes-partner-GitLabAccessToken.md) | 
 | Jenkins | [JenkinsApiToken](mes-partner-JenkinsApiToken.md) | 
 | MongoDB Atlas | [MongoDBAtlasServiceAccount](mes-partner-MongoDBAtlasServiceAccount.md) | 
@@ -42,3 +42,4 @@ The following topics include a description of each of the metadata fields requir
 | Twilio | [TwilioAuthToken](mes-partner-TwilioAuthToken.md) | 
 | Twilio | [TwilioMainApiKey](mes-partner-TwilioMainApiKey.md) | 
 | Versa Networks | [VersaTokenRequestSecret](mes-partner-VersaTokenRequestSecret.md) | 
+| Zscaler | [ZscalerApiKey](mes-partner-ZscalerApiKey.md) | 

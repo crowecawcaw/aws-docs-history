@@ -1,7 +1,6 @@
 
 
 # Get a Secrets Manager secret value using the PHP AWS SDK
-<a name="retrieving-secrets-php"></a>
 
 For PHP applications, call the SDK directly with [`GetSecretValue`](https://docs.aws.amazon.com/aws-sdk-php/v3/api/api-secretsmanager-2017-10-17.html#getsecretvalue) or [`BatchGetSecretValue`](https://docs.aws.amazon.com/aws-sdk-php/v3/api/api-secretsmanager-2017-10-17.html#batchGetsecretvalue).
 
@@ -9,7 +8,7 @@ The following code example shows how to get a Secrets Manager secret value.
 
 **Required permissions: **`secretsmanager:GetSecretValue`
 
-```
+```php
 <?php
 
   /**

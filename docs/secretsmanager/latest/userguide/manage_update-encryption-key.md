@@ -1,7 +1,6 @@
 
 
 # Change the encryption key for an AWS Secrets Manager secret
-<a name="manage_update-encryption-key"></a>
 
 Secrets Manager uses [envelope encryption](security-encryption.md) with AWS KMS keys and data keys to protect each secret value. For each secret, you can choose which KMS key to use. You can use the AWS managed key **aws/secretsmanager**, or you can use a customer managed key. For most cases, we recommend using **aws/secretsmanager**, and there is no cost for using it. If you need to access the secret from another AWS account, or if you want to use your own KMS key so that you can rotate it or apply a key policy to it, use a customer managed key. You must have [Permissions for the KMS key](security-encryption.md#security-encryption-authz). For information about the costs of using a customer managed key, see [Pricing](intro.md#asm_pricing).
 

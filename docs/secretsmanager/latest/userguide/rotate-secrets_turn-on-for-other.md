@@ -1,7 +1,6 @@
 
 
 # Set up automatic rotation for non-database AWS Secrets Manager secrets
-<a name="rotate-secrets_turn-on-for-other"></a>
 
 This tutorial describes how to set up [Rotation by Lambda function](rotate-secrets_lambda.md) for non-database secrets. Rotation is the process of periodically updating a secret. When you rotate a secret, you update the credentials in both the secret and the database or service that the secret is for.
 
@@ -115,7 +114,7 @@ The following policy allows Secrets Manager to invoke a Lambda function.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "default",

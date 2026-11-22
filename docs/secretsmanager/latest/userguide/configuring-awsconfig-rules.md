@@ -1,7 +1,6 @@
 
 
 # Monitor AWS Secrets Manager secrets for compliance by using AWS Config
-<a name="configuring-awsconfig-rules"></a>
 
 You can use AWS Config to evaluate your secrets to see if they are in compliance with your standards. You define your internal security and compliance requirements for secrets using AWS Config rules. Then AWS Config can identify secrets that don't conform to your rules. You can also track changes to secret metadata, [rotation configuration](find-secrets-not-rotating.md), the KMS key used for secret encryption, the Lambda rotation function, and tags associated with a secret.
 

@@ -1,13 +1,12 @@
 
 
 # SecretCache
-<a name="retrieving-secrets_cache-ref-secretcache"></a>
 
 An in-memory cache for secrets retrieved from Secrets Manager. You use [get\_secret\_string](#retrieving-secrets_cache-ref-secretcache_get_secret_string) or [get\_secret\_binary](#retrieving-secrets_cache-ref-secretcache_get_secret_binary) to retrieve a secret from the cache. You can configure the cache settings by passing in a [SecretCacheConfig](retrieving-secrets_cache-ref-secretcacheconfig.md) object in the constructor. 
 
 For more information, including examples, see [Get a Secrets Manager secret value using Python with client-side caching](retrieving-secrets_cache-python.md).
 
-```
+```python
 cache = SecretCache(
     config = SecretCacheConfig,
     client = [client](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/secretsmanager.html)
@@ -25,7 +24,7 @@ Retrieves the secret string value.
 
 Request syntax  
 
-```
+```python
 response = cache.get_secret_string(
     secret_id='{{string}}',
     version_stage='{{string}}' )
@@ -45,7 +44,7 @@ Retrieves the secret binary value.
 
 Request syntax  
 
-```
+```python
 response = cache.get_secret_binary(
     secret_id='{{string}}',
     version_stage='{{string}}'

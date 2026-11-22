@@ -1,7 +1,6 @@
 
 
 # Security and permissions
-<a name="mes-security"></a>
 
 Managed external secrets does not require you to share admin-level privileges of your third party application accounts with AWS. Instead, the rotation process uses credentials and metadata you provide to make authorized API calls to the third party application for credential updates and validation.
 
@@ -17,7 +16,7 @@ If you prefer to reference the prefix list programmatically, you can use the [Ge
 
 **Example Permissions Policy:**
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -53,7 +52,7 @@ Note: The list of secret types that are available for secretsmanager:resource/Ty
 
 **Example Trust Policy:**
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

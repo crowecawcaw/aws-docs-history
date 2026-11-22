@@ -1,7 +1,6 @@
 
 
 # Set up alternating users rotation for AWS Secrets Manager
-<a name="tutorials_rotation-alternating"></a>
 
 In this tutorial, you learn how to set up alternating users rotation for a secret that contains database credentials. *Alternating users rotation* is a rotation strategy where Secrets Manager clones the user and then alternates which user's credentials are updated. This strategy is a good choice if you need high availability for your secret, because one of the alternating users has current credentials to the database while the other one is being updated. For more information, see [Rotation strategy: alternating users](rotation-strategy.md#rotating-secrets-two-users). 
 

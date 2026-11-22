@@ -1,14 +1,13 @@
 
 
 # Netskope API Token
-<a name="mes-partner-NetskopeApiToken"></a>
 
 ## Secret Value Fields
-<a name="w2aac29c13c39b3"></a>
+<a name="w2aac29c13c41b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
-```
+```json
 {
   "apiToken": "{{API token value}}",
   "tenantUrl": "https://example.goskope.com",
@@ -30,12 +29,12 @@ Rotation also writes `createdDate` and `expiresDate` into the secret value. Thes
 The service account role is not stored in the secret. The role belongs to the service account rather than to the token, so rotation never changes it.
 
 ## Secret Metadata Fields
-<a name="w2aac29c13c39b5"></a>
+<a name="w2aac29c13c41b5"></a>
 
 This secret type requires no rotation metadata fields. It uses no admin secret, and Secrets Manager sets the token lifetime to 365 days.
 
 ## Usage Flow
-<a name="w2aac29c13c39b7"></a>
+<a name="w2aac29c13c41b7"></a>
 
 This rotation uses a single-secret architecture. No admin secret is required. The service account uses its current token to generate its own replacement.
 

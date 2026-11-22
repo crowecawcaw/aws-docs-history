@@ -1,7 +1,6 @@
 
 
 # Access AWS Secrets Manager
-<a name="asm_access"></a>
 
 **Topics**
 + [Secrets Manager console](#asm-console)

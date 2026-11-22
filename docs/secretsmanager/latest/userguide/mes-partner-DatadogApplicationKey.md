@@ -1,14 +1,13 @@
 
 
 # Datadog Application Key
-<a name="mes-partner-DatadogApplicationKey"></a>
 
 ## Secret Value Fields
 <a name="w2aac29c13c29b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
-```
+```json
 {
   "appKey": "{{Application key starting with ddapp_}}",
   "appKeyId": "{{Application key UUID}}",
@@ -30,7 +29,7 @@ The Datadog Service Account ID (UUID) that owns this Application key. Only servi
 
 The following are the metadata fields for Datadog Application Key:
 
-```
+```json
 {
   "adminSecretArn": "arn:aws:secretsmanager:us-east-1:111122223333:secret:{{DatadogAdminKey}}"
 }

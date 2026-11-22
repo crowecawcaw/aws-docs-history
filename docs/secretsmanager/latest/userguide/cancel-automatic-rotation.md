@@ -1,7 +1,6 @@
 
 
 # Cancel automatic rotation in Secrets Manager
-<a name="cancel-automatic-rotation"></a>
 
 If you configured [automatic rotation](rotating-secrets.md) for a secret and you want to stop rotating it, you can cancel rotation.
 

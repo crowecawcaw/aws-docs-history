@@ -1,7 +1,6 @@
 
 
 # Post-quantum TLS
-<a name="pqtls"></a>
 
 Secrets Manager supports a hybrid post-quantum key exchange option for the Transport Layer Security (TLS) network encryption protocol. You can use this TLS option when you connect to Secrets Manager API endpoints. We're offering this feature before post-quantum algorithms are standardized so you can begin testing the effect of these key exchange protocols on Secrets Manager calls. These optional hybrid post-quantum key exchange features are at least as secure as the TLS encryption we use today and are likely to provide additional security benefits. However, they affect latency and throughput compared to the classic key exchange protocols in use today. The AWS Workload Credentials Provider uses the post-quantum ML-KEM key exchange as the highest-priority key exchange by default.
 

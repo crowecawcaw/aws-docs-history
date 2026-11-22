@@ -1,7 +1,6 @@
 
 
 # How AWS Direct Connect uses AWS Secrets Manager
-<a name="integrating_how-services-use-secrets_directconnect"></a>
 
 Direct Connect links your internal network to an Direct Connect location over a standard Ethernet fiber-optic cable. With this connection, you can create virtual interfaces directly to public AWS services. 
 

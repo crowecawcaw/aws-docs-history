@@ -1,7 +1,6 @@
 
 
 # SecretCacheHook
-<a name="retrieving-secrets_cache-ref-secretcachehook"></a>
 
 An interface to hook into a [SecretCache](retrieving-secrets_cache-ref-secretcache.md) to perform actions on the secrets being stored in the cache. 
 
@@ -16,7 +15,7 @@ Prepares the object for storing in the cache.
 
 Request syntax  
 
-```
+```python
 response = hook.put(
     obj='{{secret_object}}'
 )
@@ -35,7 +34,7 @@ Derives the object from the cached object.
 
 Request syntax  
 
-```
+```python
 response = hook.get(
     obj='{{secret_object}}'
 )

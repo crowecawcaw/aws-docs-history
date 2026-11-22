@@ -1,11 +1,10 @@
 
 
 # Create an AWS Secrets Manager secret with CloudFormation
-<a name="cfn-example_secret"></a>
 
 This example creates a secret named **CloudFormationCreatedSecret-{{a1b2c3d4e5f6}}**. The secret value is the following JSON, with a 32-character password that is generated when the secret is created.
 
-```
+```json
 {
     "password": "{{EXAMPLE-PASSWORD}}",
     "username": "saanvi"
@@ -20,7 +19,7 @@ For information about creating resources with CloudFormation, see [Learn templat
 ## JSON
 <a name="cfn-example_secret.json"></a>
 
-```
+```json
 {
     "Resources": {
         "CloudFormationCreatedSecret": {
@@ -41,7 +40,7 @@ For information about creating resources with CloudFormation, see [Learn templat
 ## YAML
 <a name="cfn-example_secret.yaml"></a>
 
-```
+```yaml
 Resources:
   CloudFormationCreatedSecret:
     Type: 'AWS::SecretsManager::Secret'

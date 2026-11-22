@@ -1,7 +1,6 @@
 
 
 # AWS Secrets Manager rotation function templates
-<a name="reference_available-rotation-templates"></a>
 
 AWS Secrets Manager provides a set of rotation function templates that help automate the secure management of credentials for various database systems and services. The templates are ready-to-use Lambda functions that implement best practices for credential rotation, helping you maintain your security posture without manual intervention.
 

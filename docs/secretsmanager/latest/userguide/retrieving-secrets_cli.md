@@ -1,7 +1,6 @@
 
 
 # Get a secret value using the AWS CLI
-<a name="retrieving-secrets_cli"></a>
 
 **Required permissions: **`secretsmanager:GetSecretValue`
 

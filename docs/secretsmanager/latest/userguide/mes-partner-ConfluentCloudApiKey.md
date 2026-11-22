@@ -1,14 +1,13 @@
 
 
 # Confluent Cloud API Key
-<a name="mes-partner-ConfluentCloudApiKey"></a>
 
 ## Secret Value Fields
 <a name="w2aac29c13c19b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
-```
+```json
 {
   "apiKey": "{{API Key ID}}",
   "apiSecret": "{{API Secret}}",
@@ -38,7 +37,7 @@ environmentId
 
 The following are the metadata fields for Confluent Cloud API Key:
 
-```
+```json
 {
   "adminSecretArn": "arn:aws:secretsmanager:us-east-1:111122223333:secret:{{ConfluentCloudApiKey}}"
 }

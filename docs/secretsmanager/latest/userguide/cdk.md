@@ -1,7 +1,6 @@
 
 
 # Create AWS Secrets Manager secrets in AWS Cloud Development Kit (AWS CDK)
-<a name="cdk"></a>
 
 To create, manage, and retrieve secrets in a CDK app, you can use the [AWS Secrets Manager Construct Library](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_secretsmanager-readme.html), which contains [`ResourcePolicy`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_secretsmanager.ResourcePolicy.html), [`RotationSchedule`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_secretsmanager.RotationSchedule.html), [`Secret`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_secretsmanager.Secret.html), [`SecretRotation`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_secretsmanager.SecretRotation.html), and [`SecretTargetAttachment`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_secretsmanager.SecretTargetAttachment.html) constructs. 
 

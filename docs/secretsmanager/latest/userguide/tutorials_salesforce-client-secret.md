@@ -1,7 +1,6 @@
 
 
 # Create a Salesforce client secret
-<a name="tutorials_salesforce-client-secret"></a>
 
 In this tutorial, you create a Salesforce client secret and store it in AWS Secrets Manager as a [managed external secret](managed-external-secrets.md), turn on managed rotation, and then test the rotated credentials by exchanging them for an access token. This tutorial takes approximately 20–30 minutes to complete.
 

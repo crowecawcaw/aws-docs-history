@@ -1,12 +1,12 @@
 
 
 # Managed rotation for AWS Secrets Manager secrets
-<a name="rotate-secrets_managed"></a>
 
 Some services offer *managed rotation*, where the service configures and manages rotation for you. With managed rotation, you don't use an AWS Lambda function to update the secret and the credentials in the database. 
 
 The following services offer managed rotation:
 + **Amazon Aurora** offers managed rotation for master user credentials. For more information, see [Password management with Amazon Aurora and AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide*.
++ **Amazon Cognito** offers managed rotation for user pool app client secrets. For more information, see [Managing app client secrets with AWS Secrets Manager](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#user-pool-settings-client-apps-asm-managed-secrets) in the *Amazon Cognito Developer Guide*.
 + **Amazon ECS** Service Connect offers managed rotation for AWS Private Certificate Authority TLS certificates. For more information, see [TLS with Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-tls.html) in the *Amazon Elastic Container Service Developer Guide*.
 + **Amazon RDS** offers managed rotation for master user credentials. For more information, see [Password management with Amazon RDS and AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide*.
 + **Amazon DocumentDB** offers managed rotation for master user credentials. For more information, see [Password management with Amazon DocumentDB and AWS Secrets Manager](https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-secrets-manager.html) in the *Amazon DocumentDB User Guide*.

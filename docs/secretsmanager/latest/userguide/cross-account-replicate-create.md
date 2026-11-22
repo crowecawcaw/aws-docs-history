@@ -1,7 +1,6 @@
 
 
 # Create a replica secret
-<a name="cross-account-replicate-create"></a>
 
 To enable cross-account replication, the replica-account owner creates a new replica secret in the replica account. Secrets Manager creates the replica with no secret value and initializes its permissions so that the primary-account owner can associate it with a primary secret. The replica's value stays empty until the primary-account owner starts replication.
 

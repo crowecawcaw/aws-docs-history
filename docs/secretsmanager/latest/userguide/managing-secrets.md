@@ -1,7 +1,6 @@
 
 
 # Manage secrets with AWS Secrets Manager
-<a name="managing-secrets"></a>
 
 **Topics**
 + [Update a secret value](manage_update-secret-value.md)

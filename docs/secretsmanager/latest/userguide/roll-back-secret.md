@@ -1,7 +1,6 @@
 
 
 # Roll back a secret to a previous version
-<a name="roll-back-secret"></a>
 
 You can revert a secret to a previous version by moving the labels attached to secret versions using the AWS CLI. For information about how Secrets Manager stores versions of secrets, see [Secret versions](whats-in-a-secret.md#term_version). 
 

@@ -1,7 +1,6 @@
 
 
 # Rotate an AWS Secrets Manager secret immediately
-<a name="rotate-secrets_now"></a>
 
 You can only rotate a secret that has rotation configured. To determine whether a secret has been configured for rotation, in the console, view the secret and scroll down to the **Rotation configuration** section. If **Rotation status** is **Enabled**, then the secret is configured for rotation. If not, see [Rotate AWS Secrets Manager secrets](rotating-secrets.md).
 

@@ -1,7 +1,6 @@
 
 
 # Use secrets safely with AI Coding Agents
-<a name="retrieving-secrets-ai-agents"></a>
 
 When AI coding agents have shell or AWS API access, they can call `get-secret-value` and receive plaintext secrets in their context window. This creates multiple risks: secret values can leak into conversation history, logs, or downstream tool calls.
 

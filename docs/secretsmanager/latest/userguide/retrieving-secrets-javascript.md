@@ -1,7 +1,6 @@
 
 
 # Get a Secrets Manager secret value using the JavaScript AWS SDK
-<a name="retrieving-secrets-javascript"></a>
 
 For JavaScript applications, call the SDK directly with [`getSecretValue`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SecretsManager.html#getSecretValue-property) or [`batchGetSecretValue`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SecretsManager.html#batchGetSecretValue-property).
 
@@ -9,7 +8,7 @@ The following code example shows how to get a Secrets Manager secret value.
 
 **Required permissions: **`secretsmanager:GetSecretValue`
 
-```
+```javascript
 import {
   GetSecretValueCommand,
   SecretsManagerClient,

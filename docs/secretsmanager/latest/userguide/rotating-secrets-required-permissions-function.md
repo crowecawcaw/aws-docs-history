@@ -1,7 +1,6 @@
 
 
 # Lambda rotation function execution role permissions for AWS Secrets Manager
-<a name="rotating-secrets-required-permissions-function"></a>
 
 For [Rotation by Lambda function](rotate-secrets_lambda.md), when Secrets Manager uses a Lambda function to rotate a secret, Lambda assumes an [IAM execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html) and provides those credentials to the Lambda function code. For instructions about how to set up automatic rotation, see: 
 + [Automatic rotation for database secrets (console)](rotate-secrets_turn-on-for-db.md)
@@ -28,7 +27,7 @@ The following example policy allows the rotation function to:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -70,7 +69,7 @@ The following example policy allows the rotation function to:
 
 If the secret is encrypted with a KMS key other than the AWS managed key `aws/secretsmanager`, then you need to grant the Lambda execution role permission to use the key. You can use the [SecretARN encryption context](security-encryption.md#security-encryption-encryption-context) to limit the use of the decrypt function, so the rotation function role only has access to decrypt the secret it is responsible for rotating. The following example shows a statement to add to the execution role policy to decrypt the secret using the KMS key.
 
-```
+```json
         {
             "Effect": "Allow",
             "Action": [
@@ -89,7 +88,7 @@ If the secret is encrypted with a KMS key other than the AWS managed key `aws/se
 
 To use the rotation function for multiple secrets that are encrypted with a customer managed key, add a statement like the following example to allow the execution role to decrypt the secret.
 
-```
+```json
         {
             "Effect": "Allow",
             "Action": [
@@ -127,7 +126,7 @@ The following example policy allows the function to:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

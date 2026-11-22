@@ -1,7 +1,6 @@
 
 
 # Rotation by Lambda function
-<a name="rotate-secrets_lambda"></a>
 
 For many types of secrets, Secrets Manager uses an AWS Lambda function to update the secret and the database or service. For information about the costs of using a Lambda function, see [Pricing](intro.md#asm_pricing).
 
@@ -13,7 +12,7 @@ To rotate a secret, Secrets Manager calls a [ Lambda function](rotate-secrets_la
 
 During rotation, Secrets Manager calls the same function several times, each time with different parameters. Secrets Manager invokes the function with the following JSON request structure of parameters: 
 
-```
+```json
 {
     "Step" : "request.type",
     "SecretId" : "string",

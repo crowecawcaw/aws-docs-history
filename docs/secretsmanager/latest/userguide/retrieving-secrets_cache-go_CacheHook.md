@@ -1,7 +1,6 @@
 
 
 # type CacheHook
-<a name="retrieving-secrets_cache-go_CacheHook"></a>
 
 An interface to hook into a [Cache](retrieving-secrets_cache-go_cache.md) to perform actions on the secret being stored in the cache.
 

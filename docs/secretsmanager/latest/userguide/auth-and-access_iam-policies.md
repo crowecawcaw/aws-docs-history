@@ -1,7 +1,6 @@
 
 
 # Identity-based policies
-<a name="auth-and-access_iam-policies"></a>
 
 You can attach permissions policies to [IAM identities: users, user groups, and roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html). In an identity-based policy, you specify which secrets the identity can access and the actions the identity can perform on the secrets. For more information, see [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html).
 
@@ -25,7 +24,7 @@ You can use identity-based policies to:
 ## Example: Permission to retrieve individual secret values
 <a name="auth-and-access_examples_identity_read"></a>
 
-To grant permission to retrieve secret values, you can attach policies to secrets or identities. For help determining which type of policy to use, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html). For information about how to attach a policy, see [Resource-based policies](auth-and-access_resource-policies.md) and [Identity-based policies](#auth-and-access_iam-policies).
+To grant permission to retrieve secret values, you can attach policies to secrets or identities. For help determining which type of policy to use, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html). For information about how to attach a policy, see [Resource-based policies](auth-and-access_resource-policies.md) and [Identity-based policies](auth-and-access_iam-policies.md).
 
 This example is useful when you want to grant access to an IAM group. To grant permission to retrieve a group of secrets in a batch API call, see [Example: Permission to retrieve a group of secret values in a batch](#auth-and-access_examples_batch).
 
@@ -33,7 +32,7 @@ This example is useful when you want to grant access to an IAM group. To grant p
 If a secret is encrypted using a customer managed key, you can grant access to read the secret by attaching the following policy to an identity. \\    
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Statement": [
@@ -58,7 +57,7 @@ If a secret is encrypted using a customer managed key, you can grant access to r
 You can grant access to a secret by attaching the following policy to an identity.    
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Statement": [
@@ -81,7 +80,7 @@ You can grant access to a secret by attaching the following policy to an identit
 You can grant access to retrieve a group of secrets in a batch API call by attaching the following policy to an identity. The policy restricts the caller so that they can only retrieve the secrets specified by {{SecretARN1}}, {{SecretARN2}}, and {{SecretARN3}}, even if the batch call includes other secrets. If the caller also requests other secrets in the batch API call, Secrets Manager won't return them. For more information, see [`BatchGetSecretValue`.](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_BatchGetSecretValue.html).     
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Statement": [
@@ -117,7 +116,7 @@ You can use wildcards to include a set of values in a policy element.
 The following policy grants access to retrieve all secrets with a name beginning with "{{TestEnv/}}".    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -132,7 +131,7 @@ The following policy grants access to retrieve all secrets with a name beginning
 The following policy grants `DescribeSecret` and permissions beginning with `List`: `ListSecrets` and `ListSecretVersionIds`.    
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Statement": {
@@ -147,12 +146,12 @@ The following policy grants `DescribeSecret` and permissions beginning with `Lis
 ```
 
 **Example Match secret name**  
-The following policy grants all Secrets Manager permissions for a secret by name. To use this policy, see [Identity-based policies](#auth-and-access_iam-policies).  
+The following policy grants all Secrets Manager permissions for a secret by name. To use this policy, see [Identity-based policies](auth-and-access_iam-policies.md).  
 To match a secret name, you create the ARN for the secret by putting together the Region, Account ID, secret name, and the wildcard (`?`) to match individual random characters. Secrets Manager appends six random characters to secret names as part of their ARN, so you can use this wildcard to match those characters. If you use the syntax `"another_secret_name-*"`, Secrets Manager matches not only the intended secret with the 6 random characters, but also matches `"another_secret_name-<anything-here>a1b2c3"`.   
 Because you can predict all of the parts of the ARN of a secret except the 6 random characters, using the wildcard character `'??????'` syntax enables you to securely grant permissions to a secret that doesn't yet exist. Be aware, however, if you delete the secret and recreate it with the same name, the user automatically receives permission to the new secret, even though the 6 characters changed.     
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -174,10 +173,10 @@ Because you can predict all of the parts of the ARN of a secret except the 6 ran
 To grant a user permissions to create a secret, we recommend you attach a permissions policy to an IAM group the user belongs to. See [IAM user groups](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups.html).
 
 **Example Create secrets**  
-The following policy grants permission to create secrets and view a list of secrets. To use this policy, see [Identity-based policies](#auth-and-access_iam-policies).    
+The following policy grants permission to create secrets and view a list of secrets. To use this policy, see [Identity-based policies](auth-and-access_iam-policies.md).    
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Statement": [
@@ -207,7 +206,7 @@ The following policy denies the use of the AWS managed key `aws/secretsmanager` 
 1. The second statement, `Sid: "RequireKmsKeyIdParameterOnCreate"`, denies requests for creating secrets that don't include a KMS key, because Secrets Manager would default to using the AWS managed key `aws/secretsmanager`.  
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Statement": [

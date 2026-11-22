@@ -1,14 +1,13 @@
 
 
 # MongoDB Atlas Service Account Credentials
-<a name="mes-partner-MongoDBAtlasServiceAccount"></a>
 
 ## Secret Value Fields
-<a name="w2aac29c13c37b3"></a>
+<a name="w2aac29c13c39b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
-```
+```json
 {
   "clientId": "{{service account OAuth client ID}}",
   "clientSecret": "{{service account OAuth client secret}}",
@@ -26,11 +25,11 @@ orgId
 The 24-character hexadecimal Atlas Organization ID. You can find this in your Atlas Organization Settings.
 
 ## Secret Metadata Fields
-<a name="w2aac29c13c37b5"></a>
+<a name="w2aac29c13c39b5"></a>
 
 The following are the metadata fields for MongoDB Atlas Service Account:
 
-```
+```json
 {
   "adminSecretArn": "arn:aws:secretsmanager:us-east-1:111122223333:secret:{{MongoDBAtlasServiceAccount}}",
   "apiVersion": "{{2025-03-12}}"
@@ -44,7 +43,7 @@ apiVersion
 (Optional) The Atlas Admin API version date in `yyyy-mm-dd` format. This value is used in the `Accept` header as `application/vnd.atlas.{apiVersion}+json`. Defaults to `2025-03-12` if not specified.
 
 ## Usage Flow
-<a name="w2aac29c13c37b7"></a>
+<a name="w2aac29c13c39b7"></a>
 
 The rotation supports two authentication modes. In self-rotation mode (default), the service account uses its own credentials to create and delete its secrets. This requires the service account to have permissions to manage its own secrets. In admin-assisted rotation mode, a separate admin service account credential stored in another secret is used. This is required when the service account lacks self-management permissions.
 

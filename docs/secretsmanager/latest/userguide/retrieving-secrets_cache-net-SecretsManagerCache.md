@@ -1,7 +1,6 @@
 
 
 # SecretsManagerCache
-<a name="retrieving-secrets_cache-net-SecretsManagerCache"></a>
 
 An in-memory cache for secrets requested from Secrets Manager. You use [GetSecretString](#retrieving-secrets_cache-net-SecretsManagerCache-methods-GetSecretString) or [GetSecretBinary](#retrieving-secrets_cache-net-SecretsManagerCache-methods-GetSecretBinary) to retrieve a secret from the cache. You can configure the cache settings by passing in a [SecretCacheConfiguration](retrieving-secrets_cache-net-SecretCacheConfiguration.md) object in the constructor. 
 

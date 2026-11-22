@@ -1,14 +1,13 @@
 
 
 # Versa Networks Token Request Credential
-<a name="mes-partner-VersaTokenRequestSecret"></a>
 
 ## Secret Value Fields
-<a name="w2aac29c13c63b3"></a>
+<a name="w2aac29c13c65b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
-```
+```json
 {
   "host": "{{https://versa.example.com}}",
   "clientId": "{{OAuth client ID}}",
@@ -19,7 +18,7 @@ The following are the fields that must be contained in the Secrets Manager secre
 ```
 
 host  
-The base URL of the Versa Networks host that issues access tokens, for example `https://versa.example.com` or `https://203.0.113.10:9182`. The host can be a fully qualified domain name or an IP address. The URL must use HTTPS. Add the port if your deployment does not serve on 443, and do not include a path or a trailing slash.  
+The base URL of the Versa Networks host that issues access tokens, for example `https://versa.example.com`. The host can be a fully qualified domain name or an IP address. The URL must use HTTPS. Do not include a path or a trailing slash.  
 The host must present a certificate from a trusted certificate authority, issued for the name or IP address that you enter. Secrets Manager rejects a self-signed certificate.
 
 clientId  
@@ -35,12 +34,12 @@ password
 The current password of the user. Secrets Manager rotates this field. If you change the password in Versa Networks yourself, update this field so that the next rotation can sign in.
 
 ## Secret Metadata Fields
-<a name="w2aac29c13c63b5"></a>
+<a name="w2aac29c13c65b5"></a>
 
 This secret type requires no rotation metadata fields.
 
 ## Usage Flow
-<a name="w2aac29c13c63b7"></a>
+<a name="w2aac29c13c65b7"></a>
 
 This rotation type self-rotates. Secrets Manager signs in as the stored user and changes the password of that user, so no separate administrator credential is needed. The secret does not store an access token. Do not write an access token or a refresh token into the secret.
 

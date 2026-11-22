@@ -1,7 +1,6 @@
 
 
 # Modify an AWS Secrets Manager secret
-<a name="manage_update-secret"></a>
 
 You can modify the metadata of a secret after it is created, depending on who created the secret. For secrets created by other services, you might need to use the other service to update or rotate it. 
 

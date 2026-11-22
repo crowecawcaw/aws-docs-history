@@ -1,7 +1,6 @@
 
 
 # AWS CloudTrail entries for Secrets Manager
-<a name="cloudtrail_log_entries"></a>
 
 AWS Secrets Manager writes entries to your AWS CloudTrail log for all Secrets Manager operations and for other events related to rotation and deletion. For information about taking action on these events, see [Match Secrets Manager events with EventBridge](monitoring-eventbridge.md). 
 

@@ -1,7 +1,6 @@
 
 
 # How Amazon Redshift uses AWS Secrets Manager
-<a name="integrating_how-services-use-secrets_RS"></a>
 
 Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud.
 

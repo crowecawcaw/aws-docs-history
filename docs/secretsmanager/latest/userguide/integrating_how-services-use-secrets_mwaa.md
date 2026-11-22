@@ -1,7 +1,6 @@
 
 
 # How Amazon Managed Workflows for Apache Airflow uses AWS Secrets Manager
-<a name="integrating_how-services-use-secrets_mwaa"></a>
 
 Amazon Managed Workflows for Apache Airflow is a managed orchestration service for [Apache Airflow](https://airflow.apache.org/) that makes it easier to setup and operate end-to-end data pipelines in the cloud at scale. 
 

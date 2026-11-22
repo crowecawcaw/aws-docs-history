@@ -1,7 +1,6 @@
 
 
 # Use AWS Secrets Manager secrets in AWS IoT Greengrass
-<a name="integrating-greengrass"></a>
 
 AWS IoT Greengrass is software that extends cloud capabilities to local devices. This enables devices to collect and analyze data closer to the source of information, react autonomously to local events, and communicate securely with each other on local networks. 
 

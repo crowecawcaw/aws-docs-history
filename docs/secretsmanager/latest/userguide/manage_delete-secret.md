@@ -1,7 +1,6 @@
 
 
 # Delete an AWS Secrets Manager secret
-<a name="manage_delete-secret"></a>
 
 Because of the critical nature of secrets, AWS Secrets Manager intentionally makes deleting a secret difficult. Secrets Manager does not immediately delete secrets. Instead, Secrets Manager immediately makes the secrets inaccessible and scheduled for deletion after a recovery window of a minimum of seven days. Until the recovery window ends, you can recover a secret you previously deleted. There is no charge for secrets that you have marked for deletion. 
 

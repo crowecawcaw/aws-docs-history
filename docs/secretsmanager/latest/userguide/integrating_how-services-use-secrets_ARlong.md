@@ -1,7 +1,6 @@
 
 
 # How AWS App Runner uses AWS Secrets Manager
-<a name="integrating_how-services-use-secrets_ARlong"></a>
 
 AWS App Runner is an AWS service that provides a fast, simple, and cost-effective way to deploy from source code or a container image directly to a scalable and secure web application in the AWS Cloud. You don't need to learn new technologies, decide which compute service to use, or know how to provision and configure AWS resources.
 

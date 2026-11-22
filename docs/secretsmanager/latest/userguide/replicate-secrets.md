@@ -1,7 +1,6 @@
 
 
 # Replicate AWS Secrets Manager secrets across Regions
-<a name="replicate-secrets"></a>
 
 You can replicate your secrets in multiple AWS Regions to support applications spread across those Regions to meet Regional access and low latency requirements. If you later need to, you can [promote a replica secret to a standalone](standalone-secret.md) and then set it up for replication independently. Secrets Manager replicates the encrypted secret data and metadata such as tags and resource policies across the specified Regions. 
 

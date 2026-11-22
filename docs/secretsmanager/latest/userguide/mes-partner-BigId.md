@@ -1,14 +1,13 @@
 
 
 # Big ID Refresh Token
-<a name="mes-partner-BigId"></a>
 
 ## Secret Value Fields
 <a name="w2aac29c13c15b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
-```
+```json
 {
   "hostname": "{{Host Name}}",
   "refreshToken": "{{Refresh Token}}" 

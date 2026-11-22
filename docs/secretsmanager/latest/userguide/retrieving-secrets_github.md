@@ -1,9 +1,8 @@
 
 
 # Use AWS Secrets Manager secrets in GitHub jobs
-<a name="retrieving-secrets_github"></a>
 
-To use a secret in a GitHub job, you can use a GitHub action to retrieve secrets from AWS Secrets Manager and add them as masked [Environment variables](https://docs.github.com/en/actions/learn-github-actions/environment-variables) in your GitHub workflow. For more information about GitHub Actions, see [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions) in the *GitHub Docs*.
+To use a secret in a GitHub job, you can use a GitHub action to retrieve secrets from AWS Secrets Manager and add them as masked [Environment variables](https://docs.github.com/en/actions/learn-github-actions/environment-variables) in your GitHub workflow. The action's source code and release notes are in the [aws-actions/aws-secretsmanager-get-secrets](https://github.com/aws-actions/aws-secretsmanager-get-secrets) repository on the GitHub website. For more information about GitHub Actions, see [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions) in the *GitHub Docs*.
 
 When you add a secret to your GitHub environment, it is available to all other steps in your GitHub job. Follow the guidance in [Security hardening for GitHub Actions](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions) to help prevent secrets in your environment from being misused.
 
@@ -32,13 +31,15 @@ To use the action, add a step to your workflow that uses the following syntax.
 
 ```
 - name: {{Step name}}
-  uses: aws-actions/aws-secretsmanager-get-secrets@v2
+  uses: aws-actions/aws-secretsmanager-get-secrets@v4
   with:
     secret-ids: |
       {{secretId1}}
       {{ENV_VAR_NAME}}, {{secretId2}}
     name-transformation: {{(Optional) uppercase|lowercase|none}}
     parse-json-secrets: {{(Optional) true|false}}
+    http-proxy: {{(Optional) proxy URL}}
+    no-proxy: {{(Optional) comma-separated hosts}}
 ```Parameters
 
 `secret-ids`  
@@ -52,6 +53,46 @@ By default, the step creates each environment variable name from the secret name
 `parse-json-secrets`  
 (Optional) By default, the action sets the environment variable value to the entire JSON string in the secret value. Set `parse-json-secrets` to `true` to create environment variables for each key-value pair in the JSON.   
 Note that if the JSON uses case-sensitive keys such as "name" and "Name", the action will have duplicate name conflicts. In this case, set `parse-json-secrets` to `false` and parse the JSON secret value separately. 
+
+`http-proxy`  
+(Optional) The URL of an HTTP or HTTPS proxy for the Secrets Manager API calls, for example `http://proxy.example.com:3128`. If you don't set `http-proxy`, the action uses the `https_proxy` or `HTTPS_PROXY` environment variable. For more information about proxy settings, see [Use an HTTP proxy](#retrieving-secrets_github_proxy).
+
+`no-proxy`  
+(Optional) A comma-separated list of hosts that the action connects to without the proxy, for example `.amazonaws.com`. Use `*` for all hosts. If you don't set `no-proxy`, the action uses the `no_proxy` or `NO_PROXY` environment variable, including when you set the proxy with `http-proxy`.
+
+## Use an HTTP proxy
+<a name="retrieving-secrets_github_proxy"></a>
+
+To send the Secrets Manager API calls through a proxy, set the `http-proxy` parameter to the proxy URL, or set the `https_proxy` or `HTTPS_PROXY` environment variable. The action supports only `http://` and `https://` proxy URLs. If the URL doesn't include a scheme, the action uses `http://`.
+
+If you configure your self-hosted runners to use a proxy, the runner passes the proxy environment variables to every step, so the action uses that proxy. To connect directly instead, set `no-proxy: "*"`.
+
+Entries in `no-proxy` aren't case sensitive. An entry can be a host name, which also matches its subdomains, such as `amazonaws.com`. It can also be a domain suffix that starts with `.` or `*.`, such as `.amazonaws.com`, or `*` for all hosts. Any entry can end with a port, for example `.amazonaws.com:443`.
+
+If the proxy requires credentials, include them in the URL, for example `http://{{USERNAME}}:{{PASSWORD}}@proxy.example.com:3128`. Percent-encode special characters in the user name and password, for example `@` as `%40` and `%` as `%25`. With an `http://` proxy, your credentials go to the proxy unencrypted on every connection, so use an `https://` proxy when the proxy requires credentials.
+
+**Important**  
+Store a proxy URL that contains credentials in a GitHub secret, and set `http-proxy` or the proxy environment variable from that secret. If you write credentials in the workflow file, anyone who can read the repository can read them.
+
+The action doesn't fall back to a direct connection. If the proxy URL is invalid, or the proxy can't be reached, times out, or refuses the request with HTTP 403 or 407, the step fails.
+
+The following example gets a secret through the proxy whose URL is stored in the GitHub secret `PROXY_URL`, and excludes hosts that end in `.internal.example.com` from the proxy.
+
+```
+- name: Get secrets through a proxy
+  uses: aws-actions/aws-secretsmanager-get-secrets@v4
+  with:
+    secret-ids: exampleSecretName
+    http-proxy: ${{ secrets.PROXY_URL }}
+    no-proxy: .internal.example.com
+```
+
+To use a proxy that's set in the runner's environment, leave out the proxy parameters and set the environment variables, as in the following example.
+
+```
+HTTPS_PROXY=http://proxy.example.com:3128
+NO_PROXY=.internal.example.com
+```
 
 ## Environment variable naming
 <a name="retrieving-secrets_github_alias"></a>
@@ -91,7 +132,7 @@ The following example creates environment variables for secrets identified by na
 
 ```
 - name: Get secrets by name and by ARN
-  uses: aws-actions/aws-secretsmanager-get-secrets@v2
+  uses: aws-actions/aws-secretsmanager-get-secrets@v4
   with:
     secret-ids: |
       exampleSecretName
@@ -119,7 +160,7 @@ The following example creates environment variables for all secrets with names t
 
 ```
 - name: Get Secret Names by Prefix
-  uses: 2
+  uses: aws-actions/aws-secretsmanager-get-secrets@v4
   with:
     secret-ids: |
       beta*    # Retrieves all secrets that start with 'beta'
@@ -137,7 +178,7 @@ The following example creates environment variables by parsing the JSON in the s
 
 ```
 - name: Get Secrets by Name and by ARN
-  uses: aws-actions/aws-secretsmanager-get-secrets@v2
+  uses: aws-actions/aws-secretsmanager-get-secrets@v4
   with:
     secret-ids: |
       test/secret
@@ -178,7 +219,7 @@ The following example creates an environment variable with a lowercase name.
 
 ```
 - name: Get secrets
-  uses: aws-actions/aws-secretsmanager-get-secrets@v2
+  uses: aws-actions/aws-secretsmanager-get-secrets@v4
   with:
     secret-ids: exampleSecretName
     name-transformation: lowercase

@@ -1,7 +1,6 @@
 
 
 # Get a Secrets Manager secret value using the Ruby AWS SDK
-<a name="retrieving-secrets-ruby"></a>
 
 For Ruby applications, call the SDK directly with [`get_secret_value`](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/SecretsManager/Client.html#get_secret_value-instance_method) or [`batch_get_secret_value`](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/SecretsManager/Client.html#batch_get_secret_value-instance_method).
 
@@ -9,7 +8,7 @@ The following code example shows how to get a Secrets Manager secret value.
 
 **Required permissions: **`secretsmanager:GetSecretValue`
 
-```
+```ruby
   # Use this code snippet in your app.
   # If you need more information about configurations or implementing the sample code, visit the AWS docs:
   # https://aws.amazon.com/developer/language/ruby/

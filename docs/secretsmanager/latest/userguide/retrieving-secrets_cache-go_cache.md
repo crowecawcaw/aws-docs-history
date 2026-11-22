@@ -1,13 +1,12 @@
 
 
 # type Cache
-<a name="retrieving-secrets_cache-go_cache"></a>
 
 An in-memory cache for secrets requested from Secrets Manager. You use [GetSecretString](#retrieving-secrets_cache-go_cache_operations_GetCachedSecret) or [GetSecretBinary](#retrieving-secrets_cache-go_cache_operations_GetSecretBinary) to retrieve a secret from the cache. 
 
 The following example shows how to configure the cache settings.
 
-```
+```go
 // Create a custom secretsmanager client
 client := getCustomClient()
 

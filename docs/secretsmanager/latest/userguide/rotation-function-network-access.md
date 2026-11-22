@@ -1,7 +1,6 @@
 
 
 # Network access for AWS Lambda rotation function
-<a name="rotation-function-network-access"></a>
 
 For [Rotation by Lambda function](rotate-secrets_lambda.md), when Secrets Manager uses a Lambda function to rotate a secret, the Lambda rotation function must be able to access the secret. If your secret contains credentials, then the Lambda function must also be able to access the source of those credentials, such as a database or service.
 

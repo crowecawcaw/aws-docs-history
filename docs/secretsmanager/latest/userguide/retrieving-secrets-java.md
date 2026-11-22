@@ -1,7 +1,6 @@
 
 
 # Get a Secrets Manager secret value using Java
-<a name="retrieving-secrets-java"></a>
 
 In applications, you can retrieve your secrets by calling `GetSecretValue` or `BatchGetSecretValue`in any of the AWS SDKs. However, we recommend that you cache your secret values by using client-side caching. Caching secrets improves speed and reduces your costs.
 

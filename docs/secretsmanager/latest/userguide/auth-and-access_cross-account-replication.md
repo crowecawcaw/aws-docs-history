@@ -1,7 +1,6 @@
 
 
 # Permissions for cross-account replication
-<a name="auth-and-access_cross-account-replication"></a>
 
 Cross-account replication is a two-party process, so each account owner needs permission for the operations they run. For an overview of the feature, see [Cross-account replication](cross-account-replicate-secrets.md). For how Secrets Manager obtains the encryption-key permissions it needs during replication, and the choice between a replication role and forward access sessions, see [How Secrets Manager authorizes cross-account replication](cross-account-replicate-permissions.md).
 + To create the replica secret, the replica-account owner needs `secretsmanager:CreateSecret` and `secretsmanager:PutResourcePolicy`. Secrets Manager attaches a managed resource policy named `cross-account-replication` to the replica when you create it, which is why `secretsmanager:PutResourcePolicy` is required.

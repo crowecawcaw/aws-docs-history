@@ -1,7 +1,6 @@
 
 
 # AWS Secrets Manager tutorials
-<a name="tutorials"></a>
 
 **Topics**
 + [Find unprotected secrets in your code with Amazon CodeGuru Reviewer](integrating-codeguru.md)

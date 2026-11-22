@@ -1,7 +1,6 @@
 
 
 # Resource-based policies
-<a name="auth-and-access_resource-policies"></a>
 
 In a resource-based policy, you specify who can access the secret and the actions they can perform on the secret. You can use resource-based policies to:
 + Grant access to a single secret to multiple users and roles. 
@@ -58,7 +57,7 @@ aws secretsmanager put-resource-policy \
 Contents of `mypolicy.json`:    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -96,7 +95,7 @@ For more information, see [AWS SDKs](asm_access.md#asm-sdks).
 ### Example: Permission to retrieve individual secret values
 <a name="auth-and-access_examples_read"></a>
 
-To grant permission to retrieve secret values, you can attach policies to secrets or identities. For help determining which type of policy to use, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html). For information about how to attach a policy, see [Resource-based policies](#auth-and-access_resource-policies) and [Identity-based policies](auth-and-access_iam-policies.md).
+To grant permission to retrieve secret values, you can attach policies to secrets or identities. For help determining which type of policy to use, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html). For information about how to attach a policy, see [Resource-based policies](auth-and-access_resource-policies.md) and [Identity-based policies](auth-and-access_iam-policies.md).
 
 This example is useful when you want to grant access to a single secret to multiple users or roles. To grant permission to retrieve a group of secrets in a batch API call, see [Example: Permission to retrieve a group of secret values in a batch](auth-and-access_iam-policies.md#auth-and-access_examples_batch).
 
@@ -104,7 +103,7 @@ This example is useful when you want to grant access to a single secret to multi
 You can grant access to a secret by attaching the following policy to the secret.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -131,7 +130,7 @@ Make sure that requests to access the secret from other AWS services also come f
 The following policy allows a user to perform Secrets Manager operations only when the request comes through the VPC endpoint {{`vpce-1234a5678b9012c`}}.    
 ****  
 
-```
+```json
 {
 "Id": "example-policy-1",
 "Version":"2012-10-17",		 	 	 
@@ -156,7 +155,7 @@ The following policy allows a user to perform Secrets Manager operations only wh
 The following policy allows commands to create and manage secrets only when they come from {{`vpc-12345678`}}. In addition, the policy allows operations that use access the secret encrypted value only when the requests come from `vpc-2b2b2b2b`. You might use a policy like this one if you run an application in one VPC, but you use a second, isolated VPC for management functions.     
 ****  
 
-```
+```json
 {
 "Id": "example-policy-2",
 "Version":"2012-10-17",		 	 	 
@@ -213,7 +212,7 @@ Service principals are not typically used as principals in a policy attached to 
 **Example Allow a service to access a secret using a service principal**    
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Statement": [

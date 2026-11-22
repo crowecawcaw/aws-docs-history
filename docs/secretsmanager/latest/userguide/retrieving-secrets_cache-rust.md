@@ -1,7 +1,6 @@
 
 
 # Get a Secrets Manager secret value using Rust with client-side caching
-<a name="retrieving-secrets_cache-rust"></a>
 
 When you retrieve a secret, you can use the Secrets Manager Rust-based caching component to cache it for future use. Retrieving a cached secret is faster than retrieving it from Secrets Manager. Because there is a cost for calling Secrets Manager APIs, using a cache can reduce your costs. For all of the ways you can retrieve secrets, see [Get secrets](retrieving-secrets.md).
 
@@ -30,7 +29,7 @@ For more information, see [Permissions reference](auth-and-access.md#reference_i
 **Example Retrieve a secret**  
 The following example shows how to get the secret value for a secret named {{MyTest}}.  
 
-```
+```rust
 use aws_secretsmanager_caching::SecretsManagerCachingClient;
 use std::num::NonZeroUsize;
 use std::time::Duration;
@@ -56,7 +55,7 @@ let secret_string = match client.get_secret_value("MyTest", None, None).await {
 **Example Instantiating Cache with a custom configuration and a custom client**  
 The following example shows how to configure the cache and then get the secret value for a secret named {{MyTest}}.  
 
-```
+```rust
 let config = aws_config::load_defaults(BehaviorVersion::latest())
     .await
     .into_builder()

@@ -1,20 +1,19 @@
 
 
 # AWS Secrets and Configuration Provider code examples
-<a name="ascp-examples"></a>
 
 ## ASCP authentication and access control examples
 <a name="ascp-auth-access-examples"></a>
 
 ### Example: IAM policy allowing Amazon EKS Pod Identity service (pods.eks.amazonaws.com) to assume the role and tag the session:
-<a name="w2aac23c17c20b5b3"></a>
+<a name="w2aac23c17c24b5b3"></a>
 
 ------
 #### [ JSON ]
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -40,9 +39,9 @@
 You use YAML to describe which secrets to mount in Amazon EKS using the ASCP. For examples, see [SecretProviderClass usage](#ascp-scenarios-secretproviderclass).
 
 ### SecretProviderClass YAML structure
-<a name="w2aac23c17c20c25b5"></a>
+<a name="w2aac23c17c24c25b5"></a>
 
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -55,6 +54,7 @@ spec:
     pathTranslation:
     usePodIdentity:
     preferredAddressType:
+    assumeRoleArn:
     objects:
 ```
 
@@ -81,6 +81,9 @@ To prevent character substitution, enter the string `False`.
 + `"ipv4"`, `"IPv4"`", or `"IPV4"` – Force the use of Pod Identity Agent IPv4 endpoint
 + `"ipv6"`, `"IPv6"`, or `"IPV6"` – Force the use of Pod Identity Agent IPv6 endpoint
 + not specified – Use auto endpoint selection, trying IPv4 endpoint first and falling back to IPv6 endpoint if IPv4 fails
+
+**assumeRoleArn**  
+(Optional) The ARN of an IAM role that the ASCP assumes with the Pod's credentials before it retrieves the secrets, for example a role in the account that owns the secrets. Use the form `arn:{{partition}}:iam::{{account-id}}:role/{{role-name}}`, and include the role's path if it has one. The role's trust policy must allow the Pod's role to assume it. For more information, see [Assume an IAM role to retrieve secrets with the ASCP](integrating_ascp_assume_role.md).
 
 **objects**  
 A string containing a YAML declaration of the secrets to be mounted. We recommend using a YAML multi-line string or pipe (\|) character.    
@@ -115,14 +118,14 @@ The name or full ARN of the failover secret. If you use an ARN, the Region in th
 (Optional) The alias for the version. The default is the most recent version AWSCURRENT. For more information, see [Secret versions](whats-in-a-secret.md#term_version). 
 
 ### Create a basic SecretProviderClass configuration to mount secrets in your Amazon EKS Pods.
-<a name="w2aac23c17c20c25c11"></a>
+<a name="w2aac23c17c24c25c11"></a>
 
 ------
 #### [ Pod Identity ]
 
 SecretProviderClass to use a secret in the same Amazon EKS cluster:
 
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -139,7 +142,7 @@ spec:
 ------
 #### [ IRSA ]
 
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -167,7 +170,7 @@ This example shows how to mount three different types of secrets:
 + A secret specified by name
 + A specific version of a secret
 
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -189,7 +192,7 @@ spec:
 
 This example shows how to mount specific key-value pairs from a JSON-formatted secret:
 
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -211,7 +214,7 @@ spec:
 
 This example shows how to mount a secret with a specific file permission
 
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -229,6 +232,25 @@ spec:
               filePermission: "0400"
 ```
 
+#### Example: Assume a role in another account
+<a name="assume-role-cross-account"></a>
+
+This example shows how to mount a secret from account {{444455556666}} by assuming the {{SecretsReader}} role in that account. For the trust policy and permissions the two roles need, see [Assume an IAM role to retrieve secrets with the ASCP](integrating_ascp_assume_role.md).
+
+```yaml
+apiVersion: secrets-store.csi.x-k8s.io/v1
+kind: SecretProviderClass
+metadata:
+  name: {{aws-secrets-cross-account}}
+spec:
+  provider: aws
+  parameters:
+    region: us-east-2
+    assumeRoleArn: "arn:aws:iam::{{444455556666}}:role/{{SecretsReader}}"
+    objects: |
+      - objectName: "arn:aws:secretsmanager:us-east-2:{{444455556666}}:secret:MySecret-a1b2c3"
+```
+
 #### Example: Failover configuration examples
 <a name="failover-examples"></a>
 
@@ -239,7 +261,7 @@ These examples show how to configure failover for secrets.
 
 This example shows how to configure automatic failover for a secret replicated across multiple Regions:
 
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -258,7 +280,7 @@ spec:
 
 This example shows how to configure failover to a different secret (not a replica):
 
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:

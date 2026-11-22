@@ -1,7 +1,6 @@
 
 
 # Using the AWS Workload Credentials Provider
-<a name="workload-credentials-provider"></a>
 
 ## How the AWS Workload Credentials Provider works
 <a name="provider-overview"></a>
@@ -55,9 +54,9 @@ To download a pre-built binary of the AWS Workload Credentials Provider, use the
 
 | Platform | Architecture | Download URL | Checksum (SHA-256) | 
 | --- | --- | --- | --- | 
-| Linux | x86-64 | [Download for Linux x86-64 (3.1.2)](https://artifacts.awcp.global.on.aws/3.1.2/x86_64-unknown-linux-gnu/aws-workload-credentials-provider) | 1480c04bddfdea241f9b67fedd15f1006e53d33d234b5aca3f8eec6e563f420a | 
-| Linux | AArch64 | [Download for Linux AArch64 (3.1.2)](https://artifacts.awcp.global.on.aws/3.1.2/aarch64-unknown-linux-gnu/aws-workload-credentials-provider) | 136e1a28a5cb31e678e33edac19fed794c1ffbb86d83f6f77d182197c211f142 | 
-| Windows | x86-64 | [Download for Windows x86-64 (3.1.2)](https://artifacts.awcp.global.on.aws/3.1.2/x86_64-pc-windows-msvc/aws-workload-credentials-provider.exe) | 857cc5f0a906b63b6cc94ce763ee503a99b1da5c3a185ca4261ecebeab8d9bf8 | 
+| Linux | x86-64 | [Download for Linux x86-64 (3.2.0)](https://artifacts.awcp.global.on.aws/3.2.0/x86_64-unknown-linux-gnu/aws-workload-credentials-provider) | bccc74d27cd6da97937c131b028e6a9deae945b4cbec77c6fe63a27d465447e3 | 
+| Linux | AArch64 | [Download for Linux AArch64 (3.2.0)](https://artifacts.awcp.global.on.aws/3.2.0/aarch64-unknown-linux-gnu/aws-workload-credentials-provider) | 3d939c48b9f1cc061027522398f744d2bc34900c862d6bdfb94fcab37aee9dc3 | 
+| Windows | x86-64 | [Download for Windows x86-64 (3.2.0)](https://artifacts.awcp.global.on.aws/3.2.0/x86_64-pc-windows-msvc/aws-workload-credentials-provider.exe) | 06e97a10dd58d88ec54d6dc57b3f1aade43fab9164e72c813373d5532daa4849 | 
 
 ## Build the AWS Workload Credentials Provider from source
 <a name="workload-credentials-provider-build"></a>

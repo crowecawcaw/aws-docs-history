@@ -1,7 +1,6 @@
 
 
 # Get a Secrets Manager secret value using the Kotlin AWS SDK
-<a name="retrieving-secrets-kotlin"></a>
 
 For Kotlin applications, call the SDK directly with [GetSecretValue](https://github.com/awslabs/aws-sdk-kotlin#generating-api-documentation) or [BatchGetSecretValue](https://github.com/awslabs/aws-sdk-kotlin#generating-api-documentation).
 
@@ -9,7 +8,7 @@ The following code example shows how to get a Secrets Manager secret value.
 
 **Required permissions: **`secretsmanager:GetSecretValue`
 
-```
+```kotlin
 suspend fun getValue(secretName: String?) {
     val valueRequest =
         GetSecretValueRequest {

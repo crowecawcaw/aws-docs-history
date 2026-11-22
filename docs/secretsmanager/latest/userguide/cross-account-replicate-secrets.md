@@ -1,7 +1,6 @@
 
 
 # Replicate AWS Secrets Manager secrets across accounts
-<a name="cross-account-replicate-secrets"></a>
 
 Cross-account replication lets you replicate secret values from a *primary* secret into a new *replica* secret in a different AWS account. The replica secret is an independent secret that has its own access policies, KMS key, and lifecycle. When the secret value in the primary secret changes, Secrets Manager propagates the new value to the replica secret. Cross-account replication is useful when you want to use the same secret value in multiple accounts and manage the secret separately in each account.
 

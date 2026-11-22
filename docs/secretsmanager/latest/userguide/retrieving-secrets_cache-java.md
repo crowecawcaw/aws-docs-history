@@ -1,7 +1,6 @@
 
 
 # Get a Secrets Manager secret value using Java with client-side caching
-<a name="retrieving-secrets_cache-java"></a>
 
 When you retrieve a secret, you can use the Secrets Manager Java-based caching component to cache it for future use. Retrieving a cached secret is faster than retrieving it from Secrets Manager. Because there is a cost for calling Secrets Manager APIs, using a cache can reduce your costs. For all of the ways you can retrieve secrets, see [Get secrets](retrieving-secrets.md).
 
@@ -38,7 +37,7 @@ For more information, see [Permissions reference](auth-and-access.md#reference_i
 **Example Retrieve a secret**  
 The following code example shows a Lambda function that retrieves a secret string. It follows the [best practice](https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html) of instantiating the cache outside of the function handler, so it doesn't keep calling the API if you call the Lambda function again.  
 
-```
+```java
 package com.amazonaws.secretsmanager.caching.examples;
     
     import com.amazonaws.services.lambda.runtime.Context;

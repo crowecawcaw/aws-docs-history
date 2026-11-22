@@ -1,7 +1,6 @@
 
 
 # Lambda rotation functions
-<a name="rotate-secrets_lambda-functions"></a>
 
 In [Rotation by Lambda function](rotate-secrets_lambda.md), an AWS Lambda function rotates the secret. AWS Secrets Manager uses [staging labels](whats-in-a-secret.md) to identify secret versions during rotation.
 

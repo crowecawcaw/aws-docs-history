@@ -1,7 +1,6 @@
 
 
 # Monitor Secrets Manager costs
-<a name="monitor-secretsmanager-costs"></a>
 
 You can use Amazon CloudWatch to monitor estimated AWS Secrets Manager charges. For more information, see [Creating a billing alarm to monitor your estimated AWS charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html) in the *CloudWatch User Guide*.
 

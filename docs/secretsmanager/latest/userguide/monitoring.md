@@ -1,7 +1,6 @@
 
 
 # Monitor AWS Secrets Manager secrets
-<a name="monitoring"></a>
 
 AWS provides monitoring tools to watch Secrets Manager secrets, report when something is wrong, and take automatic actions when appropriate. You can use the logs if you need to investigate any unexpected usage or change, and then you can roll back unwanted changes. You can also set automated checks for inappropriate usage of secrets and any attempts to delete secrets. 
 

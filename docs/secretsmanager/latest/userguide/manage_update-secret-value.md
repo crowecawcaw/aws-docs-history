@@ -1,7 +1,6 @@
 
 
 # Update the value for an AWS Secrets Manager secret
-<a name="manage_update-secret-value"></a>
 
 
 

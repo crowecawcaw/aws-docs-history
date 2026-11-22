@@ -1,7 +1,6 @@
 
 
 # Prevent AWS Secrets Manager replication
-<a name="replicate-secrets-permissions"></a>
 
 Because secrets can be replicated using [`ReplicateSecretToRegions`](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ReplicateSecretToRegions.html) or when they are created using [`CreateSecret`](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html), if you want to prevent users from replicating secrets, we recommend you prevent actions that contain the `AddReplicaRegions` parameter. You can use a `Condition` statement in your permission policies to only allow actions that don't add replica regions. See the following policy examples for Condition statements you can use.
 
@@ -9,7 +8,7 @@ Because secrets can be replicated using [`ReplicateSecretToRegions`](https://doc
 The following policy example shows how to allow all actions that don't add replica regions. This prevents users from replicating secrets through both `ReplicateSecretToRegions` and `CreateSecret`.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -34,7 +33,7 @@ The following policy shows how to allow all of the following:
 + Replicate secrets to Regions only in United States and Canada   
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

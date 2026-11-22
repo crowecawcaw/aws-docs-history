@@ -1,7 +1,6 @@
 
 
 # What is AWS Secrets Manager?
-<a name="intro"></a>
 
 AWS Secrets Manager helps you manage, retrieve, and rotate database credentials, application credentials, OAuth tokens, API keys, and other secrets throughout their lifecycles. Many AWS services store and use secrets in Secrets Manager.
 

@@ -1,7 +1,6 @@
 
 
 # SecretCacheConfiguration
-<a name="retrieving-secrets_cache-net-SecretCacheConfiguration"></a>
 
 Cache configuration options for a [SecretsManagerCache](retrieving-secrets_cache-net-SecretsManagerCache.md), such as maximum cache size and Time to Live (TTL) for cached secrets.
 

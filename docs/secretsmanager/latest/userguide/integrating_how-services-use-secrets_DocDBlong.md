@@ -1,7 +1,6 @@
 
 
 # How Amazon DocumentDB (with MongoDB compatibility) uses AWS Secrets Manager
-<a name="integrating_how-services-use-secrets_DocDBlong"></a>
 
 Amazon DocumentDB (with MongoDB compatibility) is a fully managed document database service that supports MongoDB workloads. Amazon DocumentDB integrates with Secrets Manager to manage primary user passwords for your clusters, enhancing security and simplifying credential management.
 

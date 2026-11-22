@@ -1,7 +1,6 @@
 
 
 # Log AWS Secrets Manager events with AWS CloudTrail
-<a name="monitoring-cloudtrail"></a>
 
 AWS CloudTrail records all API calls for Secrets Manager as events, including calls from the Secrets Manager console, as well as several other events for rotation and secret version deletion. For a list of the log entries in Secrets Manager records, see [CloudTrail entries](cloudtrail_log_entries.md).
 

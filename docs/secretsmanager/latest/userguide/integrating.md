@@ -1,7 +1,6 @@
 
 
 # AWS services that use AWS Secrets Manager secrets
-<a name="integrating"></a>
 
 **Topics**
 + [App Runner](integrating_how-services-use-secrets_ARlong.md)
@@ -12,6 +11,7 @@
 + [Amazon Athena](integrating_how-services-use-secrets_ATElong.md)
 + [Amazon Aurora](integrating-AUR.md)
 + [AWS CodeBuild](integrating-codebuild.md)
++ [Amazon Cognito](integrating_how-services-use-secrets_cognito-idp.md)
 + [Amazon Data Firehose](integrating_how-services-use-secrets_AKF.md)
 + [AWS DataSync](integrating_how-services-use-secrets_datasync.md)
 + [Amazon DataZone](integrating_how-services-use-secrets_datazone.md)

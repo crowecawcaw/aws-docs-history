@@ -1,7 +1,6 @@
 
 
 # Associate the replica with a primary secret
-<a name="cross-account-replicate-associate"></a>
 
 After the replica-account owner creates the replica secret, the primary-account owner associates the replica with the primary secret to start replication. For how to create the replica secret, see [Create a replica secret](cross-account-replicate-create.md).
 

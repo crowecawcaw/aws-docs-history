@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS Secrets Manager
-<a name="troubleshoot"></a>
 
 Use the information here to help you diagnose and fix issues that you might encounter when you're working with Secrets Manager.
 

@@ -1,7 +1,6 @@
 
 
 # How AWS Elemental Live uses AWS Secrets Manager
-<a name="integrating_ELVlong"></a>
 
 AWS Elemental Live is a real-time video service that lets you create live outputs for broadcast and streaming delivery. 
 

@@ -1,7 +1,6 @@
 
 
 # Set up automatic rotation for Amazon RDS, Amazon Aurora, Amazon Redshift, or Amazon DocumentDB secrets
-<a name="rotate-secrets_turn-on-for-db"></a>
 
 This tutorial describes how to set up [Rotation by Lambda function](rotate-secrets_lambda.md) for database secrets. Rotation is the process of periodically updating a secret. When you rotate a secret, you update the credentials in both the secret and the database. In Secrets Manager, you can set up automatic rotation for your database secrets.
 
@@ -66,7 +65,7 @@ In the resource policy for your rotation function, we recommend that you include
 
 1. Follow the instructions at [Using resource-based policies for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) to add a `aws:sourceAccount` condition.
 
-   ```
+   ```json
    "Condition": {
        "StringEquals": {
            "AWS:SourceAccount": "{{123456789012}}"
@@ -82,7 +81,7 @@ If the secret is encrypted with a KMS key other than the AWS managed key `aws/se
 
 1. Follow the instructions at [Modifying a role permissions policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-modify_permissions-policy) to add a `kms:EncryptionContext:SecretARN` condition.
 
-   ```
+   ```json
    "Condition": {
        "StringEquals": {
            "kms:EncryptionContext:SecretARN": "{{SecretARN}}"

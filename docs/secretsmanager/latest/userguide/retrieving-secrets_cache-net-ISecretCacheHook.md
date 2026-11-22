@@ -1,7 +1,6 @@
 
 
 # ISecretCacheHook
-<a name="retrieving-secrets_cache-net-ISecretCacheHook"></a>
 
 An interface to hook into a [SecretsManagerCache](retrieving-secrets_cache-net-SecretsManagerCache.md) to perform actions on the secrets being stored in the cache. 
 

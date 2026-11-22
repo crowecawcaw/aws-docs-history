@@ -1,7 +1,6 @@
 
 
 # Manage API keys for security-sensitive workloads
-<a name="api-keys-security-sensitive"></a>
 
 AWS Secrets Manager helps you manage, retrieve, and rotate database credentials, application credentials, OAuth tokens, API keys, and other secrets throughout their lifecycles. This page provides prescriptive guidance for managing API keys and third-party credentials in security-sensitive workloads. Combine automatic rotation with customer managed AWS KMS keys and least-privilege IAM policies. Also configure VPC endpoint access to minimize the exposure window and blast radius of a compromised credential.
 
@@ -12,7 +11,7 @@ This section describes how to structure your API key secrets for optimal rotatio
 
 The following example shows a common JSON structure for third-party API key secrets. The actual fields depend on the requirements of your provider — review the provider's documentation for the specific credentials and metadata you need to store.
 
-```
+```json
 {
   "apiKey": "your-api-key-value",
   "apiKeyId": "key-identifier",
@@ -113,7 +112,7 @@ Secrets Manager provides caching clients for several languages, as well as a Lam
 
 For all access patterns, configure IAM policies that restrict `secretsmanager:GetSecretValue` to the specific secrets each application needs:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [{

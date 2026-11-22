@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Container Service
-<a name="integrating_how-services-use-secrets_ecs-sc"></a>
 
 Amazon Elastic Container Service (Amazon ECS) is a fully managed container orchestration service that helps you easily deploy, manage, and scale containerized applications. You can inject sensitive data into your containers by referencing Secrets Manager secrets. For more information, see the following pages in the *Amazon Elastic Container Service Developer Guide*:
 + [Tutorial: Specifying sensitive data using Secrets Manager secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-tutorial.html)

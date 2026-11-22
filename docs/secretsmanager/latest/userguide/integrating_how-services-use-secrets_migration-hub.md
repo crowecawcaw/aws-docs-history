@@ -1,7 +1,6 @@
 
 
 # How AWS Migration Hub uses AWS Secrets Manager
-<a name="integrating_how-services-use-secrets_migration-hub"></a>
 
 AWS Migration Hub provides a single location to track migration tasks across multiple AWS tools and partner solutions. 
 

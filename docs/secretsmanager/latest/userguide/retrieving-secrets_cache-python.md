@@ -1,7 +1,6 @@
 
 
 # Get a Secrets Manager secret value using Python with client-side caching
-<a name="retrieving-secrets_cache-python"></a>
 
 When you retrieve a secret, you can use the Secrets Manager Python-based caching component to cache it for future use. Retrieving a cached secret is faster than retrieving it from Secrets Manager. Because there is a cost for calling Secrets Manager APIs, using a cache can reduce your costs. For all of the ways you can retrieve secrets, see [Get secrets](retrieving-secrets.md).
 
@@ -38,7 +37,7 @@ For more information, see [Permissions reference](auth-and-access.md#reference_i
 **Example Retrieve a secret**  
 The following example shows how to get the secret value for a secret named {{mysecret}}.  
 
-```
+```python
 import botocore 
 import botocore.session 
 from aws_secretsmanager_caching import SecretCache, SecretCacheConfig 

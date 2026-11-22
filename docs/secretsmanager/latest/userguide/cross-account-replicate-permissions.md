@@ -1,7 +1,6 @@
 
 
 # How Secrets Manager authorizes cross-account replication
-<a name="cross-account-replicate-permissions"></a>
 
 Every time Secrets Manager replicates a secret value, it decrypts the value with the primary secret's KMS key and re-encrypts it with the replica secret's KMS key. Secrets Manager needs an identity authorized for both operations. You choose the identity: a replication role that Secrets Manager assumes, or the caller's own identity through a forward access session (FAS). This topic explains both approaches.
 

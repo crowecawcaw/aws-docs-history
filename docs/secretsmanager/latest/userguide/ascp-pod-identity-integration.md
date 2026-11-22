@@ -1,7 +1,6 @@
 
 
 # Use AWS Secrets and Configuration Provider CSI with Pod Identity for Amazon EKS
-<a name="ascp-pod-identity-integration"></a>
 
 The AWS Secrets and Configuration Provider integration with the Pod Identity Agent for Amazon Elastic Kubernetes Service provides enhanced security, simplified configuration, and improved performance for applications running on Amazon EKS. Pod Identity simplifies IAM authentication for Amazon EKS when retrieving secrets from Secrets Manager or parameters from AWS Systems Manager Parameter Store.
 
@@ -45,6 +44,8 @@ To use Pod Identity with your cluster, you must install the Amazon EKS Pod Ident
 ## Set up ASCP with Pod Identity
 <a name="pod-identity-setup"></a>
 
+If the secrets belong to another account, you can either assign a target IAM role in the Pod Identity association or have the ASCP assume a role in that account. For more information, see [Assume an IAM role to retrieve secrets with the ASCP](integrating_ascp_assume_role.md).
+
 1. Create a permissions policy that grants `secretsmanager:GetSecretValue` and `secretsmanager:DescribeSecret` permission to the secrets that the Pod needs to access. For an example policy, see [Example: Permission to read and describe individual secrets](auth-and-access_iam-policies.md#auth-and-access_examples-read-and-describe).
 
 1. Create an IAM role that can be assumed by the Amazon EKS service principal for Pod Identity:
@@ -54,7 +55,7 @@ To use Pod Identity with your cluster, you must install the Amazon EKS Pod Ident
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

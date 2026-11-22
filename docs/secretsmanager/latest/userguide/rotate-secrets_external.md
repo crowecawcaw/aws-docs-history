@@ -1,7 +1,6 @@
 
 
 # Rotate Secrets Manager managed external secrets
-<a name="rotate-secrets_external"></a>
 
 Secrets Manager has partnered with select software vendors to offer managed external secrets. This feature helps customers manage the secret lifecycle by handling rotations automatically. With managed external secrets, customers no longer need to maintain specific rotation logic for each secret stored with different partners. This will be handled by Secrets Manager.
 

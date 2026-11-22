@@ -1,7 +1,6 @@
 
 
 # Troubleshoot AWS Secrets Manager rotation
-<a name="troubleshoot_rotation"></a>
 
 For many services, Secrets Manager uses a Lambda function to rotate secrets. For more information, see [Rotation by Lambda function](rotate-secrets_lambda.md). The Lambda rotation function interacts with the database or service the secret is for as well as Secrets Manager. When rotation doesn't work the way you expect, you should first check the CloudWatch logs.
 
@@ -359,7 +358,7 @@ To verify the Python upgrade, open the Lambda console ([https://console.aws.amaz
 ## AWS Lambda secret rotation with `PutSecretValue` failed
 <a name="troubleshoot_rotation_putsecretvalue"></a>
 
-If you use an assumed role or a cross-account rotation with Secrets Manager and you find a **RotationFailed** event in CloudTrail with the message: Pending secret version {{VERSION\_ID }}for Secret {{SECRET\_ARN }} was not created by Lambda {{LAMBDA\_ARN.}} Remove the `AWSPENDING` staging label and restart rotation, then you need to update your Lambda function to use the `RotationToken` parameter.<a name="troubleshoot_rotation_procedure"></a>
+If you use an assumed role or a cross-account rotation with Secrets Manager and you find a **RotationFailed** event in CloudTrail with the message: `Pending secret version {{VERSION_ID }}for Secret {{SECRET_ARN }} was not created by Lambda {{LAMBDA_ARN.}} Remove the AWSPENDING staging label and restart rotation`, then you need to update your Lambda function to use the `RotationToken` parameter.<a name="troubleshoot_rotation_procedure"></a>
 
 ## Update Lambda rotation function to include `RotationToken`
 <a name="troubleshoot_rotation_procedure"></a>
@@ -375,7 +374,7 @@ If you use an assumed role or a cross-account rotation with Secrets Manager and 
 
    Include the rotation\_token parameter in the create\_secret step for cross-account rotation:
 
-   ```
+   ```python
    def lambda_handler(event, context):
        """Secrets Manager Rotation Template
    
@@ -443,7 +442,7 @@ If you use an assumed role or a cross-account rotation with Secrets Manager and 
 
    Revise the `create_secret` function to accept and use the `rotation_token` parameter:
 
-   ```
+   ```python
    # Add rotation_token to the function
    def create_secret(service_client, arn, token, rotation_token):
    """Create the secret

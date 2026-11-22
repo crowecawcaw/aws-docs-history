@@ -1,7 +1,6 @@
 
 
 # Use AWS Secrets Manager secrets in AWS Lambda functions
-<a name="retrieving-secrets_lambda"></a>
 
 AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. Parameter Store, a capability of AWS Systems Manager, provides secure, hierarchical storage for configuration data management and secrets management. You can use the AWS Parameters and Secrets Lambda Extension to retrieve and cache AWS Secrets Manager secrets and Parameter Store parameters in Lambda functions without using an SDK. For detailed information about using this extension, see [Use Secrets Manager secrets in Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/with-secrets-manager.html) in the *Lambda Developer Guide*.
 

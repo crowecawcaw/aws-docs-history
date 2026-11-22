@@ -1,7 +1,6 @@
 
 
 # Get a Secrets Manager secret value using the Python AWS SDK
-<a name="retrieving-secrets-python-sdk"></a>
 
 In applications, you can retrieve your secrets by calling `GetSecretValue` or `BatchGetSecretValue`in any of the AWS SDKs. However, we recommend that you cache your secret values by using client-side caching. Caching secrets improves speed and reduces your costs.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `GetSecretValue`.
 
 **Required permissions: **`secretsmanager:GetSecretValue`
 
-```
+```python
 """
 Purpose
 

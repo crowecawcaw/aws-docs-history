@@ -1,14 +1,13 @@
 
 
 # Databricks Personal Access Token
-<a name="mes-partner-DatabricksPAT"></a>
 
 ## Secret Value Fields
 <a name="w2aac29c13c21b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
-```
+```json
 {
   "token": "{{dapi followed by 32 hexadecimal characters}}",
   "tokenId": "{{64-character hexadecimal token ID}}",
@@ -34,7 +33,7 @@ comment
 
 The following are the metadata fields for Databricks Personal Access Token:
 
-```
+```json
 {
   "adminSecretArn": "arn:aws:secretsmanager:us-east-1:111122223333:secret:{{DatabricksRotatorToken}}",
   "tokenLifetimeDays": "{{90}}"
