@@ -1,7 +1,6 @@
 
 
 # Automate prefix list updates with IPAM
-<a name="automate-prefix-list-updates"></a>
 
 A [managed prefix list](https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html) is a set of CIDR blocks that you can reference in security group rules and route tables instead of specifying individual IP addresses. For example, instead of creating separate security group rules for `10.1.0.0/16`, `10.2.0.0/16`, and `10.3.0.0/16`, you can create one prefix list containing all three CIDRs and reference it in a single rule.
 

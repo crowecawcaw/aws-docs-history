@@ -1,7 +1,6 @@
 
 
 # Release an allocation
-<a name="release-alloc-ipam"></a>
 
 If you are planning to delete a pool, you might need to release a pool allocation. An allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.
 

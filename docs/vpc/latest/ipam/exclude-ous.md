@@ -1,7 +1,6 @@
 
 
 # Exclude organizational units from IPAM
-<a name="exclude-ous"></a>
 
 If your IPAM is integrated with AWS Organizations, you can exclude an [organizational unit (OU)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#organizationalunit) from being managed by IPAM. When you exclude an OU, IPAM will not manage the IP addresses in accounts in that OU. This feature gives you more flexibility in how you use IPAM.
 
@@ -83,13 +82,13 @@ The commands in this section link to the *AWS CLI Command Reference*. The docume
 
    Input:
 
-   ```
+   ```xml
    aws ec2 describe-ipam-resource-discoveries
    ```
 
    Output:
 
-   ```
+   ```json
    {                                                                                                                              
        "IpamResourceDiscoveries": [                                                                                               
            {                                                                                                                      
@@ -137,7 +136,7 @@ These paths overlap because Path 1 represents both "o-1/r-1/ou-1/" and "o-1/r-1/
 
    Input:
 
-   ```
+   ```xml
    aws ec2 modify-ipam-resource-discovery \
        --ipam-resource-discovery-id ipam-res-disco-1234567890abcdef0 \
        --add-organizational-unit-exclusions OrganizationsEntityPath='o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-ghi0-awsccccc/*' \
@@ -147,7 +146,7 @@ These paths overlap because Path 1 represents both "o-1/r-1/ou-1/" and "o-1/r-1/
 
    Output:
 
-   ```
+   ```json
    {
        "IpamResourceDiscovery": {
            "OwnerId": "111122223333",

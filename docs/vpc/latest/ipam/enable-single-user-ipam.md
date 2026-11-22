@@ -1,7 +1,6 @@
 
 
 # Use IPAM with a single account
-<a name="enable-single-user-ipam"></a>
 
 If you choose not to [Integrate IPAM with accounts in an AWS Organization](enable-integ-ipam.md), you can use IPAM with a single AWS account.
 

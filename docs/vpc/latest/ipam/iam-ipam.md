@@ -1,7 +1,6 @@
 
 
 # Identity and access management in IPAM
-<a name="iam-ipam"></a>
 
 AWS uses security credentials to identify you and to grant you access to your AWS resources. You can use features of AWS Identity and Access Management (IAM) to allow other users, services, and applications to use your AWS resources fully or in a limited way, without sharing your security credentials.
 

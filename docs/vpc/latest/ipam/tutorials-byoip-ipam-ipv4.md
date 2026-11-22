@@ -1,7 +1,6 @@
 
 
 # Bring your own public IPv4 CIDR to IPAM using only the AWS CLI
-<a name="tutorials-byoip-ipam-ipv4"></a>
 
 Follow these steps to bring an IPv4 CIDR to IPAM and allocate an Elastic IP address with the CIDR using only the AWS CLI.
 
@@ -55,7 +54,7 @@ aws ec2 create-ipam --description my-ipam --region us-east-1 --operating-regions
 
 In the output, you'll see the IPAM you've created. Note the value for `PublicDefaultScopeId`. You will need your public scope ID in the next step. You are using the public scope because BYOIP CIDRs are public IP addresses, which is what the public scope is meant for.
 
-```
+```json
 {
  "Ipam": {                                                                         
         "OwnerId": "123456789012",
@@ -97,7 +96,7 @@ This step must be done by the IPAM account.
 
    In the output, you'll see `create-in-progress`, which indicates that pool creation is in progress.
 
-   ```
+   ```json
    {
        "IpamPool": {
            "OwnerId": "123456789012",
@@ -125,7 +124,7 @@ This step must be done by the IPAM account.
 
    The following example output shows the state of the pool.
 
-   ```
+   ```json
    {
        "IpamPools": [
            {
@@ -179,7 +178,7 @@ You only need to verify domain control when you provision the BYOIP CIDR to the 
 
    In the output, you'll see the CIDR pending provision.
 
-   ```
+   ```json
    {
        "IpamPoolCidr": {                                                                                         
            "Cidr": "130.137.245.0/24",                                                                      
@@ -200,7 +199,7 @@ While most provisioning will be completed within two hours, it may take up to on
 
    The following example output shows the state.
 
-   ```
+   ```json
    {
        "IpamPoolCidrs": [                     
            {                                  
@@ -243,7 +242,7 @@ When you create the pool, you must include `--aws-service ec2`. The service you 
 
    In the output, you'll see IPAM creating the pool.
 
-   ```
+   ```json
    {
         "IpamPool": {
            "OwnerId": "123456789012",
@@ -293,7 +292,7 @@ This step must be done by the IPAM account.
 
    In the output, you'll see the CIDR pending provision.
 
-   ```
+   ```json
    {
        "IpamPoolCidr": {                                                                                         
            "Cidr": "130.137.245.0/24",                                                                      
@@ -310,7 +309,7 @@ This step must be done by the IPAM account.
 
    The following example output shows the correct state.
 
-   ```
+   ```json
    {
        "IpamPoolCidrs": [
            {
@@ -340,7 +339,7 @@ The advertisement status doesn't not restrict your ability to allocate Elastic I
 
   In the output, you'll see the CIDR is advertised.
 
-  ```
+  ```json
   {
       "ByoipCidr": {
           "Cidr": "130.137.245.0/24",
@@ -497,7 +496,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    The output shows the allocation in IPAM.
 
-   ```
+   ```json
    {
        "IpamPoolAllocations": [
            {
@@ -521,7 +520,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    In the output, you'll see the CIDR State has changed from **advertised** to **provisioned**.
 
-   ```
+   ```json
    {
        "ByoipCidr": {
            "Cidr": "130.137.245.0/24",
@@ -550,7 +549,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    The output shows the allocation in IPAM.
 
-   ```
+   ```json
    {
        "IpamPoolAllocations": []
    }
@@ -566,7 +565,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    In the output, you'll see the CIDR pending deprovision.
 
-   ```
+   ```json
    {
        "IpamPoolCidr": {                                                                                            
            "Cidr": "130.137.245.0/24",                                                                         
@@ -583,7 +582,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    Wait until you see **deprovisioned** before you continue to the next step.
 
-   ```
+   ```json
    {
        "IpamPoolCidr": {                                                                                            
            "Cidr": "130.137.245.0/24",                                                                         
@@ -606,7 +605,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    In the output, you can see the delete state.
 
-   ```
+   ```json
    {
       "IpamPool": {
            "OwnerId": "123456789012",
@@ -637,7 +636,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    In the output, you'll see the CIDR pending deprovision.
 
-   ```
+   ```json
    {
        "IpamPoolCidr": {                                                                                            
            "Cidr": "130.137.245.0/24",                                                                         
@@ -654,7 +653,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    Wait until you see **deprovisioned** before you continue to the next step.
 
-   ```
+   ```json
    {
        "IpamPoolCidr": {                                                                                            
            "Cidr": "130.137.245.0/24",                                                                         
@@ -673,7 +672,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    In the output, you can see the delete state.
 
-   ```
+   ```json
    {
      "IpamPool": {
            "OwnerId": "123456789012",
@@ -703,7 +702,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    In the output, you'll see the IPAM response. This means that the IPAM was deleted.
 
-   ```
+   ```json
    {
        "Ipam": {
            "OwnerId": "123456789012",
@@ -752,7 +751,7 @@ Public IPv4 pools and IPAM pools are managed by distinct resources in AWS. Publi
 
   In the output, you'll see the public IPv4 pool ID. You will need this ID in the next step.
 
-  ```
+  ```json
   {
       "PoolId": "ipv4pool-ec2-0019eed22a684e0b2"
   }
@@ -775,7 +774,7 @@ This step must be done by the member account.
 
    In the output, you'll see the provisioned CIDR.
 
-   ```
+   ```json
    {
        "PoolId": "ipv4pool-ec2-0019eed22a684e0b2",
        "PoolAddressRange": {
@@ -795,7 +794,7 @@ This step must be done by the member account.
 
    In the output, you'll see the provisioned CIDR. By default the CIDR is not advertised, which means it's not publicly accessible over the internet. You will have the chance to set this CIDR to advertised in the last step of this tutorial.
 
-   ```
+   ```json
    {
        "ByoipCidrs": [
            {
@@ -824,7 +823,7 @@ This step must be done by the member account.
 
    In the output, you'll see the allocation.
 
-   ```
+   ```json
    {
        "PublicIp": "130.137.245.100",
        "AllocationId": "eipalloc-0db3405026756dbf6",
@@ -844,7 +843,7 @@ This step must be done by the member account.
 
    The output shows the allocation in IPAM.
 
-   ```
+   ```json
    {
        "IpamPoolAllocations": [
            {
@@ -873,7 +872,7 @@ Complete these steps to clean up public IPv4 pools created with the alternative 
 
    In the output, you'll see the IP addresses in your BYOIP CIDR.
 
-   ```
+   ```json
    {
        "PublicIpv4Pools": [
            {
@@ -914,7 +913,7 @@ Complete these steps to clean up public IPv4 pools created with the alternative 
 
    In the output, you'll see the IP addresses count in your public IPv4 pool.
 
-   ```
+   ```json
    {
        "PublicIpv4Pools": [
            {

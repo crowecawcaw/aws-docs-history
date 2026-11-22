@@ -1,7 +1,6 @@
 
 
 # Getting started with IPAM using the AWS CLI
-<a name="getting-started-with-ipam-using-the-aws-cli"></a>
 
 This tutorial guides you through the process of setting up and using Amazon VPC IP Address Manager (IPAM) with the AWS CLI using a single AWS account. By the end of this tutorial, you will have created an IPAM, created a hierarchy of IP address pools, and allocated a CIDR to a VPC.
 
@@ -22,7 +21,7 @@ The first step is to create an IPAM with operating regions. An IPAM helps you pl
 
 Create an IPAM with operating regions in us-east-1 and us-west-2:
 
-```
+```json
 aws ec2 create-ipam \
   --description "My IPAM" \
   --operating-regions RegionName=us-east-1 RegionName=us-west-2

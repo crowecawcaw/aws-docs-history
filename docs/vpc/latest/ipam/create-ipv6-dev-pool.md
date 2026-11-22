@@ -1,7 +1,6 @@
 
 
 # Create a development IPv6 address pool in your IPAM
-<a name="create-ipv6-dev-pool"></a>
 
 Follow the steps in this section to create a development pool within your IPv6 Regional pool. If you only need a Regional pool and don't need development pools, skip to [Allocate CIDRs from an IPAM pool](allocate-cidrs-ipam.md).
 

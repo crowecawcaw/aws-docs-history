@@ -1,7 +1,6 @@
 
 
 # Create IPv4 pools
-<a name="intro-create-ipv4-pools"></a>
 
 Follow the steps in this section to create an IPv4 IPAM pool hierarchy.
 

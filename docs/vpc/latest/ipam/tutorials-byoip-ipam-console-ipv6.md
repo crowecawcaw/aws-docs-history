@@ -1,7 +1,6 @@
 
 
 # Bring your own IPv6 CIDR to IPAM using the AWS Management Console
-<a name="tutorials-byoip-ipam-console-ipv6"></a>
 
 Follow the steps in this tutorial to bring an IPv6 CIDR to IPAM and allocate a VPC with the CIDR using both the AWS Management Console and the AWS CLI.
 

@@ -1,7 +1,6 @@
 
 
 # Deprovision CIDRs from a pool
-<a name="depro-pool-cidr-ipam"></a>
 
 You may want to deprovision a pool CIDR to free up IP address space, simplify IP address management, prepare for network changes, or meet compliance requirements. Deprovisioning a pool CIDR allows for better control and optimization of your IP address allocations within IPAM, while ensuring unused IP space is reclaimed and made available for future use. You can't deprovision the CIDR if there are allocations in the pool. To remove allocations, see [Release an allocation](release-alloc-ipam.md).
 
@@ -43,4 +42,4 @@ Use the following AWS CLI commands to deprovision a pool CIDR:
 
 ------
 
-To provision a new CIDR to the pool, see [Deprovision CIDRs from a pool](#depro-pool-cidr-ipam). If you want to delete the pool, see [Delete a pool](delete-pool-ipam.md).
+To provision a new CIDR to the pool, see [Deprovision CIDRs from a pool](depro-pool-cidr-ipam.md). If you want to delete the pool, see [Delete a pool](delete-pool-ipam.md).

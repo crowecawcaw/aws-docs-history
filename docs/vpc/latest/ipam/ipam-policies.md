@@ -1,7 +1,6 @@
 
 
 # Understanding IPAM policies
-<a name="ipam-policies"></a>
 
 An Amazon VPC IP Address Manager (IPAM) policy is a set of rules that IPAM applies to AWS resources when they are created in the accounts that the policy targets. You define the rules once, enable the policy for your organization, for organizational units, or for individual accounts, and IPAM applies the rules without any action in the member accounts.
 

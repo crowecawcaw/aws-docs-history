@@ -1,7 +1,6 @@
 
 
 # Pricing for IPAM
-<a name="pricing-ipam"></a>
 
 Amazon VPC IP Address Manager (IPAM) is a service that helps you manage your IP address space across your AWS resources and on-premises networks. IPAM provides a centralized way to plan, monitor, and control the IP addresses used by your AWS and on-premises resources.
 

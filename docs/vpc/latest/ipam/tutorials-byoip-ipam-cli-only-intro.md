@@ -1,7 +1,6 @@
 
 
 # Bring your own IP CIDR to IPAM using only the AWS CLI
-<a name="tutorials-byoip-ipam-cli-only-intro"></a>
 
 Bringing Your Own IP (BYOIP) to IPAM allows you to use your organization's existing IPv4 and IPv6 address ranges in AWS. This enables you to maintain consistent branding, improve network performance, enhance security, and simplify management by unifying on-premises and cloud environments under your own IP address space.
 

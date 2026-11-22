@@ -1,7 +1,6 @@
 
 
 # Tutorial: Set up delegated RPKI for BYOIP prefixes
-<a name="tutorials-byoip-bgp-security"></a>
 
 This tutorial walks through all BGP route protection capabilities end to end. You can stop after any step and use what you've set up so far. Steps 1 and 2 require no RIR interaction. Steps 3 and later require a one-time setup with your RIR. For background on BGP route protection concepts, tier requirements, and supported RIRs, see [Monitor BGP route protection](monitor-bgp-route-security.md).
 

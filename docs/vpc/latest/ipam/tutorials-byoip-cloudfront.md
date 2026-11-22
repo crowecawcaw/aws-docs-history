@@ -1,7 +1,6 @@
 
 
 # Bring your own IP to CloudFront using IPAM (supports IPv4 and IPv6)
-<a name="tutorials-byoip-cloudfront"></a>
 
 IPAM's BYOIP for global services lets you use your own IPv4 and IPv6 addresses with AWS global services like CloudFront. Unlike regional BYOIP, your IP addresses are advertised from multiple edge locations simultaneously through anycast routing.
 

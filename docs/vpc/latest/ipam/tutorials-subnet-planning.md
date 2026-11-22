@@ -1,7 +1,6 @@
 
 
 # Tutorial: Plan VPC IP address space for subnet IP allocations
-<a name="tutorials-subnet-planning"></a>
 
 Complete this tutorial to plan the VPC IP address space for allocating IP addresses to VPC subnets and monitor IP address-related metrics at the subnet and VPC level.
 

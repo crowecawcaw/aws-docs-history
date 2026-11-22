@@ -1,7 +1,6 @@
 
 
 # Create an IPAM
-<a name="create-ipam"></a>
 
 Follow the steps in this section to create your IPAM. If you have delegated an IPAM administrator, these steps should be completed by the IPAM account.
 

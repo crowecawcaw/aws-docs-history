@@ -1,7 +1,6 @@
 
 
 # Create additional scopes
-<a name="add-scope-ipam"></a>
 
 Follow the steps in this section to create an additional scope.
 

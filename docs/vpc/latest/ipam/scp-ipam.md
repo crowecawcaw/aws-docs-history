@@ -1,7 +1,6 @@
 
 
 # Enforce IPAM use for VPC creation with SCPs
-<a name="scp-ipam"></a>
 
 **Note**  
  This section is only applicable to you if you've enabled IPAM to integrate with AWS Organizations. For more information, see [Integrate IPAM with accounts in an AWS Organization](enable-integ-ipam.md).
@@ -22,7 +21,7 @@ Follow the steps in this section to require members in your organization to use 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [{
@@ -56,7 +55,7 @@ Follow the steps in this section to require members in your organization to use 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [{
@@ -92,7 +91,7 @@ Follow the steps in this section to enforce IPAM for all but a given list of Org
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [{

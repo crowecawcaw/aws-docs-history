@@ -1,7 +1,6 @@
 
 
 # Associate a resource discovery with an IPAM
-<a name="res-disc-work-with-associate"></a>
 
 This section describes how to associate a resource discovery with an IPAM. When you associate a resource discovery with an IPAM, the IPAM monitors all resources CIDRs and accounts discovered under the resource discovery. When you create an IPAM, a default resource discovery is created for your IPAM and automatically associated with your IPAM.
 

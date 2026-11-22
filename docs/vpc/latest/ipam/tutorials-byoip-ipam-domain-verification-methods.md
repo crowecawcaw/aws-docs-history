@@ -1,7 +1,6 @@
 
 
 # Verify domain control
-<a name="tutorials-byoip-ipam-domain-verification-methods"></a>
 
 Before you bring an IP address range to AWS, you have to use one of the options described in this section to verify that you control the IP address space. This applies to both IPv4 and IPv6 address ranges. Later, when you bring the IP address range to AWS, AWS validates that you control the IP address range. This validation ensures that customers cannot use IP ranges belonging to others, preventing routing and security issues.
 

@@ -1,7 +1,6 @@
 
 
 # Managing IPAM policies
-<a name="managing-ipam-policies"></a>
 
 This section describes the prerequisites for IPAM policies and how to create and enable them.
 

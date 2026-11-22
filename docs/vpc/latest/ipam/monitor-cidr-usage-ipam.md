@@ -1,7 +1,6 @@
 
 
 # Monitor CIDR usage with the IPAM dashboard
-<a name="monitor-cidr-usage-ipam"></a>
 
 The IPAM dashboard in Amazon VPC IP Address Manager allows you to monitor CIDR usage for several key scenarios: 
 + **Identify unused or underutilized IP address space**: The dashboard provides visibility into CIDR utilization, enabling you to identify CIDRs with available capacity that can be reclaimed or reallocated. 

@@ -1,7 +1,6 @@
 
 
 # Enable cost distribution
-<a name="ipam-enable-cost-distro"></a>
 
 When you enable cost distribution, you distribute the [charges for active IP addresses](pricing-ipam.md) to the accounts using the IP addresses rather than to the IPAM owner. This is useful for large organizations where the delegated IPAM admin manages the IP addresses centrally using IPAM and each account is responsible for their own usage, eliminating the need for manual billing calculations.
 

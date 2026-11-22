@@ -1,7 +1,6 @@
 
 
 # Example IPAM pool plans
-<a name="planning-examples-ipam"></a>
 
 You can use IPAM to suit the needs of your organization. This section provides examples of how you might organize your IP addresses. 
 

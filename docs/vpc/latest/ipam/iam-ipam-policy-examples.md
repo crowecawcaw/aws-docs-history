@@ -1,7 +1,6 @@
 
 
 # Example policy
-<a name="iam-ipam-policy-examples"></a>
 
 The example policy in this section contains all the relevant AWS Identity and Access Management (IAM) actions for full IPAM usage. Depending on how you are using IPAM, you may not need to include all of the IAM actions. For a full experience using the IPAM console, you may need to include additional IAM actions for services such as AWS Organizations, AWS Resource Access Manager (AWS RAM), and Amazon CloudWatch.
 
@@ -10,7 +9,7 @@ The example policy in this section contains all the relevant AWS Identity and Ac
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
     "Statement": [

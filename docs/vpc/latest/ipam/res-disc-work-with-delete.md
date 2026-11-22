@@ -1,7 +1,6 @@
 
 
 # Delete a resource discovery
-<a name="res-disc-work-with-delete"></a>
 
 This section describes how to delete a resource discovery.
 

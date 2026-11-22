@@ -1,7 +1,6 @@
 
 
 # Getting started with IPAM
-<a name="getting-started-ipam"></a>
 
 Follow the steps in this section to get started with IPAM. This section is intended to get you started quickly with IPAM, but you may find that what you can achieve with the steps in this section doesn't fit your needs. For information about different ways you can use IPAM, see [Plan for IP address provisioning](planning-ipam.md) and [Tutorials for Amazon VPC IP Address Manager](tutorials-ipam.md).
 

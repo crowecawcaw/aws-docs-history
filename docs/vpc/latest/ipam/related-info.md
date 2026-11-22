@@ -1,7 +1,6 @@
 
 
 # Related information
-<a name="related-info"></a>
 
 While the AWS technical documentation site is a comprehensive resource, there are many other places to find information about AWS services. AWS blogs, whitepapers, case studies, and community forums can provide valuable insights, real-world examples, and alternative perspectives beyond the official technical details. Exploring these diverse sources can give you a more well-rounded understanding of AWS offerings. 
 

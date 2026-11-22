@@ -1,7 +1,6 @@
 
 
 # Document history for IPAM
-<a name="doc-history-ipam"></a>
 
 The following table describes the releases for IPAM.
 

@@ -1,7 +1,6 @@
 
 
 # Tracking IP address usage in IPAM
-<a name="tracking-ip-addresses-ipam"></a>
 
  Amazon VPC IP Address Manager offers IP address usage tracking features that can benefit anyone who manages complex network environments. IPAM provides visibility into IP address allocation, utilization, and consumption trends across AWS. This helps you identify unused or inefficiently used IP addresses, optimization of the address space and preventing potential IP address exhaustion.
 

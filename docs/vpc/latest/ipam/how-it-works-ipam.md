@@ -1,7 +1,6 @@
 
 
 # How IPAM works
-<a name="how-it-works-ipam"></a>
 
 This topic explains some of the key concepts to help you get started with IPAM.
 

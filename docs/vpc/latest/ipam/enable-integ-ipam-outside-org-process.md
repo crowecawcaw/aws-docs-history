@@ -1,7 +1,6 @@
 
 
 # Process overview
-<a name="enable-integ-ipam-outside-org-process"></a>
 
 This section explains how to integrate your IPAM with AWS accounts outside of your organization. It refers to topics that are covered in other sections of this guide. Keep this page visible, and open the topics linked below in a new window so that you can return to this page for guidance.
 

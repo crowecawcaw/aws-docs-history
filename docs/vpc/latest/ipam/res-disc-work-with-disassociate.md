@@ -1,7 +1,6 @@
 
 
 # Disassociate a resource discovery
-<a name="res-disc-work-with-disassociate"></a>
 
 This section describes how to disassociate a resource discovery from an IPAM. When you disassociate a resource discovery from an IPAM, the IPAM no longer monitors all resources CIDRs and accounts discovered under the resource discovery.
 

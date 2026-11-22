@@ -1,7 +1,6 @@
 
 
 # Access IPAM
-<a name="access-ipam"></a>
 
 As with other AWS services, you can create, access, and manage your IPAM using the following methods:
 + **AWS Management Console**: Provides a web interface that you can use to create and manage your IPAM. See [https://console.aws.amazon.com/ipam/](https://console.aws.amazon.com/ipam/).

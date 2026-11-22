@@ -1,7 +1,6 @@
 
 
 # IPAM metrics
-<a name="cloudwatch-ipam-ip-address-usage"></a>
 
 IPAM publishes data about your IPAM, pools, and scopes to Amazon CloudWatch. You can use these metrics to create alarms for IPAM pools to notify you if the address pools are nearing exhaustion or if resources fail to comply with allocation rules set on a pool. Creating alarms and setting up notifications with Amazon CloudWatch is outside the scope of this section. For more information, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create an IPAM and pools using the console
-<a name="tutorials-get-started-console"></a>
 
 In this tutorial, you create an IPAM, integrate with AWS Organizations, create IP address pools, and create a VPC with a CIDR from an IPAM pool.
 

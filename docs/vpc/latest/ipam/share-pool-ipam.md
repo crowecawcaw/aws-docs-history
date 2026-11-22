@@ -1,7 +1,6 @@
 
 
 # Share an IPAM pool using AWS RAM
-<a name="share-pool-ipam"></a>
 
 Follow the steps in this section to share an IPAM pool using AWS Resource Access Manager (RAM). When you share an IPAM pool with RAM, "principals" can allocate CIDRs from the pool to AWS resources, such as VPCs, from their respective accounts. A principal is a concept in RAM that means any AWS account, IAM role or organizational unit in AWS Organizations. For more information, see [Sharing your AWS resources](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html) in the *AWS RAM User Guide*. 
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: View IP address history using the AWS CLI
-<a name="tutorials-historical-insights"></a>
 
 The scenarios in this section show you how to analyze and audit IP address usage using the AWS CLI. For general information about using the AWS CLI, see [Using the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-using.html) in the *AWS Command Line Interface User Guide*.
 
@@ -41,7 +40,7 @@ The scenarios in this section show you how to analyze and audit IP address usage
 
 1. View the results of the analysis. In the example below, the CIDR was allocated to a network interface and EC2 instance over the course of the time period. Note that no **SampledEndTime** value means the record is still active. For more information about the values shown in the following output, see [View IP address history](view-history-cidr-ipam.md).
 
-   ```
+   ```json
    {                                                     
        "HistoryRecords": [
            {
@@ -68,7 +67,7 @@ The scenarios in this section show you how to analyze and audit IP address usage
 
    If the owner ID of the instance to which a network interface is attached differs from the owner ID of the network interface (as is the case for NAT gateways, Lambda network interfaces in VPCs, and other AWS services), the `ResourceOwnerId` is `amazon-aws` rather than the account ID of the owner of the network interface. The following example shows the record for a CIDR associated with a NAT gateway:
 
-   ```
+   ```json
    {                                                     
        "HistoryRecords": [
            {
@@ -102,7 +101,7 @@ The scenarios in this section show you how to analyze and audit IP address usage
 
 1. View the results of the analysis. In the example below, the CIDR was allocated to a subnet and VPC over the course of the time period. Note that no **SampledEndTime** value means the record is still active. For more information about the values shown in the following output, see [View IP address history](view-history-cidr-ipam.md).
 
-   ```
+   ```json
    {
        "HistoryRecords": [
            {
@@ -139,7 +138,7 @@ The scenarios in this section show you how to analyze and audit IP address usage
 
 1. View the results of the analysis. In the example below, the CIDR was allocated to two different VPCs over the course of the time period in a Region outside the IPAM home Region. Note that no **SampledEndTime** value means the record is still active. For more information about the values shown in the following output, see [View IP address history](view-history-cidr-ipam.md). 
 
-   ```
+   ```json
    {
        "HistoryRecords": [
            {
@@ -181,7 +180,7 @@ The scenarios in this section show you how to analyze and audit IP address usage
 
 1. View the results of the analysis. In the example below, the CIDR has been allocated to numerous subnets and VPCs over the time period. Note that no **SampledEndTime** value means the record is still active. For more information about the values shown in the following output, see [View IP address history](view-history-cidr-ipam.md). 
 
-   ```
+   ```json
    {
        "HistoryRecords": [
            {
@@ -244,7 +243,7 @@ The scenarios in this section show you how to analyze and audit IP address usage
 
 1. View the results of the analysis. In the example below, the CIDR was allocated to a network interface and EC2 instance over the time period. Note that no **SampledEndTime** value means the record is still active. For more information about the values shown in the following output, see [View IP address history](view-history-cidr-ipam.md).
 
-   ```
+   ```json
    {
        "HistoryRecords": [
            {
@@ -279,7 +278,7 @@ The scenarios in this section show you how to analyze and audit IP address usage
 
 1. View the results of the analysis. In the example below, the CIDR was allocated to a VPC and subnet over the time period. Only the results that match this exact `/24` CIDR are returned, not all `/32 `within the `/24` CIDR. Note that no **SampledEndTime** value means the record is still active. For more information about the values shown in the following output, see [View IP address history](view-history-cidr-ipam.md).
 
-   ```
+   ```json
    {
        "HistoryRecords": [
            {
@@ -318,7 +317,7 @@ In this example, `54.0.0.9/32` is assigned to an Elastic IP address that is not 
 
 1. Since `54.0.0.9/32` is assigned to an Elastic IP address that is not part of the AWS Organization integrated with the IPAM in this example, no records are returned.
 
-   ```
+   ```json
    {
        "HistoryRecords": []
    }

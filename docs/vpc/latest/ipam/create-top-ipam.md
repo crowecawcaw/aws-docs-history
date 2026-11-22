@@ -1,7 +1,6 @@
 
 
 # Create a top-level IPv4 pool
-<a name="create-top-ipam"></a>
 
 Follow the steps in this section to create an IPv4 top-level IPAM pool. When you create the pool, you provision a CIDR for the pool to use. You then assign that space to an allocation. An allocation is a CIDR assignment from an IPAM pool to another IPAM pool or to a resource.
 

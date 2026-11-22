@@ -1,7 +1,6 @@
 
 
 # Change the monitoring state of VPC CIDRs
-<a name="change-monitoring-state-ipam"></a>
 
 Follow the steps in this section to change the monitoring state of a VPC CIDR. You may want to change a VPC CIDR from monitored to ignored if you do not want IPAM to manage or monitor the VPC and allow the CIDR allocated to the VPC to be available for use. You may want to change a VPC CIDR from ignored to monitored if you want IPAM to manage and monitor the VPC CIDR.
 

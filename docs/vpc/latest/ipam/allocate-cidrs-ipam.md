@@ -1,7 +1,6 @@
 
 
 # Allocate CIDRs from an IPAM pool
-<a name="allocate-cidrs-ipam"></a>
 
 One important feature of IPAM is the ability to allocate and manage IP address space. When creating a VPC, you must specify an IP address CIDR block, which defines the range of IP addresses available for that VPC. IPAM simplifies this process by providing a global view of your entire IP address inventory, helping you strategically assign and reuse IP prefixes across multiple VPCs.
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Bring your IP addresses to IPAM
-<a name="tutorials-byoip-ipam"></a>
 
 The tutorials in this section walk you through the process of bringing public IP address space to AWS and managing the space with IPAM.
 

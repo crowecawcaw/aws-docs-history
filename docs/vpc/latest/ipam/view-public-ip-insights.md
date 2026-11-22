@@ -1,7 +1,6 @@
 
 
 # View public IP insights
-<a name="view-public-ip-insights"></a>
 
 You can use **Public IP insights** to see the following:
 + If your IPAM is [integrated with accounts in an AWS Organization](enable-integ-ipam.md), you can view all public IPv4 addresses used by services across all AWS Regions for your entire AWS Organization. 

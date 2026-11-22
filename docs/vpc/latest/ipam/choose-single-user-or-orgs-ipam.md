@@ -1,7 +1,6 @@
 
 
 # Configure integration options for your IPAM
-<a name="choose-single-user-or-orgs-ipam"></a>
 
 This section describes your options for how you can integrate IPAM with AWS Organizations, other AWS accounts, or use it with a single AWS account.
 

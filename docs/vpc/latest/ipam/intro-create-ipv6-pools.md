@@ -1,7 +1,6 @@
 
 
 # Create IPv6 address pools in your IPAM
-<a name="intro-create-ipv6-pools"></a>
 
 AWS offers IPv6 connectivity across many of its services, including EC2, VPC, and S3, enabling you to use the increased address space and enhanced security features of IPv6. IPv6 was designed to resolve this fundamental limitation of IPv4. By moving to a 128-bit address space, IPv6 offers a large number of unique IP addresses. This massive address expansion enables the continued proliferation of connected technologies, from smartphones and IoT devices to cloud infrastructure. 
 

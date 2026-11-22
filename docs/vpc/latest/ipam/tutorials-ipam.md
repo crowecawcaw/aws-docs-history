@@ -1,7 +1,6 @@
 
 
 # Tutorials for Amazon VPC IP Address Manager
-<a name="tutorials-ipam"></a>
 
 The following tutorials show you how to perform common IPAM tasks using the AWS CLI. To get the AWS CLI, see [Access IPAM](access-ipam.md). For more information about the IPAM concepts that are mentioned in these tutorials, see [How IPAM works](how-it-works-ipam.md).
 

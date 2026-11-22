@@ -1,7 +1,6 @@
 
 
 # Monitor CIDR usage by resource
-<a name="monitor-cidr-compliance-ipam"></a>
 
 The **Resources** view in Amazon VPC IP Address Manager provides a centralized overview of IP address utilization across your AWS resources. This enables you to quickly identify which resources are consuming IP addresses, track address allocation trends, and optimize your IP address management to align with your evolving infrastructure and business needs. 
 

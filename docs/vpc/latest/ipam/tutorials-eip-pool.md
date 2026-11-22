@@ -1,7 +1,6 @@
 
 
 # Allocate sequential Elastic IP addresses from an IPAM pool
-<a name="tutorials-eip-pool"></a>
 
 IPAM enables you to provision Amazon-owned public IPv4 blocks to IPAM pools and allocate sequential [Elastic IP addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) from those pools to AWS resources. 
 
@@ -67,7 +66,7 @@ aws ec2 create-ipam --region us-east-1
 
 Example response:
 
-```
+```json
 {
     "Ipam": {
         "OwnerId": "320805250157",
@@ -151,7 +150,7 @@ Ensure that this CIDR has been provisioned before you continue. You can see the 
 
    Example response with state `create-in-progress`:
 
-   ```
+   ```json
    {                                                                                               
        "IpamPool": {                                                                           
            "OwnerId": "320805250157",                                                          
@@ -181,7 +180,7 @@ Ensure that this CIDR has been provisioned before you continue. You can see the 
 
    Example response with state `create-complete`:
 
-   ```
+   ```json
    {                                                                                               
        "IpamPools": [
            {
@@ -213,7 +212,7 @@ Ensure that this CIDR has been provisioned before you continue. You can see the 
 
    Example response with state `pending-provision`:
 
-   ```
+   ```json
    {                                                                                               
        "IpamPoolCidr": {
            "State": "pending-provision",
@@ -231,7 +230,7 @@ Ensure that this CIDR has been provisioned before you continue. You can see the 
 
    Example response with state `provisioned`:
 
-   ```
+   ```json
    {                                                                                               
        "IpamPoolCidrs": [
            {
@@ -356,7 +355,7 @@ Once you've allocated Elastic IP addresses from the IPAM pool, you can track and
 
   Example response:
 
-  ```
+  ```json
   {
        "IpamPoolAllocations": [
           {

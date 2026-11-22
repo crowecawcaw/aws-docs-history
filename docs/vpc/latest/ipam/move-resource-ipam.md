@@ -1,7 +1,6 @@
 
 
 # Move VPC CIDRs between scopes
-<a name="move-resource-ipam"></a>
 
 Moving CIDRs between scopes allows you to optimize IP address allocation, organize by Region, separate concerns, enforce compliance, and adapt to infrastructure changes. This flexibility helps manage your IP address space efficiently as your workloads evolve.
 

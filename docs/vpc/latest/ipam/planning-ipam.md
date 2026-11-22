@@ -1,7 +1,6 @@
 
 
 # Plan for IP address provisioning
-<a name="planning-ipam"></a>
 
 Follow the steps in this section to plan for IP address provisioning by using IPAM pools. If you have configured an IPAM account, these steps should be completed by that account. The pool creation process is different for pools in public and private scopes. This section includes steps for creating a regional pool in the private scope. For BYOIP and BYOASN tutorials, see [Tutorials](tutorials-ipam.md).
 

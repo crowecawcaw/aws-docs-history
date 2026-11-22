@@ -1,7 +1,6 @@
 
 
 # Bring your own IPv6 CIDR to IPAM using only the AWS CLI
-<a name="tutorials-byoip-ipam-ipv6"></a>
 
 Follow these steps to bring an IPv6 CIDR to IPAM and allocate a VPC using only the AWS CLI.
 
@@ -55,7 +54,7 @@ aws ec2 create-ipam --description my-ipam --region us-east-1 --operating-regions
 
 In the output, you'll see the IPAM you've created. Note the value for `PublicDefaultScopeId`. You will need your public scope ID in the next step.
 
-```
+```json
 {
  "Ipam": {                                                                         
         "OwnerId": "123456789012",
@@ -100,7 +99,7 @@ Note that the scope ID must be the ID for the public scope and the address famil
 
    In the output, you'll see `create-in-progress`, which indicates that pool creation is in progress.
 
-   ```
+   ```json
    {
        "IpamPool": {                                                                                             
            "OwnerId": "123456789012",
@@ -129,7 +128,7 @@ Note that the scope ID must be the ID for the public scope and the address famil
 
    The following example output shows the state of the pool.
 
-   ```
+   ```json
    {
        "IpamPool": {                                                                                             
            "OwnerId": "123456789012",
@@ -179,7 +178,7 @@ This step must be done by the IPAM account.
 
    In the output, you'll see the CIDR pending provision.
 
-   ```
+   ```json
    {
        "IpamPoolCidr": {                                                                                         
            "Cidr": "2605:9cc0:409::/48",                                                                    
@@ -200,7 +199,7 @@ While most provisioning will be completed within two hours, it may take up to on
 
    The following example output shows the state.
 
-   ```
+   ```json
    {
        "IpamPoolCidrs": [
            {
@@ -231,7 +230,7 @@ When you create the pool, you must include `--aws-service ec2`. The service you 
 
    In the output, you'll see IPAM creating the pool.
 
-   ```
+   ```json
    {
        "IpamPool": {
            "OwnerId": "123456789012",
@@ -279,7 +278,7 @@ This step must be done by the IPAM account.
 
    In the output, you'll see the CIDR pending provision.
 
-   ```
+   ```json
    {
        "IpamPoolCidr": {
            "Cidr": "2605:9cc0:409::/48",
@@ -296,7 +295,7 @@ This step must be done by the IPAM account.
 
    The following example output shows the correct state.
 
-   ```
+   ```json
    {
        "IpamPoolCidrs": [                                                        
            {                                                                     
@@ -379,7 +378,7 @@ This step must be done by the member account.
 
    In the output, you'll see the VPC being created.
 
-   ```
+   ```json
    {
        "Vpc": {
            "CidrBlock": "10.0.0.0/16",
@@ -421,7 +420,7 @@ This step must be done by the member account.
 
    In the output, you'll see allocation in IPAM.
 
-   ```
+   ```json
    {
        "IpamPoolAllocations": [
            {
@@ -451,7 +450,7 @@ This step must be done by the IPAM account.
 
   In the output, you'll see the CIDR is advertised.
 
-  ```
+  ```json
   {
       "ByoipCidr": {                                                                 
           "Cidr": "2605:9cc0:409::/48",                                              
@@ -477,7 +476,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    The output shows the allocation in IPAM.
 
-   ```
+   ```json
    {
        "IpamPoolAllocations": [
            {
@@ -501,7 +500,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    In the output, you'll see the CIDR State has changed from **advertised** to **provisioned**.
 
-   ```
+   ```json
    {
        "ByoipCidr": {
            "Cidr": "2605:9cc0:409::/48",
@@ -530,7 +529,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    The output shows the allocation in IPAM.
 
-   ```
+   ```json
    {
       "IpamPoolAllocations": [                                                                                      
            {                                                                                                        
@@ -552,7 +551,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    The output shows the allocation removed from IPAM.
 
-   ```
+   ```json
    {
        "IpamPoolAllocations": []
    }
@@ -572,7 +571,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    In the output, you'll see the CIDR pending deprovision.
 
-   ```
+   ```json
    {
        "IpamPoolCidr": {
            "Cidr": "2605:9cc0:409::/48",
@@ -589,7 +588,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    In the output, you'll see the CIDR pending deprovision.
 
-   ```
+   ```json
    {
        "IpamPoolCidr": {
            "Cidr": "2605:9cc0:409::/48",
@@ -608,7 +607,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    In the output, you can see the delete state.
 
-   ```
+   ```json
    {
        "IpamPool": {
            "OwnerId": "123456789012",
@@ -639,7 +638,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    In the output, you'll see the CIDR pending deprovision.
 
-   ```
+   ```json
    {
        "IpamPoolCidr": {
            "Cidr": "2605:9cc0:409::/48",
@@ -656,7 +655,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    Wait until you see **deprovisioned** before you continue to the next step.
 
-   ```
+   ```json
    {
        "IpamPoolCidr": {                                                                                            
            "Cidr": "2605:9cc0:409::/48",                                                                         
@@ -675,7 +674,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    In the output, you can see the delete state.
 
-   ```
+   ```json
    {
        "IpamPool": {
            "OwnerId": "123456789012",
@@ -706,7 +705,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    In the output, you'll see the IPAM response. This means that the IPAM was deleted.
 
-   ```
+   ```json
    {
        "Ipam": {
            "OwnerId": "123456789012",

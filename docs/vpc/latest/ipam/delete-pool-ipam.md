@@ -1,7 +1,6 @@
 
 
 # Delete a pool
-<a name="delete-pool-ipam"></a>
 
 An IPAM pool in AWS represents a defined range of IP addresses that can be allocated and managed within a specific AWS environment or organization. Pools are used to organize IP address space, enable automated IP address management, and enforce IP address governance policies across your cloud infrastructure. 
 

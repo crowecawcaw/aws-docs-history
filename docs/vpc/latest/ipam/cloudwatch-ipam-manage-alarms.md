@@ -1,7 +1,6 @@
 
 
 # Manage alarms from IPAM console
-<a name="cloudwatch-ipam-manage-alarms"></a>
 
 You can create and manage Amazon CloudWatch alarms directly from the IPAM console. Alarms for [IPAM metrics](cloudwatch-ipam-ip-address-usage.md) or [IPAM resource utilization metrics](cloudwatch-ipam-res-util.md) that are in an INSUFFICIENT\_DATA or ALARM state will appear as warning bars at the top of the console and as visual indicators in the left navigation next to **Monitoring**.
 

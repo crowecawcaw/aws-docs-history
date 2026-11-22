@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for IPAM
-<a name="iam-ipam-managed-pol"></a>
 
 IPAM uses the following AWS managed policies. You can't attach these policies to your IAM entities. Each policy is attached to an IPAM [service-linked role](iam-ipam-slr.md) that IPAM uses to perform actions on your behalf.
 

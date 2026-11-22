@@ -1,7 +1,6 @@
 
 
 # Edit an IPAM pool
-<a name="mod-pool-ipam"></a>
 
 You may want to edit a pool to do one of the following:
 + Change the allocation rules for the pool. For more information about allocation rules, see [Create a top-level IPv4 pool](create-top-ipam.md).

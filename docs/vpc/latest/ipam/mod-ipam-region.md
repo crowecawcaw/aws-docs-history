@@ -1,7 +1,6 @@
 
 
 # Modify IPAM operating Regions
-<a name="mod-ipam-region"></a>
 
 Operating Regions are AWS Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the AWS Regions you select as operating Regions.
 

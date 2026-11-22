@@ -1,7 +1,6 @@
 
 
 # Share a resource discovery with another AWS account
-<a name="res-disc-work-with-share"></a>
 
 Follow the steps in this section to share a resource discovery using AWS Resource Access Manager. For more information about AWS RAM, see [Sharing your AWS resources](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html) in the *AWS RAM User Guide*.
 

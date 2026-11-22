@@ -1,7 +1,6 @@
 
 
 # IPAM resource utilization metrics
-<a name="cloudwatch-ipam-res-util"></a>
 
 IPAM publishes IP utilization metrics for resources that the IPAM monitors to Amazon CloudWatch. These resources include:
 + VPCs (IPv4 and IPv6)

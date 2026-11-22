@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations
-<a name="enable-integ-ipam-outside-org-considerations"></a>
 
 This section contains considerations and limitations for integrating IPAM with accounts outside of your organization:
 + When you share a resource discovery with another account, the only data that is exchanged is IP address and account status monitoring data. You can view this data before sharing using the [get-ipam-discovered-resource-cidrs](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-ipam-discovered-resource-cidrs.html) and [get-ipam-discovered-accounts](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-ipam-discovered-accounts.html) CLI commands or [GetIpamDiscoveredResourceCidrs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamDiscoveredResourceCidrs.html) and [GetIpamDiscoveredAccounts](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamDiscoveredAccounts.html) APIs. For resource discoveries that monitor resources across an organization, no organization data (such as the names of Organizational Units in your organization) are shared.

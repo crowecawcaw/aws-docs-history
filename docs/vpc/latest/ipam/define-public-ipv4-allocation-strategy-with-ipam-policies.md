@@ -1,7 +1,6 @@
 
 
 # Defining a public IPv4 allocation strategy with IPAM policies
-<a name="define-public-ipv4-allocation-strategy-with-ipam-policies"></a>
 
 Allocation rules in an [IPAM policy](https://docs.aws.amazon.com/vpc/latest/ipam/ipam-policies.html) define how public IPv4 addresses from IPAM pools are allocated to AWS resources. Each rule maps an AWS service to the IPAM pools that the service uses to get IP addresses. A single policy can have multiple rules and be applied to multiple AWS Regions. If an IPAM pool runs out of addresses, the service falls back to Amazon-provided IP addresses. If you [bring your own IP (BYOIP)](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html), this helps reduce your AWS public IPv4 costs.
 
@@ -34,7 +33,9 @@ You can create IPAM policies to define how public IPv4 addresses from IPAM pools
 + Elastic IP addresses
 + Application Load Balancers
 + Amazon Relational Database Service (Amazon RDS)
-+ Regional NAT gateways
++ NAT gateways in regional availability mode
++ Lambda Network Connector
++ Automated Internet Firewall
 
 **Important**  
 If you choose a specific IPAM pool or Elastic IP address allocation ID when creating an AWS resource, that will override the IPAM policy.
