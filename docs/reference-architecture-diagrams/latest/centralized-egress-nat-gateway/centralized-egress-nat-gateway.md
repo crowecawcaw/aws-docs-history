@@ -1,7 +1,6 @@
 
 
 # Centralized Internet Egress with NAT Gateway
-<a name="centralized-egress-nat-gateway"></a>
 
 Publication date: **October 20, 2021 ([Diagram history](#diagram-history))**
 
