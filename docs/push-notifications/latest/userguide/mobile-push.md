@@ -1,7 +1,6 @@
 
 
 # Receiving push notifications in your application
-<a name="mobile-push"></a>
 
 The following topics describe how to modify your Swift, Android, React Native, or Flutter app so that it receives push notifications.
 

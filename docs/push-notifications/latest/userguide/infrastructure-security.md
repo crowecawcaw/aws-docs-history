@@ -1,7 +1,6 @@
 
 
 # Infrastructure Security in AWS End User Messaging Push
-<a name="infrastructure-security"></a>
 
 As a managed service, AWS End User Messaging Push is protected by the AWS global network security procedures that are described in the [Amazon Web Services: Overview of Security Processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf) whitepaper.
 

@@ -1,7 +1,6 @@
 
 
 # Sending a message
-<a name="reference-send-message"></a>
 
 The AWS End User Messaging Push API can send transactional push notifications to specific device identifiers. This section contains complete code examples that you can use to send push notifications through the AWS End User Messaging Push API by using an AWS SDK.
 
@@ -17,7 +16,7 @@ When you send push notifications through the Firebase Cloud Messaging (FCM) serv
 
 The following example uses [send-messages](https://docs.aws.amazon.com/cli/latest/reference/pinpoint/send-messages.html) to send a GCM Push notification with the AWS CLI. Replace {{token}} with the unique token of the device and {{611e3e3cdd47474c9c1399a50example}} with your application identifier. 
 
-```
+```bsh
 aws pinpoint send-messages \
 --application-id {{611e3e3cdd47474c9c1399a50example}} \
 --message-request file://myfile.json \
@@ -46,7 +45,7 @@ Contents of myfile.json:
 
 The following example uses [send-messages](https://docs.aws.amazon.com/cli/latest/reference/pinpoint/send-messages.html) to send a GCM Push notification, using all legacy keys, with the AWS CLI. Replace {{token}} with the unique token of the device and {{611e3e3cdd47474c9c1399a50example}} with your application identifier. 
 
-```
+```bsh
 aws pinpoint send-messages \
 --application-id {{611e3e3cdd47474c9c1399a50example}} \ 
 --message-request 
@@ -68,7 +67,7 @@ aws pinpoint send-messages \
 
 The following example uses [send-messages](https://docs.aws.amazon.com/cli/latest/reference/pinpoint/send-messages.html) to send a GCM Push notification with FCMv1 message payload using the AWS CLI. Replace {{token}} with the unique token of the device and {{611e3e3cdd47474c9c1399a50example}} with your application identifier. 
 
-```
+```bsh
 aws pinpoint send-messages \
 --application-id 6a2dafd84bec449ea75fb773f4c41fa1 \
 --message-request 
@@ -102,7 +101,7 @@ To send a message to Safari web browsers, you must specify the raw message paylo
 
 The following example uses [send-messages](https://docs.aws.amazon.com/cli/latest/reference/pinpoint/send-messages.html) to send a notification to the Safari web browser with the AWS CLI. Replace {{token}} with the unique token of the device and {{611e3e3cdd47474c9c1399a50example}} with your application identifier. 
 
-```
+```bsh
 aws pinpoint send-messages \ 
 --application-id {{611e3e3cdd47474c9c1399a50example}} \ 
 --message-request 
@@ -130,7 +129,7 @@ For more information about Safari push notifications, see [Configuring Safari Pu
 
 The following example uses [send-messages](https://docs.aws.amazon.com/cli/latest/reference/pinpoint/send-messages.html) to send a APNS Push notification with the AWS CLI. Replace {{token}} with the unique token of the device, {{611e3e3cdd47474c9c1399a50example}} with your application identifier, and {{GAME\_INVITATION}} with a unique identifier. 
 
-```
+```bsh
 aws pinpoint send-messages \
 --application-id {{611e3e3cdd47474c9c1399a50example}} \
 --message-request 
@@ -157,7 +156,7 @@ Use this example to send push notifications by using the AWS SDK for JavaScript 
 
 This example also assumes that you're using a shared credentials file to specify the Access Key and Secret Access Key for an existing user. For more information, see [Setting credentials](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/setting-credentials.html) in the *AWS SDK for JavaScript in Node.js Developer Guide*.
 
-```
+```javascript
 'use strict';
 
 const AWS = require('aws-sdk');
@@ -339,7 +338,7 @@ Use this example to send push notifications by using the AWS SDK for Python (Bot
 
 This example also assumes that you're using a shared credentials file to specify the Access Key and Secret Access Key for an existing user. For more information, see [Credentials](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/setting-credentials.html) in the *AWS SDK for Python (Boto3) API Reference*.
 
-```
+```python
 import json
 import boto3
 from botocore.exceptions import ClientError

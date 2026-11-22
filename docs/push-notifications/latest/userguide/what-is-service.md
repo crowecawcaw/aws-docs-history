@@ -1,7 +1,6 @@
 
 
 # What is AWS End User Messaging Push?
-<a name="what-is-service"></a>
 
 **Note**  
 The Push notification features of Amazon Pinpoint are now called AWS End User Messaging.

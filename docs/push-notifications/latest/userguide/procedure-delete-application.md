@@ -1,7 +1,6 @@
 
 
 # Deleting an application
-<a name="procedure-delete-application"></a>
 
 This procedure removes the application from your account and all resources in the application.
 

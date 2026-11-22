@@ -1,7 +1,6 @@
 
 
 # Creating an application and enabling push channels
-<a name="procedure-enable-push"></a>
 
 Before you can use AWS End User Messaging Push to send push notifications, you first have to create an application and enable the push notifications channel.
 

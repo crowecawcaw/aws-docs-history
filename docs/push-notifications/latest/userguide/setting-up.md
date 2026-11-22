@@ -1,7 +1,6 @@
 
 
 # Setting up an AWS account
-<a name="setting-up"></a>
 
 Before you can use AWS End User Messaging Push to send push notifications to your app, you first have to obtain an AWS account with sufficient IAM permissions. This AWS account can also be used for other services in the AWS ecosystem.
 

@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="channels-push-best-practices"></a>
 
 Even when you have your customers' best interests in mind, you may still encounter situations that impact the deliverability of your messages. The following sections contain recommendations to help ensure that your push communications reach your intended audience.
 
