@@ -1,7 +1,6 @@
 
 
 # Share a Verified Access group with another AWS account
-<a name="sharing-groups"></a>
 
 When you share a Verified Access group that you own with other AWS accounts, you enable those accounts to create Verified Access endpoints in your group. The account that created the Verified Access group in is referred to as the *owner* account. The account that uses a shared group is referred to as the *consumer* account.
 

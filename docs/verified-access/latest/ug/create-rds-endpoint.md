@@ -1,7 +1,6 @@
 
 
 # Create an Amazon Relational Database Service endpoint for Verified Access
-<a name="create-rds-endpoint"></a>
 
 Use the following procedure to create an Amazon Relational Database Service (RDS) endpoint.
 

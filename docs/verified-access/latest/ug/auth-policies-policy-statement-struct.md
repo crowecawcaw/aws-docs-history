@@ -1,7 +1,6 @@
 
 
 # Verified Access policy statement structure
-<a name="auth-policies-policy-statement-struct"></a>
 
 The following table shows the structure of a Verified Access policy.
 

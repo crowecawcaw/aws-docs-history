@@ -1,7 +1,6 @@
 
 
 # Third-party trust provider context for Verified Access trust data
-<a name="trust-data-third-party-trust"></a>
 
 This section describes the trust data provided to AWS Verified Access by third-party trust providers.
 
@@ -31,7 +30,7 @@ Jamf is a third-party trust provider. When a policy is evaluated, if you define 
 
 For more information about using Jamf with Verified Access, see [Integrating AWS Verified Access with Jamf Device Identity](https://docs.jamf.com/technical-papers/jamf-security/aws-verified-access/index.html) on the Jamf website.
 
-```
+```JSON
 {
     "title": "Jamf device data specification",
     "type": "object",
@@ -101,7 +100,7 @@ CrowdStrike is a third-party trust provider. When a policy is evaluated, if you 
 
 For more information about using CrowdStrike with Verified Access, see [Securing private applications with CrowdStrike and AWS Verified Access](https://github.com/CrowdStrike/aws-verified-access/) on the GitHub website.
 
-```
+```JSON
 {
   "title": "CrowdStrike device data specification",
   "type": "object",
@@ -181,7 +180,7 @@ JumpCloud is a third-party trust provider. When a policy is evaluated, if you de
 
 For more information about using JumpCloud with AWS Verified Access, see [Integrating JumpCloud and AWS Verified Access](https://jumpcloud.com/support/integrate-with-aws-verified-access) on the JumpCloud website.
 
-```
+```JSON
 {
   "title": "JumpCloud device data specification",
   "type": "object",

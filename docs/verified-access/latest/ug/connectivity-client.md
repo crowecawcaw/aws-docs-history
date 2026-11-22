@@ -1,7 +1,6 @@
 
 
 # Connectivity Client for AWS Verified Access
-<a name="connectivity-client"></a>
 
 AWS Verified Access provides the Connectivity Client so that you can enable connectivity between user devices and non-HTTP applications. The client securely encrypts user traffic, adds user identity information and device context, and routes it to Verified Access for policy enforcement. If the access policies allow access, the user is connected to the application. User access is continuously authorized for as long as the Connectivity Client is connected.
 

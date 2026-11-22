@@ -1,7 +1,6 @@
 
 
 # Delete a Verified Access endpoint
-<a name="delete-endpoint"></a>
 
 When you are finished with a Verified Access endpoint, you can delete it.
 

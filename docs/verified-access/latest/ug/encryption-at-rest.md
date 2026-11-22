@@ -1,7 +1,6 @@
 
 
 # Data encryption at rest for AWS Verified Access
-<a name="encryption-at-rest"></a>
 
 AWS Verified Access encrypts data at rest by default, using AWS owned KMS keys. When encryption of data at rest happens by default, it helps reduce the operational overhead and complexity that are involved in protecting sensitive data. At the same time, it enables you to build secure applications that meet strict encryption compliance and regulatory requirements. The following sections provide the details of how Verified Access uses KMS keys for data encryption at rest.
 
@@ -86,7 +85,7 @@ To use your customer managed key with your Verified Access resources, the follow
 
 The following is an example key policy you can use for Verified Access.
 
-```
+```json
 "Statement" : [ 
     {
       "Sid" : "Allow access to principals authorized to use Verified Access",
@@ -161,7 +160,7 @@ Verified Access uses the same encryption context in all AWS KMS cryptographic op
 
 **Verified Access trust provider**
 
-```
+```json
 "encryptionContext": {
     "aws:verified-access:arn":
     "arn:aws:ec2:region:111122223333:VerifiedAccessTrustProviderId"
@@ -170,7 +169,7 @@ Verified Access uses the same encryption context in all AWS KMS cryptographic op
 
 **Verified Access group**
 
-```
+```json
 "encryptionContext": {
     "aws:verified-access:arn":
     "arn:aws:ec2:region:111122223333:VerifiedAccessGroupId"
@@ -179,7 +178,7 @@ Verified Access uses the same encryption context in all AWS KMS cryptographic op
 
 **Verified Access endpoint**
 
-```
+```json
 "encryptionContext": {
     "aws:verified-access:arn":
     "arn:aws:ec2:region:111122223333:VerifiedAccessEndpointId"
@@ -457,7 +456,7 @@ The following example event records the `DescribeKey` operation:
 
 The following example event records the `GenerateDataKey` operation:
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

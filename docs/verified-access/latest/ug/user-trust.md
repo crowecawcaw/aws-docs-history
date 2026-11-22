@@ -1,7 +1,6 @@
 
 
 # User-identity trust providers for Verified Access
-<a name="user-trust"></a>
 
 You can choose to use either AWS IAM Identity Center or an OpenID Connect-compatible user-identity trust provider.
 

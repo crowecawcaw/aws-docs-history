@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Verified Access
-<a name="monitoring-overview"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of AWS Verified Access. AWS provides the following monitoring tools to watch Verified Access, report when something is wrong, and take automatic actions when appropriate:
 + **Access logs** – Capture detailed information about requests to access applications. For more information, see [Verified Access logs](access-logs.md).

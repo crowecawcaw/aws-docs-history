@@ -1,7 +1,6 @@
 
 
 # Quotas for AWS Verified Access
-<a name="verified-access-quotas"></a>
 
 Your AWS account has default quotas, formerly referred to as limits, for each AWS service. Unless otherwise noted, each quota is Region-specific.
 

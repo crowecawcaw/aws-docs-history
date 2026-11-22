@@ -1,7 +1,6 @@
 
 
 # Delete a Verified Access instance
-<a name="delete-verified-access-instance"></a>
 
 When you are finished with a Verified Access instance, you can delete it. Before you can delete an instance, you must remove any associated trust providers or Verified Access groups.
 

@@ -1,7 +1,6 @@
 
 
 # Create a load balancer endpoint for Verified Access
-<a name="create-load-balancer-endpoint"></a>
 
 Use the following procedure to create a load balancer endpoint for Verified Access. For more information about load balancers, see the [Elastic Load Balancing User Guide](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/).
 

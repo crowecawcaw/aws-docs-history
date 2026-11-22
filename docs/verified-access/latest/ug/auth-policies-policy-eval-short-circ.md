@@ -1,7 +1,6 @@
 
 
 # Verified Access policy logic short-circuiting
-<a name="auth-policies-policy-eval-short-circ"></a>
 
 You might want to write an AWS Verified Access policy that evaluates data that may or may not be present in a given context. If you reference data in a context that does not exist, Cedar will produce an error and evaluate the policy to deny access, regardless of your intent. For example, this would result in a deny, as `fake_provider` and `bogus_key` do not exist in this context.
 

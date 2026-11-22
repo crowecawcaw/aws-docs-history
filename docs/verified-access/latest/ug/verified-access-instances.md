@@ -1,7 +1,6 @@
 
 
 # Verified Access instances
-<a name="verified-access-instances"></a>
 
 An AWS Verified Access instance is an AWS resource that helps you organize your trust providers and Verified Access groups. An instance evaluates application requests and grants access only when your security requirements are met.
 

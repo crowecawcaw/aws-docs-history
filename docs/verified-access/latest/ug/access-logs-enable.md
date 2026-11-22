@@ -1,7 +1,6 @@
 
 
 # Enable or disable Verified Access logs
-<a name="access-logs-enable"></a>
 
 You can use the procedures in this section to enable or disable logging. When you enable logging, you need to configure a destination for the logs to be sent. The IAM principal that is used to configure the logging destination needs to have certain permissions for logging to work properly. The required IAM permissions for each logging destination can be seen in the [Verified Access logging permissions](access-logs-permissions.md) section. 
 

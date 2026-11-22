@@ -1,7 +1,6 @@
 
 
 # Trust data sent to Verified Access from trust providers
-<a name="trust-data"></a>
 
 Trust data is data sent to AWS Verified Access from a trust provider. Trust data is also referred to as "user claims" or "trust context." The data generally includes information about either a user or a device. Examples of trust data include user email, group membership, device operating system version, device security state, and so on. The information that's sent varies depending on the trust provider, so you should refer to your trust provider’s documentation for a complete and updated list of trust data.
 

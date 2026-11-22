@@ -1,7 +1,6 @@
 
 
 # Compliance validation for Verified Access
-<a name="compliance-validation"></a>
 
 AWS Verified Access can be configured to support Federal Information Processing Standards (FIPS) compliance. For more info and details on setting up FIPS compliance for Verified Access, go to [FIPS compliance for Verified Access](fips-compliance.md).
 

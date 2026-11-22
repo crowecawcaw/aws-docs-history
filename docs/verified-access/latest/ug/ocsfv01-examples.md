@@ -1,7 +1,6 @@
 
 
 # OCSF version 0.1 log examples for Verified Access
-<a name="ocsfv01-examples"></a>
 
 The following are sample logs using OCSF version 0.1.
 
@@ -18,7 +17,7 @@ The following are sample logs using OCSF version 0.1.
 
 In this example log entry, Verified Access allows access to an endpoint with an OIDC user trust provider.
 
-```
+```json
 {
     "activity": "Access Granted",
     "activity_id": "1",
@@ -108,7 +107,7 @@ In this example log entry, Verified Access allows access to an endpoint with an 
 
 In this example log entry, Verified Access allows access to an endpoint with both OIDC and JAMF device trust providers.
 
-```
+```json
 {
     "activity": "Access Granted",
     "activity_id": "1",
@@ -199,7 +198,7 @@ In this example log entry, Verified Access allows access to an endpoint with bot
 
 In this example log entry, Verified Access allows access to an endpoint with both OIDC and CrowdStrike device trust providers.
 
-```
+```json
 {
     "activity": "Access Granted",
     "activity_id": "1",
@@ -298,7 +297,7 @@ In this example log entry, Verified Access allows access to an endpoint with bot
 
 In this example log entry, Verified Access denies access due to a missing authentication cookie.
 
-```
+```json
 {
     "activity": "Access Denied",
     "activity_id": "2",
@@ -365,7 +364,7 @@ In this example log entry, Verified Access denies access due to a missing authen
 
 In this example log entry, Verified Access denies an authenticated request because the request is not allowed by the access policies.
 
-```
+```json
 {
     "activity": "Access Denied",
     "activity_id": "2",
@@ -448,7 +447,7 @@ In this example log entry, Verified Access denies an authenticated request becau
 
 In this example log entry, Verified Access can't generate a complete log entry so it emits an unknown log entry. This ensures that every request appears in the access log.
 
-```
+```json
 {
     "activity": "Unknown",
     "activity_id": "0",

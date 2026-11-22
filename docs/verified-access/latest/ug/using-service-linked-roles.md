@@ -1,7 +1,6 @@
 
 
 # Use service-linked roles for Verified Access
-<a name="using-service-linked-roles"></a>
 
 AWS Verified Access uses an IAM service-linked role, which is a type of IAM role that is linked directly to an AWS service. The service-linked roles for Verified Access are defined by Verified Access and include all the permissions that the service requires to call other AWS services on your behalf.
 

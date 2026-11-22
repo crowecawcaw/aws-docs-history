@@ -1,7 +1,6 @@
 
 
 # Create a network interface endpoint for Verified Access
-<a name="create-network-interface-endpoint"></a>
 
 Use the following procedure to create a network interface endpoint.
 

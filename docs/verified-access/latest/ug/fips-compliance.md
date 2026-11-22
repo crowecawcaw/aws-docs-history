@@ -1,7 +1,6 @@
 
 
 # FIPS compliance for Verified Access
-<a name="fips-compliance"></a>
 
 Federal Information Processing Standard (FIPS) is a US and Canadian government standard that specifies security requirements for cryptographic modules that protect sensitive information. AWS Verified Access provides the option to configure your environment to adhere to FIPS Publication 140-2. FIPS compliance for Verified Access is available in the following AWS Regions:
 + US East (Ohio)

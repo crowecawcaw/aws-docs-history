@@ -1,7 +1,6 @@
 
 
 # Verified Access groups
-<a name="verified-access-groups"></a>
 
 A Verified Access group consists of Verified Access endpoints and a Verified Access policy that applies to all endpoints in the group. By grouping together endpoints that have common security requirements, you can define a single group policy that meets the minimum security requirements of multiple endpoints. Therefore, you don't need create and maintain a policy for each endpoint.
 

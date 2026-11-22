@@ -1,7 +1,6 @@
 
 
 # Device-based trust providers for Verified Access
-<a name="device-trust"></a>
 
 You can use device trust providers with AWS Verified Access. You can use one or multiple device trust providers with your Verified Access instance.
 

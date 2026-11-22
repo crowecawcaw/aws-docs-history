@@ -1,7 +1,6 @@
 
 
 # Integrate Verified Access with AWS WAF
-<a name="waf-integration"></a>
 
 In addition to the authentication and authorization rules enforced by Verified Access, you might also want to apply perimeter protection. This can help you protect your applications from additional threats. You can accomplish this by integrating AWS WAF into your Verified Access deployment. AWS WAF is a web application firewall that lets you monitor the HTTP requests that are forwarded to your protected web application resources. For more information, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
 

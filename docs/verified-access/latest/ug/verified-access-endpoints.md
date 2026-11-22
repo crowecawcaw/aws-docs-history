@@ -1,7 +1,6 @@
 
 
 # Verified Access endpoints
-<a name="verified-access-endpoints"></a>
 
 A Verified Access endpoint represents an application. Each endpoint is associated with a Verified Access group and inherits the access policy for the group. You can optionally attach an application-specific endpoint policy to each endpoint.
 

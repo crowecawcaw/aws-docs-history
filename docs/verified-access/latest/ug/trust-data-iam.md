@@ -1,7 +1,6 @@
 
 
 # AWS IAM Identity Center context for Verified Access trust data
-<a name="trust-data-iam"></a>
 
 When a policy is evaluated, if you define AWS IAM Identity Center as a trust provider, AWS Verified Access includes the trust data in the Cedar context under the key you specify as “Policy Reference Name” on the trust provider configuration. You can write a policy that evaluates against the trust data if you choose.
 
@@ -10,7 +9,7 @@ The context key for your trust provider comes from the policy reference name tha
 
 The following [JSON schema](https://json-schema.org/) shows which data is included in the evaluation.
 
-```
+```JSON
 {
    "title": "AWS IAM Identity Center context specification",
    "type": "object",

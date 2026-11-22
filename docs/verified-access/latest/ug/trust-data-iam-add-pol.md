@@ -1,7 +1,6 @@
 
 
 # Verified Access example policies
-<a name="trust-data-iam-add-pol"></a>
 
 You can use Verified Access policies to grant access to your applications to specific users and devices.
 

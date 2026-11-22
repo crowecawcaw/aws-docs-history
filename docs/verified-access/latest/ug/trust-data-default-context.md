@@ -1,7 +1,6 @@
 
 
 # Default context for Verified Access trust data
-<a name="trust-data-default-context"></a>
 
 AWS Verified Access includes some elements about the current request by default in all Cedar evaluations regardless of your configured trust providers. You can write a policy that evaluates against the data if you choose.
 
@@ -16,7 +15,7 @@ The following are examples of the data that is included in the evaluation.
 
 When a policy is evaluated, Verified Access includes data about the current HTTP request in the Cedar context under the `context.http_request` key.
 
-```
+```json
 {
     "title": "HTTP Request data included by Verified Access",
     "type": "object",
@@ -80,7 +79,7 @@ forbid(principal, action, resource) when {
 
 When a policy is evaluated, Verified Access includes data about the current TCP flow in the Cedar context under the `context.tcp_flow` key.
 
-```
+```json
 {
     "title": "TCP flow data included by Verified Access",
     "type": "object",

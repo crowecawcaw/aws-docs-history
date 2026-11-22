@@ -1,7 +1,6 @@
 
 
 # Modify a Verified Access endpoint policy
-<a name="modify-endpoint-policy"></a>
 
 Use the following procedures to modify the policy for a Verified Access endpoint. After you make the changes, it takes several minutes before they take effect.
 

@@ -1,7 +1,6 @@
 
 
 # Verified Access policies
-<a name="auth-policies"></a>
 
 AWS Verified Access policies allow you to define rules for accessing your applications hosted in AWS. They are written in Cedar, an AWS policy language. Using Cedar, you can create policies that are evaluated against the trust data sent from the identity or device-based trust providers that you configure to use with Verified Access.
 
