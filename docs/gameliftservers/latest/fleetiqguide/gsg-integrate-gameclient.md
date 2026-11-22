@@ -1,7 +1,6 @@
 
 
 # Integrate Amazon GameLift Servers FleetIQ into a game client
-<a name="gsg-integrate-gameclient"></a>
 
 This topic describes the tasks required to prepare your game client or matchmaking service to communicate with Amazon GameLift Servers FleetIQ in order to acquire a game server to host a game session.
 

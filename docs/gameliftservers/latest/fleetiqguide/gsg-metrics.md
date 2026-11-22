@@ -1,7 +1,6 @@
 
 
 # Monitor Amazon GameLift Servers FleetIQ with Amazon CloudWatch
-<a name="gsg-metrics"></a>
 
 Use Amazon CloudWatch metrics to scale your instance capacity, build operations dashboards, and trigger alarming. Amazon GameLift Servers FleetIQ as a standalone solution emits a set of Amazon CloudWatch metrics to your AWS account. Also see [Monitoring Your Auto Scaling Groups and Instances Using Amazon CloudWatch](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html) in the *Amazon EC2 Auto Scaling User Guide*. 
 

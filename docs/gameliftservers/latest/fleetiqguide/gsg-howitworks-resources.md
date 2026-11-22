@@ -1,7 +1,6 @@
 
 
 # Key resources and components
-<a name="gsg-howitworks-resources"></a>
 
 Create the following resources in your AWS account before you set up your game hosting resources with Amazon GameLift Servers FleetIQ. As a best practice, develop and test your game server deployment with these resources before using them through a game server group. 
 + **Amazon Machine Image (AMI).** An AMI is a template for a specific software configuration that you want to launch with your Amazon EC2 instances. For game hosting, your AMI includes an operating system, your game server binaries or container, and other runtime software that your game server requires. For more information about creating an AMI, refer to [ Amazon Machine Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) in the Amazon EC2 User Guide. AMIs are Region-specific. You can copy an AMI from one Region to another, as described in [Copying AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html) in the *Amazon EC2 User Guide*.

@@ -1,7 +1,6 @@
 
 
 # Set up your AWS account for Amazon GameLift Servers FleetIQ
-<a name="gsg-iam-permissions"></a>
 
 To use Amazon GameLift Servers FleetIQ with Amazon EC2, Auto Scaling, and other AWS services, you must set up an AWS account with required access permissions. Complete the following tasks:
 + If you don't already have an AWS account to use with Amazon GameLift Servers FleetIQ, create a new one. See [Sign up for an AWS account](#sign-up-for-aws).

@@ -1,7 +1,6 @@
 
 
 # How Amazon GameLift Servers FleetIQ works
-<a name="gsg-howitworks"></a>
 
 The Amazon GameLift Servers FleetIQ solution is a game hosting layer that supplements the full set of computing resource management tools that you get with Amazon EC2 and Auto Scaling. In addition to offering a slate of features specific to game hosting, Amazon GameLift Servers FleetIQ provides an extra layer of logic that makes it possible to use low-cost Spot Instances for game hosting. This solution lets you directly manage your Amazon EC2 and Auto Scaling resources and integrate as needed with other AWS services.
 

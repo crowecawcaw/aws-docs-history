@@ -1,7 +1,6 @@
 
 
 # Update a game server group
-<a name="gsg-integrate-gameservergroup-update"></a>
 
 You can update game server group properties that affect how Amazon GameLift Servers FleetIQ manages hosting for game servers, including resource type optimizations. To update these properties, call [UpdateGameServerGroup()](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameServerGroup.html). After the changes to the game server group take effect, Amazon GameLift Servers FleetIQ may overwrite certain properties in the Auto Scaling group. 
 

@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers FleetIQ reference guides
-<a name="gsg-reference-intro"></a>
 
 This section contains reference documentation for use with Amazon GameLift Servers FleetIQ.
 

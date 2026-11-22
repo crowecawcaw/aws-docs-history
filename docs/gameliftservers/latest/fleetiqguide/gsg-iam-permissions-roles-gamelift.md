@@ -1,7 +1,6 @@
 
 
 # Create a role for Amazon GameLift Servers FleetIQ
-<a name="gsg-iam-permissions-roles-gamelift"></a>
 
 This role allows Amazon GameLift Servers FleetIQ to access and modify your Amazon EC2 instances, Auto Scaling groups, and lifecycle hooks as part of its Spot balancing and automatic scaling activities.
 
@@ -57,7 +56,7 @@ These steps describe how to create a service role with a managed policy for Amaz
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

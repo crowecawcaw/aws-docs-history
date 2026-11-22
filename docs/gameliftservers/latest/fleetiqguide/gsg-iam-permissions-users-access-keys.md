@@ -1,7 +1,6 @@
 
 
 # Set up programmatic access for users
-<a name="gsg-iam-permissions-users-access-keys"></a>
 
 Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
 

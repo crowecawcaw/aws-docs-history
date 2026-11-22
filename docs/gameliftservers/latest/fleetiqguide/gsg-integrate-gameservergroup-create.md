@@ -1,7 +1,6 @@
 
 
 # Create a game server group
-<a name="gsg-integrate-gameservergroup-create"></a>
 
 To create a game server group, call [CreateGameServerGroup()](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameServerGroup.html). This operation creates both a Amazon GameLift Servers FleetIQ game server group and a corresponding Auto Scaling group. When you create the game server group, you provide game-specific settings for Amazon GameLift Servers FleetIQ, including balancing strategy and instance type definitions. You also provide initial property settings for the Auto Scaling group.
 

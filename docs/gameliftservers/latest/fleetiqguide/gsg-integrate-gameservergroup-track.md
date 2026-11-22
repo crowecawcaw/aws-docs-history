@@ -1,7 +1,6 @@
 
 
 # Track game server group instances
-<a name="gsg-integrate-gameservergroup-track"></a>
 
 After you create and deploy instances to your game server group and Auto Scaling group, you can track the status of game server instances by calling [DescribeGameServerInstances()](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameServerInstances.html). You can use this operation to track instance status. For more information on game server group status, see [Life of a game server group](gsg-howitworks-lifecycle-gameservergroup.md). 
 

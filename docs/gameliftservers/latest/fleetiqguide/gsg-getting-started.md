@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers FleetIQ integration steps
-<a name="gsg-getting-started"></a>
 
 This integration plan outlines the key steps to getting your multiplayer games up and running on Amazon EC2 instances with Amazon GameLift Servers FleetIQ. If you're looking for the Amazon GameLift Servers managed hosting service, which automates more game hosting processes for you, see the [Amazon GameLift Servers Developer Guide](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-intro.html).
 

@@ -1,7 +1,6 @@
 
 
 # Register game servers
-<a name="gsg-integrate-gameserver-register"></a>
 
 When a game server process is launched and ready to host live gameplay, it must register with Amazon GameLift Servers FleetIQ by calling [RegisterGameServer()](https://docs.aws.amazon.com/gamelift/latest/apireference/API_RegisterGameServer.html). Registering allows Amazon GameLift Servers FleetIQ to respond to matchmaking systems or other client services when they request information on server capacity or claim a game server. When registering, the game server can provide Amazon GameLift Servers FleetIQ with relevant game server data and connection information, including the port and IP address that it uses for inbound client connections.
 

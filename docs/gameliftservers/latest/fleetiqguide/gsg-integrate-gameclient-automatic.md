@@ -1,7 +1,6 @@
 
 
 # Let Amazon GameLift Servers FleetIQ choose a game server
-<a name="gsg-integrate-gameclient-automatic"></a>
 
 To have Amazon GameLift Servers FleetIQ choose an available game server, call [ClaimGameServer()](https://docs.aws.amazon.com/gamelift/latest/apireference/API_ClaimGameServer.html) without specifying a game server ID. In this scenario, Amazon GameLift Servers FleetIQ does exercise its logic to find a game server on an instance that is viable for game hosting and optimized for automatic scaling.
 

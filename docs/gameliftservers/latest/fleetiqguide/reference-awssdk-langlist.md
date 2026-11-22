@@ -1,7 +1,6 @@
 
 
 # Available programming languages
-<a name="reference-awssdk-langlist"></a>
 
 The AWS SDK with support for Amazon GameLift Servers is available in the following languages. For information about support for development environments, see the documentation for each language.
 + C\+\+ ([SDK docs](https://aws.amazon.com/sdk-for-cpp/)) ([Amazon GameLift Servers](https://sdk.amazonaws.com/cpp/api/LATEST/namespace_aws_1_1_game_lift.html))

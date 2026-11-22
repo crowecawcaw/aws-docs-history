@@ -1,7 +1,6 @@
 
 
 # What is Amazon GameLift Servers FleetIQ?
-<a name="gsg-intro"></a>
 
 Amazon GameLift Servers FleetIQ optimizes the use of low-cost Amazon Elastic Compute Cloud (Amazon EC2) Spot Instances for cloud-based game hosting. With Amazon GameLift Servers FleetIQ, you can work directly with your hosting resources in Amazon EC2 and Amazon EC2 Auto Scaling while taking advantage of Amazon GameLift Servers optimizations to deliver inexpensive, resilient game hosting for your players. Amazon EC2 Spot Instances, although offered at steep discounts, are not generally viable for game hosting because availability fluctuates and there is the potential for [interruptions](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html). Amazon GameLift Servers FleetIQ significantly mitigates these limitations, making the use of low-cost Spot Instances viable for game hosting.
 

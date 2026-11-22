@@ -1,7 +1,6 @@
 
 
 # Reference: Amazon GameLift Servers FleetIQ\_policy
-<a name="gsg-iam-permissions-users-policy"></a>
 
 The following is an example of the Amazon GameLift Servers FleetIQ\_policy for your reference: 
 
@@ -10,7 +9,7 @@ The following is an example of the Amazon GameLift Servers FleetIQ\_policy for 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": 

@@ -1,7 +1,6 @@
 
 
 # Manage Amazon GameLift Servers FleetIQ game server groups
-<a name="gsg-integrate-gameservergroup"></a>
 
 This topic describes the tasks required to set up a Amazon GameLift Servers FleetIQ game server group. Creating a game server group triggers the creation of an EC2 Auto Scaling group with all the necessary configuration settings, along with configuration to manage Amazon GameLift Servers FleetIQ optimizations for game hosting.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers FleetIQ API actions
-<a name="reference-awssdk-fleetiq-api"></a>
 
 The following operations allow you to manage your Amazon GameLift Servers FleetIQ resources, including game server groups and game servers, in conjunction with Amazon EC2 and Auto Scaling groups.
 

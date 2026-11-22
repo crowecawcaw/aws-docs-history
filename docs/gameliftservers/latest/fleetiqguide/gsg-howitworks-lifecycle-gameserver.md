@@ -1,7 +1,6 @@
 
 
 # Life of a game server
-<a name="gsg-howitworks-lifecycle-gameserver"></a>
 
 With Amazon GameLift Servers FleetIQ, game servers go through the following life cycle, including provisioning and status updates. A game server is expected to be a short-lived resource. As a best practice, game servers should be de-registered after the end of a game session rather than being re-used for another game session. This approach helps ensure that available game servers are always running on the lowest-cost resources that are viable for game hosting.
 + A game server resource is created when the game server process, running on an instance in a Amazon GameLift Servers FleetIQ-linked Auto Scaling group, calls the Amazon GameLift Servers API `RegisterGameServer()` to notify Amazon GameLift Servers FleetIQ that it is ready to host players and gameplay. A game server has two statuses to track its current availability:

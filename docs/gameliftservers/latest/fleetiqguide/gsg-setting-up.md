@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers FleetIQ setting up
-<a name="gsg-setting-up"></a>
 
 The topics in this section help with set up tasks, including how to set up your AWS account for use with Amazon Amazon GameLift Servers FleetIQ service. 
 

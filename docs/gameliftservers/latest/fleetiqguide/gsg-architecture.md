@@ -1,7 +1,6 @@
 
 
 # Game architecture with Amazon GameLift Servers FleetIQ
-<a name="gsg-architecture"></a>
 
 ## Supplementing on-premises hosting
 <a name="gsg-architecture-on-premises"></a>

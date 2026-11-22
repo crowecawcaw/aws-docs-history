@@ -1,7 +1,6 @@
 
 
 # Update game server status
-<a name="gsg-integrate-gameserver-update"></a>
 
 Once a game server is registered, it should regularly report health and utilization status in order to keep the state of server capacity in sync on Amazon GameLift Servers FleetIQ. Report health and utilization status by calling [UpdateGameServer()](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameServer.html). In the example below, the game server is reporting that it is healthy and is not currently occupied with hosting players or gameplay.
 

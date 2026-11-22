@@ -1,7 +1,6 @@
 
 
 # Spot balancing process
-<a name="gsg-lifecycle-rebalance"></a>
 
 Amazon GameLift Servers FleetIQ periodically balances the instances in an Auto Scaling group that has Spot Instances. This process is not active with game server groups that use the ON\_DEMAND\_ONLY balancing strategy or do not have any active instances. 
 
