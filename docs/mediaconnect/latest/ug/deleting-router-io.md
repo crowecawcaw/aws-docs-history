@@ -1,7 +1,6 @@
 
 
 # Deleting a router I/O in MediaConnect
-<a name="deleting-router-io"></a>
 
 When you no longer need a router input or output, you can delete it from your configuration. This permanently removes the I/O and frees up its resources. You might delete a router I/O when you want to switch to a different routing setup or clean up your unused resources.
 

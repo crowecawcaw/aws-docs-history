@@ -1,7 +1,6 @@
 
 
 # Configuring PID remapping
-<a name="configuring-pid-remapping"></a>
 
 You can configure PID remapping when you create or update a router output.
 

@@ -1,7 +1,6 @@
 
 
 # Viewing shared endpoints in MediaConnect
-<a name="viewing-shared-endpoints"></a>
 
 You can review endpoint sharing in three places in the MediaConnect console. **Outbound shares** lists the resource shares that your account owns, **Inbound shares** lists the resource shares that other accounts share with your account, and each endpoint's details page shows how that endpoint is shared.
 

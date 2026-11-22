@@ -1,7 +1,6 @@
 
 
 # Source failover on a MediaConnect flow
-<a name="source-failover"></a>
 
 Source failover is a setup that involves two redundant sources for a transport stream flow. This redundancy helps to minimize disruption to your video stream. To use source failover, you specify two sources for the flow, then choose one of two options for the failover mode: *Merge* or *Failover*. 
 + Merge mode combines the sources into a single stream, allowing a graceful recovery from any single-source loss. If you set the failover mode to *Merge*, you can set the recovery window, which is the size of the buffer (delay) that you want MediaConnect to maintain. A larger recovery window means a longer delay in transmitting the stream, but more room for error correction. A smaller recovery window means a shorter delay, but less room for error correction. Sources used this way need to be *binary identical*, which means that they need to have originated from the same encoder. MediaConnect must also receive content from the two sources at the same time. 

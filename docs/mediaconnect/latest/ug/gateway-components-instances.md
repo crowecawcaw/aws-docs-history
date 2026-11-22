@@ -1,7 +1,6 @@
 
 
 # Instances managed by MediaConnect Gateway
-<a name="gateway-components-instances"></a>
 
 
 

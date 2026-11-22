@@ -1,7 +1,6 @@
 
 
 # MediaConnect flow maintenance event
-<a name="monitoring-cloudwatch-events-flow-maintenance"></a>
 
 AWS Elemental MediaConnect publishes this event when a flow's maintenance status has changed, either to or from any of the following states: 
 + **SCHEDULED** - Maintenance is scheduled for the flow.

@@ -1,7 +1,6 @@
 
 
 # Registering a MediaConnect Gateway instance
-<a name="gateway-components-instances-create"></a>
 
 
 

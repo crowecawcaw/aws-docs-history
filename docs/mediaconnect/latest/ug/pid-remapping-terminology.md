@@ -1,7 +1,6 @@
 
 
 # PID remapping concepts
-<a name="pid-remapping-terminology"></a>
 
 Before you configure PID remapping, familiarize yourself with these terms.
 

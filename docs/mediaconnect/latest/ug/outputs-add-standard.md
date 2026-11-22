@@ -1,7 +1,6 @@
 
 
 # Adding standard outputs to a MediaConnect flow
-<a name="outputs-add-standard"></a>
 
 For transport stream flows, you can add up to 50 outputs. However, for optimal performance, follow the guidance offered in [Best practices](best-practices.md). A standard output goes to any destination that is not part of a virtual private cloud (VPC) that you created using Amazon Virtual Private Cloud.
 

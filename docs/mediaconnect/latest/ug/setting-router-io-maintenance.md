@@ -1,7 +1,6 @@
 
 
 # Setting router I/O maintenance windows
-<a name="setting-router-io-maintenance"></a>
 
 You can configure a maintenance window for a router I/O when you create it, or update the window later. When creating a router I/O, you can specify a preferred day and time, or choose the default option to let MediaConnect select a schedule automatically.
 

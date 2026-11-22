@@ -1,7 +1,6 @@
 
 
 # Tag naming and usage conventions
-<a name="tagging-restrictions"></a>
 
 The following basic naming and usage conventions apply to using tags with AWS Elemental MediaConnect resources:
 + Each resource can have a maximum of 50 tags.

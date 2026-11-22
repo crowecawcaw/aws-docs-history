@@ -1,7 +1,6 @@
 
 
 # Color support for CDI protocols
-<a name="protocol-color"></a>
 
 MediaConnect CDI flows support multiple configurations of color space, bit depth, and chroma sampling for each protocol. The following table describes the configurations supported by each CDI protocol.
 

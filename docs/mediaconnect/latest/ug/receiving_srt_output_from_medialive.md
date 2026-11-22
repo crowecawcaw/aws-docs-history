@@ -1,7 +1,6 @@
 
 
 # MediaConnect use case: receiving SRT content from MediaLive
-<a name="receiving_srt_output_from_medialive"></a>
 
 You can set up AWS Elemental MediaConnect to receive content from an AWS Elemental MediaLive channel using the SRT protocol. This enables you to establish a secure, reliable transport of live video from MediaLive to MediaConnect for further distribution or processing.
 

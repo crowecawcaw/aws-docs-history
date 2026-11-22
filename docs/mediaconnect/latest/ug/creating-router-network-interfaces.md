@@ -1,7 +1,6 @@
 
 
 # Creating a router network interface in MediaConnect
-<a name="creating-router-network-interfaces"></a>
 
 Router network interfaces determine how your router communicates with other network resources and the internet. You can configure these interfaces to connect either through the public internet or through your Amazon Virtual Private Cloud (VPC), depending on your networking requirements. The interface type you choose affects the security settings and accessibility of your router connections.
 

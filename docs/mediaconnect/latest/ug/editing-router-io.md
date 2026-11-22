@@ -1,7 +1,6 @@
 
 
 # Updating a router I/O in MediaConnect
-<a name="editing-router-io"></a>
 
 When your requirements change, you can edit existing router I/Os to meet your needs. You can update the I/O name, description, maximum bitrate, protocol settings, and other configuration parameters at any time.
 

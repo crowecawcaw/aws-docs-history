@@ -1,7 +1,6 @@
 
 
 # Removing a source from a MediaConnect flow
-<a name="source-remove"></a>
 
 If a flow has more than one source, you can remove one of the sources even when the flow is currently running.
 

@@ -1,7 +1,6 @@
 
 
 # Setting flow maintenance windows
-<a name="setting-flow-maintenance"></a>
 
 You can set or change the maintenance window for a flow, regardless of whether the flow is active or stopped. You specify a preferred day and start hour, and MediaConnect performs maintenance within the two-hour window starting at that time.
 

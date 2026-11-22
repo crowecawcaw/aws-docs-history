@@ -1,7 +1,6 @@
 
 
 # Setting up a MediaConnect Gateway
-<a name="gateway-create"></a>
 
 
 

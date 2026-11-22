@@ -1,7 +1,6 @@
 
 
 # Security group considerations for VPC interfaces
-<a name="vpc-interface-security-groups"></a>
 
 When you set up a virtual private cloud (VPC) in Amazon Virtual Private Cloud, you create security groups that control inbound and outbound traffic. Then, when you create a VPC interface in AWS Elemental MediaConnect, you specify the security groups that you want MediaConnect to use when it sends and receives content from your VPC.
 

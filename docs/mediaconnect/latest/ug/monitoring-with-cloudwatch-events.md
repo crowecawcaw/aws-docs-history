@@ -1,7 +1,6 @@
 
 
 # Monitoring with Amazon EventBridge events
-<a name="monitoring-with-cloudwatch-events"></a>
 
 EventBridge enables you to automate your AWS services and respond automatically to system events such as application availability issues or resource changes. Events from AWS services are delivered to EventBridge in near real time. You can write simple rules to indicate which events are of interest to you, and what automated actions to take when an event matches a rule.
 

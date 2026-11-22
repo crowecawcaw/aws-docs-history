@@ -1,7 +1,6 @@
 
 
 # Purchasing a MediaConnect offering
-<a name="offerings-purchase"></a>
 
 If your account doesn't already have an active reservation, you can purchase an offering to create a new reservation.
 

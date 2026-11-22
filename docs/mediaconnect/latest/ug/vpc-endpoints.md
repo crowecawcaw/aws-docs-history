@@ -1,7 +1,6 @@
 
 
 # MediaConnect interface VPC endpoints (AWS PrivateLink)
-<a name="vpc-endpoints"></a>
 
 You can use an interface VPC endpoint to keep all MediaConnect API request traffic between your VPC and MediaConnect in the Amazon network, thus improving the security of your VPC. Interface VPC endpoints don't need an internet gateway, a NAT device, or a virtual private gateway. The VPC endpoints are powered by AWS PrivateLink, a technology that you can use to privately access MediaConnect APIs with private IP addresses. 
 

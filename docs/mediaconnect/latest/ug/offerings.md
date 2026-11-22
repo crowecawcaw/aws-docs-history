@@ -1,7 +1,6 @@
 
 
 # Offerings in MediaConnect
-<a name="offerings"></a>
 
 *Offerings* are discounts that MediaConnect offers in exchange for a commitment to use a certain amount of outbound bandwidth each month. The components of a MediaConnect offering are:
 + Duration

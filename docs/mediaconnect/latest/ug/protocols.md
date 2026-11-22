@@ -1,7 +1,6 @@
 
 
 # Protocols in MediaConnect
-<a name="protocols"></a>
 
 AWS Elemental MediaConnect supports different protocols for incoming (source) and outgoing (output) live video streams depending on the type of flow you use. 
 

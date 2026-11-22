@@ -1,7 +1,6 @@
 
 
 # Monitoring using source metadata
-<a name="monitor-with-source-stream-monitoring"></a>
 
 MediaConnect source metadata monitoring displays general information about the structure of the incoming media stream. Source metadata monitoring can be used with the MediaConnect console, API, AWS CLI, or SDK. For more information about the API, see [DescribeFlowSourceMetadata](https://docs.aws.amazon.com/mediaconnect/latest/api/API_DescribeFlowSourceMetadata.html) and [GetRouterInputSourceMetadata](https://docs.aws.amazon.com/mediaconnect/latest/api/API_GetRouterInputSourceMetadata.html) in the *MediaConnect API Reference.*
 

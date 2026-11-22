@@ -1,7 +1,6 @@
 
 
 # Disabling content quality analysis for a router input
-<a name="disable-content-quality-analysis-router-inputs"></a>
 
 ## Prerequisites
 <a name="disable-content-quality-analysis-router-inputs-prerequisites"></a>

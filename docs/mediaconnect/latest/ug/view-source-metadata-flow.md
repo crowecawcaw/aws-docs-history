@@ -1,7 +1,6 @@
 
 
 # Viewing source metadata for a flow
-<a name="view-source-metadata-flow"></a>
 
 View source metadata for a flow in the MediaConnect console, or by calling [DescribeFlowSourceMetadata](https://docs.aws.amazon.com/mediaconnect/latest/api/API_DescribeFlowSourceMetadata.html). For the fields returned for each source protocol, see [Source metadata field reference](source-metadata-field-reference.md).
 

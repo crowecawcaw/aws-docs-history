@@ -1,7 +1,6 @@
 
 
 # What is AWS Elemental MediaConnect?
-<a name="what-is"></a>
 
 AWS Elemental MediaConnect is a high-quality, reliable live video transport and routing service that you can use to ingest, distribute, and route live video within and beyond the AWS Cloud. MediaConnect combines the reliability, security, and visibility of traditional broadcast infrastructure with the flexibility, scalability, and cost-effectiveness of cloud-based transmission.
 

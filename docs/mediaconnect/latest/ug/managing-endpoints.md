@@ -1,7 +1,6 @@
 
 
 # Managing endpoints in MediaConnect
-<a name="managing-endpoints"></a>
 
 You can register, view, update, and deregister endpoints to manage your media workflows.
 

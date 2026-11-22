@@ -1,7 +1,6 @@
 
 
 # Viewing content quality analysis for a router input
-<a name="content-quality-analysis-viewing-router-inputs"></a>
 
 ## Prerequisites
 <a name="content-quality-analysis-viewing-router-inputs-prerequisites"></a>

@@ -1,7 +1,6 @@
 
 
 # Monitoring the health of a MediaConnect source
-<a name="monitor-source-health"></a>
 
 In the AWS Elemental MediaConnect console, you can view Amazon CloudWatch metrics that show the health of the source over a period of time. Source health is reported with the following metrics:
 + **Source bitrate** – The bitrate of the incoming video.

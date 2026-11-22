@@ -1,7 +1,6 @@
 
 
 # Viewing thumbnails of the source video
-<a name="monitor-with-thumbnails"></a>
 
 AWS Elemental MediaConnect can generate JPEG-format thumbnails of the video that is in the source in any type of flow except for CDI flows. The thumbnail provides a visual verification that the content contains video. You can view the thumbnails on the console or retrieve them programmatically.
 

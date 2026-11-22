@@ -1,7 +1,6 @@
 
 
 # MediaConnect concepts and terminology
-<a name="what-is-concepts"></a>
 
 To help you get started with AWS Elemental MediaConnect, and to understand how it works, refer to the following key concepts and terminology.
 

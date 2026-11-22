@@ -1,7 +1,6 @@
 
 
 # Using MediaConnect processors
-<a name="using-mediaconnect-processors"></a>
 
 A processor transforms a stream as it passes through a MediaConnect resource. For example, a processor can change the Packet IDs (PIDs) in a transport stream, or remove the streams that a receiver doesn't need. You can add processors when you create or update a resource that supports them.
 

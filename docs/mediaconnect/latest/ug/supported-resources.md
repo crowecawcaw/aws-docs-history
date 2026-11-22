@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaConnect resources that support tagging
-<a name="supported-resources"></a>
 
 The following resources in AWS Elemental MediaConnect support tagging:
 + Flows

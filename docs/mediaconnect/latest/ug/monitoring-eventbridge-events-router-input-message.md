@@ -1,7 +1,6 @@
 
 
 # MediaConnect router input message event
-<a name="monitoring-eventbridge-events-router-input-message"></a>
 
 AWS Elemental MediaConnect publishes a router input message event when a router input message is set or cleared. The event indicates whether the message is currently active, and contains an error code and a message that describes the issue. These messages are visible on the MediaConnect console, or by using the `get-router-input` AWS Command Line Interface (AWS CLI) command. For more information about the `get-router-input` command, see the [AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/mediaconnect/get-router-input.html).
 

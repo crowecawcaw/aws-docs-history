@@ -1,7 +1,6 @@
 
 
 # Key management for static key encryption
-<a name="encryption-static-key-key-management"></a>
 
 In AWS Elemental MediaConnect, you can use static key encryption to secure content in sources, outputs, entitlements and router I/O. To use this method, you store an encryption key as a *secret* in AWS Secrets Manager, and you give AWS Elemental MediaConnect permission to access the secret. Secrets Manager keeps your encryption key secure, allowing it be accessed only by entities that you specify in an AWS Identity and Access Management (IAM) policy.
 

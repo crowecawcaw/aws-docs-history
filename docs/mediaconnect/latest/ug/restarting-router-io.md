@@ -1,7 +1,6 @@
 
 
 # Restarting a router I/O in MediaConnect
-<a name="restarting-router-io"></a>
 
 You can manually restart your router I/Os in MediaConnect when you need to perform maintenance or system updates. MediaConnect automatically performs maintenance restarts every 60-66 days from the initial start date. However, manual restarts give you additional flexibility to manage your router I/Os on your own schedule.
 

@@ -1,7 +1,6 @@
 
 
 # Setting up static key encryption using AWS Elemental MediaConnect
-<a name="encryption-static-key-set-up"></a>
 
 Before you can create a flow or a router I/O with an encrypted source or an output, or an entitlement that uses static key encryption, you must perform the following steps: 
 
@@ -70,7 +69,7 @@ In [step 1](#encryption-static-key-set-up-store-key), you created a secret and s
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -144,7 +143,7 @@ The following example uses both the **Account ID** and **flow ARN** conditions. 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

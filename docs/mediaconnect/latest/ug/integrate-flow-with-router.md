@@ -1,7 +1,6 @@
 
 
 # Integrating router I/Os with MediaConnect flows
-<a name="integrate-flow-with-router"></a>
 
 You can integrate your AWS Elemental MediaConnect flows with your router I/Os to extend your media workflow capabilities. This enables you to combine the flexibility of the router with the distribution features of flows. 
 

@@ -1,7 +1,6 @@
 
 
 # Managing outputs in MediaConnect
-<a name="outputs"></a>
 
 Outputs are the different destinations where you want MediaConnect to send the content of your flow. You can add, remove, and disable outputs at any time, even when the flow is active. A disabled output will stop steaming content to its destination and won't incur data transfer costs. These outputs are sent to the IP address that you specify. This option is useful if you intend to send your content to an on-premises encoder.
 

@@ -1,7 +1,6 @@
 
 
 # Updating NDI configuration
-<a name="flows-update-ndi-configuration"></a>
 
 Updating the flow NDI® configuration allows you to determine how this flow communicates with the rest of your NDI environment. 
 

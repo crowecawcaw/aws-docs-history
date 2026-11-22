@@ -1,7 +1,6 @@
 
 
 # Creating a resource share in MediaConnect
-<a name="creating-endpoint-resource-share"></a>
 
 You share a source endpoint or a destination endpoint by adding it to a resource share in AWS RAM. You can create a new resource share for the endpoint, or add the endpoint to a resource share that you already own.
 

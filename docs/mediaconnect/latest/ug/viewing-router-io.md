@@ -1,7 +1,6 @@
 
 
 # Viewing router I/Os in MediaConnect
-<a name="viewing-router-io"></a>
 
 You can view your router inputs and outputs in the MediaConnect console. For each input and output, you can see the status, connections, and monitoring details.
 

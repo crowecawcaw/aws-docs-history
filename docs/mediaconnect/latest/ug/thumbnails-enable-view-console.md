@@ -1,7 +1,6 @@
 
 
 # Enabling and viewing thumbnails in the console
-<a name="thumbnails-enable-view-console"></a>
 
 You enable thumbnails separately in each flow. You can enable thumbnails when you are creating the flow, or you can enable them in an existing flow. 
 

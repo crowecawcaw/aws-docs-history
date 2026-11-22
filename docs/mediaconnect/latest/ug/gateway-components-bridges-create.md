@@ -1,7 +1,6 @@
 
 
 # Creating a MediaConnect Gateway bridge
-<a name="gateway-components-bridges-create"></a>
 
 After you have registered at least one instance to your gateway, you can create a bridge. The process for creating a bridge will vary depending on the bridge type you select.
 

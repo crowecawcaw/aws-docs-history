@@ -1,7 +1,6 @@
 
 
 # Updating a media stream a MediaConnect flow
-<a name="media-stream-update"></a>
 
 You can update media streams even if the flow is running. However, if the media stream is associated with a source or any outputs, you can't update its type.
 

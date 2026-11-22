@@ -1,7 +1,6 @@
 
 
 # Updating the flow size
-<a name="flows-update-size"></a>
 
 Updating the flow size allows you to modify the processing capacity and feature set that's available for your MediaConnect flow. 
 

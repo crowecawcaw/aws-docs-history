@@ -1,7 +1,6 @@
 
 
 # Reservations for AWS Elemental MediaConnect
-<a name="reservations"></a>
 
 Reservations provide you with significant savings on your AWS Elemental MediaConnect costs compared to on-demand pricing. 
 

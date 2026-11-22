@@ -1,7 +1,6 @@
 
 
 # Determining an output's IP address
-<a name="output-ip-address"></a>
 
 When you're working with outputs on standard flows, there are two important IP addresses to understand:
 + **Output IP address** - This is the MediaConnect endpoint address where your downstream receivers connect to. You’ll need this address when you configure your receivers to connect to your flow and start receiving its content.

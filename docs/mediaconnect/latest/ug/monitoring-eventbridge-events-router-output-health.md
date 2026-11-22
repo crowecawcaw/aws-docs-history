@@ -1,7 +1,6 @@
 
 
 # MediaConnect router output health event
-<a name="monitoring-eventbridge-events-router-output-health"></a>
 
 AWS Elemental MediaConnect publishes router output health events after a router output health indicator state changes.
 

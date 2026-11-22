@@ -1,7 +1,6 @@
 
 
 # Enabling content quality analysis for a router input
-<a name="enable-content-quality-analysis-router-inputs"></a>
 
 You can enable content quality analysis when you create a new router input or update an existing one.
 

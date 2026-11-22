@@ -1,7 +1,6 @@
 
 
 # Gateways managed by MediaConnect Gateway
-<a name="gateway-components-gateways"></a>
 
 
 

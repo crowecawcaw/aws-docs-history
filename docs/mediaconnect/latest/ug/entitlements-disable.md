@@ -1,7 +1,6 @@
 
 
 # Disabling an entitlement temporarily
-<a name="entitlements-disable"></a>
 
 When you disable an entitlement, the content becomes unavailable to the subscriber account immediately. However, the entitlement and the associated output remain on your flow. These resources continue to count toward your quota for outputs and entitlements. Later, you can [enable the entitlement](entitlements-enable.md) to re-instate access.
 

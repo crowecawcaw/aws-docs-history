@@ -1,7 +1,6 @@
 
 
 # Removing tags from a MediaConnect output
-<a name="outputs-manage-tags-remove"></a>
 
 You can remove a tag from an output if you no longer want to use it to track the billing and organization for it.
 

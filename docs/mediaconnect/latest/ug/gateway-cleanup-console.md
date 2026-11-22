@@ -1,7 +1,6 @@
 
 
 # Removing a MediaConnect Gateway
-<a name="gateway-cleanup-console"></a>
 
 
 

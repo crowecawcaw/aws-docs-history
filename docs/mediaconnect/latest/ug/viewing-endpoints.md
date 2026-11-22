@@ -1,7 +1,6 @@
 
 
 # Viewing endpoints in MediaConnect
-<a name="viewing-endpoints"></a>
 
 You can view your source and destination endpoints in the MediaConnect console. For each endpoint, you can see its configuration details and its registration and connection states.
 

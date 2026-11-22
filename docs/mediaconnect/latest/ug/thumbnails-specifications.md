@@ -1,7 +1,6 @@
 
 
 # Requirements for thumbnails
-<a name="thumbnails-specifications"></a>
 
 ## Requirements for the video source
 <a name="thumbnails-source-video-requirements"></a>

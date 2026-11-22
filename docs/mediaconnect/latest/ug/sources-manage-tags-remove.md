@@ -1,7 +1,6 @@
 
 
 # Removing tags from a MediaConnect source
-<a name="sources-manage-tags-remove"></a>
 
 You can remove a tag from a source if you no longer want to use it to track the billing and organization for it.
 

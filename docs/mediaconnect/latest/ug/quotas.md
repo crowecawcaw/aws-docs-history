@@ -1,7 +1,6 @@
 
 
 # Quotas in AWS Elemental MediaConnect
-<a name="quotas"></a>
 
 The following table describes quotas, formerly referred to as *limits*, in AWS Elemental MediaConnect. For information about quotas that can be changed, see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html).
 

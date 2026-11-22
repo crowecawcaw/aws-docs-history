@@ -1,7 +1,6 @@
 
 
 # Getting started with the router
-<a name="getting-started-router"></a>
 
 This tutorial shows you how to use the MediaConnect router to dynamically route live video between independent inputs and outputs in real time, with centralized control across AWS Regions.
 

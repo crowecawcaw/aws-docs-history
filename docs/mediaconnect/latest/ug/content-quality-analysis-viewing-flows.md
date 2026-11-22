@@ -1,7 +1,6 @@
 
 
 # Viewing content quality analysis for a flow
-<a name="content-quality-analysis-viewing-flows"></a>
 
 ## Prerequisites
 <a name="content-quality-analysis-viewing-flows-prerequisites"></a>

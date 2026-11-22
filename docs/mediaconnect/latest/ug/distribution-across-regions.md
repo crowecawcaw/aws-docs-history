@@ -1,7 +1,6 @@
 
 
 # Distributing content across Regions
-<a name="distribution-across-regions"></a>
 
 You can set up two AWS Elemental MediaConnect flows to distribute content from one AWS Region to another. In this scenario, you create one flow in the Region that is closest to your contribution encoder and a second flow in the Region that is closest to your receiver. The following illustration shows this process.
 

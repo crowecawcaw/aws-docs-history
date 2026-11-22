@@ -1,7 +1,6 @@
 
 
 # Switching modes in MediaConnect
-<a name="switching-modes"></a>
 
 When a router output takes a new router input, its switching mode determines when the output switches to the new content. You choose a switching mode for each router output.
 

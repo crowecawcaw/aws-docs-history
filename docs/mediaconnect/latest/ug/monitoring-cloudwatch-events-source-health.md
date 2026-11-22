@@ -1,7 +1,6 @@
 
 
 # MediaConnect source health event
-<a name="monitoring-cloudwatch-events-source-health"></a>
 
 AWS Elemental MediaConnect publishes source health events after a source health indicator state changes.
 

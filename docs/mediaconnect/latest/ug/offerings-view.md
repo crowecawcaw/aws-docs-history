@@ -1,7 +1,6 @@
 
 
 # Viewing MediaConnect offerings
-<a name="offerings-view"></a>
 
 On the console, you can view the offerings that are available in the current AWS Region.
 

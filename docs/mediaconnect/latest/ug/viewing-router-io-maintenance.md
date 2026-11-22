@@ -1,7 +1,6 @@
 
 
 # Viewing router I/O maintenance status
-<a name="viewing-router-io-maintenance"></a>
 
 You can view the maintenance status of your router I/Os in the MediaConnect console or by using the AWS CLI.
 

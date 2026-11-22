@@ -1,7 +1,6 @@
 
 
 # Static key encryption in AWS Elemental MediaConnect
-<a name="encryption-static-key"></a>
 
 You can use static key encryption to protect your sources, outputs, entitlements and router I/O. You store your encryption key in AWS Secrets Manager, and then you give MediaConnect permission to obtain the encryption key from Secrets Manager. 
 

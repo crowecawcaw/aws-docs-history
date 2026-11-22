@@ -1,7 +1,6 @@
 
 
 # Monitoring and tagging in AWS Elemental MediaConnect
-<a name="monitor"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of AWS Elemental MediaConnect and your other AWS solutions. AWS provides the following monitoring tools to watch MediaConnect, report when something is wrong, and take automatic actions when appropriate:
 + *MediaConnect flow source monitoring* displays detailed information about a source stream and its program media. You can view status messages about the stream as well as details about the program video, audio, and other data. For more information, see the [Monitoring using source metadata](monitor-with-source-stream-monitoring.md) section of this guide. 

@@ -1,7 +1,6 @@
 
 
 # Adding a standard source to an existing MediaConnect flow
-<a name="source-adding-standard"></a>
 
 You can add a second source to an existing flow for failover. Both sources on the flow must use the same protocol. (However, you can have one source that uses RTP and the other that uses RTP-FEC.) For more information about source failover, see [Source failover](source-failover.md).
 

@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaConnect metrics to monitor flow health
-<a name="monitor-with-cloudwatch-metrics-flow-health"></a>
 
 AWS Elemental MediaConnect sends metrics to CloudWatch. You can review specific metrics to evaluate the health of your flow. If the flow is unhealthy, these metrics can help you determine where the issue originates. For details about each metric, see the tables in this section.
 

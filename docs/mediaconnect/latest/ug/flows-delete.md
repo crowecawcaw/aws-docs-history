@@ -1,7 +1,6 @@
 
 
 # Deleting a flow
-<a name="flows-delete"></a>
 
 When you delete an active flow, it immediately becomes unavailable to customers who are accessing the output directly from your AWS Elemental MediaConnect flow or through an entitlement. After you delete a flow, you can't recover it.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring the health of a MediaConnect flow
-<a name="monitor-flow-health"></a>
 
 The **Alerts** tab on the MediaConnect console displays a list of alerts that occurred when you started or stopped the current flow. For the full list of alerts for a flow, see Amazon CloudWatch.
 

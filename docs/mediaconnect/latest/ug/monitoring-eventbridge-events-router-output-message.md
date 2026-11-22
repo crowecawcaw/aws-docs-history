@@ -1,7 +1,6 @@
 
 
 # MediaConnect router output message event
-<a name="monitoring-eventbridge-events-router-output-message"></a>
 
 AWS Elemental MediaConnect publishes a router output message event when a router output message is set or cleared. The event indicates whether the message is currently active, and contains an error code and a message that describes the issue. These messages are visible on the MediaConnect console, or by using the `get-router-output` AWS Command Line Interface (AWS CLI) command. For more information about the `get-router-output` command, see the [AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/mediaconnect/get-router-output.html).
 

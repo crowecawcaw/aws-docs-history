@@ -1,7 +1,6 @@
 
 
 # Viewing reservations for MediaConnect
-<a name="reservations-view"></a>
 
 On the console, you can view the reservations that you have purchased.
 

@@ -1,7 +1,6 @@
 
 
 # MediaConnect flow status change event
-<a name="monitoring-cloudwatch-events-flow-state-change"></a>
 
 AWS Elemental MediaConnect publishes this event when a flow's status has changed from or to any of the following statuses: Standby, Active, Updating, Deleting, Starting, Stopping, or Error. 
 

@@ -1,7 +1,6 @@
 
 
 # MediaConnect Gateway bridges
-<a name="gateway-components-bridges"></a>
 
 
 

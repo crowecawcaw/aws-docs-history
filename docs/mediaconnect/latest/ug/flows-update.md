@@ -1,7 +1,6 @@
 
 
 # Updating a flow
-<a name="flows-update"></a>
 
 You can change a flow's size, source, entitlements, outputs and several other settings. You can't change the flow's name, ARN, or Availability Zone. For more information, see the following topics: 
 + [Updating the flow size](flows-update-size.md)

@@ -1,7 +1,6 @@
 
 
 # MediaConnect use case: entitlements
-<a name="use-cases-entitlements"></a>
 
 Entitlements allow one AWS account holder to share content in a transport stream flow with other AWS account holders. For example, a sports company wants to share a flow (Baseball-Game) with a local TV station. A sports broadcaster (the originator) creates an entitlement on the Baseball-Game flow to allow access for the local TV station (the subscriber). The local TV station creates an AWS Elemental MediaConnect flow using an output from the Baseball-Game flow as the source.
 

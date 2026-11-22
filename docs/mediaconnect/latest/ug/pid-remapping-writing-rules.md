@@ -1,7 +1,6 @@
 
 
 # Rules
-<a name="pid-remapping-writing-rules"></a>
 
 Rules control which streams the output transport stream carries, and on which PIDs. Each rule has a **Match expression**, which selects streams, and an **Action**, which defines the action that MediaConnect applies to the selected streams. For each elementary stream that the Program Map Table (PMT) lists, MediaConnect:
 

@@ -1,7 +1,6 @@
 
 
 # Stopping a flow
-<a name="flows-stop"></a>
 
 When you stop an active flow, it immediately becomes unavailable to customers who are accessing the output directly from your AWS Elemental MediaConnect flow or through an entitlement. If you want to delete an active flow, you must stop the flow first before you can delete it.
 

@@ -1,7 +1,6 @@
 
 
 # Document history for user guide
-<a name="doc-history"></a>
 
 The following table describes the documentation for this release of AWS Elemental MediaConnect. For notification about updates to this documentation, you can subscribe to an RSS feed.
 

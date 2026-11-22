@@ -1,7 +1,6 @@
 
 
 # Encrypting endpoints in MediaConnect
-<a name="encrypting-endpoints"></a>
 
 Encryption protects the content that flows across a connection between two endpoints. How you set up encryption depends on whether the endpoint is a standard endpoint or a managed endpoint.
 

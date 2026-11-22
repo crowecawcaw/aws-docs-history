@@ -1,7 +1,6 @@
 
 
 # Creating a flow that uses a CDI source
-<a name="flows-create-cdi"></a>
 
 A CDI flow transports high-quality uncompressed or lightly compressed content into and out of the AWS Cloud. You can configure a CDI flow to use JPEG XS to transport lightly compressed content. The content is demuxed into separate media streams for audio, video, or ancillary data. Each CDI flow can use multiple media streams for the source and multiple media streams for each output. MediaConnect uses AWS Cloud Digital Interface (AWS CDI) network technology to transport content that adheres to the SMPTE 2110, part 22 transport standard. 
 

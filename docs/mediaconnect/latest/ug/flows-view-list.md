@@ -1,7 +1,6 @@
 
 
 # Viewing a list of MediaConnect flows
-<a name="flows-view-list"></a>
 
 You can view a list of your AWS Elemental MediaConnect flows in a specific AWS Region.
 

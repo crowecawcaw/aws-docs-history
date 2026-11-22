@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaConnect resource-based policy examples
-<a name="security_iam_resource-based-policy-examples"></a>
 
 To access the AWS Elemental MediaConnect console, you must have a minimum set of permissions that allows you to list and view details about the MediaConnect resources in your AWS account. The IAM policies in this section show examples of policies that allow specific actions on resources in AWS Elemental MediaConnect.
 
@@ -19,7 +18,7 @@ To access the AWS Elemental MediaConnect console, you must have a policy that de
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -78,7 +77,7 @@ Every user of AWS Elemental MediaConnect must have a policy that defines permiss
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -132,7 +131,7 @@ This example IAM policy allows AWS Elemental MediaConnect to create and manage n
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

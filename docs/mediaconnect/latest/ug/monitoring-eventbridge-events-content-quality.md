@@ -1,7 +1,6 @@
 
 
 # MediaConnect flow content quality event
-<a name="monitoring-eventbridge-events-content-quality"></a>
 
 AWS Elemental MediaConnect publishes the following event when an issue is detected with content quality: `MediaConnect Flow Content Quality`
 

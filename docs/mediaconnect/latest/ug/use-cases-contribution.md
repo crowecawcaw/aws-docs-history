@@ -1,7 +1,6 @@
 
 
 # MediaConnect use case: contribution for transport stream flows
-<a name="use-cases-contribution"></a>
 
 You can use AWS Elemental MediaConnect to ingest your content from an on-premises contribution encoder into the AWS Cloud. The source for your MediaConnect flow comes from your on-premises contribution encoder, and the output points to your encoder in the cloud, such as AWS Elemental MediaLive. If your source content is uncompressed, you can use a [CDI workflow](use-cases-cdi.md).
 

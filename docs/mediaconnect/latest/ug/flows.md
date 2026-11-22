@@ -1,7 +1,6 @@
 
 
 # Managing flows in MediaConnect
-<a name="flows"></a>
 
 A flow is a transport between a source and one or more destinations. When you create a flow, you specify the source, a name, and an Availability Zone. After you create a flow, you can add outputs to indicate where you want your content to be sent and how you want it transported.
 

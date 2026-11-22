@@ -1,7 +1,6 @@
 
 
 # CloudWatch alarm groups and templates for monitoring your AWS media workflow
-<a name="monitor-with-workflow-monitor-configure-alarms"></a>
 
 Workflow monitor alarms allow you to use existing CloudWatch metrics as the foundation of alarms for your signal maps. You can create an alarm template group to sort and classify the types of alarming that is important to your workflow. Within each alarm template group, you create alarm templates with specific CloudWatch metrics and parameters that you want to monitor. You can create your own alarm templates or import recommended alarm templates created by AWS. After creating an alarm template group and alarm templates within that group, you can attach one or more of these alarm template groups to a signal map.
 

@@ -1,7 +1,6 @@
 
 
 # Creating a transport stream flow that uses an entitled source
-<a name="flows-create-entitled-source"></a>
 
 Transport stream flows transport compressed content that is muxed into a single stream. An entitled source is content that comes from another AWS account. 
 

@@ -1,7 +1,6 @@
 
 
 # Creating a router I/O in MediaConnect
-<a name="creating-router-io"></a>
 
 When you create a router I/O, you'll configure its connection details and operating parameters. Each router I/O connects to an external sender or receiver, which can be a public IP address, or a private VPC IP address.
 

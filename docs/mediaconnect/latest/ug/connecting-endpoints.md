@@ -1,7 +1,6 @@
 
 
 # Connecting and disconnecting endpoints in MediaConnect
-<a name="connecting-endpoints"></a>
 
 You can connect a source endpoint to a destination endpoint so that content flows between the devices or resources that the endpoints represent, and disconnect them when you no longer need the connection. You can connect and disconnect endpoints in the MediaConnect console in two ways:
 + From the **Source endpoints** and **Destination endpoints** lists, by following the procedures on this page.

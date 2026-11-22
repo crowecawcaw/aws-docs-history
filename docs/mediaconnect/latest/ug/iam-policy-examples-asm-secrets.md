@@ -1,7 +1,6 @@
 
 
 # Policy examples for accessing MediaConnect encryption keys in Secrets Manager
-<a name="iam-policy-examples-asm-secrets"></a>
 
 You can create IAM policies that allow AWS Elemental MediaConnect to read encryption keys that are stored as secrets in AWS Secrets Manager.
 
@@ -27,7 +26,7 @@ Replace the {{placeholder text}} in the ARNs with your own information. The ARNs
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -68,7 +67,7 @@ Replace the {{placeholder text}} in the ARNs with your own information. The Regi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -103,7 +102,7 @@ The following IAM policy allows read access to all resources that you create in 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

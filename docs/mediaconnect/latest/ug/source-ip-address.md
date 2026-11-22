@@ -1,7 +1,6 @@
 
 
 # Determining a source's peer IP address
-<a name="source-ip-address"></a>
 
 
 

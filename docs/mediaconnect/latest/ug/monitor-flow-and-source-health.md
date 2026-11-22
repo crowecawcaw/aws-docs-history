@@ -1,7 +1,6 @@
 
 
 # Monitoring flow and source health
-<a name="monitor-flow-and-source-health"></a>
 
 On the AWS Elemental MediaConnect console, you can monitor the health of your flows and their sources.
 

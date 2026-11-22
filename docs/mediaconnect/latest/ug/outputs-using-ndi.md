@@ -1,7 +1,6 @@
 
 
 # Using NDI® outputs in a MediaConnect flow
-<a name="outputs-using-ndi"></a>
 
 AWS Elemental MediaConnect can convert MPEG transport streams into [Network Device Interface (NDI®)](https://ndi.video/tech/), a protocol for high-quality, low-latency video and audio over IP networks. This capability enables direct content delivery within your network, connecting traditional contribution workflows with IP-based video production systems.
 

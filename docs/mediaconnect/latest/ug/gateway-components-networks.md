@@ -1,7 +1,6 @@
 
 
 # MediaConnect Gateway networks
-<a name="gateway-components-networks"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # Distributing content from MediaConnect to MediaLive
-<a name="distribution-to-medialive"></a>
 
 You can set up a flow in AWS Elemental MediaConnect so that it can distribute content to AWS Elemental MediaLive. With this setup, your MediaConnect flows can serve as upstream inputs for MediaLive channels, enabling MediaLive to process your video streams.
 

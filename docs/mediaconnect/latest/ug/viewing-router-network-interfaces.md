@@ -1,7 +1,6 @@
 
 
 # Viewing router network interfaces in MediaConnect
-<a name="viewing-router-network-interfaces"></a>
 
 You can view your router network interfaces in the MediaConnect console. For each interface, you can see the configuration details, status, and associated resources.
 

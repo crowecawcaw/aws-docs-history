@@ -1,7 +1,6 @@
 
 
 # Setting up SPEKE encryption using AWS Elemental MediaConnect
-<a name="encryption-speke-set-up"></a>
 
 Before you can grant an entitlement that uses SPEKE encryption, you must perform the following steps:
 
@@ -46,7 +45,7 @@ In [step 1](#encryption-speke-set-up-on-board-key-provider), you worked with a C
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -117,7 +116,7 @@ In [step 2](#encryption-speke-set-up-create-iam-policy), you created an **APIGat
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

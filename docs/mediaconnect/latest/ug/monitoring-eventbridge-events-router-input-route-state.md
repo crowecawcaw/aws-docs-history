@@ -1,7 +1,6 @@
 
 
 # MediaConnect router input route state event
-<a name="monitoring-eventbridge-events-router-input-route-state"></a>
 
 AWS Elemental MediaConnect publishes this event when a router output is routed to or unrouted from a router input. This event publishes the router output that changed and the complete list of router outputs that are currently routed to the router input.
 

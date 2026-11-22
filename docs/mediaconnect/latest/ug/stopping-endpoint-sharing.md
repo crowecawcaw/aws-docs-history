@@ -1,7 +1,6 @@
 
 
 # Stopping endpoint sharing in MediaConnect
-<a name="stopping-endpoint-sharing"></a>
 
 You can stop sharing an endpoint when you no longer want consuming accounts to use it. When you unshare an endpoint, MediaConnect removes it from every resource share that holds it.
 

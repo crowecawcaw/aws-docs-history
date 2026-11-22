@@ -1,7 +1,6 @@
 
 
 # Sharing content in your AWS Elemental MediaConnect flow with other AWS accounts
-<a name="entitlements-originator"></a>
 
 You can grant an entitlement to share the content in your AWS Elemental MediaConnect flow with another AWS account (subscriber account). When the subscriber sets up a flow based on the entitlement, the service generates an output on your flow to represent the stream from your flow to the subscriber's flow. This output is counted as part of the 50 maximum outputs that you can have on your flow. 
 

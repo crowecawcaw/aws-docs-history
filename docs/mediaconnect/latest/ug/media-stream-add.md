@@ -1,7 +1,6 @@
 
 
 # Adding a media stream to a MediaConnect flow
-<a name="media-stream-add"></a>
 
 Before you can associate a media stream with a source or an output, you need to add it to the flow. After you add a media stream to a flow, you can associate it with a source and then with outputs.
 

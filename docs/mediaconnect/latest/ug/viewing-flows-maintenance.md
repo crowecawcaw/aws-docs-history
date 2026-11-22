@@ -1,7 +1,6 @@
 
 
 # Viewing flow maintenance status
-<a name="viewing-flows-maintenance"></a>
 
 You can view the maintenance status of your flows in the MediaConnect console or by using the AWS CLI.
 

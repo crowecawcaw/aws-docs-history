@@ -1,7 +1,6 @@
 
 
 # Using MediaConnect flows
-<a name="using-mediaconnect-flows"></a>
 
 A MediaConnect flow is a connection between one or more video sources and one or more outputs. For each flow, you specify the protocol to use, encryption information, and details about the source. MediaConnect returns an ingest endpoint where you can send your live video as a single unicast stream. The service replicates and distributes the video to every output that you specify, whether inside or outside the AWS Cloud. 
 

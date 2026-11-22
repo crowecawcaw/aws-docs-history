@@ -1,7 +1,6 @@
 
 
 # Managing router network interfaces in MediaConnect
-<a name="managing-router-network-interfaces"></a>
 
 Router network interfaces control how the router communicates with the outside world. Router I/Os that connect to a public or VPC endpoints need a network interface, which determines how the router I/O connects to other resources and what security measures protect the connection. Note that router connections to MediaLive channels and MediaConnect flows are automatically managed and do not require a network interface. 
 

@@ -1,7 +1,6 @@
 
 
 # Supported operating systems and system architectures for using MediaConnect Gateway
-<a name="gateway-prerequisites"></a>
 
 
 

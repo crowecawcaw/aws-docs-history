@@ -1,7 +1,6 @@
 
 
 # Adding tags on a MediaConnect flow
-<a name="flows-manage-tags-add"></a>
 
 Use tags to help you track the billing and organization for your AWS Elemental MediaConnect sources. For more information about using tags for cost allocation, see [Use Cost Allocation Tags for Custom Billing Reports](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation.html) in the *AWS Billing User Guide*.
 

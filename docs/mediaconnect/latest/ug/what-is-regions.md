@@ -1,7 +1,6 @@
 
 
 # Regions and endpoints for MediaConnect
-<a name="what-is-regions"></a>
 
 To reduce data latency in your applications, AWS Elemental MediaConnect offers a regional endpoint to make your requests:
 

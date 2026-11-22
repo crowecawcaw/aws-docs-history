@@ -1,7 +1,6 @@
 
 
 # Managing routes in MediaConnect
-<a name="assigning-route"></a>
 
 After you've set up your router I/Os, you can control how content flows between them by assigning and unassigning routes. A route connects an input to one or more outputs, determining where your content goes. For example, you might route a live sports feed to multiple regional broadcasters, send a studio production to both transmission and recording, or direct archive content to specific distribution channels.
 

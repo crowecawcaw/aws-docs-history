@@ -1,7 +1,6 @@
 
 
 # Monitoring with the AWS Elemental MediaConnect console
-<a name="monitor-with-the-media-connect-console"></a>
 
 AWS Elemental MediaConnect offers several ways to monitor your resources directly within the MediaConnect console. This allows you to quickly view the status and health of your flows, sources, and content without having to switch to other AWS services. 
 

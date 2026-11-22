@@ -1,7 +1,6 @@
 
 
 # Create non-admin roles
-<a name="setting-up-create-nonadmin-roles"></a>
 
 Users in the Administrators group for an account have access to all AWS services and resources in that account. Granting direct access to all AWS resources goes against the best practice of applying the least privileged permissions to a user. This section describes how you can create roles with permissions that are limited to AWS Elemental MediaConnect. This section also describes how your users can assume that role to grant secure and temporary credentials.
 
@@ -32,7 +31,7 @@ Create two policies for AWS Elemental MediaConnect: one to provide read/write ac
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -94,7 +93,7 @@ Create two policies for AWS Elemental MediaConnect: one to provide read/write ac
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

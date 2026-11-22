@@ -1,7 +1,6 @@
 
 
 # Deregistering a MediaConnect Gateway instance
-<a name="gateway-components-instances-delete"></a>
 
 
 

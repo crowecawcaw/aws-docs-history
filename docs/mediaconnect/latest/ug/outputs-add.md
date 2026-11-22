@@ -1,7 +1,6 @@
 
 
 # Adding outputs to a MediaConnect flow
-<a name="outputs-add"></a>
 
 For transport stream flows, you can add up to 50 outputs. However, for optimal performance, follow the guidance offered in [Best practices](best-practices.md). Every output must have a name, a [protocol](protocols.md), an IP address, and a port.
 

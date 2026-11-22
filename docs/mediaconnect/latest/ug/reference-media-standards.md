@@ -1,7 +1,6 @@
 
 
 # Reference: Supported media standards
-<a name="reference-media-standards"></a>
 
 **Important**  
 MediaConnect complies with and implements many media industry standards from different organizations. This reference is not intended to be a comprehensive list, but contains highlighted standards from specific organizations. 

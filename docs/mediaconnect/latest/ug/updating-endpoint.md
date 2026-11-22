@@ -1,7 +1,6 @@
 
 
 # Updating an endpoint in MediaConnect
-<a name="updating-endpoint"></a>
 
 You can update the settings of a registered endpoint as your workflow changes.
 

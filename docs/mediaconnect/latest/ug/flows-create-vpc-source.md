@@ -1,7 +1,6 @@
 
 
 # Creating a transport stream flow that uses a VPC source
-<a name="flows-create-vpc-source"></a>
 
 Transport stream flows transport compressed content that is muxed into a single stream.
 

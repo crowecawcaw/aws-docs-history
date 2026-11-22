@@ -1,7 +1,6 @@
 
 
 # Disabling content quality analysis for a flow
-<a name="disable-content-quality-analysis-flows"></a>
 
 ## Prerequisites
 <a name="disable-content-quality-analysis-flows-prerequisites"></a>

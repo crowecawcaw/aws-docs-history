@@ -1,7 +1,6 @@
 
 
 # Enabling content quality analysis for a flow
-<a name="enable-content-quality-analysis-flows"></a>
 
 You can enable content quality analysis when you create a new flow or update an existing one.
 

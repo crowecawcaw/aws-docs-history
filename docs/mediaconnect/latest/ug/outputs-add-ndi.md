@@ -1,7 +1,6 @@
 
 
 # Adding an NDI® output to a MediaConnect flow
-<a name="outputs-add-ndi"></a>
 
 This procedure walks you through the process of setting up an NDI® output and configuring how your NDI video streams appear to other devices in your VPC network. After you have the necessary prerequisites in place, you can add an NDI output to your MediaConnect flow, allowing you to distribute your video and audio streams over the NDI protocol within your VPC.
 

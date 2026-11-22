@@ -1,7 +1,6 @@
 
 
 # Creating a flow
-<a name="flows-create"></a>
 
 A flow is a connection between one or more sources and one or more outputs or entitlements.
 

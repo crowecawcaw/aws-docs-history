@@ -1,7 +1,6 @@
 
 
 # Revoking an entitlement
-<a name="entitlements-revoke"></a>
 
 After you revoke an entitlement, the content becomes unavailable to the subscriber account permanently. The entitlement and the associated output are removed from your flow. If you revoke an entitlement and later decide you need to grant that entitlement again, the subscriber's flow must be manually restarted. The subscriber's flow will not start automatically after the entitlement has been granted.
 

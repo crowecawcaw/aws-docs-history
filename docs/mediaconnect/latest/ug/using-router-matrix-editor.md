@@ -1,7 +1,6 @@
 
 
 # Using the router matrix view in MediaConnect
-<a name="using-router-matrix-editor"></a>
 
 The router matrix view helps you manage multiple routes efficiently. Unlike the control panel where takes happen immediately, the matrix view lets you prepare multiple takes and review them before applying them all at once. 
 

@@ -1,7 +1,6 @@
 
 
 # Viewing source metadata for a router input
-<a name="view-source-metadata-router-input"></a>
 
 View source metadata for a router input in the MediaConnect console, or by calling [GetRouterInputSourceMetadata](https://docs.aws.amazon.com/mediaconnect/latest/api/API_GetRouterInputSourceMetadata.html). For the fields returned, see [Source metadata field reference](source-metadata-field-reference.md).
 

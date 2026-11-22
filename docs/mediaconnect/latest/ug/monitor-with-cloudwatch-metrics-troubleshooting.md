@@ -1,7 +1,6 @@
 
 
 # Using metrics to troubleshoot problems with your MediaConnect flow
-<a name="monitor-with-cloudwatch-metrics-troubleshooting"></a>
 
 You can monitor the health of your stream by reviewing the metrics that AWS Elemental MediaConnect sends to CloudWatch. In particular, if you encounter a problem on your MediaConnect flow, these metrics can help you isolate the problem. The specific metrics to watch depend on the protocol that your source uses. Review the lists below, which are sorted by source protocol.
 

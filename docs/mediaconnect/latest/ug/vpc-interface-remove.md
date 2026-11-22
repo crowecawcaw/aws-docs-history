@@ -1,7 +1,6 @@
 
 
 # Removing a VPC interface from a MediaConnect flow
-<a name="vpc-interface-remove"></a>
 
 You can remove a VPC interface from your flow if it isn't used as a source for the flow. 
 

@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaConnect Gateway
-<a name="gateway"></a>
 
 
 

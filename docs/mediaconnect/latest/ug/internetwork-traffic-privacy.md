@@ -1,7 +1,6 @@
 
 
 # Internetwork traffic privacy
-<a name="internetwork-traffic-privacy"></a>
 
 To set up a private connection between your Amazon VPC and your corporate network, you can choose to set up either an IPsec VPN connection over the internet or a private physical connection using Direct Connect connection. Direct Connect enables you to establish a private virtual interface from your on-premises network directly to your Amazon VPC, providing you with a private, high-bandwidth network connection between your network and your VPC. With multiple virtual interfaces, you can establish private connectivity to multiple VPCs while maintaining network isolation. For more information, see [What is AWS Site-to-Site VPN?](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) and [What is Direct Connect?](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html)
 

@@ -1,7 +1,6 @@
 
 
 # Data protection for AWS Elemental MediaConnect
-<a name="data-protection"></a>
 
 You can protect your data using tools that are provided by AWS. AWS Elemental MediaConnect can decrypt your incoming video (flow source or router input) and encrypt your outgoing video (flow outputs, router outputs and entitlements). 
 

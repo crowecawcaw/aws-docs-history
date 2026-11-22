@@ -1,7 +1,6 @@
 
 
 # Media streams in MediaConnect
-<a name="media-streams"></a>
 
 A media stream is an essential component in a CDI flow, which you can use to ingest content into and transport content within the AWS Cloud via the SMPTE 2110, part 22 transport standard. Each media stream represents a single track or stream of media that contains video, audio, or ancillary data. 
 

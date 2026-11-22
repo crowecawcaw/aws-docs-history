@@ -1,7 +1,6 @@
 
 
 # Key management for SPEKE
-<a name="encryption-speke-key-management"></a>
 
 With a SPEKE implementation, a conditional access (CA) system provides keys to AWS Elemental MediaConnect for content encryption and decryption. API Gateway acts as a proxy for the communication between the service and the CA platform key provider. Each AWS Elemental MediaConnect flow must reside in the same AWS Region as its API Gateway proxy.
 
