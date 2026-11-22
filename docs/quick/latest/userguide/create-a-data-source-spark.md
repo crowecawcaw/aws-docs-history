@@ -1,7 +1,6 @@
 
 
 # Creating a data source using Apache Spark
-<a name="create-a-data-source-spark"></a>
 
 You can connect directly to Apache Spark using Quick Sight, or you can connect to Spark through Spark SQL. Using the results of queries, or direct links to tables or views, you create data sources in Quick Sight. You can either directly query your data through Spark, or you can import the results of your query into [SPICE](spice.md).
 

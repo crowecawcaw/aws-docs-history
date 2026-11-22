@@ -1,7 +1,6 @@
 
 
 # Using service control policies to restrict AWS Quick sign-up options
-<a name="security-scp-admin"></a>
 
 If you're an administrator in AWS Organizations, you can use service control policies (SCPs) to restrict how individuals in your organization can sign up for AWS Quick. You can restrict the edition of Quick they can sign up for, and also the type of user that they can sign up for.
 
@@ -48,7 +47,7 @@ To restrict the user management options that individuals in your organization ca
 
 The following example for Quick shows a service control policy that denies signing up for a AWS Quick Standard Edition and prevents the ability to sign up using IAM Identity Center authentication. This policy uses the `quicksight:Subscribe` action, in addition to the condition keys previously described. For a list of AWS Quick-specific keys for use in IAM permission policies, see [Actions, resources, and condition keys for Quick](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonquicksight.html) in the *Service Authorization Reference*.
 
-```
+```json
 {
     "Version": "2012-10-17"		 	 	 ,
     "Statement": [
@@ -99,7 +98,7 @@ Two actions can create a AWS Quick subscription: `quicksight:Subscribe` and `qui
 
 The following example SCP denies both actions in every account except the approved accounts that you list. The policy uses the `aws:PrincipalAccount` global condition key to compare the account of the principal making the request against your approved accounts. Replace the example account IDs with the IDs of the accounts where you allow Quick subscriptions.
 
-```
+```json
 {
     "Version": "2012-10-17"		 	 	 ,
     "Statement": [
@@ -130,7 +129,7 @@ With this policy in effect, only principals in the listed accounts can create a 
 
 To allow subscription creation only through a specific provisioning identity – for example, a role that your infrastructure-as-code pipeline uses – use the `aws:PrincipalArn` global condition key instead of `aws:PrincipalAccount`. The following example denies all three actions unless the caller is the approved provisioning role. Replace the example role ARN with the ARN of your provisioning role.
 
-```
+```json
 {
     "Version": "2012-10-17"		 	 	 ,
     "Statement": [

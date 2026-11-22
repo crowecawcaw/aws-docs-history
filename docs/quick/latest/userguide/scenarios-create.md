@@ -1,7 +1,6 @@
 
 
 # Creating an AWS Quick Sight scenario
-<a name="scenarios-create"></a>
 
 AWS Quick Pro users can create scenarios from Quick Sight dashboards, or from the **Scenarios** section on the Quick Sight home page. Users can create as many scenarios as they need. Each user can have up to 3 active scenarios at a time. Each Quick Sight account supports up to 10 active scenarios at a time. Use the following procedure to create a scenario in AWS Quick Sight.
 

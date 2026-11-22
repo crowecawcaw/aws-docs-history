@@ -1,7 +1,6 @@
 
 
 # Billing
-<a name="qbiz-indexes-billing"></a>
 
 When using Amazon Q Business indexes in AWS Quick, billing works as follows:
 

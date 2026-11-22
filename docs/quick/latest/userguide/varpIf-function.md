@@ -1,7 +1,6 @@
 
 
 # varpIf
-<a name="varpIf-function"></a>
 
 Based on a conditional statement, the `varpIf` function calculates the variance of the set of numbers in the specified measure, grouped by the chosen dimension or dimensions, based on a biased population.
 

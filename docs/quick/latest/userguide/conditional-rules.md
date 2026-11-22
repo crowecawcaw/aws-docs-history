@@ -1,7 +1,6 @@
 
 
 # Conditional rules
-<a name="conditional-rules"></a>
 
 This feature is currently available with the **Free-form** layout. Conditional rules are used to hide or show visuals when specific conditions are met. This can be useful when you have multiple versions of the same visual overlapped with each other and want the dashboard viewer to see a version that best represents the parameter value they select. 
 

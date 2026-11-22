@@ -1,7 +1,6 @@
 
 
 # Adding suggested insights
-<a name="adding-suggested-insights"></a>
 
 Use the following procedure to add suggested insights to your analysis.
 

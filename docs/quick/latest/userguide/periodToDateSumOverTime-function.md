@@ -1,7 +1,6 @@
 
 
 # periodToDateSumOverTime
-<a name="periodToDateSumOverTime-function"></a>
 
 The `periodToDateSumOverTime` function calculates the sum of a measure for a given time granularity (for instance, a quarter) up to a point in time.
 

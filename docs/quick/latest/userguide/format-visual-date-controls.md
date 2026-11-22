@@ -1,7 +1,6 @@
 
 
 # Customizing date formats in Quick
-<a name="format-visual-date-controls"></a>
 
 In Quick, you can customize how dates are formatted in your filter and parameter controls. For example, you can specify to format the date in a control as 20-09-2021, or, if you'd rather, as 09-20-2021. You can also specify to shorten the month in your dates (such as September) to three letters (Sep), among other customizations.
 

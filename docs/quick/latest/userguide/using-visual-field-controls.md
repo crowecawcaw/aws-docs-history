@@ -1,7 +1,6 @@
 
 
 # Using visual field controls
-<a name="using-visual-field-controls"></a>
 
 You can edit the fields used by a visual with user interface (UI) controls.
 

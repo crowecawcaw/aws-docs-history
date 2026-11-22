@@ -1,7 +1,6 @@
 
 
 # Managing access for IAM Identity Center users
-<a name="managing-user-access-idc"></a>
 
 
 |  | 

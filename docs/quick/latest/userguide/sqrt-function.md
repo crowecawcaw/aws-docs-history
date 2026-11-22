@@ -1,14 +1,13 @@
 
 
 # Sqrt
-<a name="sqrt-function"></a>
 
 `sqrt` returns the square root of a given expression. 
 
 ## Syntax
 <a name="sqrt-function-syntax"></a>
 
-```
+```sql
 sqrt({{expression}})
 ```
 

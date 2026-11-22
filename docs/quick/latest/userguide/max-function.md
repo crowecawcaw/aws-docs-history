@@ -1,14 +1,13 @@
 
 
 # max
-<a name="max-function"></a>
 
 The `max` function returns the maximum value of the specified measure or date, grouped by the chosen dimension or dimensions. For example, `max(sales goal)` returns the maximum sales goals grouped by the (optional) chosen dimension.
 
 ## Syntax
 <a name="max-function-syntax"></a>
 
-```
+```sql
 max(measure, [group-by level])
 ```
 
@@ -28,7 +27,7 @@ The argument must be a dimension field. The group-by level must be enclosed in s
 
 The following example returns the max sales value for each region. It is compared to the total, minimum, and median sales values.
 
-```
+```sql
 max({Sales})
 ```
 
@@ -37,7 +36,7 @@ max({Sales})
 
 You can also specify at what level to group the computation using one or more dimensions in the view or in your dataset. This is called a LAC-A function. For more information about LAC-A functions, see [Level-aware calculation - aggregate (LAC-A) functions](https://docs.aws.amazon.com/quicksight/latest/user/level-aware-calculations-aggregate.html). The following example calculates the max sales at the Country level, but not across other dimensions (Region) in the visual.
 
-```
+```sql
 max({Sales}, [Country])
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Individuals in my organization get an "External Login is Unauthorized" message when they try to access Quick Sight
-<a name="troubleshoot-webidentity-federation"></a>
 
 
 |  | 

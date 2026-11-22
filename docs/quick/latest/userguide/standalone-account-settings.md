@@ -1,7 +1,6 @@
 
 
 # Account settings for AWS Quick Free and Plus accounts
-<a name="standalone-account-settings"></a>
 
 This topic describes how to view and manage account-level settings for AWS Quick Free and Plus accounts created at [aws.com/quick](https://aws.com/quick). Account settings include your profile information, account details, and support access.
 

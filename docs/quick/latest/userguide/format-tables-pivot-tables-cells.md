@@ -1,7 +1,6 @@
 
 
 # Cell formatting
-<a name="format-tables-pivot-tables-cells"></a>
 
 ## Row height
 <a name="format-tables-pivot-tables-cells-row"></a>

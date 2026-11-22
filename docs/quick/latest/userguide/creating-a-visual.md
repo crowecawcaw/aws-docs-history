@@ -1,7 +1,6 @@
 
 
 # Adding visuals to Quick Sight analyses
-<a name="creating-a-visual"></a>
 
 A *visual* is a graphical representation of your data. You can create a wide variety of visuals in an analysis, using different datasets and visual types. 
 

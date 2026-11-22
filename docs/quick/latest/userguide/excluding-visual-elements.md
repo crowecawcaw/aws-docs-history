@@ -1,7 +1,6 @@
 
 
 # Excluding visual elements
-<a name="excluding-visual-elements"></a>
 
 When viewing visuals, you can choose an element on the visual, and then choose to focus on the element. Elements to focus on can include, for example, a bar or bubble, or a row or column header in the case of a pivot table. The exception is that you can't exclude elements that are mapped to date fields. You can exclude multiple elements on a single chart.
 

@@ -1,7 +1,6 @@
 
 
 # Limitations
-<a name="s3-limitations"></a>
 
 When using Amazon S3 integrations in AWS Quick, be aware of the following limitations:
 + The Amazon S3 bucket must be in the same AWS Region as your AWS Quick application.

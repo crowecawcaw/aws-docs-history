@@ -1,7 +1,6 @@
 
 
 # Headers
-<a name="format-tables-headers"></a>
 
 ## Expand all headers
 <a name="format-tables-headers-expand"></a>

@@ -1,7 +1,6 @@
 
 
 # Adding filters
-<a name="add-a-filter-data-prep"></a>
 
 You can add filters to a dataset or an analysis. Use the following procedures to learn how.
 

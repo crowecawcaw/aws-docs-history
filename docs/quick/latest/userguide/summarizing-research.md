@@ -1,7 +1,6 @@
 
 
 # Summarizing the research
-<a name="summarizing-research"></a>
 
 After completing your research report, you can create focused summaries for different audiences. To access the summarizing feature, choose the **Summarize** button in the upper right of your research report.
 

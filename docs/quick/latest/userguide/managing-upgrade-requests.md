@@ -1,7 +1,6 @@
 
 
 # Managing upgrade requests
-<a name="managing-upgrade-requests"></a>
 
 
 |  | 

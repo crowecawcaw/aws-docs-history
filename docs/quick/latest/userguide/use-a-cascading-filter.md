@@ -1,7 +1,6 @@
 
 
 # Creating cascading filters
-<a name="use-a-cascading-filter"></a>
 
 The idea behind cascading any action, such as a filter, is that choices in the higher levels of a hierarchy affect the lower levels of a hierarchy. The term *cascading* comes from the way that a cascade waterfall flows from one tier to the next. 
 

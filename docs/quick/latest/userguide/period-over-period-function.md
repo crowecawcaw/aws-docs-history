@@ -1,7 +1,6 @@
 
 
 # Period over period computation
-<a name="period-over-period-function"></a>
 
 The period over period computation compares values from two different time periods. For example, you can create a computation to find out how much sales increased or decreased since the previous time period. 
 

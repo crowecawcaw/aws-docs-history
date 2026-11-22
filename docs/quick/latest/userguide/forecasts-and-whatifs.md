@@ -1,7 +1,6 @@
 
 
 # Forecasting and creating what-if scenarios with AWS Quick Sight
-<a name="forecasts-and-whatifs"></a>
 
 Using ML-powered forecasting, you can forecast your key business metrics with point-and-click simplicity. No machine learning expertise is required. The built-in ML algorithm in AWS Quick Sight is designed to handle complex real-world scenarios. AWS Quick Sight uses machine learning to help provide more reliable forecasts than available by traditional means.
 

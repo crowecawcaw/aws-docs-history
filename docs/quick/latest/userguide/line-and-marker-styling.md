@@ -1,7 +1,6 @@
 
 
 # Line and marker styling on line charts in Quick
-<a name="line-and-marker-styling"></a>
 
 In Quick line charts, you have multiple options to emphasize what you want readers to focus on: color, line style, and markers. You can use these options together or separately to help readers understand your line charts more quickly under different circumstances. For example, if some of your readers won't see color differences—perhaps because of color blindness or because of monochrome printing—you can use line patterns to distinguish one ore more lines in a chart. 
 

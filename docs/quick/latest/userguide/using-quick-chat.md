@@ -1,9 +1,8 @@
 
 
 # Ask questions, explore data, and get insights with chat in AWS Quick
-<a name="using-quick-chat"></a>
 
-You can use AWS Quick chat to ask questions, interact with your Quick resources, and accomplish tasks using multiple agentic worflows using natural language. When you ask a question, Quick chat analyzes the data it has access to to generate comprehensive responses.
+You can use AWS Quick chat to ask questions, interact with your Quick resources, and accomplish tasks through multiple agentic workflows using natural language. When you ask a question, Quick chat analyzes the data it can access to generate comprehensive responses.
 
 Quick chat provides you with the following capabilities.
 
@@ -11,13 +10,17 @@ Quick chat provides you with the following capabilities.
 + [Welcome message](#welcome-message)
 + [Suggested prompts](#suggested-prompts)
 + [Expand and collapse modes](#expand-collapse)
++ [Response preferences](#response-preferences)
 + [Agent picker](#agent-picker)
 + [Scoping response generation to specific data](#data-filter)
 + [Chatting with datasets](#chatting-with-datasets)
 + [Chatting with Topics](#chatting-with-topics)
 + [Web search](#web-search)
 + [Upload files and chat](#file-uploads)
-+ [Actions](#chat-actions)
++ [Slash commands](#slash-commands)
++ [Mentions](#mentions)
++ [All data and apps panel](#all-data-and-apps)
++ [Chat with a space](#chat-with-spaces)
 + [Flows](#chat-flows)
 + [Memory and response personalization](#chat-memory)
 + [Source citations](#review-source-citation)
@@ -29,6 +32,9 @@ Quick chat provides you with the following capabilities.
 + [Explanations](#chat-explanations-summary)
 + [Contextual awareness](#contextual-awareness)
 + [Managing your preferences in AWS Quick](#user-preferences)
++ [Deep research](#deep-research)
++ [Running work in the background](#background-work)
++ [Chat features in the desktop app](#desktop-app-chat)
 + [AWS Quick chat explanations](chat-explanations.md)
 
 ## Welcome message
@@ -53,6 +59,33 @@ To help enhance your productivity and streamline your chat interactions, AWS Qui
 
 You can open up the chat interface at any time by selecting the chat bubble icon from the top right navigation menu. You can also exit out of the chat at any time by selecting the cancel icon from the top navigation menu.
 
+## Response preferences
+<a name="response-preferences"></a>
+
+AWS Quick chat provides multiple response modes that you choose based on your task. To switch between modes, use the response preferences selector in the chat input area.
+
+
+| Mode | Description | Best for | 
+| --- | --- | --- | 
+| Fast | Optimized for speed on everyday tasks. Quick generates responses quickly with the lowest latency. | Quick questions and simple tasks where speed matters more than depth. | 
+| Balanced | Balances quality and speed. Quick provides high-quality responses with moderate latency. | Most tasks, including writing assistance, summarization, and general day-to-day work. | 
+| Smart | Provides the highest-quality responses, with the most thorough reasoning and longer response times. | Complex analysis, nuanced writing, detailed reasoning, and tasks that require high accuracy. | 
+
+### Thinking effort
+<a name="thinking-effort"></a>
+
+You control the thinking effort independently from the response mode. Thinking effort determines how much reasoning Quick applies before it responds. Higher thinking effort enables deeper reasoning for complex code, strategic planning, and analysis.
+
+
+| Level | Description | 
+| --- | --- | 
+| Off | Quick responds directly, with no extended reasoning. | 
+| Low | Quick applies minimal reasoning before responding. | 
+| Medium | Quick applies moderate reasoning, a good balance for most tasks. | 
+| High | Quick applies extended reasoning for complex problems. | 
+
+You can set thinking effort on **Balanced** and **Smart** modes. **Fast** mode responds without extended reasoning. To change the thinking effort, choose the response preferences selector in the chat input area, and then adjust the thinking effort picker.
+
 ## Agent picker
 <a name="agent-picker"></a>
 
@@ -67,7 +100,7 @@ When you use AWS Quick, you can define what data you want your chat responses ge
 
 By default, an agent has knowledge of all your AWS Quick resources and its underlying large language model (LLM). While using chat, you can select between the following knowledge modes:
 + **All data and apps** – AWS Quick will use all available knowledge sources (including spaces, dashboards, datasets, topics, knowledge bases, action integrations, and LLM knowledge) to generate a response to your prompts.
-+ **General knowledge** – AWS Quick will only use LLM knowledge to generate responses to your prompts. It won't use any knowlegde from AWS Quick resources.
++ **General knowledge** – AWS Quick will only use LLM knowledge to generate responses to your prompts. It won't use any knowledge from AWS Quick resources.
 + **Specific data and apps** – Chat with a specific or multiple spaces, dashboards, datasets, topics, knowledge bases, or actions. To choose specific resources, select **Choose resource**.
 
 An agent with pre-defined knowledge, on the other hand, only has knowledge of existing AWS Quick resources already linked to it, and its underlying LLM knowledge. While chatting with an agent with pre-defined knowledge, you get the following knowledge modes:
@@ -106,7 +139,7 @@ For more information about creating and configuring Topics, see [Working with AW
 ## Web search
 <a name="web-search"></a>
 
-AWS Quick comes with built-in web search capability. AWS Quick chat automatically searches both your connected data sources and the web, providing comprehensive answers from either or both sources as needed. You can turn web search off for any query by clicking the globe icon in the chat panel. Any content retrieved from the web is appropriately cited in the final response.
+AWS Quick comes with built-in web search capability. AWS Quick chat automatically searches both your connected data sources and the web, providing comprehensive answers from either or both sources as needed. You can turn web search off for any query by choosing the globe icon in the chat panel. Any content retrieved from the web is appropriately cited in the final response.
 
 **Note**  
 Web search is available to users only if it has been enabled by admin.
@@ -138,17 +171,48 @@ The total parsed content for all files combined has to be under 665,000 characte
 **Note**  
 If your files exceed the file count and character count limits, you can upload them to a [space](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-spaces.html) instead.
 
-Documents uploaded through the chat interface are deleted with the associated conversation after 90 days of inactivity.
+Documents uploaded through the chat interface are deleted with the associated conversation after 365 days of inactivity.
 
 **Note**  
 Audio and video files are not supported as file uploads.
 
-## Actions
-<a name="chat-actions"></a>
+## Slash commands
+<a name="slash-commands"></a>
 
-AWS Quick actions boost productivity by allowing you to perform relevant tasks in supported third-party services from your AWS Quick chat interface, like sending an email using Microsoft Outlook, or creating a PagerDuty incident. You can invoke any actions configured and available to you from your AWS Quick chat interface. To select an action, use the action application from the data scoping filter and select the third party application you want to perform actions in. Then, choose the action you want to perform from the available actions. The system checks if you have authorization to perform the action before performing it.
+You can run commands directly from the chat input area. To open the command menu, type a forward slash (/) at the start of your message, and then choose a command or continue typing to filter the list.
 
-To learn more about actions, see [Actions in AWS Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/action-integrations.html).
+
+| Command | Description | 
+| --- | --- | 
+| /clear | Starts a new conversation with fresh context. Your current conversation is saved separately, not lost. | 
+| /compact | Condenses the current conversation to free up context. | 
+| /export | Exports the conversation as Markdown or PDF. | 
+| /mode | Switches the response mode and thinking effort. | 
+| /rename | Renames the current conversation. | 
+| /copy | Copies the most recent response. | 
+| /skills | Shows the available skills. | 
+| /connectors | Shows and manages your connectors. | 
+| /goal | Gives the agent a job to finish rather than a single question to answer. Quick keeps working on its own until the job is complete, checks its own work, and then hands it back. | 
+| /help | Shows the list of available commands. | 
+
+## Mentions
+<a name="mentions"></a>
+
+To reference a specific agent, an item in your message, or people from your knowledge graph, type an at sign (@), and then choose from the list that appears. Mentions let you direct your request to a particular agent or person, or point AWS Quick chat to a specific item, without leaving the chat input area.
+
+## All data and apps panel
+<a name="all-data-and-apps"></a>
+
+The **All data and apps** panel shows the spaces, knowledge sources, and skills available to the current conversation, so you can add or adjust the resources the agent draws on. Each skill shows a status indicator that pairs an icon with text, such as **Active**, **Needs setup**, or **Error**, so status is clear without relying on color alone. 
+
+## Chat with a space
+<a name="chat-with-spaces"></a>
+
+You can attach a space to your conversation to ground responses in your team's shared knowledge. While a space is attached, AWS Quick chat answers from the content in that space, which keeps the conversation within a scoped context for confidentiality or data compliance. This applies to everything in the space, including its files, datasets, dashboards, topics, and actions.
+
+If the answer is not in the attached space, AWS Quick chat tells you so rather than answering from somewhere else. You can ask Quick to search more broadly, and it does so for the rest of that conversation until you change it again. A space you attach applies to that conversation only, so a new conversation starts with nothing attached.
+
+To attach a space, choose the **Add context** icon in the chat input area, choose **Spaces**, and then select the space you want to use. For more information about spaces, see [Organize, collaborate, and share resources with spaces in AWS Quick](working-with-spaces.md).
 
 ## Flows
 <a name="chat-flows"></a>
@@ -170,13 +234,21 @@ When you interact with chat agents in AWS Quick, you can provide your preference
 + Context about your role and responsibilities
 + Common tasks and workflows you perform
 
-This information is securely stored and fetched to enhance your future interactions with chat agents. Memories are specific to you and are not shared with other users. To get the most value from memory in chat, follow the best practices below:
+This information is securely stored and fetched to enhance your future interactions with chat agents. Memories are specific to you and are not shared with other users. To get the most value from memory in chat, follow these best practices:
 + **Be explicit about your preferences** – Clearly state your preferences, priorities, and context when you want the chat agent to remember them. For example, "I prefer reports in table format" or "I work on the marketing team".
 + **Provide relevant context** – Share information about your role, responsibilities, and common tasks to help chat agents understand your needs better.
 + **Update your preferences** – As your priorities change, inform the chat agent about updates to ensure the stored information remains current and relevant.
 + **Review and refine** – If responses don't align with your expectations, provide feedback and clarify your preferences to improve future interactions.
 
-You maintain control over your memory data. You can review chat memory by going to **Conversation History** and clicking on **View Memories**.
+You maintain control over your memory data. You can review chat memory by going to **Conversation History** and choosing **View Memories**.
+
+Quick keeps memories per agent. The default assistant and each custom agent have their own memories, so a preference you set for one agent does not change how another agent behaves. Entities in your knowledge graph stay shared across agents. For more information about your knowledge graph and My context, see [Your knowledge graph and My context](knowledge-graph.md).
+
+Quick records a memory in one of two ways, shown as its provenance:
++ **Told** – You stated it explicitly to Quick.
++ **Learned** – Quick inferred it from your activity or conversations.
+
+Each memory shows a confidence score, how often it has been used, and its source. You can review, filter, and manage your memories, including boosting, forgetting, and editing them, from Preferences. For more information, see [Managing your memories](#manage-memories).
 
 **Note**  
 Chat memory has the following limitations:  
@@ -188,6 +260,8 @@ Chat memory isn't supported for accounts configured with [AWS KMS customer manag
 AWS Quick chat responses provide in-text source citations in a numbered list. To view the source for a response, choose the number at the end of the sentence. The dialog box shows the title, URL, and a snippet from the source that was used to generate the response. Choose the URL to view the source document.
 
 To view the full list of sources, choose **Sources** at the end of the response. You can use the source list to fact-check the response, or for deeper analysis. 
+
+When a response draws on your memory, the **Sources** list includes the memories that shaped it. You can boost the memories that were helpful or remove the ones that were not.
 
 ## Copy responses
 <a name="copy-responses"></a>
@@ -219,22 +293,36 @@ AWS Quick stores any artifacts it generates as responses during chat in an artif
 
 You can download artifacts as text, CSV, code files, Word documents, Excel spreadsheets, PowerPoint presentations, PDFs, and infographics. Saving artifacts to a Space is not currently supported.
 
-For more information about creating and downloading documents and visuals, see [Document and visual creation with AWS Quick](document-and-visual-creation.md).
+For more information about creating and downloading documents and visuals, see [Create documents and business visuals](document-and-visual-creation.md).
 
 ## Conversation management
 <a name="conversation-mgmt"></a>
 
-AWS Quick stores conversations for up to 90 days, and you can access them in the left navigation pane. You can perform the following tasks to manage your conversations:
-+ **Start new conversation** – Choose **\+** from the chat controls menu to start a new conversation.
-+ **View conversation history** – Choose the clock icon to view all conversation history for the last 90 days. You can filter conversation history to specific agents.
+AWS Quick stores conversations for up to 365 days, and you can access them in the left navigation pane. Retention can be longer on some plans. For more information, see [Usage limits](usage-limits.md). You can perform the following tasks to manage your conversations:
++ **Start a new conversation** – Choose **\+** from the chat controls menu to start a new conversation.
++ **View conversation history** – Choose the clock icon to view all conversation history for the last 365 days. You can filter conversation history to specific agents.
++ **Organize conversations into folders** – You can create, rename, and delete folders, and drag conversations between them. Automatic cleanup can sort conversations into folders by topic.
++ **Pin conversations** – You can pin important conversations to keep them at the top of your conversation history.
++ **Search conversations** – You can search across all of your conversations from the search control.
++ **Archive conversations** – You can archive conversations that you no longer need without deleting them.
++ **Route related discussions into threads** – Quick can route related discussions into organized threads, and you can reply in a thread to branch a sub-conversation from a specific message.
+
+Your conversations are kept in your AWS Quick account and are available across the web, desktop, and mobile, so you can continue a conversation on any surface where you use Quick.
+
+You can also revise and rerun the messages in a conversation:
++ **Edit and rerun** – You can edit one of your earlier messages and submit it again, and Quick generates a new response from the edited message.
++ **Retry** – You can ask Quick to generate a new response to your most recent message.
++ **Branch navigation** – When you edit a message or retry a response, Quick keeps each version as a separate branch, and you can use the branch controls to move between versions and compare responses.
+
+The **Context used** indicator shows how much of the conversation context window is in use, and it fills as the conversation grows. To free context during a long session, choose **Summarize** to compact the conversation history, or start a new conversation.
 
 **Note**  
-Searching, saving, renaming, and sharing conversations with other users is not supported.
+Sharing conversations with other users is not supported.
 
 ## Response events
 <a name="response-events"></a>
 
-For every natural language prompt AWS Quick chat receives, it generates real-time processing steps while the request is being fulfilled. These steps can be viewed as part of **Response events** during response generation, and are also accessible once AWS Quick has finished generating a response. Response events vary based on the chat interaction you're having (whether you're chatting with a file you've uploaded or with a AWS Quick resource) and capture any rewrites to your response before it's finalized. A response event also includes the system generated identifiers for your conversation—you can copy and save the information for troubleshooting..
+For every natural language prompt AWS Quick chat receives, it generates real-time processing steps while the request is being fulfilled. These steps can be viewed as part of **Response events** during response generation, and are also accessible once AWS Quick has finished generating a response. Response events vary based on the chat interaction you're having (whether you're chatting with a file you've uploaded or with a AWS Quick resource) and capture any rewrites to your response before it's finalized. A response event also includes the system generated identifiers for your conversation—you can copy and save the information for troubleshooting.
 
 ## Explanations
 <a name="chat-explanations-summary"></a>
@@ -285,11 +373,20 @@ You can let Quick know what to call you and share your area of focus at work. Qu
 ### Managing your memories
 <a name="manage-memories"></a>
 
-You can view and manage your memories directly from Preferences. Memories are insights that Quick learns from your conversations to personalize future interactions. From the Memories section, you can:
-+ View all saved memories.
-+ Search for specific memories.
-+ Delete individual memories.
-+ Delete all memories at once.
+You can view and manage your memories directly from Preferences. Memories are insights that Quick learns from your conversations, or that you tell it directly, to personalize future interactions. Memories are kept per agent, so you can review them for all agents, the default chat agent, or a specific custom agent.
+
+In the Memories section, you can search, filter, and sort your memories. The filters cover the following:
++ **Agent** – View memories for all agents, the default chat agent, or a specific custom agent.
++ **Type** – Filter by memory category, such as procedures, preferences, and profile facts. The available categories vary.
++ **Provenance** – Show only Told memories, only Learned memories, or both.
++ **Sort** – Sort by date created, confidence, or how often a memory has been referenced.
+
+Choose a memory to open its details, which include the memory text, when it was created and last used, its confidence, its type, its Told or Learned provenance, and a timeline that traces what Quick used to form it. Each memory provides the following actions:
++ **Boost** – Raise confidence in the memory to the highest level so Quick uses it first in future responses.
++ **Forget** – Remove the memory. You can choose a reason, such as Too specific, Never said this, or Outdated, so Quick avoids re-learning it.
++ **Edit** – Update the memory's text. Use edit to fix a fact instead of deleting and re-teaching it.
+
+Memory settings include a main toggle that controls whether Quick learns from your conversations, and a Forget all memories action that deletes every saved memory. Forgetting all memories cannot be undone and does not affect your knowledge graph. For more information about your knowledge graph, see [Your knowledge graph and My context](knowledge-graph.md).
 
 ### Accessing User Preferences
 <a name="access-user-preferences"></a>
@@ -305,3 +402,78 @@ To access and configure your preferences:
 1. Make your changes across any of the available sections.
 
 1. Choose **Save** to apply your changes, or choose **Cancel** to discard them.
+
+## Deep research
+<a name="deep-research"></a>
+
+Deep research provides structured, multi-step investigation. When you start deep research, AWS Quick chat investigates your question across multiple sources and compiles the results into a comprehensive deliverable. A research plan card appears in the conversation and shows live progress as Quick gathers information, generates figures, and finalizes the report.
+
+Deep research is useful for the following tasks:
++ You can run market research and competitive analysis.
++ You can explore a technical topic in depth.
++ You can carry out strategic planning and investigation.
++ You can explore a problem from multiple angles.
+
+To start deep research, ask Quick to research a topic or perform a comprehensive investigation. To follow along while Quick works, choose **View research progress** on the research plan card.
+
+## Running work in the background
+<a name="background-work"></a>
+
+While AWS Quick chat is responding, you can send the task to the background and keep working in another conversation. To send the current task to the background, choose the send-to-background control. The task continues to run, and Quick notifies you when it finishes.
+
+You can also queue follow-up messages while Quick is working. Queued items show a count, and you can send them immediately or remove them.
+
+To monitor longer-running and background agent work across your assistant, see [Monitor and manage agents and flows with Mission Control](mission-control.md).
+
+## Chat features in the desktop app
+<a name="desktop-app-chat"></a>
+
+The following chat capabilities are available when you use AWS Quick in the desktop app.
+
+### Local folders
+<a name="chat-local-folders"></a>
+
+In the desktop app, you can give the agent access to local folders so that it can read, write, or search their contents. To add a folder or view the folders you have already granted access to, choose the **Add context** icon in the chat input area, choose **Local folders**, and then choose **Manage folders**. Quick opens the **Knowledge** tab, where adding a folder works the same as adding one from **Customize** > **Knowledge**. For more information, see [Knowledge](knowledge.md).
+
+### Plan mode
+<a name="plan-mode"></a>
+
+In the desktop app, you can use plan mode for complex, multi-step tasks. When you turn on plan mode, AWS Quick chat breaks your request into a structured plan with individual steps before it runs them. You can review and change the plan before Quick proceeds. The plan appears in a panel next to your conversation and as a plan card in the chat.
+
+Plan mode is useful for tasks such as the following:
++ You can generate a document that spans multiple files.
++ You can run a complex data analysis workflow.
++ You can manage a multi-step research project.
++ You can refactor code at a large scale.
+
+### Coding agent sessions
+<a name="coding-agent-sessions"></a>
+
+In the desktop app, you can use coding agents such as Kiro or Claude to accomplish coding tasks directly inside a conversation. Local code execution in the desktop app runs in an isolated sandbox that blocks common coding commands, so you delegate those tasks to a coding agent. For information about connecting a coding agent, see [Work with integrations in AWS Quick](working-with-integrations.md).
+
+### Session tabs
+<a name="session-tabs"></a>
+
+In the desktop app, documents and artifacts open in session tabs alongside the conversation. In a session tab, you can view and edit a rendered document, turn on selection mode to select text, images, and tables and add them as context for your next prompt, and act on the open document. You can open a document, download it, add it to a space, share it, or open it in chat. Multiple documents can stay open as tabs at the same time.
+
+### Incognito mode
+<a name="incognito-mode"></a>
+
+In the desktop app, you can use incognito mode when you want a private conversation that does not update your memory or history. In an incognito conversation, AWS Quick chat does not read from or write to your long-term memory or knowledge graph, and your responses are not personalized from past conversations. The conversation does not appear in your recent conversations, and it is discarded when you leave it.
+
+Inside an incognito conversation, Quick still follows the current conversation from turn to turn, and it can still search files that you have already indexed. It does not remember anything after you leave the conversation.
+
+To start an incognito conversation, choose the **Incognito** control at the top right of the chat surface. A private-mode indicator appears while incognito mode is active.
+
+**Note**  
+Privacy is locked once a chat has messages, so turn on incognito mode before you begin. When you leave an incognito conversation, its contents are deleted and nothing is retained. If your administrator has set up chat log delivery, Quick still delivers incognito conversations to the log destination.
+
+### Away From Keyboard (AFK) recap
+<a name="afk-recap"></a>
+
+In the desktop app, when you step away during a long-running task and return, AWS Quick chat shows an away-from-keyboard (AFK) recap. The recap summarizes what happened while you were away, so you can catch up quickly without scrolling through the full conversation. This recap is specific to a task running in the current conversation. For a summary of activity across your connected services while you were away, see [Stay on top of your work with your proactive feed](working-with-feed.md).
+
+### Exporting a conversation
+<a name="export-conversation"></a>
+
+In the desktop app, you can export an entire conversation to share it or keep a record. To export the current conversation, use the **/export** command or the export action, and then choose **Markdown** or **PDF**.

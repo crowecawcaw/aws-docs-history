@@ -1,7 +1,6 @@
 
 
 # Process flow
-<a name="actions-process-flow"></a>
 + **Process step** - Groups logically related actions. Used for organizing your process.
 + **If decision** - Checks a true/false condition. The process is split into two branches based on the result.
 + **Loop through items** - Repeats actions for each item. Used for processing multiple items like emails, files, or data rows one at a time.

@@ -1,7 +1,6 @@
 
 
 # Define sorting in a repeating section
-<a name="qs-reports-repeat-sections-sort"></a>
 
 **To define sorting in a repeating section**
 

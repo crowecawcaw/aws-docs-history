@@ -1,7 +1,6 @@
 
 
 # Sample data
-<a name="sample-data"></a>
 
 To get a first look at how AWS Quick Sight works, you can explore AWS Quick Sight using the following sample data:
 + [B2b sales data](samples/b2b-sales.csv.zip)

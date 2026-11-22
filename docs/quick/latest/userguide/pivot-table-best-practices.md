@@ -1,7 +1,6 @@
 
 
 # Pivot table best practices
-<a name="pivot-table-best-practices"></a>
 
 It's best to deploy a minimal set of rows, columns, metrics, and table calculations, rather than offering all possible combinations in one pivot table. If you include too many, you risk overwhelming the viewer and you can also run into the computational limitations of the underlying database. 
 

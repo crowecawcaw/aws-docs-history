@@ -1,7 +1,6 @@
 
 
 # Text box system parameters
-<a name="text-box-parameters"></a>
 
 Use text boxes to add system parameters to your pixel perfect report's headers and footers. Text box system parameters appear on the far right side of the text box toolbar. You can add the following parameters to a header or footer of your report:
 + Page numbers: The current page number of the report.

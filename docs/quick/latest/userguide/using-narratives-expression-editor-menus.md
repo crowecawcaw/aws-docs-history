@@ -1,7 +1,6 @@
 
 
 # The expression editor workspace
-<a name="using-narratives-expression-editor-menus"></a>
 
 Use the expression editor to customize a narrative to best fit your business needs. The information below provides an overview of the expression editor workspace and lists all menu options that can be configured for your narrative. For a walkthrough that shows you how to create a custom narrative, see [Use the narrative expression editor](using-narratives-expression-editor-step-by-step.md).
 

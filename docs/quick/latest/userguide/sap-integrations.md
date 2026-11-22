@@ -1,7 +1,6 @@
 
 
 # SAP workload integrations
-<a name="sap-integrations"></a>
 
 With SAP workload integrations, you can perform actions within various SAP systems. Manage business data, inventory, materials, and business processes. For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 

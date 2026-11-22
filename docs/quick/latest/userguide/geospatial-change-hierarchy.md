@@ -1,7 +1,6 @@
 
 
 # Changing a geospatial grouping
-<a name="geospatial-change-hierarchy"></a>
 
 You can change a geospatial hierarchy or grouping that exists in a dataset.
 

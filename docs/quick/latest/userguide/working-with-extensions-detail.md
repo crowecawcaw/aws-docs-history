@@ -1,12 +1,13 @@
 
 
 # Connect AWS Quick to your existing tools with extensions
-<a name="working-with-extensions-detail"></a>
 
 **Note**  
 The AWS Quick browser extension, Microsoft Outlook extension, Microsoft Word extension, Microsoft Excel extension, and Microsoft PowerPoint extension don't require admin setup to install and use. For the Slack and Microsoft Teams extensions, your Quick admin must [configure AWS Quick access](https://docs.aws.amazon.com/quicksuite/latest/userguide/extension-access.html) before authors can deploy them.
 
 AWS Quick extensions enable you to optimize your daily tasks with assistance from an AI tool added to the tools you already use. Whether you're browsing the web, collaborating in team channels, managing emails, or creating documents, Quick extensions bring AI-powered assistance directly into your existing workflows without requiring you to switch between applications.
+
+Extensions are part of the same Quick runtime as the web, desktop, and mobile experiences. Your conversations, agents, and context are kept in your AWS Quick account, so you can start work in an extension and continue it on the web, desktop, or mobile without losing context.
 
 The following extension types are available:
 + **Browser Extension** - Enhance your web browsing experience with AI-powered page summarization, content analysis, and knowledge access across Google Chrome, Firefox, and Microsoft Edge browsers. No admin setup required.

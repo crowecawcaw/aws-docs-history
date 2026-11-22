@@ -1,7 +1,6 @@
 
 
 # Generating an analysis with natural language prompts
-<a name="generating-an-analysis"></a>
 
 With Quick Sight, you can use artificial intelligence (AI) to author analyses in three ways within the analysis authoring experience. You can generate a full, multi-sheet analysis from a natural language prompt (Generate Analysis). You can generate a single sheet within an open analysis (Generate Sheet). You can also generate an analysis from an image. This topic describes the full-analysis flow. The following sections describe the two additional flows.
 

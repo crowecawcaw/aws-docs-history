@@ -1,7 +1,6 @@
 
 
 # Changing paper size, margins, and orientation
-<a name="qs-reports-paper-size"></a>
 
 After you create a pixel perfect report in AWS Quick Sight, you can change the report format, orientation, and margins from the **Analysis settings** menu whenever you want.
 

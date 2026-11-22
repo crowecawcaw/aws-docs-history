@@ -1,7 +1,6 @@
 
 
 # Provisioning users for AWS Quick
-<a name="provisioning-users"></a>
 
 
 |  | 

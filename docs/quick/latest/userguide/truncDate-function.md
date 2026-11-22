@@ -1,7 +1,6 @@
 
 
 # truncDate
-<a name="truncDate-function"></a>
 
 `truncDate` returns a date value that represents a specified portion of a date. For example, requesting the year portion of the value 2012-09-02T00:00:00.000Z returns 2012-01-01T00:00:00.000Z. Specifying a time-related period for a date that doesn't contain time information returns the initial date value unchanged.
 

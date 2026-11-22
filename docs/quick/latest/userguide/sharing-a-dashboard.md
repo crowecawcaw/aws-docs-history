@@ -1,7 +1,6 @@
 
 
 # Sharing AWS Quick Sight dashboards
-<a name="sharing-a-dashboard"></a>
 
 By default, dashboards in AWS Quick Sight aren't shared with anyone and are only accessible to the owner. However, after you publish a dashboard, you can share it with other users or groups in your AWS Quick account. You can also choose to share the dashboard with everyone in your Quick account and make the dashboard visible on the Quick homepage for all users in your account. Additionally, you can copy a link to the dashboard to share with others who have access to it.
 

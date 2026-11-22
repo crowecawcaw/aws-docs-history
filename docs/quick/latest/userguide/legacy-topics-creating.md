@@ -1,7 +1,6 @@
 
 
 # Creating a legacy Topic
-<a name="legacy-topics-creating"></a>
 
 **Note**  
 New Topics created going forward use the multi-dataset Topic experience. The following information applies to legacy Topics that were created before this feature launched.

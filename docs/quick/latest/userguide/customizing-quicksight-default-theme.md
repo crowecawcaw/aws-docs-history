@@ -1,7 +1,6 @@
 
 
 # Setting a default theme for AWS Quick analyses with the AWS Quick APIs
-<a name="customizing-quicksight-default-theme"></a>
 
 **To set a default theme by using the API**
 
@@ -11,7 +10,7 @@
 
    The following example shows a shell script that uses the `list-themes` command in the AWS CLI. It sets the AWS account ID and the AWS Region as variables. If you previously used `aws configure` to set a default Region, adding the `--region` variable to your command overrides your default setting.
 
-   ```
+   ```bash
    #declare variables
    awsacct1='111122223333'
    region='us-west-2'
@@ -48,7 +47,7 @@
 
 1. Assign the theme as the default for the same ARN or ARNs.
 
-   ```
+   ```bash
    #declare variables
    awsacct1='111122223333'
    namespace='default'

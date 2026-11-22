@@ -1,7 +1,6 @@
 
 
 # Sharing Amazon Q Business index knowledge bases
-<a name="qbiz-indexes-sharing"></a>
 
 Users who have access to an Amazon Q Business index in Amazon Q Business will automatically have the corresponding knowledge base in AWS Quick shared with them when it is created. The knowledge base can be shared with other users after creation, but only the user who created the knowledge base can share it with other users.
 

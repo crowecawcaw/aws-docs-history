@@ -1,7 +1,6 @@
 
 
 # Managing the account service role with the API
-<a name="account-service-role-apis"></a>
 
 
 |  | 
@@ -40,7 +39,7 @@ Use an AWS CLI or SDK version that includes both operations.
 
 1. Run the following AWS CLI command. Replace {{111122223333}} with your AWS account ID and {{us-east-1}} with your home Region.
 
-   ```
+   ```bash
    aws quicksight describe-resource-permissions \
        --aws-account-id {{111122223333}} \
        --region {{us-east-1}}
@@ -48,7 +47,7 @@ Use an AWS CLI or SDK version that includes both operations.
 
    For example, an account that uses a service-managed role returns a response similar to the following:
 
-   ```
+   ```json
    {
        "Status": 200,
        "RoleType": "QUICKSIGHT_MANAGED",
@@ -71,7 +70,7 @@ Both `RoleType` and `CustomerManagedRoleArn` are required. The only supported ro
 
 1. Run the following AWS CLI command. Replace {{111122223333}} with your AWS account ID, {{arn:aws:iam::111122223333:role/QuickSightServiceRole}} with your prepared role ARN, and {{us-east-1}} with your home Region.
 
-   ```
+   ```bash
    aws quicksight update-resource-permissions \
        --aws-account-id {{111122223333}} \
        --role-type CUSTOMER_MANAGED \
@@ -81,7 +80,7 @@ Both `RoleType` and `CustomerManagedRoleArn` are required. The only supported ro
 
    A successful response returns the selected role type and ARN:
 
-   ```
+   ```json
    {
        "Status": 200,
        "RoleType": "CUSTOMER_MANAGED",
@@ -92,7 +91,7 @@ Both `RoleType` and `CustomerManagedRoleArn` are required. The only supported ro
 
 1. Run `describe-resource-permissions` again with your account ID and home Region:
 
-   ```
+   ```bash
    aws quicksight describe-resource-permissions \
        --aws-account-id {{111122223333}} \
        --region {{us-east-1}}

@@ -1,7 +1,6 @@
 
 
 # Embedding AWS Quick Sight dashboards with the AWS Quick Sight API
-<a name="embedding-dashboards"></a>
 
 Use the following topics to learn about embedding dashboards with the AWS Quick Sight API.
 

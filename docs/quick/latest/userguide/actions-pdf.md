@@ -1,7 +1,6 @@
 
 
 # PDF
-<a name="actions-pdf"></a>
 + **Create PDF file** - Generates a PDF file from text. Used to create a new PDF document with formatted contents.
 + **Read PDF text** - Extracts text from a PDF file. Used to get the content of text-based PDF documents. Does not extract text from scanned documents or preserve the structure of the extracted text.
 + **Split PDF file** - Extracts pages from a PDF. Used to create a new PDF from selected pages of an original file.

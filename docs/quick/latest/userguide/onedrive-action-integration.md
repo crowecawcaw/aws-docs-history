@@ -1,7 +1,6 @@
 
 
 # Microsoft OneDrive action integration
-<a name="onedrive-action-integration"></a>
 
 Use the Microsoft OneDrive connector to manage OneDrive files, folders, and Excel workbooks directly in AWS Quick through natural language.
 

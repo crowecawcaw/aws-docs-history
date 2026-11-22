@@ -1,7 +1,6 @@
 
 
 # Document-level access controls
-<a name="sharepoint-kb-acl"></a>
 
 Admin-managed SharePoint knowledge bases optionally support document-level access control. When enabled, AWS Quick syncs access control lists (ACLs) from SharePoint during each crawl. The system verifies each user's permissions at query time, so users only see answers from documents they are authorized to access in SharePoint.
 

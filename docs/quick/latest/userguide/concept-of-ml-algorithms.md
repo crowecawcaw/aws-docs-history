@@ -1,7 +1,6 @@
 
 
 # Understanding the ML algorithm used by AWS Quick Sight
-<a name="concept-of-ml-algorithms"></a>
 
 
 |  | 

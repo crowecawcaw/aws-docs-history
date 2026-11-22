@@ -1,7 +1,6 @@
 
 
 # Using tables as visuals
-<a name="tabular"></a>
 
 Use a table visual to see a customized table view of your data. To create a table visual, choose at least one field of any data type. You can add as many columns as you need, up to 200. You can also add calculated columns.
 

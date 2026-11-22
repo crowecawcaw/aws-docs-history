@@ -1,7 +1,6 @@
 
 
 # Choosing a layout
-<a name="choosing-a-layout"></a>
 
 **To change a dashboard's layout**
 

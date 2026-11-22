@@ -1,7 +1,6 @@
 
 
 # Using Topics in AWS Quick chat
-<a name="topics-in-chat"></a>
 
 
 |  | 

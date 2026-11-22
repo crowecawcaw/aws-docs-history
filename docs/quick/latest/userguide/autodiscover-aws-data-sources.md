@@ -1,7 +1,6 @@
 
 
 # Allowing autodiscovery of AWS resources
-<a name="autodiscover-aws-data-sources"></a>
 
 
 |  | 

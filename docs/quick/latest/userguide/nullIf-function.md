@@ -1,7 +1,6 @@
 
 
 # nullIf
-<a name="nullIf-function"></a>
 
 `nullIf` compares two expressions. If they are equal, the function returns null. If they are not equal, the function returns the first expression.
 

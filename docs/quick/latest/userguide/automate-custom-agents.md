@@ -1,7 +1,6 @@
 
 
 # Custom agents
-<a name="automate-custom-agents"></a>
 
 Custom agent is an intelligent action that processes natural language inputs to automate complex steps. It uses integrated tool-calling capabilities with integrations as its primary tool interface. It also offers extensibility to use Code as a tool and other native actions like human-in-the-loop task. The agent delivers structured, predictable outputs optimized for downstream automation steps.
 

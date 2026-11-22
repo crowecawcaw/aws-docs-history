@@ -1,7 +1,6 @@
 
 
 # AWS security in Quick
-<a name="security"></a>
 
 AWS Quick provides a secure platform that enables you to distribute dashboards and insights to tens of thousands of users, with multiple-region availability and built-in redundancy. 
 

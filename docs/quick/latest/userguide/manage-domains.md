@@ -1,7 +1,6 @@
 
 
 # Managing domains
-<a name="manage-domains"></a>
 
 
 |  | 

@@ -1,7 +1,6 @@
 
 
 # Format a percent field
-<a name="format-a-percent-field"></a>
 
 When you format a percent field, you can choose the number of decimal places from a list of common options. Or you can open the **Format data** pane and manually format the field. Manually formatting the field enables you to choose which separators to use. It also enables you to choose the number of decimal places to show and how to display negative numbers.
 

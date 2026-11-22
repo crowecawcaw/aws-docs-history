@@ -1,7 +1,6 @@
 
 
 # Data Preparation Experience (Legacy)
-<a name="data-prep-experience-legacy"></a>
 
 **Topics**
 + [Adding calculations](working-with-calculated-fields.md)

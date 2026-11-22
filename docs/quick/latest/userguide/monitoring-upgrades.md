@@ -1,7 +1,6 @@
 
 
 # Monitoring upgrades
-<a name="monitoring-upgrades"></a>
 
 
 |  | 

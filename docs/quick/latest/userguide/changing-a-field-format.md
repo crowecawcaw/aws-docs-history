@@ -1,7 +1,6 @@
 
 
 # Changing a field format
-<a name="changing-a-field-format"></a>
 
 You can change the format of a field within the context of an analysis. The formatting options available for fields vary based on the field's data type.
 

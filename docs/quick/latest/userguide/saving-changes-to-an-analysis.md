@@ -1,7 +1,6 @@
 
 
 # Saving changes to analyses
-<a name="saving-changes-to-an-analysis"></a>
 
 When working on an analysis, you can set Autosave either on (the default) or off. When Autosave is on, your changes are automatically saved every minute or so. When Autosave is off, your changes aren't automatically saved, which means that you can make changes and pursue different lines of inquiry without permanently altering the analysis. If you decide that you want to save your results after all, re-enable Autosave. Your changes up to that point are then saved.
 

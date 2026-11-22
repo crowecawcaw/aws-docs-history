@@ -1,7 +1,6 @@
 
 
 # Features not supported in the new data preparation experience
-<a name="unsupported-features"></a>
 
 While the new data preparation experience offers enhanced capabilities, some features from the legacy experience are not yet supported. This section outlines these features and provides guidance for handling affected workflows.
 

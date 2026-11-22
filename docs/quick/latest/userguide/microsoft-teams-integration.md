@@ -1,7 +1,6 @@
 
 
 # Microsoft Teams integration
-<a name="microsoft-teams-integration"></a>
 
 Use the Microsoft Teams connector to send messages, manage channels, schedule meetings, and manage team collaboration directly in AWS Quick through natural language.
 

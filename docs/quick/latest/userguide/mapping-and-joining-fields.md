@@ -1,7 +1,6 @@
 
 
 # Mapping and joining fields
-<a name="mapping-and-joining-fields"></a>
 
 When you are using different datasets together in Quick Sight, you can simplify the process of mapping fields or joining tables during the data preparation stage. You should already be verifying that your fields have the correct data type and an appropriate field name. However, if you already know which datasets are going to be used together, you can take a couple of extra steps to make your work easier later on. 
 

@@ -1,7 +1,6 @@
 
 
 # Duplicating datasets
-<a name="duplicate-a-data-set"></a>
 
 You can duplicate an existing dataset to save a copy of it with a new name. The new dataset is a completely separate copy. 
 

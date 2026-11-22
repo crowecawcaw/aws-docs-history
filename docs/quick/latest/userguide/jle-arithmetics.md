@@ -1,7 +1,6 @@
 
 
 # Arithmetics
-<a name="jle-arithmetics"></a>
 
 The following table shows arithmetic expressions that can be used with JSON expression language.
 

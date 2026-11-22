@@ -1,7 +1,6 @@
 
 
 # Connecting to AWS Glue Data Catalog
-<a name="catalog-integration-glue"></a>
 
 **Note**  
 Data catalog integration with AWS Glue Data Catalog is in Preview for AWS Quick and is subject to change. Preview features are not typically recommended for critical or production workloads.

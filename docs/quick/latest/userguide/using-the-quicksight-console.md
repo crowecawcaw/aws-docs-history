@@ -1,7 +1,6 @@
 
 
 # Using the AWS Quick console
-<a name="using-the-quicksight-console"></a>
 
 In the following topic, you can find a brief introduction to using the AWS Quick user interface. 
 

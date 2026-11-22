@@ -1,7 +1,6 @@
 
 
 # Embedding the AWS Quick Sight Q search bar (Classic)
-<a name="embedding-quicksight-q"></a>
 
 
 |  | 

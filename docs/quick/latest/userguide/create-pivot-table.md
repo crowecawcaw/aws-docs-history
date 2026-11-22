@@ -1,7 +1,6 @@
 
 
 # Creating a pivot table
-<a name="create-pivot-table"></a>
 
 Use the following procedure to create a pivot table.
 

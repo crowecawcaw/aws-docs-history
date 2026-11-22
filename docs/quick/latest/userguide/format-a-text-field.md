@@ -1,7 +1,6 @@
 
 
 # Format a text field
-<a name="format-a-text-field"></a>
 
 When you format a text field, you can choose how to display null values using the **Field list** pane, an on-visual editor, or a visual field well.
 

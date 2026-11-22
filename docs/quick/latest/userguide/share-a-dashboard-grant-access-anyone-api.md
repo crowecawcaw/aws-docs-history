@@ -1,7 +1,6 @@
 
 
 # Granting anyone on the internet access to an AWS Quick Sight dashboard using the Quick Sight API
-<a name="share-a-dashboard-grant-access-anyone-api"></a>
 
 Alternatively, you can grant anyone on the internet access to the dashboard with the AWS Quick Sight API using the `UpdateDashboardPermissions` operation.
 

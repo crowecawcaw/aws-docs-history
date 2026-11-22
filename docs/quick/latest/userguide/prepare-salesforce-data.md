@@ -1,7 +1,6 @@
 
 
 # Preparing a dataset based on Salesforce data
-<a name="prepare-salesforce-data"></a>
 
 Use the following procedure to prepare a Salesforce dataset.
 

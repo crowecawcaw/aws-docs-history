@@ -1,7 +1,6 @@
 
 
 # Adobe Marketing Agent integration
-<a name="adobe-integration"></a>
 
 With the Adobe Marketing Agent connector, you can work with Adobe Experience Platform marketing data and AI-powered marketing capabilities directly in AWS Quick through natural language.
 

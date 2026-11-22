@@ -1,7 +1,6 @@
 
 
 # Using Snowflake with AWS Quick Sight
-<a name="connecting-to-snowflake"></a>
 
 Snowflake is an AI data cloud platform that provides data solutions from data warehousing and collaboration to data science and generative AI. Snowflake is an [AWS Partner](https://partners.amazonaws.com/partners/001E000000d8qQcIAI/Snowflake) with multiple AWS accreditations that include AWS ISV Competencies in Generative AI, Machine Learning, Data and Analytics, and Retail.
 
@@ -78,7 +77,7 @@ For token-based OAuth, storing these credentials in Secrets Manager is optional.
 
 After you create a secret in Secrets Manager that contains your Snowflake OAuth credentials and have connected your Quick account to Secrets Manager, you can establish a data source connection between Quick Sight and Snowflake with the Quick Sight APIs and SDK. The following example creates a Snowflake data source connection using token OAuth client credentials.
 
-```
+```json
 {
     "AwsAccountId": "{{AWSACCOUNTID}}",
     "DataSourceId": "{{UNIQUEDATASOURCEID}}",

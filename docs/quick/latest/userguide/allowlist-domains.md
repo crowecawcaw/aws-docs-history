@@ -1,7 +1,6 @@
 
 
 # Allowlisting AWS Quick domains
-<a name="allowlist-domains"></a>
 
 If your end users are signing in to AWS Quick using AWS root (not recommended), AWS Identity and Access Management (IAM), corporate Active Directory, or native Quick credentials, make sure to allow-list the following domains within your organization's network.
 

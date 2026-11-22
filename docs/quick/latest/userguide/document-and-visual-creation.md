@@ -1,12 +1,11 @@
 
 
-# Document and visual creation with AWS Quick
-<a name="document-and-visual-creation"></a>
+# Create documents and business visuals
 
 Quick can create professional-quality documents and business visuals from natural language requests. You can create and edit Word documents, Excel spreadsheets, PowerPoint presentations, PDFs, infographics, and other business visuals directly within Quick. Describe what you need, and Quick produces a downloadable file that you can use immediately or refine further.
 
 Document and visual creation is available in the following Quick features:
-+ **Quick chat** — Create and edit documents and visuals through conversational requests. For more information, see [Creating documents and visuals in chat](#artifact-gen-chat).
++ **Quick chat** – Create and edit documents and visuals through conversational requests. For more information, see [Creating documents and visuals in chat](#artifact-gen-chat).
 
 **Topics**
 + [Supported document and visual types](#supported-artifact-types)
@@ -17,7 +16,6 @@ Document and visual creation is available in the following Quick features:
 + [Using templates](#artifact-gen-templates)
 + [Previewing and downloading](#artifact-gen-panel)
 + [Business visual creation](#business-visual-creation)
-+ [Brand theming](#artifact-gen-theming)
 + [Best practices](#artifact-gen-best-practices)
 + [Limitations](#artifact-gen-limitations)
 
@@ -63,7 +61,7 @@ You can also upload files to use as input for document generation. For example, 
 
 You can create documents and business visuals directly in Quick chat by describing what you need.
 
-**Create a new document or visual**
+**To create a new document or visual**
 
 1. Open Quick chat.
 
@@ -107,9 +105,9 @@ This produces a visually designed infographic with data visualizations, geograph
 ## Editing existing documents
 <a name="editing-artifacts"></a>
 
-You can edit documents that Quick has previously created, or upload your own files for editing. Quick preserves the existing formatting and structure while applying your requested changes. For most document types, you can upload your own files for editing. See individual document types below for details.
+You can edit documents that Quick has previously created, or upload your own files for editing. Quick preserves the existing formatting and structure while applying your requested changes. For most document types, you can upload your own files for editing. See the following individual document types for details.
 
-**Edit an existing document**
+**To edit an existing document**
 
 1. In Quick chat, upload the document you want to edit, or continue a conversation where a document was previously generated.
 
@@ -123,28 +121,28 @@ You can edit documents that Quick has previously created, or upload your own fil
 The following editing capabilities are supported for each document type.
 
 **Word (.docx)**  
-+ *Text replacement* — Replace words or phrases throughout the document. Example: *"Change all instances of 2025 to 2026."*
-+ *Formatting changes* — Update fonts, colors, sizes, and styles. Example: *"Make all Heading 1 text dark blue and 16pt."*
-+ *Section management* — Add, remove, or reorder sections. Example: *"Move the Conclusions section to before the Appendix."*
-+ *Table modifications* — Add rows, columns, or update cell values. Example: *"Add a Status column to the project tracking table."*
-+ *Headers and footers* — Add or update page headers, footers, and page numbers. Example: *"Add a footer with the company name and page numbers."*
++ *Text replacement* – Replace words or phrases throughout the document. Example: *"Change all instances of 2025 to 2026."*
++ *Formatting changes* – Update fonts, colors, sizes, and styles. Example: *"Make all Heading 1 text dark blue and 16pt."*
++ *Section management* – Add, remove, or reorder sections. Example: *"Move the Conclusions section to before the Appendix."*
++ *Table modifications* – Add rows, columns, or update cell values. Example: *"Add a Status column to the project tracking table."*
++ *Headers and footers* – Add or update page headers, footers, and page numbers. Example: *"Add a footer with the company name and page numbers."*
 
 **Excel (.xlsx)**  
-+ *Cell updates* — Modify values, formulas, and number formats. Example: *"Update the Q4 revenue figure in cell B5 to $3.5M."*
-+ *Chart additions* — Add or modify charts and visualizations. Example: *"Add a bar chart comparing revenue across all quarters."*
-+ *Worksheet management* — Add new sheets or restructure existing ones. Example: *"Add a Summary sheet with totals from each regional sheet."*
-+ *Formatting* — Update styles, conditional formatting, and layout. Example: *"Apply alternating row colors and bold the header row."*
++ *Cell updates* – Modify values, formulas, and number formats. Example: *"Update the Q4 revenue figure in cell B5 to $3.5M."*
++ *Chart additions* – Add or modify charts and visualizations. Example: *"Add a bar chart comparing revenue across all quarters."*
++ *Worksheet management* – Add new sheets or restructure existing ones. Example: *"Add a Summary sheet with totals from each regional sheet."*
++ *Formatting* – Update styles, conditional formatting, and layout. Example: *"Apply alternating row colors and bold the header row."*
 
 **PowerPoint (.pptx)**  
-+ *Content updates* — Change text, titles, and bullet points. Example: *"Update the title slide to say Q1 2026 Results."*
-+ *Layout changes* — Modify slide layouts and visual elements. Example: *"Change slide 3 to a two-column layout with the chart on the right."*
-+ *Data modifications* — Update chart data and table content. Example: *"Update the sales chart with the new figures from the uploaded spreadsheet."*
-+ *Slide management* — Add, remove, or reorder slides. Example: *"Add a new slide after the introduction with a team overview."*
++ *Content updates* – Change text, titles, and bullet points. Example: *"Update the title slide to say Q1 2026 Results."*
++ *Layout changes* – Modify slide layouts and visual elements. Example: *"Change slide 3 to a two-column layout with the chart on the right."*
++ *Data modifications* – Update chart data and table content. Example: *"Update the sales chart with the new figures from the uploaded spreadsheet."*
++ *Slide management* – Add, remove, or reorder slides. Example: *"Add a new slide after the introduction with a team overview."*
 
 **Infographics (.png)**  
 Infographic editing applies to visuals that were created in the current conversation. You can request changes to a previously generated infographic without uploading a separate file.  
-+ *Text changes* — Update titles, labels, and descriptions. Example: *"Change the title to Global Warming Trends."*
-+ *Visual updates* — Modify colors, layout, and styling. Example: *"Make the background blue and increase the font size of the statistics."*
++ *Text changes* – Update titles, labels, and descriptions. Example: *"Change the title to Global Warming Trends."*
++ *Visual updates* – Modify colors, layout, and styling. Example: *"Make the background blue and increase the font size of the statistics."*
 
 **Note**  
 PDF documents cannot be edited in place. To modify a PDF, Quick extracts the content and creates a new PDF with your requested changes.
@@ -171,6 +169,8 @@ Supported input file types:
 <a name="artifact-gen-templates"></a>
 
 You can upload an existing file as a template so that Quick creates new content that matches the original's visual design, branding, and formatting. Template support varies by document type, with PowerPoint offering the most comprehensive template cloning workflow. This is useful when your organization has standardized document styles that you want to maintain across new documents.
+
+For organization-wide templates that Quick manages and suggests automatically, see [Managing brand assets](brand-assets.md).
 
 ### PowerPoint templates
 <a name="artifact-gen-templates-pptx"></a>
@@ -279,22 +279,6 @@ To include visuals in a document, mention them in your prompt. For example:
 
 **Note**  
 Each visual takes a few seconds to generate. For best results, limit visual generation requests to a few images per document.
-
-## Brand theming
-<a name="artifact-gen-theming"></a>
-
-You can apply your organization's brand identity to created documents and visuals by providing theme assets. When brand theme files are available, Quick automatically applies your brand colors and logos.
-
-Brand theming supports the following asset types:
-+ Theme configuration files that define brand colors
-+ Logo files in SVG format
-
-To apply brand theming, upload your theme configuration file (JSON format) and SVG logo assets in Quick chat alongside your document request. The theme configuration file defines your brand colors as hex values. Quick detects the theme files and applies your brand colors and logos to the generated output.
-
-**Note**  
-Brand theming for business visuals and infographics supports brand colors and logos. Typography and additional brand image assets are not included in theme configuration but can be provided as file uploads in chat.
-
-Brand theming is available for all document and visual types, including Word documents, Excel spreadsheets, PowerPoint presentations, PDFs, and infographics.
 
 ## Best practices
 <a name="artifact-gen-best-practices"></a>

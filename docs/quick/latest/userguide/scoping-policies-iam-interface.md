@@ -1,7 +1,6 @@
 
 
 # Setting granular access to AWS services through IAM
-<a name="scoping-policies-iam-interface"></a>
 
 
 |  | 

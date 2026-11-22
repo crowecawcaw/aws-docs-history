@@ -1,7 +1,6 @@
 
 
 # countOver
-<a name="countOver-function"></a>
 
 The `countOver` function calculates the count of a dimension or measure partitioned by a list of dimensions. 
 

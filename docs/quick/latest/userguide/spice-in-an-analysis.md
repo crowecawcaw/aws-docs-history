@@ -1,7 +1,6 @@
 
 
 # Using SPICE data in an analysis
-<a name="spice-in-an-analysis"></a>
 
 When you use stored data to create an analysis, a data import indicator appears next to the dataset list at the top of the **Fields list** pane. When you first open the analysis and the dataset is importing, a spinner icon appears.
 

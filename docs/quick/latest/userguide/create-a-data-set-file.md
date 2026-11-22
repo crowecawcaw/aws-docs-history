@@ -1,7 +1,6 @@
 
 
 # Creating a dataset using a local text file
-<a name="create-a-data-set-file"></a>
 
 To create a dataset using a local text file data source, identify the location of the file, and then upload it. The file data is automatically imported into [SPICE](spice.md) as part of creating a dataset. 
 

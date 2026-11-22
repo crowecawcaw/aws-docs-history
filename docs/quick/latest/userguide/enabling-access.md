@@ -1,7 +1,6 @@
 
 
 # Authorizing connections from AWS Quick Sight to AWS data stores
-<a name="enabling-access"></a>
 
 
 |  | 

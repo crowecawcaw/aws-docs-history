@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create an AWS Quick Sight dashboard
-<a name="example-create-a-dashboard"></a>
 
 Use the following procedure to create a dashboard from the analysis that you created using the procedure in [Tutorial: Create an AWS Quick Sight analysis](example-create-an-analysis.md).
 

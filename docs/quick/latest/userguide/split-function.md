@@ -1,7 +1,6 @@
 
 
 # Split
-<a name="split-function"></a>
 
 `split` splits a string into an array of substrings, based on a delimiter that you choose, and returns the item specified by the position.
 

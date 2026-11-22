@@ -1,7 +1,6 @@
 
 
 # varp
-<a name="varp-function"></a>
 
 The `varp` function calculates the population variance of the set of numbers in the specified measure, grouped by the chosen dimension or dimensions.
 

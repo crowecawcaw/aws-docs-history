@@ -1,7 +1,6 @@
 
 
 # Creating Alerts
-<a name="threshold-alerts-creating"></a>
 
 Use the following procedure to create threshold alerts for KPI or Gauge visuals in a dashboard.
 

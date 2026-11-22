@@ -1,7 +1,6 @@
 
 
 # Embedding custom AWS Quick Sight assets into your application
-<a name="customize-and-personalize-embedded-analytics"></a>
 
 You can use AWS Quick Sight embedded analytics to embed custom AWS Quick Sight assets into your application that are tailored to meet your business needs. For embedded dashboards and visuals, AWS Quick Sight authors can add filters and drill downs that readers can access as they navigate the dashboard or visual. AWS Quick Sight developers can also use the AWS Quick Sight SDKs to build tighter integrations between their SaaS applications and their AWS Quick Sight embedded assets to add datapoint callback actions to visuals on a dashboard at runtime.
 

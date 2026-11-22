@@ -1,12 +1,13 @@
 
 
 # Turning off public sharing settings
-<a name="share-a-dashboard-grant-access-anyone-no-share"></a>
 
 You can turn off public sharing settings for dashboards at anytime. You can turn off public sharing for an individual dashboard, or for all dashboards in your account. Visual sharing settings are determined at the dashboard level. If you turn off public sharing settings to a dashboard that holds a visual that you are embedding, users won't be able to access the visual.
 
 The following table describes the different scenarios for when a dashboard is publicly available.
 
+
+**Scenarios for when a dashboard is publicly available**  
 
 | Account-level public setting | Dashboard-level public setting | Public access | Visual indicators | 
 | --- | --- | --- | --- | 

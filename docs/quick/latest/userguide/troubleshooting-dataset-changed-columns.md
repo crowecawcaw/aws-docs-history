@@ -1,7 +1,6 @@
 
 
 # My visual can’t find missing columns
-<a name="troubleshooting-dataset-changed-columns"></a>
 
 The visuals in my analysis aren't working as expected. The error message says `"The column(s) used in this visual do not exist."`
 

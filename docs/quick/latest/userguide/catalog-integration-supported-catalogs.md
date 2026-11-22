@@ -1,7 +1,6 @@
 
 
 # Supported catalogs
-<a name="catalog-integration-supported-catalogs"></a>
 
 The following table lists the supported catalogs and their capabilities in this preview.
 

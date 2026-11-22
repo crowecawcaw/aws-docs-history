@@ -1,7 +1,6 @@
 
 
 # Administrator configuration
-<a name="administrator-configuration"></a>
 
 
 |  | 

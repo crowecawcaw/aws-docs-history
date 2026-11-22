@@ -1,7 +1,6 @@
 
 
 # Embedding with the AWS Quick Sight APIs
-<a name="embedded-analytics-api"></a>
 
 
 |  | 

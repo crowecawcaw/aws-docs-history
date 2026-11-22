@@ -1,7 +1,6 @@
 
 
 # Enabling Generative BI features in embedded consoles for registered users
-<a name="embedding-consoles-genbi"></a>
 
 
 |  | 

@@ -1,7 +1,6 @@
 
 
 # maxOver
-<a name="maxOver-function"></a>
 
 The `maxOver` function calculates the maximum of a measure or date partitioned by a list of dimensions. 
 

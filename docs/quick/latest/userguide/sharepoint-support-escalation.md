@@ -1,7 +1,6 @@
 
 
 # Support escalation path
-<a name="sharepoint-support-escalation"></a>
 
 If you cannot resolve an issue for an integration using the troubleshooting steps, follow this escalation path:
 

@@ -1,7 +1,6 @@
 
 
 # Changing how a calculation is applied
-<a name="change-how-a-calculation-is-applied"></a>
 
 Use the following procedure to change the way a table calculation is applied to a pivot table.
 

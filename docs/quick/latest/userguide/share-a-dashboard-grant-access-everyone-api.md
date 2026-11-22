@@ -1,7 +1,6 @@
 
 
 # Granting everyone in your AWS Quick account access to a dashboard with the Quick Sight API
-<a name="share-a-dashboard-grant-access-everyone-api"></a>
 
 
 |  | 

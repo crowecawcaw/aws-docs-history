@@ -1,7 +1,6 @@
 
 
 # Authorizing connections from AWS Quick to Amazon EC2 instances
-<a name="enabling-access-ec2"></a>
 
 
 |  | 

@@ -1,7 +1,6 @@
 
 
 # Using Amazon Q Business index knowledge bases
-<a name="qbiz-indexes-using"></a>
 
 Once created, Amazon Q Business index knowledge bases can be used in AWS Quick just like any other knowledge base:
 

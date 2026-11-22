@@ -1,7 +1,6 @@
 
 
 # var
-<a name="var-function"></a>
 
 The `var` function calculates the sample variance of the set of numbers in the specified measure, grouped by the chosen dimension or dimensions.
 

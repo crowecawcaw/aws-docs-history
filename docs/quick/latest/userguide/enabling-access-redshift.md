@@ -1,7 +1,6 @@
 
 
 # Authorizing connections from AWS Quick Sight to Amazon Redshift clusters
-<a name="enabling-access-redshift"></a>
 
 
 |  | 

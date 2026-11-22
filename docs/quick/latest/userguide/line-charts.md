@@ -1,7 +1,6 @@
 
 
 # Using line charts
-<a name="line-charts"></a>
 
 Use line charts to compare changes in measure values over period of time, for the following scenarios: 
 + One measure over a period of time, for example gross sales by month. 

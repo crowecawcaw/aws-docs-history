@@ -1,7 +1,6 @@
 
 
 # Column not found when using Athena with AWS Quick Sight
-<a name="troubleshoot-athena-column-not-found"></a>
 
 You can receive a "`column not found`" error if the columns in an analysis are missing from the Athena data source. 
 

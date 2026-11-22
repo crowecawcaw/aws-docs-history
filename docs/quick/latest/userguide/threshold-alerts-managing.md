@@ -1,7 +1,6 @@
 
 
 # Managing Threshold Alerts
-<a name="threshold-alerts-managing"></a>
 
 You can edit your existing alerts, turn them on or off, or view the history of times when the alert was triggered. Use the following procedures to do so.
 

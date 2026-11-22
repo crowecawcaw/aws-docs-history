@@ -1,7 +1,6 @@
 
 
 # firstValue
-<a name="firstValue-function"></a>
 
 The `firstValue` function calculates the first value of the aggregated measure or dimension partitioned and sorted by specified attributes.
 

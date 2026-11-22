@@ -1,7 +1,6 @@
 
 
 # Using IAM Identity Center
-<a name="setting-up-sso"></a>
 
 
 |  | 
@@ -73,7 +72,7 @@ Before you create your Quick subscription in an additional Region, complete the 
 
 1. If your organization uses an external identity provider, add the target Region's Assertion Consumer Service (ACS) URL to your identity provider configuration. For more information, see [Multi-Region workforce access](https://docs.aws.amazon.com/singlesignon/latest/userguide/multi-region-workforce-access.html) in the *AWS IAM Identity Center User Guide*.
 
-1. Confirm that the target Region is a supported Quick signup Region. For a list of supported Regions, see [Supported AWS Regions for AWS Quick](regions.md#regions-qs).
+1. Confirm that the target Region is a supported Quick signup Region. For a list of supported Regions, see [URLs, endpoints, and IP addresses](regions.md#regions-qs).
 
 #### To create a subscription in an additional Region
 <a name="idc-multi-region-create"></a>
@@ -86,7 +85,7 @@ Use the AWS Command Line Interface or an AWS SDK to create an AWS Quick Enterpri
 
 1. Run the following command. Replace the placeholder values with your own.
 
-   ```
+   ```bash
    aws quicksight create-account-subscription \
        --aws-account-id <ACCOUNT_ID> \
        --account-name "<ACCOUNT_NAME>" \
@@ -117,7 +116,7 @@ After the command completes, confirm that the subscription exists and is active.
 
 1. Run the following command to check the account status:
 
-   ```
+   ```bash
    aws quicksight describe-account-subscription \
        --aws-account-id <ACCOUNT_ID> \
        --region <TARGET_REGION>
@@ -127,7 +126,7 @@ After the command completes, confirm that the subscription exists and is active.
 
 1. Run the following command to verify the namespace and capacity Region:
 
-   ```
+   ```bash
    aws quicksight list-namespaces \
        --aws-account-id <ACCOUNT_ID> \
        --region <TARGET_REGION>

@@ -1,7 +1,6 @@
 
 
 # Customize pivot table data
-<a name="format-tables-pivot-tables-layout-options"></a>
 
 You can customize how Quick readers view pivot tables so that they are easier to read and understand at a glance. You can choose to hide a pivot table's plus and minus icons, hide columns that only have a single-metric value, and hide collapsed columns from view. These options can help Quick authors remove clutter from their pivot tables and provide an easier reader experience for Quick users. This is not the same as choosing a pivot table layout. For more information on pivot table layout options, see [Choosing a layout](create-pivot-table.md#pivot-table-layout).
 

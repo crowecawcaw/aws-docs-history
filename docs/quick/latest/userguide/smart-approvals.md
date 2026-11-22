@@ -1,7 +1,6 @@
 
 
 # Smart Approvals
-<a name="smart-approvals"></a>
 
 
 |  | 

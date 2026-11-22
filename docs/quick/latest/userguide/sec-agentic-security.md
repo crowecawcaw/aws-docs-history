@@ -1,7 +1,6 @@
 
 
 # AI and agent security in AWS Quick
-<a name="sec-agentic-security"></a>
 
 AWS Quick includes AI capabilities that read content, take actions, and run automated workflows. These capabilities introduce properties that differ from traditional BI features. Use this page to understand what makes these capabilities different, how to apply the available controls, and where those controls have limits. For the corresponding security checklist, see [Security in Quick](best-practices-security.md).
 
@@ -91,7 +90,7 @@ You can apply human approval gates at five points in the lifecycle of AI and age
 
 1. **Runtime review (human-in-the-loop task center)** – For workflows where you want a person to approve an action before it executes, the human-in-the-loop task center pauses execution and collects approval. This gate is optional and per-workflow. For more information, see [Human-in-the-loop task center](hitl-task-center.md).
 
-1. **Per-action user control (desktop)** – In Quick on desktop, you can turn each system tool on or off and set each operation to one of three access levels: **Always allow**, **Ask each time**, or **Always deny**. **Always allow** runs operations without prompting for confirmation. **Ask each time** confirms every operation. This places an approval decision in your hands at the moment of each action, for the tools you have enabled. For more information, see [Access levels](system-tools-desktop.md#system-tools-access-levels) and [Managing permissions](system-tools-desktop.md#desktop-settings-manage-permissions).
+1. **Per-action user control (desktop)** – In Quick on desktop, you can turn each system tool on or off and set each operation to one of three access levels: **Always allow**, **Ask each time**, or **Always deny**. **Always allow** runs operations without prompting for confirmation. **Ask each time** confirms every operation. This places an approval decision in your hands at the moment of each action, for the tools you have enabled. For more information, see [Access levels](system-tools.md#system-tools-web-access-levels) and [Managing permissions](system-tools.md#system-tools-web-permissions).
 
 Where a per-action prompt applies, it is a user-configurable choice. On desktop, you set a tool to **Ask each time** to confirm every operation, or to **Always allow** to run without prompting. In the web experience, on-demand actions execute when you trigger them, and automated workflows are non-interactive by design – the gates at capability, build, and share time do the work there.
 
@@ -144,15 +143,15 @@ For more information about configuring an MCP integration, see [Model Context Pr
 ### Guardrail screening and blocked words
 <a name="sec-agentic-security-guardrails"></a>
 
-Built-in content safety screening checks user requests for harmful content, including hate speech, insults, sexual content, violence, and misconduct. These checks also assess user requests for prompt attacks. You can configure up to 50 blocked words and phrases that AWS Quick checks against both user requests and generated responses.
+The models that AWS Quick uses have their own safety controls, which are designed to refuse requests for harmful content. You can also block words and phrases in chat agents and flows in the AWS Quick web experience.
 
-**Limit** – These controls help reduce risk. However, they do not replace your responsibility to configure access, permissions, agents, flows, and data sources for your use case. Blocked-word checks use exact-match string comparison, not semantic analysis, and are limited to 50 entries of up to 36 characters each. Blocked-word checks apply only to chat agents and flows in the AWS Quick web experience. For more information, see [AI guardrails in AWS Quick](guardrails.md).
+**Limit** – These controls help reduce risk. However, they do not replace your responsibility to configure access, permissions, agents, flows, and data sources for your use case. Blocked-word checks match whole words and phrases, and they don't analyze meaning. For the limits on blocked words, see [Blocked words and phrases](guardrails.md#guardrails-blocked-phrases).
 
 ### Code execution isolation
 <a name="sec-agentic-security-code-execution"></a>
 
 The AI assistant can write and run Python code on four surfaces. Each surface runs code in a sandboxed environment designed to contain the code's effects. The surfaces differ in where code runs and what it can reach.
-+ **Quick Desktop** – Code runs in an OS-level sandbox (macOS Seatbelt or Windows AppContainer) on the user's machine. File access inside the sandbox follows the folder permissions the user configures, and a persistent namespace carries variables across code runs within a conversation. Pre-installed Python packages only; package installation (`pip install`) is not supported. For more information, see [Code execution](system-tools-desktop.md#system-tool-code-execution).
++ **Quick Desktop** – Code runs in an OS-level sandbox (macOS Seatbelt or Windows AppContainer) on the user's machine. File access inside the sandbox follows the folder permissions the user configures, and a persistent namespace carries variables across code runs within a conversation. Pre-installed Python packages only; package installation (`pip install`) is not supported. For more information, see [Code execution](system-tools.md#system-tool-web-code-execution).
 + **Web experience chat** – Code runs in an isolated, service-managed sandbox with no internet access. Outbound network requests from the sandbox fail. The sandbox does not persist beyond the conversation.
 + **Automated workflows (Quick Automate)** – Code actions and custom agent code run within a restricted Python environment. Code actions are not the path for reaching external systems: external API calls belong to REST API integrations, and file system or database access belongs to the appropriate integrations. For more information, see [Code](actions-code.md).
 + **Office extensions** – The assistant creates and executes code within the Office application sandbox (Outlook, Excel, Word, and PowerPoint). For more information, see [Connect AWS Quick to your existing tools with extensions](working-with-extensions-detail.md).
@@ -172,7 +171,7 @@ AWS CloudTrail records API-level activity (who did what). Vended logs record con
 <a name="sec-agentic-security-honest-limits"></a>
 
 The following limitations apply to the AI and agent capabilities in AWS Quick:
-+ **Screening reduces risk but does not replace configuration** – Built-in screening and guardrails help reduce risk. They do not replace your responsibility to configure access, permissions, agents, flows, and data sources for your use case.
++ **Screening reduces risk but does not replace configuration** – Model safety controls and guardrails help reduce risk. They do not replace your responsibility to configure access, permissions, agents, flows, and data sources for your use case.
 + **No universal human review requirement** – Human review is not a system-wide requirement for actions. Per-action confirmation is available where a tool is configured for it (on desktop, through the **Ask each time** access level), and the human-in-the-loop task center is available for workflows where you choose to add a review step. However, on-demand actions in the web experience execute immediately, and automated workflows execute without user intervention.
 + **Authentication options vary by connector type** – The authentication methods available depend on the connector type. For remote MCP servers, agent-to-agent connectors, and generic HTTP connectors, connecting without authentication is a selectable option.
 
@@ -181,7 +180,7 @@ The following limitations apply to the AI and agent capabilities in AWS Quick:
 
 Chat memory personalizes responses by remembering your preferences, context, and past interactions. Chat agents reference stored information to provide more relevant responses without you repeating information in every conversation. For more information, see [Memory and response personalization](using-quick-chat.md#chat-memory).
 
-On Quick Desktop, a My Context surface provides a Knowledge graph tab that shows entities and relationships extracted from connected data sources, and a Memory tab that shows facts, procedures, and patterns learned from conversations. For more information, see [My context](desktop-settings-my-context.md).
+On Quick Desktop, a My Context surface provides a Knowledge graph tab that shows entities and relationships extracted from connected data sources, and a Memory tab that shows facts, procedures, and patterns learned from conversations. For more information, see [Your knowledge graph and My context](knowledge-graph.md).
 
 ### Why retained context matters for security
 <a name="sec-agentic-security-memory-risk"></a>
@@ -191,7 +190,7 @@ Retained context is part of the read surface described in [Two-condition model f
 ### Controls
 <a name="sec-agentic-security-memory-controls"></a>
 + **Isolation** – Memories are specific to the individual user and are not shared with other users.
-+ **User control** – You can review your chat memory through **Conversation History**. On desktop, you can additionally manage whether Quick learns from your conversations, searches your conversation history, and extracts entities from connected services. You can also view, edit, and delete individual memories. For more information, see [Privacy controls](desktop-settings.md#desktop-privacy-controls).
++ **User control** – You can review your chat memory through **Conversation History**. On desktop, you can additionally manage whether Quick learns from your conversations, searches your conversation history, and extracts entities from connected services. You can also view, edit, and delete individual memories. For more information, see [Privacy controls](settings.md#settings-privacy-controls).
 + **Administrator control** – Custom permissions include capabilities that restrict building and managing engrams (profiles of a user's writing style and patterns) and creating and accessing knowledge memory in Quick Desktop. For more information, see [Custom permissions](custom-permissions.md).
 + **No training** – Quick does not use your conversations, files, or personal context to train or improve AI models.
 

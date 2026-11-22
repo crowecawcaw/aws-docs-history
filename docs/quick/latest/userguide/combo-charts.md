@@ -1,7 +1,6 @@
 
 
 # Using combo charts
-<a name="combo-charts"></a>
 
 Using a combo chart, you can create one visualization that shows two different types of data, for example trends and categories. Combo charts are also known as line and column (bar) charts, because they combine a line chart with a bar chart. Bar charts are useful for comparing categories. Both bar charts and line charts are useful for displaying changes over time, although bar charts should show a greater difference between changes. 
 

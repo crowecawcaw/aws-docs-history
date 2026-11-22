@@ -1,7 +1,6 @@
 
 
 # Adding and managing sheets
-<a name="working-with-multiple-sheets"></a>
 
 A *sheet* is a set of visuals that are viewed together in a single page. When you create an analysis, you place visuals in the workspace on a sheet. You can imagine this as a sheet from a newspaper, except that it is filled with data visualizations. You can add more sheets, and make them work separately or together in your analysis. 
 

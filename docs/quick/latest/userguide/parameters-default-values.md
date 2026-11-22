@@ -1,7 +1,6 @@
 
 
 # Creating parameter defaults in AWS Quick
-<a name="parameters-default-values"></a>
 
 Use this section to learn more about the types of parameter defaults that are available, and how to set up each of them. 
 
@@ -39,7 +38,7 @@ This is just one example of how to get a list of user or group names. Use whatev
 
     To get a list of users, use the [ListUsers](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListUsers.html) Quick API operation or AWS CLI command. The CLI command is shown in the following example. Specify the AWS Region for your identity provider, for example `us-east-1`.
 
-    ```
+    ```bash
     awsacct1="{{111111111111}}"
     namespace="{{default}}"
     region="{{us-east-1}}"
@@ -49,7 +48,7 @@ This is just one example of how to get a list of user or group names. Use whatev
 
     The following example alters the previous command by adding a query that limits the results to active users.
 
-    ```
+    ```bash
     awsacct1="{{111111111111}}"
     namespace="{{default}}"
     region="{{us-east-1}}"
@@ -59,7 +58,7 @@ This is just one example of how to get a list of user or group names. Use whatev
 
     The result set looks similar to the following sample. This example is an excerpt from JSON output (`--output json`). People who have federated user names have principal IDs that start with the word `federated`.
 
-    ```
+    ```json
     [
         {
             "Arn": "arn:aws:quicksight:us-east-1:111111111111:user/default/anacasilva",

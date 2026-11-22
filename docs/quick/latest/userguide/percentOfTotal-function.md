@@ -1,7 +1,6 @@
 
 
 # percentOfTotal
-<a name="percentOfTotal-function"></a>
 
 The `percentOfTotal` function calculates the percentage a measure contributes to the total, based on the dimensions specified. 
 

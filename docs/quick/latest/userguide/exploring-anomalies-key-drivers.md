@@ -1,7 +1,6 @@
 
 
 # Exploring contributors (key drivers)
-<a name="exploring-anomalies-key-drivers"></a>
 
 If your anomaly insight is set up to detect key drivers, Quick Sight runs the contribution analysis to determine which categories (dimensions) are influencing the outliers. The **Contributors** section appears on the left. 
 

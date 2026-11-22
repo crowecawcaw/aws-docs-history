@@ -1,7 +1,6 @@
 
 
 # Return a field's format to default settings
-<a name="set-field-format-to-default"></a>
 
 Use the following procedure to return a field's format to the default settings.
 

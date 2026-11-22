@@ -1,7 +1,6 @@
 
 
 # Mod
-<a name="mod-function"></a>
 
 Use the `mod` function to find the remainder after dividing the number by the divisor. You can use the `mod` function or the modulo operator (%) interchangeably.
 

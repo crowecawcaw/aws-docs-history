@@ -1,7 +1,6 @@
 
 
 # Using level-aware calculations in Quick Sight
-<a name="level-aware-calculations"></a>
 
 
 |  | 

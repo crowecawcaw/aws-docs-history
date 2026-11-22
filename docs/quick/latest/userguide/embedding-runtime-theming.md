@@ -1,7 +1,6 @@
 
 
 # Customize the look and feel of AWS Quick Sight embedded dashboards and visuals
-<a name="embedding-runtime-theming"></a>
 
 You can use the AWS Quick Sight Embedding SDK (version 2.5.0 and higher) to make changes to the theming of your embedded AWS Quick Sight dashboards and visuals at runtime. Runtime theming makes it easier to integrate your Software as a service (SaaS) application with your AWS Quick Sight embedded assets. Runtime theming allows you to synchronize the theme of your embedded content with the themes of the parent application that your AWS Quick Sight assets are embedded into. You can also use runtime theming to add customization options for readers. Theming changes can be applied to embedded assets at initialization or throughout the lifetime of your embedded dashboard or visual.
 
@@ -57,7 +56,7 @@ To initialize an embedded dashboard or visual with a non-default theme, define a
 
 The following example initializes an embedded dashboard with the `MIDNIGHT` theme.
 
-```
+```javascript
 import { createEmbeddingContext } from 'amazon-quicksight-embedding-sdk';
 
 const embeddingContext = await createEmbeddingContext();
@@ -85,7 +84,7 @@ const embeddedDashboardExperience = await embedDashboard(frameOptions, contentOp
 
 Developers can use theme overrides to define the theme of an embedded dashboard or visual at runtime. This allows the dashboard or visual to inherit a theme from a third-party application without the need to pre-configure a theme within AWS Quick Sight. To initialize an embedded dashboard or visual with a theme override, set the `themeOverride` property within `themeOptions` in either the `DashboardContentOptions` or `VisualContentOptions` parameters. The following example overrides the font of a dashboard's theme from the default font to `Amazon Ember`.
 
-```
+```javascript
 import { createEmbeddingContext } from 'amazon-quicksight-embedding-sdk';
 
 const embeddingContext = await createEmbeddingContext();
@@ -113,7 +112,7 @@ const embeddedDashboardExperience = await embedDashboard(frameOptions, contentOp
 
 Developers can configure a set of dashboard themes to be preloaded on initialization. This is most beneficial for quick toggling between different views, for example dark and light modes. An embedded dashboard or visual can be initialized with up to 5 preloaded themes. To use preloaded themes, set the `preloadThemes` property in either `DashboardContentOptions` or `VisualContentOptions` with an array of up to 5 `themeArns`. The following example preloads the `Midnight` and `Rainier` starter themes to a dashboard.
 
-```
+```javascript
 import { createEmbeddingContext } from 'amazon-quicksight-embedding-sdk';
 
 const embeddingContext = await createEmbeddingContext();

@@ -1,7 +1,6 @@
 
 
 # Setting up a VPC to use with AWS Quick
-<a name="vpc-setup-for-quicksight"></a>
 
 
 |  | 

@@ -1,7 +1,6 @@
 
 
 # Workgroup and output errors when using Athena with Quick Sight
-<a name="troubleshoot-athena-workgroup"></a>
 
 To verify that workgroups are set up properly, check the following settings:
 + **The Athena workgroup that's associated with the data source must exist. **

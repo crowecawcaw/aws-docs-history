@@ -1,7 +1,6 @@
 
 
 # Enabling executive summaries in embedded dashboards
-<a name="embedded-analytics-genbi-executive-summaries-dashboard"></a>
 
 
 |  | 

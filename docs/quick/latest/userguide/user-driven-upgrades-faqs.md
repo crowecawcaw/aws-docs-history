@@ -1,7 +1,6 @@
 
 
 # User-driven license upgrades FAQ
-<a name="user-driven-upgrades-faqs"></a>
 
 
 |  | 

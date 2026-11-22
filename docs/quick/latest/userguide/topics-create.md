@@ -1,7 +1,6 @@
 
 
 # Creating Quick Sight Topics
-<a name="topics-create"></a>
 
 
 |  | 

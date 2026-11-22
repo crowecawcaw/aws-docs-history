@@ -1,7 +1,6 @@
 
 
 # Microsoft Teams extension permissions
-<a name="teams-extension-permissions"></a>
 
 The AWS Quick Microsoft Teams extension uses Microsoft's Resource-Specific Consent (RSC) framework. The bot only gets access to the specific meetings and chats where it is installed — not tenant-wide access to all Teams data. These permissions are granted automatically when the app is added to a meeting or chat; no additional admin action is needed.
 

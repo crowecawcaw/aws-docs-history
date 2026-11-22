@@ -1,7 +1,6 @@
 
 
 # Geospatial heatmaps in AWS Quick
-<a name="heat-maps"></a>
 
 Use geospatial heatmaps to reveal patterns of marker concentration in your geospatial visuals. Heat maps display concentrations of data points using a colored overlay that highlights the intensity or concentration of the visual's markers.
 

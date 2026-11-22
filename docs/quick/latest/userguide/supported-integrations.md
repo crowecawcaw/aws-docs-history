@@ -1,7 +1,6 @@
 
 
 # Supported integrations
-<a name="supported-integrations"></a>
 
 AWS Quick supports integrations with various third-party applications and services. Each integration supports different combinations of actions and knowledge base creation capabilities. The following table shows the supported integrations and their capabilities.
 

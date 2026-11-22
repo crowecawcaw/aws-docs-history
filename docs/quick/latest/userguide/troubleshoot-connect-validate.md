@@ -1,7 +1,6 @@
 
 
 # I need to validate the connection to my data source, or change data source settings
-<a name="troubleshoot-connect-validate"></a>
 
 In some cases, you might need to update your data source, or you got a connection error and need to check your settings. If so, take the following steps.
 

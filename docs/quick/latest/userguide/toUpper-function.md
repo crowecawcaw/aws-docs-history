@@ -1,7 +1,6 @@
 
 
 # toUpper
-<a name="toUpper-function"></a>
 
 `toUpper` formats a string in all uppercase. `toUpper` skips rows containing null values.
 

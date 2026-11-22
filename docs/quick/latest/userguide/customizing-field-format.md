@@ -1,7 +1,6 @@
 
 
 # Customizing a field format
-<a name="customizing-field-format"></a>
 
 Use the following procedure to customize the appearance of fields in an analysis. 
 

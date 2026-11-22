@@ -1,7 +1,6 @@
 
 
 # Adding and deleting pivot table calculations
-<a name="adding-a-calculation"></a>
 
 Use the following procedures to add, modify, and remove table calculation on a pivot table.
 

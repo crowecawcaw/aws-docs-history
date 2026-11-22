@@ -1,7 +1,6 @@
 
 
 # Exporting and printing interactive AWS Quick Sight dashboard reports
-<a name="export-or-print-dashboard"></a>
 
 You can export or print a PDF version of an interactive dashboard. You can also export some visuals in a dashboard to a CSV. Exporting an entire dashboard to a CSV is not currently supported for interactive dashboards. 
 

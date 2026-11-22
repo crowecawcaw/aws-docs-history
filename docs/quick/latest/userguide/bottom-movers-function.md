@@ -1,7 +1,6 @@
 
 
 # Bottom movers computation
-<a name="bottom-movers-function"></a>
 
 The bottom movers computation counts the requested number of categories by date that rank in the bottom of the autonarrative's dataset. For example, you can create a computation to find the bottom three products sold, by sales revenue.
 

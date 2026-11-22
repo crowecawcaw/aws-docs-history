@@ -1,7 +1,6 @@
 
 
 # Passing IAM roles to Quick
-<a name="security-create-iam-role"></a>
 
 
 |  | 
@@ -26,7 +25,7 @@ For your users to pass IAM roles to AWS Quick, your administrator needs to compl
 
   For more information about creating IAM trust policies and attaching them to roles, see [Modifying a Role (Console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy.html) in the *IAM User Guide*.
 
-  ```
+  ```json
   {
     "Version": "2012-10-17"		 	 	 ,
     "Statement": [
@@ -47,7 +46,7 @@ For your users to pass IAM roles to AWS Quick, your administrator needs to compl
 
   Following is an example IAM permissions policy that allows managing resource-level permissions, listing IAM roles, and passing IAM roles in Quick.
 
-  ```
+  ```json
   {
       "Version": "2012-10-17"		 	 	 ,
       "Statement": [
@@ -92,7 +91,7 @@ The following is an example of a permissions policy for AWS Quick in Amazon S3. 
 
 For information on how to create cross-account access from AWS Quick to an Amazon S3 bucket in another account, see [How do I set up cross-account access from Quick to an Amazon S3 bucket in another account?](https://aws.amazon.com/premiumsupport/knowledge-center/quicksight-cross-account-s3/) in the AWS Knowledge Center.
 
-```
+```json
 {
     "Version": "2012-10-17"		 	 	 ,
     "Statement": [

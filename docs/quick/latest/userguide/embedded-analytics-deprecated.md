@@ -1,7 +1,6 @@
 
 
 # Embedding analytics using the GetDashboardEmbedURL and GetSessionEmbedURL API operations
-<a name="embedded-analytics-deprecated"></a>
 
 
 |  | 

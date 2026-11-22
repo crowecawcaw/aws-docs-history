@@ -1,7 +1,6 @@
 
 
 # Searching for specific values in your data in Quick Sight
-<a name="search-filter"></a>
 
 When filtering your visual data, previewing anomalies, or using list or dropdown controls in a dashboard, you can quickly search for values that interest you.
 

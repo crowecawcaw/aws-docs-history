@@ -1,7 +1,6 @@
 
 
 # Understanding field mapping for custom actions in AWS Quick Sight
-<a name="quicksight-actions-field-mapping"></a>
 
 Automated field mapping is based on identical fields. Fields with the same name and data type map automatically across datasets. Their field names and data types must be an exact match. This works similar to a join, except that it is automatically generated based on names and data types for every matching field. If you are missing fields, you can create them by using calculated fields in the dataset that's missing a field. If you don't want to have some of the fields mapped to each other, you can rename or remove them from the dataset. 
 

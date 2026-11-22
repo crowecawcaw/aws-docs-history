@@ -1,7 +1,6 @@
 
 
 # Using conditional rules
-<a name="using-conditional-rules"></a>
 
 Once you have set up a conditional rule that is connected to a parameter and a parameter control, you can use the parameter control to enable or disable the conditional rules you have set. 
 

@@ -1,7 +1,6 @@
 
 
 # Notion integration
-<a name="notion-integration"></a>
 
 With Notion integration in AWS Quick, you can manage pages, databases, and collaborative workspaces through MCP server connectivity. This integration provides action capabilities for knowledge management and content organization operations.
 

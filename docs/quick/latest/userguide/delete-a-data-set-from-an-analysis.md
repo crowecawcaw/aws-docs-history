@@ -1,7 +1,6 @@
 
 
 # Remove a dataset from an analysis
-<a name="delete-a-data-set-from-an-analysis"></a>
 
 Use the following procedure to delete a dataset from an analysis.
 

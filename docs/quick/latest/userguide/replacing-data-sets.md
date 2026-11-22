@@ -1,7 +1,6 @@
 
 
 # Replacing datasets
-<a name="replacing-data-sets"></a>
 
 In an analysis, you can add, edit, replace, or remove datasets. Use this section to learn how to replace your dataset. 
 

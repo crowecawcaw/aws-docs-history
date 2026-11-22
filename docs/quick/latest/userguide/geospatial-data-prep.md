@@ -1,7 +1,6 @@
 
 
 # Adding geospatial data
-<a name="geospatial-data-prep"></a>
 
 You can flag geographic fields in your data, so that AWS Quick Sight can display them on a map. AWS Quick Sight can chart latitude and longitude coordinates. It also recognizes geographic components such as country, state or region, county or district, city, and ZIP code or postal code. You can also create geographic hierarchies that can disambiguate similar entities, for example the same city name in two states.
 

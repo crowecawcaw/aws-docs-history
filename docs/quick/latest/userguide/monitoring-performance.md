@@ -1,7 +1,6 @@
 
 
 # Monitoring performance
-<a name="monitoring-performance"></a>
 
 AWS Quick Automate provides comprehensive monitoring capabilities that help you track performance, audit and troubleshoot your automations. This section describes how to use the performance monitoring features in AWS Quick Automate.
 

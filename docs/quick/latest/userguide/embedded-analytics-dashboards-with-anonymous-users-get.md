@@ -1,7 +1,6 @@
 
 
 # Embedding dashboards for everyone using GetDashboardEmbedURL (old API)
-<a name="embedded-analytics-dashboards-with-anonymous-users-get"></a>
 
 **Important**  
 AWS Quick Sight has new APIs for embedding analytics: `GenerateEmbedUrlForAnonymousUser` and `GenerateEmbedUrlForRegisteredUser`.  

@@ -1,7 +1,6 @@
 
 
 # Overview of Quick folders
-<a name="folders-functionality"></a>
 
 In Quick, you can create personal and shared folders. You can also favorite your personal or shared folders for quick access by choosing the favorite ( ![Star icon outline.](https://docs.aws.amazon.com/quick/latest/userguide/images/favorite-icon.png)) icon next to it. 
 

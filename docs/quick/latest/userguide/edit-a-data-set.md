@@ -1,7 +1,6 @@
 
 
 # Editing datasets
-<a name="edit-a-data-set"></a>
 
 You can edit an existing dataset to perform data preparation. For more information about Quick Sight data preparation functionality, see [Preparing data in AWS Quick Sight](preparing-data.md).
 

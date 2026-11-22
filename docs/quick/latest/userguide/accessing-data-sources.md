@@ -1,7 +1,6 @@
 
 
 # Accessing AWS resources
-<a name="accessing-data-sources"></a>
 
 
 |  | 

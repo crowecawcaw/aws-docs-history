@@ -1,7 +1,6 @@
 
 
 # Creating a dataset using an existing dataset in AWS Quick
-<a name="create-a-dataset-existing-dataset"></a>
 
 After you create a dataset in AWS Quick, you can create additional datasets using it as a source. When you do this, any data preparation that the parent dataset contains, such as any joins or calculated fields, is kept. You can add additional preparation to the data in the new child datasets, such as joining new data and filtering data. You can also set up your own data refresh schedule for the child dataset and track the dashboards and analyses that use it.
 

@@ -1,7 +1,6 @@
 
 
 # How AWS Quick works
-<a name="how-quicksuite-works"></a>
 
 When you use Quick, the following components work together to process your requests.
 
@@ -13,7 +12,7 @@ Chat is the primary interface for Quick. You type a question, give an instructio
 ## Agents process your requests
 <a name="how-quick-works-agents"></a>
 
-Behind every interaction is an agent. Agents are configured with instructions that define their behavior, knowledge sources that ground their responses, and tools that let them take action. Quick provides a default agent, and you can create custom agents for specific domains. For more information, see [Create, customize, and deploy AI-powered chat agents in AWS Quick](working-with-agents.md).
+Behind every interaction is an agent. Agents are configured with instructions that define their behavior, knowledge sources that ground their responses, and tools that let them take action. Quick provides a default agent, and you can create custom agents for specific domains. For more information, see [Agents in AWS Quick](working-with-agents.md).
 
 ## Spaces organize context
 <a name="how-quick-works-spaces"></a>
@@ -42,7 +41,7 @@ For more information, see [Work with integrations in AWS Quick](working-with-int
 ## Features use those building blocks
 <a name="how-quick-works-features"></a>
 
-Each Quick feature combines the components above in different ways:
+Each Quick feature combines the preceding components in different ways:
 
 
 | Feature | What it does | What it uses | 
@@ -52,7 +51,12 @@ Each Quick feature combines the components above in different ways:
 | Quick Automate | End-to-end process automation | Connectors, agents, human-in-the-loop | 
 | Quick Research | In-depth cited reports | Spaces, knowledge bases, web | 
 | Apps in Quick | Interactive web applications | Structured data, connectors, Quick Sight visuals | 
-| Desktop application | Personalized AI on your machine | Local files, email, calendar, MCP servers | 
+| Desktop application | Personalized AI on your machine, with seamless handoff to and from the web and mobile | Local files, email, calendar, MCP servers | 
+
+## One experience across surfaces
+<a name="how-quick-works-cross-surface"></a>
+
+AWS Quick runs in the cloud. Your conversations, memory, knowledge graph, agent-produced files, and the index of content you make searchable are kept for you in your AWS Quick account, so they are available across the web, desktop, and mobile. You can start work on one surface and continue on another without losing context.
 
 ## Where to go next
 <a name="how-quick-works-next-steps"></a>
@@ -63,7 +67,7 @@ Each Quick feature combines the components above in different ways:
 | Set up Quick for my organization | [Setting up and signing into AWS Quick](setting-up.md) | 
 | Start using Quick | [Getting started with AWS Quick](getting-started.md) | 
 | Build dashboards and visualize data | [Visualize, analyze, and share data with analyses, dashboards, and reports in AWS Quick Sight](quick-bi.md) | 
-| Automate tasks | [Using AWS Quick automations](using-amazon-quick-automations.md) | 
+| Automate tasks | [Orchestrate end-to-end business processes using AWS Quick Automate](using-amazon-quick-automate.md) | 
 | Research a topic | [Using AWS Quick Research](using-amazon-quick-research.md) | 
 | Build an app | [Build web applications with apps in AWS Quick](using-amazon-quick-apps.md) | 
 | Connect Quick to my tools | [Work with integrations in AWS Quick](working-with-integrations.md) | 

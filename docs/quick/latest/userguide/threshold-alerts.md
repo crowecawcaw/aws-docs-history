@@ -1,7 +1,6 @@
 
 
 # Working with threshold alerts in AWS Quick Sight
-<a name="threshold-alerts"></a>
 
 
 |  | 

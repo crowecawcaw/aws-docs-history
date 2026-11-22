@@ -1,7 +1,6 @@
 
 
 # Integration workflows
-<a name="integration-workflows"></a>
 
 The following procedures describe the general workflows for creating and managing different types of integrations in AWS Quick.
 

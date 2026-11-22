@@ -1,7 +1,6 @@
 
 
 # Deleting AWS Quick Sight visuals
-<a name="deleting-a-visual"></a>
 
 Use the following procedure to delete a visual.
 

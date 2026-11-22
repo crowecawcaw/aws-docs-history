@@ -1,7 +1,6 @@
 
 
 # windowMax
-<a name="windowMax-function"></a>
 
 The `windowMax` function calculates the maximum of the aggregated measure in a custom window that is partitioned and sorted by specified attributes. Usually, you use custom window functions on a time series, where your visual shows a metric and a date field. You can use `windowMax` to help you identify the maximum of the metric over a period time.
 

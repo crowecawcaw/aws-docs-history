@@ -1,7 +1,6 @@
 
 
 # Testing automations
-<a name="testing-automations"></a>
 
 AWS Quick Automate provides comprehensive capabilities for testing your automations. This section describes the tools and features available for validating your automation behavior.
 

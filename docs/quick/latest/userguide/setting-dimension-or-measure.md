@@ -1,7 +1,6 @@
 
 
 # Setting fields as a dimensions or measures
-<a name="setting-dimension-or-measure"></a>
 
 In the **Field list** pane, dimension fields have blue icons and measure fields have green icons. *Dimensions* are text or date fields that can be items, like products, or attributes that are related to measures. You can use dimensions to partition these items or attributes, like sales date for sales figures. *Measures* are numeric values that you use for measurement, comparison, and aggregation. 
 

@@ -1,7 +1,6 @@
 
 
 # Visual types in AWS Quick Sight
-<a name="working-with-visual-types"></a>
 
 AWS Quick Sight offers a range of visual types that you can use to display your data. Use the topics in this section to learn more about the capabilities of each visual type.
 

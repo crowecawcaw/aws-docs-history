@@ -1,7 +1,6 @@
 
 
 # Attributions
-<a name="attributions"></a>
 
 Following, you can find out about attributions and third-party licenses for material used in Quick documentation.
 

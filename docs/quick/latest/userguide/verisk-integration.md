@@ -1,7 +1,6 @@
 
 
 # Verisk Underwriting Intelligence integration
-<a name="verisk-integration"></a>
 
 Access Insurance Services Office (ISO) loss cost data directly from AWS Quick using natural language. With the Verisk Underwriting Intelligence connector, you can retrieve filed loss cost changes, review experience indexes, and analyze indication details without leaving AWS Quick.
 

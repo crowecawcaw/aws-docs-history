@@ -1,7 +1,6 @@
 
 
 # Duplicating analyses
-<a name="duplicating-an-analysis"></a>
 
 You can duplicate analyses in Quick Sight. Use the following procedure to learn how.
 

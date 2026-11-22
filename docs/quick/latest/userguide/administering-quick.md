@@ -1,7 +1,6 @@
 
 
 # Administering AWS Quick
-<a name="administering-quick"></a>
 
 The administration experience for AWS Quick depends on how your account was created. Choose the guide that matches your account type:
 + **Free, Plus, and Max accounts** – For accounts created with email or social on [aws.com/quick](https://aws.com/quick). See [Administering AWS Quick (Free/Plus/Max)](standalone-admin-guide.md).

@@ -1,7 +1,6 @@
 
 
 # Sharing and subscribing to data in AWS Quick Sight with dashboards and reports
-<a name="working-with-dashboards"></a>
 
 A *dashboard* is a read-only snapshot of an analysis that you can share with other AWS Quick Sight users for reporting purposes. A dashboard preserves the configuration of the analysis at the time you publish it, including such things as filtering, parameters, controls, and sort order. The data used for the analysis isn't captured as part of the dashboard. When you view the dashboard, it reflects the current data in the data sets used by the analysis.
 

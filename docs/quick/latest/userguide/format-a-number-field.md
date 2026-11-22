@@ -1,7 +1,6 @@
 
 
 # Format a number field
-<a name="format-a-number-field"></a>
 
 When you format a number field, you can choose the decimal place and thousand separator format from a list of common options. Or you can open the **Format Data** pane and manually format the field. Manually formatting the field enables you to choose which separators to use and the number of decimal places to show. It also enables you to choose which units to use, and how to display negative numbers.
 

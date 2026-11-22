@@ -1,7 +1,6 @@
 
 
 # Sorting pivot tables in Quick
-<a name="sorting-pivot-tables"></a>
 
 In AWS Quick, you can sort values in a pivot table by fields in the **Rows** and **Columns** field wells or quickly by column headers in the pivot table. In pivot tables, you can sort rows and columns independently of each other in alphabetical order, or by a measure.
 

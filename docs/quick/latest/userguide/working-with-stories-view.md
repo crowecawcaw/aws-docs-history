@@ -1,7 +1,6 @@
 
 
 # Viewing a generated data story in AWS Quick Sight
-<a name="working-with-stories-view"></a>
 
 After you generate and keep a data story, you can access that data story from the **Data stories** page. To view a data story, choose the data story that you want to view to open the story editor.
 

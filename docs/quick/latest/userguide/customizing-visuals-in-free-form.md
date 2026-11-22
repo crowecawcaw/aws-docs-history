@@ -1,7 +1,6 @@
 
 
 # Customizing visuals in a free-form layout
-<a name="customizing-visuals-in-free-form"></a>
 
 You can use the free-form layout to fully customize the color, size, location, and visibility of each visual in a dashboard.
 

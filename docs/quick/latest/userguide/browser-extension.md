@@ -1,7 +1,6 @@
 
 
 # Browser extension
-<a name="browser-extension"></a>
 
 The AWS Quick browser extension is available within AWS Quick to all eligible users by default and requires no administrative setup for user access. Users can find the browser extension installation link under **Connections** > **Extensions**. The following procedures are for IT administrators who want to automatically deploy or disable the AWS Quick browser extension across all browsers in their organization using managed device policies.
 

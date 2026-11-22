@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="qbiz-indexes-prerequisites"></a>
 
 Before you can use Amazon Q Business indexes in AWS Quick, ensure that you meet the following prerequisites:
 

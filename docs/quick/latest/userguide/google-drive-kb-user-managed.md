@@ -1,7 +1,6 @@
 
 
 # User-managed setup
-<a name="google-drive-kb-user-managed"></a>
 
 With user-managed setup, you sign in to Google Drive directly to authorize the connection. AWS Quick handles authentication through a managed OAuth flow. No Google Cloud project, service account, or domain-wide delegation is required.
 

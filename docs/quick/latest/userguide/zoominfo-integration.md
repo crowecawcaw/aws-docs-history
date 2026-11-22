@@ -1,7 +1,6 @@
 
 
 # ZoomInfo integration
-<a name="zoominfo-integration"></a>
 
 With the ZoomInfo connector, you can look up company and contact data, and query firmographic and intent data directly in AWS Quick through natural language.
 

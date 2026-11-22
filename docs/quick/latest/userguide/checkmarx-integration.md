@@ -1,7 +1,6 @@
 
 
 # Checkmarx integration
-<a name="checkmarx-integration"></a>
 
 Bring Checkmarx One application security data into AWS Quick using natural language. With the Checkmarx connector, you can trigger scans, retrieve findings, and query your security posture without leaving AWS Quick. You can also use Checkmarx tools inside AWS Quick Flows to run reusable security workflows on demand or on a schedule.
 

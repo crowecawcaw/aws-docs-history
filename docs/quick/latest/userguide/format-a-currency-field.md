@@ -1,7 +1,6 @@
 
 
 # Format a currency field
-<a name="format-a-currency-field"></a>
 
 When you format a currency field, you can either choose the currency symbol from a list of common options, or open the **Format data** pane and manually format the field. Manually formatting the field allows you to choose which symbol to use, which separators to use, the number of decimal places to show, which units to use, and how to display negative numbers.
 

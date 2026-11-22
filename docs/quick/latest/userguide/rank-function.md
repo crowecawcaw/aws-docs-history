@@ -1,7 +1,6 @@
 
 
 # rank
-<a name="rank-function"></a>
 
 The `rank` function calculates the rank of a measure or a dimension in comparison to the specified partitions. It counts each item, even duplicates, once and assigns a rank "with holes" to make up for duplicate values. 
 

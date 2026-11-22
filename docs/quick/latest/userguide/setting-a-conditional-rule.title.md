@@ -1,7 +1,6 @@
 
 
 # Setting a conditional rule
-<a name="setting-a-conditional-rule.title"></a>
 
 When you set up a conditional rule, you create a conditional statement that will hide or show a visual when a specific condition is met. You can currently create conditional rules that hide or show a visual. If you want to create a conditional rule that makes a hidden visual appear, choose **Hide this visual by default** in the **Rules** menu of the **Properties** pane. 
 

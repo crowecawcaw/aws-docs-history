@@ -1,7 +1,6 @@
 
 
 # Error codes for failed PDF export jobs
-<a name="qs-reports-error-codes"></a>
 
 When you generate PDF reports in AWS Quick Sight, you may encounter instances where your request to generate a PDF report fails. There are many reasons why a failure might occur. Quick Sight provides error codes that can help you understand why the error occurred and provide guidance to troubleshoot the issue. The following table lists the error codes that Quick Sight returns when a PDF export job fails.
 

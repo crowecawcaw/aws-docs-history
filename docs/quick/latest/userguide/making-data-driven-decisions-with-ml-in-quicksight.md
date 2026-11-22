@@ -1,7 +1,6 @@
 
 
 # Gaining insights with machine learning (ML) in AWS Quick Sight
-<a name="making-data-driven-decisions-with-ml-in-quicksight"></a>
 
 AWS Quick Sight uses machine learning to help you uncover hidden insights and trends in your data, identify key drivers, and forecast business metrics. You can also consume these insights in natural language narratives embedded in dashboards. 
 

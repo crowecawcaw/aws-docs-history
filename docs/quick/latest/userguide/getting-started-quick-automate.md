@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="getting-started-quick-automate"></a>
 
 AWS Quick Automate is a browser-based solution that requires no installation, has minimal IT dependencies, and is always up to date. AWS Quick Automate is designed for **technical teams and power users** who build, test, and maintain intelligent automations across enterprise systems. These users typically have a strong understanding of business processes, system integrations, but may not necessarily be software developers. AWS Quick Automate equips advanced users and technical teams with the flexibility, control, and depth needed to design and scale enterprise-grade automations. To get started with AWS Quick Automate, simply access it through your AWS Quick and begin exploring the automation capabilities that best fit your needs.
 
@@ -47,7 +46,7 @@ AWS Quick Automate provides granular role based access: Viewer, Contributor, and
 
 ### Configure integrations
 <a name="automate-configure-integrations"></a>
-+ After setting up AWS service integrations, you can begin using them in Quick Automate. See [Connectors](action-integrations.md) for setup details.
++ After setting up AWS service integrations, you can begin using them in Quick Automate. See [Connectors](integrations-connectors.md) for setup details.
 + First, add the integration to an Automation Group. This allows you to control access for which automations can use this integration. To add an integration to your Automation Group:
   + Go to the **Projects** page
   + Click **Manage groups** and select the group you want to add an integration to

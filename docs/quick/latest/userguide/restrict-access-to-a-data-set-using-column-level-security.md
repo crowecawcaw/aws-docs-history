@@ -1,13 +1,12 @@
 
 
 # Using column-level security to restrict access to a dataset
-<a name="restrict-access-to-a-data-set-using-column-level-security"></a>
 
 In the Enterprise edition of Quick, you can restrict access to a dataset by configuring column-level security (CLS) on it. A dataset or analysis with CLS enabled has the restricted ![The lock icon for CLS.](https://docs.aws.amazon.com/quick/latest/userguide/images/cls-restricted-icon.png) symbol next to it. By default, all users and groups have access to the data. By using CLS, you can manage access to specific columns in your dataset.
 
 If you use an analysis or dashboard that contains datasets with CLS restrictions that you don't have access to, you can't create, view, or edit visuals that use the restricted fields. For most visual types, if a visual has restricted columns that you don't have access to, you can't see the visual in your analysis or dashboard.
 
-Tables and pivot tables behave differently. If a table or pivot table uses restricted columns in the **Rows** or **Columns** field wells, and you don't have access to these restricted columns, you can't see the visual in an analysis or dashboard. If a table or pivot table has restricted columns in the **Values** field well, you can see the table in an analysis or dashboard with only the values that you have access to. The values for restricted columns show as Not Authorized.
+Tables and pivot tables behave differently. If a table or pivot table uses restricted columns in the **Rows** or **Columns** field wells, and you don't have access to these restricted columns, you can't see the visual in an analysis or dashboard. If a table or pivot table has restricted columns in the **Values** field well, you can see the table in an analysis or dashboard with only the values that you have access to. The values for restricted columns show as `Not Authorized`.
 
 To enable column-level security on an analysis or dashboard, you need administrator access.
 

@@ -1,7 +1,6 @@
 
 
 # Set up service credentials
-<a name="onedrive-kb-admin-config"></a>
 
 Before you create the knowledge base in AWS Quick, complete the following configuration steps in AWS and Microsoft Entra ID. You create a KMS signing key, generate a certificate, register an application in Entra, and grant AWS Quick permission to use the key.
 

@@ -1,7 +1,6 @@
 
 
 # Getting started with the AWS Quick desktop application
-<a name="getting-started-desktop"></a>
 
 This section walks you through downloading, installing, and signing in to the AWS Quick desktop application for macOS and Windows.
 
@@ -135,4 +134,4 @@ After you sign in for the first time, Quick guides you through connecting your d
 | Messaging | Threads, direct messages, and channels | A messaging connector | 
 | Local files | Folders on your computer | Any folder on your machine | 
 
-For each category, choose **Connect** to set it up, or **Dismiss** to skip it. You can connect data sources later from **Customize**, on the **Connectors** tab. For more information, see [Connectors](connections-desktop.md).
+For each category, choose **Connect** to set it up, or **Dismiss** to skip it. You can connect data sources later from **Customize**, on the **Connectors** tab. For more information, see [Work with integrations in AWS Quick](working-with-integrations.md).

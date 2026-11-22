@@ -1,7 +1,6 @@
 
 
 # Orienting pivot table values
-<a name="pivot-table-value-orientation"></a>
 
 You can choose to display a pivot table in a columnar or row-based format. Columnar is the default. When you change to a row-based format, a column with the value name is added to the right of the row header column.
 

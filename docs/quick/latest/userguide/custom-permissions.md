@@ -1,7 +1,6 @@
 
 
 # Custom permissions
-<a name="custom-permissions"></a>
 
 **Applies to**  
 Applies to: Enterprise Edition  
@@ -9,7 +8,7 @@ Intended audience: Administrators and AWS Quick developers
 
 In Enterprise edition, you can use custom permissions profiles to restrict the capabilities and features that people can access in AWS Quick. Custom permissions is a scope-down policy. It can only restrict what a user has access to based on the default set of capabilities available to their role. It cannot be used to grant capabilities that a user does not already have.
 
-You can configure custom permissions at the account, role (admin, author, reader), and user levels for all identity types in Quick. You can assign custom permissions profiles to users and roles directly in the AWS Quick admin console, or by using the AWS Quick API and AWS Command Line Interface. The admin console also provides a Check permissions feature that lets you verify which profile is active for any user and at which level (user, role, or account) it applies.
+You can configure custom permissions at the account, role (admin, author, reader), and user levels for all identity types in Quick. You can assign custom permissions profiles to users and roles directly in the AWS Quick admin console, or by using the AWS Quick API and AWS Command Line Interface. Use the Check permissions feature in the admin console to verify which profile is active for a user and the level at which it applies (user, group, role, or account).
 
 ## Permissions precedence
 <a name="permissions-precedence"></a>
@@ -18,9 +17,11 @@ If a user has custom permissions assigned at multiple levels, Quick evaluates th
 
 1. **User-level** – Custom permissions assigned directly to a user take highest priority.
 
-1. **Role-level** – Custom permissions assigned to a role (Admin, Author, Reader) apply to all users in that role unless overridden by a user-level assignment.
+1. **Group-level** – Custom permissions assigned to a group apply to all members of the group unless overridden by a user-level assignment. When a user belongs to more than one group that has an assigned profile, Quick combines those profiles. For more information, see [How AWS Quick resolves multiple group assignments](custom-permissions-assign.md#custom-permissions-assign-groups-resolution).
 
-1. **Account-level** – Custom permissions assigned at the account level apply to all users unless overridden by a role-level or user-level assignment.
+1. **Role-level** – Custom permissions assigned to a role (Admin, Author, Reader) apply to all users in that role unless overridden by a group-level or user-level assignment.
+
+1. **Account-level** – Custom permissions assigned at the account level apply to all users unless overridden by a group-level, role-level, or user-level assignment.
 
 The first match wins. A user with a user-level allow-by-default profile is not subject to an account-level Deny by Default profile. Assign Deny by Default profiles at the appropriate level for your requirements.
 
@@ -29,7 +30,7 @@ For an in-depth explanation of using custom permissions to establish enterprise 
 
 The following limitations apply to custom permissions.
 + You can't grant permissions that are above a user's default role. For example, if a user has reader access, you can't grant permissions for that user to edit dashboards.
-+ To customize user or role permissions, you need to be a Quick administrator with the following IAM permissions:
++ To customize user, group, or role permissions, you need to be a Quick administrator with the following IAM permissions:
   + `quicksight:CreateCustomPermissions`
   + `quicksight:DeleteCustomPermissions`
   + `quicksight:DescribeCustomPermissions`
@@ -44,6 +45,13 @@ The following limitations apply to custom permissions.
   + `quicksight:UpdateAccountCustomPermission`
   + `quicksight:UpdateRoleCustomPermission`
   + `quicksight:UpdateUserCustomPermission`
+  + `quicksight:BatchDeletePolicyAssignmentByPolicy`
+  + `quicksight:BatchPutPolicyAssignmentByPolicy`
+  + `quicksight:DeletePolicyAssignment`
+  + `quicksight:GetEffectiveCustomPermissions`
+  + `quicksight:GetPolicyAssignment`
+  + `quicksight:ListPrincipalsForPolicy`
+  + `quicksight:PutPolicyAssignment`
 
 You can create custom permission profiles to restrict access to any combination of the following features. Parent capabilities let you restrict an entire asset's feature set. When you deny a parent capability, all of its child features are also denied. The reverse isn't true: denying every child feature doesn't deny the parent capability. This is because a parent can control functionality that isn't exposed as a separate child feature. To restrict a capability completely, deny the parent.
 
@@ -100,6 +108,9 @@ Use this group to control access to AI-powered features such as natural language
 | Research | Restricts access to Research. | AI | Not applicable | 
 | Skills | Restricts access to skills, including sharing skills. | AI | Not applicable | 
 | Share skills with individuals | Users can't share skills with individuals. | AI | Skills | 
+| Share skills with all | Users can't share skills with their entire account. They can still share with specific people or groups if that is allowed. | AI | Skills | 
+| Require approval to share skills | Requires a skill to be approved before it is shared. | AI | Skills | 
+| Create and update brand kits | Users can't extract, refine, publish, update, or delete brand assets for the organization. They can still browse, download, and apply published brands. | AI | Not applicable | 
 | Spaces | Restricts all Spaces capabilities, including creating and sharing spaces. | AI | Not applicable | 
 | Create spaces | Users can't create new spaces. Existing spaces remain accessible and unchanged. | AI | Spaces | 
 | Share spaces | Users can't share spaces with other users. Spaces that were previously shared remain accessible to those users. | AI | Spaces | 

@@ -1,7 +1,6 @@
 
 
 # Making a bookmark the default view in AWS Quick Sight
-<a name="dashboard-bookmarks-default"></a>
 
 By default, when you update a dashboard, Quick Sight remembers those changes and keeps them after you close the dashboard. This way, you can pick up where you left off when you open the dashboard again. You can set a bookmark as the default view of a dashboard instead. If you do, anytime that you open the dashboard, the bookmark view is presented to you, regardless of the changes you made during your last session. 
 

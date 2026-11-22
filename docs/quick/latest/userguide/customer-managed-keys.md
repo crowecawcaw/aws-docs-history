@@ -1,7 +1,6 @@
 
 
 # Encrypting your AWS Quick data with AWS Key Management Service customer managed keys
-<a name="customer-managed-keys"></a>
 
 AWS Quick enables you to encrypt your AWS Quick data with the keys you have stored in AWS Key Management Service. This provides you with the tools to audit access to data and satisfy regulatory security requirements. If you need to do so, you have the option to immediately lock down access to your data by revoking access to AWS KMS keys. The use of your AWS KMS keys by AWS Quick is logged in AWS CloudTrail. You can use these events to verify which key protects a resource. These events record AWS KMS key use. Administrators and auditors can use these events to trace when and where your AWS KMS keys were used. For application-level activity in AWS Quick, see [Incident response, logging, and monitoring in AWS Quick](incident-response-logging-and-monitoring.md). 
 
@@ -59,7 +58,7 @@ To see both values for your account, call `DescribeKeyRegistration`. The respons
 
 Key registration support follows AWS Quick Region availability. Individual AWS Quick features and their customer managed KMS key integrations might have narrower Region or account availability; see the documentation for that feature and use `DescribeKeyRegistration` to inspect your account.
 
-For more information about supported AWS Regions, see [AWS Regions, websites, IP address ranges, and endpoints](regions.md).
+For more information about supported AWS Regions, see [AWS Regions and related information](regions.md).
 
 
 | AWS Quick resource type | Key used | When it applies | Existing-resource behavior | 
@@ -118,7 +117,7 @@ To learn more about how you can create a key to use in AWS Quick, see the [AWS K
 
 When a key is used, an audit log is created in AWS CloudTrail. You can use the log to track the key's usage. If you need to know which key the AWS Quick data is encrypted by, you can find this information in CloudTrail.
 
-To learn more about which data can be managed with the key, see [Encrypting your AWS Quick data with AWS Key Management Service customer managed keys](#customer-managed-keys).
+To learn more about which data can be managed with the key, see [Encrypting your AWS Quick data with AWS Key Management Service customer managed keys](customer-managed-keys.md).
 
 **Verify the customer managed KMS key that's currently used by a SPICE dataset**
 
@@ -242,7 +241,7 @@ To learn more about which data can be managed with the key, see [Encrypting your
 
 You can change the default key to another key that already exists in the **KMS keys** dashboard. When you change the default key, new writes and new resources for participating resource types use the new key. Existing content remains encrypted with the key that was in effect when it was written; how and whether it moves to the new key differs by resource type – for example, a SPICE dataset moves on its next full refresh, data-source credentials move on their next update or token refresh, and report artifacts are never re-encrypted. The Amazon Q data key is not affected. For more information, see [Customer managed KMS key scope](#customer-managed-keys-scope).
 
-To learn more about which data can be managed with the key, see [Encrypting your AWS Quick data with AWS Key Management Service customer managed keys](#customer-managed-keys).
+To learn more about which data can be managed with the key, see [Encrypting your AWS Quick data with AWS Key Management Service customer managed keys](customer-managed-keys.md).
 
 **To change the default key to an existing key**
 
@@ -294,7 +293,7 @@ You can revoke access to your customer managed KMS keys. When you revoke access 
 **Important**  
 Before you revoke access to a AWS KMS key, call `DescribeKeyRegistration` and confirm the key is not your Amazon Q data key. If you revoke access to your Amazon Q data key, Amazon Q data becomes inaccessible and creating new Amazon Q resources fails. This is not reversible by registering a different customer managed KMS key. For more information, see [Amazon Q data key](#customer-managed-keys-q-data-key).
 
-To learn more about which data can be managed with the key, see [Encrypting your AWS Quick data with AWS Key Management Service customer managed keys](#customer-managed-keys).
+To learn more about which data can be managed with the key, see [Encrypting your AWS Quick data with AWS Key Management Service customer managed keys](customer-managed-keys.md).
 
 Use the following procedure to revoke access to your customer managed KMS keys in AWS KMS.
 
@@ -327,4 +326,4 @@ If the AWS KMS key has been permanently deleted, data encrypted with it cannot b
 
 1. (Optional) If a SPICE dataset is not fully recovered even after you restore access to the customer managed KMS key, perform a full refresh on the dataset. Full refresh applies only to SPICE datasets; it is not applicable to other resource types such as conversations, spaces, agents, or actions.
 
-To learn more about which data can be managed with the key, see [Encrypting your AWS Quick data with AWS Key Management Service customer managed keys](#customer-managed-keys).
+To learn more about which data can be managed with the key, see [Encrypting your AWS Quick data with AWS Key Management Service customer managed keys](customer-managed-keys.md).

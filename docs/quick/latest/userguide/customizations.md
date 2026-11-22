@@ -1,7 +1,6 @@
 
 
 # Customizations
-<a name="customizations"></a>
 
 Using AWS Quick, you can create a customized experience for people using either the AWS Management Console or Quick consoles embedded in your application. 
 

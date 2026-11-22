@@ -1,7 +1,6 @@
 
 
 # Using table calculations in pivot tables
-<a name="working-with-calculations"></a>
 
 You can use table calculations to apply statistical functions to pivot table cells that contain measures (numeric values). Use the following sections to understand which functions you can use in calculations, and how to apply or remove them.
 

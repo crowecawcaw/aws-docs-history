@@ -1,7 +1,6 @@
 
 
 # addWorkDays
-<a name="addWorkDays-function"></a>
 
 `addWorkDays` Adds or subtracts a designated number of work days to a given date value. The function returns a date for a work day, that falls a designated work days after or before a given input date value. 
 

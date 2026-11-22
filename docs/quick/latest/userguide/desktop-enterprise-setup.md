@@ -1,7 +1,6 @@
 
 
 # Setting up AWS Quick on desktop for enterprise deployments
-<a name="desktop-enterprise-setup"></a>
 
 
 |  | 
@@ -29,13 +28,13 @@ If you are using a Free or Plus account, this section does not apply to you. Con
 <a name="desktop-enterprise-prerequisites"></a>
 
 Before you begin, verify that you have the following:
-+ An AWS account with an active AWS Quick subscription. The account's home Region (identity Region) must be a supported AWS Region. For a list of supported Regions, see [Supported AWS Regions for AWS Quick](regions.md#regions-qs).
++ An AWS account with an active AWS Quick subscription. The account's home Region (identity Region) must be a supported AWS Region. For a list of supported Regions, see [URLs, endpoints, and IP addresses](regions.md#regions-qs).
 + Administrator access to your AWS Quick account.
 + Version 1.1.4053 or later of the desktop application.
 + In restricted network environments, the ability to reach the required AWS Quick and identity provider domains. For the list of domains to add to your allow list, see [Network access and required domains](desktop-security.md#desktop-network-access).
 
 **Important**  
-AWS Quick on desktop is available only in AWS Regions that support agentic features. To check your Region, see the **Agentic Features** column in [Supported AWS Regions for AWS Quick](regions.md#regions-qs).
+AWS Quick on desktop is available only in AWS Regions that support agentic features. To check your Region, see the **Agentic Features** column in [URLs, endpoints, and IP addresses](regions.md#regions-qs).
 
 ## Turning on desktop access
 <a name="desktop-enterprise-turn-on"></a>

@@ -1,7 +1,6 @@
 
 
 # runningSum
-<a name="runningSum-function"></a>
 
 The `runningSum` function calculates a running sum for a measure based on the specified dimensions and sort orders. 
 

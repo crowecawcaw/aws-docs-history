@@ -1,7 +1,6 @@
 
 
 # AWS Quick Microsoft Teams extension user guide
-<a name="teams-extension-user-guide"></a>
 
 As a user, you can access Quick directly within Microsoft Teams to get AI-powered assistance without leaving your workspace. The extension integrates seamlessly into your Microsoft Teams environment, providing instant access to knowledge bases and intelligent responses.
 
@@ -18,7 +17,7 @@ Install the Quick app in your Microsoft Teams workspace to enable AI-powered ass
 
 **Add a Microsoft Teams Extension to your Microsoft Teams**
 
-1. Open and login to the Microsoft Teams workspace for your company.
+1. Open and log in to the Microsoft Teams workspace for your company.
 
 1. Choose **Apps** in the left navigation and search for **Quick**.
 
@@ -34,7 +33,7 @@ For more information, see [Chat with a bot in Microsoft Teams](https://support.m
 
 With AWS Quick integrated into Microsoft Teams, you can search and access your organization's knowledge bases directly from your conversations. This allows you to find relevant information, get answers to questions, and enhance your communications without leaving Team.
 
-**Search your organization’s knowledge without leaving Teams**
+**Search your organization's knowledge without leaving Teams**
 
 1. Start a chat with Quick after adding it from the **Apps** section.
 
@@ -42,7 +41,7 @@ With AWS Quick integrated into Microsoft Teams, you can search and access your o
 
 1. To personalize your conversation using your data, use the gear icon (visible after sending your first message to Quick) within your conversation to select an agent or a space to respond from.
 
-**Get Quick’s in-context help in Teams posts**
+**Get Quick's in-context help in Teams posts**
 
 1. Navigate to a Teams post of your choice.
 
@@ -66,7 +65,7 @@ As a user, you are responsible for keeping company information safe. The followi
 
 AWS Quick automatically deletes conversations after 30 days of inactivity. Teams conversation retention follows your company's specific history rules. Teams retention periods may exceed AWS Quick's 30-day limit. To start fresh, begin a new conversation by using the `/new_conv` command
 
-Users can review past conversations in Teams or all conversations from all channels (Teams, browser extensions, etc.) in your AWS Quick chat instance.
+Users can review past conversations in Teams or all conversations from all channels (Teams, browser extensions, and so on) in your AWS Quick chat instance.
 
 **Note**  
 Deleting conversations or messages in Teams does not remove them from AWS Quick. To manage your conversation history, use the AWS Quick chat instance.
@@ -88,7 +87,7 @@ AWS Quick does not use customer data for service improvement or for improving it
 
 The AWS Quick Teams app will have access to the same knowledge available in the corresponding AWS Quick web experience.
 
-Closing the AWS Quick bot for Teams side panel will end the current conversation. Users can review past conversations in Teams or all conversations from all channels (Teams, browser extensions, etc.) in your AWS Quick web experience. You can access all the history of previous conversations including, the names of the attachments in those conversations.
+Closing the AWS Quick bot for Teams side panel will end the current conversation. Users can review past conversations in Teams or all conversations from all channels (Teams, browser extensions, and so on) in your AWS Quick web experience. You can access all the history of previous conversations including, the names of the attachments in those conversations.
 
 ## Microsoft Teams extension known limitations
 <a name="teams-extension-known-limitations"></a>

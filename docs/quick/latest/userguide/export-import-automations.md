@@ -1,7 +1,6 @@
 
 
 # Export and import automations
-<a name="export-import-automations"></a>
 
 You can use the import and export feature in AWS Quick Automate to share and migrate automation versions across automation groups, AWS accounts, and AWS Regions. Use this feature to promote automations from development to production environments, create backups, or share automations with other teams.
 

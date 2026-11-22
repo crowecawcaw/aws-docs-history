@@ -1,7 +1,6 @@
 
 
 # Using bar charts
-<a name="bar-charts"></a>
 
 AWS Quick supports the following types of bar charts, with either horizontal or vertical orientation:
 + **Single-measure** – A *single-measure bar chart* shows values for a single measure for a dimension. 

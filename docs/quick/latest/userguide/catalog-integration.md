@@ -1,7 +1,6 @@
 
 
 # Connecting to data catalogs in AWS Quick
-<a name="catalog-integration"></a>
 
 **Note**  
 Data catalog integration is in Preview for AWS Quick and is subject to change. Preview features are not typically recommended for critical or production workloads.

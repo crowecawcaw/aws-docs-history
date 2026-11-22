@@ -1,7 +1,6 @@
 
 
 # Developing applications with the AWS Quick Sight API
-<a name="quicksight-sdks"></a>
 
 You can manage most aspects of your deployment by using the AWS SDKs to access an API that's tailored to the programming language or platform that you're using. For more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs). 
 
@@ -90,7 +89,7 @@ Use the following procedure to set up a Java app that interacts with AWS Quick S
 
 1. Now, you are ready to create an AWS Quick Sight client. You can use a default public endpoint that the client can communicate with or you can reference the endpoint explicitly. There are multiple ways to provide your AWS credentials. In the following example, we provide a direct, simple approach. The following client method is used to make all the API calls that follow:
 
-   ```
+   ```java
    private static AmazonQuickSight getClient() {
    	final AWSCredentialsProvider credsProvider = new AWSCredentialsProvider() {
    	@Override
@@ -115,7 +114,7 @@ Use the following procedure to set up a Java app that interacts with AWS Quick S
 **Note**  
 You have to provide the AWS account ID that you used to subscribe to AWS Quick Sight. This must match the AWS account ID of the caller’s identity. Cross-account calls aren't supported at this time. Furthermore, the required parameter `namespace` should always be set to {{default}}. 
 
-   ```
+   ```java
    getClient().listUsers(new ListUsersRequest()
            .withAwsAccountId("{{relevant_AWS_account_ID}}")
            .withNamespace("default"))

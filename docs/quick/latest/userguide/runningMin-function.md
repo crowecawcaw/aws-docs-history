@@ -1,7 +1,6 @@
 
 
 # runningMin
-<a name="runningMin-function"></a>
 
 The `runningMin` function calculates a running minimum for a measure based on the specified dimensions and sort orders. 
 

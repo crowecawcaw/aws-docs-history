@@ -1,7 +1,6 @@
 
 
 # Personalize data stories in AWS Quick Sight
-<a name="working-with-stories-personalize"></a>
 
 User location and job-related information from your IAM Identity Center instance are leveraged to generate personalized data stories that are more relevant to authors and readers. For example, when an author in the US issues the prompt “Write a business strategy focusing on a plan on how to increase the revenue in my location", insights related to the US in the data story's narrative are automatically included. If the author wants the data story to focus on another country such as Canada, they can specify this in the prompt.
 

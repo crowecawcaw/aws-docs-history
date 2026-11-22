@@ -1,7 +1,6 @@
 
 
 # Using scatter plots
-<a name="scatter-plot"></a>
 
 Use scatter plots to visualize two or three measures across two dimensions.
 

@@ -1,7 +1,6 @@
 
 
 # Web Crawler integration
-<a name="web-crawler-integration"></a>
 
 
 |  | 

@@ -1,7 +1,6 @@
 
 
 # Asana integration
-<a name="asana-integration"></a>
 
 Connect AWS Quick to your Asana workspace to manage projects, tasks, and team collaboration. The Asana connector uses the Asana V2 Model Context Protocol (MCP) server. You can create, update, and manage Asana content without leaving your AWS Quick environment. Every action runs as the authenticated user, and the connector limits access to what that user can do in Asana. For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 

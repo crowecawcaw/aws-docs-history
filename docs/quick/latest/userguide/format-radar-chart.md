@@ -1,7 +1,6 @@
 
 
 # Formatting radar charts in Quick
-<a name="format-radar-chart"></a>
 
 You can customize radar charts in AWS Quick to arrange your data the way that you want. You can customize the series style, start angle, fill area, and grid shape of a radar chart.
 

@@ -1,7 +1,6 @@
 
 
 # Refine visuals with generative BI
-<a name="generative-bi-refine-visual"></a>
 
 Quick authors can also use natural language prompts to edit visuals in an analysis, as shown in the following visual. Authors can use this functionality to edit visuals without performing manual tasks in the Quick UI. Authors can only use Generative BI to perform formatting tasks that are currently supported in Quick.
 

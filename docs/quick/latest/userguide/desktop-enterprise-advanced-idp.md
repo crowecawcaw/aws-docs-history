@@ -1,7 +1,6 @@
 
 
 # Using a dedicated identity provider configuration (advanced)
-<a name="desktop-enterprise-advanced-idp"></a>
 
 
 |  | 

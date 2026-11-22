@@ -1,7 +1,6 @@
 
 
 # Preparing data fields for analysis in AWS Quick Sight
-<a name="preparing-data-fields"></a>
 
 Before you start analyzing and visualizing your data, you can prepare the fields (columns) in your dataset for analysis. You can edit field names and descriptions, change the data type for fields, set up drill-down hierarchies for fields, and more.
 

@@ -1,7 +1,6 @@
 
 
 # HubSpot integration
-<a name="hubspot-integration"></a>
 
 Access your HubSpot CRM data directly from AWS Quick using natural language. With the HubSpot connector, you can retrieve and list contacts, companies, deals, and tickets without leaving AWS Quick.
 

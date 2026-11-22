@@ -1,7 +1,6 @@
 
 
 # Administering AWS Quick on desktop
-<a name="desktop-administration"></a>
 
 
 |  | 

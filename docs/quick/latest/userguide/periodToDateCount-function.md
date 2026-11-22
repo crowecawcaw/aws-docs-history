@@ -1,14 +1,13 @@
 
 
 # periodToDateCount
-<a name="periodToDateCount-function"></a>
 
 The `periodToDateCount` function calculates the number of values in a dimension or measure, including duplicates, for a given time granularity (for instance, a quarter) up to a point in time, relative to that period.
 
 ## Syntax
 <a name="periodToDateCount-function-syntax"></a>
 
-```
+```text
 periodToDateCount(
 	measure, 
 	dateTime, 
@@ -36,7 +35,7 @@ The time period across which you're computing the computation. Granularity of `Y
 
 The following example calculates the week-to-date minimum fare amount per payment type, for the week of 06-30-21. For simplicity in the example, we filtered out only a single payment. 06-30-21 is Wednesday. Quick begins the week on Sundays. In our example, that is 06-27-21.
 
-```
+```text
 periodToDateCount(fare_amount, pickUpDatetime, WEEK, parseDate("06-30-2021", "MM-dd-yyyy"))
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Data source quotas
-<a name="data-source-limits"></a>
 
 Data sources that you use with AWS Quick Sight must conform to the following quotas.
 

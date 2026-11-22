@@ -1,7 +1,6 @@
 
 
 # View SPICE ingestion history
-<a name="view-history-of-spice-ingestion"></a>
 
 You can view the ingestion history for SPICE datasets to find out, for example, when the latest ingestion started and what its status is. 
 

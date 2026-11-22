@@ -1,7 +1,6 @@
 
 
 # Using Quick connectors in dashboard visuals
-<a name="action-connectors-in-dashboard-visuals"></a>
 
 ## Prerequisites
 <a name="action-connectors-in-dashboards-prerequisites"></a>

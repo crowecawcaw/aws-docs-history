@@ -1,7 +1,6 @@
 
 
 # Publishing dashboards
-<a name="creating-a-dashboard"></a>
 
 When you publish an analysis, that analysis becomes a dashboard that can be shared and interacted with by users of your AWS Quick account or, in some cases, with anonymous users that aren't on your account. You can choose to publish one sheet of an analysis, all sheets in the analysis, or any other combination of sheets that you want. When you publish an interactive sheet, that sheet becomes an interactive dashboard that users can interact with. When you publish a pixel perfect report sheet, the sheet becomes a pixel perfect report that generates and saves a snapshot of the report's data when you schedule a report in AWS Quick Sight. You can publish a dashboard that contains any combination of interactive sheets and pixel perfect reports from the same analysis.
 

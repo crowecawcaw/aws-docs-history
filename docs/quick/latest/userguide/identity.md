@@ -1,7 +1,6 @@
 
 
 # Identity and access management in Quick
-<a name="identity"></a>
 
 
 |  | 

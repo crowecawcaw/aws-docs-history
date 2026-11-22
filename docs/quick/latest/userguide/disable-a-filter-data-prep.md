@@ -1,7 +1,6 @@
 
 
 # Enabling or disabling filters
-<a name="disable-a-filter-data-prep"></a>
 
 You can use the filter menu to enable or disable a filter in a dataset or an analysis. When you create a filter, it's enabled by default. Disabling a filter removes the filter from the field, but it doesn't delete the filter from the dataset or analysis. Disabled filters are grayed out in the filters pane. If you want to re-apply the filter to the field, you can simply enable it.
 

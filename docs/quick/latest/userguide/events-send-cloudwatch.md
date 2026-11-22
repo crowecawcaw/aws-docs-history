@@ -1,7 +1,6 @@
 
 
 # Creating rules to send AWS Quick Sight events to Amazon CloudWatch
-<a name="events-send-cloudwatch"></a>
 
 You can write simple rules to indicate which AWS Quick Sight events interest you and which automated actions to take when an event matches a rule. For example, you can configure AWS Quick Sight to send events to Amazon CloudWatch whenever a AWS Quick Sight asset is placed in a folder. For more information, see the [Amazon EventBridge user guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html).
 

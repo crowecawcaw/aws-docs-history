@@ -1,7 +1,6 @@
 
 
 # Adding one-click interactive filters
-<a name="quick-actions"></a>
 
 *One-click interactive filtering* provides point-and-click filtering that cascades from the clickable visual to all the other visuals and insights on a sheet. Add this to your analysis to start with summaries and drill down into the metrics, all within the same dashboard sheet. 
 

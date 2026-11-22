@@ -1,7 +1,6 @@
 
 
 # Duplicating Quick Sight visuals
-<a name="duplicating-a-visual"></a>
 
 You can duplicate a visual to make a new copy of it on the same sheet or on a different sheet. 
 

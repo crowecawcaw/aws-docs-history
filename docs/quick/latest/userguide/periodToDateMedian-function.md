@@ -1,7 +1,6 @@
 
 
 # periodToDateMedian
-<a name="periodToDateMedian-function"></a>
 
 The `periodToDateMedian` function returns the median value of the specified measure for a given time granularity (for instance, a quarter) up to a point in time, relative to that period.
 

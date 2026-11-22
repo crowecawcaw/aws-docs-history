@@ -1,7 +1,6 @@
 
 
 # Authorizing connections through AWS Lake Formation
-<a name="lake-formation"></a>
 
 
 |  | 

@@ -1,7 +1,6 @@
 
 
 # percentileDiscOver
-<a name="percentileDiscOver-function"></a>
 
 The `percentileDiscOver` function calculates the percentile based on the actual numbers in `measure`. It uses the grouping and sorting that are applied in the field wells. The result is partitioned by the specified dimension at the specified calculation level. The `percentileOver` function is an alias of `percentileDiscOver`.
 

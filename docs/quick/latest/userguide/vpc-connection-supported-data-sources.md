@@ -1,7 +1,6 @@
 
 
 # Supported VPC data sources
-<a name="vpc-connection-supported-data-sources"></a>
 
 With a VPC connection, you can connect AWS Quick to a data source inside your VPC over a private network path. Traffic stays off the public internet. Not every data source can use a VPC connection. VPC connections support the following two categories:
 

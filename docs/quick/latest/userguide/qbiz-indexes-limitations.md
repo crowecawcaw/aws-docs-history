@@ -1,7 +1,6 @@
 
 
 # Limitations
-<a name="qbiz-indexes-limitations"></a>
 
 **Note**  
 In an IDC implementation, when a Amazon Q Business knowledge base is first created in AWS Quick, access to the knowledge base is automatically granted to users with access to the selected Amazon Q Business index. For additional users to have access to a knowledge base, the admin must configure user access in both the Amazon Q Business console and AWS Quick knowledge base permissions pages.

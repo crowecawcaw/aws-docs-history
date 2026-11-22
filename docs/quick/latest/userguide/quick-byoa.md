@@ -1,7 +1,6 @@
 
 
 # Bring Your Own Amazon Q Business Index (BYOI)
-<a name="quick-byoa"></a>
 
 AWS Quick enables you to use your existing Amazon Q Business indexes as data sources. You can leverage your enterprise data without having to recreate indexes. This capability, known as Bring Your Own Index (BYOI), lets you connect your Amazon Q Business indexes to AWS Quick and use them alongside other data sources for comprehensive analytics and intelligent responses.
 

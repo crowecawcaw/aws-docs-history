@@ -1,7 +1,6 @@
 
 
 # Using custom visual content
-<a name="custom-visual-content"></a>
 
 You can embed webpages and online videos, forms, and images in your Quick dashboards using the custom visual content chart type.
 

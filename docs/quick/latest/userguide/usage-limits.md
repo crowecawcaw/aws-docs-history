@@ -1,9 +1,8 @@
 
 
-# AWS Quick desktop usage limits
-<a name="usage-limits-desktop"></a>
+# Usage limits
 
-AWS Quick applies the following limits to your account.
+AWS Quick applies the following limits to your account. These limits apply across the web, desktop, and mobile surfaces unless a limit is noted as applying only in the desktop app.
 
 
 | Category | Limit | Value | 

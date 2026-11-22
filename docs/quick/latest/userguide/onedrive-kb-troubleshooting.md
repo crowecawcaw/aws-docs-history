@@ -1,7 +1,6 @@
 
 
 # Troubleshooting OneDrive knowledge bases
-<a name="onedrive-kb-troubleshooting"></a>
 
 Use this section to diagnose and resolve common issues with OneDrive knowledge base integrations.
 

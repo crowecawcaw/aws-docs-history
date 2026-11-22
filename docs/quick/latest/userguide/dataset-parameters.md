@@ -1,7 +1,6 @@
 
 
 # Using dataset parameters in AWS Quick
-<a name="dataset-parameters"></a>
 
 In AWS Quick, authors can use dataset parameters in direct query to dynamically customize their datasets and apply reusable logic to their datasets. A *dataset parameter* is a parameter created at the dataset level. It's consumed by an analysis parameter through controls, calculated fields, filters, actions, URLs, titles, and descriptions. For more information on analysis parameters, see [Parameters in AWS Quick](parameters-in-quicksight.md). The following list describes three actions that can be performed with dataset parameters:
 +  **Custom SQL in direct query** – Dataset owners can insert dataset parameters into the custom SQL of a direct query dataset. When these parameters are applied to a filter control in a Quick analysis, users can filter their custom data faster and more efficiently.

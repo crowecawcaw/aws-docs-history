@@ -1,7 +1,6 @@
 
 
 # Supported authentication methods
-<a name="qbiz-indexes-supported-authentication"></a>
 
 The authentication methods supported depend on your implementation type:
 

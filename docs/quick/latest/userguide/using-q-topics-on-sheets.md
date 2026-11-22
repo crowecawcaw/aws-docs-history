@@ -1,7 +1,6 @@
 
 
 # Using Topics on sheets in AWS Quick Sight
-<a name="using-q-topics-on-sheets"></a>
 
 You can use Quick Sight Topics as the data model for your analysis sheets. When you create an analysis from a Topic, you can select fields from any of the datasets in the Topic and Quick Sight automatically performs runtime inner joins based on the defined relationships. This eliminates the need to pre-join tables into a single flat dataset before building an analysis.
 

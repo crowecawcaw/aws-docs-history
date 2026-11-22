@@ -1,7 +1,6 @@
 
 
 # Automation actions
-<a name="automation-actions"></a>
 
 Actions are the building blocks for your automations. Each action performs a specific task, from reading data to interacting with external systems. This section describes all available actions and how to use them effectively.
 

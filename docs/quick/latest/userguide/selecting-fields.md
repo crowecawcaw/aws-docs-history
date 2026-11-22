@@ -1,7 +1,6 @@
 
 
 # Selecting fields
-<a name="selecting-fields"></a>
 
 When you prepare data, you can select one or more fields to perform an action on them, such as excluding them or adding them to a folder.
 

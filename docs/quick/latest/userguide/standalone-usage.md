@@ -1,7 +1,6 @@
 
 
 # Understanding usage on the AWS Quick Plus and Max plans
-<a name="standalone-usage"></a>
 
 AWS Quick uses limits to keep your usage predictable and to spread heavy activity evenly across your billing month. Understanding how these limits work helps you avoid interruptions, decide when to enable more usage, and get the most from your plan.
 

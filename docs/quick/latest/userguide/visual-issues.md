@@ -1,7 +1,6 @@
 
 
 # Visual issues with Quick Sight
-<a name="visual-issues"></a>
 
 Use the following section to help you troubleshoot problems with visuals and their formatting.
 

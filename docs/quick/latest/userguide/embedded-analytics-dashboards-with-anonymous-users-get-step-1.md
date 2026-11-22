@@ -1,7 +1,6 @@
 
 
 # Step 1: Set up permissions
-<a name="embedded-analytics-dashboards-with-anonymous-users-get-step-1"></a>
 
 **Important**  
 AWS Quick Sight has new APIs for embedding analytics: `GenerateEmbedUrlForAnonymousUser` and `GenerateEmbedUrlForRegisteredUser`.  
@@ -28,7 +27,7 @@ The following sample policy provides these permissions for use with `IdentityTyp
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

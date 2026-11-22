@@ -1,7 +1,6 @@
 
 
 # Working with data in an AWS Quick Sight scenario
-<a name="scenarios-data"></a>
 
 When you create a scenario in AWS Quick Sight, you can preview and modify the data that the scenario uses to generate summaries. Use the following sections to learn about the ways Quick users can interact with data in a scenario.
 

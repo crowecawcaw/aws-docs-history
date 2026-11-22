@@ -1,7 +1,6 @@
 
 
 # Overview of Amazon Q Business indexes in AWS Quick
-<a name="qbiz-indexes-overview"></a>
 
 Amazon Q Business indexes contain indexed enterprise data that you can now use directly in AWS Quick. When you connect an Amazon Q Business index to AWS Quick, it becomes available as a knowledge base. You can use it in spaces, agents, and automations, just like any other knowledge base in AWS Quick.
 

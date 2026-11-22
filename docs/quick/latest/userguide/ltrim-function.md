@@ -1,7 +1,6 @@
 
 
 # Ltrim
-<a name="ltrim-function"></a>
 
 `ltrim` removes preceding blank space from a string.
 

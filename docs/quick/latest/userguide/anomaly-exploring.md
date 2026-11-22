@@ -1,7 +1,6 @@
 
 
 # Exploring outliers and key drivers with ML-powered anomaly detection and contribution analysis
-<a name="anomaly-exploring"></a>
 
 You can interactively explore the anomalies (also known as outliers) in your analysis, along with the contributors (key drivers). The analysis is available for you to explore after the ML-powered anomaly detection runs. The changes you make in this screen aren't saved when you go back to the analysis.
 

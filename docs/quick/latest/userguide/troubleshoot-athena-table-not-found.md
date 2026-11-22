@@ -1,7 +1,6 @@
 
 
 # Table not found when using Athena with AWS Quick Sight
-<a name="troubleshoot-athena-table-not-found"></a>
 
 You can receive a "`table not found`" error if the tables in an analysis are missing from the Athena data source. 
 
@@ -11,13 +10,13 @@ If this error happened when you were editing a custom SQL query in preview, veri
 
 For example, the following statement works.
 
-```
+```sql
 select from my_schema.my_table
 ```
 
 The following statement fails because it's missing the schema.
 
-```
+```sql
 select from my_table
 ```
 

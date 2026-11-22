@@ -1,7 +1,6 @@
 
 
 # Refreshing legacy Topic indexes
-<a name="legacy-topics-index"></a>
 
 When you create a legacy Topic, Quick Sight creates and maintains an index of unique string values for fields included in the Topic. This index is used to generate correct answers, provide autocomplete suggestions, and suggest mappings of terms to columns or data values.
 

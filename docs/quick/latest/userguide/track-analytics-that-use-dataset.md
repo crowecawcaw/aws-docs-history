@@ -1,7 +1,6 @@
 
 
 # Tracking dashboards and analyses that use a dataset
-<a name="track-analytics-that-use-dataset"></a>
 
 When you create a dataset in Quick Sight, you can track which dashboards and analyses use that dataset. This approach is useful when you want to see which resources will be affected when you make changes to a dataset, or want to delete a dataset. 
 

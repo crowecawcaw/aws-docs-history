@@ -1,7 +1,6 @@
 
 
 # Access control list (ACL) support
-<a name="byo-bedrock-kb-acl"></a>
 
 Amazon Bedrock managed knowledge bases with ACL-enabled data source connectors support document-level access control. When a user queries the knowledge base, AWS Quick automatically passes the user's identity to Amazon Bedrock. Amazon Bedrock then filters retrieval results so that users only see documents they are authorized to access in the original data source.
 

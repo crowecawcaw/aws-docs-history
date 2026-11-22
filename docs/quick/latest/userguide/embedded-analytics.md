@@ -1,7 +1,6 @@
 
 
 # Embedded analytics for AWS Quick Sight
-<a name="embedded-analytics"></a>
 
 **Important**  
 AWS Quick Sight has new API operations for embedding analytics: `GenerateEmbedUrlForAnonymousUser` and `GenerateEmbedUrlForRegisteredUser`.  

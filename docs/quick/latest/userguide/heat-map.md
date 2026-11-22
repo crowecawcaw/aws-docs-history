@@ -1,7 +1,6 @@
 
 
 # Using heat maps
-<a name="heat-map"></a>
 
 Use heat maps to show a measure for the intersection of two dimensions, with color-coding to easily differentiate where values fall in the range. Heat maps can also be used to show the count of values for the intersection of the two dimensions.
 

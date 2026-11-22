@@ -1,7 +1,6 @@
 
 
 # Introduction to IAM concepts
-<a name="security_iam_concepts"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator to more securely control access to AWS resources. Administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use AWS Quick resources. IAM is an AWS service that you can use with no additional charge.
 

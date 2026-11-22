@@ -1,7 +1,6 @@
 
 
 # Using Databricks in Quick Sight
-<a name="quicksight-databricks"></a>
 
 Use this section to learn how to connect from Quick Sight to Databricks. 
 

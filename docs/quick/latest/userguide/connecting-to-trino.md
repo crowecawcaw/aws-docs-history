@@ -1,7 +1,6 @@
 
 
 # Using Trino with AWS Quick Sight
-<a name="connecting-to-trino"></a>
 
 Trino is a massively parallel processing (MPP) query engine built to quickly query data lakes with petabytes of data. Use this section to learn how to connect from AWS Quick Sight to Trino. All traffic between AWS Quick Sight and Trino is enabled by SSL. AWS Quick Sight supports basic username and password authentication to Trino.
 

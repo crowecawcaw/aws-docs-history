@@ -1,7 +1,6 @@
 
 
 # Code
-<a name="actions-code"></a>
 
 Code actions in Quick Automate let you implement custom logic using Python code blocks, going beyond what standard automation actions support. They are well-suited for complex data transformations and calculations, and run within a restricted Python environment to maintain security.
 

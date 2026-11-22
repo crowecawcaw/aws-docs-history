@@ -1,7 +1,6 @@
 
 
 # Defining relationships between datasets in a Topic
-<a name="topics-relationships"></a>
 
 
 |  | 
@@ -38,7 +37,7 @@ The relationship graph must be a directed acyclic graph (DAG) — circular relat
 
 The following example shows a star schema configuration with a central SALES\_FACT table joined to dimension tables:
 
-```
+```json
 {
   "datasetPairs": [
     {

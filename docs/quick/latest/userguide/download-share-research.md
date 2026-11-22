@@ -1,7 +1,6 @@
 
 
 # Sharing the research
-<a name="download-share-research"></a>
 
 After completing your research, you can download it in various formats or share it with others. AWS Quick Research provides flexible options for both downloading and sharing your research findings.
 

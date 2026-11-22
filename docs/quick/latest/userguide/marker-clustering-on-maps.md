@@ -1,7 +1,6 @@
 
 
 # Marker clustering on geospatial point maps in Quick
-<a name="marker-clustering-on-maps"></a>
 
 Use marker clustering to improve readability of collocated points on a map. Geospatial locations on point maps are represented using markers. Usually, there is one marker per data point. However, if there are too many markers close together, the map becomes difficult to read. To make it easier to interpret the map, you can enable marker clustering to represent groupings of locations on the map. As the reader zooms in on the map, the clustered markers leave the area marker to display separately. 
 

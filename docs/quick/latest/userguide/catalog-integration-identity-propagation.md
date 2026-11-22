@@ -1,7 +1,6 @@
 
 
 # Identity propagation for data governance
-<a name="catalog-integration-identity-propagation"></a>
 
 In addition to the agentic experience and semantic inheritance, Quick supports identity propagation for applicable catalogs. When enabled, identity propagation enforces per-user data permissions at query time based on the user's identity in the upstream catalog.
 

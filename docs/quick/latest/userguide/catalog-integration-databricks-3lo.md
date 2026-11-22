@@ -1,7 +1,6 @@
 
 
 # Setting up identity enforcement with Databricks 3LO
-<a name="catalog-integration-databricks-3lo"></a>
 
 Quick supports three-legged OAuth (3LO) with end-user identities for Databricks. When enabled, 3LO enforces per-user data permissions based on Databricks Unity Catalog access control lists (ACLs). Each end user sees only the data that their Databricks permissions allow.
 

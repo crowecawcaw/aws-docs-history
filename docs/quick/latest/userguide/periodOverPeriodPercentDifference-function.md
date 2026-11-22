@@ -1,7 +1,6 @@
 
 
 # periodOverPeriodPercentDifference
-<a name="periodOverPeriodPercentDifference-function"></a>
 
 The `periodOverPeriodPercentDifference` function calculates the percent difference of a measure over two different time periods as specified by the period granularity and offset. Unlike percentDifference, this function uses a date-based offset instead of a fixed sized offset. This ensures only the correct dates are compared, even if data points are missing in the dataset.
 

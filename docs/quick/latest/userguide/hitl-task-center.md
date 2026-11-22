@@ -1,7 +1,6 @@
 
 
 # Human-in-the-loop task center
-<a name="hitl-task-center"></a>
 
 Human-in-the-loop (HITL) tasks enable you to incorporate human judgment at critical points in your automated processes. The Task Center provides a centralized interface for managing HITL tasks. Users can review, resolve, and track tasks that require human intervention.
 

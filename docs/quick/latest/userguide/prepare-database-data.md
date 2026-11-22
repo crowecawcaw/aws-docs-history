@@ -1,7 +1,6 @@
 
 
 # Preparing a dataset based on database data
-<a name="prepare-database-data"></a>
 
 Use the following procedure to prepare a dataset based on a query to a database. The data for this dataset can be from an AWS database data source like Amazon Athena, Amazon RDS, or Amazon Redshift, or from an external database instance. You can choose whether to import a copy of your data into [SPICE](spice.md), or to query the data directly.
 

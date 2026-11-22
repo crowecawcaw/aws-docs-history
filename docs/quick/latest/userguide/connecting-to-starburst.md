@@ -1,7 +1,6 @@
 
 
 # Using Starburst with AWS Quick Sight
-<a name="connecting-to-starburst"></a>
 
 Starburst is a full-featured data lake analytics service built on top of a massively parallel processing (MPP) query engine, Trino. Use this section to learn how to connect from AWS Quick Sight to Starburst. All traffic between Quick Sight and Starburst is enabled by SSL. If you're connecting to Starburst Galaxy, you can get the necessary connection details by logging in to your Starburst Galaxy account, then choose **Partner Connect** and then **Quick Sight**. You should be able to see information, such as hostname and port. AWS Quick Sight supports basic username and password authentication to Starburst.
 
@@ -77,7 +76,7 @@ The following key/value pairs are required for token-based OAuth secrets:
 
 After you create a secret in Secrets Manager that contains your Starburst OAuth credentials and have connected your Quick account to Secrets Manager, you can establish a data source connection between Quick Sight and Starburst with the Quick Sight APIs and SDK. The following example creates a Starburst data source connection using token OAuth client credentials.
 
-```
+```json
 {
     "AwsAccountId": "{{AWSACCOUNTID}}",
     "DataSourceId": "{{DATASOURCEID}}",

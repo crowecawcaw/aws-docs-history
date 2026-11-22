@@ -1,7 +1,6 @@
 
 
 # Colors in visual types in Quick
-<a name="changing-visual-colors"></a>
 
 You can change the color of one, some, or all elements on the following types of charts:
 + Bar charts

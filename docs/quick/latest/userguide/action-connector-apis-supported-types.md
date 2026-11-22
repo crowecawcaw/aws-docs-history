@@ -1,9 +1,8 @@
 
 
-# Supported connector types and available actions
-<a name="action-connector-apis-supported-types"></a>
+# Supported connector types and available tools
 
-AWS Quick supports multiple connector types, each with specific actions available:
+AWS Quick supports multiple connector types, each with specific tools available:
 
 ## External service connectors
 <a name="action-connector-apis-external-services"></a>
@@ -46,7 +45,7 @@ AWS Quick supports multiple connector types, each with specific actions availabl
 + **PagerDuty** - Create incidents, manage escalations, update on-call schedules.
 + **QuickBooks** - Manage invoices, track expenses, generate financial reports, and handle vendor records.
 + **Salesforce** - Create records, update opportunities, search accounts, manage leads.
-+ **SAP** - Access SAP S/4HANA systems to perform read operations on enterprise data.
++ **SAP** - Access SAP S/4HANA systems to execute business functions and manage enterprise data.
 + **ServiceNow** - Create incidents, update requests, manage workflows.
 + **Shopify** - Manage products, orders, customers, and store operations.
 + **Slack** - Send messages, create channels, manage notifications.

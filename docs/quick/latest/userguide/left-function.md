@@ -1,7 +1,6 @@
 
 
 # Left
-<a name="left-function"></a>
 
 `left` returns the leftmost characters from a string, including spaces. You specify the number of characters to be returned. 
 

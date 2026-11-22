@@ -1,7 +1,6 @@
 
 
 # Connecting to data in AWS Quick Sight
-<a name="working-with-data"></a>
 
 People in many different roles use AWS Quick Sight to help them do analysis and advanced calculations, design data dashboards, embed analytics, and make better-informed decisions. Before any of that can happen, someone who understands your data needs to add it to a [Quick Sight dataset](https://docs.aws.amazon.com/quicksuite/latest/userguide/creating-data-sets). Quick Sight supports direct connections and uploads from a variety of [data sources](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-data-sources).**Capabilities and use cases**
 

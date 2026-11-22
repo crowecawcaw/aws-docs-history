@@ -1,7 +1,6 @@
 
 
 # Adding, moving, and deleting sections
-<a name="qs-reports-add-delete-section"></a>
 
 ## Add a new section
 <a name="paginated-reports-add-section"></a>

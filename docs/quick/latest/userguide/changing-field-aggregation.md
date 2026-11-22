@@ -1,7 +1,6 @@
 
 
 # Changing field aggregation
-<a name="changing-field-aggregation"></a>
 
 You can apply functions to fields to display aggregate information, like the sum of the sales for a given product. You can apply an aggregate function by using the options in either an on-visual editor or a field well. The following aggregate functions are available in AWS Quick:
 + Average – Calculates the average value for the selected field.

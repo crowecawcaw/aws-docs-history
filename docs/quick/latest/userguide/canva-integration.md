@@ -1,7 +1,6 @@
 
 
 # Canva integration
-<a name="canva-integration"></a>
 
 With Canva integration in AWS Quick, you can create, edit, and manage designs and visual content through MCP server connectivity. This integration provides action capabilities for design operations and content creation.
 

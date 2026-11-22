@@ -1,7 +1,6 @@
 
 
 # Working with datasets
-<a name="working-with-datasets"></a>
 
 Datasets are the foundation of your Quick Sight analytics, serving as the prepared and structured data sources that power your analyses and dashboards. Once you've created datasets from your data sources, you need to manage them effectively throughout their lifecycle to ensure reliable, secure, and collaborative analytics.
 

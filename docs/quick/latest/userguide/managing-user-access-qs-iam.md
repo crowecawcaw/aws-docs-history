@@ -1,7 +1,6 @@
 
 
 # Managing access for AWS Quick and IAM users
-<a name="managing-user-access-qs-iam"></a>
 
 AWS Quick account administrators can use this topic to learn more about managing accounts that use IAM or Quick for identity federation.
 

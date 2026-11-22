@@ -1,7 +1,6 @@
 
 
 # Log
-<a name="log-function"></a>
 
 `log` returns the base 10 logarithm of a given expression.
 

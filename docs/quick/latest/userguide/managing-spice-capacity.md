@@ -1,7 +1,6 @@
 
 
 # Configure SPICE memory capacity
-<a name="managing-spice-capacity"></a>
 
 *SPICE (Super-fast, Parallel, In-memory Calculation Engine)* is the robust in-memory engine that AWS Quick uses. It's engineered to rapidly perform advanced calculations and serve data. In Enterprise edition, data stored in SPICE is encrypted at rest. For more information, see [Data encryption in Quick](https://docs.aws.amazon.com/quicksight/latest/user/data-encryption.html).
 

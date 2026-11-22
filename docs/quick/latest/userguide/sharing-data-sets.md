@@ -1,7 +1,6 @@
 
 
 # Sharing datasets
-<a name="sharing-data-sets"></a>
 
 You can give other Quick Sight users and groups access to a dataset by sharing it with them. Then they can create analyses from it. If you make them co-owners, they can also refresh, edit, delete, or reshare the dataset. 
 

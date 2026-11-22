@@ -1,7 +1,6 @@
 
 
 # Preparing dataset examples
-<a name="preparing-data-sets"></a>
 
 You can prepare data in any dataset to make it more suitable for analysis, for example changing a field name or adding a calculated field. For database datasets, you can also determine the data used by specifying a SQL query or joining two or more tables. 
 

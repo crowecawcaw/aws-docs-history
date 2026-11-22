@@ -1,7 +1,6 @@
 
 
 # periodToDateCountOverTime
-<a name="periodToDateCountOverTime-function"></a>
 
 The `periodToDateCountOverTime` function calculates the count of a dimension or measure for a given time granularity (for instance, a quarter) up to a point in time.
 

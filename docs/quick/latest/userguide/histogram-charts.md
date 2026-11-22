@@ -1,7 +1,6 @@
 
 
 # Using histograms
-<a name="histogram-charts"></a>
 
 Use a histogram chart in AWS Quick to display the distribution of continuous numerical values in your data. AWS Quick uses un-normalized histograms, which use an absolute count of the data points or events in each bin.
 
@@ -122,6 +121,7 @@ Because the histogram uses quantitative data (numbers) rather than qualitative d
   + Uniform – A chart that has no peaks or valleys, with a relatively equal distribution of data.
 
 The following table shows how a histogram differs from a bar chart.
+
 
 
 | Histogram | Bar chart | 

@@ -1,7 +1,6 @@
 
 
 # Adding custom instructions to a Topic
-<a name="topics-custom-instructions"></a>
 
 
 |  | 

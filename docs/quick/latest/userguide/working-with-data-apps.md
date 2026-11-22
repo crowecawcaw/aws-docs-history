@@ -1,7 +1,6 @@
 
 
 # Working with data in apps in Quick
-<a name="working-with-data-apps"></a>
 
 You can persist and manage data within your apps in Quick apps in multiple ways.
 

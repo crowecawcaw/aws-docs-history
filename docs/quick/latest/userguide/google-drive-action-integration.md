@@ -1,7 +1,6 @@
 
 
 # Google Drive action connector
-<a name="google-drive-action-integration"></a>
 
 With the Google Drive connector, you can access Google Drive directly in AWS Quick through natural language. You can upload and download files, manage folders, search content, and track changes without leaving AWS Quick.
 
@@ -27,7 +26,7 @@ If you use **Default OAuth app** authentication, skip this section and see [Sett
 For Custom OAuth app authentication, complete the following steps in the Google Cloud Console before you configure AWS Quick. When you enable the API in step 3, search for and enable the **Google Drive API**.
 
 ### Create an OAuth client in Google Cloud Console
-<a name="w2aac46c28d125b7c13b7"></a>
+<a name="w2aac47c25c30d125b7c13b7"></a>
 
 Create an OAuth client in the Google Cloud Console to get the client credentials that you need for AWS Quick. For more information, see [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/identity/protocols/oauth2) on the Google website.
 
@@ -173,7 +172,7 @@ The actions that you can use depend on the files and folders accessible to the a
 To edit, share, or delete your connector, see [Managing existing integrations](integration-workflows.md#managing-existing-integrations).
 
 ### Common Google authentication issues
-<a name="w2aac46c28d125b7c19b5"></a>
+<a name="w2aac47c25c30d125b7c19b5"></a>
 + **Sign-in fails (Default OAuth app or Custom OAuth app)** – Verify that your Google account is active and that you can sign in to [the Google website](https://accounts.google.com) directly. For Custom OAuth app, confirm that the redirect URI in your Google Cloud OAuth client matches the AWS Quick callback URL.
 + **App blocked by administrator** – If your Google Workspace administrator restricts third-party app access, you might see an error when you attempt to sign in. Contact your Google Workspace administrator to allow the AWS Quick app.
 + **Invalid client credentials (Custom OAuth app)** – Verify that the Client ID and Client secret match the values in your Google Cloud OAuth client.

@@ -1,7 +1,6 @@
 
 
 # Using radar charts
-<a name="radar-chart"></a>
 
 You can use radar charts, which are also known as spider charts, to visualize multivariate data in AWS Quick. In a radar chart, one or more groups of values are plotted over multiple common variables. Each variable has its own axis, and each axis is arranged radially around a central point. The data points from a single observation are plotted on each axis and connected to each other to form a polygon. Multiple observations can be plotted in a single radar chart to display multiple polygons, which makes it easier to spot outlying values for multiple observations quickly. 
 

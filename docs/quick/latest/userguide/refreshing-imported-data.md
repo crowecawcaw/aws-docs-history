@@ -1,7 +1,6 @@
 
 
 # Refreshing SPICE data
-<a name="refreshing-imported-data"></a>
 
 ## Refreshing a dataset
 <a name="refresh-spice-data"></a>

@@ -1,7 +1,6 @@
 
 
 # Adding a dataset to an analysis
-<a name="adding-a-data-set-to-an-analysis"></a>
 
 After you have created an analysis, you can add more datasets to the analysis. Then, you can use them to create more visuals. 
 

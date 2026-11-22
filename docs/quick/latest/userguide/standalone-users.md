@@ -1,7 +1,6 @@
 
 
 # Managing users in a AWS Quick Free or Plus account
-<a name="standalone-users"></a>
 
 In a AWS Quick Free or Plus account, the account administrator can invite team members by email, monitor user activity, and manage pending invitations. User management is handled directly within the AWS Quick web application through the Manage Account page.
 

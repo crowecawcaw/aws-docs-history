@@ -1,7 +1,6 @@
 
 
 # Security in Quick
-<a name="best-practices-security"></a>
 
 AWS Quick provides a number of security features to consider as you develop and implement your own security policies. The following best practices are general guidelines and don't represent a complete security solution. Because these best practices might not be appropriate or sufficient for your environment, treat them as helpful considerations rather than prescriptions.
 
@@ -40,10 +39,10 @@ For BI workloads, supplement permissions with row-level security, column-level s
 
 ****Deny by default for AI capabilities**** – If your organization has model-risk or change-approval requirements, restrict the AI capability category so that new AI capabilities are denied on launch day until you explicitly allow them. Without this restriction, every new AI capability that Quick ships is automatically available to all users upon release. For more information, see [Deny by Default](custom-permissions-governance.md).
 
-****Configure AI guardrails**** – Built-in content safety screening applies automatically to chat interactions. You can further configure up to 50 blocked words and phrases that Quick checks against both user requests and generated responses. For more information, see [AI guardrails in AWS Quick](guardrails.md).
+****Configure AI guardrails**** – Model safety controls and prompt-level safety instructions apply automatically to chat interactions. You can also block words and phrases that Quick checks against both user requests and generated responses. For more information, see [AI guardrails in AWS Quick](guardrails.md).
 
 ****Match oversight to how the action runs**** – Quick supports two invocation models with different security characteristics. Match your review depth to the autonomy and consequence of each model.
-+ **On-demand actions** – User-initiated, interactive, and authenticated with the individual user's personal credentials. Each action runs as the invoking user and is bounded by that user's connector permissions. For more information, see [On-demand actions](int-actions-types.md#qbs-actions-types-qbs-actions-on-demand).
++ **On-demand actions** – User-initiated, interactive, and authenticated with the individual user's personal credentials. Each action runs as the invoking user and is bounded by that user's connector permissions. For more information, see [On-demand tools](int-actions-types.md#qbs-actions-types-qbs-actions-on-demand).
 + **Automated workflows** – System-level, scheduled or event-triggered, non-interactive, and authenticated at service level. An automated workflow authenticates at service level. It does not act as an individual user, is not bounded by that user's connector permissions, and runs unattended. Give automated workflows closer scrutiny during review. For more information, see [Automated workflows](int-actions-types.md#qbs-actions-types-qbs-actions-automated-workflows).
 + **Restricting autonomous execution** – If unattended execution is not acceptable for some or all users, use the following custom permissions capabilities to restrict it:
   + **Automate** – Prevents restricted users from creating, updating, or running automations.
@@ -56,7 +55,8 @@ For BI workloads, supplement permissions with row-level security, column-level s
 ****Treat retrieved and external content as untrusted**** – The risk of acting on adversarial content requires two conditions: the assistant can read content from outside your trust boundary, and it can take a consequential action. Narrowing either side reduces exposure.
 + **Read surface** – Content from the following sources enters the assistant's context: knowledge base and index retrieval, files uploaded to spaces and chat, web search, third-party research providers, and content returned by connectors.
 + **Action surface** – Limit the connectors, actions, and outbound paths available to each role. A narrower action scope reduces the consequence of any single compromised input.
-+ **Built-in screening** – Built-in safety checks screen user requests, including requests that contain prompt attacks. Pair this screening with narrow action scope rather than relying on screening alone. For more information, see [AI guardrails in AWS Quick](guardrails.md).
+
+Model safety controls and other AI guardrails help reduce risk, but don't rely on them alone. Pair them with a narrow action scope. For more information, see [AI guardrails in AWS Quick](guardrails.md).
 
 ****Restrict network access**** – Use IP and VPC endpoint rules to control which networks can reach Quick through web, embedded, and mobile access. Rule types include CIDR blocks (IPv4), VPC IDs, and VPC endpoint IDs. You can add up to 100 IP and VPC endpoint rules combined. These rules are global and apply to all AWS Regions. Rule changes can take up to 10 minutes to take effect. IP and VPC endpoint rules require an Enterprise subscription.
 

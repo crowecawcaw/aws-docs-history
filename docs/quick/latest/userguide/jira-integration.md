@@ -1,7 +1,6 @@
 
 
 # Atlassian Jira Cloud integration
-<a name="jira-integration"></a>
 
 Use the Atlassian Jira Cloud connector to create, update, search, and manage Jira issues, projects, sprints, and users directly in AWS Quick through natural language.
 

@@ -1,7 +1,6 @@
 
 
 # Managing VPC connection in AWS Quick
-<a name="vpc-creating-a-connection-in-quicksight"></a>
 
 
 |  | 

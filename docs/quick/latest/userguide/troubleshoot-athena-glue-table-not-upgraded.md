@@ -1,7 +1,6 @@
 
 
 # Table incompatible when using AWS Glue with Athena in AWS Quick Sight
-<a name="troubleshoot-athena-glue-table-not-upgraded"></a>
 
 If you are getting errors when using AWS Glue tables in Athena with AWS Quick Sight, it might be because you're missing some metadata. Follow these steps to find out if your tables don't have the `TableType` attribute that AWS Quick Sight needs for the Athena connector to work. Usually, the metadata for these tables wasn't migrated to the AWS Glue Data Catalog. For more information, see [Upgrading to the AWS Glue Data Catalog Step-by-Step](https://docs.aws.amazon.com/athena/latest/ug/glue-upgrade.html) in the* AWS Glue Developer Guide.*
 

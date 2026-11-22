@@ -1,7 +1,6 @@
 
 
 # Shopify integration
-<a name="shopify-integration"></a>
 
 With the Shopify connector, you can manage products, orders, customers, and store operations directly in AWS Quick through natural language.
 

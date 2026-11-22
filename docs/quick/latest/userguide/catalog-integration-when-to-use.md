@@ -1,7 +1,6 @@
 
 
 # When to use data catalog integration
-<a name="catalog-integration-when-to-use"></a>
 
 Data catalog integration is designed for the following scenarios:
 + **Large-scale catalogs that require a focused context boundary** – In enterprise environments with thousands of tables, exposing the entire catalog to end users can introduce noise and reduce answer accuracy in AI-powered Q&A. The agentic experience enables authors to define a curated subset of assets relevant to their line of business. These assets are represented as datasets and topics in Quick, providing a focused boundary for deterministic dashboards and more accurate AI-generated answers.

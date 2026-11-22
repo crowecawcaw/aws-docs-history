@@ -1,7 +1,6 @@
 
 
 # View who has access to a shared dashboard
-<a name="view-users-dashboard"></a>
 
 Use the following procedure to see which users or groups have access to the dashboard.
 

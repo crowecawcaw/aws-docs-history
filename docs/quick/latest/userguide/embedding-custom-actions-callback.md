@@ -1,7 +1,6 @@
 
 
 # Adding embedded callback actions at runtime in AWS Quick Sight
-<a name="embedding-custom-actions-callback"></a>
 
 Use embedded datapoint callback actions to build tighter integrations between your software as a service (SaaS) application and your AWS Quick Sight embedded dashboards and visuals. Developers can register datapoints to be called back with the AWS Quick Sight embedding SDK. When you register a callback action for a visual, readers can select a datapoint on the visual to receive a callback that provides data specific to the selected data point. This information can be used to flag key records, compile raw data specific to the datapoint, capture records, and compile data for backend processes.
 
@@ -11,7 +10,7 @@ Before you begin registering datapoints for callback, update the Embedding SDK t
 
 A datapoint callback can be registered to one or more visuals at runtime through the AWS Quick Sight SDK. You can also register a datapoint callback to any interaction supported by the [VisualCustomAction](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_VisualCustomAction.html) API structure. This allows the datapoint callback to initiate when the user selects the datapoint on the visual or when the datapoint is selected from the datapoint context menu. The following example registers a datapoint callback that the reader initiates when they select a datapoint on the visual.
 
-```
+```javascript
 /const MY_GET_EMBED_URL_ENDPOINT =
   "https://my.api.endpoint.domain/MyGetEmbedUrlApi"; // Sample URL
 
@@ -184,7 +183,7 @@ You can also configure the preceding example to initiate datapoint callback when
 
 After a datapoint callback is registered, it's applied to most datapoints on the specified visual or visuals. Callbacks don't apply to totals or subtotals on visuals. When a reader interacts with a datapoint, a `CALLBACK_OPERATION_INVOKED` message is emitted to the AWS Quick Sight embedding SDK. This message is captured by the `onMessage` handler. The message contains the raw and display values for the full row of data associated with the datapoint that is selected. It also contains the column metadata for all columns in the visual that the datapoint is contained in. The following is an example of a `CALLBACK_OPERATION_INVOKED` message.
 
-```
+```json
 {
    CustomActionId: "custom_action_id",
    DashboardId: "dashboard_id",

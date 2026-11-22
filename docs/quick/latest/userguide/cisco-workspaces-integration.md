@@ -1,7 +1,6 @@
 
 
 # Cisco Workspaces integration
-<a name="cisco-workspaces-integration"></a>
 
 Monitor Webex device health and workspace utilization directly from AWS Quick using natural language. With the Cisco Workspaces connector, you can inspect device inventory, review workspace metrics, and look up locations without leaving AWS Quick.
 

@@ -1,7 +1,6 @@
 
 
 # Creating a reader generated report in AWS Quick Sight
-<a name="reader-scheduling"></a>
 
 If a AWS Quick author has set up a prompted report for a Quick Sight pixel perfect report, Quick Sight dashboard viewers can use the prompt to schedule their own reports for themselves. For more information about prompts for pixel perfect reports, see [Setting up prompts for paginated reports](paginated-reports-prompts.md).
 

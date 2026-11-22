@@ -1,7 +1,6 @@
 
 
 # AWS Quick Slack extension
-<a name="slack-extension"></a>
 
 The Quick extension for Slack integrates AI-powered assistance directly into your team communication workflows. Users can access Quick knowledge and capabilities within Slack channels and direct messages without switching between applications.
 
@@ -202,7 +201,7 @@ Follow these steps to set up permissions on AWS Console:
 
 1. Your secret should be in the following format and use the app registration client ID and app registration client secret that you saved from the earlier steps:
 
-   ```
+   ```json
    {
        "client_id":"{{Your app registration client ID}}",
        "client_secret":"{{Your app registration client secret}}"
@@ -221,7 +220,7 @@ Follow these steps to set up permissions on AWS Console:
 
 1. Configure the role to trust our service principal for the relevant Region that you selected when configuring your identity provider app integration by adding the following statement replacing {{your-region}} with the Region you chose when creating your identity provider app integration:
 
-   ```
+   ```json
    {
        "Version": "2012-10-17", 		 	 	 
        "Statement": [
@@ -249,7 +248,7 @@ Follow these steps to set up permissions on AWS Console:
 
 1. Configure the role with permissions to read secrets from Secrets Manager and permissions to invoke `sso:DescribeTrustedTokenIssuer` by adding the following statement:
 
-   ```
+   ```json
    {
        "Version": "2012-10-17", 		 	 	 
        "Statement": [

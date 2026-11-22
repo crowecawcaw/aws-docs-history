@@ -1,7 +1,6 @@
 
 
 # Setting up the Data Catalog connection
-<a name="catalog-integration-glue-connection"></a>
 
 Connecting to AWS Glue Data Catalog involves two steps: connecting to the catalog for metadata access and connecting to Amazon Athena for data queries.
 
@@ -13,7 +12,7 @@ Connecting to AWS Glue Data Catalog involves two steps: connecting to the catalo
 If an author attempts to create an AWS Glue Data Catalog data source before the administrator enables it under **AWS resources** on the **Manage Account** page, the operation fails with an error. Ensure that the administrator enables AWS Glue Data Catalog for the Quick account before authors attempt to create the data source.
 + The connector uses service role permissions for Glue metadata access. Attach the following IAM policy to the Quick service role:
 
-  ```
+  ```json
   {
       "Version": "2012-10-17",
       "Statement": [

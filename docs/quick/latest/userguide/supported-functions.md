@@ -1,7 +1,6 @@
 
 
 # Functions for pivot table calculations
-<a name="supported-functions"></a>
 
 You can use the following functions in pivot table calculations.
 

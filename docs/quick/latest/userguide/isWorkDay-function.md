@@ -1,7 +1,6 @@
 
 
 # isWorkDay
-<a name="isWorkDay-function"></a>
 
 `isWorkDay` evaluates a given date-time value to determine if the value is a workday or not.
 

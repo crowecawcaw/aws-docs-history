@@ -1,7 +1,6 @@
 
 
 # IAM policy assignments
-<a name="iam-policy-assignments"></a>
 
 IAM policy assignments allow you to control access to AWS resources for users and groups within AWS Quick. By assigning IAM policies, you can define and manage permissions for various AWS services and resources that Quick may need to access. Assignments can be enabled, disabled, or deleted at any time.
 

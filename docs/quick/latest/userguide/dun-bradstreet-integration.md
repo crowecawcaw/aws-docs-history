@@ -1,7 +1,6 @@
 
 
 # Dun & Bradstreet integration
-<a name="dun-bradstreet-integration"></a>
 
 With the Dun & Bradstreet connector, you can look up company profiles, credit risk data, and business intelligence directly in AWS Quick through natural language.
 

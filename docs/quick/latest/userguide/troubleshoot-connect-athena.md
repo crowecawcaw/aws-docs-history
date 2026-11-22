@@ -1,7 +1,6 @@
 
 
 # I can't connect to Amazon Athena
-<a name="troubleshoot-connect-athena"></a>
 
 
 |  | 

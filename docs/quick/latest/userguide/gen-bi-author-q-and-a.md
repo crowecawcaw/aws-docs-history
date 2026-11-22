@@ -1,7 +1,6 @@
 
 
 # Authoring Q&A
-<a name="gen-bi-author-q-and-a"></a>
 
 **Note**  
 The topics referenced in this section refer to legacy Topics. For information about the new multi-dataset Topics experience, which supports cross-dataset relationships and runtime joins for both chat and analysis, see [Working with AWS Quick Sight Topics](topics.md).

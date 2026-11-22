@@ -1,7 +1,6 @@
 
 
 # Setting up trusted identity propagation for AWS Glue Data Catalog
-<a name="catalog-integration-glue-tip"></a>
 
 Trusted identity propagation enables AWS services to access resources based on the end user's identity context. When you configure Quick, AWS Glue Data Catalog, Amazon S3 Access Grants, and Lake Formation with AWS IAM Identity Center, the signed-in user's identity is propagated across services. Lake Formation and S3 Access Grants make authorization decisions based on permissions defined for that user or their group membership from your identity provider.
 
@@ -30,7 +29,7 @@ Lake Formation must be connected to your AWS IAM Identity Center instance so it 
 
 **AWS CLI:**
 
-```
+```bash
 aws lakeformation create-lake-formation-identity-center-configuration \
     --catalog-id 111122223333 \
     --instance-arn arn:aws:sso:::instance/<idc-instance-id> \
@@ -41,7 +40,7 @@ This command creates the Lake Formation AWS IAM Identity Center application. Not
 
 To retrieve the application ARN later, run:
 
-```
+```bash
 aws lakeformation describe-lake-formation-identity-center-configuration \
     --catalog-id 111122223333 \
     --region us-west-2
@@ -62,7 +61,7 @@ Your Quick account must use an IAM role with the required permissions. If your a
 
 The role's trust policy must allow the Quick service principal to assume it and attach the user's identity context to the session:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [{
@@ -80,7 +79,7 @@ The role's trust policy must allow the Quick service principal to assume it and 
 
 The role needs permissions to read AWS Glue Data Catalog metadata and obtain Lake Formation vended data access. The role does not need direct `s3:*` permissions on the table data because Lake Formation vends scoped, temporary S3 credentials.
 
-```
+```json
 "Action": [
     "glue:GetCatalog", "glue:GetCatalogs",
     "glue:GetDatabase", "glue:GetDatabases",
@@ -117,7 +116,7 @@ This step must be completed by the Quick administrator.
 
 Run the following AWS CLI command to enable identity propagation for Data Catalog:
 
-```
+```bash
 aws quicksight update-identity-propagation-config \
     --aws-account-id 111122223333 \
     --service GLUE_DATA_CATALOG \
@@ -128,7 +127,7 @@ The `--authorized-targets` value is the Lake Formation AWS IAM Identity Center a
 
 To verify, run:
 
-```
+```bash
 aws quicksight list-identity-propagation-configs \
     --aws-account-id 111122223333
 ```

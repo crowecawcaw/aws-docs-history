@@ -1,7 +1,6 @@
 
 
 # Consuming pixel perfect reports in AWS Quick Sight
-<a name="qs-reports-consume-reports"></a>
 
 When an AWS Quick author publishes and then sends a scheduled pixel perfect report, Quick will generate and save a snapshot of the report that is sent out. Whenever you go to view the pixel perfect report's dashboard, you will see the generated snapshot of the most recently sent report. If you try to view your report's dashboard but you haven't sent an email report yet, you are prompted to schedule your first report to see the dashboard snapshot. For more information on scheduling an email report, see [Scheduling and sending Quick Sight reports by email](sending-reports.md).
 

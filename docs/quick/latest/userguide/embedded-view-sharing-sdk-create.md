@@ -1,11 +1,10 @@
 
 
 # Creating a shared view with the AWS Quick Sight `createSharedView` API
-<a name="embedded-view-sharing-sdk-create"></a>
 
 After you update the Embedding SDK to version 2.8.0 or higher, use the `createSharedView` API to create a new shared view. Record the `sharedViewId` and the `dashboardId` that the operation returns. The example below creates a new shared view.
 
-```
+```js
 const response = await embeddingFrame.createSharedView();
 const sharedViewId = response.message.sharedViewId;
 const dashboardId = response.message.dashboardId;
@@ -13,7 +12,7 @@ const dashboardId = response.message.dashboardId;
 
 `createSharedView` can only be called when a user views a dashboard. For console-specific shared view creation, make sure that users are on the dashboard page before you enable the `createSharedView` action. You can do this with the `PAGE_NAVIGATION` event, shown in the example below.
 
-```
+```js
 const contentOptions = {
     onMessage: async (messageEvent, metadata) => {
     switch (messageEvent.eventName) {

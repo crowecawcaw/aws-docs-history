@@ -1,7 +1,6 @@
 
 
 # Renaming AWS Quick Sight visuals
-<a name="renaming-a-visual"></a>
 
 Use the following procedure to rename a visual.
 

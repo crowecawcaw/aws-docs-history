@@ -1,7 +1,6 @@
 
 
 # Organizing fields into folders in Amazon QuickSight
-<a name="organizing-fields-folder"></a>
 
 When prepping your data in Quick Sight, you can use folders to organize your fields for multiple authors across your enterprise. Arranging fields into folders and subfolders can make it easier for authors to find and understand fields in your dataset.
 

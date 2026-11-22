@@ -1,7 +1,6 @@
 
 
 # lastValue
-<a name="lastValue-function"></a>
 
 The `lastValue` function calculates the last value of the aggregated measure or dimension partitioned and sorted by specified attributes.
 

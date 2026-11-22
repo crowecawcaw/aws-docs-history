@@ -1,7 +1,6 @@
 
 
 # Formatting visual numeric data based on language settings in Quick
-<a name="customizing-visual-language-preferences"></a>
 
 In AWS Quick, you can choose how your numeric data values appear in visuals so that they align with the regional language that you have chosen.
 

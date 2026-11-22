@@ -1,7 +1,6 @@
 
 
 # Infrastructure security in AWS Quick
-<a name="infrastructure-and-network-access"></a>
 
 
 |  | 

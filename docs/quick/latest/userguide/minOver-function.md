@@ -1,7 +1,6 @@
 
 
 # minOver
-<a name="minOver-function"></a>
 
 The `minOver` function calculates the minimum of a measure or date partitioned by a list of dimensions. 
 

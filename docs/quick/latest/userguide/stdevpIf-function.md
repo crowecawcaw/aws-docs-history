@@ -1,7 +1,6 @@
 
 
 # stdevpIf
-<a name="stdevpIf-function"></a>
 
 Based on a conditional statement, the `stdevpIf` function calculates the standard deviation of the set of numbers in the specified measure, grouped by the chosen dimension or dimensions, based on a biased population.
 

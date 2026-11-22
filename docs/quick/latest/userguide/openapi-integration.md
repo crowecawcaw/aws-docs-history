@@ -1,7 +1,6 @@
 
 
 # OpenAPI Specification integration
-<a name="openapi-integration"></a>
 
 With OpenAPI Specification integration, you can create custom integrations based on OpenAPI schemas. This allows you to connect to any API that provides an OpenAPI specification. For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 

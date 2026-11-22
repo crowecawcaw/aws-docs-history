@@ -1,7 +1,6 @@
 
 
 # Embedding AWS Quick Sight visuals and dashboards with a 1-click embed code
-<a name="1-click-embedding"></a>
 
 You can embed a visual or dashboard in your application using an embed code. You get this code when you share the dashboard or from the **Embed visual** menu in AWS Quick Sight. 
 

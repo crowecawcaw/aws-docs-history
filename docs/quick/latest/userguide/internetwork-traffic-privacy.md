@@ -1,7 +1,6 @@
 
 
 # Inter-network traffic privacy in AWS Quick
-<a name="internetwork-traffic-privacy"></a>
 
 To use AWS Quick, users need access to the internet. They also need access to a compatible browser or a mobile device with the AWS Quick mobile app installed. They don't need access to the data sources they want to analyze. This access is handled inside AWS Quick. User connections to AWS Quick are protected through the use of SSL. So that users can access AWS Quick, allow access to HTTPS and Web Sockets Secure (wss://) protocol. 
 

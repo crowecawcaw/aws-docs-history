@@ -1,7 +1,6 @@
 
 
 # Network and database configuration requirements
-<a name="configure-access"></a>
 
 To serve as data sources, databases need to be configured so that AWS Quick can access them. Use the following sections to make sure that your database is configured appropriately. 
 

@@ -1,33 +1,93 @@
 
 
-# Use a chat agent
-<a name="use-agents"></a>
+# Use agents
 
-You can use a AWS Quick chat agent to ask questions and to accomplish your tasks. When you ask a question, the chat agent analyzes the latest approved data shared with you to generate a comprehensive response.
+You can chat with an agent, mention it in any conversation, add it to your favorites, or set it as your default. An agent can also hand work to other agents.
 
-You can ask complex questions in plain language and get a detailed response. You can also use a Quick chat agent to perform tasks for you, such as draft an email message, create a ticket, or use flows.
+**Topics**
++ [Install a shared agent](#install-shared-agent)
++ [Chat with an agent](#chat-with-agent)
++ [Attach resources in a chat](#attach-resources-chat)
++ [Make an agent a favorite or your default](#make-agent-default)
++ [Multi-agent orchestration](#multi-agent-orchestration)
 
-**To use custom chat agents**
+## Install a shared agent
+<a name="install-shared-agent"></a>
 
-1. Log in to the Quick console.
+Before you use an agent that someone shared with you, install it.
 
-1. From the left navigation menu, select **Chat agents**
+**To install a shared agent**
 
-1. Then, from the **Actions** column for the chat agent you want to share, select the menu icon, and then select **Chat**.
+1. Choose **Customize**, and then choose the **Agents** tab.
 
-   This will open a chat interface that you use to interact with your chat agent.
+1. Choose **Browse all**.
 
-You can interact with a chat agent in the following ways:
-+ View and access example prompts to demonstrate possible questions and tasks
-+ Get contextual responses from organizational data sources
-+ Continue or start new conversations
-+ Analyze data, including summarization and comparative analysis
-+ Take actions like scheduling meetings and creating tickets
-+ View source citations to responses with clickable numbered references
-+ Upload files
-+ View conversation history
+1. Choose an agent.
+
+1. Choose **Install**.
+
+## Chat with an agent
+<a name="chat-with-agent"></a>
+
+You can start a chat with an agent in the following ways:
++ Choose the agent name in the chat to open the agent switcher, and then choose the agent.
++ In a conversation, enter @ and the agent's name to mention it.
++ Open the agent's details pane and choose **Chat**, or hover over the agent's row and choose the **Chat** icon.
+
+Responses include citations. To view them, choose **Sources** under the response. Your conversations are saved.
+
+## Attach resources in a chat
+<a name="attach-resources-chat"></a>
+
+To attach resources to a conversation, choose the plus sign (\+) in the chat box, and then choose **Spaces** or **Upload files**. An attached space becomes the main context for that conversation only.
+
+## Make an agent a favorite or your default
+<a name="make-agent-default"></a>
+
+You can add an agent to your favorites so you can find it with the **Favorites** filter. You can also make an agent your default, so Quick uses it for every new chat.
+
+**To favorite an agent**
+
+1. Choose **Customize**, and then choose the **Agents** tab.
+
+1. Open the agent's menu, and then choose **Add to favorites**.
+
+**To make an agent your default**
+
+1. Choose **Customize**, and then choose the **Agents** tab.
+
+1. Open the agent's menu, and then choose **Make default**.
 
 **Tip**  
-You can also use your chat agents while automating your routine tasks with Quick Flows. For more information, see [Chat agent](ai-response-steps.md#chat-agent-step).
+You can also use your agents while automating your routine tasks with Quick Flows. For more information, see [Flows](working-with-flows.md).
 
-To learn more about chatting using chat agents, see [Using AWS Quick chat](https://docs.aws.amazon.com/quicksuite/latest/userguide/using-quick-chat.html).
+To learn more about chatting with agents, see [Using AWS Quick chat](https://docs.aws.amazon.com/quicksuite/latest/userguide/using-quick-chat.html).
+
+## Multi-agent orchestration
+<a name="multi-agent-orchestration"></a>
+
+Multi-agent orchestration lets an agent delegate tasks to other agents and bring their results back into the same conversation. Each specialist agent uses its own instructions, knowledge, and memory. When an agent hands off work, the receiving agent uses its own instructions, knowledge, and memory, and works within your access. You can see the hand-offs, follow progress, and review the full response.
+
+**To configure delegation**
+
+1. Open the main agent's editor.
+
+1. In the **Instructions** field, enter @ and choose each agent that this agent can hand work to. You can add up to 20 agents.
+
+1. Describe when to use each agent.
+
+1. Publish the agent.
+
+You can add only published agents that you have access to.
+
+The following limits apply to hand-offs:
++ An agent that receives a task can't hand it to another agent.
++ An agent that runs on a routine can't hand off work to other agents.
+
+If delegation doesn't work as you expect, check the following messages:
+
+A mentioned agent wasn't added  
+The agent is deleted, unpublished, inactive, or not shared with you.
+
+This agent's delegation is turned off  
+The owner turned off hand-offs for the agent.

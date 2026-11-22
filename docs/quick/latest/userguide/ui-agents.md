@@ -1,7 +1,6 @@
 
 
 # UI agents
-<a name="ui-agents"></a>
 
 UI agent is a native agent that understands natural language instructions to perform complex browser actions. It can autonomously navigate websites, click, type, read data, and produce structured outputs optimized for downstream automation steps. Example use cases include summarizing products on a webpage or fetching data by navigating websites.
 

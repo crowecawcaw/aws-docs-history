@@ -1,7 +1,6 @@
 
 
 # Configuring email syncing for federated users in Quick
-<a name="jit-email-syncing"></a>
 
 
 |  | 

@@ -1,7 +1,6 @@
 
 
 # Microsoft OneDrive integration
-<a name="onedrive-integration"></a>
 
 Use the Microsoft OneDrive integration to perform actions on OneDrive files and folders, or to create knowledge bases from OneDrive content for AI-powered search and Q&A.
 

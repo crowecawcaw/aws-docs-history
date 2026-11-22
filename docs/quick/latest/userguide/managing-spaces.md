@@ -1,7 +1,6 @@
 
 
 # Managing a space
-<a name="managing-spaces"></a>
 
 You can perform the following actions for spaces.
 
@@ -29,6 +28,8 @@ You can view a list of spaces created by—or shared with—you.
 1. From the left navigation menu, select **Spaces**.
 
    You will see a list of spaces displayed. The list also displays the name, description, owner, and last modified date for each space. You can search for a space, and filter for recent spaces.
+
+You can filter the list by **Favorites**, **Owned by me**, and **Created by me**, and switch between **Card** and **List** views. Each space provides a quick action to start a chat with it, as well as a per-space menu for other actions. In the desktop app, selecting a space opens it as a tab, so you can keep chatting while you view it.
 
 ## Editing a space
 <a name="editing-spaces"></a>
@@ -113,6 +114,8 @@ When you switch between spaces or open up a space during an on-going chat AWS Qu
    1. From the resource selector menu, select **All resources**, and then select **Choose a resource**.
 
    1. From the **Add a resource** menu, from **Spaces**, select the space you want to chat with. Then, start chatting.
+
+You can also attach a space to a conversation directly from the chat composer's data controls. In the desktop app, you can attach a space from the **All data and apps** panel. While a space is attached, Quick grounds its responses in that space's content. For more information, see [Ask questions, explore data, and get insights with chat in AWS Quick](using-quick-chat.md).
 
 ## Sharing a space
 <a name="sharing-spaces"></a>

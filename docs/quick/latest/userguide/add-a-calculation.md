@@ -1,7 +1,6 @@
 
 
 # Adding a pivot table calculation
-<a name="add-a-calculation"></a>
 
 Use the following procedure to add a table calculation to a pivot table.
 

@@ -1,7 +1,6 @@
 
 
 # Incident response, logging, and monitoring in AWS Quick
-<a name="incident-response-logging-and-monitoring"></a>
 
 
 |  | 

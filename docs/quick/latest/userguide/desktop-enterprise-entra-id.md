@@ -1,7 +1,6 @@
 
 
 # Set up enterprise sign-in with Microsoft Entra ID for AWS Quick on desktop
-<a name="desktop-enterprise-entra-id"></a>
 
 
 |  | 
@@ -117,7 +116,7 @@ If your application has custom signing keys because of the claims-mapping featur
 To confirm the correct value, open the OpenID Connect metadata document with the same `appid` parameter appended (`https://login.microsoftonline.com/<TENANT_ID>/.well-known/openid-configuration?appid=<CLIENT_ID>`) and use the `jwks_uri` it returns. For more information, see [Validate the signature](https://learn.microsoft.com/en-us/entra/identity-platform/access-tokens#validate-the-signature) in the Microsoft Entra documentation.
 
 ## Step 2: Add the desktop connector with your identity provider configuration
-<a name="w2aac51c53c15c27c23c19"></a>
+<a name="w2aac60c15c15c27c23c19"></a>
 
 In the AWS Quick console, add the desktop connector and enter the values that you recorded in Step 1.
 
@@ -161,7 +160,7 @@ Adding the desktop connector turns on desktop access for all users in your accou
 Adding the desktop connector is a one-time, account-level action. After the connector is enabled, all users in your account can sign in with your identity provider. Users don't need to turn anything on themselves.
 
 ## Step 3: Download, verify, and distribute the desktop application
-<a name="w2aac51c53c15c27c23c21"></a>
+<a name="w2aac60c15c15c27c23c21"></a>
 
 In this step, you install the desktop application, verify that enterprise sign-in works, and then distribute the application to your users.
 

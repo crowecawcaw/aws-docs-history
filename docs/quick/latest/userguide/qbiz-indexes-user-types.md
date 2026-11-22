@@ -1,7 +1,6 @@
 
 
 # User types and capabilities
-<a name="qbiz-indexes-user-types"></a>
 
 Different user types have different capabilities when working with Amazon Q Business indexes in AWS Quick:
 

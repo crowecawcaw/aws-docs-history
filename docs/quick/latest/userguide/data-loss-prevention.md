@@ -1,7 +1,6 @@
 
 
 # Data loss prevention
-<a name="data-loss-prevention"></a>
 
 
 |  | 
@@ -74,7 +73,7 @@ If you grant `Sites.Selected` and you use a different app registration for DLP t
 
 Store the Purview credentials in an AWS Secrets Manager secret in the same AWS account as your Quick account. Use the following JSON format for the secret value.
 
-```
+```json
 {
   "clientId": "abcdef12-3456-7890-abcd-ef1234567890",
   "clientSecret": "<client secret value>",
@@ -111,7 +110,7 @@ The **Permissions**, **AWS resources** page can't grant `kms:Decrypt`. Edit the 
 
 Add a statement like the following to the role. Replace the account ID, secret name, and key ID with your own.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

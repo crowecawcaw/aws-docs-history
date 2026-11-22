@@ -1,7 +1,6 @@
 
 
 # Mobile-specific behaviors
-<a name="mobile-specific-behaviors"></a>
 
 Some capabilities work differently on mobile than on desktop.
 + Dashboards open in a viewer: on mobile, you browse your dashboards in a native list and open a dashboard in an embedded viewer with mobile controls.

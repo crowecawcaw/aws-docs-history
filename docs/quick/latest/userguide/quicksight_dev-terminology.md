@@ -1,7 +1,6 @@
 
 
 # Terminology and concepts
-<a name="quicksight_dev-terminology"></a>
 
 This section provides a list of terms for development in AWS Quick Sight. 
 

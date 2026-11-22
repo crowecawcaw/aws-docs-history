@@ -1,7 +1,6 @@
 
 
 # periodToDateStDev
-<a name="periodToDateStDev-function"></a>
 
 The `periodToDateStDev` function calculates the standard deviation of the set of numbers in the specified measure for a given time granularity (for instance, a quarter) up to a point in time, based on a sample and relative to that period.
 

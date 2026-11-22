@@ -1,7 +1,6 @@
 
 
 # Using tree maps
-<a name="tree-map"></a>
 
 To visualize one or two measures for a dimension, use tree maps.
 

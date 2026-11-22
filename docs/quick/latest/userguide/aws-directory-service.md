@@ -1,7 +1,6 @@
 
 
 # Using Active Directory with AWS Quick Enterprise edition
-<a name="aws-directory-service"></a>
 
 
 |  | 

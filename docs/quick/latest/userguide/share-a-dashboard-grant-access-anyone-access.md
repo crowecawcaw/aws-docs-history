@@ -1,7 +1,6 @@
 
 
 # Granting anyone on the internet access to a dashboard
-<a name="share-a-dashboard-grant-access-anyone-access"></a>
 
 **To grant anyone on the internet access to a dashboard**
 

@@ -1,7 +1,6 @@
 
 
 # ML-powered forecasting
-<a name="forecast-function"></a>
 
 The ML-powered forecast computation forecasts future metrics based on patterns of previous metrics by seasonality. For example, you can create a computation to forecast total revenue for the next six months.
 

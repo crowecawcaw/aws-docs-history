@@ -1,7 +1,6 @@
 
 
 # I can't see my visuals
-<a name="troubleshoot-adding-visuals"></a>
 
 Use the following section to help you troubleshoot missing visuals. Before you continue, check to make sure you can still access your data source. If you can't connect to your data source, see [Data source connectivity issues for AWS Quick Sight](troubleshoot-connect-to-datasources.md).
 + If you are having trouble adding a visual to an analysis, try the following:

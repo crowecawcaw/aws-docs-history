@@ -1,7 +1,6 @@
 
 
 # Administration for AWS Quick
-<a name="qsysadmin"></a>
 
 As an administrator, you decide who can access your AWS Quick account and what those users can do in it. You also configure the security and encryption settings that protect your data. You do this work in the AWS Quick administration console. Some sections require AWS Identity and Access Management (IAM) permissions, and you can perform some tasks programmatically with the AWS Quick API.
 
@@ -18,7 +17,7 @@ Use this section to do the following:
 + Customize branding and agent settings, and monitor usage metrics.
 
 **Topics**
-+ [Getting started with AWS Quick](getting-started-admin.md)
++ [Key concepts for AWS Quick administrators](getting-started-admin.md)
 + [Setting up for Quick](admin-setting-up.md)
 + [Configuring VPC connections in AWS Quick Sight](working-with-aws-vpc.md)
 + [Configuring AWS Quick Sight access to AWS data sources](access-to-aws-resources.md)

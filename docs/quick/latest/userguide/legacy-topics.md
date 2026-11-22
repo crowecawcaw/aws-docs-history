@@ -1,7 +1,6 @@
 
 
 # Working with legacy Topics
-<a name="legacy-topics"></a>
 
 
 |  | 

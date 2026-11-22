@@ -1,7 +1,6 @@
 
 
 # ML-powered anomaly detection for outliers
-<a name="anomaly-detection-function"></a>
 
 The ML-powered anomaly detection computation searches your data for outliers. For example, you can detect the top three outliers for total sales on January 3, 2019. If you enable contribution analysis, you can also detect the key drivers for each outlier. 
 

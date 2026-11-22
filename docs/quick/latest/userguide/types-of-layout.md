@@ -1,7 +1,6 @@
 
 
 # Types of layout
-<a name="types-of-layout"></a>
 
 There are three dashboard layout designs you can choose from: **Tiled**, **Free-form**, and **Classic**.
 

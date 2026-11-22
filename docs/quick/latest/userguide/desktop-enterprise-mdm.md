@@ -1,7 +1,6 @@
 
 
 # Deploying AWS Quick on desktop to a managed fleet with MDM
-<a name="desktop-enterprise-mdm"></a>
 
 
 |  | 
@@ -49,7 +48,7 @@ The AWS Quick download service at `desktop.downloads.quick.aws.com` provides the
 
 Each platform publishes a channel manifest that lists the current version and a SHA-512 checksum. Fetch the manifest to find the version to deploy and the checksum to verify your download against.
 
-```
+```bash
 # macOS manifest
 curl -fsSL https://desktop.downloads.quick.aws.com/darwin/arm64/quick-external-cloud-mac.yml
 
@@ -67,7 +66,7 @@ The version-specific artifact, relative to the platform base URL. On Windows, yo
 
 Download the per-machine artifact for each platform. In the following URL patterns, replace {{version}} with the version from the manifest.
 
-```
+```text
 # macOS .pkg (per-machine, installs to /Applications)
 https://desktop.downloads.quick.aws.com/darwin/arm64/quick-external-cloud/Amazon Quick-{{version}}-arm64.pkg
 
@@ -82,7 +81,7 @@ A pre-production beta channel also exists for internal testing. It updates itsel
 
 The Windows per-machine `.exe` also has a static download link that resolves to the most recent build released externally, so you do not need to fetch the manifest first. A static link can trail the version in the manifest while a release finishes rolling out. If you need a specific version, or you want to verify your download against the SHA-512 checksum, fetch the manifest and use the version-specific URL instead.
 
-```
+```text
 https://desktop.downloads.quick.aws.com/windows/x64/Amazon-Quick-Admin.exe
 ```
 
@@ -125,7 +124,7 @@ The app bundle ID (`com.aws.QuickWork.mac`) is the application's `CFBundleIdenti
 
 On each assigned device, the installation runs silently and the application is installed at `/Applications/Amazon Quick.app`. To verify the installation on a device, run the following command and confirm that it returns `com.aws.QuickWork.mac`.
 
-```
+```bash
 defaults read "/Applications/Amazon Quick.app/Contents/Info" CFBundleIdentifier
 ```
 
@@ -154,7 +153,7 @@ The following table lists the key facts for the per-machine Windows installer.
 
 1. Run the Win32 Content Prep Tool, replacing {{version}} with the version you downloaded.
 
-   ```
+   ```bash
    IntuneWinAppUtil.exe -c C:\IntuneSource -s "Amazon Quick-Admin Setup {{version}}.exe" -o C:\IntuneOutput -q
    ```
 
@@ -192,7 +191,7 @@ The following table lists the key facts for the per-machine Windows installer.
 
 The Intune Management Extension installs on a device the first time you assign a Win32 application, which can take a few minutes and two device check-ins. To trigger a check-in on a device, go to **Settings → Accounts → Access work or school**, select your account, and choose **Sync**. To watch the installation on a device, tail the log with the following PowerShell command.
 
-```
+```powershell
 Get-Content "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\AppWorkload.log" -Wait -Tail 50
 ```
 
@@ -220,7 +219,7 @@ Do not use `%HOMEDRIVE%%HOMEPATH%` in scripts that run under Intune. Intune runs
 
 The following example install script places the CA bundle at a machine-wide path and sets the environment variables.
 
-```
+```bash
 @echo off
 mkdir "C:\ProgramData\Amazon Quick\certs" 2>nul
 copy /Y "%~dp0tls-ca-bundle.pem" "C:\ProgramData\Amazon Quick\certs\tls-ca-bundle.pem"
@@ -251,7 +250,7 @@ If macOS reports installation failure code `0x87D13BA2`, the nested helper bundl
 Microsoft Intune reports the macOS app as installed but the app is missing  
 A prior installation left an application bundle or a package receipt on the device. With version-independent detection, this reads as installed and the deployment is skipped. Test on a clean device. To fully clean a test device, remove the application bundle and forget the package receipt, and then test the deployment again.  
 
-```
+```bash
 sudo rm -rf "/Applications/Amazon Quick.app"
 sudo pkgutil --forget com.amazon.QuickWork.mac
 ```

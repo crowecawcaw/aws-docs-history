@@ -1,7 +1,6 @@
 
 
 # GitHub integration
-<a name="github-integration"></a>
 
 With GitHub integration in AWS Quick, you can manage repositories, create and review pull requests, track issues, and collaborate on code through MCP server connectivity. This integration provides action capabilities for development workflow operations.
 

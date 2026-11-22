@@ -1,7 +1,6 @@
 
 
 # Create and manage membership permissions for Quick shared folders
-<a name="sharing-folders"></a>
 
 **Shared folders (unrestricted)**
 

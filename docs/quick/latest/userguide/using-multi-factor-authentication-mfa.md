@@ -1,7 +1,6 @@
 
 
 # Using multi-factor authentication (MFA) with AWS Quick
-<a name="using-multi-factor-authentication-mfa"></a>
 
 
 |  | 

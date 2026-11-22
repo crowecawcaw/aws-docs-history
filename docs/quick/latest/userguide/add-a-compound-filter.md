@@ -1,7 +1,6 @@
 
 
 # Adding filter conditions (group filters) with AND and OR operators
-<a name="add-a-compound-filter"></a>
 
 In analyses, when you add multiple filters to a visual, Quick uses the AND operator to combine them. You can also add filter conditions to a single filter with the OR operator. This is called a compound filter, or filter group.
 

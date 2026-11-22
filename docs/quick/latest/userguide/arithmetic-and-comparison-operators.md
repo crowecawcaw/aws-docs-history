@@ -1,7 +1,6 @@
 
 
 # Operators
-<a name="arithmetic-and-comparison-operators"></a>
 
 You can use the following operators in calculated fields. Quick uses the standard order of operations: parentheses, exponents, multiplication, division, addition, subtraction (PEMDAS). Equal (=) and not equal (<>) comparisons are case-sensitive. 
 + Addition (\+)

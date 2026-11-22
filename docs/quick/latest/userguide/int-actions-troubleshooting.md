@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="int-actions-troubleshooting"></a>
 
 When connectors encounter issues, systematic troubleshooting helps you quickly identify and resolve problems. This guidance covers common issues and their solutions to minimize downtime and restore functionality.
 
@@ -23,7 +22,7 @@ Resolution:
 
 1. Complete authentication flow.
 
-1. Retry action.
+1. Retry the tool.
 
 #### Permission errors
 <a name="qbs-actions-troubleshooting-qbs-actions-permission-errors"></a>
@@ -37,7 +36,7 @@ Resolution:
 
 1. Check connector configuration.
 
-1. Review action requirements.
+1. Review tool requirements.
 
 #### Connection failures
 <a name="qbs-actions-troubleshooting-qbs-actions-connection-failures"></a>
@@ -55,7 +54,7 @@ Resolution:
 
 1. Review service quotas.
 
-### Action-specific issues
+### Tool-specific issues
 <a name="qbs-actions-troubleshooting-qbs-actions-action-specific-issues"></a>
 
 #### Form submission failures
@@ -73,7 +72,7 @@ Resolution:
 + Reduce form complexity.
 + Check network latency.
 + Review service response times.
-+ Consider breaking into multiple actions.
++ Consider breaking the request into multiple tools.
 
 #### Sync and performance issues
 <a name="qbs-actions-troubleshooting-qbs-actions-sync-performance-issues"></a>
@@ -91,7 +90,7 @@ Resolution:
 
 1. Monitor service health.
 
-1. Optimize action configuration.
+1. Optimize tool configuration.
 
 ##### Failed executions
 <a name="qbs-actions-troubleshooting-qbs-actions-failed-executions"></a>

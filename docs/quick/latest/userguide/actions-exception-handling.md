@@ -1,7 +1,6 @@
 
 
 # Exception handling
-<a name="actions-exception-handling"></a>
 
 Exception handling allows you to manage errors and unexpected conditions in your automations. AWS Quick Automate provides capabilities for creating, raising, and handling exceptions appropriately to ensure robust error management and process continuity.
 

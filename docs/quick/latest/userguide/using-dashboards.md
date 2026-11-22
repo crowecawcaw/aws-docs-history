@@ -1,7 +1,6 @@
 
 
 # Exploring interactive dashboards in AWS Quick Sight
-<a name="using-dashboards"></a>
 
 
 |  | 

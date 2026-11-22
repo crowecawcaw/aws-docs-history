@@ -1,7 +1,6 @@
 
 
 # Creating a data story with Generative BI
-<a name="working-with-stories-create"></a>
 
 Use the following procedure to create a data story with Generative BI.
 

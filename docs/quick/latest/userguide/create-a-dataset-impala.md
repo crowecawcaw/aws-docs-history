@@ -1,7 +1,6 @@
 
 
 # Creating a dataset using an Apache Impala data source
-<a name="create-a-dataset-impala"></a>
 
 Apache Impala is a high-performance massively parallel processing (MPP) SQL query engine designed to run natively on Apache Hadoop. Use the procedure below to establish a secure connection between Quick Sight and Apache Impala.
 

@@ -1,7 +1,6 @@
 
 
 # Define limits in a repeating section
-<a name="qs-reports-repeat-sections-limits"></a>
 
 You can set limits to show only a certain number of distinct dimension values for each dimension of a repeating section. You can choose to show between 1 and 1000 distinct values. The default limit is 50.
 

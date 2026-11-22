@@ -1,7 +1,6 @@
 
 
 # Sharing a data story in AWS Quick Sight
-<a name="working-with-stories-share"></a>
 
 Use the following procedure to share a data story.
 

@@ -1,7 +1,6 @@
 
 
 # Supporting multitenancy with isolated namespaces
-<a name="namespaces"></a>
 
 AWS Quick Enterprise edition supports multitenancy through namespaces. An AWS Quick *namespace* is a logical container that you can use to organize clients, subsidiaries, teams, and so on. Namespaces can help you achieve the following goals: 
 + Your AWS Quick subscription allows users to discover shared content and share with other users. At the same time, in the AWS Quick end-user console experience, users in one namespace can't see or interact with users in another namespace. The AWS Quick administrative console uses a different permission model. For more information, see the following important note.

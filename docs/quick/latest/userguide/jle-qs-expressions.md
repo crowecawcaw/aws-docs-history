@@ -1,7 +1,6 @@
 
 
 # AWS Quick expressions
-<a name="jle-qs-expressions"></a>
 
 AWS Quick offers additional expressions to enhance the functionality of Highcharts visuals. Use the following sections to learn more about common Quick expressions for highcharts visuals. For more information about JSON expression language in AWS Quick, see the [Highcharts Visual QuickStart Guide](https://democentral.learnquicksight.online/#Dashboard-FeatureDemo-Highcharts-Visual) in [DemoCentral](https://democentral.learnquicksight.online/#).
 
@@ -23,7 +22,7 @@ Use the `getColumn` expressions to return values from specified column indices. 
 
 The following `getColumn` query generates an array that shows all product names alongside their price.
 
-```
+```json
 {
 	product name: ["getColumn", 0], 
 	price: ["getColumn", 2]
@@ -32,7 +31,7 @@ The following `getColumn` query generates an array that shows all product names 
 
 The follwing JSON is returned:
 
-```
+```json
 {
 	product name: ["Product A", "Product B", "Product C"],
 	price: [100, 50, 75]
@@ -43,7 +42,7 @@ You can also pass multiple columns at once to generate an array of arrays, shown
 
 **Input**
 
-```
+```json
 {
 	values: ["getColumn", 0, 2]
 }
@@ -51,7 +50,7 @@ You can also pass multiple columns at once to generate an array of arrays, shown
 
 **Output**
 
-```
+```json
 {
 	values: [["Product A", 100], ["Product B", 50], ["Product C", 75]]
 }
@@ -62,13 +61,13 @@ Similar to `getColumn`, the following expressions can be used to return column v
 + `getColumnFromValue` returns columns from the value field well. You can pass multiple indices to get an array of arrays where each element corresponds to the field in the values field well.
 + `getColorTheme` returns the current color pallete of a Quick theme, shown in the following example.
 
-  ```
+  ```json
   {
   "color": ["getColorTheme"]
   }
   ```
 
-  ```
+  ```json
   {
   "color": ["getPaletteColor", "secondaryBackground"]
   }
@@ -99,7 +98,7 @@ Similar to `getColumn`, the following expressions can be used to return column v
 
 Use the `formatValue` expression to apply Quick formatting to your values. For example, the following expression formats the x-axis label with the format value that is specified in the first field of Quick field wells.
 
-```
+```json
  "xAxis": {
 		"categories": ["getColumn", 0],
 		"labels": {

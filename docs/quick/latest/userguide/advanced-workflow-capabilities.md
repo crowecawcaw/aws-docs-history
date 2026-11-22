@@ -1,7 +1,6 @@
 
 
 # Advanced workflow capabilities
-<a name="advanced-workflow-capabilities"></a>
 
 AWS Quick Sight's data preparation experience offers sophisticated features that enhance your ability to create complex, reusable data transformations. This section covers two powerful capabilities that extend your workflow potential.
 

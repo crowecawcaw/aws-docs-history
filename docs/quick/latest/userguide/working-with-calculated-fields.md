@@ -1,7 +1,6 @@
 
 
 # Adding calculations
-<a name="working-with-calculated-fields"></a>
 
 Create calculated fields to transform your data by using one or more of the following: 
 + [Operators](arithmetic-and-comparison-operators.md)

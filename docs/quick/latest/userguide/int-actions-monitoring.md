@@ -1,7 +1,6 @@
 
 
 # Monitoring and maintenance
-<a name="int-actions-monitoring"></a>
 
 Monitoring your connectors helps ensure reliable performance and identify issues before they impact users. Regular monitoring allows you to track usage patterns, optimize performance, and maintain healthy connections to external services.
 
@@ -12,8 +11,8 @@ You can assess connector performance using the following metrics and analytics.
 
 ### CloudWatch metrics
 <a name="qbs-actions-monitoring-qbs-actions-cloudwatch-metrics"></a>
-+ Action execution success rates - Track the percentage of successful action executions to identify reliability issues.
-+ Response times - Monitor how long actions take to complete and identify performance bottlenecks.
++ Tool execution success rates - Track the percentage of successful tool runs to identify reliability issues.
++ Response times - Monitor how long tools take to complete and identify performance bottlenecks.
 + Error frequencies - Track error patterns to identify common failure points and areas for improvement.
 + API quota usage - Monitor usage against service limits to prevent throttling and plan for capacity.
 
@@ -22,8 +21,8 @@ You can assess connector performance using the following metrics and analytics.
 
 The following usage analytics are collected for connectors:
 + Active users - Track how many users are actively using connectors to understand adoption and usage patterns.
-+ Popular actions - Identify which actions are used most frequently to prioritize optimization efforts.
-+ Execution patterns - Analyze when and how often actions are executed to optimize resource allocation.
++ Popular tools - Identify which tools are used most frequently to prioritize optimization efforts.
++ Execution patterns - Analyze when and how often tools run to optimize resource allocation.
 + Error trends - Monitor error patterns over time to identify systemic issues and improvement opportunities.
 
 ## Connection health

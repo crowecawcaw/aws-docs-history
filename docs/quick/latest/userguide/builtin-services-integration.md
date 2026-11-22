@@ -1,7 +1,6 @@
 
 
 # AWS service connectors
-<a name="builtin-services-integration"></a>
 
 With AWS service connectors in AWS Quick, you can create connectors that interact directly with AWS services like Amazon Bedrock, Amazon Textract, and Amazon Comprehend. These connectors enable automated workflows that leverage AWS AI and machine learning capabilities.
 

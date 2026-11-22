@@ -1,7 +1,6 @@
 
 
 # Copying an AWS Quick Sight dashboard
-<a name="copying-a-dashboard"></a>
 
 If you have co-owner access or **Save as** privileges on an existing dashboard, you can copy it. To do this, create a new analysis from the dashboard and then create a new dashboard from the analysis that you copied.
 

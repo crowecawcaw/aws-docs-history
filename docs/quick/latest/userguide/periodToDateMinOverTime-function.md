@@ -1,14 +1,13 @@
 
 
 # periodToDateMinOverTime
-<a name="periodToDateMinOverTime-function"></a>
 
 The `periodToDateMinOverTime` function calculates the minimum of a measure for a given time granularity (for instance, a quarter) up to a point in time.
 
 ## Syntax
 <a name="periodToDateMinOverTime-function-syntax"></a>
 
-```
+```text
 periodToDateMinOverTime(
 	measure, 
 	dateTime, 
@@ -33,7 +32,7 @@ The default value is the visual's date dimension granularity.
 
 The following example calculates the minimum fare amount month over month.
 
-```
+```text
 periodToDateMinOverTime(min({fare_amount}), pickupDatetime, MONTH)
 ```
 

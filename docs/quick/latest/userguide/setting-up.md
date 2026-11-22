@@ -1,7 +1,6 @@
 
 
 # Setting up and signing into AWS Quick
-<a name="setting-up"></a>
 
 AWS Quick offers two ways to get started, depending on your needs:
 + **Get started quickly** – If you're an individual or small team and don't have an AWS account, see [Signing up at aws.com/quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/standalone-signup.html).

@@ -1,7 +1,6 @@
 
 
 # Embedding AWS Quick Sight dashboards for anonymous (unregistered) users
-<a name="embedded-analytics-dashboards-for-everyone"></a>
 
 **Important**  
 AWS Quick Sight has new API operations for embedding analytics: `GenerateEmbedUrlForAnonymousUser` and `GenerateEmbedUrlForRegisteredUser`.  
@@ -63,7 +62,7 @@ Your application's IAM identity must have a trust policy associated with it to a
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Statement": [
@@ -113,7 +112,7 @@ The following examples perform the IAM authentication on the user's behalf. It p
 ### Java
 <a name="embedded-analytics-dashboards-with-anonymous-users-java"></a>
 
-```
+```java
 import java.util.List;
     import com.amazonaws.auth.AWSCredentials;
     import com.amazonaws.auth.AWSCredentialsProvider;
@@ -187,7 +186,7 @@ import java.util.List;
 ### JavaScript
 <a name="embedded-analytics-dashboards-with-anonymous-users-js"></a>
 
-```
+```javascript
 global.fetch = require('node-fetch');
 const AWS = require('aws-sdk');
 
@@ -254,7 +253,7 @@ quicksightClient.generateEmbedUrlForAnonymousUser(generateEmbedUrlForAnonymousUs
 ### Python3
 <a name="embedded-analytics-dashboards-with-anonymous-users-py"></a>
 
-```
+```python
 import json
 import boto3
 from botocore.exceptions import ClientError
@@ -305,7 +304,7 @@ The following example shows the JavaScript (Node.js) that you can use on the app
 
 **Example**  
 
-```
+```javascript
 const AWS = require('aws-sdk');
     const https = require('https');
 
@@ -333,7 +332,7 @@ const AWS = require('aws-sdk');
 
 **Example**  
 
-```
+```javascript
 //The URL returned is over 900 characters. For this example, we've shortened the string for
     //readability and added ellipsis to indicate that it's incomplete.
         { 
@@ -350,7 +349,7 @@ The following example shows the .NET/C\# code that you can use on the app server
 
 **Example**  
 
-```
+```csharp
 using System;
     using Amazon.QuickSight;
     using Amazon.QuickSight.Model;
@@ -390,7 +389,7 @@ To assume the role, choose one of the following AWS Security Token Service (AWS 
 
 The following example shows the CLI command to set the IAM role. The role needs to have permissions enabled for `quicksight:GenerateEmbedUrlForAnonymousUser`. 
 
-```
+```bash
 aws sts assume-role \
     --role-arn "{{arn:aws:iam::11112222333:role/QuickSightEmbeddingAnonymousPolicy}}" \
     --role-session-name {{anonymous caller}}
@@ -406,7 +405,7 @@ If you get an `ExpiredToken` error when calling the `AssumeRole` operation, this
 
 The following example shows how to set these three parameters in the CLI. If you're using a Microsoft Windows machine, use `set` instead of `export`.
 
-```
+```bash
 export AWS_ACCESS_KEY_ID     = "{{access_key_from_assume_role}}"
     export AWS_SECRET_ACCESS_KEY = "{{secret_key_from_assume_role}}"
     export AWS_SESSION_TOKEN     = "{{session_token_from_assume_role}}"
@@ -470,7 +469,7 @@ The following example shows how to use the generated URL. This code resides on y
 ### SDK 2.0
 <a name="embedded-analytics-dashboards-with-anonymous-users-sdkv2"></a>
 
-```
+```html
 <!DOCTYPE html>
 <html>
 
@@ -602,7 +601,7 @@ The following example shows how to use the generated URL. This code resides on y
 ### SDK 1.0
 <a name="embedded-analytics-dashboards-with-anonymous-users-sdkv1"></a>
 
-```
+```html
 <!DOCTYPE html>
 <html>
 
@@ -665,6 +664,6 @@ For this example to work, make sure to use the AWS Quick Sight Embedding SDK to 
 + Download the latest AWS Quick Sight Embedding SDK version from [https://www.npmjs.com/package/amazon-quicksight-embedding-sdk](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk).
 + If you use `npm` for JavaScript dependencies, download and install it by running the following command.
 
-  ```
+  ```bash
   npm install amazon-quicksight-embedding-sdk
   ```

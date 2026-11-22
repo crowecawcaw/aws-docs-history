@@ -1,7 +1,6 @@
 
 
 # formatDate
-<a name="formatDate-function"></a>
 
 `formatDate` formats a date using a pattern you specify. When you are preparing data, you can use `formatDate` to reformat the date. To reformat a date in an analysis, you choose the format option from the context menu on the date field.
 

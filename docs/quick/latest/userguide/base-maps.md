@@ -1,7 +1,6 @@
 
 
 # Base maps on geospatial maps in Quick
-<a name="base-maps"></a>
 
 When you create a map visual in Quick, you can change the base of the map. A *base map* is the style of map that appears beneath your data on a map. An example is a satellite view versus a street view.
 

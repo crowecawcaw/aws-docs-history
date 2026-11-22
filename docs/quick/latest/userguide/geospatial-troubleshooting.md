@@ -1,7 +1,6 @@
 
 
 # Geospatial troubleshooting
-<a name="geospatial-troubleshooting"></a>
 
 Use this section to discover the AWS Quick Sight requirements for correctly processing geospatial data. If AWS Quick Sight doesn't recognize your geospatial data as geospatial, use this section to help troubleshoot the issue. Make sure that your data follows the guidelines listed, so that it works in geospatial visuals.
 

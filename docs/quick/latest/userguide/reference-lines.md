@@ -1,7 +1,6 @@
 
 
 # Reference lines on visuals types in Quick
-<a name="reference-lines"></a>
 
 *Reference lines* are visual markings in a visual, similar to ruler lines. You typically use a reference line for a value that needs to be displayed with the data. You use the reference line to communicate thresholds or limits in values. The reference line isn't part of the data that's used to build a chart. Instead, it's based on a value that you enter or a field that you identify in the dataset used by a chart. 
 

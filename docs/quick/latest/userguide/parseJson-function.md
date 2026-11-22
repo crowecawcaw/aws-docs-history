@@ -1,7 +1,6 @@
 
 
 # parseJson
-<a name="parseJson-function"></a>
 
 Use `parseJson` to extract values from a JSON object. 
 

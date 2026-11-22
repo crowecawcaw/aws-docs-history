@@ -1,7 +1,6 @@
 
 
 # periodToDateMaxOverTime
-<a name="periodToDateMaxOverTime-function"></a>
 
 The `periodToDateMaxOverTime` function calculates the maximum of a measure for a given time granularity (for instance, a quarter) up to a point in time.
 

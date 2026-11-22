@@ -1,7 +1,6 @@
 
 
 # addDateTime
-<a name="addDateTime-function"></a>
 
 `addDateTime` adds or subtracts a unit of time from a datetime value. For example, `addDateTime(2,'YYYY',parseDate('02-JUL-2018', 'dd-MMM-yyyy') )` returns `02-JUL-2020`. You can use this function to perform date math on your date and time data. 
 

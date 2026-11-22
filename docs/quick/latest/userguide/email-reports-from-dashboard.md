@@ -1,7 +1,6 @@
 
 
 # Configuring email report settings for a Quick Sight dashboard
-<a name="email-reports-from-dashboard"></a>
 
 
 |  | 

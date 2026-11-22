@@ -1,7 +1,6 @@
 
 
 # Exploring your AWS data in AWS Quick
-<a name="explore-in-quicksight"></a>
 
 
 |  | 

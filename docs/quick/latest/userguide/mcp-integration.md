@@ -1,7 +1,6 @@
 
 
 # Model Context Protocol (MCP) integration
-<a name="mcp-integration"></a>
 
 Model Context Protocol (MCP) is an open standard that defines how AI applications communicate with external tools and data sources. MCP uses a client-server architecture. AI applications act as clients that connect to MCP servers. Each MCP server exposes a set of tools. These tools are structured operations that the AI application can invoke to perform tasks, such as querying databases, calling APIs, or interacting with third-party services.
 
@@ -165,7 +164,7 @@ Use the following guidance to diagnose and resolve common issues when you create
 
   The following example shows the incorrect Draft 3 syntax:
 
-  ```
+  ```json
   {
     "type": "object",
     "properties": {
@@ -180,7 +179,7 @@ Use the following guidance to diagnose and resolve common issues when you create
 
   The following example shows the correct Draft 7 syntax:
 
-  ```
+  ```json
   {
     "type": "object",
     "properties": {

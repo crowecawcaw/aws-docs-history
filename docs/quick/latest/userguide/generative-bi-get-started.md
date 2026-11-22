@@ -1,7 +1,6 @@
 
 
 # Get started with Generative BI
-<a name="generative-bi-get-started"></a>
 
 Both Essentials (Reader) and Professional (Reader Pro) users have the same Generative BI capabilities, including asking and answering questions and viewing and creating data stories and executive summaries. To author Q&A topics or use the Generative BI authoring experience, upgrade your account's users to Enterprise tier. To understand which Generative BI capabilities are available to the different user roles in Quick, see the table below. To understand how subscription names map to user roles, see [Understanding AWS Quick subscriptions and roles](https://docs.aws.amazon.com/quicksight/latest/user/user-types.html#subscription-role-mapping).
 

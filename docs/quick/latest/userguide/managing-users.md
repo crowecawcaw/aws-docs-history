@@ -1,7 +1,6 @@
 
 
 # Managing user access inside AWS Quick
-<a name="managing-users"></a>
 
 
 |  | 

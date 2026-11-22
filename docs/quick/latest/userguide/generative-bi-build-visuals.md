@@ -1,7 +1,6 @@
 
 
 # Build visuals with Generative BI
-<a name="generative-bi-build-visuals"></a>
 
 Quick authors can use the **Build a visual** button to build a custom visual that's generated from author input. The author's input uses natural language to describe the desired outcome for the new visual. You can enter a custom description, or you can choose from a list of generated suggestions that Amazon Q has generated for the topic that's attached to the analysis. The following image shows a custom visual that's created with the **Build a visual** menu.
 

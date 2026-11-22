@@ -1,7 +1,6 @@
 
 
 # Creating a data source
-<a name="create-a-data-source"></a>
 
 
 |  | 

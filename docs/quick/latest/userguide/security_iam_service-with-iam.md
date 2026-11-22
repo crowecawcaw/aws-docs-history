@@ -1,7 +1,6 @@
 
 
 # Using Quick with IAM
-<a name="security_iam_service-with-iam"></a>
 
 
 |  | 

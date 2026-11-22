@@ -1,7 +1,6 @@
 
 
 # sum
-<a name="sum-function"></a>
 
 The `sum` function adds the set of numbers in the specified measure, grouped by the chosen dimension or dimensions. For example, `sum(profit amount)` returns the total profit amount grouped by the (optional) chosen dimension.
 

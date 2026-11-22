@@ -1,7 +1,6 @@
 
 
 # Initiating sign-on from Quick
-<a name="federated-identities-sp-to-idp"></a>
 
 
 |  | 

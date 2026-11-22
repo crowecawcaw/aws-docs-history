@@ -1,7 +1,6 @@
 
 
 # Previewing tables in a dataset
-<a name="previewing-tables-in-a-dataset"></a>
 
 You can preview each individual data table within a dataset. When you choose a data table to preview, a read-only preview of the table appears in a new tab in the data preview section. You can have multiple table preview tabs open at once.
 

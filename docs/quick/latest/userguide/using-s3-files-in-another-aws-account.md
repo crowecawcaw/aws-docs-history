@@ -1,7 +1,6 @@
 
 
 # Datasets using S3 files in another AWS account
-<a name="using-s3-files-in-another-aws-account"></a>
 
 Use this section to learn how to set up security so you can use Quick Sight to access Amazon S3 files in another AWS account. 
 

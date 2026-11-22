@@ -1,7 +1,6 @@
 
 
 # Bottom ranked computation
-<a name="bottom-ranked-function"></a>
 
 The bottom ranked computation calculates the requested number of categories by value that rank in the bottom of the autonarrative's dataset. For example, you can create a computation to find the bottom three states by sales revenue.
 

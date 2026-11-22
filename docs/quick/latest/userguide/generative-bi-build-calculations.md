@@ -1,7 +1,6 @@
 
 
 # Build calculations with Generative BI
-<a name="generative-bi-build-calculations"></a>
 
 With Generative BI, you can use natural language prompts to create calculated fields in AWS Quick Sight, as shown in the following image. For more information about calculated fields in analyses, see [Adding calculated fields](adding-a-calculated-field-analysis.md).
 

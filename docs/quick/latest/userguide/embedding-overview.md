@@ -1,7 +1,6 @@
 
 
 # Embedding AWS Quick Sight analytics into your applications
-<a name="embedding-overview"></a>
 
 
 |  | 

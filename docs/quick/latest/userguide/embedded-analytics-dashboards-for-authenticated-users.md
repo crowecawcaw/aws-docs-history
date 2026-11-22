@@ -1,7 +1,6 @@
 
 
 # Embedding AWS Quick Sight dashboards for registered users
-<a name="embedded-analytics-dashboards-for-authenticated-users"></a>
 
 **Important**  
 AWS Quick Sight has new API operations for embedding analytics: `GenerateEmbedUrlForAnonymousUser` and `GenerateEmbedUrlForRegisteredUser`.  
@@ -57,7 +56,7 @@ Finally, your application's IAM identity must have a trust policy associated wit
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -101,7 +100,7 @@ The following examples perform the IAM authentication on the user's behalf. This
 ### Java
 <a name="embedded-dashboards-for-authenticated-users-java"></a>
 
-```
+```java
 import com.amazonaws.auth.AWSCredentials;
     import com.amazonaws.auth.BasicAWSCredentials;
     import com.amazonaws.auth.AWSCredentialsProvider;
@@ -162,7 +161,7 @@ import com.amazonaws.auth.AWSCredentials;
 ### JavaScript
 <a name="embedded-dashboards-for-authenticated-users-js"></a>
 
-```
+```javascript
 global.fetch = require('node-fetch');
     const AWS = require('aws-sdk');
 
@@ -237,7 +236,7 @@ global.fetch = require('node-fetch');
 ### Python3
 <a name="embedded-dashboards-for-authenticated-users-py"></a>
 
-```
+```python
 import json
 import boto3
 from botocore.exceptions import ClientError
@@ -296,7 +295,7 @@ The following example shows the JavaScript (Node.js) that you can use on the app
 
 **Example**  
 
-```
+```javascript
 const AWS = require('aws-sdk');
     const https = require('https');
 
@@ -342,7 +341,7 @@ The following example shows the .NET/C\# code that you can use on the app server
 
 **Example**  
 
-```
+```csharp
 using System;
     using Amazon.QuickSight;
     using Amazon.QuickSight.Model;
@@ -499,7 +498,7 @@ The following example shows how to use the generated URL. This code is generated
 ### SDK 2.0
 <a name="embedded-dashboards-for-authenticated-users-sdkv2"></a>
 
-```
+```html
 <!DOCTYPE html>
 <html>
 
@@ -631,7 +630,7 @@ The following example shows how to use the generated URL. This code is generated
 ### SDK 1.0
 <a name="embedded-dashboards-for-authenticated-users-sdkv1"></a>
 
-```
+```html
 <!DOCTYPE html>
 <html>
 
@@ -694,6 +693,6 @@ For this example to work, make sure to use the AWS Quick Sight Embedding SDK to 
 + Download the latest embedding SDK version from [https://www.npmjs.com/package/amazon-quicksight-embedding-sdk](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk).
 + If you use `npm` for JavaScript dependencies, download and install it by running the following command.
 
-  ```
+  ```bash
   npm install amazon-quicksight-embedding-sdk
   ```

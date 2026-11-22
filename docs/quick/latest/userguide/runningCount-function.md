@@ -1,7 +1,6 @@
 
 
 # runningCount
-<a name="runningCount-function"></a>
 
 The `runningCount` function calculates a running count for a measure or dimension, based on the specified dimensions and sort orders. 
 

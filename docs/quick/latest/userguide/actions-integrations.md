@@ -1,7 +1,6 @@
 
 
 # Integrations
-<a name="actions-integrations"></a>
 
 ## AWS Services
 <a name="aws-services"></a>

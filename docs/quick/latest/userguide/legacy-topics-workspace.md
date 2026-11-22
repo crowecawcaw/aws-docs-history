@@ -1,7 +1,6 @@
 
 
 # Legacy Topic workspace
-<a name="legacy-topics-workspace"></a>
 
 After you open a legacy Topic, the workspace displays four tabs:
 + **Summary** — Shows suggestions for improving the Topic, engagement metrics and KPIs, and the datasets included in the Topic.

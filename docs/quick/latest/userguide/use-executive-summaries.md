@@ -1,7 +1,6 @@
 
 
 # Generate an executive summary of an AWS Quick Sight dashboard
-<a name="use-executive-summaries"></a>
 
 Dashboard readers can generate executive summaries that provide a summary of all insights that Quick Sight has generated for the dashboard. Executive summaries make it easier for readers to find key insights and information about a dashboard at a glance.
 

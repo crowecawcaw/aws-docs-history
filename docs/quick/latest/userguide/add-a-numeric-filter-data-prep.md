@@ -1,7 +1,6 @@
 
 
 # Adding numeric filters
-<a name="add-a-numeric-filter-data-prep"></a>
 
 Fields with decimal or int data types are considered numeric fields. You create filters on numeric fields by specifying a comparison type, for example **Greater than** or **Between**, and a comparison value or values as appropriate to the comparison type. Comparison values must be positive integers and can't contain commas.
 

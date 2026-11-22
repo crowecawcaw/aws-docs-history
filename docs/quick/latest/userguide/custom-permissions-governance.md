@@ -1,7 +1,6 @@
 
 
 # Deny by Default
-<a name="custom-permissions-governance"></a>
 
 **Important**  
 Test Deny by Default configurations in a development or staging account before applying them to production users. Verify that the behavior matches your expectations before broad deployment.
@@ -214,7 +213,7 @@ aws quicksight describe-custom-permissions \
 
 The command returns output similar to the following:
 
-```
+```json
 {
     "CustomPermissions": {
         "CustomPermissionsName": "RestrictAI-Finance",
@@ -291,7 +290,7 @@ aws quicksight describe-custom-permissions \
 
 The command returns the following output:
 
-```
+```json
 {
     "CustomPermissions": {
         "CustomPermissionsName": "RestrictAI-Finance",

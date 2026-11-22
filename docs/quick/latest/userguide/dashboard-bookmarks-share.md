@@ -1,7 +1,6 @@
 
 
 # Sharing bookmarks in AWS Quick Sight
-<a name="dashboard-bookmarks-share"></a>
 
 After you create a bookmark, you can share a URL link for the view with others who have permission to view the dashboard. They can then save that view as their own bookmark.
 

@@ -1,7 +1,6 @@
 
 
 # Connect a Quick account to an existing Amazon Q Business application
-<a name="generative-bi-q-business-link-existing-account"></a>
 
 If you already have an Amazon Q Business application that uses the same identity management and exists in the same Region as your Quick account, use the following procedure to link the existing Amazon Q Business account to Quick.
 

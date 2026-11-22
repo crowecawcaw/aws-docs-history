@@ -1,7 +1,6 @@
 
 
 # Updating files in a dataset
-<a name="updating-file-dataset"></a>
 
 To get the latest version of files, you can update files in your dataset. You can update these types of files:
 + Comma-delimited (CSV) and tab-delimited (TSV) text files

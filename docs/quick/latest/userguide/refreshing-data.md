@@ -1,7 +1,6 @@
 
 
 # Refreshing data in AWS Quick Sight
-<a name="refreshing-data"></a>
 
 When refreshing data, AWS Quick Sight handles datasets differently depending on the connection properties and the storage location of the data.
 

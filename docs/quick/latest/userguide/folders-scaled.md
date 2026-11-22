@@ -1,7 +1,6 @@
 
 
 # Creating Quick scaled folders with the Quick APIs
-<a name="folders-scaled"></a>
 
 You can use the AWS Quick APIs to create special scaled folders that can be shared with up to 3000 namespaces. Each namespace that is added to a folder can contain up to 100 principals. A *principal* is a user or a group of users. After you create a scaled folder and add the principals that you want, any QuickSight asset can be added to the folder. It can then be shared to every principal in the namespaces that the folder principals are assigned to. This streamlines the process to share Quick assets with thousands of users.
 
@@ -23,7 +22,7 @@ Before you begin, verify that you have an AWS Identity and Access Management rol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -62,7 +61,7 @@ aws quicksight create-folder \
 
 After you create a scaled folder, share the folder with a principal in your account. You can only grant or revoke permissions to users and groups that are within the same namespace in each API call. The following example shares a scaled folder with a user in the same account that the folder exists in.
 
-```
+```json
 aws quicksight update-folder-permissions \
 --aws-account-id "{{AWSACCOUNTID}}" \
 --region "{{us-east-1}}" \
@@ -118,7 +117,7 @@ aws quicksight describe-folder-resolved-permissions \
 
 After you validate the permissions of the subfolder, add the Quick asset that you want to share to the folder. After you add the asset to the subfolder, the asset is shared with every principal that the subfolder is shared with. The following example adds a dashboard to a subfolder.
 
-```
+```json
 aws quicksight create-folder-membership \
 --aws-account-id "{{AWSACCOUNTID}}" \
 --folder-id "{{new-york-users}}" \

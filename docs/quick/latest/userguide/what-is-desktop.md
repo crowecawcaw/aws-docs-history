@@ -1,7 +1,6 @@
 
 
 # What is AWS Quick on desktop?
-<a name="what-is-desktop"></a>
 
 AWS Quick on desktop is a native application that extends AWS Quick to your machine. It gives Quick direct, persistent access to your files, your connected services, and the context of how your work fits together.
 
@@ -14,9 +13,9 @@ AWS Quick runs in the cloud. Your conversations, memory, knowledge graph, agent-
 
 Quick connects to the services you use every day: email, calendar, chat, customer relationship management (CRM) tools, and more. Once connected, Quick pulls information from these services, takes actions in them, and combines data across them in a single conversation.
 
-As you work with Quick, it builds a knowledge graph of the people, projects, and decisions relevant to you, and it retains your preferences and workflows in long-term memory. Together, these let Quick understand your work context and provide personalized responses that improve over time. You review and manage both from My context. For details about what Quick remembers, see [Memories](memories-desktop.md).
+As you work with Quick, it builds a knowledge graph of the people, projects, and decisions relevant to you, and it retains your preferences and workflows in long-term memory. Together, these let Quick understand your work context and provide personalized responses that improve over time. You review and manage both from My context. For details about what Quick remembers, see [Memory and response personalization](using-quick-chat.md#chat-memory).
 
-You create agents with their own instructions and knowledge, and pair them with schedules that run at intervals you define. Agents prepare for your meetings, summarize what changed in your channels, generate reports, and deliver results through an activity feed. For more information, see [Activity feed](activity-feed-desktop.md).
+You create agents with their own instructions and knowledge, and pair them with schedules that run at intervals you define. Agents prepare for your meetings, summarize what changed in your channels, generate reports, and deliver results through an activity feed. For more information, see [Stay on top of your work with your proactive feed](working-with-feed.md).
 
 Quick on desktop is extensible. You connect MCP servers to add custom tools and integrations, delegate development tasks to coding agents, use browser automation to interact with web applications, and create skills that teach Quick new workflows.
 

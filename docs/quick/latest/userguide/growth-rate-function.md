@@ -1,7 +1,6 @@
 
 
 # Growth rate computation
-<a name="growth-rate-function"></a>
 
 The growth rate computation compares values over time periods. For example, you can create a computation to find the three-month compounded growth rate for sales, expressed as a percentage.
 

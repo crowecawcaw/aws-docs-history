@@ -1,7 +1,6 @@
 
 
 # Interacting with maps
-<a name="maps-interacting"></a>
 
 When you view a map visual in an Quick analysis or published dashboard, you can interact with it to explore your data. You can pan, zoom in and out, and autozoom to all the data.
 

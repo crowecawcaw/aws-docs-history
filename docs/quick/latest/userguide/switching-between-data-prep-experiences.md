@@ -1,7 +1,6 @@
 
 
 # Switching between data preparation experiences
-<a name="switching-between-data-prep-experiences"></a>
 
 Legacy data preparation experience refers to the previous data preparation interface in AWS Quick Sight that existed before October 2025. The new data preparation experience is the enhanced visual interface that shows step-by-step transformation sequences. Legacy datasets are those created before the new data preparation experience, while new datasets are those created after October 2025.
 

@@ -1,7 +1,6 @@
 
 
 # Using custom actions for filtering and navigating
-<a name="quicksight-actions"></a>
 
 To add interactive options for dashboard subscribers (Quick readers), you create custom actions on one or more visuals in your analysis. Enhancing dashboards with custom actions helps people explore data by adding more context from within the dataset. It can make it easier to drill into the details and to find new insights in the same dashboard, a different dashboard, or a different application. You can add up to 10 custom actions to each visual in a dashboard.
 

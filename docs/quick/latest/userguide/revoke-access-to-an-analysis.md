@@ -1,7 +1,6 @@
 
 
 # Revoking access to an analysis
-<a name="revoke-access-to-an-analysis"></a>
 
 Use the following procedure to revoke access to an analysis.
 

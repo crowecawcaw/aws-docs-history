@@ -1,7 +1,6 @@
 
 
 # windowSum
-<a name="windowSum-function"></a>
 
 The `windowSum` function calculates the sum of the aggregated measure in a custom window that is partitioned and sorted by specified attributes. Usually, you use custom window functions on a time series, where your visual shows a metric and a date field. 
 

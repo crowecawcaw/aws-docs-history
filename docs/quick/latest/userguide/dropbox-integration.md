@@ -1,7 +1,6 @@
 
 
 # Dropbox integration
-<a name="dropbox-integration"></a>
 
 With the Dropbox connector, you can access the Dropbox platform directly in AWS Quick through natural language. You can upload files, manage folder structures, generate sharing links, and search for content without leaving AWS Quick.
 

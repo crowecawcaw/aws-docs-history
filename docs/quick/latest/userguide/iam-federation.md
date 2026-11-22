@@ -1,7 +1,6 @@
 
 
 # IAM federation
-<a name="iam-federation"></a>
 
 
 |  | 

@@ -1,7 +1,6 @@
 
 
 # I can't connect although my data source connection options look right (SSL)
-<a name="troubleshoot-connect-SSL"></a>
 
 Problems connecting can occur when Secure Sockets Layer (SSL) is incorrectly configured. The symptoms can include the following:
 + You can connect to your database in other ways or from other locations but not in this case.

@@ -1,7 +1,6 @@
 
 
 # Granting anyone on the internet access to an AWS Quick Sight dashboard
-<a name="share-a-dashboard-grant-access-anyone"></a>
 
 
 |  | 

@@ -1,7 +1,6 @@
 
 
 # Working with autonarrative computations
-<a name="auto-narrative-computations"></a>
 
 Use this section to help you understand what functions are available to you when you are customizing an autonarrative. You only need to customize a narrative if you want to change or build on the default computation.
 

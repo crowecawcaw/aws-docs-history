@@ -1,7 +1,6 @@
 
 
 # Joining data
-<a name="joining-data"></a>
 
 You can use the join interface in AWS Quick Sight to join objects from one or more data sources. By using AWS Quick Sight to join the data, you can merge disparate data without duplicating the data from different sources. 
 
@@ -25,12 +24,12 @@ If the above conditions aren't met, the dataset is considered a cross-source joi
 Both same-source and cross-source dataset joins have the following limitations.
 
 ### What's the maximum number of tables a joined dataset can contain?
-<a name="w2aac34c17c25b9b9b5"></a>
+<a name="w2aac37c17c25b9b9b5"></a>
 
 All joined datasets can contain up to 32 tables.
 
 ### How large can joined data be?
-<a name="w2aac34c17c25b9b9b7"></a>
+<a name="w2aac37c17c25b9b9b7"></a>
 
 The maximum allowed size of a join is determined by the query mode and query engine that is used. The list below provides information about the different size limits for the tables to be joined. The size limit applies to all secondary tables combined. There are no join size limits for the primary table.
 + **Same-source tables** – When tables originate from a single query data source, Quick Sight imposes no restrictions on the join size. This does not override join size limitations that the source query engine may have in place.
@@ -40,19 +39,19 @@ The maximum allowed size of a join is determined by the query mode and query eng
 For more information about SPICE dataset size calculations, see [Estimating the size of SPICE datasets](spice.md#spice-capacity-formula).
 
 ### Can a joined dataset use direct query?
-<a name="w2aac34c17c25b9b9b9"></a>
+<a name="w2aac37c17c25b9b9b9"></a>
 
 Same-source datasets support direct query, assuming there are no other restrictions on using direct query. For example, S3 data sources don't support direct query, so a same-source S3 dataset must still use SPICE.
 
 Cross-source datasets must use SPICE.
 
 ### Can calculated fields be used in a join?
-<a name="w2aac34c17c25b9b9c11"></a>
+<a name="w2aac37c17c25b9b9c11"></a>
 
 All joined datasets can use calculated fields, but calculated fields can't be used in any on-clauses.
 
 ### Can geographical data be used in a join?
-<a name="w2aac34c17c25b9b9c13"></a>
+<a name="w2aac37c17c25b9b9c13"></a>
 
 Same-source datasets support geographical data types, but geographical fields can't be used in any on-clauses.
 

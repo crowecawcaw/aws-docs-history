@@ -1,7 +1,6 @@
 
 
 # Outbound connections and data egress in AWS Quick
-<a name="outbound-connections"></a>
 
 Stored customer data in AWS Quick does not leave its AWS Region. The documented exceptions are AI inference processed within a defined geography (cross-Region inference) and the outbound paths that you or your administrator enables. Every path described on this page is either off by default or requires explicit configuration before data can leave the service boundary.
 
@@ -32,7 +31,7 @@ Connectors create secure connections between AWS Quick and third-party or AWS se
 + **Who controls it** – An administrator creates and configures each connector, choosing the authentication method (managed OAuth, custom user OAuth, API key, or service-to-service) and the scopes granted. A user can invoke only the connectors that an administrator shares with that user. Administrators can additionally restrict individual connectors through custom permissions. Each connector supports three permissions: **Create and Update action**, **Share action**, and **Use action**. Custom permissions profiles apply at the user, role, or account level. The most specific level takes precedence. For more information, see [Custom permissions](custom-permissions.md).
 + **What to verify** – Before enabling a connector, verify the authentication method and OAuth scopes granted, whether the connector is shared broadly or narrowly, whether it is on-demand or automated, and what the service-level authorization permits. The credential you configure defines the connector's reach into the connected system. The connector can act on whatever the granted scopes and the service-level authorization permit, and nothing more.
 
-For more information about action types, see [On-demand actions](int-actions-types.md#qbs-actions-types-qbs-actions-on-demand) and [Automated workflows](int-actions-types.md#qbs-actions-types-qbs-actions-automated-workflows). For details on authentication methods, see [Authentication methods](quick-action-auth.md).
+For more information about action types, see [On-demand tools](int-actions-types.md#qbs-actions-types-qbs-actions-on-demand) and [Automated workflows](int-actions-types.md#qbs-actions-types-qbs-actions-automated-workflows). For details on authentication methods, see [Authentication methods](quick-action-auth.md).
 
 ## Remote MCP servers
 <a name="outbound-connections-mcp"></a>
@@ -55,7 +54,7 @@ When web search is enabled, AWS Quick sends queries derived from user requests t
 
 For more information, see [Admin controls](admin-controls.md).
 
-For more information about cross-Region routing for web search, see [Cross-Region calls for web search](regions.md#web-search-cross-region).
+For more information about cross-Region routing for web search, see [Cross-Region web search](regions.md#web-search-cross-region).
 
 ## Third-party research providers
 <a name="outbound-connections-research-providers"></a>
@@ -119,4 +118,4 @@ Cross-Region inference is processing within a defined geography, not customer-en
 + **Who controls it** – Cross-Region inference is not a customer-configurable outbound path. Inference is processed within the Regions that make up your geography, no data reaches a third party, and stored data remains in your primary Region. Because there is no outbound destination, there is no destination for you to approve or restrict. You cannot disable cross-Region inference. Instead, verify which geography your Region belongs to. Confirm that the geography boundary satisfies your data residency requirements.
 + **Boundaries** – Cross-Region inference requests stay within the AWS Regions that are part of the geography where the data originally resides. Stored data remains only in the primary Region.
 
-For more information, see [Cross-Region inference for Australia, Japan, Europe, and the United States](regions.md#cross-region-inference).
+For more information, see [Cross-Region inference](regions.md#cross-region-inference).

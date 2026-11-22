@@ -1,7 +1,6 @@
 
 
 # What you can build with apps in Quick
-<a name="what-you-can-build"></a>
 
 You can build complete web applications with apps in Quick, not just static documents or simple forms. Your apps run in the browser, respond to user interaction, and connect to live data.
 

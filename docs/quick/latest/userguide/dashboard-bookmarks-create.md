@@ -1,7 +1,6 @@
 
 
 # Creating bookmarks in AWS Quick Sight
-<a name="dashboard-bookmarks-create"></a>
 
 Use the following procedure to create a bookmark for a dashboard.
 

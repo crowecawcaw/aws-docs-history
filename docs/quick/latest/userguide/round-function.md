@@ -1,7 +1,6 @@
 
 
 # Round
-<a name="round-function"></a>
 
 `round` rounds a decimal value to the closest integer if no scale is specified, or to the closest decimal place if scale is specified.
 

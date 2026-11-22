@@ -1,7 +1,6 @@
 
 
 # Axes and grid lines on visual types in Quick
-<a name="showing-hiding-axis-grid-tick"></a>
 
 When you create a chart in Quick, axis lines, axis labels, axis sort icons, and grid lines are added to the chart automatically. You can format your visuals to show or hide these if you want, and also customize the axis label size and orientation.
 

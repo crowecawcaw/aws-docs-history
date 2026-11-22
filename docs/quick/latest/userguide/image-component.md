@@ -1,7 +1,6 @@
 
 
 # Using image components
-<a name="image-component"></a>
 
 Use image components to upload static images from your desktop to a Quick analysis. Each Quick analysis sheet supports up to 10 image components. Image components are not included in the 50 visual per sheet limit. The file size of an image component can't exceed 1MB.
 

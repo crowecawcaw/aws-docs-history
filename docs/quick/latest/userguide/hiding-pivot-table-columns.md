@@ -1,7 +1,6 @@
 
 
 # Showing and hiding pivot table columns in Quick
-<a name="hiding-pivot-table-columns"></a>
 
 By default, all columns, rows, and their field values appear when you create a pivot table. You can hide columns and rows that you don't want to appear in the pivot table without changing the pivot table values. When you have more than one measure in the pivot table, you can also hide values.
 

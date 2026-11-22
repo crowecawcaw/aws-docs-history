@@ -1,7 +1,6 @@
 
 
 # Security, privacy, and architecture of AWS Quick on desktop
-<a name="desktop-security"></a>
 
 
 |  | 
@@ -22,6 +21,11 @@ Responsibility for security follows these trust boundaries:
 + The AWS Quick service, which AWS manages.
 + Connected services, which your organization or a third party manages.
 
+The following diagram shows the overall architecture of AWS Quick, including the parts that AWS manages and the resources that stay in your AWS account. Users reach AWS Quick from the web, the desktop application, extensions, embedded experiences, or the AWS SDK.
+
+![Components of AWS Quick, your AWS account, and the services that connect to them.](https://docs.aws.amazon.com/quick/latest/userguide/images/desktop-security-architecture-overview.png)
+
+
 ## Components
 <a name="desktop-architecture"></a>
 
@@ -39,7 +43,7 @@ Code execution runs in an operating system sandbox with no network access, eithe
 
 The agent runtime is the cloud environment that processes each chat request. It runs on [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) and uses a model hosted on [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html). Each user's agent runtime runs in a dedicated, single-tenant environment. AgentCore isolates each session in its own microVM. For more information, see [AgentCore Runtime session isolation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-sessions.html).
 
-To complete a request, the agent runtime calls tools, such as [system tools](system-tools-desktop.md) and [cloud connectors](connections-desktop.md). It reads the user's data and the [spaces](spaces-desktop.md), [knowledge bases](knowledge-base-integrations.md), and [datasets](working-with-datasets.md) that the user can access. It enforces resource permissions, plus document access control lists (ACLs) and row- and column-level security where they're configured.
+To complete a request, the agent runtime calls tools, such as [system tools](system-tools.md) and [cloud connectors](working-with-integrations.md). It reads the user's data and the [spaces](working-with-spaces.md), [knowledge bases](knowledge-base-integrations.md), and [datasets](working-with-datasets.md) that the user can access. It enforces resource permissions, plus document access control lists (ACLs) and row- and column-level security where they're configured.
 
 ### Example: a chat request
 <a name="desktop-architecture-example"></a>
@@ -67,7 +71,7 @@ Calls to cloud connectors and data sources start in the AWS Quick service and go
 
 Some system tools run in the AWS Quick agent runtime rather than on the device. Web search (including fetch URL), file download, and remote managed browser automation send their requests to the internet from AWS-managed infrastructure, so your proxy, firewall, DNS filtering, and endpoint controls don't see these requests. Fetch URL can return a cached copy of a page instead of retrieving it live. When a user downloads a file, the agent runtime retrieves it and syncs it to the device.
 
-Administrators can turn off web search and remote managed browser automation in a custom permissions profile, in the [AI capabilities group](custom-permissions.md#custom-permissions-ai-capabilities). To turn off web search, including fetch URL, restrict the capability to use internet to enhance results. To turn off remote managed browser automation, which is in Preview, restrict the capability to automate remote managed browser actions. Each user controls file downloads through the [access level](system-tools-desktop.md#desktop-settings-manage-permissions) of the File operations tool.
+Administrators can turn off web search and remote managed browser automation in a custom permissions profile, in the [AI capabilities group](custom-permissions.md#custom-permissions-ai-capabilities). To turn off web search, including fetch URL, restrict the capability to use internet to enhance results. To turn off remote managed browser automation, which is in Preview, restrict the capability to automate remote managed browser actions. Each user controls file downloads through the [access level](system-tools.md#system-tools-web-permissions) of the File operations tool.
 
 For information about proxies, see [Proxy support](desktop-enterprise-managed-deployment.md#desktop-enterprise-proxy-support). For information about traffic inspection, see [Trusting a corporate certificate authority](desktop-enterprise-mdm.md#desktop-mdm-tls).
 
@@ -143,7 +147,7 @@ To revoke one user's access, remove or delete the user. For more information, se
 ### Connector owner controls
 <a name="desktop-connector-owner-controls"></a>
 
-The owner of a cloud connector decides who can use it. The owner sets each action to **Let users choose**, **Always ask**, or **Disabled**. For more information, see [Tool permissions](connector-tool-permissions.md).
+The owner of a cloud connector decides who can use it. The owner sets each action to **Let users choose**, **Always ask**, or **Disabled**. For more information, see [Managing tool permissions](integrations-connectors.md#connectors-tool-permissions).
 
 #### Connection security
 <a name="desktop-security-connection-security"></a>
@@ -156,19 +160,19 @@ Each connected service has its own connection, so users can disconnect and recon
 <a name="desktop-user-controls"></a>
 
 Users set the following controls for their own work:
-+ Which folders the agent can reach, and whether files are uploaded for [indexing](knowledge-desktop.md#knowledge-indexing-options). Granting a folder doesn't upload its files.
-+ Which files to upload to [spaces](spaces-desktop.md) or attach to [chat messages](working-with-chat-desktop.md#desktop-attachments).
-+ The [access level](system-tools-desktop.md#desktop-settings-manage-permissions) for each system tool.
++ Which folders the agent can reach, and whether files are uploaded for [indexing](knowledge.md#knowledge-local-indexing). Granting a folder doesn't upload its files.
++ Which files to upload to [spaces](working-with-spaces.md) or attach to [chat messages](using-quick-chat.md#file-uploads).
++ The [access level](system-tools.md#system-tools-web-permissions) for each system tool.
 + Whether write actions need approval, when the connector owner sets the action to **Let users choose**.
-+ Which [MCP servers](connections-desktop.md#desktop-mcp-servers) and [coding agents](connections-desktop.md#desktop-coding-agents) to add.
-+ Whether Quick learns from conversations, set in [privacy controls](desktop-settings.md#desktop-privacy-controls) and [incognito mode](working-with-chat-desktop.md#desktop-incognito-mode).
++ Which [MCP servers](integrations-connectors.md#connectors-mcp-servers) and [coding agents](integrations-connectors.md#connectors-coding-agents) to add.
++ Whether Quick learns from conversations, set in [privacy controls](settings.md#settings-privacy-controls) and [incognito mode](using-quick-chat.md#incognito-mode).
 
 Local connectors belong to the user who adds them, and only that user can use them. Administrators can allow or deny local connectors and coding agents with custom permissions. They can't see which ones a user adds.
 
 ## AI usage
 <a name="desktop-security-ai-usage"></a>
 
-The desktop application doesn't host or run models. Inference runs in the agent runtime, and AWS Quick hosts its embedding models on Amazon SageMaker AI. For information about the controls that apply to model use, see [AI guardrails](guardrails.md) and [AI and agent security](sec-agentic-security.md). Inference and web search can run in other AWS Regions. For the current Regions, see [AWS Regions, websites, IP address ranges, and endpoints](regions.md). Use of the service is subject to the [AWS Responsible AI Policy](https://aws.amazon.com/ai/responsible-ai/policy/).
+The desktop application doesn't host or run models. Inference runs in the agent runtime, and AWS Quick hosts its embedding models on Amazon SageMaker AI. For information about the controls that apply to model use, see [AI guardrails](guardrails.md) and [AI and agent security](sec-agentic-security.md). Inference and web search can run in other AWS Regions. For the current Regions, see [AWS Regions and related information](regions.md). Use of the service is subject to the [AWS Responsible AI Policy](https://aws.amazon.com/ai/responsible-ai/policy/).
 
 ## Monitoring and auditing
 <a name="desktop-monitoring"></a>
@@ -180,4 +184,4 @@ Vended logs deliver chat conversations, including incognito conversations, to a 
 ## Data retention and deletion
 <a name="desktop-data-retention"></a>
 
-AWS Quick sets the retention periods for data in your AWS Quick account. For information about the periods, see [AWS Quick desktop usage limits](usage-limits-desktop.md). You set retention for the logs that you deliver to your own destinations. For more information, see [Security best practices](best-practices-security.md). For information about what happens to a user's data when you remove the user, see [User lifecycle and data handling in AWS Quick](user-lifecycle-data-handling.md).
+AWS Quick sets the retention periods for data in your AWS Quick account. For information about the periods, see [Usage limits](usage-limits.md). You set retention for the logs that you deliver to your own destinations. For more information, see [Security best practices](best-practices-security.md). For information about what happens to a user's data when you remove the user, see [User lifecycle and data handling in AWS Quick](user-lifecycle-data-handling.md).

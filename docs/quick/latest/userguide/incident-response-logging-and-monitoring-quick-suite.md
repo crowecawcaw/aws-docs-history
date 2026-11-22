@@ -1,7 +1,6 @@
 
 
 # Using the AWS Quick analytics dashboard
-<a name="incident-response-logging-and-monitoring-quick-suite"></a>
 
 Analytics in AWS Quick provides insights into how users interact with your instance across all features and capabilities. The analytics dashboard delivers the data-driven insights you need to make informed decisions about security, performance, and user experience.
 

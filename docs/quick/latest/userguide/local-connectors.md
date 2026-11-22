@@ -1,9 +1,8 @@
 
 
 # Local connectors
-<a name="local-connectors"></a>
 
-In addition to cloud connectors, you can add a local connector that runs on your own machine, such as a local MCP server. A local connector lets AWS Quick use tools you host yourself, such as a database, an internal API, or a developer tool, so that those tools become available to agents in chat and in scheduled tasks. Because a local connector runs on your machine, its tools are available only when that machine is on and connected. For an overview of cloud connectors, see [Connectors](action-integrations.md).
+In addition to cloud connectors, you can add a local connector that runs on your own machine, such as a local MCP server. A local connector lets AWS Quick use tools you host yourself, such as a database, an internal API, or a developer tool, so that those tools become available to agents in chat and in scheduled tasks. Because a local connector runs on your machine, its tools are available only when that machine is on and connected. For an overview of cloud connectors, see [Connectors](integrations-connectors.md).
 
 To add a local connector, open the desktop application, go to **Customize**, and choose the **Connectors** tab. Choose **Create**, and then choose **Local connector**. A dialog appears with three connection types: **Local**, **Import**, and **Remote**. Choose the type that matches how your MCP server runs.
 

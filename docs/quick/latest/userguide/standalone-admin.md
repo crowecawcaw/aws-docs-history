@@ -1,7 +1,6 @@
 
 
 # Managing a AWS Quick Free or Plus account
-<a name="standalone-admin"></a>
 
 AWS Quick Free and Plus accounts – created through the direct signup process at [aws.com/quick](https://aws.com/quick) – include a built-in administration interface for managing your account, users, assets, billing, and support. This interface is accessible directly within the AWS Quick web application, without requiring access to the AWS Management Console.
 

@@ -1,7 +1,6 @@
 
 
 # Subscribing to AWS Quick Sight dashboard emails and alerts
-<a name="subscriber-alerts"></a>
 
 Using AWS Quick Sight, you can subscribe to updates for certain events, such as dashboard updates and anomaly alerts.
 

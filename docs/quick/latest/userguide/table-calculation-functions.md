@@ -1,7 +1,6 @@
 
 
 # Table calculation functions
-<a name="table-calculation-functions"></a>
 
 When you are analyzing data in a specific visual, you can apply table calculations to the current set of data to discover how dimensions influence measures or each other. *Visualized data* is your result set based on your current dataset, with all the filters, field selections, and customizations applied. To see exactly what this result set is, you can export your visual to a file. A *table calculation function* performs operations on the data to reveal relationships between fields. 
 

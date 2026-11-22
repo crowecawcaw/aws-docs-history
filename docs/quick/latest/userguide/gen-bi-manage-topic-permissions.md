@@ -1,7 +1,6 @@
 
 
 # Manage topic permissions through dashboards in AWS Quick Sight
-<a name="gen-bi-manage-topic-permissions"></a>
 
 **Note**  
 The topics referenced in this section refer to legacy Topics that are linked to dashboards for Q&A. For information about the new multi-dataset Topics experience, see [Working with AWS Quick Sight Topics](topics.md).

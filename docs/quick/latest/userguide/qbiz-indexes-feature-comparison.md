@@ -1,10 +1,11 @@
 
 
 # Feature comparison
-<a name="qbiz-indexes-feature-comparison"></a>
 
 The following table compares key features between IDC and Amazon Q Business implementations:
 
+
+**IDC and non-IDC implementation feature comparison**  
 
 | Feature | IDC Implementation | Non-IDC Implementation | 
 | --- | --- | --- | 

@@ -1,7 +1,6 @@
 
 
 # Exporting and printing AWS Quick Sight reports
-<a name="interacting-with-paginated-reports-export"></a>
 
 Pixel perfect reports are designed to be viewed from a specific point of time. These reports, or snapshots, can be printed or downloaded as a PDF or CSV.
 

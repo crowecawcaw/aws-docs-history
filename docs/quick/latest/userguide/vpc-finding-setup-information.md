@@ -1,7 +1,6 @@
 
 
 # Finding information to connect to a VPC
-<a name="vpc-finding-setup-information"></a>
 
 
 |  | 
@@ -116,7 +115,7 @@ aws ec2 describe-security-groups \
 
 The following example displays information about the security group with the ID `sg-903004f8`. Note that you can't reference a security group for EC2-VPC by name.
 
-```
+```zsh
 aws ec2 describe-security-groups 
 	--group-ids sg-903004f8 
 	--region us-west-2
@@ -124,7 +123,7 @@ aws ec2 describe-security-groups
 
 The following example queries the results to describe VPC the inbound and outbound rules of a security group with a specific ID (`sg-903004f8`), in a specific AWS Region (`us-west-2`).
 
-```
+```zsh
 aws ec2 describe-security-groups \
 --region us-west-2 \
 --group-ids sg-903004f8 \
@@ -133,7 +132,7 @@ aws ec2 describe-security-groups \
 
 The following example uses filters to describe VPC security groups that have a specific rule that allows SQL Server traffic (port `1433`). The example also has a rule that allows traffic from all addresses (`0.0.0.0/0`). The output is filtered to display only the group IDs, names, and descriptions of the security groups. Security groups must match all filters to be returned in the results. However, a single rule doesn't have to match all filters. (EC2-VPC only)
 
-```
+```zsh
 aws ec2 describe-security-groups \
 --filters Name=ip-permission.from-port,Values=1433 \
 Name=ip-permission.to-port,Values=1433 \

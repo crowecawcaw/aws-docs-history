@@ -1,7 +1,6 @@
 
 
 # VPC terminology
-<a name="vpc-terminology"></a>
 
 The following terminology can be useful when you work with a VPC and AWS Quick.
 

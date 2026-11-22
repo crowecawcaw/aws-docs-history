@@ -1,7 +1,6 @@
 
 
 # Connect to your data with integrations and datasets
-<a name="connecting-to-data-examples"></a>
 
 You can connect AWS Quick Sight to different types of data sources. This includes data residing in Software-as-a-Service (SaaS) applications, flat files stored in Amazon S3 buckets, data from third-party services like Salesforce, and query results from Athena. Use the following examples to learn more about the requirements for connecting to specific data sources. 
 

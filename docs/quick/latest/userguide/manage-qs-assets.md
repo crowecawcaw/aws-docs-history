@@ -1,7 +1,6 @@
 
 
 # AWS Quick asset management
-<a name="manage-qs-assets"></a>
 
 Use this section to manage all of the assets in your AWS Quick account in one unified view. You can manage the following Quick assets: Analyses, Dashboards, Datasets, Data sources, Shared folders, and Agents.
 

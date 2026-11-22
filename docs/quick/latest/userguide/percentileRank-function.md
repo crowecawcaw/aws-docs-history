@@ -1,7 +1,6 @@
 
 
 # percentileRank
-<a name="percentileRank-function"></a>
 
 The `percentileRank` function calculates the percentile rank of a measure or a dimension in comparison to the specified partitions. The percentile rank value({{x}}) indicates that the current item is above {{x}}% of values in the specified partition. The percentile rank value ranges from 0 (inclusive) to 100 (exclusive). 
 

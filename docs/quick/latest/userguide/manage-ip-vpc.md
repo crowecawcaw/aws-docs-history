@@ -1,7 +1,6 @@
 
 
 # Managing IP/VPC restrictions
-<a name="manage-ip-vpc"></a>
 
 ## Turning on Internet Protocol (IP) and VPC endpoint restrictions in AWS Quick
 <a name="enabling-ip-restrictions"></a>

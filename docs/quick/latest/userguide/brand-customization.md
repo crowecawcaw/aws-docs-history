@@ -1,7 +1,6 @@
 
 
 # AWS Quick brand customization
-<a name="brand-customization"></a>
 
 AWS Quick allows account admins to customize their application's branding and visual theme to align with their organization's guidelines. This customization includes the following visual elements to create a cohesive look and feel across all non-administrative AWS Quick console pages, schedules, alerts, and email reports.
 + Logo

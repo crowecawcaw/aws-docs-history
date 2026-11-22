@@ -1,7 +1,6 @@
 
 
 # Creating a space
-<a name="creating-spaces"></a>
 
 You can create spaces in AWS Quick from the **Spaces** menu on the Quick home page. You can directly add files to your space or connect existing resources to it when you create it. If you upload a file that exceeds the file size limits, or is of an unsupported file type, Quick displays an error and asks you to try again. When you create a space, you are assigned as its owner by default. The following procedure outlines how to create a space.
 
@@ -26,3 +25,6 @@ You can preview a resource before you choose to add it by clicking on its name.
    After you finish adding resources, **Space knowledge** displays a list of all assets and files added to your space.
 
    After your space is created, you can select the sparkle icon from the top left corner of the screen and start interacting with your space using any available agent.
+
+**Note**  
+Adding documents to a space consumes index capacity. For more information, see [AWS Quick pricing](https://aws.amazon.com/quick/pricing/).

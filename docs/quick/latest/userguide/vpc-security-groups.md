@@ -1,13 +1,12 @@
 
 
 # Security groups: inbound and outbound rules
-<a name="vpc-security-groups"></a>
 
 A *security group* acts as a virtual firewall for your instance to control inbound and outbound traffic. For each security group, you add rules that control the inbound traffic to instances, and a separate set of rules that control the outbound traffic.
 
 For your VPC connection, create a new security group with the description `QuickSight-VPC`. This security group must allow all inbound TCP traffic from the security groups of the data destinations that you want to reach. The following example creates a new security group in the VPC and returns the ID of the new security group.
 
-```
+```sh
 aws ec2 create-security-group \
 --group-name quicksight-vpc \
 --description "QuickSight-VPC" \

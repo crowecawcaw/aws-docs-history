@@ -1,7 +1,6 @@
 
 
 # Improve Q&A accuracy with custom instructions
-<a name="gen-bi-improve-qa-accuracy-with-custom-instructions"></a>
 
 Custom Instructions enables Authors to curate Amazon Q's responses to questions by adding domain-specific knowledge that can’t be captured through a topic’s metadata settings, such as synonyms or semantic types. By providing these metadata descriptions or custom instructions, Authors can guide Amazon Q to align its responses with distinct definitions, preferences, and expert knowledge—ensuring more accurate, relevant, and tailored answers that are better suited for their business needs. 
 

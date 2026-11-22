@@ -1,7 +1,6 @@
 
 
 # Configuring AWS Quick Sight access to AWS data sources
-<a name="access-to-aws-resources"></a>
 
 Use this section to help you configure access to resources in other AWS services.
 

@@ -1,7 +1,6 @@
 
 
 # Setting up the Databricks connection
-<a name="catalog-integration-databricks-connection"></a>
 
 The Databricks connector supports catalog integration without requiring a new connector. The following connection options are available:
 + The agentic experience (**Explore Data**) is available for existing Databricks data sources that use a Personal Access Token (PAT).

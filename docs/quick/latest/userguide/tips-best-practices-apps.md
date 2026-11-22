@@ -1,7 +1,6 @@
 
 
 # Tips for building effective apps
-<a name="tips-best-practices-apps"></a>
 
 These tips come from patterns observed in successful app-building sessions.
 + **Start with a detailed first prompt** — The first prompt sets the foundation. Including the purpose, audience, data model, and integration needs in your initial description gives the agent a clear starting point and reduces rework.

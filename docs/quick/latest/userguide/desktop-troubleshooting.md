@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="desktop-troubleshooting"></a>
 
 ## Installation and launch issues
 <a name="desktop-ts-install"></a>

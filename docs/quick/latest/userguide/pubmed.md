@@ -1,7 +1,6 @@
 
 
 # Using third party data in Quick Research (PubMed)
-<a name="pubmed"></a>
 
 This integration provides access to 10 years of PubMed articles and documents. This includes millions of biomedical and life sciences articles. For more information, see [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 

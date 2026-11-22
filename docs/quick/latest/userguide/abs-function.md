@@ -1,7 +1,6 @@
 
 
 # Abs
-<a name="abs-function"></a>
 
 `abs` returns the absolute value of a given expression. 
 

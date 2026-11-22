@@ -1,7 +1,6 @@
 
 
 # trim
-<a name="trim-function"></a>
 
 `trim` removes both preceding and following blank space from a string. 
 

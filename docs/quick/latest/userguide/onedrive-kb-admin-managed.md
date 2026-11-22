@@ -1,7 +1,6 @@
 
 
 # Admin-managed setup (service credentials)
-<a name="onedrive-kb-admin-managed"></a>
 
 With admin-managed setup, an administrator configures an AWS KMS signing key and a Microsoft Entra ID app registration with certificate-based credentials. Individual users don't need to authorize through sign-in. AWS Quick crawls the OneDrive content of every user in your organization.
 

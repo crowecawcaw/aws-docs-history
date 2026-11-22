@@ -1,20 +1,19 @@
 
 
 # Connector APIs
-<a name="action-connector-apis"></a>
 
 Connector APIs let you programmatically create and manage connections between AWS Quick and external services. These APIs support the action integration functionality that allows users to perform actions in third-party applications directly from AWS Quick chat interfaces and automated workflows.
 
 ## What are connector APIs?
 <a name="action-connector-apis-overview"></a>
 
-Connectors serve as the foundational resources that enable integration with first and third party applications. Through these APIs, you can authenticate to applications, manage permissions, and control which actions are available to users within your AWS Quick applications.
+Connectors serve as the foundational resources that enable integration with first and third party applications. Through these APIs, you can authenticate to applications, manage permissions, and control which tools are available to users within your AWS Quick applications.
 
 ### How connector APIs support action integrations
 <a name="action-connector-apis-task-integrations"></a>
 
 Connector APIs provide the backend infrastructure for AWS Quick action integrations. When you create a connector through the API, you establish a secure connection that lets you:
-+ Execute actions in external services through chat interfaces.
++ Run tools in external services through chat interfaces.
 + Perform automated workflows in background processes.
 + Integrate third-party services with AWS Quick applications.
 + Manage authentication and permissions for service access.
@@ -24,55 +23,7 @@ The APIs handle the complex authentication flows, credential management, and per
 ## Authentication methods
 <a name="action-connector-apis-authentication"></a>
 
-Connector APIs support multiple authentication methods to accommodate different use cases and security requirements:
-
-### Managed authentication (3LO)
-<a name="qbs-action-connector-apis-managed-auth"></a>
-
-Three-Legged OAuth provides the simplest setup for personal access to third-party services:
-+ No initial configuration required.
-+ User-specific authentication through service provider login.
-+ Automatic token refresh with 90-day lifecycle.
-+ Secure credential storage managed by AWS Quick.
-
-### Service-to-service authentication (2LO)
-<a name="qbs-action-connector-apis-service-auth"></a>
-
-For complex enterprise integrations:
-+ Supports client credentials OAuth flow.
-+ Enables system-to-system interactions.
-+ Requires client ID, client secret, and token URL configuration.
-+ Suitable for automated workflows requiring sophisticated security.
-+ OAuth - Dynamic Client Registration (DCR - applicable only for select MCP servers).
-
-### API key authentication
-<a name="qbs-action-connector-apis-api-key"></a>
-
-Simplified authentication for automated workflows:
-+ Single token-based authentication.
-+ Service-level permissions.
-+ Ideal for background processes and scheduled actions.
-+ Requires valid API key from target service.
-
-### Basic Auth
-<a name="qbs-action-connector-apis-basic-auth"></a>
-
-Basic authentication provides a simple username/password authentication method:
-+ Uses standard HTTP Basic Authentication headers.
-+ Credentials are base64 encoded.
-+ Suitable for services that don't support OAuth or API keys.
-+ Requires secure HTTPS connection.
-+ Not recommended for public-facing services.
-
-### None
-<a name="qbs-action-connector-apis-no-auth"></a>
-
-No authentication required:
-+ Used for public APIs and services.
-+ No credentials or tokens needed.
-+ Limited to read-only or public operations.
-+ Typically used for public data feeds and documentation.
-+ Should not be used for sensitive operations.
+Connector APIs support the same authentication methods as the rest of AWS Quick, including managed (default) OAuth, custom OAuth app, service-to-service OAuth, API key, Basic authentication, and no authentication. For a description of each method and when to use it, see [Authentication methods](quick-action-auth.md). For select MCP servers, connector APIs also support OAuth with Dynamic Client Registration (DCR).
 
 ## Permissions and access control
 <a name="qbs-action-connector-apis-permissions"></a>
@@ -82,8 +33,8 @@ Connector APIs implement comprehensive permission controls through Access Contro
 ### Resource-level permissions
 <a name="qbs-action-connector-apis-resource-permissions"></a>
 + **Owner** - Full control including delete and permission management.
-+ **Contributor** - Can use and modify connector settings.
-+ **Viewer** - Can view connector details and use enabled actions.
++ **Co-owner** - Can use and modify connector settings.
++ **Viewer** - Can view connector details and use enabled tools.
 
 ### API operations for permission management
 <a name="qbs-action-connector-apis-permission-operations"></a>
@@ -113,7 +64,7 @@ Specialized for action execution without knowledge base capabilities:
 + **ServiceNow** - IT service management operations.
 + **Zendesk** - Create tickets, update cases, search knowledge base.
 + **PagerDuty** - Create incidents, manage escalations, update on-call schedules.
-+ **Asana** - Create actions, update projects, manage team workflows.
++ **Asana** - Create tasks, update projects, manage team workflows.
 + **BambooHR** - Access employee data, manage time-off requests.
 + **Smartsheet** - Update sheets, manage project data.
 + **FactSet** - Access financial data, generate reports.

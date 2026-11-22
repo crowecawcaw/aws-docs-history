@@ -1,7 +1,6 @@
 
 
 # Sharing knowledge bases and data sources
-<a name="sharing-kb-datasources"></a>
 
 AWS Quick enables you to share knowledge bases and data source connections with other users in your account. You can collaborate with multiple users on knowledge bases or reuse existing data source connections without re-entering credentials.
 

@@ -1,7 +1,6 @@
 
 
 # Using row-level security with tag-based rules to restrict access to a dataset when embedding dashboards for anonymous users
-<a name="quicksight-dev-rls-tags"></a>
 
 
 |  | 
@@ -266,7 +265,7 @@ Review your architecture. If downstream customers or partners are allowed to cal
 
 The following example shows how to assign values to RLS tags that were defined in the dataset in the previous step.
 
-```
+```json
 POST /accounts/{{AwsAccountId}}/embed-url/anonymous-user
 	HTTP/1.1
 	Content-type: application/json
@@ -302,7 +301,7 @@ POST /accounts/{{AwsAccountId}}/embed-url/anonymous-user
 
 The following is an example of the response definition.
 
-```
+```json
 HTTP/1.1 Status
 	Content-type: application/json
 

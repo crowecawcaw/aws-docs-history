@@ -1,7 +1,6 @@
 
 
 # Working with sections
-<a name="qs-reports-working-with-sections"></a>
 
 A *section* is a container for different visuals that grow vertically to contain contents. Each section is rendered to completion, one after the other, accommodating configured page breaks and section settings. Headers and footers are special types of section that have a predefined size, location, and repetition throughout each page of a report.
 

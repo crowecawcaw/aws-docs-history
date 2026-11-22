@@ -1,7 +1,6 @@
 
 
 # Using Amazon OpenSearch Service with AWS Quick Sight
-<a name="connecting-to-os"></a>
 
 Following, you can find how to connect to your Amazon OpenSearch Service data using AWS Quick Sight.
 

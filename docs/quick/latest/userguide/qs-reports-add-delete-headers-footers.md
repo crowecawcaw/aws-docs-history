@@ -1,7 +1,6 @@
 
 
 # Headers and footers
-<a name="qs-reports-add-delete-headers-footers"></a>
 
 *Headers* and *Footers* are optional special sections located at the top and bottom of a pixel perfect report. Headers and footers are commonly used to display basic information like the date the report was created or the page number. You can interact with headers and footers the same way you interact with a regular section in a report.
 

@@ -1,7 +1,6 @@
 
 
 # avg
-<a name="avg-function"></a>
 
 The `avg` function averages the set of numbers in the specified measure, grouped by the chosen dimension or dimensions. For example, `avg(salesAmount)` returns the average for that measure grouped by the (optional) chosen dimension.
 

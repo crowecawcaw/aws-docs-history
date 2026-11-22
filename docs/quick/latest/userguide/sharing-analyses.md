@@ -1,7 +1,6 @@
 
 
 # Sharing Quick Sight analyses
-<a name="sharing-analyses"></a>
 
 You can share an analysis with one or more other users by emailing them a link, making it easy to collaborate and disseminate findings. You can only share an analysis with other users in your Quick account.
 

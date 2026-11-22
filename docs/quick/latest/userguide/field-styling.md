@@ -1,7 +1,6 @@
 
 
 # Using field styling
-<a name="field-styling"></a>
 
 You can render URLs in a table as links by using the **Field styling** pane of the format visual menu. You can add up to 500 rows of links for each page in a table. Only https and mailto hyperlinks are supported.
 

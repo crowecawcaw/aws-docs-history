@@ -1,7 +1,6 @@
 
 
 # User profile and preferences in AWS Quick
-<a name="standalone-profile"></a>
 
 This topic describes how to access and configure your personal profile settings, preferences, and related options in AWS Quick. These settings apply to your individual user experience and are separate from account-level administration settings.
 

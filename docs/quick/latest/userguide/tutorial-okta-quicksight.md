@@ -1,7 +1,6 @@
 
 
 # Tutorial: AWS Quick and IAM identity federation
-<a name="tutorial-okta-quicksight"></a>
 
 
 |  | 

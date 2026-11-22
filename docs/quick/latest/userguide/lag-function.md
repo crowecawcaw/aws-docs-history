@@ -1,7 +1,6 @@
 
 
 # lag
-<a name="lag-function"></a>
 
 The `lag` function calculates the lag (previous) value for a measure based on specified partitions and sorts.
 

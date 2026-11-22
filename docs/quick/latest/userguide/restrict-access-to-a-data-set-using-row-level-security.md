@@ -1,7 +1,6 @@
 
 
 # Using row-level security with user-based rules to restrict access to a dataset
-<a name="restrict-access-to-a-data-set-using-row-level-security"></a>
 
 
 |  | 
@@ -142,7 +141,7 @@ If you are specifying groups, use only AWS Quick groups or Microsoft AD groups.
 
    Following is a SQL example.
 
-   ```
+   ```SQL
    /* for users*/
    	select User as UserName, SalesRegion, Segment
    	from tps-permissions;

@@ -1,7 +1,6 @@
 
 
 # Viewing existing filters
-<a name="viewing-filters-data-prep"></a>
 
 When you edit a dataset or open an analysis, you can view any existing filters that were created. Use the following procedures to learn how.
 

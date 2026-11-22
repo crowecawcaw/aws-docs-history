@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS Quick Sight
-<a name="troubleshooting"></a>
 
  Use this information to help you diagnose and fix common issues that you can encounter when using AWS Quick Sight. 
 

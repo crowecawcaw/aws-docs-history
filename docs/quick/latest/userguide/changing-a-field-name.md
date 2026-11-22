@@ -1,7 +1,6 @@
 
 
 # Editing field names and descriptions
-<a name="changing-a-field-name"></a>
 
 You can change any field name and description from what is provided by the data source. If you change the name of a field used in a calculated field, make sure also to change it in the calculated field function. Otherwise, the function fails.
 

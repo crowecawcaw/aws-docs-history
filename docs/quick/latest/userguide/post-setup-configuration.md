@@ -1,7 +1,6 @@
 
 
 # Post-setup configuration
-<a name="post-setup-configuration"></a>
 
 After signing in to Quick, you can customize your environment by configuring agent settings and other preferences.
 

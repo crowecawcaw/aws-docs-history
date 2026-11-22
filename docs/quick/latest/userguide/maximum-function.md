@@ -1,7 +1,6 @@
 
 
 # Maximum computation
-<a name="maximum-function"></a>
 
 The maximum computation finds the maximum dimension by value. For example, you can create a computation to find the month with the highest revenue. 
 

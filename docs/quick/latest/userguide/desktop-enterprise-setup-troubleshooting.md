@@ -1,7 +1,6 @@
 
 
 # Troubleshooting enterprise sign-in for AWS Quick on desktop
-<a name="desktop-enterprise-setup-troubleshooting"></a>
 
 
 |  | 

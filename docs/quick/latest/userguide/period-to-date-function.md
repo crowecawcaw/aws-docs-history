@@ -1,7 +1,6 @@
 
 
 # Period to date computation
-<a name="period-to-date-function"></a>
 
 The period to date computation evaluates values for a specified period to date. For example, you can create a computation to find out how much you've earned in year-to-date sales. 
 

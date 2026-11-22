@@ -1,7 +1,6 @@
 
 
 # Before you start
-<a name="share-a-dashboard-grant-access-anyone-prerequisites"></a>
 
 Before you can share a dashboard with anyone on the internet, make sure to do the following:
 
@@ -16,7 +15,7 @@ Before you can share a dashboard with anyone on the internet, make sure to do th
 
 ****  
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -38,7 +37,7 @@ Before you can share a dashboard with anyone on the internet, make sure to do th
 
 ****  
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
        "Statement": [

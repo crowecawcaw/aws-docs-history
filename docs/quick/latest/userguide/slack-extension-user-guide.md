@@ -1,7 +1,6 @@
 
 
 # AWS Quick Slack extension user guide
-<a name="slack-extension-user-guide"></a>
 
 As a user, you can access AWS Quick directly within Slack to get AI-powered assistance without leaving your workspace. The extension integrates seamlessly into your Slack environment, providing instant access to knowledge bases and intelligent responses.
 
@@ -19,7 +18,7 @@ Install the AWS Quick app in your Slack workspace to enable AI-powered assistanc
 
 **Add a Slack Extension to your Slack**
 
-1. Open and login to the Slack workspace for your company.
+1. Open and log in to the Slack workspace for your company.
 
 1. Choose **More** in the left navigation, then select **Automations**.
 

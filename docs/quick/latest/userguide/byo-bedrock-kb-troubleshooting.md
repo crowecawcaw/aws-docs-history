@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="byo-bedrock-kb-troubleshooting"></a>
 
 ## Troubleshoot access denied errors
 <a name="byo-bedrock-kb-access-denied"></a>
@@ -29,7 +28,7 @@ First, check AWS CloudTrail for the `AccessDenied` event to identify which princ
 
    1. Create a new assignment, or edit the IAM policy behind an existing assignment, to allow the knowledge base retrieval actions. For example:
 
-      ```
+      ```json
       {
           "Sid": "AllowQuickFMKBRetrieve",
           "Effect": "Allow",

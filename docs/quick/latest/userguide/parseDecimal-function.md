@@ -1,7 +1,6 @@
 
 
 # parseDecimal
-<a name="parseDecimal-function"></a>
 
 `parseDecimal` parses a string to determine if it contains a decimal value. This function returns all rows that contain a decimal, integer, or null value, and skips any rows that don't. If the row contains an integer value, it is returned as a decimal with up to 4 decimal places. For example, a value of '2' is returned as '2.0'.
 

@@ -1,7 +1,6 @@
 
 
 # Creating knowledge bases from Amazon Bedrock managed knowledge bases
-<a name="byo-bedrock-kb-creating"></a>
 
 This topic shows you how to create a knowledge base in AWS Quick from an existing Amazon Bedrock managed knowledge base. After completing the permission setup, administrators can use this procedure to integrate the managed knowledge base into AWS Quick.
 

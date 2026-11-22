@@ -1,7 +1,6 @@
 
 
 # Quick
-<a name="actions-quick"></a>
 
 With Quick actions, you can use native integrations with AWS Quick features and services directly in your automations. These actions work within the Quick environment without requiring external authentication or complex infrastructure setup. You can interact with other Quick capabilities while using unified governance, permissions, and data management.
 

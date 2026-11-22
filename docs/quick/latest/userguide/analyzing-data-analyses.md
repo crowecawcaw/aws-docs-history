@@ -1,7 +1,6 @@
 
 
 # Customizing data presentation
-<a name="analyzing-data-analyses"></a>
 
 To gain further insight into your data when creating visuals (charts) in an Quick analysis, you can sort and filter data in a visual. You can also change the granularity of date fields, data type, role, and format of fields in a visual.
 

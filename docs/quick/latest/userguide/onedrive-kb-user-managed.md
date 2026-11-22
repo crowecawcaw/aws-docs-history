@@ -1,7 +1,6 @@
 
 
 # User-managed setup
-<a name="onedrive-kb-user-managed"></a>
 
 With user-managed setup, you sign in to OneDrive directly and AWS Quick handles authentication through a managed OAuth flow. AWS Quick uses a pre-registered multi-tenant application, so you don't need to create an app registration. Most users can complete setup in a few minutes.
 

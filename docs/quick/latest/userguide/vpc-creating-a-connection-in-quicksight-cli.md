@@ -1,7 +1,6 @@
 
 
 # Configuring the VPC connection with the AWS Quick CLI
-<a name="vpc-creating-a-connection-in-quicksight-cli"></a>
 
 To create a secure private connection to the Amazon VPC service from Quick with the AWS Quick CLI, use the following procedure:
 
@@ -23,7 +22,7 @@ To create a secure private connection to the Amazon VPC service from Quick with 
 
 ****  
 
-    ```
+    ```json
     {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -51,7 +50,7 @@ To create a secure private connection to the Amazon VPC service from Quick with 
 
 ****  
 
-    ```
+    ```json
     {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

@@ -1,7 +1,6 @@
 
 
 # countIf
-<a name="countIf-function"></a>
 
 Based on a conditional statement, the `countIf` function calculates the number of values in a dimension or measure, grouped by the chosen dimension or dimensions.
 

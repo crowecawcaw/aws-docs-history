@@ -1,7 +1,6 @@
 
 
 # Viewing the users that an analysis is shared with
-<a name="view-users-analysis"></a>
 
 If you have shared an analysis, you can use the following procedure to see which users or groups have access to it.
 

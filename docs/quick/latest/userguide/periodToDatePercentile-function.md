@@ -1,7 +1,6 @@
 
 
 # periodToDatePercentile
-<a name="periodToDatePercentile-function"></a>
 
 The `periodToDatePercentile` function calculates the percentile based on the actual numbers in measure for a given time granularity (for instance, a quarter) up to a point in time, relative to that period. It uses the grouping and sorting that are applied in the field wells.
 

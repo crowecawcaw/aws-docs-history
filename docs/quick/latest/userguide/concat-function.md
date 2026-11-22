@@ -1,14 +1,13 @@
 
 
 # Concat
-<a name="concat-function"></a>
 
 `concat` concatenates two or more strings.
 
 ## Syntax
 <a name="concat-function-syntax"></a>
 
-```
+```sql
 concat({{expression1}}, {{expression2}} [, {{expression3}} ...])
 ```
 
@@ -30,13 +29,13 @@ String
 
 The following example concatenates three string fields and adds appropriate spacing.
 
-```
+```sql
 concat(salutation, ' ', firstName, ' ', lastName)
 ```
 
 The following are the given field values.
 
-```
+```sql
 salutation     firstName          lastName
 -------------------------------------------------------
 Ms.            Li                  Juan
@@ -46,7 +45,7 @@ Mr.            Nikhil              Jayashankar
 
 For these field values, the following values are returned.
 
-```
+```sql
 Ms. Li Juan
 Dr. Ana Carolina Silva
 Mr. Nikhil Jayashankar
@@ -54,12 +53,12 @@ Mr. Nikhil Jayashankar
 
 The following example concatenates two string literals.
 
-```
+```sql
 concat('Hello', 'world')
 ```
 
 The following value is returned.
 
-```
+```sql
 Helloworld
 ```

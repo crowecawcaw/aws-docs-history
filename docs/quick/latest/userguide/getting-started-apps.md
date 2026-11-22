@@ -1,7 +1,6 @@
 
 
 # Getting started with apps in Quick
-<a name="getting-started-apps"></a>
 
 You can create your first app in apps in AWS Quick in minutes. This section walks you through each step.
 

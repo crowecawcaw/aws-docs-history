@@ -1,7 +1,6 @@
 
 
 # percentDifference
-<a name="percentDifference-function"></a>
 
 The `percentDifference` function calculates the percentage difference between the current value and a comparison value, based on partitions, sorts, and lookup index. 
 

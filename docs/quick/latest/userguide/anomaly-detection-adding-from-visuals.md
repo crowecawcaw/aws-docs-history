@@ -1,7 +1,6 @@
 
 
 # Viewing anomaly and forecast notifications
-<a name="anomaly-detection-adding-from-visuals"></a>
 
 AWS Quick Sight notifies you on a visual where it detects an anomaly, key drivers, or a forecasting opportunity. You can follow the prompts to set up anomaly detection or forecasting based on the data in that visual.
 

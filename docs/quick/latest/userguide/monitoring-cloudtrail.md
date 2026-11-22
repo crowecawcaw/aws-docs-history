@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Quick using CloudTrail
-<a name="monitoring-cloudtrail"></a>
 
 AWS Quick is integrated with AWS CloudTrail. This service provides a record of actions taken by a user, role, or an AWS service in AWS Quick. CloudTrail captures API calls for AWS Quick as events. The calls captured include some calls from the console and all code calls to API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Quick. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine who made a request to AWS Quick and when. You can also identify the source IP address, the specific request, and other details. 
 
@@ -90,7 +89,7 @@ AWS Quick adds new event names as features launch and evolve. The non-API events
 
 The following example shows a CloudTrail log entry that demonstrates the `BatchCreateUser` operation:
 
-```
+```json
 { 
    "eventVersion":"1.11",
    "userIdentity":
@@ -168,7 +167,7 @@ The casing of `Quicksight` compared with `QuickSight` in resource type ARNs is i
 
 Use advanced event selectors to enable data events. Include a management-events selector to retain management event logging:
 
-```
+```bash
 aws cloudtrail put-event-selectors \
   --trail-name {{your-trail-name}} \
   --region {{your-region}} \
@@ -211,7 +210,7 @@ The `readOnly` field is always `false` for action connector invocations, includi
 
 The following example shows an `InvokeAction` data event for a successful email action:
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Setting up permissions
-<a name="byo-bedrock-kb-permissions"></a>
 
 AWS Quick authenticates to Amazon Bedrock using IAM SigV4 credentials via the AWS Quick service role. The service role requires the following actions on the knowledge base:
 + `bedrock:Retrieve`
@@ -22,7 +21,7 @@ In this case, you must attach a resource policy to the knowledge base in the own
 
 The following resource policy example grants the AWS Quick service role permission to access your managed knowledge base. Replace the placeholder values with your specific account IDs, Region, and knowledge base ID:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Using KPIs
-<a name="kpi"></a>
 
 Use a key performance indicator (KPI) to visualize a comparison between a key value and its target value.
 

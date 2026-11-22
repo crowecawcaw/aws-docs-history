@@ -1,7 +1,6 @@
 
 
 # Section padding
-<a name="qs-reports-section-padding"></a>
 
 You can use section padding to change the margins of an individual section in a pixel perfect report. By default, all sections in a report use the page margins that are configured and applied to the entire report. You can also add section padding to a header or footer. With section padding, you can make a section stand out from other sections by creating another set of margins. Apply the new set of margins to the section on top of the page margins that the rest of the report uses.
 

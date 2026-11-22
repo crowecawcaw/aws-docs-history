@@ -1,7 +1,6 @@
 
 
 # periodOverPeriodDifference
-<a name="periodOverPeriodDifference-function"></a>
 
 The `periodOverPeriodDifference` function calculates the difference of a measure over two different time periods as specified by period granularity and offset. Unlike a difference calculation, this function uses a date-based offset instead of a fixed sized offset. This ensures that only the correct dates are compared, even if data points are missing in the dataset.
 

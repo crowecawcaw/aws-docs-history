@@ -1,7 +1,6 @@
 
 
 # Investigating Alert Failures
-<a name="threshold-alerts-failures"></a>
 
 When an alert fails, Quick sends you an email notification about the failure. Alerts can fail for many reasons, including the following:
 + The dataset the alert is using was deleted.

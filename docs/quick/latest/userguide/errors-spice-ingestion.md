@@ -1,7 +1,6 @@
 
 
 # SPICE ingestion error codes
-<a name="errors-spice-ingestion"></a>
 
 The following list of errors codes and descriptions can help you understand and troubleshoot issues with data ingestion into SPICE.
 

@@ -1,7 +1,6 @@
 
 
 # Legends on visual types in Quick
-<a name="customizing-visual-legend"></a>
 
 The *visual legend *helps you identify what a visual element represents by mapping its value to a color. By default, the visual legend displays to the right of the visual. You can choose to hide or display the visual legend, and format the legend title and position. You can also customize the font settings for the legend title and items.
 

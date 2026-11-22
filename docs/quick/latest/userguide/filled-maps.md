@@ -1,7 +1,6 @@
 
 
 # Creating filled maps
-<a name="filled-maps"></a>
 
 You can create filled maps in Quick to show the difference between data values for each location by varying shades of color. 
 

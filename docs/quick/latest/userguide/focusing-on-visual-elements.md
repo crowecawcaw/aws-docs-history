@@ -1,7 +1,6 @@
 
 
 # Focusing on visual elements
-<a name="focusing-on-visual-elements"></a>
 
 When viewing visuals, you can choose data that you want to focus on or exclude. To perform this choice, choose an element such as a bar or bubble, or a row or column header.
 

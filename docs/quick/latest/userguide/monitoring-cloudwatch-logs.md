@@ -1,9 +1,8 @@
 
 
 # Monitoring AWS Quick using CloudWatch Logs
-<a name="monitoring-cloudwatch-logs"></a>
 
-You can use [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html) to deliver chat conversations, user feedback, agent hours usage, and index storage usage in AWS Quick for you to analyze. These logs can be delivered to multiple destinations, such as CloudWatch, Amazon S3, or Amazon Data Firehose (standard rates apply).
+You can use [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html) to deliver chat conversations, user feedback, agent hours usage, index storage usage, and activity in apps in Quick for you to analyze. These logs can be delivered to multiple destinations, such as CloudWatch, Amazon S3, or Amazon Data Firehose (standard rates apply).
 
 **Important**  
 Set up vended log delivery shortly after enabling AWS Quick AI features. Logs are not retroactive – you only receive events that occur after delivery is configured.
@@ -17,6 +16,7 @@ The following are examples of tasks you can complete with logs from AWS Quick:
 + Monitor agent hours usage.
 + Track index storage usage across knowledge bases and Spaces.
 + Track knowledge base sync operations and identify document crawl or indexing failures.
++ See who opens your apps and find out why an app fails for some users.
 
 **Important**  
 Logs from conversations might include sensitive or personally identifiable data passed in the chats. You can filter out this information from your logs when setting up logs subscription. Or you can mask this data on your logs using CloudWatch Logs masking policies. For more information, see [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
@@ -40,6 +40,7 @@ AWS Quick supports the following log types. You specify one of these values as t
 + `INDEX_USAGE_LOGS` – Per-source index storage metrics for knowledge bases and Spaces.
 + `KB_FILE_SYNC_LOGS` – Per-document knowledge base sync status, including crawl and indexing failures.
 + `DLP_LOGS` – Data loss prevention enforcement decisions and configuration changes.
++ `APPS_LOGS` – Activity in apps in Quick, such as app opens, dataset queries, app storage operations, action invocations, and model invocations, including requests that were refused.
 
 ## Prerequisites
 <a name="quicksuite-chat-feedback-logging-prerequisites"></a>
@@ -65,7 +66,7 @@ To enable logging for AWS Quick chat and feedback, configure IAM permissions, cr
 
 To set up CloudWatch Logs for AWS Quick, use the following IAM policy examples to grant the necessary permissions.
 
-```
+```json
 {
     "Version": "2012-10-17"		 	 	 ,
     "Statement": [{
@@ -77,9 +78,9 @@ To set up CloudWatch Logs for AWS Quick, use the following IAM policy examples t
 }
 ```
 
-You must also allow the `delivery.logs.amazonaws.com` service principal in your customer managed AWS KMS key policy.
+If your Quick account uses a customer managed AWS KMS key, the key policy must also allow the `delivery.logs.amazonaws.com` service principal. This applies to every log type. Without the following JSON key policy statement, log delivery can't encrypt your records and drops them.
 
-```
+```json
 {
     "Effect": "Allow"		 	 	 ,
     "Principal": {
@@ -91,7 +92,7 @@ You must also allow the `delivery.logs.amazonaws.com` service principal in your 
     ],
     "Resource": "*",
     "Condition": {
-        "StringLike": {
+        "StringEquals": {
             "kms:EncryptionContext:SourceArn": "arn:{{partition}}:logs:{{your-region}}:{{your-account-id}}:*"
         }
     }
@@ -105,7 +106,7 @@ For example IAM policies with all the required permissions for your specific log
 
 Create a delivery source with the [PutDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html) CloudWatch Logs API operation. Give the delivery source a name and for `resourceArn`, specify the ARN of your application. For `logType`, specify one of the supported log types (see [Supported log types](#quicksuite-chat-feedback-supported-log-types)).
 
-```
+```json
 {
     "logType": "CHAT_LOGS",
     "name": "{{my-quick-suite-delivery-source}}",
@@ -113,7 +114,7 @@ Create a delivery source with the [PutDeliverySource](https://docs.aws.amazon.co
 }
 ```
 
-```
+```json
 {
     "logType": "FEEDBACK_LOGS",
     "name": "{{my-quick-suite-delivery-source}}",
@@ -121,7 +122,7 @@ Create a delivery source with the [PutDeliverySource](https://docs.aws.amazon.co
 }
 ```
 
-```
+```json
 {
     "logType": "AGENT_HOURS_LOGS",
     "name": "{{my-quick-suite-delivery-source}}",
@@ -129,7 +130,7 @@ Create a delivery source with the [PutDeliverySource](https://docs.aws.amazon.co
 }
 ```
 
-```
+```json
 {
     "logType": "INDEX_USAGE_LOGS",
     "name": "{{my-quick-index-usage-delivery-source}}",
@@ -137,7 +138,7 @@ Create a delivery source with the [PutDeliverySource](https://docs.aws.amazon.co
 }
 ```
 
-```
+```json
 {
     "logType": "KB_FILE_SYNC_LOGS",
     "name": "{{my-quick-kb-file-sync-delivery-source}}",
@@ -145,7 +146,7 @@ Create a delivery source with the [PutDeliverySource](https://docs.aws.amazon.co
 }
 ```
 
-```
+```json
 {
     "logType": "AGENT_METADATA_LOGS",
     "name": "{{my-quick-agent-metadata-delivery-source}}",
@@ -153,10 +154,18 @@ Create a delivery source with the [PutDeliverySource](https://docs.aws.amazon.co
 }
 ```
 
-```
+```json
 {
     "logType": "DLP_LOGS",
     "name": "{{my-quick-dlp-delivery-source}}",
+    "resourceArn": "arn:aws:quicksight:{{your-region}}:{{your-account-id}}:account/{{your-account-id}}"
+}
+```
+
+```json
+{
+    "logType": "APPS_LOGS",
+    "name": "{{my-quick-apps-delivery-source}}",
     "resourceArn": "arn:aws:quicksight:{{your-region}}:{{your-account-id}}:account/{{your-account-id}}"
 }
 ```
@@ -244,7 +253,7 @@ When you configure chat log delivery, Quick also delivers temporary conversation
 
 The following is an example of chat logs:
 
-```
+```json
 {
     "user_arn": "arn:aws:quicksight:us-east-1:111122223333:user/default/johnstiles",
     "user_type": "ADMIN_PRO",
@@ -291,7 +300,7 @@ Feedback logs capture user feedback on chat responses:
 
 The following is an example of feedback logs:
 
-```
+```json
 {
     "user_arn": "arn:aws:quicksight:us-east-1:111122223333:user/default/johnstiles",
     "user_type": "ADMIN_PRO",
@@ -329,7 +338,7 @@ This log type captures the usage logs for different agents within your Quick acc
 
 The following is an example of Agent Hours logs:
 
-```
+```json
 {
     "user_arn": "arn:aws:quicksight:us-east-1:111122223333:user/default/johnstiles",
     "subscription_type": "ENTERPRISE",
@@ -382,7 +391,7 @@ The `custom_prompt_input`, `welcome_message`, and `starter_prompts` fields conta
 
 The following is an example of an agent metadata log for a `CreateAgent` event:
 
-```
+```json
 {
     "user_arn": "arn:aws:quicksight:us-east-1:111122223333:user/default/johndoe",
     "event_version": "1.0",
@@ -419,7 +428,7 @@ Index usage logs capture per-source storage metrics for knowledge bases and Spac
 
 The following is an example of index usage logs:
 
-```
+```json
 {
     "account_id": "111122223333",
     "event_timestamp": 1774911984257,
@@ -470,7 +479,7 @@ The following table describes the `document_status` values and their correspondi
 
 The following example shows a successful knowledge base file sync log where a document was added to the knowledge base:
 
-```
+```json
 {
     "resource_arn": "arn:aws:quicksight:us-west-2:111122223333:account/111122223333",
     "event_timestamp": 1781296858575,
@@ -489,7 +498,7 @@ The following example shows a successful knowledge base file sync log where a do
 
 The following example shows a skipped document log where crawling was skipped due to a validation error:
 
-```
+```json
 {
     "resource_arn": "arn:aws:quicksight:us-west-2:111122223333:account/111122223333",
     "event_timestamp": 1781296492951,
@@ -545,7 +554,7 @@ Configuration events (`DLP_SETTING_CREATED`, `DLP_SETTING_UPDATED`, `DLP_SETTING
 
 The following is an example of a blocked file event:
 
-```
+```json
 {
     "resource_arn": "arn:aws:quicksight:us-east-1:111122223333:account/111122223333",
     "event_timestamp": 1786510225000,
@@ -564,7 +573,7 @@ The following is an example of a blocked file event:
 
 The following is an example of an inspection failed event:
 
-```
+```json
 {
     "resource_arn": "arn:aws:quicksight:us-east-1:111122223333:account/111122223333",
     "event_timestamp": 1786488697000,
@@ -585,7 +594,7 @@ The following is an example of an inspection failed event:
 
 The following is an example of a configuration updated event:
 
-```
+```json
 {
     "resource_arn": "arn:aws:quicksight:us-east-1:111122223333:account/111122223333",
     "event_timestamp": 1786492367000,
@@ -609,10 +618,101 @@ The following is an example of a configuration updated event:
 **Note**  
 The `file_name` field is customer content. When you configure a customer managed AWS KMS key for delivery, this field is encrypted. Without a key, Quick delivers it in cleartext.
 
+## Apps logs
+<a name="quicksuite-apps-logs"></a>
+
+With apps logs, you can see what happens when users view your apps in Quick. You get one record for each app open and for each request that an app makes for a user, such as a dataset query or an app storage operation. You also get records for refused and failed requests, except requests that fail authentication, so you can see why an app fails for some users. The account that owns an app receives its records, and one delivery covers every app in that account.
+
+The `event_type` field identifies the kind of activity:
++ `OPEN` – A user opened a published app, or was refused.
++ `DATA_QUERY` – The app queried one or more datasets for the user.
++ `STORAGE` – The app read, wrote, deleted, or listed items in app storage.
++ `ACTION` – The app invoked an action connector.
++ `INFERENCE` – The app invoked a model.
+
+Quick can add new `event_type`, `operation`, and `status_code` values. Write queries that check for the values you want, such as `status_code = "success"`, instead of listing the values you don't want.
+
+Each record contains the following fields. A field that has no value for a record contains `-`. For example, `model_id` is `-` on every record whose `event_type` isn't `INFERENCE`.
++ `event_timestamp` – (Default, Long) When the event began, as Unix epoch time in milliseconds.
++ `resource_arn` – (Default, String) Resource ARN of your AWS Quick account.
++ `log_type` – (Default, String) `APPS_LOGS`.
++ `account_id` – (Default, String) AWS account ID of the app owner.
++ `user_arn` – (Default, String) AWS Quick user ARN of the user who viewed the app. For an anonymous user of a public link, the ARN contains `publicAnonymousUser`. For an anonymous user of an embedded app, it contains `anonymousUser`.
++ `user_type` – (Default, String) AWS Quick user type of the user (for example, `ADMIN_PRO`), or `-` for an anonymous user.
++ `namespace` – (Default, String) AWS Quick namespace. Currently always `default`.
++ `status_code` – (Default, String) Outcome of the request. Values:
+  + `success` – The request did what the app asked.
+  + `consent_required` – The user hasn't given the app the consent that the request needs.
+  + `access_denied` – Quick refused the request. The user can't access the app, or the app can't access what it named. A consent that the user didn't give can also appear as this value.
+  + `integration_access_denied` – The connected service refused the request, for example because a connector's credentials were rejected.
+  + `throttled` – Quick limited the request rate, or the account's AI capacity is limited.
+  + `integration_throttled` – The connected service or model limited the request rate.
+  + `not_found` – Something that the request named doesn't exist.
+  + `invalid_request` – The request wasn't valid.
+  + `conflict` – An app storage write conflicted with another write.
+  + `action_disabled` – The action is turned off on its connector.
+  + `connector_version_not_found` – The connector version that the app uses no longer exists.
+  + `integration_error` – The connected service or model failed.
+  + `internal_error` – Quick failed to complete the request.
++ `event_type` – (Default, String) Type of event, as described earlier in this section.
++ `app_id` – (Default, String) ID of the app.
++ `app_version` – (Default, String) ID of the app version that served the request, or `-` when an open was refused. This ID isn't a number, so don't sort versions by it.
++ `session_id` – (Default, String) ID of the visit.
++ `surface` – (Default, String) Client that the app was viewed in. Values: `WEB`, `DESKTOP`, `MOBILE_WEB`, or `-` when the client wasn't reported. Apps embedded in your own website aren't reported separately yet.
++ `duration_ms` – (Default, Integer) Time that Quick took to handle the request, in milliseconds. This isn't the user's total wait time. It's `-` on records for a consent prompt that the user declined, or for an open that was blocked because the account's AI capacity is limited.
++ `request_id` – (Default, String) ID of the request. Include it when you contact AWS Support. It's `-` on the same records as `duration_ms`.
++ `dataset_ids` – (Default, JSON array) IDs of the datasets that a `DATA_QUERY` named, in query order (for example, `["dataset-1","dataset-2"]`), or `[]` on other records.
++ `storage_scope` – (Default, String) On `STORAGE`, whether the item is private to the user (`PRIVATE`) or shared across the app (`SHARED`).
++ `operation` – (Default, String) The operation. On `STORAGE`: `GET_ITEM`, `PUT_ITEM`, `DELETE_ITEM`, `LIST_ITEMS`, `LIST_ITEMS_BY_TAG`, `LIST_TABLES`, or `CREATE_UPLOAD_URL`.
++ `table_name` – (Default, String) On `STORAGE`, the app storage table. It's `-` on `LIST_TABLES`.
++ `storage_key` – (Default, String) On `STORAGE`, the item key that the app supplied. It's `-` on operations that don't name one item.
++ `action_id` – (Default, String) On `ACTION`, the action that the app invoked (for example, `GetIssue`).
++ `connector_id` – (Default, String) On `ACTION`, the ID of the action connector.
++ `operation_category` – (Default, String) On `ACTION`, whether the action reads (`READ`) or changes (`WRITE`) data.
++ `model_id` – (Default, String) On `INFERENCE`, the model that the app asked for.
+
+All fields are in the default field list. The `event_timestamp`, `resource_arn`, `log_type`, and `account_id` fields are mandatory. Your delivered records also contain `space_id`, `dashboard_id`, `sheet_id`, and `visual_id`, reserved for event types not yet reported. These are always `-` today.
+
+Apps logs contain no prompts, query text, stored item values, or query results. The `table_name` and `storage_key` fields contain names that the app chooses, and you receive them as is.
+
+**Note**  
+The `user_arn`, `user_type`, `namespace`, `status_code`, `table_name`, and `storage_key` fields are encrypted when your account uses a customer managed AWS KMS key. Without a key, they are delivered in cleartext. If you use a customer managed key, its key policy must contain the statement in [Set up IAM permissions](#quicksuite-chat-feedback-setup-iam-permissions). Otherwise, log delivery drops your apps log records.
+
+The following is an example of an apps log for an `OPEN` event:
+
+```json
+{
+    "event_timestamp": 1794187285000,
+    "resource_arn": "arn:aws:quicksight:us-west-2:111122223333:account/111122223333",
+    "log_type": "APPS_LOGS",
+    "account_id": "111122223333",
+    "user_arn": "arn:aws:quicksight:us-west-2:111122223333:user/default/johnstiles",
+    "user_type": "ADMIN_PRO",
+    "namespace": "default",
+    "status_code": "success",
+    "event_type": "OPEN",
+    "app_id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "app_version": "e1f2a3b4-5678-90ab-cdef-EXAMPLE22222",
+    "session_id": "b2c3d4e5-6789-0abc-def1-EXAMPLE33333",
+    "surface": "WEB",
+    "duration_ms": 182,
+    "request_id": "c3d4e5f6-7890-abcd-ef12-EXAMPLE44444",
+    "dataset_ids": [],
+    "storage_scope": "-",
+    "operation": "-",
+    "table_name": "-",
+    "storage_key": "-",
+    "action_id": "-",
+    "connector_id": "-",
+    "operation_category": "-",
+    "model_id": "-"
+}
+```
+
 ## Security considerations
 <a name="quicksuite-chat-feedback-security-considerations"></a>
 
 Consider the following security practices when you configure log delivery:
-+ **Encryption** – Use customer-managed AWS KMS keys for sensitive data.
++ **Encryption** – Use customer managed AWS KMS keys for sensitive data. If you use a customer managed key, add the key policy statement described earlier in this topic. Otherwise, log delivery drops your records.
 + **Access control** – Implement least-privilege IAM policies.
 + **Data retention** – Configure appropriate retention policies for your compliance requirements.

@@ -1,7 +1,6 @@
 
 
 # Using Highcharts
-<a name="highchart"></a>
 
 Use Highcharts visuals to create custom chart types and visuals that use the [Highcharts Core library](https://www.highcharts.com/blog/products/highcharts/). Highcharts visuals provide Quick authors direct access to the [Highcharts API](https://api.highcharts.com/highcharts/).
 
@@ -54,7 +53,7 @@ Use the following procedure to create a Highcharts visual in AWS Quick.
 
 1. Enter a JSON schema into the **Chart code** JSON editor. The editor provides contextual assistance and real time validation to ensure that your input JSON is configured properly. Any errors that Quick identifies can be viewed in the **Errors** dropdown. The example below shows a JSON schema that creates a lipstick chart that shows current year sales by industry.
 
-   ```
+   ```JSON
    {
      "xAxis": {
        "categories": ["getColumn", 0]

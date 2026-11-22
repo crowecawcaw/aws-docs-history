@@ -1,7 +1,6 @@
 
 
 # Creating and managing groups in AWS Quick
-<a name="creating-quicksight-groups"></a>
 
 
 |  | 

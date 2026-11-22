@@ -1,14 +1,13 @@
 
 
 # startsWith
-<a name="startsWith-function"></a>
 
 `startsWith` evaluates if the expression starts with a substring that you specify. If the expression starts with the substring, `startsWith` returns true, and otherwise it returns false.
 
 ## Syntax
 <a name="startsWith-function-syntax"></a>
 
-```
+```text
 startsWith({{expression}}, {{substring}}, {{string-comparison-mode}})
 ```
 
@@ -40,20 +39,20 @@ Boolean
 
 The following case sensitive example evaluates if `state_nm` startsWith **New**.
 
-```
+```text
 startsWith({{state_nm}}, {{"New"}})
 ```
 
 The following are the given field values.
 
-```
+```text
 New York
 new york
 ```
 
 For these field values, the following values are returned.
 
-```
+```text
 true
 false
 ```
@@ -63,20 +62,20 @@ false
 
 The following case insensitive example evaluates if `state_nm` startsWith **new**.
 
-```
+```text
 startsWith({{state_nm}}, {{"new"}}, CASE_INSENSITIVE)
 ```
 
 The following are the given field values.
 
-```
+```text
 New York
 new york
 ```
 
 For these field values, the following values are returned.
 
-```
+```text
 true
 true
 ```
@@ -88,7 +87,7 @@ The `startsWith` function can be used as the conditional statement within the fo
 
 The following example sums `Sales` only if state\_nm starts with **New**.
 
-```
+```text
 sumIf({{Sales}},startsWith({{state_nm}}, {{"New"}}))
 ```
 
@@ -97,7 +96,7 @@ sumIf({{Sales}},startsWith({{state_nm}}, {{"New"}}))
 
 The conditional `NOT` operator can be used to evaluate if the expression does not start with the specified substring. 
 
-```
+```text
 NOT(startsWith({{state_nm}}, {{"New"}}))
 ```
 
@@ -106,6 +105,6 @@ NOT(startsWith({{state_nm}}, {{"New"}}))
 
 Numeric values can be used in the expression or substring arguments by applying the `toString` function.
 
-```
+```text
 startsWith({{state_nm}}, toString({{5}}) )
 ```

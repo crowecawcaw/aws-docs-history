@@ -1,7 +1,6 @@
 
 
 # Document-level ACLs
-<a name="s3-acl"></a>
 
 You can enable access control lists (ACLs) at the Amazon S3 knowledge base level using one of two configuration methods, each optimized for different use cases.
 

@@ -1,7 +1,6 @@
 
 
 # Using themes in AWS Quick Sight
-<a name="themes-in-quicksight"></a>
 
 In AWS Quick Sight, a *theme* is a collection of settings that you can apply to multiple analyses and dashboards. AWS Quick Sight includes some themes, and you can add your own by using the theme editor. You can share themes with permissions levels set to user or owner. Anyone who has access to the theme can apply it to analyses and dashboards, or use **Save as** to make their own copy of it. Theme owners can also edit the theme and share it with others.
 

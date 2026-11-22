@@ -1,7 +1,6 @@
 
 
 # Creating a dataset using Amazon S3 Tables
-<a name="create-a-data-set-s3-tables"></a>
 
 You can use Amazon S3 Tables as a data source to create datasets in Quick Sight. Amazon S3 Tables stores data as Apache Iceberg tables, enabling you to query your data lake directly from Quick Sight without setting up an intermediate query layer.
 

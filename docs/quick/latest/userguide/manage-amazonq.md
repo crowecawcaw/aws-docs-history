@@ -1,7 +1,6 @@
 
 
 # Manage Amazon Q permissions
-<a name="manage-amazonq"></a>
 
 Amazon Q is an AI-powered capability in AWS Quick that enhances your data analysis experience. Quick admins can manage Amazon Q permissions in the Quick administration console. These permissions control how Amazon Q interacts with your data and users.
 

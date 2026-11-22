@@ -1,7 +1,6 @@
 
 
 # Intercom integration
-<a name="intercom-integration"></a>
 
 With Intercom integration in AWS Quick, you can manage customer conversations, support tickets, and user engagement through MCP server connectivity. This integration provides action capabilities for customer support and communication operations.
 

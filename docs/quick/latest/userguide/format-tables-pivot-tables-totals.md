@@ -1,7 +1,6 @@
 
 
 # Totals and subtotals
-<a name="format-tables-pivot-tables-totals"></a>
 
 On tables and pivot tables, you can configure the display of totals or subtotals. Tables can display totals at the top or the bottom of the visual. Pivot tables can display totals and subtotals on rows and columns.
 

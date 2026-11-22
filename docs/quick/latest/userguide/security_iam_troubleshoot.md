@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Quick identity and access
-<a name="security_iam_troubleshoot"></a>
 
 
 |  | 

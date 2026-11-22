@@ -1,7 +1,6 @@
 
 
 # Parameters in AWS Quick
-<a name="parameters-in-quicksight"></a>
 
 *Parameters* are named variables that can transfer a value for use by an action or an object. By using parameters, you can create an easier way for a dashboard user to interact with dashboard features in a less technical way. Parameters can also connect one dashboard to another, allowing a dashboard user to drill down into data that's in a different analysis.
 

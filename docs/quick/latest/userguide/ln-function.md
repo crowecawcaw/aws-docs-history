@@ -1,7 +1,6 @@
 
 
 # Ln
-<a name="ln-function"></a>
 
 `ln` returns the natural logarithm of a given expression. 
 

@@ -1,7 +1,6 @@
 
 
 # QuickBooks integration
-<a name="quickbooks-integration"></a>
 
 With the QuickBooks connector, you can access QuickBooks Online directly in AWS Quick through natural language. You can manage invoices, customers, vendors, accounts, and generate financial reports without leaving AWS Quick.
 

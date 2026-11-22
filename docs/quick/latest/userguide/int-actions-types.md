@@ -1,19 +1,18 @@
 
 
-# Types of actions
-<a name="int-actions-types"></a>
+# Types of tools
 
-AWS Quick supports two methods of invoking actions, each serving different use cases and authentication models.
+AWS Quick supports two methods of invoking tools, each serving different use cases and authentication models.
 
-## On-demand actions
+## On-demand tools
 <a name="qbs-actions-types-qbs-actions-on-demand"></a>
 
-On-demand actions execute immediately when you trigger them. These actions support interactive operations that require real-time response.
+On-demand tools run immediately when you trigger them. These tools support interactive operations that require real-time response.
 
 **Key characteristics:**
-+ User-initiated execution - You trigger actions through natural language in the chat interface.
-+ Interactive form completion - You fill out forms with required parameters before the action executes.
-+ Immediate response - Actions execute in real-time and provide instant feedback on success or failure.
++ User-initiated execution - You trigger tools through natural language in the chat interface.
++ Interactive form completion - You fill out forms with required parameters before the tool runs.
++ Immediate response - Tools run in real time and provide instant feedback on success or failure.
 + Personal authentication (3LO) - Uses your individual credentials and permissions from the target service.
 
 **Common use cases:**
@@ -25,11 +24,11 @@ On-demand actions execute immediately when you trigger them. These actions suppo
 ## Automated workflows
 <a name="qbs-actions-types-qbs-actions-automated-workflows"></a>
 
-Automated workflows execute actions on a schedule or in response to specific triggers. These are useful for background and system-level operations.
+Automated workflows run tools on a schedule or in response to specific triggers. These are useful for background and system-level operations.
 
 **Key characteristics:**
-+ System-level execution - Actions run automatically without user intervention based on predefined triggers.
-+ Scheduled or event-triggered - Execute on time-based schedules or in response to specific system events.
++ System-level execution - Tools run automatically without user intervention based on predefined triggers.
++ Scheduled or event-triggered - Run on time-based schedules or in response to specific system events.
 + Non-interactive operation - Run in the background without requiring user input or form completion.
 + Service-level authentication - Use system credentials rather than individual user authentication.
 

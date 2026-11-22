@@ -1,7 +1,6 @@
 
 
 # Preparing data in AWS Quick Sight
-<a name="preparing-data"></a>
 
 Datasets store any data preparation you have done on that data, so that you can reuse that prepared data in multiple analyses. Data preparation provides options such as adding calculated fields, applying filters, and changing field names or data types. If you are basing the data source on a SQL database, you can also use data preparation to join tables. Or you can enter a SQL query if you want to work with data from more than a single table.
 

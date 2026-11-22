@@ -1,7 +1,6 @@
 
 
 # Ingestion behavior changes
-<a name="ingestion-behavior-changes"></a>
 
 The new data preparation experience introduces an important change in how data quality issues are handled during SPICE ingestion. This change significantly impacts data completeness and transparency in your datasets.
 

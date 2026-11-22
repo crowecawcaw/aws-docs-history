@@ -1,7 +1,6 @@
 
 
 # Build predictive models with SageMaker AI Canvas
-<a name="sagemaker-canvas-integration"></a>
 
 AWS Quick authors can export data into SageMaker AI Canvas to build ML models that can be sent back to Quick. Authors can use these ML models to augment their datasets with predictive analytics that can be used to build analyses and dashboards.
 

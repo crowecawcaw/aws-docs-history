@@ -1,7 +1,6 @@
 
 
 # Filtering data at runtime for AWS Quick Sight embedded dashboards and visuals
-<a name="embedding-runtime-filtering"></a>
 
 You can use filter methods in the AWS Quick Sight embedding SDK to leverage the power of AWS Quick Sight filters within your software as a service (SaaS) application at runtime. Runtime filters allow business owners to integrate their application with their embedded AWS Quick Sight dashboards and visuals. To accomplish this, create customized filter controls in your application and apply filter presets based on data from your application. Then, developers can personalize filter configurations for end users at runtime.
 

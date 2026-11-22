@@ -1,7 +1,6 @@
 
 
 # Minimum computation
-<a name="minimum-function"></a>
 
 The minimum computation finds the minimum dimension by value. For example, you can create a computation to find the month with the lowest revenue. 
 

@@ -1,7 +1,6 @@
 
 
 # Embedding AWS Quick Sight visuals for anonymous (unregistered) users
-<a name="embedded-analytics-visuals-for-everyone"></a>
 
 
 |  | 
@@ -57,7 +56,7 @@ Your application's IAM identity must have a trust policy associated with it to a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -107,7 +106,7 @@ The following examples perform the IAM authentication on the user's behalf. It p
 ### Java
 <a name="embedded-analytics-visuals-with-anonymous-users-java"></a>
 
-```
+```java
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.auth.AWSCredentialsProvider;
@@ -260,7 +259,7 @@ function generateEmbedUrlForAnonymousUser(
 ### Python3
 <a name="embedded-analytics-visuals-with-anonymous-users-py"></a>
 
-```
+```python
 import json
 import boto3
 from botocore.exceptions import ClientError
@@ -314,7 +313,7 @@ The following example shows the JavaScript (Node.js) that you can use on the app
 
 **Example**  
 
-```
+```javascript
 const AWS = require('aws-sdk');
 const https = require('https');
 
@@ -368,7 +367,7 @@ The following example shows the .NET/C\# code that you can use on the app server
 
 **Example**  
 
-```
+```csharp
 using System;
 using Amazon.QuickSight;
 using Amazon.QuickSight.Model;
@@ -515,7 +514,7 @@ The following example shows how to use the generated URL. This code resides on y
 ### SDK 2.0
 <a name="embedded-analytics-visuals-with-anonymous-users-sdkv2"></a>
 
-```
+```html
 <!DOCTYPE html>
 <html>
 
@@ -622,7 +621,7 @@ The following example shows how to use the generated URL. This code resides on y
 ### SDK 1.0
 <a name="embedded-analytics-visuals-with-anonymous-users-sdkv1"></a>
 
-```
+```html
 <!DOCTYPE html>
 <html>
 
@@ -684,6 +683,6 @@ For this example to work, make sure to use the AWS Quick Sight Embedding SDK to 
 + Download the latest QuickSight embedding SDK version from [https://www.npmjs.com/package/amazon-quicksight-embedding-sdk](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk).
 + If you use `npm` for JavaScript dependencies, download and install it by running the following command.
 
-  ```
+  ```bash
   npm install amazon-quicksight-embedding-sdk
   ```

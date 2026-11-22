@@ -1,7 +1,6 @@
 
 
 # Creating datasets
-<a name="creating-data-sets"></a>
 
  You can create datasets from new or existing data sources in AWS Quick. You can use a variety of database data sources to provide data to AWS Quick. This includes Amazon RDS instances and Amazon Redshift clusters. It also includes MariaDB, Microsoft SQL Server, MySQL, Oracle, and PostgreSQL instances in your organization, Amazon EC2, or similar environments. 
 

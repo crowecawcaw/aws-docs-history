@@ -1,7 +1,6 @@
 
 
 # Creating a dataset using an existing data source
-<a name="create-a-data-set-existing"></a>
 
 After you make an initial connection to a Salesforce, AWS data store, or other database data source, AWS Quick saves the connection information. It adds the data source to the **FROM EXISTING DATA SOURCES** section of the **Create a Data Set** page. You can use these existing data sources to create new datasets without respecifying connection information.
 

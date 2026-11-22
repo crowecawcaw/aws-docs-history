@@ -1,7 +1,6 @@
 
 
 # Creating a data source and data set from SaaS sources
-<a name="connecting-to-saas-data-sources"></a>
 
 To analyze and report on data from software as a service (SaaS) applications, you can use SaaS connectors to access your data directly from Quick Sight. The SaaS connectors simplify accessing third-party application sources using OAuth, without any need to export the data to an intermediate data store.
 

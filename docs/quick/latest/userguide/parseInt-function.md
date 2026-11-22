@@ -1,7 +1,6 @@
 
 
 # parseInt
-<a name="parseInt-function"></a>
 
 `parseInt` parses a string to determine if it contains an integer value. This function returns all rows that contain a decimal, integer, or null value, and skips any rows that don't. If the row contains a decimal value, it is returned as the nearest integer, rounded down. For example, a value of '2.99' is returned as '2'.
 

@@ -1,7 +1,6 @@
 
 
 # Deleting filters
-<a name="delete-a-filter-data-prep"></a>
 
 You can delete filters at any time in a dataset or analysis. Use the following procedures to learn how.
 

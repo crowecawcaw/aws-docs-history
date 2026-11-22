@@ -1,7 +1,6 @@
 
 
 # Limitations of apps in Quick
-<a name="apps-limitations"></a>
 
 The following limitations apply to apps in AWS Quick in its current release.
 

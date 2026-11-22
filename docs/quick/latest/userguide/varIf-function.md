@@ -1,7 +1,6 @@
 
 
 # varIf
-<a name="varIf-function"></a>
 
 Based on a conditional statement, the `varIf` function calculates the variance of the set of numbers in the specified measure, grouped by the chosen dimension or dimensions, based on a sample.
 

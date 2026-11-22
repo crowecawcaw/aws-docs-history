@@ -1,7 +1,6 @@
 
 
 # Adding text filters
-<a name="add-a-text-filter-data-prep"></a>
 
 When you add a filter using a text field, you can create the following types of text filters:
 + **Filter list** (Analyses only) – This option creates a filter that you can use to select one or more field values to include or exclude from all the available values in the field. For more information about creating this type of text filter, see [Filtering text field values by a list (analyses only)](#text-filter-list).

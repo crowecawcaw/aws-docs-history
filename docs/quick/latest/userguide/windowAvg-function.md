@@ -1,7 +1,6 @@
 
 
 # windowAvg
-<a name="windowAvg-function"></a>
 
 The `windowAvg` function calculates the average of the aggregated measure in a custom window that is partitioned and sorted by specified attributes. Usually, you use custom window functions on a time series, where your visual shows a metric and a date field. For example, you can use `windowAvg` to calculate a moving average, which is often used to smooth out the noise in a line chart.
 

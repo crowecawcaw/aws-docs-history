@@ -1,7 +1,6 @@
 
 
 # Pivot table limitations
-<a name="pivot-table-limitations"></a>
 
 The following limitations apply to pivot tables:
 + You can create pivot tables with up to 500,000 records.

@@ -1,7 +1,6 @@
 
 
 # Working with pixel perfect reports in AWS Quick Sight
-<a name="working-with-reports"></a>
 
 With AWS Quick Sight Pixel Perfect Reports, you can create, schedule, and share highly formatted multipage PDF reports. You can also schedule data exports as CSV files using Quick Sight's existing web interface. This unifies historically separate systems for dashboards and reports. 
 

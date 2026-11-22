@@ -1,7 +1,6 @@
 
 
 # Revoking access to a dataset
-<a name="revoke-access-to-a-data-set"></a>
 
 If you have owner permissions on a dataset, you can use the following procedure to revoke user access to a dataset.
 

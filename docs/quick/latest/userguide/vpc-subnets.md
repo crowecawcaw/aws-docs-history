@@ -1,7 +1,6 @@
 
 
 # Subnets
-<a name="vpc-subnets"></a>
 
 A *subnet* is a range of IP addresses in your VPC. You need to provide at least two subnets to create a VPC connection. Each subnet must belong a different availability zone. You can attach AWS resources, such as Amazon EC2 instances and Amazon RDS DB instances, to subnets. You can create subnets to group instances together according to your security and operational needs.
 

@@ -1,7 +1,6 @@
 
 
 # contains
-<a name="contains-function"></a>
 
 `contains` evaluates if the substring that you specify exists within an expression. If the expression contains the substring, contains returns true, and otherwise it returns false.
 

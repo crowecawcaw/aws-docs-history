@@ -1,7 +1,6 @@
 
 
 # Authorizing connections to Amazon Athena
-<a name="athena"></a>
 
 If you need use AWS Quick Sight with Amazon Athena or Amazon Athena Federated Query, you first need to authorize connections to Athena and the associated buckets in Amazon Simple Storage Service (Amazon S3). Amazon Athena is an interactive query service that makes it easy to analyze data directly in Amazon S3 using standard SQL. Athena Federated Query provides access to more types of data by using AWS Lambda. Using a connection from Quick to Athena, you can write SQL queries to interrogate data that's stored in relational, non-relational, object, and custom data sources. For more information, see [ Using Athena federated query](https://docs.aws.amazon.com/athena/latest/ug/connect-to-a-data-source.html) in the Amazon Athena User Guide. 
 
@@ -95,7 +94,7 @@ To create Athena data sources, you must be an IAM Identity Center user (author) 
   + The Amazon S3 Access Grant role should have the `STS:SetContext` action in its trust policy for identity propagation. To see an example, see [Register a location](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-location-register.html) in the Amazon S3 User Guide.
 + Permissions to data must be managed with Lake Formation and Lake Formation must be configured with the same IAM Identity Center instance as Quick and the Athena workgroup. For configuration information, see [Integrating IAM Identity Center](https://docs.aws.amazon.com/lake-formation/latest/dg/identity-center-integration.html) in the *AWS Lake Formation Developer Guide*.
 + The data lake administrator needs to grant permissions to IAM Identity Center users and groups in Lake Formation. For more details, [Granting permissions to users and groups](https://docs.aws.amazon.com/lake-formation/latest/dg/grant-permissions-sso.html) in the *AWS Lake Formation Developer Guide*.
-+ The Quick administrator needs to authorize connections to Athena. For details, see [Authorizing connections to Amazon Athena](#athena). Note, with trusted identity propagation, you do not need to give the Quick role Amazon S3 bucket permissions or AWS KMS permissions. You need to keep your users and groups that have permissions to the workgroup in Athena in sync with the Amazon S3 bucket that stores query results with Amazon S3 Access Grants permissions so that users can successfully run queries and retrieve query results in the Amazon S3 bucket using trusted identity propagation.
++ The Quick administrator needs to authorize connections to Athena. For details, see [Authorizing connections to Amazon Athena](athena.md). Note, with trusted identity propagation, you do not need to give the Quick role Amazon S3 bucket permissions or AWS KMS permissions. You need to keep your users and groups that have permissions to the workgroup in Athena in sync with the Amazon S3 bucket that stores query results with Amazon S3 Access Grants permissions so that users can successfully run queries and retrieve query results in the Amazon S3 bucket using trusted identity propagation.
 
 ### Configure IAM role with required permissions
 <a name="athena-trusted-identity-propagation-configure-role"></a>
@@ -124,7 +123,7 @@ The `Resource` uses the `*` wildcard. We recommend that you update it to include
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

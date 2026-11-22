@@ -1,7 +1,6 @@
 
 
 # Atlassian Confluence Cloud integration
-<a name="confluence-integration"></a>
 
 Use the Atlassian Confluence Cloud integration to perform actions on Confluence content, or to create knowledge bases from Confluence spaces, pages, and blog posts for AI-powered search and Q&A.
 

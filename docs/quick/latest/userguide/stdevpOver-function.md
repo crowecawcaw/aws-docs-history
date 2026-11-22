@@ -1,7 +1,6 @@
 
 
 # stdevpOver
-<a name="stdevpOver-function"></a>
 
 The `stdevpOver` function calculates the standard deviation of the specified measure, partitioned by the chosen attribute or attributes, based on a biased population.
 

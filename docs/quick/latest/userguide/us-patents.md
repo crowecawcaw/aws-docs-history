@@ -1,7 +1,6 @@
 
 
 # Using third party data in Quick Research (US Patents)
-<a name="us-patents"></a>
 
 This integration provides access to 20 years of US patents from the US Patent and Trademark Office (USPTO). For more information, see [USPTO](https://www.uspto.gov/).
 

@@ -1,7 +1,6 @@
 
 
 # User-driven license upgrades
-<a name="user-driven-upgrades"></a>
 
 
 |  | 

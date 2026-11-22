@@ -1,7 +1,6 @@
 
 
 # lead
-<a name="lead-function"></a>
 
 The `lead` function calculates the lead (following) value for a measure based on specified partitions and sorts.
 

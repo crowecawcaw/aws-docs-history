@@ -1,7 +1,6 @@
 
 
 # Making updates
-<a name="making-updates"></a>
 
 After reviewing your initial research report, you can make updates to refine and improve the results. Quick Research provides multiple ways to provide feedback and request modifications to better meet your needs.
 

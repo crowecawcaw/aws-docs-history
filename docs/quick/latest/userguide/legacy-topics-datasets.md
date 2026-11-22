@@ -1,7 +1,6 @@
 
 
 # Working with datasets in a legacy Topic
-<a name="legacy-topics-datasets"></a>
 
 You can add additional datasets to a legacy Topic, remove datasets, set refresh schedules, and add calculated fields, filters, and named entities.
 + **Adding datasets** — On the Summary page, choose Data, then under Datasets, choose Add datasets.

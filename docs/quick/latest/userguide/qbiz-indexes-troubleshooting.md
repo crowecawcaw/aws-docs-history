@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="qbiz-indexes-troubleshooting"></a>
 
 ## Amazon Q Business not seen in Integrations page
 <a name="qbiz-not-seen-in-integrations"></a>

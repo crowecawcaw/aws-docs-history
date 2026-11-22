@@ -1,7 +1,6 @@
 
 
 # Adding data bars to tables in Quick
-<a name="format-data-bars"></a>
 
 You can use data bars to add visual context to your table visuals in AWS Quick. By injecting color into your tables, data bars can make it easier to visualize and compare data in a range of fields. *Data bars* are bars of different colors or shades that you add to the cells of a table. The bars are measured relative to the range of all cells in a single column, which is similar to a bar chart. You can use data bars to highlight a fluctuating trend, such as profit per quarter during the year.
 

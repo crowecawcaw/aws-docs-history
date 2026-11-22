@@ -1,7 +1,6 @@
 
 
 # Interacting with AWS Quick Sight dashboards
-<a name="exploring-dashboards"></a>
 
 To access a dashboard that you've been invited to share, follow the instructions in the invitation email. You can also access a dashboard if it's embedded into an application or website that you already have access to.
 

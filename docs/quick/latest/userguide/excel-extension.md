@@ -1,7 +1,6 @@
 
 
 # AWS Quick Microsoft Excel extension
-<a name="excel-extension"></a>
 
 The Quick extension for Microsoft Excel integrates AI-powered assistance directly into your spreadsheet workflows. Users can leverage Quick within Excel to perform analysis, import data and build workbooks, and streamline spreadsheet operations like creation of tables, charts, and formatting.
 

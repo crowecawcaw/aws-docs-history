@@ -1,7 +1,6 @@
 
 
 # Data encryption in AWS Quick
-<a name="data-encryption"></a>
 
 AWS Quick uses the following data encryption features: 
 +  Encryption at rest 

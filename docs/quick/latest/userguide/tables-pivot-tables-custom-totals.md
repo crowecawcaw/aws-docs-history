@@ -1,7 +1,6 @@
 
 
 # Custom total values
-<a name="tables-pivot-tables-custom-totals"></a>
 
 Quick authors can define the total and subtotal aggregations for their table or pivot table visuals from the field wells. For tables,the custom total menu is only available if totals are toggled on for the visual.
 

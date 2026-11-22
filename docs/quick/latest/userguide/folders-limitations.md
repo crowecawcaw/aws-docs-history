@@ -1,7 +1,6 @@
 
 
 # Considerations for Quick folders
-<a name="folders-limitations"></a>
 
 Before you get started creating and modifying folders in AWS Quick, review the following limitations that apply to Quick folders.
 + You can't share folders in your AWS account with people in other AWS accounts.

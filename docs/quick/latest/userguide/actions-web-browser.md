@@ -1,7 +1,6 @@
 
 
 # Web browser
-<a name="actions-web-browser"></a>
 
 ## Overview
 <a name="web-browser-overview"></a>

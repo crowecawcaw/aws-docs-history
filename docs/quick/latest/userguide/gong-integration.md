@@ -1,7 +1,6 @@
 
 
 # Gong integration
-<a name="gong-integration"></a>
 
 Gong is a revenue intelligence platform that captures and analyzes your customer interactions across calls, emails, and meetings. The Gong connector brings that data into AWS Quick. You can ask questions in natural language and get answers grounded in your team's sales activity. For example, you can check the health of a deal, summarize a recent call, or prepare for an upcoming meeting without switching to the Gong application.
 

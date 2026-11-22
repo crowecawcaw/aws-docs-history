@@ -1,7 +1,6 @@
 
 
 # Frequently asked questions
-<a name="new-data-prep-faqs"></a>
 
 ## 1. When do users need to switch from the new to legacy experience?
 <a name="faq-1"></a>

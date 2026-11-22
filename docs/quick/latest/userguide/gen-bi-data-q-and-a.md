@@ -1,7 +1,6 @@
 
 
 # Asking and answering questions of data with Generative BI
-<a name="gen-bi-data-q-and-a"></a>
 
 **Note**  
 The Q&A experience described in this section uses legacy Topics. To view the multi-visual experience, the legacy Topic author must add named entities and convert an existing topic to use generative capabilities or create a new generative topic. For more information, see [Authoring Q&A](gen-bi-author-q-and-a.md).  

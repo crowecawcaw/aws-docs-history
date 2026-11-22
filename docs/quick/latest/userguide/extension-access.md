@@ -1,7 +1,6 @@
 
 
 # Extension access
-<a name="extension-access"></a>
 
 Extension access connects your AWS Quick account to third party applications like Microsoft Teams, Microsoft Outlook, Microsoft Word, Microsoft Excel, Microsoft PowerPoint, and Slack. Think of it as giving permission for AWS Quick to work inside the apps your team already uses, helping them accomplish their work, assisted by generative AI, and without context switching.
 

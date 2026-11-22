@@ -1,7 +1,6 @@
 
 
 # Google Chat integration
-<a name="google-chat-integration"></a>
 
 With the Google Chat connector, you can send messages, manage spaces, and interact with chat threads from your Google Workspace account directly in AWS Quick through natural language.
 

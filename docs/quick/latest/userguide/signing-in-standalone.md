@@ -1,7 +1,6 @@
 
 
 # Signing in to a AWS Quick Free or Plus account
-<a name="signing-in-standalone"></a>
 
 If you created your AWS Quick account at [aws.com/quick](https://aws.com/quick), follow these steps to sign in.
 

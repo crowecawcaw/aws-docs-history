@@ -1,7 +1,6 @@
 
 
 # percentileDisc (percentile)
-<a name="percentileDisc-function"></a>
 
 The `percentileDisc` function calculates the percentile based on the actual numbers in `measure`. It uses the grouping and sorting that are applied in the field wells. The `percentile` function is an alias of `percentileDisc`.
 

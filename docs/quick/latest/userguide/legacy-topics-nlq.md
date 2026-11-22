@@ -1,7 +1,6 @@
 
 
 # Making legacy Topics natural-language-friendly
-<a name="legacy-topics-nlq"></a>
 
 To improve the accuracy of answers in a legacy Topic, configure the following metadata:
 

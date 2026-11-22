@@ -1,7 +1,6 @@
 
 
 # Authorizing connections to Amazon OpenSearch Service
-<a name="opensearch"></a>
 
 
 |  | 

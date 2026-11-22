@@ -1,7 +1,6 @@
 
 
 # Non-admin sign-up process
-<a name="non-admin-sign-up"></a>
 
 If you are not an administrator, you can sign up for Quick using a link provided by your admin. This process allows you to create your account and configure your Quick environment.
 

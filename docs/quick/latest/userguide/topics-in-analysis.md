@@ -1,7 +1,6 @@
 
 
 # Using Topics in Quick Sight analysis
-<a name="topics-in-analysis"></a>
 
 
 |  | 

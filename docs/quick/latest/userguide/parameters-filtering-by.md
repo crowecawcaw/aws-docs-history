@@ -1,7 +1,6 @@
 
 
 # Using filters with parameters in AWS Quick
-<a name="parameters-filtering-by"></a>
 
 Use this section to filter the data in an analysis or dashboard by a single-value parameter value. To use a multivalued parameter—one with a multiselect drop-down control—create a custom filter that is equal (or not equal) to the values. 
 

@@ -1,7 +1,6 @@
 
 
 # Removing a calculation
-<a name="remove-a-calculation"></a>
 
 Use the following procedure to remove a table calculation from a pivot table.
 

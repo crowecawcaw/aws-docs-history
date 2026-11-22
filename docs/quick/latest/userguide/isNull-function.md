@@ -1,7 +1,6 @@
 
 
 # isNull
-<a name="isNull-function"></a>
 
 `isNull` evaluates an expression to see if it is null. If the expression is null, `isNull` returns true, and otherwise it returns false.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon S3 integration issues
-<a name="s3-integration-troubleshooting"></a>
 
 If you encounter issues connecting to your Amazon S3 bucket, review the following common causes and solutions.
 

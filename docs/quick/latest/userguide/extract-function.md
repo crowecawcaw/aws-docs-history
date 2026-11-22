@@ -1,7 +1,6 @@
 
 
 # Extract
-<a name="extract-function"></a>
 
 `extract` returns a specified portion of a date value. Requesting a time-related portion of a date that doesn't contain time information returns 0.
 

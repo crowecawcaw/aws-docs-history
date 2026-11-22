@@ -1,7 +1,6 @@
 
 
 # Sample rules
-<a name="vpc-sample-rules"></a>
 
 Following, you can find some example configurations of inbound and outbound rules for Amazon RDS and Amazon Redshift.
 

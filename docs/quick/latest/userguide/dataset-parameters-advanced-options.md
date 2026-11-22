@@ -1,7 +1,6 @@
 
 
 # Advanced use cases of dataset parameters
-<a name="dataset-parameters-advanced-options"></a>
 
 This section covers more advanced options and use cases working with dataset parameters and dropdown controls. Use the following walkthroughs to create dynamic dropdown values with dataset parameters.
 
@@ -14,14 +13,14 @@ When you use dataset parameters that are inserted into the custom SQL of a datas
 
 1. Create a new single–column dataset in SPICE or direct query that includes all unique values from the original dataset. For example, let's say that your original dataset is using the following custom SQL:
 
-   ```
+   ```sql
    select * from all_flights
            where origin_state_abr = <<$State>>
    ```
 
    To create a single–column table with all unique origin states, apply the following custom SQL to the new dataset:
 
-   ```
+   ```sql
    SELECT distinct origin_state_abr FROM all_flights
            order by origin_state_abr asc
    ```
@@ -52,7 +51,7 @@ This walkthrough is for datasets that are small enough to load in direct query. 
 
 To begin, let's say you have a direct query dataset with custom SQL that contains a multivalue parameter called `States`:
 
-```
+```sql
 select * from all_flights
 where origin_state_abr in (<<$States>>)
 ```
@@ -67,7 +66,7 @@ where origin_state_abr in (<<$States>>)
 
 1. Navigate to the dataset that contains the dataset parameter that you're using in the analysis-by-analysis. Edit the custom SQL of the dataset to include a default use case for your new static multiple default values. Using the ` All States` example, the SQL expression appears as follows:
 
-   ```
+   ```sql
    select * from public.all_flights
    where
        ' All States' in (<<$States>>) or
@@ -87,7 +86,7 @@ You can combine the previous `Select all` procedure with the multivalue control 
 
 1. Navigate to the secondary dataset that was created earlier to return all values of a filtered column. Add a custom SQL expression that adds your previously configured `Select all` option to the query. The following example adds the ` All States` record to the top of the list of returned values of the dataset:
 
-   ```
+   ```sql
    (Select ' All States' as origin_state_abr)
        Union All
        (SELECT distinct origin_state_abr FROM all_flights

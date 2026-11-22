@@ -1,7 +1,6 @@
 
 
 # Set up and manage Amazon S3 integration
-<a name="s3-setup-manage"></a>
 
 ## Set up Amazon S3 integration
 <a name="s3-integration-setup"></a>

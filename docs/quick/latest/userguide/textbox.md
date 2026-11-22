@@ -1,7 +1,6 @@
 
 
 # Using text boxes
-<a name="textbox"></a>
 
 Add text to add context to sheets in an analysis by using a text box. Text can hold directions, descriptions, or even hyperlinks to external websites. The toolbar on the text box offers font settings so you can customize the font type, style, color, size, spacing, size in pixels, text highlights, and alignment. The text box itself has no format settings. 
 

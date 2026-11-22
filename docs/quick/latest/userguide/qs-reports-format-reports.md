@@ -1,7 +1,6 @@
 
 
 # Formatting reports in AWS Quick Sight
-<a name="qs-reports-format-reports"></a>
 
 Use this section to learn how to format a pixel perfect report in AWS Quick Sight.
 

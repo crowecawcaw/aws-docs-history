@@ -1,7 +1,6 @@
 
 
 # Slack integration
-<a name="slack-integration"></a>
 
 With the Slack connector, you can access the Slack platform directly in AWS Quick through natural language. You can send messages, manage channels, search content, and interact with users and user groups without leaving AWS Quick.
 

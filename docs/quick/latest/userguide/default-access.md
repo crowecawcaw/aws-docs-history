@@ -1,7 +1,6 @@
 
 
 # Default access policy
-<a name="default-access"></a>
 
 
 |  | 

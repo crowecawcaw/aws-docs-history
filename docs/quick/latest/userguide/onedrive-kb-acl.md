@@ -1,7 +1,6 @@
 
 
 # Document-level access controls
-<a name="onedrive-kb-acl"></a>
 
 Admin-managed OneDrive knowledge bases include built-in document-level access control. Because admin-managed setup crawls the OneDrive content of every user in your organization, ACL is always enabled and cannot be turned off. AWS Quick syncs access control lists (ACLs) from OneDrive during each crawl. The system verifies each user's permissions at query time, so users only see answers from documents they are authorized to access in OneDrive.
 

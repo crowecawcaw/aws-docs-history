@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="byo-bedrock-kb-prerequisites"></a>
 + A Amazon Bedrock managed knowledge base that has been created and configured. For more information, see [Build a managed knowledge base](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html) in the *Amazon Bedrock User Guide*.
 + The managed knowledge base and the AWS Quick instance are in the same AWS Region.
 + Administrator-level permissions in AWS Quick to manage AWS resource integrations.

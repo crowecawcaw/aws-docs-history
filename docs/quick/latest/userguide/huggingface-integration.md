@@ -1,7 +1,6 @@
 
 
 # HuggingFace integration
-<a name="huggingface-integration"></a>
 
 With HuggingFace integration in AWS Quick, you can access machine learning models, datasets, and spaces through MCP server connectivity. This integration provides action capabilities for ML workflow operations and model management.
 

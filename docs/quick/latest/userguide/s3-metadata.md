@@ -1,7 +1,6 @@
 
 
 # Document metadata
-<a name="s3-metadata"></a>
 
 You can add metadata to documents in your Amazon S3 bucket to customize chat results and control document-level access. Metadata is additional information about a document, such as its title, creation date, and access permissions.
 

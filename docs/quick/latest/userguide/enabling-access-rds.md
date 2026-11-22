@@ -1,7 +1,6 @@
 
 
 # Authorizing connections from AWS Quick Sight to Amazon RDS DB instances
-<a name="enabling-access-rds"></a>
 
 
 |  | 

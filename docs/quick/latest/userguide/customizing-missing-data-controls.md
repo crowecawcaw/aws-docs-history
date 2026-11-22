@@ -1,7 +1,6 @@
 
 
 # Missing data on visual types in Quick
-<a name="customizing-missing-data-controls"></a>
 
 You can customize how missing data points are visualized in your line charts and area charts. You can choose to have your missing data points appear in the following formats:
 + *Broken line*: A disjointed line that breaks when a data point is missing. This is the default missing data format.

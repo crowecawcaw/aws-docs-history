@@ -1,7 +1,6 @@
 
 
 # median
-<a name="median-function"></a>
 
 The `median` aggregation returns the median value of the specified measure, grouped by the chosen dimension or dimensions. For example, `median(revenue)` returns the median revenue grouped by the (optional) chosen dimension. 
 

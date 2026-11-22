@@ -1,7 +1,6 @@
 
 
 # AWS Quick Microsoft Teams extension author guide
-<a name="teams-extension-author-guide"></a>
 
 As an AWS Quick author, you can deploy Quick Microsoft Teams extensions after your admin establishes the foundational connection to your organization's Microsoft Teams workspace. Your capabilities depend on the permission level granted by your administrator.
 

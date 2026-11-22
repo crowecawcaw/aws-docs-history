@@ -1,7 +1,6 @@
 
 
 # sumOver
-<a name="sumOver-function"></a>
 
  The `sumOver` function calculates the sum of a measure partitioned by a list of dimensions. 
 

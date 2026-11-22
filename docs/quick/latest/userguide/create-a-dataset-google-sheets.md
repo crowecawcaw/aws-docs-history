@@ -1,7 +1,6 @@
 
 
 # Creating a dataset using a Google Sheets data source
-<a name="create-a-dataset-google-sheets"></a>
 
 Google Sheets is a web-based spreadsheet application that enables users to create, edit, and collaborate on data in real time. With its comprehensive set of functions and formulas, it serves as a powerful data source for business intelligence and analytics. Users can organize, analyze, and share insights efficiently, while its seamless collaboration features make it an ideal platform for teams working on data-driven projects.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Quick user types
-<a name="user-types"></a>
 
 AWS Quick has three distinct user personas based on permission levels and use cases: administrator, author, and reader. Within these personas, there are six specific user roles that can be assigned, including Pro versions that provide access to advanced AWS Quick capabilities. The following sections describe the role and task boundaries of each type.
 

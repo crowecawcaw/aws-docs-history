@@ -1,7 +1,6 @@
 
 
 # Salesforce integration
-<a name="salesforce-integration"></a>
 
 With the Salesforce connector in AWS Quick, you can perform actions within Salesforce organizations, including managing records, querying data, and interacting with Salesforce APIs. For AWS Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 

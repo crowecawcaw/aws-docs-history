@@ -1,7 +1,6 @@
 
 
 # Setting up service provider–initiated federation with Quick Enterprise edition
-<a name="setup-quicksight-to-idp"></a>
 
 
 |  | 

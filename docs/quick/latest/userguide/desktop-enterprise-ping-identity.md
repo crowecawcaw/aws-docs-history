@@ -1,7 +1,6 @@
 
 
 # Set up enterprise sign-in with Ping Identity for AWS Quick on desktop
-<a name="desktop-enterprise-ping-identity"></a>
 
 
 |  | 
@@ -143,7 +142,7 @@ Record the following OIDC endpoints. You enter these values, together with the *
 For the JSON Web Key Set (JWKS) URI, use the `/as/jwks` path shown in the preceding table. Do not use `/.well-known/jwks.json`, which can appear as a placeholder in some PingOne forms. PingOne does not use this path, and sign-in token validation fails if you enter it.
 
 ## Step 2: Add the desktop connector with your identity provider configuration
-<a name="w2aac51c53c15c27c29c19"></a>
+<a name="w2aac60c15c15c27c29c19"></a>
 
 In the AWS Quick console, add the desktop connector and enter the values that you recorded in Step 1.
 
@@ -187,7 +186,7 @@ Adding the desktop connector turns on desktop access for all users in your accou
 Adding the desktop connector is a one-time, account-level action. After the connector is enabled, all users in your account can sign in with your identity provider. Users don't need to turn anything on themselves.
 
 ## Step 3: Download, verify, and distribute the desktop application
-<a name="w2aac51c53c15c27c29c21"></a>
+<a name="w2aac60c15c15c27c29c21"></a>
 
 In this step, you install the desktop application, verify that enterprise sign-in works, and then distribute the application to your users.
 

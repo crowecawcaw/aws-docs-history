@@ -1,7 +1,6 @@
 
 
 # Sharing Quick Sight Topics
-<a name="topics-sharing"></a>
 
 
 |  | 

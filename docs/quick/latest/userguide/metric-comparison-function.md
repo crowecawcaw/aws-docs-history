@@ -1,7 +1,6 @@
 
 
 # Metric comparison computation
-<a name="metric-comparison-function"></a>
 
 The metric comparison computation compares values in different measures. For example, you can create a computation to compare two values, such as actual sales compared to sales goals. 
 

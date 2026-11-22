@@ -1,7 +1,6 @@
 
 
 # Select research materials
-<a name="select-research-materials"></a>
 
 After defining your research objective, you can select the data sources that Quick Research will use to gather information. Set your preferences and control what sources Quick Research uses. Include files, web search preferences, company assets, and premium and public datasets.
 
@@ -30,7 +29,7 @@ After defining your research objective, you can select the data sources that Qui
 
 Enable web search to allow Quick Research to gather information from publicly available online sources. This includes academic papers, industry reports, news articles, and other relevant web content related to your research objective.
 
-AWS Quick uses the internet to enhance your results. Web search queries may be processed in a different AWS Region than your primary Region. For more information, see [Cross-Region calls for web search](regions.md#web-search-cross-region).
+AWS Quick uses the internet to enhance your results. Web search queries may be processed in a different AWS Region than your primary Region. For more information, see [Cross-Region web search](regions.md#web-search-cross-region).
 
 To prioritize or avoid certain websites, you can expand the web search section to enter a list of preferred websites and a list of websites to avoid. Both fields are optional and can take a maximum of 3,500 characters.
 

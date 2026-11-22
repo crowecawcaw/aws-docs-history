@@ -1,7 +1,6 @@
 
 
 # Index capacity
-<a name="manage-data-capacity"></a>
 
 An index is a structured corpus of documents that allows for efficient searching, sorting, and data access. AWS Quick uses an index to store, prepare, sync any files you upload to your Quick spaces. It then uses this indexed data to generate agent-driven responses during chat conversations.
 
@@ -17,7 +16,7 @@ An index is a structured corpus of documents that allows for efficient searching
 ## Storage allocation
 <a name="storage-allocation"></a>
 
-You get index capacity measured as the original file size of documents at their source location (such as SharePoint, S3, Confluence) before any processing by Quick. Quick automatically creates an index when you sign up in your home region with auto-scaling enabled (a mechanism where your index capacity is adjusted automatically based on usage). Your Quick Index storage allocation is based on your user count and subscription tier. **Professional users** get 25 GB of storage per user and **Enterprise users** get 50 GB per user. Overages are billed at $5 per GB per month. Allocated storage and overages are pooled on a payer account level. This replaces the previously auto-provisioned 50 MB (extracted text) default index capability.
+You get index capacity measured as the original file size of documents at their source location (such as SharePoint, S3, Confluence) before any processing by Quick. Quick automatically creates an index when you sign up in your home region with auto-scaling enabled (a mechanism where your index capacity is adjusted automatically based on usage). Your Quick Index storage allocation is based on your user count and subscription tier. **Professional users** get 25 GB of storage per user and **Enterprise users** get 50 GB per user. Quick Sight authors with promotional access to Quick Enterprise capabilities don't receive a Quick Index storage allocation. Overages are billed at $5 per GB per month. Allocated storage and overages are pooled on a payer account level. This replaces the previously auto-provisioned 50 MB (extracted text) default index capability.
 
 ## Regional allocation
 <a name="regional-allocation"></a>

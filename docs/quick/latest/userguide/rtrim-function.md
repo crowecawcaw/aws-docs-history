@@ -1,7 +1,6 @@
 
 
 # Rtrim
-<a name="rtrim-function"></a>
 
 `rtrim` removes following blank space from a string. 
 

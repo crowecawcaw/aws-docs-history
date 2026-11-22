@@ -1,7 +1,6 @@
 
 
 # How users upgrade their license
-<a name="how-users-upgrade-license"></a>
 
 
 |  | 

@@ -1,7 +1,6 @@
 
 
 # Hiding a visual by default
-<a name="hiding-a-visual-by-default.title"></a>
 
 In the **Interactions** pane of the **Properties** pane, you can choose to hide a visual by default. Doing this can be useful if you want the viewer to only see visuals based on specific conditions.
 

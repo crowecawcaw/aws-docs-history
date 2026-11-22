@@ -1,7 +1,6 @@
 
 
 # Embedding the AWS Quick Sight Q search bar for registered users
-<a name="embedded-analytics-q-search-bar-for-authenticated-users"></a>
 
 
 |  | 
@@ -64,7 +63,7 @@ The following example shows a sample trust policy.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -111,7 +110,7 @@ The following examples perform the IAM authentication on the user's behalf. This
 ### Java
 <a name="embedded-q-bar-for-embedded-q-bar-for-authenticated-users-java"></a>
 
-```
+```java
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
         import com.amazonaws.auth.AWSCredentialsProvider;
@@ -173,7 +172,7 @@ public class RegisteredUserQSearchBarEmbeddingConfiguration {
 ### JavaScript
 <a name="embedded-q-bar-for-embedded-q-bar-for-authenticated-users-js"></a>
 
-```
+```javascript
 global.fetch = require('node-fetch');
 const AWS = require('aws-sdk');
 
@@ -248,7 +247,7 @@ function generateEmbedUrlForRegisteredUser(
 ### Python3
 <a name="embedded-q-bar-for-embedded-q-bar-for-authenticated-users-python"></a>
 
-```
+```python
 import json
 import boto3
 from botocore.exceptions import ClientError
@@ -307,7 +306,7 @@ The following example shows the JavaScript (Node.js) that you can use on the app
 
 **Example**  
 
-```
+```javascript
 const AWS = require('aws-sdk');
 const https = require('https');
 
@@ -353,7 +352,7 @@ The following example shows the .NET/C\# code that you can use on the app server
 
 **Example**  
 
-```
+```csharp
 using System;
 using Amazon.QuickSight;
 using Amazon.QuickSight.Model;
@@ -515,7 +514,7 @@ The following example shows how to use the generated URL. This code is generated
 ### SDK 2.0
 <a name="embedded-q-bar-for-authenticated-users-sdkv2"></a>
 
-```
+```html
 <!DOCTYPE html>
 <html>
 
@@ -597,7 +596,7 @@ The following example shows how to use the generated URL. This code is generated
 ### SDK 1.0
 <a name="embedded-q-bar-for-authenticated-users-sdkv1"></a>
 
-```
+```html
 <!DOCTYPE html>
 <html>
 
@@ -657,7 +656,7 @@ For this example to work, make sure to use the AWS Quick Sight Embedding SDK to 
 + Download the latest embedding SDK version from [https://www.npmjs.com/package/amazon-quicksight-embedding-sdk](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk).
 + If you use `npm` for JavaScript dependencies, download and install it by running the following command.
 
-  ```
+  ```bash
   npm install amazon-quicksight-embedding-sdk
   ```
 
@@ -670,7 +669,7 @@ The embedded AWS Quick Sight Q search bar provides the classic AWS Quick Sight Q
 The following optional functionalities are available for the embedded Q search bar using the embedding SDK. 
 
 ### Invoke Q search bar actions
-<a name="w2aac34c31c19c43c31c15c21b7"></a>
+<a name="w2aac37c31c19c43c31c15c21b7"></a>
 
 The following options are only supported for Q search bar embedding. 
 + Set a Q search bar question — This feature sends a question to the Q search bar and immediately queries the question. It also automatically opens the Q popover.

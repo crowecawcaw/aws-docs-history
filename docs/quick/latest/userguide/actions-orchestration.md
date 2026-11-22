@@ -1,7 +1,6 @@
 
 
 # Orchestration
-<a name="actions-orchestration"></a>
 
 Orchestration enables you to automate complex end-to-end processes, coordinating automated tasks with human decisions where needed. The orchestration capabilities in AWS Quick Automate include case management for tracking work items and human-in-the-loop integration for incorporating human judgment.
 

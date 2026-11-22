@@ -1,7 +1,6 @@
 
 
 # Granting access to a dashboard
-<a name="share-a-dashboard"></a>
 
 You can share dashboards and visuals with specific users or groups in your account or with everyone in your AWS Quick account. Or you share them with anyone on the internet. You can share dashboards and visuals by using the Quick console or the Quick Sight API. Access to a shared visual depends on the sharing settings that are configured for the dashboard that the visual belongs to. To share and embed visuals to your website or application, adjust the sharing settings of the dashboard that it belongs to. For more informaton, see the following:
 + [Granting individual AWS Quick Sight users and groups access to a dashboard in AWS Quick Sight](share-a-dashboard-grant-access-users.md)

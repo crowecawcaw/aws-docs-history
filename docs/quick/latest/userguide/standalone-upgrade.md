@@ -1,7 +1,6 @@
 
 
 # Upgrading your AWS Quick plan
-<a name="standalone-upgrade"></a>
 
 You can upgrade your AWS Quick plan to the Plus or Max plan at any time. This page walks you through the full upgrade process, including entering contact information, verifying your phone number, and adding a payment method.
 

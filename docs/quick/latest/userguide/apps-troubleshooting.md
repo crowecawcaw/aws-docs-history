@@ -1,7 +1,6 @@
 
 
 # Troubleshooting apps in Quick
-<a name="apps-troubleshooting"></a>
 
 This section describes common issues and how to resolve them.
 

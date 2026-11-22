@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Quick using CloudWatch metrics
-<a name="monitoring-cloudwatch-metrics"></a>
 
 AWS Quick sends metrics to Amazon CloudWatch in the `AWS/QuickSight` namespace. These metrics cover dashboards, visuals, dataset ingestions, SPICE capacity, knowledge base indexing, connectors, and automations. Use them to observe availability and performance, and to create alarms for your AWS Quick environment.
 

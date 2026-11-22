@@ -1,7 +1,6 @@
 
 
 # Using row-level security in AWS Quick
-<a name="row-level-security"></a>
 
 
 |  | 

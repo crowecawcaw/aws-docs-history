@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Quick
-<a name="security-iam-quicksight"></a>
 
 
 

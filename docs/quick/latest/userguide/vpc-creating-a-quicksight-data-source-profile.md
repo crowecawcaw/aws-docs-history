@@ -1,7 +1,6 @@
 
 
 # Testing the connection to your VPC data source
-<a name="vpc-creating-a-quicksight-data-source-profile"></a>
 
 
 |  | 

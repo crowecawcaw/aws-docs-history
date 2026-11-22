@@ -1,7 +1,6 @@
 
 
 # Conditional formatting on visual types in Quick
-<a name="conditional-formatting-for-visuals"></a>
 
 In some visual types, you can add conditional formatting to highlight some of your data. The conditional formatting options currently supported include changing text or background color and using symbolic icons. You can use icons from the provided set, or you can use Unicode icons instead. 
 

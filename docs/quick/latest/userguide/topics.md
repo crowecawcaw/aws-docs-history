@@ -1,7 +1,6 @@
 
 
 # Working with AWS Quick Sight Topics
-<a name="topics"></a>
 
 
 |  | 

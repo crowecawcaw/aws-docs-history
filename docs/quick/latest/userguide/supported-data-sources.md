@@ -1,7 +1,6 @@
 
 
 # Supported data sources
-<a name="supported-data-sources"></a>
 
 AWS Quick Sight supports a variety of data sources that you can use to provide data for analyses. The following data sources are supported.
 

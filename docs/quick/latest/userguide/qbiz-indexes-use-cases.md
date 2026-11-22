@@ -1,7 +1,6 @@
 
 
 # Common use cases
-<a name="qbiz-indexes-use-cases"></a>
 
 Here are some common use cases for using Amazon Q Business indexes in AWS Quick:
 

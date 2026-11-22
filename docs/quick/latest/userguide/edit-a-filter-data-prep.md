@@ -1,7 +1,6 @@
 
 
 # Editing filters
-<a name="edit-a-filter-data-prep"></a>
 
 You can edit filters at any time in a dataset or analysis.
 

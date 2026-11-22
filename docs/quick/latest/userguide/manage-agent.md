@@ -1,7 +1,6 @@
 
 
 # Chat agent customization in AWS Quick
-<a name="manage-agent"></a>
 
 When a user account subscribes to Quick, the service automatically creates a system default chat agent. This agent powers the default chat experience, allowing AWS Quick users to leverage all chat functionalities (such as uploading files to chat, using large language model (LLM) parametric knowledge, and answering from their enterprise data) out of the box. The system default chat agent can be updated in the AWS Quick agent section by a select set of users who are designated as owners for the agent by the admin.
 

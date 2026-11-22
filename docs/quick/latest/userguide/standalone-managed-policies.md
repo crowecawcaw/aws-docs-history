@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Quick
-<a name="standalone-managed-policies"></a>
 
 AWS Quick Free, Plus, and Max accounts use an AWS managed policy so that AWS Quick can operate on your behalf. AWS services maintain and update AWS managed policies. You can't change the permissions in AWS managed policies. For more information about AWS managed policies, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*.
 

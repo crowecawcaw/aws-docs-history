@@ -1,7 +1,6 @@
 
 
 # Plan your Quick account structure and AWS Regions
-<a name="account-structure-regions"></a>
 
 This topic describes the recommended way to structure AWS Quick for your organization, how a single account operates across AWS Regions, and the role of your home Region.
 
@@ -33,4 +32,4 @@ Your home Region is the AWS Region that you select when you set up your AWS Quic
 
 Your home Region also sets your default capacity behavior. AWS Quick automatically creates your index in your home Region with auto-scaling, and your Index capacity allocation is billed against your home Region. If you provision Index capacity in Regions beyond your home Region, that capacity is billed as overage.
 
-For the list of supported Regions, and for how Amazon Q in Quick processes AI inference across Regions within your geography, see [AWS Regions, websites, IP address ranges, and endpoints](regions.md) and [Cross-Region inference for Australia, Japan, Europe, and the United States](regions.md#cross-region-inference).
+For the list of supported Regions, and for how Amazon Q in Quick processes AI inference across Regions within your geography, see [AWS Regions and related information](regions.md) and [Cross-Region inference](regions.md#cross-region-inference).

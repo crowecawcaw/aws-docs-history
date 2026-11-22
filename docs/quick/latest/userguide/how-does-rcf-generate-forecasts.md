@@ -1,7 +1,6 @@
 
 
 # How RCF is applied to generate forecasts
-<a name="how-does-rcf-generate-forecasts"></a>
 
 To forecast the next value in a stationary time sequence, the RCF algorithm answers the question "What would be the most likely completion, after we have a candidate value?" It uses a single tree in RCF to perform a search for the best candidate. The candidates across different trees are aggregated, because each tree by itself a weak predictor. The aggregation also allows the generation of quantile errors. This process is repeated **t** times to predict the **t**−th value in the future. 
 

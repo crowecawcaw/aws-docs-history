@@ -1,7 +1,6 @@
 
 
 # Using third party data in AWS Quick Research
-<a name="third-party-data"></a>
 
 AWS Quick Research integrates with third party data providers, such as FactSet, IDC, and S&P Global. The following table shows the current list of providers. The **Premium** data providers require a license to access their data, while the Public data providers do not require a license.
 

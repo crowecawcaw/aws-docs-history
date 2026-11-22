@@ -1,7 +1,6 @@
 
 
 # Revoke access to a shared dashboard
-<a name="revoke-access-to-a-dashboard"></a>
 
 Use the following procedure to revoke user access to a dashboard.
 

@@ -1,7 +1,6 @@
 
 
 # Initiating sign-on from the identity provider (IdP)
-<a name="federated-identities-idp-to-sp"></a>
 
 
 |  | 
