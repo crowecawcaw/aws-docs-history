@@ -1,7 +1,6 @@
 
 
 # Distributed Inspection Route Tables
-<a name="distributed-inspection-route-tables"></a>
 
 Publication date: **July 21, 2022 ([Diagram history](#drt-diagram-history))**
 

@@ -1,7 +1,6 @@
 
 
 # North/South Outbound Distributed Inspection
-<a name="distributed-outbound-inspection"></a>
 
 Publication date: **July 21, 2022 ([Diagram history](#dout-diagram-history))**
 

@@ -1,7 +1,6 @@
 
 
 # East/West Distributed Inspection
-<a name="distributed-east-west-inspection"></a>
 
 Publication date: **July 21, 2022 ([Diagram history](#dew-diagram-history))**
 

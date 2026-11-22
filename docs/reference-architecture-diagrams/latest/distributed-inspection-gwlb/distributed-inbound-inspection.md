@@ -1,7 +1,6 @@
 
 
 # North/South Inbound Distributed Inspection
-<a name="distributed-inbound-inspection"></a>
 
 Publication date: **July 21, 2022 ([Diagram history](#dinb-diagram-history))**
 
