@@ -1,7 +1,6 @@
 
 
 # Network Address Usage for your VPC
-<a name="network-address-usage"></a>
 
 Network Address Usage (NAU) is a metric applied to resources in your virtual network to help you plan for and monitor the size of your VPC. Each NAU unit contributes to a total that represents the size of your VPC.
 

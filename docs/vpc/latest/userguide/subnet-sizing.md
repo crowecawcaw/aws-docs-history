@@ -1,7 +1,6 @@
 
 
 # Subnet CIDR blocks
-<a name="subnet-sizing"></a>
 
 The IP addresses for your subnets are represented using Classless Inter-Domain Routing (CIDR) notation. The CIDR block of a subnet can be the same as the CIDR block for the VPC (to create a single subnet in the VPC), or a subset of the CIDR block for the VPC (to create multiple subnets in the VPC).
 

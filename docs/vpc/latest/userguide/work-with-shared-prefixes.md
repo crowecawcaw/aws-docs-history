@@ -1,7 +1,6 @@
 
 
 # Work with shared prefix lists
-<a name="work-with-shared-prefixes"></a>
 
 AWS prefix lists provide a convenient way to manage and reference the IP address ranges used by various AWS services. In addition to the AWS-managed prefix lists, you also can create and share your own customer-managed prefix lists with other AWS accounts.
 

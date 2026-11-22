@@ -1,7 +1,6 @@
 
 
 # VPC examples
-<a name="vpc-examples-intro"></a>
 
 Amazon Virtual Private Cloud (VPC) is a fundamental building block within the AWS ecosystem, allowing you to provision isolated virtual networks tailored to your specific needs. By creating and managing your own VPCs, you gain full control over the networking environment, including the ability to define IP address ranges, subnets, routing tables, and connectivity options.
 

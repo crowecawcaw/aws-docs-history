@@ -1,7 +1,6 @@
 
 
 # Middlebox scenarios
-<a name="middlebox-routing-examples"></a>
 
 Amazon Virtual Private Cloud (VPC) provides a wide range of networking capabilities that allow you to customize and control the routing of traffic within your virtual network. One such feature is the middlebox routing wizard, which enables fine-grained control over the routing path of traffic entering or leaving your VPC.
 

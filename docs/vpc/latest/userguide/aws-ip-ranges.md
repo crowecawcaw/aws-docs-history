@@ -1,7 +1,6 @@
 
 
 # AWS IP address ranges
-<a name="aws-ip-ranges"></a>
 
 AWS publishes its current IP address ranges in JSON format. With this information, you can identify traffic from AWS. You can also use this information to allow or deny traffic to or from some AWS services.
 

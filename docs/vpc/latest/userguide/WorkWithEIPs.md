@@ -1,7 +1,6 @@
 
 
 # Start using Elastic IP addresses
-<a name="WorkWithEIPs"></a>
 
 The following sections describe how you can get started using Elastic IP addresses.
 

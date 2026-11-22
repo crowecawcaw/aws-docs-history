@@ -1,7 +1,6 @@
 
 
 # Middlebox routing wizard
-<a name="middlebox-routing-console"></a>
 
 If you want to configure fine-grain control over the routing path of traffic entering or leaving your VPC, for example, by redirecting traffic to a security appliance, you can use the middlebox routing wizard in the VPC console. The middlebox routing wizard helps you by automatically creating the necessary route tables and routes (hops) to redirect traffic as needed.
 

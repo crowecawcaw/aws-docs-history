@@ -1,7 +1,6 @@
 
 
 # Path MTU Discovery and network ACLs
-<a name="path_mtu_discovery"></a>
 
 Path MTU Discovery is used to determine the path MTU between two devices. The path MTU is the maximum packet size that's supported on the path between the originating host and the receiving host. 
 

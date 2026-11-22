@@ -1,7 +1,6 @@
 
 
 # How route priority works
-<a name="route-tables-priority"></a>
 
 In general, we direct traffic using the most specific route that matches the traffic. This is known as the longest prefix match. If your route table has overlapping or matching routes, additional rules apply. 
 

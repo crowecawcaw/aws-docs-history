@@ -1,7 +1,6 @@
 
 
 # Configure security group rules
-<a name="working-with-security-group-rules"></a>
 
 After you create a security group, you can add, update, and delete its security group rules. When you add, update, or delete a rule, the change is automatically applied to the resources that are associated with the security group.
 

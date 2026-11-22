@@ -1,7 +1,6 @@
 
 
 # Enforce VPC encryption in transit
-<a name="vpc-encryption-controls"></a>
 
 VPC Encryption Controls is a security and compliance feature that offers you centralized authoritative control to monitor the encryption status of your traffic flows, helps you identify resources that allow cleartext communication, and eventually gives you mechanisms to enforce encryption in transit within and across your VPCs in a region
 
@@ -179,7 +178,7 @@ How you make EFS compliant depends on your current mode:
 
 The following sample file system policy denies all EFS access that is not encrypted in transit:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

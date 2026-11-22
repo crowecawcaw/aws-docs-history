@@ -1,7 +1,6 @@
 
 
 # VPC BPA basics
-<a name="security-vpc-bpa-basics"></a>
 
 This section covers important details about VPC BPA, including which services support it and how you can work with it.
 

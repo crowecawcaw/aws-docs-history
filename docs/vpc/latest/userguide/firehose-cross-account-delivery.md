@@ -1,7 +1,6 @@
 
 
 # IAM roles for cross account delivery
-<a name="firehose-cross-account-delivery"></a>
 
 When you publish to Amazon Data Firehose, you can choose a delivery stream that's in the same account as the resource to monitor (the source account), or in a different account (the destination account). To enable cross account delivery of flow logs to Amazon Data Firehose, you must create an IAM role in the source account and an IAM role in the destination account.
 
@@ -19,7 +18,7 @@ In the source account, create a role that grants the following permissions. In t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -66,7 +65,7 @@ Ensure that this role has the following trust policy, which allows the log deliv
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -109,7 +108,7 @@ From the source account, use the following procedure to create the role.
 
 1. For **Trusted entity type**, choose **Custom trust policy**. For **Custom trust policy**, replace `"Principal": {},` with the following, which specifies the log delivery service. Choose **Next**.
 
-   ```
+   ```json
    "Principal": {
       "Service": "delivery.logs.amazonaws.com"
    },
@@ -131,7 +130,7 @@ In the destination account, create a role with a name that starts with **AWSLogD
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -156,7 +155,7 @@ Ensure that this role has the following trust policy, which allows the role that
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -199,7 +198,7 @@ From the destination account, use the following procedure to create the role.
 
 1. For **Trusted entity type**, choose **Custom trust policy**. For **Custom trust policy**, replace `"Principal": {},` with the following, which specifies the source account role. Choose **Next**.
 
-   ```
+   ```json
    "Principal": {
       "AWS": "arn:aws:iam::{{source-account}}:role/{{mySourceRole}}"
    },

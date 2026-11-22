@@ -1,7 +1,6 @@
 
 
 # AWS-managed prefix lists
-<a name="working-with-aws-managed-prefix-lists"></a>
 
 AWS-managed prefix lists are sets of IP address ranges for AWS services. These prefix lists are maintained by Amazon Web Services and provide a way to reference the IP addresses used by various AWS offerings. This can be particularly useful when configuring security groups or other network-level controls within a VPC.
 

@@ -1,7 +1,6 @@
 
 
 # Security group rules
-<a name="security-group-rules"></a>
 
 The rules of a security group control the inbound traffic that's allowed to reach the resources that are associated with the security group. The rules also control the outbound traffic that's allowed to leave them.
 

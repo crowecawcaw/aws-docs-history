@@ -1,7 +1,6 @@
 
 
 # Add IPv6 support for your VPC
-<a name="vpc-migrate-ipv6-add"></a>
 
 The following table provides an overview of the process to enable IPv6 for your VPC.
 

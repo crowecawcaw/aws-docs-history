@@ -1,7 +1,6 @@
 
 
 # Subnets for your VPC
-<a name="configure-subnets"></a>
 
 A *subnet* is a range of IP addresses in your VPC. You can create AWS resources, such as EC2 instances, in specific subnets.
 

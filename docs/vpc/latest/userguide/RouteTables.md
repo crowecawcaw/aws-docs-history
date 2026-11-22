@@ -1,7 +1,6 @@
 
 
 # Route table concepts
-<a name="RouteTables"></a>
 
 The following are the key concepts for route tables:
 + **Main route table**—The route table that automatically comes with your VPC. It controls the routing for all subnets that are not explicitly associated with any other route table.

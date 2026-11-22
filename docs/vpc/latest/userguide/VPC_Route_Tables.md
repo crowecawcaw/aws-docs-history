@@ -1,7 +1,6 @@
 
 
 # Configure route tables
-<a name="VPC_Route_Tables"></a>
 
 A *route table* serves as the traffic controller for your virtual private cloud (VPC). Each route table contains a set of rules, called *routes*, that determine where network traffic from your subnet or gateway is directed. When you create a VPC, we also create the main route table for the VPC. You can create additional route tables for your VPC, so that you have more granular control over the network paths for your VPC.
 

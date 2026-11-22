@@ -1,7 +1,6 @@
 
 
 # Control subnet traffic with network access control lists
-<a name="vpc-network-acls"></a>
 
 A *network access control list (ACL)* allows or denies specific inbound or outbound traffic at the subnet level. You can use the default network ACL for your VPC, or you can create a custom network ACL for your VPC with rules similar to your security group rules. Custom network ACLs add an additional layer of security to your VPC.
 

@@ -1,7 +1,6 @@
 
 
 # Create a security group for your VPC
-<a name="creating-security-groups"></a>
 
 Your virtual private cloud (VPC) comes with a default security group. You can create additional security groups. Security groups can be used only with resources in the VPC for which it is created.
 

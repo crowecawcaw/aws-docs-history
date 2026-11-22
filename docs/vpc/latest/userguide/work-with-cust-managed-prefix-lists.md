@@ -1,7 +1,6 @@
 
 
 # Work with customer-managed prefix lists
-<a name="work-with-cust-managed-prefix-lists"></a>
 
 This section describes how to work with customer-managed prefix lists.
 

@@ -1,7 +1,6 @@
 
 
 # Understand codes for Amazon VPC in billing and usage reports
-<a name="vpc-billing-usage-reports"></a>
 
 When you use Amazon VPC, we include related codes in your AWS billing and usage reports. Reviewing these codes helps you understand your costs and usage patterns for Amazon VPC. Tracking and managing your expenses is essential for optimizing your costs.
 

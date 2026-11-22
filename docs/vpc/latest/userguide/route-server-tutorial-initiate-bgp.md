@@ -1,7 +1,6 @@
 
 
 # Step 7: Initiate BGP sessions from the devices
-<a name="route-server-tutorial-initiate-bgp"></a>
 
 When the status of route server peer is available, configure your workload to initiate the BGP session with the route server endpoint. 
 

@@ -1,7 +1,6 @@
 
 
 # Delete a subnet
-<a name="subnet-deleting"></a>
 
 If you no longer need a subnet, you can delete it. You cannot delete a subnet if it contains any network interfaces. For example, you must terminate any instances in a subnet before you can delete it.
 

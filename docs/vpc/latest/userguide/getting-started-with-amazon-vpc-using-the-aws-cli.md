@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon VPC using the AWS CLI
-<a name="getting-started-with-amazon-vpc-using-the-aws-cli"></a>
 
 This tutorial guides you through creating a Virtual Private Cloud (VPC) using the AWS Command Line Interface (AWS CLI). You'll learn how to set up a VPC with public and private subnets, configure internet connectivity, and deploy EC2 instances to demonstrate a common web application architecture.
 
@@ -25,13 +24,13 @@ This tutorial creates AWS resources that may incur costs in your account. The pr
 
 Let's verify that your AWS CLI is properly configured before proceeding.
 
-```
+```bash
 aws configure list
 ```
 
 You should see your AWS access key, secret key, and default region. Also, verify that you have the necessary permissions to create VPC resources.
 
-```
+```bash
 aws sts get-caller-identity
 ```
 
@@ -46,7 +45,7 @@ A Virtual Private Cloud (VPC) is a virtual network dedicated to your AWS account
 
 The following command creates a new VPC and assigns it a name tag.
 
-```
+```bash
 aws ec2 create-vpc --cidr-block 10.0.0.0/16 --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=MyVPC}]'
 ```
 
@@ -56,7 +55,7 @@ Take note of the VPC ID in the output. You'll need it for subsequent commands. F
 
 By default, DNS resolution and DNS hostnames are disabled in a new VPC. Enable these features to allow instances in your VPC to resolve domain names.
 
-```
+```bash
 aws ec2 modify-vpc-attribute --vpc-id vpc-0123456789abcdef0 --enable-dns-support
 aws ec2 modify-vpc-attribute --vpc-id vpc-0123456789abcdef0 --enable-dns-hostnames
 ```
@@ -72,7 +71,7 @@ Subnets are segments of a VPC's IP address range where you can place groups of i
 
 First, retrieve the Availability Zones available in your region.
 
-```
+```bash
 aws ec2 describe-availability-zones
 ```
 
@@ -82,7 +81,7 @@ For this tutorial, we'll use the first two Availability Zones. Note their names 
 
 Public subnets are used for resources that need to be accessible from the internet, such as web servers.
 
-```
+```bash
 aws ec2 create-subnet \
   --vpc-id vpc-0123456789abcdef0 \
   --cidr-block 10.0.0.0/24 \
@@ -92,7 +91,7 @@ aws ec2 create-subnet \
 
 Note the subnet ID from the output. For this tutorial, we'll use "subnet-0123456789abcdef0" as an example for the first public subnet.
 
-```
+```bash
 aws ec2 create-subnet \
   --vpc-id vpc-0123456789abcdef0 \
   --cidr-block 10.0.1.0/24 \
@@ -106,7 +105,7 @@ Note the subnet ID from the output. For this tutorial, we'll use "subnet-0123456
 
 Private subnets are used for resources that should not be directly accessible from the internet, such as databases.
 
-```
+```bash
 aws ec2 create-subnet \
   --vpc-id vpc-0123456789abcdef0 \
   --cidr-block 10.0.2.0/24 \
@@ -116,7 +115,7 @@ aws ec2 create-subnet \
 
 Note the subnet ID from the output. For this tutorial, we'll use "subnet-0123456789abcdef2" as an example for the first private subnet.
 
-```
+```bash
 aws ec2 create-subnet \
   --vpc-id vpc-0123456789abcdef0 \
   --cidr-block 10.0.3.0/24 \
@@ -139,7 +138,7 @@ To allow resources in your VPC to communicate with the internet, you need to cre
 
 An Internet Gateway enables communication between your VPC and the internet.
 
-```
+```bash
 aws ec2 create-internet-gateway \
   --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=MyIGW}]'
 ```
@@ -150,7 +149,7 @@ Note the Internet Gateway ID from the output. For this tutorial, we'll use "igw-
 
 After creating the Internet Gateway, attach it to your VPC.
 
-```
+```bash
 aws ec2 attach-internet-gateway --internet-gateway-id igw-0123456789abcdef0 --vpc-id vpc-0123456789abcdef0
 ```
 
@@ -158,7 +157,7 @@ aws ec2 attach-internet-gateway --internet-gateway-id igw-0123456789abcdef0 --vp
 
 Route tables contain rules (routes) that determine where network traffic is directed. First, create a route table for your public subnets.
 
-```
+```bash
 aws ec2 create-route-table \
   --vpc-id vpc-0123456789abcdef0 \
   --tag-specifications 'ResourceType=route-table,Tags=[{Key=Name,Value=Public-RT}]'
@@ -168,20 +167,20 @@ Note the route table ID from the output. For this tutorial, we'll use "rtb-01234
 
 Add a route to the Internet Gateway in the public route table.
 
-```
+```bash
 aws ec2 create-route --route-table-id rtb-0123456789abcdef0 --destination-cidr-block 0.0.0.0/0 --gateway-id igw-0123456789abcdef0
 ```
 
 Associate the public subnets with the public route table.
 
-```
+```bash
 aws ec2 associate-route-table --route-table-id rtb-0123456789abcdef0 --subnet-id subnet-0123456789abcdef0
 aws ec2 associate-route-table --route-table-id rtb-0123456789abcdef0 --subnet-id subnet-0123456789abcdef1
 ```
 
 Now, create a route table for your private subnets.
 
-```
+```bash
 aws ec2 create-route-table \
   --vpc-id vpc-0123456789abcdef0 \
   --tag-specifications 'ResourceType=route-table,Tags=[{Key=Name,Value=Private-RT}]'
@@ -191,7 +190,7 @@ Note the route table ID from the output. For this tutorial, we'll use "rtb-01234
 
 Associate the private subnets with the private route table.
 
-```
+```bash
 aws ec2 associate-route-table --route-table-id rtb-0123456789abcdef1 --subnet-id subnet-0123456789abcdef2
 aws ec2 associate-route-table --route-table-id rtb-0123456789abcdef1 --subnet-id subnet-0123456789abcdef3
 ```
@@ -205,7 +204,7 @@ A NAT Gateway allows instances in private subnets to initiate outbound traffic t
 
 First, allocate an Elastic IP address for your NAT Gateway.
 
-```
+```bash
 aws ec2 allocate-address --domain vpc
 ```
 
@@ -215,7 +214,7 @@ Note the Allocation ID from the output. For this tutorial, we'll use "eipalloc-0
 
 Create a NAT Gateway in one of your public subnets using the allocated Elastic IP.
 
-```
+```bash
 aws ec2 create-nat-gateway \
   --subnet-id subnet-0123456789abcdef0 \
   --allocation-id eipalloc-0123456789abcdef0 \
@@ -226,7 +225,7 @@ Note the NAT Gateway ID from the output. For this tutorial, we'll use "nat-01234
 
 Wait for the NAT Gateway to become available before proceeding.
 
-```
+```bash
 aws ec2 wait nat-gateway-available --nat-gateway-ids nat-0123456789abcdef0
 ```
 
@@ -234,7 +233,7 @@ aws ec2 wait nat-gateway-available --nat-gateway-ids nat-0123456789abcdef0
 
 Add a route to the NAT Gateway in the private route table to allow instances in private subnets to access the internet.
 
-```
+```bash
 aws ec2 create-route --route-table-id rtb-0123456789abcdef1 --destination-cidr-block 0.0.0.0/0 --nat-gateway-id nat-0123456789abcdef0
 ```
 
@@ -245,7 +244,7 @@ aws ec2 create-route --route-table-id rtb-0123456789abcdef1 --destination-cidr-b
 
 Configure your public subnets to automatically assign public IP addresses to instances launched in them.
 
-```
+```bash
 aws ec2 modify-subnet-attribute --subnet-id subnet-0123456789abcdef0 --map-public-ip-on-launch
 aws ec2 modify-subnet-attribute --subnet-id subnet-0123456789abcdef1 --map-public-ip-on-launch
 ```
@@ -259,7 +258,7 @@ Security groups act as virtual firewalls for your instances to control inbound a
 
 **Create a security group for web servers**
 
-```
+```bash
 aws ec2 create-security-group \
   --group-name WebServerSG \
   --description "Security group for web servers" \
@@ -270,7 +269,7 @@ Note the security group ID from the output. For this tutorial, we'll use "sg-012
 
 Allow HTTP and HTTPS traffic to your web servers.
 
-```
+```bash
 aws ec2 authorize-security-group-ingress --group-id sg-0123456789abcdef0 --protocol tcp --port 80 --cidr 0.0.0.0/0
 aws ec2 authorize-security-group-ingress --group-id sg-0123456789abcdef0 --protocol tcp --port 443 --cidr 0.0.0.0/0
 ```
@@ -279,7 +278,7 @@ aws ec2 authorize-security-group-ingress --group-id sg-0123456789abcdef0 --proto
 
 **Create a security group for database servers**
 
-```
+```bash
 aws ec2 create-security-group \
   --group-name DBServerSG \
   --description "Security group for database servers" \
@@ -290,7 +289,7 @@ Note the security group ID from the output. For this tutorial, we'll use "sg-012
 
 Allow MySQL/Aurora traffic from web servers only.
 
-```
+```bash
 aws ec2 authorize-security-group-ingress --group-id sg-0123456789abcdef1 --protocol tcp --port 3306 --source-group sg-0123456789abcdef0
 ```
 
@@ -303,37 +302,37 @@ After creating all the necessary components, verify your VPC configuration to en
 
 **Check your VPC**
 
-```
+```bash
 aws ec2 describe-vpcs --vpc-id vpc-0123456789abcdef0
 ```
 
 **Check your subnets**
 
-```
+```bash
 aws ec2 describe-subnets --filters "Name=vpc-id,Values=vpc-0123456789abcdef0"
 ```
 
 **Check your route tables**
 
-```
+```bash
 aws ec2 describe-route-tables --filters "Name=vpc-id,Values=vpc-0123456789abcdef0"
 ```
 
 **Check your Internet Gateway**
 
-```
+```bash
 aws ec2 describe-internet-gateways --filters "Name=attachment.vpc-id,Values=vpc-0123456789abcdef0"
 ```
 
 **Check your NAT Gateway**
 
-```
+```bash
 aws ec2 describe-nat-gateways --filter "Name=vpc-id,Values=vpc-0123456789abcdef0"
 ```
 
 **Check your security groups**
 
-```
+```bash
 aws ec2 describe-security-groups --filters "Name=vpc-id,Values=vpc-0123456789abcdef0"
 ```
 
@@ -348,7 +347,7 @@ Now that you have created your VPC infrastructure, you can deploy EC2 instances 
 
 First, create a key pair to securely connect to your instances:
 
-```
+```bash
 aws ec2 create-key-pair --key-name vpc-tutorial-key --query 'KeyMaterial' --output text > vpc-tutorial-key.pem
 chmod 400 vpc-tutorial-key.pem
 ```
@@ -359,7 +358,7 @@ This command creates a new key pair and saves the private key to a file with res
 
 Find the latest Amazon Linux 2 AMI to use for your instances:
 
-```
+```bash
 aws ec2 describe-images --owners amazon \
   --filters "Name=name,Values=amzn2-ami-hvm-*-x86_64-gp2" "Name=state,Values=available" \
   --query "sort_by(Images, &CreationDate)[-1].ImageId" --output text
@@ -371,7 +370,7 @@ Note the AMI ID from the output. For this tutorial, we'll use "ami-0123456789abc
 
 Now, launch an EC2 instance in the public subnet to serve as a web server:
 
-```
+```bash
 aws ec2 run-instances \
   --image-id ami-0123456789abcdef0 \
   --count 1 \
@@ -395,7 +394,7 @@ Note the instance ID from the output. For this tutorial, we'll use "i-0123456789
 
 Next, launch an EC2 instance in the private subnet to serve as a database server:
 
-```
+```bash
 aws ec2 run-instances \
   --image-id ami-0123456789abcdef0 \
   --count 1 \
@@ -417,7 +416,7 @@ Note the instance ID from the output. For this tutorial, we'll use "i-0123456789
 
 Once your web server instance is running, you can access it using its public IP address:
 
-```
+```bash
 aws ec2 describe-instances \
   --instance-ids i-0123456789abcdef0 \
   --query 'Reservations[0].Instances[0].PublicIpAddress' \
@@ -432,13 +431,13 @@ You can now open this URL in your web browser: http://203.0.113.10
 
 To connect to your web server:
 
-```
+```bash
 ssh -i vpc-tutorial-key.pem ec2-user@203.0.113.10
 ```
 
 To connect to your database server, you need to SSH to your web server first and then to your database server:
 
-```
+```bash
 # Get the private IP of the database server
 aws ec2 describe-instances \
   --instance-ids i-0123456789abcdef1 \
@@ -448,7 +447,7 @@ aws ec2 describe-instances \
 
 This command will output the private IP address of your database server. For this tutorial, we'll use "10.0.2.10" as an example.
 
-```
+```bash
 # First SSH to web server, then to database server
 ssh -i vpc-tutorial-key.pem -A ec2-user@203.0.113.10
 ssh ec2-user@10.0.2.10
@@ -484,34 +483,34 @@ When you're finished with your VPC, you can clean up the resources to avoid incu
 
 **Terminate EC2 instances**
 
-```
+```bash
 aws ec2 terminate-instances --instance-ids i-0123456789abcdef0 i-0123456789abcdef1
 aws ec2 wait instance-terminated --instance-ids i-0123456789abcdef0 i-0123456789abcdef1
 ```
 
 **Delete the key pair**
 
-```
+```bash
 aws ec2 delete-key-pair --key-name vpc-tutorial-key
 rm vpc-tutorial-key.pem
 ```
 
 **Delete the NAT Gateway**
 
-```
+```bash
 aws ec2 delete-nat-gateway --nat-gateway-id nat-0123456789abcdef0
 aws ec2 wait nat-gateway-deleted --nat-gateway-ids nat-0123456789abcdef0
 ```
 
 **Release the Elastic IP**
 
-```
+```bash
 aws ec2 release-address --allocation-id eipalloc-0123456789abcdef0
 ```
 
 **Delete security groups**
 
-```
+```bash
 aws ec2 delete-security-group --group-id sg-0123456789abcdef1
 aws ec2 delete-security-group --group-id sg-0123456789abcdef0
 ```
@@ -520,14 +519,14 @@ aws ec2 delete-security-group --group-id sg-0123456789abcdef0
 
 First, find the route table association IDs:
 
-```
+```bash
 aws ec2 describe-route-tables --route-table-id rtb-0123456789abcdef0
 aws ec2 describe-route-tables --route-table-id rtb-0123456789abcdef1
 ```
 
 Then disassociate the route tables from the subnets (replace the association IDs with the ones from your output):
 
-```
+```bash
 aws ec2 disassociate-route-table --association-id rtbassoc-0123456789abcdef0
 aws ec2 disassociate-route-table --association-id rtbassoc-0123456789abcdef1
 aws ec2 disassociate-route-table --association-id rtbassoc-0123456789abcdef2
@@ -536,21 +535,21 @@ aws ec2 disassociate-route-table --association-id rtbassoc-0123456789abcdef3
 
 Then delete the route tables:
 
-```
+```bash
 aws ec2 delete-route-table --route-table-id rtb-0123456789abcdef1
 aws ec2 delete-route-table --route-table-id rtb-0123456789abcdef0
 ```
 
 **Detach and delete the Internet Gateway**
 
-```
+```bash
 aws ec2 detach-internet-gateway --internet-gateway-id igw-0123456789abcdef0 --vpc-id vpc-0123456789abcdef0
 aws ec2 delete-internet-gateway --internet-gateway-id igw-0123456789abcdef0
 ```
 
 **Delete subnets**
 
-```
+```bash
 aws ec2 delete-subnet --subnet-id subnet-0123456789abcdef0
 aws ec2 delete-subnet --subnet-id subnet-0123456789abcdef1
 aws ec2 delete-subnet --subnet-id subnet-0123456789abcdef2
@@ -559,7 +558,7 @@ aws ec2 delete-subnet --subnet-id subnet-0123456789abcdef3
 
 **Delete the VPC**
 
-```
+```bash
 aws ec2 delete-vpc --vpc-id vpc-0123456789abcdef0
 ```
 

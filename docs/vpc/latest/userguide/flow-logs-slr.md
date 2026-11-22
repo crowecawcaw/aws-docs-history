@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for VPC Flow Logs
-<a name="flow-logs-slr"></a>
 
 VPC Flow Logs uses AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to VPC Flow Logs. Service-linked roles are predefined by VPC Flow Logs and include all the permissions that the service requires to call other AWS services on your behalf. 
 

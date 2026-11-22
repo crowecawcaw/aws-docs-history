@@ -1,7 +1,6 @@
 
 
 # Subnets in AWS Wavelength
-<a name="subnet-wavelength"></a>
 
 *AWS Wavelength* allows developers to build applications that deliver ultra-low latencies to mobile devices and end-users. Wavelength deploys standard AWS compute and storage services to the edge of telecommunication carriers' 5G networks. Developers can extend a virtual private cloud (VPC) to one or more Wavelength Zones, and then use AWS resources like Amazon EC2 instances to run applications that require ultra-low latency and connect to AWS services in the Region.
 

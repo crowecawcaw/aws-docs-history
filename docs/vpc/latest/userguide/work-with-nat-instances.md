@@ -1,7 +1,6 @@
 
 
 # Enable private resources to communicate outside the VPC
-<a name="work-with-nat-instances"></a>
 
 This section describes how to create and work with NAT instances to enable resources in a private subnet to communicate outside the virtual private cloud.
 
@@ -313,7 +312,7 @@ To verify that the test instance in your private subnet can use your NAT instanc
 ------
 #### [ Linux and macOS ]
 
-   ```
+   ```bash
    ssh-add {{key}}.pem
    ```
 
@@ -333,7 +332,7 @@ To verify that the test instance in your private subnet can use your NAT instanc
 ------
 #### [ Linux and macOS ]
 
-   ```
+   ```bash
    ssh -A ec2-user@{{nat-instance-public-ip-address}}
    ```
 
@@ -346,7 +345,7 @@ To verify that the test instance in your private subnet can use your NAT instanc
 
 1. From the NAT instance, run the **ping** command, specifying a website that is enabled for ICMP.
 
-   ```
+   ```bash
    [ec2-user@ip-10-0-4-184]$ ping {{ietf.org}}
    ```
 
@@ -362,13 +361,13 @@ To verify that the test instance in your private subnet can use your NAT instanc
 
 1. From your NAT instance, connect to your instance in your private subnet by using its private IP address.
 
-   ```
+   ```bash
    [ec2-user@ip-10-0-4-184]$ ssh ec2-user@{{private-server-private-ip-address}}
    ```
 
 1. From your private instance, test that you can connect to the internet by running the **ping** command.
 
-   ```
+   ```bash
    [ec2-user@ip-10-0-135-25]$ ping {{ietf.org}}
    ```
 

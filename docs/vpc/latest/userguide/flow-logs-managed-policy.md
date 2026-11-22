@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for VPC Flow Logs
-<a name="flow-logs-managed-policy"></a>
 
 If you are using VPC Flow Logs and you create a subscription with tag fields and the associated TagFieldSpecifications parameter, the **AWSVPCFlowLogsServiceRolePolicy** managed policy is automatically created in your IAM account and attached to the **AWSServiceRoleForVPCFlowLogs** [service-linked role](flow-logs-slr.md).
 
@@ -16,7 +15,7 @@ The following example shows the details of the managed policy that's created.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

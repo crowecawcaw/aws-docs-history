@@ -1,7 +1,6 @@
 
 
 # Amazon VPC policy examples
-<a name="vpc-policy-examples"></a>
 
 By default, IAM roles don't have permission to create or modify VPC resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An IAM administrator must create IAM policies that grant roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the IAM roles that require those permissions.
 
@@ -43,7 +42,7 @@ The following policy grants a role permission to list resources in the VPC conso
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -117,7 +116,7 @@ The following example enables roles to create VPCs, subnets, route tables, and i
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [{
@@ -153,7 +152,7 @@ You might want to control the VPC resources that roles can modify or delete. For
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -201,7 +200,7 @@ This policy cannot be used by the AWS CloudFormation service to create a securit
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -283,7 +282,7 @@ The second statement grants roles permission to describe all security groups, se
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -339,7 +338,7 @@ The policy also grants permission to use the network interface resource. When la
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -374,7 +373,7 @@ The policy also grants roles permission to launch instances using only AMIs that
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -427,7 +426,7 @@ Example 1 - Allow read-only access to VPC BPA account-wide settings and VPC BPA 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -453,7 +452,7 @@ Example 2 - Allow full read and write access to VPC BPA account-wide settings an
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -483,7 +482,7 @@ Example 3 - Allow access to all EC2 APIs except modifying VPC BPA settings and c
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

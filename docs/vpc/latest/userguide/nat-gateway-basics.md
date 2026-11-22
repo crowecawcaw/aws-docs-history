@@ -1,7 +1,6 @@
 
 
 # NAT gateway basics
-<a name="nat-gateway-basics"></a>
 
 Each NAT gateway is created in a specific Availability Zone and implemented with redundancy in that zone. There is a quota on the number of NAT gateways that you can create in each Availability Zone. For more information, see [Gateways](amazon-vpc-limits.md#vpc-limits-gateways).
 

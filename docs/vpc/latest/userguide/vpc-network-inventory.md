@@ -1,7 +1,6 @@
 
 
 # Describe your VPC network architecture
-<a name="vpc-network-inventory"></a>
 
 Amazon VPC enables you to define a logically isolated virtual network in the AWS Cloud, known as a virtual private cloud (VPC). Create separate VPCs to isolate infrastructure by workload or organizational entity. You can configure your VPCs by selecting IP address ranges, configuring routing, and adding network gateways to connect your VPCs to each other, the internet, or to your own corporate network. You launch AWS resources, such as EC2 instances or RDS instances, in your VPCs.
 
@@ -406,7 +405,7 @@ aws ec2 describe-dhcp-options \
 
 The following is example output for a VPC that uses the default DHCP options.
 
-```
+```json
 {
     "DhcpOptions": [
         {

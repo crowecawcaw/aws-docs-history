@@ -1,7 +1,6 @@
 
 
 # Example: VPC for a test environment
-<a name="vpc-example-dev-test"></a>
 
 This example demonstrates how to create a VPC that you can use as a development or test environment. Because this VPC is not intended to be used in production, it is not necessary to deploy your servers in multiple Availability Zones. To keep the cost and complexity low, you can deploy your servers in a single Availability Zone.
 

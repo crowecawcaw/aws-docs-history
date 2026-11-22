@@ -1,7 +1,6 @@
 
 
 # Share customer-managed prefix lists
-<a name="sharing-managed-prefix-lists"></a>
 
 With AWS Resource Access Manager (AWS RAM), the owner of a customer-managed prefix list can share the prefix list with the following:
 + Specific AWS accounts inside or outside of its organization in AWS Organizations

@@ -1,7 +1,6 @@
 
 
 # Flow logs basics
-<a name="flow-logs-basics"></a>
 
 You can create a flow log for a VPC, a subnet, or a network interface. If you create a flow log for a subnet or VPC, each network interface in that subnet or VPC is monitored. 
 

@@ -1,7 +1,6 @@
 
 
 # Amazon S3 bucket permissions for flow logs
-<a name="flow-logs-s3-permissions"></a>
 
 By default, Amazon S3 buckets and the objects they contain are private. Only the bucket owner can access the bucket and the objects stored in it. However, the bucket owner can grant access to other resources and users by writing an access policy.
 
@@ -14,7 +13,7 @@ Otherwise, the bucket owner must add this policy to the bucket, specifying the A
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

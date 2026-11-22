@@ -1,7 +1,6 @@
 
 
 # Monitoring your VPC
-<a name="monitoring"></a>
 
 You can use the following tools to monitor traffic or network access in your virtual private cloud (VPC).
 

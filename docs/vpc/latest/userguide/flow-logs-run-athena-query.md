@@ -1,7 +1,6 @@
 
 
 # Run a predefined query
-<a name="flow-logs-run-athena-query"></a>
 
 The generated CloudFormation template provides a set of predefined queries that you can run to quickly get meaningful insights about the traffic in your AWS network. After you create the stack and verify that all resources were created correctly, you can run one of the predefined queries.
 

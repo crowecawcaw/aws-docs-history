@@ -1,7 +1,6 @@
 
 
 # Replace or restore the target for a local route
-<a name="replace-local-route-target"></a>
 
 You can change the target of the default local route. If you replace the target of a local route, you can later restore it to the default `local` target. If your VPC has [multiple CIDR blocks](vpc-cidr-blocks.md#vpc-resize), your route tables have multiple local routes—one per CIDR block. You can replace or restore the target of each of the local routes as needed.
 

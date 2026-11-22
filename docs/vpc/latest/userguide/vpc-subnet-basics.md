@@ -1,7 +1,6 @@
 
 
 # VPC basics
-<a name="vpc-subnet-basics"></a>
 
 A VPC spans all of the Availability Zones in a Region. After you create a VPC, you can add one or more subnets in each Availability Zone. For more information, see [Subnets for your VPC](configure-subnets.md).
 

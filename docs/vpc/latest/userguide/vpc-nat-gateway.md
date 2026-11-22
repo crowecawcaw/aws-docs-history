@@ -1,7 +1,6 @@
 
 
 # NAT gateways
-<a name="vpc-nat-gateway"></a>
 
 A NAT gateway is a Network Address Translation (NAT) service. You can use a NAT gateway so that instances in a private subnet can connect to services outside your VPC but external services can't initiate a connection with those instances.
 

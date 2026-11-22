@@ -1,7 +1,6 @@
 
 
 # Get started tutorial
-<a name="route-server-tutorial"></a>
 
 This tutorial walks you through the process of setting up and configuring VPC Route Server to enable dynamic routing in your VPC. You'll learn how to create and configure all the necessary components, establish BGP peering, and verify proper operation. The tutorial covers everything from initial IAM setup through testing and cleanup.
 

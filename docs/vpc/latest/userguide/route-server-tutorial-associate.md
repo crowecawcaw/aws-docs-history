@@ -1,7 +1,6 @@
 
 
 # Step 3: Associate route server with a VPC
-<a name="route-server-tutorial-associate"></a>
 
 Complete the steps in this section to associate the route server with a VPC.
 

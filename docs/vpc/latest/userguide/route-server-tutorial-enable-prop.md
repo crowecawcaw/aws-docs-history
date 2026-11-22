@@ -1,7 +1,6 @@
 
 
 # Step 5: Enable route server propagation
-<a name="route-server-tutorial-enable-prop"></a>
 
 Complete this step to enable route server propagation.
 

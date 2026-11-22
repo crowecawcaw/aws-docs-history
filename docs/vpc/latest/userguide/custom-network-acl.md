@@ -1,7 +1,6 @@
 
 
 # Custom network ACLs for your VPC
-<a name="custom-network-acl"></a>
 
 You can create a custom network ACL and associate it with a subnet to allow or deny specific inbound or outbound traffic at the subnet level. For more information, see [Create a network ACL for your VPC](create-network-acl.md).
 

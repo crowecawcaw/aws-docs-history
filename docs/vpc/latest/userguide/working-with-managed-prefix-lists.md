@@ -1,7 +1,6 @@
 
 
 # Customer-managed prefix lists
-<a name="working-with-managed-prefix-lists"></a>
 
 Customer-managed prefix lists allow you to define and maintain your own sets of IP address ranges, known as prefixes, within AWS. Instead of hardcoding these IP addresses into your various resources, you can create a centralized prefix list and reference it wherever needed. This not only simplifies the management of your IP addresses but also promotes consistency and reusability across your AWS landscape. 
 

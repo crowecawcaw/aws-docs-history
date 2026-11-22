@@ -1,7 +1,6 @@
 
 
 # Connect your VPC to other networks
-<a name="extend-intro"></a>
 
 You can connect your virtual private cloud (VPC) to other networks, such as other VPCs, the internet, or your on-premises network.
 

@@ -1,7 +1,6 @@
 
 
 # Share security groups with AWS Organizations
-<a name="security-group-sharing"></a>
 
 The Shared Security Group feature enables you to share a security group with other AWS Organizations accounts within the same AWS Region and make the security group available to be used by those accounts.
 

@@ -1,7 +1,6 @@
 
 
 # DHCP option sets in Amazon VPC
-<a name="VPC_DHCP_Options"></a>
 
 Network devices in your VPC use Dynamic Host Configuration Protocol (DHCP). You can use DHCP option sets to control the following aspects of the network configuration in your virtual network:
 + The DNS servers, domain names, or Network Time Protocol (NTP) servers used by the devices in your VPC.

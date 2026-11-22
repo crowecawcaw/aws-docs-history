@@ -1,7 +1,6 @@
 
 
 # Delete a network ACL for your VPC
-<a name="delete-network-acl"></a>
 
 When you are finished with a network ACL, you can delete it. You can't delete a network ACL if there are subnets associated with it. You can't delete the default network ACL.
 

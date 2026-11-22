@@ -1,7 +1,6 @@
 
 
 # Compare NAT gateways and NAT instances
-<a name="vpc-nat-comparison"></a>
 
 The following is a high-level summary of the differences between NAT gateways and NAT instances. We recommend that you use NAT gateways because they provide better availability and bandwidth and require less effort on your part to administer.
 

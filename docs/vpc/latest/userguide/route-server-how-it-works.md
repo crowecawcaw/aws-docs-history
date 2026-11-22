@@ -1,7 +1,6 @@
 
 
 # How Amazon VPC Route Server works
-<a name="route-server-how-it-works"></a>
 
 This section explains how Amazon VPC Route Server works and helps you understand how it achieves routing fault tolerance for your workloads running in subnets.
 

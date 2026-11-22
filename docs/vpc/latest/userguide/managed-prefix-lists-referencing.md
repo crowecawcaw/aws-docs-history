@@ -1,7 +1,6 @@
 
 
 # Optimize AWS infrastructure management with prefix lists
-<a name="managed-prefix-lists-referencing"></a>
 
 You can reference a prefix list in the following AWS resources.
 

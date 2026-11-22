@@ -1,7 +1,6 @@
 
 
 # Step 2: Create a route server
-<a name="route-server-tutorial-create"></a>
 
 Complete the steps in this section to create a route server.
 

@@ -1,7 +1,6 @@
 
 
 # AWS services that support IPv6
-<a name="aws-ipv6-support"></a>
 
 Computers and smart devices use IP addresses to communicate with each other over the internet and other networks. As the internet continues to grow, so does the need for IP addresses. The most common format for IP addresses is IPv4. The new format for IP addresses is IPv6, which provides a larger address space than IPv4.
 

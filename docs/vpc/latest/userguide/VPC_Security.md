@@ -1,7 +1,6 @@
 
 
 # Ensure internetwork traffic privacy in Amazon VPC
-<a name="VPC_Security"></a>
 
 Amazon Virtual Private Cloud provides features that you can use to increase and monitor the security for your virtual private cloud (VPC):
 + **Security groups**: Security groups allow specific inbound and outbound traffic at the resource level (such as an EC2 instance). When you launch an instance, you can associate it with one or more security groups. Each instance in your VPC could belong to a different set of security groups. If you don't specify a security group when you launch an instance, the instance is automatically associated with the default security group for its VPC. For more information, see [Security groups](vpc-security-groups.md).

@@ -1,7 +1,6 @@
 
 
 # Process flow log records in CloudWatch Logs
-<a name="process-records-cwl"></a>
 
 You can process flow log records as you would with any other log events collected by CloudWatch Logs. For more information about monitoring log data and metric filters, see [Creating metrics from log events using filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/MonitoringLogData.html) in the *Amazon CloudWatch Logs User Guide*.
 

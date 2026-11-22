@@ -1,7 +1,6 @@
 
 
 # Control traffic entering your VPC using a gateway route table
-<a name="associate-route-table-gateway"></a>
 
 To control traffic entering your VPC with a gateway route table, you can associate or disassociate an internet gateway or a virtual private gateway with a route table. For more information, see [Gateway route tables](gateway-route-tables.md).
 

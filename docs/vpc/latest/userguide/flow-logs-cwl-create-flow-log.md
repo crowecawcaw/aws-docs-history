@@ -1,7 +1,6 @@
 
 
 # Create a flow log that publishes to CloudWatch Logs
-<a name="flow-logs-cwl-create-flow-log"></a>
 
 You can create flow logs for your VPCs, subnets, or network interfaces. If you perform these steps as a user using a particular IAM role, ensure that the role has permissions to use the `iam:PassRole` action.
 
@@ -13,7 +12,7 @@ Verify that the IAM principal that you are using to make the request has permiss
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -53,7 +52,7 @@ Verify that the IAM principal that you are using to make the request has permiss
    + To use the default format, choose **AWS default format**.
    + To use a custom format, choose **Custom format** and then select fields from **Log format**.
 
-1. For **Additional metadata**, select if you want to include metadata from Amazon ECS in the log format.
+1. For **Additional metadata**, select if you want to include metadata from Amazon ECS or Amazon EKS in the log format. Amazon EKS metadata is available only for flow logs that you create for a VPC or a subnet.
 
 1. (Optional) Choose **Add new tag** to apply tags to the flow log.
 

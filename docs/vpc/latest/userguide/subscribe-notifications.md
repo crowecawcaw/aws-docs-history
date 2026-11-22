@@ -1,13 +1,12 @@
 
 
 # AWS IP address ranges notifications
-<a name="subscribe-notifications"></a>
 
 AWS publishes its current IP address ranges in JSON format. Whenever there is a change to the AWS IP address ranges, we send notifications to subscribers of the Amazon SNS topic named `AmazonIpSpaceChanged`. For more information about the syntax of the JSON file, see [Syntax for AWS IP address range JSON](aws-ip-syntax.md).
 
 The payload of the notification contains information in the following format.
 
-```
+```json
 {
   "create-time":"{{yyyy}}-{{mm}}-{{dd}}T{{hh}}:{{mm}}:{{ss}}+00:00",
   "synctoken":"{{0123456789}}",

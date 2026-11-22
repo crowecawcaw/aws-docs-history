@@ -1,7 +1,6 @@
 
 
 # Create a network ACL for your VPC
-<a name="create-network-acl"></a>
 
 The following tasks show you how to create a network ACL, add rules to the network ACL, and then associate the network ACL with a subnet.
 

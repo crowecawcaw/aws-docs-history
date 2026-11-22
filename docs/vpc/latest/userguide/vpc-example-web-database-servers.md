@@ -1,7 +1,6 @@
 
 
 # Example: VPC for web and database servers
-<a name="vpc-example-web-database-servers"></a>
 
 This example demonstrates how to create a VPC that you can use for a two-tier architecture in a production environment. To improve resiliency, you deploy the servers in two Availability Zones.
 

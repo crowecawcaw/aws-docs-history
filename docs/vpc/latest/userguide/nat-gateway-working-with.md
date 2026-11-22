@@ -1,7 +1,6 @@
 
 
 # Work with NAT gateways
-<a name="nat-gateway-working-with"></a>
 
 You can use the Amazon VPC console to create and manage your NAT gateways.
 

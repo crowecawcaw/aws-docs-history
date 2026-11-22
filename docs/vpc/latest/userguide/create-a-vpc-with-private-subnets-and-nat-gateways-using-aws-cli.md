@@ -1,7 +1,6 @@
 
 
 # Create a VPC with private subnets and NAT gateways using AWS CLI
-<a name="create-a-vpc-with-private-subnets-and-nat-gateways-using-aws-cli"></a>
 
 This tutorial demonstrates how to create a VPC that you can use for servers in a production environment using the AWS CLI. To improve resiliency, you'll deploy servers in two Availability Zones, using an Auto Scaling group and an Application Load Balancer. For additional security, you'll deploy the servers in private subnets. The servers will receive requests through the load balancer and can connect to the internet using NAT gateways. To improve resiliency, you'll deploy a NAT gateway in each Availability Zone.
 
@@ -31,14 +30,14 @@ Before you begin this tutorial, you need:
 
 First, you'll create a VPC with a CIDR block of 10.0.0.0/16, which provides up to 65,536 private IP addresses.
 
-```
+```bash
 # Create a VPC with CIDR block 10.0.0.0/16
 aws ec2 create-vpc --cidr-block 10.0.0.0/16 --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=ProductionVPC}]'
 ```
 
 The command returns output similar to the following:
 
-```
+```json
 {
     "Vpc": {
         "CidrBlock": "10.0.0.0/16",
@@ -72,7 +71,7 @@ Note the VPC ID from the output (for example, `vpc-abcd1234`). You'll use this I
 
 Next, you'll identify two Availability Zones in your region to create a resilient architecture.
 
-```
+```bash
 # Get available Availability Zones
 aws ec2 describe-availability-zones --query 'AvailabilityZones[0:2].ZoneName' --output text
 ```
@@ -85,7 +84,7 @@ us-east-1a us-east-1b
 
 Now, create four subnets: two public subnets for the load balancer and NAT gateways, and two private subnets for your application servers. Replace `vpc-abcd1234` with your actual VPC ID, and `us-east-1a` and `us-east-1b` with your actual Availability Zones.
 
-```
+```bash
 # Create public subnet in first AZ
 aws ec2 create-subnet \
   --vpc-id vpc-abcd1234 \
@@ -126,7 +125,7 @@ Each command returns output containing the subnet ID. Note these IDs for use in 
 
 In this section, you'll create an internet gateway to allow communication between your VPC and the internet, and attach it to your VPC.
 
-```
+```bash
 # Create an Internet Gateway
 aws ec2 create-internet-gateway --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=ProductionIGW}]'
 ```
@@ -135,14 +134,14 @@ The command returns output containing the Internet Gateway ID. Note this ID (for
 
 Attach the Internet Gateway to your VPC. Replace `igw-abcd1234` with your actual Internet Gateway ID and `vpc-abcd1234` with your actual VPC ID.
 
-```
+```bash
 # Attach the Internet Gateway to the VPC
 aws ec2 attach-internet-gateway --internet-gateway-id igw-abcd1234 --vpc-id vpc-abcd1234
 ```
 
 Next, create route tables for your public and private subnets. Replace `vpc-abcd1234` with your actual VPC ID.
 
-```
+```bash
 # Create a route table for public subnets
 aws ec2 create-route-table --vpc-id vpc-abcd1234 --tag-specifications 'ResourceType=route-table,Tags=[{Key=Name,Value=PublicRouteTable}]'
 
@@ -160,14 +159,14 @@ Each command returns output containing the route table ID. Note these IDs:
 
 Add a route to the Internet Gateway in the public route table to enable internet access. Replace `rtb-abcd1234` with your actual public route table ID and `igw-abcd1234` with your actual Internet Gateway ID.
 
-```
+```bash
 # Add a route to the Internet Gateway
 aws ec2 create-route --route-table-id rtb-abcd1234 --destination-cidr-block 0.0.0.0/0 --gateway-id igw-abcd1234
 ```
 
 Associate the subnets with their respective route tables. Replace the route table IDs and subnet IDs with your actual IDs.
 
-```
+```bash
 # Associate public subnets with the public route table
 aws ec2 associate-route-table --route-table-id rtb-abcd1234 --subnet-id subnet-abcd1234
 aws ec2 associate-route-table --route-table-id rtb-abcd1234 --subnet-id subnet-efgh1234
@@ -182,7 +181,7 @@ aws ec2 associate-route-table --route-table-id rtb-ijkl1234 --subnet-id subnet-e
 
 NAT gateways allow instances in private subnets to connect to the internet or other AWS services, but prevent the internet from initiating connections with those instances. First, allocate Elastic IP addresses for your NAT gateways.
 
-```
+```bash
 # Allocate Elastic IP for NAT Gateway in first AZ
 aws ec2 allocate-address --domain vpc --tag-specifications 'ResourceType=elastic-ip,Tags=[{Key=Name,Value=NAT1-EIP}]'
 
@@ -196,7 +195,7 @@ Each command returns output containing the allocation ID. Note these IDs:
 
 Create NAT Gateways in each public subnet. Replace the subnet IDs and allocation IDs with your actual IDs.
 
-```
+```bash
 # Create NAT Gateway in public subnet of first AZ
 aws ec2 create-nat-gateway \
   --subnet-id subnet-abcd1234 \
@@ -216,7 +215,7 @@ Each command returns output containing the NAT Gateway ID. Note these IDs:
 
 NAT Gateways take a few minutes to provision. Wait for them to be available before proceeding. Replace the NAT Gateway IDs with your actual IDs.
 
-```
+```bash
 # Wait for NAT Gateways to be available
 aws ec2 wait nat-gateway-available --nat-gateway-ids nat-abcd1234
 aws ec2 wait nat-gateway-available --nat-gateway-ids nat-efgh1234
@@ -224,7 +223,7 @@ aws ec2 wait nat-gateway-available --nat-gateway-ids nat-efgh1234
 
 Add routes to the NAT Gateways in the private route tables to enable internet access for instances in private subnets. Replace the route table IDs and NAT Gateway IDs with your actual IDs.
 
-```
+```bash
 # Add route to NAT Gateway 1 in private route table 1
 aws ec2 create-route \
   --route-table-id rtb-efgh1234 \
@@ -243,7 +242,7 @@ aws ec2 create-route \
 
 A VPC endpoint for Amazon S3 allows instances in your private subnets to access S3 without going through the NAT Gateway, which reduces data transfer costs and provides better network performance. Replace `vpc-abcd1234` with your actual VPC ID and the route table IDs with your actual IDs.
 
-```
+```bash
 # Get the prefix list ID for S3 in your region
 S3_PREFIX_LIST_ID=$(aws ec2 describe-prefix-lists --filters "Name=prefix-list-name,Values=com.amazonaws.$(aws configure get region).s3" --query 'PrefixLists[0].PrefixListId' --output text)
 
@@ -262,7 +261,7 @@ The command returns output containing the VPC endpoint ID. Note this ID (for exa
 
 Security groups act as virtual firewalls for your instances to control inbound and outbound traffic. Create a security group for the load balancer that allows inbound HTTP traffic from anywhere. Replace `vpc-abcd1234` with your actual VPC ID.
 
-```
+```bash
 # Create security group for the load balancer
 aws ec2 create-security-group \
   --group-name LoadBalancerSG \
@@ -275,7 +274,7 @@ The command returns output containing the security group ID. Note this ID (for e
 
 Allow inbound HTTP traffic to the load balancer. Replace `sg-abcd1234` with your actual load balancer security group ID.
 
-```
+```bash
 # Allow inbound HTTP traffic from anywhere
 aws ec2 authorize-security-group-ingress \
   --group-id sg-abcd1234 \
@@ -286,7 +285,7 @@ aws ec2 authorize-security-group-ingress \
 
 Create a security group for the application servers that allows inbound traffic only from the load balancer. Replace `vpc-abcd1234` with your actual VPC ID.
 
-```
+```bash
 # Create security group for the application servers
 aws ec2 create-security-group \
   --group-name AppServerSG \
@@ -299,7 +298,7 @@ The command returns output containing the security group ID. Note this ID (for e
 
 Allow inbound HTTP traffic from the load balancer security group to the application servers. Replace `sg-efgh1234` with your actual application server security group ID and `sg-abcd1234` with your actual load balancer security group ID.
 
-```
+```bash
 # Allow inbound HTTP traffic from the load balancer security group
 aws ec2 authorize-security-group-ingress \
   --group-id sg-efgh1234 \
@@ -313,7 +312,7 @@ aws ec2 authorize-security-group-ingress \
 
 A launch template contains the configuration information to launch an instance, such as the AMI ID, instance type, and security groups. First, create a user data script that will be executed when the instance launches.
 
-```
+```bash
 cat > user-data.sh << 'EOF'
 #!/bin/bash
 yum update -y
@@ -326,20 +325,20 @@ EOF
 
 Encode the user data script in base64.
 
-```
+```bash
 USER_DATA=$(base64 -w 0 user-data.sh)
 ```
 
 Get the latest Amazon Linux 2 AMI ID.
 
-```
+```bash
 # Get the latest Amazon Linux 2 AMI ID
 aws ec2 describe-images --owners amazon --filters "Name=name,Values=amzn2-ami-hvm-*-x86_64-gp2" "Name=state,Values=available" --query 'sort_by(Images, &CreationDate)[-1].ImageId' --output text
 ```
 
 Create a launch template with the AMI ID, instance type, security group, and user data. Replace `sg-efgh1234` with your actual application server security group ID and `$AMI_ID` and `$USER_DATA` with the values obtained from the previous commands.
 
-```
+```bash
 # Create a launch template
 aws ec2 create-launch-template \
   --launch-template-name AppServerTemplate \
@@ -369,7 +368,7 @@ aws ec2 create-launch-template \
 
 A target group routes requests to registered targets, such as EC2 instances, using the protocol and port that you specify. Create a target group for your application servers. Replace `vpc-abcd1234` with your actual VPC ID.
 
-```
+```bash
 # Create a target group
 aws elbv2 create-target-group \
   --name AppTargetGroup \
@@ -386,7 +385,7 @@ The command returns output containing the target group ARN. Note this ARN (for e
 
 Create an Application Load Balancer in the public subnets. Replace the subnet IDs and security group ID with your actual IDs.
 
-```
+```bash
 # Create a load balancer
 aws elbv2 create-load-balancer \
   --name AppLoadBalancer \
@@ -399,7 +398,7 @@ The command returns output containing the load balancer ARN. Note this ARN (for 
 
 Wait for the load balancer to be active before proceeding. Replace `arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/AppLoadBalancer/abcd1234` with your actual load balancer ARN.
 
-```
+```bash
 # Wait for load balancer to be active
 aws elbv2 wait load-balancer-available \
   --load-balancer-arns arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/AppLoadBalancer/abcd1234
@@ -407,7 +406,7 @@ aws elbv2 wait load-balancer-available \
 
 Create a listener for the load balancer that forwards HTTP traffic to the target group. Replace the load balancer ARN and target group ARN with your actual ARNs.
 
-```
+```bash
 # Create a listener
 aws elbv2 create-listener \
   --load-balancer-arn arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/AppLoadBalancer/abcd1234 \
@@ -421,7 +420,7 @@ aws elbv2 create-listener \
 
 An Auto Scaling group contains a collection of EC2 instances that are treated as a logical grouping for the purposes of automatic scaling and management. Create an Auto Scaling group that uses the launch template and places instances in the private subnets. Replace the subnet IDs and target group ARN with your actual IDs and ARN.
 
-```
+```bash
 # Create an Auto Scaling group
 aws autoscaling create-auto-scaling-group \
   --auto-scaling-group-name AppAutoScalingGroup \
@@ -441,7 +440,7 @@ aws autoscaling create-auto-scaling-group \
 
 After the Auto Scaling group launches instances and they pass health checks, you can test your load balancer. Get the DNS name of the load balancer. Replace the load balancer ARN with your actual ARN.
 
-```
+```bash
 # Get the DNS name of the load balancer
 aws elbv2 describe-load-balancers \
   --load-balancer-arns arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/AppLoadBalancer/abcd1234 \
@@ -451,7 +450,7 @@ aws elbv2 describe-load-balancers \
 
 Use curl to test the application with the load balancer name.
 
-```
+```bash
 curl http://LoadBalancerName
 ```
 
@@ -462,7 +461,7 @@ If you refresh the page multiple times, you should see responses from different 
 
 When you're finished with this tutorial, you should delete all the resources to avoid incurring charges. Replace all IDs with your actual resource IDs.
 
-```
+```bash
 # Delete the Auto Scaling group
 aws autoscaling delete-auto-scaling-group \
   --auto-scaling-group-name AppAutoScalingGroup \

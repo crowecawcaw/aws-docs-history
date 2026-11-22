@@ -1,7 +1,6 @@
 
 
 # Terminology
-<a name="route-server-terms"></a>
 
 The following terms are used in this guide:
 + **FIB**: The [Forwarding Information Base (FIB)](https://en.wikipedia.org/wiki/Forwarding_information_base) serves as a forwarding table for what route server has determined are the best-path routes in the RIB after evaluating all available routing information and policies. The FIB routes that are installed on the route tables. The FIB is recomputed whenever there are changes to the RIB.

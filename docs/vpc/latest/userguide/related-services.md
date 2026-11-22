@@ -1,7 +1,6 @@
 
 
 # Use Amazon VPC with other AWS services
-<a name="related-services"></a>
 
 Amazon Virtual Private Cloud (VPC) is a foundational AWS service that provides a secure, customizable networking environment for your cloud infrastructure. Beyond creating and managing your own VPC, you can use the integration between VPC and other AWS services to build comprehensive solutions tailored to your specific needs.
 

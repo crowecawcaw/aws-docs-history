@@ -1,7 +1,6 @@
 
 
 # How Amazon VPC works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Amazon VPC, you should understand what IAM features are available to use with Amazon VPC. To get a high-level view of how Amazon VPC and other AWS services work with IAM, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
@@ -26,7 +25,7 @@ Amazon VPC shares its API namespace with Amazon EC2. Policy actions in Amazon VP
 
 To specify multiple actions in a single statement, separate them with commas as shown in the following example.
 
-```
+```json
 "Action": [
       "ec2:action1",
       "ec2:action2"
@@ -35,7 +34,7 @@ To specify multiple actions in a single statement, separate them with commas as 
 
 You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `Describe`, include the following action. 
 
-```
+```json
 "Action": "ec2:Describe*"
 ```
 
@@ -54,31 +53,31 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 
 The VPC resource has the ARN shown in the following example.
 
-```
+```json
 arn:${Partition}:ec2:${Region}:${Account}:vpc/${VpcId}
 ```
 
 For example, to specify the `vpc-1234567890abcdef0` VPC in your statement, use the ARN shown in the following example.
 
-```
+```json
 "Resource": "arn:aws:ec2:us-east-1:123456789012:vpc/vpc-1234567890abcdef0"
 ```
 
 To specify all VPCs in a specific Region that belong to a specific account, use the wildcard (\*).
 
-```
+```json
 "Resource": "arn:aws:ec2:us-east-1:123456789012:vpc/*"
 ```
 
 Some Amazon VPC actions, such as those for creating resources, cannot be performed on a specific resource. In those cases, you must use the wildcard (\*).
 
-```
+```json
 "Resource": "*"
 ```
 
 Many Amazon EC2 API actions involve multiple resources. To specify multiple resources in a single statement, separate the ARNs with commas. 
 
-```
+```json
 "Resource": [
       "resource1",
       "resource2"

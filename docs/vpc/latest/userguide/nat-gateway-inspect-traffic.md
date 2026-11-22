@@ -1,7 +1,6 @@
 
 
 # Inspect traffic from NAT gateways
-<a name="nat-gateway-inspect-traffic"></a>
 
 You can attach Network Firewall Proxy to your NAT Gateway to inspect and filter traffic on your NAT Gateway. This security control allows you to prevent data leaks outside your trusted perimeter and blocks any undesired inbound response.
 

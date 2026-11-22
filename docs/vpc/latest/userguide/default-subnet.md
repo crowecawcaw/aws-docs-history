@@ -1,7 +1,6 @@
 
 
 # Default subnets
-<a name="default-subnet"></a>
 
 By default, a default subnet is a public subnet, because the main route table sends the subnet's traffic that is destined for the internet to the internet gateway. You can make a default subnet into a private subnet by removing the route from the destination 0.0.0.0/0 to the internet gateway. However, if you do this, no EC2 instance running in that subnet can access the internet. 
 

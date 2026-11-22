@@ -1,7 +1,6 @@
 
 
 # VPC configuration options
-<a name="create-vpc-options"></a>
 
 You can specify the following configuration options when you create a VPC.
 

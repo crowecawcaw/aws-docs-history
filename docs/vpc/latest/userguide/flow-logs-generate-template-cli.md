@@ -1,7 +1,6 @@
 
 
 # Generate the CloudFormation template using the AWS CLI
-<a name="flow-logs-generate-template-cli"></a>
 
 After the first flow logs are delivered to your S3 bucket, you can generate and use a CloudFormation template to integrate with Athena.
 
@@ -13,7 +12,7 @@ aws ec2 get-flow-logs-integration-template --cli-input-json file://config.json
 
 The following is an example of the `config.json` file.
 
-```
+```json
 {
     "FlowLogId": "fl-12345678901234567",
     "ConfigDeliveryS3DestinationArn": "arn:aws:s3:::my-flow-logs-athena-integration/templates/",

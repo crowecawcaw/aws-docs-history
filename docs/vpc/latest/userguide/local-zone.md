@@ -1,7 +1,6 @@
 
 
 # Subnets in AWS Local Zones
-<a name="local-zone"></a>
 
 AWS Local Zones allow you to place resources closer to your users, and seamlessly connect to the full range of services in the AWS Region, using familiar APIs and tool sets. When you create a subnet in a Local Zone, you extend the VPC to that Local Zone.
 

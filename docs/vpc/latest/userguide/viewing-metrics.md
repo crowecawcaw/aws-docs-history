@@ -1,7 +1,6 @@
 
 
 # View NAT gateway CloudWatch metrics
-<a name="viewing-metrics"></a>
 
 NAT gateway metrics are sent to CloudWatch at 1-minute intervals. Metrics are grouped first by the service namespace, and then by the possible combinations of dimensions within each namespace. You can view the metrics for your NAT gateways as follows.
 

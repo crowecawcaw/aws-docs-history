@@ -1,7 +1,6 @@
 
 
 # VPC Tutorials
-<a name="vpc-tutorials-intro"></a>
 
 Amazon Virtual Private Cloud (VPC) is the foundation of your network infrastructure in AWS. While the AWS Management Console provides a user-friendly interface, the AWS Command Line Interface (CLI) offers greater flexibility and automation capabilities for creating and managing your VPC resources.
 

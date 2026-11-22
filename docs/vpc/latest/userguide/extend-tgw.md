@@ -1,7 +1,6 @@
 
 
 # Connect your VPC to other VPCs and networks using a transit gateway
-<a name="extend-tgw"></a>
 
 You can connect your virtual private clouds (VPC) and on-premises networks using a transit gateway, which acts as a central hub, routing traffic between VPCs, VPN connections, and Direct Connect connections. 
 

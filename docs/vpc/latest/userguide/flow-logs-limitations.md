@@ -1,7 +1,6 @@
 
 
 # Flow log limitations
-<a name="flow-logs-limitations"></a>
 
 To use flow logs, you need to be aware of the following limitations:
 + After you create a flow log, you won't see flow log data until there is active traffic for the network interface, subnet, or VPC that you selected.
@@ -72,3 +71,22 @@ Limitations specific to `next-hop-` fields:
 + The next hop fields are not available for cross-region traffic.
 + The next hop fields are not available for ingress traffic from some network services(for example, transit gateway and Network Load Balancer).
 + If traffic goes through a middlebox (for example, transit gateway or Network Load Balancer), the next hop network interface is the interface associated with the middlebox(such as the transit gateway attachment), not the final destination of the traffic
+
+The following limitations apply to EKS fields in version 12:
++ You can include EKS fields only in flow logs for a VPC or a subnet. A `CreateFlowLogs` request for any other resource type fails.
++ When you create a flow log that includes any EKS field, VPC Flow Logs starts collecting pod metadata (cluster ARN, node name, pod name, pod UID, namespace, and pod labels) for all Amazon EKS clusters in your account in the same Region, not only the clusters in the VPC or subnet that the flow log monitors. This includes clusters in VPCs that have no flow logs.
++ After you delete the last flow log that includes EKS fields in an account and Region, VPC Flow Logs stops collecting pod metadata for that account and Region. Collection stops after a period of time, not immediately. Flow logs that you have deleted do not receive EKS fields.
++ EKS fields are populated only for pods that run on Amazon EC2 instances, including Amazon EKS Auto Mode, managed node groups, Karpenter-controlled nodes, and self-managed nodes. EKS fields are not populated for pods on AWS Fargate or on Amazon EKS Hybrid Nodes.
++ EKS fields are populated only for pods on nodes whose `spec.providerID` uses the standard Amazon EC2 format. If custom node bootstrap sets a different provider ID, the EKS fields for those pods are '-'. The `eks-node-name` field shows the node name as registered in Kubernetes.
++ EKS fields are populated only for pods that use the Amazon VPC CNI plugin for Kubernetes. Pods with IPv4 and IPv6 addresses are supported. Pods that use a different CNI plugin, for example an overlay network, use IP addresses from outside the VPC, so their EKS fields are '-'.
++ VPC Flow Logs doesn't compute EKS fields for pods in an Amazon EKS cluster that's owned by a different account than the flow log. For example, suppose you share a subnet (`SubnetA`) with another account (`AccountB`), and then you create a flow log subscription for `SubnetA`. If `AccountB` runs Amazon EKS pods in the shared subnet, your subscription receives traffic logs from those pods, but the EKS fields are '-'.
++ A flow log with EKS fields captures traffic for every network interface in the VPC or subnet, including network interfaces that pods don't use. For that traffic, the EKS fields are '-'.
++ EKS fields are populated only for pods that start after VPC Flow Logs begins collecting pod metadata for your account. Pods that were already running when you created your first flow log with EKS fields have '-' in the EKS fields until they are restarted.
++ EKS fields are populated on a best-effort basis. Pod metadata and IP traffic come from different sources. After a pod starts, there can be a short delay before its flow log records include EKS fields. Records captured during this time have '-' in the EKS fields. If pod metadata is delayed longer, for example during a service event, EKS fields might be '-' or might describe the pod that previously used the IP address.
++ If a pod IP address is reassigned to another pod, the EKS fields for traffic in the minute when the reassignment happens might describe the pod that previously used the IP address.
++ EKS fields are populated only when the IP address of the pod appears in the record, in `pkt-srcaddr` for egress traffic or in `pkt-dstaddr` for ingress traffic. Records that show any other address have '-' in the EKS fields. For example:
+  + Source NAT (SNAT). EKS fields don't support translated IP addresses. By default, the Amazon VPC CNI plugin translates the source IP address of pod traffic to destinations outside the VPC to the IP address of the node. A NAT gateway also translates the pod IP address.
+  + Pods that use the host network (`hostNetwork: true`), because they use the IP address of the node.
+  + Kubernetes Services. EKS fields describe pods, not Services. For a ClusterIP Service, the record shows the IP address of the backend pod, so the EKS fields describe that pod. For a NodePort Service, the record shows the IP address of the node.
+  + Proxies. If traffic is forwarded through another pod or a proxy, the EKS fields describe the pod whose IP address appears in the record, not the pod that originated the traffic.
++ Traffic between two pods that use the same network interface does not leave the network interface, so it is not captured in flow logs.

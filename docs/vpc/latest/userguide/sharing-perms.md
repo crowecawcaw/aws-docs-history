@@ -1,7 +1,6 @@
 
 
 # Shared prefix list permissions
-<a name="sharing-perms"></a>
 
 **Permissions for owners**
 

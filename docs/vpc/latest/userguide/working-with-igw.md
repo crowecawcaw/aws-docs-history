@@ -1,7 +1,6 @@
 
 
 # Add internet access to a subnet
-<a name="working-with-igw"></a>
 
 The following describes how to support internet access from a subnet in a nondefault VPC using an internet gateway. You must create the internet gateway, attach it to the VPC, and configure routing for the subnet.
 

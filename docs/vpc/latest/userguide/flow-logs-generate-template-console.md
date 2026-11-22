@@ -1,7 +1,6 @@
 
 
 # Generate the CloudFormation template using the console
-<a name="flow-logs-generate-template-console"></a>
 
 After the first flow logs are delivered to your S3 bucket, you can integrate with Athena by generating a CloudFormation template and using the template to create a stack.
 

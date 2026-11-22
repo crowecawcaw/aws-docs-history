@@ -1,7 +1,6 @@
 
 
 # Billing and metering for owner and participants
-<a name="vpc-share-billing"></a>
 
 This section contains billing and metering details for those who own the shared subnet and for those working with the shared subnet:
 + In a shared VPC, each participant pays for their application resources including Amazon EC2 instances, Amazon Relational Database Service databases, Amazon Redshift clusters, and AWS Lambda functions. Participants also pay for data transfer charges associated with inter-Availability Zone data transfer as well as data transfer over VPC peering connections, across internet gateways, and across AWS Direct Connect gateways.

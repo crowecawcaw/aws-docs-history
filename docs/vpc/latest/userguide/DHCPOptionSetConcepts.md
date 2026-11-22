@@ -1,7 +1,6 @@
 
 
 # DHCP option set concepts
-<a name="DHCPOptionSetConcepts"></a>
 
 A *DHCP option set* is a group of network settings used by resources in your VPC, such as EC2 instances, to communicate over your virtual network.
 

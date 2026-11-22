@@ -1,7 +1,6 @@
 
 
 # Associate Elastic IP addresses with resources in your VPC
-<a name="vpc-eips"></a>
 
 An Elastic IP address is a static, public IPv4 address designed specifically for the dynamic nature of cloud computing. This feature allows you to associate an Elastic IP address with any instance or network interface within any Virtual Private Cloud (VPC) in your AWS account. By using Elastic IP addresses, you can unlock a host of benefits that simplify the management and resilience of your cloud-based infrastructure.
 

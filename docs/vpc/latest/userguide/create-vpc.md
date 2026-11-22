@@ -1,7 +1,6 @@
 
 
 # Create a VPC
-<a name="create-vpc"></a>
 
 Use the following procedures to create a virtual private cloud (VPC). A VPC must have additional resources, such as subnets, route tables, and gateways, before you can create AWS resources in the VPC.
 

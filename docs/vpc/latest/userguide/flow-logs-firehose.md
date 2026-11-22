@@ -1,7 +1,6 @@
 
 
 # Publish flow logs to Amazon Data Firehose
-<a name="flow-logs-firehose"></a>
 
 Flow logs can publish flow log data directly to Amazon Data Firehose. Amazon Data Firehose is a fully managed service that collects, transforms, and delivers real-time data streams into various AWS data stores and analytics services. It handles the data ingestion on your behalf.
 

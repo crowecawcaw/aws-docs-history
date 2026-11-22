@@ -1,7 +1,6 @@
 
 
 # Advanced routing in your VPC
-<a name="advanced-routing"></a>
 
 Configure advanced routing scenarios for your VPC. This section covers both static and dynamic routing approaches for managing traffic flow:
 + **Static ingress routing**: Configure static routes to direct inbound internet traffic destined for your BYOIP (Bring Your Own IP) address pools to specific network interfaces within your VPC.

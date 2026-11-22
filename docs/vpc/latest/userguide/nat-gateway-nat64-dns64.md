@@ -1,7 +1,6 @@
 
 
 # DNS64 and NAT64
-<a name="nat-gateway-nat64-dns64"></a>
 
 A NAT gateway supports network address translation from IPv6 to IPv4, popularly known as NAT64. NAT64 helps your IPv6 AWS resources communicate with IPv4 resources in the same VPC or a different VPC, in your on-premises network or over the internet. You can use NAT64 with DNS64 on Amazon Route 53 Resolver or use your own DNS64 server.
 

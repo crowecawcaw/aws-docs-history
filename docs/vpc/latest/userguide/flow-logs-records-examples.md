@@ -1,7 +1,6 @@
 
 
 # Flow log record examples
-<a name="flow-logs-records-examples"></a>
 
 The following are examples of flow log records that capture specific traffic flows.
 

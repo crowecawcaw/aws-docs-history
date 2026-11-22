@@ -1,7 +1,6 @@
 
 
 # Working with shared subnets
-<a name="vpc-sharing-share-subnet-working-with"></a>
 
 This section describes how to work with shared subnets in the AWS console and AWS CLI.
 

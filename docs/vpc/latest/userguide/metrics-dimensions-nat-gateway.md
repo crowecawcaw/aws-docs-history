@@ -1,7 +1,6 @@
 
 
 # NAT gateway metrics and dimensions
-<a name="metrics-dimensions-nat-gateway"></a>
 
 The following metrics are available for your NAT gateways. The description column includes a description of each metrics as well as the [units](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Unit) and [statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
 

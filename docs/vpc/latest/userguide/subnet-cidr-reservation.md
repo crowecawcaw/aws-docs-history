@@ -1,7 +1,6 @@
 
 
 # Subnet CIDR reservations
-<a name="subnet-cidr-reservation"></a>
 
 A *subnet CIDR reservation* is a range of IPv4 or IPv6 addresses that you set aside so that AWS won't assign them to your network interfaces. This enables you to reserve IPv4 or IPv6 CIDR blocks (also called "prefixes") for use with your network interfaces.
 
@@ -63,7 +62,7 @@ aws ec2 create-subnet-cidr-reservation --subnet-id {{subnet-03c51e2eEXAMPLE}} --
 
 The following is example output.
 
-```
+```json
 {
     "SubnetCidrReservation": {
         "SubnetCidrReservationId": "scr-044f977c4eEXAMPLE",

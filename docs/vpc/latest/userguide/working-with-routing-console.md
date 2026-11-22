@@ -1,7 +1,6 @@
 
 
 # Redirect VPC traffic to a security appliance
-<a name="working-with-routing-console"></a>
 
 The middlebox routing wizard is available in the Amazon VPC console.
 

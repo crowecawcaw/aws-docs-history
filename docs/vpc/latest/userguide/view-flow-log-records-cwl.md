@@ -1,7 +1,6 @@
 
 
 # View flow log records with CloudWatch Logs
-<a name="view-flow-log-records-cwl"></a>
 
 You can view your flow log records using the CloudWatch Logs console. After you create your flow log, it might take a few minutes for it to be visible in the console.
 

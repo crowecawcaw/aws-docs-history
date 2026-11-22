@@ -1,7 +1,6 @@
 
 
 # Work with flow logs
-<a name="working-with-flow-logs"></a>
 
 You can work with flow logs using consoles for Amazon EC2 and Amazon VPC.
 
@@ -24,7 +23,7 @@ The following is an example policy that grants users full permissions to create,
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Plan your VPC
-<a name="vpc-getting-started"></a>
 
 Complete the following tasks to prepare to create and connect your VPCs. When you are finished, you will be ready to deploy your application on AWS.
 

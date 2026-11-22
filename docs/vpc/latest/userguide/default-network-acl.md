@@ -1,7 +1,6 @@
 
 
 # Default network ACL for a VPC
-<a name="default-network-acl"></a>
 
 Your virtual private cloud (VPC) automatically comes with a default network ACL. A default network ACL is configured to allow all traffic to flow in and out of the subnets with which it is associated. Each network ACL also includes rules where the rule number is an asterisk (\*). These rules ensure that if a packet doesn't match any of the other numbered rules, it's denied.
 

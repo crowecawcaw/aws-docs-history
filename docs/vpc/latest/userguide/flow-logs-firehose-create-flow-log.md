@@ -1,7 +1,6 @@
 
 
 # Create a flow log that publishes to Amazon Data Firehose
-<a name="flow-logs-firehose-create-flow-log"></a>
 
 You can create flow logs for your VPCs, subnets, or network interfaces.
 
@@ -14,7 +13,7 @@ You can create flow logs for your VPCs, subnets, or network interfaces.
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -63,7 +62,7 @@ You can create flow logs for your VPCs, subnets, or network interfaces.
    + To use the default flow log record format, choose **AWS default format**.
    + To create a custom format, choose **Custom format**. For **Log format**, choose the fields to include in the flow log record.
 
-1. For **Additional metadata**, select if you want to include metadata from Amazon ECS in the log format.
+1. For **Additional metadata**, select if you want to include metadata from Amazon ECS or Amazon EKS in the log format. Amazon EKS metadata is available only for flow logs that you create for a VPC or a subnet.
 
 1. (Optional) Choose **Add tag** to apply tags to the flow log.
 

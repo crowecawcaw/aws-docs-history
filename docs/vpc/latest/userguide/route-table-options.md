@@ -1,7 +1,6 @@
 
 
 # Example routing options
-<a name="route-table-options"></a>
 
 The following topics describe routing for specific gateways or connections in your VPC.
 

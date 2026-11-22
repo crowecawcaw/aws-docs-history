@@ -1,7 +1,6 @@
 
 
 # View and update DNS attributes for your VPC
-<a name="vpc-dns-updating"></a>
 
 You can view and update the DNS support attributes for your VPC using the Amazon VPC console. These settings control whether your instances get public DNS hostnames and whether the Amazon DNS server can resolve your private DNS names. Configuring these attributes correctly is vital for ensuring seamless communication within your VPC.
 
