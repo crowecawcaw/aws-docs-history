@@ -1,7 +1,6 @@
 
 
 # Content Domain 2: ML Model and Foundation Model (FM) Development
-<a name="machine-learning-engineer-associate-02-domain2"></a>
 
 **Topics**
 + [Task 2.1: Choose appropriate modeling approaches for ML and AI solutions.](#machine-learning-engineer-associate-02-domain2-task1)

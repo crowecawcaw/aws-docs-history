@@ -1,7 +1,6 @@
 
 
 # In-scope AWS services and features
-<a name="mla-02-in-scope-services"></a>
 
 The following list contains AWS services and features that are in scope for the exam. This list is non-exhaustive and is subject to change. AWS offerings appear in categories that align with the offerings' primary functions:
 
@@ -33,7 +32,7 @@ The following list contains AWS services and features that are in scope for the 
 + AWS Lake Formation
 + Amazon Managed Service for Apache Flink
 + Amazon OpenSearch Service
-+ Amazon Quick
++ AWS Quick
 + Amazon Redshift
 
 ## Application Integration

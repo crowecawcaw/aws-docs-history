@@ -1,7 +1,6 @@
 
 
 # Comparison of MLA-C01 and MLA-C02
-<a name="mla-02-comparison"></a>
 
 ## Side-by-side comparison
 <a name="mla-02-side-by-side"></a>

@@ -1,7 +1,6 @@
 
 
 # Content Domain 4: Operating, Monitoring, and Securing ML and AI Solutions
-<a name="machine-learning-engineer-associate-02-domain4"></a>
 
 **Topics**
 + [Task 4.1: Monitor ML and AI model inference and performance.](#machine-learning-engineer-associate-02-domain4-task1)

@@ -1,7 +1,6 @@
 
 
 # Content Domain 3: Deployment and Orchestration of ML and AI Workflows
-<a name="machine-learning-engineer-associate-02-domain3"></a>
 
 **Topics**
 + [Task 3.1: Manage deployment infrastructure for ML and AI model types.](#machine-learning-engineer-associate-02-domain3-task1)
