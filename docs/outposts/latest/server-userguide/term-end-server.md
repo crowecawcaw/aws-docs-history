@@ -1,7 +1,6 @@
 
 
 # Outposts server end-of-term options
-<a name="term-end-server"></a>
 
 At the end of your AWS Outposts term, you must choose between the following options:
 + [Renew your subscription](#renew-subscription) and keep your existing Outposts servers.

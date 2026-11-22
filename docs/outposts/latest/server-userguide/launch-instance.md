@@ -1,7 +1,6 @@
 
 
 # Launch an instance on your Outposts server
-<a name="launch-instance"></a>
 
 After your Outpost is installed and the compute and storage capacity is available for use, you can get started by creating resources. For example, you can launch Amazon EC2 instances.
 

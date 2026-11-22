@@ -1,7 +1,6 @@
 
 
 # Create an Outpost and order Outpost capacity
-<a name="order-outpost-capacity"></a>
 
 To begin using AWS Outposts, log in with your AWS account. Create a site and an Outpost. Then, get a quote and place an order for the Outposts servers that you require.
 
@@ -226,7 +225,7 @@ AWS Outposts might request you to stop one or more running instances to enable r
 
    Example JSON file:
 
-   ```
+   ```JSON
    {
        "RequestedInstancePools": [
            {

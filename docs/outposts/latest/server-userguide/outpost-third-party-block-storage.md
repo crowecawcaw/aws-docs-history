@@ -1,7 +1,6 @@
 
 
 # Third-party block storage on Outposts servers
-<a name="outpost-third-party-block-storage"></a>
 
 With Outposts servers, you can leverage existing data you're stored on third-party storage arrays. You can specify external block data volumes and external block boot volumes for your EC2 instances on Outposts. Using this integration, you can use external block data and boot volumes backed by third-party vendors such as, Dell PowerStore, HPE Alletra Storage MP B10000, NetApp on-premises enterprise storage arrays, and Pure Storage FlashArray storage systems.
 

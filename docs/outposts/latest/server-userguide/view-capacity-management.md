@@ -1,7 +1,6 @@
 
 
 # View AWS Outposts capacity
-<a name="view-capacity-management"></a>
 
 You can view the capacity configuration at the instance or Outpost level.
 

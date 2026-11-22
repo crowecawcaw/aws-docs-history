@@ -1,7 +1,6 @@
 
 
 # Resilience in AWS Outposts
-<a name="disaster-recovery-resiliency"></a>
 
 For high availability, you can order additional Outposts servers. Outpost capacity configurations are designed to operate in production environments, and support N\+1 instances for each instance family when you provision the capacity to do so. AWS recommends that you allocate sufficient additional capacity for your mission-critical applications to enable recovery and failover if there is an underlying host issue. You can use the Amazon CloudWatch capacity availability metrics and set alarms to monitor the health of your applications, create CloudWatch actions to configure automatic recovery options, and monitor the capacity utilization of your Outposts over time.
 

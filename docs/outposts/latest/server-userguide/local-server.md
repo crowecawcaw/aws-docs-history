@@ -1,7 +1,6 @@
 
 
 # Local network connectivity for Outposts servers
-<a name="local-server"></a>
 
 Use this topic to understand the network cabling and topology requirements for hosting an Outposts server. For more information, see [Local network interfaces for your Outposts servers](local-network-interface.md).
 
