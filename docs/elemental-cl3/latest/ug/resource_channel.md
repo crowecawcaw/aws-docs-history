@@ -1,7 +1,6 @@
 
 
 # Resources: Elemental Live Channels
-<a name="resource_channel"></a>
 
 This section describes how to use AWS Elemental Conductor Live to create, modify or delete a channel.
 

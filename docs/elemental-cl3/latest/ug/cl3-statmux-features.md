@@ -1,7 +1,6 @@
 
 
 # Features of AWS Elemental Statmux
-<a name="cl3-statmux-features"></a>
 
 **Topics**
 + [What you can mux](#cl3-smux-content)

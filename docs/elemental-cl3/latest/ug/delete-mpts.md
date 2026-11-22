@@ -1,7 +1,6 @@
 
 
 # Deleting an MPTS
-<a name="delete-mpts"></a>
 
 1. On the Conductor Live main menu, choose **MPTS**. 
 

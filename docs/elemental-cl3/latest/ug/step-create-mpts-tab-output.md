@@ -1,7 +1,6 @@
 
 
 # Output tab
-<a name="step-create-mpts-tab-output"></a>
 
 
 | Field | Description | 

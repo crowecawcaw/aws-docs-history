@@ -1,7 +1,6 @@
 
 
 # Working with AWS Elemental Statmux
-<a name="cl3-statmux-about"></a>
 
 Include AWS Elemental Statmux nodes in your AWS Elemental Conductor Live cluster if you want to create MPTS outputs. A multi-program transport stream (MPTS) is a UDP transport stream (TS) that carries multiple programs. Conductor Live lets you create an MPTS that contains all variable bitrate programs, a mix of variable and constant bitrate programs, or all constant bitrate programs.
 

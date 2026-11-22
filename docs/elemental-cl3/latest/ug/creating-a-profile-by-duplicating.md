@@ -1,7 +1,6 @@
 
 
 # Creating a profile by duplicating an existing profile
-<a name="creating-a-profile-by-duplicating"></a>
 
 You can create an AWS Elemental Live profile by duplicating an existing profile and making any changes that you want.
 

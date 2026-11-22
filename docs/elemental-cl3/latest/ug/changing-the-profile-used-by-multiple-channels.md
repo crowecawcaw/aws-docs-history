@@ -1,7 +1,6 @@
 
 
 # Changing the profile used by multiple channels
-<a name="changing-the-profile-used-by-multiple-channels"></a>
 
 You can use the **Tasks** feature to change the profile so that several channels can use it. You can also change associations between channels and profiles so that each channel uses a different profile.
 

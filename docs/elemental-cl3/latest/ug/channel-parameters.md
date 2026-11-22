@@ -1,7 +1,6 @@
 
 
 # Reference: Supported channel parameters
-<a name="channel-parameters"></a>
 
 In an AWS Elemental Liveprofile, you can create set up some fields as channel parameters. When a field has a channel parameter, its value is a variables instead of a real value. 
 

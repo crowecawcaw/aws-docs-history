@@ -1,7 +1,6 @@
 
 
 # Modifying a profile
-<a name="modifying-a-profile"></a>
 
 You can't modify a AWS Elemental Conductor Live profile after it has been created. This rule ensures the dependability of profiles: a channel that uses profile\_A and that was run two weeks ago has the same profile data as a channel that uses profile\_A that was run yesterday.
 

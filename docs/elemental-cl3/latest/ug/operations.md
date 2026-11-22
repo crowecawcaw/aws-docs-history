@@ -1,7 +1,6 @@
 
 
 # Daily operations: Running channels and MPTSes
-<a name="operations"></a>
 
 To start and stop channels on AWS Elemental Live nodes that are in a cluster, use AWS Elemental Conductor Live. When the channel is running, you can control the inputs and the outputs.
 

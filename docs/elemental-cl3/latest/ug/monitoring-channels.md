@@ -1,7 +1,6 @@
 
 
 # Monitoring channels
-<a name="monitoring-channels"></a>
 
 **Topics**
 + [Monitoring the health of channels](#monitoring-for-failure)

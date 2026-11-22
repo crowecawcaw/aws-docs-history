@@ -1,7 +1,6 @@
 
 
 # Deleting channels
-<a name="deleting-channels"></a>
 
 ## Deleting one channel
 <a name="delete-channels-one"></a>

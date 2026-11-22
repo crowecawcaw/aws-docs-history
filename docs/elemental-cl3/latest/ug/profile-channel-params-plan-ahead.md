@@ -1,7 +1,6 @@
 
 
 # Planning ahead for bulk changes
-<a name="profile-channel-params-plan-ahead"></a>
 
 When you create a channel parameter that you might use in another profile, note its name carefully so you can enter the exact same name in the other profile. 
 

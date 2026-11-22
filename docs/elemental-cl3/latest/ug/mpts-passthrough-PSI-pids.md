@@ -1,7 +1,6 @@
 
 
 # Passing through SI/PSI tables
-<a name="mpts-passthrough-PSI-pids"></a>
 
 You can pass through any stream from a source TS to the output MPTS. You can pass through any number of streams. 
 

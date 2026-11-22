@@ -1,7 +1,6 @@
 
 
 # Starting or stopping an MPTS
-<a name="starting-an-mpts-output"></a>
 
 On the Conductor Live main menu, choose **MPTS**. 
 

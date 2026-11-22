@@ -1,7 +1,6 @@
 
 
 # General information
-<a name="cl3-general"></a>
 
 **Assumptions**
 

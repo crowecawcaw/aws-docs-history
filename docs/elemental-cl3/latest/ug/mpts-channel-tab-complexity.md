@@ -1,7 +1,6 @@
 
 
 # Complexity Endpoints tab
-<a name="mpts-channel-tab-complexity"></a>
 
 This tab contains fields for the endpoints used for the [complexity/allocation communications](cl3-statmux-features.md#cl3-statmux-features-allocation) between the Elemental Live node and the Elemental Statmux node. 
 

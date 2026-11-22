@@ -1,7 +1,6 @@
 
 
 # Modifying an MPTS
-<a name="modifying-an-mpts"></a>
 
 1. On the Conductor Live main menu, choose **MPTS**. 
 

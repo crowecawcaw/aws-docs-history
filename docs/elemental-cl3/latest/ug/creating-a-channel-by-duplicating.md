@@ -1,7 +1,6 @@
 
 
 # Creating a channel by duplicating an existing channel
-<a name="creating-a-channel-by-duplicating"></a>
 
 **To create a channel by duplicating an existing channel**
 

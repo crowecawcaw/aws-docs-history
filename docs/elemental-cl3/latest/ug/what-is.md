@@ -1,7 +1,6 @@
 
 
 # About the Conductor Live solution
-<a name="what-is"></a>
 
 AWS Elemental Conductor Live lets you create and manage channels on AWS Elemental Live and/or MPTSes on AWS Elemental Statmux. 
 

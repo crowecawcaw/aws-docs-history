@@ -1,7 +1,6 @@
 
 
 # Resources: Using the Conductor Live tasks feature
-<a name="resource_tasks"></a>
 
 The tasks feature of AWS Elemental Conductor Live lets you perform the following batch actions:
 + Change several channels so that they all the same specified profile. See [Changing the profile used by multiple channels](changing-the-profile-used-by-multiple-channels.md).

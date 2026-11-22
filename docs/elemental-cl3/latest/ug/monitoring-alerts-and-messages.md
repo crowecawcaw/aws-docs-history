@@ -1,7 +1,6 @@
 
 
 # Monitoring alerts and messages
-<a name="monitoring-alerts-and-messages"></a>
 
 AWS Elemental Conductor Live generates alerts and messages to provide information about the status of the nodes in the cluster and about the encoding channels. This section covers how to monitor alerts and messages via the web interface. 
 

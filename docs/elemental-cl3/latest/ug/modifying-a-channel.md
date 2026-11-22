@@ -1,7 +1,6 @@
 
 
 # Modifying a channel
-<a name="modifying-a-channel"></a>
 
 You can modify a channel that is in the Idle or Error state (that is, when it is not actively running). 
 

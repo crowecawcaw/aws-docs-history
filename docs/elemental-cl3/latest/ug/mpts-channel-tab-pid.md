@@ -1,7 +1,6 @@
 
 
 # PID Controls tab
-<a name="mpts-channel-tab-pid"></a>
 
 On this tab, you can assign the output PIDs for the streams that are in the source program. You can leave one, several or all the fields empty, and Elemental Statmux will assign a unique ID. 
 

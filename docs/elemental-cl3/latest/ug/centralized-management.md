@@ -1,7 +1,6 @@
 
 
 # Centralized management
-<a name="centralized-management"></a>
 
 Conductor Live lets you control both Elemental Live nodes and AWS Elemental Statmux nodes. These workers nodes must be in a Conductor Live cluster.
 

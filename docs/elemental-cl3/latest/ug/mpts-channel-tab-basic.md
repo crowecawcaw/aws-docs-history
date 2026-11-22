@@ -1,7 +1,6 @@
 
 
 # Basic tab
-<a name="mpts-channel-tab-basic"></a>
 
 
 | Field | Description | 

@@ -1,7 +1,6 @@
 
 
 # Creating a profile by uploading XML
-<a name="creating-a-profile-by-uploading-xml"></a>
 
 You can create an AWS Elemental Live profile using the XML from an existing profile that is up to two current versions back from the current AWS Elemental Conductor Live version. When the profile is uploaded, the Conductor Live system migrates the profile to the current version while also maintaining field selections and values.
 

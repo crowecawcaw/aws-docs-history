@@ -1,7 +1,6 @@
 
 
 # Step 2. Add channels to the MPTS
-<a name="step-d-add-channels-to-the-mpts-output"></a>
 
 After you create the MPTS, you must add channels. The [channels must already exist](resource_channel.md).
 

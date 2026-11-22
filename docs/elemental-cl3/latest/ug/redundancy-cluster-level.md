@@ -1,7 +1,6 @@
 
 
 # Organizing redundancy groups in the cluster
-<a name="redundancy-cluster-level"></a>
 
 These rules and guidelines apply to organizing multiple redundancy groups in the cluster.
 + You can create as many redundancy groups as you want. For example, you can create several Elemental Live redundancy groups, and these groups can be different types.

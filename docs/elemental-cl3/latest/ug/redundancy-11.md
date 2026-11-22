@@ -1,7 +1,6 @@
 
 
 # 1-to-1 redundancy
-<a name="redundancy-11"></a>
 
 ## Setup
 <a name="redundancy-11-setup"></a>

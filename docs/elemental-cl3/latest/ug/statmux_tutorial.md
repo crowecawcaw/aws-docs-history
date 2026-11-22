@@ -1,7 +1,6 @@
 
 
 # AWS Elemental Statmux tutorial
-<a name="statmux_tutorial"></a>
 
 This tutorial describes how to create a statmuxed MPTS workflow.
 

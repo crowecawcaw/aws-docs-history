@@ -1,7 +1,6 @@
 
 
 # Resiliency features in Elemental Statmux
-<a name="worker-nodes-other-resiliency"></a>
 
 Elemental Statmux includes two features that provide resiliency for Elemental Statmux – output listening and output redundancy.
 

@@ -1,7 +1,6 @@
 
 
 # Setup: Planning resiliency in a cluster
-<a name="cl3-resiliency"></a>
 
 This section describes the resiliency features that are available on a AWS Elemental Conductor Live cluster. 
 

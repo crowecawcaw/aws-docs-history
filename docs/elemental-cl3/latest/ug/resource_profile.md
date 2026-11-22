@@ -1,7 +1,6 @@
 
 
 # Resources: Profiles
-<a name="resource_profile"></a>
 
 A *profile *is a pre-defined collection of values for most of the data in an AWS Elemental Live channel. When you use AWS Elemental Conductor Live to create a channel, you associate it with a profile in order to set up all that data.
 

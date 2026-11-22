@@ -1,7 +1,6 @@
 
 
 # Creating a channel
-<a name="creating-a-channel"></a>
 
 **To create a channel**
 

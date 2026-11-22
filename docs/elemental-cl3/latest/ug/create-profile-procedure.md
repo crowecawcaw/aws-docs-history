@@ -1,7 +1,6 @@
 
 
 # The procedure
-<a name="create-profile-procedure"></a>
 
 Follow this procedure to set up a blue field with a channel parameter. This procedure assumes that you know how to create a [profile](creating-a-profile-from-scratch.md) and a [channel](creating-a-channel.md).
 

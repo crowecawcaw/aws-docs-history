@@ -1,7 +1,6 @@
 
 
 # Starting and stopping a channel
-<a name="starting-and-stopping-channels"></a>
 
 ## Starting and stopping one channel
 <a name="starting-and-stopping-one-channel"></a>

@@ -1,7 +1,6 @@
 
 
 # Monitoring MPTS outputs
-<a name="monitoring-mpts-outputs"></a>
 
 **Topics**
 + [Monitoring the progress of all MPTSes](#monitoring-the-progress-of-all-mpts-outputs)

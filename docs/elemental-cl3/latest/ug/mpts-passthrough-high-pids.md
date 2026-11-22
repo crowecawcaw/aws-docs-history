@@ -1,7 +1,6 @@
 
 
 # Passing through custom streams
-<a name="mpts-passthrough-high-pids"></a>
 
 You can passthrough any stream from a source TS to the output MPTS. You can pass through any number of streams. 
 

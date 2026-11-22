@@ -1,7 +1,6 @@
 
 
 # Designing an MPTS workflow
-<a name="container-design-mpts-workflow"></a>
 
 This section describes how to design a standard MPTS, and how to augment that standard MPTS by including passthrough elements.
 

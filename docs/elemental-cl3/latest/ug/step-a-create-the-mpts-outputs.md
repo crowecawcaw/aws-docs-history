@@ -1,7 +1,6 @@
 
 
 # Step 1: Create the MPTS
-<a name="step-a-create-the-mpts-outputs"></a>
 
 **To create an MPTS**
 

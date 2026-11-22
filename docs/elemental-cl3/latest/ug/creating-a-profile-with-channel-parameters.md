@@ -1,7 +1,6 @@
 
 
 # Working with channel parameters in a profile
-<a name="creating-a-profile-with-channel-parameters"></a>
 
 You can create an AWS Elemental Live profile in which some fields have values that are variable rather than absolute. Then when you create a channel using that profile, you assign real values to those fields. In AWS Elemental Conductor Live, these variable fields are called *channel parameters*. 
 

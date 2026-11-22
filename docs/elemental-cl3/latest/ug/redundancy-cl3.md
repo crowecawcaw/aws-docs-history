@@ -1,7 +1,6 @@
 
 
 # Conductor Live node redundancy
-<a name="redundancy-cl3"></a>
 
 You need two Conductor Live nodes to implement Conductor Live node redundancy. Otherwise, you need only one node. 
 

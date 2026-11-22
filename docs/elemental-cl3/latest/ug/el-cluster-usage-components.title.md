@@ -1,7 +1,6 @@
 
 
 # Components of Elemental Live in a cluster
-<a name="el-cluster-usage-components.title"></a>
 
 When you work with Elemental Live using Conductor Live, you work with channels (events), profiles, and nodes. 
 

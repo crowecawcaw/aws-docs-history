@@ -1,7 +1,6 @@
 
 
 # Resource: MPTS
-<a name="mpts-outputs"></a>
 
 A multi-program transport stream (*MPTS*) is a UDP transport stream (TS) that carries multiple programs. This section describes how to use AWS Elemental Conductor Live to create an MPTS and add channels (programs), and modify or delete an MPTS. For information about starting an MPTS and working with a running MPTS, see [Starting or stopping an MPTS](starting-an-mpts-output.md) and [Monitoring MPTS outputs](monitoring-mpts-outputs.md).
 

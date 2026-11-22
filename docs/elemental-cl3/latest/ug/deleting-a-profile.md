@@ -1,7 +1,6 @@
 
 
 # Deleting a profile
-<a name="deleting-a-profile"></a>
 
 **To delete a profile**
 

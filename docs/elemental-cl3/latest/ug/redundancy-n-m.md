@@ -1,7 +1,6 @@
 
 
 # N-to-M redundancy
-<a name="redundancy-n-m"></a>
 
 ## Setup
 <a name="redundancy-n-m-setup"></a>

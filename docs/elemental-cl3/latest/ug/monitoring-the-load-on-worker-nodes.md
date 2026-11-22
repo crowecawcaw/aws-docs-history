@@ -1,7 +1,6 @@
 
 
 # Monitoring the load on worker nodes
-<a name="monitoring-the-load-on-worker-nodes"></a>
 
 You can view information about the overall load on any worker node in an AWS Elemental Conductor Live cluster.
 

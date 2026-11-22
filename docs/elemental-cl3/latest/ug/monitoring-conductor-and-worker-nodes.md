@@ -1,7 +1,6 @@
 
 
 # Monitoring nodes
-<a name="monitoring-conductor-and-worker-nodes"></a>
 
 You should monitor the nodes regularly to ensure that they are still all online. 
 

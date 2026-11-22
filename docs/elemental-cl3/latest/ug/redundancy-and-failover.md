@@ -1,7 +1,6 @@
 
 
 # Redundancy and failover
-<a name="redundancy-and-failover"></a>
 
 Running Elemental Live events and Elemental Statmux MPTSes in Conductor Live lets you implement several resiliency features. These features help reduce outages in your workflows.
 

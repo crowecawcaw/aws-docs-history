@@ -1,7 +1,6 @@
 
 
 # Number of primary Elemental Statmux nodes
-<a name="smx-node-design"></a>
 
 Determine the number of *primary nodes *you need:
 + Identify the density of all the SPTS channels that you want to mux into MPTSes. Then consult with your AWS Elemental sales person for help to identify your node requirements.
