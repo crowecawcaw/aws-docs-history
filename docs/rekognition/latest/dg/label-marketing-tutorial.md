@@ -1,7 +1,6 @@
 
 
 # Using Amazon Rekognition (REK) to detect labels for marketing applications
-<a name="label-marketing-tutorial"></a>
 
 This tutorial guides you through building a sample Python application that could be used to send emails to people, based on on images uploaded to a website. The sample application is designed to engage users in a social media marketing campaign by sending them personalized emails about travel deals if landmarks are recognized in their photos. 
 
@@ -52,7 +51,7 @@ To begin this tutorial, we'll create a DynamoDB table to store customer data suc
 
 First, we'll create the DynamoDB table. Here's how to set it up using Python and Boto3. We create a function called `create_user_table` and connect to the DynamoDB resource within it. In the code sample below, replace the value of "region\_name" with the name of the region your account operates in, then run the code cell to create your table.
 
-```
+```python
 import boto3
 def create_user_table(dynamodb=None):
     if not dynamodb:
@@ -95,7 +94,7 @@ Now we'll want to insert some sample data into the table. This sample data will 
 
 We’ll create a second function that adds sample data to the same `CustomerDataTable` we created previously. Three sample entries are created by the code below, and each entry includes an account number, email address, age, phone number, and membership status. In the code sample below, replace the value of `region_name` with the name of the region your account operates in, then run the code cell to create your table. If you would like to test the email delivery portion of the app, replace the value of `EmailAddress` in the first customer entry below with an email address you can receive email at. Save and run the code.
 
-```
+```python
 import boto3
 
 def insert_sample_data(dynamodb=None):
@@ -149,7 +148,7 @@ Now, we can create an Lambda function. We want to ensure that the Lambda functio
 
 Here's an outline of how a Lambda function might handle these requirements. In the following code sample, ensure that the correct DynamoDB table is specified, if you have used something other than CustomerDataTable as the name of your table. Additionally, in the "send\_marketing\_email" function, you should replace the value of the "Source" argument with an email address you have access to that will function as the sending email.
 
-```
+```python
 import json
 import boto3
 import logging
@@ -290,7 +289,7 @@ Before you can use Amazon SES to sent emails, you need to verify the email addre
 
 Now we can upload a test image to our chosen Amazon S3 bucket using the AWS Console or the script we prepared earlier. Write a script that uploads an image to the Amazon S3 bucket you previously specified in your Lambda function. In the code sample below, specify the path of your image as the first argument to "upload\_image\_to\_s3", the bucket name as the second argument, and the account number of the user uploading the image as the final argument. 
 
-```
+```python
 import boto3
 def upload_image_to_s3(file_name, bucket, account_number):
     s3 = boto3.client('s3')
@@ -327,7 +326,7 @@ A few minutes after uploading the image, you should receive an email at the addr
 
 Check the CloudWatch logs for your Lambda function to see if it was triggered and executed as expected. Logs can be found under CloudWatch > Logs > Log groups > /AWS/lambda/your\_function\_name. You can also write a script to access and print the logs. The following code sample polls the Lambda group for logs, printing out the logs that were generated in the last hour. Save and run the code.
 
-```
+```python
 import boto3
 import time
 

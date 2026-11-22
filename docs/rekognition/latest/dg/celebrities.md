@@ -1,7 +1,6 @@
 
 
 # Recognizing celebrities
-<a name="celebrities"></a>
 
 Amazon Rekognition makes it easy for customers to automatically recognize tens of thousands of well-known personalities in images and videos using machine learning. The metadata provided by the celebrity recognition API significantly reduces the repetitive manual effort required to tag content and make it readily searchable. 
 

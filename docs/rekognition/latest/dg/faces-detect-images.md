@@ -1,7 +1,6 @@
 
 
 # Detecting faces in an image
-<a name="faces-detect-images"></a>
 
 Amazon Rekognition Image provides the [DetectFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectFaces.html) operation that looks for key facial features such as eyes, nose, and mouth to detect faces in an input image. Amazon Rekognition Image detects the 100 largest faces in an image.
 
@@ -26,7 +25,7 @@ You can provide the input image as an image byte array (base64-encoded image byt
 
    This example displays the estimated age range for detected faces, and lists the JSON for all detected facial attributes. Change the value of `photo` to the image file name. Change the value of `amzn-s3-demo-bucket` to the Amazon S3 bucket where the image is stored.
 
-   ```
+   ```java
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -98,7 +97,7 @@ You can provide the input image as an image byte array (base64-encoded image byt
 
    This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/DetectFaces.java).
 
-   ```
+   ```java
    import java.util.List;
    
    //snippet-start:[rekognition.java2.detect_labels.import]
@@ -203,7 +202,7 @@ You can provide the input image as an image byte array (base64-encoded image byt
 
    This example displays the estimated age range and other attributes for detected faces, and lists the JSON for all detected facial attributes. Change the value of `photo` to the image file name. Change the value of `amzn-s3-demo-bucket` to the Amazon S3 bucket where the image is stored. Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile.
 
-   ```
+   ```python
    import boto3
    import json
    
@@ -249,7 +248,7 @@ You can provide the input image as an image byte array (base64-encoded image byt
 
    This example displays the estimated age range for detected faces, and lists the JSON for all detected facial attributes. Change the value of `photo` to the image file name. Change the value of `amzn-s3-demo-bucket` to the Amazon S3 bucket where the image is stored.
 
-   ```
+   ```cs
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -312,7 +311,7 @@ You can provide the input image as an image byte array (base64-encoded image byt
 
    This example displays the estimated age range for detected faces, and lists various facial attributes. Change the value of `photo` to the image file name. Change the value of `amzn-s3-demo-bucket` to the Amazon S3 bucket where the image is stored.
 
-   ```
+   ```ruby
       # Add to your Gemfile
       # gem 'aws-sdk-rekognition'
       require 'aws-sdk-rekognition'
@@ -386,7 +385,7 @@ You can provide the input image as an image byte array (base64-encoded image byt
 
    If you are using TypeScript definitions, you may need to use `import AWS from 'aws-sdk'` instead of `const AWS = require('aws-sdk')`, in order to run the program with Node.js. You can consult the [AWS SDK for Javascript](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/) for more details. Depending on how you have your configurations set up, you also may need to specify your region with `AWS.config.update({region:{{region}}});`.
 
-   ```
+   ```javascript
    
    
    // Load the SDK

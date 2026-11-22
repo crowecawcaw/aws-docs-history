@@ -1,7 +1,6 @@
 
 
 # Using Amazon Rekognition as a FedRAMP authorized service
-<a name="fedramp"></a>
 
 The AWS FedRAMP compliance program includes Amazon Rekognition as a FedRAMP-authorized service. If you're a federal or commercial customer, you can use the service to process and store sensitive workloads in the AWS US East and US West Regions, with data up to the moderate-impact level. You can use the service for sensitive workloads in the AWS GovCloud (US) Region's authorization boundary, with data up to the high-impact level. For more information about FedRAMP compliance, see [AWS FedRAMP Compliance](https://aws.amazon.com/compliance/fedramp/).
 
@@ -18,7 +17,7 @@ The following are examples from the [Listing Collections ](list-collection-proce
 
 For Java, use the `withEndpointConfiguration` method when you construct the Amazon Rekognition client. This example shows the collections you have that use the FIPS endpoint in the US East (N.Virginia) Region:
 
-```
+```java
 //Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
 
@@ -79,7 +78,7 @@ aws rekognition list-collections --endpoint-url https://rekognition-fips.us-east
 
 For Python, use the `endpoint_url` argument in the boto3.client function. Set it to the endpoint that you want to specify. This example shows the collections you have that use the FIPS endpoint in the US West (Oregon) Region:
 
-```
+```python
 #Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
 

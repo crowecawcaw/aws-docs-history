@@ -1,7 +1,6 @@
 
 
 # Guidelines and quotas in Amazon Rekognition
-<a name="limits"></a>
 
 The following sections provide guidelines and quotas when using Amazon Rekognition. There are two kinds of quotas. *Set quotas* such as maximum image size cannot be changed. *Default quotas* listed on the [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/rekognition.html#limits_rekognition) page can be changed by following the procedure described in the [Default quotas](#changeable-quotas) section.
 

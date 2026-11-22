@@ -1,7 +1,6 @@
 
 
 # Using JavaScript
-<a name="image-bytes-javascript"></a>
 
 The following JavaScript webpage example allows a user to choose an image and view the estimated ages of faces that are detected in the image. The estimated ages are returned by a call to [DetectFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectFaces.html). 
 
@@ -31,7 +30,7 @@ The following code example uses two scripts that are no longer part of Amazon Co
 
 The following code example uses JavaScript V2. For an example in JavaScript V3, see [the example in the AWS Documentation SDK examples GitHub repository.](https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javascriptv3/example_code/rekognition/estimate-age-example/src)
 
-```
+```html
 <!--
 Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
@@ -149,7 +148,7 @@ PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazo
 
 The following code snippet is an alternative implementation of the `ProcessImage` function in the sample code, using JavaScript V2. It uses `readAsArrayBuffer` to load an image and call `DetectFaces`. Because `readAsArrayBuffer` doesn't base64-encode the loaded file, it's not necessary to unencode the image bytes before calling an Amazon Rekognition Image operation.
 
-```
+```javascript
 //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
 

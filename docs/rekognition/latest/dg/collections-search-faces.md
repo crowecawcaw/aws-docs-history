@@ -1,7 +1,6 @@
 
 
 # Searching for faces and users within a collection
-<a name="collections-search-faces"></a>
 
 After you create a face collection and store face vectors and/or user vectors, you can search a face collection for face matches. With Amazon Rekognition, you can search for faces in a collection that match:
 + A supplied face ID ([SearchFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFaces.html)). For more information, see [Searching for a face with a face ID](search-face-with-id-procedure.md).

@@ -1,7 +1,6 @@
 
 
 # Using the image and video moderation APIs
-<a name="moderation-api"></a>
 
 In the Amazon Rekognition Image API, you can detect inappropriate, unwanted, or offensive content synchronously using [DetectModerationLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectModerationLabels.html) and asynchronously using [StartMediaAnalysisJob](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartMediaAnalysisJob.html) and [GetMediaAnalysisJob](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetMediaAnalysisJob.html) operations. You can use the Amazon Rekognition Video API to detect such content asynchronously by using the [StartContentModeration](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartContentModeration.html) and [GetContentModeration](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetContentModeration.html) operations.
 

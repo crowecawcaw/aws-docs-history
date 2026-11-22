@@ -1,7 +1,6 @@
 
 
 # Configuring and Customizing Your Application
-<a name="face-liveness-configure-cutomize-amplify"></a>
 
 ## Configuring Your Application
 <a name="face-liveness-configuring-amplify.title"></a>

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting streaming video
-<a name="streaming-video-troubleshooting"></a>
 
 **Note**  
 Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see [Amazon Rekognition feature availability changes](rekognition-availability-changes.md).  

@@ -1,7 +1,6 @@
 
 
 # Error handling
-<a name="error-handling"></a>
 
  This section describes runtime errors and how to handle them. It also describes error messages and codes that are specific to Amazon Rekognition.
 
@@ -159,7 +158,7 @@ You should also see a `Request ID` in the response. The `Request ID` can be help
 
 The following Java code snippet attempts to detect objects in an image and performs rudimentary error handling. (In this case, it informs the user that the request failed.) 
 
-```
+```java
 try {
     DetectLabelsResult result = rekognitionClient.detectLabels(request);
     List <Label> labels = result.getLabels();

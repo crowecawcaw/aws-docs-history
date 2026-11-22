@@ -1,7 +1,6 @@
 
 
 # Examples of Amazon Rekognition resource-based policy
-<a name="security_iam_resource-based-policy-examples"></a>
 
 Amazon Rekognition Custom Labels uses resource-based polices, known as *project policies*, to manage copy permissions for a model version. 
 
@@ -17,7 +16,7 @@ The following example allows the principal `arn:aws:iam::123456789012:role/Admin
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[

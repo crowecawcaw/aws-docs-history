@@ -1,7 +1,6 @@
 
 
 # Bulk analysis and verification
-<a name="adapters-bulk-analysis"></a>
 
 With this approach, you upload a large number of images you want to use as training data and then use Rekognition to get predictions for these images, which automatically assigns labels to them. You can use these predictions as a starting point for your adapter. You can verify the accuracy of the predictions, and then train the adapter based on the verified predictions. This can be done with the AWS console.
 
@@ -9,7 +8,7 @@ With this approach, you upload a large number of images you want to use as train
 
  The following video demonstrates how to use Rekognition's Bulk Analysis capability to obtain and verify predictions for a large number of images, and then train an adapter with those predictions. 
 
-[![AWS Videos](https://img.youtube.com/vi/IGGMHPnPZLs?si=5eoidzFPbL6i5FfY/0.jpg)](https://www.youtube.com/watch?v=IGGMHPnPZLs?si=5eoidzFPbL6i5FfY)
+[![AWS Videos](https://img.youtube.com/vi/IGGMHPnPZLs/0.jpg)](https://www.youtube.com/watch?v=IGGMHPnPZLs)
 
 
 ## Upload images for bulk analysis

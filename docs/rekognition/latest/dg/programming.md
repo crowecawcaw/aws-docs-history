@@ -1,7 +1,6 @@
 
 
 # Working with images and videos
-<a name="programming"></a>
 
 You can use Amazon Rekognition API operations with three different types of media: images, stored videos, and streaming videos. This section provides general information about writing code that accesses Amazon Rekognition to process the different types of media. For guidance on best practices and considerations, see the respective sections listed below, depending on the type of media you're processing.
 

@@ -1,7 +1,6 @@
 
 
 # Manifest file formats
-<a name="using-adapters-manifest-files"></a>
 
 The following sections show samples of the manifest file formats for input, output, and evaluation files.
 

@@ -1,7 +1,6 @@
 
 
 # How Amazon Rekognition works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Amazon Rekognition, you should understand what IAM features are available to use with Amazon Rekognition. To get a high-level view of how Amazon Rekognition and other AWS services work with IAM, see [AWS Services That Work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
@@ -96,7 +95,7 @@ To access images stored in an Amazon S3 bucket, you must have permission to acce
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -120,7 +119,7 @@ To use an S3 bucket with versioning enabled, add the `s3:GetObjectVersion` actio
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -187,7 +186,7 @@ The following is an example of how you might configure Amazon Rekognition for an
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -214,7 +213,7 @@ The following is an example of how you might configure Amazon Rekognition for an
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -238,7 +237,7 @@ The following is an example of how you might configure Amazon Rekognition for an
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

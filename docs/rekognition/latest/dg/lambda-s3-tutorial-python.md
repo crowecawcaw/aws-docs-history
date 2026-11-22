@@ -1,7 +1,6 @@
 
 
 # Detecting Labels in an Image Using Lambda and Python
-<a name="lambda-s3-tutorial-python"></a>
 
  AWS Lambda is a compute service that you can use to run code without provisioning or managing servers. You can call Rekognition API operations from within an Lambda function. The following instructions show how to create a Lambda function in Python that calls `DetectLabels`. 
 
@@ -45,7 +44,7 @@ If you are using documents stored in an Amazon S3 bucket, this step also demonst
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -76,7 +75,7 @@ If you are using documents stored in an Amazon S3 bucket, this step also demonst
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -163,7 +162,7 @@ The document you provide to the `DetectLabels` operation can be located in an Am
 
 1. In the code editor, replace the code in **lambda\_function.py** with the following code: 
 
-   ```
+   ```python
    import boto3
    import logging
    from botocore.exceptions import ClientError
@@ -274,7 +273,7 @@ For more information about invoking a Lambda function from your code, see [Invok
 
 1. Save the following code to a file named `client.py`: 
 
-   ```
+   ```python
    import boto3
    import json
    import base64

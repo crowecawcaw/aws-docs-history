@@ -1,7 +1,6 @@
 
 
 # Recognizing celebrities in an image
-<a name="celebrities-procedure-image"></a>
 
 To recognize celebrities within images and get additional information about recognized celebrities, use the [RecognizeCelebrities](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_RecognizeCelebrities.html) non-storage API operation. For example, in social media or news and entertainment industries where information gathering can be time critical, you can use the `RecognizeCelebrities` operation to identify as many as 64 celebrities in an image, and return links to celebrity webpages, if they're available. Amazon Rekognition doesn't remember which image it detected a celebrity in. Your application must store this information. 
 
@@ -33,7 +32,7 @@ To run this procedure, you need an image file that contains one or more celebrit
 
    Change the value of `photo` to the path and file name of an image file that contains one or more celebrity faces.
 
-   ```
+   ```java
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -106,7 +105,7 @@ To run this procedure, you need an image file that contains one or more celebrit
 
    This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/RecognizeCelebrities.java).
 
-   ```
+   ```java
    //snippet-start:[rekognition.java2.recognize_celebs.import]
    import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
    import software.amazon.awssdk.regions.Region;
@@ -225,7 +224,7 @@ To run this procedure, you need an image file that contains one or more celebrit
 
    Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile.
 
-   ```
+   ```python
    #Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    #PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -270,7 +269,7 @@ To run this procedure, you need an image file that contains one or more celebrit
 
    Change the value of `photo` to the path and file name of an image file that contains one or more celebrity faces. Change the value of `amzn-s3-demo-bucket` to the name of the S3 bucket containing the provided image file. Change the value of `REGION` to the name of the region associated with your user. Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile. 
 
-   ```
+   ```javascript
    // Import required AWS SDK clients and commands for Node.js
    import { RecognizeCelebritiesCommand } from  "@aws-sdk/client-rekognition";
    import  { RekognitionClient } from "@aws-sdk/client-rekognition";
@@ -327,7 +326,7 @@ To run this procedure, you need an image file that contains one or more celebrit
 
    Change the value of `photo` to the path and file name of an image file that contains one or more celebrity faces (.jpg or .png format).
 
-   ```
+   ```cs
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    

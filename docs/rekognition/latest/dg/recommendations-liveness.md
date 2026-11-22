@@ -1,7 +1,6 @@
 
 
 # Recommendations for Usage of Face Liveness
-<a name="recommendations-liveness"></a>
 
 We recommend the following best practices when using Rekognition Face Liveness:
 + Users should complete the Face Liveness check in environments that aren’t too dark or too bright and have fairly uniform lighting. 

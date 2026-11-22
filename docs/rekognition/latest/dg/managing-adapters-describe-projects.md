@@ -1,7 +1,6 @@
 
 
 # Describing projects
-<a name="managing-adapters-describe-projects"></a>
 
 You can use the [DescribeProjects](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjects.html) API to get information about your projects, including information about all the adapters associated with a project. 
 
@@ -14,7 +13,7 @@ To describe projects with the AWS CLI and SDK:
 ------
 #### [ CLI ]
 
-```
+```bash
 # Request
 # Getting CONTENT_MODERATION project details 
 aws rekognition describe-projects \

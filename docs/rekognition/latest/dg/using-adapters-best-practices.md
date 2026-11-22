@@ -1,7 +1,6 @@
 
 
 # Best practices for training adapters
-<a name="using-adapters-best-practices"></a>
 
 It's suggested you abide by the dollowing best practices when creating, training, and using your adapters:
 

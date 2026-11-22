@@ -1,7 +1,6 @@
 
 
 # Exercise 1: Detect objects and scenes (Console)
-<a name="detect-labels-console"></a>
 
 This section shows how, at a very high level, Amazon Rekognition's objects and scenes detection capability works. When you specify an image as input, the service detects the objects and scenes in the image and returns them along with a percent confidence score for each object and scene.
 

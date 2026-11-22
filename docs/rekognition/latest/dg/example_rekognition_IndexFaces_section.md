@@ -1,7 +1,6 @@
 
 
 # Use `IndexFaces` with an AWS SDK or CLI
-<a name="example_rekognition_IndexFaces_section"></a>
 
 The following code examples show how to use `IndexFaces`.
 
@@ -13,7 +12,7 @@ For more information, see [Adding faces to a collection](https://docs.aws.amazon
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples). 
 
-```
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -309,7 +308,7 @@ For more information, see [Adding Faces to a Collection](https://docs.aws.amazon
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.rekognition.RekognitionClient;
 import software.amazon.awssdk.services.rekognition.model.*;
@@ -413,7 +412,7 @@ public class AddFacesToCollection {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples). 
 
-```
+```kotlin
 suspend fun addToCollection(
     collectionIdVal: String?,
     sourceImage: String,
@@ -463,7 +462,7 @@ suspend fun addToCollection(
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples). 
 
-```
+```python
 class RekognitionCollection:
     """
     Encapsulates an Amazon Rekognition collection. This class is a thin wrapper
@@ -546,7 +545,7 @@ class RekognitionCollection:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples). 
 
-```
+```sap-abap
     TRY.
         " Create S3 object reference for the image
         DATA(lo_s3object) = NEW /aws1/cl_reks3object(

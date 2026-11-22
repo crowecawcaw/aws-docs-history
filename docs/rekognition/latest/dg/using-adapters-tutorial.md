@@ -1,7 +1,6 @@
 
 
 # Custom Moderation adapter tutorial
-<a name="using-adapters-tutorial"></a>
 
 This tutorial shows you how to create, train, evaluate, use, and manage adapters using the Rekognition Console. To create, use, and manage adapters with the AWS SDK, see [Managing adapters with the AWS CLI and SDKs](managing-adapters.md).
 

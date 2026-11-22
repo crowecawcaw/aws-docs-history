@@ -1,7 +1,6 @@
 
 
 # Use `DeleteFaces` with an AWS SDK or CLI
-<a name="example_rekognition_DeleteFaces_section"></a>
 
 The following code examples show how to use `DeleteFaces`.
 
@@ -13,7 +12,7 @@ For more information, see [Deleting faces from a collection](https://docs.aws.am
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples). 
 
-```
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -79,7 +78,7 @@ For more information, see [Deleting Faces from a Collection](https://docs.aws.am
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.rekognition.RekognitionClient;
 import software.amazon.awssdk.services.rekognition.model.DeleteFacesRequest;
@@ -156,7 +155,7 @@ public class DeleteFacesFromCollection {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples). 
 
-```
+```kotlin
 suspend fun deleteFacesCollection(
     collectionIdVal: String?,
     faceIdVal: String,
@@ -181,7 +180,7 @@ suspend fun deleteFacesCollection(
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples). 
 
-```
+```python
 class RekognitionCollection:
     """
     Encapsulates an Amazon Rekognition collection. This class is a thin wrapper
@@ -247,7 +246,7 @@ class RekognitionCollection:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_rek->deletefaces(
           iv_collectionid = iv_collection_id

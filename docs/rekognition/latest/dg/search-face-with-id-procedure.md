@@ -1,7 +1,6 @@
 
 
 # Searching for a face with a face ID
-<a name="search-face-with-id-procedure"></a>
 
 You can use the [SearchFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFaces.html) operation to search for users in a collection that match the largest face in a supplied image.
 
@@ -26,7 +25,7 @@ The face ID is returned in the [IndexFaces](https://docs.aws.amazon.com/rekognit
 
    Change the value of `collectionID` to the collection that contains the required face. Change the value of `faceId` to the identifier of the face you want to find.
 
-   ```
+   ```java
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -80,7 +79,7 @@ The face ID is returned in the [IndexFaces](https://docs.aws.amazon.com/rekognit
 
    This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/SearchFaceMatchingIdCollection.java).
 
-   ```
+   ```java
    // snippet-start:[rekognition.java2.match_faces_collection.import]
    import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
    import software.amazon.awssdk.regions.Region;
@@ -172,7 +171,7 @@ The face ID is returned in the [IndexFaces](https://docs.aws.amazon.com/rekognit
 
    Change the value of `collectionID` to the collection that contains the required face. Change the value of `faceId` to the identifier of the face you want to find. Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile. 
 
-   ```
+   ```python
    # Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -219,7 +218,7 @@ The face ID is returned in the [IndexFaces](https://docs.aws.amazon.com/rekognit
 
    Change the value of `collectionID` to the collection that contains the required face. Change the value of `faceId` to the identifier of the face that you want to find.
 
-   ```
+   ```cs
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    

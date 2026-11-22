@@ -1,7 +1,6 @@
 
 
 # Recommendations for camera setup (image and video)
-<a name="recommendations-camera-image-video"></a>
 
 The following recommendations are in addition to [Recommendations for facial comparison input images](recommendations-facial-input-images.md). 
 

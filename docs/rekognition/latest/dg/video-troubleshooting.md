@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon Rekognition Video
-<a name="video-troubleshooting"></a>
 
 The following covers troubleshooting information for working with Amazon Rekognition Video and stored videos.
 

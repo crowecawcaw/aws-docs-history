@@ -1,7 +1,6 @@
 
 
 # Listing users in a collection
-<a name="list-users"></a>
 
 You can use the [ListUsers](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListUsers.html) operation to list UserIds and the UserStatus. To see the FaceIDs that are associated with a UserID, use the [ListFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html) operation.
 
@@ -20,7 +19,7 @@ You can use the [ListUsers](https://docs.aws.amazon.com/rekognition/latest/APIRe
 
    This Java example lists the users in a collection using the `ListUsers` operation.
 
-   ```
+   ```java
    import java.util.List;
    import com.amazonaws.services.rekognition.AmazonRekognition;
    import com.amazonaws.services.rekognition.AmazonRekognitionClientBuilder;
@@ -73,7 +72,7 @@ You can use the [ListUsers](https://docs.aws.amazon.com/rekognition/latest/APIRe
 
    The following example lists the users in a collection with the `ListUsers` operation.
 
-   ```
+   ```python
    # Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    

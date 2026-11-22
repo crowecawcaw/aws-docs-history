@@ -1,7 +1,6 @@
 
 
 # Displaying Rekognition results with Kinesis Video Streams locally
-<a name="displaying-rekognition-results-locally"></a>
 
 **Note**  
 Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see [Amazon Rekognition feature availability changes](rekognition-availability-changes.md).  

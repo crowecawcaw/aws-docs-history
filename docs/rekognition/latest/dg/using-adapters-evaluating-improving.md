@@ -1,7 +1,6 @@
 
 
 # Evaluating and improving your adapter
-<a name="using-adapters-evaluating-improving"></a>
 
 After every round of adapter training, you’ll want to review the performance metrics in the Rekognition Console tool to determine how close the adapter is to your desired level of performance. You can then further improve your adapter’s accuracy for your images by uploading a new batch of training images and training a new adapter inside your project. Once you have created an improved version of the adapter, you can use the console to delete any older versions of the adapter that you no longer need. 
 

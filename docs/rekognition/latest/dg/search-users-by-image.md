@@ -1,7 +1,6 @@
 
 
 # Searching for users (image)
-<a name="search-users-by-image"></a>
 
 `SearchUsersByImage`searches the specified CollectionID for users in a collection that match the largest face detected in a supplied image. By default, SearchUsersByImage returns UserIDs for which the similarity score is greater than 80%. The similarity indicates how closely the UserID matches the largest face detected in the supplied image. If multiple UserIDs are returned, they are listed in order of highest similarity score to lowest. Optionally, you can use the UserMatchThreshold to specify a different value. For more information, see [Managing users in a collection](managing-face-collections.md#collections-manage-users). 
 
@@ -22,7 +21,7 @@
 
    This Java example searchers the users in a collection based off an inpute image, using the `SearchUsersByImage` operation.
 
-   ```
+   ```java
    import com.amazonaws.services.rekognition.AmazonRekognition;
    import com.amazonaws.services.rekognition.AmazonRekognitionClientBuilder;
    import com.amazonaws.services.rekognition.model.Image;
@@ -81,7 +80,7 @@
 
    The following example searches the users in a collection based on an input image, with the `SearchUsersByImage` operation.
 
-   ```
+   ```python
    # Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    

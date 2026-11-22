@@ -1,7 +1,6 @@
 
 
 # Detecting personal protective equipment
-<a name="ppe-detection"></a>
 
 Amazon Rekognition can detect Personal Protective Equipment (PPE) worn by persons in an image. You can use this information to improve workplace safety practices. For example, you can use PPE detection to help determine if workers on a construction site are wearing head covers, or if medical workers are wearing face covers and hand covers. The following image shows some of the types of PPE that can detected.
 

@@ -1,7 +1,6 @@
 
 
 # Working with images
-<a name="images"></a>
 
 This section covers the types of analysis that Amazon Rekognition Image can perform on images. 
 + [Object and scene detection](labels.md)

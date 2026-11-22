@@ -1,7 +1,6 @@
 
 
 # Guidelines on face attributes
-<a name="guidance-face-attributes"></a>
 
 Here are specifics regarding how Amazon Rekognition processes and returns face attributes.
 + **FaceDetail Object**: For each detected face, a FaceDetail object is returned. This FaceDetail contains data on face landmarks, quality, pose, and more.

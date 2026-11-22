@@ -1,7 +1,6 @@
 
 
 # Recommendations for camera setup (streaming video)
-<a name="recommendations-camera-streaming-video"></a>
 
 
 

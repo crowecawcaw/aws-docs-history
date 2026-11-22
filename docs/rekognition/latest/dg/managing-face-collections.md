@@ -1,7 +1,6 @@
 
 
 # Managing face collections, faces, and users
-<a name="managing-face-collections"></a>
 
  The face collection is the resource used by Amazon Rekognition for containing information related to faces and users. You use various Rekognition API operations to manage the collection itself, as well as any faces or face vectors stored in the collection. 
 

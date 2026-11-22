@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon Rekognition Video
-<a name="api-video-roles"></a>
 
 To use the Amazon Rekognition Video API with stored videos, you have to configure the user and an IAM service role to access your Amazon SNS topics. You also have to subscribe an Amazon SQS queue to your Amazon SNS topics. 
 

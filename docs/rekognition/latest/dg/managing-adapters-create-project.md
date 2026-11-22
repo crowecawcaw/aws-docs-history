@@ -1,7 +1,6 @@
 
 
 # Creating a project
-<a name="managing-adapters-create-project"></a>
 
 With the [CreateProject](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProject.html) operation you can create a project that will hold an adapter for Rekognition’s label detection operations. A project is a group of resources and in the case of label detection operations like DetectModerationLabels, a project allows you to store adapters that you can use to customize the base Rekognition model. When invoking CreateProject, you provide the name of the project you want to create to the ProjectName argument. 
 
@@ -27,7 +26,7 @@ To create a project with the AWS CLI and SDK:
 ------
 #### [ CLI ]
 
-```
+```bash
 # Request
 # Creating Content Moderation Project
 aws rekognition create-project \

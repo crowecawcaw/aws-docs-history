@@ -1,7 +1,6 @@
 
 
 # Detecting text in a stored video
-<a name="text-detecting-video-procedure"></a>
 
 Amazon Rekognition Video text detection in stored videos is an asynchronous operation. To start detecting text, call [StartTextDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartTextDetection.html). Amazon Rekognition Video publishes the completion status of the video analysis to an Amazon SNS topic. If the video analysis is successful, call [GetTextDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetTextDetection.html) to get the analysis results. For more information about starting video analysis and getting the results, see [Calling Amazon Rekognition Video operations](api-video.md).
 
@@ -16,7 +15,7 @@ This procedure expands on the code in [Analyzing a video stored in an Amazon S3 
 ------
 #### [ Java ]
 
-   ```
+   ```java
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -112,7 +111,7 @@ This procedure expands on the code in [Analyzing a video stored in an Amazon S3 
 
    This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/VideoDetectText.java).
 
-   ```
+   ```java
    //snippet-start:[rekognition.java2.recognize_video_text.import]
    import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
    import software.amazon.awssdk.regions.Region;
@@ -275,7 +274,7 @@ This procedure expands on the code in [Analyzing a video stored in an Amazon S3 
 ------
 #### [ Python ]
 
-   ```
+   ```python
    #Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    #PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    

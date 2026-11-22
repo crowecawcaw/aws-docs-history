@@ -1,7 +1,6 @@
 
 
 # Detecting inappropriate images
-<a name="procedure-moderate-images"></a>
 
 You can use the [DetectModerationLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectModerationLabels.html) operation to determine if an image contains inappropriate or offensive content. For a list of moderation labels in Amazon Rekognition, see [Using the image and video moderation APIs](https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api).
 
@@ -35,7 +34,7 @@ To run these procedures, you need to have the AWS CLI or the appropriate AWS SDK
 
    Replace the values of `amzn-s3-demo-bucket` and `photo` with the S3 bucket name and the image file name that you used in step 2.
 
-   ```
+   ```java
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -88,7 +87,7 @@ To run these procedures, you need to have the AWS CLI or the appropriate AWS SDK
 
    This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/DetectModerationLabels.java).
 
-   ```
+   ```java
    //snippet-start:[rekognition.java2.recognize_video_text.import]
    //snippet-start:[rekognition.java2.detect_mod_labels.import]
    import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
@@ -199,7 +198,7 @@ To run these procedures, you need to have the AWS CLI or the appropriate AWS SDK
 
    In the function `main`, replace the values of `amzn-s3-demo-bucket` and `photo` with the S3 bucket name and the image file name that you used in step 2. Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile.
 
-   ```
+   ```python
    #Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    #PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -236,7 +235,7 @@ To run these procedures, you need to have the AWS CLI or the appropriate AWS SDK
 
    Replace the values of `amzn-s3-demo-bucket` and `photo` with the S3 bucket name and the image file name that you used in step 2.
 
-   ```
+   ```cs
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    

@@ -1,7 +1,6 @@
 
 
 # Architecture and Sequence Diagrams
-<a name="face-liveness-diagrams"></a>
 
  The following diagrams detail how Amazon Rekognition Face Liveness operates regarding the feature's architecture and sequence of operations: 
 

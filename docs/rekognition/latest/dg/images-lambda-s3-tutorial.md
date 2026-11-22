@@ -1,7 +1,6 @@
 
 
 # Using Amazon Rekognition and Lambda to tag assets in an Amazon S3 bucket
-<a name="images-lambda-s3-tutorial"></a>
 
 In this tutorial, you create an AWS Lambda function that automatically tags digital assets located in an Amazon S3 bucket. The Lambda function reads all objects in a given Amazon S3 bucket. For each object in the bucket, it passes the image to the Amazon Rekognition service to geneate a series of labels. Each label is used to create a tag that is applied to the image. After you execute the Lambda function, it automatically creates tags based on all images in a given Amazon S3 bucket and applies them to the images.
 
@@ -77,7 +76,7 @@ This tutorial uses the Amazon Rekognition and Amazon S3 services. Configure the 
 
 Create a new Java project, then configure the Maven pom.xml with the required settings and dependencies. Make sure your pom.xml file looks like the following:
 
-```
+```java
 <?xml version="1.0" encoding="UTF-8"?>
  <project xmlns="http://maven.apache.org/POM/4.0.0"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -217,7 +216,7 @@ This Java code represents the **Handler** class. The class reads a flag that is 
 **Note**  
 Make sure you assign your bucket name to the **bucketName** variable.
 
-```
+```java
 package com.example.tags;
 
 import com.amazonaws.services.lambda.runtime.Context;
@@ -275,7 +274,7 @@ public String handleRequest(Map<String, String> event, Context context) {
 
 The following class uses the Amazon S3 API to perform S3 operations. For example, the **getObjectBytes** method returns a byte array that represents the image. Likewise, the **listBucketObjects** method returns a **List** object where each element is a string value that specifies the key name.
 
-```
+```java
  package com.example.tags;
 
  import software.amazon.awssdk.core.ResponseBytes;
@@ -462,7 +461,7 @@ The following class uses the Amazon S3 API to perform S3 operations. For example
 
 The following Java code represents the **AnalyzePhotos** class. This class uses the Amazon Rekognition API to analyze the images.
 
-```
+```java
 package com.example.tags;
 
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
@@ -531,7 +530,7 @@ public class AnalyzePhotos {
 
 The following Java code represents the **BucketItem** class that stores Amazon S3 object data.
 
-```
+```java
 package com.example.tags;
 
 public class BucketItem {
@@ -581,7 +580,7 @@ public class BucketItem {
 
 The following Java code represents the **WorkItem** class.
 
-```
+```java
  package com.example.tags;
 
  public class WorkItem {

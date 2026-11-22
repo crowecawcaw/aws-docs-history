@@ -1,7 +1,6 @@
 
 
 # Analyzing images stored in an Amazon S3 bucket
-<a name="images-s3"></a>
 
 Amazon Rekognition Image can analyze images that are stored in an Amazon S3 bucket or images that are supplied as image bytes.
 
@@ -46,7 +45,7 @@ The following examples use various AWS SDKs and the AWS CLI to call `DetectLabel
 
    This example displays a list of labels that were detected in the input image. Replace the values of `bucket` and `photo` with the names of the Amazon S3 bucket and image that you used in step 2. 
 
-   ```
+   ```java
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -117,7 +116,7 @@ The following examples use various AWS SDKs and the AWS CLI to call `DetectLabel
 
    This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/DetectLabelsS3.java).
 
-   ```
+   ```java
    //snippet-start:[rekognition.java2.detect_labels.import]
    import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
    import software.amazon.awssdk.regions.Region;
@@ -204,7 +203,7 @@ The following examples use various AWS SDKs and the AWS CLI to call `DetectLabel
 
    This example displays the labels that were detected in the input image. Replace the values of `bucket` and `photo` with the names of the Amazon S3 bucket and image that you used in Step 2. Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile.
 
-   ```
+   ```python
    #Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    #PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -283,7 +282,7 @@ The following examples use various AWS SDKs and the AWS CLI to call `DetectLabel
 
    Change the value of `photo` to the path and file name of an image file that contains one or more celebrity faces. Change the value of `bucket` to the name of the S3 bucket containing the provided image file. Change the value of `REGION` to the name of the region associated with your account. Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile. 
 
-   ```
+   ```javascript
    // Import required AWS SDK clients and commands for Node.js
    import { DetectLabelsCommand } from  "@aws-sdk/client-rekognition";
    import  { RekognitionClient } from "@aws-sdk/client-rekognition";
@@ -345,7 +344,7 @@ The following examples use various AWS SDKs and the AWS CLI to call `DetectLabel
 
    This example displays a list of labels that were detected in the input image. Replace the values of `bucket` and `photo` with the names of the Amazon S3 bucket and image that you used in Step 2. 
 
-   ```
+   ```cs
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -396,7 +395,7 @@ The following examples use various AWS SDKs and the AWS CLI to call `DetectLabel
 
    This example displays a list of labels that were detected in the input image. Replace the values of `bucket` and `photo` with the names of the Amazon S3 bucket and image that you used in Step 2. 
 
-   ```
+   ```ruby
       # Add to your Gemfile
       # gem 'aws-sdk-rekognition'
       require 'aws-sdk-rekognition'

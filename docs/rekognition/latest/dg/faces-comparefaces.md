@@ -1,7 +1,6 @@
 
 
 # Comparing faces in images
-<a name="faces-comparefaces"></a>
 
 With Rekognition you can compare faces between two images using the [CompareFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CompareFaces.html) operation. This feature is useful for applications like identity verification or photo matching.
 
@@ -41,7 +40,7 @@ The following code examples demonstrate how to use the CompareFaces operations f
 
    Replace the values of `sourceImage` and `targetImage` with the path and file name of the source and target images.
 
-   ```
+   ```java
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -128,7 +127,7 @@ The following code examples demonstrate how to use the CompareFaces operations f
 
    This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/CompareFaces.java).
 
-   ```
+   ```java
    import java.util.List;
    
    import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
@@ -261,7 +260,7 @@ The following code examples demonstrate how to use the CompareFaces operations f
 
    Replace the values of `source_file` and `target_file` with the path and file name of the source and target images. Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile. 
 
-   ```
+   ```python
    # Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -308,7 +307,7 @@ The following code examples demonstrate how to use the CompareFaces operations f
 
    Replace the values of `sourceImage` and `targetImage` with the path and file name of the source and target images.
 
-   ```
+   ```cs
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -394,7 +393,7 @@ The following code examples demonstrate how to use the CompareFaces operations f
 
    Replace the values of `photo_source` and `photo_target` with the path and file name of the source and target images.
 
-   ```
+   ```ruby
      # Add to your Gemfile
       # gem 'aws-sdk-rekognition'
       require 'aws-sdk-rekognition'
@@ -436,7 +435,7 @@ The following code examples demonstrate how to use the CompareFaces operations f
 
    Replace the values of `photo_source` and `photo_target` with the path and file name of the source and target images. Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile. 
 
-   ```
+   ```javascript
    // Load the SDK
    var AWS = require('aws-sdk');
    const bucket = 'bucket-name' // the bucket name without s3://

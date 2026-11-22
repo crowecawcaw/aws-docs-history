@@ -1,7 +1,6 @@
 
 
 # Detecting objects and concepts
-<a name="labels"></a>
 
 This section provides information for detecting labels in images and videos with Amazon Rekognition Image and Amazon Rekognition Video. 
 

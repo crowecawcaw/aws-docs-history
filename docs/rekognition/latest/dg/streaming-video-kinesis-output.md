@@ -1,7 +1,6 @@
 
 
 # Reading streaming video analysis results
-<a name="streaming-video-kinesis-output"></a>
 
 **Note**  
 Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see [Amazon Rekognition feature availability changes](rekognition-availability-changes.md).  

@@ -1,7 +1,6 @@
 
 
 # Describing a collection
-<a name="describe-collection-procedure"></a>
 
 You can use the [DescribeCollection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeCollection.html) operation to get the following information about a collection: 
 + The number of faces that are indexed into the collection.
@@ -26,7 +25,7 @@ You can use the [DescribeCollection](https://docs.aws.amazon.com/rekognition/lat
 
    Change the value `collectionId` to the ID of the desired collection.
 
-   ```
+   ```java
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -74,7 +73,7 @@ You can use the [DescribeCollection](https://docs.aws.amazon.com/rekognition/lat
 
    This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/DescribeCollection.java).
 
-   ```
+   ```java
    import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
    import software.amazon.awssdk.regions.Region;
    import software.amazon.awssdk.services.rekognition.RekognitionClient;
@@ -153,7 +152,7 @@ You can use the [DescribeCollection](https://docs.aws.amazon.com/rekognition/lat
 
    Change the value `collection_id` to the ID of the desired collection. Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile. 
 
-   ```
+   ```python
    # Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -196,7 +195,7 @@ You can use the [DescribeCollection](https://docs.aws.amazon.com/rekognition/lat
 
    Change the value `collectionId` to the ID of the desired collection.
 
-   ```
+   ```cs
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -230,7 +229,7 @@ You can use the [DescribeCollection](https://docs.aws.amazon.com/rekognition/lat
 ------
 #### [ Node.js ]
 
-   ```
+   ```javascript
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    

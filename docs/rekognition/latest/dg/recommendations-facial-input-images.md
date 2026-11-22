@@ -1,7 +1,6 @@
 
 
 # Recommendations for facial comparison input images
-<a name="recommendations-facial-input-images"></a>
 
 The models used for face comparison operations are designed to work for a wide variety of poses, facial expressions, age ranges, rotations, lighting conditions, and sizes. We recommend that you use the following guidelines when choosing reference photos for [CompareFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CompareFaces.html) or for adding faces to a collection using [IndexFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_IndexFaces.html).
 

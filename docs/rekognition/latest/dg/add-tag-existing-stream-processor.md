@@ -1,7 +1,6 @@
 
 
 # Add tags to an existing stream processor
-<a name="add-tag-existing-stream-processor"></a>
 
 **Note**  
 Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see [Amazon Rekognition feature availability changes](rekognition-availability-changes.md).  

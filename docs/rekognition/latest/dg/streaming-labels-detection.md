@@ -1,7 +1,6 @@
 
 
 # Calling label detection operations for streaming video events
-<a name="streaming-labels-detection"></a>
 
 **Note**  
 Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see [Amazon Rekognition feature availability changes](rekognition-availability-changes.md).  

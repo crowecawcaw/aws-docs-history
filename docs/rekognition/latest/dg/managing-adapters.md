@@ -1,7 +1,6 @@
 
 
 # Managing adapters with the AWS CLI and SDKs
-<a name="managing-adapters"></a>
 
  Rekognition lets you make use of multiple features that leverage pre-trained computer vision models. With these models you can carry out tasks like label detection and content moderation. You can also customize these certain models using an adapter. 
 

@@ -1,7 +1,6 @@
 
 
 # Detecting labels in an image
-<a name="labels-detect-labels-image"></a>
 
 You can use the [DetectLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectLabels.html) operation to detect labels (objects and concepts) in an image and retrieve information about an image’s properties. Image properties include attributes like the color of the foreground and background and the image's sharpness, brightness, and contrast. You can retrieve just the labels in an image, just the properties of the image, or both. For an example, see [Analyzing images stored in an Amazon S3 bucket](images-s3.md).
 
@@ -26,7 +25,7 @@ The following examples use various AWS SDKs and the AWS CLI to call `DetectLabel
 
    This example displays a list of labels that were detected in the input image. Replace the values of `bucket` and `photo` with the names of the Amazon S3 bucket and image that you used in step 2. 
 
-   ```
+   ```java
    package com.amazonaws.samples;
    import java.util.List;
    
@@ -119,7 +118,7 @@ The following examples use various AWS SDKs and the AWS CLI to call `DetectLabel
 
    This example displays the labels that were detected in the input image. In the function `main`, replace the values of `bucket` and `photo` with the names of the Amazon S3 bucket and image that you used in Step 2. Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile. 
 
-   ```
+   ```python
    #Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    #PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -196,7 +195,7 @@ The following examples use various AWS SDKs and the AWS CLI to call `DetectLabel
 
    This example displays a list of labels that were detected in the input image. Replace the values of `bucket` and `photo` with the names of the Amazon S3 bucket and image that you used in Step 2. 
 
-   ```
+   ```cs
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -247,7 +246,7 @@ The following examples use various AWS SDKs and the AWS CLI to call `DetectLabel
 
    This example displays a list of labels that were detected in the input image. Replace the values of `bucket` and `photo` with the names of the Amazon S3 bucket and image that you used in Step 2. 
 
-   ```
+   ```ruby
       # Add to your Gemfile
       # gem 'aws-sdk-rekognition'
       require 'aws-sdk-rekognition'
@@ -298,7 +297,7 @@ The following examples use various AWS SDKs and the AWS CLI to call `DetectLabel
 
    If you are using TypeScript definitions, you may need to use `import AWS from 'aws-sdk'` instead of `const AWS = require('aws-sdk')`, in order to run the program with Node.js. You can consult the [AWS SDK for Javascript](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/) for more details. Depending on how you have your configurations set up, you also may need to specify your region with `AWS.config.update({region:{{region}}});`.
 
-   ```
+   ```javascript
                                    
    // Load the SDK
    var AWS = require('aws-sdk');
@@ -353,7 +352,7 @@ The following examples use various AWS SDKs and the AWS CLI to call `DetectLabel
 
    This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/DetectLabels.java).
 
-   ```
+   ```java
    //snippet-start:[rekognition.java2.detect_labels.import]
    import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
    import software.amazon.awssdk.regions.Region;
@@ -668,7 +667,7 @@ If needed, you can transform the current response to follow the format of the ol
 
 The following code sample demonstrates how to transform the current response from the DetectLabels API. In the code sample below, you can replace the value of {{EXAMPLE\_INFERENCE\_OUTPUT}} with the output of a DetectLabels operation you have run.
 
-```
+```python
 from copy import deepcopy
 
 LABEL_KEY = "Labels"

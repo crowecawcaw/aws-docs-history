@@ -1,7 +1,6 @@
 
 
 # People pathing
-<a name="persons"></a>
 
 **Note**  
 *End of support notice:* On October 31, 2025, AWS will discontinue support for Amazon Rekognition People Pathing. After October 31, 2025, you will no longer be able to use the Rekognition People Pathing capability. For more information, visit this [blog post](https://aws.amazon.com/blogs/machine-learning/transitioning-from-amazon-rekognition-people-pathing-exploring-other-alternatives/).
@@ -23,7 +22,7 @@ The following procedure shows how to track the path of people through a video st
 ------
 #### [ Java ]
 
-   ```
+   ```java
           //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
           //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -111,7 +110,7 @@ The following procedure shows how to track the path of people through a video st
 
    This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/VideoPersonDetection.java).
 
-   ```
+   ```java
    import software.amazon.awssdk.regions.Region;
    import software.amazon.awssdk.services.rekognition.RekognitionClient;
    import software.amazon.awssdk.services.rekognition.model.S3Object;
@@ -269,7 +268,7 @@ The following procedure shows how to track the path of people through a video st
 ------
 #### [ Python ]
 
-   ```
+   ```python
    #Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    #PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    

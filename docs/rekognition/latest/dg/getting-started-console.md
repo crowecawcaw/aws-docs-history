@@ -1,7 +1,6 @@
 
 
 # Step 4: Getting started using the Amazon Rekognition console
-<a name="getting-started-console"></a>
 
 The Amazon Rekognition console allows you to manage resources related to Rekognition Custom Labels and the Custom Moderation feature. The console only provides demos of other Rekognition features. 
 
@@ -34,7 +33,7 @@ This section also shows you how to see aggregated Amazon CloudWatch metrics for 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Calling the Face Liveness APIs
-<a name="face-liveness-calling-apis"></a>
 
 You can test Amazon Rekognition Face Liveness with any supported AWS SDK , like the [AWS Python SDK Boto3](https://docs.aws.amazon.com/pythonsdk/) or the [AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/welcome.html). You can call the `CreateFaceLivenessSession` and `GetFaceLivenessSessionResults` APIs with your chosen SDK. The following section demonstrates how to call these APIs with the Python and Java SDKs.
 
@@ -14,7 +13,7 @@ You can test Amazon Rekognition Face Liveness with any supported AWS SDK , like 
 
 The following snippet shows how you can call these APIs in your Python applications. Note that to run this example you will need to be using at least version 1.26.110 of the Boto3 SDK, although the most recent version of the SDK is recommended.
 
-```
+```python
 import boto3
 
 session = boto3.Session(profile_name='default') 
@@ -60,7 +59,7 @@ if __name__ == "__main__":
 
 The following snippet shows how you can call these APIs in your Java applications:
 
-```
+```java
 package aws.example.rekognition.liveness;
 
 import com.amazonaws.services.rekognition.AmazonRekognition;
@@ -123,7 +122,7 @@ public class DemoLivenessApplication {
 
 The following snippet demonstrates how to call the Face Liveness APIs with the AWS Java V2 SDK:
 
-```
+```java
 package aws.example.rekognition.liveness;
 
 import com.amazonaws.services.rekognition.AmazonRekognition;
@@ -186,7 +185,7 @@ public class DemoLivenessApplication {
 
 The following snippet demonstrates how to call the Face Liveness APIs with the AWS Node.Js SDK:
 
-```
+```java
 const Rekognition = require("aws-sdk/clients/rekognition");
 
 const rekognitionClient = new Rekognition({ region: "us-east-1" });
@@ -231,7 +230,7 @@ main();
 
 The following snippet demonstrates how to call the Face Liveness APIs with the AWS Node.Js SDK for Javascript v3:
 
-```
+```javascript
 import { RekognitionClient, CreateFaceLivenessSessionCommand } from "@aws-sdk/client-rekognition"; // ES Modules 
 import const { RekognitionClient, CreateFaceLivenessSessionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
 const client = new RekognitionClient(config);

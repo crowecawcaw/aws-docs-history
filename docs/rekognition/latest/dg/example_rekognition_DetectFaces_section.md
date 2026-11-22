@@ -1,7 +1,6 @@
 
 
 # Use `DetectFaces` with an AWS SDK or CLI
-<a name="example_rekognition_DetectFaces_section"></a>
 
 The following code examples show how to use `DetectFaces`.
 
@@ -13,7 +12,7 @@ For more information, see [Detecting faces in an image](https://docs.aws.amazon.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples). 
 
-```
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -77,7 +76,7 @@ For more information, see [Detecting faces in an image](https://docs.aws.amazon.
 ```
 Display bounding box information for all faces in an image.  
 
-```
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Drawing;
@@ -477,7 +476,7 @@ For more information, see [Detecting Faces in an Image](https://docs.aws.amazon.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.rekognition.RekognitionClient;
 import software.amazon.awssdk.services.rekognition.model.*;
@@ -568,7 +567,7 @@ public class DetectFaces {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples). 
 
-```
+```kotlin
 suspend fun detectFacesinImage(sourceImage: String?) {
     val souImage =
         Image {
@@ -599,7 +598,7 @@ suspend fun detectFacesinImage(sourceImage: String?) {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples). 
 
-```
+```python
 class RekognitionImage:
     """
     Encapsulates an Amazon Rekognition image. This class is a thin wrapper
@@ -646,7 +645,7 @@ class RekognitionImage:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples). 
 
-```
+```sap-abap
     TRY.
         " Create S3 object reference for the image
         DATA(lo_s3object) = NEW /aws1/cl_reks3object(

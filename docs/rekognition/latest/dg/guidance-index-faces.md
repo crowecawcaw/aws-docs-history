@@ -1,7 +1,6 @@
 
 
 # Guidance for indexing faces in common scenarios
-<a name="guidance-index-faces"></a>
 
 The following is guidance for using `IndexFaces` in common scenarios.
 

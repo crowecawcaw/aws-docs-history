@@ -1,7 +1,6 @@
 
 
 # Storing Amazon Rekognition Data with Amazon RDS and DynamoDB
-<a name="storage-tutorial"></a>
 
 When using Amazon Rekognition’s APIs, it’s important to remember that the API operations don’t save any of the generated labels. You can save these labels by placing them in database, along with identifiers for the respective images. 
 
@@ -45,7 +44,7 @@ Start by writing a function that will take the name of an image in your Amazon S
 
    In the following code, provide your region to the region\_name parameter. You will pass the Amazon S3 bucket name and the image name to [DetectLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectLabels.html) , which returns the labels for the corresponding image. After selecting just the labels from the response, both the name of the image and the labels are returned.
 
-   ```
+   ```python
    import boto3
    from io import BytesIO
    from matplotlib import pyplot as plt
@@ -89,7 +88,7 @@ Start by writing a function that will take the name of an image in your Amazon S
 
 The following code uses Boto3 to connect to DynamoDB and uses the DynamoDB `CreateTable` method to create a table named Images. The table has a composite primary key consisting of a partition key called Image and a sort key called Labels. The Image key contains the name of the image, while the Labels key stores the labels assigned to that Image. 
 
-```
+```python
 import boto3
 
 def create_new_table(dynamodb=None):
@@ -139,7 +138,7 @@ Now that the DynamoDB database has been created and you have a function to get l
 
 1. You’ll need to write the code for uploading the data to DynamoDB. A function called `get_image_names` is used to connect to your Amazon S3 bucket and it returns the names of all images in the bucket as a list. You’ll pass this list into the `read_image_from_S3` function, which is imported from the `get_images.py` file you created. 
 
-   ```
+   ```python
    import boto3
    import json
    from get_images import read_image_from_s3
@@ -158,7 +157,7 @@ Now that the DynamoDB database has been created and you have a function to get l
 
 1. The `read_image_from_S3` function we created earlier will return the name of the image being processed and the dictionary of labels associated with that image. A function called `find_values` is used to get just the labels from the response. The name of the image and its labels are then ready to be uploaded to your DynamoDB table.
 
-   ```
+   ```python
    def find_values(id, json_repr):
        results = []
    
@@ -175,7 +174,7 @@ Now that the DynamoDB database has been created and you have a function to get l
 
 1. You will use a third function, called `load_data`, to actually load the images and labels into the DynamoDB table you created.
 
-   ```
+   ```python
    def load_data(image_labels, dynamodb=None):
    
        if not dynamodb:
@@ -190,7 +189,7 @@ Now that the DynamoDB database has been created and you have a function to get l
 
 1. Here’s where the three functions we defined previously are called, and the operations are carried out. Add the three functions defined above, along with the code below, to a Python file. Run the code. 
 
-   ```
+   ```python
    bucket = "bucket_name"
    file_list = get_image_names(bucket)
    
@@ -221,7 +220,7 @@ The following code makes use of the [PyMySQL](https://pypi.org/project/PyMySQL/)
 
 1. In the following code, replace the value of host with your Amazon RDS host endpoint and replace the value of user with the master username associated with your Amazon RDS instance. You will also need to replace password with the master password for your main user.
 
-   ```
+   ```python
    import pymysql
    
    host = "host-endpoint"
@@ -231,7 +230,7 @@ The following code makes use of the [PyMySQL](https://pypi.org/project/PyMySQL/)
 
 1. Create a database and a table to insert your image and label data into. Do this by running and committing a creation query. The following code creates a database. Run this code only once.
 
-   ```
+   ```python
    conn = pymysql.connect(host=host, user=user, passwd=password)
    print(conn)
    cursor = conn.cursor()
@@ -246,7 +245,7 @@ The following code makes use of the [PyMySQL](https://pypi.org/project/PyMySQL/)
 
 1. Once the database has been created, you must create a table to insert your image names and labels into. To create a table, you will first pass the use SQL command, along with the name of your database, to the `execute` function. After the connection is made, a query to create a table is run. The following code connects to the database and then creates a table with both a primary key, called `image_id`, and a text attribute storing the labels. Use the imports and variables you defined earlier, and run this code to create a table in your database. 
 
-   ```
+   ```python
    # connect to existing DB
    cursor.execute("use rekogDB1")
    cursor.execute("CREATE TABLE IF NOT EXISTS test_table(image_id VARCHAR (255) PRIMARY KEY, image_labels TEXT)")
@@ -261,7 +260,7 @@ The following code makes use of the [PyMySQL](https://pypi.org/project/PyMySQL/)
 
 1. Connect to your Amazon S3 bucket and retrieve the names of all the images in the bucket. These image names will be passed into the `read_image_from_s3` function you created earlier to get the labels for all your images. The following code connects to your Amazon S3 bucket and returns a list of all the images in your bucket.
 
-   ```
+   ```python
    import pymysql
    from get_images import read_image_from_s3
    import json
@@ -288,7 +287,7 @@ The following code makes use of the [PyMySQL](https://pypi.org/project/PyMySQL/)
 
 1. The response from the [DetectLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectLabels.html) API contains more than just the labels, so write a function to extract only the label values. The following function returns a list full of just the labels.
 
-   ```
+   ```python
    def find_values(id, json_repr):
        results = []
    
@@ -305,7 +304,7 @@ The following code makes use of the [PyMySQL](https://pypi.org/project/PyMySQL/)
 
 1. You will need a function to insert the image names and labels into your table. The following function runs an insertion query and inserts any given pair of image name and labels.
 
-   ```
+   ```python
    def upload_data(image_id, image_labels):
    
        # insert into db
@@ -319,7 +318,7 @@ The following code makes use of the [PyMySQL](https://pypi.org/project/PyMySQL/)
 
 1. Finally, you must run the functions you defined above. In the following code, the names of all the images in your bucket are collected and provided to the function that calls [DetectLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectLabels.html). Afterward, the labels and the name of the image they apply to are uploaded to your Amazon RDS database. Copy the three functions defined above, along with the code below, into a Python file. Run the Python file.
 
-   ```
+   ```python
    bucket = "bucket-name"
    file_list = get_image_names(bucket)
    

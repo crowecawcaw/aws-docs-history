@@ -1,7 +1,6 @@
 
 
 # User-Side Face Liveness Requirements
-<a name="face-liveness-requirements"></a>
 
 Amazon Rekognition Face Liveness requires the following minimum specifications:
 

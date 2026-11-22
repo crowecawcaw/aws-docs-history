@@ -1,7 +1,6 @@
 
 
 # Best practices for sensors, input images, and videos
-<a name="best-practices"></a>
 
 This section contains best practice information for using Amazon Rekognition. These best practices will help you get optimal performance out of the operations you invoke. If you are struggling to get the expected results from an operation, ensure you are following the best practices documented here.
 

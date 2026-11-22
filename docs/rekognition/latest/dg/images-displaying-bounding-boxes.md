@@ -1,7 +1,6 @@
 
 
 # Displaying bounding boxes
-<a name="images-displaying-bounding-boxes"></a>
 
 Amazon Rekognition Image operations can return bounding boxes coordinates for items that are detected in images. For example, the [DetectFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectFaces.html) operation returns a bounding box ([BoundingBox](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_BoundingBox.html)) for each face detected in an image. You can use the bounding box coordinates to display a box around detected items. For example, the following image shows a bounding box surrounding a face.
 
@@ -62,7 +61,7 @@ The following examples show how to display a bounding box around faces that are 
 
    Change the value of `bucket` to the Amazon S3 bucket that contains the image file. Change the value of `photo` to the file name of an image file (.jpg or .png format).
 
-   ```
+   ```java
     
    //Loads images, detects faces and draws bounding boxes.Determines exif orientation, if necessary.
    package com.amazonaws.samples;
@@ -190,7 +189,7 @@ The following examples show how to display a bounding box around faces that are 
 
    Change the value of `bucket` to the Amazon S3 bucket that contains the image file. Change the value of `photo` to the file name of an image file (.jpg or .png format). Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile.
 
-   ```
+   ```python
    import boto3
    import io
    from PIL import Image, ImageDraw
@@ -266,7 +265,7 @@ The following examples show how to display a bounding box around faces that are 
 
    Note that `s3` refers to the AWS SDK Amazon Amazon S3 client and `rekClient` refers to the AWS SDK Amazon Rekognition client. 
 
-   ```
+   ```java
    //snippet-start:[rekognition.java2.detect_labels.import]
    import java.awt.*;
    import java.awt.image.BufferedImage;

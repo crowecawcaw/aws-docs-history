@@ -1,7 +1,6 @@
 
 
 # Celebrity recognition compared to face search
-<a name="celebrity-recognition-vs-face-search"></a>
 
 Amazon Rekognition offers both celebrity recognition and face recognition functionality. These functionalities have some key differences in their use cases and best practices. 
 

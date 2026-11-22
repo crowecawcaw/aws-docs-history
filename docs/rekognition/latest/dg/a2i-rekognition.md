@@ -1,7 +1,6 @@
 
 
 # Reviewing inappropriate content with Amazon Augmented AI
-<a name="a2i-rekognition"></a>
 
 Amazon Augmented AI (Amazon A2I) enables you to build the workflows that are required for human review of machine learning predictions.
 
@@ -37,7 +36,7 @@ Create all of your Amazon A2I resources and Amazon Rekognition resources in the 
 
    The following code example is a partial call of `CreateFlowDefinition`. It sends an image for human review if it's rated less than 98% on the label "Suggestive", and more than 95% on the label "Female Swimwear or Underwear". This means that if the image isn't considered suggestive but does have a woman in underwear or swimwear, you can double check the image by using human review.
 
-   ```
+   ```python
        def create_flow_definition():
        '''
        Creates a Flow Definition resource

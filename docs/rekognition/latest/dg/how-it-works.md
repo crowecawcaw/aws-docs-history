@@ -1,7 +1,6 @@
 
 
 # How Amazon Rekognition works
-<a name="how-it-works"></a>
 
 Amazon Rekognition provides two API sets for visual analysis:
 +  Amazon Rekognition Image for image analysis 

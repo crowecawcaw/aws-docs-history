@@ -1,7 +1,6 @@
 
 
 # Creating and using adapters
-<a name="creating-and-using-adapters"></a>
 
 Adapters are modular components that can be added to the existing Rekognition deep learning model, extending its capabilities for the tasks it’s trained on. By training a deep learning model with adapters, you can achieve better accuracy for image analysis tasks related to your specific use case. 
 

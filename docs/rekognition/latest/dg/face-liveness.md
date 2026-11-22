@@ -1,7 +1,6 @@
 
 
 # Detecting face liveness
-<a name="face-liveness"></a>
 
 Amazon Rekognition Face Liveness helps you verify that a user going through facial verification is physically present in front of a camera. It detects spoof attacks presented to a camera or trying to bypass a camera. Users can complete a Face Liveness check by taking a short video selfie where they follow a series of prompts intended to verify their presence.
 

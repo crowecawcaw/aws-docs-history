@@ -1,7 +1,6 @@
 
 
 # Enhancing accuracy with Custom Moderation
-<a name="moderation-custom-moderation"></a>
 
  Amazon Rekognition’s [DetectModerationLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectModerationLabels.html) API lets you detect content that is inappropriate, unwanted, or offensive. The Rekognition Custom Moderation feature allows you to enhance the accuracy of [DetectModerationLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectModerationLabels.html) by using adapters. Adapters are modular components that can be added to an existing Rekognition deep learning model, extending its capabilities for the tasks it’s trained on. By creating an adapter and providing it to the [DetectModerationLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectModerationLabels.html) operation, you can achieve better accuracy for the content moderation tasks related to your specific use case.
 

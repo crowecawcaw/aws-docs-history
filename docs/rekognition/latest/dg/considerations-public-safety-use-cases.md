@@ -1,7 +1,6 @@
 
 
 # Use cases that involve public safety
-<a name="considerations-public-safety-use-cases"></a>
 
  In addition to the recommendations listed in [Best practices for sensors, input images, and videos](best-practices.md) and [Guidance for indexing faces in common scenarios](guidance-index-faces.md), you should use the following best practices when deploying face detection and comparison systems in use cases that involve public safety. First, you should use confidence thresholds of 99% or higher to reduce errors and false positives. Second, you should involve human reviewers to verify results received from a face detection or comparison system, and you should not make decisions based on system output without additional human review. Face detection and comparison systems should serve as a tool to help narrow the field and allow humans to expeditiously review and consider options. Third, we recommend that you should be transparent about the use of face detection and comparison systems in these use cases, including, wherever possible, informing end users and subjects about the use of these systems, obtaining consent for such use, and providing a mechanism where end users and subjects can provide feedback to improve the system.
 

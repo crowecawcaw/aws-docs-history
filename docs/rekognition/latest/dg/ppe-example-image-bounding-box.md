@@ -1,7 +1,6 @@
 
 
 # Example: Drawing bounding boxes around face covers
-<a name="ppe-example-image-bounding-box"></a>
 
 The following examples shows you how to draw bounding boxes around face covers detected on persons. For an example that uses AWS Lambda and Amazon DynamoDB, see the [AWS Documentation SDK examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/usecases/creating_lambda_ppe). 
 
@@ -31,7 +30,7 @@ The image output is similar to the following.
    + The value of `photo` to path and file name of a local image file (PNG or JPEG).
    + The value of `confidence` to the desired confidence level (50-100).
 
-   ```
+   ```java
    //Loads images, detects faces and draws bounding boxes.Determines exif orientation, if necessary.
    package com.amazonaws.samples;
    
@@ -223,7 +222,7 @@ The image output is similar to the following.
 
    This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/PPEBoundingBoxFrame.java).
 
-   ```
+   ```java
    import java.awt.*;
    import java.awt.image.BufferedImage;
    import java.io.*;
@@ -437,7 +436,7 @@ The image output is similar to the following.
    + The value of `confidence` to the desired confidence level (50-100).
    +  Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile. 
 
-   ```
+   ```python
    #Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    #PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    

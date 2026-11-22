@@ -1,7 +1,6 @@
 
 
 # Understanding Rekognition's types of analysis
-<a name="how-it-works-types"></a>
 
 The following are the types of analysis that the Amazon Rekognition Image API and Amazon Rekognition Video API can perform. For information about the APIs, see [Understanding Rekognition's image and video operations](how-it-works-operations-intro.md).
 

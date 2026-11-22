@@ -1,7 +1,6 @@
 
 
 # Face Liveness Shared Responsibility Model
-<a name="face-liveness-shared-responsibility-model"></a>
 
  
 

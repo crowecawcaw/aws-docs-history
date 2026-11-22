@@ -1,7 +1,6 @@
 
 
 # Detecting video segments in stored video
-<a name="segments"></a>
 
 Amazon Rekognition Video provides an API that identifies useful segments of video, such as black frames and end credits. 
 

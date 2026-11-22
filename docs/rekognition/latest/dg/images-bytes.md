@@ -1,7 +1,6 @@
 
 
 # Analyzing an image loaded from a local file system
-<a name="images-bytes"></a>
 
 Amazon Rekognition Image operations can analyze images that are supplied as image bytes or images stored in an Amazon S3 bucket.
 
@@ -40,7 +39,7 @@ For a client-side JavaScript example, see [Using JavaScript](image-bytes-javascr
 
    The following Java example shows how to load an image from the local file system and detect labels by using the [detectLabels](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/rekognition/model/DetectLabelsRequest.html) AWS SDK operation. Change the value of `photo` to the path and file name of an image file (.jpg or .png format).
 
-   ```
+   ```java
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -102,7 +101,7 @@ For a client-side JavaScript example, see [Using JavaScript](image-bytes-javascr
 
    The following [AWS SDK for Python](https://aws.amazon.com/sdk-for-python/) example shows how to load an image from the local file system and call the [detect\_labels](https://docs.aws.amazon.com/boto3/latest/reference/services/rekognition.html#Rekognition.Client.detect_labels) operation. Change the value of `photo` to the path and file name of an image file (.jpg or .png format). 
 
-   ```
+   ```python
    #Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    #PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -138,7 +137,7 @@ For a client-side JavaScript example, see [Using JavaScript](image-bytes-javascr
 
    The following example shows how to load an image from the local file system and detect labels by using the `DetectLabels` operation. Change the value of `photo` to the path and file name of an image file (.jpg or .png format).
 
-   ```
+   ```cs
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -199,7 +198,7 @@ For a client-side JavaScript example, see [Using JavaScript](image-bytes-javascr
 
    The following [AWS SDK for PHP](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/welcome.html#getting-started) example shows how to load an image from the local file system and call the [DetectFaces](https://docs.aws.amazon.com/aws-sdk-php/v3/api/api-rekognition-2016-06-27.html#detectfaces) API operation. Change the value of `photo` to the path and file name of an image file (.jpg or .png format). 
 
-   ```
+   ```php
    
    <?php
    //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -252,7 +251,7 @@ For a client-side JavaScript example, see [Using JavaScript](image-bytes-javascr
 
    This example displays a list of labels that were detected in the input image. Change the value of `photo` to the path and file name of an image file (.jpg or .png format).
 
-   ```
+   ```ruby
    #Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    #PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -301,7 +300,7 @@ For a client-side JavaScript example, see [Using JavaScript](image-bytes-javascr
 
    This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/DetectLabels.java).
 
-   ```
+   ```java
    import software.amazon.awssdk.core.SdkBytes;
    import software.amazon.awssdk.regions.Region;
    import software.amazon.awssdk.services.rekognition.RekognitionClient;

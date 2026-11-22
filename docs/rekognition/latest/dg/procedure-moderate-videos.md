@@ -1,7 +1,6 @@
 
 
 # Detecting inappropriate stored videos
-<a name="procedure-moderate-videos"></a>
 
 Amazon Rekognition Video inappropriate or offensive content detection in stored videos is an asynchronous operation. To start detecting inappropriate or offensive content, call [StartContentModeration](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartContentModeration.html). Amazon Rekognition Video publishes the completion status of the video analysis to an Amazon Simple Notification Service topic. If the video analysis is successful, call [GetContentModeration](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetContentModeration.html) to get the analysis results. For more information about starting video analysis and getting the results, see [Calling Amazon Rekognition Video operations](api-video.md). For a list of moderation labels in Amazon Rekognition, see [Using the image and video moderation APIs](https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api).
 
@@ -16,7 +15,7 @@ Amazon Rekognition Video inappropriate or offensive content detection in stored 
 ------
 #### [ Java ]
 
-   ```
+   ```java
        //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
        //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    
@@ -107,7 +106,7 @@ Amazon Rekognition Video inappropriate or offensive content detection in stored 
 
    This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/VideoDetectInappropriate.java).
 
-   ```
+   ```java
    import software.amazon.awssdk.regions.Region;
    import software.amazon.awssdk.services.rekognition.RekognitionClient;
    import software.amazon.awssdk.services.rekognition.model.NotificationChannel;
@@ -265,7 +264,7 @@ Amazon Rekognition Video inappropriate or offensive content detection in stored 
 ------
 #### [ Python ]
 
-   ```
+   ```python
    #Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
    #PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
    

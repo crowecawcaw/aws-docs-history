@@ -1,7 +1,6 @@
 
 
 # Setting up AutoUpdate permissions
-<a name="using-adapters-autoupdate"></a>
 
 Rekognition supports the AutoUpdate feature for custom adapters. This means automated retraining is given a best effort attempt when AutoUpdate flag is ENABLED on a project. These automatic updateds requires permission to access your Training/Testing datasets and the AWS KMS key that you train your customer adapter with. You can provide these permissions by following below steps.
 
@@ -79,7 +78,7 @@ The following key policy allows Amazon Rekognition to access an Amazon KMS key d
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Creating a project version
-<a name="managing-adapters-create-project-version"></a>
 
 You can train an adapter for deployment by using the [CreateProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProjectVersion.html) operation. CreateProjectVersion first creates a new version of an adapter associated with a project and then begins training the adapter. The response from CreateProjectVersion is an Amazon Resource Name (ARN) for the version of the model. Training takes a while to complete. You can get the current status by calling DescribeProjectVersions. When training a model, Rekognition uses the training and test datasets associated with the project. You create datasets using the console. For more information, see the section on datasets. 
 
@@ -22,7 +21,7 @@ To create a project version with the AWS CLI and SDK:
 ------
 #### [ CLI ]
 
-```
+```bash
 # Request
 aws rekognition create-project-version \
  --project-arn {{project-arn}} \

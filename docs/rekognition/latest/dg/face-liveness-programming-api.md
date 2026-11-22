@@ -1,7 +1,6 @@
 
 
 # Programming the Amazon Rekognition Face Liveness APIs
-<a name="face-liveness-programming-api"></a>
 
 To use the Amazon Rekognition Face Liveness API, you must create a backend that carries out the following steps:
 

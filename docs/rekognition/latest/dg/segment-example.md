@@ -1,7 +1,6 @@
 
 
 # Example: Detecting segments in a stored video
-<a name="segment-example"></a>
 
 The following procedure shows how to detect technical cue segments and shot detection segments in a video stored in an Amazon S3 bucket. The procedure also shows how to filter detected segments based on the confidence that Amazon Rekognition Video has in the accuracy of the detection.
 
@@ -18,7 +17,7 @@ The example expands on the code in [Analyzing a video stored in an Amazon S3 buc
 
    1. Add the following imports.
 
-      ```
+      ```java
       import com.amazonaws.services.rekognition.model.GetSegmentDetectionRequest;
       import com.amazonaws.services.rekognition.model.GetSegmentDetectionResult;
       import com.amazonaws.services.rekognition.model.SegmentDetection;
@@ -36,7 +35,7 @@ The example expands on the code in [Analyzing a video stored in an Amazon S3 buc
 
    1. Add the following code to the class `VideoDetect`.
 
-      ```
+      ```java
           //Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
           //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
       
@@ -178,7 +177,7 @@ The example expands on the code in [Analyzing a video stored in an Amazon S3 buc
 ------
 #### [ Java V2 ]
 
-   ```
+   ```java
    //snippet-start:[rekognition.java2.recognize_video_text.import]
    import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
    import software.amazon.awssdk.regions.Region;
@@ -343,7 +342,7 @@ The example expands on the code in [Analyzing a video stored in an Amazon S3 buc
 
    1. Add the following code to the class `VideoDetect` that you created in step 1.
 
-      ```
+      ```python
       # Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
       # PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
       

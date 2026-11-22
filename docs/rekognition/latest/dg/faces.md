@@ -1,7 +1,6 @@
 
 
 # Detecting and analyzing faces
-<a name="faces"></a>
 
 Amazon Rekognition provides you with APIs you can use to detect and analyze faces in images and videos. This section provides an overview of the non-storage operations for facial analysis. These operations include functionalities like detecting facial landmarks, analyzing emotions, and comparing faces.
 

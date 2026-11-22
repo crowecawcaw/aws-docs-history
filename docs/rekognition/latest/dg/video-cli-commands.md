@@ -1,7 +1,6 @@
 
 
 # Analyzing a video with the AWS Command Line Interface
-<a name="video-cli-commands"></a>
 
 You can use the AWS Command Line Interface (AWS CLI) to call Amazon Rekognition Video operations. The design pattern is the same as using the Amazon Rekognition Video API with the AWS SDK for Java or other AWS SDKs. For more information, see [Amazon Rekognition Video API overview](video.md#video-api-overview). The following procedures show how to use the AWS CLI to detect labels in a video.
 

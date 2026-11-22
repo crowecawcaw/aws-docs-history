@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="face-liveness-prerequisites"></a>
 
  Prerequisites for using Amazon Rekognition Face Liveness include the following: 
 

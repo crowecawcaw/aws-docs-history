@@ -1,7 +1,6 @@
 
 
 # Setting up your Amazon Rekognition Video and Amazon Kinesis resources
-<a name="streaming-labels-setting-up"></a>
 
 **Note**  
 Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see [Amazon Rekognition feature availability changes](rekognition-availability-changes.md).  
@@ -93,7 +92,7 @@ Enter the following commands into the AWS CLI to set up an IAM role with the nec
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

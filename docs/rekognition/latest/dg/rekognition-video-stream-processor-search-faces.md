@@ -1,7 +1,6 @@
 
 
 # Searching faces in a streaming video
-<a name="rekognition-video-stream-processor-search-faces"></a>
 
 **Note**  
 Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see [Amazon Rekognition feature availability changes](rekognition-availability-changes.md).  
@@ -79,7 +78,7 @@ The following example code shows how to call various stream processor operations
 
 This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/CreateStreamProcessor.java).
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.rekognition.RekognitionClient;
 import software.amazon.awssdk.services.rekognition.model.CreateStreamProcessorRequest;
@@ -261,7 +260,7 @@ The following example code shows how to call various stream processor operations
 ### Starter class
 <a name="streaming-started"></a>
 
-```
+```java
 //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
 
@@ -307,7 +306,7 @@ public class Starter {
 ### StreamManager class
 <a name="streaming-manager"></a>
 
-```
+```java
 //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
 

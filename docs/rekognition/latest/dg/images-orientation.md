@@ -1,7 +1,6 @@
 
 
 # Getting image orientation and bounding box coordinates
-<a name="images-orientation"></a>
 
 Applications that use Amazon Rekognition Image commonly need to display the images that are detected by Amazon Rekognition Image operations and the boxes around detected faces. To display an image correctly in your application, you need to know the image's orientation. You might need to correct this orientation. For some .jpg files, the image's orientation is contained in the image's Exchangeable image file format (Exif) metadata. 
 
@@ -72,7 +71,7 @@ This example loads an image from the local file system, calls the `RecognizeCele
 
 In the function `main`, replace the value of `photo` with the name and path of an image that is stored locally in either .png or .jpg format.
 
-```
+```java
 //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
 
@@ -218,7 +217,7 @@ This example uses the PIL/Pillow image library to get the image width and height
 
 In the function `main`, replace the value of `photo` with the name and path of an image that is stored locally in either .png or .jpg format.
 
-```
+```python
 #Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
 
@@ -293,7 +292,7 @@ if __name__ == "__main__":
 
 This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/RotateImage.java).
 
-```
+```java
 import software.amazon.awssdk.core.SdkBytes;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.rekognition.RekognitionClient;

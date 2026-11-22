@@ -1,7 +1,6 @@
 
 
 # Using Amazon Rekognition for Identity Verification
-<a name="identity-verification-tutorial"></a>
 
 Amazon Rekognition provides users with several operations that enable the simple creation of identity verification systems. Amazon Rekognition allows the user to detect faces in an image and then compare any detected faces to other faces by comparing face data. This face data is stored in server-side containers called Collections. By making use of Amazon Rekognition’s face detection, face comparison, and collection management operations, you can create an application with an identity verification solution.
 
@@ -43,7 +42,7 @@ You’ll start by writing a function that creates a Collection for use by your a
 
 1. Select a name for the Collection that you would like to create. In the following code, replace the value of `collection_id` with the name of the Collection you’d like to create, and replace the value of `region` with the name of the region defined in your user credentials. You can use the `Tags` argument to apply any tags you would like to the collection, although this isn’t required. The `CreateCollection` operation will return information about the collection you have created, including the Arn of the collection. Make a note of the Arn that you receive as a result of running the code.
 
-   ```
+   ```python
    import boto3
    
    def create_collection(collection_id, region):
@@ -78,7 +77,7 @@ Write the code to check the quality of the face image via the `DetectFaces` oper
 
 1. In the following code example, replace `photo` with the name of the target image in which you’d like to detect faces. You’ll also need to replace the value of `region` with the name of the region associated with your account.
 
-   ```
+   ```python
    import boto3
    import json
    
@@ -131,7 +130,7 @@ Start by writing a function that compares an input image to the ID image you hav
 
    You will also want to specify a minimum confidence level in the match that is returned in the response, using the `similarityThreshold` argument. Detected faces will only be returned in the `FaceMatches` array if the confidence is above this threshold. Your chosen `similarityThreshold` should reflect the nature of your specific use case. Any use case involving critical security applications should use 99 as the selected threshold.
 
-   ```
+   ```python
    import boto3
    
    def compare_faces(bucket, sourceFile, targetFile, region):
@@ -180,7 +179,7 @@ If the confidence level of the `CompareFaces` operation is above your chosen `Si
 
    In the following code example, change the value of `collectionId` to the Collection that you want to search. Replace the value of `region` with the name of the region associated with your account. You’ll also need to replace the value of `photo` with the name of the your input file. You will also want to specify a similarity threshold by replacing the value of `threshold` with a chosen percentile. 
 
-   ```
+   ```python
    import boto3
    
    collectionId = 'collection-id-name'
@@ -215,7 +214,7 @@ Assuming that no match was found in the Collection you searched, you will want t
 
 1. Begin by writing the code to call `IndexFaces`. Replace the value of `image` with the name of the local file you want to use as an input image for the IndexFaces operation. You will also need to replace the value of `photo_name` with the desired name for your input image. Be sure to replace the value of `collection_id` with the ID of the collection you previously created. Next, replace the value of `region` with the name of the region associated with your account. You will also want to specify a value for the `MaxFaces` input parameter, which defines the maximum number of faces in an image that should be indexed. The default value for this parameter is 1. 
 
-   ```
+   ```python
    import boto3
    
    def add_faces_to_collection(target_file, photo, collection_id, region):
@@ -266,7 +265,7 @@ Once the Face ID for the input image has been obtained, the image data can be sa
 
 1. Write the code to upload the input image to your Amazon S3 database. In the code sample that follows, replace the value of `bucket` with the name of the bucket to which you’d like to upload the file, then replace the value of `file_name` with the name of the local file you want to store in your Amazon S3 bucket. Provide a key name that will identify the file in the Amazon S3 bucket by replacing the value of `key_name` with a name you’d like to give the image file. The file you want to upload is the same one that was defined in earlier code samples, which is the input file you used for IndexFaces. Finally, replace the value of `region` with the name of the region associated with your account.
 
-   ```
+   ```python
    import boto3
    import logging
    from botocore.exceptions import ClientError
@@ -289,7 +288,7 @@ Once the Face ID for the input image has been obtained, the image data can be sa
 
 1. You’ll want to save the returned Face ID to a database as well. This can be done by creating a DynamoDB database table and then uploading the Face ID to that table. The following code sample creates a DynamoDB table. Note that you only need to run the code that creates this table once. In the following code, replace the value of `region` with the value of the region associated with your account. You will also need to replace the value of `database_name` with the name that you’d like to give the DynamoDB table.
 
-   ```
+   ```python
    import boto3
    
    # Create DynamoDB database with image URL and face data, face ID
@@ -325,7 +324,7 @@ Once the Face ID for the input image has been obtained, the image data can be sa
 
    The `AddDBEntry` stores the FaceId, ImageId, and Confidence values assigned to a face in a collection. Provide the function below with the values that you saved during Step 2 of the proceeding `IndexFaces` section.
 
-   ```
+   ```python
    import boto3
    from pprint import pprint
    from decimal import Decimal
@@ -376,7 +375,7 @@ After a user has been registered in a Collection, they can be authenticated upon
 
    In the following code example, replace the value of `photo` with the name of the local target image and replace the value of `region` with the name of the region associated with your account.
 
-   ```
+   ```python
    import boto3
    import json
    
@@ -425,7 +424,7 @@ After a user has been registered in a Collection, they can be authenticated upon
 
    In the following code example, change the value of `collectionId` to the collection that you want to search. You will also change the value of `bucket` to the name of an Amazon S3 bucket and the value of `fileName` to an image file in that bucket. Replace the value of `region` with the name of the region associated with your account. You will also want to specify a similarity threshold by replacing the value of `threshold` with a chosen percentile.
 
-   ```
+   ```python
    import boto3
    
    bucket = 'amzn-s3-demo-bucket'
@@ -450,7 +449,7 @@ After a user has been registered in a Collection, they can be authenticated upon
 
 You can now check for information on the matched FaceId by printing out response elements like the FaceId, Similarity, and Confidence attributes.
 
-```
+```python
 faceMatches = response['FaceMatches']
 print(faceMatches)
 
