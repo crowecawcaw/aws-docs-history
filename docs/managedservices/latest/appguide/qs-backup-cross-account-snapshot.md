@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Setting up cross account backups (intra-Region)
-<a name="qs-backup-cross-account-snapshot"></a>
 
 AWS Backup supports the ability to copy snapshots from one account to another within the same AWS Region as long as the two accounts are within the same AWS Organization. As an example, in AMS Advanced multi-account landing zone (MALZ), you can set up cross account snapshot copy within the same AWS Region using this quick-start.
 

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AWS Database Migration Service (AWS DMS), before you begin
-<a name="ex-create-dms-plan"></a>
 
 When planning a database migration using the AMS AWS DMS, consider the following:
 + Source and target endpoints: You need to know what information and tables in the source database need to be migrated to the target database. AMS AWS DMS supports basic schema migration, including the creation of tables and primary keys. However, AMS AWS DMS doesn't automatically create secondary indexes, foreign keys, accounts, and so on in the target database. See [Sources for Data Migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html) and [Targets for Data Migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html) for more information.

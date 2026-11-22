@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Console Tutorial: Deploying a Tier and Tie WordPress Website
-<a name="gui-ex-create-wp-stack"></a>
 
 This section describes how to deploy a high availability (HA) WordPress site into an AMS environment using the AMS console. This set of instructions includes an example of creating the necessary WordPress CodeDeploy-compatible package (e.g. zip) file. The provisioning of the resources follows an order that allows you to tie them together to form "tiers."
 

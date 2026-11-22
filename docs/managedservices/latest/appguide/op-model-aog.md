@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # What is my operating model?
-<a name="op-model-aog"></a>
 
 As an AMS customer, your organization has decided to separate application and infrastructure operations and use AMS for infrastructure operations. AMS will work with your application design and development team along with your infrastructure design team to ensure that your infrastructure operations run smoothly. The following graphic illustrates this concept:
 

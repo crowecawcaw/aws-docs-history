@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Mutable deployment with a CodeDeploy-enabled AMI
-<a name="ex-mute-codedeploy"></a>
 
 [AWS CodeDeploy](https://aws.amazon.com/codedeploy/) is a service that automates code deployments to any instance, including Amazon EC2 instances and instances running on-premises. You can use CodeDeploy with AMS to create and deploy a CodeDeploy application. Note that AMS provides a default instance profile for CodeDeploy applications.
 + Amazon Linux (version 1)

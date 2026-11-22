@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Migrating workloads: CloudEndure landing zone (SALZ)
-<a name="ex-migrate-instance-cloud-endure"></a>
 
 This section provides information on setting up an intermediate migration single-account landing zone (SALZ) for CloudEndure (CE) cutover instances to be available for a workload ingest (WIGS) RFC.
 

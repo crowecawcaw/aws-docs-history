@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Create an S3 Stack
-<a name="gui-ex-create-s3"></a>
 
 Launch an S3 bucket. The S3 bucket is where you upload the application bundle you created.
 

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Migrating workloads: Linux pre-ingestion validation
-<a name="ex-migrate-instance-linux-validation"></a>
 
 You can validate that your instance is ready for ingestion into your AMS account. The workload ingest (WIGS) pre-ingestion validation performs checks such as operating system type, available disk space, the existence of conflicting third party software, etc. When executed, the WIGS pre-ingestion validation produces an on-screen table, with an optional log file. The results provide a pass/fail status for each validation check along with the reason for any failures. In addition, you can customize the validation tests to suit your needs.
 

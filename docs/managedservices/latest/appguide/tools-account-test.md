@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Testing AMS Tools account connectivity and end-to-end setup
-<a name="tools-account-test"></a>
 
 1. Start with configuring CloudEndure and installing the CloudEndure agent on a server that will replicate to AMS.
 

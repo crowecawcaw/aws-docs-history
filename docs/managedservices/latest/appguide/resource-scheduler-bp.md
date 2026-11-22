@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS Resource Scheduler best practices
-<a name="resource-scheduler-bp"></a>
 
 **Scheduling Amazon EC2 Instances**
 + Instance shut down behavior must be set to `stop` and not to `terminate`. This is pre-set to `stop` for instances that are created with the AMS Amazon EC2 Create automated change type (ct-14027q0sjyt1h) and can be set for Amazon EC2 instances created with AWS CloudFormation ingestion, by setting the `InstanceInitiatedShutdownBehavior` property to `stop`. If instances have shut down behavior set to `terminate`, then the instances will end when the Resource Scheduler stops them and the scheduler won't be able to start them back up.

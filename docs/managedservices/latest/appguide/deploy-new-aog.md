@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Working with provisioning change types (CTs)
-<a name="deploy-new-aog"></a>
 
 AMS has responsibility for your managed infrastructure, to make changes you must submit an RFC with the correct CT classification (category, subcategory, item, and operation). This section describes how to find CTs, determine if any are right for your needs, and request a new CT if none are.
 

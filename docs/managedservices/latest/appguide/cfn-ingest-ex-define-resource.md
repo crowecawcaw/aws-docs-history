@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # CloudFormation Ingest examples: Defining resources
-<a name="cfn-ingest-ex-define-resource"></a>
 
 When using AMS CloudFormation ingest, you customize a CloudFormation template and submit it to AMS in an RFC with the CloudFormation ingest change type (ct-36cn2avfrrj9v). To create a CloudFormation template that can be reused multiple times, you add the stack configuration parameters to the CloudFormation ingest change type execution input rather than hard coding them in the CloudFormation template. The biggest benefit is that you can reuse the template.
 

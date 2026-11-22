@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Appendix: Application onboarding questionnaire
-<a name="apx-aog-questions"></a>
 
 Use this questionnaire to describe your deployment elements and structure so AMS can determine what infrastructure components are needed. The onboarding requirements for Line-of-Business (LoB) applications are significantly different than product applications, so this questionnaire is designed to address both.
 

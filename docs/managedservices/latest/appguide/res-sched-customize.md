@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Customizing AMS Resource Scheduler
-<a name="res-sched-customize"></a>
 
 We recommend you customize the following properties of AMS Resource Scheduler using the update AMS Resource Scheduler change types, see [AMS Resource Scheduler](https://docs.aws.amazon.com/managedservices/latest/ctref/management-ams-resource-scheduler-section.html).
 + **Tag name**: The name of the tag that Resource Scheduler will use to associate instance schedules with resources. The default value is Schedule.

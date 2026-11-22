@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AWS Managed Services Resource Scheduler
-<a name="ams-resource-scheduler"></a>
 
 Use AWS Managed Services (AMS) Resource Scheduler to schedule the automatic start and stop of AutoScaling groups, Amazon EC2 instances, and RDS instances in your account. This helps reduce infrastructure costs where the resources are not meant to be running 24/7. The solution is built on top of [Instance Scheduler on AWS](https://aws.amazon.com/solutions/implementations/instance-scheduler/), but contains additional features and customizations specific to AMS needs.
 

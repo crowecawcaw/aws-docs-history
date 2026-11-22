@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Customer relationship management (CRM)
-<a name="apx-crm"></a>
 
 AWS Managed Services (AMS) provides a customer relationship management (CRM) process to ensure that a well-defined relationship is established and maintained with you. The foundation of this relationship is based on AMS’s insight into your business requirements. The CRM process facilitates accurate and comprehensive understanding of:
 + Your business needs and how to fill those needs

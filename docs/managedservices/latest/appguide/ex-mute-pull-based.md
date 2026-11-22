@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Mutable deployment with a pull-based deployment tool-configured AMI
-<a name="ex-mute-pull-based"></a>
 
 This strategy relies on the `InstanceUserData` parameter in the Managed Services Create EC2 CT. For more information on using this parameter, see [Configuring Instances with User Data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html#instancedata-add-user-data). This example assumes a pull-based application deployment tool like Chef or Puppet.
 

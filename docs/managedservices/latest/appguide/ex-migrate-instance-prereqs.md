@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Migrating Workloads: Prerequisites for Linux and Windows
-<a name="ex-migrate-instance-prereqs"></a>
 
 Before ingesting a copy of an on-premises instance into AWS Managed Services (AMS), certain prerequisites must be met. These are the prerequisites, including those that differ between Windows and Linux operating systems.
 
