@@ -1,7 +1,6 @@
 
 
 # Testing Your Setup by Using Bacula Enterprise
-<a name="backup-bacula"></a>
 
 You can back up your data to virtual tapes, archive the tapes, and manage your virtual tape library (VTL) devices by using Bacula Enterprise. In this topic, you can find basic documentation on how to configure the Bacula version 10 backup application for a Tape Gateway and perform backup and restore operations. For detailed information about how to use Bacula, see [Bacula Systems Manuals and Documentation](https://www.baculasystems.com/bacula-systems-documentation-datasheet) or contact Bacula Systems.
 

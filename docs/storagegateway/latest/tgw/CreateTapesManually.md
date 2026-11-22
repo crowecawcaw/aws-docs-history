@@ -1,7 +1,6 @@
 
 
 # Creating Tapes Manually
-<a name="CreateTapesManually"></a>
 
 You can create new virtual tapes manually using either the AWS Storage Gateway console or the Storage Gateway API. The console offers a convenient interface for tape creation with the flexibility to specify a prefix for a randomly-generated tape barcode. If you need to fully customize your tape barcodes (for example, to match the serial number of a corresponding physical tape), you must use the API. For more information on creating tapes using the Storage Gateway API. see [CreateTapeWithBarcode](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateTapeWithBarcode.html) in the *Storage Gateway API Reference*.
 

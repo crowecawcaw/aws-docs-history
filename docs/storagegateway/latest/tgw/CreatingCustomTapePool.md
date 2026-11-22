@@ -1,7 +1,6 @@
 
 
 # Creating a Custom Tape Pool
-<a name="CreatingCustomTapePool"></a>
 
 This section describes how to create a new custom tape pool in AWS Storage Gateway. 
 

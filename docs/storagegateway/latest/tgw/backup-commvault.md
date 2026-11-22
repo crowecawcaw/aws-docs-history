@@ -1,7 +1,6 @@
 
 
 # Testing Your Setup by Using Commvault
-<a name="backup-commvault"></a>
 
 You can back up your data to virtual tapes, archive the tapes, and manage your virtual tape library (VTL) devices by using Commvault. In this topic, you can find basic documentation on how to configure the Commvault backup application for a Tape Gateway, perform a backup archive, and retrieve your data from archived tapes. For detailed information about how to use Commvault, refer to the Commvault documentation.
 

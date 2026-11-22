@@ -1,7 +1,6 @@
 
 
 # Additional Storage Gateway Resources
-<a name="Resources"></a>
 
 This section describes AWS and third-party software, tools, and resources that can help you set up or manage your gateway, and also Storage Gateway quotas.
 

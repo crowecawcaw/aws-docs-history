@@ -1,7 +1,6 @@
 
 
 # Configuring paravirtualization on a VMware host
-<a name="SetParaVirtualization-common"></a>
 
 The following procedure describes how to configure the VMware host platform for your Storage Gateway appliance to use paravirtual Internet Small Computer System Interface Protocol (iSCSI) controllers. Paravirtual iSCSI controllers are high performance storage controllers that can result in greater throughput and lower CPU use. These controllers are best suited for high performance storage environments. When you configure iSCSI controllers this way, the Storage Gateway virtual machine works with the host operating system to allow the gateway console to identify the virtual disks that you add to your virtual machine.
 

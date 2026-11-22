@@ -1,7 +1,6 @@
 
 
 # Storage Gateway AL2 to AL2023 Migration Campaign
-<a name="al2-to-al2023-migration"></a>
 
 We transitioned the Storage Gateway appliance operating system (OS) from Amazon Linux 2 to AL2023 to enable new hybrid cloud storage features and maintain optimal performance and security standards. This transition impacted all AL2-based Storage Gateway appliance versions S3 File Gateway Version 1.x, Tape Gateway Version 2.x, and Volume Gateway Version 2.x. We discontinued support for these systems on June 30, 2026. If you have not yet migrated, we recommend that you do so as soon as possible.
 

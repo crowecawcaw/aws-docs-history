@@ -1,7 +1,6 @@
 
 
 # Maintaining Your Gateway
-<a name="maintaining-gateway"></a>
 
 Maintaining your Tape Gateway includes tasks such as sizing and configuring local disks for cache storage and upload buffer space, managing updates and setting an update schedule, managing bandwidth usage, and shutting down or deleting you gateway and associated resources if necessary. These tasks are common to all gateway types. If you haven't created a gateway, see [Creating your gateway](creating-your-gateway.md).
 

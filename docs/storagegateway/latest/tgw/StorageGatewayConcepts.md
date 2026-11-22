@@ -1,7 +1,6 @@
 
 
 # How Tape Gateway works
-<a name="StorageGatewayConcepts"></a>
 
 Following, you can find an architectural overview of the Tape Gateway solution.
 

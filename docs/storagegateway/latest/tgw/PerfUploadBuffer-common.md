@@ -1,7 +1,6 @@
 
 
 # Monitoring the upload buffer
-<a name="PerfUploadBuffer-common"></a>
 
 You can find information following about how to monitor a gateway's upload buffer and how to create an alarm so that you get a notification when the buffer exceeds a specified threshold. By using this approach, you can add buffer storage to a gateway before it fills completely and your storage application stops backing up to AWS.
 

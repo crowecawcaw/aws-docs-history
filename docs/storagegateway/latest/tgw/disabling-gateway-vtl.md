@@ -1,7 +1,6 @@
 
 
 # Deactivating Your Tape Gateway
-<a name="disabling-gateway-vtl"></a>
 
 You deactivate a Tape Gateway if the Tape Gateway has failed and you want to recover the tapes from the failed gateway to another gateway. 
 

@@ -1,7 +1,6 @@
 
 
 # Where do I go from here?
-<a name="GettingStartedWhatsNextStep3-vtl"></a>
 
 After your Tape Gateway is in production, you can perform several maintenance tasks, such as adding and removing tapes, monitoring and optimizing gateway performance, and troubleshooting. For general information about these management tasks, see [Managing your Tape Gateway](managing-gateway-common.md).
 

@@ -1,7 +1,6 @@
 
 
 # Measuring Performance Between Your Tape Gateway and AWS
-<a name="PerfGatewayAWS-vtl-common"></a>
 
 Data throughput, data latency, and operations per second are measures that you can use to understand how your application storage that is using your Tape Gateway is performing. When you use the correct aggregation statistic, these values can be measured by using the Storage Gateway metrics that are provided for you. 
 

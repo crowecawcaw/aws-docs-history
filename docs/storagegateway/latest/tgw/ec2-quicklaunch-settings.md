@@ -1,7 +1,6 @@
 
 
 # Deploy a default Amazon EC2 host for Tape Gateway
-<a name="ec2-quicklaunch-settings"></a>
 
 This topic lists the steps to deploy an Amazon EC2 host using the default specifications.
 

@@ -1,7 +1,6 @@
 
 
 # Working with VTL Devices
-<a name="resource_vtl-devices"></a>
 
 When activating your Tape Gateway, you select your backup application from the list and use the appropriate medium changer. If your backup application is not listed, you choose **Other** and then choose the medium changer that works with backup application. For a list of recommended media changers for supported backup applications, see [https://docs.aws.amazon.com/storagegateway/latest/tgw/Requirements.html#requirements-backup-sw-for-vtl](https://docs.aws.amazon.com/storagegateway/latest/tgw/Requirements.html#requirements-backup-sw-for-vtl).
 

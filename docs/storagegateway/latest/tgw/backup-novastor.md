@@ -1,7 +1,6 @@
 
 
 # Testing your setup by using NovaStor DataCenter
-<a name="backup-novastor"></a>
 
 You can back up your data to virtual tapes, archive the tapes, and manage your virtual tape library (VTL) devices by using NovaStor DataCenter/Network. In this topic, you can find basic documentation on how to configure the NovaStor DataCenter/Network backup application for a Tape Gateway and perform backup and restore operations. For detailed information about how to use NovaStor DataCenter/Network, refer to the NovaStor DataCenter/Network documentation.
 

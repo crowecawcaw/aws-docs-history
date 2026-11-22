@@ -1,7 +1,6 @@
 
 
 # Understanding Tape Status
-<a name="understand-tapes-status"></a>
 
 Each tape has an associated status that tells you at a glance what the health of the tape is. Most of the time, the status indicates that the tape is functioning normally and that no action is needed on your part. In some cases, the status indicates a problem with the tape that might require action on your part. You can find information following to help you decide when you need to act.
 

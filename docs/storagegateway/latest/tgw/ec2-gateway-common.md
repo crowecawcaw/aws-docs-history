@@ -1,7 +1,6 @@
 
 
 # Deploy a customized Amazon EC2 instance for Tape Gateway
-<a name="ec2-gateway-common"></a>
 
 You can deploy and activate a Tape Gateway on an Amazon Elastic Compute Cloud (Amazon EC2) instance. The AWS Storage Gateway Amazon Machine Image (AMI) is available as a community AMI.
 

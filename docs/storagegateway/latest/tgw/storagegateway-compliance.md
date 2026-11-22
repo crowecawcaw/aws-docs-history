@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Storage Gateway
-<a name="storagegateway-compliance"></a>
 
 Third-party auditors assess the security and compliance of AWS Storage Gateway as part of multiple AWS compliance programs. These include SOC, PCI, ISO, FedRAMP, HIPAA, MTSC, C5, K-ISMS, ENS High, OSPAR, and HITRUST CSF.
 

@@ -1,7 +1,6 @@
 
 
 # Moving your data to a new gateway instance
-<a name="migrate-data"></a>
 
 **Note**  
 If you are performing a Storage Gateway AL2 to AL2023 migration, before you begin, ensure you have completed all items in the **Pre-migration Checklist** in [Storage Gateway AL2 to AL2023 Migration Campaign](https://docs.aws.amazon.com/storagegateway/latest/tgw/al2-to-al2023-migration.html) .

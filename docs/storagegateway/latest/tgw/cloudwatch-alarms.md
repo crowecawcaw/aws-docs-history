@@ -1,7 +1,6 @@
 
 
 # Understanding CloudWatch alarms
-<a name="cloudwatch-alarms"></a>
 
 CloudWatch alarms monitor information about your gateway based on metrics and expressions. You can add CloudWatch alarms for your gateway and view their statuses in the Storage Gateway console. For more information about the metrics that are used to monitor Tape Gateway, see [Understanding gateway metrics](https://docs.aws.amazon.com/storagegateway/latest/tgw/Main_monitoring-gateways-common.html#MonitoringGateways-common) and [Understanding Virtual Tape Metrics](https://docs.aws.amazon.com/storagegateway/latest/tgw/GatewayMetrics-vtl-common.html#monitoring-tape). For each alarm, you specify conditions that will initiate its ALARM state. Alarm status indicators in the Storage Gateway console turn red when in the ALARM state, making it easier for you to monitor status proactively. You can configure alarms to invoke actions automatically based on sustained changes in state. For more information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*.
 

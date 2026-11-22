@@ -1,7 +1,6 @@
 
 
 # Allowing Automatic Tape Creation
-<a name="CreateTapesAutomatically"></a>
 
  The Tape Gateway can automatically create new virtual tapes to maintain the minimum number of available tapes that you configure. It then makes these new tapes available for import by the backup application so that your backup jobs can run without interruption. Allowing automatic tape creation removes the need for custom scripting in addition to the manual process of creating new virtual tapes.
 

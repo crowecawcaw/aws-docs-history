@@ -1,7 +1,6 @@
 
 
 # Managing tapes in your virtual tape library
-<a name="managing-virtual-tapes-vtl"></a>
 
 Storage Gateway provides one virtual tape library (VTL) for each Tape Gateway you activate. Initially, the library contains no tapes, but you can create tapes whenever you need to. Your application can read and write to any tapes available on your Tape Gateway. A tape's status must be AVAILABLE for you to write to the tape. These tapes are backed by Amazon Simple Storage Service (Amazon S3)—that is, when you write to these tapes, the Tape Gateway stores data in Amazon S3. For more information, see [Understanding Tape Status Information in a VTL](understand-tapes-status.md#tape-status).
 

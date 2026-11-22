@@ -1,7 +1,6 @@
 
 
 # Testing Your Setup by Using Veritas NetBackup
-<a name="backup_netbackup-vtl"></a>
 
 You can back up your data to virtual tapes, archive the tapes, and manage your virtual tape library (VTL) devices by using Veritas NetBackup. In this topic, you can find basic documentation on how to configure the NetBackup application for a Tape Gateway and perform a backup and restore operation.
 

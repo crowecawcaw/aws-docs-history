@@ -1,7 +1,6 @@
 
 
 # Connecting your VTL devices
-<a name="GettingStartedAccessTapesVTL"></a>
 
 Following, you can find instructions about how to connect your virtual tape library (VTL) devices to your Microsoft Windows or Red Hat Enterprise Linux (RHEL) client.
 

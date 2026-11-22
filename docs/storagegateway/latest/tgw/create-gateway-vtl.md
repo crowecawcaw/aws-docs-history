@@ -1,7 +1,6 @@
 
 
 # Create and activate a Tape Gateway
-<a name="create-gateway-vtl"></a>
 
 In this section, you can find instructions on how to download, deploy, and activate a standard Tape Gateway.
 

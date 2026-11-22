@@ -1,7 +1,6 @@
 
 
 # Testing your setup by using Veeam Backup and Replication
-<a name="backup-Veeam"></a>
 
 You can back up your data to virtual tapes, archive the tapes, and manage your virtual tape library (VTL) devices by using Veeam Backup & Replication. In this topic, you can find basic documentation on how to configure the Veeam Backup & Replication software for a Tape Gateway and perform a backup and restore operation. For detailed information about how to use the Veeam software, refer to the Veeam Backup & Replication documentation. For more information about compatible backup applications, see [Supported third-party backup applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl).
 

@@ -1,7 +1,6 @@
 
 
 # Performing maintenance tasks using the local console
-<a name="manage-on-premises"></a>
 
 This section contains the following topics, which provide information about how to perform maintenance tasks using the gateway appliance local console. The local console runs directly on the virtualization host platform that hosts your gateway appliance. For on-premises gateways, you access the local console through your VMware, Hyper-v, or Linux KVM virtualization host. For Amazon EC2 gateways, you access the console by connecting to the Amazon EC2 instance using SSH. Most of the tasks are common across the different host platforms, but there are also some differences.
 

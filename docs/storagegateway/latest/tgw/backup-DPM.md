@@ -1,7 +1,6 @@
 
 
 # Testing your setup by using Microsoft System Center DPM
-<a name="backup-DPM"></a>
 
 You can back up your data to virtual tapes, archive the tapes, and manage your virtual tape library (VTL) devices by using Microsoft System Center Data Protection Manager (DPM). In this topic, you can find basic documentation on how to configure the DPM backup application for a Tape Gateway and perform a backup and restore operation.
 

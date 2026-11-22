@@ -1,7 +1,6 @@
 
 
 # Accessing AWS Storage Gateway
-<a name="WhatIsAPIIntro"></a>
 
 You can use the [AWS Storage Gateway console](https://console.aws.amazon.com/storagegateway/home) to perform various gateway configuration and maintenance tasks, including activating or removing Storage Gateway hardware appliances from your deployment, creating, managing, and deleting the different types of gateways, creating, managing, and deleting tapes in your virtual tape library, and monitoring the health and status of various elements of the Storage Gateway service. For simplicity and ease of use, this guide focuses on performing tasks using the Storage Gateway console web interface. You can access the Storage Gateway console through your web browser at: [https://console.aws.amazon.com/storagegateway/home/](https://console.aws.amazon.com/storagegateway/home/).
 

@@ -1,7 +1,6 @@
 
 
 # Performance and optimization for Tape Gateway
-<a name="Performance"></a>
 
 This section describes Storage Gateway performance.
 
@@ -114,7 +113,7 @@ For a Tape Gateway, the default block size for a tape drive is 64 KB. However, y
 
 The block size that you choose depends on the maximum block size that your backup software supports. We recommend that you set the block size of the tape drives in your backup software to a size that is as large as possible. However, this block size must not be greater than the 1 MB maximum size that the gateway supports. 
 
-Tape Gateways negotiate the block size for virtual tape drives to automatically match what is set on the backup software. When you increase the block size on the backup software, we recommend that you also check the settings to ensure that the host initiator supports the new block size. For more information, see the documentation for your backup software. For more information about specific gateway performance guidance, see [Performance and optimization for Tape Gateway](#Performance).
+Tape Gateways negotiate the block size for virtual tape drives to automatically match what is set on the backup software. When you increase the block size on the backup software, we recommend that you also check the settings to ensure that the host initiator supports the new block size. For more information, see the documentation for your backup software. For more information about specific gateway performance guidance, see [Performance and optimization for Tape Gateway](Performance.md).
 
 ### Optimize the Performance of Virtual Tape Drives in the Backup Software
 <a name="optimize-virtual-tape-drive"></a>

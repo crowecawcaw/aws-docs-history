@@ -1,7 +1,6 @@
 
 
 # Synchronize VM time with VMware host time
-<a name="GettingStartedSyncVMTime-common"></a>
 
 To successfully activate your gateway, you must ensure that your VM time is synchronized to the host time, and that the host time is correctly set. In this section, you first synchronize the time on the VM to the host time. Then you check the host time and, if needed, set the host time and configure the host to synchronize its time automatically to a Network Time Protocol (NTP) server. 
 

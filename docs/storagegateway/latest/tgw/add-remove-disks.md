@@ -1,7 +1,6 @@
 
 
 # Removing Disks from Your Gateway
-<a name="add-remove-disks"></a>
 
 Although we don’t recommend removing the underlying disks from your gateway, you might want to remove a disk from your gateway, for example if you have a failed disk.
 

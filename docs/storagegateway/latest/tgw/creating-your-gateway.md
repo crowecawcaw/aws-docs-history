@@ -1,7 +1,6 @@
 
 
 # Creating your gateway
-<a name="creating-your-gateway"></a>
 
 The overview sections on this page provide a high-level synopsis of how the Storage Gateway creation process works. For step-by-step procedures to create a specific type of gateway using the Storage Gateway console, see the following topics:
 + [Create and activate an Amazon S3 File Gateway](https://docs.aws.amazon.com/filegateway/latest/files3/create-gateway-file.html)

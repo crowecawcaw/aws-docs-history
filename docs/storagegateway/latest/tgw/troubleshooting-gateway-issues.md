@@ -1,7 +1,6 @@
 
 
 # Troubleshooting your gateway
-<a name="troubleshooting-gateway-issues"></a>
 
 Following, you can find information about best practices and troubleshooting issues related to gateways, host platforms, virtual tapes, high availability, data recovery, and security. The on-premises gateway troubleshooting information covers gateways deployed on supported virtualization platforms. The troubleshooting information for high availability issues covers gateways running on VMware vSphere High Availability (HA) platform.
 

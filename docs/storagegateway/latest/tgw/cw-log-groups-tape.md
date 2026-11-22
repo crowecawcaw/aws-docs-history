@@ -1,7 +1,6 @@
 
 
 # Getting Tape Gateway health logs with CloudWatch log groups
-<a name="cw-log-groups-tape"></a>
 
 You can use Amazon CloudWatch Logs to get information about the health of your Tape Gateway and related resources. You can use the logs to monitor your gateway for errors that it encounters. In addition, you can use Amazon CloudWatch subscription filters to automate processing of the log information in real time. For more information, see [Real-time Processing of Log Data with Subscriptions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions.html) in the *Amazon CloudWatch User Guide.*
 

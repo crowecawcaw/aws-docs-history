@@ -1,7 +1,6 @@
 
 
 # Connecting your VTL devices to a Linux client
-<a name="ConfiguringiSCSIClientInitiatorRedHatClient"></a>
 
 **Topics**
 

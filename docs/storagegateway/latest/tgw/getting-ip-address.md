@@ -1,7 +1,6 @@
 
 
 # Getting the IP address for your gateway appliance
-<a name="getting-ip-address"></a>
 
 After you choose a host and deploy your gateway VM, you connect and activate your gateway. To do this, you need the IP address of your gateway VM. You get the IP address from your gateway's local console. You log in to the local console and get the IP address from the top of the console page.
 

@@ -1,7 +1,6 @@
 
 
 # Testing Your Setup by Using Dell EMC NetWorker
-<a name="backup-emc"></a>
 
 You can back up your data to virtual tapes, archive the tapes and manage your virtual tape library (VTL) devices by using Dell EMC NetWorker. In this topic, you can find basic documentation on how to configure the Dell EMC NetWorker software to work with a Tape Gateway and perform a backup, including how to configure storage devices, write data to a tape, archive a tape and restore data from a tape. 
 

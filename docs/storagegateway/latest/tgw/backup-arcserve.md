@@ -1,7 +1,6 @@
 
 
 # Testing your setup by using Arcserve Backup
-<a name="backup-arcserve"></a>
 
 You can back up your data to virtual tapes, archive the tapes, and manage your virtual tape library (VTL) devices by using Arcserve Backup. In this topic, you can find basic documentation to configure Arcserve Backup with a Tape Gateway and perform a backup and restore operation. For detailed information about to use Arcserve Backup, refer to the Arcserve Backup documentation.
 

@@ -1,7 +1,6 @@
 
 
 # Testing your setup by using OpenText Data Protector
-<a name="backup-hpdataprotector"></a>
 
 You can back up your data to virtual tapes, archive the tapes, and manage your virtual tape library (VTL) devices by using OpenText Data Protector. In this topic, you can find basic documentation on how to configure the OpenText Data Protector software for a Tape Gateway and perform a backup and restore operation. For detailed information about how to use the OpenText Data Protector software, see the OpenText Data Protector documentation. For more information about compatible backup applications, see [Supported third-party backup applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl).
 

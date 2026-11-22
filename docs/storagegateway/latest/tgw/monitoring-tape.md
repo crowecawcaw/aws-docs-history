@@ -1,7 +1,6 @@
 
 
 # Understanding virtual tape metrics
-<a name="monitoring-tape"></a>
 
 You can find information following about the Storage Gateway metrics that cover virtual tapes. Each tape has a set of metrics associated with it. 
 

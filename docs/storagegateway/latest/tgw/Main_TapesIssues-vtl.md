@@ -1,7 +1,6 @@
 
 
 # Troubleshooting virtual tape issues
-<a name="Main_TapesIssues-vtl"></a>
 
 You can find information following about actions to take if you experience unexpected issues with your virtual tapes.
 

@@ -1,7 +1,6 @@
 
 
 # Moving tapes to S3 Glacier Deep Archive storage class
-<a name="moving-tapes-vtl"></a>
 
 
 

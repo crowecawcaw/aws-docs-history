@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS Storage Gateway
-<a name="security-iam"></a>
 
 
 
