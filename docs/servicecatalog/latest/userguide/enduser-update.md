@@ -1,7 +1,6 @@
 
 
 # Updating provisioned products
-<a name="enduser-update"></a>
 
 When you want to use a new version of a product or configure a provisioned product with updated parameter values, you must update it. You can also change tags or take other actions on a provisioned product if your administrator has enabled these features.
 

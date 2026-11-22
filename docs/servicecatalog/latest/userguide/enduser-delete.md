@@ -1,7 +1,6 @@
 
 
 # Deleting provisioned products
-<a name="enduser-delete"></a>
 
 To remove all AWS resources a provisioned product uses, delete the provisioned product. 
 

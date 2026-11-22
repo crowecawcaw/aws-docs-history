@@ -1,7 +1,6 @@
 
 
 # Launching products as stack sets in multiple accounts and Regions
-<a name="launch-stacksets"></a>
 
 AWS Service Catalog enables you to launch a product in one or more accounts and AWS Regions. To do this, administrators must apply a stack set constraint to the product with the accounts and Regions, where it can launch as a stack set. For more information, see [AWS Service Catalog Stack Set Constraints](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints-stackset.html) in the *AWS Service Catalog Administrator Guide*.
 

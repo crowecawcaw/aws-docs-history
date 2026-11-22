@@ -1,7 +1,6 @@
 
 
 # Viewing product details
-<a name="enduser-viewproduct"></a>
 
  The Product details page displays information about a product, including a description of the product, details about product versions, and support information.
 

@@ -1,7 +1,6 @@
 
 
 # Using the Service Catalog console
-<a name="enduser-dashboard"></a>
 
 You can use the Service Catalog console to see a list of products and provisioned products.
 

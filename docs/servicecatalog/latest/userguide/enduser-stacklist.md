@@ -1,7 +1,6 @@
 
 
 # Using the Provisioned products page
-<a name="enduser-stacklist"></a>
 
 The Provisioned product page lists all of the provisioned products you launch from the Products page.
 

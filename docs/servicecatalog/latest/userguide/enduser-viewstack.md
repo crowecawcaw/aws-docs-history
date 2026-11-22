@@ -1,7 +1,6 @@
 
 
 # Viewing provisioned product information
-<a name="enduser-viewstack"></a>
 
 Each provisioned product has a Provisioned product details page with information about the provisioned product. The Provisioned product details page is available from the initial launch until the deletion of the provisioned product. 
 

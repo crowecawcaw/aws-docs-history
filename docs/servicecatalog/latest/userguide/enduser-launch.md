@@ -1,7 +1,6 @@
 
 
 # Launching a product
-<a name="enduser-launch"></a>
 
 You can launch any product that appears in your AWS Service Catalog products list. 
 
