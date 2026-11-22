@@ -1,7 +1,6 @@
 
 
 # Partner APIs
-<a name="partner_apis"></a>
 
 The following APIs can only be called by AWS accounts associated with registered partners. The sections that follow provide sample requests and sample responses for each of the APIs.
 +  [CreatePartnerEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreatePartnerEventSource.html) 

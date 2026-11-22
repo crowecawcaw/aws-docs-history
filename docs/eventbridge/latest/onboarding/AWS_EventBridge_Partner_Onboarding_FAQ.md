@@ -1,7 +1,6 @@
 
 
 # FAQ
-<a name="AWS_EventBridge_Partner_Onboarding_FAQ"></a>
 
 1.  **What delivery guarantees will EventBridge make?** 
 

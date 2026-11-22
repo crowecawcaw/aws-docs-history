@@ -1,7 +1,6 @@
 
 
 # Onboarding tasks
-<a name="onboarding_tasks"></a>
 
 ## 1. Partner registration
 <a name="_1_partner_registration"></a>

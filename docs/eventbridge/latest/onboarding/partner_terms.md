@@ -1,7 +1,6 @@
 
 
 # Partner terms
-<a name="partner_terms"></a>
 
 Amazon EventBridge unlocks new use cases for your customers by extending your application’s integration with AWS services. It typically takes about 5 days development time for Partners to integrate with EventBridge, and about two weeks to be added as an EventBridge SaaS integration partner, but can take longer for complex integrations. Contact the EventBridge Partner Operations team ([eventbridge-partners@amazon.com](mailto:eventbridge-partners@amazon.com)) with any questions about the status of your integration.
 

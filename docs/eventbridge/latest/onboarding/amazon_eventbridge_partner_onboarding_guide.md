@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge Partner Onboarding Guide
-<a name="amazon_eventbridge_partner_onboarding_guide"></a>
 
  [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html) enables customers to build event-driven applications that subscribe to events from any participating software-as-a-service (SaaS) product without needing to write undifferentiated connection code. SaaS providers can enhance and extend their platform by publishing their events to EventBridge. They can rely on EventBridge to manage the routing of those events to customers in a reliable and secure manner. This capability enables customers to react to events emitted by SaaS applications as easily and reliably as they react to events originating from other AWS services. The events can then be sent to AWS services such as AWS Lambda, Amazon Simple Queue Service (Amazon SQS), Amazon Simple Notification Service (Amazon SNS), or Amazon Kinesis Data Firehose.
 

@@ -1,7 +1,6 @@
 
 
 # Customer APIs
-<a name="customer_apis"></a>
 
 The APIs in this topic are for use by customers. The sections that follow provide sample requests and sample responses for each of the APIs.
 +  [ActivateEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ActivateEventSource.html) 
