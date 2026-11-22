@@ -1,7 +1,6 @@
 
 
 # Specifications for Amazon EC2 previous generation instances
-<a name="pg"></a>
 
 AWS offers previous generation instance types for users who have optimized their applications around them and have yet to upgrade. We encourage you to use current generation instance types to get the best performance, but we continue to support the following previous generation instance types.
 

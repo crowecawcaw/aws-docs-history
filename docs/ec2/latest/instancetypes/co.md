@@ -1,7 +1,6 @@
 
 
 # Specifications for Amazon EC2 compute optimized instances
-<a name="co"></a>
 
 Compute optimized instances are designed for compute intensive applications that benefit from high performance processors. These instances are ideal for batch processing workloads, media transcoding, high performance web servers, high performance computing (HPC), scientific modeling, dedicated gaming servers, ad server engines, and machine learning inference.
 

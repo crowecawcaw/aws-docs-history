@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 instance type quotas
-<a name="ec2-instance-quotas"></a>
 
 Your AWS account has quotas that affect the number of instances that you can run in each Region. These quotas are grouped by purchasing option.
 
@@ -209,6 +208,7 @@ The following table shows the maximum number of running Dedicated Hosts that you
 | Running Dedicated t1 Hosts | 0 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-BD62EDF4) | 
 | Running Dedicated t2 Hosts | 0 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-DBCD5944) | 
 | Running Dedicated t3 Hosts | 0 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-1586174D) | 
+| Running Dedicated t8i Hosts | 0 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-F3F733C7) | 
 | Running Dedicated trn1 Hosts | 0 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-5E4FB836) | 
 | Running Dedicated trn1n Hosts | 0 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-39926A58) | 
 | Running Dedicated u-3tb1 Hosts | 0 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-7F5506AB) | 

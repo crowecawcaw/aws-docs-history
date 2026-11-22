@@ -1,7 +1,6 @@
 
 
 # Instances built on the AWS Nitro System
-<a name="ec2-nitro-instances"></a>
 
 **End of sale notice**  
 The **U-9tb1**, **U-12tb1**, **U-18tb1**, and **U-24tb1** instance types are no longer available for new instance launches. If your workload requires a high-memory instance, we recommend that you use a U7i instance type instead.
@@ -71,7 +70,7 @@ The following virtualized instances are built on the Nitro System:
 
 ------
 #### [ Nitro v6 ]
-+ **General Purpose**: M8a \| M8azn \| M8gb \| M8gn \| M8i \| M8id \| M8i-flex \| M8in \| M8idn \| M8ine \| M8ib \| M8idb \| M9g \| M9gd \| T8i
++ **General Purpose**: M8a \| M8azn \| M8gb \| M8gn \| M8i \| M8id \| M8i-flex \| M8in \| M8idn \| M8ine \| M8ib \| M8idb \| M9g \| M9gd \| T8i \| T9g
 + **Compute Optimized**: C8a \| C8gb \| C8gn \| C8i \| C8id \| C8i-flex \| C8in \| C8ine \| C8ib \| C9g \| C9gd
 + **Memory Optimized**: R8a \| R8gb \| R8gn \| R8i \| R8id \| R8i-flex \| R8in \| R8idn \| R8ib \| R8idb \| R9g \| R9gd \| X8aedz \| X8i
 + **Storage Optimized**: I8ge
@@ -178,7 +177,7 @@ Linux distributions can also incorporate ENA driver features within the kernel. 
 
 Some Linux distributions might require a minimum kernel version to prevent suboptimal performance of ENA driver features on Nitro v4 and newer instance types. If your Linux distribution appears in the following table, you can verify the kernel version for your instance with the **uname** command as follows:
 
-```
+```zsh
 uname -r
 ```
 

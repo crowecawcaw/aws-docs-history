@@ -1,7 +1,6 @@
 
 
 # Specifications for Amazon EC2 general purpose instances
-<a name="gp"></a>
 
 General purpose instances provide a balance of compute, memory, and networking resources. These instances are ideal for applications that use these resources in equal proportions, such as web servers and code repositories.
 
@@ -74,6 +73,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | T3a | t3a.nano \| t3a.micro \| t3a.small \| t3a.medium \| t3a.large \| t3a.xlarge \| t3a.2xlarge | 
 | T4g | t4g.nano \| t4g.micro \| t4g.small \| t4g.medium \| t4g.large \| t4g.xlarge \| t4g.2xlarge | 
 | T8i | t8i.nano \| t8i.micro \| t8i.small \| t8i.medium | 
+| T9g | t9g.nano \| t9g.micro \| t9g.small \| t9g.medium | 
 
 ## Instance family summary
 <a name="gp_summary"></a>
@@ -130,6 +130,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | T3a | [Nitro v2](ec2-nitro-instances.md) | AMD (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✓ Yes | Windows \| Linux | 
 | T4g | [Nitro v2](ec2-nitro-instances.md) | AWS Graviton (arm64) | ✗ No | ✗ No | ✓ Yes | ✓ Yes | Linux | 
 | T8i | [Nitro v6](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✓ Yes | Windows \| Linux | 
+| T9g | [Nitro v6](ec2-nitro-instances.md) | AWS Graviton (arm64) | ✗ No | ✗ No | ✓ Yes | ✓ Yes | Linux | 
 
 ## Performance specifications
 <a name="gp_hardware"></a>
@@ -584,10 +585,15 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
   <tr><td>t4g.xlarge 1</td><td>16.00</td><td>AWS Graviton2 Processor</td><td>4</td><td>4</td><td>1</td><td>✗ No</td><td>✗ No</td></tr>
   <tr><td>t4g.2xlarge 1</td><td>32.00</td><td>AWS Graviton2 Processor</td><td>8</td><td>8</td><td>1</td><td>✗ No</td><td>✗ No</td></tr>
   <tr><td colspan="8"><b>T8i</b></td></tr>
-  <tr><td>t8i.nano</td><td>0.50</td><td>Intel Xeon Granite Rapids</td><td>2</td><td>1</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
-  <tr><td>t8i.micro</td><td>1.00</td><td>Intel Xeon Granite Rapids</td><td>2</td><td>1</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
-  <tr><td>t8i.small</td><td>2.00</td><td>Intel Xeon Granite Rapids</td><td>2</td><td>1</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
-  <tr><td>t8i.medium</td><td>4.00</td><td>Intel Xeon Granite Rapids</td><td>2</td><td>1</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>t8i.nano 1</td><td>0.50</td><td>Intel Xeon Granite Rapids</td><td>2</td><td>1</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>t8i.micro 1</td><td>1.00</td><td>Intel Xeon Granite Rapids</td><td>2</td><td>1</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>t8i.small 1</td><td>2.00</td><td>Intel Xeon Granite Rapids</td><td>2</td><td>1</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>t8i.medium 1</td><td>4.00</td><td>Intel Xeon Granite Rapids</td><td>2</td><td>1</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td colspan="8"><b>T9g</b></td></tr>
+  <tr><td>t9g.nano</td><td>0.50</td><td>AWS Graviton5</td><td>2</td><td>2</td><td>1</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>t9g.micro</td><td>1.00</td><td>AWS Graviton5</td><td>2</td><td>2</td><td>1</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>t9g.small</td><td>2.00</td><td>AWS Graviton5</td><td>2</td><td>2</td><td>1</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>t9g.medium</td><td>4.00</td><td>AWS Graviton5</td><td>2</td><td>2</td><td>1</td><td>✗ No</td><td>✗ No</td></tr>
 </tbody>
 </table>
 
@@ -1055,6 +1061,11 @@ M8a, M8g, M8gd, M8i, M8id, M8i-flex, M9g, M9gd instance types support configurab
   <tr><td>t8i.micro 1 2</td><td>0.064 / 6.25</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>1</td><td>1</td><td>2</td><td>2</td><td>✓ Yes</td></tr>
   <tr><td>t8i.small 1 2</td><td>0.128 / 6.25</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>1</td><td>1</td><td>3</td><td>4</td><td>✓ Yes</td></tr>
   <tr><td>t8i.medium 1 2</td><td>0.256 / 6.25</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>1</td><td>1</td><td>3</td><td>6</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>T9g</b></td></tr>
+  <tr><td>t9g.nano 1 2</td><td>0.032 / 7.5</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>1</td><td>1</td><td>2</td><td>2</td><td>✓ Yes</td></tr>
+  <tr><td>t9g.micro 1 2</td><td>0.064 / 7.5</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>1</td><td>1</td><td>2</td><td>2</td><td>✓ Yes</td></tr>
+  <tr><td>t9g.small 1 2</td><td>0.128 / 7.5</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>1</td><td>1</td><td>3</td><td>4</td><td>✓ Yes</td></tr>
+  <tr><td>t9g.medium 1 2</td><td>0.256 / 7.5</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>1</td><td>1</td><td>3</td><td>6</td><td>✓ Yes</td></tr>
 </tbody>
 </table>
 
@@ -1525,6 +1536,11 @@ M8a, M8g, M8gd, M8i, M8id, M8i-flex, M9g, M9gd instance types support configurab
   <tr><td>t8i.micro 1</td><td>87.00 / 5000.00</td><td>10.88 / 625.00</td><td>500.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
   <tr><td>t8i.small 1</td><td>174.00 / 5000.00</td><td>21.75 / 625.00</td><td>1500.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
   <tr><td>t8i.medium 1</td><td>347.00 / 5000.00</td><td>43.38 / 625.00</td><td>2000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>T9g</b></td></tr>
+  <tr><td>t9g.nano 1</td><td>43.00 / 6000.00</td><td>5.38 / 750.00</td><td>250.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>t9g.micro 1</td><td>87.00 / 6000.00</td><td>10.88 / 750.00</td><td>500.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>t9g.small 1</td><td>174.00 / 6000.00</td><td>21.75 / 750.00</td><td>1000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>t9g.medium 1</td><td>347.00 / 6000.00</td><td>43.38 / 750.00</td><td>2000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
 </tbody>
 </table>
 
@@ -2150,5 +2166,10 @@ The following table shows the instance store volume configuration for supported 
   <tr><td>t8i.micro</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
   <tr><td>t8i.small</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
   <tr><td>t8i.medium</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
+  <tr><td colspan="7"><b>T9g</b></td></tr>
+  <tr><td>t9g.nano</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
+  <tr><td>t9g.micro</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
+  <tr><td>t9g.small</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
+  <tr><td>t9g.medium</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
 </tbody>
 </table>

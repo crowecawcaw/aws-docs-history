@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 instance types by Region
-<a name="ec2-instance-regions"></a>
 
 An Amazon EC2 instance is tied to the zone in which it was launched. The ID of an instance is tied to the Region for the instance, and can only be used in this Region.
 
