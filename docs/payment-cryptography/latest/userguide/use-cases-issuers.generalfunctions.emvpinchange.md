@@ -1,7 +1,6 @@
 
 
 # Generate EMV MAC for PIN Change
-<a name="use-cases-issuers.generalfunctions.emvpinchange"></a>
 
 EMV PIN change combines two operations: generating a MAC for an issuer script and encrypting a new PIN for offline PIN change on an EMV chip card. This command is only needed in certain countries where the pin is stored on the chip card (this is common for European countries). This is commonly used when a cardholder needs to change their PIN and the new PIN must be securely transmitted to the card along with a MAC to verify the command's authenticity. 
 

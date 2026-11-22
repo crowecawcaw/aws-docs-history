@@ -1,7 +1,6 @@
 
 
 # Using tags to control access to keys
-<a name="tag-authorization"></a>
 
 You can control access to AWS Payment Cryptography based on the tags on the key. For example, you can write an IAM policy that allows principals to enable and disable only the keys that have a particular tag. Or you can use an IAM policy to prevent principals from using keys in cryptographic operations unless the key has a particular tag. 
 
@@ -27,7 +26,7 @@ For example, consider the following IAM policy. It allows the principals to call
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -57,7 +56,7 @@ The following example IAM policy allows the principals to use any key in the acc
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

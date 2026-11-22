@@ -1,7 +1,6 @@
 
 
 # Managing keys
-<a name="keys-manage"></a>
 
 To get started with AWS Payment Cryptography, create an AWS Payment Cryptography key.
 

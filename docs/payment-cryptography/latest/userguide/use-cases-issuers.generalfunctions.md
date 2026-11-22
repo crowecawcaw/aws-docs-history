@@ -1,7 +1,6 @@
 
 
 # General Functions
-<a name="use-cases-issuers.generalfunctions"></a>
 
 **Topics**
 + [Generate a random pin and the associated PVV and then verify the value](use-cases-issuers.generalfunctions.pvv.md)

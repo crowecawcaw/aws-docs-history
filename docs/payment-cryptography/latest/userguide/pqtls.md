@@ -1,7 +1,6 @@
 
 
 # Using hybrid post-quantum TLS
-<a name="pqtls"></a>
 
 AWS Payment Cryptography and many other services supports a hybrid post-quantum key exchange option for the Transport Layer Security (TLS) network encryption protocol. You can use this TLS option when you connect to API endpoints or when using the AWS SDKs. These optional hybrid post-quantum key exchange features are at least as secure as the TLS encryption we use today and are likely to provide additional long-term security benefits.
 

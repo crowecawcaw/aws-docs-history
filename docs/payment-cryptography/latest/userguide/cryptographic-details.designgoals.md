@@ -1,7 +1,6 @@
 
 
 # Design goals
-<a name="cryptographic-details.designgoals"></a>
 
 AWS Payment Cryptography is designed to meet the following requirements:
 + **Trustworthy** — Use of keys is protected by access control policies that you define and manage. There is no mechanism to export plaintext AWS Payment Cryptography keys. The confidentiality of your cryptographic keys is crucial. Multiple Amazon employees with role-specific access to quorum-based access controls are required to perform administrative actions on the HSMs. No Amazon employees have access to HSM main (or master) keys or backups. Main keys cannot be synchronized with HSMs that are not part of an AWS Payment Cryptography region. All other keys are protected by HSM main keys. Therefore, customer AWS Payment Cryptography keys are not usable outside of the AWS Payment Cryptography service operating within a customer's account. 

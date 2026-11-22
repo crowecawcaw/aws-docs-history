@@ -1,7 +1,6 @@
 
 
 # Translate PIN data
-<a name="translate-pin-data"></a>
 
 Translate PIN data functions are used for translating encrypted PIN data from one set of keys to another without the encrypted data leaving the HSM. It is used for P2PE encryption where the working keys should change but the processing system either doesn't need to, or is not permitted to, decrypt the data. The primary inputs are the encrypted data, the encryption key used to encrypt the data, the parameters used to generate the input values. The other set of inputs are the requested output parameters such as the key to be used to encrypt the output and the parameters used to create that output. The primary outputs are a newly encrypted dataset as well as the parameters used to generate it. 
 

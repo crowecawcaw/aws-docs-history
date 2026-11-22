@@ -1,7 +1,6 @@
 
 
 # Control Objective 5: Keys are used in a manner that prevents or detects their unauthorized usage.
-<a name="pin-compliance-control-5"></a>
 
 *Requirement 17:* The service provides mechanisms, such as tags and aliases, for keys that enable tracking of key sharing relationships. Additionally, key check values should be kept separately to demonstrate that known or default key values are not used when keys are shared.
 

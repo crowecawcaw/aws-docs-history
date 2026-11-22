@@ -1,7 +1,6 @@
 
 
 # Generate auth request (ARQC) cryptogram
-<a name="data-operations.generateauthrequestcryptogram"></a>
 
  The generate auth request cryptogram API is used for generating [ARQC](terminology.md#terms.arqc). This API enables you to generate ARQC using AWS Payment Cryptography for development and testing purposes. 
 

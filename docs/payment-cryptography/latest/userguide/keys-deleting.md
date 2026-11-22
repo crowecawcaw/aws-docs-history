@@ -1,7 +1,6 @@
 
 
 # Deleting keys
-<a name="keys-deleting"></a>
 
 Deleting an AWS Payment Cryptography key deletes the key material and all metadata associated with the key and is irreversible unless a copy of the key is available outside of AWS Payment Cryptography. After a key is deleted, you can no longer decrypt the data that was encrypted under that key, which means that data may become unrecoverable. You should delete a key only when you are sure that you don't need to use it anymore and no other parties are utilizing this key. If you are not sure, consider stopping key usage instead of deleting it. You can re-enable a disabled key if you need to use it again later, but you cannot recover a deleted AWS Payment Cryptography key unless you are able to re-import it from another source.
 

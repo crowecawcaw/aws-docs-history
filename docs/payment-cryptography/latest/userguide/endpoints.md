@@ -1,7 +1,6 @@
 
 
 # Endpoints for AWS Payment Cryptography
-<a name="endpoints"></a>
 
 To connect programmatically to AWS Payment Cryptography, you use an endpoint, the URL of the entry point for the service. The AWS SDKs and the command line tools automatically use the default endpoint for the service in an AWS Region based on the region context of a request, so there's typically no need to explicitly set these values. When needed, you can specify a different endpoint for your API requests.
 

@@ -1,7 +1,6 @@
 
 
 # Assessment Scope
-<a name="pin-compliance-scope"></a>
 
 The first step in planning any assessment is documenting the scope. For PCI PIN, the scope is systems and processes that protect PINs, including protection of the cryptographic keys and devices that protect them - payment terminals, also called points-of-interaction (POI), HSMs, and other secure cryptographic devices (SCD).
 

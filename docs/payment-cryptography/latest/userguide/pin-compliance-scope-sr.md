@@ -1,7 +1,6 @@
 
 
 # Shared Responsibility
-<a name="pin-compliance-scope-sr"></a>
 
 AWS Payment Cryptography is an Encryption and Support Organization (ESO) and a PIN-Acquiring Third-Party Servicer (TPS), as defined by the [ Visa PIN Security Program](https://usa.visa.com/splisting/splistinglearnmore.html#vpsp) and listed on the Visa Global Service Provider Registry, under “Amazon Web Services, LLC”. This means that the service is allowed by Visa to be used by PIN-Acquiring Third-Party VisaNet Processor (VNP), PIN-Acquiring Client VisaNet Processor Acting as a Service Provider, and other TPS and ESO providers without requiring further assessment by customer PIN assessors (PCI Qualified PIN Assessors or PCI QPA).
 

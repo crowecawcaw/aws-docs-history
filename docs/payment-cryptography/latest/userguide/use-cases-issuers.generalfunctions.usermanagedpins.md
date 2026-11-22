@@ -1,7 +1,6 @@
 
 
 # User Managed PINs
-<a name="use-cases-issuers.generalfunctions.usermanagedpins"></a>
 
 **Topics**
 + [Overview](#use-cases-issuers.generalfunctions.usermanagedpins.overview)
@@ -44,7 +43,7 @@ All three flows use the same set of keys: an ECDH agreement key for the key agre
 
 Create the ECDH agreement key. This key is used to derive the shared symmetric key with the device.
 
-```
+```bash
 $ aws payment-cryptography create-key \
     --exportable \
     --key-attributes KeyAlgorithm=ECC_NIST_P256,KeyClass=ASYMMETRIC_KEY_PAIR,\
@@ -54,7 +53,7 @@ $ aws payment-cryptography create-key \
 
 The response echoes back the request parameters and includes the ARN of the ECDH key.
 
-```
+```json
 {
     "Key": {
         "KeyArn": "arn:aws:payment-cryptography:us-east-1:111122223333:key/xxxxxxxxxxxxxxxx",
@@ -88,7 +87,7 @@ The response echoes back the request parameters and includes the ARN of the ECDH
 
 Create the Pin Generation/Verification Key (PGK) used to generate the PVV.
 
-```
+```bash
 $ aws payment-cryptography create-key \
     --exportable \
     --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_V2_VISA_PIN_VERIFICATION_KEY,\
@@ -96,7 +95,7 @@ $ aws payment-cryptography create-key \
         KeyModesOfUse='{Generate=true,Verify=true}'
 ```
 
-```
+```json
 {
     "Key": {
         "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ov6icy4ryas4zcza",
@@ -130,7 +129,7 @@ $ aws payment-cryptography create-key \
 
 Create the [Pin Encryption Key](terminology.md#terms.pek) (PEK) that the device PIN block is translated onto for backend storage.
 
-```
+```bash
 $ aws payment-cryptography create-key \
     --exportable \
     --key-attributes KeyAlgorithm=AES_128,KeyUsage=TR31_P0_PIN_ENCRYPTION_KEY,\
@@ -138,7 +137,7 @@ $ aws payment-cryptography create-key \
         KeyModesOfUse='{Encrypt=true,Decrypt=true,Wrap=true,Unwrap=true}'
 ```
 
-```
+```json
 {
     "Key": {
         "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ivi5ksfsuplneuyt",
@@ -172,12 +171,12 @@ $ aws payment-cryptography create-key \
 
 Import the device CA's public key so that AWS Payment Cryptography can verify the device certificates presented in later translation calls. Replace `<base64-CA-cert>` with the base64-encoded CA certificate.
 
-```
+```bash
 $ aws payment-cryptography import-key \
     --key-material='{"RootCertificatePublicKey":{"KeyAttributes":{"KeyAlgorithm":"ECC_NIST_P256","KeyClass":"PUBLIC_KEY","KeyModesOfUse":{"Verify":true},"KeyUsage":"TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE"},"PublicKeyCertificate":"<base64-CA-cert>"}}'
 ```
 
-```
+```json
 {
     "Key": {
         "KeyArn": "arn:aws:payment-cryptography:us-east-1:111122223333:key/yyyyyyyyyyyyyyyy",
@@ -213,7 +212,7 @@ Because the device is typically a phone, its EC key pair and certificate are pro
 
 The customer backend obtains the service ECDH public certificate and provides it to the device. The certificate is returned as a base64-encoded PEM in the `KeyCertificate` field, which is base64-decoded to a PEM file. The device uses this certificate as the service public key when it derives the shared secret.
 
-```
+```bash
 $ aws payment-cryptography get-public-key-certificate \
     --key-identifier arn:aws:payment-cryptography:us-east-1:111122223333:key/xxxxxxxxxxxxxxxx
 ```
@@ -228,7 +227,7 @@ In the Set PIN flow, the cardholder chooses their own PIN on the device (for exa
 
 First, translate the ECDH-protected PIN block onto the server PEK. The incoming key is the ECDH agreement key, wrapped with the Diffie-Hellman parameters and the signed device certificate; the outgoing key is the PEK.
 
-```
+```bash
 $ aws payment-cryptography-data translate-pin-data \
     --encrypted-pin-block A1B2C3D4E5F60718 \
     --incoming-key-identifier arn:aws:payment-cryptography:us-east-1:111122223333:key/xxxxxxxxxxxxxxxx \
@@ -240,7 +239,7 @@ $ aws payment-cryptography-data translate-pin-data \
 
 The response contains the PIN block re-encrypted under the PEK in ISO format 4.
 
-```
+```json
 {
     "PinBlock": "F7E6D5C4B3A29180",
     "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ivi5ksfsuplneuyt",
@@ -250,7 +249,7 @@ The response contains the PIN block re-encrypted under the PEK in ISO format 4.
 
 Next, generate the PVV for the PEK-encrypted PIN block. The PGK generates the PVV, and the PEK identifies the key that the supplied PIN block is encrypted under.
 
-```
+```bash
 $ aws payment-cryptography-data generate-pin-data \
     --generation-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/ov6icy4ryas4zcza \
     --encryption-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/ivi5ksfsuplneuyt \
@@ -261,7 +260,7 @@ $ aws payment-cryptography-data generate-pin-data \
 
 The response contains the PVV in `PinData.VerificationValue` and the encrypted PIN block. Store the PVV on the customer backend so that you can verify the PIN later. For verification, see [Generate a random pin and the associated PVV and then verify the value](use-cases-issuers.generalfunctions.pvv.md). 
 
-```
+```json
 {
     "GenerationKeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ov6icy4ryas4zcza",
     "GenerationKeyCheckValue": "51A200",
@@ -283,7 +282,7 @@ In the Reset PIN (green PIN) flow, AWS Payment Cryptography generates a random P
 
 First, generate a random PIN and its PVV, encrypting the PIN block under the PEK.
 
-```
+```bash
 $ aws payment-cryptography-data generate-pin-data \
     --generation-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/ov6icy4ryas4zcza \
     --encryption-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/ivi5ksfsuplneuyt \
@@ -294,7 +293,7 @@ $ aws payment-cryptography-data generate-pin-data \
 
 The response contains the PVV in `PinData.VerificationValue` and the PEK-encrypted PIN block (ISO format 4). Store the PVV on the customer backend for later verification.
 
-```
+```json
 {
     "GenerationKeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ov6icy4ryas4zcza",
     "GenerationKeyCheckValue": "51A200",
@@ -309,7 +308,7 @@ The response contains the PVV in `PinData.VerificationValue` and the PEK-encrypt
 
 Next, translate the PEK-encrypted PIN block (ISO format 4) onto the device ECDH-derived key (ISO format 4) so that only the requesting device can read it.
 
-```
+```bash
 $ aws payment-cryptography-data translate-pin-data \
     --encrypted-pin-block F7E6D5C4B3A29180 \
     --incoming-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/ivi5ksfsuplneuyt \
@@ -321,7 +320,7 @@ $ aws payment-cryptography-data translate-pin-data \
 
 The response contains the PIN block re-encrypted under the device ECDH-derived key in ISO format 4.
 
-```
+```json
 {
     "PinBlock": "A1B2C3D4E5F60718",
     "KeyArn": "arn:aws:payment-cryptography:us-east-1:111122223333:key/xxxxxxxxxxxxxxxx",
@@ -343,7 +342,7 @@ Consider authenticating the cardholder and letting them set a new PIN instead of
 
 Translate the stored PEK-encrypted PIN block (ISO format 4) onto the device ECDH-derived key (ISO format 4).
 
-```
+```bash
 $ aws payment-cryptography-data translate-pin-data \
     --encrypted-pin-block F7E6D5C4B3A29180 \
     --incoming-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/ivi5ksfsuplneuyt \
@@ -355,7 +354,7 @@ $ aws payment-cryptography-data translate-pin-data \
 
 The response contains the PIN block re-encrypted under the device ECDH-derived key in ISO format 4.
 
-```
+```json
 {
     "PinBlock": "A1B2C3D4E5F60718",
     "KeyArn": "arn:aws:payment-cryptography:us-east-1:111122223333:key/xxxxxxxxxxxxxxxx",

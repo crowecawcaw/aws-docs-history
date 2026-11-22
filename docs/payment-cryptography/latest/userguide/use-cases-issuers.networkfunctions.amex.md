@@ -1,7 +1,6 @@
 
 
 # American Express specific functions
-<a name="use-cases-issuers.networkfunctions.amex"></a>
 
 **Topics**
 + [CSC1](#use-cases-issuers.networkfunctions.amex.csc)

@@ -1,7 +1,6 @@
 
 
 # Data operations
-<a name="data-operations"></a>
 
 After you have established an AWS Payment Cryptography key, it can be used to perform cryptographic operations. Different operations perform different types of activity ranging from encryption, hashing as well as domain specific algorithms such as CVV2 generation.
 

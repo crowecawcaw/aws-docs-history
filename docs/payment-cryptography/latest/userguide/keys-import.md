@@ -1,7 +1,6 @@
 
 
 # Import keys
-<a name="keys-import"></a>
 
 **Important**  
  Examples require the latest version of the AWS CLI V2. Before getting started, make sure that you've upgraded to the [latest version](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html). 

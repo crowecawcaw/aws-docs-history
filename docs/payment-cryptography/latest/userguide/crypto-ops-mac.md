@@ -1,7 +1,6 @@
 
 
 # Generate and verify MAC
-<a name="crypto-ops-mac"></a>
 
 Message Authentication Codes (MAC) are typically used to authenticate the integrity of a message (whether it's been modified). Cryptographic hashes such as HMAC (Hash-Based Message Authentication Code), CBC-MAC and CMAC (Cipher-based Message Authentication Code) provide additional assurance of the sender of the MAC by utilizing cryptography. HMAC is based on hash functions while CMAC is based on block ciphers. The service also supports ISO9797 Algorithms 1 and 3 which are types of CBC-MACs. 
 

@@ -1,7 +1,6 @@
 
 
 # Generate and Verify an EMV MAC
-<a name="use-cases-issuers.generalfunctions.emvmac"></a>
 
 EMV MAC is MAC using an input of an EMV derived key and then performing a ISO9797-3 (Retail) MAC over the resulting data. EMV MAC is typically used to send commands to an EMV card such as unblock scripts. 
 

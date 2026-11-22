@@ -1,7 +1,6 @@
 
 
 # Generate iCVV
-<a name="generate-iCVV"></a>
 
 **Example**  
 In this example, we will generate a [iCVV](terminology.md#terms.icvv) for a given PAN with inputs of `PAN`,a service code of 999 and card expiration date. This assumes that you have a card verification key [generated](create-keys.md#cvvkey-example).   

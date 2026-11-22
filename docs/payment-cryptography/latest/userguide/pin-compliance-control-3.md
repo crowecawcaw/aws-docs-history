@@ -1,7 +1,6 @@
 
 
 # Control Objective 3: Keys are conveyed or transmitted in a secure manner.
-<a name="pin-compliance-control-3"></a>
 
 *Requirement 8:* Key conveyance with AWS Payment Cryptography was assessed as part of our PCI PIN assessment. You will need to document key protection mechanisms for transfers prior to import to and after export from AWS Payment Cryptography. The service provides key check values for all keys to validate correct conveyance.
 

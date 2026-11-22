@@ -1,7 +1,6 @@
 
 
 # Using Dynamic Keys
-<a name="use-cases-acquirers-dynamickeys"></a>
 
  Dynamic Keys allows one-time or limited use keys to be used for cryptographic operations like `[EncryptData](https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_EncryptData.html)`. This flow can be utilized when the key material frequently rotates (such as on every card transaction) and there is a desire to avoid importing the key material into the service. Short-lived keys may be utilized as part of [softPOS/Mpoc](terminology.md#terms.mpoc) or other solutions. 
 

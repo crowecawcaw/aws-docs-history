@@ -1,7 +1,6 @@
 
 
 # Customer operations
-<a name="cryptographic-details-customerops"></a>
 
  AWS Payment Cryptography has full responsibility for the HSM physical compliance under PCI standards. The service also provides a secure key store and ensures that keys can only be used for the purposes permitted by PCI standards and specified by you during creation or import. You are responsible for configuring key attributes and access to leverage the security and compliance capabilities of the service. 
 

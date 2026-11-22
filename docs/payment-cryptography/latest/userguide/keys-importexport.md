@@ -1,7 +1,6 @@
 
 
 # Importing and exporting keys
-<a name="keys-importexport"></a>
 
 You can import AWS Payment Cryptography keys from other solutions and export them to other solutions, such as HSMs. Many customers exchange keys with service providers using import and export functionality. We designed AWS Payment Cryptography to use a modern, electronic approach to key management that helps you maintain compliance and controls. We recommend using standards-based electronic key exchange instead of paper-based key components. If you need to continue processing paper key components until all partners support electronic key exchange, you can use [Physical Key Exchange](keys-physicalkeyexchange.md).
 

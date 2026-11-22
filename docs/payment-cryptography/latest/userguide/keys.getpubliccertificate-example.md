@@ -1,7 +1,6 @@
 
 
 # Get the public key/certificate associated with a key pair
-<a name="keys.getpubliccertificate-example"></a>
 
 Get Public Key/Certificate returns the public key indicated by the `KeyArn`. This can be the public key portion of a key pair generated on AWS Payment Cryptography or a previously imported public key. The most common use case is to provide the public key to an outside service that will encrypt data. That data can then be passed to an application leveraging AWS Payment Cryptography and the data can be decrypted using the private key secured within AWS Payment Cryptography. 
 

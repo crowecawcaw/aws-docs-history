@@ -1,7 +1,6 @@
 
 
 # Enabling and disabling keys
-<a name="keys-enable-disable"></a>
 
 You can disable and re-enable AWS Payment Cryptography keys. When you create key, it is enabled by default. If you disable a key, it cannot be used in any [cryptographic operation](data-operations.md) until you re-enable it. Start/stop usage commands take immediate effect, so it's recommended that you review usage before making such a change. You can also set a change (start or stop usage) to take effect in the future using the optional `timestamp` parameter.
 

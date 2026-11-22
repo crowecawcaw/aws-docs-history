@@ -1,7 +1,6 @@
 
 
 # Verify CVV2
-<a name="verify-cvv2"></a>
 
 **Example**  
 In this example, we will validate a CVV/CVV2 for a given PAN. The CVV2 is typically provided by the cardholder or user during transaction time for validation. In order to validate their input, the following values will be provided at runtime - [Key to Use for validation (CVK)](create-keys.md#cvvkey-example), `PAN`, card expiration date and CVV2 entered. Card expiration format must match that used in initial value generation.   

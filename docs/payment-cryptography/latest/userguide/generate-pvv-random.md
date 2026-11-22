@@ -1,7 +1,6 @@
 
 
 # Generate a random pin and matching Visa PVV
-<a name="generate-pvv-random"></a>
 
 **Example**  
 In this example, we will generate a new (random) pin where the outputs will be an encrypted `PIN block` (PinData.PinBlock) and a `PVV` (pinData.Offset). The key inputs are `PAN`, the `Pin Verification Key`, the `Pin Encryption Key` and the `PIN block format`.   

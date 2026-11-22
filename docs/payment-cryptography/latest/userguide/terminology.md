@@ -1,7 +1,6 @@
 
 
 # Industry terminology
-<a name="terminology"></a>
 
 **Topics**
 + [Common key types](#key-types)

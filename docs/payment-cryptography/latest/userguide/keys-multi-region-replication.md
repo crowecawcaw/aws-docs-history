@@ -1,7 +1,6 @@
 
 
 # Replicating AWS Payment Cryptography keys
-<a name="keys-multi-region-replication"></a>
 
 AWS Payment Cryptography supports Multi-Region key replication, allowing you to securely distribute key material and metadata from any given AWS Payment Cryptography Key to one or more AWS Regions within the same AWS partition and account.
 

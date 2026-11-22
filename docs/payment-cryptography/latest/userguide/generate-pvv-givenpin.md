@@ -1,7 +1,6 @@
 
 
 # Generate a Visa PVV for a known pin
-<a name="generate-pvv-givenpin"></a>
 
 **Example**  
 In this example, we will generate a PVV for a given (encrypted) pin. An encrypted pin may be received upstream such as from a payment terminal or from a cardholder using the [ user selectable pin flow](https://github.com/aws-samples/samples-for-payment-cryptography-service/tree/main/python_sdk_example/ecdh_flows). The key inputs are `PAN`, the `Pin Verification Key`, the `Pin Encryption Key`, the `Encrypted Pin Block` and the `PIN block format`.   

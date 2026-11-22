@@ -1,7 +1,6 @@
 
 
 # Physical Key Exchange
-<a name="keys-physicalkeyexchange"></a>
 
 You can use Physical Key Exchange to securely convert paper-based cryptographic key components into electronic format when your partners or vendors do not support electronic key exchange. Trained AWS key custodians perform key ceremonies in PCI PIN and P2PE certified AWS-operated secure facilities, converting paper key components into electronic format using an offline HSM. The service uses ECDH-based key exchange to deliver an ECDH-wrapped TR-31 key block, which you import directly into your AWS Payment Cryptography account. 
 

@@ -1,7 +1,6 @@
 
 
 # Generate or verify a iCVV for a specific card
-<a name="use-cases-issuers.generalfunctions.icvv"></a>
 
 [iCVV](terminology.md#terms.icvv) uses the same algorithm as CVV/CVV2 but iCVV is embedded inside a chip card. Its service code is 999.
 

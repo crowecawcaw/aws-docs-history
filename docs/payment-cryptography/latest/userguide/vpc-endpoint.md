@@ -1,7 +1,6 @@
 
 
 # Connecting to AWS Payment Cryptography through a VPC endpoint
-<a name="vpc-endpoint"></a>
 
 You can connect directly to AWS Payment Cryptography through a private interface endpoint in your virtual private cloud (VPC). When you use an interface VPC endpoint, communication between your VPC and AWS Payment Cryptography is conducted entirely within the AWS network.
 
@@ -71,7 +70,7 @@ You can connect to AWS Payment Cryptography through the VPC endpoint by using an
 
 For example, this [list-keys](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/list-keys.html) command uses the `endpoint-url` parameter to specify the VPC endpoint. To use a command like this, replace the example VPC endpoint ID with one in your account.
 
-```
+```bash
 $ aws payment-cryptography list-keys --endpoint-url {{https://vpce-1234abcdf5678c90a-09p7654s-us-east-1a.ec2.us-east-1.vpce.amazonaws.com}}
 ```
 
@@ -112,7 +111,7 @@ Every VPC endpoint has a VPC endpoint policy, but you are not required to specif
 
 However, for AWS Payment Cryptography resources, the principal must also have permission to call the operation from an [IAM policy](security_iam_id-based-policy-examples.md). Therefore, in practice, the default policy says that if a principal has permission to call an operation on a resource, they can also call it by using the endpoint.
 
-```
+```json
 {
   "Statement": [
     {
@@ -141,7 +140,7 @@ The policy statement doesn't specify the VPC endpoint. Instead, it applies to an
 
 The following is an example of a VPC endpoint policy for AWS Payment Cryptography. When attached to a VPC endpoint, this policy allows `ExampleUser` to use the VPC endpoint to call the specified operations on the specified AWS Payment Cryptography keys. Before using a policy like this one, replace the example principal and [key identifier](concepts.md#concepts.key-identifer) with valid values from your account.
 
-```
+```json
 {
    "Statement":[
       {
@@ -167,7 +166,7 @@ As such, you might want to create a VPC endpoint policy that prevents principals
 
 The following example uses the [aws:PrincipalAccount](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-principalaccount) global condition key to deny access to all principals for all operations on all AWS Payment Cryptography keys unless the principal is in the local account. Before using a policy like this one, replace the example account ID with a valid one.
 
-```
+```json
 {
   "Statement": [
     {
@@ -195,7 +194,7 @@ The following AWS CLI command gets the policy for the endpoint with the specifie
 
 Before using this command, replace the example endpoint ID with a valid one from your account.
 
-```
+```bash
 $ aws ec2 describe-vpc-endpoints \
 --query 'VpcEndpoints[?VpcEndpointId==`{{vpce-1234abcdf5678c90a}}`].[PolicyDocument]'
 --output text
@@ -222,7 +221,7 @@ To use a policy like this one, replace the placeholder AWS account ID and VPC en
 
 ****  
 
-```
+```json
 {
     "Id": "example-key-1",
     "Version":"2012-10-17",		 	 	 
@@ -273,7 +272,7 @@ To use a policy like this one, replace the placeholder AWS account ID and VPC en
 
 ****  
 
-```
+```json
 {
     "Id": "example-key-2",
     "Version":"2012-10-17",		 	 	 
@@ -343,7 +342,7 @@ To protect your VPC, requests that are denied by a [VPC endpoint policy](#vpce-p
 
 For example, this sample log entry records a [GenerateMac](https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_GenerateMac.html) request that used the VPC endpoint. The `vpcEndpointId` field appears at the end of the log entry.
 
-```
+```json
 {
       "eventVersion": "1.08",
       "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Acquiring and payment facilitators
-<a name="use-cases-acquirers"></a>
 
 Acquirers, PSPs and Payment Facilators typically have a different set of cryptographic requirements than issuers. Common use cases include: 
 

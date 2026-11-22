@@ -1,7 +1,6 @@
 
 
 # Generate IBM3624 pin offset for a pin
-<a name="generate-ibm3624"></a>
 
  IBM 3624 PIN Offset also sometimes called the IBM method. This method generates a natural/intermediate PIN using the validation data (typically the PAN) and a PIN Key (PVK). Natural pins are effectively a derived value and being deterministic are very efficient to handle for an issuer because no pin data needs to be stored at a cardholder level. The most obvious con is that this scheme doesn't account for cardholder selectable or random pins. To allow for those types of pins, an offset algorithm was added to the scheme. The offset represents the difference between the user selected(or random) pin and the natural key. The offset value is stored by the card issuer or card processor. At transaction time, the AWS Payment Cryptography service internally recalculates the natural pin and applies the offset to find the pin. It then compares this against the value provided by the transaction authorization. 
 

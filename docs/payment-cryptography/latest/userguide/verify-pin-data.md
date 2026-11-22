@@ -1,7 +1,6 @@
 
 
 # Verify PIN data
-<a name="verify-pin-data"></a>
 
 Verify PIN data functions are used for verifying whether a pin is correct. This typically involves comparing the pin value previously stored against what was entered by the cardholder at a POI. These functions compare two values without exposing the underlying value of either source. 
 

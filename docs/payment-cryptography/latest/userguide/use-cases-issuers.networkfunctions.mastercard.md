@@ -1,7 +1,6 @@
 
 
 # Mastercard specific functions
-<a name="use-cases-issuers.networkfunctions.mastercard"></a>
 
 **Topics**
 + [DCVC3](#use-cases-issuers.networkfunctions.mastercard.dcvc)

@@ -1,7 +1,6 @@
 
 
 # Bring Your Own Certificate Authority (BYOCA)
-<a name="keyexchange-byoca"></a>
 
 By default, when a public key certificate is needed for asymmetric(RSA,ECC) keys created within the service, these certificates are issued by a AWS Payment Cryptography and account-unique certificate authority(CA). This is intended to make it simple to use X.509 without the burden of identifying or setting up a CA or managing Certificate Signing Requests(CSR).
 

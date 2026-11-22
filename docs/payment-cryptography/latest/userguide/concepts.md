@@ -1,7 +1,6 @@
 
 
 # Concepts
-<a name="concepts"></a>
 
 Learn the basic terms and concepts used in AWS Payment Cryptography and how you can use them to help you protect your data.
 
@@ -14,7 +13,7 @@ alias/{{<alias-name>}}
 ```
 For example:  
 
-```
+```text
 alias/sampleAlias2
 ```
 
@@ -27,7 +26,7 @@ arn:{{<partition>}}:payment-cryptography:{{<region>}}:{{<account-id>}}:alias/{{<
 ```
 The following is a sample key ARN:  
 
-```
+```text
 arn:aws:payment-cryptography:us-east-2:111122223333:key/kwapwa6qaifllw2h
 ```
 

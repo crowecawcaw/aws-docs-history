@@ -1,7 +1,6 @@
 
 
 # Common Topics
-<a name="compliance.pin.commontopics"></a>
 
 Migrating applications from connecting to HSM to a managed service such as AWS Payment Cryptography brings up common issues and concepts for customers and their assessors. This section provides information to clarify how the secure use of the service addresses these situations. 
 

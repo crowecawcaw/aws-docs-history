@@ -1,7 +1,6 @@
 
 
 # What is AWS Payment Cryptography?
-<a name="what-is"></a>
 
 AWS Payment Cryptography is a managed AWS service that provides access to cryptographic functions and key management used in payment processing in accordance with payment card industry (PCI) standards without the need for you to procure dedicated payment HSM instances. AWS Payment Cryptography provides customers performing payment functions such as acquirers, payment facilitators, networks, switches, processors, and banks with the ability to move their payment cryptographic operations closer to applications in the cloud and minimize dependencies on auxiliary data centers or colocation facilities containing dedicated payment HSMs. 
 

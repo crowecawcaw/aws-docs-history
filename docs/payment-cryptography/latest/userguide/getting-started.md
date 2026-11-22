@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Payment Cryptography
-<a name="getting-started"></a>
 
 To get started with AWS Payment Cryptography, you'll first want to create keys and then use them in various cryptographic operations. The below tutorial provides a simple use case of generating a key to be used for generating/verifying CVV2 values. To try out other examples and to explore deployment patterns within AWS, please try out the following [AWS Payment Cryptography Workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/b85843d4-a5e4-40fc-9a96-de0a99312a4b/en-US) or explore our sample project available on [GitHub](https://github.com/aws-samples/samples-for-payment-cryptography-service) 
 

@@ -1,7 +1,6 @@
 
 
 # Internal operations
-<a name="cryptographic-details-internalops"></a>
 
 This topic describes internal requirements implemented by the service to secure customer keys and cryptographic operations for a globally distributed and scalable payment cryptography and key management service.
 

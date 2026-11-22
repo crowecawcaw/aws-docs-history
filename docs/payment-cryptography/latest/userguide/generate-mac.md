@@ -1,7 +1,6 @@
 
 
 # Generate MAC
-<a name="generate-mac"></a>
 
 Generate MAC API is used to authenticate card-related data, such as track data from a card magnetic stripe, by using known cryptographic keys to generate a MAC (Message Authentication Code) for data validation between sending and receiving parties. The data used to generate MAC includes message data, secret MAC encryption key and MAC algorithm to generate a unique MAC value for transmission. The receiving party of the MAC will use the same MAC message data, MAC encryption key, and algorithm to reproduce another MAC value for comparison and data authentication. Even if one character of the message changes or the MAC key used for verification is not identical, the resulting MAC value is different. The API supports ISO 9797-1 Algorithm 1 and ISO 9797-1 Algorithm 3 MAC (using a static MAC key and a Derived Unique Key Per Transaction (DUKPT) key), HMAC and EMV MAC encryption keys for this operation.
 

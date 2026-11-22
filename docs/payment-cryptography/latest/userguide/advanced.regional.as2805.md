@@ -1,7 +1,6 @@
 
 
 # AS2805
-<a name="advanced.regional.as2805"></a>
 
 Australia Standard 2805 (AS2805) is a standard for electronic funds transfers used primarily for card-based payment transactions. It is maintained by [Standards Australia](https://www.standards.org.au/). The standard consists of 6 books that covers numerous topics from message format to encryption standards.
 

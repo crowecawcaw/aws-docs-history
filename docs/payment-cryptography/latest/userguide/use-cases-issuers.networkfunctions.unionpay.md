@@ -1,7 +1,6 @@
 
 
 # UnionPay specific functions
-<a name="use-cases-issuers.networkfunctions.unionpay"></a>
 
 The following examples pertain to UnionPay International (UPI), also sometimes referred to as China UnionPay (CUP).
 
@@ -22,7 +21,7 @@ UnionPay ARQC validation uses the EMV\_OPTION\_A key derivation mode. The sessio
 This example shows how to validate an ARQC generated using UnionPay key derivation.  
 If AWS Payment Cryptography validates the ARQC, it returns an HTTP 200 response. If the ARQC fails validation, AWS Payment Cryptography returns an HTTP 400 response with a reason code.  
 
-```
+```bash
 $ aws payment-cryptography-data verify-auth-request-cryptogram --auth-request-cryptogram A12345B1A12345B1 \
   --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk \
   --major-key-derivation-mode EMV_OPTION_A \
@@ -30,7 +29,7 @@ $ aws payment-cryptography-data verify-auth-request-cryptogram --auth-request-cr
   --session-key-derivation-attributes='UnionPay={PrimaryAccountNumber=4123412341234123,PanSequenceNumber=01,ApplicationTransactionCounter=123D}'
 ```
 
-```
+```json
 {
     "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk",
     "KeyCheckValue": "08D7B4"
@@ -54,7 +53,7 @@ CVN2 is the UnionPay equivalent of CVV2. It is a card verification number used f
 
 To create a CVN2 key, use the `create-key` command with the `TR31_C0_CARD_VERIFICATION_KEY` usage and `TDES_2KEY` algorithm.
 
-```
+```bash
 $ aws payment-cryptography create-key --exportable \
   --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_C0_CARD_VERIFICATION_KEY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate=true,Verify=true}' \
   --tags='[{"Key":"KEY_PURPOSE","Value":"CVN2"},{"Key":"CARD_BIN","Value":"47613499"}]'
@@ -62,7 +61,7 @@ $ aws payment-cryptography create-key --exportable \
 
 The response echoes back the request parameters, including an ARN for subsequent calls and a Key Check Value (KCV).
 
-```
+```json
 {
     "Key": {
         "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu",
@@ -103,14 +102,14 @@ Take note of the `KeyArn` value, for example *arn:aws:payment-cryptography:us-ea
 This example generates a CVN2 for a given PAN with inputs of `PAN` and card expiry date.  
 For all available parameters, see [CardVerificationValue2](https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_CardVerificationValue2.html) in the API reference guide.  
 
-```
+```bash
 $ aws payment-cryptography-data generate-card-validation-data \
   --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu \
   --primary-account-number=4761349999991234 \
   --generation-attributes CardVerificationValue2='{CardExpiryDate=1226}'
 ```
 
-```
+```json
 {
     "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu",
     "KeyCheckValue": "AEA5CD",
@@ -126,7 +125,7 @@ This example validates a CVN2 for a given PAN with inputs of `PAN`, card expiry 
 For all available parameters, see [CardVerificationValue2](https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_CardVerificationValue2.html) in the API reference guide.  
 CVN2 is a user-entered value. Periodic validation failures do not necessarily indicate an issue.
 
-```
+```bash
 $ aws payment-cryptography-data verify-card-validation-data \
   --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu \
   --primary-account-number=4761349999991234 \
@@ -134,7 +133,7 @@ $ aws payment-cryptography-data verify-card-validation-data \
   --validation-data 321
 ```
 
-```
+```json
 {
     "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu",
     "KeyCheckValue": "AEA5CD"
@@ -154,7 +153,7 @@ AVN (Authentication Verification Number) is the UnionPay 3DS cryptogram. It uses
 
 To create an AVN key, use the `create-key` command with the `TR31_C0_CARD_VERIFICATION_KEY` usage and `TDES_2KEY` algorithm.
 
-```
+```bash
 $ aws payment-cryptography create-key --exportable \
   --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_C0_CARD_VERIFICATION_KEY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate=true,Verify=true}' \
   --tags='[{"Key":"KEY_PURPOSE","Value":"AVN"},{"Key":"CARD_BIN","Value":"47613499"}]'
@@ -162,7 +161,7 @@ $ aws payment-cryptography create-key --exportable \
 
 The response echoes back the request parameters, including an ARN for subsequent calls and a Key Check Value (KCV).
 
-```
+```json
 {
     "Key": {
         "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk",
@@ -203,14 +202,14 @@ Take note of the `KeyArn` value, for example *arn:aws:payment-cryptography:us-ea
 This example generates an AVN for a given PAN. The `CardExpiryDate` field contains the four least significant digits derived from the dsTransID. The `ServiceCode` field contains the authentication result, filling bit, and generator indicator.  
 For all available parameters, see [CardVerificationValue1](https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_CardVerificationValue1.html) in the API reference guide.  
 
-```
+```bash
 $ aws payment-cryptography-data generate-card-validation-data \
   --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk \
   --primary-account-number=4761349999991234 \
   --generation-attributes CardVerificationValue1='{CardExpiryDate=9431,ServiceCode=201}'
 ```
 
-```
+```json
 {
     "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk",
     "KeyCheckValue": "F3FB13",
@@ -225,7 +224,7 @@ $ aws payment-cryptography-data generate-card-validation-data \
 This example validates an AVN for a given PAN using the same input fields that generated it, along with the AVN value to verify.  
 For all available parameters, see [CardVerificationValue1](https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_CardVerificationValue1.html) in the API reference guide.  
 
-```
+```bash
 $ aws payment-cryptography-data verify-card-validation-data \
   --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk \
   --primary-account-number=4761349999991234 \
@@ -233,7 +232,7 @@ $ aws payment-cryptography-data verify-card-validation-data \
   --validation-data 491
 ```
 
-```
+```json
 {
     "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/dnaeyrjgdjjtw6dk",
     "KeyCheckValue": "F3FB13"

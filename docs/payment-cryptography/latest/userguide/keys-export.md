@@ -1,7 +1,6 @@
 
 
 # Export keys
-<a name="keys-export"></a>
 
 **Contents**
 + [Export symmetric keys](#keys-export-symmetric)

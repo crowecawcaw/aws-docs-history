@@ -1,7 +1,6 @@
 
 
 # Visa specific functions
-<a name="use-cases-issuers.networkfunctions.visa"></a>
 
 **Topics**
 + [ARQC - CVN18/CVN22](#use-cases-issuers.networkfunctions.visa.cvn18)

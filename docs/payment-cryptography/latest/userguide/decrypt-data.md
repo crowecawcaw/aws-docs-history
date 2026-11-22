@@ -1,7 +1,6 @@
 
 
 # Decrypt data
-<a name="decrypt-data"></a>
 
  The `Decrypt Data` API is used to decrypt data using symmetric and asymmetric data encryption keys as well as [DUKPT](terminology.md#terms.dukpt) and [EMV](terminology.md#terms.emv) derived keys. Various algorithms and variations are supported including `TDES`, `RSA` and `AES`.
 

@@ -1,7 +1,6 @@
 
 
 # Encrypt, Decrypt and Re-encrypt data
-<a name="crypto-ops.encryptdecrypt"></a>
 
 Encryption and Decryption methods can be used to encrypt or decrypt data using a variety of symmetric and asymmetric techniques including TDES, AES and RSA. These methods also support keys derived using [DUKPT](terminology.md#terms.dukpt) and [EMV](terminology.md#terms.emv) techniques. For use cases where you wish to secure data under a new key without exposing the underlying data, the ReEncrypt command can also be used.
 

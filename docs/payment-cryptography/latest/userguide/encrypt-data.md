@@ -1,7 +1,6 @@
 
 
 # Encrypt data
-<a name="encrypt-data"></a>
 
  The `Encrypt Data` API is used to encrypt data using symmetric and asymmetric data encryption keys as well as [DUKPT](terminology.md#terms.dukpt) and [EMV](terminology.md#terms.emv) derived keys. Various algorithms and variations are supported including `TDES`, `RSA` and `AES`.
 

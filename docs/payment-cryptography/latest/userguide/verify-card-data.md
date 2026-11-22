@@ -1,7 +1,6 @@
 
 
 # Verify card data
-<a name="verify-card-data"></a>
 
 `Verify Card Data` is used to verify data that has been created using payment algorithms that rely on encryption principals such as `DISCOVER_DYNAMIC_CARD_VERIFICATION_CODE`. 
 

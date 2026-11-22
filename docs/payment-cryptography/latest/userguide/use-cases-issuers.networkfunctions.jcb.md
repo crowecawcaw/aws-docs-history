@@ -1,7 +1,6 @@
 
 
 # JCB specific functions
-<a name="use-cases-issuers.networkfunctions.jcb"></a>
 
 **Topics**
 + [ARQC - CVN04](#use-cases-issuers.networkfunctions.jcb.cvn04)

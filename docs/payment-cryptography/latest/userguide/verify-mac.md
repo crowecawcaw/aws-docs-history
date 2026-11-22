@@ -1,7 +1,6 @@
 
 
 # Verify MAC
-<a name="verify-mac"></a>
 
 Verify MAC API is used to verify MAC (Message Authentication Code) for card-related data authentication. It must use the same encryption key used during generate MAC to re-produce MAC value for authentication. The MAC encryption key can either be created with AWS Payment Cryptography by calling [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html) or imported by calling [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html). The API supports DUKPT MAC, HMAC and EMV MAC encryption keys for this operation.
 

@@ -1,7 +1,6 @@
 
 
 # Generate card data
-<a name="generate-card-data"></a>
 
  The `Generate Card Data` API is used to generate card data using algorithms such as CVV,CVV2 or Dynamic CVV2. To see what keys can be used for this command, please see [Valid keys for cryptographic operations](crypto-ops-validkeys-ops.md) section. 
 

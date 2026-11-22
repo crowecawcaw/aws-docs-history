@@ -1,7 +1,6 @@
 
 
 # Cryptographic details
-<a name="cryptographic-details"></a>
 
 AWS Payment Cryptography provides a web interface to generate and manage cryptographic keys for payment transactions. AWS Payment Cryptography offers standard key management services and payment transaction cryptography and tools you can use for centralized management and auditing. This documentation provides a detailed description of the cryptographic operations you can use in AWS Payment Cryptography to assist you in evaluating the features offered by the service. 
 

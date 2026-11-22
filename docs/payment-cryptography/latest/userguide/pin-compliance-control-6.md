@@ -1,7 +1,6 @@
 
 
 # Control Objective 6: Keys are administered in a secure manner.
-<a name="pin-compliance-control-6"></a>
 
 *Requirement 21:* Key storage and use with AWS Payment Cryptography was assessed as part of the service’s PCI PIN assessment. For key component related storage requirements, you are responsible to store them as delineated under 21-2 and 21-3. You will need to describe key protection mechanisms in your policy documentation prior to import to and after export from the service.
 

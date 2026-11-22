@@ -1,7 +1,6 @@
 
 
 # Transaction Processing Operations
-<a name="pin-compliance-control"></a>
 
 PCI PIN requirements are organized in Control Objectives. Each Control Objective groups requirements for securing an aspect of security for PINs.
 

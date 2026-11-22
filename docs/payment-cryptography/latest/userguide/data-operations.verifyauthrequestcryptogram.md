@@ -1,7 +1,6 @@
 
 
 # Verify auth request (ARQC) cryptogram
-<a name="data-operations.verifyauthrequestcryptogram"></a>
 
  The verify auth request cryptogram API is used for verifying [ARQC](terminology.md#terms.arqc). The generation of the ARQC is typically performed on an EMV Chip Card (or digital equivalent such as mobile wallet) during transaction authorization time although the service can generate for development purposes. An ARQC is unique to each transactions and is intended to cryptographically show both the validity of the card as well as to ensure that the transaction data exactly matches the current (expected) transaction. 
 

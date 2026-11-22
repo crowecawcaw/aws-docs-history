@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Payment Cryptography
-<a name="compliance-validation"></a>
 
 As with other AWS services, customers require a clear understanding of the [shared responsibility model for security and compliance](https://aws.amazon.com/compliance/shared-responsibility-model/). As a service that specifically supports payments, compliance with applicable PCI standards is particularly important to understand for AWS Payment Cryptography customers. AWS PCI DSS and PCI 3DS assessments include AWS Payment Cryptography. There may be references to the service in the Shared Responsibility Guides, available from AWS Artifact, for these reports. PCI PIN Security and Point-to-Point Encryption (P2PE) assessments are specific to AWS Payment Cryptography.
 

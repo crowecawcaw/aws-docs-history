@@ -1,7 +1,6 @@
 
 
 # Quotas for AWS Payment Cryptography
-<a name="quotas"></a>
 
 Your AWS account has default quotas, formerly referred to as limits, for each AWS service. Unless otherwise noted, each quota is region-specific. You can request increases for some quotas, and other quotas cannot be increased.
 

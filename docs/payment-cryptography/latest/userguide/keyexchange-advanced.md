@@ -1,7 +1,6 @@
 
 
 # Advanced Topics
-<a name="keyexchange-advanced"></a>
 
 This section covers advanced key exchange scenarios and configurations.
 

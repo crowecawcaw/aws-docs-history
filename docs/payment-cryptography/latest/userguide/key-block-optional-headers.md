@@ -1,7 +1,6 @@
 
 
 # Key block optional headers
-<a name="key-block-optional-headers"></a>
 
 This topic describes the optional headers you can include in a TR-31 key block and how AWS Payment Cryptography processes each one. Understanding how the service handles these headers helps you avoid key block import failures and stay compatible with receiving systems. These headers apply to key blocks for both import and export. The following table lists commonly used headers and isn't exhaustive. X9.143 defines certain headers for common use cases. With the exception of the `HM` (HMAC hash) and `PB` (padding block) headers, which have specific purposes and meanings, AWS Payment Cryptography accepts and ignores any header you include and doesn't change its processing based on its value. It doesn't parse or validate these headers on import, including when you pass a TR-31 key block as a dynamic key. The TR-31 message authentication code (MAC) authenticates the entire key block, so a block wrapped under a different [KBPK](terminology.md#terms.kbpk) fails regardless of its header values. Some systems and HSMs don't accept unknown headers, so don't add a header unless the receiving side has asked for it.
 

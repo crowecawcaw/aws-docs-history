@@ -1,7 +1,6 @@
 
 
 # Generate CVV2
-<a name="generate-cvv2"></a>
 
 **Example**  
 In this example, we will generate a CVV2 for a given PAN with inputs of `PAN` and card expiration date. This assumes that you have a card verification key [generated](create-keys.md#cvvkey-example).   

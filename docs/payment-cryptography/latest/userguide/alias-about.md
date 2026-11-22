@@ -1,7 +1,6 @@
 
 
 # About aliases
-<a name="alias-about"></a>
 
 Learn how aliases work in AWS Payment Cryptography.
 

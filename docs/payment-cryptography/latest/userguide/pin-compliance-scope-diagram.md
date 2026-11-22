@@ -1,7 +1,6 @@
 
 
 # High-Level Network Diagrams
-<a name="pin-compliance-scope-diagram"></a>
 
 The PCI PIN Reporting Template requires, “For entities engaged in the processing of PIN based transaction provide a network schematic describing PIN based transaction flows with the associated key type usage. Additionally, KIFs and entities engaged in remote key distribution using asymmetric techniques should provide keying material flows“ 
 
