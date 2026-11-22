@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # File transfer messages
-<a name="file-transfer-messages"></a>
 
 The msgtype for file transfer messages is 6000. This message type contains information about a file transfer message. The "file" JSON object contains the details of the file being transferred, described in this table:
 

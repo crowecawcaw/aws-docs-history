@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Location messages
-<a name="location-messages"></a>
 
 The **msgtype** for all location type messages is 8000. This message is sent when a user sends their location in a conversation. The location will contain the user's latitude and longitude.
 

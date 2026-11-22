@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Text message
-<a name="text-message"></a>
 
 The msgtype for all text-based messages is 1000. Text-based messages can be sent either directly to the Wickr bot or in secure Room/Group conversations.
 

@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Add a custom slash command
-<a name="custom-slash-command"></a>
 
 To add custom behavior, you have to make changes to `index.js`.
 

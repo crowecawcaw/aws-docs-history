@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Wickr IO lex bot
-<a name="wickr-io-lex-bot"></a>
 
 ## Prerequisites
 <a name="lex-prerequisites"></a>

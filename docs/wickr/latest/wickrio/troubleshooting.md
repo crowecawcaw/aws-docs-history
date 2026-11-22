@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Wickr IO clients troubleshooting
-<a name="troubleshooting"></a>
 
 **Topics**
 + [Bot runtime architecture](#bot-architecture)
@@ -69,7 +68,7 @@ what(): No such file or directory
 
 This is caused by a permission issue in the `/opt` directory. To resolve the issue, change the permissions of the `/opt/WickrIO` directory (or the name of the directory you created for your installation) to make it writeable. The following command will fix this problem:
 
-```
+```none    
 chmod 777 /opt/WickrIO
 ```
 
@@ -236,7 +235,7 @@ For production bots, we recommend implementing all four approaches. They are not
 
 Use the built-in Amazon EC2 `StatusCheckFailed` metric to detect host-level failures. On supported instance types, Amazon EC2 simplified automatic recovery is enabled by default and automatically migrates the instance to healthy hardware when a status check fails. The alarm below is informational – it notifies you that a recovery occurred, but no manual action is required. For more information, see [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) in the *Amazon EC2 User Guide*.
 
-```
+```yaml
 HostDownAlarm:
   Type: AWS::CloudWatch::Alarm
   Properties:
@@ -260,7 +259,7 @@ HostDownAlarm:
 
 Create a script on the host that publishes a custom CloudWatch metric based on container status. Run it every minute using `cron`. For example:
 
-```
+```bash
 #!/bin/bash
 # /opt/wickr-bot/monitor.sh
 CONTAINER_NAME="${1:-wickr-bot}"
@@ -306,7 +305,7 @@ If you forward container logs to Amazon CloudWatch Logs using the `awslogs` driv
 
 A heartbeat metric is the most reliable approach because it proves the Node.js process is alive and the event loop is not blocked. Add the following to your bot's entry point, after the bot starts successfully. For example:
 
-```
+```javascript
 const { CloudWatchClient, PutMetricDataCommand } = require('@aws-sdk/client-cloudwatch')
 const cw = new CloudWatchClient()
 const BOT_NAME = process.env.BOT_NAME || 'wickr-bot'
@@ -330,7 +329,7 @@ Add the `@aws-sdk/client-cloudwatch` dependency to your bot's `package.json`.
 
 Create an alarm on the heartbeat metric. For example:
 
-```
+```yaml
 BotProcessAlarm:
   Type: AWS::CloudWatch::Alarm
   Properties:
@@ -359,7 +358,7 @@ Node.js bots that maintain session state, cache data, or process file attachment
 
 To detect memory growth before it causes an OOM kill, publish the Node.js heap usage alongside your heartbeat metric. For example:
 
-```
+```javascript
 setInterval(async () => {
   const mem = process.memoryUsage()
   try {
@@ -385,7 +384,7 @@ setInterval(async () => {
 
 Create a CloudWatch alarm that fires when heap usage exceeds 80% of the container's memory limit. For example, if the container has a 512 MB memory limit (`--memory=512m`), set the threshold to 410 MB. Adjust the threshold to 80% of your configured limit.
 
-```
+```yaml
 MemoryAlarm:
   Type: AWS::CloudWatch::Alarm
   Properties:
@@ -415,7 +414,7 @@ MemoryAlarm:
 
 The Amazon EC2 instance profile for the bot host requires the following permissions for Amazon CloudWatch monitoring:
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -454,20 +453,20 @@ A Wickr IO bot produces logs at multiple levels. Understanding where each log is
 
 To view the integration log from outside the container:
 
-```
+```bash
 sudo docker exec {{container-name}} \
   cat /opt/WickrIO/clients/{{bot-name}}/integration/{{bot-name}}/logs/log.output
 ```
 
 To view the WickrIO server log:
 
-```
+```bash
 sudo docker exec {{container-name}} cat /opt/WickrIO/logs/WickrIOSvr.log
 ```
 
 **View Docker container logs**
 
-```
+```bash
 # View recent logs
 sudo docker logs --tail 100 {{container-name}}
 
@@ -479,7 +478,7 @@ sudo docker logs -f {{container-name}}
 
 The WickrLogger library reads log settings from the `processes.json` file in your bot's integration directory. Add a `log_tokens` section to configure the log level, maximum file size, and maximum number of rotated log files:
 
-```
+```json
 {
   "apps": [{
     "name": "{{bot-name}}",
@@ -511,7 +510,7 @@ The default Docker log driver (`json-file`) does not rotate logs. The log file g
 
 Set the `max-size` and `max-file` options when you start the container. For example:
 
-```
+```bash
 sudo docker run -it \
   --restart unless-stopped \
   --log-opt max-size=50m \
@@ -522,7 +521,7 @@ sudo docker run -it \
 
 This configuration keeps up to 5 log files of 50 MB each (250 MB total). To set this as the default for all containers on the host, add the following to `/etc/docker/daemon.json` and restart Docker:
 
-```
+```json
 {
   "log-driver": "json-file",
   "log-opts": {
@@ -536,7 +535,7 @@ This configuration keeps up to 5 log files of 50 MB each (250 MB total). To set 
 
 For production bots, you can forward container-level logs to Amazon CloudWatch Logs using the Docker `awslogs` log driver. This captures WickrIO server output and container startup messages, which is useful for detecting container crashes and restart loops. To forward bot application logs to Amazon CloudWatch Logs, use the CloudWatch agent on the host to tail the volume-mounted integration log file, or publish metrics directly from your bot code using the heartbeat approach described in [Add a heartbeat metric (recommended)](#monitor-heartbeat).
 
-```
+```bash
 sudo docker run -it \
   --restart unless-stopped \
   --log-driver=awslogs \
@@ -658,7 +657,7 @@ Possible causes:
 
 1. Verify that the host can resolve and reach the Wickr messaging gateway. Run the following commands from the bot host (not from inside the container):
 
-   ```
+   ```bash
    # For commercial deployments:
    nslookup gw-pro-prod.wickr.com
    curl -v https://gw-pro-prod.wickr.com
@@ -742,7 +741,7 @@ The container is running and the WickrIO server shows the bot as `Running`, but 
 
 1. Start the integration manually inside the container:
 
-   ```
+   ```bash
    sudo docker exec -d {{container-name}} bash -c \
      'source /usr/local/nvm/nvm.sh && nvm use 20 >/dev/null && \
       cd /opt/WickrIO/clients/{{bot-name}}/integration/{{bot-name}} && \
@@ -751,7 +750,7 @@ The container is running and the WickrIO server shows the bot as `Running`, but 
 
 1. Verify the integration is running by checking for the Node.js process and the integration log:
 
-   ```
+   ```bash
    sudo docker exec {{container-name}} pgrep -a node
    sudo docker exec {{container-name}} tail /tmp/bot.log
    ```
@@ -767,7 +766,7 @@ When importing a custom integration during the `add` command, the WickrIO consol
 
 **Resolution:** Add an `install.sh` script to the root of your `software.tar.gz` archive:
 
-```
+```bash
 #!/bin/bash
 cd "$(dirname "$0")"
 npm install --production
@@ -775,7 +774,7 @@ npm install --production
 
 Rebuild the archive with the script included:
 
-```
+```bash
 tar czf software.tar.gz src/ package.json install.sh
 ```
 
@@ -910,7 +909,7 @@ The WickrIO server process maintains a registration database (`wickrbot.database
 
 The following example shows the recommended volume mounts:
 
-```
+```bash
 sudo docker run -it \
   --name {{bot-name}} \
   --restart unless-stopped \
@@ -930,7 +929,7 @@ The Docker `--restart unless-stopped` policy restarts the container when it exit
 
 Create a health check script in your bot's integration directory that verifies the bot process is running and producing logs. For example:
 
-```
+```bash
 #!/bin/bash
 # healthcheck.sh — exit 0 = healthy, exit 1 = unhealthy
 
@@ -951,7 +950,7 @@ exit 0
 
 Start the container with the health check configured. For example:
 
-```
+```bash
 sudo docker run -it \
   --restart unless-stopped \
   --health-cmd="/opt/WickrIO/clients/{{bot-name}}/integration/healthcheck.sh" \
@@ -967,7 +966,7 @@ The `--health-start-period` gives the bot time to authenticate with the Wickr ne
 **Note**  
 The Docker `--restart` policy does not automatically restart unhealthy containers. Add a watchdog script on the host to trigger a restart:
 
-```
+```bash
 #!/bin/bash
 # /opt/wickr-bot/watchdog.sh — run via cron every 2 minutes
 CONTAINER="{{container-name}}"

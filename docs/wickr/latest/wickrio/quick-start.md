@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Quick start
-<a name="quick-start"></a>
 
 This guide walks you through deploying your first bot in Wickr. When you complete this guide, you'll have a bot in Wickr that can respond to pre-configured messages.
 

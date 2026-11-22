@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Wickr IO rekognition bot
-<a name="wickr-io-rekognition-bot"></a>
 
 ## Prerequisites
 <a name="rekognition-prerequisites"></a>

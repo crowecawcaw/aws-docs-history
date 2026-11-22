@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Automatic Configuration
-<a name="automatic-configuration"></a>
 
 As of the 5.116 release you can use AWS services to define the bot credentials, token values and other configuration information. You can use Wickr published docker images (i.e. bot-enterprise and bot-cloud) to start the bots. If you do use this method to automatically configure your bots you will not need to use the CLI to add the bots to your running docker image. All the credentials for the bots configured using this method will be secure in the AWS secrets manager service.
 
@@ -20,13 +19,13 @@ AWS_SECRET_NAME='arn:aws:secretsmanager:us-east-1:999999999999:secret:wickenterp
 
 This secret contains the "wickr\_config" key with the value being the configuration information needed to configure and start the bots on the docker image. The configuration information is stored in the secret as an escaped JSON string, for example the following is the plaintext secret value:
 
-```
+```json
 {"wickr_config":"{  \"clients\":[  {  \"integration\":\"wickrio-file-bot\",  \"name\":\"user-file-bot\",  \"password\":\"password\",  \"configS3File\": {    \"key\" : \"configs_9-3-21/conf.wickr\",    \"bucket\" : \"bots-for-enterprise\",    \"region\" : \"us-west-2\"  },  \"configPassword\":\"password\",  \"tokens\":[  {  \"name\":\"CLIENT_NAME\",  \"value\":\"user-file-bot\"  },  {  \"name\":\"WICKRIO_BOT_NAME\",  \"value\":\"user-file-bot\"  },  {  \"name\":\"DATABASE_ENCRYPTION_CHOICE\",  \"value\":\"no\"  }  ]  }  ] }"}
 ```
 
 The following is the un-escaped value for the "wickr\_config" key, in the specified secret.
 
-```
+```json
 {
   "clients":[
     {

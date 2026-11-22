@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # BroadcastBot Integration
-<a name="broadcastbot-integration"></a>
 
 The Wickr IO BroadcastBot allows you to broadcast messages to all of the members of your network or specific security groups. The messages will be sent to each individual within the network or security group using Wickr 1on1 conversations. You can broadcast either messages, files or voice memos. Users that receive a broadcast from the BroadcastBot can also acknowledge receiving messages (using the /ack command).
 

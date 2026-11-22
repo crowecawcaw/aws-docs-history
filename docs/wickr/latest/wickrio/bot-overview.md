@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # What are AWS Wickr bots?
-<a name="bot-overview"></a>
 
 AWS Wickr bots are powerful tools that enable external services and workflows to communicate seamlessly with AWS Wickr users. These bots function as standard users within the AWS Wickr ecosystem, allowing administrators to apply consistent security controls while enabling end-users to interact through messaging. Bots can send and receive messages, handle file attachments, manage rooms and groups, and add interactive UI elements for enhanced user engagement.
 

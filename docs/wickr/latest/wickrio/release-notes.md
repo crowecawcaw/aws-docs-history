@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Release Notes
-<a name="release-notes"></a>
 
 AWS Wickr bots and integrations are regularly updated with new features, improvements, and bug fixes. This chapter provides information about the changes in each release.
 

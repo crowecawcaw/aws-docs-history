@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Node.js Addon API
-<a name="nodejs-addon-api"></a>
 
 This section describes the Wickr IO Node.js addon and how to use it with several examples. The APIs provided by the Wickr IO Node.js addon are low-level APIs, using the APIs provided by the Wickr IO Bot API provide a higher-level approach to some of the main aspects of an Wickr IO integration interfacing with a Wickr IO client. You will still need to use the Wickr IO Node.js addon to perform most interactions with the Wickr IO client. The APIs supported by the Wickr IO Node.js addon allow you to access all of the necessary functionality from the Wickr IO client to communicate with other Wickr users within the Wickr network.
 

@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Web Interface Integration
-<a name="webinterface-integration"></a>
 
 The Web Interface integration allows remote software the ability to interact with the associated Wickr IO client via a REST API. The Wickr IO Web Interface integration supports the REST API via either an HTTP or HTTPS interface. This REST API supports the ability to create conversations, send and receive messages to other Wickr users, and perform other Wickr tasks.
 

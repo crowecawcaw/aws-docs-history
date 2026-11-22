@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Security Recommendations
-<a name="security-recommendations"></a>
 
 We recommend following best practices and if applicable, your organization's security policies to secure your bot deployment. This can include, but isn't restricted to, firewall rules, host system access auditing, regular host system OS updates, and monitoring. We designed Wickr IO bots to be both powerful and flexible for custom use cases and while they inherit many security protections from our standard Wickr clients, it falls on you to secure the host system appropriately to protect it (and your bot) from unauthorized access. For more information on shared responsibility, see [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/).
 

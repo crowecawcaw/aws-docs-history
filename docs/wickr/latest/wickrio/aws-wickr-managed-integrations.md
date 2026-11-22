@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # AWS Wickr managed Integrations
-<a name="aws-wickr-managed-integrations"></a>
 
 This section describes the production-ready bots that are built, maintained, and dispersed by AWS Wickr. The Wickr team QAs them at a regular cadence to ensure optimal performance and compatibility with Wickr apps.
 

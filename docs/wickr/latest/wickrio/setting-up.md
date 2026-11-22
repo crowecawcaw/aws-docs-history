@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Setting up for Wickr IO
-<a name="setting-up"></a>
 
 This section is intended for systems administrators and/or developers to deploy a Wickr-provided bot within their Wickr network or to build and integrate a custom bot of their own.
 

@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Addon and Bot API Usage Examples
-<a name="addon-bot-api-usage-examples"></a>
 
 This section contains several examples of the use of the Wickr IO addon and the Wickr IO Bot API.
 
@@ -12,7 +11,7 @@ This section contains several examples of the use of the Wickr IO addon and the 
 
 Before the Wickr IO Node.js addon API can be used you will need to initialize it in your JavaScript code. This initialization is done by calling the "start()" API (from the Wickr IO Bot APIs) and passing the client name associated with the Wickr IO client. For example:
 
-```
+```javascript
 const WickrIOAPI = require('wickrio_addon'); //WickrIO node.js addon which allows talking directly to our api
 const WickrIOBotAPI = require('wickrio-bot-api'); //Development toolkit to help create bots/integrations
 const WickrUser = WickrIOBotAPI.WickrUser;
@@ -43,7 +42,7 @@ After the call to the "start()" API the client interface will be fully initializ
 
 The following code fragment shows the use of the `cmdSendRoomMessage()` API to send a message to a specific secure room. Before making the call you will need to get a valid vGroupID.
 
-```
+```javascript
 var msg = "Sorry, I'm not allowed to delete all the files in the directory.";
 try {
     var sMessage = WickrIOAPI.cmdSendRoomMessage(vGroupID, msg);
@@ -59,7 +58,7 @@ try {
 
 The following code shows the creation of a secure room and then sending a file to that room:
 
-```
+```javascript
 var members = [{ "name" : "username001" }, { "name" : "username002" }];
 var moderators = [{ "name" : "username001" }, { "name" : "username002" }];
 var bor = "600";  //OPTIONAL
@@ -92,7 +91,7 @@ There are two types of messaging APIs supported by the Wickr IO Node.js addon:
 
 The following code shows you how to initiate the asynchronous messaging and shows a callback function that will process the incoming messages.
 
-```
+```javascript
 await bot.startListening(listen); //Passes a callback function that will receive incoming messages into the bot client
 
 async function listen(message) {
@@ -153,7 +152,7 @@ Using the asynchronous messaging does require your program handles the backgroun
 
 When you are done using the API you will need to shut it down. This is done by calling the "close()" Bot API. This will also stop the asynchronous message receiving for the bot.
 
-```
+```javascript
 process.stdin.resume(); //so the program will not close instantly
 
 async function exitHandler(options, err) {

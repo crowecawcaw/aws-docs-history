@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Calling messages
-<a name="calling-messages"></a>
 
 The `msgtype` for all location type messages is 7000 Calling messages will have a **call** object with a subset of the following values:
 

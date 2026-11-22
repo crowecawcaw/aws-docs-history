@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Text message meta data
-<a name="text-message-metadata"></a>
 
 As of the 5.81 release of WickrIO, support was added to record the text message meta data fields. These fields are used to define GUI widgets specific to the text message being transmitted. Specific GUI widgets include buttons and list items. If you are interested in creating bots with buttons or lists, refer to the transmit message arguments section of the Node.js Addon APIs.
 

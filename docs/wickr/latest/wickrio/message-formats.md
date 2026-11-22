@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Wickr message formats
-<a name="message-formats"></a>
 
 This section describes the format of the Wickr messages utilized by the Wickr IO addon APIs and the Wickr IO Web Interface REST messaging APIs. It explains the various types of Wickr messages you can encounter. Each message type includes a "msgtype" field and the following table lists the values associated with this field.
 

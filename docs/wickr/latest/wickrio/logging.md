@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Wickr IO clients logging
-<a name="logging"></a>
 
 The Wickr IO bots generate log and output files that can be used to determine possible issues. These files can be accessed on your host where the Wickr IO docker container is running. 
 

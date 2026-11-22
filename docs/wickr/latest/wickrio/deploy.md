@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Deploy
-<a name="deploy"></a>
 
 In this section you can deploy your custom integration using the Wickr IO Docker container. These commands should be run on a host which has Docker installed, access to the internet, and has the `software.tar.gz` archive for your custom integration on its file system.
 

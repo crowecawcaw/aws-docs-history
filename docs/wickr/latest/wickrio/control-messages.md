@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Wickr control messages
-<a name="control-messages"></a>
 
 Wickr control messages are used to setup and configure the Wickr group and secure room conversations. These control messages will also be passed on to the integration software. You can use these control messages to construct and maintain the list of users that are part of group and secure conversations. The **control** JSON object contains the specific control message fields, as described in this table: 
 
