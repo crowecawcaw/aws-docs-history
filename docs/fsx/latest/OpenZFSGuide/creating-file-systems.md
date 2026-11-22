@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon FSx for OpenZFS file system
-<a name="creating-file-systems"></a>
 
 This section contains instructions on how to create a file system using the AWS CLI and the Amazon FSx API, as well as details on the file system properties that you can configure. For information on how to create a file system using the Amazon FSx console, see [Step 1: Create a file system](getting-started.md#getting-started-step1).
 

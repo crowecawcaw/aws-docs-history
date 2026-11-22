@@ -1,7 +1,6 @@
 
 
 # Updating an Amazon FSx for OpenZFS volume
-<a name="updating-volumes"></a>
 
 This section provides information on how to update a volume using the Amazon FSx console, the AWS CLI, and the Amazon FSx API, and details on the volume properties that you can modify.
 

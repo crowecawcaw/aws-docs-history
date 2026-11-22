@@ -1,7 +1,6 @@
 
 
 # Accessing your data
-<a name="accessing-your-data"></a>
 
 You can access data on your FSx for OpenZFS file systems within the AWS Cloud and from on premise environments using a variety of supported clients, AWS services, Amazon EC2 instances, and Amazon S3 access points. You can also use AWS Container Services such as Amazon ECS with your FSx for OpenZFS volumes to access your data. 
 

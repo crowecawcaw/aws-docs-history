@@ -1,7 +1,6 @@
 
 
 # Using Amazon FSx for OpenZFS CloudWatch metrics
-<a name="how_to_use_metrics"></a>
 
 There are two primary architectural components of each Amazon FSx file system:
 + The **file server** that serves data to clients that access the file system.

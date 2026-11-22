@@ -1,7 +1,6 @@
 
 
 # Accessing your data from on-premises
-<a name="access-fsxopenzfs-onprem"></a>
 
 FSx for OpenZFS supports the use of AWS Direct Connect or Site-to-Site VPN to access your file systems from your on-premises compute instances. Using Direct Connect, you access your file system over a dedicated network connection from your on-premises environment. Using Site-to-Site VPN, you access your file system from your on-premises devices over a secure and private tunnel.
 

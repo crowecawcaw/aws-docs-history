@@ -1,7 +1,6 @@
 
 
 # Migrating files to Amazon FSx for OpenZFS using Robocopy
-<a name="fsx-migrate-robocopy"></a>
 
 Robocopy is designed to replicate data between two locations that are locally accessible on the same host. To use Robocopy to migrate data to your FSx for OpenZFS file system, you need to mount the source file system and the destination OpenZFS volume on the same Windows-based EC2 client instance. The following procedure outlines the necessary steps to perform this migration using a new EC2 instance.
 

@@ -1,7 +1,6 @@
 
 
 # Accessing your data within the AWS Cloud
-<a name="access-within-aws"></a>
 
 Amazon VPC helps you to launch AWS resources into a virtual network that you define. This virtual network closely resembles a traditional network that you operate in your own data center, with the benefits of using the scalable infrastructure of AWS. For more information, see [What is Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) in the *Amazon Virtual Private Cloud User Guide*.
 

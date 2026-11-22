@@ -1,7 +1,6 @@
 
 
 # Creating an access point
-<a name="fsxz-creating-access-points"></a>
 
 You can create and manage S3 access point that attach to Amazon FSx volumes using the Amazon FSx console, CLI, API, and supported SDKs. 
 

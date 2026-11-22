@@ -1,7 +1,6 @@
 
 
 # Performance for Amazon FSx for OpenZFS
-<a name="performance"></a>
 
 Amazon FSx for OpenZFS provides simple, high-performance file storage. In this section, we provide an overview of FSx for OpenZFS performance for all deployment types, and describe how your file system configuration impacts key performance dimensions. We also include some important tips and recommendations for maximizing the performance of your file system.
 

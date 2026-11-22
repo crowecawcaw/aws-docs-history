@@ -1,7 +1,6 @@
 
 
 # Migrating your existing file storage to Amazon FSx for OpenZFS
-<a name="migrating-fsx-openzfs"></a>
 
 The following sections provide information on how to migrate your existing file storage to Amazon FSx for OpenZFS using AWS DataSync, `rsync` or `Robocopy`.
 + **AWS DataSync** – An online data transfer service designed to simplify, automate, and accelerate copying large amounts of data to and from AWS storage services.

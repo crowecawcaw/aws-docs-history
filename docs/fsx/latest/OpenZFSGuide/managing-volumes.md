@@ -1,7 +1,6 @@
 
 
 # Managing Amazon FSx for OpenZFS volumes
-<a name="managing-volumes"></a>
 
 An FSx for OpenZFS file system can contain one or more *volumes*, which are isolated data containers for files and directories. Every FSx for OpenZFS file system has one (and only one) *root volume*, which is created at file system creation time. All other volumes created on a file system are children of the root volume.
 

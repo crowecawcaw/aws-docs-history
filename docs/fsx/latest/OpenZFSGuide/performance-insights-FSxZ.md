@@ -1,7 +1,6 @@
 
 
 # Performance warnings and recommendations
-<a name="performance-insights-FSxZ"></a>
 
 FSx for OpenZFS displays a warning for CloudWatch metrics when one of these metrics approaches or crosses a predetermined threshold for multiple consecutive data points. These warnings provide you with actionable recommendations that you can use to optimize your file system's performance.
 

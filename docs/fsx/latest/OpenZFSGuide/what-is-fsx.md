@@ -1,7 +1,6 @@
 
 
 # What is Amazon FSx for OpenZFS?
-<a name="what-is-fsx"></a>
 
 Amazon FSx for OpenZFS is a fully managed file storage service that makes it easy to move data to AWS from on-premises ZFS or other Linux-based file servers. You can do this without changing your application code or how you manage data. It offers highly reliable, scalable, performance, and feature-rich file storage built on the open-source OpenZFS file system. It combines these capabilities with the agility, scalability, and simplicity of a fully managed AWS service.
 

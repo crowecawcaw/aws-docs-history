@@ -1,7 +1,6 @@
 
 
 # How FSx for OpenZFS file systems work with SSD storage
-<a name="performance-ssd"></a>
 
 FSx for OpenZFS file systems that use the SSD (provisioned) storage class consist of a file server that clients communicate with and a set of disks attached to that file server. Each file server employs a fast, in-memory cache to enhance performance for the most frequently accessed data. In addition to the in-memory cache, Single-AZ 2 file systems also provide an additional Non-volatile Memory Express (NVMe) cache for storing up to terrabytes of frequently accessed data. FSx for OpenZFS utilizes the Adaptive Replacement Cache (ARC) and L2ARC that are built into the OpenZFS file system, which improves the portion of data access driven from the in-memory and NVMe caches.
 

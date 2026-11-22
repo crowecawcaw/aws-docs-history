@@ -1,7 +1,6 @@
 
 
 # Viewing an Amazon FSx for OpenZFS volume
-<a name="viewing-volumes"></a>
 
 You can view the FSx for OpenZFS volumes that are currently on your file system using the Amazon FSx console, the AWS CLI, and the Amazon FSx API.
 

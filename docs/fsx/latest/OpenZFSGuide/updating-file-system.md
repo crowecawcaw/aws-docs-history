@@ -1,7 +1,6 @@
 
 
 # Updating an Amazon FSx for OpenZFS file system
-<a name="updating-file-system"></a>
 
 This section provides information on how to update modifyable properties, including storage capacity, throughput capacity, and maintenance windows, on your file system using the Amazon FSx console, the AWS CLI, and the Amazon FSx API.
 

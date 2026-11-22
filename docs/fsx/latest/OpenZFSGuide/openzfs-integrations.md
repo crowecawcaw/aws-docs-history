@@ -1,7 +1,6 @@
 
 
 # Accessing your data using AWS container services
-<a name="openzfs-integrations"></a>
 
 In addition to using Amazon EC2 instances, you can also access your Amazon FSx for OpenZFS file systems using other AWS services, including Amazon Elastic Container Service, Amazon Elastic Kubernetes Service, and Amazon S3. You can mount your file system from an Amazon ECS Docker container, manage file system and volume life cycle using Amazon EKS, and use S3 Access Points to access file data using S3. For more information about accessing FSx for OpenZFS file data with S3, see [Accessing your data using Amazon S3 access points](s3accesspoints-for-FSx.md).
 

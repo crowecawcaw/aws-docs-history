@@ -1,7 +1,6 @@
 
 
 # Accessing your data using Amazon S3 access points
-<a name="s3accesspoints-for-FSx"></a>
 
 Amazon S3 access points simplify managing data access for any application or AWS service that works with S3. With S3 access points, customers with shared datasets, including data lakes, media archives, and user-generated content, can easily control and scale data access for hundreds of applications, teams, or individuals by creating individualized access points with names and permissions customized for each. You can also use S3 access points to access file data stored on Amazon FSx file systems as if it were in S3, allowing you to use it with applications and services that work with S3 without application changes or moving data out of file storage. These access points are named network endpoints that attach to either S3 general purpose buckets or FSx for OpenZFS volumes.
 

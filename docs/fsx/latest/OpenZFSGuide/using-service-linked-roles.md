@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Amazon FSx for OpenZFS
-<a name="using-service-linked-roles"></a>
 
 Amazon FSx uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Amazon FSx. Service-linked roles are predefined by Amazon FSx and include all the permissions that the service requires to call other AWS services on your behalf. 
 
@@ -43,7 +42,7 @@ The AWSServiceRoleForAmazonFSx is used by all Amazon FSx file system types; some
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

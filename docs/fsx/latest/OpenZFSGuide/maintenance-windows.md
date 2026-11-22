@@ -1,7 +1,6 @@
 
 
 # Modifying file system maintenance windows
-<a name="maintenance-windows"></a>
 
 Amazon FSx for OpenZFS performs routine software patching for the OpenZFS software it manages. The maintenance window is your opportunity to control what day and time of the week this software patching occurs. You can choose the maintenance window during file system creation, or at a later time. If you have no time preference, a 30-minute default window is assigned.
 

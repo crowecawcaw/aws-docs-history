@@ -1,7 +1,6 @@
 
 
 # Deleting a file using an S3 access point
-<a name="delete-object-ap"></a>
 
 The following `delete-object` example command shows how you can use the AWS CLI to delete a file through an access point.
 

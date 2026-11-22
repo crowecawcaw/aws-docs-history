@@ -1,7 +1,6 @@
 
 
 # Modifying network type
-<a name="manage-network-type"></a>
 
 When you create an Amazon FSx for OpenZFS file system, you must specify a network type, which must be one of the following options:
 + `IPv4` allows your file system to communicate using only Internet Protocol version 4 (IPv4).

@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon FSx for OpenZFS volume
-<a name="creating-volumes"></a>
 
 This section provides information on the volume properties that you can configure, as well as instructions on how to create a volume using the Amazon FSx console, the AWS CLI, and the Amazon FSx API.
 

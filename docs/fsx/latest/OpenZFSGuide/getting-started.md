@@ -1,7 +1,6 @@
 
 
 # Setting up an Amazon FSx for OpenZFS file system
-<a name="getting-started"></a>
 
 If you are getting started with FSx for OpenZFS for the first time, follow these steps to learn how to create your file system, mount it from an Amazon EC2 instance, and clean up your resources once you are done.
 

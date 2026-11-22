@@ -1,7 +1,6 @@
 
 
 # Encryption at rest
-<a name="encryption-rest"></a>
 
 Encryption of data at rest is automatically enabled when you create an Amazon FSx for OpenZFS file system through the AWS Management Console, the AWS CLI, or programmatically through the Amazon FSx API or one of the AWS SDKs. Your organization might require the encryption of all data that meets a specific classification or is associated with a particular application, workload, or environment. When you create a file system using the custom create flow, you can specify the KMS key with which to encrypt the data. If you create a file system using the Quick create flow, the data is encrypted using the AWS managed key. For more information about creating a file system encrypted at rest using the console, see [Create Your Amazon FSx for OpenZFS File System](getting-started.md#getting-started-step1) and [Creating an Amazon FSx for OpenZFS file system](creating-file-systems.md).
 

@@ -1,7 +1,6 @@
 
 
 # Identity and access management for Amazon FSx for OpenZFS
-<a name="security-iam"></a>
 
 
 

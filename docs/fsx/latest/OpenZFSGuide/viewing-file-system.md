@@ -1,7 +1,6 @@
 
 
 # Viewing an Amazon FSx for OpenZFS file system
-<a name="viewing-file-system"></a>
 
 This section contains instructions on how to view the details of your FSx for OpenZFS file system using the Amazon FSx console, the AWS CLI, and the Amazon FSx API, as well as information on the different file system statuses.
 

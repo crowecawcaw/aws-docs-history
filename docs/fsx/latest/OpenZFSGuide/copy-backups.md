@@ -1,7 +1,6 @@
 
 
 # Copying backups
-<a name="copy-backups"></a>
 
 You can use Amazon FSx to manually copy backups within the same AWS account to another AWS Region (cross-Region copies) or within the same AWS Region (in-Region copies). You can make cross-Region copies only within the same AWS partition. You can create user-initiated backup copies using the Amazon FSx console, AWS CLI, or API. When you create a user-initiated backup copy, it has the type `USER_INITIATED`.
 
@@ -30,7 +29,7 @@ You use the policy to grant permissions to the `CopyBackup` action for the backu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

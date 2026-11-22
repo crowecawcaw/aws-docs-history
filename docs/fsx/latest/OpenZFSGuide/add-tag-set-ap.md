@@ -1,7 +1,6 @@
 
 
 # Tagging a file using an S3 access point
-<a name="add-tag-set-ap"></a>
 
 The following `put-object-tagging` example command shows how you can use the AWS CLI to add a tag-set through an access point. Each tag is a key-value pair. For more information, see [Categorizing your storage using tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html) in the *Amazon Simple Storage Service User Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # Compliance validation for Amazon FSx for OpenZFS
-<a name="fsx-openzfs-compliance"></a>
 
 Third-party auditors assess the security and compliance of Amazon FSx for OpenZFS as part of multiple AWS compliance programs. These include SOC, PCI, FedRAMP, HIPAA, and others. Amazon FSx has been assessed to comply with PCI DSS, ISO 9001, 27001, 27017, and 27018, and SOC 1, 2, and 3, in addition to being HIPAA eligible.
 

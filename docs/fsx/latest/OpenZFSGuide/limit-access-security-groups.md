@@ -1,7 +1,6 @@
 
 
 # Managing file system access with with Amazon VPC
-<a name="limit-access-security-groups"></a>
 
 You access your Amazon FSx for OpenZFS file systems and volumes using the file system's DNS name. The DNS name maps to the private IP address of the file system's elastic network interface in your VPC. Only resources within the associated VPC, or resources connected with the associated VPC by Direct Connect or VPN, can access the data in your file system over the NFS protocol. For more information, see [What is Amazon VPC?](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) in the * Amazon VPC User Guide.* 
 

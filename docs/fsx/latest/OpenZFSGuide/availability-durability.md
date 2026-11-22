@@ -1,7 +1,6 @@
 
 
 # Availability and durability for Amazon FSx for OpenZFS
-<a name="availability-durability"></a>
 
 FSx for OpenZFS supports three file system deployment types—Multi-AZ (HA), Single-AZ (HA), and Single-AZ (non-HA)—that offer different levels of availability and durability. The following sections provide information to help you choose the right deployment type for your workloads. For information on the service's availability SLA (Service Level Agreement), see [Amazon FSx Service Level Agreement](https://aws.amazon.com/fsx/sla/). For information on which deployment types and storage classes are supported in each AWS Region, see [Availability by AWS Region](available-aws-regions.md).
 

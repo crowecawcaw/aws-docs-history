@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon FSx for OpenZFS issues
-<a name="troubleshooting"></a>
 
 Use the following sections to help troubleshoot file system, volume mounting, and storage related issues that you have with FSx for OpenZFS.
 

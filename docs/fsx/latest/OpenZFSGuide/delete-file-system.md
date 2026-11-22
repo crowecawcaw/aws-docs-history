@@ -1,7 +1,6 @@
 
 
 # Deleting an Amazon FSx for OpenZFS file system
-<a name="delete-file-system"></a>
 
 This section contains instructions on how to delete a file system using the AWS CLI and the Amazon FSx API. For information on how to delete a file system using the Amazon FSx console, see [Step 3: Clean up your resources](getting-started.md#getting-started-step3).
 

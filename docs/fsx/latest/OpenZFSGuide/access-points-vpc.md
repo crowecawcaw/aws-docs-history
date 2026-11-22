@@ -1,7 +1,6 @@
 
 
 # Creating access points restricted to a virtual private cloud
-<a name="access-points-vpc"></a>
 
 When you create an access point, you can choose to make the access point accessible from the internet, or you can specify that all requests made through that access point must originate from a specific Amazon Virtual Private Cloud. An access point that's accessible from the internet is said to have a network origin of `Internet`. It can be used from anywhere on the internet, subject to any other access restrictions in place for the access point, underlying bucket or Amazon FSx volume, and related resources, such as the requested objects. An access point that's only accessible from a specified Amazon VPC has a network origin of `VPC`, and Amazon S3 rejects any request made to the access point that doesn't originate from that Amazon VPC.
 
@@ -61,7 +60,7 @@ The following example policy statement configures an Amazon VPC endpoint to allo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Setting up a custom snapshot schedule
-<a name="custom-snapshot-schedule"></a>
 
 You can set up a automated custom snapshot schedule for FSx for OpenZFS volumes using the resources and configuration template provided in this topic. The custom snapshot scheduling solution performs user-initiated snapshots of your Amazon FSx volumes on a custom schedule that you define. For example, you can configure a custom schedule to take a snapshot every hour and automatically delete snapshots that are older than two days.
 

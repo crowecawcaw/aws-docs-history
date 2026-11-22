@@ -1,7 +1,6 @@
 
 
 # Downloading a file using an S3 access point
-<a name="get-object-ap"></a>
 
 The following `get-object` example command shows how you can use the AWS CLI to download a file through an access point. You must include an outfile, which is a file name for the downloaded object.
 

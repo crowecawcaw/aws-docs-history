@@ -1,7 +1,6 @@
 
 
 # Access points naming rules, restrictions, and limitations
-<a name="access-point-restrictions-limitations-naming-rules"></a>
 
 When creating an S3 access point you choose a name for it. The following topics provide information about S3 access point naming rules and restrictions and limitations.
 

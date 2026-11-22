@@ -1,7 +1,6 @@
 
 
 # Modifying throughput capacity
-<a name="managing-throughput-capacity"></a>
 
  Every FSx for OpenZFS file system has a throughput capacity that is configured when you create the file system. You can modify your file system's throughput capacity at any time, as needed. Throughput capacity is one factor that determines the speed at which the file server hosting the file system can serve file data. Higher levels of throughput capacity also come with higher levels of I/O operations per second (IOPS) and more memory for caching of data on the file server. For more information, see [Performance for Amazon FSx for OpenZFS](performance.md). 
 

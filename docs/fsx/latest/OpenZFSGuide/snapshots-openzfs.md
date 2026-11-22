@@ -1,7 +1,6 @@
 
 
 # Protecting your data with snapshots
-<a name="snapshots-openzfs"></a>
 
 A *snapshot* is a read-only image of an FSx for OpenZFS volume at a point in time. Snapshots offer protection against accidental deletion or modification of files in your volumes. With snapshots, your users can easily view and restore individual folders and files from an earlier snapshot. Doing this enables users to easily undo changes and compare file versions.
 

@@ -1,7 +1,6 @@
 
 
 # Migrating files to Amazon FSx for OpenZFS using rsync
-<a name="fsx-migrate-rsync"></a>
 
 With **rsync**, you can replicate data between any source and destination, but at least one must be locally accessible to the client instance.
 

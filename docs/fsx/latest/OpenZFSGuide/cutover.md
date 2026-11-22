@@ -1,7 +1,6 @@
 
 
 # Cutting over to your Amazon FSx for OpenZFS file system
-<a name="cutover"></a>
 
 To cut over to your FSx for OpenZFS file system, do the following:
 + Disconnect all clients that write to the source file system.

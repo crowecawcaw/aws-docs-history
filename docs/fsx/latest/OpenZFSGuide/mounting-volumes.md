@@ -1,7 +1,6 @@
 
 
 # Mounting volumes to access data
-<a name="mounting-volumes"></a>
 
 The primary way to access data on your file system is through mounting individual volumes from an Amazon EC2 instance. This section provides details on how to configure your file system to automatically remount volumes on an Amazon EC2 instance when the instance reboots, and tips for mounting a volume to maximize your file systems overall performance. For detailed instructions on how to mount a volume to a Linux, macOS, or Windows client, see [Step 2: Mount your file system from an Amazon EC2 instance](getting-started.md#getting-started-step2).
 

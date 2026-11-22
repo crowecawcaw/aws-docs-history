@@ -1,7 +1,6 @@
 
 
 # How FSx for OpenZFS file systems work with Intelligent-Tiering
-<a name="performance-intelligent-tiering"></a>
 
 The FSx for OpenZFS Intelligent-Tiering storage class offers elastic, low-cost storage for workloads that traditionally run on Network Attached Storage (NAS) file systems. File systems using the Intelligent-Tiering storage class consist of a high-availability pair of file servers that clients communicate with and an in-memory cache within each file server that enhances performance for frequently accessed data. Instead of a set of volumes attached to each file server, however, file systems using the Intelligent-Tiering storage class utilize fully elastic, intelligently tiered, regional block storage which automatically grows and shrinks to fit your workload as it changes. File systems using the Intelligent-Tiering storage class also provide an optional provisioned SSD read cache for low-latency access to frequently accessed data and a built-in SSD-backed write log for low-latency, durable writes. As most workloads tend to be read-heavy and actively work with only a small subset of the overall dataset at any given time, the hybrid model of Intelligent-Tiering storage and an SSD read cache allows file systems using the Intelligent-Tiering storage class to provide storage that performs at levels comparable to SSD (provisioned) file systems for most workloads, while delivering up to 85% cost savings relative to the SSD (provisioned) storage class. 
 

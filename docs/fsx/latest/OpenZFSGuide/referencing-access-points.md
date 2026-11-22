@@ -1,7 +1,6 @@
 
 
 # Referencing access points with ARNs, access point aliases, or virtual-hosted-style URIs
-<a name="referencing-access-points"></a>
 
 After you create an access point attached to an FSx for OpenZFS volume, you can access your data via the AWS CLI and S3 API, as well as S3-compatible AWSand third-party services and applications. When referring to an access point in an AWS service or application you can use the Amazon Resource Name (ARN), the access point alias, or virtual-hosted–style URI.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon FSx for OpenZFS metrics and dimensions
-<a name="fsx-openzfs-metrics"></a>
 
 Amazon FSx publishes the metrics described in the following tables in the `AWS/FSx` namespace in Amazon CloudWatch for all FSx for OpenZFS file systems:
 

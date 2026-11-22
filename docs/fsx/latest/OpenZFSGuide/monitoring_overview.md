@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon FSx for OpenZFS file systems
-<a name="monitoring_overview"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of your FSx for OpenZFS file system and your other AWS solutions. Collecting monitoring data from all parts of your AWS solution allows you to more easily debug a multi-point failure if one occurs. You can monitor your FSx for OpenZFS file system, report when something is wrong, and take action automatically when appropriate using the following tools:
 + **Amazon CloudWatch** – Monitors your AWS resources and the applications that you run on AWS in real time. You can collect and track metrics, create customized dashboards, and set alarms that notify you when a specified metric reaches a threshold that you specify. For example, you can have CloudWatch track storage capacity or other metrics for your Amazon FSx instances and automatically launch new instances when needed.

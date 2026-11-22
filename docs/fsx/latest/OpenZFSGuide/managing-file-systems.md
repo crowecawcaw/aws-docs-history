@@ -1,7 +1,6 @@
 
 
 # Managing Amazon FSx for OpenZFS file system resources
-<a name="managing-file-systems"></a>
 
 A *file system* is the primary FSx for OpenZFS resource. The sections below provide information on how to create, view, update, and delete FSx for OpenZFS file systems. These sections also include information on how to view file system status and configure your file system's weekly maintenance window.
 

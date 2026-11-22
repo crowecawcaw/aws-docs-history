@@ -1,7 +1,6 @@
 
 
 # Setting up ongoing periodic data replication
-<a name="ongoing-periodic-data-replication"></a>
 
 With ongoing periodic data replication, you can set up a schedule that automatically takes a snapshot of a source volume and performs an incremental replication of that snapshot on a destination volume at a certain interval, for example every 15 minutes. You can schedule ongoing periodic data replication between two volumes on FSx for OpenZFS file systems within or across AWS Regions and accounts by using the solution provided in this section.
 

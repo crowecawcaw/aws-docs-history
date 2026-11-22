@@ -1,7 +1,6 @@
 
 
 # Listing files using an S3 access point
-<a name="list-object-ap"></a>
 
 The following example lists files through the access point alias `{{my-openzfs-ap-hrzrlukc5m36ft7okagglf3gmwluquse1b}}-ext-s3alias` owned by account ID {{`111122223333`}} in Region {{`us-east-2`}}.
 
