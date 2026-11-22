@@ -1,7 +1,6 @@
 
 
 # Deploying E2E 5G Network with AWS
-<a name="deploying-e2e-5g-network"></a>
 
 Publication date: **December 28, 2020 ([Diagram history](#e2e5g-history))**
 
