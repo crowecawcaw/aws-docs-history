@@ -1,7 +1,6 @@
 
 
 # Emerson Plantweb Optics Data Lake for Health Care and Life Sciences
-<a name="emerson-plantweb-optics-data-lake-hcls"></a>
 
 Publication date: **February 21, 2022 ([Diagram history](#emerson-history))**
 
