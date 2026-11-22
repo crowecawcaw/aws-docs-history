@@ -1,7 +1,6 @@
 
 
 # Generate an estimate in AWS Pricing Calculator
-<a name="generate-estimate"></a>
 
 This section outlines how to use AWS Pricing Calculator to generate estimates for your use cases. The following step-by step processes detail how you can configure services, specify parameters such as instance types and storage, and add additional services to build a detailed estimate.
 

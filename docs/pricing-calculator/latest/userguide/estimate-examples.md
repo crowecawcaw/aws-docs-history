@@ -1,7 +1,6 @@
 
 
 # Estimate examples for services
-<a name="estimate-examples"></a>
 
 This section provides examples and tutorials that show how you can use AWS Pricing Calculator to generate estimates for certain services.
 

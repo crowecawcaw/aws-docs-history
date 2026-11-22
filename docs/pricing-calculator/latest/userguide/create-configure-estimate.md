@@ -1,7 +1,6 @@
 
 
 # Create and configure an estimate
-<a name="create-configure-estimate"></a>
 
 AWS Pricing Calculator allows you to generate detailed estimates for your projected AWS usage and costs across a variety of services. The following procedures provide a step-by step process on how to to create a new estimate, configure the specific AWS services you want to include, and add services like Support plans based on your technical support requirements. 
 

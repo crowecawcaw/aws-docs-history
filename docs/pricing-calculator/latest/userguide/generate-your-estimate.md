@@ -1,7 +1,6 @@
 
 
 # Managing your estimates
-<a name="generate-your-estimate"></a>
 
 This section provides an overview of the features AWS Pricing Calculator provides for managing and organizing your cost estimates effectively.
 

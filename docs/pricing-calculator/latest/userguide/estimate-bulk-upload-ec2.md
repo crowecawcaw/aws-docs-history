@@ -1,7 +1,6 @@
 
 
 # Bulk upload instructions for Dedicated Hosts
-<a name="estimate-bulk-upload-ec2"></a>
 
 You can use bulk upload to upload your machine configuration, operating system, SQL server edition, quantity, vCPU, and memory in an excel file. Batch upload uploads this excel file to the AWS Pricing Calculator. To do this, use the provided excel template worksheet.
 

@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="getting-started"></a>
 
 This section provides an overview of how to get started with AWS Pricing Calculator. It will help you understand the prerequisites for using the calculator, how to access it, and navigate the console.
 

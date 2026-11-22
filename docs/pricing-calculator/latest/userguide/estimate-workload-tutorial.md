@@ -1,7 +1,6 @@
 
 
 # Tutorial: Generating estimates for Windows Servers and SQL Servers on EC2
-<a name="estimate-workload-tutorial"></a>
 
 This tutorial shows you how to use the Microsoft Windows Server and Microsoft SQL Server on Amazon EC2 in AWS Pricing Calculator to generate an estimate. 
 
