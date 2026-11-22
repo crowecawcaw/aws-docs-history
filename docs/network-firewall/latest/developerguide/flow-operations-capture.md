@@ -1,7 +1,6 @@
 
 
 # Capturing traffic in your firewall's state table
-<a name="flow-operations-capture"></a>
 
 With flow capture operations in Network Firewall, you can view information about active traffic flows that are tracked in your firewall's state table. These operations provide a time-boxed view of network traffic, showing both new and established flows that match your specified criteria. Captured data makes it easier to analyze current network traffic patterns, verify the effectiveness of your firewall rules, identify unexpected traffic flows, and troubleshoot network connectivity issues. 
 

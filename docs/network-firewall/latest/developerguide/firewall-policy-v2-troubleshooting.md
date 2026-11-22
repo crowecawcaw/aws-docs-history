@@ -1,7 +1,6 @@
 
 
 # Troubleshooting a Next Generation policy
-<a name="firewall-policy-v2-troubleshooting"></a>
 
 The most common issue with a default-drop policy is traffic that you expected to be allowed being dropped, usually because no rule accepted it at one of the connection's hooks. This section describes how to find out what happened, using your logs, metrics, and monitor mode.
 
@@ -12,7 +11,7 @@ When the firewall default action is **Drop**, **Reject**, or **Alert**, or the p
 Network Firewall publishes the `FirewallDefaultActionApplied` metric to Amazon CloudWatch for a Next Generation policy, under the `Engine` dimension value `Firewall`. The metric counts how often the firewall engine applied the firewall default action. A rising value means that traffic is reaching the default action rather than being handled by a rule—with a drop default action, that is traffic being dropped. Watch this metric when you roll out or change a policy. For the full list of metrics for a Next Generation policy, see [Next Generation policy metrics](monitoring-cloudwatch.md#metrics-policy-v2).
 
 **Use monitor mode to diagnose safely**  
-If you aren't sure whether a policy will block traffic that you need, deploy or switch the policy to monitor mode. In monitor mode, the policy passes all traffic through without dropping or rejecting anything, but still evaluates your rules and the default action and records the actions it would have applied in enforce mode. The stream exception policy isn't applied in monitor mode either—Network Firewall uses **Continue**, and your configured **Drop** or **Reject** stream exception policy applies again when you switch to enforce mode. The exceptions that still block in monitor mode are TLS-layer resets (a missing or invalid SNI, an SNI that doesn't match the server certificate, or a failed handshake), TLS inspection certificate revocation checks whose action is **Drop** or **Reject**, and Route 53 Resolved IP validation, which applies its configured action and DNS expiry exception policy in monitor mode. Review the resulting alert logs and the `FirewallDefaultActionApplied` metric to see which connections the default action would catch, fix your rules, and then switch back to enforce mode. For more information, see [Policy mode: enforce and monitor](firewall-policy-v2-policy-mode.md).
+If you aren't sure whether a policy will block traffic that you need, deploy or switch the policy to monitor mode. In monitor mode, the policy passes all traffic through without dropping or rejecting anything, but still evaluates your rules and the default action and records the actions it would have applied in enforce mode. The stream exception policy isn't applied in monitor mode either—Network Firewall uses **Continue**, and your configured **Drop** or **Reject** stream exception policy applies again when you switch to enforce mode. The exceptions that still block in monitor mode are TLS-layer resets (a missing or invalid SNI, an SNI that doesn't match the server certificate, or a failed handshake), TLS inspection certificate revocation checks whose action is **Drop** or **Reject**, and Route 53 Resolved IP validation, which applies its configured action and DNS expiry exception policy in monitor mode. PostgreSQL (`pgsql`) connections can also be dropped in monitor mode because `pgsql` support is limited. Review the resulting alert logs and the `FirewallDefaultActionApplied` metric to see which connections the default action would catch, fix your rules, and then switch back to enforce mode. For more information, see [Policy mode: enforce and monitor](firewall-policy-v2-policy-mode.md).
 
 **Common causes of unexpectedly dropped traffic**  
 When an allowed connection is dropped, check for the following, which are the most frequent causes:
@@ -20,3 +19,10 @@ When an allowed connection is dropped, check for the following, which are the mo
 + **The matcher is anchored at a hook the connection never reaches.** An allow-by-SNI rule anchored at a later TLS state won't match a connection that closes before reaching that state. Anchor allow-by-SNI rules at the `client_hello` hook, which every TLS flow passes through. For more information, see [Accepting prior hooks automatically](firewall-rule-groups-accept-prior-hooks.md).
 + **A rule's direction or address range doesn't match the traffic.** Firewall rules are directional. Confirm that the connection's client is in `$HOME_NET` and the destination is in `$EXTERNAL_NET` (or that your rule's addresses match the actual traffic), and that you have carrier rules for both directions of the connection.
 + **The protocol isn't what the rule expects.** A rule's protocol is derived from its hook, and a connection is handled by the default action at a hook that no rule covers. If you allow `tls` but the traffic is plain HTTP on the same port, the TLS rule won't accept it. Check the `app_proto` field in your flow logs to see the protocol that Network Firewall detected.
+
+**Allow PostgreSQL (pgsql) traffic**  
+Because the firewall engine has limited support for PostgreSQL (`pgsql`), a PostgreSQL connection can be dropped when the firewall default action is an accept-type action or the policy is in monitor mode and no firewall rule accepts `pgsql`. To allow PostgreSQL traffic, add a firewall rule that accepts `pgsql` at its first hook, adjusting the source, destination, and `sid` for your environment:
+
+```
+accept:flow pgsql:request_started $HOME_NET any -> $EXTERNAL_NET any (sid:1;)
+```

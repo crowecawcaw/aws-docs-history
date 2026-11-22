@@ -1,7 +1,6 @@
 
 
 # Considerations for transit gateway-attached firewalls
-<a name="tgw-firewall-considerations"></a>
 
 Before you create or use a transit gateway-attached firewall, consider the following points. For considerations that apply to all firewalls, see [Considerations for working with firewalls and firewall endpoints](firewall-and-firewall-endpoints-considerations.md).
 + A transit gateway-attached firewall involves multiple AWS services: AWS Network Firewall, AWS Transit Gateway, and AWS RAM.

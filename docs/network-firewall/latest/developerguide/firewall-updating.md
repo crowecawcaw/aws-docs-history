@@ -1,7 +1,6 @@
 
 
 # Updating a firewall in AWS Network Firewall
-<a name="firewall-updating"></a>
 
 To make changes to your firewall settings through the console, use the following procedure.
 
@@ -25,7 +24,8 @@ Updating a firewall affects all endpoints for the firewall, both those defined i
    + In the **Traffic analysis mode** section, you can enable or disable traffic analysis, which you can use to generate reports on HTTP or HTTPS traffic from the last 30 days. Enabling and disabling **Traffic analysis mode** does not impact traffic flow or automatically trigger report creation.
 **Important**  
 Network Firewall only starts collecting traffic analysis metrics when you enable **Traffic analysis mode** on your firewall. Traffic observed before you enable **Traffic analysis mode** is not included in reporting. 
-   + In the **Associated policy and VPC** section, you can add and remove Availability Zones and subnets and you can associate a different firewall policy. The VPC is fixed after creation. 
+   + In the **Associated policy and VPC** section, you can add and remove Availability Zones and subnets and you can associate a different firewall policy. The VPC is fixed after creation. For a NAT/Proxy firewall, each Availability Zone that you add also needs a NAT gateway. For information, see [Adding an Availability Zone](nfw-proxy-managing.md#nfw-proxy-adding-az).
+   + For a NAT/Proxy firewall, in the **Endpoints and identity** section, you can change the proxy listener ports. For information, see [Changing the proxy listeners](nfw-proxy-managing.md#nfw-proxy-updating-listeners).
    + In the **Logging** section, you can configure logging for alert, flow, and TLS logs. For information about your logging options and costs, see [Logging network traffic from AWS Network Firewall](firewall-logging.md).
    + In the **Firewall tags** section, you can change the tags assigned to the AWS firewall resource. For information about tagging, see [Tagging AWS Network Firewall resources](tagging.md).
 

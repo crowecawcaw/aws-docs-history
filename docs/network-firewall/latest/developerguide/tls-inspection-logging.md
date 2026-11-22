@@ -1,7 +1,6 @@
 
 
 # Logging for TLS inspection in AWS Network Firewall
-<a name="tls-inspection-logging"></a>
 
 You can enable TLS logging for your firewall's stateful engine, to log some categories of events related to TLS inspection. TLS logs report TLS errors and certificate revocation check failures for outbound traffic. For information about enabling logging, see [Logging network traffic from AWS Network Firewall](firewall-logging.md). 
 

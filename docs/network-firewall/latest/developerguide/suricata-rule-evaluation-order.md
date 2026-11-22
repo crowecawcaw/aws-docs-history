@@ -1,7 +1,6 @@
 
 
 # Managing evaluation order for Suricata compatible rules in AWS Network Firewall
-<a name="suricata-rule-evaluation-order"></a>
 
 You can configure and manage the evaluation order of the rules in your Suricata compatible stateful rule groups. 
 

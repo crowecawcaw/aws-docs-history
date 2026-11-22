@@ -1,7 +1,6 @@
 
 
 # Embedded rules in a Next Generation policy
-<a name="firewall-policy-v2-embedded-rules"></a>
 
 *Embedded rules* (also called inline rules) are rules that you author directly in a Next Generation policy's firewall section or IPS section, rather than in a separate, referenced rule group. An embedded rule is part of the policy and shares the policy's lifecycle. For how to add rules to a section, see [The firewall section and the IPS section](firewall-policy-v2-sections.md).
 

@@ -1,7 +1,6 @@
 
 
 # Settings for the resource groups that you use in AWS Network Firewall
-<a name="resource-group-settings"></a>
 
 The tag-based resource groups that you configure for Network Firewall help ensure that your rules stay in sync as your AWS resources change. You can reference a resource group in your Network Firewall stateful rule groups. 
 

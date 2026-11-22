@@ -1,7 +1,6 @@
 
 
 # Managing evaluation order for firewall rules
-<a name="firewall-rule-evaluation-order"></a>
 
 You control the order in which the firewall engine evaluates rule groups through the priority that you assign to each entry in the policy's firewall section. Each entry—whether it references a rule group or embeds one directly in the policy—has a unique priority. The firewall engine evaluates the entries by order of priority, starting from the lowest number, and within each rule group it processes the rules in the order in which they're defined. For information about adding entries and setting their priority, see [The firewall section and the IPS section](firewall-policy-v2-sections.md).
 

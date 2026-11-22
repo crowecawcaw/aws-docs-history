@@ -1,7 +1,6 @@
 
 
 # Updating a Next Generation policy in AWS Network Firewall
-<a name="firewall-policy-v2-updating"></a>
 
 You can change your policy's settings after you create it, with the following constraints:
 + You can't change the name of the firewall policy.
@@ -46,7 +45,7 @@ Shows the policy's IPS rule groups in a table with the columns **Name**, **Descr
 
 To update the policy with the AWS CLI, use `update-firewall-policy-v2` and provide a current `UpdateToken` from a preceding create or describe call. The token changes with every update. The following example changes the policy to monitor mode with an accept default action, using an updated `policy.json`:
 
-```
+```sh
 aws network-firewall update-firewall-policy-v2 \
 --firewall-policy-v2-name example-policy \
 --update-token 3e965e1d-2b9f-40c2-a218-5aabe88b4b2e \

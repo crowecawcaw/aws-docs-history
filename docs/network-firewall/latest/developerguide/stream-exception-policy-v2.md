@@ -1,7 +1,6 @@
 
 
 # Stream exception policy for Next Generation policies
-<a name="stream-exception-policy-v2"></a>
 
 A Next Generation policy supports only the **Drop** and **Reject** stream exception policy options; **Reject** is both the default and the recommended value. It doesn't support **Continue** as a configurable value.
 

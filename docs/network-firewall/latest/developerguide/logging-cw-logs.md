@@ -1,7 +1,6 @@
 
 
 # Sending AWS Network Firewall logs to Amazon CloudWatch Logs
-<a name="logging-cw-logs"></a>
 
 To send logs to Amazon CloudWatch Logs, you create a CloudWatch Logs log group. When you turn on logging in Network Firewall, you provide the log group name. After you turn on logging for your firewall, AWS Network Firewall delivers logs to the CloudWatch Logs log group in log streams. Each log stream contains an hour of log records. 
 
@@ -47,7 +46,7 @@ You must have the following permissions settings to configure your firewall to s
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -112,7 +111,7 @@ The following view shows both standard CloudWatch permissions and the additional
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

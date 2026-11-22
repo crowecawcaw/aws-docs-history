@@ -1,7 +1,6 @@
 
 
 # Logging network traffic from AWS Network Firewall
-<a name="firewall-logging"></a>
 
 You can configure AWS Network Firewall logging for your firewall's stateful engine. Logging gives you detailed information about network traffic, including the time that the stateful engine received a packet, detailed information about the packet, and any stateful rule action taken against the packet. The logs are published to the log destination that you've configured, where you can retrieve and view them.
 

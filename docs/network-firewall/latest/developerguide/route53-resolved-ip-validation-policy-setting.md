@@ -1,7 +1,6 @@
 
 
 # Configuring resolved IP validation on the firewall policy
-<a name="route53-resolved-ip-validation-policy-setting"></a>
 
 Set resolved IP validation on the firewall policy. For where this fits among the other policy settings, see [Firewall policy settings in AWS Network Firewall](firewall-policy-settings.md). For the API structure, see [Route53ResolvedIPValidation](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_Route53ResolvedIPValidation.html) in the *AWS Network Firewall API Reference*.
 

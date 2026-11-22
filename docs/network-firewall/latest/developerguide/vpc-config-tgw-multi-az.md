@@ -1,7 +1,6 @@
 
 
 # Transit gateway attachment configuration for AWS Network Firewall
-<a name="vpc-config-tgw-multi-az"></a>
 
 This section applies to the use of Network Firewall with a transit gateway in multiple Availability Zones where the firewall endpoints might reside in different Availability Zones than the subnets whose traffic they're filtering. 
 

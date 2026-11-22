@@ -1,7 +1,6 @@
 
 
 # Suricata compatible rule strings in AWS Network Firewall
-<a name="stateful-rule-groups-suricata"></a>
 
 When you use this rule group type, you provide match and action settings in a string, in a Suricata compatible specification. Your specification fully defines what the stateful rules engine looks for in a traffic flow and the action to take on the packets in a flow that matches the inspection criteria. 
 

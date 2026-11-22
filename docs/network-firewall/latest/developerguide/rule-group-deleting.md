@@ -1,7 +1,6 @@
 
 
 # Deleting a stateless rule group
-<a name="rule-group-deleting"></a>
 
 Follow the guidance in this section to delete a rule group through the Network Firewall console.
 

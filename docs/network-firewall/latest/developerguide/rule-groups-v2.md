@@ -1,7 +1,6 @@
 
 
 # Rule groups for Next Generation policies in AWS Network Firewall
-<a name="rule-groups-v2"></a>
 
 Next Generation policies use two rule group types, one for each inspection engine: *firewall rule groups* for the firewall engine and *IPS rule groups* for the IPS engine. These rule group types use the same `RuleGroup` resource and the same API operations as the stateless and stateful rule groups described in [Managing your rule groups](rule-groups.md)—`CreateRuleGroup`, `UpdateRuleGroup`, `DescribeRuleGroup`, `DeleteRuleGroup`, and `ListRuleGroups`. You select the rule group type when you create the rule group, and you can't change it afterward.
 

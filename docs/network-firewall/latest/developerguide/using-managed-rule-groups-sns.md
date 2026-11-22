@@ -1,7 +1,6 @@
 
 
 # Getting notified of updates to a threat signature rule group in AWS Network Firewall
-<a name="using-managed-rule-groups-sns"></a>
 
 You can subscribe to Amazon Simple Notification Service (Amazon SNS) notifications for updates to a managed threat signature rule group, such as updates made for urgent security updates. AWS updates managed threat signature rule groups for Network Firewall as often as once a day to once a week.
 

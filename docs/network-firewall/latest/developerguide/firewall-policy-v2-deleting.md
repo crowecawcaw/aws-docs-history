@@ -1,7 +1,6 @@
 
 
 # Deleting a Next Generation policy in AWS Network Firewall
-<a name="firewall-policy-v2-deleting"></a>
 
 To delete a Next Generation policy, first remove it from any firewalls that use it, then delete it.
 
@@ -19,7 +18,7 @@ Your firewall policy is removed from the list in the **Firewall policies** page.
 
 To delete the policy with the AWS CLI, use `delete-firewall-policy-v2`:
 
-```
+```sh
 aws network-firewall delete-firewall-policy-v2 \
 --firewall-policy-v2-name example-policy \
 --region us-west-2

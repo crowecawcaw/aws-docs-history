@@ -1,9 +1,11 @@
 
 
 # Network Firewall stateless and stateful rules engines
-<a name="firewall-rules-engines"></a>
 
 AWS Network Firewall uses two rules engines to inspect packets. The engines inspect packets according to the rules that you provide in your firewall policy. 
+
+**Note**  
+For a NAT/Proxy firewall, the stateful rules engine evaluates explicit proxy traffic (HTTP `CONNECT` requests). The stateless rules engine doesn't inspect explicit proxy traffic.
 
 The following figure shows the processing flow for packets coming through the firewall. First the stateless engine inspects the packet against the configured stateless rules. Depending on the packet settings, the stateless inspection criteria, and the firewall policy settings, the stateless engine might drop a packet, pass it through to its destination, or forward it to the stateful rules engine. The stateful engine inspects packets in the context of their traffic flow, using the configured stateful rules. The stateful engine either drops packets or passes them to their destination. Stateful engine activities are recorded in the firewall's logs, if logging is configured. The stateful engine sends alerts for dropped packets and can optionally send them for passed packets. 
 

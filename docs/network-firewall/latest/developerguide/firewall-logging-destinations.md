@@ -1,7 +1,6 @@
 
 
 # AWS Network Firewall logging destinations
-<a name="firewall-logging-destinations"></a>
 
 This section describes the logging destinations that you can choose from for your Network Firewall logs. Each section provides guidance for configuring logging for the destination type and information about any behavior that's specific to the destination type. After you've configured your logging destination, you can provide its specifications to the firewall logging configuration to start logging to it.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring and reporting in Network Firewall
-<a name="nwfw-monitoring-reporting"></a>
 
 Network Firewall offers multiple in-console options to analyze the network traffic monitored by a firewall. The **Monitoring** page provides tools for real-time monitoring and retroactive analysis, including enhanced filtering and sorting capabilities for IP addresses and protocols. Your firewall's advanced configuration settings affect which dashboards are populated with data. For information on adjusting your firewall's configuration, see [Updating a firewall in AWS Network Firewall](firewall-updating.md).
 

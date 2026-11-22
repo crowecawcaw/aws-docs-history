@@ -1,7 +1,6 @@
 
 
 # Updating a stateless rule group
-<a name="rule-group-updating"></a>
 
 Follow the guidance in this section to change your rule group settings through the Network Firewall console.
 

@@ -1,7 +1,6 @@
 
 
 # Next Generation policies in AWS Network Firewall
-<a name="firewall-policies-v2"></a>
 
 An AWS Network Firewall *Next Generation* policy (the `FirewallPolicyV2` resource) is a firewall policy that filters traffic using two separate inspection engines: a *firewall engine* for access control and an *IPS engine* for intrusion detection and prevention. Next Generation policies are a separate resource type from the Classic Network Firewall policies described in [Classic Network Firewall policies](firewall-policies-classic.md). The two policy types exist side by side, and a firewall uses one or the other. For an overview of how the two policy types compare, see [AWS Network Firewall firewall policy versions](firewall-policy-versions.md).
 

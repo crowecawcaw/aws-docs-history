@@ -1,7 +1,6 @@
 
 
 # Authenticating requests
-<a name="authenticating-requests"></a>
 
 If you use a language that AWS provides an SDK for, we recommend that you use the SDK. All the AWS SDKs greatly simplify the process of signing requests and save you a significant amount of time when compared with using the Network Firewall API. In addition, the SDKs integrate easily with your development environment and provide easy access to related commands.
 

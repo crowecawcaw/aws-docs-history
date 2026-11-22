@@ -1,7 +1,6 @@
 
 
 # Monitoring and troubleshooting resolved IP validation
-<a name="route53-resolved-ip-validation-troubleshooting"></a>
 
 Use firewall logs and CloudWatch metrics to see how resolved IP validation is affecting your traffic.
 

@@ -1,7 +1,6 @@
 
 
 # Generating firewall rules from domain names
-<a name="firewall-rule-groups-fqdn"></a>
 
 A firewall rule group can generate rules from a list of domain names, so that you can allow traffic to a set of domains without authoring the matching rules yourself. Domain name rule generation in the firewall engine supports allow lists only: it generates accept rules for the domains you list. To block a domain, you don't add it to an allow list, which is consistent with the firewall engine's drop-by-default behavior.
 

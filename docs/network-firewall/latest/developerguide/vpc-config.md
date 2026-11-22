@@ -1,7 +1,6 @@
 
 
 # Configuring your VPC and other components for AWS Network Firewall
-<a name="vpc-config"></a>
 
 This section describes the changes that you must make in your VPC configuration and other components to use AWS Network Firewall. For information about managing your Amazon Virtual Private Cloud VPC, see the [Amazon Virtual Private Cloud User Guide](https://docs.aws.amazon.com/vpc/latest/userguide). 
 

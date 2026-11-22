@@ -1,7 +1,6 @@
 
 
 # Using SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall
-<a name="tls-inspection-certificate-requirements"></a>
 
 Network Firewall integrates with AWS Certificate Manager (ACM) to make it easy to manage the certificates that you're using to decrypt and re-encrypt your firewall's SSL/TLS traffic. To get started with TLS inspection configurations, you must first import or issue certificates to ACM, and then associate the certificates with your TLS inspection configuration. You can configure certificates for inbound or outbound inspection, or both. To view the maximum number of certificates that you can use, see [AWS Network Firewall quotas](quotas.md). This section discusses how to use SSL/TLS certificates with TLS inspection configurations.
 

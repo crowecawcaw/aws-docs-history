@@ -1,7 +1,6 @@
 
 
 # AWS Network Firewall firewall policy versions
-<a name="firewall-policy-versions"></a>
 
 Network Firewall offers two kinds of firewall policy. You can associate either a Classic Network Firewall policy or a Next Generation policy with a firewall, but not both. We recommend a Next Generation policy for new firewalls. Classic Network Firewall remains fully supported, so you can keep using it for existing firewalls.
 + **Next Generation policy** (recommended) – Filters traffic using two engines: a *firewall engine* for access control and an *IPS engine* for threat detection and prevention. For more information, see [Next Generation policies](firewall-policies-v2.md).

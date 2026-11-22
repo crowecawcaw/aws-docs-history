@@ -1,7 +1,6 @@
 
 
 # Creating a resource group in AWS Network Firewall
-<a name="resource-group-creating"></a>
 
 Use tag-based resource groups to identify collections of AWS resources. You can track the resource groups in your Network Firewall stateful rule groups, to ensure that your rules stay in sync as your resources change. 
 

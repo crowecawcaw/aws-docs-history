@@ -1,7 +1,6 @@
 
 
 # Authoring firewall rules
-<a name="firewall-rule-groups-authoring"></a>
 
 You author the rules in a firewall rule group in one of two ways. Each create or update request uses exactly one of these authoring modes, and you can switch between them in later requests.
 + **Rule strings** – Raw firewall-mode rules in Suricata compatible syntax. Use this mode if you're comfortable writing Suricata firewall-mode rules directly. In the console, you author rule strings with the **Text rule builder**.

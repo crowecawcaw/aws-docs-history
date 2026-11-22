@@ -1,7 +1,6 @@
 
 
 # Multi zone architecture with an internet gateway using AWS Network Firewall
-<a name="arch-two-zone-igw"></a>
 
 This topic provides a high-level view of a simple two zone VPC configuration using an internet gateway and AWS Network Firewall. It describes the basic route table modifications that are required to use the Network Firewall firewall.
 

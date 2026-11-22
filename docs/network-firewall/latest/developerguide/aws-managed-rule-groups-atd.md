@@ -1,7 +1,6 @@
 
 
 # AWS active threat defense for AWS Network Firewall
-<a name="aws-managed-rule-groups-atd"></a>
 
  The active threat defense managed rule group provides advanced network threat protection for your Network Firewall firewall policies. AWS continuously updates these rules based on Amazon threat intelligence to protect against active threats and cloud-specific attack patterns. While complementing existing AWS managed rule groups, active threat defense specifically uses Amazon threat intelligence from MadPot, an internal AWS threat intelligence and disruption service. For more information about MadPot, see [ Meet MadPot, a threat intelligence tool Amazon uses to protect customers from cybercrime](https://www.aboutamazon.com/news/aws/amazon-madpot-stops-cybersecurity-crime). 
 

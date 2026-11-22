@@ -1,7 +1,6 @@
 
 
 # How TLS inspection differs from a Classic policy
-<a name="tls-inspection-policy-v2-differences"></a>
 
 You attach a TLS inspection configuration to a Next Generation policy the same way you attach it to a Classic policy, and most of TLS inspection behaves identically in both. The following is the same in both policy types:
 + How a TLS inspection configuration attaches to the policy, and its scopes, certificates, CA certificate, and certificate revocation actions.

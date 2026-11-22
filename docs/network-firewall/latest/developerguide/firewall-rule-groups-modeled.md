@@ -1,7 +1,6 @@
 
 
 # Fields of a modeled firewall rule
-<a name="firewall-rule-groups-modeled"></a>
 
 A modeled firewall rule has the following fields. **Action**, **Action scope**, **Hook**, and **Protocol** are required.
 + **Action** (in the console, **Rule Action**) – The action to apply when the rule matches: `ACCEPT` allows the traffic to continue; `DROP` blocks the traffic and discontinues inspection; `REJECT` blocks the traffic and sends a TCP reset packet back to the client (for non-TCP protocols, `REJECT` behaves the same as `DROP`); `REJECT_DST` blocks the traffic and sends a TCP reset packet to the destination; or `REJECT_BOTH` blocks the traffic and sends a TCP reset packet to both the client and the destination.

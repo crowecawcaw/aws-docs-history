@@ -1,7 +1,6 @@
 
 
 # Deleting a VPC endpoint association in AWS Network Firewall
-<a name="deleting-vpc-endpoint-association"></a>
 
 Before you delete a Network Firewall VPC endpoint association, remove its firewall endpoint from any VPC route tables that use it. For information about managing route tables for your VPC, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon Virtual Private Cloud User Guide*.
 

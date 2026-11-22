@@ -1,7 +1,6 @@
 
 
 # Understanding the differences between firewall owners and VPC endpoint association owners
-<a name="firewall-owners-and-vpc-endpoint-association-owners"></a>
 
 If you create a firewall, you are that firewall's *firewall owner*. If you create a VPC endpoint association for a firewall that is shared with you from another account, you are a *VPC endpoint association owner*. For information about sharing firewalls with other accounts, see [Sharing Network Firewall resources](sharing.md).
 

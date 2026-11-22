@@ -1,7 +1,6 @@
 
 
 # Managing a firewall and firewall endpoints in AWS Network Firewall
-<a name="firewall-managing"></a>
 
 This section describes how to create, update, and delete your firewall and its endpoints in AWS Network Firewall. 
 

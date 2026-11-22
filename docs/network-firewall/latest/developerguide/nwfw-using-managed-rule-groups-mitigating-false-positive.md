@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS managed rule groups in Network Firewall
-<a name="nwfw-using-managed-rule-groups-mitigating-false-positive"></a>
 
 As a best practice, before using a rule group in production, with logging turned on, run the managed rule group in **alert mode** if you're using an intrusion detection system (IDS), or in **drop mode** if you use an intrusion prevention system (IPS) in a non-production environment. Either mode sends alert messages to the logs for traffic that doesn't pass inspection. For more information, see [Logging network traffic from AWS Network Firewall](firewall-logging.md).
 

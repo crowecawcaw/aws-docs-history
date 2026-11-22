@@ -1,7 +1,6 @@
 
 
 # Considerations for working with firewalls and firewall endpoints
-<a name="firewall-and-firewall-endpoints-considerations"></a>
 
 Before you create, update, or delete a firewall and its endpoints in AWS Network Firewall, review these considerations.
 
@@ -54,9 +53,15 @@ TLS inspection is not supported for firewalls with VPC endpoint associations.
 + A VPC endpoint association cannot be created from a firewall that has a firewall policy with TLS inspection enabled.
 For details, see [Troubleshooting firewall endpoint failures in AWS Network Firewall](firewall-troubleshooting-endpoint-failures.md) and [Inspecting SSL/TLS traffic with TLS inspection configurations in AWS Network Firewall](tls-inspection-configurations.md).
 
+**NAT/Proxy firewalls**  
+For a NAT/Proxy firewall, each VPC can have at most one firewall endpoint for the firewall in each Availability Zone, counting the firewall's own endpoints. Traffic from the association leaves through the firewall's NAT gateway in the same Availability Zone, and the proxy hostname resolves in the associated VPC. To create the association, you must have permission to associate a Route 53 private hosted zone with the VPC. For information about NAT/Proxy VPC endpoint associations, see [Using the proxy from other VPCs](nfw-proxy-managing.md#nfw-proxy-vpc-endpoint-associations).
+
 **IP address considerations**  
 When managing multiple VPCs:  
 + Exercise caution with overlapping IP address ranges
 + Security and network policies apply consistently across overlapping IP ranges in different VPCs
 + Configure the `HOME_NET` setting explicitly in firewall policies to include associated endpoints
 For more information on potential error scenarios and how to resolve them, see [Troubleshooting firewall endpoint failures in AWS Network Firewall](firewall-troubleshooting-endpoint-failures.md).
+
+**Overlapping CIDR ranges**  
+When VPCs with firewall endpoints use overlapping CIDR ranges, IP addresses alone can't tell their traffic apart. You can instead match traffic by the VPC that contains the firewall endpoint it entered through, using the `aws_firewall_endpoint_vpc` rule option. For more information, see [Filtering traffic by firewall endpoint VPC](stateful-rule-groups-endpoint-vpc.md).

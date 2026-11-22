@@ -1,7 +1,6 @@
 
 
 # Updating a resource group in AWS Network Firewall
-<a name="resource-group-updating"></a>
 
 You can change your resource group settings in the Network Firewall console or the AWS Resource Groups [UpdateGroup](https://docs.aws.amazon.com/ARG/latest/APIReference/API_UpdateGroup.html) API. To change your resource group settings in the Network Firewall console, use the following procedure:
 

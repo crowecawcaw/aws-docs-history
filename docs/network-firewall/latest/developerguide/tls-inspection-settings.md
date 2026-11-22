@@ -1,7 +1,6 @@
 
 
 # TLS inspection configuration settings in AWS Network Firewall
-<a name="tls-inspection-settings"></a>
 
 When you configure TLS inspection configuration you provide the following settings.
 + **Name** – The identifier for the TLS inspection configuration. You assign a unique name to every TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.

@@ -1,7 +1,6 @@
 
 
 # Working with firewall rule groups in AWS Network Firewall
-<a name="firewall-rule-groups"></a>
 
 A *firewall rule group* holds the access-control rules that the firewall engine evaluates. Firewall rules are drop by default and are evaluated at connection-state hooks as a connection progresses. You use them to define which traffic is allowed into your network. The firewall engine is built on Suricata's firewall mode. For more information, see the [Suricata firewall mode documentation](https://docs.suricata.io/en/suricata-8.0.3/firewall/firewall-design.html).
 

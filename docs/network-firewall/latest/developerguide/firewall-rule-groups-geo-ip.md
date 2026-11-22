@@ -1,7 +1,6 @@
 
 
 # Geographic IP filtering
-<a name="firewall-rule-groups-geo-ip"></a>
 
 Firewall rules support the Suricata compatible `geoip` keyword to match traffic by the country associated with its source or destination IP address, the same way that Classic Network Firewall stateful rules do. For the Classic version of this feature, see [Geographic IP filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-geo-ip-filtering.md).
 

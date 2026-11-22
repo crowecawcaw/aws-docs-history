@@ -1,7 +1,6 @@
 
 
 # Analyzing stateless rule groups in AWS Network Firewall
-<a name="stateless-rule-group-analyzer"></a>
 
 Network Firewall can analzye stateless rule groups for rules that might adversely effect your firewall's functionality. For example, Network Firewall can identify rules that route traffic asymmetrically, which can impact the service's ability to properly process traffic. During analysis, the service includes any identfied rules in a list of analysis results. You can analyze your stateless rule groups and view the analysis results using the console or API.
 

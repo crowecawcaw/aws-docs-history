@@ -1,7 +1,6 @@
 
 
 # Deep threat inspection for active threat defense managed rule groups
-<a name="atd-deep-threat-inspection"></a>
 
 AWS Network Firewall plans to augment the active threat defense managed rule group with an additional deep threat inspection capability. When this capability is released, AWS will analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services.
 

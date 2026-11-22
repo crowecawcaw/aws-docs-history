@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources"></a>
 
 The following related resources can help you as you work with this service.
 

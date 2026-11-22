@@ -1,7 +1,6 @@
 
 
 # Limitations and caveats for firewall rules in a Next Generation policy
-<a name="nwfw-v2-firewall-engine-limitations"></a>
 
 The IPS engine in a Next Generation policy uses the same Suricata compatible stateful rules as a Classic Network Firewall policy, so the limitations and caveats earlier in this section apply to IPS rules as well. The *firewall engine* in a Next Generation policy uses Suricata compatible firewall-mode rules, which have the following additional limitations. For the full reference on which actions, scopes, hooks, and keywords you can combine in a firewall rule, see [Valid combinations and constraints for firewall rules](firewall-rule-constraints.md).
 + **The `config` action isn't supported.** A firewall rule's primary action must be `accept`, `drop`, `reject`, `rejectdst`, or `rejectboth`. The Suricata firewall-mode `config` action isn't supported.
@@ -11,3 +10,4 @@ The IPS engine in a Next Generation policy uses the same Suricata compatible sta
 + **Payload-matching keywords aren't valid on a packet hook.** The keywords `content`, `pcre`, `byte_test`, `byte_jump`, and `isdataat` are valid only at an application-layer hook, where they bind to a protocol buffer. They aren't valid at a packet hook such as `tcp:all`. For details, see [Payload matching and packet hooks](firewall-rule-constraints-packet-payload.md).
 + **The HTTP/1.1 rule-header token is `http1`, not `http`.** A rule string that uses `http:{{hook}}` is rejected. In a modeled rule, the protocol `HTTP` is the alias for `http1`.
 + **A modeled firewall rule compiles to a one-directional rule.** A modeled rule always compiles to the forward (`->`) form; you express inbound compared with outbound through the source and destination, not a separate direction field. Bidirectional (`<>`) rule strings aren't accepted for a modeled rule.
++ **PostgreSQL (`pgsql`) support is limited.** The firewall engine has limited support for the PostgreSQL protocol. For an example firewall rule that allows PostgreSQL traffic, see [Troubleshooting](firewall-policy-v2-troubleshooting.md).

@@ -1,7 +1,6 @@
 
 
 # How rules are evaluated for TLS-inspected traffic
-<a name="tls-inspection-policy-v2-tls-gate"></a>
 
 With TLS inspection, Network Firewall decrypts a connection, inspects the requests inside it, and re-encrypts the traffic before sending it on. Because the firewall can see more of each connection, it also checks more of it: an inspected connection must be allowed at every stage it passes through, not only once.
 

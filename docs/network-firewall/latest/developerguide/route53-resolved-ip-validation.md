@@ -1,7 +1,6 @@
 
 
 # Resolved IP validation in AWS Network Firewall
-<a name="route53-resolved-ip-validation"></a>
 
 A standard domain rule matches on the host name that a client *asserts*—the TLS Server Name Indication (SNI) or the HTTP `Host` header. Resolved IP validation adds a check on the *provenance of the destination IP address*: whether your VPC's Amazon Route 53 Resolver returned this IP address when it resolved the domain. This closes the gap where a client sets `Host: allowed.example.com` but connects to an unrelated IP address.
 

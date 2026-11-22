@@ -1,7 +1,6 @@
 
 
 # Firewall monitoring in the Network Firewall console
-<a name="nwfw-detailed-monitoring"></a>
 
 Firewall monitoring provides comprehensive visibility into your firewall's flow logs and alert logs. After you turn on detailed monitoring, you can access these dashboards directly from the **Monitoring** tab in the firewall details page, without leaving the Network Firewall console.
 

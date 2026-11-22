@@ -1,7 +1,6 @@
 
 
 # Actions and scopes
-<a name="firewall-rule-constraints-action-scope"></a>
 
 Every firewall rule begins with an action and an explicit scope, written as `{{action}}:{{scope}}` (for example, `accept:flow` or `drop:packet`). Two rules govern which combinations are valid:
 + The primary action must be `accept`, `drop`, `reject`, `rejectdst`, or `rejectboth`. `rejectsrc` is accepted as a synonym for `reject`. A firewall rule can't use `pass` or `alert` as its primary action. (`pass` is available only as a secondary action that bypasses the IPS engine, and `alert` only as a modifier that adds logging. For the IPS bypass, see [Bypassing the IPS engine for accepted traffic](firewall-rule-ips-bypass.md).)

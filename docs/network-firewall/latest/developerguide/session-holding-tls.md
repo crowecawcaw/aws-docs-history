@@ -1,7 +1,6 @@
 
 
 # Using session holding with TLS inspection in AWS Network Firewall
-<a name="session-holding-tls"></a>
 
 **Before you use session holding**  
 To use session holding, you must have TLS Inspection configuration and TLS Inspection enabled in your firewall policy. For information, see [Creating a firewall policy in AWS Network Firewall](firewall-policy-creating.md).  

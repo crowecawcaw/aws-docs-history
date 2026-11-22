@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Next Generation policies in AWS Network Firewall
-<a name="troubleshooting-policy-v2"></a>
 
 Use the information here to help you diagnose common issues that you might encounter when working with Next Generation policies in Network Firewall. For information about Next Generation policies, see [Next Generation policies](firewall-policies-v2.md).
 

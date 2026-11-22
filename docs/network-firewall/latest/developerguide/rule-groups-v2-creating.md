@@ -1,7 +1,6 @@
 
 
 # Creating a rule group for a Next Generation policy
-<a name="rule-groups-v2-creating"></a>
 
 Use the following procedure to create a firewall rule group or an IPS rule group in the console. The pages that you see after you select the rule group type depend on the type and, for a firewall rule group, on the authoring format that you select.
 
@@ -29,7 +28,7 @@ The following example creates a firewall rule group from a rule string. The rule
 { "RulesSource": { "RulesString": "accept:flow tcp:all any any -> any 443 (sid:1001;)\n" } }
 ```
 
-```
+```sh
 aws network-firewall create-rule-group \
 --type FIREWALL --capacity 100 \
 --rule-group-name example-firewall-rule-group \
@@ -43,7 +42,7 @@ The following example creates an IPS rule group. The rules use the same Suricata
 { "RulesSource": { "RulesString": "drop http any any -> any any (msg:\"block evil host\"; http.host; content:\"evil.example.com\"; sid:2001; rev:1;)\n" } }
 ```
 
-```
+```sh
 aws network-firewall create-rule-group \
 --type IPS --capacity 100 \
 --rule-group-name example-ips-rule-group \

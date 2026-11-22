@@ -1,13 +1,13 @@
 
 
 # Creating a firewall in AWS Network Firewall
-<a name="creating-firewall"></a>
 
 You can create a firewall in Network Firewall to start using the protections you've defined in a firewall policy to protect a VPC.
 
 There are two ways you can create a firewall:
 + Create a VPC-attached firewall to protect a VPC
 + Create a transit gateway-attached firewall to enable centralized network inspection
++ Create a NAT/Proxy firewall, which creates NAT gateways for you and acts as an explicit proxy. For information about NAT/Proxy firewalls, see [NAT/Proxy firewall in AWS Network Firewall](nfw-proxy.md).
 
 **Note**  
 To create a transit gateway-attached firewall, you can accept a transit gateway that has been shared with you through AWS RAM or a transit gateway that you own.
@@ -28,6 +28,10 @@ Before you begin, make sure your VPC has at least one subnet that can host a fir
 You can't change the name after you create the firewall.
 
    1. (Optional) Enter a **Description** for the firewall to help you identify it among your other resources.
+
+1. On the **Firewall capability** page, for **Firewall capability**, choose one of the following:
+   + **routed firewall** – The firewall filters traffic that your VPC route tables send to it and preserves the client source IP address. Continue with the next step.
+   + **NAT/Proxy firewall** – Network Firewall creates a NAT gateway and a firewall endpoint in each Availability Zone, and the firewall acts as an explicit proxy. This option is selected by default. To finish creating this type of firewall, follow the procedure in [Getting started with a NAT/Proxy firewall](getting-started-proxy.md).
 
 1. On the **Attachment type** page, under **Attachment Details**, select how to attach the firewall:
 
@@ -58,8 +62,6 @@ Network Firewall only starts collecting traffic analysis metrics when you enable
 1. On the **Associate firewall policy** page, select one of the following:
    + **Create and associate a firewall policy** – Create a new policy to associate with this firewall. Enter a name and an optional description, and select the **Policy version** (**Next Generation**, which is recommended and selected by default, or **Classic**). For a Next Generation policy, the only inline settings are **Firewall default action**, **Policy mode**, and **Stream exception setting**. For information about these settings, see [Creating a Next Generation policy in AWS Network Firewall](firewall-policy-v2-creating.md) and [Creating a firewall policy in AWS Network Firewall](firewall-policy-creating.md).
    + **Associate an existing firewall policy** – Choose a policy that you've already created. The list includes both Classic and Next Generation policies.
-**Note**  
-Next Generation policies require a source-preserving firewall. You can't associate a Next Generation policy with a firewall that uses proxy mode (that is, a firewall configured with no source preservation, proxy settings, or NAT gateway mappings); the service rejects the association. For more information, see [AWS Network Firewall no-source-preservation mode](nfw-no-source-preservation.md).
 
    Choose **Next**.
 
@@ -78,7 +80,7 @@ Complete these tasks to start using your firewall:
 
 1. Required: Configure your firewall policy to define how traffic is filtered. A Next Generation policy is recommended for new firewalls; Classic Network Firewall policies remain fully supported. For information, see [Next Generation policies](firewall-policies-v2.md) and [Firewall policies in AWS Network Firewall](firewall-policies.md). To author rules for a Next Generation policy, see [Rule groups for Next Generation policies](rule-groups-v2.md).
 
-1. Required: Configure your VPC route tables to direct traffic through your firewall endpoints. For information, see [VPC route table configuration for AWS Network Firewall](vpc-config-route-tables.md).
+1. Required: Configure your VPC route tables to direct traffic through your firewall endpoints. For information, see [VPC route table configuration for AWS Network Firewall](vpc-config-route-tables.md). For a NAT/Proxy firewall, clients that use the explicit proxy don't need route table changes. Instead, configure their proxy settings. For information, see [Configuring workloads to use the proxy](nfw-proxy-client-config.md).
 
 You can also enhance your firewall's capabilities with these optional tasks:
 + Set up logging to monitor network traffic through your firewall. For information, see [Logging network traffic from AWS Network Firewall](firewall-logging.md).

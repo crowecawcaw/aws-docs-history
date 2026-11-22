@@ -1,7 +1,6 @@
 
 
 # Firewalls and firewall endpoints in AWS Network Firewall
-<a name="firewalls"></a>
 
 A Network Firewall *firewall* defines the behavior of a network firewall, specifies the primary VPC it protects, and determines the Availability Zones where it can be deployed. For each Availability Zone where you want to use the firewall, you must define one subnet to serve as a *firewall endpoint* in the firewall's configuration. These are the primary endpoints for your firewall.
 

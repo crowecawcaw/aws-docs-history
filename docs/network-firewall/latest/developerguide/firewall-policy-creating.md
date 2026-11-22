@@ -1,7 +1,6 @@
 
 
 # Creating a firewall policy in AWS Network Firewall
-<a name="firewall-policy-creating"></a>
 
 To create a firewall policy in Network Firewall, you need rule groups that you've already defined to use in the policy. You can create new rule groups and reuse existing ones. For information about creating and managing rule groups, see [Managing your own rule groups in AWS Network Firewall](rule-groups.md). 
 

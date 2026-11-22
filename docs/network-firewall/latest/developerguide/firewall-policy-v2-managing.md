@@ -1,7 +1,6 @@
 
 
 # Managing your Next Generation policy in AWS Network Firewall
-<a name="firewall-policy-v2-managing"></a>
 
 This section describes how to create, update, and delete your Next Generation policy in Network Firewall. You manage Next Generation policies with the `CreateFirewallPolicyV2`, `UpdateFirewallPolicyV2`, `DescribeFirewallPolicyV2`, `ListFirewallPoliciesV2`, and `DeleteFirewallPolicyV2` API operations. For information about the IAM permissions required for these operations, see [Identity and Access Management for AWS Network Firewall](security-iam.md).
 

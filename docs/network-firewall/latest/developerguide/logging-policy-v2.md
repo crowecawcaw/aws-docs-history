@@ -1,7 +1,6 @@
 
 
 # Logging for a Next Generation policy in AWS Network Firewall
-<a name="logging-policy-v2"></a>
 
 A firewall that uses a Next Generation policy logs events the same way as a firewall that uses a Classic Network Firewall policy. You configure logging in the same way, and there's no new log type and no new logging configuration to set up. For information about Next Generation policies, see [Next Generation policies](firewall-policies-v2.md). For information about configuring logging, see [Logging network traffic from AWS Network Firewall](firewall-logging.md).
 

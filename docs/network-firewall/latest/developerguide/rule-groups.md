@@ -1,7 +1,6 @@
 
 
 # Managing your own rule groups in AWS Network Firewall
-<a name="rule-groups"></a>
 
 A Network Firewall *rule group* is a reusable set of criteria for inspecting and handling network traffic. You add one or more rule groups to a firewall policy as part of policy configuration. For more information about firewall policies and firewalls, see [Firewall policies](firewall-policies.md) and [Firewalls and firewall endpoints](firewalls.md).
 

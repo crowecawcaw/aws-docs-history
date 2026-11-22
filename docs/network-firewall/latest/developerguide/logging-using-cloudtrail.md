@@ -1,7 +1,6 @@
 
 
 # Logging calls to the AWS Network Firewall API with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Network Firewall is integrated with AWS CloudTrail, a service that provides a record of API calls to Network Firewall by a user, role, or an AWS service. CloudTrail captures all API calls for Network Firewall as events. The calls captured include calls from the Network Firewall console and code calls to the Network Firewall API operations. If you create a trail, you can turn on continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Network Firewall. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine information including the request that was made to Network Firewall, the IP address from which the request was made, who made the request, and when the request was made. 
 
@@ -36,7 +35,7 @@ The following are examples of CloudTrail log entries for Network Firewall operat
 
 Example: CloudTrail log entry for `CreateFirewall`
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {
@@ -107,7 +106,7 @@ Example: CloudTrail log entry for `CreateFirewall`
 
 Example: CloudTrail log entry for `ListFirewalls`
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {
@@ -151,7 +150,7 @@ Example: CloudTrail log entry for `ListFirewalls`
 
 Example: CloudTrail log entry for `DeleteFirewall`
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": {

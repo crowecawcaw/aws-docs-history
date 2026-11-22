@@ -1,7 +1,6 @@
 
 
 # Managing evaluation order for IPS rules
-<a name="ips-rule-evaluation-order"></a>
 
 The IPS engine evaluates rules by action order. The order in which the IPS engine evaluates rules is determined by the following settings, listed in order of precedence:
 

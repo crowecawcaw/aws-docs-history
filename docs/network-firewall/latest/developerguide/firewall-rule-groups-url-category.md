@@ -1,7 +1,6 @@
 
 
 # URL and domain category filtering
-<a name="firewall-rule-groups-url-category"></a>
 
 With URL and domain category filtering, you can filter network traffic based on predefined content categories. Firewall rules support the same two keywords as Classic Network Firewall stateful rules. For the Classic version of this feature, including the full list of supported categories and the URL-evaluation details, see [URL and domain category filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-url-filtering.md).
 + `aws_url_category` – Evaluates complete URLs and domains in HTTP/HTTPS traffic.

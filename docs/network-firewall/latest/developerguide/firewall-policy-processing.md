@@ -1,7 +1,6 @@
 
 
 # How AWS Network Firewall filters network traffic
-<a name="firewall-policy-processing"></a>
 
 When AWS Network Firewall inspects a packet, it evaluates the packet against the rules in the policy's stateless rule groups first, using the stateless rules engine. Then, depending on that inspection and on other settings in the policy, it might evaluate the packets against the rules in the policy's stateful rule groups, using the stateful rules engine. 
 

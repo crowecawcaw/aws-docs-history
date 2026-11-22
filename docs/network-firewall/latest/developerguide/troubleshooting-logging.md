@@ -1,7 +1,6 @@
 
 
 # Troubleshooting logging in AWS Network Firewall
-<a name="troubleshooting-logging"></a>
 
 Use the information here to help you diagnose common issues that you might encounter when working with logging in Network Firewall.
 

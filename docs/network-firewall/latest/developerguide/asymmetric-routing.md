@@ -1,9 +1,11 @@
 
 
 # Avoiding asymmetric routing with AWS Network Firewall
-<a name="asymmetric-routing"></a>
 
 Network Firewall doesn’t support asymmetric routing. Use the guidance that follows to prevent asymmetric routing in your network traffic where you use Network Firewall. 
+
+**Note**  
+This guidance applies to traffic that your VPC route tables send to a firewall endpoint—a routed firewall, and the non-proxy traffic of a NAT/Proxy firewall. It doesn't apply to explicit proxy traffic. Clients send explicit proxy requests directly to the firewall's proxy hostname, so that traffic doesn't rely on your route tables. For more information, see [NAT/Proxy firewall](nfw-proxy.md).
 
 In Network Firewall, asymmetric routing occurs when both request network traffic and its related response network traffic are not routed to the same Network Firewall endpoint. In order for Network Firewall to properly process traffic, the traffic must be routed to the Network Firewall endpoint in both directions.
 

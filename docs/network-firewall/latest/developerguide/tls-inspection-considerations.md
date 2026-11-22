@@ -1,12 +1,14 @@
 
 
 # Considerations when working with TLS inspection configurations in AWS Network Firewall
-<a name="tls-inspection-considerations"></a>
 
 Before you implement TLS inspection configuration in Network Firewall, understand the following considerations and limitations. 
 
 **Conditions for dropping traffic**  
 Network Firewall drops non-TLS traffic that matches the conditions of the TLS inspection configuration scope configuration. For example, if the TLS inspection configuration scope configuration includes `port 80` as `plain HTTP`, Network Firewall drops this traffic because the service can't identify it as TLS traffic. Network Firewall also drops TLS traffic if the client hello message in the TLS handshake doesn't include a server name, or if the server name that's presented in the client hello doesn't match the server name indication (SNI) that's presented in the downstream server certificate. For the full set of conditions that reset a connection at the TLS layer, and the TLS log message that explains each one, see [How TLS inspection resets connections](tls-inspection-connection-resets.md).
+
+**NAT/Proxy firewalls**  
+You can use TLS inspection configurations with a NAT/Proxy firewall. TLS inspection applies to explicit proxy traffic and to non-proxy traffic that the firewall inspects. For information about this capability, see [NAT/Proxy firewall in AWS Network Firewall](nfw-proxy.md).
 
 **Decrypted payload inspection for HTTP/2**  
 Network Firewall supports decrypted payload inspection for HTTP/2.

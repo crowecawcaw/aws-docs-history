@@ -1,7 +1,6 @@
 
 
 # How AWS Network Firewall works
-<a name="how-it-works"></a>
 
 AWS Network Firewall is a stateful, managed, network firewall and intrusion detection and prevention service for Amazon Virtual Private Cloud (Amazon VPC). You can combine Network Firewall with services and components that you use with your VPC, for example an internet gateway, a NAT gateway, a VPN, or a transit gateway. For information about managing your Amazon Virtual Private Cloud VPC, see the [Amazon Virtual Private Cloud User Guide](https://docs.aws.amazon.com/vpc/latest/userguide). You need a VPC to use Network Firewall. 
 
@@ -11,3 +10,5 @@ The firewall protects the subnets within your VPC by filtering traffic going bet
 
 
 To enable the firewall's protection, you modify your Amazon VPC route tables to send your network traffic through the Network Firewall firewall endpoints. For information about managing route tables for your VPC, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon Virtual Private Cloud User Guide*. 
+
+This describes a firewall with the *routed firewall* capability. A *NAT/Proxy firewall* also creates NAT gateways for you and acts as an explicit proxy, so clients that use the proxy don't need route table changes. For information, see [How a NAT/Proxy firewall works](nfw-proxy-how-it-works.md).

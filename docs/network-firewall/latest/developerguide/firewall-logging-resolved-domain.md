@@ -1,7 +1,6 @@
 
 
 # Resolved IP validation log fields
-<a name="firewall-logging-resolved-domain"></a>
 
 When a firewall policy uses resolved IP validation, Network Firewall adds the following fields to the EVE `flow` and `alert` log events. For more information about the feature, see [Resolved IP validation in AWS Network Firewall](route53-resolved-ip-validation.md).
 

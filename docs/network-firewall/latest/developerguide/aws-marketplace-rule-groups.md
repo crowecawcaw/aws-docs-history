@@ -1,7 +1,6 @@
 
 
 # Using AWS Marketplace rule groups
-<a name="aws-marketplace-rule-groups"></a>
 
 AWS Marketplace rule groups provide managed security rules from AWS Partners that you can integrate with AWS Network Firewall.
 

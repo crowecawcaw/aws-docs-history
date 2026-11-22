@@ -1,7 +1,6 @@
 
 
 # Matching specific domains with resolved-domain rules
-<a name="route53-resolved-ip-validation-rules"></a>
 
 The policy-level check is domain-agnostic. To allow or deny *specific* domains based on how the destination IP address was resolved, add resolved-domain rules to a stateful rule group. You can do this in any of three ways:
 + **Domain list** – Add `AWS_ROUTE_53_RESOLVED_DOMAIN` to the target types of a stateful domain list, alongside or instead of `TLS_SNI` and `HTTP_HOST`. For domain list settings (targets, target types, generated rules type, and domain formats) and how the target types combine, see [Stateful domain list rule groups in AWS Network Firewall](stateful-rule-groups-domain-names.md).

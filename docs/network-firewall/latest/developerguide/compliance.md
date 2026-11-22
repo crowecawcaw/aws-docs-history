@@ -1,7 +1,6 @@
 
 
 # Compliance validation and security best practices for Network Firewall
-<a name="compliance"></a>
 
 Third-party auditors assess the security and compliance of Network Firewall, as part of a number of AWS compliance programs. For general information about compliance programs, see [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/). You can download third-party audit reports using AWS Artifact. For more information, see [Downloading Reports in AWS Artifact](https://docs.aws.amazon.com/artifact/latest/ug/downloading-documents.html). 
 

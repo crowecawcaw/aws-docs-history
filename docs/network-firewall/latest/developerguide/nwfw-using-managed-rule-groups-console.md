@@ -1,7 +1,6 @@
 
 
 # Working with AWS managed rule groups in the Network Firewall console
-<a name="nwfw-using-managed-rule-groups-console"></a>
 
 Through the console, you access managed rule group information when you add and edit rules in your firewall policies. Through the APIs and the command line interface (CLI), you can directly request managed rule group information.
 

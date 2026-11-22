@@ -1,7 +1,6 @@
 
 
 # Troubleshooting TLS inspection in AWS Network Firewall
-<a name="troubleshooting-tls-inspection"></a>
 
 Use the information here to help you diagnose common issues that you might encounter when working with TLS inspection in Network Firewall.
 

@@ -1,7 +1,6 @@
 
 
 # Stream exception policy options in your AWS Network Firewall firewall policy
-<a name="stream-exception-policy"></a>
 
 The firewall policy's stream exception policy setting determines how Network Firewall handles traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself. A stream exception policy presents the following options:
 + **Drop** – Network Firewall fails closed and drops all subsequent traffic going to the firewall. If you create a firewall policy with the API or AWS CLI and don't specify a stream exception policy, Network Firewall uses **Drop**.

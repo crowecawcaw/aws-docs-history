@@ -1,7 +1,6 @@
 
 
 # Copying threat signature rules into your own AWS Network Firewall rule group
-<a name="copying-managed-threat-signature-rules"></a>
 
 Network Firewall provides full visibility into the threat signature rule content of its AWS managed rules. This enables you to choose between using the rule group as-is in your firewall policy or copying the rule group's rules into your own rule group and customizing them for your specific needs. 
 

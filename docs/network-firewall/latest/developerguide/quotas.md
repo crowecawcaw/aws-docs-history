@@ -1,7 +1,6 @@
 
 
 # AWS Network Firewall quotas
-<a name="quotas"></a>
 
 AWS Network Firewall is subject to the following quotas (formerly referred to as limits). These quotas are the same for all AWS Regions in which Network Firewall is available. Each Region is subject to these quotas individually. The quotas are not cumulative across Regions.
 
@@ -27,8 +26,12 @@ Network Firewall has the following quotas that can't be changed.
 | Maximum number of VPC endpoint associations allowed per firewall, per Availability Zone. | 50 | 
 | Maximum character length of a Suricata rule. Each variable value in the rule counts towards this limit. | 8,192 | 
 | Maximum size of a Suricata-compatible rules string for a rule group, in bytes. | 2,000,000 | 
+| Maximum number of VPC IDs per aws\_firewall\_endpoint\_vpc rule option. | 4,096 | 
+| Size reserved per aws\_firewall\_endpoint\_vpc option during rule validation. | 992 bytes | 
 | Maximum stateful rule group capacity. For more information, see [Setting rule group capacity in AWS Network Firewall](nwfw-rule-group-capacity.md). | 30,000 | 
 | Maximum number of IP set references per Suricata compatible stateful rule group. For information about IP set references, see [IP set references in Suricata compatible AWS Network Firewall rule groups](rule-groups-ip-set-references.md). | 5 | 
+| Maximum number of context sets per rule group. For information about context sets, see [Context-aware rules in AWS Network Firewall](context-aware-rules.md). | 100 | 
+| Maximum number of resource IDs per context set. A rule that references a context set must also stay within the maximum character length of a rule after Network Firewall expands the variable references in it. | 1,000 | 
 | Maximum number of monitoring configurations per container association. | 5 | 
 | Maximum number of container association references per rule group. | 30 | 
 | Maximum number of stateful rule groups per firewall policy. | 20 | 
@@ -43,6 +46,8 @@ Network Firewall has the following quotas that can't be changed.
 | Maximum number of firewall rule groups per Next Generation policy. The maximum number of rule group entries in the policy's firewall engine section, counting both referenced rule groups and embedded rules. | 20 | 
 | Maximum number of IPS rule groups per Next Generation policy. The maximum number of rule group entries in the policy's IPS engine section, counting both referenced rule groups and embedded rules. | 20 | 
 | Maximum network traffic bandwidth for a firewall's endpoints in any single Availability Zone. Endpoints can be defined in the firewall and in VPC endpoint associations that use the firewall. Network Firewall drops any traffic over the limit.  | 100 Gbps | 
+| Maximum number of IP addresses per NAT gateway that Network Firewall creates for a NAT/Proxy firewall. For a public NAT gateway, an Elastic IP address and its paired private IP address count as one address. Amazon EC2 quotas for NAT gateways and Elastic IP addresses also apply. For information, see [Amazon VPC quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the Amazon Virtual Private Cloud User Guide. | 8 | 
+| Maximum number of NAT gateways and firewall endpoints per Availability Zone for a NAT/Proxy firewall. | 1 | 
 | Required number of firewall policies per firewall. | 1 | 
 | Maximum consumed domain capacity per firewall policy. This is the total number of domain name specifications across all AWS Marketplace managed rule groups in the firewall policy that use the stateful-domain-rulegroup resource type. | 10,000,000 | 
 | Maximum number of firewalls that can use the same firewall policy. | 1,000 | 

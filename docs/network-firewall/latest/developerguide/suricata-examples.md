@@ -1,7 +1,6 @@
 
 
 # Examples of stateful rules for Network Firewall
-<a name="suricata-examples"></a>
 
 This section lists examples of Suricata compatible rules that could be used with AWS Network Firewall. 
 

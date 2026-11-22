@@ -1,7 +1,6 @@
 
 
 # VPC subnet configuration for AWS Network Firewall
-<a name="vpc-config-subnets"></a>
 
 When you associate a firewall to your VPC, you must provide a subnet for each Availability Zone where you want to place a firewall endpoint to filter traffic. A common configuration is to have a firewall endpoint in each zone where you have customer subnets that you want to protect, but you can also have a firewall endpoint filter traffic from multiple zones. 
 
@@ -17,8 +16,13 @@ To prepare a VPC for your Network Firewall firewall, in each Availability Zone w
 Network Firewall supports up to 100 Gbps of network traffic per Availability Zone. The 100 Gbps bandwidth is shared across all associated VPC endpoints. If you require more traffic bandwidth, you can split your resources into subnets and create a Network Firewall firewall in each subnet.
 
 **Note**  
-Reserve these firewall subnets for the exclusive use of Network Firewall. A firewall endpoint can't filter traffic coming into or going out of the subnet in which it resides, so don't place other applications in the firewall endpoint subnets. 
+Reserve these firewall subnets for the exclusive use of Network Firewall. A firewall endpoint can't filter traffic coming into or going out of the firewall endpoint subnet in which it resides, so don't place other applications in the firewall endpoint subnets. 
 
 For information about managing subnets in your VPC, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon Virtual Private Cloud User Guide*.
+
+For a NAT/Proxy firewall, each Availability Zone also needs a separate NAT subnet, where Network Firewall creates the NAT gateway. The firewall endpoint subnet and the NAT subnet must be in the same Availability Zone, and the firewall endpoint subnet can't be the NAT subnet. For information about NAT/Proxy firewall requirements, see [Requirements and considerations for a NAT/Proxy firewall](nfw-proxy-considerations.md).
+
+**Note**  
+For a NAT/Proxy firewall, the primary firewall endpoint is created in the VPC where the NAT gateway is present. To connect other VPCs to the firewall, add VPC endpoint associations to those VPCs. For information about using the proxy from other VPCs, see [Using the proxy from other VPCs](nfw-proxy-managing.md#nfw-proxy-vpc-endpoint-associations).
 
 When you create your Network Firewall firewall, you must provide at least one zone and subnet for the firewall configuration. You can add and remove subnets after you create a firewall. You can manage VPC endpoint associations for any firewall that you've created or that has been shared with you. 

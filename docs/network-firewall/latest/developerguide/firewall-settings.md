@@ -1,11 +1,11 @@
 
 
 # Firewall settings in AWS Network Firewall
-<a name="firewall-settings"></a>
 
-A firewall in Network Firewall has the following configuration settings, which you define when you create or update the firewall. All settings except for the firewall name are mutable.
+A firewall in Network Firewall has the following configuration settings, which you define when you create or update the firewall. All settings except for the firewall name and firewall capability are mutable. A NAT/Proxy firewall has additional settings, some of which you can't change after you create the firewall. For information about NAT/Proxy firewall requirements, see [Requirements and considerations for a NAT/Proxy firewall](nfw-proxy-considerations.md).
 + **Name** – The identifier for the firewall. You assign a unique name to every firewall. You can't change the name of a firewall after you create it. 
 + **Description** – Optional additional information about the firewall. Fill in any information that might help you remember the purpose of the firewall and how you want to use it. The description is included in firewall lists in the console and through the APIs.
++ **Firewall capability** – How the firewall handles traffic: *routed firewall*, which filters traffic that your VPC route tables send to the firewall and preserves the client source IP address, or *NAT/Proxy firewall*, which also performs network address translation through NAT gateways that Network Firewall creates and acts as an explicit proxy. You can't change the capability after you create the firewall. For information about NAT/Proxy firewalls, see [NAT/Proxy firewall in AWS Network Firewall](nfw-proxy.md).
 + **VPC ** – The VPC that's associated with the firewall. This is the VPC that the firewall provides protection for. 
 + **Subnets** – The primary public subnets that Network Firewall should use for the firewall. Network Firewall creates a firewall endpoint in each subnet. Specify one subnet for each Availability Zone where you want to use the firewall. Each subnet establishes the availability of the firewall in its Availability Zone.
 

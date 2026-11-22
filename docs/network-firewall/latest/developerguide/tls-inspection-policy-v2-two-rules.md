@@ -1,7 +1,6 @@
 
 
 # Authoring a TLS rule and an HTTP rule for each allowed domain
-<a name="tls-inspection-policy-v2-two-rules"></a>
 
 To allow TLS-inspected traffic to a domain through the firewall engine, you must author **two rules** for that domain:
 + A **TLS rule** that matches the server name indication (SNI) in the TLS handshake. This rule uses the `accept:flow` or `accept:tx` action at the TLS `client_hello` hook to allow the connection past the TLS handshake stage—it doesn't by itself allow the requests inside the connection. For more information, see [How rules are evaluated for TLS-inspected traffic](tls-inspection-policy-v2-tls-gate.md).

@@ -1,7 +1,6 @@
 
 
 # Getting started with a Next Generation policy
-<a name="getting-started-v2"></a>
 
 This tutorial walks you through creating a firewall that uses a Next Generation policy, using the AWS Management Console. A Next Generation policy has two engines: a *firewall engine* for access control, which is drop by default, and an *IPS engine* for threat detection, which is pass by default. You create a firewall rule group and an IPS rule group, combine them in a Next Generation policy, create a firewall, and route your VPC traffic through the firewall endpoint. For a tutorial that uses a Classic policy instead, see [Getting started with a Classic AWS Network Firewall policy](getting-started-classic.md). For the differences between the two policy types, see [AWS Network Firewall firewall policy versions](firewall-policy-versions.md).
 
@@ -125,6 +124,8 @@ Creating a firewall and its firewall endpoints starts incurring AWS Network Fire
    In the navigation pane, under **Network Firewall**, choose **Firewalls**, and then choose **Create firewall**.
 
 1. On the **Describe firewall** page, for **Name**, enter the name that you want to use to identify this firewall, and optionally enter a description. You can't change the name after you create the firewall. Choose **Next**.
+
+1. On the **Firewall capability** page, for **Firewall capability**, choose **routed firewall**.
 
 1. On the **Attachment type** page, under **Attachment Details**, select **VPC**, select your VPC, and then select the **Availability Zone**, **Subnet**, and **IP address type** for the firewall subnet that you identified in [Before you begin](getting-started.md#getting-started-prerequisites). Choose **Next**.
 

@@ -1,7 +1,6 @@
 
 
 # Bypassing the IPS engine for accepted traffic
-<a name="firewall-rule-ips-bypass"></a>
 
 By default, traffic that the firewall engine accepts advances to the IPS engine for threat inspection. You can configure an accept rule to also bypass the IPS engine, so that the accepted connection goes straight to its destination without IPS inspection. The most common reason to do this is to exempt specific trusted traffic that would otherwise trigger a false positive in your IPS rules—for example, a known-good application whose traffic matches a signature that isn't relevant to it. Apply a bypass only to traffic that you have independently determined is trusted.
 

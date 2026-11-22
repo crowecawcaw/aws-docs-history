@@ -1,7 +1,6 @@
 
 
 # Troubleshooting general issues in AWS Network Firewall
-<a name="troubleshooting-general-issues"></a>
 
 Use the information here to help you diagnose and fix common issues when you work with Network Firewall.
 
@@ -190,6 +189,8 @@ Network latency and packet drops can occur for multiple reasons such as a sudden
 <a name="troubleshoot-scaling-behavior"></a>
 
 AWS Network Firewall is a fully managed service that scales automatically to meet traffic demand. It continuously monitors traffic flowing through your firewall endpoints and adjusts capacity, with each endpoint scaling independently up to 100 Gbps. Automatic scaling is always enabled and requires no configuration.
+
+**Scaling considerations**
 
 1. **Per-AZ scaling** – Each firewall endpoint is zonal and scales independently based on the traffic it processes.
 

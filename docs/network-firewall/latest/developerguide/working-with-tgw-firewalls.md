@@ -1,7 +1,6 @@
 
 
 # Working with transit gateway-attached firewalls
-<a name="working-with-tgw-firewalls"></a>
 
 After you accept a shared transit gateway attachment, the firewall you create appears in the **Firewalls** page of the Network Firewall console with one of the following statuses, depending on what state it is in:
 + `Pending` — the process to create a transit gateway-attached firewall has been initiated. The transit gateway owner must next accept the firewall from the transit gateway console. For more information, see [Accept a shared attachment using Amazon VPC Transit Gateways](https://docs.aws.amazon.com/vpc/latest/tgw/acccept-tgw-attach.html) in the *Amazon VPC Developer Guide*.

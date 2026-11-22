@@ -1,7 +1,6 @@
 
 
 # Managing AWS Network Firewall events using Amazon EventBridge
-<a name="eventbridge-events"></a>
 
 AWS Network Firewall sends events directly to the EventBridge default event bus when firewall state changes occur. You can use these events to automate responses, send notifications, or integrate with other AWS services when your firewall configuration or attachment status changes.
 
@@ -32,7 +31,7 @@ Events published when a firewall configuration changes, such as when a firewall 
 
 This event is published when a firewall policy or rule group is updated, changing the configuration synchronization status. The example shows a policy update that transitions the configuration sync status from `IN_SYNC` to `PENDING`.
 
-```
+```json
 {
   "version": "0",
   "id": "01234567-0123-0123-0123-0123456789ab",
@@ -79,7 +78,7 @@ Events published when the status of a firewall endpoint attachment changes durin
 
 This event is published when a firewall endpoint attachment is being created in an availability zone. The `Current Attachment Status` field shows `CREATING`.
 
-```
+```json
 {
   "version": "0",
   "id": "01234567-0123-0123-0123-0123456789ab",
@@ -111,7 +110,7 @@ This event is published when a firewall endpoint attachment is being created in 
 
 This event is published when a firewall endpoint attachment completes creation and becomes ready for traffic. The status transitions from `CREATING` to `READY`.
 
-```
+```json
 {
   "version": "0",
   "id": "01234567-0123-0123-0123-0123456789ab",
@@ -145,7 +144,7 @@ This event is published when a firewall endpoint attachment completes creation a
 
 This event is published when a firewall endpoint attachment is being deleted. The status transitions from `READY` to `DELETING`.
 
-```
+```json
 {
   "version": "0",
   "id": "01234567-0123-0123-0123-0123456789ab",
@@ -186,7 +185,7 @@ Events published when the status of a transit gateway attachment to the firewall
 
 This event is published when a transit gateway attachment to the firewall is being created. The `Current Transit Gateway Attachment Status` field shows `CREATING`.
 
-```
+```json
 {
   "version": "0",
   "id": "01234567-0123-0123-0123-0123456789ab",
@@ -216,7 +215,7 @@ This event is published when a transit gateway attachment to the firewall is bei
 
 This event is published when a transit gateway attachment is waiting for acceptance. The status transitions from `CREATING` to `PENDING_ACCEPTANCE`.
 
-```
+```json
 {
   "version": "0",
   "id": "01234567-0123-0123-0123-0123456789ab",
@@ -247,7 +246,7 @@ This event is published when a transit gateway attachment is waiting for accepta
 
 This event is published when a transit gateway attachment completes and becomes ready for traffic. The status transitions from `CREATING` to `READY`.
 
-```
+```json
 {
   "version": "0",
   "id": "01234567-0123-0123-0123-0123456789ab",
@@ -278,7 +277,7 @@ This event is published when a transit gateway attachment completes and becomes 
 
 This event is published when a transit gateway attachment is being deleted. The status transitions from `READY` to `DELETING`.
 
-```
+```json
 {
   "version": "0",
   "id": "01234567-0123-0123-0123-0123456789ab",

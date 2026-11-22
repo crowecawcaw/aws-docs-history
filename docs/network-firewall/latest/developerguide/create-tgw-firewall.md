@@ -1,7 +1,6 @@
 
 
 # Creating a transit gateway-attached firewall from a shared transit gateway
-<a name="create-tgw-firewall"></a>
 
 The process to create a transit gateway-attached firewall involves multiple AWS services, including AWS Network Firewall, AWS Transit Gateway, and AWS RAM. In scenarios where the Transit Gateway owner and Network Firewall owner are different AWS accounts, the Network Firewall account owner depends on the Transit Gateway owner to share a transit gateway with them.
 

@@ -1,7 +1,6 @@
 
 
 # Next Generation policy settings in AWS Network Firewall
-<a name="firewall-policy-v2-settings"></a>
 
 A Next Generation policy in Network Firewall has the following configuration settings, which you define when you create or update the firewall policy. All settings except for the firewall policy name are changeable.
 

@@ -1,7 +1,6 @@
 
 
 # Working with IPS rule groups in AWS Network Firewall
-<a name="ips-rule-groups"></a>
 
 An *IPS rule group* holds the threat detection and prevention rules that the IPS engine evaluates. You author IPS rules as raw Suricata compatible rule strings, using the same syntax and semantics as the stateful rules in a Classic Network Firewall policy. For information about writing Suricata compatible rules, see [Working with stateful rule groups in AWS Network Firewall](stateful-rule-groups-ips.md).
 

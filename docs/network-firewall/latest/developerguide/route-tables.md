@@ -1,7 +1,6 @@
 
 
 # Route table configurations for AWS Network Firewall
-<a name="route-tables"></a>
 
 To include the Network Firewall firewall in your Amazon Virtual Private Cloud VPC, you modify the VPC route tables so that the traffic that you want the firewall to filter passes through the firewall endpoints. Exactly how you do this depends on your architecture and the traffic that you want to filter. For example, to filter all traffic between an internet gateway and your customer subnets, you redirect incoming traffic from the internet gateway and outgoing traffic from the customer subnets through the firewall endpoint.
 

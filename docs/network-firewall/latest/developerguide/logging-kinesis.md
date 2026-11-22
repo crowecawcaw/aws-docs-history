@@ -1,7 +1,6 @@
 
 
 # Sending AWS Network Firewall logs to Amazon Data Firehose
-<a name="logging-kinesis"></a>
 
 To send logs to Amazon Data Firehose, you first need to set up a Firehose delivery stream. As part of that process, you select a destination for storing your logs. After you turn on logging for your firewall, AWS Network Firewall delivers logs to the destination through the HTTPS endpoint of Amazon Data Firehose. One AWS Network Firewall log corresponds to one Amazon Data Firehose record.
 
@@ -24,7 +23,7 @@ You must have the following permissions to configure your firewall to send logs 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

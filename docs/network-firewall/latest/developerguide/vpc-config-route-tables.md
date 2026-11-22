@@ -1,9 +1,11 @@
 
 
 # VPC route table configuration for AWS Network Firewall
-<a name="vpc-config-route-tables"></a>
 
 After you create your firewall, you reroute your VPC network traffic through the firewall endpoints so they can start filtering traffic. Perform the following steps:
+
+**Note**  
+For a NAT/Proxy firewall, clients that use the explicit proxy don't need route table changes. You configure their proxy settings instead. Route only the traffic that doesn't use the explicit proxy to the firewall endpoint in the same Availability Zone. For information about configuring workloads to use the proxy, see [Configuring workloads to use the proxy](nfw-proxy-client-config.md).
 
 1. Review the route table configurations in your VPC Availability Zones for the subnets that you want to protect and for any location that sends traffic to the subnets or receives traffic from them.
 

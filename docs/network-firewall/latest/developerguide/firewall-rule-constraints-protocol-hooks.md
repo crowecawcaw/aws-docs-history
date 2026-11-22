@@ -1,7 +1,6 @@
 
 
 # Common hooks for common protocols
-<a name="firewall-rule-constraints-protocol-hooks"></a>
 
 The following table lists, for the protocols that customers most commonly filter, a common hook to use for a simple allow or deny rule and the keywords that become available at that hook. These are common choices, not the only valid ones—each protocol exposes more hooks than are listed here. For a rule that matches one of the listed keywords, use the hook shown. For a rule that matches no protocol field, you can use any valid hook for the protocol; the hook shown is a reliable default. For the full set of hooks each protocol exposes and the complete keyword reference, see the [Firewall design](https://docs.suricata.io/en/suricata-8.0.3/firewall/firewall-design.html) documentation.
 

@@ -1,7 +1,6 @@
 
 
 # URL and domain category filtering in Suricata compatible AWS Network Firewall rule groups
-<a name="rule-groups-url-filtering"></a>
 
 With URL and domain category filtering, you can filter network traffic based on predefined content categories. You can use this feature with **Suricata compatible rule strings** and **standard Network Firewall stateful rule groups**.
 

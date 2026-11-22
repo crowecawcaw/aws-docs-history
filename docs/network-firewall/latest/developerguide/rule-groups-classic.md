@@ -1,7 +1,6 @@
 
 
 # Rule groups for Classic Network Firewall in AWS Network Firewall
-<a name="rule-groups-classic"></a>
 
 Classic Network Firewall policies use stateless rule groups and stateful rule groups. These rule groups determine how Network Firewall evaluates packets in your network traffic inspection. For the rule group types used by Next Generation policies, see [Rule groups for Next Generation policies](rule-groups-v2.md).
 + **Stateless rule groups** – Evaluate packets in isolation. They define standard network connection attributes for examining a packet on its own, without additional context from the broader traffic flow.

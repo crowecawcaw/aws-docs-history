@@ -1,7 +1,6 @@
 
 
 # Creating a Next Generation policy in AWS Network Firewall
-<a name="firewall-policy-v2-creating"></a>
 
 To create a Next Generation policy in Network Firewall, you can reference firewall rule groups and IPS rule groups that you've already defined, author embedded rules directly in the policy, or both. For information about creating rule groups, see [Working with firewall rule groups in AWS Network Firewall](firewall-rule-groups.md) and [Working with IPS rule groups in AWS Network Firewall](ips-rule-groups.md).
 
@@ -57,7 +56,7 @@ You can also create a Next Generation policy with the AWS CLI. Each section can 
 }
 ```
 
-```
+```sh
 aws network-firewall create-firewall-policy-v2 \
 --firewall-policy-v2-name example-policy \
 --firewall-policy-v2 file://policy.json \

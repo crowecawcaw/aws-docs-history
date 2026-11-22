@@ -1,7 +1,6 @@
 
 
 # Best practices for writing Suricata compatible rules for AWS Network Firewall
-<a name="suricata-best-practices"></a>
 
 These best practices apply to the Suricata compatible stateful rules you write for a Classic AWS Network Firewall stateful rule group and for the IPS rule group of a Next Generation policy, which use the same rule syntax. Suricata is an open source network intrusion prevention system (IPS) that includes a standard rule-based language for stateful network traffic inspection. These practices don't apply to firewall rules in a Next Generation policy, which use firewall-mode syntax; for those, see [Working with firewall rule groups in AWS Network Firewall](firewall-rule-groups.md). 
 

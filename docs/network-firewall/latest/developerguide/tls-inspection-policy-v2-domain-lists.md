@@ -1,7 +1,6 @@
 
 
 # Allowing inspected traffic with a domain list
-<a name="tls-inspection-policy-v2-domain-lists"></a>
 
 Instead of authoring the stage rules by hand, you can create a domain list firewall rule group that targets the following, and Network Firewall generates the full set of rules for you:
 + `TLS_SNI` – Allows the website name at the TLS handshake stage.

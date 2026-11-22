@@ -1,7 +1,6 @@
 
 
 # AWS domain and IP managed rule groups for AWS Network Firewall
-<a name="aws-managed-rule-groups-domain-list"></a>
 
 This section describes the AWS managed rule groups that inspect domain and IP information for Network Firewall. You see these in the console in the list of AWS managed rule groups, or when you add rule groups to your firewall policy. Through the API, you can retrieve the list of AWS managed rule groups by calling [ListRuleGroups](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ListRuleGroups.html).
 

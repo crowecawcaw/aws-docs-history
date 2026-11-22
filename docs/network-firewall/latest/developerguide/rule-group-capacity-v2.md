@@ -1,7 +1,6 @@
 
 
 # Setting rule group capacity in AWS Network Firewall
-<a name="rule-group-capacity-v2"></a>
 
 AWS Network Firewall uses capacity settings to calculate and manage the processing requirements for its rule groups and firewall policies. Each rule group must have a capacity setting that's fixed at creation. When you reference a rule group from a firewall policy, Network Firewall reserves the rule group's capacity in the policy, increasing the total capacity that's used by the policy.
 

@@ -1,7 +1,6 @@
 
 
 # Updating a AWS Network Firewall logging configuration
-<a name="firewall-update-logging-configuration"></a>
 
 To update your firewall's logging configuration through the Network Firewall AWS Management Console, use the procedure in this section. For the API, see the Network Firewall API action, `UpdateLoggingConfiguration`.
 

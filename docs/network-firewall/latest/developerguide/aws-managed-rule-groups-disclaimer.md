@@ -1,7 +1,6 @@
 
 
 # Considerations and disclaimers for using AWS managed rule groups in Network Firewall
-<a name="aws-managed-rule-groups-disclaimer"></a>
 
 Before you add AWS managed rule groups to a firewall policy, consider the following.
 

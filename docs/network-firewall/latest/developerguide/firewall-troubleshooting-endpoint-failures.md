@@ -1,7 +1,6 @@
 
 
 # Troubleshooting firewall endpoint failures in AWS Network Firewall
-<a name="firewall-troubleshooting-endpoint-failures"></a>
 
 If Network Firewall can't create or delete a firewall endpoint in a subnet because of an error, the service displays a *status message* describing how to resolve the issue. Use the status message in the console, API, or CLI to troubleshoot the issues causing the endpoint failure. Depending on the issue, it can take as many as 15 minutes for Network Firewall to display the status message.
 
@@ -63,3 +62,5 @@ The following table lists the possible causes of the error or failure as indicat
 | Error | AWS Transit Gateway attachment failure | Failed to create the firewall attachment on the transit gateway. | Check the transit gateway configuration and ensure that it can accept new attachments. Verify your permissions and try again. | 
 | Failed | VPC deleted | The firewall or VPC endpoint association use a VPC that's been deleted. | Delete the VPC endpoint associations or firewall that are using the VPC. Then as needed, create a new firewall and VPC endpoint associations using an existing VPC. For information, see [Managing a firewall and firewall endpoints in AWS Network Firewall](firewall-managing.md). | 
 | Failed | Firewall provisioning failure | The firewall failed to provision because an internal operation did not complete. | Delete the firewall and create a new one. See [Deleting a firewall in AWS Network Firewall](deleting-firewall.md). | 
+| Failed | NAT gateway creation failure (NAT/Proxy firewall) | Network Firewall couldn't create the NAT gateway for the firewall endpoint in this Availability Zone. The status message includes the error that Amazon EC2 returned, for example a NAT gateway or Elastic IP address quota, an Elastic IP address that's already in use, or an invalid parameter. | If the failure happened when you created the firewall, the whole firewall fails. Resolve the cause, delete the firewall, and create it again. Network Firewall deletes the NAT gateways that it created for the failed firewall.<br />If the failure happened when you added an Availability Zone, only that Availability Zone fails. Remove the Availability Zone, resolve the cause, and add it again.<br />For information, see [Troubleshooting a NAT/Proxy firewall in AWS Network Firewall](troubleshooting-nfw-proxy.md). | 
+| Failed | NAT gateway attachment failure (NAT/Proxy firewall) | The NAT gateway attachment for the Availability Zone failed, for example because the caller's credentials expired while Network Firewall was attaching the NAT gateway. | For a failed firewall creation, delete the firewall and create it again. For a failed Availability Zone, remove the Availability Zone and add it again. | 

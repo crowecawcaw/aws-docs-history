@@ -1,7 +1,6 @@
 
 
 # Pricing for AWS Network Firewall logging
-<a name="firewall-logging-pricing"></a>
 
 You are charged for Amazon CloudWatch *vended logs*, on top of the basic charges for using Network Firewall. Additionally, you incur charges when querying logs, whether through CloudWatch and or through Amazon Athena for logs stored in Amazon S3. Vended logs are specific AWS service logs published by AWS on your behalf at volume discount pricing. 
 

@@ -1,7 +1,6 @@
 
 
 # Access AWS Network Firewall using an interface endpoint
-<a name="vpc-interface-endpoints"></a>
 
 You can create a private connection between your VPC and AWS Network Firewall. You can access AWS Network Firewall as if it were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to access AWS Network Firewall.
 
@@ -48,11 +47,11 @@ An endpoint policy specifies the following information:
 + The resources on which the actions can be performed.
 
 ## Example: VPC endpoint policy for AWS Network Firewall
-<a name="w2aac39c36c13"></a>
+<a name="w2aac43c36c13"></a>
 
 The following is an example of a custom endpoint policy. When you attach this policy to your interface VPC endpoint, it grants access to the AWS Network Firewall actions for all principals on all resources.
 
-```
+```json
 {
    "Statement": [
       {

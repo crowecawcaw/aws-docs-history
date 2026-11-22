@@ -1,7 +1,6 @@
 
 
 # Valid combinations and constraints for firewall rules
-<a name="firewall-rule-constraints"></a>
 
 A firewall rule combines an action and scope, a protocol and hook, a source and destination, and a set of matching keywords. Not every combination is valid: the action limits the scopes you can use, the hook limits the keywords you can match, and some keywords match only at one specific point in a connection. Network Firewall validates these combinations when you create or update a rule group, and rejects a rule group that contains an invalid rule, identifying the rule by its SID. This section describes the constraints so that you can author rules that validate the first time.
 

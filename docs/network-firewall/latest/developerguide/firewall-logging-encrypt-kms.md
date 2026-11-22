@@ -1,7 +1,6 @@
 
 
 # Logging in AWS Network Firewall with server-side encryption and customer-provided keys
-<a name="firewall-logging-encrypt-kms"></a>
 
 If your logging destination uses server-side encryption with keys that are stored in AWS Key Management Service (SSE-KMS) and you use a customer managed key (KMS key), you must give Network Firewall permission to use your KMS key. To do this, you add a key policy to the KMS key for your chosen destination to permit Network Firewall logging to write your log files to the destination. 
 

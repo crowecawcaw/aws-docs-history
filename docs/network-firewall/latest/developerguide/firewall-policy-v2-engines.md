@@ -1,7 +1,6 @@
 
 
 # The firewall engine and the IPS engine
-<a name="firewall-policy-v2-engines"></a>
 
 A Next Generation policy inspects traffic with two engines, in sequence. Traffic that an engine allows advances to the next engine; traffic that an engine blocks is dropped or rejected and does not advance.
 + **Firewall engine** – An access-control engine that inspects traffic at connection-state *hooks* as a connection progresses through the protocol stack. One way to think about the firewall engine is that it models the state machine of each protocol: a connection moves from one protocol state to the next (for example, through the states of a TLS handshake), and the engine evaluates your rules at each state. The firewall engine is *drop by default*, so an explicit accept is required to advance from one state to the next; traffic that isn't accepted is handled by the policy's firewall default action. You use the firewall engine to define which traffic is allowed into your network. For information about authoring firewall rules, see [Working with firewall rule groups in AWS Network Firewall](firewall-rule-groups.md).

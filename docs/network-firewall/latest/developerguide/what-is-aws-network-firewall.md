@@ -1,11 +1,13 @@
 
 
 # What is AWS Network Firewall?
-<a name="what-is-aws-network-firewall"></a>
 
-AWS Network Firewall is a stateful, managed, network firewall and intrusion detection and prevention service for your virtual private cloud (VPC) that you create in Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the perimeter of your VPC. This includes filtering traffic going to and coming from an internet gateway, NAT gateway, transit gateway, or over VPN or Direct Connect. 
+AWS Network Firewall is a stateful, managed, network firewall and intrusion detection and prevention service for your virtual private cloud (VPC). With Network Firewall, you can filter traffic at the perimeter of your VPC. This includes traffic entering or leaving your VPC through an internet gateway, NAT gateway, transit gateway, Cloud WAN, or virtual private gateway, or over a VPN or Direct Connect connection, as long as the traffic is routed to a firewall endpoint. You can also filter traffic between subnets. 
 
 Network Firewall offers two kinds of firewall policy. We recommend **Next Generation** policies for new firewalls. A Next Generation policy is a single policy that inspects your traffic in two sequential stages—first a *firewall engine* for access control (drop by default), then an *IPS engine* for threat detection and prevention—and provides a simplified rule-authoring model and dynamic rule capacity. **Classic Network Firewall** policies, which filter traffic with a stateless rules engine and a stateful rules engine, remain fully supported for existing firewalls. You can associate either a Classic Network Firewall policy or a Next Generation policy with a firewall, but not both. For a comparison, see [AWS Network Firewall firewall policy versions](firewall-policy-versions.md); for details, see [Next Generation policies](firewall-policies-v2.md).
+
+**Note**  
+You can use Network Firewall to automatically protect the internet traffic that enters and leaves your VPCs by enabling automated internet firewall. Automated internet firewall applies a managed firewall at your internet gateway and is managed centrally through Network Security Manager, with no changes to your routes. For more information, see [Automated Internet Firewall](internet-gateway-firewall.md).
 
 Network Firewall uses the open source intrusion prevention system (IPS), Suricata, for stateful inspection, and supports Suricata compatible rules. For more information, see [Working with stateful rule groups in AWS Network Firewall](stateful-rule-groups-ips.md).
 
@@ -13,23 +15,20 @@ Network Firewall uses the open source intrusion prevention system (IPS), Suricat
 This section and others that describe Suricata-based concepts are not intended to replace or duplicate information from the Suricata documentation. For more Suricata-specific information, see the [Suricata documentation](https://docs.suricata.io/en/suricata-8.0.3/).
 
 You can use Network Firewall to monitor and protect your Amazon VPC traffic in a number of ways, including the following: 
-+ Pass traffic through only from known AWS service domains or IP address endpoints, such as Amazon S3.
-+ Use custom lists of known bad domains to limit the types of domain names that your applications can access.
++ Allowlist only trusted destinations, such as AWS service domains or IP address endpoints (for example, Amazon S3).
++ deny custom or managed lists of known malicious destinations.
 + Inspect the full contents of packets (not just headers) entering or leaving your VPC.
 + Use stateful protocol detection to filter protocols like HTTPS, independent of the port used.
 
-By default, AWS Network Firewall operates in **source-preservation mode**.
+When you create a firewall, you choose one of the following firewall capabilities:
++ **Routed firewall** – The firewall receives traffic from the firewall endpoint, filters it, and sends the filtered traffic back through the firewall endpoint to its destination. The original source and destination IP addresses are preserved throughout inspection. You steer traffic to the firewall through VPC route tables, and you can route outbound traffic through your own NAT gateway or internet gateway. This capability supports all protocols (TCP, UDP, and ICMP), supports VPC and transit gateway attachments, and is designed for general network security use cases like intrusion prevention, domain-based filtering, and east-west or north-south traffic inspection.
++ **NAT/Proxy firewall** – Network Firewall creates a NAT gateway and a firewall endpoint in each Availability Zone that you add. The firewall endpoint receives traffic, the firewall filters it, and the filtered traffic exits through the NAT gateway, which uses the NAT gateway's IP address as the source in place of the client source IP address. The firewall also acts as an explicit forward proxy: clients send HTTP and HTTPS requests directly to the firewall's proxy hostname, without route table changes. Other traffic reaches the firewall endpoint through your VPC route tables. For more information, see [NAT/Proxy firewall](nfw-proxy.md).
 
-In source-preservation mode, the firewall receives traffic from the VPC endpoint, inspects it using the stateful rules engine (supporting Suricata compatible IPS rules, domain filtering, and 5-tuple rules), and sends the filtered traffic back through the VPC endpoint to its destination. The original source and destination IP addresses are preserved throughout inspection. Traffic is steered to the firewall through VPC route tables. This mode supports all protocols (TCP, UDP, ICMP) and is designed for general network security use cases like intrusion prevention, domain-based filtering, and east-west or north-south traffic inspection.
+Both capabilities support Next Generation policies and Classic Network Firewall policies.
 
-There is another mode of operation, *currently in preview*, called **no-source-preservation mode**, where the firewall functions as an explicit forward proxy. Currently, this mode is available only in the US East (Ohio) Region (us-east-2). In this mode, the firewall attaches to a NAT gateway and clients must be explicitly configured to send traffic to the proxy through a PrivateLink endpoint. The endpoint carries the traffic to the firewall, which filters the traffic based on the configured ruleset. If the traffic is allowed, the firewall initiates a new connection with the destination using the attached NAT gateway's IP address as the source. Because the original IP address of the source is masked, this deployment mode is called no-source-preservation. For more information, see [No-source-preservation mode](nfw-no-source-preservation.md).
+To configure Network Firewall inside a VPC, you perform steps in both Amazon VPC and in Network Firewall. For information about managing your Amazon Virtual Private Cloud VPC, see the [Amazon Virtual Private Cloud User Guide](https://docs.aws.amazon.com/vpc/latest/userguide). For more information about how Network Firewall works, see [How AWS Network Firewall works](how-it-works.md). 
 
-**Note**  
-No-source-preservation mode applies only to Classic Network Firewall policies. Next Generation policies don't support it.
-
-To enable Network Firewall for a VPC, you perform steps in both Amazon VPC and in Network Firewall. For information about managing your Amazon Virtual Private Cloud VPC, see the [Amazon Virtual Private Cloud User Guide](https://docs.aws.amazon.com/vpc/latest/userguide). For more information about how Network Firewall works, see [How AWS Network Firewall works](how-it-works.md). 
-
-Network Firewall is supported by AWS Firewall Manager. You can use Firewall Manager to centrally configure and manage your firewalls across your accounts and applications in AWS Organizations. You can manage firewalls for multiple accounts using a single account in Firewall Manager. For more information, see [AWS Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html) in the *AWS WAF, AWS Firewall Manager, and AWS Shield Advanced Developer Guide*.
+You can use AWS Firewall Manager (Firewall Manager) to centrally configure and manage your firewalls across your accounts and applications in AWS Organizations. You can manage firewalls for multiple accounts using a single account in Firewall Manager. For more information, see [AWS Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html) in the *AWS WAF, AWS Firewall Manager, and AWS Shield Advanced Developer Guide*.
 
 **Topics**
 + [AWS Network Firewall​ AWS resources](#aws-resources)
@@ -45,26 +44,22 @@ Network Firewall is supported by AWS Firewall Manager. You can use Firewall Mana
 <a name="aws-resources"></a>
 
 Network Firewall manages the following AWS resource types: 
-+ **Firewall** – Provides traffic filtering logic for a VPC. The Firewall defines the primary VPC to protect and a primary subnet to use for a firewall endpoint in each Availability Zone. 
-+ **VpcEndpointAssociation** – Provides additional firewall endpoints for a Firewall, in the primary VPC and other VPCs. 
-+ **FirewallPolicy** – Defines rules and other settings for a firewall to use to filter incoming and outgoing traffic in a VPC. 
-+ **RuleGroup** – Defines a set of rules to match against VPC traffic, and the actions to take when Network Firewall finds a match. Network Firewall uses stateless and stateful rule group types, each with its own Amazon Resource Name (ARN).
++ **Firewall** – An AWS resource that holds the traffic-filtering logic for a VPC. A firewall is associated with a single firewall policy, and defines the VPC that it protects and a firewall endpoint subnet in each Availability Zone. 
++ **VpcEndpointAssociation** – Provides additional firewall endpoints across other VPCs so that your workloads in other VPCs can access the Firewall.
++ **RuleGroup** – Defines a set of rules to match against VPC traffic, and the actions to take when Network Firewall finds a match. Network Firewall uses stateless and stateful rule group types, each with its own Amazon Resource Name (ARN). A referenced rule group is a reusable resource that you can share across multiple policies and whose capacity is pre-allocated when you create it; embedded rules are authored directly in a policy (native to the policy) and don't require an upfront capacity allocation.
++ **FirewallPolicy** – It is a top level container where you can stack your rule groups in order of priority. Your traffic is filtered against the rules in your policy.
 
 ## AWS Network Firewall concepts
 <a name="concepts"></a>
 
 AWS Network Firewall is a firewall service for Amazon Virtual Private Cloud (Amazon VPC). For information about managing your Amazon Virtual Private Cloud VPC, see the [Amazon Virtual Private Cloud User Guide](https://docs.aws.amazon.com/vpc/latest/userguide). 
 
-The following are the key concepts for Network Firewall: 
+The following are the key concepts for Network Firewall. For the Network Firewall resource types—firewall, VPC endpoint association, firewall policy, and rule group—see [AWS Network Firewall​ AWS resources](#aws-resources). 
 + **Virtual private cloud (VPC)** – A virtual network dedicated to your AWS account. 
 + **Internet gateway** – A gateway that you attach to a VPC to enable communication between resources in the VPC and the internet.
-+ **Subnet** – A range of IP addresses in a VPC. Network Firewall creates firewall endpoints in subnets inside your VPC, to filter network traffic. In a VPC architecture that uses Network Firewall, the firewall endpoints sit between your protected subnets and locations outside your VPC.
-+ **Firewall subnet** – A subnet that you've designated for exclusive use by Network Firewall for a firewall endpoint. A firewall endpoint cannot filter traffic coming into or going out of the subnet in which it resides, so do not use your firewall subnets for anything other than Network Firewall.
++ **Subnet** – It is a subnetwork containing a specific contiguous and immutable range of IP addresses inside your VPC where you provision your AWS resources. Network Firewall creates firewall endpoints in subnets inside your VPC, to filter network traffic.
++ **Firewall subnet** – A subnet that you've designated for exclusive use by Network Firewall for a firewall endpoint. A firewall endpoint cannot filter traffic coming into or going out of the firewall endpoint subnet in which it resides, so do not use your firewall subnets for anything other than Network Firewall.
 + **Route table** – A set of rules, called routes, that are used to determine where network traffic is directed. You modify your VPC route tables in Amazon VPC to direct traffic through your firewalls for filtering.
-+ **Network Firewall *firewall*** – An AWS resource that provides traffic filtering logic, and that defines the primary VPC to protect and a subnet in each Availability Zone for that VPC to use for firewall endpoints. 
-+ **Network Firewall *VPC endpoint association*** – An AWS resource that defines a firewall endpoint in addition to the primary endpoints that the firewall defines, and uses the firewall's traffic filtering logic and other settings. A VPC endpoint association can be for the firewall's VPC or for another VPC. 
-+ **Network Firewall *firewall policy*** – An AWS resource that defines rules and other settings for a firewall to use to filter incoming and outgoing traffic in a VPC. 
-+ **Network Firewall *rule group*** – An AWS resource that defines a set of rules to match against VPC traffic, and the actions to take when Network Firewall finds a match. A referenced rule group is a reusable resource that you can share across multiple policies and whose capacity is pre-allocated when you create it; embedded rules are authored directly in a policy (native to the policy) and don't require an upfront capacity allocation.
 + **Stateless rules** – Criteria for inspecting a single network traffic packet, without the context of the other packets in the traffic flow, the direction of flow, or any other information that's not provided by the packet itself. Stateless rules apply to Classic Network Firewall policies only; Next Generation policies don't use stateless rule groups. 
 + **Firewall rule groups** – Access-control rules that a Next Generation policy's firewall engine evaluates. 
 + **IPS rule groups** – Intrusion prevention rules that a Next Generation policy's IPS engine evaluates. 

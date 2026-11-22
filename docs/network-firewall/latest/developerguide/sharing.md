@@ -1,9 +1,10 @@
 
 
 # Sharing AWS Network Firewall resources
-<a name="sharing"></a>
 
 You can share Network Firewall firewalls, firewall policies, rule groups, and container associations with other AWS accounts. When you share a firewall, other accounts can use your firewall's protections in their VPCs through VPC endpoint associations. When you share firewall policies or rule groups, other accounts can use these resources in their own firewalls.
+
+When you share a NAT/Proxy firewall, other accounts can create VPC endpoint associations to use the firewall's explicit proxy from their VPCs. Their traffic leaves through the firewall's NAT gateways. For information about using the proxy from other VPCs, see [Using the proxy from other VPCs](nfw-proxy-managing.md#nfw-proxy-vpc-endpoint-associations).
 
 The owner of a firewall, firewall policy, rule group, or container association can share a resource with:
 + Specific AWS accounts inside or outside of its organization in AWS Organizations
@@ -13,7 +14,7 @@ The owner of a firewall, firewall policy, rule group, or container association c
 **Considerations**  
 Consideration the following when sharing AWS Network Firewall resources:
 + Sharing a firewall enables other AWS accounts to create VPC endpoint associations in their VPCs. Each VPC endpoint association creates a new firewall endpoint that processes traffic according to the shared firewall's policy.
-+ You can't share a firewall policy that's configured to use [TLS inspection](tls-inspection-configurations.md). TLS inspection only works with primary VPC endpoints and same-account secondary endpoints.
++ You can't share a firewall policy that's configured to use [TLS inspection](tls-inspection-configurations.md). TLS inspection is supported only on a firewall's primary endpoints and isn't supported for firewalls with VPC endpoint associations, in the same account or across accounts. For details, see [Considerations for working with firewalls and firewall endpoints](firewall-and-firewall-endpoints-considerations.md).
 + You can also share a [Next Generation policy](firewall-policies-v2.md). As with a Classic policy, you can't share a policy that has a TLS inspection configuration attached. You can also share firewall rule groups and IPS rule groups.
 + The owner of a rule group can share a rule group that refers to a [resource group](resource-groups.md), but can't share the resource group itself.
 + Firewall rule groups and IPS rule groups, which you use in [Next Generation policies](firewall-policies-v2.md), use the same AWS RAM resource-sharing model as other rule groups. The same reference-count limits apply, including the maximum number of firewall policies that can use the same rule group. For the limits, see [AWS Network Firewall quotas](quotas.md).

@@ -1,7 +1,6 @@
 
 
 # Policy mode: enforce and monitor
-<a name="firewall-policy-v2-policy-mode"></a>
 
 The policy mode setting controls whether the policy's engines apply their actions or only report them in your logs. In both modes, both engines evaluate traffic against your rules. In monitor mode, Network Firewall also turns on alert logging for your rules and for the firewall default action, so monitor mode produces alert log entries that enforce mode doesn't.
 + **Enforce** (default) – The engines apply their actions. The firewall engine drops or rejects traffic that isn't accepted, and the IPS engine drops or rejects traffic that matches a drop or reject rule.
@@ -23,3 +22,4 @@ Certificate revocation checking still blocks revoked or unknown-status certifica
 Route 53 Resolved IP validation still applies its configured **Action** and DNS expiry exception policy in monitor mode—it isn't neutralized. Because the console defaults the **Action** to **Reject**, if you validate a policy in monitor mode you can still see flows to untrusted destinations reset. While you validate in monitor mode, consider setting the Route 53 Resolved IP validation **Action** to **Alert** (or disabling it).
 TLS connections in scope of a TLS inspection configuration whose Server Name Indication (SNI) is missing or invalid are still blocked in monitor mode. Network Firewall resets these connections before the TLS handshake, regardless of your rules, and records the error in the TLS log.
 TLS connections where the server's certificate doesn't match the SNI that the client sent are still blocked in monitor mode. Network Firewall validates the server's certificate before it decrypts the connection, and the TLS handshake with the client fails when the certificate doesn't match.
+PostgreSQL (`pgsql`) connections can still be dropped in monitor mode, because `pgsql` support is limited. For more information, see [Firewall rule limitations](nwfw-v2-firewall-engine-limitations.md).

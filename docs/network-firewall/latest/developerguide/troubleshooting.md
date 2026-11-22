@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS Network Firewall
-<a name="troubleshooting"></a>
 
 The topics in this chapter can help you troubleshoot problems with configuring and using AWS Network Firewall.
 
@@ -24,6 +23,21 @@ The topics in this chapter can help you troubleshoot problems with configuring a
   + [I'm using strict ordering, but stateful rules near the bottom of my ruleset appear to be handling traffic before rules near the top of my ruleset](troubleshooting-rules.md#troubleshoot-rules-strict-ordering-rule-order)
   + [I've configured a drop action rule but traffic still goes through the firewall](troubleshooting-rules.md#troubleshoot-rules-not-working-as-expected)
   + [I have a rule that is intermittently not matching when I think it should](troubleshooting-rules.md#troubleshoot-rules-not-working-depth-limit-reached)
++ [Troubleshooting context-aware rules in AWS Network Firewall](troubleshooting-context-aware-rules.md)
+  + [How do I check the context store sync state?](troubleshooting-context-aware-rules.md#troubleshoot-context-sync-state)
+  + [My context store sync state is SYNC\_FAILED](troubleshooting-context-aware-rules.md#troubleshoot-context-sync-failed)
+  + [My rule references a context ID that isn't in the context store](troubleshooting-context-aware-rules.md#troubleshoot-context-unknown-id)
+  + [A resource ID doesn't appear in `ListResourcesInContextStore` or in the console drop-down](troubleshooting-context-aware-rules.md#troubleshoot-context-resource-not-listed)
+  + [My rules that match on security groups don't fire](troubleshooting-context-aware-rules.md#troubleshoot-context-security-groups)
+  + [My destination context rule is rejected on a non-TCP protocol](troubleshooting-context-aware-rules.md#troubleshoot-context-destination-protocol)
+  + [I don't see context fields in my logs](troubleshooting-context-aware-rules.md#troubleshoot-context-no-log-fields)
++ [Troubleshooting a NAT/Proxy firewall in AWS Network Firewall](troubleshooting-nfw-proxy.md)
+  + [The firewall shows a failed status after you create it](troubleshooting-nfw-proxy.md#troubleshoot-nfw-proxy-create-failed)
+  + [An Availability Zone that you added shows a failed status](troubleshooting-nfw-proxy.md#troubleshoot-nfw-proxy-az-failed)
+  + [You can't remove an Availability Zone](troubleshooting-nfw-proxy.md#troubleshoot-nfw-proxy-remove-az-blocked)
+  + [Clients can't resolve or reach the proxy hostname](troubleshooting-nfw-proxy.md#troubleshoot-nfw-proxy-hostname)
+  + [Errors with a custom hostname or certificate](troubleshooting-nfw-proxy.md#troubleshoot-nfw-proxy-custom-hostname)
+  + [Preventing domain spoofing with a NAT/Proxy firewall](troubleshooting-nfw-proxy.md#troubleshoot-nfw-proxy-domain-spoofing)
 + [Troubleshooting TLS inspection in AWS Network Firewall](troubleshooting-tls-inspection.md)
   + [Outbound TLS - Blocked connections to servers with revoked certificates](troubleshooting-tls-inspection.md#troubleshoot-blocked-connections-outbound-tls)
   + [Outbound TLS - Passing traffic for specific target server with revoked certificates by adjusting scope](troubleshooting-tls-inspection.md#troubleshoot-how-to-pass-traffic-revoked-certificates)

@@ -1,7 +1,6 @@
 
 
 # Geographic IP filtering in Suricata compatible AWS Network Firewall rule groups
-<a name="rule-groups-geo-ip-filtering"></a>
 
 You can use Geographic IP filtering with **Suricata compatible rule strings** and with **standard Network Firewall stateful rule groups**. This optional filter matches country codes for the IP addresses of network traffic.
 
@@ -26,8 +25,18 @@ IP geolocation uses the alpha-2 country codes from the International Organizatio
 
 Network Firewall accepts only Geographic IP filter rules that have valid country codes. 
 
+**Best Practices:**
+
+**Use a default drop action with Geographic IP allow rules**
+
 If you configure Geographic IP rules to allow or pass connections to IP addresses in specific countries, set the Default action on your firewall policy to one of the available Drop actions. Geographic IP country mappings are derived from the MaxMind database, and IP-to-country associations can change between database updates. By configuring a default drop action, you ensure that if an IP address is reassigned to a different country and no longer matches your allow rule or any other rules in your firewall policy, the firewall drops the connection. 
 
+**Verify IP-to-country mappings in the MaxMind database**
+
 AWS Network Firewall uses the MaxMind GeoIP database to resolve IP addresses to their associated countries. While MaxMind provides industry-standard geolocation data, IP-to-country associations might be inaccurate or change over time due to IP address reassignments, database updates, or other factors. Before you create or troubleshoot Geographic IP rules, verify the country mapping of your target IP addresses by using the [MaxMind IP lookup tool](https://www.maxmind.com/en/geoip-demo). This helps you confirm that the IP addresses you expect to match a given country code are correctly classified in the database and can prevent unexpected rule behavior. However, the lookup tool reflects MaxMind's most current data - AWS Network Firewall's database is updated on a rolling basis, so there might be a brief window where mappings differ. If this is the case, refer to the following Workarounds section for options to override specific IPs. 
+
+**Workarounds:**
+
+**Override Geographic IP rules for specific IP addresses**
 
 If you observe that an IP address is being incorrectly allowed by a Geographic IP rule due to a country mapping change or database inaccuracy, you can create an explicit deny or reject rule in your rule group that targets the specific IP address. You would need to place this rule with a higher priority than the original rule for it to take precedence. For more information, see [Managing evaluation order for Suricata compatible rules in AWS Network Firewall](suricata-rule-evaluation-order.md). 

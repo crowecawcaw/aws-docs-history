@@ -1,7 +1,6 @@
 
 
 # Creating a VPC endpoint association in AWS Network Firewall
-<a name="creating-vpc-endpoint-association"></a>
 
 Create VPC endpoint associations to establish new firewall endpoints in any Availability Zone where the firewall is already being used. The first use of a firewall in an Availability Zone must be defined by the firewall owner in the firewall subnet specifications. For more information about where to specify endpoints, see [Firewalls and firewall endpoints](firewalls.md).
 

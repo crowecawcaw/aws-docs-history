@@ -1,7 +1,6 @@
 
 
 # Deleting a TLS inspection configuration in Network Firewall
-<a name="deleting-tls-configuration"></a>
 
 To delete a TLS inspection configuration, perform the following procedure.
 

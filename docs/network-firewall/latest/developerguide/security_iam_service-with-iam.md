@@ -1,9 +1,10 @@
 
 
 # How AWS Network Firewall works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Network Firewall, learn what IAM features are available to use with Network Firewall.
+
+For a NAT/Proxy firewall, Network Firewall also makes Amazon EC2 and Route 53 requests with the caller's credentials, so the caller needs additional permissions. For information about the required permissions, see [Permissions for a NAT/Proxy firewall](nfw-proxy-permissions.md).
 
 
 

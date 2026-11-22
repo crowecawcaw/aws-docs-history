@@ -1,7 +1,6 @@
 
 
 # Creating, viewing, updating, and deleting IPS rule groups
-<a name="ips-rule-groups-managing"></a>
 
 You create, view, update, and delete an IPS rule group with the same console pages and API operations as a firewall rule group, choosing the IPS rule group type. The following list links to the shared procedures and notes what's specific to an IPS rule group.
 + **Create** – Follow [Creating a rule group for a Next Generation policy](rule-groups-v2-creating.md). On the **Choose rule group type** page, choose **IPS rule group**. The only rule group format for an IPS rule group is **Text rule builder**: you provide the rules as Suricata compatible rule strings, using the same syntax as a Classic Network Firewall stateful rule group. With the AWS CLI, use `create-rule-group` with `--type IPS` and the `--ips-rule-group` parameter.

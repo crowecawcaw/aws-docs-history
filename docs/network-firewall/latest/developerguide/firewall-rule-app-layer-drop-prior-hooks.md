@@ -1,7 +1,6 @@
 
 
 # Dropping at an application-layer hook under a drop-by-default policy
-<a name="firewall-rule-app-layer-drop-prior-hooks"></a>
 
 When your firewall default action is drop, Network Firewall applies that default at every hook a flow passes through. An application-layer `drop` or `reject` rule—for example, one at `tls:client_hello` or `http1:request_headers`—therefore matches only if the flow is explicitly accepted at the TCP layer and at every earlier application-layer hook of the same protocol. Otherwise, the default action drops the flow before the rule's matcher runs.
 

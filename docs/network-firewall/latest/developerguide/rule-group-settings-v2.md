@@ -1,7 +1,6 @@
 
 
 # Common rule group settings in AWS Network Firewall
-<a name="rule-group-settings-v2"></a>
 
 Every firewall rule group and IPS rule group has the following top-level settings:
 + **Type** – Whether the rule group is a firewall rule group or an IPS rule group.

@@ -1,7 +1,6 @@
 
 
 # Working with active threat defense indicators in Amazon GuardDuty
-<a name="nwfw-atd-guardduty-use-case"></a>
 
 If you use Amazon GuardDuty, you can strengthen your security by using active threat defense managed rule group to automatically block the threats that Amazon GuardDuty detects. Amazon GuardDuty can generate findings with the threat list name `Amazon Active Threat Defense`. You can block these threats by implementing the `AttackInfrastructure` active threat defense rule group in your Network Firewall firewall policy.
 

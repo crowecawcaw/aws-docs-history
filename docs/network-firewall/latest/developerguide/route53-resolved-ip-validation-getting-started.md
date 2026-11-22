@@ -1,7 +1,6 @@
 
 
 # Getting started with resolved IP validation
-<a name="route53-resolved-ip-validation-getting-started"></a>
 
 This topic walks you through enabling and enforcing resolved IP validation on an existing firewall, using the Amazon Route 53 Resolver DNS Firewall and Network Firewall consoles. To configure the feature programmatically instead, use the `Route53ResolvedIPValidation` setting in [UpdateFirewallPolicy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_UpdateFirewallPolicy.html).
 

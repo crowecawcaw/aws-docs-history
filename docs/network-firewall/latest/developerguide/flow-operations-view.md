@@ -1,7 +1,6 @@
 
 
 # Viewing flow operations in Network Firewall
-<a name="flow-operations-view"></a>
 
 You can view the history of operations in your firewall and monitor the progress of ongoing operations. Network Firewall only stores capture and flush operations performed within the last 12 hours.
 

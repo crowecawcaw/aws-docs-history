@@ -1,7 +1,6 @@
 
 
 # Adding AWS managed rule groups to your firewall policy using the console
-<a name="nwfw-using-managed-rule-groups-add-to-policy"></a>
 
 Learn how to add one or more managed rule groups to your Network Firewall firewall policy. Adding managed rule groups to your firewall policy automatically implements their built-in protections across your firewall. You can add managed rule groups either through the Network Firewall rule groups page or from your firewall policy's detail page.
 

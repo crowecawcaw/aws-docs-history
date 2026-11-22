@@ -1,7 +1,6 @@
 
 
 # Sending AWS Network Firewall logs to Amazon Simple Storage Service
-<a name="logging-s3"></a>
 
 To send your firewall logs to Amazon S3, you need to set up an Amazon S3 bucket as the destination for the logs. In your bucket configuration for the firewall, you can optionally include a prefix, to immediately follow the bucket name. When you turn on logging to Amazon S3 in Network Firewall, you provide the bucket name and, if you are using one, the prefix. For information about creating your logging bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingABucket.html) in the *Amazon Simple Storage Service User Guide*.
 
@@ -64,7 +63,7 @@ You must have the following permissions settings to configure your firewall to s
 
 **Example – Permissions policy for sending firewall logs to Amazon S3**  
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -107,7 +106,7 @@ If the user creating the log owns the bucket, the service automatically attaches
 
 **Example – Bucket policy for a single account log delivery**  
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -150,7 +149,7 @@ For example, the following bucket policy allows AWS accounts `111122223333` and 
 
 **Example – Bucket policy for multiple account log delivery**  
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -252,7 +251,7 @@ The following view shows both standard Amazon S3 permissions and the additional 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

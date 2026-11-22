@@ -1,7 +1,6 @@
 
 
 # Managing your firewall state table using flow operations in AWS Network Firewall
-<a name="firewall-flow-operations"></a>
 
 This section describes how to use flow operations to perform actions in your firewall's state table.
 
@@ -11,7 +10,7 @@ Before you start using flow operations, review the following key definitions.
 + **Flows** – Network traffic that is monitored by a firewall, either by stateful or stateless rules. For traffic to be considered part of a flow, it must share Destination, DestinationPort, Direction, Protocol, Source, and SourcePort with other traffic. Flows that are processed by the firewall are tracked in the firewall state table and are visible in flow logs.
 + **Firewall state table** – Table where Network Firewall tracks and maintains information about network traffic flows. The firewall state table tracks flows that are processed by stateful rules—or, for a Next Generation policy, by firewall engine and IPS engine rules. When traffic matches the criteria in one of these rules, the firewall creates a flow entry in the firewall state table. These entries persist until they are either removed using a flow flush operation, naturally terminate, or time out due to inactivity. You can manage the firewall state table using specific operations. This is also known as the firewall table or state table.
 
-  For information, see [Flow operations in your firewall](#firewall-flow-operations).
+  For information, see [Flow operations in your firewall](firewall-flow-operations.md).
 + **Flow filter** – Parameters that you use when defining the scope of a flow operation. You can use up to 20 filters in a single operation.
 
 **Topics**

@@ -1,7 +1,6 @@
 
 
 # Payload matching and packet hooks
-<a name="firewall-rule-constraints-packet-payload"></a>
 
 Payload-matching keywords—`content`, `pcre`, `byte_test`, `byte_jump`, and `isdataat`—search the contents of traffic. In a firewall rule, these keywords are valid only at an application-layer hook, where the match binds to a specific protocol buffer such as the TLS SNI or the HTTP host. They aren't valid at a packet hook (such as `tcp:all` or `udp:all`). If you put a payload-matching keyword on a packet hook, Network Firewall rejects the rule with a message that payload matches aren't supported on a packet hook.
 

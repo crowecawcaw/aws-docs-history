@@ -1,7 +1,6 @@
 
 
 # Encryption at rest with AWS Key Management Service
-<a name="kms-encryption-at-rest"></a>
 
 By default, AWS Network Firewall provides encryption for your data at rest using *AWS owned keys* to protect sensitive customer data. Or, you can use symmetric *customer managed keys* that you create, own, and manage to encrypt your data at rest.
 
@@ -79,7 +78,7 @@ The following are policy statement examples you can add for Network Firewall:
 
 ****  
 
-```
+```json
           {
     "Id": "key-consolepolicy-3",
     "Version":"2012-10-17",		 	 	 
@@ -180,7 +179,7 @@ Network Firewall uses the same encryption context in all AWS KMS cryptographic o
 
 **Example**  
 
-```
+```json
 "encryptionContext": {
     "aws:network-firewall:resource-id": "abcdef-b795-4280-8560-3c2b5e723c41"
 }
@@ -199,7 +198,7 @@ Network Firewall uses an encryption context constraint in grants to control acce
 **Example**  
 The following are example key policy statements to grant access to a customer managed key for a specific encryption context. The condition in this policy statement requires that the grants have an encryption context constraint that specifies the encryption context.  
 
-```
+```json
 {
     "KeyId": "arn:aws:kms:{{region}}:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE",
     "GrantId": "{{grant_ID}}",

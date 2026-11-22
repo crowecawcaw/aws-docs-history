@@ -1,7 +1,6 @@
 
 
 # AWS Network Firewall example architectures with routing
-<a name="architectures"></a>
 
 This section provides a high-level view of simple architectures that you can configure with AWS Network Firewall and shows example route table configurations for each. For additional information and examples, see [Deployment models for AWS Network Firewall](https://aws.amazon.com/blogs/networking-and-content-delivery/deployment-models-for-aws-network-firewall/). 
 
@@ -13,6 +12,8 @@ The following lists architectures and traffic types that Network Firewall doesn'
 + VPC peering.
 + Inspection of AWS Global Accelerator traffic when you enable client IP address preservation.
 + Inspection of AmazonProvidedDNS traffic for Amazon EC2.
+
+The architectures in this section use the routed firewall capability. A NAT/Proxy firewall handles traffic differently.
 
 **Topics**
 + [Simple single zone architecture with an internet gateway using AWS Network Firewall](arch-single-zone-igw.md)

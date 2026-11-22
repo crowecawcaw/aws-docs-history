@@ -1,7 +1,6 @@
 
 
 # Example firewall rules
-<a name="firewall-rule-groups-examples"></a>
 
 The following examples show complete firewall rulesets for common access-control tasks, covering TLS, HTTP/1.1, HTTP/2, DNS, and SSH traffic. Each ruleset assumes a policy whose firewall default action is **Drop**, so that traffic is allowed only when a rule accepts it. For the actions and accept scopes these rules use, see [Firewall engine actions and scopes](firewall-rule-groups-verdicts.md). For the accept-prior-hooks form (`<`), see [Accepting prior hooks automatically](firewall-rule-groups-accept-prior-hooks.md).
 

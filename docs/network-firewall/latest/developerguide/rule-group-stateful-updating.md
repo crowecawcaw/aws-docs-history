@@ -1,7 +1,6 @@
 
 
 # Updating a stateful rule group
-<a name="rule-group-stateful-updating"></a>
 
 To change your stateful rule group settings, use the following procedure.
 

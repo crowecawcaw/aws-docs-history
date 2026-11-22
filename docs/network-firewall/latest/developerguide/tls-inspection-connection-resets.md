@@ -1,7 +1,6 @@
 
 
 # How TLS inspection resets connections
-<a name="tls-inspection-connection-resets"></a>
 
 To inspect a connection, Network Firewall terminates the SSL/TLS session from the client and establishes a new session to the server. This TLS proxy runs at the TLS layer, before and around the stateful rules engine. When the proxy can't establish or validate a session, it resets the connection at the TLS layer, independently of your firewall rules, your IPS rules, and the firewall default action.
 

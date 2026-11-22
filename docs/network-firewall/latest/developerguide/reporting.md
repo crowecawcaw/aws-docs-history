@@ -1,7 +1,6 @@
 
 
 # Reporting on network traffic in Network Firewall
-<a name="reporting"></a>
 
 With AWS Network Firewall, you can generate reports on HTTP or HTTPS traffic observed over the last 30 days in any firewall, starting from the point in time when you turn on **Traffic analysis mode** in a firewall. Network Firewall only starts collecting traffic analysis metrics when you turn on **Traffic analysis mode** on your firewall. 
 

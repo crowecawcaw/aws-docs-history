@@ -1,7 +1,6 @@
 
 
 # Using flow flush operations in Network Firewall
-<a name="flow-operations-flush"></a>
 
 Flow flush operations give you greater control over how your firewall rules are applied to network traffic. While Network Firewall automatically applies changes to stateful rules for new traffic flows, existing flows continue to be processed according to the rules that were in place when those flows began.
 

@@ -1,7 +1,6 @@
 
 
 # Firewall default action
-<a name="firewall-policy-v2-default-action"></a>
 
 The firewall default action determines how the firewall engine handles traffic that reaches a hook without matching any firewall rule. The firewall engine is drop by default, so if you don't change this setting, traffic that you don't explicitly allow is dropped. The firewall default action applies only to the firewall engine. In a Next Generation policy, the IPS engine is pass by default and has no separate default-action setting.
 + **Drop** (default) – Network Firewall discontinues inspection of the traffic and blocks it from reaching its destination. Network Firewall records the drop in your logs if logging is configured.

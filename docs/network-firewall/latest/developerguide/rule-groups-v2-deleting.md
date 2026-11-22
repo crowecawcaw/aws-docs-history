@@ -1,7 +1,6 @@
 
 
 # Deleting a rule group for a Next Generation policy
-<a name="rule-groups-v2-deleting"></a>
 
 To delete a rule group, use the guidance in this section.
 

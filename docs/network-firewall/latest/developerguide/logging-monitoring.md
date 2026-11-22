@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in AWS Network Firewall
-<a name="logging-monitoring"></a>
 
 Logging and monitoring helps you maintain the reliability, availability, and performance of AWS Network Firewall. You can monitor how the service is being used and you can monitor network traffic and traffic filtering in your Network Firewall firewalls.
 
