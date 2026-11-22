@@ -1,7 +1,6 @@
 
 
 # Asynchronous Online Gaming
-<a name="asynchronous-online-gaming"></a>
 
 Publication date: **March 24, 2021 ([Diagram history](#async-history))**
 
