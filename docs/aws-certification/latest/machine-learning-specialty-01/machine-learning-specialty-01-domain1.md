@@ -1,7 +1,6 @@
 
 
 # Content Domain 1: Data Engineering
-<a name="machine-learning-specialty-01-domain1"></a>
 
 **Topics**
 + [Task 1.1: Create data repositories for ML](#machine-learning-specialty-01-domain1-task1)

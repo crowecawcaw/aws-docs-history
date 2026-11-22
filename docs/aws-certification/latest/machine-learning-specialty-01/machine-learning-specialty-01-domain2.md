@@ -1,7 +1,6 @@
 
 
 # Content Domain 2: Exploratory Data Analysis
-<a name="machine-learning-specialty-01-domain2"></a>
 
 **Topics**
 + [Task 2.1: Sanitize and prepare data for modeling](#machine-learning-specialty-01-domain2-task1)

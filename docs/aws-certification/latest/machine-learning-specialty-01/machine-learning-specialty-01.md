@@ -1,7 +1,6 @@
 
 
 # AWS Certified Machine Learning - Specialty (MLS-C01)
-<a name="machine-learning-specialty-01"></a>
 
 The AWS Certified Machine Learning - Specialty (MLS-C01) exam is intended for individuals who perform an artificial intelligence and machine learning (AI/ML) development or data science role. The exam validates a candidate's ability to design, build, deploy, optimize, train, tune, and maintain ML solutions for given business problems by using the AWS Cloud.
 
