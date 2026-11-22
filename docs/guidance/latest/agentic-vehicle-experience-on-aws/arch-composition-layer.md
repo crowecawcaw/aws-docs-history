@@ -1,7 +1,6 @@
 
 
 # AVX as a composition layer
-<a name="arch-composition-layer"></a>
 
 AVX does not own a vehicle database or a knowledge corpus. It composes three external platforms, each of which is independently deployable and independently governed, and exposes their capabilities through a single agentic interface.
 

@@ -1,14 +1,13 @@
 
 
 # Sub-agent-as-tool pattern
-<a name="sub-agent-as-tool"></a>
 
 In Strands, specialist agents are exposed to the supervisor as `@tool`-decorated Python callables. The supervisor’s LLM sees each specialist as a named tool with a schema; it decides which tool(s) to call based on the customer’s intent and the triage classification.
 
 ## Pattern implementation
 <a name="pattern-implementation"></a>
 
-```
+```python
 from strands import tool
 
 @tool
@@ -50,7 +49,7 @@ The correct pattern for retrieval-heavy tools is:
 
 1.  **Use the narration-injection pattern for tool results.** After a tool returns, inject the narration text as a separate `asyncio.create_task(agent.send(…​))` — never inline from inside `output_callable`. The Strands re-entrancy constraint means inline `await agent.send(…​)` from within the output callback is silently dropped.
 
-```
+```python
 async def output_callable(event: dict) -> None:
     if event.get("type") == "tool_result":
         narration = extract_narration(event)

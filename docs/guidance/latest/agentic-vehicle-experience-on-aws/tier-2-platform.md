@@ -1,7 +1,6 @@
 
 
 # Tier 2 platform — autonomous agent-reasoning layer
-<a name="tier-2-platform"></a>
 
 Tier 2 agents run as Lambda functions triggered by EventBridge Scheduler (daily, per-VIN or per-fleet), EventBridge event rules (DMS repair-order status, warranty verdict change, recall publication, ADP prediction arrival), or an Amazon SQS queue (a product engineer’s investigation request). Each agent reads the data platform at source and writes a Finding to DynamoDB, calling Claude Sonnet 4.6 where it needs judgment ([Fleet Intelligence agents](fi-agents.md) lists which Fleet Intelligence agents do). Tier 1 tools read those Findings in a single DynamoDB call.
 

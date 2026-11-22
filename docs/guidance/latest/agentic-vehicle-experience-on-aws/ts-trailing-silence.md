@@ -1,7 +1,6 @@
 
 
 # Voice session ends prematurely; agent does not respond to full utterances
-<a name="ts-trailing-silence"></a>
 
  **Symptom.** During a Nova 2 Sonic voice session the agent consistently fails to respond to complete utterances, or responds to only the first part of a sentence before cutting off. The behavior is intermittent — it worsens when the user speaks slowly, pauses mid-sentence, or speaks in an environment with low background noise. Inspecting the bidi stream shows that the `end_of_turn` event fires before the user has finished speaking, causing Nova to process a partial utterance and either produce an incorrect response or produce no response.
 

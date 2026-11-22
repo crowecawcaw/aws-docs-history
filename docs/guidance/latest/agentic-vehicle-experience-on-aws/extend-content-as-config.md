@@ -1,7 +1,6 @@
 
 
 # Content-as-Config
-<a name="extend-content-as-config"></a>
 
 AVX uses file-based corpora: adding a new DTC guide, owner manual, or service bulletin requires editing files in `corpora/`, committing the change, and redeploying the full agent runtime. To update content without a code deploy, move the corpora into a Bedrock Knowledge Base backed by an S3 source bucket.
 
@@ -10,7 +9,7 @@ AVX uses file-based corpora: adding a new DTC guide, owner manual, or service bu
 
 Once a Bedrock Knowledge Base is in place, the workflow to add or update a document is:
 
-```
+```bash
 # 1. Upload the new or revised document to the KB source bucket
 aws s3 cp my-new-dtc-guide.md \
   s3://<kb-source-bucket>/technical-reference/my-new-dtc-guide.md
@@ -32,7 +31,7 @@ The agent runtime reads from the KB at request time; no agent redeploy is needed
 **Source-category metadata**  
 Each document should be uploaded with a `source_category` metadata attribute so that persona-scoped KB filters work correctly:  
 
-```
+```bash
 # Upload with metadata sidecar (S3 object metadata)
 aws s3 cp my-new-dtc-guide.md \
   s3://<kb-source-bucket>/technical-reference/my-new-dtc-guide.md \
@@ -47,7 +46,7 @@ To externalize the system prompt and routing rules from Python string literals, 
 
 The target shape is a YAML routing config stored in S3 and loaded at session start:
 
-```
+```yaml
 # s3://<config-bucket>/tenants/<tenant-id>/routing.yaml
 intents:
   - id: tire_pressure_low
@@ -73,7 +72,7 @@ Each tenant can have its own KB for proprietary content — OEM-specific service
 
 The `config.py` `Config` dataclass exposes `adp_kb_id` (the shared ADP KB) and can be extended with a `tenant_kb_id` field populated from the tenant config record. The `make_knowledge_tool` and `make_retrieve_tool` factories in `agents/supervisor/tools/knowledge.py` and `agents/supervisor/tools/retrieve.py` accept an optional `kb_id` override; pass the tenant KB ID when it is present:
 
-```
+```python
 # agents/supervisor/supervisor.py  (illustrative extension)
 def build_supervisor(ctx, config, *, tenant_config=None, ...):
     tenant_kb_id = (tenant_config or {}).get("kbId") or config.adp_kb_id

@@ -1,7 +1,6 @@
 
 
 # Citations as a trust pattern
-<a name="kg-citations"></a>
 
 Grounded responses are only as useful as the caller’s ability to trust them. AVX implements a structured citation pattern as a first-class feature of every KB-grounded response:
 + Every passage retrieved by the `knowledge()` tool carries a `source` attribute — the document name and (where available) section heading from the Knowledge Base metadata.
@@ -12,7 +11,7 @@ This citation pattern is important for three reasons. First, it prevents the sup
 
 The `citations` field in the `/assistant/chat` response follows the structure in the API contract:
 
-```
+```json
 {
   "result": "P0420 is a catalyst system efficiency below threshold ...",
   "sessionId": "session_1234567890_abc123456",

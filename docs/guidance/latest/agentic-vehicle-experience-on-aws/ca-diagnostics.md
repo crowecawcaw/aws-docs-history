@@ -1,7 +1,6 @@
 
 
 # Diagnostics and instrumentation
-<a name="ca-diagnostics"></a>
 
 The voice path is instrumented so that one log capture yields a complete causal timeline — state transitions with their reasons, connection and teardown, tool results, watchdog fires, credential exchange, and the UI events that triggered each. Each subsystem uses a distinct prefix so a capture can be filtered to one concern.
 

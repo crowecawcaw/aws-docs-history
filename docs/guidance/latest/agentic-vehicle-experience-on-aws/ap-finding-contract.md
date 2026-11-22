@@ -1,7 +1,6 @@
 
 
 # The Finding Contract
-<a name="ap-finding-contract"></a>
 
 A Tier 2 agent writes a Finding to `vsa-{stage}-avx-findings`. The Finding carries the evidence, provenance, and timestamps that Tier 1 needs to narrate accurately and that operators need to audit the reasoning after the fact.
 

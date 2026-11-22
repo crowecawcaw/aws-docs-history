@@ -1,7 +1,6 @@
 
 
 # AWS Well-Architected considerations for AVX
-<a name="arch-well-architected"></a>
 
 The following considerations apply regardless of the industry or tenant type. They are framed prescriptively — implementers should treat each as a design checkpoint before deploying AVX at production scale.
 

@@ -1,7 +1,6 @@
 
 
 # Booking (STAR-JSON)
-<a name="booking-agent"></a>
 
 The `book` tool creates service requests as **STAR-shaped JSON** `ServiceRequestAdd` messages, and the companion app books appointment times through `POST /book`. `AppointmentAdd` and `WarrantyClaimPreCheck` are the STAR message types to emit when extending `book()` to a dealer DMS. Tenants that already use STAR integrate without a translation layer.
 
@@ -10,7 +9,7 @@ The `book` tool creates service requests as **STAR-shaped JSON** `ServiceRequest
 
 Every booking action produces a STAR-shaped envelope:
 
-```
+```json
 {
   "messageType": "ServiceRequestAdd",
   "header": {

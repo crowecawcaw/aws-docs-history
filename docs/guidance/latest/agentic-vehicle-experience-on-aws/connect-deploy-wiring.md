@@ -1,7 +1,6 @@
 
 
 # Deployment wiring summary
-<a name="connect-deploy-wiring"></a>
 
 To integrate AVX with an Amazon Connect instance:
 

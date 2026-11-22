@@ -1,7 +1,6 @@
 
 
 # Add a Specialist Agent or Tool
-<a name="extend-specialist-tool"></a>
 
 ## The @tool and sub-agent-as-tool pattern
 <a name="extend-tool-pattern"></a>
@@ -10,7 +9,7 @@ Every capability the supervisor agent can invoke is registered as a Strands `@to
 
 A tool factory takes a `SessionContext` and a `Config` and returns the decorated function. This closure pattern keeps the session’s `tenant_id`, JWT, and `session_id` out of the LLM-visible signature while still making them available at call time:
 
-```
+```python
 # agents/supervisor/tools/my_new_tool.py
 from strands import tool
 from agents.supervisor.session import SessionContext
@@ -27,7 +26,7 @@ def make_my_new_tool(ctx: SessionContext, config: Config):
 
 After implementing the factory, register it in `agents/supervisor/tools/init.py`:
 
-```
+```python
 from agents.supervisor.tools.my_new_tool import make_my_new_tool
 
 __all__ = [
@@ -51,7 +50,7 @@ Nova 2 Sonic’s bidi loop assumes tool calls return within approximately one se
 
 The production-safe pattern is the **retrieval-only sub-agent**: the tool returns raw KB content and Nova synthesizes the spoken response herself. `diy_repair_advisor` and `knowledge` follow this pattern. `agents/supervisor/tools/sub_agent.py` provides `make_sub_agent_tool` and `SubAgentConfig` as the reusable factory for this pattern:
 
-```
+```python
 # Example: a new recall-lookup sub-agent pointing at the tsb-recalls corpus
 from agents.supervisor.tools.sub_agent import make_sub_agent_tool, SubAgentConfig
 

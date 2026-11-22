@@ -1,7 +1,6 @@
 
 
 # Amazon Nova 2 Sonic speech-to-speech voice
-<a name="nova-sonic-voice"></a>
 
 Amazon Nova 2 Sonic v2 (`amazon.nova-2-sonic-v1:0`) provides the speech-to-speech voice capability for AVX. It accepts PCM audio input and produces PCM audio output in a single bidirectional stream, with sub-700ms latency from end of user speech to first audio output token.
 
@@ -10,7 +9,7 @@ Amazon Nova 2 Sonic v2 (`amazon.nova-2-sonic-v1:0`) provides the speech-to-speec
 
 Nova 2 Sonic is integrated through the Strands `BidiNovaSonicModel` class:
 
-```
+```python
 from strands.experimental.bidi.models.nova_sonic import (
     BidiNovaSonicModel,
     NOVA_SONIC_V2_MODEL_ID,

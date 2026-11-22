@@ -1,7 +1,6 @@
 
 
 # The Executor Pattern
-<a name="ap-executor-pattern"></a>
 
 An executor is a stateless component that calls one target system and records the outcome. It does not reason, does not re-interpret the action, and applies no policy beyond its retry configuration.
 

@@ -1,7 +1,6 @@
 
 
 # Client-side triage timing
-<a name="ca-triage-client"></a>
 
 The app watches incoming telemetry and asks the platform to classify a condition when a threshold is crossed. The classifier is authoritative; the client’s only decision is **when to ask**.
 

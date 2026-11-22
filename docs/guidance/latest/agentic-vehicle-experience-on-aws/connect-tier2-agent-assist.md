@@ -1,7 +1,6 @@
 
 
 # Context the tier-2 agent receives
-<a name="connect-tier2-agent-assist"></a>
 
 When a session escalates, the tier-2 agent sees the context in the chat itself, so the driver does not repeat anything.
 

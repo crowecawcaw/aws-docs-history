@@ -1,7 +1,6 @@
 
 
 # AVX Cost Drivers and Monthly Estimates
-<a name="plan-cost"></a>
 
 ## Overview
 <a name="plan-cost-overview"></a>

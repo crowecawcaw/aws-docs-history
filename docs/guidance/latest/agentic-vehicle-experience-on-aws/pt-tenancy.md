@@ -1,7 +1,6 @@
 
 
 # Multi-tenancy model
-<a name="pt-tenancy"></a>
 
 ## Tenancy as a first-class dimension
 <a name="pt-tenancy-first-class"></a>

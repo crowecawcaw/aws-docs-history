@@ -1,7 +1,6 @@
 
 
 # The Customer Journey
-<a name="the-customer-journey"></a>
 
 The connected vehicle customer journey spans multiple stages, each with distinct customer intents, data requirements, and interaction channels. AVX provides the agentic patterns and integration layer that delivers coherent, personalized experiences across all stages.
 

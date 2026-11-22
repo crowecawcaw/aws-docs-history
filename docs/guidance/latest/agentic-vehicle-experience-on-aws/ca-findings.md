@@ -1,7 +1,6 @@
 
 
 # Findings and Actions
-<a name="ca-findings"></a>
 
 Findings are produced by Tier 2 agents and read by the app; the app performs no reasoning over them. The Finding and Action contracts are documented in [The Finding contract](ap-finding-contract.md) and [The Action contract](ap-action-contract.md). The broker — which decides channel, consent, and timing independently of any agent — is documented in [Broker Boundaries](ap-cross-account-iam.md).
 

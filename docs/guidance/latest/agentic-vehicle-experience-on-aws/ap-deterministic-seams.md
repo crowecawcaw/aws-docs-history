@@ -1,7 +1,6 @@
 
 
 # Deterministic Seams and Guards
-<a name="ap-deterministic-seams"></a>
 
 Some components in AVX are deterministic by design. Agents narrate the output of these components verbatim. They do not modify the values.
 

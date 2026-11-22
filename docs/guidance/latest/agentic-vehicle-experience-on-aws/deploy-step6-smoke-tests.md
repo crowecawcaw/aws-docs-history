@@ -1,11 +1,10 @@
 
 
 # Step 6: Smoke tests
-<a name="deploy-step6-smoke-tests"></a>
 
 Run the smoke tests after every deploy to verify the full stack is operational. Each test must exit zero.
 
-```
+```bash
 # Text-mode agent (AgentCore HTTP path — no voice)
 python3 scripts/smoke-test-agentcore.py
 
@@ -22,7 +21,7 @@ VSA_API_URL=https://<rest-api-id>.execute-api.<region>.amazonaws.com/<stage> \
 
 For staging, the `make demo-preflight` target bundles all pre-flight checks — CloudFormation stack status, runtime readiness, KB retrieval validation, and the per-persona Tier 3 smoke — in a single non-interactive command:
 
-```
+```bash
 VSA_ADP_KB_ID=<adp-kb-id> make demo-preflight
 ```
 
@@ -31,7 +30,7 @@ VSA_ADP_KB_ID=<adp-kb-id> make demo-preflight
 
 The tiered eval pipeline validates agent behavior before promoting a deploy:
 
-```
+```bash
 make eval-tier1   # tool unit evals — fast, no live AWS calls (<2s)
 make eval-tier2   # mocked-Nova conversation evals — fast (<2s)
 make eval-tier3   # real AgentCore E2E — requires RUNTIME_ID; ~10 min; ~$1/run

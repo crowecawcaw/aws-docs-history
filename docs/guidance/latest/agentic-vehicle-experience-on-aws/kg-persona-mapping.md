@@ -1,7 +1,6 @@
 
 
 # Persona-to-grounding mapping
-<a name="kg-persona-mapping"></a>
 
 The six AVX personas vary in their grounding needs. The following table summarizes which grounding surface each persona primarily uses and what data it expects at session initialization. The table is the prescriptive implementation guide; the authoritative code lives in `agents/supervisor/persona_definitions.py` and `lambdas/api-assistant-chat/persona_map.py`.
 

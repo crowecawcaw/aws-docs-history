@@ -1,7 +1,6 @@
 
 
 # Knowledge Base Retrieve calls return AccessDenied despite a grant being present
-<a name="ts-kb-access-denied"></a>
 
  **Symptom.** Agent tool calls that invoke Bedrock Knowledge Base `Retrieve` fail with `AccessDeniedException` at runtime. CloudWatch Logs show that the retrieval tool returns `{"available": false}` or falls back to local corpora rather than querying the Knowledge Base. IAM policy simulation (`iam:SimulatePrincipalPolicy`) on the AgentCore execution role returns `allowed` for the action that was granted — yet the live Retrieve still fails, or the simulation returns `implicitDeny` even though the CDK stack shows a statement.
 

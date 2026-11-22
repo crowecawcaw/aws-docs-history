@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="plan-prerequisites"></a>
 
 AVX is a composition layer — it does not replicate the data or contact-center infrastructure it consumes. The four platform prerequisites below must be in place before you run the AVX deployment.
 

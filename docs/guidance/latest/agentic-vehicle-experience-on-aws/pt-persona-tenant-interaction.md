@@ -1,7 +1,6 @@
 
 
 # Persona and tenant interaction
-<a name="pt-persona-tenant-interaction"></a>
 
 Persona and tenant are orthogonal dimensions but they interact at session initialization. The supervisor’s system prompt is assembled from three inputs:
 

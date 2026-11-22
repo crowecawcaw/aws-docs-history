@@ -1,7 +1,6 @@
 
 
 # Application architecture
-<a name="ca-architecture"></a>
 
 ## Module layout
 <a name="ca-module-layout"></a>

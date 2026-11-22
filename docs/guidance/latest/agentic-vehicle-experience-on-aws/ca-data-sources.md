@@ -1,7 +1,6 @@
 
 
 # What the app reads, and from where
-<a name="ca-data-sources"></a>
 
 Most vehicle data reaches the app through the AVX API, which aggregates it from the CMS data layer and applies the caller’s scope. Three CMS surfaces are called **directly**, because each needs a path the aggregation layer does not provide.
 

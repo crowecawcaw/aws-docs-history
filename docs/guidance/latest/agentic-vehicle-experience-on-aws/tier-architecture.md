@@ -1,7 +1,6 @@
 
 
 # Architecture Overview
-<a name="tier-architecture"></a>
 
 AVX deploys a **two-tier agentic architecture**: Tier 1 conversational agents (Strands supervisor, <1 sec latency) paired with Tier 2 autonomous agents (scheduled daily, evidence-carrying artifacts). Both tiers share the same Finding \+ Action data model and executor dispatch abstraction, enabling cross-surface workflows (iOS cards → Tier 1 drill-down → DMS pre-brief → dealer approval → customer iOS action feed).
 

@@ -1,7 +1,6 @@
 
 
 # The Companion App
-<a name="the-companion-app"></a>
 
 The companion app is a native iOS application built with SwiftUI. It is the driver-facing and customer-facing surface of the platform: where a fleet console shows an operator every vehicle in a fleet, the companion app shows one person the one vehicle that is theirs, plus the journey surfaces for acquiring the next one.
 

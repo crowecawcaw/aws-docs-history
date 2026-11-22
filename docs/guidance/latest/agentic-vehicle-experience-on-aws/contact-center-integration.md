@@ -1,7 +1,6 @@
 
 
 # Contact Center Integration
-<a name="contact-center-integration"></a>
 
 Amazon Connect is the primary contact center channel for AVX, providing voice and chat surfaces, intelligent routing, and the tier-2 human escalation path that the AVX agentic layer triggers when a conversation exceeds its autonomous resolution scope.
 

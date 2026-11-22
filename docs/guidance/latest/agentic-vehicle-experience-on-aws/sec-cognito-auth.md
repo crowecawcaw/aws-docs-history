@@ -1,7 +1,6 @@
 
 
 # Multi-tenant Amazon Cognito authentication
-<a name="sec-cognito-auth"></a>
 
 AVX authenticates all callers through Amazon Cognito. Each channel — voice (Amazon Connect), chat, and mobile or web — terminates at a Cognito-protected entry point before any agent work begins. The auth layer is intentionally uniform across channels so that the security model does not fragment by modality.
 

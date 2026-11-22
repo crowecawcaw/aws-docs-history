@@ -1,7 +1,6 @@
 
 
 # Persona model
-<a name="pt-persona-model"></a>
 
 ## Primary persona: the Customer
 <a name="pt-primary-persona"></a>

@@ -1,7 +1,6 @@
 
 
 # STAR-JSON Booking Schema
-<a name="reference-star-schema"></a>
 
 AVX emits booking-shaped artifacts as **STAR-JSON**: a JSON representation of the Standards for Technology in Automotive Retail (STAR) XML message types. This enables tenants already consuming STAR XML to receive an equivalent JSON payload and activate an optional XML converter if their downstream dealer management system requires XML.
 
@@ -24,7 +23,7 @@ AVX emits booking-shaped artifacts as **STAR-JSON**: a JSON representation of th
 
 Every STAR-JSON message shares a common outer envelope:
 
-```
+```json
 {
   "schemaVersion": "1.0.0",
   "messageType": "ServiceRequestAdd",

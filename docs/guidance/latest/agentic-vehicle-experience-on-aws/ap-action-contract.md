@@ -1,7 +1,6 @@
 
 
 # The Action Contract
-<a name="ap-action-contract"></a>
 
 An Action represents what an owner has done with a Finding: approved it (dispatching an executor), dismissed it, or initiated a drill-down conversation. Approvals write a new row to `vsa-{stage}-avx-actions`. The Action carries a copy of the Finding’s evidence so its audit record stands independently of subsequent Finding updates.
 

@@ -1,7 +1,6 @@
 
 
 # AgentCore session terminates with error code 532 during idle pauses
-<a name="ts-agentcore-session-timeout"></a>
 
  **Symptom.** A voice or bidirectional streaming session that has been idle — no audio bytes arriving from the client, no tool calls in flight — terminates unexpectedly. The AgentCore runtime returns `InternalErrorCode=532`. Short sessions and continuously active sessions are unaffected; the failure is reproducible when the caller pauses for more than approximately 55 seconds without sending any interactive content.
 

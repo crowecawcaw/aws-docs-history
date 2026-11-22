@@ -1,7 +1,6 @@
 
 
 # Cross-account grant model
-<a name="sec-cross-account-grants"></a>
 
 When AVX and ADP are deployed in separate AWS accounts — the production topology — data access from AVX to ADP crosses an account boundary. The agent layer holds no long-lived credentials into the ADP account; access is governed by two grant mechanisms and is fully auditable via CloudTrail data events.
 
@@ -25,7 +24,7 @@ To add a new ADP database to the cross-account share, the ADP CDK stack is updat
 
 The ADP-hosted vehicle Knowledge Base is accessed cross-account via a Bedrock KB resource policy that explicitly enumerates the AVX role ARN(s) permitted to call `bedrock-agent-runtime:Retrieve`:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

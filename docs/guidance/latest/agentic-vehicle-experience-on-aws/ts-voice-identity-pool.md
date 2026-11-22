@@ -1,7 +1,6 @@
 
 
 # iOS voice session fails with "Token is not from a supported provider of this identity pool"
-<a name="ts-voice-identity-pool"></a>
 
  **Symptom.** iOS voice session startup fails with `NotAuthorizedException: Token is not from a supported provider of this identity pool`. The error is returned by the Amazon Cognito Identity service during `GetCredentialsForIdentity`. The user authenticated successfully against the Cognito user pool and holds a valid ID token; the failure is at the identity-pool credential exchange step. Web chat and any non-voice path are unaffected.
 

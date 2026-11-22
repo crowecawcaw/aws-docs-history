@@ -1,7 +1,6 @@
 
 
 # Managing KB content without code redeployment
-<a name="kg-content-management"></a>
 
 ## Content-as-config principle
 <a name="kg-content-as-config"></a>

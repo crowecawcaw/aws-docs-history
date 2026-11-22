@@ -1,11 +1,10 @@
 
 
 # Step 4: Deploy the AgentCore runtime
-<a name="deploy-step4-agentcore-runtime"></a>
 
 The `agentcore` CLI is provided by the `bedrock-agentcore-starter-toolkit` package, already installed via `pip install -r requirements.txt` in Step 2. Verify it is available:
 
-```
+```bash
 agentcore --version
 ```
 
@@ -14,7 +13,7 @@ agentcore --version
 
 If `.bedrock_agentcore.yaml` does not yet exist, or after running `agentcore destroy`, configure the runtime before deploying:
 
-```
+```bash
 # Text-mode (HTTP InvokeAgentRuntime — used by the web UI /assistant/chat route)
 agentcore configure \
   --entrypoint agents/supervisor/agentcore_app.py \
@@ -42,7 +41,7 @@ agentcore configure \
 
 After `agentcore configure`, edit `.bedrock_agentcore.yaml` to use relative paths for `entrypoint` and `source_path` — machine-absolute paths cause runtime artifact errors on redeploy from a different working directory:
 
-```
+```bash
 # Verify relative paths in .bedrock_agentcore.yaml:
 #   entrypoint: agents/supervisor/agentcore_app.py   (not /Users/.../agents/...)
 #   source_path: .                                    (not /Users/...)
@@ -53,7 +52,7 @@ After `agentcore configure`, edit `.bedrock_agentcore.yaml` to use relative path
 
 Once `.bedrock_agentcore.yaml` exists, `make deploy-staging` (or `make deploy`) handles everything. For agent-code-only changes (no CDK change), deploy the runtime directly without re-running CDK:
 
-```
+```bash
 # Deploy only the voice runtime
 agentcore deploy -a vsa_supervisor_bidi_<stage> --auto-update-on-conflict \
   --env CMS_STAGE=<stage> \
@@ -80,7 +79,7 @@ agentcore deploy -a vsa_supervisor_text_<stage> --auto-update-on-conflict \
 ## Verify the runtime is ready
 <a name="verify-the-runtime-is-ready"></a>
 
-```
+```bash
 aws bedrock-agentcore-control get-agent-runtime \
   --agent-runtime-id <runtime-id> \
   --region <region> \

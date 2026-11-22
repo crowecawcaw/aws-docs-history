@@ -1,7 +1,6 @@
 
 
 # Partner Integrations
-<a name="extend-partner-integrations"></a>
 
 AVX exposes integration points across six partner domains. In each case the pattern is the same: an agent tool wraps a partner API call and returns a structured result; the supervisor synthesizes the spoken or written response from that result. The tool signature is thin and deterministic — the LLM never constructs API calls directly.
 
@@ -20,7 +19,7 @@ AVX exposes integration points across six partner domains. In each case the patt
 
 The following example shows a payment-initiation tool. The same structure applies to any partner domain — replace the API call and return shape:
 
-```
+```python
 # agents/supervisor/tools/payment_initiation.py
 import logging
 import httpx

@@ -1,7 +1,6 @@
 
 
 # Handoff sequence
-<a name="connect-warm-transfer"></a>
 
 1.  **Classify and instruct.** The triage classifier returns P0 or P1. On P0 the driver hears and sees the safety instruction first.
 

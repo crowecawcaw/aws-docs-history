@@ -1,7 +1,6 @@
 
 
 # Text chat returns HTTP 500 with `ParamValidationError` on every request
-<a name="ts-session-id-length"></a>
 
  **Symptom.** The web UI’s text chat route (`/assistant/chat`) returns HTTP 500 on every request. CloudWatch Logs for the assistant-chat Lambda show `botocore.exceptions.ParamValidationError` referencing `runtimeSessionId`: the value fails the `Length Constraints: Minimum length of 33` check. The error is deterministic — every browser session from this client fails, while sessions from a different client or a direct API call with a longer session ID succeed.
 
@@ -11,7 +10,7 @@
 
 1. Add a padding step in the assistant-chat Lambda handler that extends any session ID shorter than 33 characters to exactly 33 characters before passing it to `invoke_agent_runtime`. Use a deterministic pad (for example, appending `x` characters) so that the same browser session always maps to the same upstream AgentCore session, preserving AgentCore Memory continuity:
 
-   ```
+   ```python
    _MIN_RUNTIME_SESSION_LEN = 33
    runtime_session_id = session_id
    if len(runtime_session_id) < _MIN_RUNTIME_SESSION_LEN:

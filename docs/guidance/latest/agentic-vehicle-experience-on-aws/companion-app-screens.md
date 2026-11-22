@@ -1,7 +1,6 @@
 
 
 # Screens
-<a name="companion-app-screens"></a>
 
 
 | Tab | Contents | 

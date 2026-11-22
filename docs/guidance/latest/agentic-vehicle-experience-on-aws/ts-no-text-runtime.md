@@ -1,7 +1,6 @@
 
 
 # Text chat returns 500 RuntimeClientError; voice works normally
-<a name="ts-no-text-runtime"></a>
 
  **Symptom.** The web UI text chat route returns HTTP 500. CloudWatch Logs for the assistant-chat Lambda show a `RuntimeClientError` from the AgentCore service, not a boto3 validation error. The error occurs after authentication and IAM succeed. Simultaneously, the iOS voice channel continues to work without error. Inspecting the runtime log group for the deployed AgentCore runtime shows `ERROR: No entrypoint defined`.
 

@@ -1,7 +1,6 @@
 
 
 # Supervisor and specialist agent mesh
-<a name="agent-mesh"></a>
 
 The AVX agentic layer is organized as a **supervisor \+ specialist mesh**. The supervisor agent receives every customer interaction, classifies intent, and delegates to the appropriate specialist tools as Strands `@tool`-decorated callables. Specialist logic is encapsulated in focused, independently testable tool implementations with well-defined contracts.
 

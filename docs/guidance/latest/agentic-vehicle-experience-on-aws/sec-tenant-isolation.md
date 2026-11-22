@@ -1,7 +1,6 @@
 
 
 # Tenant isolation
-<a name="sec-tenant-isolation"></a>
 
 Authentication confirms who the caller is; tenant isolation ensures that each caller can access only the data belonging to their organization. AVX enforces isolation at three complementary layers.
 
@@ -10,7 +9,7 @@ Authentication confirms who the caller is; tenant isolation ensures that each ca
 
 Every Lambda handler that reads or writes data carries a tenant-scoped IAM execution role. DynamoDB, Bedrock KB Retrieve, and AgentCore Memory calls are bounded by IAM condition keys that express the permitted tenant scope:
 
-```
+```json
 {
   "Condition": {
     "StringEquals": {

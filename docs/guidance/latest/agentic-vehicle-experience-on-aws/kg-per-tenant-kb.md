@@ -1,7 +1,6 @@
 
 
 # Per-tenant knowledge bases and shared content
-<a name="kg-per-tenant-kb"></a>
 
 ## Shared cross-tenant content
 <a name="kg-shared-layer"></a>

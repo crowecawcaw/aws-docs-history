@@ -1,7 +1,6 @@
 
 
 # Two grounding mechanisms
-<a name="kg-two-mechanisms"></a>
 
 ## Bedrock Knowledge Base RAG
 <a name="kg-bedrock-kb"></a>

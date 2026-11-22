@@ -1,7 +1,6 @@
 
 
 # Stage 1 — Discover / Find
-<a name="discover-find"></a>
 
 A single OEM tenant already owns the surfaces where vehicle discovery happens: a public brand website with a build-and-price configurator and dealer inventory search, an OEM-branded mobile app, and a dealer network that is the actual point of sale. AVX’s role at this stage is not to build a new discovery channel — it is to embed a conversational sales agent directly into the surfaces the OEM already operates, and to recognize that Discover has three structurally different entry paths with different identity preconditions and, for fleet buyers, a different channel entirely.
 

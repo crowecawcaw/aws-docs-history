@@ -1,7 +1,6 @@
 
 
 # Tenant-branded contact flows
-<a name="connect-tenant-branded-flows"></a>
 
 Every tenant operates its own set of Amazon Connect contact flows. Tenancy is first-class: one Connect instance, multiple contact flows differentiated by tenant configuration. `/escalate` resolves the tenant from the caller’s verified `custom:tenantId` claim and reads that tenant’s Connect settings.
 
@@ -20,7 +19,7 @@ Every tenant operates its own set of Amazon Connect contact flows. Tenancy is fi
 
 The script `scripts/wire-connect-to-tenant.py` reads the outputs of the deployed `cvx-{stage}-connect` stack and writes the Connect instance, the chat contact flow and the queue ARNs into the tenant’s active config version. Run it once after deploying a new tenant’s Connect resources:
 
-```
+```bash
 VSA_STAGE=staging VSA_TENANT_ID=<tenant-id> AWS_REGION=<region> \
   python3 scripts/wire-connect-to-tenant.py
 ```

@@ -1,7 +1,6 @@
 
 
 # The P0 safety guardrail
-<a name="sec-safety-guardrail"></a>
 
 The P0 safety guardrail is AVX’s most consequential security control. It governs the boundary between autonomous AI response and mandatory human escalation for safety-critical vehicle situations.
 

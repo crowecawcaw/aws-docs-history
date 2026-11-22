@@ -1,7 +1,6 @@
 
 
 # Voice sessions
-<a name="ca-voice"></a>
 
 Voice is the most intricate subsystem in the app, and the one where platform constraints are most visible. The agent architecture behind it is documented in [Amazon Nova 2 Sonic speech-to-speech voice](nova-sonic-voice.md); what follows is the client half.
 

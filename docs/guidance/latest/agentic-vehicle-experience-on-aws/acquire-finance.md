@@ -1,7 +1,6 @@
 
 
 # Stage 2 — Acquire / Finance
-<a name="acquire-finance"></a>
 
 At the Acquire stage, a customer who has selected a vehicle — arriving from either Discover path, or from any other funnel — needs to complete the purchase or lease transaction. For a single OEM, most of the regulated heavy lifting already exists outside AVX: the OEM’s own captive finance arm already underwrites credit, and the dealer’s existing DMS already handles e-contracting. AVX’s role is to orchestrate a conversation on top of those existing systems, not to rebuild financial or contracting infrastructure inside the agent.
 

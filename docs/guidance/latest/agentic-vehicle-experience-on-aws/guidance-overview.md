@@ -1,7 +1,6 @@
 
 
 # Guidance Overview
-<a name="guidance-overview"></a>
 
 Publication date: *July 2026* 
 

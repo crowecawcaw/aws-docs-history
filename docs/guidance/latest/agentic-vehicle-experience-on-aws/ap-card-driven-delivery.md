@@ -1,7 +1,6 @@
 
 
 # Card-Driven Delivery
-<a name="ap-card-driven-delivery"></a>
 
 Every Finding produces at least one in-app card. The push notification, when it fires, is a hook that tells the owner something is waiting and deep-links into the card or into a Tier 1 conversation pre-seeded from the Finding’s evidence. The notification is not the message; the card and the conversation are.
 

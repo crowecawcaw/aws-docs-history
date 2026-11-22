@@ -1,7 +1,6 @@
 
 
 # Session initialization and data-fusion pattern
-<a name="bca-data-fusion"></a>
 
 Each AVX session fuses data from both foundations into a coherent in-session context before the first tool is dispatched. The pattern has two phases: session initialization (sync, at session start) and tool dispatch (lazy, per-request).
 

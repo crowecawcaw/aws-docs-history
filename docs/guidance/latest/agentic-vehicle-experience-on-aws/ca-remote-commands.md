@@ -1,7 +1,6 @@
 
 
 # Remote commands
-<a name="ca-remote-commands"></a>
 
 Remote commands go to the CMS commands API, a separate API Gateway from the CMS main API, whose Cognito authorizer trusts the same user pool the app signs into.
 

@@ -1,14 +1,13 @@
 
 
 # Step 3: Build and deploy the AVX CDK infrastructure
-<a name="deploy-step3-cdk-infrastructure"></a>
 
 ## Build Lambda assets
 <a name="build-lambda-assets"></a>
 
 Three Lambda functions bundle their dependencies at build time. Run the build scripts before the first deploy and after any Lambda dependency change:
 
-```
+```bash
 scripts/build-triage-classifier.sh
 scripts/build-api-ws-authorizer.sh
 scripts/build-api-vehicle-live-state.sh
@@ -23,7 +22,7 @@ AVX deploys one environment, staging. All commands in this chapter target stagin
 
 Staging deploys to us-west-2. The `deploy-staging` Makefile target requires `VSA_ADP_KB_ID` to tighten the cross-account IAM grant to the specific ADP Knowledge Base ARN:
 
-```
+```bash
 source .env
 VSA_ADP_KB_ID=<adp-kb-id> make deploy-staging
 ```
@@ -62,7 +61,7 @@ CDK resolves inter-stack dependencies automatically. The logical order is:
 
 To verify the stacks are healthy after deploy:
 
-```
+```bash
 aws cloudformation describe-stacks \
   --region <region> \
   --query 'Stacks[?starts_with(StackName, `vsa-`)].{Name:StackName,Status:StackStatus}' \

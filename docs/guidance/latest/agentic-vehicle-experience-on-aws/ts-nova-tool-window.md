@@ -1,7 +1,6 @@
 
 
 # Nova 2 Sonic goes silent after a tool call that takes too long
-<a name="ts-nova-tool-window"></a>
 
  **Symptom.** During a voice session the agent accepts the user’s utterance, begins processing, invokes a tool, receives the tool result, and then produces no speech output — the TTS narration is silently dropped. From the caller’s perspective the agent appears to have understood the question but refuses to answer. The bidi stream stays open; no error is returned to the client. Subsequent turns in the same session may also produce no speech, or the session may recover if a fast tool is invoked next.
 

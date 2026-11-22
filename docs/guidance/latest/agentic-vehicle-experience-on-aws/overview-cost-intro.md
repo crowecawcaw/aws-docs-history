@@ -1,7 +1,6 @@
 
 
 # Cost Considerations for AVX
-<a name="overview-cost-intro"></a>
 
 AVX costs are driven primarily by three components:
 +  **Amazon Bedrock model invocations** — every agent turn invokes Claude Sonnet via Bedrock. Voice conversations via Nova 2 Sonic incur per-minute audio-processing charges in addition to token charges. Cost scales with conversation volume and average turn count.

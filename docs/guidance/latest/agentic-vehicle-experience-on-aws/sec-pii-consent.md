@@ -1,7 +1,6 @@
 
 
 # PII, consent, and log redaction
-<a name="sec-pii-consent"></a>
 
 AVX handles personally identifiable information — caller identity, vehicle location, call recordings, and conversation transcripts — as regulated data. The handling posture is: collect the minimum required for service delivery, redact by default in logs, and gate session recordings on explicit per-tenant consent configuration.
 

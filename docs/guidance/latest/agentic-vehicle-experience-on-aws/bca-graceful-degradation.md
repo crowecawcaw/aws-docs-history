@@ -1,7 +1,6 @@
 
 
 # Graceful degradation
-<a name="bca-graceful-degradation"></a>
 
 AVX is designed to degrade gracefully when a foundation is partially unavailable.
 +  **ADP Memory miss** — if the `persona_loader` cannot load a data product at session init (Athena timeout, cross-account grant not yet propagated, upstream Glue table absent), the affected tools return a structured unavailable message rather than an error. The session continues with the data that is available; the supervisor informs the caller that some context could not be loaded.

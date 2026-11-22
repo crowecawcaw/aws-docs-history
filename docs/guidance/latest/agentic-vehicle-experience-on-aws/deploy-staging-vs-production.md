@@ -1,7 +1,6 @@
 
 
 # Staging environment reference
-<a name="deploy-staging-vs-production"></a>
 
 The table below compares staging with a second environment that an operator adds.
 

@@ -1,7 +1,6 @@
 
 
 # Cross-account grounding model
-<a name="bca-cross-account"></a>
 
 AVX is architected so that the same code path supports two deployment topologies: a same-account cross-region staging configuration and a full split-account production configuration. The authorization boundaries between AVX and ADP are parameterized; no code changes are required to move between topologies.
 

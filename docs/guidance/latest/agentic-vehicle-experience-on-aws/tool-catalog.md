@@ -1,7 +1,6 @@
 
 
 # Tool catalog
-<a name="tool-catalog"></a>
 
 The following table lists the tools registered in the AVX supervisor agent. Tools are assigned per-persona in `PERSONA_TOOL_FACTORIES` (`agents/supervisor/tools/init.py`).
 

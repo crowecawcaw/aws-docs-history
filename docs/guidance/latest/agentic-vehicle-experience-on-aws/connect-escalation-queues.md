@@ -1,7 +1,6 @@
 
 
 # Escalation by priority
-<a name="connect-escalation-queues"></a>
 
 Escalation follows the P0–P3 criticality taxonomy. The deterministic classifier sets the level from vehicle state (active DTCs, telemetry thresholds, open recalls), and the language model cannot set or change it.
 
@@ -37,7 +36,7 @@ If the tenant configures `escalation.callback`, Amazon Connect also calls the as
 
 The callback needs a contact flow of type **Contact flow (inbound)**, which `StartOutboundVoiceContact` runs once the driver answers, and a caller ID: a queue with an outbound caller-ID number (`queueArn`) or a claimed number (`sourcePhoneNumber`). `/escalate` places the call before it starts the chat. Because Connect offers an agent one contact at a time, `escalation.callback.chatContactFlowId` names a chat flow that routes to a queue with a routing-profile delay, so the agent is offered the call first. `scripts/connect-p0-call-first.py` creates that queue and flow; it is a dry run unless `--apply` is given.
 
-```
+```json
 "escalation": {
   "tier2QueueArn": "arn:aws:connect:<region>:<account-id>:instance/<instance-id>/queue/<chat-queue-id>",
   "autoOpenHumanChatOnP0": false,

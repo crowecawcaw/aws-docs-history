@@ -1,7 +1,6 @@
 
 
 # Server-side persona inference
-<a name="pt-persona-inference"></a>
 
 ## Why inference is server-side
 <a name="pt-inference-why"></a>

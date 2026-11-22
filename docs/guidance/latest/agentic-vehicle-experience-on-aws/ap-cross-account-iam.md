@@ -1,7 +1,6 @@
 
 
 # Broker Boundaries
-<a name="ap-cross-account-iam"></a>
 
 The outreach broker (`vsa-{stage}-avx-broker`) owns channel selection, consent enforcement, rate limiting, cardinality capping, and priority arbitration. No agent code participates in these decisions.
 
