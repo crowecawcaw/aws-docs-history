@@ -1,7 +1,6 @@
 
 
 # Hub onboarding setup
-<a name="managedintegrations-sdk-v2-cookbook-hubsetup"></a>
 
 Complete these setup steps for each hub device before you begin the fleet provisioning onboarding process. This section describes how to create managed things, set up directory structures, and configure the required certificates.
 
@@ -24,13 +23,13 @@ Create a dedicated communication endpoint that your devices use to exchange data
 
   **RegisterCustomEndpoint Request example**
 
-  ```
+  ```JSON
   aws iot-managed-integrations register-custom-endpoint  
   ```
 
   **Response:**
 
-  ```
+  ```JSON
   {
     [{{ACCOUNT-PREFIX}}]-ats.iot.{{AWS-REGION}}.amazonaws.com
   }
@@ -56,7 +55,7 @@ Store the claim certificate, private key, and template ID securely. You'll need 
 
 **`CreateProvisioningProfile` example request**
 
-```
+```JSON
 aws iot-managed-integrations create-provisioning-profile \
     --provisioning-type FLEET_PROVISIONING \
     --name PROFILE_NAME
@@ -64,7 +63,7 @@ aws iot-managed-integrations create-provisioning-profile \
 
 **Response:**
 
-```
+```JSON
 {
 "Arn":"arn:aws:iotmanagedintegrations:{{AWS-REGION}}:{{ACCOUNT-ID}}:provisioning-profile/{{PROFILE-ID}}",
     "ClaimCertificate":
@@ -99,7 +98,7 @@ Each device must have a unique serial number (SN) in its authentication material
 
 **`CreateManagedThing` Request example**:
 
-```
+```JSON
 { 
  "Role": "CONTROLLER",
  "AuthenticationMaterialType": "WIFI_SETUP_QR_BAR_CODE",
@@ -121,7 +120,7 @@ Create directories for your configuration files and certificates. By default, th
 
 You can specify custom paths for certificates and private keys in the configuration file. This guide uses the default path `/data/aws/iotmi/certs`.
 
-```
+```bash
 mkdir -p /data/aws/iotmi/config
 mkdir -p /data/aws/iotmi/certs
 
@@ -178,7 +177,7 @@ Use the following procedure to create or modify your configuration file, and cop
 
     1. `UPC`Universal product code from your `CreateManagedThing` API call (same for all devices of this product) 
 
-  ```
+  ```JSON
   {
       "ro": {
           "iot_provisioning_method": "FLEET_PROVISIONING",

@@ -1,7 +1,6 @@
 
 
 # Hub SDK client
-<a name="hub-sdk-client"></a>
 
 The Hub SDK Client library serves as an interface between the managed integrations Hub SDK and your own protocol stack running on the same hub. It exposes a set of public APIs to facilitate your protocol stack's interaction with the Device Hub SDK components. The use cases include custom plugin control, custom plugin provisioner, and local controller.
 

@@ -1,7 +1,6 @@
 
 
 # Managed Integrations demo application
-<a name="supported-raspberry-demo-app"></a>
 
 **Note**  
  This implementation of AWS IoT Hub SDK on Raspberry Pi is a demonstration project intended for learning and testing purposes only and is not intended to be used in production environments. For the purposes of this demo, set the following configurations for development ease:   
@@ -29,7 +28,7 @@
 
 1. Extract the package:
 
-   ```
+   ```bash
    cd ~/Downloads
    tar -xzf IotMI-HubSDK-DemoApp-v1.0.0.tar.gz
    cd IotManagedIntegrations-DemoApp
@@ -43,7 +42,7 @@
 
 1. Create a `.env` file in the root directory:
 
-   ```
+   ```bash
    # AWS Configuration
    REACT_APP_AWS_REGION=your_region
    REACT_APP_AWS_ACCESS_KEY_ID=your_access_key
@@ -66,7 +65,7 @@
 
 1. Access the application at:
 
-   ```
+   ```bash
    http://localhost:3000
    ```
 

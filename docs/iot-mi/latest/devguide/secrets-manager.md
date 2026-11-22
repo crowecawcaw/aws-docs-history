@@ -1,7 +1,6 @@
 
 
 # Use AWS Secrets Manager for data protection for C2C workflows
-<a name="secrets-manager"></a>
 
 AWS Secrets Manager is a secret storage service that you can use to protect database credentials, API keys, and other secret information. Then in your code, you can replace hardcoded credentials with an API call to Secrets Manager. This helps ensure that the secret can't be compromised by someone examining your code, because the secret isn't there. For an overview, see the [AWS Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html).
 
@@ -37,7 +36,7 @@ To allow managed integrations to retrieve the secret value from Secrets Manager,
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [ {
@@ -66,7 +65,7 @@ Add the following statement to the policy for your customer-managed AWS KMS key.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

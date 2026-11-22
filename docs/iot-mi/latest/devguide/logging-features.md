@@ -1,7 +1,6 @@
 
 
 # Logging features
-<a name="logging-features"></a>
 
 Use these methods to implement logging features that managed integrations provides.
 

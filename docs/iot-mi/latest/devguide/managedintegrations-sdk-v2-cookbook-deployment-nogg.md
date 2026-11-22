@@ -1,7 +1,6 @@
 
 
 # Deploy the Hub SDK with a script
-<a name="managedintegrations-sdk-v2-cookbook-deployment-nogg"></a>
 
 Deploy the managed integrations Hub SDK components manually using installation scripts, then validate the deployment. This section describes the script execution steps and verification process.
 

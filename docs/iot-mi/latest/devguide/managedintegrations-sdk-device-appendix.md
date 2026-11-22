@@ -1,7 +1,6 @@
 
 
 # Technical reference
-<a name="managedintegrations-sdk-device-appendix"></a>
 
 **Topics**
 + [Reference: Supported platforms](#managedintegrations-sdk-device-appendixA)

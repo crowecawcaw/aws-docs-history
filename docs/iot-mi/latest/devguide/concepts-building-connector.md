@@ -1,7 +1,6 @@
 
 
 # Build a C2C (Cloud-to-Cloud) connector
-<a name="concepts-building-connector"></a>
 
 The following sections cover the steps to build a C2C (Cloud-to-Cloud) connector for managed integrations for AWS IoT Device Management.
 
@@ -44,16 +43,22 @@ Some third parties explicitly allowlist an OAuth redirect URL, while others have
 <a name="c2c-connector-required-permissions"></a>
 
 When you build your connector, you need certain IAM permissions. In addition to the `iotmanagedintegrations:` permissions for the actions, you need the following permissions:
+
+**API-Specific Permissions**
 + [CreateAccountAssociation](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_CreateAccountAssociation.html), [CreateConnectorDestination](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_CreateConnectorDestination.html), [GetAccountAssociation](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_GetAccountAssociation.html), and [StartAccountAssociationRefresh](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_StartAccountAssociationRefresh.html) require:
   + `secretsmanager:GetSecretValue`
 + [CreateCloudConnector](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_CreateCloudConnector.html) requires:
   + `lambda:Invoke`
+
+**General Authorization Permissions**
 
 If your connector supports General Authorization, your connector Lambda execution role must also have:
 + `secretsmanager:GetSecretValue`
 + `kms:Decrypt`
 
 These permissions are needed to retrieve credentials from customer AWS Secrets Manager. For more information, see [Lambda permissions for GeneralAuthorization](concepts-general-authorization-dev.md#general-auth-lambda-permissions-dev).
+
+**Additional Resources**
 
 For more information about `iotmanagedintegrations:` permissions and actions, see [Actions defined by AWS Managed Integrations](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotmanagedintegrations.html#awsiotmanagedintegrations-actions-as-permissions).
 
@@ -68,6 +73,8 @@ These interfaces provide the functionality to:
 + Identify users
 
 To support the device operations, the connector must manage the translation of the request and response messages between managed integrations for AWS IoT Device Management and the related third party platform.
+
+**Core Requirements**
 
 The following are requirements for the C2C connector:
 

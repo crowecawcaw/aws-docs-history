@@ -1,7 +1,6 @@
 
 
 # Matter Plugin
-<a name="matter-plugin"></a>
 
 **Topics**
 + [What is Matter Plugin](#what-is-matter-plugin)
@@ -38,7 +37,7 @@ The Matter Plugin has the following dependencies in addition to the Hub SDK:
 
 Configure the repo with the following command:
 
-```
+```bash
 cd IotMI-DeviceSDK-MatterPlugin  
 mkdir build  
 cd build  
@@ -47,13 +46,13 @@ cmake ..
 
 Then build it with the following command:
 
-```
+```bash
 cmake --build .
 ```
 
 After building, add the library path to LD\_LIBRARY\_PATH:
 
-```
+```bash
 export LD_LIBRARY_PATH=/path/to/libraries:$LD_LIBRARY_PATH
 ```
 
@@ -84,12 +83,12 @@ Before you begin, ensure that you have the following:
 + Install AWS CLI following the [official instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 + Prepare persistent storage for chip-tool
 
-  ```
+  ```bash
   mkdir -p $HOME/iotmi/matter/
   ```
 + Generate the commissioner certificate chain (assign node ID `123456` to this chip-tool)
 
-  ```
+  ```bash
   cd connectedhomeip/  
   cd out/chip-tool/  
   ./chip-tool pairing get-commissioner-root-certificate \  
@@ -107,19 +106,19 @@ You'll copy this file to the Hub later.
 
 We'll also need the the sha256sum of the chip-tool for later use. You can use the following command to get the sha256sum:
 
-```
+```bash
 sha256sum /path/to/chip-tool
 ```
 + Prepare storage and copy the commissioner file from the Raspberry Pi
 
-  ```
+  ```bash
   mkdir -p $HOME/iotmi/matter/  
   # From Raspberry Pi to Hub (example):  
   # scp $HOME/iotmi/matter/chip_tool_config.alpha.ini user@HUB_HOST:$HOME/iotmi/matter/
   ```
 + Run the Matter Plugin (provide chip-tool path, its SHA256, and the storage folder)
 
-  ```
+  ```bash
   ./iotmi_matter_plugin \  
       --chip-tool-path /path/to/chip-tool \  
       --sha256sum SHA256SUM_OF_THE_CHIP_TOOL \  
@@ -135,7 +134,7 @@ sha256sum /path/to/chip-tool
 
 Use chip-tool to commission the device using its decoded QR code and provision Wi-Fi credentials. In this example, the device will use node ID 101 and the commissioner node ID is `123456`.
 
-```
+```bash
 ./chip-tool pairing code-wifi 101 \  
     YOUR_WIFI_SSID YOUR_WIFI_PW  \  
     MT:MFAA0W8C00UFQV2VL00 \  
@@ -156,7 +155,7 @@ chip-tool supports different pairing methods, including QR code or PIN code pair
 
 After commissioning, allow the Hub's chip-tool to control the device. In this example, node ID `123456` (Raspberry Pi) has Admin permission (5) and node ID `112233` (Hub) has Manage permission (4).
 
-```
+```bash
 chip-tool accesscontrol write acl \  
     '[{"fabricIndex":1,"privilege":5,"authMode":2,"subjects":[123456], "targets": null},{"fabricIndex":1,"privilege":4,"authMode":2,"subjects":[112233], "targets": null}]' \  
     101 0 \  
@@ -168,7 +167,7 @@ chip-tool accesscontrol write acl \
 <a name="step5-create-managed-thing"></a>
 + Start discovery (replace with your Hub's managed thing ID):
 
-  ```
+  ```bash
   aws iot-managed-integrations start-device-discovery \  
       --discovery-type CUSTOM \  
       --custom-protocol-detail '{"Name": "Matter", "NodeId":"101", "FabricId":"1"}' \  
@@ -177,7 +176,7 @@ chip-tool accesscontrol write acl \
 
 Sample response includes a user-guided setup job ID:
 
-```
+```json
 {  
     "Id": "USER_GUIDED_SETUP_JOB_ID",  
     "StartedAt": 1753683326.056  
@@ -185,14 +184,14 @@ Sample response includes a user-guided setup job ID:
 ```
 + Query discovered devices using the job ID:
 
-  ```
+  ```bash
   aws iot-managed-integrations \  
       list-discovered-devices --identifier <USER_GUIDED_SETUP_JOB_ID>
   ```
 
 Sample response:
 
-```
+```json
 {  
     "Items": [  
         {  
@@ -205,7 +204,7 @@ Sample response:
 ```
 + Create a managed thing for the device using the AuthenticationMaterial:
 
-  ```
+  ```bash
   aws iot-managed-integrations create-managed-thing \  
       --role DEVICE \  
       --authentication-material-type DISCOVERED_DEVICE \  
@@ -214,7 +213,7 @@ Sample response:
 
 Sample response (with device's managed thing ID):
 
-```
+```json
 {  
     "Id": "DEVICE_MANAGED_THING_ID",  
     "Arn": "arn:aws:iotmanagedintegrations:eu-west-1:228183742813:managed-thing/515cf5a707ec41aaabb9914a1dd2889f",  
@@ -227,7 +226,7 @@ Sample response (with device's managed thing ID):
 
 Use the `send-managed-thing-command` command to send a command to your managed thing.
 
-```
+```bash
 json=$(jq -cr '.|@json' <<EOF  
 [  
   {  
@@ -259,14 +258,14 @@ aws iot-managed-integrations send-managed-thing-command \
 
 Send the following command to get the device state.
 
-```
+```bash
 aws iot-managed-integrations get-managed-thing-state \  
     --managed-thing-id "DEVICE_MANAGED_THING_ID"
 ```
 
 Sample result:
 
-```
+```json
 {  
     "Endpoints": [  
         {  
@@ -296,13 +295,13 @@ Sample result:
 <a name="step8-remove-managed-thing"></a>
 + Remove the managed thing from your hub with the following command
 
-  ```
+  ```bash
   aws iot-managed-integrations delete-managed-thing \  
       --identifier "DEVICE_MANAGED_THING_ID"
   ```
 + Unpair the device from the Raspberry Pi's fabric (if desired):
 
-  ```
+  ```bash
   ./chip-tool pairing unpair 101 \  
       --commissioner-nodeid 123456 \  
       --storage-directory $HOME/iotmi/matter/

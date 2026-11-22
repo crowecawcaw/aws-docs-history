@@ -1,7 +1,6 @@
 
 
 # Account linking roles
-<a name="roles-account-linking"></a>
 
 To create a C2C connector, you'll need an OAuth 2.0 authorization server and account linking. For more information, see [Account linking workflow](account-linking-flow.md).
 

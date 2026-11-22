@@ -1,7 +1,6 @@
 
 
 # Other APIs
-<a name="other-apis"></a>
 
 ```
 std::string get_client_id()

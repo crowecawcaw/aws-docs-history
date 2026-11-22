@@ -1,7 +1,6 @@
 
 
 # Data model code generator
-<a name="managedintegrations-sdk-device-codegen"></a>
 
 Learn how to use the code generator for the data model. The generated code can be used to serialize and deserialize the data models that are exchanged between the cloud and the device.
 

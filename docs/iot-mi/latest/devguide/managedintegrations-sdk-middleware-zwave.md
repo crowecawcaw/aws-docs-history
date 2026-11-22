@@ -1,7 +1,6 @@
 
 
 # Z-Wave middleware code organization
-<a name="managedintegrations-sdk-middleware-zwave"></a>
 
 The following shows the Z-wave reference middleware code organization.
 

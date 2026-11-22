@@ -1,7 +1,6 @@
 
 
 # Configure provisioners for WiFi Simple Setup
-<a name="managedintegrations-sdk-v2-cookbook-wss-provisioner-config"></a>
 
 **On this page:**
 + [Provisioner requirements](#managedintegrations-sdk-v2-cookbook-wss-provisioner-requirements)
@@ -43,7 +42,7 @@ Enable WSS provisioner functionality using CreateManagedThing or UpdateManagedTh
 ### For new devices
 <a name="managedintegrations-sdk-v2-cookbook-wss-enable-new-devices"></a>
 
-```
+```json
 {
   "role": "CONTROLLER",
   "credentialLockerId": "ad5cdc9f786b4dbe9490e57c0b1d900e",
@@ -58,7 +57,7 @@ Enable WSS provisioner functionality using CreateManagedThing or UpdateManagedTh
 ### For existing devices
 <a name="managedintegrations-sdk-v2-cookbook-wss-enable-existing-devices"></a>
 
-```
+```json
 {
   "managedThingId": "existing-hub-id",
   "wiFiSimpleSetupConfiguration": {
@@ -91,7 +90,7 @@ Configure the path to your WiFi credentials file in iotmi\_config.json to enable
 
 Add the `wss_local_wifi_cred_path` parameter to the `ro` (read-only) section of your iotmi\_config.json file:
 
-```
+```JSON
 {
   "ro": {
     "wss_local_wifi_cred_path": "/etc/wpa_supplicant/wpa_supplicant-wlan0.conf"
@@ -183,7 +182,7 @@ WSS provisioners have two critical state values that determine functionality:
 
 **Supported:**
 
-```
+```json
 {
   "notificationType": "WSS_SUPPORTED",
   "managedThingId": "hub-device-id",
@@ -194,7 +193,7 @@ WSS provisioners have two critical state values that determine functionality:
 
 **Not supported:**
 
-```
+```json
 {
   "notificationType": "WSS_NOT_SUPPORTED",
   "managedThingId": "hub-device-id",
@@ -217,7 +216,7 @@ WSS provisioners have two critical state values that determine functionality:
 
 1. **Call GetManagedThing API** to check configuration and status:
 
-   ```
+   ```json
    {
      "managedThingId": "hub-device-id",
      "role": "CONTROLLER",
@@ -249,7 +248,7 @@ WSS provisioners have two critical state values that determine functionality:
 
 Disable WSS provisioner functionality when no longer needed. Using UpdateManagedThing API.
 
-```
+```json
 {
   "managedThingId": "hub-device-id",
   "wiFiSimpleSetupConfiguration": {

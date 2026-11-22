@@ -1,7 +1,6 @@
 
 
 # Create a custom certificate handler for secure storage
-<a name="managedintegrations-sdk-v2-cookbook-certhandler"></a>
 
 Device certificate management is crucial when onboarding the Managed Integrations hub. While certificates are stored in the file system by default, you can create a custom certificate handler for enhanced security and flexible credential management.
 
@@ -21,7 +20,7 @@ Review the following `secure_storage_cert_handler_interface.hpp` file to underst
 
 **Contents of `secure_storage_cert_hander_interface.hpp`**
 
-```
+```Python
 /* 
     * Copyright 2024 Amazon.com, Inc. or its affiliates. All rights reserved. 
     *
@@ -104,7 +103,7 @@ Declare `secure_storage_cert_handler_interface.hpp` as public.
 
 Create a concrete class that inherits the interface. Hide this header file and other files under a separate directory so that private and public headers can be differentiated easily when building.
 
-```
+```Python
 #ifndef IOTMANAGEDINTEGRATIONSDEVICE_SDK_STUB_SECURE_STORAGE_CERT_HANDLER_HPP
   #define IOTMANAGEDINTEGRATIONSDEVICE_SDK_STUB_SECURE_STORAGE_CERT_HANDLER_HPP 
   
@@ -136,7 +135,7 @@ Create a concrete class that inherits the interface. Hide this header file and o
 
 Implement the storage class defined above, `src/stub_secure_storage_cert_handler.cpp`.
 
-```
+```Python
 /* 
   * Copyright 2024 Amazon.com, Inc. or its affiliates. All rights reserved. 
   * 
@@ -174,7 +173,7 @@ Implement the storage class defined above, `src/stub_secure_storage_cert_handler
 
 Implement the factory function defined in the interface, `src/secure_storage_cert_handler.cpp`.
 
-```
+```Python
 #include "stub_secure_storage_cert_handler.hpp"
         
         std::shared_ptr<IoTManagedIntegrationsDevice::CertHandler::SecureStorageCertHandlerInterface>
@@ -257,7 +256,7 @@ After compilation, you'll have a `libSecureStorageCertHandler.so` shared object 
 
 Update your `iotmi_config.json` file by setting both `iot_claim_cert_path` and `iot_claim_pk_path` to **SECURE\_STORAGE**.
 
-```
+```JSON
 {
   "ro": { 
     "iot_provisioning_method": "FLEET_PROVISIONING", 

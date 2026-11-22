@@ -1,7 +1,6 @@
 
 
 # Building and using type definitions in capability schema documents
-<a name="type-definitions"></a>
 
 All elements in the schemas resolve to type definitions. These type definitions are either *primitive type definitions* (such as booleans, strings, numbers) or *namespaced type definitions* (type definitions built from primitive type definitions for convenience).
 

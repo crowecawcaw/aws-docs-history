@@ -1,7 +1,6 @@
 
 
 # Protocol-specific middleware
-<a name="managedintegrations-sdk-middleware"></a>
 
 **Important**  
 **The documentation and code provided here describes a reference implementation of the middleware. It is not provided to you as part of the SDK.**

@@ -1,7 +1,6 @@
 
 
 # Send device events with the SendConnectorEvent API
-<a name="send-connector-events"></a>
 
 ## Device initiated events overview
 <a name="device-initiated-events-overview"></a>

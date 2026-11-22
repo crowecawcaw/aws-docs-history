@@ -1,7 +1,6 @@
 
 
 # Over-the-Air updates
-<a name="ota-updates"></a>
 
 ## OTA architecture overview
 <a name="ota-updates-architecture-overview"></a>

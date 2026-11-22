@@ -1,7 +1,6 @@
 
 
 # Managed Integrations notifications
-<a name="managedintegrations-notifications"></a>
 
 Managed Integrations notifications deliver updates and key insights from devices. Notifications include connector events, device commands, lifecycle events, OTA (Over-the-Air) updates, and error reports. These insights provide actionable information to create automated workflows, take immediate actions, or store event data for troubleshooting.
 
@@ -41,7 +40,7 @@ Create a permissions policy that allows Managed Integrations to access your Kine
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -81,7 +80,7 @@ You can use a custom trust policy to grant Managed Integrations access to the Ki
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -141,7 +140,7 @@ To setup Managed Integrations notifications, follow these steps:
 
 ****  
 
-  ```
+  ```json
   {
         "Version":"2012-10-17",		 	 	 
         "Statement":[
@@ -172,7 +171,7 @@ To setup Managed Integrations notifications, follow these steps:
 
   After you have created your Amazon Kinesis data stream and stream access role, call the [CreateDestination](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_CreateDestination.html) API to create your notification destination where the notifications will be routed to. For the `DeliveryDestinationArn` parameter, use the `arn` from your new Amazon Kinesis data stream.
 
-  ```
+  ```JSON
   {
       "DeliveryDestinationArn": "Your Kinesis arn"
       "DeliveryDestinationType": "KINESIS"
@@ -190,7 +189,7 @@ To setup Managed Integrations notifications, follow these steps:
 
   Lastly, use the [CreateNotificationConfiguration](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_CreateNotificationConfiguration.html) API to create the notification configuration that routes the chosen event types to your destination represented by the Kinesis data stream. In the `DestinationName` parameter, use the same destination name as when you initially called the `CreateDestination` API.
 
-  ```
+  ```JSON
   {
       "EventType": "DEVICE_EVENT"
       "DestinationName" // This name has to be identical to the name in createDestination API
@@ -205,7 +204,7 @@ The following are the event types monitored with Managed Integrations notificati
 + `DEVICE_COMMAND`
   + The status of the [SendManagedThingCommand](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_SendManagedThingCommand.html) API command. Valid values are either `succeeded` or `failed`.
 
-    ```
+    ```JSON
     {
                   "version":"0",
                   "messageId":"6a7e8feb-b491-4cf7-a9f1-bf3703467718",
@@ -230,7 +229,7 @@ The following are the event types monitored with Managed Integrations notificati
 
     The WebRTC standard allows communication between two peers. These peers can transmit real-time video, audio, and arbitrary data. Managed Integrations supports WebRTC to enable these types of streaming between a customer mobile application and an end-user's device. For more information on the WebRTC standard, see [WebRTC](https://webrtc.org/).
 
-    ```
+    ```JSON
     {
                   "version":"0",
                   "messageId":"6a7e8feb-b491-4cf7-a9f1-bf3703467718",
@@ -257,7 +256,7 @@ The following are the event types monitored with Managed Integrations notificati
 + `DEVICE_DISCOVERY_STATUS`
   + The discovery status of the device.
 
-    ```
+    ```JSON
     {
           "version":"0",
           "messageId":"6a7e8feb-b491-4cf7-a9f1-bf3703467718",
@@ -279,7 +278,7 @@ The following are the event types monitored with Managed Integrations notificati
 + `DEVICE_EVENT`
   + A notification of a device event occurring.
 
-    ```
+    ```JSON
     {
           "version":"1.0",
           "messageId":"2ed545027bd347a2b855d28f94559940",
@@ -318,7 +317,7 @@ The following are the event types monitored with Managed Integrations notificati
   Reflects changes in status of device life cycle (this includes onboarding status and connected/disconnected status).
   + Onboarding status update event.
 
-    ```
+    ```JSON
     { 
           "version": "1.0.0", 
           "messageId": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
@@ -343,7 +342,7 @@ The following are the event types monitored with Managed Integrations notificati
     ```
   + Device connected status event.
 
-    ```
+    ```JSON
     {
         "version": "1.0",
         "messageId": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6",
@@ -370,7 +369,7 @@ The following are the event types monitored with Managed Integrations notificati
     ```
   + Device disconnected status event.
 
-    ```
+    ```JSON
     {
         "version": "1.0",
         "messageId": "b2n3m4a5-s6d7-f8g9-h0j1-k2l3z4x5c6v7",
@@ -398,7 +397,7 @@ The following are the event types monitored with Managed Integrations notificati
 + `DEVICE_OTA`
   + A device OTA notification.
 
-    ```
+    ```JSON
     {
         "version": "1.0.0",
         "messageId": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
@@ -423,7 +422,7 @@ The following are the event types monitored with Managed Integrations notificati
 + `DEVICE_STATE`
   + A notification when the state of a device has been updated.
 
-    ```
+    ```JSON
     { 
           "messageType": "DEVICE_STATE",
           "source": "aws.iotmanagedintegrations",
@@ -456,7 +455,7 @@ The following are the event types monitored with Managed Integrations notificati
 + `ACCOUNT_ASSOCIATION`
   + A notification when an account association state changes to IN\_PROGRESS.
 
-    ```
+    ```JSON
     {
         "version": "1.0.0",
         "messageId": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
@@ -482,7 +481,7 @@ The following are the event types monitored with Managed Integrations notificati
     ```
   + A notification when an account association completes successfully.
 
-    ```
+    ```JSON
     {
         "version": "1.0.0",
         "messageId": "b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7",
@@ -509,7 +508,7 @@ The following are the event types monitored with Managed Integrations notificati
 + `CONNECTOR_ERROR_REPORT`
   + This notification is sent when a cloud-to-cloud (C2C) connector reports an error while processing a request on your behalf, such as a command or device discovery that returned a non-success response.
 
-    ```
+    ```JSON
     {
         "version": "1.0.0",
         "messageId": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",

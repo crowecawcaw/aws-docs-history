@@ -1,7 +1,6 @@
 
 
 # Environment setup
-<a name="managedintegrations-sdk-codegen-env"></a>
 
 Learn how to configure your environment to use the `codegen.py` code generator.
 
@@ -36,13 +35,13 @@ Use the following procedure to configure your environment to use the codegen.py 
 
    1. Clone the **connectedhomeip** repository. It uses the `codegen.py` script located in the `connectedhomeip/scripts/` folder for code generation. For more information, see [connectedhomeip](https://github.com/project-chip/connectedhomeip) on *GitHub.*
 
-      ```
+      ```JSON
       git clone -b v1.4.0.0 https://github.com/project-chip/connectedhomeip.git
       ```
 
    1. Clone it at the same level as your `IoT-managed-integrations-End-Device-SDK ` root folder. Your folder structure should match the following:
 
-      ```
+      ```JSON
         |-connectedhomeip
         |-IoT-managed-integrations-End-Device-SDK
       ```

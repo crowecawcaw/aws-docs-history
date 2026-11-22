@@ -1,7 +1,6 @@
 
 
 # Manually test your C2C connector
-<a name="manually-testing-connector"></a>
 
 To manually test your C2C connector end-to-end, you must simulate both the customer and the end user.
 

@@ -1,7 +1,6 @@
 
 
 # AWS implementation of the Matter data model
-<a name="matter-data-model"></a>
 
 The AWS implementation of the Matter Data Model manages all communication between Managed Integrations and third-party cloud providers.
 
@@ -15,7 +14,7 @@ There are two data elements used to describe a device: `endpoint` and `cluster`.
 
 The `endpoint` represents the logical interfaces or services offered by the feature.
 
-```
+```JSON
 {
     "id": { "type":"string"},
     "clusters": Cluster[]
@@ -26,7 +25,7 @@ The `endpoint` represents the logical interfaces or services offered by the feat
 
 The `cluster` represents the device capabilities.
 
-```
+```JSON
 {
     "id": "hexadecimalString",
    "revision": "string"        // optional
@@ -40,7 +39,7 @@ For the `cluster` data element, there are three items that comprise that item: `
 + **Attribute**: States that are held by the device, such as the current brightness level attribute of a dimmable light.
   + 
 
-    ```
+    ```JSON
     {
         "id" (hexadecimalString): (JsonNode) value
     }
@@ -48,7 +47,7 @@ For the `cluster` data element, there are three items that comprise that item: `
 + **Command**: Tasks that may be performed, such as locking a door on a door lock. Commands may generate responses and results.
   + 
 
-    ```
+    ```JSON
     "id": {
         "fieldId": "fieldValue",
         ...
@@ -62,7 +61,7 @@ For the `cluster` data element, there are three items that comprise that item: `
 + **Event**: Essentially a record of past state transitions. While `attributes` represent the current states, events are a journal of the past, and include a monotonically increasing counter, a timestamp, and a priority. They enable capturing state transitions, as well as data modeling that is not readily achieved with `attributes`.
   + 
 
-    ```
+    ```JSON
     "id": {
         "fieldId": "fieldValue",
         ...

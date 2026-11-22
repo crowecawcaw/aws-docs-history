@@ -1,7 +1,6 @@
 
 
 # Custom protocol plugin
-<a name="custom-protocol-plugin"></a>
 
 You can use a custom protocol plugin to integrate your proprietary IoT protocols into the managed integrations for AWS IoT Device Management ecosystem. Through well-defined SDK interfaces, you can onboard devices, define capabilities, and handle real-time control flows while maintaining full compatibility with managed integrations and hub SDK components.
 

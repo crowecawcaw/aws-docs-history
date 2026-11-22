@@ -1,7 +1,6 @@
 
 
 # Provision task publication
-<a name="provision-task-publication"></a>
 
 Use these methods to publish provision-related requests to the managed integrations components.
 

@@ -1,7 +1,6 @@
 
 
 # Connect to managed integrations for AWS IoT Device Management FIPS endpoints
-<a name="FIPS-endpoints"></a>
 
 AWS IoT provides a control plane endpoint that support the [Federal Information Processing Standard (FIPS) 140-2](https://aws.amazon.com/compliance/fips/). FIPS compliant endpoints are different from standard AWS endpoints. To interact with managed integrations for AWS IoT Device Management in a FIPS-compliant manner, you must use the endpoints described below with your FIPS compliant client. The AWS IoT console is not FIPS compliant.
 

@@ -1,7 +1,6 @@
 
 
 # Control task subscription
-<a name="control-task-subscription"></a>
 
 Use these methods to subscribe to control-related tasks from the managed integrations components.
 

@@ -1,7 +1,6 @@
 
 
 # Account linking workflow
-<a name="account-linking-flow"></a>
 
 For a customer's managed integrations for AWS IoT Device Management platform to interact with an end-user’s devices on your third-party platform through your C2C connector, it obtains the access token through the following workflow:
 
@@ -21,7 +20,7 @@ For a customer's managed integrations for AWS IoT Device Management platform to 
 
 1. Managed Integrations returns OAuthRedirectUrl (from the Connector Policy configuration) of the successful authentication page to the customer application.
 **Note**  
-In case of failures, managed integrations for AWS IoT Device Management appends error and error\_description query parameters to the URL providing error details to the customer application.
+In case of failures, managed integrations for AWS IoT Device Management appends `error` and `error_description` query parameters to the URL providing error details to the customer application.
 
 1. The customer application redirects the end user to the OAuthRedirectUrl. At this point the application front-end knows AssociationId of the association from the first step.
 

@@ -1,7 +1,6 @@
 
 
 # Device and device profile lifecycle
-<a name="device-and-device-profile-lifecycle-management"></a>
 
 Managing the lifecycle of your devices and device profiles ensures your fleet of devices are secure and running efficiently.
 

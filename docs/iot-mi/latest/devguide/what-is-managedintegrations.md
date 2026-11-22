@@ -1,14 +1,13 @@
 
 
 # What is managed integrations for AWS IoT Device Management?
-<a name="what-is-managedintegrations"></a>
 
 Managed Integrations for AWS IoT Device Management helps IoT solution providers unify the control and management of IoT devices from hundreds of manufacturers. You can use managed integrations to automate device setup workflows and support interoperability across many devices, regardless of device vendor or connectivity protocol. With managed integrations, you can use a single user interface and set of APIs to control, manage, and operate a range of devices.
 
 **Topics**
 + [Supported Regions](#supported-Regions)
 + [Are you a first-time Managed Integrations user?](#first-time-user)
-+ [Managed Integrations overview](#what-is-managedintegrations)
++ [Managed Integrations overview](what-is-managedintegrations.md)
 + [Managed Integrations terminology](#managedintegrations-terminology)
 
 ## Supported Regions

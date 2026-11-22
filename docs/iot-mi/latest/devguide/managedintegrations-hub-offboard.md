@@ -1,7 +1,6 @@
 
 
 # Offboard managed integrations hub
-<a name="managedintegrations-hub-offboard"></a>
 
 ## Overview of Hub SDK offboard process
 <a name="hub-offboarding-overview"></a>
@@ -44,7 +43,7 @@ Follow these steps to offboard the hub:
 
  The `iotmi_config.json` file is used to store the managed thing ID for a Managed Integrations hub. This identifier is a critical piece of information that allows the hub to communicate with the AWS IoT Managed Integrations service. The managed thing ID is stored within the **rw** (read-write) section of the JSON file, under the `managed_thing_id` field. This is seen in the following sample configuration: 
 
-```
+```JSON
 {
       "ro": {
           "iot_provisioning_method": "FLEET_PROVISIONING",
@@ -73,7 +72,7 @@ Follow these steps to offboard the hub:
 
  Use your account credentials and run the command with the `managed_thing_id` retrieved in the previous section: 
 
-```
+```JSON
 aws iot-managed-integrations delete-managed-thing \
     --identifier {{HUB_MANAGED_THING_ID}}
 ```
@@ -83,7 +82,7 @@ aws iot-managed-integrations delete-managed-thing \
 
  Use your account credentials and run the command with the `managed_thing_id` retrieved in the previous section: 
 
-```
+```JSON
 aws iot-managed-integrations get-managed-thing \
     --identifier {{HUB_MANAGED_THING_ID}}
 ```
@@ -96,7 +95,7 @@ aws iot-managed-integrations get-managed-thing \
 
  If the command to offboard the hub was successful, the following sample response is expected: 
 
-```
+```JSON
 {
       "Message" : "Managed Thing resource not found."   
 }
@@ -104,7 +103,7 @@ aws iot-managed-integrations get-managed-thing \
 
  Additionally, the following sample `iotmi_config.json` would be observed if the hub offboarding command was successful. Verify that the **rw** section contains only `iot_provisioning_state` and optionally **metadata**. The absence of **metadata** is acceptable. `iot_provisioning_state` must be **NOT\_PROVISIONED**. 
 
-```
+```JSON
 {
       "ro": {
           "iot_provisioning_method": "FLEET_PROVISIONING",
@@ -129,7 +128,7 @@ aws iot-managed-integrations get-managed-thing \
 
  If the command to offboard the hub was unsuccessful, the following sample response is expected: 
 
-```
+```JSON
 {
       "Arn" : "{{ARN}}",
       "CreatedAt" : 1.748968266655E9,
@@ -146,7 +145,7 @@ aws iot-managed-integrations get-managed-thing \
 +  If **ProvisioningStatus** is not `DELETE_IN_PROGRESS`, the command to offboard the hub either failed in the Managed Integrations cloud, or was not received by Managed Integrations cloud. Follow instructions in [Hub recovery](#hub-recovery). 
 +  If offboarding was unsuccessful, your `iotmi_config.json` file will look like the sample file below. 
 
-```
+```JSON
 {
       "ro": {
           "iot_provisioning_method": "FLEET_PROVISIONING",
@@ -197,7 +196,7 @@ To recover from this scenario, see [Force deletion](#forced-deletion). If `iotmi
 To delete cloud resources without a successful device hub offboarding, follow these steps. This operation may result in inconsistency between the cloud and device states, potentially causing issues with future operations.  
 Call [ DeleteManagedThing ](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_DeleteManagedThing) API with the hub's `managed_thing_id` and the **force** parameter:   
 
-```
+```JSON
 aws iot-managed-integrations delete-managed-thing \
   --identifier {{HUB_MANAGED_THING_ID}} \
   --force

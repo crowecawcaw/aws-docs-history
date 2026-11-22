@@ -1,7 +1,6 @@
 
 
 # OAuth 2.0 requirements for account linking
-<a name="concepts-account-linking"></a>
 
 Every C2C connector relies on an OAuth 2.0 authorization server to authenticate end users. Through this server, end users link their third-party accounts with the customer's device platform. Account linking is the first step required by an end user to use devices supported by your C2C connector. For more information on the different roles in account linking and OAuth 2.0, see [Account linking roles](roles-account-linking.md).
 

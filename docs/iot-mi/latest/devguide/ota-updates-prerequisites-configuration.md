@@ -1,7 +1,6 @@
 
 
 # Prerequisites for OTA updates
-<a name="ota-updates-prerequisites-configuration"></a>
 
 Before creating Over-the-Air (OTA) tasks, you need to complete the following configuration tasks in your environment.
 
@@ -18,7 +17,7 @@ To enable OTA updates, you must upload your job documents to an Amazon Simple St
 
 1. Configure the bucket policy to allow AWS IoT Managed Integrations to access your job documents in the bucket:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",
      "Statement": [

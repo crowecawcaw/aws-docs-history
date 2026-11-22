@@ -1,7 +1,6 @@
 
 
 # General/Custom Authorization requirements for connector developers
-<a name="concepts-general-authorization-dev"></a>
 
 General Authorization enables your connector to use credentials (such as API keys, tokens, or username/password combinations) instead of OAuth 2.0 user tokens. Unlike OAuth 2.0, which provides user-level authorization through account linking, General Authorization allows a single set of credentials to control devices across multiple end users.
 

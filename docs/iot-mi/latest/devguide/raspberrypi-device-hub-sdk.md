@@ -1,7 +1,6 @@
 
 
 # Managed Integrations Hub SDK image on Raspberry Pi
-<a name="raspberrypi-device-hub-sdk"></a>
 
 **Note**  
  This implementation of AWS IoT Hub SDK on Raspberry Pi is a demonstration project intended for learning and testing purposes only and is not intended to be used in production environments. For the purposes of this demo, set the following configurations for development ease:   
@@ -110,14 +109,14 @@ You must be on `YUL` or `DUB` region to do this step.
 
 1. Run the Hub SDK:
 
-   ```
+   ```bash
    cd /data/aws/iotmi
    bash start_hub_sdk.sh
    ```
 
 The system displays the following response for a successful Hub SDK start:
 
-```
+```bash
 -------Stopping SDK running processes---
 -------Starting Hub SDK-------------
 -------Creating logs directory----------

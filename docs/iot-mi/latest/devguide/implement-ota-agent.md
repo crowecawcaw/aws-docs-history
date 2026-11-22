@@ -1,7 +1,6 @@
 
 
 # Implement OTA agent
-<a name="implement-ota-agent"></a>
 
 When you receive the job document from managed integrations, you must have an implementation of your own OTA agent that processes the job document, downloads updates, and performs any installation operations. The OTA Agent needs to perform the following steps:
 
@@ -17,7 +16,7 @@ When you receive the job document from managed integrations, you must have an im
 
 When your device successfully completes the OTA operation, it must call the `iotmi\_JobsHandler\_updateJobStatus` API with a status of `JobSucceeded` to report a successful job.
 
-```
+```c
 /**
  * @brief Enumeration of possible job statuses.
  */

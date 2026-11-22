@@ -1,7 +1,6 @@
 
 
 # Enable CloudWatch Logs
-<a name="hub-log"></a>
 
  The Hub SDK provides comprehensive logging functionality. By default, the Hub SDK writes logs to the local file system. However, you can leverage the cloud API to configure log streaming to CloudWatch Logs, which offers: 
 +  **Monitor device performance**: Capture detailed runtime logs for proactive device management. Enable advanced log analysis and monitoring across your device fleet 
@@ -26,7 +25,7 @@ Configure the hub SDK log settings by calling the API to set up runtime log conf
 
 **Example sample API Request**  
 
-```
+```JSON
 aws iot-managed-integrations put-runtime-log-configuration \
     --managed-thing-id MANAGED_THING_ID \
     --runtime-log-configurations LogLevel=DEBUG,UploadLog=TRUE

@@ -1,7 +1,6 @@
 
 
 # Implement C2C connector interface operations
-<a name="connector-operations-overview"></a>
 
 Managed Integrations for AWS IoT Device Management defines four operations your AWS Lambda must handle to qualify as a connector. Your C2C connector must implement each of the following operations:
 
@@ -184,6 +183,8 @@ Every operation will respond with an `ACK` to managed integrations for AWS IoT D
 }
 ```
 
+**Response Header Field**
+
 
 **Default response header and field**  
 
@@ -201,6 +202,8 @@ Managed Integrations for AWS IoT Device Management expects your connector to beh
 
 Using the `SendConnectorEvent` API, your connector is expected to send the event types from the list below for `AWS.DiscoverDevices` and `AWS.SendCommand` operations, as well as proactive device events (such as a light being manually turned on and off).
 
+**Example Workflow**
+
 If your C2C connector receives a `DiscoverDevices` request, Managed Integrations for AWS IoT Device Management expects it to:
 + Respond synchronously with the response format defined above
 + Invoke the `SendConnectorEvent` API with a DEVICE\_DISCOVERY event
@@ -209,6 +212,8 @@ The `SendConnectorEvent` API call can take place anywhere you have access to you
 
 **Note**  
 Alternatively, the `SendConnectorEvent` API call can occur before the C2C connector Lambda invocation response if necessary. However, this flow contradicts the asynchronous model for software development.
+
+**SendConnectorEvent API**
 
 Your connector calls this managed integrations for AWS IoT Device Management API to send device events. Only 3 types of events are accepted:
 + **"DEVICE\_DISCOVERY"** - Used to send list of discovered devices within third-party cloud for a specific access token

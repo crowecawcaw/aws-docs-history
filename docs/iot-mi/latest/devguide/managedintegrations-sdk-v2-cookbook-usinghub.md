@@ -1,7 +1,6 @@
 
 
 # Onboard your hubs to Managed Integrations
-<a name="managedintegrations-sdk-v2-cookbook-usinghub"></a>
 
 Set up your hub devices to communicate with Managed Integrations by configuring the required directory structure, certificates, and device configuration files. This section describes how the hub onboarding subsystem components work together, where to store certificates and configuration files, how to create and modify the device configuration file, and the steps to complete the hub provisioning process.
 

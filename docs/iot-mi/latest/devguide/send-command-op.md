@@ -1,16 +1,19 @@
 
 
 # Implement the AWS.SendCommand operation
-<a name="send-command-op"></a>
 
 The `AWS.SendCommand` operation allows Managed Integrations for AWS IoT Device Management to send commands initiated by the end user via the AWS customer to your resource server. Your resource server may support multiple types of devices, where each type has its own response model.
 
 Command execution is an asynchronous process where Managed Integrations for AWS IoT Device Management sends a request for command execution with a `traceId`, which your connector will include in a command response sent back to Managed Integrations for AWS IoT Device Management via the `SendConnectorEvent` API. Managed Integrations for AWS IoT Device Management expects the resource server to return a response acknowledging that command was received, but not necessarily indicating that command was executed.
 
+**Device Command Execution Workflow**
+
 The following diagram illustrates the command execution flow with an example where the end user tries to turn on the lights of their house:
 
 ![Device command execution workflow](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/send-command-workflow.png)
 
+
+**Workflow Steps**
 
 1. **End user sends command** - An end user sends a command to turn on a light using the AWS customer's application.
 
@@ -50,10 +53,14 @@ The following diagram illustrates the command execution flow with an example whe
 **Note**  
 Your resource server configuration determines the logic for handling failed device command request and response messages. This includes message retry attempts using the same referenceId for the command.
 
+**C2C connector Requirements for Device Command Execution**
+
 The following list outlines the requirements for your C2C connector to facilitate a successful device command execution.
 + The C2C connector Lambda can process `AWS.SendCommand` operation request messages from managed integrations for AWS IoT Device Management.
 + Your C2C connector must keep track of commands sent to your resource server and map it with appropriate `traceId`.
 + You can call managed integrations for AWS IoT Device Management service API's via SigV4 using AWS credentials of AWS account used for registering the C2C connector.
+
+**Command Execution Process**
 
 **Step 1: Managed Integrations Sends Command to Connector**
 

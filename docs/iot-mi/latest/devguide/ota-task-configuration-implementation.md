@@ -1,7 +1,6 @@
 
 
 # OTA task configurations setup
-<a name="ota-task-configuration-implementation"></a>
 
 You can create configurations for OTA updates to control how updates are rolled out to devices, set abort conditions, and configure timeouts.
 
@@ -10,7 +9,7 @@ You can create configurations for OTA updates to control how updates are rolled 
 
 Use the following example to create an OTA task configuration:
 
-```
+```bash
 aws iotmanagedintegrations create-ota-task-configuration \
   --description "OTA configuration" \
   --name "MyOtaConfig" \

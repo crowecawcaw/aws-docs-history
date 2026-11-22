@@ -1,7 +1,6 @@
 
 
 # Schema for type definitions
-<a name="schema-for-type-definitions"></a>
 
 The following sections detail the schema used for type definitions.
 

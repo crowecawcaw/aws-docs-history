@@ -1,7 +1,6 @@
 
 
 # Use a C2C (Cloud-to-Cloud) connector
-<a name="use-c2c-create-cloud-connector"></a>
 
  A C2C connector manages the translation of request and response messages, and enables communication between managed integrations and a third-party vendor cloud. It facilitates unified control across different device types, platforms and protocols enabling third-party devices to be onboarded and managed. 
 
@@ -22,7 +21,7 @@ The following procedure lists the steps to use the C2C connector.
 
    **Sample CreateCloudConnector API Request and Response:**
 
-   ```
+   ```JSON
    Request:
    
    {
@@ -71,7 +70,7 @@ The following procedure lists the steps to use the C2C connector.
 
    **Sample CreateConnectorDestination API Request (OAuth):**
 
-   ```
+   ```JSON
    Request:
    
    {
@@ -108,7 +107,7 @@ The following procedure lists the steps to use the C2C connector.
 
    **Sample CreateConnectorDestination API Request (GeneralAuthorization):**
 
-   ```
+   ```JSON
    Request:
    
    {
@@ -164,7 +163,7 @@ The following procedure lists the steps to use the C2C connector.
 
    **Sample CreateAccountAssociation API Request (OAuth):**
 
-   ```
+   ```JSON
    Request:
    
    {
@@ -183,7 +182,7 @@ The following procedure lists the steps to use the C2C connector.
 
    **Sample CreateAccountAssociation API Request (GeneralAuthorization):**
 
-   ```
+   ```JSON
    Request:
    
    {
@@ -226,7 +225,7 @@ The following procedure lists the steps to use the C2C connector.
 
          **Sample StartDeviceDiscovery API Request and Response:**
 
-         ```
+         ```JSON
          Request:
          
          {
@@ -249,7 +248,7 @@ The following procedure lists the steps to use the C2C connector.
 
          **Sample ListDiscoveredDevices API Request and Response:**
 
-         ```
+         ```JSON
          Request:
          
          //Empty body
@@ -277,7 +276,7 @@ The following procedure lists the steps to use the C2C connector.
 
          **Sample CreateManagedThing API Request and Response:**
 
-         ```
+         ```JSON
          Request:
                        
          {
@@ -303,7 +302,7 @@ The following procedure lists the steps to use the C2C connector.
 
          **Sample RegisterAccountAssociation API Request and Response:**
 
-         ```
+         ```JSON
          Request:
          
          {
@@ -331,7 +330,7 @@ The following procedure lists the steps to use the C2C connector.
 
          **Sample CreateManagedThing API Request and Response (Pre-onboarded):**
 
-         ```
+         ```JSON
          Request:
                        
          {
@@ -359,7 +358,7 @@ The following procedure lists the steps to use the C2C connector.
 
          **Sample StartDeviceDiscovery API Request with connectorDeviceIdList:**
 
-         ```
+         ```JSON
          Request:
          
          {
@@ -397,7 +396,7 @@ For GeneralAuthorization, the connector retrieves the authorization material (AP
 
    **Sample SendManagedThingCommand API Request and Response:**
 
-   ```
+   ```JSON
    Request:
    
    {
@@ -450,7 +449,7 @@ For GeneralAuthorization: When using GeneralAuthorization, for each Secrets ARN 
 
      **Sample SendConnectorEvent API Request and Response:**
 
-     ```
+     ```json
      Request:
      
      {
@@ -480,7 +479,7 @@ For GeneralAuthorization: When using GeneralAuthorization, for each Secrets ARN 
 
      **Sample SendConnectorEvent API Request and Response:**
 
-     ```
+     ```json
      Request:
      
      {
@@ -509,7 +508,7 @@ For GeneralAuthorization: When using GeneralAuthorization, for each Secrets ARN 
 
    **Sample DeregisterAccountAssociation API Request and Response:**
 
-   ```
+   ```JSON
    Request:
    
    {

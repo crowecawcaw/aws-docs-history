@@ -1,11 +1,10 @@
 
 
 # Creating event log configurations
-<a name="logging-create-config"></a>
 
 Use the [CreateEventLogConfiguration](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_CreateEventLogConfiguration.html) API action to enable event logging for a resource type. We recommend creating a separate configuration for each resource type, using `*` as the resource identifier to capture logs for all resources of that type. Start at the `ERROR` log level to receive all failure logs without generating excessive volume or cost.
 
-```
+```bash
 aws iot-managed-integrations create-event-log-configuration \
     --resource-type "managed-thing" \
     --resource-id "*" \
@@ -14,7 +13,7 @@ aws iot-managed-integrations create-event-log-configuration \
 
 Repeat for each resource type:
 
-```
+```bash
 aws iot-managed-integrations create-event-log-configuration \
     --resource-type "credential-locker" \
     --resource-id "*" \

@@ -1,7 +1,6 @@
 
 
 # Supported resource types
-<a name="logging-resource-types"></a>
 
 Each resource type corresponds to specific Managed Integrations workflows:
 

@@ -1,7 +1,6 @@
 
 
 # Manage IoT device commands and events
-<a name="device-commands-events"></a>
 
 Device commands provide the ability to remotely manage a physical device ensuring complete control over the device in addition to performing critical security, software, and hardware updates. With a large fleet of devices, knowing when a device performs a command provides oversight over your entire device implementation. A device command or an automatic update will trigger a device state change, which in turn will create a new device event. This device event will trigger a notification automatically sent to a customer-managed destination.
 
@@ -22,7 +21,7 @@ For more information on the `SendManagedThingCommand` API operation, see [SendMa
 
 To update the state of a device such as the time a light turns on, use the `UpdateState` action when calling the `SendManagedThingCommand` API. Provide the data model property and new value you are updating in `parameters`. The below example illustrates a `SendManagedThingCommand` API request updating the `OnTime` of a light bulb to `5`.
 
-```
+```JSON
 {
   "Endpoints": [
     {
@@ -55,7 +54,7 @@ To get the latest state of a device including the current values of all data mod
 
 The below examples illustrate both scenarios for a `SendManagedThingCommand` API request using the `ReadState` action:
 
-```
+```JSON
 {
   "Endpoints": [
     {
@@ -80,7 +79,7 @@ The below examples illustrate both scenarios for a `SendManagedThingCommand` API
 }
 ```
 
-```
+```JSON
 {
   "Endpoints": [
     {

@@ -1,7 +1,6 @@
 
 
 # Considerations for AWS IoT Managed Integrations VPC endpoints
-<a name="vpc-endpoints-considerations"></a>
 
 Before you set up an interface VPC endpoint for AWS IoT Managed Integrations, review [ Interface endpoint properties and limitations](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-interface.html#vpce-interface-limitations) in the *AWS PrivateLink Guide*.
 

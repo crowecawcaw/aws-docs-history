@@ -1,7 +1,6 @@
 
 
 # Cloud-to-Cloud (C2C) connectors
-<a name="concepts-c2c-connector"></a>
 
 A cloud-to-cloud connector allows you to create and facilitate bidirectional communication between third-party devices and AWS.
 

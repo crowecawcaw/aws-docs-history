@@ -1,7 +1,6 @@
 
 
 # Client initialization
-<a name="client-initialization"></a>
 
 To start using the `DeviceSDKClient`, initialize it with a client ID.
 

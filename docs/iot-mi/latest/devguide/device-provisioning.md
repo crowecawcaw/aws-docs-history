@@ -1,7 +1,6 @@
 
 
 # Device provisioning
-<a name="device-provisioning"></a>
 
 Device provisioning facilitates the device onboarding process, oversees the entire device lifecycle, and establishes a centralized repository for device information that is accessible to other aspects of Managed Integrations. Managed Integrations provides a unified interface for managing various device types, accommodating first-party customer devices directly connected through a device software development kit (SDK) or commercial-off-the-shelf (COTS) devices indirectly linked via a hub device. 
 

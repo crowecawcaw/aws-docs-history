@@ -1,7 +1,6 @@
 
 
 # Simple setup to onboard and operate devices
-<a name="managedintegrations-sdk-v2-cookbook-ss"></a>
 
 Set up your devices to be onboarded to your Managed Integrations hub by creating a managed thing and connecting it to your hub. This section describes the steps to complete the device onboarding process using simple setup.
 
@@ -33,14 +32,14 @@ Create a credential locker for your device.
 
   **create-credential-locker example**
 
-  ```
+  ```JSON
   aws iot-managed-integrations create-credential-locker \
     --name {{"DEVICE_NAME"}}
   ```
 
   **Response:**
 
-  ```
+  ```JSON
   {    
     "Id": {{"LOCKER_ID"}}
     "Arn": "arn:aws:iotmanagedintegrations:{{AWS_REGION}}:{{AWS_ACCOUNT_ID}}:credential-locker/{{LOCKER_ID}}
@@ -58,7 +57,7 @@ Add the credential locker to your hub.
 **To add a credential locker to your hub**
 + Use the following command to add a credential locker to your hub.
 
-  ```
+  ```JSON
   aws iotmi --region {{AWS_REGION}} --endpoint {{AWS_ENDPOINT}} update-managed-thing \
   --identifier {{"HUB_MANAGED_THING_ID"}} --credential-locker-id {{"LOCKER_ID"}}
   ```
@@ -73,7 +72,7 @@ Create a managed thing with credentials for your device. Each device requires it
 
   **create-managed-thing example**
 
-  ```
+  ```JSON
   #ZWAVE: 
   aws iot-managed-integrations create-managed-thing --role DEVICE \
   --authentication-material '900137947003133...' \ #auth material from zwave qr code
@@ -91,7 +90,7 @@ There are separate commands for Z-wave and Zigbee devices.
 
   **Response:**
 
-  ```
+  ```JSON
   {    
     "Id": {{"DEVICE_MANAGED_THING_ID"}}
     "Arn": "arn:aws:iotmanagedintegrations:{{AWS_REGION}}:{{AWS_ACCOUNT_ID}}:managed-thing/{{DEVICE_MANAGED_THING_ID}}"
@@ -109,7 +108,7 @@ There are separate commands for Z-wave and Zigbee devices.
 
   **get-managed-thing example**
 
-  ```
+  ```JSON
   #KINESIS NOTIFICATION:
   {
       "version": "1.0.0",
@@ -136,7 +135,7 @@ There are separate commands for Z-wave and Zigbee devices.
 
   **Response:**
 
-  ```
+  ```JSON
   {    
     "Id": {{"DEVICE_MANAGED_THING_ID"}}
     "Arn": "arn:aws:iotmanagedintegrations:{{AWS_REGION}}:{{AWS_ACCOUNT_ID}}:managed-thing/{{MANAGED_THING_ID}}"
@@ -156,14 +155,14 @@ Use the `get-managed-thing-capabilities` command to obtain your endpoint ID and 
 
   **get-managed-thing-capabilties example**
 
-  ```
+  ```JSON
   aws iotmi get-managed-thing-capabilities \
   --identifier {{"DEVICE_MANAGED_THING_ID"}}
   ```
 
   **Response:**
 
-  ```
+  ```JSON
   {    
       "ManagedThingId": "1e84f61fa79a41219534b6fd57052cbc",
       "CapabilityReport": {
@@ -205,7 +204,7 @@ Use the `send-managed-thing-command` command to send a toggle action command to 
 
   **send-managed-thing-command example**
 
-  ```
+  ```JSON
   json=$(jq -cr '.|@json') <<EOF
   [
     {
@@ -234,7 +233,7 @@ This example uses jq cli to but you can also pass the entire `endpointId` string
 
   **Response:**
 
-  ```
+  ```JSON
   {    
   "TraceId": {{"TRACE_ID"}}
   }
@@ -252,7 +251,7 @@ Clean up your hub by removing the managed thing.
 
   **delete-managed-thing example**
 
-  ```
+  ```JSON
   aws iot-managed-integrations delete-managed-thing \
   --identifier {{"DEVICE_MANAGED_THING_ID"}}
   ```

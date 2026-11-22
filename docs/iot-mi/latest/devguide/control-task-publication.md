@@ -1,7 +1,6 @@
 
 
 # Control task publication
-<a name="control-task-publication"></a>
 
 Use these methods to publish control-related requests to the managed integrations components.
 

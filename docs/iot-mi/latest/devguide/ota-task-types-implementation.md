@@ -1,7 +1,6 @@
 
 
 # Implement Over-the-Air (OTA) tasks
-<a name="ota-task-types-implementation"></a>
 
 You can create OTA tasks in two ways, depending on your update requirements and device targeting strategy:
 
@@ -12,7 +11,7 @@ A one-time OTA task contains a static list of targets (`ManagedThings`) to perfo
 
 Use the following example to create a one-time OTA task:
 
-```
+```bash
 aws iotmanagedintegrations create-ota-task \
   --description "One-time OTA update" \
   --s3-url "s3://test-job-document-bucket/ota-job-document.json" \
@@ -40,7 +39,7 @@ Before creating continuous OTA tasks, complete these prerequisites:
 
 Add attributes and metadata to `ManagedThing` using the [UpdateManagedThing](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_UpdateManagedThing.html) API:
 
-```
+```bash
 aws iotmanagedintegrations update-managed-thing \
   --managed-thing-id "YOUR_MANAGED_THING_ID" \
   --meta-data '{"owner":"managedintegrations","version":"1.0"}'
@@ -48,7 +47,7 @@ aws iotmanagedintegrations update-managed-thing \
 
 Use the following example to create a continuous OTA task:
 
-```
+```bash
 aws iotmanagedintegrations create-ota-task \
   --description "Continuous OTA update" \
   --s3-url "s3://test-job-document-bucket/ota-job-document.json" \

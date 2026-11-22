@@ -1,7 +1,6 @@
 
 
 # Implement the AWS.DeactivateUser operation
-<a name="deactive-user-op"></a>
 
 ## User deactivation overview
 <a name="deactivate-user-overview"></a>
@@ -45,6 +44,8 @@ The following requirements must be met for your C2C connector to successfully ha
 + **Token Revocation / Cleanup:**
   + **For OAuth 2.0:** The C2C connector must revoke the provided OAuth 2.0 token and the corresponding refresh token of the user within your authorization server.
   + **For General Authorization:** The C2C connector should perform any necessary cleanup or deactivation steps required by your third-party platform.
+
+**Request Examples**
 
 **OAuth 2.0 Request:**
 

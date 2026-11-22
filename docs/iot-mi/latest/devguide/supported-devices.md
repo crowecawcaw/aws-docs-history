@@ -1,7 +1,6 @@
 
 
 # Supported Zigbee and Z-Wave device types
-<a name="supported-devices"></a>
 
 This page lists the hub-connected device types that have been tested with managed integrations and are supported. Managed Integrations supports both [Simple setup (SS)](managedintegrations-sdk-v2-device-onboarding.md#managedintegrations-sdk-v2-onboarding-ssflow) and [User guided setup (UGS)](managedintegrations-sdk-v2-device-onboarding.md#managedintegrations-sdk-v2-onboarding-ugsflow) for these devices.
 

@@ -1,7 +1,6 @@
 
 
 # Generate code for devices
-<a name="managedintegrations-sdk-codegen-generate"></a>
 
 Create customized C code for your devices using the Managed Integrations code generation tools. This section describes how to generate code from sample files included with the SDK or from your own specifications. Learn how to use the generation scripts, understand the workflow process, and create code that matches your device requirements.
 

@@ -1,7 +1,6 @@
 
 
 # Schema for capability definitions
-<a name="schema-for-capability-definitions"></a>
 
 A capability is documented using a declarative JSON document that provides a clear contract for how the capability should function within the system.
 

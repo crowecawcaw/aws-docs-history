@@ -1,7 +1,6 @@
 
 
 # Device onboarding
-<a name="managedintegrations-sdk-v2-device-onboarding"></a>
 
 Review how the Hub SDK components support device onboarding before you begin working with Managed Integrations. This section covers the essential architectural components you need for device onboarding, including how the core provisioner and protocol-specific plugins work together to handle device authentication, communication, and user setup.
 

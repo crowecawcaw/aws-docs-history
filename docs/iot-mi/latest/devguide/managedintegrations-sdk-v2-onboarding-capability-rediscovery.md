@@ -1,7 +1,6 @@
 
 
 # Capability rediscovery
-<a name="managedintegrations-sdk-v2-onboarding-capability-rediscovery"></a>
 
 This section describes the steps to relearn device capability information for hub-connected devices using capability rediscovery.
 
@@ -33,7 +32,7 @@ Start capability rediscovery for your hub to update device capabilities.
 
   **start-device-discovery example**
 
-  ```
+  ```JSON
   # For a single device
   aws iot-managed-integrations start-device-discovery \
     --discovery-type CONTROLLER_CAPABILITY_REDISCOVERY \
@@ -50,7 +49,7 @@ Start capability rediscovery for your hub to update device capabilities.
 
   **Response:**
 
-  ```
+  ```JSON
   {
       "Id": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
       "StartedAt": "2026-01-12T23:07:49.275Z"
@@ -74,7 +73,7 @@ Use the following guidance to troubleshoot common issues with capability redisco
 
 **Per device being processed:**
 
-```
+```JSON
 {
     "messageType": "DEVICE_DISCOVERY_STATUS",
     // Capability rediscovery with controller and end device
@@ -89,7 +88,7 @@ Use the following guidance to troubleshoot common issues with capability redisco
 
 **Completion:**
 
-```
+```JSON
 {
     "messageType": "DEVICE_DISCOVERY_STATUS",
     // Capability rediscovery with controller only
@@ -107,7 +106,7 @@ Use the following guidance to troubleshoot common issues with capability redisco
 
 **Device failure:**
 
-```
+```JSON
 {
     "messageType": "DEVICE_DISCOVERY_STATUS",
     // Capability rediscovery with controller and end device
@@ -127,7 +126,7 @@ Use the following guidance to troubleshoot common issues with capability redisco
 
 **Complete failure:**
 
-```
+```JSON
 {
     "messageType": "DEVICE_DISCOVERY_STATUS",
     // Capability rediscovery with controller only
@@ -164,7 +163,7 @@ To resolve these issues, ensure the affected devices are powered on and reachabl
 
 If the capability rediscovery process does not complete, check the discovery status using the discovery job ID returned from the `start-device-discovery` command:
 
-```
+```JSON
 aws iot-managed-integrations get-device-discovery \
   --identifier {{DISCOVERY_JOB_ID}}
 ```

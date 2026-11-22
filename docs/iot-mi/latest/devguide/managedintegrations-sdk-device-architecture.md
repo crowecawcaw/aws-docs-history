@@ -1,7 +1,6 @@
 
 
 # End device SDK architecture and components
-<a name="managedintegrations-sdk-device-architecture"></a>
 
 This section describes the End device SDK architecture and how its components interact with your low level C-Functions. The following diagram illustrates the core components and their relationships in the SDK framework.
 

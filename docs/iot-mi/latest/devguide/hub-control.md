@@ -1,7 +1,6 @@
 
 
 # Hub control
-<a name="hub-control"></a>
 
 Hub control is an extension to the managed integrations End device SDK that allows it to interface with the `MQTTProxy` component in the Hub SDK. With hub control, you can implement code using the End device SDK and control your hub through the Managed Integrations cloud as a separate device. The hub control SDK will be provided as a separate package with-in the Hub SDK, labeled as `iot-managed-integrations-hub-control-x.x.x`.
 
@@ -166,7 +165,7 @@ Hub control is provided as part of the Hub SDK package. The hub control sub-pack
 
 1. Move the code generated files to the `example` folder:
 
-   ```
+   ```bash
    cp codegen/out/* example/dm
    ```
 

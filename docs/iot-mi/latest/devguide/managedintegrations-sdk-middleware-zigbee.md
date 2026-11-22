@@ -1,7 +1,6 @@
 
 
 # Zigbee middleware code organization
-<a name="managedintegrations-sdk-middleware-zigbee"></a>
 
 The following shows the Zigbee reference middleware code organization.
 
