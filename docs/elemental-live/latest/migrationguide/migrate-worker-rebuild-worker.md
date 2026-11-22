@@ -1,7 +1,6 @@
 
 
 # Step I: Configure the Elemental Live node after migration
-<a name="migrate-worker-rebuild-worker"></a>
 
 **Install new licenses**
 

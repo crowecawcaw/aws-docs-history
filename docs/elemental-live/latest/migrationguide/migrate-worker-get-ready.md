@@ -1,7 +1,6 @@
 
 
 # Step A: Get ready for Elemental Live migration
-<a name="migrate-worker-get-ready"></a>
 
 ## Read the essential notes
 <a name="migrate-worker-essential-notes"></a>

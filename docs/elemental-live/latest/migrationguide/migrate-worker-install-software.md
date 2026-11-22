@@ -1,7 +1,6 @@
 
 
 # Step G: Install worker software on an Elemental Live node
-<a name="migrate-worker-install-software"></a>
 
 This install procedure isn't the same as the install procedure on a newly obtained appliance (as described in [AWS Elemental Live Installation Guide](https://docs.aws.amazon.com/elemental-live/latest/installguide/)). You don't have to configure the node. 
 

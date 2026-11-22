@@ -1,7 +1,6 @@
 
 
 # Switch to UEFI on a SuperMicro
-<a name="migrate-worker-boot-mode-uefi-smc"></a>
 
 To switch the boot mode from BIOS (Legacy mode) to UEFI, you can use the IPMI interface, or you can work when directly connected to the server. 
 

@@ -1,7 +1,6 @@
 
 
 # About this guide
-<a name="migration-guide-about"></a>
 
 This guide describes how to upgrade a AWS Elemental Live to a version in the range of 2.26.1 to 2.26.5. It applies to a standalone deployment of Elemental Live. (If you are using Elemental Live in a cluster, see the [AWS Elemental Conductor Live Migration Guide](https://docs.aws.amazon.com/elemental-cl3/latest/migrationguide/).) 
 

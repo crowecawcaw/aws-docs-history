@@ -1,7 +1,6 @@
 
 
 # Step H: Restore the database on a Elemental Live node
-<a name="migrate-worker-install-restore"></a>
 
 You restore data using the same lifeboat script that you used to create the backup.
 

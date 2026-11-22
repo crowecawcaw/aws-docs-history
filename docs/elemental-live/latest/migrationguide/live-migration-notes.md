@@ -1,7 +1,6 @@
 
 
 # Important notes
-<a name="live-migration-notes"></a>
 
 Following is some key advice about migration.
 

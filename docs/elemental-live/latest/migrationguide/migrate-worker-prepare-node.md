@@ -1,7 +1,6 @@
 
 
 # Step B: Prepare the Elemental Live node for migration
-<a name="migrate-worker-prepare-node"></a>
 
 ## Upgrade to the latest 2.25 minor version
 <a name="migrate-worker-upgrade-to-2.25"></a>

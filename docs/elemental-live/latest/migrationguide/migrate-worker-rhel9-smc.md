@@ -1,7 +1,6 @@
 
 
 # Install on an SMC
-<a name="migrate-worker-rhel9-smc"></a>
 
 You install RHEL 9 on an SMC chassis from the IPMI interface.
 

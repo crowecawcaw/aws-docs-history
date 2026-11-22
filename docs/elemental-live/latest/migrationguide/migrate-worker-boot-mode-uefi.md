@@ -1,7 +1,6 @@
 
 
 # Step E: Switch boot mode to UEFI
-<a name="migrate-worker-boot-mode-uefi"></a>
 
 RHEL 9 requires that the boot mode for the appliance is UEFI. You can change the boot mode from BIOS (or Legacy mode) to UEFI.
 
