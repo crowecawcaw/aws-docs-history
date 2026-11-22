@@ -1,7 +1,6 @@
 
 
 # Running interactive workloads on Amazon EMR on EKS
-<a name="connect-emr-studio"></a>
 
 An *interactive endpoint* is a gateway that connects Amazon EMR Studio to Amazon EMR on EKS so that you can run interactive workloads. You can use interactive endpoints with EMR Studio to run interactive analytics with datasets in data stores like [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/) and [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/).
 

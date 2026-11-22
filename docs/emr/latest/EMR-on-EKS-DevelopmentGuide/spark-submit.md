@@ -1,7 +1,6 @@
 
 
 # Running Spark jobs with spark-submit
-<a name="spark-submit"></a>
 
 Amazon EMR releases 6.10.0 and higher support `spark-submit` as a command-line tool that you can use to submit and execute Spark applications to an Amazon EMR on EKS cluster.
 

@@ -1,7 +1,6 @@
 
 
 # emr-6.12.0-20230701
-<a name="emr-eks-6.12.0-20230701"></a>
 
 **Release notes**: `6.12.0-20230701` was released on July 1, 2023. This is the initial release of Amazon EMR 6.12.0.
 

@@ -1,7 +1,6 @@
 
 
 # Setting up a secure Apache Livy endpoint with TLS/SSL
-<a name="job-runs-apache-livy-secure-endpoint"></a>
 
 See the following sections to learn more about setting up Apache Livy for Amazon EMR on EKS with end-to-end TLS and SSL encryption.
 
@@ -21,25 +20,25 @@ Follow these steps to set up a JKS certificate with a key and a keystore passwor
 
 1. Generate a keystore file for the Livy server.
 
-   ```
+   ```bash,sh,zsh
    keytool -genkey -alias {{<host>}} -keyalg RSA -keysize 2048 –dname CN={{<host>}},OU=hw,O=hw,L={{<your_location>}},ST={{<state>}},C={{<country>}} –keypass {{<keyPassword>}} -keystore {{<keystore_file>}} -storepass {{<storePassword>}} --validity 3650
    ```
 
 1. Create a certificate.
 
-   ```
+   ```bash,sh,zsh
    keytool -export -alias {{<host>}} -keystore mykeystore.jks -rfc -file {{mycertificate.cert}} -storepass {{<storePassword>}}
    ```
 
 1. Create a truststore file.
 
-   ```
+   ```bash,sh,zsh
    keytool -import -noprompt -alias {{<host>}}-file {{<cert_file>}} -keystore {{<truststore_file>}} -storepass {{<truststorePassword>}}
    ```
 
 1. Save the JKS certificate in AWS Secrets Manager. Replace `livy-jks-secret` with your secret and `fileb://mykeystore.jks` with the path to your keystore JKS certificate.
 
-   ```
+   ```bash,sh,zsh
    aws secretsmanager create-secret \ 
    --name {{livy-jks-secret}} \
    --description "My Livy keystore JKS secret" \
@@ -48,7 +47,7 @@ Follow these steps to set up a JKS certificate with a key and a keystore passwor
 
 1. Save the keystore and key password in Secrets Manager. Make sure to use your own parameters.
 
-   ```
+   ```bash,sh,zsh
    aws secretsmanager create-secret \
    --name {{livy-jks-secret}} \
    --description "My Livy key and keystore password secret" \
@@ -57,13 +56,13 @@ Follow these steps to set up a JKS certificate with a key and a keystore passwor
 
 1. Create a Livy server namespace with the following command.
 
-   ```
+   ```bash,sh,zsh
    kubectl create ns {{<livy-ns>}}
    ```
 
 1. Create the `ServiceProviderClass` object for the Livy server that has the JKS certificate and the passwords.
 
-   ```
+   ```bash,sh,zsh
    cat >livy-secret-provider-class.yaml << EOF
    apiVersion: secrets-store.csi.x-k8s.io/v1
    kind: SecretProviderClass
@@ -89,13 +88,13 @@ After enabling SSL on your Livy server, you must set up the `serviceAccount` to 
 
 1. Create the Livy server namespace.
 
-   ```
+   ```bash,sh,zsh
    kubectl create namespace {{<livy-ns>}}
    ```
 
 1. Set up the Livy service account to have access to the secrets in Secrets Manager. For more information about setting up IRSA, see [Setting up IRSA while installing Apache Livy](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/job-runs-apache-livy-irsa.html#job-runs-apache-livy-irsa).
 
-   ```
+   ```bash,sh,zsh
    aws ecr get-login-password \--region region-id | helm registry login \
    --username AWS \
    --password-stdin ECR-registry-account.dkr.ecr.region-id.amazonaws.com
@@ -103,7 +102,7 @@ After enabling SSL on your Livy server, you must set up the `serviceAccount` to 
 
 1. Install Livy. For the Helm chart --version parameter, use your Amazon EMR release label, such as `7.1.0`. You must also replace the Amazon ECR registry account ID and Region ID with your own IDs. You can find the corresponding `ECR-registry-account` value for your AWS Region from [Amazon ECR registry accounts by Region](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/docker-custom-images-tag.html#docker-custom-images-ECR).
 
-   ```
+   ```bash,sh,zsh
    helm install {{<livy-app-name>}} \
      oci://895885662937.dkr.ecr.region-id.amazonaws.com/livy \
      --version 7.14.0 \

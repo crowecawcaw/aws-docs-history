@@ -1,7 +1,6 @@
 
 
 # Managing Amazon EMR on EKS job runs
-<a name="emr-eks-jobs-manage"></a>
 
 The following sections cover topics that help you manage your Amazon EMR on EKS job runs. These include configuring job run parameters when you use the AWS CLI, configuring how your log data is stored, running Spark SQL scripts to run queries, understanding job run states, and knowing how to monitor jobs. You can work through these topics, generally in order, if you want to set up and complete a job run to process data.
 

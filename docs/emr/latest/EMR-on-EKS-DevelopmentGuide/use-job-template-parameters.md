@@ -1,7 +1,6 @@
 
 
 # Defining job template parameters
-<a name="use-job-template-parameters"></a>
 
 Job template parameters allow you to specify variables in the job template. Values for these parameter variables will need to be specified when starting a job run using that job template. Job template parameters are specified in `${parameterName}` format. You can choose to specify any value in a `jobTemplateData` field as a job template parameter. For each of the job template parameter variables, specify its data type (`STRING` or `NUMBER`) and optionally a default value. The example below shows how you can specify job template parameters for entry point location, main class, and S3 log location values.
 

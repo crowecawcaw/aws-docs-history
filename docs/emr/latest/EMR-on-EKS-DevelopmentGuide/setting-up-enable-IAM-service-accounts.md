@@ -1,7 +1,6 @@
 
 
 # Option 2: Enable IAM Roles for Service Accounts (IRSA) on the EKS cluster
-<a name="setting-up-enable-IAM-service-accounts"></a>
 
 The IAM roles for service accounts feature is available on Amazon EKS versions 1.14 and later and for EKS clusters that are updated to versions 1.13 or later on or after September 3rd, 2019. To use this feature, you can update existing EKS clusters to version 1.14 or later. For more information, see [Updating an Amazon EKS cluster Kubernetes version](https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html).
 
@@ -10,13 +9,13 @@ If your cluster supports IAM roles for service accounts, it has an [OpenID Conne
 **Important**  
 You must use the latest version of the AWS CLI to receive the proper output from this command.
 
-```
+```shell
 aws eks describe-cluster --name {{cluster_name}} --query "cluster.identity.oidc.issuer" --output text
 ```
 
 The expected output is as follows.
 
-```
+```shell
 https://oidc.eks.<region-code>.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E
 ```
 
@@ -27,7 +26,7 @@ To use IAM roles for service accounts in your cluster, you must create an OIDC i
 
 Check your `eksctl` version with the following command. This procedure assumes that you have installed `eksctl` and that your `eksctl` version is 0.32.0 or later.
 
-```
+```shell
 eksctl version
 ```
 
@@ -35,7 +34,7 @@ For more information about installing or upgrading eksctl, see [Installing or up
 
 Create your OIDC identity provider for your cluster with the following command. Replace {{cluster\_name}} with your own value.
 
-```
+```shell
 eksctl utils associate-iam-oidc-provider --cluster {{cluster_name}} --approve
 ```
 
@@ -46,7 +45,7 @@ Retrieve the OIDC issuer URL from the Amazon EKS console description of your clu
 
 Use the following command to retrieve the OIDC issuer URL from the AWS CLI.
 
-```
+```shell
 aws eks describe-cluster --name <cluster_name> --query "cluster.identity.oidc.issuer" --output text
 ```
 

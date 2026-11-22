@@ -1,7 +1,6 @@
 
 
 # Setting up vertical autoscaling for Amazon EMR on EKS
-<a name="jobruns-vas-setup"></a>
 
 This topic helps you get your Amazon EKS cluster ready to submit Amazon EMR Spark jobs with vertical autoscaling. The setup process requires you to confirm or complete the tasks in the following sections:
 
@@ -27,19 +26,19 @@ Complete the following tasks before you install the vertical autoscaling Kuberne
 
 Use the Operator SDK CLI to install the Operator Lifecycle Manager (OLM) on the Amazon EMR on EKS cluster where you want to set up vertical autoscaling, as shown in the following example. Once you set it up, you can use OLM to install and manage the lifecycle of the [Amazon EMR vertical autoscaling operator](#jobruns-vas-install-operator).
 
-```
+```shell
 operator-sdk olm install
 ```
 
 To validate installation, run the `olm status` command:
 
-```
+```shell
 operator-sdk olm status
 ```
 
 Verify that the command returns a successful result, similar to the following example output:
 
-```
+```shell
 INFO[0007] Successfully got OLM status for version {{X.XX}}
 ```
 
@@ -57,7 +56,7 @@ Use the following steps to install the vertical autoscaling operator on your Ama
 
 1. Next, get authentication tokens to the [Amazon ECR registry](docker-custom-images-tag.md#docker-custom-images-ECR) for the operator.
 
-   ```
+   ```shell
    aws ecr get-login-password \
     --region {{region-id}} | docker login \
     --username AWS \
@@ -66,7 +65,7 @@ Use the following steps to install the vertical autoscaling operator on your Ama
 
 1. Install the Amazon EMR on EKS vertical autoscaling operator with the following command:
 
-   ```
+   ```shell
    ECR_URL=$ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com && \
    REPO_DEST=dynamic-sizing-k8s-operator-olm-bundle && \
    BUNDLE_IMG=emr-$RELEASE-dynamic-sizing-k8s-operator && \
@@ -76,7 +75,7 @@ Use the following steps to install the vertical autoscaling operator on your Ama
 
    This will create a release of the vertical autoscaling operator in the default namespace of your Amazon EKS cluster. Use this command to install in a different namespace:
 
-   ```
+   ```shell
    operator-sdk run bundle \
    $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/dynamic-sizing-k8s-operator-olm-bundle/emr-$RELEASE-dynamic-sizing-k8s-operator:latest \
    -n {{operator-namespace}}
@@ -86,7 +85,7 @@ If the namespace that you specify doesn't exist, OLM won't install the operator.
 
 1. Verify that you successfully installed the operator with the kubectl Kubernetes command-line tool.
 
-   ```
+   ```shell
    kubectl get csv -n {{operator-namespace}}
    ```
 

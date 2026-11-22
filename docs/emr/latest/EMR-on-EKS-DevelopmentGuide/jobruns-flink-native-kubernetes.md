@@ -1,7 +1,6 @@
 
 
 # Using Flink Native Kubernetes
-<a name="jobruns-flink-native-kubernetes"></a>
 
 Amazon EMR releases 6.13.0 and higher support Flink Native Kubernetes as a command-line tool that you can use to submit and execute Flink applications to an Amazon EMR on EKS cluster.
 

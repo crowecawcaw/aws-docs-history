@@ -1,7 +1,6 @@
 
 
 # Installation properties for Apache Livy on Amazon EMR on EKS releases
-<a name="job-runs-apache-livy-installation-properties"></a>
 
 Apache Livy installation allows you to select a version of the Livy Helm chart. The Helm chart offers a variety of properties to customize your installation and setup experience. These properties are supported for Amazon EMR on EKS releases 7.1.0 and higher.
 

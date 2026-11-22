@@ -1,7 +1,6 @@
 
 
 # Viewing jobs in the Amazon EMR console
-<a name="emr-eks-jobs-console"></a>
 
 Job run data is avilable to view, so you can monitor each job as it passes through the states. To view jobs in the Amazon EMR console, perform the following steps.
 

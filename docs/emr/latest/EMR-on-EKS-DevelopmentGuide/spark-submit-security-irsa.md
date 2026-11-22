@@ -1,7 +1,6 @@
 
 
 # Setting up IAM roles for service accounts (IRSA) for spark-submit
-<a name="spark-submit-security-irsa"></a>
 
 The following sections explain how to set up IAM roles for service accounts (IRSA) to authenticate and authorize Kubernetes service accounts so you can run Spark applications stored in Amazon S3.
 
@@ -168,6 +167,6 @@ Amazon EMR 6.10.0 and higher supports spark-submit for running Spark application
 
 When you're done running your applications, you can perform cleanup with the following command.
 
-```
+```bash,sh,zsh
 kubectl delete -f spark-rbac.yaml
 ```

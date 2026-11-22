@@ -1,7 +1,6 @@
 
 
 # emr-5.33.0-20210615
-<a name="emr-eks-5.33.0-20210615"></a>
 
 **Release notes**: `emr-5.33.0-20210615` was released on June 15, 2021. Compared to the previous version, this version contains issue fixes and security updates.
 

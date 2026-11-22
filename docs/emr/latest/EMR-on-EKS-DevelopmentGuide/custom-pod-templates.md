@@ -1,7 +1,6 @@
 
 
 # Specifying custom pod templates with interactive endpoints
-<a name="custom-pod-templates"></a>
 
 You can create interactive endpoints where you specify custom pod templates for drivers and executors. *Pod templates* are specifications that determine how to run each pod. You can use pod template files to define the configurations of driver or executor pods that Spark configurations don't support. Pod templates are currently supported in Amazon EMR releases 6.3.0 and greater.
 
@@ -9,7 +8,7 @@ For more information about pod templates, see [Using pod templates](https://docs
 
 The following example shows how to create an interactive endpoint with pod templates:
 
-```
+```bash,sh,zsh
 aws emr-containers create-managed-endpoint \
     --type JUPYTER_ENTERPRISE_GATEWAY \
     --virtual-cluster-id {{virtual-cluster-id}} \

@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations when using the Spark connector
-<a name="emr-spark-redshift-considerations"></a>
 
 The Spark connector supports a variety of ways to manage credentials, to configure security, and to connect with other AWS services. Get familiar with the recommendations in this list in order to configure a functional and resilient connection.
 + We recommend that you activate SSL for the JDBC connection from Spark on Amazon EMR to Amazon Redshift.

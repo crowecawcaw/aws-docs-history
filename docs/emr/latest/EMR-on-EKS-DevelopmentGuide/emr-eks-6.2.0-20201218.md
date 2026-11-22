@@ -1,7 +1,6 @@
 
 
 # emr-6.2.0-20201218
-<a name="emr-eks-6.2.0-20201218"></a>
 
 **Release notes**: `emr-6.2.0-20201218` was released on December 18, 2020. Compared to `emr-6.2.0-20201201`, this version contains issue fixes and security updates.
 

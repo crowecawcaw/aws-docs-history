@@ -1,7 +1,6 @@
 
 
 # Using pod templates
-<a name="pod-templates"></a>
 
 Beginning with Amazon EMR versions 5.33.0 or 6.3.0, Amazon EMR on EKS supports Spark’s pod template feature. A pod is a group of one or more containers, with shared storage and network resources, and a specification for how to run the containers. Pod templates are specifications that determine how to run each pod. You can use pod template files to define the driver or executor pod’s configurations that Spark configurations do not support. For more information about the Spark’s pod template feature, see [Pod Template](https://spark.apache.org/docs/latest/running-on-kubernetes.html#pod-template). 
 
@@ -18,7 +17,7 @@ You can define how to run Spark jobs on shared EKS clusters by using pod templat
 
 For example, the following pod template file demonstrates a common usage scenario. 
 
-```
+```JSON
 apiVersion: v1
 kind: Pod
 spec:
@@ -79,7 +78,7 @@ Spark uses the job execution role to load the pod template, so the job execution
 
 You can use the `SparkSubmitParameters` to specify the Amazon S3 path to the pod template, as the following job run JSON file demonstrates.
 
-```
+```JSON
 {
   "name": "myjob", 
   "virtualClusterId": "123456",  
@@ -103,7 +102,7 @@ You can use the `SparkSubmitParameters` to specify the Amazon S3 path to the pod
 
 Alternatively, you can use the `configurationOverrides` to specify the Amazon S3 path to the pod template, as the following job run JSON file demonstrates.
 
-```
+```JSON
 {
   "name": "myjob", 
   "virtualClusterId": "123456",  
@@ -193,7 +192,7 @@ Consider the following field restrictions when configuring a pod template with A
 
   When you use any disallowed fields in the pod template, Spark throws an exception and the job fails. The following example shows an error message in the Spark controller log due to disallowed fields. 
 
-  ```
+  ```shell
   Executor pod template validation failed.
   Field container.command in Spark main container not allowed but specified.
   ```
@@ -227,7 +226,7 @@ You can still use these predefined volumes and mount them into your additional s
 
   If the fields you specify conflict with any of the predefined fields in the pod template, Spark throws an exception and the job fails. The following example shows an error message in the Spark application log due to conflicts with the predefined fields. 
 
-  ```
+  ```shell
   Defined volume mount path on main container must not overlap with reserved mount paths: [<reserved-paths>]
   ```
 
@@ -242,7 +241,7 @@ Spark main container in driver and executor pods sends `heartbeat` to a file `/v
 
 The following example demonstrates a sub-process that tracks the heartbeat file and stops itself. Replace {{your\_volume\_mount}} with the path where you mount the predefined volume. The script is bundled inside the image used by sidecar container. In a pod template file, you can specify a sidecar container with the following commands `sub_process_script.sh` and `main_command`.
 
-```
+```JSON
 MOUNT_PATH="{{your_volume_mount}}"
 FILE_TO_WATCH="$MOUNT_PATH/main-container-terminated"
 INITIAL_HEARTBEAT_TIMEOUT_THRESHOLD=60

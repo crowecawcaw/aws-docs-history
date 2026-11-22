@@ -1,7 +1,6 @@
 
 
 # emr-7.1.0-flink-20240321
-<a name="emr-eks-7.1.0-flink-20240321"></a>
 
 **Release notes**: `7.1.0-flink-20240321` was released in December 2023. This is the initial release of Amazon EMR 7.1.0 (Flink).
 

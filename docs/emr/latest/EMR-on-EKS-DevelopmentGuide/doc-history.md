@@ -1,7 +1,6 @@
 
 
 # Document history
-<a name="doc-history"></a>
 
 The following table describes the important changes to the documentation since the last release of Amazon EMR on EKS. For more information about updates to this documentation, you can subscribe to an RSS feed.
 

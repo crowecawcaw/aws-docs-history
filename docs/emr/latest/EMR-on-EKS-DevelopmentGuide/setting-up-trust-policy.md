@@ -1,7 +1,6 @@
 
 
 # Update the trust policy of the job execution role
-<a name="setting-up-trust-policy"></a>
 
 When you use IAM Roles for Service Accounts (IRSA) to run jobs on a Kubernetes namespace, an administrator must create a trust relationship between the job execution role and the identity of the EMR managed service account. The trust relationship can be created by updating the trust policy of the job execution role. Note that the EMR managed service account is automatically created at job submission, scoped to the namespace where the job is submitted.
 

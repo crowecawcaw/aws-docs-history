@@ -1,7 +1,6 @@
 
 
 # Optimizing Flink job restart times for task recovery and scaling operations with Amazon EMR on EKS
-<a name="jobruns-flink-restart"></a>
 
 When a task fails or when a scaling operation occurs, Flink attempts to re-execute the task from the last completed checkpoint. The restart process could take a minute or longer to execute, depending on the size of the checkpoint state and the number of parallel tasks. During the restart period, backlog tasks can accumulate for the job. There are some ways though, that Flink optimizes the speed of recovery and restart of execution graphs to improve job stability.
 
@@ -30,7 +29,7 @@ Our benchmark tests with sample jobs have shown that the recovery time has been 
 
 To enable task-local recovery, set the following configurations in your `flink-conf.yaml` file. Specify the checkpointing interval value in milliseconds.
 
-```
+```yaml
     state.backend.local-recovery: true
     state.backend: {{hasmap or rocksdb}}
     state.checkpoints.dir: s3://{{STORAGE-BUCKET-PATH}}/checkpoint
@@ -49,7 +48,7 @@ Use the following steps to enable automatic EBS volume mount for Flink in Amazon
 
 1. Export the values for the following variables that you'll use in upcoming steps.
 
-   ```
+   ```bash,sh,zsh
    export AWS_REGION={{aa-example-1}} 
    export FLINK_EKS_CLUSTER_NAME={{my-cluster}}
    export AWS_ACCOUNT_ID={{111122223333}}
@@ -57,13 +56,13 @@ Use the following steps to enable automatic EBS volume mount for Flink in Amazon
 
 1. Create or update a `kubeconfig` YAML file for your cluster.
 
-   ```
+   ```yaml
    aws eks update-kubeconfig --name $FLINK_EKS_CLUSTER_NAME --region $AWS_REGION
    ```
 
 1. Create an IAM service account for the Amazon EBS Container Storage Interface (CSI) driver on your Amazon EKS cluster. 
 
-   ```
+   ```bash,sh,zsh
    eksctl create iamserviceaccount \
       --name ebs-csi-controller-sa \
       --namespace kube-system \
@@ -77,7 +76,7 @@ Use the following steps to enable automatic EBS volume mount for Flink in Amazon
 
 1. Create the Amazon EBS CSI driver with the following command:
 
-   ```
+   ```bash,sh,zsh
    eksctl create addon \
       --name aws-ebs-csi-driver \
       --region $AWS_REGION \
@@ -87,7 +86,7 @@ Use the following steps to enable automatic EBS volume mount for Flink in Amazon
 
 1. Create the Amazon EBS storage class with the following command:
 
-   ```
+   ```bash,sh,zsh
    cat ≪ EOF ≫ storage-class.yaml
    apiVersion: storage.k8s.io/v1
    kind: StorageClass
@@ -100,13 +99,13 @@ Use the following steps to enable automatic EBS volume mount for Flink in Amazon
 
    And then apply the class:
 
-   ```
+   ```bash,sh,zsh
    kubectl apply -f storage-class.yaml
    ```
 
 1. Helm install the Amazon EMR Flink Kubernetes operator with options to create a service account. This creates the `emr-containers-sa-flink` to use in the Flink deployment.
 
-   ```
+   ```bash,sh,zsh
    helm install flink-kubernetes-operator flink-kubernetes-operator/ \
       --set jobServiceAccount.create=true \
       --set rbac.jobRole.create=true \
@@ -115,7 +114,7 @@ Use the following steps to enable automatic EBS volume mount for Flink in Amazon
 
 1. To submit the Flink job and enable the automatic provision of EBS volumes for task-local recovery, set the following configurations in your `flink-conf.yaml` file. Adjust the size limit for the state size of the job. Set `serviceAccount` to `emr-containers-sa-flink`. Specify the checkpointing interval value in milliseconds. And omit the `executionRoleArn`.
 
-   ```
+   ```yaml
    flinkConfiguration:
        task.local-recovery.ebs.enable: true
        kubernetes.taskmanager.local-recovery.persistentVolumeClaim.sizeLimit: 10Gi
@@ -189,7 +188,7 @@ Fine-grained recovery works only with perfectly parallel Flink jobs. It's not su
 
 To enable fine-grained recovery, set the following configurations in your `flink-conf.yaml` file.
 
-```
+```yaml
 jobmanager.execution.failover-strategy: region 
 restart-strategy: {{exponential-delay or fixed-delay}}
 ```
@@ -208,7 +207,7 @@ With sample jobs, our benchmark tests have shown that this feature processes 10%
 
 To enable the combined restart mechanism, set the following configurations in your `flink-conf.yaml` file.
 
-```
+```yaml
 jobmanager.adaptive-scheduler.combined-restart.enabled: true 
 jobmanager.adaptive-scheduler.combined-restart.window-interval: 1m
 ```

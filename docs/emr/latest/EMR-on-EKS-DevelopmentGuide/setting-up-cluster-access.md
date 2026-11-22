@@ -1,7 +1,6 @@
 
 
 # Enable cluster access for Amazon EMR on EKS
-<a name="setting-up-cluster-access"></a>
 
 The following sections show a couple ways to enable cluster access. The first is by using Amazon EKS cluster access management (CAM) and the latter shows how to take manual steps to enable cluster access.
 
@@ -27,13 +26,13 @@ The Amazon EMR integration with Amazon EKS CAM is supported only for new Amazon 
 To set up the integration between Amazon EMR and the AccessEntry API operations from Amazon EKS, make sure that you have completed the follow items:
 + Make sure that `authenticationMode` of your Amazon EKS cluster is set to `API_AND_CONFIG_MAP`.
 
-  ```
+  ```bash,sh,zsh
   aws eks describe-cluster --name {{<eks-cluster-name>}}
   ```
 
   If it isn't already, set `authenticationMode` to `API_AND_CONFIG_MAP`.
 
-  ```
+  ```bash,sh,zsh
   aws eks update-cluster-config 
       --name {{<eks-cluster-name>}} 
       --access-config authenticationMode=API_AND_CONFIG_MAP
@@ -123,7 +122,7 @@ The following is a list of terminologies and concepts related to Amazon EKS CAM.
 
 You must allow Amazon EMR on EKS access to a specific namespace in your cluster by taking the following actions: creating a Kubernetes role, binding the role to a Kubernetes user, and mapping the Kubernetes user with the service linked role [`AWSServiceRoleForAmazonEMRContainers`](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/using-service-linked-roles.html). These actions are automated in `eksctl` when the IAM identity mapping command is used with `emr-containers` as the service name. You can perform these operations easily by using the following command.
 
-```
+```shell
 eksctl create iamidentitymapping \
     --cluster {{my_eks_cluster}} \
     --namespace {{kubernetes_namespace}} \
@@ -230,7 +229,7 @@ You can also use the following manual steps to enable cluster access for Amazon 
 
    Run the following command to create a Kubernetes role binding in the given namespace. This role binding grants the permissions defined in the role created in the previous step to a user named `emr-containers`. This user identifies [service-linked roles for Amazon EMR on EKS](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/using-service-linked-roles.html) and thus allows Amazon EMR on EKS to perform actions as defined by the role you created.
 
-   ```
+   ```shell
    namespace={{my-namespace}}
    
    cat - <<EOF | kubectl apply -f - --namespace "${namespace}"
@@ -258,7 +257,7 @@ You can also use the following manual steps to enable cluster access for Amazon 
 
    Run the following `eksctl` command to map the Amazon EMR on EKS service-linked role with the `emr-containers` user.
 
-   ```
+   ```shell
    eksctl create iamidentitymapping \
        --cluster {{my-cluster-name}} \
        --arn "arn:aws:iam::{{my-account-id}}:role/AWSServiceRoleForAmazonEMRContainers" \
@@ -269,7 +268,7 @@ You can also use the following manual steps to enable cluster access for Amazon 
 
    1. Run the following command to open the `aws-auth` configuration map in text editor. 
 
-      ```
+      ```shell
       kubectl edit -n kube-system configmap/aws-auth
       ```
 **Note**  

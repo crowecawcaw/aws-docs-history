@@ -1,7 +1,6 @@
 
 
 # Create and using a job template to start a job run
-<a name="create-job-template"></a>
 
 This section describes creating a job template and using the template to start a job run with the AWS Command Line Interface (AWS CLI).
 

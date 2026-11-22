@@ -1,7 +1,6 @@
 
 
 # emr-6.11.0-20230905
-<a name="emr-eks-6.11.0-20230905"></a>
 
 **Release notes**: `6.11.0-20230905` was released on September 29, 2023. Compared to the previous release, this release has been refreshed with the recently updated Amazon Linux packages and critical fixes.
 

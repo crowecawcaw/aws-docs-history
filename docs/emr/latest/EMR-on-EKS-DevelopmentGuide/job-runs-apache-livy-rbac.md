@@ -1,7 +1,6 @@
 
 
 # Setting up the Apache Livy and Spark application permissions with role-based access control (RBAC)
-<a name="job-runs-apache-livy-rbac"></a>
 
 To deploy Livy, Amazon EMR on EKS creates a server service account and role and a Spark service account and role. These roles must have the necessary RBAC permissions to finish setup and run Spark applications.
 
@@ -11,7 +10,7 @@ Amazon EMR on EKS creates the Livy server service account and role to manage Liv
 
 The default name for this service account is `emr-containers-sa-livy`. It must have the following permissions.
 
-```
+```bash,sh,zsh
 rules:
 - apiGroups:
   - ""
@@ -70,7 +69,7 @@ rules:
 
 A Spark driver pod needs a Kubernetes service account in the same namespace as the pod. This service account needs permissions to manage executor pods and any resources required by the driver pod. Unless the default service account in the namespace has the required permissions, the driver fails and exits. The following RBAC permissions are required.
 
-```
+```bash,sh,zsh
 rules:
 - apiGroups:
   - ""

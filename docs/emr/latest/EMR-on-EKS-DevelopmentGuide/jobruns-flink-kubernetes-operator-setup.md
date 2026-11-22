@@ -1,7 +1,6 @@
 
 
 # Setting up the Flink Kubernetes operator for Amazon EMR on EKS
-<a name="jobruns-flink-kubernetes-operator-setup"></a>
 
 Complete the following tasks to get set up before you install the Flink Kubernetes operator on Amazon EKS. If you've already signed up for Amazon Web Services (AWS) and have used Amazon EKS, you are almost ready to use Amazon EMR on EKS. Complete the following tasks to get set up for the Flink operator on Amazon EKS. If you've already completed any of the prerequisites, you can skip those and move on to the next one.
 + **[Install or update to the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) ** – If you've already installed the AWS CLI, confirm that you have the latest version.
@@ -15,7 +14,7 @@ Complete the following tasks to get set up before you install the Flink Kubernet
 + Create an operator execution role. This step is optional. You can use the same role for Flink jobs and operator. If you want to have a different IAM role for your operator, you can create a separate role.
 + Update the trust policy of the operator execution role. You must explicitly add one trust policy entry for the roles you want to use for the Amazon EMR Flink Kubernetes operator service account. You can follow this example format:
 
-  ```
+  ```json
   {
     "Version": "2012-10-17",
     "Statement": [

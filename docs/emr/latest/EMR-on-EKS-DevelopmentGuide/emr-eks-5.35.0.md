@@ -1,7 +1,6 @@
 
 
 # Amazon EMR on EKS 5.35.0 releases
-<a name="emr-eks-5.35.0"></a>
 
 The following Amazon EMR 5.35.0 releases are available for Amazon EMR on EKS. Select a specific **emr-5.35.0-XXXX** release to view more details such as the related container image tag.
 + [emr-5.35.0-latest](emr-eks-5.35.0-latest.md)

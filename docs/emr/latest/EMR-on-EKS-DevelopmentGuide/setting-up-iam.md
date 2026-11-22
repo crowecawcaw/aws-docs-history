@@ -1,7 +1,6 @@
 
 
 # Grant users access to Amazon EMR on EKS
-<a name="setting-up-iam"></a>
 
 For any actions that you perform on Amazon EMR on EKS, you need a corresponding IAM permission for that action. You must create an IAM policy that allows you to perform the Amazon EMR on EKS actions and attach the policy to the IAM user or role that you use. 
 
@@ -44,7 +43,7 @@ To manage virtual clusters in your AWS account, create an IAM policy with the fo
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -119,7 +118,7 @@ To submit jobs on the virtual clusters in your AWS account, create an IAM policy
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -155,7 +154,7 @@ If you haven't created an Amazon S3 bucket, you need to add `s3:CreateBucket` pe
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

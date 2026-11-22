@@ -1,7 +1,6 @@
 
 
 # Running Spark SQL scripts through the StartJobRun API
-<a name="emr-eks-jobs-spark-sql-parameters"></a>
 
 Amazon EMR on EKS releases 6.7.0 and higher include a Spark SQL job driver so that you can run Spark SQL scripts through the `StartJobRun` API. You can supply SQL entry-point files to directly run Spark SQL queries on Amazon EMR on EKS with the `StartJobRun` API, without any modifications to existing Spark SQL scripts. The following table lists Spark parameters that are supported for the Spark SQL jobs through the StartJobRun API.
 
@@ -32,7 +31,7 @@ You can choose from the following Spark parameters to send to a Spark SQL job. U
 
 For a Spark SQL job, create a start-job-run-request.json file and specify the required parameters for your job run, as in the following example:
 
-```
+```JSON
 {
   "name": "{{myjob}}", 
   "virtualClusterId": "{{123456}}",  

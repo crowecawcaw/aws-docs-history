@@ -1,7 +1,6 @@
 
 
 # Tagging your Amazon EMR on EKS resources
-<a name="tag-resources"></a>
 
 To help you manage your Amazon EMR on EKS resources, you can assign your own metadata to each resource using tags. This topic provides an overview of the tags function and shows you how to create tags.
 

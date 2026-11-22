@@ -1,7 +1,6 @@
 
 
 # emr-7.1.0-latest
-<a name="emr-eks-7.1.0-latest"></a>
 
 **Release notes**: `emr-7.1.0-latest` currently points to `emr-7.1.0-20240321`.
 

@@ -1,7 +1,6 @@
 
 
 # Getting started with vertical autoscaling for Amazon EMR on EKS
-<a name="jobruns-vas-gs"></a>
 
 Use vertical autoscaling for Amazon EMR on EKS when you want automatic tuning of memory and CPU resources to adapt to your Amazon EMR Spark application workload. For more information, see [Using vertical autoscaling with Amazon EMR Spark jobs](jobruns-vas.html).
 
@@ -10,7 +9,7 @@ Use vertical autoscaling for Amazon EMR on EKS when you want automatic tuning of
 
 When you submit a job through the [StartJobRun](https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_StartJobRun.html) API, add the following two configurations to the driver for your Spark job to turn on vertical autoscaling:
 
-```
+```JSON
 "spark.kubernetes.driver.annotation.emr-containers.amazonaws.com/dynamic.sizing":"true",
 "spark.kubernetes.driver.annotation.emr-containers.amazonaws.com/dynamic.sizing.signature":"{{YOUR_JOB_SIGNATURE}}"
 ```
@@ -21,7 +20,7 @@ For more information on these configurations and acceptable parameter values, se
 
 The following example shows how to complete a sample `start-job-run` command with vertical autoscaling:
 
-```
+```JSON
 aws emr-containers start-job-run \
 --virtual-cluster-id ${{VIRTUAL_CLUSTER_ID}} \
 --name ${{JOB_NAME}} \
@@ -48,14 +47,14 @@ aws emr-containers start-job-run \
 
 To verify that vertical autoscaling works correctly for the submitted job, use kubectl to get the `verticalpodautoscaler` custom resource and view your scaling recommendations. For example, the following command queries for recommendations on the example job from the [Submitting a Spark job with vertical autoscaling](#jobruns-vas-spark-submit) section:
 
-```
+```shell
 kubectl get verticalpodautoscalers --all-namespaces \
 -l=emr-containers.amazonaws.com/dynamic.sizing.signature={{test-signature}}
 ```
 
 The output from this query should resemble the following:
 
-```
+```shell
 NAME                                                          MODE   CPU         MEM PROVIDED   AGE
 ds-jceyefkxnhrvdzw6djum3naf2abm6o63a6dvjkkedqtkhlrf25eq-vpa   Off    3304504865  True           87m
 ```

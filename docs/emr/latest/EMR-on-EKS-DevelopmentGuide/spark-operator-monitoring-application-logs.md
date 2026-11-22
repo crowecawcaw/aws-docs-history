@@ -1,7 +1,6 @@
 
 
 # Spark Application Logs
-<a name="spark-operator-monitoring-application-logs"></a>
 
 You can define this configuration in the following way.
 

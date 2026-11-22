@@ -1,7 +1,6 @@
 
 
 # Using Spark container log rotation
-<a name="emr-eks-log-rotation-container"></a>
 
 With Amazon EMR 6.11.0 and later, you can turn on the Spark container log rotation feature for Amazon EMR on EKS. Instead of generating a single `stdout` or `stderr` log file, this feature rotates the file based on your configured rotation size and removes the oldest log files from the container.
 
@@ -20,7 +19,7 @@ The `maxFilesToKeep` parameter specifies the maximum number of files to retain i
 
 You can specify these parameters in the `monitoringConfiguration` section of the `StartJobRun` API, as the following example shows. In this example, with `rotationSize = "10 MB"` and `maxFilesToKeep = 3`, Amazon EMR on EKS rotates your logs at 10 MB, generates a new log file, and then purges the oldest log file once the number of log files reaches 3.
 
-```
+```JSON
 {
   "name": "{{my-long-running-job}}", 
   "virtualClusterId": "{{123456}}",  
@@ -62,7 +61,7 @@ You can specify these parameters in the `monitoringConfiguration` section of the
 
 To start a job run with Spark container log rotation, include a path to the json file that you configured with these parameters in the [`StartJobRun`](emr-eks-jobs-submit.md) command.
 
-```
+```bash,sh,zh
 aws emr-containers start-job-run \
 --cli-input-json file://{{path-to-json-request-file}}
 ```

@@ -1,7 +1,6 @@
 
 
 # Use monitoring configuration to monitor Flink Kubernetes operator and Flink jobs
-<a name="jobruns-flink-monitoring-configuration"></a>
 
 Monitoring configuration lets you easily set up log archiving of your Flink application and operator logs to S3 and/or CloudWatch (you can choose either one or both). Doing so adds a FluentD sidecar to your JobManager and TaskManager pods and subsequently forwards these components' logs to your configured sinks.
 
@@ -13,7 +12,7 @@ You must set up IAM Roles for the service account for your Flink operator and yo
 
 You can define this configuration in the following way.
 
-```
+```json
 apiVersion: flink.apache.org/v1beta1
 kind: FlinkDeployment
 metadata:
@@ -72,7 +71,7 @@ The following are configuration options.
       ```
   + The following IAM permissions are required to use this forwarder.
 
-    ```
+    ```json
     {
         "Effect": "Allow",
         "Action": [
@@ -93,7 +92,7 @@ The following are configuration options.
     ```
   + The following IAM permissions are required to use this forwarder.
 
-    ```
+    ```json
     {
         "Effect": "Allow",
         "Action": [
@@ -119,7 +118,7 @@ The following are configuration options.
 
 We can also enable log archiving for the operator by using the following options in the `values.yaml` file in your helm chart installation. You can enable S3, CloudWatch, or both.
 
-```
+```yaml
 monitoringConfiguration: 
   s3MonitoringConfiguration:
     logUri: "{{S3-BUCKET}}"

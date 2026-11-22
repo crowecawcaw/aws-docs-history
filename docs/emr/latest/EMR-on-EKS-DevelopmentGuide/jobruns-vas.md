@@ -1,7 +1,6 @@
 
 
 # Using vertical autoscaling with Amazon EMR Spark jobs
-<a name="jobruns-vas"></a>
 
 Amazon EMR on EKS vertical autoscaling automatically tunes memory and CPU resources to adapt to the needs of the workload that you provide for Amazon EMR Spark applications. This simplifies resource management.
 

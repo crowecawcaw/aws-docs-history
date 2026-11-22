@@ -1,7 +1,6 @@
 
 
 # emr-6.8.0-20220802
-<a name="emr-eks-6.8.0-20220802"></a>
 
 **Release notes**: `emr-6.8.0-20220802` was released on Sep 27, 2022. This is the initial release of Amazon EMR 6.8.0.
 

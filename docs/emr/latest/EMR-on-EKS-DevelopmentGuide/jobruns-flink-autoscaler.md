@@ -1,7 +1,6 @@
 
 
 # Using Autoscaler for Flink applications
-<a name="jobruns-flink-autoscaler"></a>
 
 The operator autoscaler can help ease backpressure by collecting metrics from Flink jobs and automatically adjusting parallelism on a job vertex level. The following is an example of what your configuration might look like:
 

@@ -1,7 +1,6 @@
 
 
 # Configuring settings for interactive endpoints
-<a name="managed-endpoint-parameters"></a>
 
 This section contains a series of topics that cover various configurations for interactive endpoints and pod settings. These give you the ability to monitor and troubleshoot failures, send log information to Amazon S3 or to Amazon CloudWatch Logs, or to create interactive endpoints where you specify custom pod templates. 
 

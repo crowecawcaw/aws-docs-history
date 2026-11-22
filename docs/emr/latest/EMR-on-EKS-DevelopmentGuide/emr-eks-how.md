@@ -1,7 +1,6 @@
 
 
 # What happens when you submit work to an Amazon EMR on EKS virtual cluster
-<a name="emr-eks-how"></a>
 
 Registering Amazon EMR with a Kubernetes namespace on Amazon EKS creates a virtual cluster. Amazon EMR can then run analytics workloads on that namespace. When you use Amazon EMR on EKS to submit Spark jobs to the virtual cluster, Amazon EMR on EKS requests the Kubernetes scheduler on Amazon EKS to schedule pods.
 

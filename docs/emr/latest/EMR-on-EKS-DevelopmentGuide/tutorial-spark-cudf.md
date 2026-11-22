@@ -1,7 +1,6 @@
 
 
 # Using the cuDF Plugin for Apache Spark with Amazon EMR on EKS
-<a name="tutorial-spark-cudf"></a>
 
 With Amazon EMR on EKS, you can run jobs for the NVIDIA cuDF Plugin for Apache Spark. This tutorial covers how to run Spark jobs using cuDF on EC2 graphics processing unit (GPU) instance types. The tutorial uses the following versions:
 + Amazon EMR on EKS release version 6.9.0 and later
@@ -23,7 +22,7 @@ To configure your Amazon EKS cluster to add GPU-enabled node groups, perform the
 
 1. Create a GPU-enabled node group with the following [create-nodegroup](https://docs.aws.amazon.com/cli/latest/reference/eks/create-nodegroup.html) command. Be sure to substitute the correct parameters for your Amazon EKS cluster. Use an instance type that supports Spark cuDF, such as P4, P3, G5 or G4dn. 
 
-   ```
+   ```bash,sh,zsh
    aws eks create-nodegroup \
     --cluster-name {{EKS_CLUSTER_NAME}} \
     --nodegroup-name {{NODEGROUP_NAME}} \
@@ -39,13 +38,13 @@ To configure your Amazon EKS cluster to add GPU-enabled node groups, perform the
 
 1. Install the Nvidia device plugin in your cluster to emit the number of GPUs on each node of your cluster and to run GPU-enabled containers in your cluster. Run the following code to install the plugin:
 
-   ```
+   ```bash,sh,zsh
    kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v0.9.0/nvidia-device-plugin.yml
    ```
 
 1. To validate how many GPUs are available on each node of your cluster, run the following command:
 
-   ```
+   ```bash,sh,zsh
    kubectl get nodes  "-o=custom-columns=NAME:.metadata.name,GPU:.status.allocatable.nvidia\.com/gpu"
    ```
 
@@ -53,7 +52,7 @@ To configure your Amazon EKS cluster to add GPU-enabled node groups, perform the
 
 1. Submit a Spark cuDF job to your Amazon EMR on EKS cluster. The following code shows an example of a command to start the job. The first time you run the job, it might take a few minutes to download the image and cache it on the node.
 
-   ```
+   ```bash,sh,zsh
    aws emr-containers start-job-run \
    --virtual-cluster-id {{VIRTUAL_CLUSTER_ID}} \
    --execution-role-arn {{JOB_EXECUTION_ROLE}} \
@@ -76,7 +75,7 @@ To configure your Amazon EKS cluster to add GPU-enabled node groups, perform the
 
 1. To see the operations that will be run on a GPU, perform the following steps to enable extra logging. Note the "`spark.rapids.sql.explain : ALL`" config.
 
-   ```
+   ```bash,sh,zsh
    aws emr-containers start-job-run \
    --virtual-cluster-id {{VIRTUAL_CLUSTER_ID}} \
    --execution-role-arn {{JOB_EXECUTION_ROLE}} \

@@ -1,7 +1,6 @@
 
 
 # emr-6.5.0-20211119
-<a name="emr-eks-6.5.0-20211119"></a>
 
 **Release notes**: `emr-6.5.0-20211119` was released on Jan 20, 2022. This is the initial release of Amazon EMR 6.5.0.
 

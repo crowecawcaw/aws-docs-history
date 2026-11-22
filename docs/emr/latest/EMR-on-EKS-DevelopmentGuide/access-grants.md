@@ -1,7 +1,6 @@
 
 
 # Using Amazon S3 Access Grants with Amazon EMR on EKS
-<a name="access-grants"></a>
 
 ## S3 Access Grants overview for Amazon EMR on EKS
 <a name="access-grants-overview"></a>
@@ -23,7 +22,7 @@ You can enable S3 Access Grants on Amazon EMR on EKS and launch a Spark job. Whe
 
 1. Set up a job execution role for your Amazon EMR on EKS cluster. Include the required IAM permissions that you need to run Spark jobs, `s3:GetDataAccess` and `s3:GetAccessGrantsInstanceForPrefix`:
 
-   ```
+   ```json
    {
        "Effect": "Allow",
        "Action": [
@@ -41,7 +40,7 @@ If you specify IAM roles that for job execution that have any additional permiss
 
 1. Submit a job to your Amazon EMR on EKS cluster with an Amazon EMR release label of 6.15 or higher and the `emrfs-site` classification, as the following example shows. Replace the values in `{{red text}}` with the appropriate values for your usage scenario.
 
-   ```
+   ```json
    {
      "name": "{{myjob}}", 
      "virtualClusterId": "{{123456}}",  

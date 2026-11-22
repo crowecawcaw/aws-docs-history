@@ -1,7 +1,6 @@
 
 
 # Configure a job run to use Amazon S3 logs
-<a name="emr-eks-jobs-s3"></a>
 
 To be able to monitor the job progress and to troubleshoot failures, you must configure your jobs to send log information to Amazon S3, Amazon CloudWatch Logs, or both. This topic helps you get started publishing application logs to Amazon S3 on your jobs that are launched with Amazon EMR on EKS.
 
@@ -14,7 +13,7 @@ Before your jobs can send log data to Amazon S3, the following permissions must 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

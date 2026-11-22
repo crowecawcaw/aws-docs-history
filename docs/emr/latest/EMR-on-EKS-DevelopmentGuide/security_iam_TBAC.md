@@ -1,7 +1,6 @@
 
 
 # Policies for tag-based access control
-<a name="security_iam_TBAC"></a>
 
 You can use conditions in your identity-based policy to control access to virtual clusters and job runs based on tags. For more information about tagging, see [Tagging your Amazon EMR on EKS resources](tag-resources.md).
 
@@ -22,7 +21,7 @@ In the following policy example, the StringEquals condition operator tries to ma
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -49,7 +48,7 @@ In the following policy example, the StringEquals condition operator tries to ma
 
 You can also specify multiple tag values using a condition operator. For example, to allow actions on virtual clusters where the `department` tag contains the value `dev` or `test`, you could replace the condition block in the earlier example with the following.
 
-```
+```json
 "Condition": {
         "StringEquals": {
           "aws:ResourceTag/department": ["dev", "test"]
@@ -67,7 +66,7 @@ In the example below, the tag needs to be applied when creating the virtual clus
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -99,7 +98,7 @@ The following policy statement allows a user to create a virtual cluster only if
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -134,7 +133,7 @@ The effect of this policy is to deny a user the permission to add or remove any 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

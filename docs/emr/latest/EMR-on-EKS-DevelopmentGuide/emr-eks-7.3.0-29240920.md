@@ -1,7 +1,6 @@
 
 
 # emr-7.3.0-20240920
-<a name="emr-eks-7.3.0-29240920"></a>
 
 **Release notes**: `7.3.0-20240920` was released in December, 2023. This is the initial release of Amazon EMR 7.3.0 (Spark).
 

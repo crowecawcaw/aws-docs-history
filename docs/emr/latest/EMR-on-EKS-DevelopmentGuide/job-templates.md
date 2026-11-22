@@ -1,7 +1,6 @@
 
 
 # Using job templates
-<a name="job-templates"></a>
 
 A job template stores values that can be shared across `StartJobRun` API invocations when starting a job run. It supports two use cases:
 + To prevent repetitive recurring `StartJobRun` API request values.

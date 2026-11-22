@@ -1,7 +1,6 @@
 
 
 # Monitoring vertical autoscaling for Amazon EMR on EKS
-<a name="jobruns-vas-monitor"></a>
 
 You can use the **kubectl** Kubernetes command line tool to list the active, vertical autoscaling-related recommendations on your cluster. You can also view your tracked job signatures, and purge any unneeded resources that are associated with the signatures.
 
@@ -12,7 +11,7 @@ You can use the **kubectl** Kubernetes command line tool to list the active, ver
 
 Use kubectl to get the `verticalpodautoscaler` resource, and view the current status and recommendations. The following example query returns all active resources on your Amazon EKS cluster.
 
-```
+```shell
 kubectl get verticalpodautoscalers \
 -o custom-columns="NAME:.metadata.name,"\
 "SIGNATURE:.metadata.labels.emr-containers\.amazonaws\.com/dynamic\.sizing\.signature,"\
@@ -23,7 +22,7 @@ kubectl get verticalpodautoscalers \
 
 The output from this query resembles the following:
 
-```
+```shell
 NAME                  SIGNATURE                MODE      MEM
 ds-{{example-id-1}}-vpa   {{job-signature-1}}          Off       {{none}}
 ds-{{example-id-2}}-vpa   {{job-signature-2}}          Initial   12936384283
@@ -36,14 +35,14 @@ When you delete an Amazon EMR vertical autoscaling job-run resource, it automati
 
 The following example uses kubectl to purge recommendations for a job that is identified by a signature:
 
-```
+```shell
 kubectl delete jobrun -n emr -l=emr-containers\.amazonaws\.com/dynamic\.sizing\.signature=integ-test
 jobrun.dynamicsizing.emr.services.k8s.aws "ds-{{job-signature}}" deleted
 ```
 
 If you don't know the specific job signature, or want to purge all of the resources on the cluster, you can use `--all` or `--all-namespaces` in your command instead of the unique job ID, as shown in the following example:
 
-```
+```shell
 kubectl delete jobruns --all --all-namespaces
 jobrun.dynamicsizing.emr.services.k8s.aws "ds-{{example-id}}" deleted
 ```

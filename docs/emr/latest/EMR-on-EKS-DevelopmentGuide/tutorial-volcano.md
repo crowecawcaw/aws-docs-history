@@ -1,7 +1,6 @@
 
 
 # Using Volcano as a custom scheduler for Apache Spark on Amazon EMR on EKS
-<a name="tutorial-volcano"></a>
 
 With Amazon EMR on EKS, you can use Spark operator or spark-submit to run Spark jobs with Kubernetes custom schedulers. This tutorial covers how to run Spark jobs with a Volcano scheduler on a custom queue.
 
@@ -15,7 +14,7 @@ With Amazon EMR on EKS, you can use Spark operator or spark-submit to run Spark 
 
 1. Choose one of the following kubectl commands to install Volcano, depending on your architectural needs:
 
-   ```
+   ```bash,sh,zsh
    # x86_64
    kubectl apply -f https://raw.githubusercontent.com/volcano-sh/volcano/v1.5.1/installer/volcano-development.yaml
    # arm64:
@@ -24,7 +23,7 @@ With Amazon EMR on EKS, you can use Spark operator or spark-submit to run Spark 
 
 1. Prepare a sample Volcano queue. A queue is a collection of [PodGroups](https://volcano.sh/en/docs/podgroup/). The queue adopts FIFO and is the basis for resource division.
 
-   ```
+   ```bash,sh,zsh
    cat << EOF > volcanoQ.yaml
    apiVersion: scheduling.volcano.sh/v1beta1
    kind: Queue
@@ -43,7 +42,7 @@ With Amazon EMR on EKS, you can use Spark operator or spark-submit to run Spark 
 
 1. Upload a sample PodGroup manifest to Amazon S3. PodGroup is a group of pods with strong association. You typically use a PodGroup for batch scheduling. Submit the following sample PodGroup to the queue that you defined in the previous step.
 
-   ```
+   ```bash,sh,zsh
    cat << EOF > podGroup.yaml
    apiVersion: scheduling.volcano.sh/v1beta1
    kind: PodGroup
@@ -78,14 +77,14 @@ With Amazon EMR on EKS, you can use Spark operator or spark-submit to run Spark 
 
       Include the following arguments when you run the `helm install spark-operator-demo` command:
 
-      ```
+      ```bash,sh,zsh
       --set batchScheduler.enable=true 
       --set webhook.enable=true
       ```
 
 1. Create a `SparkApplication` definition file `spark-pi.yaml` with `batchScheduler` configured. 
 
-   ```
+   ```yaml
    apiVersion: "sparkoperator.k8s.io/v1beta2"
    kind: SparkApplication
    metadata:
@@ -130,13 +129,13 @@ With Amazon EMR on EKS, you can use Spark operator or spark-submit to run Spark 
 
 1. Submit the Spark application with the following command. This also creates a `SparkApplication` object called `spark-pi`:
 
-   ```
+   ```bash,sh,zsh
    kubectl apply -f spark-pi.yaml
    ```
 
 1. Check events for the `SparkApplication` object with the following command: 
 
-   ```
+   ```bash,sh,zsh
    kubectl describe pods spark-pi-driver --namespace spark-operator
    ```
 
@@ -162,7 +161,7 @@ With Amazon EMR on EKS, you can use Spark operator or spark-submit to run Spark 
 
 1. Submit the Spark application with the following command:
 
-   ```
+   ```bash,sh,zsh
    $SPARK_HOME/bin/spark-submit \
     --class org.apache.spark.examples.SparkPi \
     --master $MASTER_URL \
@@ -179,7 +178,7 @@ With Amazon EMR on EKS, you can use Spark operator or spark-submit to run Spark 
 
 1. Check events for the `SparkApplication` object with the following command: 
 
-   ```
+   ```bash,sh,zsh
    kubectl describe pod spark-pi --namespace spark-operator
    ```
 

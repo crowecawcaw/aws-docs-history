@@ -1,7 +1,6 @@
 
 
 # Option 1: Enable EKS Pod Identity on the EKS Cluster
-<a name="setting-up-enable-IAM"></a>
 
 Amazon EKS Pod Identity associations provide the ability to manage credentials for your applications, similar to the way that Amazon EC2 instance profiles provide credentials to Amazon EC2 instances. Amazon EKS Pod Identity provides credentials to your workloads with an additional EKS Auth API and an agent pod that runs on each node.
 
@@ -39,7 +38,7 @@ If your EKS cluster was created with eksctl version higher than **0.181.0**, the
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -189,7 +188,7 @@ Make sure the IAM Identity creating the pod identity association, such as an EKS
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

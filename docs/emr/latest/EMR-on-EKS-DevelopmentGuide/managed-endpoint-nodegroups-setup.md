@@ -1,7 +1,6 @@
 
 
 # Deploying a JEG pod to a node group
-<a name="managed-endpoint-nodegroups-setup"></a>
 
 JEG (Jupyter Enterprise Gateway) pod placement is a feature that allows you to deploy an interactive endpoint on a specific node group. With this feature, you can configure settings such as `instance type` for the interactive endpoint.
 
@@ -26,7 +25,7 @@ The following configuration property allows you to specify the name of a managed
 
 A node group must have the Kubernetes label `for-use-with-emr-containers-managed-endpoint-ng={{NodeGroupName}}` attached to all nodes that are part of the node group. To list all nodes of a node group that have this tag, use the following command:
 
-```
+```bash,sh,zsh
 kubectl get nodes --show-labels | grep for-use-with-emr-containers-managed-endpoint-ng={{NodeGroupName}}
 ```
 
@@ -34,13 +33,13 @@ If the output of the command above doesn't return nodes that are part of your ma
 
 1. Use the following command to add the `for-use-with-emr-containers-managed-endpoint-ng={{NodeGroupName}}` Kubernetes label to all nodes in a managed node group `{{NodeGroupName}}`:
 
-   ```
+   ```bash,sh,zsh
    kubectl label nodes --selector eks:nodegroup-name={{NodeGroupName}} for-use-with-emr-containers-managed-endpoint-ng={{NodeGroupName}}
    ```
 
 1. Verify that the nodes were labeled correctly using the following command:
 
-   ```
+   ```bash,sh,zsh
    kubectl get nodes --show-labels | grep for-use-with-emr-containers-managed-endpoint-ng={{NodeGroupName}}
    ```
 
@@ -83,7 +82,7 @@ The following configuration property allows you to specify the name of a self-ma
 
 The node group must have `for-use-with-emr-containers-managed-endpoint-ng={{NodeGroupName}}` Kubernetes label attached to all nodes that are part of the node group. To list all the nodes of a node group that have this tag, use the following command:
 
-```
+```bash,sh,zsh
 kubectl get nodes --show-labels | grep for-use-with-emr-containers-managed-endpoint-ng={{NodeGroupName}}
 ```
 
@@ -91,7 +90,7 @@ If the output of the command above doesn't return nodes that are part of your se
 
 1. If you created the self-managed node group using `eksctl`, then use the following command to add the `for-use-with-emr-containers-managed-endpoint-ng={{NodeGroupName}}` Kubernetes label to all nodes in the self-managed node group `{{NodeGroupName}}` at once.
 
-   ```
+   ```bash,sh,zsh
    kubectl label nodes --selector alpha.eksctl.io/nodegroup-name={{NodeGroupName}} for-use-with-emr-containers-managed-endpoint-ng={{NodeGroupName}}
    ```
 
@@ -99,7 +98,7 @@ If the output of the command above doesn't return nodes that are part of your se
 
 1. Use the following command to verify that the nodes were labeled correctly:
 
-   ```
+   ```bash,sh,zsh
    kubectl get nodes --show-labels | grep for-use-with-emr-containers-managed-endpoint-ng={{NodeGroupName}}
    ```
 
@@ -116,7 +115,7 @@ The security group for the self-managed node group must have the `for-use-with-e
 
 You can also define additional labels, known as *Kubernetes label selectors*, to specify additional constraints or restrictions to run an interactive endpoint on a given node or node group. The following example shows how to use On-Demand Amazon EC2 instances for a JEG pod.
 
-```
+```bash,sh,zsh
 --configuration-overrides '{
       "applicationConfiguration": [
             {

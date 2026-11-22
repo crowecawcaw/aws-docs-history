@@ -1,7 +1,6 @@
 
 
 # emr-5.33.0-20210323
-<a name="emr-eks-5.33.0-20210323"></a>
 
 **Release notes**: `emr-5.33.0-20210323` was released on March 23, 2021. This is the initial release of Amazon EMR 5.33.0.
 

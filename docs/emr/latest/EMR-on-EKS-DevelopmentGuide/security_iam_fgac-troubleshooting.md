@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="security_iam_fgac-troubleshooting"></a>
 
 ## Logging
 <a name="security_iam_fgac-troubleshooting-logging"></a>

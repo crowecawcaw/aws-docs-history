@@ -1,7 +1,6 @@
 
 
 # Getting information about interactive endpoints with CLI commands
-<a name="other-operations"></a>
 
 This topic covers the supported operations on an interactive endpoint other than [`create-managed-endpoint`](create-managed-endpoint.md).
 
@@ -10,7 +9,7 @@ This topic covers the supported operations on an interactive endpoint other than
 
 After you create an interactive endpoint, you can retrieve its details using the `describe-managed-endpoint` AWS CLI command. Insert your own values for {{managed-endpoint-id}}, {{virtual-cluster-id}}, and {{region}}:
 
-```
+```bash,sh,zsh
 aws emr-containers describe-managed-endpoint ‐‐id {{managed-endpoint-id}} \
  ‐‐virtual-cluster-id {{virtual-cluster-id}} ‐‐region {{region}}
 ```
@@ -69,7 +68,7 @@ The output looks similar to the following, with the specified endpoint, such as 
 
 Use the `list-managed-endpoints` AWS CLI command to fetch a list of all the interactive endpoints associated with a specified virtual cluster. Replace `virtual-cluster-id` with the ID of your virtual cluster.
 
-```
+```bash,sh,zsh
 aws emr-containers list-managed-endpoints ‐‐virtual-cluster-id {{virtual-cluster-id}}
 ```
 

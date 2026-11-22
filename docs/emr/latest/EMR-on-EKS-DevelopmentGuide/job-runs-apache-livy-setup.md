@@ -1,7 +1,6 @@
 
 
 # Setting up Apache Livy for Amazon EMR on EKS
-<a name="job-runs-apache-livy-setup"></a>
 
 Before you can install Apache Livy on your Amazon EKS cluster, you must install and configure a set of prerequisite tools. These include the AWS CLI, which is a foundational command-line tool for working with AWS resources, command-line tools for working with Amazon EKS, and a controller that's used in this use case to make your cluster application available to the internet and to route network traffic.
 + **[Install or update to the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) ** – If you've already installed the AWS CLI, confirm that you have the latest version.

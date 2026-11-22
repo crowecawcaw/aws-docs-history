@@ -1,7 +1,6 @@
 
 
 # Setting up cluster access permissions with IAM roles for service accounts (IRSA)
-<a name="spark-operator-security-irsa"></a>
 
 This section uses an example to demonstrate how to configure a Kubernetes service account to assume an AWS Identity and Access Management role. Pods that use the service account can then access any AWS service that the role has permissions to access.
 
@@ -26,7 +25,7 @@ Use the following steps to configure a Kubernetes service account to assume an I
 
 1. After completing the [Prerequisites](#spark-operator-security-irsa-prereqs), use the AWS Command Line Interface to create an `example-policy.json` file that allows read-only access to the file that you uploaded to Amazon S3:
 
-   ```
+   ```bash,sh,zsh
    cat >example-policy.json <<EOF
    {
        "Version": "2012-10-17",		 	 	 
@@ -49,7 +48,7 @@ Use the following steps to configure a Kubernetes service account to assume an I
 
 1. Then, create an IAM policy `example-policy`:
 
-   ```
+   ```bash,sh,zsh
    aws iam create-policy --policy-name example-policy --policy-document file://example-policy.json
    ```
 
@@ -63,7 +62,7 @@ Use the following steps to configure a Kubernetes service account to assume an I
 
 1. Create a yaml file with the cluster role bindings that are required for the Spark driver service account:
 
-   ```
+   ```bash,sh,zsh
    cat >spark-rbac.yaml <<EOF
    apiVersion: v1
    kind: ServiceAccount
@@ -87,7 +86,7 @@ Use the following steps to configure a Kubernetes service account to assume an I
 
 1. Apply the cluster role binding configurations:
 
-   ```
+   ```bash,sh,zsh
    kubectl apply -f spark-rbac.yaml
    ```
 
@@ -105,7 +104,7 @@ After you [configure the Kubernetes service account](), you can run a Spark appl
 
 1. Create a new file `word-count.yaml`, with a `SparkApplication` definition for your word-count application, based on Amazon EMR version 6.
 
-   ```
+   ```shell,sh,zsh
    cat >word-count.yaml <<EOF
    apiVersion: "sparkoperator.k8s.io/v1beta2"
    kind: SparkApplication
@@ -157,7 +156,7 @@ After you [configure the Kubernetes service account](), you can run a Spark appl
 
    If you're using the spark operator with a version 7 release, you adjust some of the configuration values:
 
-   ```
+   ```shell,sh,zsh
    cat >word-count.yaml <<EOF
    apiVersion: "sparkoperator.k8s.io/v1beta2"
    kind: SparkApplication
@@ -209,7 +208,7 @@ After you [configure the Kubernetes service account](), you can run a Spark appl
 
 1. Submit the Spark application.
 
-   ```
+   ```bash,sh,zsh
    kubectl apply -f word-count.yaml
    ```
 
@@ -244,7 +243,7 @@ After you [configure the Kubernetes service account](), you can run a Spark appl
 
 The application is now counting the words in your S3 file. To find the count of words, refer to the log files for your driver:
 
-```
+```shell,sh,zsh
 kubectl logs pod/word-count-driver -n spark-operator
 ```
 

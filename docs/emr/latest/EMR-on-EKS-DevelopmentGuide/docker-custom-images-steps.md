@@ -1,7 +1,6 @@
 
 
 # How to customize Docker images
-<a name="docker-custom-images-steps"></a>
 
 Follow these steps to customize Docker images for Amazon EMR on EKS. The steps show you how to get a base image, customize and publish it, and submit a workload using the image.
 + [Prerequisites](#docker-custom-images-prereq)
@@ -26,7 +25,7 @@ Other options you may want to consider when customizing Docker images are custom
 
 The base image contains the Amazon EMR runtime and connectors that are used to access other AWS services. For Amazon EMR 6.9.0 and higher, you can get the base images from the Amazon ECR Public Gallery. Browse the gallery to find the image link and pull the image to your local workspace. For example, for Amazon EMR 7.13.0 release, the following `docker pull` command gets you the latest standard base image. You can replace `emr-7.13.0:latest` with `emr-7.13.0-spark-rapids:latest` to retrieve the image that has the NVIDIA cuDF Plugin for Apache Spark. You can also replace `emr-7.13.0:latest` with `emr-7.13.0-java11:latest` to retrieve the image with Java 11 runtime.
 
-```
+```bash,sh,zh
 docker pull public.ecr.aws/emr-on-eks/spark/{{emr-7.13.0:latest}}
 ```
 
@@ -61,7 +60,7 @@ Follow these steps to customize the base image you have pulled from Amazon ECR.
 
 1. Edit the `Dockerfile` you just created and add the following content. This `Dockerfile` uses the container image you have pulled from `895885662937.dkr.ecr.us-west-2.amazonaws.com/spark/emr-6.6.0:latest`. 
 
-   ```
+   ```shell
    FROM 895885662937.dkr.ecr.us-west-2.amazonaws.com/spark/emr-6.6.0:latest
    USER root
    ### Add customization commands here ####
@@ -70,7 +69,7 @@ Follow these steps to customize the base image you have pulled from Amazon ECR.
 
 1. Add commands in the `Dockerfile` to customize the base image. For example, add a command to install Python libraries, as the following `Dockerfile` demonstrates. 
 
-   ```
+   ```shell
    FROM 895885662937.dkr.ecr.us-west-2.amazonaws.com/spark/emr-6.6.0:latest
    USER root
    RUN pip3 install --upgrade boto3 pandas numpy // For python 3
@@ -79,7 +78,7 @@ Follow these steps to customize the base image you have pulled from Amazon ECR.
 
 1. From the same directory where the `Dockerfile` is created, run the following command to build the Docker image. Provide a name for the Docker image, for example, {{emr6.6\_custom}}. 
 
-   ```
+   ```shell
    docker build -t {{emr6.6_custom}} .
    ```
 
@@ -97,20 +96,20 @@ Take the following steps to validate your custom image.
 
 1. Run the following command to test the installation.
 
-   ```
+   ```shell
    emr-on-eks-custom-image --version
    ```
 
    The following shows an example of the output.
 
-   ```
+   ```shell
    Amazon EMR on EKS Custom Image CLI
    Version: x.xx
    ```
 
 1. Run the following command to validate your custom image.
 
-   ```
+   ```shell
    emr-on-eks-custom-image validate-image -i {{image_name}} -r {{release_version}} [-t {{image_type}}]
    ```
    + `-i` specifies the local image URI that needs to be validated. This can be the image URI, any name or tag that you defined for your image.
@@ -119,7 +118,7 @@ Take the following steps to validate your custom image.
 
    If you run the command successfully and the custom image meets all the required configurations and file structures, the returned output displays the results of all of the tests, as the following example demonstrates.
 
-   ```
+   ```shell
    Amazon EMR on EKS Custom Image Test
    Version: x.xx
    ... Checking if docker cli is installed
@@ -151,7 +150,7 @@ Publish the new Docker image to your Amazon ECR registry.
 
 1. Run the following command to create an Amazon ECR repository for storing your Docker image. Provide a name for your repository, for example, {{emr6.6\_custom\_repo}}. Replace {{us-west-2}} with your Region. 
 
-   ```
+   ```shell
    aws ecr create-repository \
        --repository-name {{emr6.6_custom_repo}} \
        --image-scanning-configuration scanOnPush=true \
@@ -172,13 +171,13 @@ Publish the new Docker image to your Amazon ECR registry.
 
    Tag the image.
 
-   ```
+   ```shell
    docker tag {{emr6.6_custom}} {{aws_account_id}}.dkr.ecr.{{us-west-2}}.amazonaws.com/{{emr6.6_custom_repo}}
    ```
 
    Push the image.
 
-   ```
+   ```shell
    docker push {{aws_account_id}}.dkr.ecr.us-west-2.amazonaws.com/{{emr6.6_custom_repo}}
    ```
 
@@ -194,7 +193,7 @@ First, create a start-job-run-request.json file and specify the `spark.kubernete
 **Note**  
 You can use `local://` scheme to refer to files available in the custom image as shown with `entryPoint` argument in the JSON snippet below. You can also use the `local://` scheme to refer to application dependencies. All files and dependencies that are referred using `local://` scheme must already be present at the specified path in the custom image.
 
-```
+```JSON
 {
     "name": "spark-custom-image", 
     "virtualClusterId": "{{virtual-cluster-id}}", 
@@ -214,7 +213,7 @@ You can use `local://` scheme to refer to files available in the custom image 
 
 You can also reference the custom image with `applicationConfiguration` properties as the following example demonstrates.
 
-```
+```JSON
 {
     "name": "spark-custom-image", 
     "virtualClusterId": "{{virtual-cluster-id}}", 
@@ -244,7 +243,7 @@ You can also reference the custom image with `applicationConfiguration` properti
 
 Then run the `start-job-run` command to submit the job.
 
-```
+```shell
 aws emr-containers start-job-run --cli-input-json file://./start-job-run-request.json
 ```
 

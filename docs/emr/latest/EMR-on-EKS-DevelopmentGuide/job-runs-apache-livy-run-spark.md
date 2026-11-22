@@ -1,7 +1,6 @@
 
 
 # Running a Spark application with Apache Livy for Amazon EMR on EKS
-<a name="job-runs-apache-livy-run-spark"></a>
 
 Before you can run a Spark application with Apache Livy, make sure that you have completed the steps in [Setting up Apache Livy for Amazon EMR on EKS](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/job-runs-apache-livy-setup.html) and [Getting started with Apache Livy for Amazon EMR on EKS](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/job-runs-apache-livy-install.html).
 
@@ -17,7 +16,7 @@ Driver and executor pods from different sessions can communicate with each other
 
 To submit a batch job, use the following command.
 
-```
+```bash,sh,zsh
 curl -s -k -H 'Content-Type: application/json' -X POST \
       -d '{
             "name": "my-session",
@@ -33,7 +32,7 @@ curl -s -k -H 'Content-Type: application/json' -X POST \
 
 To monitor your batch job, use the following command.
 
-```
+```bash,sh,zsh
 curl -s -k -H 'Content-Type: application/json' -X GET {{<livy-endpoint>}}/batches/my-session
 ```
 
@@ -52,7 +51,7 @@ To run interactive sessions with Apache Livy, see the following steps.
 
 1. Run `%manage_spark` again to create the Spark context and then go to the **Create session**. Choose the Livy endpoint, specify a unique session name choose a language, and then add the following properties.
 
-   ```
+   ```bash,sh,zsh
    {
      "conf": {
        "spark.kubernetes.namespace": "{{livy-namespace}}",
@@ -67,7 +66,7 @@ To run interactive sessions with Apache Livy, see the following steps.
 
 1. To monitor the status of the interactive session, run the following command.
 
-   ```
+   ```bash,sh,zsh
    curl -s -k -H 'Content-Type: application/json' -X GET {{livy-endpoint}}/sessions/my-interactive-session
    ```
 

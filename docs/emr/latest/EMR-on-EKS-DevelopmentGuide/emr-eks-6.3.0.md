@@ -1,7 +1,6 @@
 
 
 # Amazon EMR on EKS 6.3.0 releases
-<a name="emr-eks-6.3.0"></a>
 
 The following Amazon EMR 6.3.0 releases are available for Amazon EMR on EKS. Select a specific **emr-6.3.0-XXXX** release to view more details such as the related container image tag.
 + [emr-6.3.0-latest](emr-eks-6.3.0-latest.md)

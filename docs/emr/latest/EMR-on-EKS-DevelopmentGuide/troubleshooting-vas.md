@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon EMR on EKS vertical autoscaling
-<a name="troubleshooting-vas"></a>
 
 Refer to the following sections if you encounter problems when you set up the Amazon EMR on EKS vertical autoscaling operator on an Amazon EKS cluster with Operator Lifecycle Manager. For more information including steps to complete the installation, see [Using vertical autoscaling with Amazon EMR Spark jobs](jobruns-vas.md).
 
@@ -28,7 +27,7 @@ FATA[0020] Failed to run bundle: create catalog: error creating catalog source: 
 
 If the namespace that you specify doesn't exist, OLM won't install the vertical autoscaling operator. To resolve this issue, use the following command to create the namespace. Then, try the installation again.
 
-```
+```shell
 kubectl create namespace {{NAME}}
 ```
 

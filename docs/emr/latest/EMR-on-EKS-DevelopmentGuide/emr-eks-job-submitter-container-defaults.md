@@ -1,7 +1,6 @@
 
 
 # Using Amazon EMR container defaults classification
-<a name="emr-eks-job-submitter-container-defaults"></a>
 
 ## Overview
 <a name="emr-eks-job-submitter-container-defaults-overview"></a>
@@ -44,7 +43,7 @@ Your Amazon EKS nodes must be running Kubernetes version 1.29 or higher. Your EK
 ### `StartJobRun` request with custom job timeout
 <a name="emr-eks-job-submitter-container-custom-timeout"></a>
 
-```
+```json
 {
   "name": "spark-python", 
   "virtualClusterId": "{{virtual-cluster-id}}", 
@@ -80,7 +79,7 @@ Your Amazon EKS nodes must be running Kubernetes version 1.29 or higher. Your EK
 ### `StartJobRun` request with logging disabled for executor pods
 <a name="emr-eks-executor-logging-disabled"></a>
 
-```
+```json
 "configurationOverrides": {
   "applicationConfiguration": [
     {
@@ -105,7 +104,7 @@ Your Amazon EKS nodes must be running Kubernetes version 1.29 or higher. Your EK
 ### `StartJobRun` request with custom logging container image, CPU, and memory for the driver and executor pods
 <a name="emr-eks-job-submitter-container-custom-image-cpu"></a>
 
-```
+```json
 "configurationOverrides": {
   "applicationConfiguration": [
     {
@@ -137,7 +136,7 @@ If the Fluentd logging container encounters an out-of-memory (OOM) error, increa
 
 The following example saves Spark event logs to your own Amazon S3 bucket while also enabling Persistent App UI. The `persistentAppUI` setting is `ENABLED` by default.
 
-```
+```json
 "configurationOverrides": {
   "applicationConfiguration": [
     {
@@ -161,7 +160,7 @@ Don't set `spark.eventLog.dir` in the `spark-defaults` classification when you u
 
 The following example enables native sidecar mode for the logging container on Spark driver and executor pods. When enabled, the logging container runs as a Kubernetes native sidecar that automatically restarts on failure and doesn't affect the state of your Spark pods.
 
-```
+```json
 "configurationOverrides": {
   "applicationConfiguration": [
     {

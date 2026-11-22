@@ -1,7 +1,6 @@
 
 
 # emr-7.9.0-flink-latest
-<a name="emr-eks-7.9.0-flink-latest"></a>
 
 **Release notes**: `emr-7.9.0-flink-latest` currently points to `emr-7.9.0-flink-20250425`
 

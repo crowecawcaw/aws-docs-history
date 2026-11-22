@@ -1,7 +1,6 @@
 
 
 # emr-7.10.0-flink-20250801
-<a name="emr-7.10.0-flink-20250801"></a>
 
 **Release notes**: `7.10.0-flink-20250801` was released in February 2025. This is the initial release of Amazon EMR 7.10.0 (Flink).
 

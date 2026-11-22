@@ -1,7 +1,6 @@
 
 
 # Running Spark jobs with the Spark operator
-<a name="spark-operator"></a>
 
 Amazon EMR releases 6.10.0 and higher support the Kubernetes operator for Apache Spark, or *the Spark operator*, as a job submission model for Amazon EMR on EKS. With the Spark operator, you can deploy and manage Spark applications with the Amazon EMR release runtime on your own Amazon EKS clusters. Once you deploy the Spark operator in your Amazon EKS cluster, you can directly submit Spark applications with the operator. The operator manages the lifecycle of Spark applications.
 

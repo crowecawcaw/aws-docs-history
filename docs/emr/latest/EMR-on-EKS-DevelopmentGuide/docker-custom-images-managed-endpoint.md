@@ -1,13 +1,12 @@
 
 
 # Customize Docker images for interactive endpoints
-<a name="docker-custom-images-managed-endpoint"></a>
 
 You can also customize Docker images for interactive endpoints so that you can run customized base kernel images. This helps you ensure that you have the dependencies you need when you run interactive workloads from EMR Studio.
 
 1. Follow the [Steps 1-4](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/docker-custom-images-steps.html#docker-custom-images-retrieve) outlined above to customize a Docker image. For Amazon EMR 6.9.0 releases and later, you can get the base image URI from Amazon ECR Public Gallery. For releases before Amazon EMR 6.9.0, you can get the image in Amazon ECR Registry accounts in each AWS Region, and the only difference is the base image URI in your Dockerfile. The base image URI follows the format:
 
-   ```
+   ```http,https
    {{ECR-registry-account}}.dkr.ecr.{{Region}}.amazonaws.com/notebook-spark/{{container-image-tag}}
    ```
 
@@ -19,7 +18,7 @@ Currently only overrides of base images are supported and introducing completely
 
    First, create a JSON file called `custom-image-managed-endpoint.json` with the following contents.
 
-   ```
+   ```shell
    {
        "name": "endpoint-name",
        "virtualClusterId": "{{virtual-cluster-id}}",
@@ -53,7 +52,7 @@ Currently only overrides of base images are supported and introducing completely
 
    Next, create an interactive endpoint using the configurations specified in the JSON file, as the following example demonstrates.
 
-   ```
+   ```shell
    aws emr-containers create-managed-endpoint --cli-input-json custom-image-managed-endpoint.json
    ```
 

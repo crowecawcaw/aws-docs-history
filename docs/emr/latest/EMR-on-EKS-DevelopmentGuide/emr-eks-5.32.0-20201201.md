@@ -1,7 +1,6 @@
 
 
 # emr-5.32.0-20201201
-<a name="emr-eks-5.32.0-20201201"></a>
 
 **Release notes**: `5.32.0-20201201` was released on December 1, 2020. This is the initial release of Amazon EMR 5.32.0.
 

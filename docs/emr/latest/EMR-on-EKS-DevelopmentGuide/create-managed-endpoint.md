@@ -1,7 +1,6 @@
 
 
 # Creating an interactive endpoint for your virtual cluster
-<a name="create-managed-endpoint"></a>
 
 This topic describes a couple ways to create an interactive endpoint using the AWS Command Line Interface (AWS CLI) and includes details on available configuration parameters.
 
@@ -10,7 +9,7 @@ This topic describes a couple ways to create an interactive endpoint using the A
 
 Specify the parameters in the `create-managed-endpoint` command as follows. Amazon EMR on EKS supports creating interactive endpoints with Amazon EMR releases 6.7.0 and higher.
 
-```
+```bash,sh,zsh
 aws emr-containers create-managed-endpoint \
 ‐‐type JUPYTER_ENTERPRISE_GATEWAY \
 ‐‐virtual‐cluster‐id {{1234567890abcdef0xxxxxxxx}} \
@@ -82,7 +81,7 @@ For more information, see [Parameters for creating an interactive endpoint](#par
 
 1. Use the `create-managed-endpoint` command with a path to the `create-managed-endpoint-request.json` file that is stored locally or in Amazon S3.
 
-   ```
+   ```bash,sh,zsh
    aws emr-containers create-managed-endpoint \
    ‐‐cli-input-json  file://./create-managed-endpoint-request.json ‐‐region {{AWS-Region}}
    ```

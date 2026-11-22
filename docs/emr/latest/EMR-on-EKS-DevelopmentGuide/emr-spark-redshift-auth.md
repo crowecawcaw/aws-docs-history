@@ -1,7 +1,6 @@
 
 
 # Authenticating with the Amazon Redshift integration for Apache Spark
-<a name="emr-spark-redshift-auth"></a>
 
 The following sections show authentication options with Amazon Redshift when you're integrating with Apache Spark. The sections show how to retrieve login credentials and also details regarding using the JDBC driver with IAM authentication.
 

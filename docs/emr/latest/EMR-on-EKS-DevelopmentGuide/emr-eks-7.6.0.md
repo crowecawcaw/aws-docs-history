@@ -1,7 +1,6 @@
 
 
 # Amazon EMR on EKS 7.6.0 releases
-<a name="emr-eks-7.6.0"></a>
 
 This page describes the new and updated functionality for Amazon EMR that is specific to the Amazon EMR on EKS deployment. For details about Amazon EMR running on Amazon EC2 and about the Amazon EMR 7.6.0 release in general, see [Amazon EMR 7.6.0](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-760-release.html) in the *Amazon EMR Release Guide*.
 

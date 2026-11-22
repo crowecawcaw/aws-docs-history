@@ -1,7 +1,6 @@
 
 
 # Create a job execution role
-<a name="creating-job-execution-role"></a>
 
 To run workloads on Amazon EMR on EKS, you need to create an IAM role. We refer to this role as the *job execution role* in this documentation. For more information about how to create IAM roles, see [Creating IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the IAM user Guide. 
 
@@ -72,7 +71,7 @@ Access should be appropriately scoped, not granted to all S3 objects in the job 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

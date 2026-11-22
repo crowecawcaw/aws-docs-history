@@ -1,7 +1,6 @@
 
 
 # Register the Amazon EKS cluster with Amazon EMR
-<a name="setting-up-registration"></a>
 
 Registering your cluster is the final required step to set up Amazon EMR on EKS to run workloads.
 

@@ -1,7 +1,6 @@
 
 
 # Getting started with spark-submit for Amazon EMR on EKS
-<a name="spark-submit-gs"></a>
 
 Amazon EMR 6.10.0 and higher supports spark-submit for running Spark applications on an Amazon EKS cluster. The section that follows shows you how to submit a command for a Spark application.
 
@@ -14,7 +13,7 @@ To run the Spark application, follow these steps:
 
 1. Run a container with an Amazon EMR on EKS base image. See [How to select a base image URI](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/docker-custom-images-tag.html) for more information.
 
-   ```
+   ```bash,sh,zsh
    kubectl run -it {{containerName}} --image={{EMRonEKSImage}} --command -n {{namespace}} /bin/bash
    ```
 
@@ -27,7 +26,7 @@ To run the Spark application, follow these steps:
 
 1. Now, submit the Spark application with the following command:
 
-   ```
+   ```shell
    $SPARK_HOME/bin/spark-submit \
     --class org.apache.spark.examples.SparkPi \
     --master $MASTER_URL \

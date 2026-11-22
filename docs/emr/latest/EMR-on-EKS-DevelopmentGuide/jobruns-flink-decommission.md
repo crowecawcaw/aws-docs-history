@@ -1,7 +1,6 @@
 
 
 # Graceful decommission of Spot Instances with Flink on Amazon EMR on EKS
-<a name="jobruns-flink-decommission"></a>
 
 Flink with Amazon EMR on EKS can improve the job restart time during task recovery or scaling operations.
 
@@ -31,7 +30,7 @@ Then, the Job Manager would restart the job graph only after there is sufficient
 
 To use graceful decommisioning, create and run a streaming job on an Amazon EMR on EKS cluster running Apache Flink. Enable Adaptive Scheduler and Task Managers scheduled on at least one Spot Instance, as shown in the following example. You should use On-Demand nodes for Job Manager, and you can use On-Demand nodes for Task Managers as long as there's at least one Spot Instance, too.
 
-```
+```yaml
 apiVersion: flink.apache.org/v1beta1
 kind: FlinkDeployment
 metadata:

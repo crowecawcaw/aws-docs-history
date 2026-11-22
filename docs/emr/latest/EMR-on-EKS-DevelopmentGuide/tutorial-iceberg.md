@@ -1,7 +1,6 @@
 
 
 # Using Apache Iceberg with Amazon EMR on EKS
-<a name="tutorial-iceberg"></a>
 
 The runtime JAR for Iceberg contains the necessary Iceberg classes for Spark runtime support. The following procedure shows how to start a job run using the Iceberg spark runtime.
 
@@ -15,7 +14,7 @@ The runtime JAR for Iceberg contains the necessary Iceberg classes for Spark run
 
 1. Include Iceberg additional configuration:
 
-   ```
+   ```shell
    --configuration-overrides '{
        "applicationConfiguration": [
        "classification" : "spark-defaults", 

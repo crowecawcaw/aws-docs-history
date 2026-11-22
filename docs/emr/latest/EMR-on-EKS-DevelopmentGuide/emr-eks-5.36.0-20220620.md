@@ -1,7 +1,6 @@
 
 
 # emr-5.36.0-20220620
-<a name="emr-eks-5.36.0-20220620"></a>
 
 **Release notes**: `emr-5.36.0-20220620` was released on July 27, 2022. Compared to the previous version, this version has been refreshed with the recently updated Amazon Linux packages.
 

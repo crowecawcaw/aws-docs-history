@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon EMR on EKS
-<a name="getting-started"></a>
 
 This topic helps you get started using Amazon EMR on EKS by deploying a Spark application on a virtual cluster. It includes steps to set up the correct permissions and to start a job. Before you begin, make sure that you've completed the steps in [Setting up Amazon EMR on EKS](setting-up.md). This helps you get tools like the AWS CLI set up prior to creating your virtual cluster. For other templates that can help you get started, see our [EMR Containers Best Practices Guide](https://aws.github.io/aws-emr-containers-best-practices/) on GitHub.
 
@@ -30,7 +29,7 @@ Take the following steps to run a simple Spark application on Amazon EMR on EKS.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

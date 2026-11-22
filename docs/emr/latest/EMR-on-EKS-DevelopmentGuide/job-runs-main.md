@@ -1,7 +1,6 @@
 
 
 # Running Spark jobs with Amazon EMR on EKS
-<a name="job-runs-main"></a>
 
 A *job run* is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS. This topic provides an overview of managing job runs using the AWS CLI, viewing job runs using the Amazon EMR console, and troubleshooting common job run errors.
 

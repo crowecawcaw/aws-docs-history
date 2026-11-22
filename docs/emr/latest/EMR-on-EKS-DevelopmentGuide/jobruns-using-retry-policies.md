@@ -1,7 +1,6 @@
 
 
 # Using job retry policies
-<a name="jobruns-using-retry-policies"></a>
 
 In Amazon EMR on EKS versions 6.9.0 and later, you can set a retry policy for your job runs. Retry policies cause a job driver pod to be restarted automatically if it fails or is deleted. This makes long-running Spark streaming jobs more resilient to failures.
 

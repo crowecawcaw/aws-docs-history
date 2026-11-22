@@ -1,7 +1,6 @@
 
 
 # Security for Apache Livy with Amazon EMR on EKS
-<a name="job-runs-apache-livy-security"></a>
 
 See the following topics to learn more about configuring security for Apache Livy with Amazon EMR on EKS. These options include using transport-layer security, role-based access control, which is access based on a person's role within an organization, and using IAM roles, which provide access to resources, based on granted permissions.
 

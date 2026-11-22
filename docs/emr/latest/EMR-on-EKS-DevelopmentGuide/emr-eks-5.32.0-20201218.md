@@ -1,7 +1,6 @@
 
 
 # emr-5.32.0-20201218
-<a name="emr-eks-5.32.0-20201218"></a>
 
 **Release notes**: `5.32.0-20201218` was released on December 18, 2020. Compared to `5.32.0-20201201`, this version contains issue fixes and security updates.
 

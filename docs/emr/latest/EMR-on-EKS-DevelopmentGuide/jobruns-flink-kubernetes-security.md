@@ -1,7 +1,6 @@
 
 
 # Security role permissions for running a Flink application
-<a name="jobruns-flink-kubernetes-security"></a>
 
 This topic describes security roles for deploying and running a Flink application. There are two roles required to manage a deployment and to create and manage jobs, the operator role and job role. This topic introduces them and lists their permissions.
 

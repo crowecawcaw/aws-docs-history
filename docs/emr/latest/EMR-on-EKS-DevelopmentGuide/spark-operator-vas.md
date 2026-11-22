@@ -1,7 +1,6 @@
 
 
 # Use vertical autoscaling with the Spark operator for Amazon EMR on EKS
-<a name="spark-operator-vas"></a>
 
 Starting with Amazon EMR 7.0, you can use Amazon EMR on EKS vertical autoscaling to simplify resource management. It automatically tunes memory and CPU resources to adapt to the needs of the workload that you provide for Amazon EMR Spark applications. For more information, see [Using vertical autoscaling with Amazon EMR Spark jobs](jobruns-vas.md).
 
@@ -14,7 +13,7 @@ Before you configure monitoring, be sure to complete the following setup tasks:
 + Complete the steps in [Setting up the Spark operator for Amazon EMR on EKS](spark-operator-setup.md).
 + (optional) If you previously installed an older version of the Spark operator, delete the SparkApplication/ScheduledSparkApplication CRD.
 
-  ```
+  ```bash,sh,zsh
   kubectl delete crd sparkApplication
   kubectl delete crd scheduledSparkApplication
   ```
@@ -28,14 +27,14 @@ Before you configure monitoring, be sure to complete the following setup tasks:
 
   1. Annotate your driver and operator service account with the `JobExecutionRole` that has S3 permissions.
 
-     ```
+     ```bash,sh,zsh
      kubectl annotate serviceaccount -n spark-operator emr-containers-sa-spark eks.amazonaws.com/role-arn={{JobExecutionRole}}
      kubectl annotate serviceaccount -n spark-operator emr-containers-sa-spark-operator eks.amazonaws.com/role-arn={{JobExecutionRole}}
      ```
 
   1. Update the trust policy of your job execution role in that namespace.
 
-     ```
+     ```bash,sh,zsh
      aws emr-containers update-role-trust-policy \
      --cluster-name cluster \
      --namespace ${Namespace}\
@@ -44,7 +43,7 @@ Before you configure monitoring, be sure to complete the following setup tasks:
 
   1. Edit the IAM role trust policy of your job execution role and update the `serviceaccount` from `emr-containers-sa-spark-*-*-xxxx` to `emr-containers-sa-*`.
 
-     ```
+     ```bash,sh,zsh
      {
          "Effect": "Allow",
          "Principal": {
@@ -61,7 +60,7 @@ Before you configure monitoring, be sure to complete the following setup tasks:
 
   1. If you're using Amazon S3 as your file storage, add the following defaults to your yaml file.
 
-     ```
+     ```bash,sh,zsh
      hadoopConf:
      # EMRFS filesystem
        fs.s3.customAWSCredentialsProvider: com.amazonaws.auth.WebIdentityTokenCredentialsProvider
@@ -86,7 +85,7 @@ Before you can run a Spark application with the Spark operator, you must complet
 
 To use vertical autoscaling with the Spark operator, add the following configuration to the driver for your Spark Application spec to turn on vertical autoscaling:
 
-```
+```bash,sh,zsh
 dynamicSizing:
   mode: Off
   signature: "my-signature"
@@ -98,7 +97,7 @@ For more information on the configurations and parameter values, see [Configurin
 
 The following is a sample `SparkApplication` definition file named `spark-pi.yaml` with the required configurations to use vertical autoscaling.
 
-```
+```yaml
 apiVersion: "sparkoperator.k8s.io/v1beta2"
 kind: SparkApplication
 metadata:
@@ -145,7 +144,7 @@ spec:
 
 Now, submit the Spark application with the following command. This will also create a `SparkApplication` object named `spark-pi`:
 
-```
+```bash,sh,zsh
 kubectl apply -f spark-pi.yaml
 ```
 
@@ -156,14 +155,14 @@ For more information on submitting applications to Spark through the Spark opera
 
 To verify that vertical autoscaling works correctly for the submitted job, use kubectl to get the `verticalpodautoscaler` custom resource and view your scaling recommendations.
 
-```
+```bash,sh,zsh
 kubectl get verticalpodautoscalers --all-namespaces \ 
 -l=emr-containers.amazonaws.com/dynamic.sizing.signature={{my-signature}}
 ```
 
 The output from this query should resemble the following:
 
-```
+```bash,sh,zsh
 NAMESPACE        NAME                                                          MODE   CPU   MEM         PROVIDED   AGE
 spark-operator   ds-p73j6mkosvc4xeb3gr7x4xol2bfcw5evqimzqojrlysvj3giozuq-vpa   Off          580026651   True       15m
 ```
@@ -172,6 +171,6 @@ If your output doesn't look similar or contains an error code, see [Troubleshoot
 
 To remove the pods and applications, run the following command:
 
-```
+```bash,sh,zsh
 kubectl delete sparkapplication spark-pi
 ```

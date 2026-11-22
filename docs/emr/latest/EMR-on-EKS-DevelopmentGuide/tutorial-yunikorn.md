@@ -1,7 +1,6 @@
 
 
 # Using YuniKorn as a custom scheduler for Apache Spark on Amazon EMR on EKS
-<a name="tutorial-yunikorn"></a>
 
 With Amazon EMR on EKS, you can use Spark operator or spark-submit to run Spark jobs with Kubernetes custom schedulers. This tutorial covers how to run Spark jobs with a YuniKorn scheduler on a custom queue and gang scheduling.
 
@@ -17,7 +16,7 @@ Use the following steps to deploy an Amazon EKS cluster. You can change the AWS 
 
 1. Define the Amazon EKS cluster:
 
-   ```
+   ```bash,sh,zsh
    cat <<EOF >eks-cluster.yaml
    ---
    apiVersion: eksctl.io/v1alpha5
@@ -48,13 +47,13 @@ Use the following steps to deploy an Amazon EKS cluster. You can change the AWS 
 
 1. Create the cluster:
 
-   ```
+   ```bash,sh,zsh
    eksctl create cluster -f eks-cluster.yaml
    ```
 
 1. Create the namespace `spark-job` where you will execute the Spark job:
 
-   ```
+   ```bash,sh,zsh
    kubectl create namespace spark-job
    ```
 
@@ -62,7 +61,7 @@ Use the following steps to deploy an Amazon EKS cluster. You can change the AWS 
 
    1. Define the service account, role, and role binding for Spark jobs.
 
-      ```
+      ```bash,sh,zsh
       cat <<EOF >emr-job-execution-rbac.yaml
       ---
       apiVersion: v1
@@ -100,7 +99,7 @@ Use the following steps to deploy an Amazon EKS cluster. You can change the AWS 
 
    1. Apply the Kubernetes role and role binding definition with the following command:
 
-      ```
+      ```bash,sh,zsh
       kubectl apply -f emr-job-execution-rbac.yaml
       ```
 
@@ -109,21 +108,21 @@ Use the following steps to deploy an Amazon EKS cluster. You can change the AWS 
 
 1. Use the following kubectl command to create a namespace `yunikorn`to deploy the Yunikorn scheduler:
 
-   ```
+   ```bash,sh,zsh
    kubectl create namespace yunikorn
    ```
 
 1. To install the scheduler, execute the following Helm commands:
 
-   ```
+   ```bash,sh,zsh
    helm repo add yunikorn https://apache.github.io/yunikorn-release
    ```
 
-   ```
+   ```bash,sh,zsh
    helm repo update
    ```
 
-   ```
+   ```bash,sh,zsh
    helm install yunikorn yunikorn/yunikorn --namespace yunikorn
    ```
 
@@ -142,7 +141,7 @@ Use the following steps to deploy an Amazon EKS cluster. You can change the AWS 
 
       Include the following arguments when you run the `helm install spark-operator-demo` command:
 
-      ```
+      ```bash,sh,zsh
       --set batchScheduler.enable=true 
       --set webhook.enable=true
       ```
@@ -153,7 +152,7 @@ Use the following steps to deploy an Amazon EKS cluster. You can change the AWS 
 
    In the following example, the annotation `schedulingPolicyParameters` sets up gang scheduling for the application. Then, the example creates **task groups**, or "gangs" of tasks, to specify the minimum capacity that must be available before scheduling the pods to start the job execution. And finally, it specifies in the task group definition to use node groups with the `"app": "spark"` label, as defined in the [Create your cluster and get set up for YuniKorn](#tutorial-yunikorn-setup) section.
 
-   ```
+   ```yaml
    apiVersion: "sparkoperator.k8s.io/v1beta2"
    kind: SparkApplication
    metadata:
@@ -225,13 +224,13 @@ Use the following steps to deploy an Amazon EKS cluster. You can change the AWS 
 
 1. Submit the Spark application with the following command. This also creates a `SparkApplication` object called `spark-pi`:
 
-   ```
+   ```bash,sh,zsh
    kubectl apply -f spark-pi.yaml
    ```
 
 1. Check events for the `SparkApplication` object with the following command: 
 
-   ```
+   ```bash,sh,zsh
    kubectl describe sparkapplication spark-pi --namespace spark-job
    ```
 
@@ -264,7 +263,7 @@ Use the following steps to deploy an Amazon EKS cluster. You can change the AWS 
 
    In the following example, the annotation `schedulingPolicyParameters` sets up gang scheduling for the application. Then, the example creates **task groups**, or "gangs" of tasks, to specify the minimum capacity that must be available before scheduling the pods to start the job execution. And finally, it specifies in the task group definition to use node groups with the `"app": "spark"` label, as defined in the [Create your cluster and get set up for YuniKorn](#tutorial-yunikorn-setup) section.
 
-   ```
+   ```bash,sh,zsh
    $SPARK_HOME/bin/spark-submit \
     --class org.apache.spark.examples.SparkPi \
     --master $MASTER_URL \
@@ -303,7 +302,7 @@ Use the following steps to deploy an Amazon EKS cluster. You can change the AWS 
 
 1. Check events for the `SparkApplication` object with the following command: 
 
-   ```
+   ```bash,sh,zsh
    kubectl describe pod {{spark-driver-pod}} --namespace spark-job
    ```
 

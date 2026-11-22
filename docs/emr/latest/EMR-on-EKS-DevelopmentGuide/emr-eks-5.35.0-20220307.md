@@ -1,7 +1,6 @@
 
 
 # emr-5.35.0-20220307
-<a name="emr-eks-5.35.0-20220307"></a>
 
 **Release notes**: `emr-5.35.0-20220307` was released on Mar 30, 2022. Compared to the previous version, this version has been refreshed with the recently updated Amazon Linux packages.
 

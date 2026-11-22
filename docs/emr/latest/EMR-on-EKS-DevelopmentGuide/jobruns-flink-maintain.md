@@ -1,7 +1,6 @@
 
 
 # Maintaining Flink applications
-<a name="jobruns-flink-maintain"></a>
 
 **Topics**
 + [Upgrade modes](#jobruns-flink-upgrademode)

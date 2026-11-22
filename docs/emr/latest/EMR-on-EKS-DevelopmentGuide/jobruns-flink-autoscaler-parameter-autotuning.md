@@ -1,7 +1,6 @@
 
 
 # Autoscaler parameter autotuning
-<a name="jobruns-flink-autoscaler-parameter-autotuning"></a>
 
 This section describes auto-tuning behavior for various Amazon EMR versions. It also goes into detail regarding different auto-scaling configurations.
 
@@ -16,7 +15,7 @@ Amazon EMR 7.2.0 and higher measures the actual required restart time to apply a
 
 To enable this tracking, use the following command:
 
-```
+```bash,sh,zsh
 job.autoscaler.restart.time-tracking.enabled: true
 ```
 
@@ -31,7 +30,7 @@ The following are the related configurations for rescale time estimation.
 
 The following is an example deployment spec you can use to try out rescale time estimation:
 
-```
+```bash,sh,zsh
 apiVersion: flink.apache.org/v1beta1
 kind: FlinkDeployment
 metadata:
@@ -75,7 +74,7 @@ spec:
 
 To simulate backpressure, use the following deployment spec.
 
-```
+```bash,sh,zsh
 job:
     jarURI: s3://{{<s3_bucket>}}/pyflink-script.py
     entryClass: "org.apache.flink.client.python.PythonDriver"
@@ -86,7 +85,7 @@ job:
 
 Upload the following Python script to your S3 bucket.
 
-```
+```bash,sh,zsh
 import logging
 import sys
 import time
@@ -133,7 +132,7 @@ if __name__ == '__main__':
 
 To verify that rescale time estimation is working, make sure that `DEBUG` level logging of the Flink operator is enabled. The example below demonstrates how to update the helm chart file `values.yaml`. Then reinstall the updated helm chart and run your Flink job again.
 
-```
+```bash,sh,zsh
 log4j-operator.properties: |+
   # Flink Operator Logging Overrides
   rootLogger.level = DEBUG
@@ -141,7 +140,7 @@ log4j-operator.properties: |+
 
 Getthe name of your leader pod.
 
-```
+```bash,sh,zsh
 ip=$(kubectl get configmap -n $NAMESPACE {{<job-name>}}-cluster-config-map -o json | jq -r ".data[\"org.apache.flink.k8s.leader.restserver\"]" | awk -F: '{print $2}' | awk -F '/' '{print $3}')
 
 kubectl get pods -n $NAMESPACE -o json | jq -r ".items[] | select(.status.podIP == \"$ip\") | .metadata.name"
@@ -149,13 +148,13 @@ kubectl get pods -n $NAMESPACE -o json | jq -r ".items[] | select(.status.podIP 
 
 Run the following command to get the actual restart time used in metrics evaluations.
 
-```
+```bash,sh,zsh
 kubectl logs {{<FLINK-OPERATOR-POD-NAME>}} -c flink-kubernetes-operator -n {{<OPERATOR-NAMESPACE>}} -f | grep "Restart time used in scaling summary computation"
 ```
 
 You should see logs similar to the following. Note that only the first scaling uses ` job.autoscaler.restart.time`. Subsequent scalings use the observed restart time.
 
-```
+```bash,sh,zsh
 2024-05-16 17:17:32,590 o.a.f.a.ScalingExecutor        [DEBUG][default/autoscaler-example] Restart time used in scaling summary computation: PT2M
 2024-05-16 17:19:03,787 o.a.f.a.ScalingExecutor        [DEBUG][default/autoscaler-example] Restart time used in scaling summary computation: PT14S
 2024-05-16 17:19:18,976 o.a.f.a.ScalingExecutor        [DEBUG][default/autoscaler-example] Restart time used in scaling summary computation: PT14S
@@ -182,7 +181,7 @@ To enable autotuning, you must have completed the following:
 
 The following is an example deployment spec you can use to try out autotuning.
 
-```
+```bash,sh,zsh
 apiVersion: flink.apache.org/v1beta1
 kind: FlinkDeployment
 metadata:
@@ -231,7 +230,7 @@ spec:
 
 To simulate backpressure, use the following deployment spec.
 
-```
+```bash,sh,zsh
   job:
     jarURI: s3://<S3_bucket>/pyflink-script.py
     entryClass: "org.apache.flink.client.python.PythonDriver"
@@ -242,7 +241,7 @@ To simulate backpressure, use the following deployment spec.
 
 Upload the following Python script to your S3 bucket.
 
-```
+```bash,sh,zsh
 import logging
 import sys
 import time
@@ -291,7 +290,7 @@ To verify that your autotuner is working, use the following commands. Note that 
 
 First get the name of your leader pod.
 
-```
+```bash,sh,zsh
 ip=$(kubectl get configmap -n $NAMESPACE <job-name>-cluster-config-map -o json | jq -r ".data[\"org.apache.flink.k8s.leader.restserver\"]" | awk -F: '{print $2}' | awk -F '/' '{print $3}')
 
 kubectl get pods -n $NAMESPACE -o json | jq -r ".items[] | select(.status.podIP == \"$ip\") | .metadata.name"
@@ -305,7 +304,7 @@ kubectl logs -n $NAMESPACE  -c flink-kubernetes-operator --follow <{{YOUR-FLINK-
 
 You should see logs similar to the following.
 
-```
+```bash,sh,zsh
 [m[33m2023-09-13 20:10:35,941[m [36mc.a.c.f.k.o.a.EmrEksMetricsAutotuner[m [36m[DEBUG][flink/autoscaling-example] Using the latest Emr Eks Metric for calculating restart.time for autotuning: EmrEksMetrics(restartMetric=RestartMetric(restartingTime=65, numRestarts=1))
 
 [m[33m2023-09-13 20:10:35,941[m [36mc.a.c.f.k.o.a.EmrEksMetricsAutotuner[m [32m[INFO ][flink/autoscaling-example] Calculated average restart.time metric via autotuning to be: PT0.065S

@@ -1,7 +1,6 @@
 
 
 # Considerations for customizing images
-<a name="docker-custom-images-considerations"></a>
 
 When you customize Docker images, you can choose the exact runtime for your job at a granular level. Consider these best practices when you use this feature. These include considerations for security, configuration, and mounting an image:
 + Security is a shared responsibility between AWS and you. You're responsible for security patching the binaries that you add to the image. Follow the [Amazon EMR on EKS security best practices](security-best-practices.md), especially [Get the latest security updates for custom images](security-best-practices.md#security-custom-image) and [Apply principle of least privilege](security-best-practices.md#security-least-privilege).

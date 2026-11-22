@@ -1,7 +1,6 @@
 
 
 # Monitoring jobs
-<a name="monitoring"></a>
 
 You can use Amazon CloudWatch Events to track jobs that run on an Amazon EMR on EKS virtual cluster. You can use events to track the activity and health of a jobs that you run on a virtual cluster. The topics that follow show you ways to configure monitoring effectively to maintain the health of your resources.
 

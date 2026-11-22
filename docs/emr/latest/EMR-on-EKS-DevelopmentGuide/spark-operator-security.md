@@ -1,7 +1,6 @@
 
 
 # Security and the Spark operator with Amazon EMR on EKS
-<a name="spark-operator-security"></a>
 
 There are a couple ways to set up cluster-access permissions when you use the Spark operator. The first is to use role-based access control, Role-based access control (RBAC) restricts access based on a person's role within an organization. It has become a primary way to handle access. The second access method is to assume an AWS Identity and Access Management role, which provides resource access by means of specific assigned permissions.
 

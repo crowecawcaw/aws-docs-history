@@ -1,7 +1,6 @@
 
 
 # Run a Flink application
-<a name="jobruns-flink-kubernetes-operator-run-application"></a>
 
 With Amazon EMR 6.13.0 and higher, you can run a Flink application with the Flink Kubernetes operator in Application mode on Amazon EMR on EKS. With Amazon EMR 6.15.0 and higher, you can also run a Flink application in Session mode. This page describes both methods that you can use to run a Flink application with Amazon EMR on EKS.
 
@@ -19,7 +18,7 @@ With Amazon EMR 6.13.0 and higher, you can run a Flink application with the Flin
 
 1. Create a `FlinkDeployment` definition file `basic-example-app-cluster.yaml` like in the following example. If you activated and use one of the [opt-in AWS Regions](https://docs.aws.amazon.com/controltower/latest/userguide/opt-in-region-considerations.html), make sure you uncomment and configure the configuration `fs.s3a.endpoint.region`.
 
-   ```
+   ```yaml
    apiVersion: flink.apache.org/v1beta1
    kind: FlinkDeployment
    metadata:
@@ -55,13 +54,13 @@ With Amazon EMR 6.13.0 and higher, you can run a Flink application with the Flin
 
 1. Submit the Flink deployment with the following command. This will also create a `FlinkDeployment` object named `basic-example-app-cluster`.
 
-   ```
+   ```bash,sh,zh
    kubectl create -f basic-example-app-cluster.yaml -n <NAMESPACE>
    ```
 
 1. Access the Flink UI.
 
-   ```
+   ```bash,sh,zh
    kubectl port-forward deployments/basic-example-app-cluster 8081 -n {{NAMESPACE}}
    ```
 
@@ -78,7 +77,7 @@ With Amazon EMR 6.15.0 and higher, you can run a Flink application with the Flin
 
 1. Create a `FlinkDeployment` definition file named `basic-example-app-cluster.yaml` like in the following example. If you activated and use one of the [opt-in AWS Regions](https://docs.aws.amazon.com/controltower/latest/userguide/opt-in-region-considerations.html), make sure you uncomment and configure the configuration `fs.s3a.endpoint.region`.
 
-   ```
+   ```yaml
    apiVersion: flink.apache.org/v1beta1
    kind: FlinkDeployment
    metadata:
@@ -110,7 +109,7 @@ With Amazon EMR 6.15.0 and higher, you can run a Flink application with the Flin
 
 1. Submit the Flink deployment with the following command. This will also create a `FlinkDeployment` object named `basic-example-session-cluster`.
 
-   ```
+   ```bash,sh,zh
    kubectl create -f basic-example-app-cluster.yaml -n {{NAMESPACE}}
    ```
 
@@ -129,7 +128,7 @@ With Amazon EMR 6.15.0 and higher, you can run a Flink application with the Flin
 
 1. Create a `FlinkSessionJob` custom definition resource file `basic-session-job.yaml` with the following example content:
 
-   ```
+   ```yaml
    apiVersion: flink.apache.org/v1beta1
    kind: FlinkSessionJob
    metadata:
@@ -148,7 +147,7 @@ With Amazon EMR 6.15.0 and higher, you can run a Flink application with the Flin
 
 1. Submit the Flink session job with the following command. This will create a `FlinkSessionJob` object `basic-session-job`.
 
-   ```
+   ```bash,sh,zsh
    kubectl apply -f basic-session-job.yaml -n $NAMESPACE
    ```
 
@@ -167,7 +166,7 @@ With Amazon EMR 6.15.0 and higher, you can run a Flink application with the Flin
 
 1. Access the Flink UI.
 
-   ```
+   ```bash,sh,zh
    kubectl port-forward deployments/basic-example-session-cluster 8081 -n {{NAMESPACE}}
    ```
 

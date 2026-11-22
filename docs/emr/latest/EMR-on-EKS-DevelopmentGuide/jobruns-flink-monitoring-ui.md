@@ -1,7 +1,6 @@
 
 
 # Use the Flink UI to monitor Flink jobs
-<a name="jobruns-flink-monitoring-ui"></a>
 
 To monitor the health and performance of a running Flink application, use the *Flink Web Dashboard*. This dashboard provides information about the status of the job, the number of TaskManagers, and the metrics and logs for the job. It also lets you view and modify the configuration of the Flink job, and to interact with the Flink cluster to submit or cancel jobs.
 
@@ -22,13 +21,13 @@ To access the Flink Web Dashboard for a running Flink application on Kubernetes:
    flink-kubernetes-operator   1/1       1            1           21h
    ```
 
-   ```
+   ```bash,sh,zsh
    kubectl port-forward deployments/{{deployment-name}} 8081 -n {{namespace}}
    ```
 
 1. If you want to use a different port locally, use the {{local-port}}:8081 parameter.
 
-   ```
+   ```bash,sh,zsh
    kubectl port-forward -n flink deployments/basic-example {{8080}}:8081
    ```
 

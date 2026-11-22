@@ -1,7 +1,6 @@
 
 
 # emr-6.2.0-20210129
-<a name="emr-eks-6.2.0-20210129"></a>
 
 **Release notes**: `emr-6.2.0-20210129` was released on January 29, 2021. Compared to `emr-6.2.0-20201218`, this version contains issue fixes and security updates.
 

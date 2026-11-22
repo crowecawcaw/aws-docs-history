@@ -1,7 +1,6 @@
 
 
 # emr-7.12.0-20251111
-<a name="emr-eks-7.12.0-20251111"></a>
 
 **Release notes**: `emr-7.12.0-20251111` was released in November 2025. This is the initial release of Amazon EMR 7.12.0 (Spark).
 

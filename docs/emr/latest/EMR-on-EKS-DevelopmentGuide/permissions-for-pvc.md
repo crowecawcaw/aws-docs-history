@@ -1,7 +1,6 @@
 
 
 # Troubleshooting jobs that use PersistentVolumeClaims (PVC)
-<a name="permissions-for-pvc"></a>
 
 If you need to create, list, or delete PersistentVolumeClaims (PVC) for a job but don't add PVC permissions to the default Kubernetes role *emr-containers*, the job fails when you submit it. Without these permissions, the *emr-containers* role can’t create necessary roles for the Spark driver or Spark client. It isn't enough to add permissions to the Spark driver or client roles, as suggested by error messages. The *emr-containers* primary role must include the required permissions also. This section explains how to add the required permissions to the *emr-containers* primary role.
 

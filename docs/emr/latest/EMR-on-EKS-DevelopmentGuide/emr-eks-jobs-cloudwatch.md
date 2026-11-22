@@ -1,7 +1,6 @@
 
 
 # Configure a job run to use Amazon CloudWatch Logs
-<a name="emr-eks-jobs-cloudwatch"></a>
 
 To monitor job progress and to troubleshoot failures, you must configure your jobs to send log information to Amazon S3, Amazon CloudWatch Logs, or both. This topic helps you get started using CloudWatch Logs on your jobs that are launched with Amazon EMR on EKS. For more information about CloudWatch Logs, see [Monitoring Log Files](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.html) in the Amazon CloudWatch User Guide.
 
@@ -14,7 +13,7 @@ For your jobs to send log data to CloudWatch Logs, the following permissions mus
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

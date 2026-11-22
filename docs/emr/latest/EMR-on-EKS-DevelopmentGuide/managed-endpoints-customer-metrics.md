@@ -1,7 +1,6 @@
 
 
 # Monitoring interactive endpoints
-<a name="managed-endpoints-customer-metrics"></a>
 
 With Amazon EMR on EKS version 6.10 and later, interactive endpoints emit Amazon CloudWatch metrics for monitoring and troubleshooting kernel lifecycle operations. Metrics are triggered by interactive clients, such as EMR Studio or self-hosted Jupyter notebooks. Each of the operations supported by interactive endpoints have metrics associated with them. The operations are modeled as dimensions to each metric, as shown in the table below. Metrics emitted by interactive endpoints are visible under a custom namespace, EMRContainers, in your account.
 

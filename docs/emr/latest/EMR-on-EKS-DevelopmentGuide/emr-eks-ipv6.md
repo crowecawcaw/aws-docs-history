@@ -1,7 +1,6 @@
 
 
 # Running EMR on EKS on IPv6 clusters
-<a name="emr-eks-ipv6"></a>
 
 You can run Amazon EMR on EKS workloads on IPv6 Amazon EKS clusters to take advantage of a significantly larger address space and avoid IPv4 address exhaustion as your Kubernetes environments scale.
 
@@ -39,7 +38,7 @@ Operator-based submission models require additional configuration for IPv6 compa
 
 To run Spark Operator workloads on an IPv6 cluster, add the following Spark configuration to your `SparkApplication` spec. This configuration is required for all supported releases.
 
-```
+```yaml
 spec:
   sparkConf:
     "spark.kubernetes.driver.service.ipFamilies": "IPv6"
@@ -55,7 +54,7 @@ KUBERNETES_DISABLE_HOSTNAME_VERIFICATION=true
 
 After installing the Spark operator, run the following command to set the environment variable:
 
-```
+```bash
 kubectl set env deployment/{{spark-operator-deployment-name}} \
   KUBERNETES_DISABLE_HOSTNAME_VERIFICATION=true \
   -n {{spark-operator-namespace}}
@@ -79,7 +78,7 @@ This workaround addresses the same OkHttp 3.x IPv6 hostname verification issue d
 
 Set the environment variable during `helm install`:
 
-```
+```bash
 helm install {{my-flink-operator}} {{chart}} \
   --set operatorPod.env[0].name=KUBERNETES_DISABLE_HOSTNAME_VERIFICATION \
   --set-string operatorPod.env[0].value=true
@@ -90,7 +89,7 @@ helm install {{my-flink-operator}} {{chart}} \
 
 Inject the environment variable through a pod template in your `FlinkDeployment` YAML:
 
-```
+```yaml
 spec:
   podTemplate:
     spec:
@@ -108,14 +107,14 @@ To run Livy Operator workloads on an IPv6 cluster, you must configure two things
 
 1. **Dualstack load balancer annotation** — Add the following annotation when installing the Livy helm chart so that the AWS Load Balancer Controller provisions a dualstack Network Load Balancer:
 
-   ```
+   ```bash
    helm install {{my-livy}} {{chart}} \
      --set "service.annotations.service\.beta\.kubernetes\.io/aws-load-balancer-ip-address-type=dualstack"
    ```
 
 1. **Spark driver service IPv6 configuration** — Include the `spark.kubernetes.driver.service.ipFamilies` configuration when you submit Spark jobs through Livy:
 
-   ```
+   ```json
    {
      "conf": {
        "spark.kubernetes.driver.service.ipFamilies": "IPv6"

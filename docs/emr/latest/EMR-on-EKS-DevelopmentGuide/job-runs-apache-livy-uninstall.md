@@ -1,13 +1,12 @@
 
 
 # Uninstalling Apache Livy with Amazon EMR on EKS
-<a name="job-runs-apache-livy-uninstall"></a>
 
 Follow these steps to uninstall Apache Livy.
 
 1. Delete the Livy setup using the names of your namespace and application name. In this example, the application name is `livy-demo` and the namespace is `livy-ns`.
 
-   ```
+   ```bash,sh,zsh
    helm uninstall {{livy-demo}} -n {{livy-ns}}
    ```
 
@@ -15,6 +14,6 @@ Follow these steps to uninstall Apache Livy.
 
 1. Delete the Spark namespace.
 
-   ```
+   ```bash,sh,zsh
    kubectl delete namespace spark-ns
    ```

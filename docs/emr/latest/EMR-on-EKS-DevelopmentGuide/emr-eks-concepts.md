@@ -1,7 +1,6 @@
 
 
 # Understanding Amazon EMR on EKS concepts and terminology
-<a name="emr-eks-concepts"></a>
 
 Amazon EMR on EKS provides a deployment option for Amazon EMR that allows you to run open-source big data frameworks on Amazon Elastic Kubernetes Service (Amazon EKS). This topic gives you context on some of the common terminology for it, including namespaces, virtual clusters, and job runs, which are units of work that you submit for processing.
 

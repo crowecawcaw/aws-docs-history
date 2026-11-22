@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations
-<a name="security_iam_fgac-considerations"></a>
 
 Note the following considerations and limitations when you use Lake Formation with Amazon EMR on EKS:
 + Amazon EMR on EKS supports fine-grained access control via Lake Formation only for Apache Hive, Apache Iceberg, Apache Hudi, and Delta table Formats. Apache Hive formats include Parquet, ORC, and xSV.

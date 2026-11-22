@@ -1,7 +1,6 @@
 
 
 # Common errors when running jobs
-<a name="emr-eks-jobs-error"></a>
 
 The following errors may occur when you run `StartJobRun` API. The table lists each error and provides mitigation steps so you can address issues quickly.
 

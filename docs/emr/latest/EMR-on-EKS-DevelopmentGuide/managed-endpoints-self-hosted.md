@@ -1,7 +1,6 @@
 
 
 # Using self-hosted Jupyter notebooks
-<a name="managed-endpoints-self-hosted"></a>
 
 You can host and manage Jupyter or JupyterLab notebooks on an Amazon EC2 instance or on your own Amazon EKS cluster as a *self-hosted Jupyter notebook*. You can then run interactive workloads with your self-hosted Jupyter notebooks. The following sections walk through the process to set up and deploy a self-hosted Jupyter notebook on an Amazon EKS cluster.
 
@@ -31,7 +30,7 @@ After you create security group for your notebook, use the steps provided in [Cr
 
 Insert the security ID in place of {{your-notebook-security-group-id}} in the following configuration override settings:
 
-```
+```bash,sh,zsh
 --configuration-overrides '{
     "applicationConfiguration": [
         {
@@ -50,7 +49,7 @@ Insert the security ID in place of {{your-notebook-security-group-id}} in the fo
 
 After you create an interactive endpoint, retrieve the gateway server URL with the `describe-managed-endpoint` command in the AWS CLI. You need this URL to connect your notebook to the endpoint. The gateway server URL is a private endpoint.
 
-```
+```bash,sh,zsh
 aws emr-containers describe-managed-endpoint \
 --region {{region}} \
 --virtual-cluster-id {{virtualClusterId}} \
@@ -68,7 +67,7 @@ To connect to an interactive endpoint from a Jupyter or JupyterLab notebook, you
 
 The following command is explained in more detail with an output example below.
 
-```
+```bash,sh,zsh
 aws emr-containers get-managed-endpoint-session-credentials \
 --endpoint-identifier {{endpointArn}} \
 --virtual-cluster-identifier {{virtualClusterArn}} \
@@ -114,7 +113,7 @@ Once you've completed the steps above, you can try this example procedure to dep
 
 1. Create a file locally, `notebook.yaml`, with the following contents. The file contents are described below.
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: Pod
    metadata:
@@ -143,7 +142,7 @@ Once you've completed the steps above, you can try this example procedure to dep
 
    If you are deploying Jupyter notebook to a Fargate-only cluster, label the Jupyter pod with a `role` label as shown in the following example:
 
-   ```
+   ```bash,sh,zsh
    ...
    metadata:
      name: jupyter-notebook
@@ -164,7 +163,7 @@ The amount of time in seconds that the interactive endpoint waits for the kernel
 **`KERNEL_EXTRA_SPARK_OPTS`**  
 Optionally, you can pass additional Spark configurations for the Spark kernels. Set this environment variable with the values as the Spark configuration property as shown in the following example:  
 
-   ```
+   ```yaml
    - name: KERNEL_EXTRA_SPARK_OPTS
      value: "--conf spark.driver.cores=2
              --conf spark.driver.memory=2G
@@ -181,13 +180,13 @@ Optionally, you can pass additional Spark configurations for the Spark kernels. 
 
 1. Deploy the pod spec to your Amazon EKS cluster:
 
-   ```
+   ```bash,sh,zsh
    kubectl apply -f notebook.yaml -n {{namespace}}
    ```
 
    This will start up a minimal JupyterLab notebook connected to your Amazon EMR on EKS interactive endpoint. Wait until the pod is **RUNNING**. You can check its status with the following command:
 
-   ```
+   ```bash,sh,zsh
    kubectl get pod jupyter-notebook -n {{namespace}}
    ```
 
@@ -202,7 +201,7 @@ Optionally, you can pass additional Spark configurations for the Spark kernels. 
 
    1. First, identify the node where `jupyter-notebook` pod is scheduled with the `describe pod` command.
 
-      ```
+      ```bash,sh,zsh
       kubectl describe pod jupyter-notebook -n {{namespace}}
       ```
 
@@ -214,7 +213,7 @@ Optionally, you can pass additional Spark configurations for the Spark kernels. 
 
    1. If you are deploying Jupyter notebook pod on AWS Fargate, create a [`SecurityGroupPolicy`]() to apply to the Jupyter notebook pod with the role label:
 
-      ```
+      ```bash,sh,zsh
       cat >my-security-group-policy.yaml <<EOF
       apiVersion: vpcresources.k8s.aws/v1beta1
       kind: SecurityGroupPolicy
@@ -233,7 +232,7 @@ Optionally, you can pass additional Spark configurations for the Spark kernels. 
 
 1. Now, port-forward so that you can locally access the JupyterLab interface:
 
-   ```
+   ```bash,sh,zsh
    kubectl port-forward jupyter-notebook 8888:8888 -n {{namespace}}
    ```
 
@@ -242,7 +241,7 @@ Optionally, you can pass additional Spark configurations for the Spark kernels. 
 
 1. From JupyterLab, create a new Scala notebook. Here is a sample code snippet that you can run to approximate the value of Pi:
 
-   ```
+   ```scala
    import scala.math.random
    import org.apache.spark.sql.SparkSession
    
@@ -276,7 +275,7 @@ When you're ready to delete your self-hosted notebook, you can also delete the i
 
 1. Use the following command to delete the `jupyter-notebook` pod:
 
-   ```
+   ```bash,sh,zsh
    kubectl delete pod jupyter-notebook -n {{namespace}}
    ```
 

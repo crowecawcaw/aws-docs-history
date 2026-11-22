@@ -1,7 +1,6 @@
 
 
 # Launching a Spark application using the Amazon Redshift integration for Apache Spark
-<a name="emr-spark-redshift-launch"></a>
 
 To use the integration, you must pass the required Spark Redshift dependencies with your Spark job. You must use `--jars` to include Redshift connector-related libraries. To see other file locations supported by the `--jars` option, see the [Advanced Dependency Management](https://spark.apache.org/docs/latest/submitting-applications.html#advanced-dependency-management) section of the Apache Spark documentation. 
 + `spark-redshift.jar`

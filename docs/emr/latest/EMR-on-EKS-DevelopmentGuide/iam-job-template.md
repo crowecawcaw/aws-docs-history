@@ -1,7 +1,6 @@
 
 
 # Controlling access to job templates
-<a name="iam-job-template"></a>
 
 `StartJobRun` policy lets you enforce that a user or a role can only run jobs using job templates that you specify and cannot run `StartJobRun` operations without using the specified job templates. To achieve this, first ensure that you give the user or role a read permission to the specified job templates as shown below.
 
@@ -10,7 +9,7 @@
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -38,7 +37,7 @@ To enforce that a user or role is able to invoke `StartJobRun` operation only wh
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

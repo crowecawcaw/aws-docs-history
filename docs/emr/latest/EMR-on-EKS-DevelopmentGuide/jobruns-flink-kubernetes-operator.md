@@ -1,7 +1,6 @@
 
 
 # Setting up and using the Flink Kubernetes operator
-<a name="jobruns-flink-kubernetes-operator"></a>
 
 The following pages describe how to set up and use the Flink Kubernetes operator to run Flink jobs with Amazon EMR on EKS. The topics available include required prerequisites, how to set up your environment, and running a Flink application on Amazon EMR on EKS.
 

@@ -1,7 +1,6 @@
 
 
 # AWS runtime for Apache Spark (emr-spark-8.0.0) on EKS
-<a name="emr-eks-spark-8.0.0"></a>
 
 This page describes the new and updated functionality for Amazon EMR that is specific to the Amazon EMR on EKS deployment. For details about Amazon EMR running on Amazon EC2 and about the Amazon EMR Spark 8.0.0 release in general, see [AWS runtime for Apache Spark (emr-spark-8.0.0)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark800-release.html) in the *Amazon EMR Release Guide*.
 

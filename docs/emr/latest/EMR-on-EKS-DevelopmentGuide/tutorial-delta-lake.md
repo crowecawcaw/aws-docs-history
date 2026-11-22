@@ -1,7 +1,6 @@
 
 
 # Using Delta Lake with Amazon EMR on EKS
-<a name="tutorial-delta-lake"></a>
 
 Delta Lake is an open-source storage framework for building a Lakehouse architecture. The following shows how to set it up for use.
 
@@ -16,7 +15,7 @@ Delta Lake is an open-source storage framework for building a Lakehouse architec
 **Note**  
 Amazon EMR releases 7.0.0 and higher uses Delta Lake 3.0, which renames `delta-core.jar` to `delta-spark.jar`. If you use Amazon EMR releases 7.0.0 or higher, be sure to use the correct file name, such as in the following example:  
 
-   ```
+   ```bash,sh,zsh
    --jars local:///usr/share/aws/delta/lib/delta-spark.jar
    ```
 

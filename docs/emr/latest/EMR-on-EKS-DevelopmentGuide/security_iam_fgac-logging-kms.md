@@ -1,7 +1,6 @@
 
 
 # Encrypting Amazon EMR on EKS logs with managed storage
-<a name="security_iam_fgac-logging-kms"></a>
 
 The sections that follow show you how to configure encryption for logs.
 
@@ -34,7 +33,7 @@ The user who submits the job or views the Spark UI must be allowed the actions `
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -75,7 +74,7 @@ You must also configure the KMS key to allow the `persistentappui.elasticmapredu
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

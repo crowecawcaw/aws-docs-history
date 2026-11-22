@@ -1,7 +1,6 @@
 
 
 # Using Apache Livy with Amazon EMR on EKS
-<a name="job-runs-apache-livy"></a>
 
 With Amazon EMR releases 7.1.0 and higher, you can use Apache Livy to submit jobs on Amazon EMR on EKS. Using Apache Livy, you can set up your own Apache Livy REST endpoint and use it to deploy and manage Spark applications on your Amazon EKS clusters. After you install Livy in your Amazon EKS cluster, you can use the Livy endpoint to submit Spark applications to your Livy server. The server manages the lifecycle of the Spark applications.
 

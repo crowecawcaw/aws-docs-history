@@ -1,7 +1,6 @@
 
 
 # Managed policies for Amazon EMR on EKS
-<a name="emr-eks-managed-polices"></a>
 
 View details about updates to AWS managed policies for Amazon EMR on EKS since March 1, 2021.
 

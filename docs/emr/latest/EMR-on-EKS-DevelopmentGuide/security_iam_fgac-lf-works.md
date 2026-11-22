@@ -1,7 +1,6 @@
 
 
 # How Amazon EMR on EKS works with AWS Lake Formation
-<a name="security_iam_fgac-lf-works"></a>
 
 Using Amazon EMR on EKS with Lake Formation lets you enforce a layer of permissions on each Spark Job to apply Lake Formation permission control when Amazon EMR on EKS executes jobs. Amazon EMR on EKS uses [Spark resource profiles](https://spark.apache.org/docs/latest/api/java/org/apache/spark/resource/ResourceProfile.html) to create two profiles to effectively execute jobs. The User Profile executes user-supplied code, while the system profile enforces Lake Formation policies. Each Lake Formation enabled Job utilizes two Spark drivers, one for the User profile, and another for the System profile. For more information, see What is [AWS Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/what-is-lake-formation.html).
 

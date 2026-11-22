@@ -1,7 +1,6 @@
 
 
 # Use Amazon Managed Service for Prometheus to monitor Flink jobs
-<a name="jobruns-flink-monitoring-prometheus"></a>
 
 You can integrate Apache Flink with Amazon Managed Service for Prometheus (management portal). Amazon Managed Service for Prometheus supports ingesting metrics from Amazon Managed Service for Prometheus servers in clusters running on Amazon EKS. Amazon Managed Service for Prometheus works together with a Prometheus server already running on your Amazon EKS cluster. Running Amazon Managed Service for Prometheus integration with Amazon EMR Flink operator will automatically deploy and configure a Prometheus server to integrate with Amazon Managed Service for Prometheus.
 
@@ -21,7 +20,7 @@ Now that you have an Amazon Managed Service for Prometheus workspace, a dedicate
 
 Create an `enable-amp.yaml` file. This file lets you use a custom configuration to override Amazon Managed Service for Prometheus settings. Make sure to use your own roles.
 
-```
+```bash,sh,zsh
 kube-prometheus-stack:
     prometheus:
     serviceAccount:
@@ -41,7 +40,7 @@ kube-prometheus-stack:
 
 Use the [`Helm Install --set`](https://helm.sh/docs/helm/helm_install/) command to pass overrides to the `flink-kubernetes-operator` chart.
 
-```
+```bash,sh,zsh
 helm upgrade -n {{<namespace>}} flink-kubernetes-operator \
    oci://public.ecr.aws/emr-on-eks/flink-kubernetes-operator \
    --set prometheus.enabled=true

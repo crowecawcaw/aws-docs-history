@@ -1,7 +1,6 @@
 
 
 # emr-5.33.0-20210802
-<a name="emr-eks-5.33.0-20210802"></a>
 
 **Release notes**: `emr-5.33.0-20210802` was released on Aug 2, 2021. Compared to the previous version, this version contains issue fixes and security updates.
 

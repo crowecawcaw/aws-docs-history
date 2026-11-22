@@ -1,7 +1,6 @@
 
 
 # Overview of interactive endpoints
-<a name="how-it-works"></a>
 
 An *interactive endpoint* provides the capability for interactive clients like Amazon EMR Studio to connect to Amazon EMR on EKS clusters to run interactive workloads. The interactive endpoint is backed by a Jupyter Enterprise Gateway that provides the remote kernel lifecycle management capability that interactive clients need. *Kernels* are language-specific processes that interact with the Jupyter-based Amazon EMR Studio client to run interactive workloads.
 

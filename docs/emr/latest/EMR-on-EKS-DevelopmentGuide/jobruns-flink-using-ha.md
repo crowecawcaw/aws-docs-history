@@ -1,7 +1,6 @@
 
 
 # Using high availability (HA) for Flink Operators and Flink Applications
-<a name="jobruns-flink-using-ha"></a>
 
 This topic shows how to configure high availability and describes how it works for a few different use cases. These include when you're using the Job manager and when you're using Flink native kubernetes.
 
@@ -184,7 +183,7 @@ You must have an Amazon S3 bucket created to store the high-availability metadat
 
 To turn on the Flink high-availability feature, provide the following Flink parameters when you [run the `run-application` CLI command](jobruns-flink-native-kubernetes-getting-started.md#jobruns-flink-native-kubernetes-getting-started-run-application). The parameters are defined below the example.
 
-```
+```bash,sh,zsh
 -Dhigh-availability.type=kubernetes \
 -Dhigh-availability.storageDir={{S3://DOC-EXAMPLE-STORAGE-BUCKET}} \
 -Dfs.s3a.aws.credentials.provider="com.amazonaws.auth.WebIdentityTokenCredentialsProvider" \

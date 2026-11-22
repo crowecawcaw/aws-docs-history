@@ -1,7 +1,6 @@
 
 
 # Enable IAM Roles for the EKS cluster
-<a name="setting-up-enable-IAM-roles"></a>
 
 The following topics detail options for enabling IAM roles.
 

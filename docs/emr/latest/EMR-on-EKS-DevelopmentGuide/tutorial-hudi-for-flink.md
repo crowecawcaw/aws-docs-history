@@ -1,7 +1,6 @@
 
 
 # Using Apache Hudi with Apache Flink
-<a name="tutorial-hudi-for-flink"></a>
 
 Apache Hudi is an open-source data management framework with record-level operations such as insert, update, upsert, and delete that you can use to simplify data management and data pipeline development. When combined with efficient data management in Amazon S3, Hudi lets you ingest and update data in real time. Hudi maintains metadata of all of the operations that you run on the dataset, so all of the actions remain atomic and consistent. 
 
@@ -14,7 +13,7 @@ See the following steps to learn how to submit an Apache Hudi job.
 
 1. Create an AWS Glue database named `default`.
 
-   ```
+   ```bash,sh,zsh
    aws glue create-database --database-input "{\"Name\":\"default\"}"
    ```
 
@@ -22,7 +21,7 @@ See the following steps to learn how to submit an Apache Hudi job.
 
 1. Create a Hudi SQL script like the following.
 
-   ```
+   ```bash,sh,zsh
    CREATE CATALOG hudi_glue_catalog WITH (
    'type' = 'hudi',
    'mode' = 'hms',
@@ -77,7 +76,7 @@ See the following steps to learn how to submit an Apache Hudi job.
 
 1. In your `FlinkDeployments` YAML file, set `hudi.enabled` to `true`.
 
-   ```
+   ```bash,sh,zsh
    spec:
      flinkConfiguration:
        hudi.enabled: "true"
@@ -85,7 +84,7 @@ See the following steps to learn how to submit an Apache Hudi job.
 
 1. Create a YAML file to run your configuration. This example file is named `hudi-write.yaml`.
 
-   ```
+   ```bash,sh,zsh
    apiVersion: flink.apache.org/v1beta1
    kind: FlinkDeployment
    metadata:
@@ -159,6 +158,6 @@ See the following steps to learn how to submit an Apache Hudi job.
 
 1. Submit a Flink Hudi job to the [Flink Kubernetes operator](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/jobruns-flink-kubernetes-operator.html).
 
-   ```
+   ```bash,sh,zsh
    kubectl apply -f hudi-write.yaml
    ```
