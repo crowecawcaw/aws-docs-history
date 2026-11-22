@@ -1,7 +1,6 @@
 
 
 # describe-agent-clients
-<a name="describe-agent-clients"></a>
 
 Describes the agents that are registered with the broker.
 
@@ -42,7 +41,7 @@ sudo -u root dcv-session-manager-broker describe-agent-clients
 
 **Output**
 
-```
+```json
 Session manager agent clients
 [ {
 "name" : "test",

@@ -1,7 +1,6 @@
 
 
 # register-api-client
-<a name="register-api-client"></a>
 
 Registers a Session Manager client with the broker and generates client credentials that can be used by the client to retrieve an OAuth 2.0 access token, which is needed to make API requests.
 
@@ -53,7 +52,7 @@ sudo -u root dcv-session-manager-broker register-api-client --client-name my-sm-
 
 **Output**
 
-```
+```json
 client-id: 21cfe9cf-61d7-4c53-b1b6-cf248EXAMPLE
 client-password: NjVmZDRlN2ItNjNmYS00M2QxLWFlZmMtZmNmMDNkMEXAMPLE
 ```

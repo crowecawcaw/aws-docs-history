@@ -1,7 +1,6 @@
 
 
 # Broker CLI reference
-<a name="cli"></a>
 
 The Amazon DCV Session Manager broker is a command-line interface (CLI) tool that provides administrative control over the Session Manager. This reference covers the complete set of CLI commands available for managing sessions, users, resources, and other aspects of the Session Manager. Administrators can automate routine management tasks, troubleshoot issues, and optimize the performance of their Amazon DCV infrastructure.
 

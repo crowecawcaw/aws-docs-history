@@ -1,7 +1,6 @@
 
 
 # describe-api-clients
-<a name="describe-api-clients"></a>
 
 Lists the Session Manager clients that have been registered with the broker.
 
@@ -42,7 +41,7 @@ sudo -u root dcv-session-manager-broker describe-api-clients
 
 **Output**
 
-```
+```json
 Api clients
 [ {
 "name" : "client-abc",

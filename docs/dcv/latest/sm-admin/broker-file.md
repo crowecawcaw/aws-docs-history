@@ -1,7 +1,6 @@
 
 
 # Broker configuration file
-<a name="broker-file"></a>
 
 The broker configuration file (`/etc/dcv-session-manager-broker/session-manager-broker.properties`) includes parameters that can be configured to customize the Session Manager functionality. You can edit the configuration file using your preferred text editor.
 

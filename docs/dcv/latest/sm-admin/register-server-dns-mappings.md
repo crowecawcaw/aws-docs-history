@@ -1,7 +1,6 @@
 
 
 # register-server-dns-mappings
-<a name="register-server-dns-mappings"></a>
 
 Register the DCV Servers - DNS names mappings coming from a JSON file.
 
@@ -33,6 +32,6 @@ sudo -u root dcv-session-manager-broker register-server-dns-mappings --file-path
 
 **Output**
 
-```
+```json
  Successfully loaded 2 server id - dns name mappings from file /tmp/mappings.json
 ```

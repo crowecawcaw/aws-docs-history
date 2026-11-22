@@ -1,7 +1,6 @@
 
 
 # generate-software-statement
-<a name="generate-software-statement"></a>
 
 Generates a software statement.
 
@@ -40,6 +39,6 @@ sudo -u root dcv-session-manager-broker generate-software-statement
 
 **Output**
 
-```
+```json
 software-statement: ewogICJpZCIgOiAiYjc1NTVhN2QtNWI0MC00OTJhLWJjOTUtNmUzOWNhYzkxMDcxIiwKICAiYWN0aXZlIiA6IHRydWUsCiAgImlzc3VlZEF0IiA6IDE1OTY3OTU4ODEuMDYxMDAwMDAwLAogICJicm9rZXJWZXJzaW9uIiA6ICIxLjAuMCIKfQ==
 ```

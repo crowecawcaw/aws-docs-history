@@ -1,7 +1,6 @@
 
 
 # Amazon DCV Session Manager Amazon DCV server - DNS mapping reference
-<a name="dcv-server-dns-mapping"></a>
 
  The Amazon DCV Connection Gateway requires the Amazon DCV servers’ DNS names in order to connect to the DCV server instances. This section illustrates how you can define a JSON file containing the mapping between each DCV Server and its associated DNS name. 
 
@@ -10,7 +9,7 @@
 
 The mapping consists of a list of JSON objects with the following fields:
 
-```
+```json
 [
 	{
 		“ServerIdType”: "Ip",

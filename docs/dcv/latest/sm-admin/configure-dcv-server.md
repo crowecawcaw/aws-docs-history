@@ -1,7 +1,6 @@
 
 
 # Step 4: Configure the Amazon DCV server to use the broker as the authentication server
-<a name="configure-dcv-server"></a>
 
 Configure the Amazon DCV server to use the broker as the external authentication server for validating client connection tokens. You must also configure the Amazon DCV server to trust the broker's self-signed CA.
 

@@ -1,7 +1,6 @@
 
 
 # list-auth-servers
-<a name="list-auth-servers"></a>
 
 Lists the external authentication servers that have been registered.
 
@@ -36,6 +35,6 @@ sudo -u root dcv-session-manager-broker list-auth-servers
 
 **Output**
 
-```
+```json
 Urls: [ "https://my-auth-server.com/.well-known/jwks.json" ]
 ```

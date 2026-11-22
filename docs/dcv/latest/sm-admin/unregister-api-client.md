@@ -1,7 +1,6 @@
 
 
 # unregister-api-client
-<a name="unregister-api-client"></a>
 
 Deactivates a registered Session Manager client. A deactivated Session Manager client can no longer use its credentials to retrieve OAuth 2.0 access tokens.
 
@@ -38,6 +37,6 @@ sudo -u root dcv-session-manager-broker unregister-api-client --client-id f855b5
 
 **Output**
 
-```
+```json
 Client f855b54b-40d4-4769-b792-b727bEXAMPLE unregistered.
 ```

@@ -1,7 +1,6 @@
 
 
 # unregister-auth-server
-<a name="unregister-auth-server"></a>
 
 Unregisters an external authentication server. After you unregister an external authentication server, it can no longer be used to generate OAuth 2.0 access tokens.
 
@@ -45,6 +44,6 @@ sudo -u root dcv-session-manager-broker unregister-auth-server --url https://my-
 
 **Output**
 
-```
+```json
 Jwk urlhttps://my-auth-server.com/.well-known/jwks.json unregistered
 ```

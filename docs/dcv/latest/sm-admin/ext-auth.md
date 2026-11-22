@@ -1,7 +1,6 @@
 
 
 # Configuring an external authorization server
-<a name="ext-auth"></a>
 
 The authorization server is the server that is responsible for authenticating and authorizing the client SDKs and Agents.
 

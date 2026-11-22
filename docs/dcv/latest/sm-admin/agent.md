@@ -1,7 +1,6 @@
 
 
 # Step 3: Set up the Amazon DCV Session Manager agent
-<a name="agent"></a>
 
 The agent must be installed on all of the Amazon DCV server hosts in the fleet. The agent can be installed on both Windows, Linux and macOS hosts. For more information about the supported operating systems, see [Amazon DCV Session Manager requirements](requirements.md).
 

@@ -1,7 +1,6 @@
 
 
 # Amazon DCV Session Manager requirements
-<a name="requirements"></a>
 
 The Amazon DCV Session Manager Agent and Broker have the following requirements.
 

@@ -1,7 +1,6 @@
 
 
 # Integrating with Amazon CloudWatch
-<a name="cloudwatch"></a>
 
 Session Manager supports integration with Amazon CloudWatch for Brokers running on Amazon EC2 instances, and also Brokers running on on-premises hosts.
 

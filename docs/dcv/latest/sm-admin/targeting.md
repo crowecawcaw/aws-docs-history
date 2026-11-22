@@ -1,7 +1,6 @@
 
 
 # Using tags to target Amazon DCV servers
-<a name="targeting"></a>
 
 You can assign custom tags to Session Manager Agents to help identify and categorize them and the Amazon DCV servers with which they are associated. When creating a new Amazon DCV session, you can target a group of Amazon DCV servers based on the tags that are assigned to their respective Agents. For more information about how to target Amazon DCV servers based on Agent tags, see [ CreateSessionRequests ](https://docs.aws.amazon.com/dcv/latest/sm-dev/CreateSessions.html) in the *Session Manager Developer Guide*.
 

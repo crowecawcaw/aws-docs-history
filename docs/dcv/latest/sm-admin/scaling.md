@@ -1,7 +1,6 @@
 
 
 # Scaling Session Manager
-<a name="scaling"></a>
 
 To enable high availability and improve performance, you can configure Session Manager to use multiple Agents and Brokers. If you do intend to use multiple Agents and Brokers, we recommend that you install and configure only one Agent and Broker host, create Amazon Machines Images (AMI) from those hosts, and then launch the remaining hosts from the AMIs.
 
@@ -31,7 +30,7 @@ You must attach an instance profile to the Broker and Agent hosts that give them
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -55,7 +54,7 @@ You must attach an instance profile to the Broker and Agent hosts that give them
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

@@ -1,7 +1,6 @@
 
 
 # register-auth-server
-<a name="register-auth-server"></a>
 
 Registers an external authentication server for use with the broker.
 
@@ -42,6 +41,6 @@ sudo -u root dcv-session-manager-broker register-auth-server --url https://my-au
 
 **Output**
 
-```
+```json
 Jwk url registered.
 ```

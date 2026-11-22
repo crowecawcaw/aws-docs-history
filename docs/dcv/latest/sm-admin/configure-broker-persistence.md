@@ -1,7 +1,6 @@
 
 
 # Configuring broker persistence
-<a name="configure-broker-persistence"></a>
 
 Session Manager brokers support integration with external databases. The external database allows Session Manager to persist status data and keys so they are available afterwards. In fact the broker data is distributed over the cluster, making it susceptible to data loss if a host needs to reboot or a cluster is terminated. With this feature enabled, you can add and remove broker nodes. Also, you can stop a cluster and restart it, without the need to regenerate keys or lose information about which Amazon DCV Server is open or closed.
 

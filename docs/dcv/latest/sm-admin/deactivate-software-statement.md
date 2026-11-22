@@ -1,7 +1,6 @@
 
 
 # deactivate-software-statement
-<a name="deactivate-software-statement"></a>
 
 Deactivates a software statement. When you deactivate a software statement, it can no longer be used for agent registrations.
 
@@ -38,6 +37,6 @@ sudo -u root dcv-session-manager-broker deactivate-software-statement --software
 
 **Output**
 
-```
+```json
 Software statement EXAMPLEpZCIgOiAiYjc1NTVhN2QtNWI0MC00OTJhLWJjOTUtNmUzOWNhYzkxMDcxIiwKICAiaXNEXAMPLEQiIDogMTU5Njc5NTg4MS4wNjEwMDAwMDAsCiAgImJyb2tlclZlEXAMPLEiIDogIjEuMC4wIiwKICAiYWN0aXZlIiA6IHRydEXAMPLE deactivated
 ```

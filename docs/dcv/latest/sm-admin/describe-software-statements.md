@@ -1,7 +1,6 @@
 
 
 # describe-software-statements
-<a name="describe-software-statements"></a>
 
 Describes the existing software statements.
 
@@ -42,7 +41,7 @@ sudo -u root dcv-session-manager-broker describe-software-statements
 
 **Output**
 
-```
+```json
 Software Statements
 [ {
 "software-statement" : "ewogICJpZCIgOiAiYmEEXAMPLEYtNzUwNy00YmFhLTliZWItYTA1MmJjZTE3NDJjIiwKICAiaXNzdWVkQXQiIDogMTU5NjY0MTkxMiEXAMPLEDAwMDAsCiAgImJyb2tlclZlcnNpb24iIDogIjEuMC4wIiwKICAiYWN0aXZlEXAMPLEydWUKfQ==",

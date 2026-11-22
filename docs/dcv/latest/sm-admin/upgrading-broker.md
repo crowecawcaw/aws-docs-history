@@ -1,7 +1,6 @@
 
 
 # Upgrading the Amazon DCV Session Manager broker
-<a name="upgrading-broker"></a>
 
 Amazon DCV Session Manager brokers pass API requests to their relevant agents. They are installed on a host separate from the Amazon DCV servers. As part of routine maintenance, brokers need to be upgraded to meet new standards and requirements. This section walks you through the upgrading process of your Session Manager brokers.
 

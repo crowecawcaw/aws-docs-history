@@ -1,7 +1,6 @@
 
 
 # describe-server-dns-mappings
-<a name="describe-server-dns-mappings"></a>
 
 Describe the currently available DCV Servers - DNS names mappings.
 
@@ -41,7 +40,7 @@ sudo -u root dcv-session-manager-broker describe-server-dns-mappings
 
 **Output**
 
-```
+```json
  [ 
 	{
 		"serverIdType" : "Id",

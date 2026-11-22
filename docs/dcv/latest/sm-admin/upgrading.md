@@ -1,7 +1,6 @@
 
 
 # Upgrading the Amazon DCV Session Manager
-<a name="upgrading"></a>
 
 As Amazon DCV systems grow in scale and complexity, it is important to ensure the Session Manager remains up-to-date and able to handle increasing demands. Both the agent and broker packages will require upgrading from time to time. This section outlines the process for upgrading the Amazon DCV Session Manager, covering the upgrade procedure and recommendations for maintaining your system.
 

@@ -1,7 +1,6 @@
 
 
 # Step 1: Prepare the Amazon DCV servers
-<a name="servers"></a>
 
 You must have a fleet of Amazon DCV servers with which you intend to use Session Manager. For more information about installing Amazon DCV servers, see [Installing the Amazon DCV server](https://docs.aws.amazon.com/dcv/latest/adminguide/setting-up-installing.html) in the *Amazon DCV Administrator Guide*.
 
