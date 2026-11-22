@@ -1,7 +1,6 @@
 
 
 # Amazon FSx for NetApp ONTAP NTFS connectivity to Domino Data Lab
-<a name="fsxn-ntfs-domino"></a>
 
 Publication date: **October 27, 2026 ([Diagram history](diagram-history.md))**
 
