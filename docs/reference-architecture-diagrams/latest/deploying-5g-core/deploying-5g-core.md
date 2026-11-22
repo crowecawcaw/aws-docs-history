@@ -1,7 +1,6 @@
 
 
 # Deploying 5G Core on AWS
-<a name="deploying-5g-core"></a>
 
 Publication date: **December 28, 2020 ([Diagram history](#5gcore-history))**
 
