@@ -1,7 +1,6 @@
 
 
 # Perform a firmware Over-The-Air update for AWS IoT ExpressLink
-<a name="elgsg-setup-ota-update"></a>
 
 To perform a irmware Over-The-Air update for AWS IoT ExpressLink, the following must be completed:
 

@@ -1,7 +1,6 @@
 
 
 # Register an AWS IoT ExpressLink module to your account
-<a name="elgsg-register-account"></a>
 
 To create an AWS IoT thing and add it to your account you must retrieve the AWS IoT ExpressLink module Thing Name and its corresponding certificate. Follow these steps:
 
@@ -42,7 +41,7 @@ To create an AWS IoT thing and add it to your account you must retrieve the AWS 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

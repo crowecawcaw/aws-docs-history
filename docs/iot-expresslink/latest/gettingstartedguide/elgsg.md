@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS IoT ExpressLink
-<a name="elgsg"></a>
 
 The following sections will guide you through the required steps to connect your AWS IoT ExpressLink Evaluation Kit to the cloud to send and receive data directly with your AWS account. For module specific guides, see the Getting Started Guide for your specific AWS IoT ExpressLink hardware module in the [AWS Partner Device Catalog](https://partners.amazonaws.com/qualified-devices).
 

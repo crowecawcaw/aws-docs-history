@@ -1,7 +1,6 @@
 
 
 # Monitor and apply a new firmware update for AWS IoT ExpressLink
-<a name="elgsg-setup-ota-update-monitor"></a>
 
 After you create a firmware update job as described in the previous section, the ExpressLink module polls for firmware update jobs, receives and validates a job, and enters a state waiting for the update to be accepted. The host application receives an OTA event that indicates a new firmware image is available for the ExpressLink module. 
 

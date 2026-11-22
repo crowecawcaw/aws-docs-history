@@ -1,7 +1,6 @@
 
 
 # AWS account set up and console login
-<a name="elgsg-set-up"></a>
 
 Before you use AWS IoT Core for the first time, complete the tasks in this section.
 
