@@ -1,7 +1,6 @@
 
 
 # AWS Industrial PdM ML Model with Modbus Communication
-<a name="industrial-pdm-ml-modbus"></a>
 
 Publication date: **March 4, 2024 ([Diagram history](#ipm-diagram-history))**
 
