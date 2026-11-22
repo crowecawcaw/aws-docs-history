@@ -1,7 +1,6 @@
 
 
 # Connected Restaurants using IoT and AI/ML
-<a name="connected-restaurants-iot-ai-ml"></a>
 
 Publication date: **December 21, 2022 ([Diagram history](#conrest-history))**
 
