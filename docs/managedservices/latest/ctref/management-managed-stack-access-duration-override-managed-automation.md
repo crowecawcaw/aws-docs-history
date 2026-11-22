@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Stack Access Duration \| Override (Managed Automation)
-<a name="management-managed-stack-access-duration-override-managed-automation"></a>
 
 Use to override maximum stack access time for all stacks in this account for single landing zone (SALZ) and for all stacks of the member accounts of an organization for multi-landing zone (MALZ). For multi-landing zone (MALZ), please raise a request for change (RFC) from shared-services account with this change type (CT) ID. Access can be overridden from a minimum of 1 hour to a maximum of 120 hours, default stack access is granted for 12 hours.
 
@@ -131,7 +130,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-managed-stack-access-duration-override-managed-automation-ex-min"></a>
 
-```
+```json
 {
     "TimeRequestedInHours": 120
 }
@@ -140,7 +139,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-managed-stack-access-duration-override-managed-automation-ex-max"></a>
 
-```
+```json
 {
     "TimeRequestedInHours": 15,
     "Priority": "High"

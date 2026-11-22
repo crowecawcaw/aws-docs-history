@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Management Account \| Create Application Account (With VPC)
-<a name="deployment-managed-management-account-create-application-account-with-vpc"></a>
 
 Create a managed AWS landing zone application account and a VPC with up to 10 private subnets and up to 5 optional public subnets per availability zone (AZ) for two or three AZ's. Optionally, also create an AWS Backup plan with up to four different rules. Managed AWS landing zone core accounts must already be onboarded to AWS Managed Services (AMS).
 
@@ -219,7 +218,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-managed-management-account-create-application-account-with-vpc-ex-min"></a>
 
-```
+```json
 {
   "AccountName": "AccountName",
   "AccountEmail": "nobody@amazon.com",
@@ -239,7 +238,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-managed-management-account-create-application-account-with-vpc-ex-max"></a>
 
-```
+```json
 {
   "AccountName": "AccountName",
   "AccountEmail": "nobody@amazon.com",

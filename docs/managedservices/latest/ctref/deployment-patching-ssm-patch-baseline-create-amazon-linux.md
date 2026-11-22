@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # SSM Patch Baseline \| Create (Amazon Linux)
-<a name="deployment-patching-ssm-patch-baseline-create-amazon-linux"></a>
 
 Create an AWS Systems Manager (SSM) patch baseline to define which patches are approved for installation on your instances for Amazon Linux OS. Specify existing instance "Patch Group" tag values for the patch baseline. The patch baseline is an SSM resource that you can manage with the SSM console.
 
@@ -172,13 +171,13 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-patching-ssm-patch-baseline-create-amazon-linux-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="deployment-patching-ssm-patch-baseline-create-amazon-linux-ex-max"></a>
 
-```
+```json
 Example not available.
 ```

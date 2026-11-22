@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # EBS Volume \| Delete
-<a name="management-advanced-ebs-volume-delete"></a>
 
 Delete Elastic Block Store (EBS) volumes in an available state. Volumes that are not attached to an instance are in an available state and can be deleted.
 
@@ -146,7 +145,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-ebs-volume-delete-ex-min"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-DeleteEBSVolumesV2",
   "Region": "us-east-1",
@@ -172,7 +171,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-ebs-volume-delete-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-DeleteEBSVolumesV2",
   "Region": "us-east-1",

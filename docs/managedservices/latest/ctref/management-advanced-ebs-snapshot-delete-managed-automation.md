@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # EBS Snapshot \| Delete (Managed Automation)
-<a name="management-advanced-ebs-snapshot-delete-managed-automation"></a>
 
 Delete Elastic Block Store (EBS) snapshots. Once snapshots are deleted, they cannot be restored. Consider scheduling this RFC in case you decide to cancel the operation. If your snapshot is older than 30 days, we encourage you to use the automated CT (ct-30bfiwxjku1nu) for snapshot deletion, as it streamlines the process. However, if you are using the SnapshotCreationDate or SnapshotTag parameters, snapshots created within the last 30 days or snapshots is associated with any AMIs or created by AWS Backup service, use this manual CT option to ensure the correct snapshots are deleted.
 
@@ -141,7 +140,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-ebs-snapshot-delete-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "Region": "us-east-1"
 }
@@ -150,6 +149,6 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-ebs-snapshot-delete-managed-automation-ex-max"></a>
 
-```
+```json
 Example not available.
 ```

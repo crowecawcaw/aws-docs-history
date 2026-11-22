@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # DNS (Private) \| Create
-<a name="deployment-advanced-dns-private-create"></a>
 
 Create a new Route 53 DNS resource record sets and a new private hosted zone for a VPC, and configure traffic routing.
 
@@ -156,14 +155,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-dns-private-create-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="deployment-advanced-dns-private-create-ex-max"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-CreateAddRoute53Resources",
   "Region" : "ap-southeast-2",

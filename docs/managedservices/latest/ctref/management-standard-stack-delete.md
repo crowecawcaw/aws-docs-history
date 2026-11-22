@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Stack \| Delete
-<a name="management-standard-stack-delete"></a>
 
 Delete an existing stack and its resources from your account. The effects of deleting a resource vary. For details, see the appropriate AWS documentation for the resource. Note that termination protection on a resource in the stack causes the RFC to fail. To check for a resource's termination protection status, see the corresponding AWS console.
 
@@ -129,14 +128,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-standard-stack-delete-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-standard-stack-delete-ex-max"></a>
 
-```
+```json
 {
   "StackId": "stack-a1b2c3d4e5f67890e",
   "TimeoutInMinutes": 720

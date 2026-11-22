@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Networking Account \| Enable TGW Propagation
-<a name="management-managed-networking-account-enable-tgw-propagation"></a>
 
 Enable the Transit Gateway (TGW) attachment to propagate routes to the TGW route table. For multi-account landing zone (MALZ), use this change type in the Network account only.
 
@@ -78,7 +77,7 @@ You can use any `CreateRfc` parameters with any RFC whether or not they are part
 
 Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
-```
+```json
 aws amscm create-rfc --change-type-id "ct-1f9hi4bephqa9" --change-type-version "1.0" --title "{{Enable Transit Gateway Propagation}}" --execution-parameters "{\"DocumentName\": \"AWSManagedServices-EnableTGWRouteTablePropagation\",\"Region\": \"{{us-east-1}}\",\"Parameters\": {\"TransitGatewayAttachmentId\": [\"{{tgw-attach-01234567890abcdef}}\"],\"TransitGatewayRouteTableId\": [\"{{tgw-rtb-01234567890abcdef}}\"]}}"
 ```
 
@@ -86,13 +85,13 @@ aws amscm create-rfc --change-type-id "ct-1f9hi4bephqa9" --change-type-version "
 
 1. Output the execution parameters JSON schema for this change type to a file; this example names it TgwPropagationEnableParams.json:
 
-   ```
+   ```json
    aws amscm get-change-type-version --change-type-id "ct-1f9hi4bephqa9" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > TgwPropagationEnableParams.json
    ```
 
 1. Modify and save the TgwPropagationEnableParams file. For example, you can replace the contents with something like this:
 
-   ```
+   ```json
    {
      "DocumentName": "AWSManagedServices-EnableTGWRouteTablePropagation",
      "Region": "{{us-east-1}}",
@@ -105,13 +104,13 @@ aws amscm create-rfc --change-type-id "ct-1f9hi4bephqa9" --change-type-version "
 
 1. Output the RFC template JSON file to a file; this example names it TgwPropagationEnableRfc.json:
 
-   ```
+   ```json
    aws amscm create-rfc --generate-cli-skeleton > TgwPropagationEnableRfc.json
    ```
 
 1. Modify and save the TgwPropagationEnableRfc.json file. For example, you can replace the contents with something like this:
 
-   ```
+   ```json
    {
      "ChangeTypeVersion": "1.0",
      "ChangeTypeId": "ct-1f9hi4bephqa9",
@@ -143,7 +142,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-managed-networking-account-enable-tgw-propagation-ex-min"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-EnableTGWRouteTablePropagation",
   "Region": "us-east-1",
@@ -157,7 +156,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-managed-networking-account-enable-tgw-propagation-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-EnableTGWRouteTablePropagation",
   "Region": "us-east-1",

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Redshift \| Create (Cluster Subnet Group)
-<a name="deployment-advanced-redshift-create-cluster-subnet-group"></a>
 
 Use to create a Redshift cluster subnet group.
 
@@ -146,7 +145,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-redshift-create-cluster-subnet-group-ex-min"></a>
 
-```
+```json
 {
   "Description": "Create a Redshift cluster subnet group",
   "VpcId": "vpc-12345678901234567",
@@ -163,7 +162,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-advanced-redshift-create-cluster-subnet-group-ex-max"></a>
 
-```
+```json
 {
   "Description": "Create a Redshift cluster subnet group",
   "VpcId": "vpc-12345678901234567",

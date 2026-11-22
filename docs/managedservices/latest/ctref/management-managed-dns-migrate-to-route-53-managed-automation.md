@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # DNS \| Migrate To Route 53 (Managed Automation)
-<a name="management-managed-dns-migrate-to-route-53-managed-automation"></a>
 
 Change the DNS resolution in your Amazon VPC by enabling Route 53 as the default DNS resolver for your SALZ account. This transition from Microsoft AD to Route 53 Resolver involves redirecting DNS traffic within your VPC through strategically implemented Route 53 Resolver Endpoints and Conditional Forwarders. These forwarders act as rules to intelligently route DNS queries, ensuring seamless resolution for various destinations. It's essential to plan the migration during a scheduled maintenance window to minimize potential disruptions caused by DNS changes.
 
@@ -143,14 +142,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-managed-dns-migrate-to-route-53-managed-automation-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-managed-dns-migrate-to-route-53-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "Priority": "Medium"
 }

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Load Balancer (ELB) Stack \| Replace Listener Certificate
-<a name="management-advanced-load-balancer-elb-stack-replace-listener-certificate"></a>
 
 Replace the certificate of an existing Elastic (Classic) Load Balancer (ELB) listener. Use the RemediateDrift parameter to have the automation try to remediate the stack drift, if drift is introduced in the CloudFormation stack that was used to create the load balancer.
 
@@ -152,7 +151,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-load-balancer-elb-stack-replace-listener-certificate-ex-min"></a>
 
-```
+```json
 {
     "DocumentName": "AWSManagedServices-SetClassicLoadBalancerCertificate",
     "Region": "us-east-1",
@@ -170,7 +169,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-load-balancer-elb-stack-replace-listener-certificate-ex-max"></a>
 
-```
+```json
 {
     "DocumentName": "AWSManagedServices-SetClassicLoadBalancerCertificate",
     "Region": "us-east-1",

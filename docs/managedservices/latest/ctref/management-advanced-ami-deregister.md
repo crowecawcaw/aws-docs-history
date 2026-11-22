@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMI \| Deregister
-<a name="management-advanced-ami-deregister"></a>
 
 Deregister one or multiple Amazon Machine Images (AMI)s and optionally delete all associated snapshots. Once deregistered the AMI or AMIs can't be used for launching new instances.
 
@@ -150,7 +149,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-ami-deregister-ex-min"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-BulkDeleteOrDeregisterAMI",
   "Region": "us-east-1",
@@ -169,7 +168,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-ami-deregister-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-BulkDeleteOrDeregisterAMI",
   "Region": "us-east-1",

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # KMS Key \| Delete (Managed Automation)
-<a name="management-advanced-kms-key-delete-managed-automation"></a>
 
 Delete an AWS Key Management Service (KMS) Key from an AMS account. By default, there is a 30 day waiting period before the key is deleted; during that period, you can restore the key using the KMS Key Update change type.
 
@@ -139,7 +138,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-kms-key-delete-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "KeyName": "kms_key_name",
   "Operation": "Delete",
@@ -150,7 +149,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-kms-key-delete-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "KeyName": "kms_key_name",
   "Operation": "Delete",

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Security Group \| Revoke Ingress Rule
-<a name="management-advanced-security-group-revoke-ingress-rule"></a>
 
 Revoke the ingress rule for the specified security group (SG). You must specify the configurations of the ingress rule that you are revoking. Note that, once revoked, the ingress rule is permanently deleted.
 
@@ -154,7 +153,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-security-group-revoke-ingress-rule-ex-min"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-RevokeSecurityGroupIngressRuleV3",
   "Region" : "us-east-1",
@@ -181,7 +180,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-security-group-revoke-ingress-rule-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-RevokeSecurityGroupIngressRuleV3",
   "Region": "us-east-1",

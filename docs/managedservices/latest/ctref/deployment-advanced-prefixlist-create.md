@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # PrefixList \| Create
-<a name="deployment-advanced-prefixlist-create"></a>
 
 Create a new AWS managed prefix list. A prefix list is a set of one or more CIDR blocks that you can use to configure VPC security groups and route tables.
 
@@ -140,14 +139,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-prefixlist-create-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="deployment-advanced-prefixlist-create-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-CreatePrefixList",
   "Region": "us-east-1",

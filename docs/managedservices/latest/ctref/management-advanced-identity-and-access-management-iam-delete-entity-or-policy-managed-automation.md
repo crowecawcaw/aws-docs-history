@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Identity and Access Management (IAM) \| Delete Entity or Policy (Managed Automation)
-<a name="management-advanced-identity-and-access-management-iam-delete-entity-or-policy-managed-automation"></a>
 
 Delete Identity and Access Management (IAM) users, roles or policies.
 
@@ -140,7 +139,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-identity-and-access-management-iam-delete-entity-or-policy-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "Operation": "Delete"
 }
@@ -149,7 +148,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-identity-and-access-management-iam-delete-entity-or-policy-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "IAM Users": [
     "arn:aws:iam::012345678901:user/!\"#$%&'()*+,-.0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~/UsEr_+=,.@-"

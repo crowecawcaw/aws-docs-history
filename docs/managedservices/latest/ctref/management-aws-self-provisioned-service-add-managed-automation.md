@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Self-Provisioned Service \| Add (Managed Automation)
-<a name="management-aws-self-provisioned-service-add-managed-automation"></a>
 
 Add a specific, allowed, AWS service to your AMS account. AMS adds the necessary permissions to use the service to an existing IAM role that you specify, or creates a new role that allows you to use the service without AMS management under the AMS Shared Responsibility model. Compliance is a shared responsibility and your AMS compliance status does not automatically apply to services or applications that you add in this way. Some AWS services do not have compliance certifications. For more information, go to the AWS Services in Scope of AWS Assurance Program page. On that page, unless specifically excluded, features of each of the services are considered in scope of the assurance programs, and are reviewed and tested as part of the assessment.
 
@@ -147,7 +146,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-aws-self-provisioned-service-add-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "ServiceName": "AWS License Manager"
 }
@@ -156,7 +155,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-aws-self-provisioned-service-add-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "ServiceName": "AWS License Manager",
   "IAMRole": "arn:aws:iam::123456789012:role/myrole",

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Bastions \| Update Instance or Session Counts (Managed Automation)
-<a name="management-advanced-bastions-update-instance-or-session-counts-managed-automation"></a>
 
 Update the number of RDP and SSH Bastion instances. Optionally update the session count of RDP Bastions.
 
@@ -155,7 +154,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-bastions-update-instance-or-session-counts-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "BastionType": "RDP Bastion"
 }
@@ -164,7 +163,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-bastions-update-instance-or-session-counts-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "BastionType": "RDP Bastion",
   "RDPBastionDesiredMaximumSessions": 10,

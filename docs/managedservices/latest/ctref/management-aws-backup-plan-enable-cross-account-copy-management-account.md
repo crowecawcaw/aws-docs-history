@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Backup Plan \| Enable Cross Account Copy (Management Account)
-<a name="management-aws-backup-plan-enable-cross-account-copy-management-account"></a>
 
 Enable and configure cross-account backup and monitoring in a management account. This automation can only be completed successfully in a management account.
 
@@ -148,14 +147,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-aws-backup-plan-enable-cross-account-copy-management-account-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-aws-backup-plan-enable-cross-account-copy-management-account-ex-max"></a>
 
-```
+```json
 {
     "DocumentName": "AWSManagedServices-HandleConfigureCrossAccountBackupInManagementAccount-Admin",
     "Region": "us-east-1",

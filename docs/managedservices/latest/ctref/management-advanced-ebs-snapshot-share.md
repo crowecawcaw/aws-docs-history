@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # EBS Snapshot \| Share
-<a name="management-advanced-ebs-snapshot-share"></a>
 
 Share an Elastic Block Store (EBS) snapshot with another AMS account. If the destination account is onboarded in a different AMS Region, use change type ID ct-3lkbpansfv69k in the destination account to copy shared snapshot across regions. Only snapshots encrypted with managed KMS keys can be shared.
 
@@ -150,7 +149,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-ebs-snapshot-share-ex-min"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-ShareEBSSnapshot",
   "Region": "us-east-1",
@@ -168,7 +167,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-ebs-snapshot-share-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-ShareEBSSnapshot",
   "Region": "us-east-1",

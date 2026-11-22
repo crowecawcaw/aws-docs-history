@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Application Account \| Delete VPC
-<a name="management-managed-application-account-delete-vpc"></a>
 
 Delete the virtual private cloud (VPC) in a managed landing zone application account.
 
@@ -137,14 +136,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-managed-application-account-delete-vpc-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-managed-application-account-delete-vpc-ex-max"></a>
 
-```
+```json
 {
   "VPCId": "vpc-0078e69aa52274dea"
 }

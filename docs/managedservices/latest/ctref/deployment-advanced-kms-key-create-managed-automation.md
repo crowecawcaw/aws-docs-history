@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # KMS Key \| Create (Managed Automation)
-<a name="deployment-advanced-kms-key-create-managed-automation"></a>
 
 Request a KMS key by describing key permissions or submitting a key policy document.
 
@@ -142,7 +141,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-kms-key-create-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "KeyDescription": "Exmample description of the key to be created.",
   "KeyPermissions": "KMS Key permissions to add: kms:Get",
@@ -153,7 +152,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-advanced-kms-key-create-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "KeyDescription": "Exmample description of the key to be created.",
   "AliasName": "testkmskey",

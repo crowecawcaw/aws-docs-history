@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Management Account \| Create Custom SCP (Managed Automation)
-<a name="deployment-managed-management-account-create-custom-scp-managed-automation"></a>
 
 Create a custom service control policy (SCP) to manage permissions across AWS organization.
 
@@ -148,7 +147,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-managed-management-account-create-custom-scp-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "TargetId": "ou-96dv-e18n036l",
   "CustomServiceControlPolicy": ""
@@ -158,7 +157,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-managed-management-account-create-custom-scp-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "TargetId": "ou-96dv-e18n036l",
   "CustomServiceControlPolicy": "",

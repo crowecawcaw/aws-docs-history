@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # RDS Snapshot \| Delete
-<a name="management-advanced-rds-snapshot-delete"></a>
 
 Delete DB instance or cluster snapshots. This document only supports deletion of 'manual' and 'awsbackup' snapshot types. If the snapshot is being copied, the copy operation is terminated. The snapshot must be in available state to be deleted. If one or more snapshots cannot be deleted, automation fails. Up to 20 snapshots can be deleted in one execution.
 
@@ -137,14 +136,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-rds-snapshot-delete-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-advanced-rds-snapshot-delete-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-DeleteRDSSnapshotsV2",
   "Region": "us-east-1",

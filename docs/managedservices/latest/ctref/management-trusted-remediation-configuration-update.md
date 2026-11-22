@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Remediation Configuration \| Update
-<a name="management-trusted-remediation-configuration-update"></a>
 
 Request a Trusted Remediator configuration update. Use this change type in the Trusted Remediator delegated administrator account. The updated configuration is used for all member accounts.
 
@@ -144,7 +143,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-trusted-remediation-configuration-update-ex-min"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-UpdateTrustedRemediatorConfiguration",
   "Region": "us-east-1",
@@ -159,7 +158,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-trusted-remediation-configuration-update-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-UpdateTrustedRemediatorConfiguration",
   "Region": "us-east-1",

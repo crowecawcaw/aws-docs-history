@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Cache (ElastiCache Redis) Stack \| Create
-<a name="deployment-advanced-cache-elasticache-redis-stack-create"></a>
 
 Use to create an Amazon ElastiCache cluster (one or more cache nodes) that uses the Redis engine.
 
@@ -154,7 +153,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-cache-elasticache-redis-stack-create-ex-min"></a>
 
-```
+```json
 {
   "Description": "This is a test description",
   "VpcId": "vpc-1234567890abcdef0",
@@ -182,7 +181,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-advanced-cache-elasticache-redis-stack-create-ex-max"></a>
 
-```
+```json
 {
   "Description": "This is a test description",
   "VpcId": "vpc-12345678",

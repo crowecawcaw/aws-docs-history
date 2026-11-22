@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # S3 Storage \| Create Policy (Managed Automation)
-<a name="deployment-advanced-s3-storage-create-policy-managed-automation"></a>
 
 Create an S3 bucket policy. The existing bucket policy (if any) is replaced with the new policy.
 
@@ -139,7 +138,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-s3-storage-create-policy-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "BucketName": "examplebucketname",
   "BucketPolicy": "Example bucket permissions",
@@ -150,7 +149,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-advanced-s3-storage-create-policy-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "BucketName": "examplebucketname",
   "BucketPolicy": "Example bucket permissions",

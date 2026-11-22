@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Tag \| Bulk Update (Managed Automation)
-<a name="management-advanced-tag-bulk-update-managed-automation"></a>
 
 Bulk add tags to existing, supported resources except those in AMS infrastructure stacks (stacks named mc-\*). Tags simplify categorization, identification and targeting AWS resources. Use this with AWS Tag Editor when managing large numbers of tags (i.e. >50). For Autoscaling, EC2, Elastic Load Balancing, RDS resources and S3 buckets, use automated CT ct-3047c34zuvswh.
 
@@ -126,7 +125,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-tag-bulk-update-managed-automation-ex-min"></a>
 
-```
+```json
 {
     "Description": "Tag all the instances for App A",
     "CsvS3Url": "https://example-bucket.s3.eu-central-1.amazonaws.com/tags.csv"
@@ -136,7 +135,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-tag-bulk-update-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "Description": "Tag all the instances for App A",
   "CsvS3Url": "https://example-bucket.s3.amazonaws.com/tags.csv?AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE",

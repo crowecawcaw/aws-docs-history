@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Trend Micro DSM \| Scan and Get Results (Managed Automation)
-<a name="management-host-trend-micro-dsm-scan-and-get-results-managed-automation"></a>
 
 Request a Trend Micro on-demand scan on all, or specified, Amazon Elastic Compute Cloud (EC2) instances in the account and get scan results in the form of a PDF attached in the response.
 
@@ -142,7 +141,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-host-trend-micro-dsm-scan-and-get-results-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "Region": "us-east-1",
   "Parameters": {
@@ -158,6 +157,6 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-host-trend-micro-dsm-scan-and-get-results-managed-automation-ex-max"></a>
 
-```
+```json
 Example not available.
 ```

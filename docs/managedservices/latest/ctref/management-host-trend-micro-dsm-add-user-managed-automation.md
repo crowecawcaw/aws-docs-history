@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Trend Micro DSM \| Add User (Managed Automation)
-<a name="management-host-trend-micro-dsm-add-user-managed-automation"></a>
 
 Add a new DSM console user to the Trend Micro console for your account. Once the user is added, the associated password is created in the account and securely shared with the customer through the Secrets Manager. For multi-account landing zone (MALZ), use this change type in the Shared Services account.
 
@@ -138,13 +137,13 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-host-trend-micro-dsm-add-user-managed-automation-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-host-trend-micro-dsm-add-user-managed-automation-ex-max"></a>
 
-```
+```json
 Example not available.
 ```

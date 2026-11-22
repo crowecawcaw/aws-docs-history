@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Identity and Access Management (IAM) \| Create Access Key
-<a name="deployment-advanced-identity-and-access-management-iam-create-access-key"></a>
 
 Create a new AWS secret access key and corresponding AWS access key ID for the specified user.
 
@@ -139,7 +138,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-identity-and-access-management-iam-create-access-key-ex-min"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-CreateIAMAccessKeyV2",
   "Region": "us-east-1",
@@ -152,7 +151,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-advanced-identity-and-access-management-iam-create-access-key-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-CreateIAMAccessKeyV2",
   "Region": "us-east-1",

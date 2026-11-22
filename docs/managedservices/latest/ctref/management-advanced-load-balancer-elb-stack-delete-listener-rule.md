@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Load Balancer (ELB) Stack \| Delete Listener Rule
-<a name="management-advanced-load-balancer-elb-stack-delete-listener-rule"></a>
 
 Delete the specified listener rule for Application Load Balancers. Default rules canÆt be deleted. This change performs direct API actions regardless of whether the ALB is part of a stack as it might cause stack drift.
 
@@ -134,14 +133,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-load-balancer-elb-stack-delete-listener-rule-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-advanced-load-balancer-elb-stack-delete-listener-rule-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-DeleteListenerRule",
   "Region": "us-east-1",

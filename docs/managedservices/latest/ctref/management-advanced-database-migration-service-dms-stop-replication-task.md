@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Database Migration Service (DMS) \| Stop Replication Task
-<a name="management-advanced-database-migration-service-dms-stop-replication-task"></a>
 
 Stop a Database Migration Service (DMS) replication task. The specified task must be in the running state.
 
@@ -141,14 +140,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-database-migration-service-dms-stop-replication-task-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-advanced-database-migration-service-dms-stop-replication-task-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-StopDmsTask",
   "Region": "us-east-1",

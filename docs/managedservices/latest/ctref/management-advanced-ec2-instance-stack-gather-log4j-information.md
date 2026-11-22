@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # EC2 Instance Stack \| Gather Log4j Information
-<a name="management-advanced-ec2-instance-stack-gather-log4j-information"></a>
 
 Generates a report identifying Log4j2 occurrences on the specified EC2 instances. This is a best-effort report and some occurrences may go undetected from the report.
 
@@ -239,14 +238,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-ec2-instance-stack-gather-log4j-information-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-advanced-ec2-instance-stack-gather-log4j-information-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-GatherLog4jInformation",
   "Region": "us-east-1",

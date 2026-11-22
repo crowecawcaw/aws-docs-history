@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Stack \| Start
-<a name="management-standard-stack-start"></a>
 
 Use to start all stopped EC2 instances in the specified stack.
 
@@ -124,14 +123,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-standard-stack-start-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-standard-stack-start-ex-max"></a>
 
-```
+```json
 {
   "StackId": "stack-f16bbbeea61df041f"
 }

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # SQS \| Create
-<a name="deployment-monitoring-sqs-create"></a>
 
 Use to create an Amazon Simple Queue Service instance for messages to be shared by system components.
 
@@ -154,7 +153,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-monitoring-sqs-create-ex-min"></a>
 
-```
+```json
 {
   "Description": "This is a test description",
   "VpcId": "vpc-01234567890abcdef",
@@ -170,7 +169,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-monitoring-sqs-create-ex-max"></a>
 
-```
+```json
 {
   "Description": "This is a test description",
   "VpcId": "vpc-12345678",

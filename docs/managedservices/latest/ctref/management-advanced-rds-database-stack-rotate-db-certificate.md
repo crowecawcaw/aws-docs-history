@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # RDS Database Stack \| Rotate DB Certificate
-<a name="management-advanced-rds-database-stack-rotate-db-certificate"></a>
 
 Rotate the DB certificate on an Amazon Relational Database Service (RDS) database (DB) instance. Update any client applications that use SSL/TLS and the server certificate to connect, to use the new CA certificate beforehand. Not doing this will cause an interruption of connectivity between your applications and your database.
 
@@ -154,14 +153,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-rds-database-stack-rotate-db-certificate-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-advanced-rds-database-stack-rotate-db-certificate-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-RotateDbCertificate",
   "Region": "us-east-1",

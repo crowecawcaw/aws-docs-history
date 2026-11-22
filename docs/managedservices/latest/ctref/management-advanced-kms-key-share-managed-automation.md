@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # KMS Key \| Share (Managed Automation)
-<a name="management-advanced-kms-key-share-managed-automation"></a>
 
 Allow cross-account access to a KMS key by adding a statement to the key policy with encrypt and decrypt permissions.
 
@@ -139,7 +138,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-kms-key-share-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "KMSKeyArn": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
   "TargetAccountId": "123456789012"
@@ -149,7 +148,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-kms-key-share-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "KMSKeyArn": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
   "IncludeKeyGrantPermissions": true,

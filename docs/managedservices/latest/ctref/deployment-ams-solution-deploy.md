@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Solution \| Deploy
-<a name="deployment-ams-solution-deploy"></a>
 
 Deploy the AMS Resource Scheduler solution in the account. The AMS Resource Scheduler lets you schedule automatic start and/or stop for Auto Scaling groups, EC2s, and RDS instances. Note that the Resource Scheduler deploys in an enabled state, by default; you can manage that with the AMS Resource Scheduler Disable and Enable change types.
 
@@ -155,7 +154,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-ams-solution-deploy-ex-min"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-HandleAMSResourceSchedulerStack-Admin",
   "Region" : "us-east-1",
@@ -168,7 +167,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-ams-solution-deploy-ex-max"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-HandleAMSResourceSchedulerStack-Admin",
   "Region" : "us-east-1",

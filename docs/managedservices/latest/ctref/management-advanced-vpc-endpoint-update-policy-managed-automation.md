@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # VPC Endpoint \| Update Policy (Managed Automation)
-<a name="management-advanced-vpc-endpoint-update-policy-managed-automation"></a>
 
 Update the policy for a VPC endpoint. After you update the policy, it takes a few minutes for the changes to take effect. There are several considerations outlined in the Amazon VPC AWS PrivateLink User Guide documentation on using endpoint policies.
 
@@ -139,7 +138,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-vpc-endpoint-update-policy-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "Region": "us-east-1",
   "VpcEndpointId": "vpce-1a2b3c4d5e6f7g8h9",
@@ -151,7 +150,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-vpc-endpoint-update-policy-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "Region": "us-east-1",
   "VpcEndpointId": "vpce-1a2b3c4d5e6f7g8h9",

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Change Type Schemas
-<a name="schemas"></a>
 
 Change type schemas specify the execution input parameters for a change type.
 
@@ -13,7 +12,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Applications \| CodeDeploy deployment group \| Create (for EC2 instance)](deployment-applications-codedeploy-deployment-group-create-for-ec2-instance.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create CodeDeploy deployment group for EC2 instance as target.",
@@ -183,7 +182,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| S3 storage \| Receive replication replica](management-advanced-s3-storage-receive-replication-replica.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Receive Replication Replica",
@@ -301,7 +300,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Tag \| Create (managed automation)](deployment-advanced-tag-create-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Resource Tags (Review Required)",
@@ -400,7 +399,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Delete SAML identity provider](management-advanced-identity-and-access-management-iam-delete-saml-identity-provider.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete SAML Identity Provider",
@@ -482,7 +481,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Start Aurora cluster](management-advanced-rds-database-stack-start-aurora-cluster.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Start Aurora DB Cluster",
@@ -571,7 +570,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Standard stacks \| Stack \| Reboot](management-standard-stack-reboot.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Reboot stack",
@@ -597,7 +596,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Update termination protection](management-advanced-ec2-instance-stack-update-termination-protection.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Termination Protection",
@@ -677,7 +676,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Standard stacks \| Stack \| Remove stack resources](management-standard-stack-remove-stack-resources.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Remove Stack Resources",
@@ -762,7 +761,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Start](management-advanced-ec2-instance-stack-start.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Start EC2 Instances",
@@ -830,7 +829,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| DNS \| Update cluster permissions](management-directory-dns-update-cluster-permissions.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Cluster Permissions",
@@ -909,7 +908,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AMS Resource Scheduler \| Period \| Delete](management-ams-period-delete.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete Resource Scheduler Period",
@@ -991,7 +990,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| AMI \| Copy](deployment-advanced-ami-copy.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Copy AMI",
@@ -1109,7 +1108,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| KMS alias \| Delete](management-advanced-kms-alias-delete.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete KMS Alias",
@@ -1176,7 +1175,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Resource Access Manager (RAM) \| Create resource share (review required)](deployment-advanced-resource-access-manager-ram-create-resource-share-review-required.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Resource Share",
@@ -1299,7 +1298,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EBS snapshot \| Archive](management-advanced-ebs-snapshot-archive.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Archive EBS Snapshots",
@@ -1366,7 +1365,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create target endpoint (S3)](deployment-advanced-database-migration-service-dms-create-target-endpoint-s3.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create DMS target endpoint for S3",
@@ -1546,7 +1545,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| KMS key \| Share (managed automation)](management-advanced-kms-key-share-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Share KMS Key",
@@ -1607,7 +1606,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| EBS Volume \| Create from backup](deployment-advanced-ebs-volume-create-from-backup.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create EBS From Backup",
@@ -1736,7 +1735,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| VPC \| Add static route (managed automation)](deployment-advanced-vpc-add-static-route-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add Static Route",
@@ -1791,7 +1790,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Standard stacks \| High availability two-tier stack \| Create](deployment-standard-high-availability-two-tier-stack-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create high availability two-tier stack",
@@ -2332,7 +2331,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Monitoring and notification \| GuardDuty IP set \| Update (managed automation)](management-monitoring-guardduty-ip-set-update-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update GuardDuty IPSet",
@@ -2404,7 +2403,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Monitoring and notification \| GuardDuty IP set \| Create (managed automation)](deployment-monitoring-guardduty-ip-set-create-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create GuardDuty IPSet",
@@ -2485,7 +2484,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Host security \| Trend Micro DSM \| Scan and get results (managed automation)](management-host-trend-micro-dsm-scan-and-get-results-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Trend Micro Scan Report",
@@ -2552,7 +2551,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Reboot](management-advanced-ec2-instance-stack-reboot.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Reboot EC2 instance",
@@ -2578,7 +2577,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Standard stacks \| High availability one-tier stack \| Create](deployment-standard-high-availability-one-tier-stack-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create high availability one-tier stack",
@@ -3037,7 +3036,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Applications \| CodeDeploy application \| Create](deployment-applications-codedeploy-application-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create CodeDeploy application",
@@ -3136,7 +3135,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Target group \| Delete (managed automation)](management-advanced-target-group-delete-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete Target Group",
@@ -3190,7 +3189,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Load balancer (ELB) stack \| Replace listener certificate](management-advanced-load-balancer-elb-stack-replace-listener-certificate.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Replace ELB Listener Certificate",
@@ -3295,7 +3294,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Load balancer (ELB) stack \| Create (with additional listeners)](deployment-advanced-load-balancer-elb-stack-create-with-additional-listeners.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Load Balancer (ELB)",
@@ -3875,7 +3874,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create source endpoint](deployment-advanced-database-migration-service-dms-create-source-endpoint.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create DMS source endpoint",
@@ -4080,7 +4079,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Host security \| Trend Micro DSM \| Update agent status (managed automation)](management-host-trend-micro-dsm-update-agent-status-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Trend Micro DSM agent status.",
@@ -4153,7 +4152,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Reboot](management-advanced-rds-database-stack-reboot.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Reboot RDS DB instance",
@@ -4184,7 +4183,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| VPC \| Associate DHCP Option Set](management-advanced-vpc-associate-dhcp-option-set.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "AssociateDhcpOptionSetWithVpc",
@@ -4253,7 +4252,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| DNS (private) \| Create](deployment-advanced-dns-private-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Private DNS Record",
@@ -4346,7 +4345,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Storage Gateway \| Create from Backup](deployment-advanced-storage-gateway-create-from-backup.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Start Storage Gateway Restore Job",
@@ -4512,7 +4511,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Monitoring and notification \| CloudWatch \| Create LogGroup](deployment-monitoring-cloudwatch-create-loggroup.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "CloudWatch LogGroup with optional subscription filter, log streams and metric filters.",
@@ -4892,7 +4891,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Patching \| SSM patch window \| Create](deployment-patching-ssm-patch-window-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create SSM Patch Window",
@@ -5024,7 +5023,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Monitoring and notification \| CloudWatch \| Enable Non-Root Volumes Monitoring](management-monitoring-cloudwatch-enable-non-root-volumes-monitoring.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Enable Non-Root Volumes Monitoring",
@@ -5091,7 +5090,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Restore volumes](management-advanced-ec2-instance-stack-restore-volumes.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Restore EC2 Volumes From Backup",
@@ -5208,7 +5207,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| S3 storage \| Update policy (managed automation)](management-advanced-s3-storage-update-policy-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update policy",
@@ -5276,7 +5275,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AWS Backup \| Backup plan \| Enable cross region copy](management-aws-backup-plan-enable-cross-region-copy.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Enable Cross Region Copy",
@@ -5408,7 +5407,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Elastic File System (EFS) \| Create from backup](deployment-advanced-elastic-file-system-efs-create-from-backup.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create EFS From Backup",
@@ -5547,7 +5546,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Change hostname (Windows)](management-advanced-ec2-instance-stack-change-hostname-windows.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Change Windows Hostname",
@@ -5641,7 +5640,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Encrypt instance volumes](management-advanced-ec2-instance-stack-encrypt-instance-volumes.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Encrypt Instance Volumes",
@@ -5763,7 +5762,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Monitoring and notification \| SQS \| Update](management-monitoring-sqs-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update SQS",
@@ -5843,7 +5842,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| ACM \| Create private certificate](deployment-advanced-acm-create-private-certificate.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Private ACM Certificate",
@@ -5942,7 +5941,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS snapshot \| Delete](management-advanced-rds-snapshot-delete.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete RDS Snapshots",
@@ -6009,7 +6008,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Access \| Stack admin access \| Update](management-access-stack-admin-access-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update stack admin access",
@@ -6078,7 +6077,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Applications \| IAM instance profile \| Create (managed automation)](management-applications-iam-instance-profile-create-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create IAM instance profile",
@@ -6139,7 +6138,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed account \| Stack access duration \| Override (managed automation)](management-managed-stack-access-duration-override-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Override Stack Access Duration",
@@ -6182,7 +6181,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Tag \| Bulk update (managed automation)](management-advanced-tag-bulk-update-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Bulk Update Resource Tags (Review Required)",
@@ -6232,7 +6231,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Patching \| SSM patch baseline \| Create (Windows)](deployment-patching-ssm-patch-baseline-create-windows.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create SSM Patch Baseline (Windows)",
@@ -6426,7 +6425,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Update Storage](management-advanced-rds-database-stack-update-storage.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update RDS Storage",
@@ -6551,7 +6550,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Security group \| Authorize egress rule](management-advanced-security-group-authorize-egress-rule.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Authorize Multiple Egress Rules",
@@ -6675,7 +6674,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Load balancer (ELB) stack \| Update](management-advanced-load-balancer-elb-stack-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update load balancer (ELB) stack",
@@ -6898,7 +6897,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Custom Stack \| Stack From CloudFormation Template \| Delete Failed Stack (managed automation)](management-custom-stack-from-cloudformation-template-delete-failed-stack-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete Failed Stack (Review Required)",
@@ -6968,7 +6967,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| S3 storage \| Add event notification](management-advanced-s3-storage-add-event-notification.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add Event Notification",
@@ -7099,7 +7098,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Update parameter group](management-advanced-rds-database-stack-update-parameter-group.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update DB Instance or Cluster Parameter Group.",
@@ -7168,7 +7167,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| RDS database stack \| Create from backup](deployment-advanced-rds-database-stack-create-from-backup.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create RDS From Backup",
@@ -7354,7 +7353,7 @@ Change type schemas specify the execution input parameters for a change type.
 + [Management \| Advanced stack components \| Stack \| Delete](management-advanced-stack-delete.md)
 + [Management \| Standard stacks \| Stack \| Delete](management-standard-stack-delete.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete stack",
@@ -7386,7 +7385,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Redshift \| Create (cluster subnet group)](deployment-advanced-redshift-create-cluster-subnet-group.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Redshift cluster subnet group",
@@ -7520,7 +7519,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| VPN Gateway \| Create](deployment-advanced-vpn-gateway-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create VPN Gateway",
@@ -7655,7 +7654,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed landing zone \| Networking account \| Remove TGW static route](management-managed-networking-account-remove-tgw-static-route.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Remove TGW Static Route",
@@ -7759,7 +7758,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Update instance detailed monitoring](management-advanced-ec2-instance-stack-update-instance-detailed-monitoring.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Detailed Monitoring",
@@ -7840,7 +7839,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Application Load Balancer \| Remove listener certificate](management-advanced-application-load-balancer-remove-listener-certificate.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Remove ALB Listener Certificates",
@@ -7934,7 +7933,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| S3 storage \| Delete policy (managed automation)](management-advanced-s3-storage-delete-policy-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete policy",
@@ -7986,7 +7985,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Directory Service \| Computer object \| Create service principal name (SPN)](deployment-directory-computer-object-create-service-principal-name-spn.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create service principal names",
@@ -8100,7 +8099,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed landing zone \| Management account \| Offboard application account](management-managed-management-account-offboard-application-account.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Offboard Application Account",
@@ -8175,7 +8174,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EBS Volume \| Encrypt EBS by default](management-advanced-ebs-volume-encrypt-ebs-by-default.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Encrypt EBS By Default",
@@ -8216,7 +8215,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Monitoring and notification \| CloudWatch \| Modify log retention period](management-monitoring-cloudwatch-modify-log-retention-period.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Modify log retention period",
@@ -8306,7 +8305,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| DNS (public) \| Create](deployment-advanced-dns-public-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Public DNS Record",
@@ -8392,7 +8391,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Network Load Balancer \| Update](management-advanced-network-load-balancer-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Network Load Balancer",
@@ -8570,7 +8569,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Host security \| Trend Micro DSM \| Add login (read-only)](management-host-trend-micro-dsm-add-login-read-only.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add DSM Read-Only Login",
@@ -8659,7 +8658,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| Directory \| Create AD trust](management-directory-directory-create-ad-trust.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Active Directory Trust",
@@ -8779,7 +8778,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Other \| Other \| Update (review required)](management-other-other-update-review-required.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update other",
@@ -8831,7 +8830,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Cache (ElastiCache Memcached) stack \| Create](deployment-advanced-cache-elasticache-memcached-stack-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Cache (ElastiCache Memcached) stack",
@@ -9021,7 +9020,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Tag \| Update](management-advanced-tag-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Resource Tags",
@@ -9115,7 +9114,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| AMS Resource Scheduler \| Solution \| Deploy](deployment-ams-solution-deploy.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Deploy AMS Resource Scheduler",
@@ -9727,7 +9726,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| S3 storage \| Update public access](management-advanced-s3-storage-update-public-access.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update S3 Bucket Block Public Access",
@@ -9818,7 +9817,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Tag \| Update (managed automation)](management-advanced-tag-update-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Resource Tags (Review Required)",
@@ -9930,7 +9929,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Monitoring and notification \| SNS \| Update (managed automation)](management-monitoring-sns-update-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update SNS Topic",
@@ -10036,7 +10035,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| Computer object \| Remove SPN](management-directory-computer-object-remove-spn.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Remove Service Principal Name",
@@ -10150,7 +10149,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Trusted Remediator \| State \| Enable or disable](management-trusted-state-enable-or-disable.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Enable or disable Trusted Remediator service",
@@ -10215,7 +10214,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| RDS database stack \| Create option group (managed automation)](deployment-advanced-rds-database-stack-create-option-group-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create RDS Option Group",
@@ -10282,7 +10281,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Security group \| Revoke egress rule](management-advanced-security-group-revoke-egress-rule.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Revoke Egress Rule",
@@ -10397,7 +10396,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Application Load Balancer \| Create](deployment-advanced-application-load-balancer-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Application Load Balancer",
@@ -10932,7 +10931,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create EC2 instance profile](deployment-advanced-identity-and-access-management-iam-create-ec2-instance-profile.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create EC2 Instance Profile",
@@ -11256,7 +11255,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| VPC endpoint \| Update policy (managed automation)](management-advanced-vpc-endpoint-update-policy-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update VPC Endpoint Policy",
@@ -11323,7 +11322,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| S3 storage \| Update encryption](management-advanced-s3-storage-update-encryption.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Change S3 Bucket Encryption Setting",
@@ -11411,7 +11410,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Load balancer (ELB) stack \| Create](deployment-advanced-load-balancer-elb-stack-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create load balancer (ELB) stack",
@@ -11732,7 +11731,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Security group \| Associate](management-advanced-security-group-associate.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Associate Security Group",
@@ -11836,7 +11835,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Update](management-advanced-rds-database-stack-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update RDS database stack",
@@ -12013,7 +12012,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Security group \| Disassociate](management-advanced-security-group-disassociate.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Disassociate Security Group",
@@ -12195,7 +12194,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Update instance type](management-advanced-rds-database-stack-update-instance-type.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Instance Type",
@@ -12285,7 +12284,7 @@ Change type schemas specify the execution input parameters for a change type.
 + [Management \| Advanced stack components \| Directory Service \| Accept sharing](management-advanced-directory-service-accept-sharing.md)
 + [Management \| Directory Service \| Directory \| Accept sharing](management-directory-directory-accept-sharing.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Accept Directory Sharing Request",
@@ -12362,7 +12361,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| EC2 stack \| Create](deployment-advanced-ec2-stack-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create EC2 stack",
@@ -12576,7 +12575,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Custom Stack \| Stack from CloudFormation Template \| Approve Changeset and Update](management-custom-stack-from-cloudformation-template-approve-changeset-and-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Approve ChangeSet and update CloudFormation stack",
@@ -12631,7 +12630,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AMS Resource Scheduler \| State \| Disable](management-ams-state-disable.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Disable AMS Resource Scheduler",
@@ -12711,7 +12710,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Listener \| Create (for ALB or NLB)](deployment-advanced-listener-create-for-alb-or-nlb.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create ALB or NLB Listener",
@@ -12932,7 +12931,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| DNS \| Update group managed service account](management-directory-dns-update-group-managed-service-account.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Group Managed Service Account",
@@ -13043,7 +13042,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Resize](management-advanced-ec2-instance-stack-resize.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Resize EC2 Instance",
@@ -13131,7 +13130,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed firewall \| Network firewall \| Create firewall policy (managed automation)](management-managed-network-firewall-create-firewall-policy-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Network Firewall Policy",
@@ -13291,7 +13290,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Managed landing zone \| Management account \| Create StackSets stack (managed automation)](deployment-managed-management-account-create-stacksets-stack-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create StackSets Stack",
@@ -13444,7 +13443,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| EBS Volume \| Create](deployment-advanced-ebs-volume-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create and attach up to five EBS volumes to an instance.",
@@ -13829,7 +13828,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed account \| Automated IAM provisioning with read-write permissions \| Enable (managed automation)](management-managed-automated-iam-provisioning-with-read-write-permissions-enable-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Enable Automated IAM Provisioning",
@@ -13889,7 +13888,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Delete entity or policy (read-write permissions)](management-advanced-identity-and-access-management-iam-delete-entity-or-policy-read-write-permissions.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete Entity or Policy (read-write permissions)",
@@ -13993,7 +13992,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Cache (ElastiCache Redis) stack \| Create](deployment-advanced-cache-elasticache-redis-stack-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Cache (ElastiCache Redis) stack",
@@ -14190,7 +14189,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| RDS database stack \| Create DB subnet group](deployment-advanced-rds-database-stack-create-db-subnet-group.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create RDS DB subnet group",
@@ -14329,7 +14328,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AWS Backup \| Backup job \| Stop](management-aws-backup-job-stop.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Stop Backup Job",
@@ -14395,7 +14394,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Patching \| SSM patch baseline \| Create (Amazon Linux 2)](deployment-patching-ssm-patch-baseline-create-amazon-linux-2.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create SSM Patch Baseline (Amazon Linux 2)",
@@ -14581,7 +14580,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Security group \| Delete](management-advanced-security-group-delete.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete Security Groups",
@@ -14664,7 +14663,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| VPC \| Create DHCP option set](deployment-advanced-vpc-create-dhcp-option-set.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create DHCP option set",
@@ -14787,7 +14786,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Load balancer (ELB) stack \| Create listener rule](deployment-advanced-load-balancer-elb-stack-create-listener-rule.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create ELB Listener Rule",
@@ -15018,7 +15017,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Bastions \| Update instance or session counts (managed automation)](management-advanced-bastions-update-instance-or-session-counts-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Instance or Session Counts",
@@ -15088,7 +15087,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AMS Resource Scheduler \| Period \| Add](management-ams-period-add.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add Resource Scheduler Period",
@@ -15236,7 +15235,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Access \| Stack read-only access \| Grant](management-access-stack-read-only-access-grant.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Grant Stack Read-Only access",
@@ -15305,7 +15304,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Gather log4j information](management-advanced-ec2-instance-stack-gather-log4j-information.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Gather Log4j Information",
@@ -15439,7 +15438,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| RDS snapshot \| Copy (for Aurora)](deployment-advanced-rds-snapshot-copy-for-aurora.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Copy RDS DB Cluster Snapshot",
@@ -15540,7 +15539,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Application Load Balancer \| Update](management-advanced-application-load-balancer-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Application Load Balancer",
@@ -15781,7 +15780,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| S3 storage \| Create](deployment-advanced-s3-storage-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create S3 bucket",
@@ -15945,7 +15944,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| EC2 stack \| Create (with additional volumes)](deployment-advanced-ec2-stack-create-with-additional-volumes.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create EC2 Stack With Additional Volumes",
@@ -16476,7 +16475,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| S3 storage \| Manage lifecycle configuration](management-advanced-s3-storage-manage-lifecycle-configuration.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Manage Lifecycle Configuration",
@@ -16597,7 +16596,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AWS Backup \| Backup plan \| Update (managed automation)](management-aws-backup-plan-update-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update AWS Backup Plan",
@@ -16754,7 +16753,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Monitoring and notification \| GuardDuty IP set \| Delete (managed automation)](management-monitoring-guardduty-ip-set-delete-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete GuardDuty IPSet",
@@ -16808,7 +16807,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| PrefixList \| Create](deployment-advanced-prefixlist-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Prefix List",
@@ -17005,7 +17004,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| RDS snapshot \| Copy](deployment-advanced-rds-snapshot-copy.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Copy RDS DB Snapshot",
@@ -17118,7 +17117,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Trusted Remediator \| Finding \| Remediate](management-trusted-finding-remediate.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Remediate Trusted Remediator finding",
@@ -17192,7 +17191,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create replication task](deployment-advanced-database-migration-service-dms-create-replication-task.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create DMS replication task.",
@@ -17365,7 +17364,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| DNS (private) \| Update](management-advanced-dns-private-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Private DNS Record Sets",
@@ -17445,7 +17444,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| KMS key \| Create](deployment-advanced-kms-key-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create KMS key",
@@ -17630,7 +17629,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Access \| Stack admin access \| Grant](management-access-stack-admin-access-grant.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Grant Stack Admin access",
@@ -17699,7 +17698,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Update entity or policy (read-write permissions)](management-advanced-identity-and-access-management-iam-update-entity-or-policy-read-write-permissions.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Entity or Policy (read-write permissions)",
@@ -17915,7 +17914,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Other \| Other \| Create (review required)](management-other-other-create-review-required.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create other",
@@ -17967,7 +17966,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| DNS \| Update record permission](management-directory-dns-update-record-permission.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update DNS Record Permission",
@@ -18034,7 +18033,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| AMI \| Share](management-advanced-ami-share.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Share AMI",
@@ -18114,7 +18113,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| S3 Access Point \| Create Access Point (managed automation)](deployment-advanced-s3-access-point-create-access-point-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create S3 access point",
@@ -18185,7 +18184,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Tag \| Delete (managed automation)](management-advanced-tag-delete-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete Resource Tags (Review Required)",
@@ -18269,7 +18268,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Rotate DB certificate](management-advanced-rds-database-stack-rotate-db-certificate.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Rotate RDS DB Certificate",
@@ -18370,7 +18369,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed landing zone \| Networking account \| Enable TGW propagation](management-managed-networking-account-enable-tgw-propagation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Enable TGW Propagation",
@@ -18449,7 +18448,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Update MaxSessionDuration](management-advanced-identity-and-access-management-iam-update-maxsessionduration.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update MaxSessionDuration",
@@ -18529,7 +18528,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AMS Resource Scheduler \| Period \| Describe](management-ams-period-describe.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Describe Resource Scheduler Periods",
@@ -18599,7 +18598,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| S3 storage \| Update](management-advanced-s3-storage-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update S3 Bucket",
@@ -18768,7 +18767,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| DynamoDB \| Create from backup](deployment-advanced-dynamodb-create-from-backup.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create DynamoDB From Backup",
@@ -18856,7 +18855,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Standard stacks \| Stack \| Start](management-standard-stack-start.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Start stack",
@@ -18882,7 +18881,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| DNS (public) \| Update](management-advanced-dns-public-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Public DNS Record Sets",
@@ -18962,7 +18961,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| Users and groups \| Add group to group](management-directory-users-and-groups-add-group-to-group.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add AD Group To AD Group",
@@ -19053,7 +19052,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| DNS \| Delete conditional forwarder](management-directory-dns-delete-conditional-forwarder.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete AD DNS Conditional Forwarder",
@@ -19120,7 +19119,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| DNS \| Remove record](management-directory-dns-remove-record.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Remove DNS Record",
@@ -19215,7 +19214,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Managed landing zone \| Application account \| Create VPC](deployment-managed-application-account-create-vpc.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Application Account VPC",
@@ -19562,7 +19561,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Resource Access Manager (RAM) \| Create resolver rule share](deployment-advanced-resource-access-manager-ram-create-resolver-rule-share.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create resolver rule share",
@@ -19643,7 +19642,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create Lambda execution role](deployment-advanced-identity-and-access-management-iam-create-lambda-execution-role.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Lambda Execution Role",
@@ -20030,7 +20029,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Managed landing zone \| Management account \| Create custom OUs](deployment-managed-management-account-create-custom-ous.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Custom OUs",
@@ -20066,7 +20065,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Redshift \| Create (cluster)](deployment-advanced-redshift-create-cluster.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create an Amazon Redshift cluster",
@@ -20319,7 +20318,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create target endpoint (kafka)](deployment-advanced-database-migration-service-dms-create-target-endpoint-kafka.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create DMS target endpoint for kafka",
@@ -20465,7 +20464,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Redshift \| Pause cluster](management-advanced-redshift-pause-cluster.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Pause Redshift Cluster",
@@ -20534,7 +20533,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create entity or policy (read-write permissions)](deployment-advanced-identity-and-access-management-iam-create-entity-or-policy-read-write-permissions.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Entity or Policy (read-write permissions)",
@@ -20788,7 +20787,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| VPC \| Delete route](management-advanced-vpc-delete-route.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete VPC route",
@@ -20862,7 +20861,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Update (with additional volumes)](management-advanced-ec2-instance-stack-update-with-additional-volumes.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update EC2 stack (with additional volumes)",
@@ -21168,7 +21167,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed landing zone \| Management account \| Enable developer mode](management-managed-management-account-enable-developer-mode.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Enable Developer Mode",
@@ -21199,7 +21198,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Security group \| Create (managed automation)](deployment-advanced-security-group-create-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Security Group (review required)",
@@ -21401,7 +21400,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| VPC \| Manage subnet public IPv4 auto assignment](management-advanced-vpc-manage-subnet-public-ipv4-auto-assignment.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Manage subnet public IPv4 auto assignment",
@@ -21484,7 +21483,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Associate private IP addresses (managed automation)](management-advanced-ec2-instance-stack-associate-private-ip-addresses-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Associate Private IP Addresses",
@@ -21537,7 +21536,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Host security \| Malware full system scan \| Disable (managed automation)](management-host-malware-full-system-scan-disable-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Disable malware scans",
@@ -21578,7 +21577,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| ACM \| Delete certificate](management-advanced-acm-delete-certificate.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete an ACM Certificate",
@@ -21644,7 +21643,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Target Group \| Create (for ALB)](deployment-advanced-target-group-create-for-alb.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create target group for ALB",
@@ -22073,7 +22072,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AWS Backup \| Recovery point \| Delete](management-aws-recovery-point-delete.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete Recovery Points",
@@ -22153,7 +22152,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| NAT gateway \| Delete (managed automation)](management-advanced-nat-gateway-delete-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete NAT gateway (review required)",
@@ -22207,7 +22206,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Managed landing zone \| Networking account \| Create application route table (managed automation)](deployment-managed-networking-account-create-application-route-table-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Application Account Route Table",
@@ -22253,7 +22252,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed landing zone \| Management account \| Update StackSets stack (managed automation)](management-managed-management-account-update-stacksets-stack-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update StackSets Stack",
@@ -22405,7 +22404,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Monitoring and notification \| SQS \| Create](deployment-monitoring-sqs-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create SQS",
@@ -22541,7 +22540,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Database Migration Service (DMS) \| Stop replication task](management-advanced-database-migration-service-dms-stop-replication-task.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Stop DMS Replication Task",
@@ -22608,7 +22607,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Security group \| Revoke ingress rule](management-advanced-security-group-revoke-ingress-rule.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Revoke Ingress Rule",
@@ -22723,7 +22722,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed landing zone \| Management account \| Move account to OU](management-managed-management-account-move-account-to-ou.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Move Account To OU",
@@ -22761,7 +22760,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EBS snapshot \| Delete (managed automation)](management-advanced-ebs-snapshot-delete-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete EBS Snapshot",
@@ -22833,7 +22832,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AWS service \| Self-provisioned service \| Add](management-aws-self-provisioned-service-add.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add Self-Provisioned AWS Service",
@@ -22994,7 +22993,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EBS Volume \| Modify](management-advanced-ebs-volume-modify.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Modify EBS Volumes",
@@ -23144,7 +23143,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Target group \| Update (for NLB)](management-advanced-target-group-update-for-nlb.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update target group for NLB",
@@ -23385,7 +23384,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Update IMDS version (managed automation)](management-advanced-ec2-instance-stack-update-imds-version-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update IMDS version (review required)",
@@ -23458,7 +23457,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Database Migration Service (DMS) \| Start replication task](management-advanced-database-migration-service-dms-start-replication-task.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Start DMS Replication Task",
@@ -23561,7 +23560,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed landing zone \| Management account \| Delete StackSets stack (managed automation)](management-managed-management-account-delete-stacksets-stack-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete StackSets Stack",
@@ -23610,7 +23609,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Managed landing zone \| Management account \| Create application account (with VPC)](deployment-managed-management-account-create-application-account-with-vpc.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Application Account With VPC",
@@ -24161,7 +24160,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| Users and groups \| Remove user from group](management-directory-users-and-groups-remove-user-from-group.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Remove AD User From AD Group",
@@ -24252,7 +24251,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Update master user password](management-advanced-rds-database-stack-update-master-user-password.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update RDS MasterUserPassword",
@@ -24335,7 +24334,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| RDS database stack \| Create from snapshot](deployment-advanced-rds-database-stack-create-from-snapshot.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create RDS Instance From Snapshot",
@@ -24579,7 +24578,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Enable detailed monitoring (managed automation)](management-advanced-ec2-instance-stack-enable-detailed-monitoring-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Enable Detailed Monitoring",
@@ -24626,7 +24625,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| S3 storage \| Create policy (managed automation)](deployment-advanced-s3-storage-create-policy-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create policy",
@@ -24685,7 +24684,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Reset service-specific credentials](management-advanced-identity-and-access-management-iam-reset-service-specific-credentials.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Reset Service-Specific Credentials",
@@ -24776,7 +24775,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| Users and groups \| Add user to group](management-directory-users-and-groups-add-user-to-group.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add AD User To AD Group",
@@ -24867,7 +24866,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Host security \| Trend Micro DSM \| Add user (managed automation)](management-host-trend-micro-dsm-add-user-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add user",
@@ -24927,7 +24926,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Ingestion \| Stack from migration partner migrated instance \| Create](deployment-ingestion-stack-from-migration-partner-migrated-instance-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Migrate Instance to AMS Stack",
@@ -25064,7 +25063,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Monitoring and notification \| GuardDuty threat intel set \| Create (managed automation)](deployment-monitoring-guardduty-threat-intel-set-create-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create GuardDuty ThreatIntelSet",
@@ -25145,7 +25144,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Monitoring and notification \| GuardDuty suppression rules \| Create (managed automation)](management-monitoring-guardduty-suppression-rules-create-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create GuardDuty Suppression Rules",
@@ -25246,7 +25245,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| AMI \| Deregister](management-advanced-ami-deregister.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Deregister AMIs",
@@ -25324,7 +25323,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Change hostname (Linux)](management-advanced-ec2-instance-stack-change-hostname-linux.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Change Linux Hostname",
@@ -25417,7 +25416,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create replication instance](deployment-advanced-database-migration-service-dms-create-replication-instance.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create a DMS replication instance",
@@ -25619,7 +25618,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Update maintenance window (managed automation)](management-advanced-rds-database-stack-update-maintenance-window-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update RDS Maintenance Window",
@@ -25667,7 +25666,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Update entity or policy (managed automation)](management-advanced-identity-and-access-management-iam-update-entity-or-policy-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update IAM Resource",
@@ -25967,7 +25966,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| OpenSearch \| Create domain](deployment-advanced-opensearch-create-domain.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create an Amazon OpenSearch Service Domain",
@@ -26548,7 +26547,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Load Balancer (ELB) stack \| Update deletion protection](management-advanced-load-balancer-elb-stack-update-deletion-protection.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update ELB Deletion Protection",
@@ -26625,7 +26624,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Update DeleteOnTermination (managed automation)](management-advanced-ec2-instance-stack-update-deleteontermination-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update DeleteOnTermination",
@@ -26690,7 +26689,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AMS Resource Scheduler \| Schedule \| Add](management-ams-schedule-add.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add Resource Scheduler Schedule",
@@ -27346,7 +27345,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AMS Resource Scheduler \| Solution \| Update](management-ams-solution-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update AMS Resource Scheduler",
@@ -27964,7 +27963,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EBS Volume \| Detach](management-advanced-ebs-volume-detach.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Detach EBS Volume",
@@ -28046,7 +28045,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Update (for Aurora)](management-advanced-rds-database-stack-update-for-aurora.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update RDS Aurora stack",
@@ -28276,7 +28275,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Applications \| CodeDeploy application \| Deploy](deployment-applications-codedeploy-application-deploy.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Deploy CodeDeploy Application",
@@ -28451,7 +28450,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create Service-Linked role](deployment-advanced-identity-and-access-management-iam-create-service-linked-role.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Service-Linked Role",
@@ -28542,7 +28541,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| KMS key \| Create (managed automation)](deployment-advanced-kms-key-create-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create KMS Key (review required)",
@@ -28652,7 +28651,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| DNS \| Update conditional forwarder](management-directory-dns-update-conditional-forwarder.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update AD DNS Conditional Forwarder",
@@ -28732,7 +28731,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Standalone resources \| Load Balancer \| Delete](management-standalone-load-balancer-delete.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete Standalone Load Balancer",
@@ -28800,7 +28799,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Applications \| CodeDeploy deployment group \| Create](deployment-applications-codedeploy-deployment-group-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create CodeDeploy deployment group",
@@ -28935,7 +28934,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Managed landing zone \| Application account \| Create VPC Additional CIDR and Subnets](deployment-managed-application-account-create-vpc-additional-cidr-and-subnets.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Application Account CIDRs",
@@ -29480,7 +29479,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| S3 storage \| Update versioning](management-advanced-s3-storage-update-versioning.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Change S3 Bucket Versioning Setting",
@@ -29557,7 +29556,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create access key](deployment-advanced-identity-and-access-management-iam-create-access-key.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Access Key",
@@ -29646,7 +29645,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AWS Backup \| Backup job \| Start](management-aws-backup-job-start.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Start Backup Job",
@@ -29753,7 +29752,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create source endpoint (MongoDB)](deployment-advanced-database-migration-service-dms-create-source-endpoint-mongodb.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create DMS source endpoint for MongoDB",
@@ -29997,7 +29996,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| AWS Backup \| Backup plan \| Create](deployment-aws-backup-plan-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create AWS Backup Plan",
@@ -30669,7 +30668,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Host security \| Trend Micro DSM \| Remove Trend Micro EPS agent (managed automation)](management-host-trend-micro-dsm-remove-trend-micro-eps-agent-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Remove Trend Micro EPS Agent",
@@ -30729,7 +30728,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Managed landing zone \| Management account \| Create tools account (with VPC)](deployment-managed-management-account-create-tools-account-with-vpc.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Tools Account With VPC",
@@ -30960,7 +30959,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| AMS patterns \| Solution \| Deploy (managed automation)](deployment-ams-solution-deploy-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Deploy AMS Patterns",
@@ -31116,7 +31115,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| RDS database stack \| Create (for Aurora)](deployment-advanced-rds-database-stack-create-for-aurora.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create a RDS Aurora stack allowing either MultiAZ or Single Instance",
@@ -31482,7 +31481,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed firewall \| Network firewall \| Manage firewall rules (managed automation)](management-managed-network-firewall-manage-firewall-rules-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Manage Network Firewall Rules",
@@ -31580,7 +31579,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| KMS key \| Enable rotation](management-advanced-kms-key-enable-rotation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Enable KMS CMK Auto Rotation",
@@ -31647,7 +31646,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| DNS \| Add CNAME record](management-directory-dns-add-cname-record.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add DNS CNAME Record",
@@ -31726,7 +31725,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create service-specific credentials](deployment-advanced-identity-and-access-management-iam-create-service-specific-credentials.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Service-Specific Credentials",
@@ -31807,7 +31806,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Patching \| SSM patch baseline \| Create (CentOS)](deployment-patching-ssm-patch-baseline-create-centos.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create SSM Patch Baseline (CentOS)",
@@ -31994,7 +31993,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Update IMDS region-level default settings (managed automation)](management-advanced-ec2-instance-stack-update-imds-region-level-default-settings-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update IMDS Region-Level Default Settings (Review Required)",
@@ -32075,7 +32074,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create source endpoint (S3)](deployment-advanced-database-migration-service-dms-create-source-endpoint-s3.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create DMS source endpoint for S3",
@@ -32257,7 +32256,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Managed landing zone \| Management account \| Create Accelerate account](deployment-managed-management-account-create-accelerate-account.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Accelerate Account",
@@ -32331,7 +32330,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed landing zone \| Application account \| Delete VPC](management-managed-application-account-delete-vpc.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete Application Account VPC",
@@ -32362,7 +32361,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Route 53 Resolver \| Associate VPC with resolver rule](management-advanced-route-53-resolver-associate-vpc-with-resolver-rule.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Associate VPC With Resolver Rule",
@@ -32438,7 +32437,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Route 53 Resolver \| Disassociate resolver rules from VPC](management-advanced-route-53-resolver-disassociate-resolver-rules-from-vpc.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Disassociate resolver rules from VPC",
@@ -32512,7 +32511,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AMS Resource Scheduler \| Period \| Update](management-ams-period-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Resource Scheduler Period",
@@ -32660,7 +32659,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AMS Resource Scheduler \| Schedule \| Describe](management-ams-schedule-describe.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Describe Resource Scheduler Schedules",
@@ -32730,7 +32729,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed landing zone \| Networking account \| Disable TGW propagation](management-managed-networking-account-disable-tgw-propagation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Disable TGW Propagation",
@@ -32809,7 +32808,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create replication subnet group](deployment-advanced-database-migration-service-dms-create-replication-subnet-group.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create a DMS replication subnet group",
@@ -32944,7 +32943,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Directory Service \| DNS \| Create group managed service account](deployment-directory-dns-create-group-managed-service-account.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Group Managed Service Account",
@@ -33067,7 +33066,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Monitoring and notification \| GuardDuty threat intel set \| Delete (managed automation)](management-monitoring-guardduty-threat-intel-set-delete-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete GuardDuty ThreatIntelSet",
@@ -33121,7 +33120,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Network Load Balancer \| Create](deployment-advanced-network-load-balancer-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Network Load Balancer",
@@ -33437,7 +33436,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Load balancer (ELB) stack \| Delete listener rule](management-advanced-load-balancer-elb-stack-delete-listener-rule.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete Elastic Load Balancer Listener Rule",
@@ -33504,7 +33503,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Stop DB instance](management-advanced-rds-database-stack-stop-db-instance.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Stop RDS DB Instance",
@@ -33571,7 +33570,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed account \| Automated IAM provisioning with read-write permissions \| Update custom deny list (managed automation)](management-managed-automated-iam-provisioning-with-read-write-permissions-update-custom-deny-list-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update custom deny list for Automated IAM Provisioning",
@@ -33614,7 +33613,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Delete account alias](management-advanced-identity-and-access-management-iam-delete-account-alias.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete AWS Account Alias",
@@ -33681,7 +33680,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Monitoring and notification \| GuardDuty threat intel set \| Update (managed automation)](management-monitoring-guardduty-threat-intel-set-update-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update GuardDuty ThreatIntelSet",
@@ -33753,7 +33752,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| PrefixList \| Modify](management-advanced-prefixlist-modify.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Modify Prefix List",
@@ -33926,7 +33925,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Site-to-Site VPN \| Replace tunnel (managed automation)](management-advanced-site-to-site-vpn-replace-tunnel-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Replace Site-to-Site VPN Tunnel",
@@ -33988,7 +33987,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| KMS alias \| Create](deployment-advanced-kms-alias-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create KMS Alias",
@@ -34067,7 +34066,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Update deletion protection](management-advanced-rds-database-stack-update-deletion-protection.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Deletion Protection setting for RDS instance or cluster",
@@ -34135,7 +34134,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Patching \| SSM patch baseline \| Create (Amazon Linux)](deployment-patching-ssm-patch-baseline-create-amazon-linux.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create SSM Patch Baseline (Amazon Linux)",
@@ -34321,7 +34320,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed account \| DNS \| Migrate to Route 53 (managed automation)](management-managed-dns-migrate-to-route-53-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Migrate AWS Managed Microsoft AD to Route 53 DNS resolver for SALZ accounts",
@@ -34356,7 +34355,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Auto Scaling group \| Create](deployment-advanced-auto-scaling-group-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Auto Scaling group",
@@ -34758,7 +34757,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS snapshot \| Share](management-advanced-rds-snapshot-share.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Share RDS DB Snapshot",
@@ -34837,7 +34836,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Restore to point in time](management-advanced-rds-database-stack-restore-to-point-in-time.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Restore RDS DB Instance To Point In Time",
@@ -34964,7 +34963,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Patching \| Patch window \| Update](management-patching-patch-window-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Maintenance Window",
@@ -35140,7 +35139,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Elastic File System (EFS) \| Create](deployment-advanced-elastic-file-system-efs-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create EFS stack",
@@ -35308,7 +35307,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Standard stacks \| Stack \| Update termination protection](management-standard-stack-update-termination-protection.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Termination Protection",
@@ -35388,7 +35387,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Target group \| Update (for ALB)](management-advanced-target-group-update-for-alb.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update target group for ALB",
@@ -35675,7 +35674,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| DNS \| Add A record](management-directory-dns-add-a-record.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add DNS A Record",
@@ -35766,7 +35765,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed landing zone \| Application account \| Confirm offboarding](management-managed-application-account-confirm-offboarding.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Confirm Account Offboarding",
@@ -35828,7 +35827,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| RDS database stack \| Create from backup (for Aurora)](deployment-advanced-rds-database-stack-create-from-backup-for-aurora.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create RDS Aurora Stack From Backup",
@@ -36144,7 +36143,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AMS Resource Scheduler \| State \| Enable](management-ams-state-enable.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Enable AMS Resource Scheduler",
@@ -36224,7 +36223,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Bastions \| Update instance size (managed automation)](management-advanced-bastions-update-instance-size-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Instance Size",
@@ -36276,7 +36275,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| Directory \| Unshare directory](management-directory-directory-unshare-directory.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Unshare Directory",
@@ -36355,7 +36354,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EBS Volume \| Update](management-advanced-ebs-volume-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update EBS volumes.",
@@ -36564,7 +36563,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AWS Backup \| Backup plan \| Enable cross account copy (Management account)](management-aws-backup-plan-enable-cross-account-copy-management-account.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Enable cross account copy (Management account)",
@@ -36641,7 +36640,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| RDS database stack \| Create](deployment-advanced-rds-database-stack-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create RDS database stack",
@@ -36974,7 +36973,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Tag \| Delete](management-advanced-tag-delete.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete Resource Tags",
@@ -37057,7 +37056,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| RDS snapshot \| Create (for cluster)](deployment-advanced-rds-snapshot-create-for-cluster.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create RDS DB cluster Snapshot",
@@ -37136,7 +37135,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| KMS key \| Delete (managed automation)](management-advanced-kms-key-delete-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete KMS key",
@@ -37196,7 +37195,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Tag \| Bulk update](management-advanced-tag-bulk-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Bulk Update Resource Tags",
@@ -37265,7 +37264,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EBS snapshot \| Delete](management-advanced-ebs-snapshot-delete.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete EBS Snapshots",
@@ -37396,7 +37395,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create OpenID Connect provider](deployment-advanced-identity-and-access-management-iam-create-openid-connect-provider.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create an OpenID Connect Provider",
@@ -37463,7 +37462,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Delete entity or policy (managed automation)](management-advanced-identity-and-access-management-iam-delete-entity-or-policy-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete IAM Resource",
@@ -37546,7 +37545,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| S3 storage \| Add replication rule](management-advanced-s3-storage-add-replication-rule.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add Replication Rule",
@@ -37717,7 +37716,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Update Performance Insights (managed automation)](management-advanced-rds-database-stack-update-performance-insights-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Performance Insights.",
@@ -37807,7 +37806,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Custom Stack \| Stack From CloudFormation Template \| Continue update rollback (managed automation)](management-custom-stack-from-cloudformation-template-continue-update-rollback-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Continue Update Rollback",
@@ -37855,7 +37854,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Managed landing zone \| Management account \| Create custom SCP (managed automation)](deployment-managed-management-account-create-custom-scp-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Custom SCP",
@@ -37908,7 +37907,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Stack patching configuration \| Update](management-advanced-stack-patching-configuration-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update stack patching configuration",
@@ -37977,7 +37976,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EBS Volume \| Attach](management-advanced-ebs-volume-attach.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Attach EBS Volume",
@@ -38083,7 +38082,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Network Load Balancer \| Add listener certificate](management-advanced-network-load-balancer-add-listener-certificate.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add NLB Listener Certificate",
@@ -38192,7 +38191,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Custom Stack \| Stack from CloudFormation Template \| Update](management-custom-stack-from-cloudformation-template-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update CloudFormation Stack",
@@ -38301,7 +38300,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Monitoring and notification \| CloudWatch \| Create alarms](deployment-monitoring-cloudwatch-create-alarms.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create CloudWatch alarms",
@@ -38570,7 +38569,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| Directory \| Share directory](management-directory-directory-share-directory.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Share Directory",
@@ -38649,7 +38648,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Ingestion \| Stack from CloudFormation Template \| Create](deployment-ingestion-stack-from-cloudformation-template-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Stack From CloudFormation (CFN) Template",
@@ -38785,7 +38784,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Standalone resources \| EC2 instance \| Create for WIGS (managed automation)](deployment-standalone-ec2-instance-create-for-wigs-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create EC2 for WIGS",
@@ -38866,7 +38865,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Update MultiAZ setting](management-advanced-rds-database-stack-update-multiaz-setting.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Change RDS MultiAZ Setting",
@@ -38953,7 +38952,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create account alias](deployment-advanced-identity-and-access-management-iam-create-account-alias.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create AWS Account Alias",
@@ -39020,7 +39019,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Bastions \| Add CIDR ingress (managed automation)](management-advanced-bastions-add-cidr-ingress-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add CIDR Ingress",
@@ -39076,7 +39075,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Update SAML identity provider](management-advanced-identity-and-access-management-iam-update-saml-identity-provider.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update SAML Identity Provider",
@@ -39170,7 +39169,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Target group \| Detach instances](management-advanced-target-group-detach-instances.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Detach Instance or Private Ipv4 From Target Group",
@@ -39267,7 +39266,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Replace instance profile](management-advanced-ec2-instance-stack-replace-instance-profile.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Replace Instance Profile",
@@ -39346,7 +39345,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Delete or deactivate access key](management-advanced-identity-and-access-management-iam-delete-or-deactivate-access-key.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete or Deactivate Access Key",
@@ -39453,7 +39452,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Stop Aurora cluster](management-advanced-rds-database-stack-stop-aurora-cluster.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Stop Aurora DB Cluster",
@@ -39542,7 +39541,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Update](management-advanced-ec2-instance-stack-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update EC2 stack",
@@ -39622,7 +39621,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Managed landing zone \| Management account \| Create developer mode account (with VPC)](deployment-managed-management-account-create-developer-mode-account-with-vpc.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Developer Mode Account With VPC",
@@ -40179,7 +40178,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Network Load Balancer \| Remove listener certificate](management-advanced-network-load-balancer-remove-listener-certificate.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Remove NLB Listener Certificate",
@@ -40273,7 +40272,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| RDS snapshot \| Create](deployment-advanced-rds-snapshot-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create RDS DB Snapshot",
@@ -40352,7 +40351,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Redshift \| Resume cluster](management-advanced-redshift-resume-cluster.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Resume Redshift Cluster",
@@ -40421,7 +40420,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Security group \| Delete (managed automation)](management-advanced-security-group-delete-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete or disassociate a security group",
@@ -40483,7 +40482,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Tag \| Create](deployment-advanced-tag-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Resource Tags",
@@ -40564,7 +40563,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| Computer object \| Remove](management-directory-computer-object-remove.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Remove Computer Object",
@@ -40631,7 +40630,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| RDS database stack \| Create parameter group (managed automation)](deployment-advanced-rds-database-stack-create-parameter-group-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Custom RDS Parameter Group",
@@ -40724,7 +40723,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Monitoring and notification \| SNS \| Create (topic and subscription)](deployment-monitoring-sns-create-topic-and-subscription.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create SNS topic",
@@ -41006,7 +41005,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Standalone resources \| EC2 instance \| Terminate](management-standalone-ec2-instance-terminate.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Terminate EC2 Instances",
@@ -41081,7 +41080,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Standard stacks \| Stack \| Stop](management-standard-stack-stop.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Stop stack",
@@ -41107,7 +41106,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create entity or policy (managed automation)](deployment-advanced-identity-and-access-management-iam-create-entity-or-policy-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create IAM Resource",
@@ -41459,7 +41458,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Managed landing zone \| Networking account \| Create transit gateway route table](deployment-managed-networking-account-create-transit-gateway-route-table.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Transit Gateway Route Table",
@@ -41539,7 +41538,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EBS Volume \| Delete](management-advanced-ebs-volume-delete.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete EBS Volumes",
@@ -41621,7 +41620,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| AMI \| Create from Auto Scaling group](deployment-advanced-ami-create-from-auto-scaling-group.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create AMI From Auto Scaling Group",
@@ -41720,7 +41719,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Patching \| SSM patch baseline \| Create (Red Hat)](deployment-patching-ssm-patch-baseline-create-red-hat.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create SSM Patch Baseline (Red Hat)",
@@ -41907,7 +41906,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| Users and groups \| Add group](management-directory-users-and-groups-add-group.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add AD Group",
@@ -42002,7 +42001,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| PrefixList \| Delete](management-advanced-prefixlist-delete.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete Prefix List",
@@ -42069,7 +42068,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Auto scaling group \| Update](management-advanced-auto-scaling-group-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update an Auto Scaling Group",
@@ -42374,7 +42373,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Application Load Balancer \| Add listener certificate](management-advanced-application-load-balancer-add-listener-certificate.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add ALB Listener Certificate",
@@ -42483,7 +42482,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Change time zone](management-advanced-ec2-instance-stack-change-time-zone.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Change Timezone",
@@ -42999,7 +42998,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create target endpoint](deployment-advanced-database-migration-service-dms-create-target-endpoint.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create DMS target endpoint",
@@ -43225,7 +43224,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EBS snapshot \| Share](management-advanced-ebs-snapshot-share.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Share EBS Snapshot",
@@ -43304,7 +43303,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed account \| Developer mode \| Enable (managed automation)](management-managed-developer-mode-enable-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Enable Developer Mode",
@@ -43347,7 +43346,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Standalone resources \| RDS instance \| Terminate](management-standalone-rds-instance-terminate.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Terminate Standalone DB Instance Or Cluster",
@@ -43437,7 +43436,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create SAML identity provider](deployment-advanced-identity-and-access-management-iam-create-saml-identity-provider.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create SAML Identity Provider",
@@ -43516,7 +43515,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Security group \| Authorize ingress rule](management-advanced-security-group-authorize-ingress-rule.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Authorize Multiple Ingress Rules",
@@ -43640,7 +43639,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed landing zone \| Networking account \| Disassociate TGW attachment](management-managed-networking-account-disassociate-tgw-attachment.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Disassociate TGW Attachment",
@@ -43717,7 +43716,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Redshift \| Create (cluster from snapshot)](deployment-advanced-redshift-create-cluster-from-snapshot.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Redshift Cluster From Snapshot",
@@ -43937,7 +43936,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Update enhanced monitoring](management-advanced-rds-database-stack-update-enhanced-monitoring.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Enhanced Monitoring",
@@ -44021,7 +44020,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Directory Service \| DNS \| Remediate DNS scavenging issue](management-directory-dns-remediate-dns-scavenging-issue.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Remediate DNS Scavenging Issue for Failover Cluster",
@@ -44111,7 +44110,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Access \| Stack read-only access \| Update](management-access-stack-read-only-access-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Stack Read-Only access",
@@ -44181,7 +44180,7 @@ Change type schemas specify the execution input parameters for a change type.
 + [Management \| Custom Stack \| Stack from CloudFormation Template \| Remediate drift](management-custom-stack-from-cloudformation-template-remediate-drift.md)
 + [Management \| Standard stacks \| Stack \| Remediate drift](management-standard-stack-remediate-drift.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Remediate Stack Drift",
@@ -44263,7 +44262,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Trusted Remediator \| Remediation configuration \| Update](management-trusted-remediation-configuration-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Trusted Remediator configuration",
@@ -44367,7 +44366,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| ACM Certificate with additional SANs \| Create](deployment-advanced-acm-certificate-with-additional-sans-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "acm-certificate-with-additional-sans",
@@ -44565,7 +44564,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| EBS snapshot \| Copy](deployment-advanced-ebs-snapshot-copy.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Copy EBS Snapshot",
@@ -44667,7 +44666,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| ACM \| Create public certificate](deployment-advanced-acm-create-public-certificate.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Public ACM Certificate",
@@ -44777,7 +44776,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Security group \| Update (managed automation)](management-advanced-security-group-update-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update a security group",
@@ -45045,7 +45044,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| EBS snapshot \| Create](deployment-advanced-ebs-snapshot-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create EBS Snapshot",
@@ -45124,7 +45123,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| EC2 instance stack \| Stop](management-advanced-ec2-instance-stack-stop.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Stop EC2 Instances",
@@ -45220,7 +45219,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Directory Service \| DNS \| Create conditional forwarder](deployment-directory-dns-create-conditional-forwarder.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create AD DNS Conditional Forwarder",
@@ -45300,7 +45299,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed landing zone \| Networking account \| Associate TGW attachment](management-managed-networking-account-associate-tgw-attachment.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Associate TGW Attachment",
@@ -45377,7 +45376,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| VPC endpoint (interface) \| Create](deployment-advanced-vpc-endpoint-interface-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create VPC Endpoint (Interface)",
@@ -45537,7 +45536,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| KMS key \| Update (managed automation)](management-advanced-kms-key-update-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update KMS Key",
@@ -45666,7 +45665,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Patching \| On demand patching \| Run](management-patching-on-demand-patching-run.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "On Demand Patching",
@@ -45778,7 +45777,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Security group \| Create](deployment-advanced-security-group-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Security Group",
@@ -46131,7 +46130,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Managed landing zone \| Management account \| Create customer-managed application account](deployment-managed-management-account-create-customer-managed-application-account.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create Customer-Managed Application Account",
@@ -46175,7 +46174,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AWS service \| Self-provisioned service \| Add (managed automation)](management-aws-self-provisioned-service-add-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add Self-Provisioned AWS Service",
@@ -46313,7 +46312,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Managed landing zone \| Networking account \| Add static route](deployment-managed-networking-account-add-static-route.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Add Static Route",
@@ -46411,7 +46410,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Monitoring and notification \| SNS \| Subscribe to DirectCustomerAlerts](management-monitoring-sns-subscribe-to-directcustomeralerts.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Subscribe to DirectCustomerAlerts",
@@ -46449,7 +46448,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Managed account \| Direct Change mode \| Enable](management-managed-direct-change-mode-enable.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Enable Direct Change mode",
@@ -46498,7 +46497,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AMS Resource Scheduler \| Schedule \| Delete](management-ams-schedule-delete.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Delete Resource Scheduler Schedule",
@@ -46580,7 +46579,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| AMI \| Create](deployment-advanced-ami-create.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create AMI",
@@ -46653,7 +46652,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| RDS database stack \| Start DB instance](management-advanced-rds-database-stack-start-db-instance.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Start RDS DB Instance",
@@ -46720,7 +46719,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Target group \| Attach instances](management-advanced-target-group-attach-instances.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Attach Instance Target To Target Group",
@@ -46808,7 +46807,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Update account alias](management-advanced-identity-and-access-management-iam-update-account-alias.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update AWS Account Alias",
@@ -46890,7 +46889,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Advanced stack components \| Target Group \| Create (for NLB)](deployment-advanced-target-group-create-for-nlb.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create target group for NLB",
@@ -47258,7 +47257,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| AMS Resource Scheduler \| Schedule \| Update](management-ams-schedule-update.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Update Resource Scheduler Schedule",
@@ -47914,7 +47913,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Advanced stack components \| AMI \| Encrypt](management-advanced-ami-encrypt.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Encrypt AMI",
@@ -47953,7 +47952,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Host security \| Trend Micro DSM \| Exclude files and folders (managed automation)](management-host-trend-micro-dsm-exclude-files-and-folders-managed-automation.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Exclude files and/or folders from Trend Micro scanning.",
@@ -48039,7 +48038,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Management \| Patching \| Patch window \| Set status](management-patching-patch-window-set-status.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Set Patch Window Status",
@@ -48117,7 +48116,7 @@ Change type schemas specify the execution input parameters for a change type.
 **Classifications:**
 + [Deployment \| Standard stacks \| High availability one-tier stack \| Create (with ELB)](deployment-standard-high-availability-one-tier-stack-create-with-elb.md)
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Create HA One-Tier Stack With ELB",

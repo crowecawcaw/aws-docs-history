@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # S3 Storage \| Add Replication Rule
-<a name="management-advanced-s3-storage-add-replication-rule"></a>
 
 Add an S3 replication rule to the specified S3 bucket.
 
@@ -153,7 +152,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-s3-storage-add-replication-rule-ex-min"></a>
 
-```
+```json
 {
     "DocumentName" : "AWSManagedServices-PutReplicationRule",
     "Region": "us-east-1",
@@ -170,7 +169,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-s3-storage-add-replication-rule-ex-max"></a>
 
-```
+```json
 {
     "DocumentName" : "AWSManagedServices-PutReplicationRule",
     "Region": "us-east-1",

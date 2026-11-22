@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Developer Mode \| Enable (Managed Automation)
-<a name="management-managed-developer-mode-enable-managed-automation"></a>
 
 Enable Developer Mode (Dev Mode). Dev mode provides you with elevated permissions, in AMS Plus accounts, to provision and update AWS resources outside of the AMS change management process. Dev mode does this by leveraging native AWS API calls within the AMS Virtual Private Cloud (VPC), enabling you to design and implement infrastructure and applications in your managed environment. When using an account that has Dev mode enabled, continuity management, patch management, and change management are provided for resources provisioned through the AMS change management process or by using an AMS Amazon Machine Image (AMI). However, these AMS management features are not offered for resources provisioned through native AWS APIs. Rather, you are responsible for monitoring infrastructure resources that are provisioned outside of the AMS change management process. Dev mode is limited to accounts with non-production workloads. With elevated permissions, you have an increased responsibility to ensure adherence to internal controls.
 
@@ -140,14 +139,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-managed-developer-mode-enable-managed-automation-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-managed-developer-mode-enable-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "Enable": "Yes",
   "Priority": "Medium"

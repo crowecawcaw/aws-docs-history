@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Networking Account \| Create Transit Gateway Route Table
-<a name="deployment-managed-networking-account-create-transit-gateway-route-table"></a>
 
 Create a transit gateway (TGW) route table. Use this change type for multi-account landing zone (MALZ) Networking accounts only.
 
@@ -141,7 +140,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-managed-networking-account-create-transit-gateway-route-table-ex-min"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-CreateTGWRouteTable",
   "Region": "us-east-1",
@@ -156,7 +155,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-managed-networking-account-create-transit-gateway-route-table-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-CreateTGWRouteTable",
   "Region": "us-east-1",

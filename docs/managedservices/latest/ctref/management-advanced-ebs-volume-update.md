@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # EBS Volume \| Update
-<a name="management-advanced-ebs-volume-update"></a>
 
 Modify the properties of an existing Elastic Block Store (EBS) volume stack created using CT id ct-16xg8qguovg2w, version 1.0. No service interruption is expected during the update.
 
@@ -141,7 +140,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-ebs-volume-update-ex-min"></a>
 
-```
+```json
 {
   "VpcId": "vpc-1234567890abcdef0",
   "StackId": "stack-a1b2c3d4e5f67890e",
@@ -152,7 +151,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-ebs-volume-update-ex-max"></a>
 
-```
+```json
 {
   "VpcId": "vpc-1234567890abcdef0",
   "StackId": "stack-a1b2c3d4e5f67890e",

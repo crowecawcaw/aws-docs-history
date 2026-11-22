@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Database Migration Service (DMS) \| Create Source Endpoint (S3)
-<a name="deployment-advanced-database-migration-service-dms-create-source-endpoint-s3"></a>
 
 Use to create a Database Migration Service (DMS) source endpoint for S3.
 
@@ -150,14 +149,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-database-migration-service-dms-create-source-endpoint-s3-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="deployment-advanced-database-migration-service-dms-create-source-endpoint-s3-ex-max"></a>
 
-```
+```json
 {
   "Description": "This is a test description",
   "Name": "Test Stack",

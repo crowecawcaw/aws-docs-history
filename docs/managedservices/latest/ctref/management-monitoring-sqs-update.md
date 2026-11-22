@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # SQS \| Update
-<a name="management-monitoring-sqs-update"></a>
 
 Use to modify the properties of an existing Amazon Simple Queue Service instance.
 
@@ -144,7 +143,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-monitoring-sqs-update-ex-min"></a>
 
-```
+```json
 {
   "VpcId": "vpc-01234567890abcdef",
   "StackId": "stack-a1b2c3d4e5f67890e",
@@ -157,7 +156,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-monitoring-sqs-update-ex-max"></a>
 
-```
+```json
 {
   "VpcId": "vpc-12345678",
   "StackId": "stack-a1b2c3d4e5f67890e",

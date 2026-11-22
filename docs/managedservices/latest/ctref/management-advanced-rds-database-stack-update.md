@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # RDS Database Stack \| Update
-<a name="management-advanced-rds-database-stack-update"></a>
 
 Modify the properties of an Amazon Relational Database Service (RDS) DB instance created using ct-2z60dyvto9g6c, version 3.0.
 
@@ -149,7 +148,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-rds-database-stack-update-ex-min"></a>
 
-```
+```json
 {
   "VpcId": "vpc-01234567890abcdef",
   "StackId": "stack-a1b2c3d4e5f67890e",
@@ -162,7 +161,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-rds-database-stack-update-ex-max"></a>
 
-```
+```json
 {
   "VpcId": "vpc-01234567",
   "StackId": "stack-a1b2c3d4e5f67890e",

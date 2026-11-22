@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Solution \| Deploy (Managed Automation)
-<a name="deployment-ams-solution-deploy-managed-automation"></a>
 
 Deploy an AMS pattern to the current account. Patterns provide tools, architectures, and step-by-step guidance for implementing the methodologies for the migration strategy. Multi-account landing zone accounts can also specify OrganizationalUnit to deploy the pattern to all the accounts in that OU.
 
@@ -139,7 +138,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-ams-solution-deploy-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "PatternName": "amsEbsVolumeSnapshotTagger"
 }
@@ -148,7 +147,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-ams-solution-deploy-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "PatternName": "amsEbsVolumeSnapshotTagger",
   "OrganizationalUnitIds": ["ou-9dyd-jvsei4yg"],

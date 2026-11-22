@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Networking Account \| Create Application Route Table (Managed Automation)
-<a name="deployment-managed-networking-account-create-application-route-table-managed-automation"></a>
 
 Create a custom AWS Transit Gateway (TGW) route table for the application accounts in the networking account. By default, the route table does not connect to the on-premise network, but contains preset routes. To request connections to the on-premise network, submit a Management\|Other\|Other\|Update change type.
 
@@ -141,7 +140,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-managed-networking-account-create-application-route-table-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "TransitGatewayApplicationRouteTableName": "routeTableName"
 }
@@ -150,7 +149,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-managed-networking-account-create-application-route-table-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "TransitGatewayApplicationRouteTableName": "routeTableName",
   "AddPresetStaticRoutes": true,

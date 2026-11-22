@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Backup Job \| Start
-<a name="management-aws-backup-job-start"></a>
 
 Start an AWS Backup service backup job to create a one-time snapshot of the specified resource.
 
@@ -141,7 +140,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-aws-backup-job-start-ex-min"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-StartBackupJob",
   "Region": "us-east-1",
@@ -154,7 +153,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-aws-backup-job-start-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-StartBackupJob",
   "Region": "us-east-1",

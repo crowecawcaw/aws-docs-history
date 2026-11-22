@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Storage Gateway \| Create from Backup
-<a name="deployment-advanced-storage-gateway-create-from-backup"></a>
 
 Start an AWS Backup service restore job to restore a Storage Gateway volume snapshot of the specified resource.
 
@@ -212,7 +211,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-storage-gateway-create-from-backup-ex-min"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-StartRestoreJobStorageGatewayVolume",
   "Region": "us-east-1",
@@ -239,7 +238,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-advanced-storage-gateway-create-from-backup-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-StartRestoreJobStorageGatewayVolume",
   "Region": "us-east-1",

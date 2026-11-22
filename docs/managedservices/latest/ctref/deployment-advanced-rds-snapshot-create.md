@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # RDS Snapshot \| Create
-<a name="deployment-advanced-rds-snapshot-create"></a>
 
 Create a snapshot of an Amazon Relational Database Service (RDS) database (DB) instance. The snapshot will be encrypted with the same KMS key as the DB instance, or unencrypted if DB instance is unencrypted.
 
@@ -142,14 +141,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-rds-snapshot-create-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="deployment-advanced-rds-snapshot-create-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-CreateDBSnapshot",
   "Region": "us-east-1",

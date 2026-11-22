@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Trend Micro DSM \| Exclude Files and Folders (Managed Automation)
-<a name="management-host-trend-micro-dsm-exclude-files-and-folders-managed-automation"></a>
 
 Specify files and folders for Trend Micro DSM to ignore (exclude) when scanning; both real-time and on-demand scanning. Doing this might expose those files and folders to malware, but can optimize system resource utilization. Trend Micro DSM does not discover files and folders excluded from scanning, but details on excluded files and folders are included in reports
 
@@ -141,7 +140,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-host-trend-micro-dsm-exclude-files-and-folders-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "Region": "us-east-1",
   "Parameters":{
@@ -154,6 +153,6 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-host-trend-micro-dsm-exclude-files-and-folders-managed-automation-ex-max"></a>
 
-```
+```json
 Example not available.
 ```

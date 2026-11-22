@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Schedule \| Add
-<a name="management-ams-schedule-add"></a>
 
 Add a new schedule to be used in AMS Resource Scheduler. Schedules employ defined periods to determine when the specified resource should run.
 
@@ -155,7 +154,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-ams-schedule-add-ex-min"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-AddOrUpdateSchedule",
   "Region" : "us-east-1",
@@ -169,7 +168,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-ams-schedule-add-ex-max"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-AddOrUpdateSchedule",
   "Region" : "us-east-1",

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # CodeDeploy Application \| Create
-<a name="deployment-applications-codedeploy-application-create"></a>
 
 Use to create an AWS CodeDeploy application resource with the specified name.
 
@@ -140,14 +139,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-applications-codedeploy-application-create-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="deployment-applications-codedeploy-application-create-ex-max"></a>
 
-```
+```json
 {
   "Description": "Stack Description.",
   "VpcId": "vpc-12345678",

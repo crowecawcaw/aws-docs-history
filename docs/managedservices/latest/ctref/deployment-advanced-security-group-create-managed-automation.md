@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Security Group \| Create (Managed Automation)
-<a name="deployment-advanced-security-group-create-managed-automation"></a>
 
 Create a security group, and optionally associate it with AWS resources.
 
@@ -162,7 +161,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-security-group-create-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "VpcId": "vpc-12345abc",
   "Name": "app1-webserver",
@@ -175,7 +174,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-advanced-security-group-create-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "VpcId": "vpc-1234abcd",
   "Name": "app1-webserver",

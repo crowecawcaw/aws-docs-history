@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Application Account \| Confirm Offboarding
-<a name="management-managed-application-account-confirm-offboarding"></a>
 
 Confirm offboarding of the specified application account. Run this from the application account that you want off-boarded. Once this CT is executed successfully, login into the Management account of your MALZ environment and run the Offboard application account CT (ct-0vdiy51oyrhhm). After you successfully submit both CTs, AMS can't undo the offboarding, repurpose the account, or help you to remediate issues in the account.
 
@@ -142,7 +141,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-managed-application-account-confirm-offboarding-ex-min"></a>
 
-```
+```json
 {
   "RequestType": "OffboardingConfirmation",
   "Parameters": {
@@ -155,7 +154,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-managed-application-account-confirm-offboarding-ex-max"></a>
 
-```
+```json
 {
   "RequestType": "OffboardingConfirmation",
   "Parameters": {

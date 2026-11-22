@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # EC2 Instance Stack \| Update IMDS Region-Level Default Settings (Managed Automation)
-<a name="management-advanced-ec2-instance-stack-update-imds-region-level-default-settings-managed-automation"></a>
 
 Modify the default version for the instance metadata service (IMDS) at the account level for each AWS region. When you launch a new instance, the instance metadata version is automatically set at the account-level to 'default'. You can manually override the value at launch, or after launch. Note, setting the account-level default does not reset existing instances. For example, if you set the account-level default to IMDSv2, any existing instances that are set to IMDSv1 are not affected. If you want to change the value on existing instances, you must manually change the value on the instances themselves.
 
@@ -140,7 +139,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-ec2-instance-stack-update-imds-region-level-default-settings-managed-automation-ex-min"></a>
 
-```
+```json
 {
     "Region": "us-east-1",
     "HttpEndpoint": "Enabled"
@@ -150,7 +149,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-ec2-instance-stack-update-imds-region-level-default-settings-managed-automation-ex-max"></a>
 
-```
+```json
 {
     "Region": "us-east-1",
     "HttpEndpoint": "No preference",

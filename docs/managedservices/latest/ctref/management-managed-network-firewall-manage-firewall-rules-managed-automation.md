@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Network Firewall \| Manage Firewall Rules (Managed Automation)
-<a name="management-managed-network-firewall-manage-firewall-rules-managed-automation"></a>
 
 Manages AWS Network Firewall egress rules by converting simple parameters (source IP, destination, port, protocol) into security policies, generating Suricata rules, and updating Network Firewall rule groups.
 
@@ -142,7 +141,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-managed-network-firewall-manage-firewall-rules-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "SourceIP": "10.0.0.0/24",
   "Destination": "203.0.113.0/24",
@@ -157,7 +156,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-managed-network-firewall-manage-firewall-rules-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "SourceIP": "192.168.1.0/24",
   "Destination": "example.com",

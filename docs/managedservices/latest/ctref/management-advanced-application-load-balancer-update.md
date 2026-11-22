@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Application Load Balancer \| Update
-<a name="management-advanced-application-load-balancer-update"></a>
 
 Update the properties of an existing AWS Application Load Balancer (ALB) that was created by version 3.0 CT: ct-111r1yayblnw4.
 
@@ -170,7 +169,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-application-load-balancer-update-ex-min"></a>
 
-```
+```json
 {
   "VpcId": "vpc-1234567890abcdef0",
   "StackId": "stack-1234567890abcdef0",
@@ -181,7 +180,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-application-load-balancer-update-ex-max"></a>
 
-```
+```json
 {
   "VpcId": "vpc-12345678",
   "StackId": "stack-1234567890abcdef0",

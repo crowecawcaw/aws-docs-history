@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # ACM Certificate With Additional SANs \| Create
-<a name="deployment-advanced-acm-certificate-with-additional-sans-create"></a>
 
 ACM Certificate with additional SANs
 
@@ -148,14 +147,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-acm-certificate-with-additional-sans-create-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="deployment-advanced-acm-certificate-with-additional-sans-create-ex-max"></a>
 
-```
+```json
 {
   "Description": "This is a test description",
   "Name": "Test Stack",

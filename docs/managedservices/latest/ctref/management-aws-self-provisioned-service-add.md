@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Self-Provisioned Service \| Add
-<a name="management-aws-self-provisioned-service-add"></a>
 
 Add a specific, allowed, AWS service to your AMS account. This CT validates prerequisites in the account and deploys a service with the default parameters. Not all Self-service provisioning services are supported, the ServiceName parameter for this CT lists the ones that are. For each service that you add, AMS creates a new role so you use the service without AMS management under the AMS Shared Responsibility model. Compliance is a shared responsibility and your AMS compliance status does not automatically apply to services or applications that you add in this way. Some AWS services do not have compliance certifications. For more information, see the AWS Services in Scope of AWS Assurance Program page. On that page, unless specifically excluded, features of each of the services are considered in scope of the assurance programs, and are reviewed and tested as part of our assessment when you submit this CT.
 
@@ -139,7 +138,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-aws-self-provisioned-service-add-ex-min"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-HandleCreateSSPSResources-Admin",
   "Region" : "us-east-1",
@@ -152,7 +151,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-aws-self-provisioned-service-add-ex-max"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-HandleCreateSSPSResources-Admin",
   "Region" : "us-east-1",

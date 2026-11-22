@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Load Balancer (ELB) Stack \| Update Deletion Protection
-<a name="management-advanced-load-balancer-elb-stack-update-deletion-protection"></a>
 
 Update the deletion protection setting for Elastic Load Balancers (Application, Network, Gateway Load Balancers) through direct API calls regardless of if the ELB is part of a CloudFormation stack.
 
@@ -148,7 +147,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-load-balancer-elb-stack-update-deletion-protection-ex-min"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-UpdateELBDeletionProtectionV2",
   "Region": "us-east-1",
@@ -164,7 +163,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-load-balancer-elb-stack-update-deletion-protection-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-UpdateELBDeletionProtectionV2",
   "Region": "us-west-2",

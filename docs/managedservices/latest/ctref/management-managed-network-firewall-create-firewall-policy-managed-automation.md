@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Network Firewall \| Create Firewall Policy (Managed Automation)
-<a name="management-managed-network-firewall-create-firewall-policy-managed-automation"></a>
 
 Create a network firewall policy with specified configuration and rule group references.
 
@@ -137,7 +136,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-managed-network-firewall-create-firewall-policy-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "FirewallPolicyName": "MyFirewallPolicy",
   "StatelessDefaultActions": [
@@ -152,7 +151,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-managed-network-firewall-create-firewall-policy-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "FirewallPolicyName": "ComprehensiveFirewallPolicy",
   "Description": "Complete network firewall policy with all parameters configured.",

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Identity and Access Management (IAM) \| Create OpenID Connect Provider
-<a name="deployment-advanced-identity-and-access-management-iam-create-openid-connect-provider"></a>
 
 Create an IAM OpenID Connect provider for the Amazon Elastic Kubernetes Service (Amazon EKS) cluster.
 
@@ -141,14 +140,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-identity-and-access-management-iam-create-openid-connect-provider-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="deployment-advanced-identity-and-access-management-iam-create-openid-connect-provider-ex-max"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-HandleAssociateIAMOpenIDProvider-Admin",
   "Region" : "us-east-1",

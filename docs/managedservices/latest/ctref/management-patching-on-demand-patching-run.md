@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # On Demand Patching \| Run
-<a name="management-patching-on-demand-patching-run"></a>
 
 Run on-demand SSM patching on specified instances; either a list of instances or instances with the specified tag/key pair.
 
@@ -153,14 +152,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-patching-on-demand-patching-run-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-patching-on-demand-patching-run-ex-max"></a>
 
-```
+```json
 {
   "Description": "description",
   "Name": "Test1",

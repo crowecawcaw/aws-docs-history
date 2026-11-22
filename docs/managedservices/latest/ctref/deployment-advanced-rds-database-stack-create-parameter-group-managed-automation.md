@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # RDS Database Stack \| Create Parameter Group (Managed Automation)
-<a name="deployment-advanced-rds-database-stack-create-parameter-group-managed-automation"></a>
 
 Create a custom RDS parameter group and optionally attach it to an existing RDS instance.
 
@@ -140,7 +139,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-rds-database-stack-create-parameter-group-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "ParameterGroupName": "my-db-parameter-group",
   "ParameterGroupFamily": "mysql5.6"
@@ -150,7 +149,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-advanced-rds-database-stack-create-parameter-group-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "ParameterGroupName": "my-db-parameter-group",
   "ParameterGroupFamily": "mysql5.6",

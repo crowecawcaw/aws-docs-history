@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Stack from CloudFormation Template \| Continue Update Rollback (Managed Automation)
-<a name="management-custom-stack-from-cloudformation-template-continue-update-rollback-managed-automation"></a>
 
 Request a ContinueUpdateRollback operation for the specified CloudFormation stack that's in the UPDATE\_ROLLBACK\_FAILED state. Use this operation when a CloudFormation stack is stopped due to a failed update rollback and you need AMS engineers to complete the rollback and return the stack to its last known working state.
 
@@ -131,7 +130,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-custom-stack-from-cloudformation-template-continue-update-rollback-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "StackId": "stack-a1b2c3d4e5f67890e",
   "Region": "us-east-1"
@@ -141,7 +140,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-custom-stack-from-cloudformation-template-continue-update-rollback-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "StackId": "stack-a1b2c3d4e5f67890e",
   "Region": "us-east-1",

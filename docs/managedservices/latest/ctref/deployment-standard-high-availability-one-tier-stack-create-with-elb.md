@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # High Availability One-Tier Stack \| Create (With ELB)
-<a name="deployment-standard-high-availability-one-tier-stack-create-with-elb"></a>
 
 Create a stack with an Auto Scaling Group, and an Elastic Load Balancer (ELB) with up to two listeners, integrated with an existing security group that you specify.
 
@@ -153,7 +152,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-standard-high-availability-one-tier-stack-create-with-elb-ex-min"></a>
 
-```
+```json
 {
   "Description" : "Test description",
   "VpcId" : "vpc-12345678901234567",
@@ -179,7 +178,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-standard-high-availability-one-tier-stack-create-with-elb-ex-max"></a>
 
-```
+```json
 {
   "Description" : "Test description",
   "VpcId" : "vpc-12345678",

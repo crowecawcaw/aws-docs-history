@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # RDS Database Stack \| Update Performance Insights (Managed Automation)
-<a name="management-advanced-rds-database-stack-update-performance-insights-managed-automation"></a>
 
 Update Performance Insights for a DB instance or Multi-AZ DB cluster. Amazon RDS Performance Insights is a database performance tuning and monitoring feature that helps you assess the load on your database. You can change settings, turn on, or turn off the feature.
 
@@ -145,7 +144,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-rds-database-stack-update-performance-insights-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "DBIdentifierArn": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance",
   "PerformanceInsights": "true"
@@ -155,7 +154,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-rds-database-stack-update-performance-insights-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "DBIdentifierArn": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance",
   "PerformanceInsights": "true",

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Management Account \| Delete StackSets Stack (Managed Automation)
-<a name="management-managed-management-account-delete-stacksets-stack-managed-automation"></a>
 
 Delete AWS CloudFormation (CFN) StackSets-created stacks and instances.
 
@@ -140,7 +139,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-managed-management-account-delete-stacksets-stack-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "Name": "test-stackset"
 }
@@ -149,7 +148,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-managed-management-account-delete-stacksets-stack-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "Name": "test-stackset",
   "Region": "us-east-1",

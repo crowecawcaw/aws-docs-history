@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Stack Admin Access \| Update
-<a name="management-access-stack-admin-access-update"></a>
 
 Update admin access for one or more users for one or more stacks. The maximum access time is 12 hours.
 
@@ -146,7 +145,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-access-stack-admin-access-update-ex-min"></a>
 
-```
+```json
 {
   "DomainFQDN": "test.domain.com",
   "StackIds": ["stack-12345678901234567"],
@@ -158,7 +157,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-access-stack-admin-access-update-ex-max"></a>
 
-```
+```json
 {
   "DomainFQDN": "test.domain.com",
   "StackIds": ["stack-12345678901234567"],

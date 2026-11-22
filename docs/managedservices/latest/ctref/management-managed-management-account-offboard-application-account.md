@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Management Account \| Offboard Application Account
-<a name="management-managed-management-account-offboard-application-account"></a>
 
 Offboard the specified application account. Run this from the management account for the application account that you want offboarded. You must first confirm the offboarding request by submitting the Confirm offboarding CT (ct-2wlfo2jxj2rkj) from the application account. If you are offboarding a customer-managed account, then ct-2wlfo2jxj2rkj is not needed. After you successfully submit both CTs, AMS can't undo the offboarding, repurpose the account, or help you to remediate issues in the account.
 
@@ -150,7 +149,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-managed-management-account-offboard-application-account-ex-min"></a>
 
-```
+```json
 {
   "RequestType": "OffboardingExecution",
   "Parameters": {
@@ -165,7 +164,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-managed-management-account-offboard-application-account-ex-max"></a>
 
-```
+```json
 {
   "RequestType": "OffboardingExecution",
   "Parameters": {

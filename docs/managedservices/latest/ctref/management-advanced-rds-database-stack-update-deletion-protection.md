@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # RDS Database Stack \| Update Deletion Protection
-<a name="management-advanced-rds-database-stack-update-deletion-protection"></a>
 
 Update the DeletionProtection setting for the specified RDS instance or cluster. The RDS instance or cluster can be standalone or belong to a CloudFormation stack; in the latter case, the change might cause stack drift. To avoid causing stack drift, use ct-12w49boaiwtzp instead, or ct-361tlo1k7339x if the RDS was provisioned through CFN ingestion.
 
@@ -149,7 +148,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-rds-database-stack-update-deletion-protection-ex-min"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-UpdateRDSDeletionProtection",
   "Region" : "us-east-1",
@@ -163,7 +162,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-rds-database-stack-update-deletion-protection-ex-max"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-UpdateRDSDeletionProtection",
   "Region" : "us-east-1",

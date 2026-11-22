@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Management Account \| Update StackSets Stack (Managed Automation)
-<a name="management-managed-management-account-update-stacksets-stack-managed-automation"></a>
 
 Update an existing AWS CloudFormation (CFN) StackSets stack to deploy, or to update, the instances of the stack.
 
@@ -158,7 +157,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-managed-management-account-update-stacksets-stack-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "Name": "test-stackset",
   "OuId": ["ou-cccc-00000000"],
@@ -170,7 +169,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-managed-management-account-update-stacksets-stack-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "CloudFormationTemplate": "template",
   "CloudFormationTemplateS3Endpoint": "https://s3.amazonaws.com/cf-templates-33kj7hiuwdk9-us-east-1/2017261mYA-stm-dynamic-sqs-no-params-sept-2017.template",

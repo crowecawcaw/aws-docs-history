@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # SNS \| Create (Topic and Subscription)
-<a name="deployment-monitoring-sns-create-topic-and-subscription"></a>
 
 Create an SNS topic and up to five subscriptions.
 
@@ -148,7 +147,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-monitoring-sns-create-topic-and-subscription-ex-min"></a>
 
-```
+```json
 {
   "Description" : "Creates SNS Topic using random Topic name with no input or parameter given.",
   "VpcId" : "vpc-12345678901234567",
@@ -162,7 +161,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-monitoring-sns-create-topic-and-subscription-ex-max"></a>
 
-```
+```json
 {
   "Description" : "Creates just SNS Topic per the given name",
   "VpcId" : "vpc-12345678",

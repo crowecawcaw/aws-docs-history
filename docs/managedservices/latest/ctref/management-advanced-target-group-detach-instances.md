@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Target Group \| Detach Instances
-<a name="management-advanced-target-group-detach-instances"></a>
 
 Detach instances or private IPv4 addresses from a target group. If the instances or private IP addresses exist but aren't registered with a target group, then the RFC execution ends in a success state without action on the target group.
 
@@ -187,7 +186,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-target-group-detach-instances-ex-min"></a>
 
-```
+```json
  {
   "DocumentName": "AWSManagedServices-DetachInstancesFromTargetGroup",
   "Region": "us-east-1",
@@ -201,7 +200,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-target-group-detach-instances-ex-max"></a>
 
-```
+```json
  {
   "DocumentName": "AWSManagedServices-DetachInstancesFromTargetGroup",
   "Region": "us-east-1",

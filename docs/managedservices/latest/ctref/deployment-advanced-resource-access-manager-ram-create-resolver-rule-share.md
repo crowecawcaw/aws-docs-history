@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Resource Access Manager (RAM) \| Create Resolver Rule Share
-<a name="deployment-advanced-resource-access-manager-ram-create-resolver-rule-share"></a>
 
 Create a resource share through Resource Access Manager(RAM) to share up to 20 Route53 resolver rules. You can share resources with AWS accounts that come under the same customer contract. If you are in an organization, you can share with that organization's organizational units or with the entire organization.
 
@@ -144,14 +143,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-resource-access-manager-ram-create-resolver-rule-share-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="deployment-advanced-resource-access-manager-ram-create-resolver-rule-share-ex-max"></a>
 
-```
+```json
 {
     "DocumentName": "AWSManagedServices-CreateResolverRulesShare",
     "Region": "us-east-1",

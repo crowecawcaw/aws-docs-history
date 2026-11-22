@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Database Migration Service (DMS) \| Create Replication Instance
-<a name="deployment-advanced-database-migration-service-dms-create-replication-instance"></a>
 
 Create a Database Migration Service (DMS) replication instance on an Amazon EC2 instance in an AMS VPC. Use the replication instance to perform your database migration. The replication instance provides high availability and failover support using a Multi-AZ deployment when you select the Multi-AZ option.
 
@@ -147,14 +146,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-database-migration-service-dms-create-replication-instance-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="deployment-advanced-database-migration-service-dms-create-replication-instance-ex-max"></a>
 
-```
+```json
 {
   "Description": "This is a test description",
   "Name": "Test Stack",

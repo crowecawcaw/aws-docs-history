@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # RDS Database Stack \| Create from Backup
-<a name="deployment-advanced-rds-database-stack-create-from-backup"></a>
 
 Create an Amazon Relational Database Service (RDS) from a backup. When you restore a backup this way, the service-specific restore parameters are presented automatically.
 
@@ -146,7 +145,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-rds-database-stack-create-from-backup-ex-min"></a>
 
-```
+```json
 {
   "Description": "Create RDS Instance Stack from snapshot: awsbackup:job-00000000-0000-0000-0000-000000000000.",
   "VpcId": "vpc-12345678901234567",
@@ -162,7 +161,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-advanced-rds-database-stack-create-from-backup-ex-max"></a>
 
-```
+```json
 {
   "Description": "Create RDS Instance Stack from snapshot: rds:sr341e8q8bofsd-2017-04-19-22-13.",
   "VpcId": "vpc-12345678",

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # CodeDeploy Deployment Group \| Create (For EC2 Instance)
-<a name="deployment-applications-codedeploy-deployment-group-create-for-ec2-instance"></a>
 
 Create an AWS CodeDeploy application deployment group specifically for an EC2 instance as target. Tags you create in the EC2 instances, and specify here (EC2FilterTag1, 2, and 3), mark the instances as targets for the deployment group. A name for the deployment group is automatically generated.
 
@@ -143,7 +142,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-applications-codedeploy-deployment-group-create-for-ec2-instance-ex-min"></a>
 
-```
+```json
 {
   "Description": "Stack Description.",
   "VpcId": "vpc-01234567890abcdef",
@@ -161,7 +160,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-applications-codedeploy-deployment-group-create-for-ec2-instance-ex-max"></a>
 
-```
+```json
 {
   "Description": "Stack Description.",
   "VpcId": "vpc-01234567890abcdef",

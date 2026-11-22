@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Networking Account \| Associate TGW Attachment
-<a name="management-managed-networking-account-associate-tgw-attachment"></a>
 
 Associate transit gateway (TGW) attachment to the transit gateway (TGW) route table. Use this change type for multi-account landing zone (MALZ) in Networking account only.
 
@@ -78,7 +77,7 @@ You can use any `CreateRfc` parameters with any RFC whether or not they are part
 
 Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
-```
+```json
 aws amscm create-rfc --change-type-id "ct-3nmhh0qr338q6" --change-type-version "1.0" --title "{{Associate Transit Gateway Attachment}}" --execution-parameters "{\"DocumentName\": \"AWSManagedServices-AssociateTGWAttachment\",\"Region\": \"{{us-east-1}}\",\"Parameters\": {\"TransitGatewayAttachmentId\": [\"{{tgw-attach-0878cf82a40721d19}}\"],\"TransitGatewayRouteTableId\": [\"{{tgw-rtb-06ddc751c0c0c881c}}\"]}}"
 ```
 
@@ -86,13 +85,13 @@ aws amscm create-rfc --change-type-id "ct-3nmhh0qr338q6" --change-type-version "
 
 1. Output the execution parameters JSON schema for this change type to a file; this example names it AssociateTgwAttachmentParams.json:
 
-   ```
+   ```json
    aws amscm get-change-type-version --change-type-id "ct-3nmhh0qr338q6" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > AssociateTgwAttachmentParams.json
    ```
 
 1. Modify and save the AssociateTgwAttachmentParams file. For example, you can replace the contents with something like this:
 
-   ```
+   ```json
    {
      "DocumentName": "AWSManagedServices-AssociateTGWAttachment",
      "Region": "{{us-east-1}}",
@@ -105,13 +104,13 @@ aws amscm create-rfc --change-type-id "ct-3nmhh0qr338q6" --change-type-version "
 
 1. Output the RFC template JSON file to a file; this example names it AssociateTgwAttachmentRfc.json:
 
-   ```
+   ```json
    aws amscm create-rfc --generate-cli-skeleton > AssociateTgwAttachmentRfc.json
    ```
 
 1. Modify and save the AssociateTgwAttachmentRfc.json file. For example, you can replace the contents with something like this:
 
-   ```
+   ```json
    {
      "ChangeTypeVersion": "1.0",
      "ChangeTypeId": "ct-3nmhh0qr338q6",
@@ -143,7 +142,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-managed-networking-account-associate-tgw-attachment-ex-min"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-AssociateTGWAttachment",
   "Region": "us-east-1",
@@ -157,7 +156,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-managed-networking-account-associate-tgw-attachment-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-AssociateTGWAttachment",
   "Region": "us-east-1",

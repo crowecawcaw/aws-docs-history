@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # GuardDuty IP Set \| Delete (Managed Automation)
-<a name="management-monitoring-guardduty-ip-set-delete-managed-automation"></a>
 
 Use to delete an Amazon GuardDuty IPSet instance which is a list of trusted IP addresses that have been whitelisted for highly secure communication with your AWS environment.
 
@@ -139,7 +138,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-monitoring-guardduty-ip-set-delete-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "IpSetId": "0cb0141ab9fbde177613ab9436212e90",
   "Region": "us-east-1"
@@ -149,7 +148,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-monitoring-guardduty-ip-set-delete-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "DetectorId": "12abc34d567e8fa901bc2d34e56789f0",
   "IpSetId": "0cb0141ab9fbde177613ab9436212e90",

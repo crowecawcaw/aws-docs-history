@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Finding \| Remediate
-<a name="management-trusted-finding-remediate"></a>
 
 Run the SSM automation document associated with an OpsItem to remediate a Trusted Advisor finding. This change type only supports OpsItems created by the Trusted Remediator service. The OpsItem must have been created within the last 90 days. For OpsItems older than 90 days, use a Management/Other/Other/Update change type.
 
@@ -139,7 +138,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-trusted-finding-remediate-ex-min"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-RemediateTrustedRemediatorFinding",
   "Region" : "us-east-1",
@@ -152,7 +151,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-trusted-finding-remediate-ex-max"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-RemediateTrustedRemediatorFinding",
   "Region" : "us-east-1",

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Recovery Point \| Delete
-<a name="management-aws-recovery-point-delete"></a>
 
 Delete one or more recovery points (snapshots) from the specified vault. Use this change type to delete recovery points that were manually created, and recovery points that were created through a backup plan, and that are older than 30 days. The deletion of recovery points cannot be rolled back.
 
@@ -148,7 +147,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-aws-recovery-point-delete-ex-min"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-DeleteRecoveryPoints",
   "Region": "us-east-1",
@@ -162,7 +161,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-aws-recovery-point-delete-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-DeleteRecoveryPoints",
   "Region": "us-east-1",

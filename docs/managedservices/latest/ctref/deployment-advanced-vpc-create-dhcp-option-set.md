@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # VPC \| Create DHCP Option Set
-<a name="deployment-advanced-vpc-create-dhcp-option-set"></a>
 
 Create a Dynamic Host Configuration Protocol (DHCP) option set for resources in your VPC to communicate over your virtual network. Each Region has a default DHCP option set that configures various options including domain names, DNS servers, NTP servers, and more.
 
@@ -148,14 +147,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-advanced-vpc-create-dhcp-option-set-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="deployment-advanced-vpc-create-dhcp-option-set-ex-max"></a>
 
-```
+```json
 {
     "DocumentName": "AWSManagedServices-CreateDhcpOptionSet",
     "Region": "us-east-1",

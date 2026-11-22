@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # DNS \| Update Record Permission
-<a name="management-directory-dns-update-record-permission"></a>
 
 Grant permissions to the computer object to update DNS records after failover. For multi-account landing zone (MALZ), use this change type in the shared services account.
 
@@ -137,7 +136,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-directory-dns-update-record-permission-ex-min"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-UpdateDNSRecordsPermission-Admin",
   "Region": "us-east-1",
@@ -150,7 +149,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-directory-dns-update-record-permission-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-UpdateDNSRecordsPermission-Admin",
   "Region": "us-east-1",

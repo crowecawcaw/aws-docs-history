@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Security Group \| Update (Managed Automation)
-<a name="management-advanced-security-group-update-managed-automation"></a>
 
 Update the inbound and the outbound rules of a security group, and optionally associate it with AWS resources.
 
@@ -156,7 +155,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-security-group-update-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "SecurityGroupId": "sg-1234abcd",
   "AddAssociatedResources": [],
@@ -170,7 +169,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-security-group-update-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "SecurityGroupId": "sg-1234abcd",
   "AddAssociatedResources": [

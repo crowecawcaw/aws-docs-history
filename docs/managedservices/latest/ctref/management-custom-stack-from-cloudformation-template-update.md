@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Stack from CloudFormation Template \| Update
-<a name="management-custom-stack-from-cloudformation-template-update"></a>
 
 Update the template and/or parameters of a CFN stack. To only update the parameters in an existing stack a modified CFN template is not required, modified parameters can be provided instead. Values for existing parameters are overwritten, values for new parameters are added. To add, delete or modify a resource, or to change attributes not referenced through a parameter, use a modified CFN template. If the update would result in a resource in the stack being replaced or removed, the RFC fails and requires approval through the "Approve ChangeSet and update CloudFormation stack" CT (ct-1404e21baa2ox).
 
@@ -173,7 +172,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-custom-stack-from-cloudformation-template-update-ex-min"></a>
 
-```
+```json
 {
   "StackId": "stack-kiwonebfnadq08sol",
   "VpcId": "vpc-01234567890abcdef",
@@ -184,6 +183,6 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-custom-stack-from-cloudformation-template-update-ex-max"></a>
 
-```
+```json
 Example not available.
 ```

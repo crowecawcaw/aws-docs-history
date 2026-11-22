@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Direct Change Mode \| Enable
-<a name="management-managed-direct-change-mode-enable"></a>
 
 Enable Direct Change mode (DCM). DCM grants native AWS access to provision and update AWS resources. The resources and changes to them are fully supported by AMS, including monitoring, patch, backup, and incident response management.
 
@@ -141,14 +140,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-managed-direct-change-mode-enable-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-managed-direct-change-mode-enable-ex-max"></a>
 
-```
+```json
 {
   "SamlIdentityProviderArns": [
     "SAML1",

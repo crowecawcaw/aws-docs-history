@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # State \| Enable
-<a name="management-ams-state-enable"></a>
 
 Enable AMS Resource Scheduler in the account where it was previously disabled. This will re-enable scheduling of resources for automatic start or stop actions where the resources are already tagged with a valid schedule. Make sure to verify currently tagged resources and schedules before enabling the scheduler.
 
@@ -142,14 +141,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-ams-state-enable-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-ams-state-enable-ex-max"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-HandleAMSResourceSchedulerStack-Admin",
   "Region" : "us-east-1",

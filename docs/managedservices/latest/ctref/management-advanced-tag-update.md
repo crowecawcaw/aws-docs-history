@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Tag \| Update
-<a name="management-advanced-tag-update"></a>
 
 Update tags on existing, tagged resources: Autoscaling, EC2, Elastic Load Balancing, RDS, S3 buckets and Redshift clusters. Additionally, CloudWatch LogGroups that do not belong to a CloudFormation stack are supported. AMS infrastructure stacks (stacks named mc-\*) cannot have tags updated with this change type.
 
@@ -159,14 +158,14 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-tag-update-ex-min"></a>
 
-```
+```json
 Example not available.
 ```
 
 ## Example: All Parameters
 <a name="management-advanced-tag-update-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-UpdateTags",
   "Region": "us-east-1",

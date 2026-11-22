@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # High Availability One-Tier Stack \| Create
-<a name="deployment-standard-high-availability-one-tier-stack-create"></a>
 
 Use to create an Application Load Balancer and an Auto Scaling Group.
 
@@ -144,7 +143,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="deployment-standard-high-availability-one-tier-stack-create-ex-min"></a>
 
-```
+```json
 {
   "VpcId": "vpc-1234567890abcdef0",
   "TimeoutInMinutes": 360,
@@ -163,7 +162,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="deployment-standard-high-availability-one-tier-stack-create-ex-max"></a>
 
-```
+```json
 {
   "VpcId": "vpc-12345678",
   "TimeoutInMinutes": 360,

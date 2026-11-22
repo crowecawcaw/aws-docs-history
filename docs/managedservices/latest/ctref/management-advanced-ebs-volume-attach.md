@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # EBS Volume \| Attach
-<a name="management-advanced-ebs-volume-attach"></a>
 
 Attach an EBS volume to an EC2 instance. This change type provides an option that attempts to remediate drift in the CloudFormation stack where the volume is being attached, but that option, RemediateStackDrift, does not work on volumes created using the CloudFormation ingest change type (ct-36cn2avfrrj9v).
 
@@ -145,7 +144,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-ebs-volume-attach-ex-min"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-AttachEBSVolume",
   "Region" : "us-east-1",
@@ -166,7 +165,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-ebs-volume-attach-ex-max"></a>
 
-```
+```json
 {
   "DocumentName" : "AWSManagedServices-AttachEBSVolume",
   "Region" : "us-east-1",

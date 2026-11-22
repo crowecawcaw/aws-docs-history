@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # S3 Storage \| Add Event Notification
-<a name="management-advanced-s3-storage-add-event-notification"></a>
 
 Add an event notification to the specified S3 bucket through direct API calls. The S3 bucket can be standalone or belong to a CloudFormation stack. For buckets in CloudFormation stacks, be aware that stack drift might occur if the bucket was provisioned through CFN ingestion.
 
@@ -142,7 +141,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-s3-storage-add-event-notification-ex-min"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-AddBucketEventNotification",
   "Region": "us-east-1",
@@ -161,7 +160,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-s3-storage-add-event-notification-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-AddBucketEventNotification",
   "Region": "us-east-1",

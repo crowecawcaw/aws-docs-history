@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # S3 Storage \| Delete Policy (Managed Automation)
-<a name="management-advanced-s3-storage-delete-policy-managed-automation"></a>
 
 Use to delete an S3 bucket policy.
 
@@ -136,7 +135,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-s3-storage-delete-policy-managed-automation-ex-min"></a>
 
-```
+```json
 {
   "BucketName": "examplebucketname",
   "Operation": "Delete policy"
@@ -146,7 +145,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-s3-storage-delete-policy-managed-automation-ex-max"></a>
 
-```
+```json
 {
   "BucketName": "examplebucketname",
   "Operation": "Delete policy",

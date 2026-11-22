@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # RDS Database Stack \| Update Parameter Group
-<a name="management-advanced-rds-database-stack-update-parameter-group"></a>
 
 Change the RDS parameter group. The RDS instance or cluster can be standalone or belong to a CloudFormation stack. In the latter case, an update might cause stack drift. When you associate a new DB parameter group with a DB instance or DB cluster, you must reboot the instance or cluster to apply the modified static and dynamic parameters. Reboot the RDS instance or cluster during your preferred maintenance window.
 
@@ -135,7 +134,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: Required Parameters
 <a name="management-advanced-rds-database-stack-update-parameter-group-ex-min"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-UpdateDBParameterGroup",
   "Region": "us-east-1",
@@ -149,7 +148,7 @@ For detailed information about the execution input parameters, see [Schema for C
 ## Example: All Parameters
 <a name="management-advanced-rds-database-stack-update-parameter-group-ex-max"></a>
 
-```
+```json
 {
   "DocumentName": "AWSManagedServices-UpdateDBParameterGroup",
   "Region": "us-east-1",
