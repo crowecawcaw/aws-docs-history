@@ -1,7 +1,6 @@
 
 
 # CUDOS, CID, KPI
-<a name="cudos-cid-kpi"></a>
 
 ## Feedback & Support
 <a name="cudos-cid-kpi-feedback-support"></a>

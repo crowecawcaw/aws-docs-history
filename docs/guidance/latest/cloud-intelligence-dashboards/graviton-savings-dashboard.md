@@ -1,7 +1,6 @@
 
 
 # Graviton Savings Dashboard
-<a name="graviton-savings-dashboard"></a>
 
 ## Introduction
 <a name="introduction"></a>
@@ -14,7 +13,7 @@ Main features of Graviton Savings Dashboard:
 +  **Current Graviton Usage and Realized Savings** - View your current Graviton usage and realized savings for Amazon EC2, RDS, OpenSearch and Elasticache
 +  **Potential Graviton Savings** - Detect current workloads that are eligible for Graviton and evaluate potential savings from the transition.
 +  **Governance** - Centralized Dashboard view allows FinOps Team to track and monitor AWS Graviton savings and opportunities across one or multiple AWS Organizations (Payers).  
-[![AWS Videos](https://img.youtube.com/vi/F_wskaHIfUk?rel=0/0.jpg)](https://www.youtube.com/watch?v=F_wskaHIfUk?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/F_wskaHIfUk/0.jpg)](https://www.youtube.com/watch?v=F_wskaHIfUk)
 
 ## Demo Dashboard
 <a name="demo-dashboard"></a>
@@ -70,13 +69,13 @@ An alternative method to install dashboards is the [cid-cmd](https://github.com/
 
 1. In your command-line interface run the following command to download and install the CID CLI tool:
 
-   ```
+   ```bash
     pip3 install --upgrade cid-cmd
    ```
 
 1. In your command-line interface run the following command to deploy the dashboard:
 
-   ```
+   ```bash
     cid-cmd deploy --dashboard-id graviton-savings
    ```
 
@@ -87,7 +86,7 @@ An alternative method to install dashboards is the [cid-cmd](https://github.com/
 
 Please note that dashboards are not updated with update of CloudFormation Stack. When a new version of the dashboard template is released, you can update your dashboard by running the following command in your command-line interface:
 
-```
+```bash
 cid-cmd update --dashboard-id graviton-savings
 ```
 

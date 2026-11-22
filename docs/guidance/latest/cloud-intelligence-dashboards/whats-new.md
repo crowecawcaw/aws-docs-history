@@ -1,7 +1,6 @@
 
 
 # What's new
-<a name="whats-new"></a>
 
 ## Overview
 <a name="overview"></a>

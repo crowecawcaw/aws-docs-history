@@ -1,7 +1,6 @@
 
 
 # Tailoring Data Collector schedules
-<a name="tailor-data-collector"></a>
 
 ## Last Updated
 <a name="last-updated"></a>

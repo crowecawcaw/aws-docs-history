@@ -1,7 +1,6 @@
 
 
 # Adding K8s Pods Labels or Amazon ECS Tasks Tags to the Dashboard
-<a name="scad-containers-dashboard-add-labels-tags"></a>
 
 ## Introduction
 <a name="introduction"></a>
@@ -26,24 +25,24 @@ The Athena view already includes the [Kubernetes Recommended Labels](https://kub
 + In Athena, open the `scad_cca_summary_view` Athena view by clicking "Show/edit query"
 + Add the label/tag to the left table in the view. The easiest way is to find an existing cost allocation tag and add yours below it. For example, find the following line:
 
-```
+```sql
 , COALESCE("resource_tags"['user_created_by'], 'No K8s label/AWS tag key: created-by') "cat_created_by"
 ```
 
 Add your cost allocation tag below it. Here’s an example, assuming your cost allocation tag is `business_unit`:
 
-```
+```sql
 , COALESCE("resource_tags"['user_business_unit'], 'No K8s label/AWS tag key: business_unit') "cat_business_unit"
 ```
 + Bump the number in the `GROUP BY` clause of the left table. For example, if the `GROUP BY` looks like this:
 
-```
+```sql
 GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47
 ```
 
 You should add the number 48 at the end, like this:
 
-```
+```sql
 GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48
 ```
 + Repeat the same process in the `UNION ALL` section - find the last existing cost allocation tag line, add your cost allocation tag below it, and bump the `GROUP BY` numbers shown as above

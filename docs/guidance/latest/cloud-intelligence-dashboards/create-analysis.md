@@ -1,7 +1,6 @@
 
 
 # Create Analysis (Required)
-<a name="create-analysis"></a>
 
 ## Last Updated
 <a name="last-updated"></a>
@@ -45,7 +44,7 @@ It’s possible to change an existing dashboard and customize existing visuals a
 ### Click here to see video instructions on creating an editable Analysis
 <a name="collapsible-section-id-create-analysis-2"></a>
 
-[![AWS Videos](https://img.youtube.com/vi/YNQBBM5RQtc?rel=0/0.jpg)](https://www.youtube.com/watch?v=YNQBBM5RQtc?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/YNQBBM5RQtc/0.jpg)](https://www.youtube.com/watch?v=YNQBBM5RQtc)
 
 
 Once you have a customizable Quick Sight Analysis created from the above steps, you can begin to implement the customizations outlined in this section of the workshop. Click **Next** below to see the first module on Adding Tags\!

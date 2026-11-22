@@ -1,7 +1,6 @@
 
 
 # Deployment: Dashboard account
-<a name="config-resource-dashboard-account"></a>
 
 ## Deployment Instructions
 <a name="deployment-instructions"></a>
@@ -122,7 +121,7 @@ At this step you will specify the tags to be used to display resources in the [R
 
 1. Install the latest pip package of the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md) tool:
 
-   ```
+   ```bash
    pip3 install --upgrade cid-cmd
    ```
 
@@ -134,7 +133,7 @@ At this step you will specify the tags to be used to display resources in the [R
    + Notice that tag parameters are case sensitive and cannot be empty. If you do not use a tag, pass a short default value, e.g. `--tag4 'NA'`.
    + Leave all other parameters at their default value.
 
-     ```
+     ```bash
      cid-cmd deploy \
         --resources 'https://raw.githubusercontent.com/aws-samples/config-resource-compliance-dashboard/refs/heads/main/dashboard_template/cid-crcd.yaml' \
         --dashboard-id 'cid-crcd' \

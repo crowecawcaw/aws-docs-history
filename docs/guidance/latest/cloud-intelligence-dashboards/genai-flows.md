@@ -1,7 +1,6 @@
 
 
 # Flows
-<a name="genai-flows"></a>
 
 Create intelligent workflows that monitor your CID dashboards and automatically take actions based on dashboard insights. Amazon Quick offers multiple approaches for creating flows, allowing you to choose the method that best fits your workflow preferences and technical requirements.
 
@@ -37,7 +36,7 @@ This flow automatically detects cost spikes in your CUDOS dashboard and instantl
 
  **Enter Flow Description** 
 
-```
+```copy
 Create a flow named "Cost Anomaly Investigation & Action" that automatically detects AWS cost spikes and investigates root causes.
 
 Setup:
@@ -175,7 +174,7 @@ This flow instantly analyzes your CUDOS dashboard to identify and prioritize the
 
  **Enter Flow Description** 
 
-```
+```copy
 Create a flow named "Top 5 Cost Optimization Quick Wins" that identifies and prioritizes top 5 cost optimization opportunities with maximum savings and minimal effort.
 
 Setup:

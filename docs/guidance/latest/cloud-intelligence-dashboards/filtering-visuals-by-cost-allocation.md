@@ -1,7 +1,6 @@
 
 
 # Filtering Visuals by Cost Allocation Tags
-<a name="filtering-visuals-by-cost-allocation"></a>
 
 ## DEPRECATED
 <a name="deprecated"></a>
@@ -18,7 +17,7 @@ August 2023
 
 Now that you’ve added your cost allocation tags, follow this video tutorial to learn how to add a control or filter across your entire dashboard so you can see everything grouped by tags.
 
-[![AWS Videos](https://img.youtube.com/vi/7lTH-XzPfHc?rel=0/0.jpg)](https://www.youtube.com/watch?v=7lTH-XzPfHc?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/7lTH-XzPfHc/0.jpg)](https://www.youtube.com/watch?v=7lTH-XzPfHc)
 
 
 ## Prerequisites

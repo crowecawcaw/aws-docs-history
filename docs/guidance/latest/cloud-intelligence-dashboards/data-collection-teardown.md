@@ -1,7 +1,6 @@
 
 
 # Teardown
-<a name="data-collection-teardown"></a>
 
 **Note**  
 Please make sure you empty s3 buckets before deletion of CidDataCollectionStack.

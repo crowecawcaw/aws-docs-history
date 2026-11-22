@@ -1,7 +1,6 @@
 
 
 # Research
-<a name="genai-research"></a>
 
 Combine your CID dashboard data with external market intelligence, industry benchmarks, and best practices to gain deeper insights and strategic context.
 
@@ -35,7 +34,7 @@ Combine your CID dashboard data with external market intelligence, industry benc
 
  **Research Objective:** 
 
-```
+```copy
 Analyze cloud spending benchmarks and optimization strategies for our industry vertical to contextualize our CUDOS dashboard findings against market standards. Research competitive cloud infrastructure patterns, industry-specific cost optimization opportunities, and regulatory compliance impacts on cloud spending. Focus on identifying where our cloud costs and optimization strategies align with or deviate from industry leaders, with emphasis on actionable insights for improving our cost efficiency and competitive positioning.
 ```
 
@@ -55,7 +54,7 @@ Analyze cloud spending benchmarks and optimization strategies for our industry v
 
  **Research Objective:** 
 
-```
+```copy
 Research AWS service announcements, roadmaps, and upcoming changes that could impact our current infrastructure and cost optimization strategies shown in CID dashboards. Analyze new service capabilities, pricing changes, regional expansions, and service deprecations to predict future optimization opportunities. Focus on identifying services we currently use heavily that have upcoming changes, new cost-saving features we should adopt, and migration planning needs for services approaching end-of-life.
 ```
 
@@ -75,7 +74,7 @@ Research AWS service announcements, roadmaps, and upcoming changes that could im
 
  **Research Objective:** 
 
-```
+```copy
 Research industry-specific security compliance requirements and best practices to enhance our Trusted Advisor and Cases dashboard findings with regulatory context. Analyze how compliance frameworks (SOC 2, HIPAA, PCI DSS, etc.) impact cloud architecture decisions, security configurations, and operational costs. Focus on identifying gaps between current security posture shown in CID dashboards and regulatory requirements, plus cost-effective approaches to achieve compliance while maintaining operational efficiency.
 ```
 

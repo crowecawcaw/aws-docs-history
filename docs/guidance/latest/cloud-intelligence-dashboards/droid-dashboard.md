@@ -1,7 +1,6 @@
 
 
 # Data Resilience, Operations, and Insights (DROID) Dashboard
-<a name="droid-dashboard"></a>
 
 ## Introduction
 <a name="introduction"></a>
@@ -111,13 +110,13 @@ Allow one collection cycle of the Inventory, Reference, and RDS modules to compl
 
 Run a test query to confirm the base data is available.
 
-```
+```sql
 SELECT COUNT(*) FROM optimization_data.inventory_rds_db_instances_data;
 ```
 
 For an Aurora-only fleet whose clusters have no instances, also verify clusters:
 
-```
+```sql
 SELECT COUNT(*) FROM optimization_data.inventory_rds_db_clusters_data;
 ```
 
@@ -152,13 +151,13 @@ If you see the error "No export named cid-CidExecArn found", confirm that you co
 
 1. Install the CID command line tool:
 
-   ```
+   ```bash
    pip3 install --upgrade cid-cmd
    ```
 
 1. Deploy the dashboard:
 
-   ```
+   ```bash
    cid-cmd deploy --dashboard-id droid
    ```
 
@@ -169,7 +168,7 @@ If you see the error "No export named cid-CidExecArn found", confirm that you co
 
 After the dashboard deploys, confirm the enriched views return data. Run this in the Athena database where the dashboard created its views:
 
-```
+```sql
 SELECT COUNT(*) FROM rds_inventory_view;
 ```
 
@@ -239,7 +238,7 @@ The dashboard creates the following Amazon Athena views, which you can query dir
 
 When a new version of the dashboard template is released, update your dashboard.
 
-```
+```bash
 cid-cmd update --dashboard-id droid
 ```
 

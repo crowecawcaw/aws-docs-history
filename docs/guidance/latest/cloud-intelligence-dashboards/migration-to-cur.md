@@ -1,7 +1,6 @@
 
 
 # Migration to CUR 2.0
-<a name="migration-to-cur"></a>
 
 ## Migration Overview
 <a name="migration-overview"></a>
@@ -34,7 +33,7 @@ You can query the data to make sure that the data are identical.
 
 **Example**  
 
-```
+```sql
 SELECT
     billing_period,
     sum(line_item_unblended_cost)
@@ -42,7 +41,7 @@ FROM cid_data_export.cur2
 GROUP BY 1
 ```
 
-```
+```sql
 SELECT
     concat("`year`", '`-`', "`month`") AS billing_period,
     sum(line_item_unblended_cost)

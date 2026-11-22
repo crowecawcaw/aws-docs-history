@@ -1,7 +1,6 @@
 
 
 # Extend agents with knowledge bases
-<a name="genai-knowledge-bases"></a>
 
 Enhance your CID Operations Advisor with Cloud Financial Management (CFM) best practices by adding the [CFM Technical Implementation Playbooks (CFM TIPs)](https://catalog.workshops.aws/awscff/en-US) as a knowledge base. This enables your chat agent and flows to provide more effective guidance grounded in proven CFM frameworks and actionable examples.
 

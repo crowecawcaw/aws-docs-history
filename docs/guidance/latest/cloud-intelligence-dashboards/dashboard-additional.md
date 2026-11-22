@@ -1,7 +1,6 @@
 
 
 # Additional
-<a name="dashboard-additional"></a>
 
 This section covers the following dashboards:
 

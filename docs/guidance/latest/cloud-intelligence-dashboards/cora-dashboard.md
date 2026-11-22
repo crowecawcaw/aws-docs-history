@@ -1,7 +1,6 @@
 
 
 # CORA Dashboard
-<a name="cora-dashboard"></a>
 
 ## Introduction
 <a name="introduction"></a>
@@ -77,13 +76,13 @@ An alternative method to install dashboards is the [cid-cmd](https://github.com/
 
 1. In your command-line interface run the following command to download and install the CID CLI tool:
 
-   ```
+   ```bash
    pip3 install --upgrade cid-cmd
    ```
 
 1. In your command-line interface run the following command to deploy the dashboard:
 
-   ```
+   ```bash
    cid-cmd deploy --dashboard-id cora
    ```
 
@@ -93,13 +92,13 @@ You can deploy the CORA Dashboard using the [CID Terraform module](https://githu
 
 1. In your [user-config.tf](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/user-config.tf), find the `dashboards` block and set `cora` to `"yes"`:
 
-   ```
+   ```hcl
      cora = "yes"  # CORA Dashboard
    ```
 
 1. Ensure the following module block is present in your `dashboards.tf`:
 
-   ```
+   ```hcl
    module "cora_dashboard" {
      source = "./modules/cloudformation_stack"
      providers = {
@@ -114,7 +113,7 @@ This block is already included if you are using the full module files from the r
 
 1. Run the Terraform workflow:
 
-   ```
+   ```bash
    terraform init
    terraform plan
    terraform apply
@@ -129,7 +128,7 @@ If you are adding this dashboard to an existing Terraform deployment, `terraform
 
 Please note that dashboards are not updated with update of CloudFormation Stack. When a new version of the dashboard template is released, you can update your dashboard by running the following command in your command-line interface:
 
-```
+```bash
 cid-cmd update --dashboard-id cora
 ```
 

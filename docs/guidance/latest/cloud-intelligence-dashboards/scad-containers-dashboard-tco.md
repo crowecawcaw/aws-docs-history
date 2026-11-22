@@ -1,7 +1,6 @@
 
 
 # Total Cost of Ownership Using Kubernetes Labels and AWS Tags
-<a name="scad-containers-dashboard-tco"></a>
 
 ## Introduction
 <a name="introduction"></a>
@@ -49,25 +48,25 @@ Let’s say we now want to filter the visuals by a specific value of the `app.ku
 
 Let’s see another example, using your own K8s pod label. We’ll use the `business_unit` label that we added to the Athena view earlier, as an example. First save the dashboard as an analysis, and then edit the calculated field named `group_by_workloads_explorer`. Like with the Athena view, find a line of an existing cost allocation tag, and add yours below it. As an example, here’s an existing line:
 
-```
+```bash
 ${GroupByWorkloadsExplorer} = "Amazon EKS: K8s Label created-by", {cat_created_by},
 ```
 
 Add your label cost allocation tag below it. Here’s an example of how the new line will look like, with the `business_unit` label:
 
-```
+```bash
 ${GroupByWorkloadsExplorer} = "Amazon EKS: K8s Label business_unit", {cat_business_unit},
 ```
 
 Save the calculated field. Now, edit the `aggregation_include_exclude_workloads_explorer` calculated field. Find a line of an existing cost allocation tag, and add yours below it. As an example, here’s an existing line:
 
-```
+```bash
 ${GroupByWorkloadsExplorer} = "Amazon EKS: K8s Label created-by" AND {cat_created_by} = "No K8s label/AWS tag key: created-by", "Exclude",
 ```
 
 Add your label cost allocation tag below it. Here’s an example of how the new line will look like, with the `business_unit` label:
 
-```
+```bash
 ${GroupByWorkloadsExplorer} = "Amazon EKS: K8s Label business_unit" AND {cat_business_unit} = "No K8s label/AWS tag key: business_unit", "Exclude",
 ```
 
@@ -97,7 +96,7 @@ Organizations run applications on K8s, and those applications may be using other
 
 Let’s first go through an example using the `app.kubernetes.io/name` label which is already included in the Athena view and dashboard. First, let’s see how the pods and AWS resources are consistently labeled and tagged. Let’s start with the application pod. Here’s an omitted output of the `kubectl describe pod` command for the application pod in question:
 
-```
+```bash
 kubectl describe pod/kubecost-eks-cost-analyzer-xxx-xxx -n kubecost-eks
 Name:             kubecost-eks-cost-analyzer-xxx-xxx
 Namespace:        kubecost-eks

@@ -1,7 +1,6 @@
 
 
 # Data on EKS - Cost Allocation for Spark and Flink Applications Running on EKS
-<a name="scad-containers-dashboard-data-on-eks"></a>
 
 ## Introduction
 <a name="introduction"></a>

@@ -1,7 +1,6 @@
 
 
 # Update
-<a name="data-collection-update"></a>
 
 ## Update Process
 <a name="update-process"></a>
@@ -101,7 +100,7 @@ The workshop was updated to work for multiple management accounts, and also mino
 
 You can run the following commands from your AWS CloudShell
 
-```
+```bash
 curl https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-collection/source/s3_files_migration.py -o s3_files_migration.py
 python3 s3_files_migration.py
 ```

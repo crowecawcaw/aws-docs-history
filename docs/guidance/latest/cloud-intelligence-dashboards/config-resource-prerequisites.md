@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="config-resource-prerequisites"></a>
 
 ## Architecture
 <a name="architecture"></a>
@@ -109,7 +108,7 @@ aws configservice describe-delivery-channels
 
 This command will provide information about the delivery channel configuration on the account and Region where it is launched, including the S3 bucket where configuration updates are sent and the configuration snapshot delivery properties. Ensure the configuration is consistent across all accounts and Regions you want to record. The output of the CLI command should look like this:
 
-```
+```json
 {
     "DeliveryChannels": [
         {
@@ -142,7 +141,7 @@ Here’s how you can use the AWS CLI to modify the existing settings and schedul
 
 1. Run the AWS CLI command `aws configservice describe-delivery-channels` and save the resulting JSON to a local file. Name it `deliveryChannel.json`. For example, your file may look like the one below.
 
-```
+```json
 {
   "name": "default",
   "s3BucketName": "config-bucket-123456789012",
@@ -155,7 +154,7 @@ Here’s how you can use the AWS CLI to modify the existing settings and schedul
 
 1. Edit the file to add the `configSnapshotDeliveryProperties` section:
 
-```
+```json
 {
   "name": "default",
   "s3BucketName": "config-bucket-123456789012",

@@ -1,7 +1,6 @@
 
 
 # Data Collection
-<a name="data-collection"></a>
 
 ## Introduction
 <a name="introduction"></a>

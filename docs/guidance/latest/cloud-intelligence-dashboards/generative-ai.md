@@ -1,7 +1,6 @@
 
 
 # Generative AI with CID
-<a name="generative-ai"></a>
 
 ## Ask your dashboards anything
 <a name="ask-your-dashboards-anything"></a>

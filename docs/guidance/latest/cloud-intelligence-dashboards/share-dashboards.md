@@ -1,7 +1,6 @@
 
 
 # Share Dashboards
-<a name="share-dashboards"></a>
 
 **Note**  
 Adding users can have [cost implications for Quick Sight](https://aws.amazon.com/quicksight/pricing/?nc=sn&loc=4) 

@@ -1,7 +1,6 @@
 
 
 # Foundational
-<a name="dashboard-foundational"></a>
 
 Foundational Dashboards require CUR [Data Exports](data-exports.md) or Legacy CUR.
 

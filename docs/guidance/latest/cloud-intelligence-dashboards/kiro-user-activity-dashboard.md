@@ -1,7 +1,6 @@
 
 
 # Kiro User Activity Dashboard
-<a name="kiro-user-activity-dashboard"></a>
 
 ## Introduction
 <a name="introduction"></a>
@@ -147,7 +146,7 @@ Apply the following in each source account that produces Kiro user activity repo
 
 Add the following two statements to the S3 bucket policy on each Kiro source bucket. Access is scoped to the `kiro/*` prefix so the collection Lambda can read only the Kiro user activity reports, not the rest of the bucket:
 
-```
+```json
 {
   "Sid": "AllowCIDKiroDataCollectionRead",
   "Effect": "Allow",
@@ -185,7 +184,7 @@ If you re-deploy the module, re-apply the bucket policy in each source account s
 
 Invoke the Lambda manually to verify data flows correctly:
 
-```
+```bash
 aws lambda invoke \
   --region <region> \
   --function-name CID-DC-kiro-user-activity-Lambda \
@@ -194,7 +193,7 @@ aws lambda invoke \
 
 Expected response (a successful run returns `statusCode: 200`; `total_files_copied`, `total_rows_written`, and `partitions_registered` reflect how many reports were **missing** and therefore imported on this run — a run where everything is already collected returns zeros, which is normal):
 
-```
+```json
 {
   "statusCode": 200,
   "total_files_copied": 3,
@@ -217,7 +216,7 @@ The collector reads the source account, region, and date from the **S3 object pa
 
 Run a test query to confirm data is accessible:
 
-```
+```sql
 SELECT * FROM optimization_data.kiro_user_activity LIMIT 10;
 ```
 
@@ -249,13 +248,13 @@ SELECT * FROM optimization_data.kiro_user_activity LIMIT 10;
 
 1. In your command-line interface run the following command to download and install the CID CLI tool:
 
-   ```
+   ```bash
    pip3 install --upgrade cid-cmd
    ```
 
 1. In your command-line interface run the following command to deploy the dashboard:
 
-   ```
+   ```bash
    cid-cmd deploy --dashboard-id kiro-user-activity
    ```
 
@@ -266,7 +265,7 @@ SELECT * FROM optimization_data.kiro_user_activity LIMIT 10;
 
 After deploying the dashboard, trigger a SPICE ingestion to load data:
 
-```
+```bash
 cid-cmd refresh --dashboard-id kiro-user-activity
 ```
 
@@ -389,7 +388,7 @@ Two consequences are worth knowing when reading the idle table:
 
 When a new version of the dashboard template is released, update your dashboard by running the following command:
 
-```
+```bash
 cid-cmd update --dashboard-id kiro-user-activity
 ```
 

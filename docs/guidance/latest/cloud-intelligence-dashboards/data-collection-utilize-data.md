@@ -1,7 +1,6 @@
 
 
 # Utilize Data
-<a name="data-collection-utilize-data"></a>
 
 ## Check execution state
 <a name="data-collection-utilize-data-check-execution"></a>
@@ -68,7 +67,7 @@ When an AMI gets created it takes a Snapshot of the volume. This is then needed 
 #### Optimization Data Snapshots and AMIs Query
 <a name="collapsible-section-id-data-collection-utilize-data-2"></a>
 
-```
+```sql
   SELECT *,
   CASE
   WHEN snap_ami_id = imageid THEN
@@ -261,7 +260,7 @@ If you wish to connect to your Cost and Usage report for snapshot costs please u
 #### Optimization Data Snapshots with EBS and CUR
 <a name="collapsible-section-id-data-collection-utilize-data-9"></a>
 
-```
+```sql
       WITH cur_mapping AS (
         SELECT DISTINCT
         split_part(line_item_resource_id,'/',2) AS "snapshot_id",

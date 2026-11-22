@@ -1,7 +1,6 @@
 
 
 # SCAD Containers Cost Allocation Dashboard
-<a name="scad-containers-dashboard"></a>
 
 ## Introduction
 <a name="introduction"></a>

@@ -1,7 +1,6 @@
 
 
 # SSO Application (Legacy Guide)
-<a name="sso-application-legacy"></a>
 
 ## Last Updated
 <a name="last-updated"></a>
@@ -156,7 +155,7 @@ Note: This step is done in the target account where the CID lives, this may diff
 
 1. Select the JSON tab and paste in the below code replacing your `ACCOUNT_ID` with your `CID Quick Sight` account `ID`. Click Next.
 
-   ```
+   ```json
             {
                "Version": "2012-10-17",		 	 	 
                "Statement": [
@@ -200,7 +199,7 @@ Note: This step is done in the target account where the CID lives, this may diff
 
 1. Replace the json with the below, replacing your `ACCOUNT_ID` with your `CID Quick Sight` account `ID`.
 
-   ```
+   ```json
            {
            "Version": "2012-10-17",		 	 	 
            "Statement": [

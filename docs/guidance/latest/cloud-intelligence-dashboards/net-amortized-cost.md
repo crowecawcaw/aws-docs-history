@@ -1,7 +1,6 @@
 
 
 # Net Amortized cost
-<a name="net-amortized-cost"></a>
 
 ## Last Updated
 <a name="last-updated"></a>
@@ -40,7 +39,7 @@ Navigate in the AWS Console to the **Athena** service
 
 1. Find the line which ends with "amortized\_cost" and add the below snippet
 
-   ```
+   ```sql
        , SUM(CASE
    WHEN "line_item_line_item_type" = 'SavingsPlanRecurringFee' THEN (("savings_plan_total_commitment_to_date" - "savings_plan_used_commitment") * COALESCE((COALESCE("savings_plan_net_amortized_upfront_commitment_for_billing_period" , "savings_plan_amortized_upfront_commitment_for_billing_period") / NULLIF("savings_plan_amortized_upfront_commitment_for_billing_period" , 0)), 1))
    WHEN "line_item_line_item_type" = 'RIFee' THEN COALESCE("reservation_net_unused_amortized_upfront_fee_for_billing_period" + "reservation_net_unused_recurring_fee", "reservation_unused_amortized_upfront_fee_for_billing_period" + "reservation_unused_recurring_fee")
@@ -58,7 +57,7 @@ Navigate in the AWS Console to the **Athena** service
 
 1. Find the line which ends with "unblended\_cost" , add the below snippet
 
-   ```
+   ```sql
    , "sum"("line_item_net_unblended_cost") "net_amortized_cost"
    , "sum"("reservation_net_effective_cost") "reservation_net_effective_cost"
    , "sum"("savings_plan_net_savings_plan_effective_cost") "savings_plan_net_effective_cost"
@@ -70,7 +69,7 @@ Navigate in the AWS Console to the **Athena** service
 
 1. Find the line which ends with "unblended\_cost" , add the below snippet
 
-   ```
+   ```sql
    , "sum"("line_item_net_unblended_cost") "net_amortized_cost"
    , "sum"("reservation_net_effective_cost") "reservation_net_effective_cost"
    , "sum"("savings_plan_net_savings_plan_effective_cost") "savings_plan_net_effective_cost"
@@ -158,7 +157,7 @@ Now that we’ve created the parameter and control we need to associate it with 
 
 1. Find the calculated column **amortized cost** and edit the calculated field as shown below and click on save
 
-   ```
+   ```sql
    ifelse(
    ({charge_type} = 'SavingsPlanCoveredUsage' and ${CostType} = 'amortized cost'), {savings_plan_effective_cost},
    ({charge_type} = 'SavingsPlanCoveredUsage' and ${CostType} = 'net amortized cost' ), {savings_plan_net_effective_cost},
@@ -174,7 +173,7 @@ Now that we’ve created the parameter and control we need to associate it with 
 
 1. Now select the dataset **resource\_view** and find the calculated field **amortized cost**. Make changes as shown below and save
 
-   ```
+   ```sql
    ifelse(
    ({charge_type} = 'SavingsPlanCoveredUsage' and ${CostType} = 'amortized cost'), {savings_plan_effective_cost},
    ({charge_type} = 'SavingsPlanCoveredUsage' and ${CostType} = 'net amortized cost' ), {savings_plan_net_effective_cost},

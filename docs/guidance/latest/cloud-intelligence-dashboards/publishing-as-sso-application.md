@@ -1,7 +1,6 @@
 
 
 # Publishing as single sign-on (SSO) Application
-<a name="publishing-as-sso-application"></a>
 
 ## Last Updated
 <a name="last-updated"></a>

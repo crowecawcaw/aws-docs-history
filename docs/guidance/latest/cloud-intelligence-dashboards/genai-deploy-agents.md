@@ -1,14 +1,13 @@
 
 
 # Deploy agents
-<a name="genai-deploy-agents"></a>
 
 ## Watch the demo
 <a name="watch-the-demo"></a>
 
 See how to deploy a CID agent with `cid-cmd` and then use it in Amazon Quick:
 
-[![AWS Videos](https://img.youtube.com/vi/jvDxORiYdhI?rel=0/0.jpg)](https://www.youtube.com/watch?v=jvDxORiYdhI?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/jvDxORiYdhI/0.jpg)](https://www.youtube.com/watch?v=jvDxORiYdhI)
 
 
 ## Prerequisites
@@ -30,19 +29,19 @@ See how to deploy a CID agent with `cid-cmd` and then use it in Amazon Quick:
 
 1. Install or update `cid-cmd` (version 4.4.19 or later):
 
-   ```
+   ```bash
    pip3 install -U cid-cmd
    ```
 
 1. See which agents are ready for your account:
 
-   ```
+   ```bash
    cid-cmd list-agents
    ```
 
 1. Create an agent. Choose one from the list, or pass its id, for example `--agent-id finops`:
 
-   ```
+   ```bash
    cid-cmd create-agent
    ```
 
@@ -76,7 +75,7 @@ Update an agent to get its latest version from CID, or to add a dashboard you de
 ### Option 1: Update and keep your additions (default)
 <a name="option-1-update-and-keep-your-additions-default"></a>
 
-```
+```bash
 cid-cmd update-agent --agent-id finops
 ```
 
@@ -85,7 +84,7 @@ Adds the dashboards and datasets the agent needs and updates its name, instructi
 ### Option 2: Match the CID definition exactly
 <a name="option-2-match-the-cid-definition-exactly"></a>
 
-```
+```bash
 cid-cmd update-agent --agent-id finops --on-drift override
 ```
 
@@ -108,7 +107,7 @@ Changes you made to the instructions or starter prompts in the Quick console are
 ## Delete an agent
 <a name="delete-an-agent"></a>
 
-```
+```bash
 cid-cmd delete-agent --agent-id finops --delete-space
 ```
 

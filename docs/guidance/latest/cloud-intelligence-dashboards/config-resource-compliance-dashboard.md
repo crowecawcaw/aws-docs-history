@@ -1,7 +1,6 @@
 
 
 # AWS Config Resource Compliance Dashboard
-<a name="config-resource-compliance-dashboard"></a>
 
 ## Introduction
 <a name="introduction"></a>
@@ -10,7 +9,7 @@
 
 The Amazon Web Services (AWS) Config Resource Compliance Dashboard (CRCD) shows the inventory of your AWS resources, along with their compliance status, across multiple AWS accounts and Regions by leveraging your AWS Config data.
 
-[![AWS Videos](https://img.youtube.com/vi/709-y8q81Q8?rel=0/0.jpg)](https://www.youtube.com/watch?v=709-y8q81Q8?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/709-y8q81Q8/0.jpg)](https://www.youtube.com/watch?v=709-y8q81Q8)
 
 
 ## Links

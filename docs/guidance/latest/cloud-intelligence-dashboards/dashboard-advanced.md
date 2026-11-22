@@ -1,7 +1,6 @@
 
 
 # Advanced
-<a name="dashboard-advanced"></a>
 
 Advanced Dashboards require [CID Data Collection Stack](data-collection.md). This section covers the following dashboards:
 

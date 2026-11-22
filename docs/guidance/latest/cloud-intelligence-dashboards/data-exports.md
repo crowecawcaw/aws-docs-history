@@ -1,7 +1,6 @@
 
 
 # Data Exports
-<a name="data-exports"></a>
 
 ## Introduction
 <a name="introduction"></a>
@@ -164,7 +163,7 @@ Thanks in advance,
 
 You can also use following command in CloudShell to create this case via command line:
 
-```
+```bash
 aws support create-case \
     --subject "Backfill Data" \
     --service-code "billing" \
@@ -204,7 +203,7 @@ Typically when deploying with CloudFormation the stack create a role **CidQuick 
 
 1. Open CloudShell in Data Collection Account and launch following script (can be just pasted to CloudShell):
 
-```
+```bash
 export qs_role=$(aws cloudformation describe-stacks --stack-name Cloud-Intelligence-Dashboards --query "Stacks[].Parameters[?ParameterKey=='Quick SightDataSourceRoleName'].ParameterValue" --output text)
 export policy_arn=$(aws cloudformation list-exports --query "Exports[?Name=='cid-DataExports-ReadAccessPolicyARN'].Value" --output text)
 
@@ -232,7 +231,7 @@ Option1: use command line to attach access policy to the Quick Sight role
 
 1. Open CloudShell in Data Collection Account and launch following script (can be just pasted to CloudShell)
 
-```
+```bash
 # Check if policy_arn is empty or only whitespace
 export policy_arn=$(aws cloudformation list-exports --query "Exports[?Name=='cid-DataExports-ReadAccessPolicyARN'].Value" --output text)
 
@@ -258,7 +257,7 @@ Option3:
 
 1. Add a following policy allowing read a bucket and database:
 
-```
+```json
 [
 	{
 		"Sid": "AllowGlue",

@@ -1,7 +1,6 @@
 
 
 # Feedback & Support
-<a name="feedback-support"></a>
 
 ## Have a success story to share with the Team, suggest an improvement or report an error?
 <a name="have-a-success-story-to-share-with-the-team-suggest-an-improvement-or-report-an-error"></a>

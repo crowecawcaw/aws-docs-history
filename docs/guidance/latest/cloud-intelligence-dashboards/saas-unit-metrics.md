@@ -1,7 +1,6 @@
 
 
 # SaaS Unit Metrics
-<a name="saas-unit-metrics"></a>
 
 ## Last Updated
 <a name="last-updated"></a>

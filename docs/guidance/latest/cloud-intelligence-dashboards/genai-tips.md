@@ -1,7 +1,6 @@
 
 
 # Tips and troubleshooting
-<a name="genai-tips"></a>
 
 ## Get better answers
 <a name="get-better-answers"></a>

@@ -1,7 +1,6 @@
 
 
 # Sustainability Proxy Metrics and Carbon Emissions Dashboard
-<a name="sustainability-proxy-metrics-dashboard"></a>
 
 ## Introduction
 <a name="introduction"></a>
@@ -35,19 +34,19 @@ Install the dashboard using the [cid-cmd](https://github.com/aws-solutions-libra
 
 1. Check that the regional setup within the console is correct by overriding it to the region where you deployed the previous CloudFormation templates (Example: `us-east-1`):
 
-   ```
+   ```bash
    export AWS_DEFAULT_REGION=us-east-1
    ```
 
 1. In your command-line interface run the following command to download and install the CID CLI tool:
 
-   ```
+   ```bash
    pip3 install --upgrade cid-cmd
    ```
 
 1. In your command-line interface run the following command to deploy the dashboard:
 
-   ```
+   ```bash
    cid-cmd deploy --dashboard-id sustainability-proxy-metrics
    ```
 
@@ -86,7 +85,7 @@ Install the dashboard using the [cid-cmd](https://github.com/aws-solutions-libra
 
 When a new version of the dashboard template is released, update your dashboard by running the following command in your command-line interface:
 
-```
+```bash
 cid-cmd update --dashboard-id sustainability-proxy-metrics --force --recursive
 ```
 

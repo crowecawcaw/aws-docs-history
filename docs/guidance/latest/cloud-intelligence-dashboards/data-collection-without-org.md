@@ -1,7 +1,6 @@
 
 
 # Data Collection without AWS Organizations
-<a name="data-collection-without-org"></a>
 
 When deploying AWS Cost Intelligence Dashboard (CID), customers who don’t have direct access to AWS Organizations (because it’s managed by partners or separate internal teams) should first consider collaborating with the team owning AWS Management (Payer) Account to deploy CID at scale across the organization with Row Level Security implemented, ensuring each business unit can only view cost and operational data for their specific AWS accounts.
 

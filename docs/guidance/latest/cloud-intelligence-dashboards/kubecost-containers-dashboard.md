@@ -1,7 +1,6 @@
 
 
 # Kubecost Containers Cost Allocation Dashboard
-<a name="kubecost-containers-dashboard"></a>
 
 ## Introduction
 <a name="introduction"></a>

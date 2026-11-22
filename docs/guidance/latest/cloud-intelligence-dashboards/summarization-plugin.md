@@ -1,7 +1,6 @@
 
 
 # Summarization Plugin
-<a name="summarization-plugin"></a>
 
 **Note**  
 The AWS Support Cases Summarization powered by Amazon Bedrock may not capture all nuances of the original conversation with the AWS Support. It should be verified against the full transcript which remains the single source of truth for accuracy and completeness. See [AWS Responsible AI Policy](https://aws.amazon.com/ai/responsible-ai/policy/).

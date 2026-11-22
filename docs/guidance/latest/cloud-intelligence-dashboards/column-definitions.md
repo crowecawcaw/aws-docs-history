@@ -1,7 +1,6 @@
 
 
 # Column Definitions
-<a name="column-definitions"></a>
 
 ## summary\_view
 <a name="summary_view"></a>

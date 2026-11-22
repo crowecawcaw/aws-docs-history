@@ -1,7 +1,6 @@
 
 
 # Row Level Security
-<a name="row-level-security"></a>
 
 ## Introduction
 <a name="introduction"></a>
@@ -181,7 +180,7 @@ Here we will use the minimal setup for managing access from AWS Organization OU 
 
 1. You can validate data using the following query:
 
-   ```
+   ```sql
    SELECT * FROM "optimization_data"."organization_data"
    SELECT * FROM "optimization_data"."quicksight_user_data"
    SELECT * FROM "optimization_data"."quicksight_group_data" -- can be empty if you don't have Quick groups
@@ -199,7 +198,7 @@ The Data Collection is needed to collect data from local Quick account and store
 
 1. Create an inline Athena Table that simulates Data Collection organization\_data, but can be edited directly in Athena to manage access.
 
-   ```
+   ```sql
    CREATE OR REPLACE VIEW "optimization_data"."organization_data" AS
    WITH accounts AS (
      SELECT *
@@ -229,7 +228,7 @@ The Data Collection is needed to collect data from local Quick account and store
 
 1. Create a CSV file (ex: `file.csv`):
 
-   ```
+   ```csv
    account_id, payer_account_id, emails, groups
    1111111111111111, 1111111111111111, user11@e.mail:user12@e.mail, group11:group12
    2222222222222222, 1111111111111111, user21@e.mail:user12@e.mail,
@@ -238,14 +237,14 @@ The Data Collection is needed to collect data from local Quick account and store
 
 1. Upload CSV file to an Amazon S3 Bucket. Please use an existing Bucket that Quick already has access to. Example: `cid-{account-id}-data-exports` or `cid-data-{account-id}`. You can use either the web interface or the command line:
 
-   ```
+   ```bash
    account_id=$(aws sts get-caller-identity --query "Account" --output text)
    aws s3 cp ./file.csv s3://cid-data-${account_id}/my_accounts/file.csv
    ```
 
 1. Login to AWS Console, select Athena Service and Create a Table:
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE optimization_data.my_accounts (
        "account_id" string,
        "payer_account_id" string,
@@ -268,13 +267,13 @@ The Data Collection is needed to collect data from local Quick account and store
 
 1. Verify the table
 
-   ```
+   ```sql
    SELECT * FROM "optimization_data"."my_accounts"
    ```
 
 1. Create a view that simulates organization\_data table
 
-   ```
+   ```sql
    CREATE OR REPLACE VIEW "optimization_data"."organization_data" AS
    SELECT
      account_id as Id,
@@ -296,13 +295,13 @@ The Data Collection is needed to collect data from local Quick account and store
 
 1.  **Install CID-CMD Tool**:
 
-   ```
+   ```bash
    pip3 install -U cid-cmd
    ```
 
 1.  **Deploy RLS Dashboard**:
 
-   ```
+   ```bash
    cid-cmd deploy --dashboard-id cid-rls
    ```
 
@@ -320,13 +319,13 @@ The Data Collection is needed to collect data from local Quick account and store
 
 1.  **Install CID-CMD Tool** (if not already installed):
 
-   ```
+   ```bash
    pip3 install -U cid-cmd
    ```
 
 1.  **Enable RLS**: Update dashboard with RLS enabled. The tool will guide you through selecting the dashboard and RLS dataset, then update all associated datasets:
 
-   ```
+   ```bash
    cid-cmd update --force --recursive --rls ENABLED
    ```
 
@@ -353,7 +352,7 @@ The Data Collection is needed to collect data from local Quick account and store
 
 Use the CID-CMD tool to enable RLS on any dashboard:
 
-```
+```bash
 cid-cmd update --force --recursive --rls ENABLED
 ```
 
@@ -364,7 +363,7 @@ cid-cmd update --force --recursive --rls ENABLED
 
 Use the CID-CMD status command:
 
-```
+```bash
 cid-cmd status
 ```
 

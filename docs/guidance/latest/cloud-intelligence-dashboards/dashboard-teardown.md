@@ -1,7 +1,6 @@
 
 
 # Teardown
-<a name="dashboard-teardown"></a>
 
 ## Teardown of CloudFormation deployment (Automated)
 <a name="teardown-of-cloudformation-deployment-automated"></a>

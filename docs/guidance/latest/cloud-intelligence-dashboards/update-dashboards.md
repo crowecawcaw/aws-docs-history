@@ -1,7 +1,6 @@
 
 
 # Update Dashboards
-<a name="update-dashboards"></a>
 
 ## Update Dashboards
 <a name="update-dashboards-2"></a>
@@ -20,7 +19,7 @@ To pull the latest version of the dashboard from the public template please use 
 
 1. Install cid-cmd tool. Run the following command and make sure you hit enter :
 
-```
+```bash
 pip3 install --upgrade cid-cmd
 ```
 
@@ -41,7 +40,7 @@ After update Quick Sight datasets will be refreshed automatically. During the re
 
 In some cases the update of underlying Quick Sight Datasets and views is required. This can also be useful to reset dashboards to factory settings if there is any issue. Please note that it might impact customizations you did on the dashboards. The tool will provide you an interactive prompt when it will detect the difference and you can accept the changes or keep existing.
 
-```
+```bash
 cid-cmd update --force --recursive
 ```
 
@@ -53,4 +52,4 @@ If you are looking to update to CUDOS v5 from a previous CUDOS version, please r
 ### Update Demo
 <a name="update-demo"></a>
 
-[![AWS Videos](https://img.youtube.com/vi/ub7VWL2GJ84?rel=0/0.jpg)](https://www.youtube.com/watch?v=ub7VWL2GJ84?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/ub7VWL2GJ84/0.jpg)](https://www.youtube.com/watch?v=ub7VWL2GJ84)

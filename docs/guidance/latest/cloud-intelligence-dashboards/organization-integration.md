@@ -1,7 +1,6 @@
 
 
 # Organization (OU) integration
-<a name="organization-integration"></a>
 
 This content is DEPRECATED. Please use [Organizational Taxonomy Guide](add-org-taxonomy.md).
 
@@ -59,7 +58,7 @@ You will need to create a new view `organization_map`.
 
 1. Create the following view:
 
-```
+```sql
 CREATE OR REPLACE VIEW "organization_map" AS
 SELECT "id" "account_id"
 , "name" "account_name"
@@ -146,7 +145,7 @@ When updating any view that is part of the cloud intelligence or data collection
 
 1. Select the entire view and replace it with this query:
 
-   ```
+   ```sql
    CREATE OR REPLACE VIEW "account_map" AS
    SELECT DISTINCT
        id account_id
@@ -192,7 +191,7 @@ Here is an advanced example that leverage OU Tags as well as mapping for Managem
 
 1. Select the entire view and replace it with this query adjusted to your needs:
 
-```
+```sql
 CREATE OR REPLACE VIEW "account_map" AS
 SELECT DISTINCT
     id account_id

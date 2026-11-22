@@ -1,7 +1,6 @@
 
 
 # FOCUS Dashboard
-<a name="focus-dashboard"></a>
 
 ## Introduction
 <a name="introduction"></a>
@@ -86,20 +85,20 @@ An alternative method to install dashboards is the [cid-cmd](https://github.com/
 
 1. In your command-line interface, run the following command to download and install the CID CLI tool:
 
-   ```
+   ```bash
    pip3 install --upgrade cid-cmd
    ```
 
    If using [CloudShell](https://console.aws.amazon.com/cloudshell), install Python 3.11 first:
 
-   ```
+   ```bash
    sudo yum install python3.11-pip -y
    python3.11 -m pip install -U cid-cmd
    ```
 
 1. Run the following command to deploy the dashboard:
 
-   ```
+   ```bash
    cid-cmd deploy --dashboard-id focus-dashboard
    ```
 
@@ -109,13 +108,13 @@ You can deploy the FOCUS Dashboard using the [CID Terraform module](https://gith
 
 1. In your [user-config.tf](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/user-config.tf), find the `dashboards` block and set `focus` to `"yes"`:
 
-   ```
+   ```hcl
      focus = "yes"  # FOCUS Dashboard
    ```
 
 1. Ensure the following module block is present in your `dashboards.tf`:
 
-   ```
+   ```hcl
    module "focus_dashboard" {
      source = "./modules/cloudformation_stack"
      providers = {
@@ -130,7 +129,7 @@ This block is already included if you are using the full module files from the r
 
 1. Run the Terraform workflow:
 
-   ```
+   ```bash
    terraform init
    terraform plan
    terraform apply
@@ -196,14 +195,14 @@ After deploying any cloud provider integration above, update the FOCUS Dashboard
 
 1. Run the following commands:
 
-   ```
+   ```bash
    pip3 install --upgrade cid-cmd
    cid-cmd update --recursive --force --dashboard-id focus-dashboard
    ```
 
    If using [CloudShell](https://console.aws.amazon.com/cloudshell), replace the first line with:
 
-   ```
+   ```bash
    sudo yum install python3.11-pip -y
    python3.11 -m pip install -U cid-cmd
    ```
@@ -223,14 +222,14 @@ Dashboards are not updated with an update of the CloudFormation stack. There are
 
 When a new version of the dashboard template is released, update your dashboard by running:
 
-```
+```bash
 pip3 install --upgrade cid-cmd
 cid-cmd update --dashboard-id focus-dashboard
 ```
 
 If using [CloudShell](https://console.aws.amazon.com/cloudshell), replace the first line with:
 
-```
+```bash
 sudo yum install python3.11-pip -y
 python3.11 -m pip install -U cid-cmd
 ```
@@ -242,14 +241,14 @@ This updates the dashboard visuals to the latest template version.
 
 To add new FOCUS tables from other cloud providers, include new tags, or update the consolidation view schema, run:
 
-```
+```bash
 pip3 install --upgrade cid-cmd
 cid-cmd update --recursive --force --dashboard-id focus-dashboard
 ```
 
 If using [CloudShell](https://console.aws.amazon.com/cloudshell), replace the first line with:
 
-```
+```bash
 sudo yum install python3.11-pip -y
 python3.11 -m pip install -U cid-cmd
 ```

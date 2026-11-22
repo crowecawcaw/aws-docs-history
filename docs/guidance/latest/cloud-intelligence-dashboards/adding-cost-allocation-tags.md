@@ -1,7 +1,6 @@
 
 
 # Adding Cost Allocation Tags
-<a name="adding-cost-allocation-tags"></a>
 
 ## DEPRECATED
 <a name="deprecated"></a>
@@ -67,7 +66,7 @@ Follow instructions depending on the CUR version you use:
 
 1. On the line after, `, "line_item_usage_account_id" "linked_account_id"` in the query add a blank line below that.
 
-   ```
+   ```sql
       CREATE OR REPLACE VIEW "summary_view" AS
       SELECT
       "year"
@@ -86,7 +85,7 @@ Follow instructions depending on the CUR version you use:
 
 1. Double-click on the first tag that you want to add. Remove the trailing comma that is added and place a comma at the beginning of that line. It will look like this:
 
-   ```
+   ```sql
    CREATE OR REPLACE VIEW "summary_view" AS
    SELECT
    "year"
@@ -104,7 +103,7 @@ Follow instructions depending on the CUR version you use:
 
 1. Scroll down and add the next highest number in the **GROUP BY** clause.
 
-   ```
+   ```sql
    GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37
    ```
 
@@ -123,7 +122,7 @@ Follow instructions depending on the CUR version you use:
 
 1. We’ll first confirm that we see the tags in the CUR table. Run this query to list all available Tag keys.
 
-   ```
+   ```sql
      SELECT DISTINCT key
      FROM cur2
      CROSS JOIN UNNEST(map_keys(resource_tags)) AS t(key)
@@ -137,7 +136,7 @@ Follow instructions depending on the CUR version you use:
 
 1. On the line after `, "line_item_usage_account_id" "linked_account_id"` in the query add a blank line below that.
 
-   ```
+   ```sql
      CREATE OR REPLACE VIEW "summary_view" AS
      SELECT
        split_part("billing_period", '-', 1) "year"

@@ -1,7 +1,6 @@
 
 
 # Customizations
-<a name="customizations"></a>
 
 ## Last Updated
 <a name="last-updated"></a>

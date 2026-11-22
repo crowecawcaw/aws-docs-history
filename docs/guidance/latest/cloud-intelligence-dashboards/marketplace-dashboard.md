@@ -1,7 +1,6 @@
 
 
 # AWS Marketplace Single Pane of Glass (SPG) Dashboard
-<a name="marketplace-dashboard"></a>
 
 ## Introduction
 <a name="introduction"></a>
@@ -92,13 +91,13 @@ An alternative method to install dashboards is the [cid-cmd](https://github.com/
 
 1. In your command-line interface run the following command to download and install the CID CLI tool:
 
-   ```
+   ```bash
    pip3 install --upgrade cid-cmd
    ```
 
 1. In your command-line interface run the following command to deploy the dashboard:
 
-   ```
+   ```bash
    cid-cmd deploy --dashboard-id aws-marketplace
    ```
 
@@ -108,13 +107,13 @@ You can deploy the AWS Marketplace SPG Dashboard using the [CID Terraform module
 
 1. In your [user-config.tf](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/user-config.tf), find the `dashboards` block and set `marketplace` to `"yes"`:
 
-   ```
+   ```hcl
      marketplace = "yes"  # AWS Marketplace SPG Dashboard
    ```
 
 1. Ensure the following module block is present in your `dashboards.tf`:
 
-   ```
+   ```hcl
    module "marketplace_dashboard" {
      source = "./modules/cloudformation_stack"
      providers = {
@@ -129,7 +128,7 @@ This block is already included if you are using the full module files from the r
 
 1. Run the Terraform workflow:
 
-   ```
+   ```bash
    terraform init
    terraform plan
    terraform apply
@@ -144,7 +143,7 @@ If you are adding this dashboard to an existing Terraform deployment, `terraform
 
 Please note that dashboards are not updated with update of CloudFormation Stack. When a new version of the dashboard template is released, you can update your dashboard by running the following command in your command-line interface:
 
-```
+```bash
 cid-cmd update --dashboard-id aws-marketplace
 ```
 
@@ -157,7 +156,7 @@ In the SPG Dashboard, to view the AWS Marketplace licenses and grants in the **G
 + Select the database that has the views for CID. By default it can be **cid\_cur** database.
 + Run the following query to update **marketplace\_licenses\_grants\_view** view in Amazon Athena.
 
-```
+```sql
 CREATE OR REPLACE VIEW "marketplace_licenses_grants_view" AS
 SELECT DISTINCT
   lt.payer_id management_account_id
@@ -198,13 +197,13 @@ In the SPG Dashboard, to view the AWS Marketplace Agreements in the **Marketplac
 + Select the database that has the views for CID. By default it can be **cid\_cur** database.
 + Run the following queries to update **terms** and **agreements** views in Amazon Athena.
 
-```
+```sql
 CREATE OR REPLACE VIEW "terms" AS
 SELECT *
 FROM optimization_data.terms
 ```
 
-```
+```sql
 CREATE OR REPLACE VIEW "agreements" AS
 SELECT *
 FROM optimization_data.agreements

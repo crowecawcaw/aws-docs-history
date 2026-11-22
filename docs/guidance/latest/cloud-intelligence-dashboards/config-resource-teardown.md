@@ -1,7 +1,6 @@
 
 
 # Teardown
-<a name="config-resource-teardown"></a>
 
 ## Remove the AWS Config Resource Compliance Dashboard dashboard resources
 <a name="remove-the-aws-config-resource-compliance-dashboard-dashboard-resources"></a>
@@ -17,7 +16,7 @@ Follow these steps to remove the dashboard.
 
 1. Execute the following command to delete the dashboard:
 
-```
+```bash
 cid-cmd delete --resources 'https://raw.githubusercontent.com/aws-samples/config-resource-compliance-dashboard/refs/heads/main/dashboard_template/cid-crcd.yaml'
 ```
 

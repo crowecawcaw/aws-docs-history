@@ -1,7 +1,6 @@
 
 
 # Cloud Intelligence Dashboards Framework
-<a name="getting-started"></a>
 
 ## Introduction
 <a name="introduction"></a>
@@ -27,7 +26,7 @@ This documentation will walk you through deployment and usage of dashboards as w
 ## Cloud Intelligence Dashboards at re:invent 2023
 <a name="cloud-intelligence-dashboards-at-reinvent-2023"></a>
 
-[![AWS Videos](https://img.youtube.com/vi/keAfy8f84E0?rel=0/0.jpg)](https://www.youtube.com/watch?v=keAfy8f84E0?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/keAfy8f84E0/0.jpg)](https://www.youtube.com/watch?v=keAfy8f84E0)
 
 
 ## Recommended User Journey
@@ -69,6 +68,7 @@ At any moment, please contact your AWS or Partner Account Team to discuss how yo
 +  [How Accor optimized its costs and carbon footprint with AWS Graviton (blog post in French)](https://aws.amazon.com/fr/blogs/france/comment-accor-a-optimise-ses-couts-et-son-empreinte-carbone-avec-aws-graviton/) 
 +  [Automating multi-cloud cost management at scale: a2a’s FinOps platform powered by AWS](https://aws.amazon.com/blogs/aws-cloud-financial-management/automating-multi-cloud-cost-management-at-scale-a2as-finops-platform-powered-by-aws/) 
 +  [Analyzing unit costs using Cloud Intelligence Dashboards on AWS with NXP](https://aws.amazon.com/solutions/case-studies/nxp-cid/) 
++  [GlobalFoundries’s journey to building a FinOps operating model on AWS](https://aws.amazon.com/blogs/aws-cloud-financial-management/globalfoundriess-journey-to-building-a-finops-operating-model-on-aws/) 
 
 ## AWS Blog posts referring to Cloud Intelligence Dashboards
 <a name="aws-blog-posts-referring-to-cloud-intelligence-dashboards"></a>
