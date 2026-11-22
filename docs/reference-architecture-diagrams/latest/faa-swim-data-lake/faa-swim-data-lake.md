@@ -1,7 +1,6 @@
 
 
 # Using the Federal Aviation Administration SWIM Data Lake
-<a name="faa-swim-data-lake"></a>
 
 Publication date: **March 10, 2021 ([Diagram history](#faa-swim-history))**
 
