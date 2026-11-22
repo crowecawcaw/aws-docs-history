@@ -1,7 +1,6 @@
 
 
 # Using AWS Startup Advisor skills
-<a name="using-skills"></a>
 
  AWS Startup Advisor bundles 12 skills that a coding agent uses. The same skills are available across the supported agents, so you get the same guidance no matter which agent you use. The skills fall into four groups: skills that help you start and grow on AWS, skills that build AI agents on AWS, skills that migrate workloads to AWS, and skills that operate workloads on AWS.
 

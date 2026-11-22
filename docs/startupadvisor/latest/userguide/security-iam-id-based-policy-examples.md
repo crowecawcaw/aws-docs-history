@@ -1,7 +1,6 @@
 
 
 # AWS Startups identity-based policy examples
-<a name="security-iam-id-based-policy-examples"></a>
 
 By default, IAM users and roles don’t have permission to create or modify AWS Startups resources. They also can’t perform tasks using the AWS Management Console, AWS CLI, or AWS API. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the IAM users or groups that require those permissions.
 
@@ -31,7 +30,7 @@ The `startups:GetSpendSummary` action does not support resource-level permission
 **Note**  
 If your identity is missing one or more of the downstream permissions, the `startups:GetSpendSummary` operation still returns a successful response. However, one or more sections of the response contain an error with the code `ACCESS_DENIED` and a message from the downstream service. If the **Cost & Credits** view shows missing or empty sections, verify that your identity has all of the actions in the following policy.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

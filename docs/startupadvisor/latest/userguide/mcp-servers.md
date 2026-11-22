@@ -1,7 +1,6 @@
 
 
 # Configure live data with the MCP server (optional)
-<a name="mcp-servers"></a>
 
  AWS Startup Advisor can use a Model Context Protocol (MCP) server for live AWS data. The MCP server is an optional enhancement, not a requirement. Skills run without it, but they cannot fetch live AWS data, such as documentation, regional service availability, and live API calls. The MCP server is independent of skills, and it does not serve the skills that you install locally.
 
@@ -17,7 +16,7 @@
 
 This server runs through `uvx`, which requires `uv` and `uvx` on your machine. To install `uv`, see [the uv documentation](https://docs.astral.sh/uv/). The plugin pins the proxy version and launches the server with the following command.
 
-```
+```bash
 uvx mcp-proxy-for-aws-cli==1.7.0 https://aws-mcp.us-east-1.api.aws/mcp
 ```
 
@@ -30,7 +29,7 @@ When you install the plugin for Claude Code or Codex, the `aws-mcp` server is co
 
 The `npx skills add` path installs only the skills, not the MCP server. To use the MCP server with another agent, such as Kiro, fx, or another coding agent, add the AWS MCP Server to that agent’s own MCP configuration. Then, install the skills separately. For example, add the server to the Kiro `.kiro/settings/mcp.json` file or the Cursor `.cursor/mcp.json` file with the following command.
 
-```
+```bash
 uvx mcp-proxy-for-aws-cli@latest https://aws-mcp.us-east-1.api.aws/mcp
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Logging AWS Startups API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
  AWS Startups is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Startups. CloudTrail captures all API calls for AWS Startups as events. The calls captured include calls from the AWS Startups console and code calls to the AWS Startups API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Startups. If you don’t configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to AWS Startups, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -37,7 +36,7 @@ The following examples show CloudTrail log entries that demonstrate the `GetSpen
 
 The following example shows a successful `GetSpendSummary` call.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -82,7 +81,7 @@ The following example shows a successful `GetSpendSummary` call.
 
 The following example shows a failed `GetSpendSummary` call. This entry shows an action-level authorization failure for `startups:GetSpendSummary`, where no identity-based policy allows the caller to perform the action. This action-level failure differs from the partial-response behavior. In that case, a successful call returns `ACCESS_DENIED` in individual response sections when the caller lacks the downstream Cost Explorer or Billing permissions.
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {

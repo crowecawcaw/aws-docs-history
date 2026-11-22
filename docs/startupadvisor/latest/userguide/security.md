@@ -1,7 +1,6 @@
 
 
 # Security in AWS Startups
-<a name="security"></a>
 
  AWS Startup Advisor uses the AWS Startups service. The following topics describe the security of the AWS Startups service.
 

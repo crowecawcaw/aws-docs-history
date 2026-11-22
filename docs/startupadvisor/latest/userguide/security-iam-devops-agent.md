@@ -1,7 +1,6 @@
 
 
 # Permissions for AWS DevOps Agent
-<a name="security-iam-devops-agent"></a>
 
 If you set up AWS DevOps Agent for the **Operate** capabilities, your identity needs two kinds of permissions: read access so the IDE extension can show status, and permissions to create the access role and Agent Space.
 

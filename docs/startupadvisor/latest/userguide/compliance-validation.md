@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Startups
-<a name="compliance-validation"></a>
 
 To learn whether an AWS service is within the scope of specific compliance programs, see AWS Services in Scope by Compliance Program and choose the compliance program that you are interested in.
 

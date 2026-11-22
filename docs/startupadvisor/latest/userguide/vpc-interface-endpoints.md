@@ -1,7 +1,6 @@
 
 
 # AWS Startups and interface VPC endpoints (AWS PrivateLink)
-<a name="vpc-interface-endpoints"></a>
 
 You can establish a private connection between your VPC and AWS Startups, the service that powers the AWS Startup Advisor credits and cost tracker, by creating an *interface VPC endpoint*. Interface endpoints are powered by [AWS PrivateLink](http://aws.amazon.com/privatelink), a technology that enables you to privately access the AWS Startups APIs without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC don’t need public IP addresses to communicate with the AWS Startups APIs. Traffic between your VPC and AWS Startups does not leave the Amazon network.
 

@@ -1,7 +1,6 @@
 
 
 # How AWS Startups works with IAM
-<a name="security-iam-service-with-iam"></a>
 
 Before you use IAM to manage access to AWS Startups, learn what IAM features are available to use with AWS Startups. To get a high-level view of how AWS Startups and other AWS services work with IAM, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
