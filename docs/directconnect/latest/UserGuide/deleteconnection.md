@@ -1,7 +1,6 @@
 
 
 # Delete a Direct Connect connection
-<a name="deleteconnection"></a>
 
 You can delete a connection as long as there are no virtual interfaces attached to it. Deleting your connection stops all port hour charges for this connection, but you may still incur cross-connect or network circuit charges (see below). Direct Connectdata transfer charges are associated with virtual interfaces. For more information about how to delete a virtual interface, see [Delete a virtual interface](deletevif.md).
 

@@ -1,7 +1,6 @@
 
 
 # Create a Transit Gateway and Direct Connect association proposal
-<a name="multi-account-tgw-create-proposal"></a>
 
 If you own the Transit Gateway, you must create the association proposal. The owner of the Direct Connect gateway must share the ID of the Direct Connect gateway and the ID of its AWS account. After you create the proposal, the owner of the Direct Connect gateway must accept it in order for you to gain access to the on-premises network over Direct Connect. You can create an association proposal using either the Direct Connect console or using the command line or API.
 

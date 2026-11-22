@@ -1,7 +1,6 @@
 
 
 # Long ASN support in Direct Connect
-<a name="long-asn-support"></a>
 
 Support for long ASNs (4-byte) allows you to configure long Autonomous System Numbers (ASNs) as part of the parameters of the BGP session established between the AWS network device and your network device. This feature is enabled or disabled on a per-account basis.
 

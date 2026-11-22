@@ -1,7 +1,6 @@
 
 
 # Internetwork traffic privacy in AWS Direct Connect
-<a name="encryption-at-rest"></a>
 
 ## Traffic between service and on-premises clients and applications
 <a name="inter-network-traffic-privacy-on-prem"></a>

@@ -1,7 +1,6 @@
 
 
 # Get started using MACsec on a dedicated Direct Connect connection
-<a name="create-macsec-dedicated"></a>
 
 The following task gets you started setting up MACsec to use on a Direct Connect dedicated connection
 

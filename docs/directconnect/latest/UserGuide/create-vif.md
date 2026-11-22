@@ -1,7 +1,6 @@
 
 
 # Direct Connect virtual interfaces
-<a name="create-vif"></a>
 
 You can create a transit virtual interface to connect to a Transit Gateway, a public virtual interface to connect to public resources (non-VPC services), or a private virtual interface to connect to a VPC.
 

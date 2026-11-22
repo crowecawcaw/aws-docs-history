@@ -1,7 +1,6 @@
 
 
 # Create a Direct Connect private virtual interface
-<a name="create-private-vif"></a>
 
 You can provision a private virtual interface to a virtual private gateway in the same Region as your Direct Connect connection. For more information about provisioning a private virtual interface to a Direct Connect gateway, see [Direct Connect gateways](direct-connect-gateways.md).
 

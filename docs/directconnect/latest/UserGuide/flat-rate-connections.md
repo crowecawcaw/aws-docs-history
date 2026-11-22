@@ -1,7 +1,6 @@
 
 
 # Flat-rate billing for dedicated connections
-<a name="flat-rate-connections"></a>
 
 Direct Connect offers flat-rate as a new billing mode for dedicated connections, available alongside the existing pay-as-you-go model. You set the billing mode per connection, and you can switch a connection back to pay-as-you-go at any time. Flat-rate billing introduces **port-pairs**, a recommended setup that builds resiliency into your connection by default.
 
@@ -37,7 +36,11 @@ A port-pair is two dedicated Direct Connect ports, provisioned on different devi
 
 The second port is included at no additional charge.
 
+**Setting up a port-pair**
+
 To create a port-pair, place two qualifying flat-rate connections into a resiliency group, a logical grouping that declares your intended redundancy model. AWS matches the qualifying connections in the group as a port-pair. For more information, see [Resiliency groups](#flat-rate-resiliency-groups).
+
+**Port-pair requirements**
 
 A connection is part of a port-pair when all of the following are true:
 + The connection is set to flat-rate billing mode.
@@ -57,6 +60,8 @@ After the connections are matched as a port-pair, the billing mode updates on ea
 
 
 If you delete a connection or change a property that breaks the pairing requirements, both connections revert to single connections. Because flat-rate billing is calculated per hour, changes are reflected within the next billing hour.
+
+**LAGs and flat-rate connections**
 
 All members of a LAG must use the same billing mode. A LAG can't mix flat-rate and pay-as-you-go connections. A flat-rate connection that leaves a LAG keeps flat-rate as its billing mode. A pay-as-you-go connection added to a LAG that already uses flat-rate billing converts to flat-rate automatically.
 

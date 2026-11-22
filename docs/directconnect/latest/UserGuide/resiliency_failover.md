@@ -1,7 +1,6 @@
 
 
 # Direct Connect Failover Test
-<a name="resiliency_failover"></a>
 
 The AWS Direct Connect Resiliency Toolkit resiliency models are designed to ensure that you have the appropriate number of virtual interface connections in multiple locations. After you complete the wizard, use the AWS Direct Connect Resiliency Toolkit failover test to bring down the BGP peering session in order to verify that traffic routes to one of your redundant virtual interfaces, and meets your resiliency requirements.
 

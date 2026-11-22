@@ -1,7 +1,6 @@
 
 
 # Direct Connect gateways
-<a name="direct-connect-gateways-intro"></a>
 
 Use Direct Connect gateway to connect your VPCs. You associate a Direct Connect gateway with any of the following: 
 + A Transit Gateway when you have multiple VPCs in the same Region

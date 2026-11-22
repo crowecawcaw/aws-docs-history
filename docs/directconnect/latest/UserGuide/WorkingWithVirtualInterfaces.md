@@ -1,7 +1,6 @@
 
 
 # Direct Connect virtual interfaces and hosted virtual interfaces
-<a name="WorkingWithVirtualInterfaces"></a>
 
 You must create one of the following virtual interfaces (VIFs) to begin using your Direct Connect connection. 
 + Private virtual interface: A private virtual interface should be used to access an Amazon VPC using private IP addresses.

@@ -1,7 +1,6 @@
 
 
 # Use the Direct Connect CLI
-<a name="using-cli"></a>
 
 You can use the AWS CLI to create and work with Direct Connect resources.
 

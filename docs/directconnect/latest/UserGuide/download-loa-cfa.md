@@ -1,7 +1,6 @@
 
 
 # Download the Direct Connect LOA-CFA
-<a name="download-loa-cfa"></a>
 
 You can download the LOA-CFA using either the Direct Connect console or through the command line. Once you've downloadeded the LOA-CFA and provided that to your network or colocation provider, that provider can order the cross-connect for you.
 

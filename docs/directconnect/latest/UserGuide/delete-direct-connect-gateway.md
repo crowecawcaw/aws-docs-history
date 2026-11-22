@@ -1,7 +1,6 @@
 
 
 # Delete a Direct Connect gateway
-<a name="delete-direct-connect-gateway"></a>
 
 If you no longer require a Direct Connect gateway, you can delete it. You must first disassociate all associated virtual private gateways and delete the attached private virtual interface. Once you've disassociated any associated virtual private gateways and deleted any attached private virtual interfaces, you can delete the Direct Connect gateway using either the Direct Connect console or using the command line or API. 
 + For the steps to disassociate a virutal private gateway, see [Associate or disassociate virtual private gateways](associate-vgw-with-direct-connect-gateway.md).

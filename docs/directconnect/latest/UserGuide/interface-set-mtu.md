@@ -1,7 +1,6 @@
 
 
 # Set the MTU of a Direct Connect private virtual interface
-<a name="interface-set-mtu"></a>
 
 If your virtual interface has both an IPv4 and IPv6 BGP peering session, you can delete one of the BGP peering sessions (but not both). For more information about MTUs and private virtual interfaces, see [MTUs for private virtual interfaces or transit virtual interfaces](WorkingWithVirtualInterfaces.md#set-jumbo-frames-vif.title).
 

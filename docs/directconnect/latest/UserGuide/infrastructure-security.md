@@ -1,7 +1,6 @@
 
 
 # Infrastructure security in Direct Connect
-<a name="infrastructure-security"></a>
 
 As a managed service, AWS Direct Connect is protected by the AWS global network security procedures. You use AWS published API calls to access Direct Connect through the network. Clients must support Transport Layer Security (TLS) 1.2 or later. We recommend TLS 1.3. Clients must also support cipher suites with perfect forward secrecy (PFS) such as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems such as Java 7 and later support these modes.
 

@@ -1,7 +1,6 @@
 
 
 # Create a private virtual interface to the Direct Connect gateway
-<a name="create-private-vif-for-gateway"></a>
 
 To connect your Direct Connect connection to the remote VPC, you must create a private virtual interface for your connection. Specify the Direct Connect gateway to which to connect. You can create a private virtual interface using either the Direct Connect console or using the command line or API.
 

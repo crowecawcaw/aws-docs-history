@@ -1,7 +1,6 @@
 
 
 # Troubleshoot layer 1 (physical) issues
-<a name="ts_layer_1"></a>
 
 If you or your network provider are having difficulty establishing physical connectivity to a Direct Connect device, use the following steps to troubleshoot the issue.
 

@@ -1,7 +1,6 @@
 
 
 # Update a LAG at a Direct Connect endpoint
-<a name="update-lag"></a>
 
 You can update the following link aggregation group (LAG) attributes using either the Direct Connect console or using the command line or API:
 + The name of the LAG.

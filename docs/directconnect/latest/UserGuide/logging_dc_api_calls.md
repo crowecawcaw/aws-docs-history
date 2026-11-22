@@ -1,7 +1,6 @@
 
 
 # Log Direct Connect API calls using AWS CloudTrail
-<a name="logging_dc_api_calls"></a>
 
 Direct Connect is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Direct Connect. CloudTrail captures all API calls for Direct Connect as events. The calls captured include calls from the Direct Connect console and code calls to the Direct Connect API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Direct Connect. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Direct Connect, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -36,7 +35,7 @@ The following are example CloudTrail log records for Direct Connect.
 
 **Example: CreateConnection**  
 
-```
+```json
 {
     "Records": [
     {
@@ -83,7 +82,7 @@ The following are example CloudTrail log records for Direct Connect.
 
 **Example: CreatePrivateVirtualInterface**  
 
-```
+```json
 {
     "Records": [
     {
@@ -145,7 +144,7 @@ The following are example CloudTrail log records for Direct Connect.
 
 **Example: DescribeConnections**  
 
-```
+```json
 {
     "Records": [
     {
@@ -180,7 +179,7 @@ The following are example CloudTrail log records for Direct Connect.
 
 **Example: DescribeVirtualInterfaces**  
 
-```
+```json
 {
     "Records": [
     {

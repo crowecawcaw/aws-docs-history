@@ -1,7 +1,6 @@
 
 
 # Dedicated Direct Connect connections
-<a name="dedicated_connection"></a>
 
 To create a Direct Connect dedicated connection, you need the following information:
 

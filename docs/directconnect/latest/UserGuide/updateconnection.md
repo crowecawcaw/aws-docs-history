@@ -1,7 +1,6 @@
 
 
 # Update a Direct Connect connection
-<a name="updateconnection"></a>
 
 You can update the following connection attribute using either the Direct Connect console or using the command line or API.
 + The name of the connection.

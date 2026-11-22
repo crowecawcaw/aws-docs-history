@@ -1,7 +1,6 @@
 
 
 # Associate a MACsec CKN/CAK with a Direct Connect connection
-<a name="associate-key-connection"></a>
 
 After you create the connection that supports MACsec, you can associate a CKN/CAK with the connection. You can create the association using either the Direct Connect console or through the command-line or API.
 

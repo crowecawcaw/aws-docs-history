@@ -1,7 +1,6 @@
 
 
 # Hosted Direct Connect connections
-<a name="hosted_connection"></a>
 
 To create a Direct Connect hosted connection, you need the following information:
 

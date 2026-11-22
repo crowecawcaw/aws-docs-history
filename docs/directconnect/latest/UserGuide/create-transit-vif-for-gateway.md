@@ -1,7 +1,6 @@
 
 
 # Create a transit virtual interface to the Direct Connect gateway
-<a name="create-transit-vif-for-gateway"></a>
 
 To connect your Direct Connect connection to the Transit Gateway, you must create a transit interface for your connection. Specify the Direct Connect gateway to which to connect. You can use either the Direct Connect console or use the command line or API.
 

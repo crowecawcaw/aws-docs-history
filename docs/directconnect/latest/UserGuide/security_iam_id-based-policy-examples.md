@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for Direct Connect
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Direct Connect resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -51,7 +50,7 @@ The following example policy grants read access to Direct Connect.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -76,7 +75,7 @@ The following example policy grants full access to Direct Connect.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -215,7 +214,7 @@ You don't need to allow minimum console permissions for users that are making ca
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -260,7 +259,7 @@ The following example policy grants read access to Direct Connect.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -288,7 +287,7 @@ The following example policy grants full access to Direct Connect.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

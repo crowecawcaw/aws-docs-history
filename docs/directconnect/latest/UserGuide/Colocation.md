@@ -1,7 +1,6 @@
 
 
 # Requesting cross connects at Direct Connect locations
-<a name="Colocation"></a>
 
  After you have downloaded your Letter of Authorization and Connecting Facility Assignment (LOA-CFA), you must complete your cross-network connection, also known as a *cross connect*. If you already have equipment located in a Direct Connect location, contact the appropriate provider to complete the cross connect. For specific instructions for each provider, see the tables below. Partners and contact information are organized by Region. For specific cross connect pricing you'll need to contact the Direct Connect Partner directly. After the cross connect is established, you can create the virtual interfaces using the Direct Connect console.
 

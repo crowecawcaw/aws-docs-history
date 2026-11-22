@@ -1,7 +1,6 @@
 
 
 # Direct Connect link aggregation groups (LAGs)
-<a name="lags"></a>
 
 You can use multiple connections to increase available bandwidth. A link aggregation group (LAG) is a logical interface that uses the Link Aggregation Control Protocol (LACP) to aggregate multiple connections at a single Direct Connect endpoint, allowing you to treat them as a single, managed connection. LAGs streamline configuration because the LAG configuration applies to all connections in the group. 
 

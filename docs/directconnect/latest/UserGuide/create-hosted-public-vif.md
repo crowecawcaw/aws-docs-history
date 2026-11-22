@@ -1,7 +1,6 @@
 
 
 # Create a hosted public virtual interface in Direct Connect
-<a name="create-hosted-public-vif"></a>
 
 Before you begin, ensure that you have read the information in [Prerequisites for virtual interfaces](WorkingWithVirtualInterfaces.md#vif-prerequisites).
 

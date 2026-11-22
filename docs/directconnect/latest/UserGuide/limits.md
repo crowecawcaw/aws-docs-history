@@ -1,7 +1,6 @@
 
 
 # Direct Connect quotas
-<a name="limits"></a>
 
 The following table lists the quotas related to Direct Connect.
 

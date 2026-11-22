@@ -1,7 +1,6 @@
 
 
 # Inbound prefix controls for Direct Connect
-<a name="prefix-controls"></a>
 
 Inbound prefix controls let you manage how many on-premises route prefixes you can advertise to AWS on your Direct Connect private and transit virtual interfaces (VIFs). Prefix controls create capacity pools of prefixes at the dedicated connection level and at the Direct Connect gateway (DXGW) level. With the new controls, you allocate a specific number of prefixes to a new private or transit VIF, or edit an existing VIF's allocation. You then attach that VIF to a DXGW or a virtual private gateway (VGW). That VIF then consumes the value you allocated from the dedicated connection's pool and from the DXGW's pool. This allows you to have, on the same dedicated connection, for example, a transit VIF with an allocation of 1,000 prefixes and a private VIF with an allocation of 50 prefixes. If you don't select any value, AWS applies the default allocation of 100 prefixes per address family.
 

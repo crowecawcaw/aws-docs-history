@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in AWS Direct Connect
-<a name="dc-incident-response"></a>
 
 You can use the following automated monitoring tools to watch Direct Connect and report when something is wrong:
 + **Amazon CloudWatch Alarms** – Watch a single metric over a time period that you specify. Perform one or more actions based on the value of the metric relative to a given threshold over a number of time periods. The action is a notification sent to an Amazon SNS topic. CloudWatch alarms do not invoke actions simply because they are in a particular state; the state must have changed and been maintained for a specified number of periods. For more information, see [Monitor with Amazon CloudWatch](monitoring-cloudwatch.md).

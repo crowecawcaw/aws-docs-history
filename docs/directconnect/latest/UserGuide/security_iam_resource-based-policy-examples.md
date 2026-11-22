@@ -1,7 +1,6 @@
 
 
 # Direct Connect identity-based policy examples using tag-based conditions
-<a name="security_iam_resource-based-policy-examples"></a>
 
 You can control access to resources and requests by using tag key conditions. You can also use a condition in your IAM policy to control whether specific tag keys can be used on a resource or in a request. 
 
@@ -17,7 +16,7 @@ The following example shows how you might create a policy that allows associatin
 
 ****  
 
-```
+```json
        {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -59,7 +58,7 @@ You can use conditions in your IAM policies to control which tag key–value pai
 
 ****  
 
-```
+```json
     {
         "Version":"2012-10-17",		 	 	 
         "Statement": {
@@ -93,7 +92,7 @@ The following example shows how you might create a policy that allows you to tag
 
 ****  
 
-```
+```json
      {
       "Version":"2012-10-17",		 	 	 
       "Statement": {

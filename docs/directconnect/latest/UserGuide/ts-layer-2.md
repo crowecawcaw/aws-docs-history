@@ -1,7 +1,6 @@
 
 
 # Troubleshoot layer 2 (data link) issues
-<a name="ts-layer-2"></a>
 
 If your Direct Connect physical connection is up but your virtual interface is down, use the following steps to troubleshoot the issue.
 

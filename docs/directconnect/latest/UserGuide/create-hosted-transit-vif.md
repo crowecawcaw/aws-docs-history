@@ -1,7 +1,6 @@
 
 
 # Create a Direct Connect hosted transit virtual interface
-<a name="create-hosted-transit-vif"></a>
 
 **To create a hosted transit virtual interface**
 **Important**  

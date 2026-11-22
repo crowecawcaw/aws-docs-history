@@ -1,7 +1,6 @@
 
 
 # BGP route visibility
-<a name="bgp-route-visibility"></a>
 
 With Direct Connect, you can view the BGP routes on your virtual interfaces (VIFs). You can see which routes AWS accepted from your router. You can also see which routes AWS is sending to your router. Each route shows its AS path and community values.
 
@@ -57,7 +56,7 @@ You can filter routes by prefix, AS path, community, or address family.
 
 Use the [list-virtual-interface-routes](https://docs.aws.amazon.com/cli/latest/reference/directconnect/list-virtual-interface-routes.html) command. Use the `routeDirection` filter to return accepted or advertised routes. The following example returns the routes that AWS accepted from your router on the specified virtual interface.
 
-```
+```bash
 aws directconnect list-virtual-interface-routes \
     --virtual-interface-id {{dxvif-abc12345}} \
     --filters '{"routeDirection": "accepted"}'

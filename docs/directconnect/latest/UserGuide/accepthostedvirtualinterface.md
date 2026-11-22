@@ -1,7 +1,6 @@
 
 
 # Accept a hosted Direct Connect virtual interface
-<a name="accepthostedvirtualinterface"></a>
 
 Before you can begin using a hosted virtual interface, you must accept the virtual interface. For a private virtual interface, you must also have an existing virtual private gateway or Direct Connect gateway. For a transit virtual interface, you must have an existing Transit Gateway or Direct Connect gateway.
 

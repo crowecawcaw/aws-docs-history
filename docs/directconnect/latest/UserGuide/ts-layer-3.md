@@ -1,7 +1,6 @@
 
 
 # Troubleshoot layer 3/4 (Network/Transport) issues
-<a name="ts-layer-3"></a>
 
 Consider a situation where your Direct Connect physical connection is up and you can ping the Amazon peer IP address. If your virtual interface is up and the BGP peering session cannot be established, use the following steps to troubleshoot the issue:
 

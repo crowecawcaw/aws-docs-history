@@ -1,7 +1,6 @@
 
 
 # Configure Direct Connect for high resiliency with the AWS Direct Connect Resiliency Toolkit
-<a name="high-resiliency-set-up"></a>
 
 In this example, the Direct Connect Resiliency Toolkit is used to configure a high resiliency model
 

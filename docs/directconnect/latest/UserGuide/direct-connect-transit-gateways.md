@@ -1,7 +1,6 @@
 
 
 # Direct Connect gateways and Transit Gateway associations
-<a name="direct-connect-transit-gateways"></a>
 
 You can use Direct Connect gateway to connect your Direct Connect connection over a transit virtual interface to the VPCs or VPNs that are attached to your Transit Gateway. You associate a Direct Connect gateway with the Transit Gateway. Then, create a transit virtual interface for your Direct Connect connection to the Direct Connect gateway. 
 

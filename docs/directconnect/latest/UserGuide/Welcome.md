@@ -1,7 +1,6 @@
 
 
 # What is Direct Connect?
-<a name="Welcome"></a>
 
 Direct Connect links your internal network to a Direct Connect location over a standard Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an Direct Connect router. With this connection, you can create *virtual interfaces* directly to public AWS services (for example, to Amazon S3) or to Amazon VPC, bypassing internet service providers in your network path. A Direct Connect location provides access to AWS in the Region with which it is associated. You can use a single connection in a public Region or AWS GovCloud (US) to access public AWS services in all other public Regions. 
 + For a list of Direct Connect locations and their associated Regions, see [Locations and their associated Regions](remote_regions.md#locations-and-associated-regions).

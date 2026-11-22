@@ -1,7 +1,6 @@
 
 
 # Delete a Transit Gateway and Direct Connect association proposal
-<a name="multi-account-tgw-delete-proposal"></a>
 
 The owner of the Transit Gateway can delete the Direct Connect gateway association proposal if it is still pending acceptance. After an association proposal is accepted, you can't delete it, but you can disassociate the transit gateway from the Direct Connect gateway. For more information, see [Create a Transit Gateway association proposal](multi-account-tgw-create-proposal.md).
 

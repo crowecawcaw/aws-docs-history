@@ -1,7 +1,6 @@
 
 
 # Associate a MACsec CKN/CAK with a Direct Connect endpoint LAG
-<a name="associate-key-lag"></a>
 
 After you create the LAG that supports MACsec, you can associate a CKN/CAK with the connection using either the Direct Connect console or using the command line or API.
 

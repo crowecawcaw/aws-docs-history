@@ -1,7 +1,6 @@
 
 
 # Create Amazon CloudWatch alarms to monitor Direct Connect connections
-<a name="creating-alarms"></a>
 
 You can create a CloudWatch alarm that sends an Amazon SNS message when the alarm changes state. An alarm watches a single metric over a time period that you specify. It sends a notification to an Amazon SNS topic based on the value of the metric relative to a given threshold over a number of time periods. 
 

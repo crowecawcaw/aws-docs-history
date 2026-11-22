@@ -1,7 +1,6 @@
 
 
 # Migrate from a virtual private gateway to a Direct Connect gateway
-<a name="migrate-to-direct-connect-gateway"></a>
 
 You can migrate a virtual private gateway attached to a virtual interface to a Direct Connect gateway. 
 
