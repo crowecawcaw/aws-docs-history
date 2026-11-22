@@ -1,7 +1,6 @@
 
 
 # Creating mount targets
-<a name="manage-fs-access-create-delete-mount-targets"></a>
 
 To access an EFS file system in a VPC, you need to create mount targets for the file system. 
 

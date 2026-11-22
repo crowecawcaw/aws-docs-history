@@ -1,7 +1,6 @@
 
 
 # Upgrading `stunnel`
-<a name="upgrading-stunnel"></a>
 
 Encryption of data in transit with the EFS mount helper requires `OpenSSL` version 1.0.2 or newer, and a version of `stunnel` that supports both Online Certificate Status Protocol (OCSP) and certificate hostname checking. The EFS mount helper uses the `stunnel` program for its TLS functionality. Note that some versions of Linux don't include a version of `stunnel` that supports these TLS features by default. When using one of those Linux distributions, mounting an EFS file system using TLS fails.
 

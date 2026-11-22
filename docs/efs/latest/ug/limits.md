@@ -1,7 +1,6 @@
 
 
 # Amazon EFS quotas
-<a name="limits"></a>
 
 Following, you can find out about quotas when working with Amazon EFS.
 

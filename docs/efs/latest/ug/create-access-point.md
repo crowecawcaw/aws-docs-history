@@ -1,7 +1,6 @@
 
 
 # Creating access points
-<a name="create-access-point"></a>
 
 You can create and delete Amazon EFS access points using the AWS Management Console, the AWS Command Line Interface (AWS CLI), and the Amazon EFS API and SDKs. You cannot modify an access point once it is created. A file system can have a maximum of 10,000 access points unless you request an increase.
 

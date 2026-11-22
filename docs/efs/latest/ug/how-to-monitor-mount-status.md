@@ -1,7 +1,6 @@
 
 
 # Monitoring mount attempt successes and failures
-<a name="how-to-monitor-mount-status"></a>
 
 You can use Amazon CloudWatch Logs to monitor and report the success or failure of mount attempts for your EFS file systems remotely without having to log into the clients. Use the following procedure to configure your EC2 instance to use CloudWatch Logs to monitor the success or failure of its file system mount attempts.
 

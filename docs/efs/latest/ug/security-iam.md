@@ -1,7 +1,6 @@
 
 
 # Identity and access management for Amazon EFS
-<a name="security-iam"></a>
 
  
 

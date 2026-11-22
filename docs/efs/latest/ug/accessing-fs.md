@@ -1,7 +1,6 @@
 
 
 # Managing mount targets
-<a name="accessing-fs"></a>
 
 You mount your file system on Amazon EC2 or other AWS compute instance in your virtual private cloud (VPC) using one or more mount targets that you create for the file system. You can create the mount target when you create the file system or after you create the file system. 
 

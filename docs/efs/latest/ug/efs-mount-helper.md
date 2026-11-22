@@ -1,7 +1,6 @@
 
 
 # Mounting EFS file systems using the EFS mount helper
-<a name="efs-mount-helper"></a>
 
 After you install the Amazon EFS client (`amazon-efs-utils`), you can use the EFS mount helper to mount EFS file systems on your EC2 Linux and Mac instances running a [supported distributions](using-amazon-efs-utils.md#efs-utils-supported-distros). Amazon EFS does not support mounting from EC2 Windows instances.
 

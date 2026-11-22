@@ -1,7 +1,6 @@
 
 
 # Configuring replication to new EFS file system
-<a name="create-replication"></a>
 
 Amazon EFS automatically creates a new file system and copies the data and metadata on the source file system to a new read-only destination file system in the AWS Region that you choose. When you replicate to a new file system, you choose the file system type and the AWS Key Management Service (AWS KMS) key to use for encryption. Additionally, Amazon EFS does not create any mount targets when it creates the destination file system. After you create the replication configuration, you must [create one or more mount targets](accessing-fs.md) to [mount a destination file system](efs-mount-helper.md).
 

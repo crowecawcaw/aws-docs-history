@@ -1,7 +1,6 @@
 
 
 # Replicating EFS file systems across AWS accounts
-<a name="cross-account-replication"></a>
 
 You can replicate EFS file systems across AWS accounts. Replicating across accounts enhances the overall resilience and reliability of your disaster recovery (DR) strategies and can help you meet corporate compliance mandates.
 
@@ -35,7 +34,7 @@ The following are the general steps for creating an IAM role with custom trust p
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -59,7 +58,7 @@ The following are the general steps for creating an IAM role with custom trust p
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -110,7 +109,7 @@ To allow the source account permission to replicate to the destination file syst
 
 ****  
 
-```
+```json
 { 
   "Version":"2012-10-17",		 	 	  
   "Statement": [ 
@@ -156,7 +155,7 @@ To allow the destination account permission to delete the replication configurat
 
 ****  
 
-```
+```json
 {  
     "Version":"2012-10-17",		 	 	 
     "Id": "efs-policy-wizard-15ad9567-2546-4bbb-8168-5541b6fc0e55",

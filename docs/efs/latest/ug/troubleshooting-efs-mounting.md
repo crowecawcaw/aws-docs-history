@@ -1,7 +1,6 @@
 
 
 # Troubleshooting mount issues
-<a name="troubleshooting-efs-mounting"></a>
 
 Following, you can find information about troubleshooting EFS file system mounting issues.
 

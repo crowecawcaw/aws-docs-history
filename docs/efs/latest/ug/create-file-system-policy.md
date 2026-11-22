@@ -1,7 +1,6 @@
 
 
 # Creating file system policies
-<a name="create-file-system-policy"></a>
 
 You can create a file system policy by using the Amazon EFS console or by using the AWS CLI. You can also create a file system policy programmatically by using AWS SDKs or the Amazon EFS API directly. EFS file system policies have a 20,000 character limit. For more information about using an EFS file system policy and examples, see [Using IAM to control access to file systems](iam-access-control-nfs-efs.md).
 

@@ -1,7 +1,6 @@
 
 
 # Logging Amazon EFS API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon EFS is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon EFS. CloudTrail captures all API calls for Amazon EFS as events, including calls from the Amazon EFS console and from code calls to Amazon EFS API operations. 
 
@@ -119,7 +118,7 @@ The Amazon EFS service-linked role makes API calls to AWS resources. You will se
 
 The following example shows a CloudTrail log entry that demonstrates a `CreateServiceLinkedRole` action when Amazon EFS creates the AWSServiceRoleForAmazonElasticFileSystem service-linked role.
 
-```
+```JSON
 {
     "eventVersion": "1.05",
     "userIdentity": {

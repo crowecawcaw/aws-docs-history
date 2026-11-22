@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AMI and kernel issues
-<a name="troubleshooting-efs-ami-kernel"></a>
 
 Following, you can find information about troubleshooting issues related to certain Amazon Machine Image (AMI) or kernel versions when using Amazon EFS from an Amazon EC2 instance.
 

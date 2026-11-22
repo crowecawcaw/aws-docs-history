@@ -1,7 +1,6 @@
 
 
 # Managing storage lifecycle
-<a name="lifecycle-management-efs"></a>
 
 You can manage your file systems so that they have cost-effective storage throughout their lifecycle. Use lifecycle management to automatically transition data between storage classes according to the lifecycle configuration for the file system. The lifecycle configuration comprises of three *lifecycle policies* that you set for the file system.
 

@@ -1,7 +1,6 @@
 
 
 # File and directory permissions
-<a name="user-and-group-permissions"></a>
 
 Files and directories in an EFS file system support standard Unix-style read, write, and execute permissions based on the user and group ID asserted by the mounting NFSv4.1 client, unless overridden by an EFS access point.  For more information, see [Network File System (NFS) level users, groups, and permissions](accessing-fs-nfs-permissions.md).
 

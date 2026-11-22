@@ -1,7 +1,6 @@
 
 
 # Resolving issues with installing stunnel
-<a name="stunnel-issues"></a>
 
 If you are unable to install stunnel, try disabling certificate hostname checking. Additionally, provide the strongest security possible by enabling Online Certificate Status Protocol (OCSP). 
 

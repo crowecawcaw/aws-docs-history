@@ -1,7 +1,6 @@
 
 
 # Managing file system throughput
-<a name="managing-throughput"></a>
 
 *Elastic throughput* is the default throughput mode in the Amazon EFS console and is recommended for most use cases. With Elastic throughput, performance automatically scales up or down to meet the needs of your workload activity. If, however, you know the specific access patterns for your workloads (including throughput, latency, and storage needs), then you can choose to change the throughput mode. 
 

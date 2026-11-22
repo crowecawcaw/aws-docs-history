@@ -1,7 +1,6 @@
 
 
 # Enabling automatic mounting on EC2 Linux or Mac instances using NFS
-<a name="nfs-automount-efs"></a>
 
 Using NFS without the EFS mount helper to update the Amazon EC2 `/etc/fstab` file, for EC2 Linux and Mac instances.
 

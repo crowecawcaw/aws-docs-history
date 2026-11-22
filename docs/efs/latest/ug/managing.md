@@ -1,7 +1,6 @@
 
 
 # Managing EFS file systems
-<a name="managing"></a>
 
 File system management tasks include managing a file system's network accessibility with mount targets, changing its throughput mode, updating its lifecycle policies, and managing its encryption.
 

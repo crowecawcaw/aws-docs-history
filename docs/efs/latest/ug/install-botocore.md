@@ -1,7 +1,6 @@
 
 
 # Installing and upgrading `botocore`
-<a name="install-botocore"></a>
 
 The Amazon EFS client uses `botocore` to interact with other AWS services. It is required if you want to monitor mount attempt success or failure for your EFS file systems in CloudWatch Logs. For more information, see [Monitoring mount attempt successes and failures](how-to-monitor-mount-status.md).
 

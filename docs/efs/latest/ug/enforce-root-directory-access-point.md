@@ -1,7 +1,6 @@
 
 
 # Enforcing a root directory with an access point
-<a name="enforce-root-directory-access-point"></a>
 
 You can use an access point to override the root directory for a file system. When you enforce a root directory, the NFS client using the access point uses the root directory configured on the access point instead of the file system's root directory. 
 

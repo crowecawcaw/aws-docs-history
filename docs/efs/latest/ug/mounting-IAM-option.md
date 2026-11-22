@@ -1,7 +1,6 @@
 
 
 # Mounting with IAM authorization
-<a name="mounting-IAM-option"></a>
 
 To mount your EFS file system on Linux instances using AWS Identity and Access Management (IAM) authorization, use the EFS mount helper. For more information about IAM authorization for NFS clients, see [Using IAM to control access to file systems](iam-access-control-nfs-efs.md).
 

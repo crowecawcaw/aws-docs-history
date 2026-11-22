@@ -1,7 +1,6 @@
 
 
 # Using Network File System to mount EFS file systems
-<a name="mounting-fs-old"></a>
 
 Following, learn how to install the Network File System (NFS) client and how to mount your Amazon EFS file system on an Amazon EC2 instance. You also can find an explanation of the `mount` command and the available options for specifying your file system's Domain Name System (DNS) name in the `mount` command. In addition, you can find how to use the file `fstab` to automatically remount your file system after any system restarts.
 

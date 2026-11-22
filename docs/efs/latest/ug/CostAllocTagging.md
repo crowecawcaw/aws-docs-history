@@ -1,7 +1,6 @@
 
 
 # Using cost allocation EFS file system tags
-<a name="CostAllocTagging"></a>
 
 To track the storage cost or other criteria for individual projects or groups of projects, label your EFS file systems using cost allocation tags. A *cost allocation tag* is a key-value pair that you associate with a file system. After you activate cost allocation tags, AWS uses the tags to organize your resource costs on your cost allocation report.
 

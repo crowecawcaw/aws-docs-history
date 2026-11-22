@@ -1,7 +1,6 @@
 
 
 # Enabling automatic mounting on existing EC2 Linux instances
-<a name="mount-fs-auto-mount-update-fstab"></a>
 
 The `/etc/fstab` file contains information about file systems. The command `mount -a`, which runs during instance start-up, mounts all the file systems listed in `/etc/fstab`. In this procedure, you will manually update the `/etc/fstab` on an Amazon EC2 Linux instance so that the instance uses the EFS mount helper to automatically remount an EFS file system when the instance restarts.
 

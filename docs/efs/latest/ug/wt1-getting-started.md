@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create an EFS file system and mount it on an EC2 instance using the AWS CLI
-<a name="wt1-getting-started"></a>
 
 Create an encrypted EFS file system, mount it on an EC2 instance in your VPC, and test the setup using the AWS CLI.
 

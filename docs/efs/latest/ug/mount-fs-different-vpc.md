@@ -1,7 +1,6 @@
 
 
 # Mounting EFS file systems from another VPC
-<a name="mount-fs-different-vpc"></a>
 
 When you use a VPC peering connection or transit gateway to connect VPCs, Amazon EC2 instances that are in one VPC can access EFS file systems in another VPC, even if the VPCs belong to different accounts. 
 

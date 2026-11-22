@@ -1,7 +1,6 @@
 
 
 # Mounting EFS file systems from a different AWS Region
-<a name="mount-different-region"></a>
 
 To mount your EFS file system from an EC2 instance that is in a different AWS Region than the file system, you must edit the `region` property value in the `efs-utils.conf` file.
 

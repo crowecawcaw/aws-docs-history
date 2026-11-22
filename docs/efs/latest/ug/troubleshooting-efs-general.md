@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon EFS performance issues
-<a name="troubleshooting-efs-general"></a>
 
 In general, if you encounter issues with Amazon EFS that you have trouble resolving, confirm that you're using a recent Linux kernel. If you are using an enterprise Linux distribution, we recommend the following:
 + Amazon Linux 2 with kernel 4.3 or newer

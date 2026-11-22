@@ -1,7 +1,6 @@
 
 
 # Creating EFS file systems
-<a name="creating-using-create-fs"></a>
 
 You can create a file system when you create a new EC2 launch instance, as explained in the [Getting started exercise](getting-started.md). However, you can also create file systems by using the Amazon EFS console, the AWS Command Line Interface (AWS CLI), or the Amazon EFS API. 
 

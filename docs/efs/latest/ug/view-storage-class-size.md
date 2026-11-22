@@ -1,7 +1,6 @@
 
 
 # Viewing storage class size
-<a name="view-storage-class-size"></a>
 
 You can view how much data is stored in each storage class of your file system using the Amazon EFS console, the AWS CLI, or the EFS API.
 

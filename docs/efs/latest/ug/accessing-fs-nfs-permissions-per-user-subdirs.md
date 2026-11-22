@@ -1,7 +1,6 @@
 
 
 # Tutorial: Creating writable per-user subdirectories
-<a name="accessing-fs-nfs-permissions-per-user-subdirs"></a>
 
 After you create an EFS file system and mount it locally on your Amazon EC2 (EC2) instance, it exposes an empty directory called the {{file system root}}. One common use case for this file system root directory is to create a "writable" subdirectory for each user you create on the EC2 instance and mount the subdirectory on the user's home directory. All files and subdirectories the user creates in their home directory are then created on the EFS file system. 
 

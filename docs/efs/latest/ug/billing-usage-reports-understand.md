@@ -1,7 +1,6 @@
 
 
 # Understanding billing and usage reports for Amazon EFS
-<a name="billing-usage-reports-understand"></a>
 
 Amazon EFS billing and usage reports use codes and abbreviations. For usage types in the table that follows, replace `{{region}}` with abbreviations from this list:
 + **APE1:** Asia Pacific (Hong Kong)

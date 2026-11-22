@@ -1,7 +1,6 @@
 
 
 # Working with interface VPC endpoints in Amazon EFS
-<a name="efs-vpc-endpoints"></a>
 
 To establish a private connection between your virtual private cloud (VPC) and the Amazon EFS API, you can create an interface VPC endpoint. The endpoint provides secure connectivity to the Amazon EFS API without requiring an internet gateway, NAT instance, or virtual private network (VPN) connection. For more information, see [Access an AWS service using an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the *Amazon VPC User Guide*. 
 
@@ -30,7 +29,7 @@ For more information, see [Control access to VPC endpoints using endpoint polici
 
 The following example shows a VPC endpoint policy that denies everyone permission to create an EFS file system through the endpoint. The example policy also grants everyone permission to perform all other actions. 
 
-```
+```json
 {
    "Statement": [
         {

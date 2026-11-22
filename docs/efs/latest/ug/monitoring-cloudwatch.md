@@ -1,7 +1,6 @@
 
 
 # Monitoring metrics with Amazon CloudWatch
-<a name="monitoring-cloudwatch"></a>
 
 You can monitor file systems using Amazon CloudWatch, which collects and processes raw data from Amazon EFS into readable, near real-time metrics. These statistics are recorded for a period of 15 months, so that you can gain a better perspective on how your web application or service is performing.
 

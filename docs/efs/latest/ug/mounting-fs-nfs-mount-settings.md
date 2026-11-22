@@ -1,7 +1,6 @@
 
 
 # Recommended NFS mount settings
-<a name="mounting-fs-nfs-mount-settings"></a>
 
 We recommend the following values for mount options on Linux: 
 + `noresvport` – Tells the NFS client to use a new non-privileged Transmission Control Protocol (TCP) source port when a network connection is reestablished. NFS client software included in older versions of the Linux kernel (versions v5.4 and below) include a behavior that causes NFS clients to, upon disconnection, attempt reconnecting on the same TCP source port. This behavior does not comply with the TCP RFC, and can prevent these clients from quickly re-establishing connections to an EFS file system.

@@ -1,7 +1,6 @@
 
 
 # Mount settings used by EFS mount helper
-<a name="mount-helper-setting"></a>
 
 The Amazon EFS mount helper client uses the following mount options that are optimized for Amazon EFS:
 + `nfsvers=4.1` – used when mounting on EC2 Linux instances

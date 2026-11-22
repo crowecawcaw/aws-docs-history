@@ -1,7 +1,6 @@
 
 
 # Configuring replication to an existing EFS file system
-<a name="replicate-existing-destination"></a>
 
 Amazon EFS replicates the data and metadata on the source file system to the destination file system and AWS Region that you choose. During replication, Amazon EFS identifies data differences between the file systems and applies the differences to the destination file system. 
 

@@ -1,7 +1,6 @@
 
 
 # Features of Amazon EFS
-<a name="features"></a>
 
 Following are features of Amazon EFS.
 

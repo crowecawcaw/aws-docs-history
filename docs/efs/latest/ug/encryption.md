@@ -1,7 +1,6 @@
 
 
 # Data encryption in Amazon EFS
-<a name="encryption"></a>
 
 Amazon EFS provides comprehensive encryption capabilities to protect your data both at rest and in transit.
 + **Encryption at rest** – Encrypts data stored on your file system.

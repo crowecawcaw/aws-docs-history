@@ -1,7 +1,6 @@
 
 
 # Encrypting data at rest
-<a name="encryption-at-rest"></a>
 
 Encryption at rest encrypts data stored on your EFS file system. This helps you meet compliance requirements and protect sensitive data from unauthorized access. Your organization might require encryption of all data that meets a specific classification or is associated with a particular application, workload, or environment.
 

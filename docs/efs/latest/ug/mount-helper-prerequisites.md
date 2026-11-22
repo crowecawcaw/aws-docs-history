@@ -1,7 +1,6 @@
 
 
 # Prerequisites for using the EFS mount helper
-<a name="mount-helper-prerequisites"></a>
 
 You can mount an EFS file system on an Amazon EC2 instance using the Amazon EFS mount helper. To use the mount helper, you need the following:
 + **File system ID of the file system to mount** - The EFS mount helper resolves the file system ID to the local IP address of the mount target elastic network interface (ENI) without calling external resources.

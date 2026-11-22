@@ -1,7 +1,6 @@
 
 
 # Enabling automatic mounting on new EC2 Linux instances
-<a name="mount-fs-auto-mount-on-creation"></a>
 
 When you create a new EC2 Linux instance using the Amazon EC2 launch instance wizard, you can configure it to mount your Amazon EFS file system automatically. The EC2 instance mounts the file system automatically the instance first launched and also whenever it restarts.
 

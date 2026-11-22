@@ -1,7 +1,6 @@
 
 
 # Resilience in Amazon EFS
-<a name="disaster-recovery-resiliency"></a>
 
 The AWS global infrastructure is built around AWS Regions and Availability Zones (AZs). AWS Regions provide multiple physically separated and isolated AZs, which are connected with low-latency, high-throughput, and highly redundant networking. With AZs, you can design and operate applications and databases that automatically fail over between zones without interruption. AZs are more highly available, fault tolerant, and scalable than traditional single or multiple data center infrastructures. 
 

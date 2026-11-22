@@ -1,7 +1,6 @@
 
 
 # Using CloudWatch metrics for Amazon EFS
-<a name="how_to_use_metrics"></a>
 
 The metrics reported by Amazon EFS provide information that you can analyze in different ways. The following list shows some common uses for the metrics. These are suggestions to get you started, not a comprehensive list.
 

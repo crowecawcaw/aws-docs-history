@@ -1,7 +1,6 @@
 
 
 # Configuring AWS Systems Manager to install the EFS client
-<a name="setting-up-aws-sys-mgr"></a>
 
 There are two one-time configurations required to set up Systems Manager to automatically install or update the `amazon-efs-utils` package.
 

@@ -1,7 +1,6 @@
 
 
 # Manually installing the Amazon EFS client
-<a name="installing-amazon-efs-utils"></a>
 
 You can manually install the Amazon EFS client on Amazon EC2 (EC2) Linux instances and on EC2 Mac instances running macOS Big Sur, macOS Monterey, and macOS Ventura. For a list of the distributions that support Amazon EFS client, see [Supported distributions](using-amazon-efs-utils.md#efs-utils-supported-distros) 
 

@@ -1,7 +1,6 @@
 
 
 # How Amazon EFS reports file system and object sizes
-<a name="metered-sizes"></a>
 
 The following sections describe how Amazon EFS reports file system sizes, sizes of objects within a file system, and file system throughput.
 

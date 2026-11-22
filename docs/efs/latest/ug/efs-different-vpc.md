@@ -1,7 +1,6 @@
 
 
 # Tutorial: Mount a file system from a different VPC
-<a name="efs-different-vpc"></a>
 
 In this tutorial, you set up an EC2 instance to mount an EFS file system that is in a different virtual private cloud (VPC). You do this using the EFS mount helper. The mount helper is part of the `amazon-efs-utils` set of tools. For more information about `amazon-efs-utils`, see [Installing the Amazon EFS client](using-amazon-efs-utils.md).
 

@@ -1,7 +1,6 @@
 
 
 # AWS Billing reports for Amazon EFS
-<a name="aws-billing-report"></a>
 
 Your monthly bill from AWS separates your usage information and cost by AWS service and function. There are several AWS billing reports available: the monthly report, the cost allocation report, and detailed billing reports. For more information, see [Understanding your bill](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/getting-viewing-bill.html) in the *AWS Billing* User Guide.
 

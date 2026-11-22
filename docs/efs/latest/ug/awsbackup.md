@@ -1,7 +1,6 @@
 
 
 # Backing up EFS file systems
-<a name="awsbackup"></a>
 
 Amazon EFS is natively integrated with AWS Backup, a fully managed, policy-based service that you can use to create and manage backup policies to protect your data in Amazon EFS. File systems that you create using the Amazon EFS console are automatically backed up by AWS Backup by default. When you use the CLI or API to create a file system, automatic backups are enabled by default only for One Zone file systems.
 

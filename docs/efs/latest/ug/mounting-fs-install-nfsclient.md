@@ -1,7 +1,6 @@
 
 
 # Installing the NFS client
-<a name="mounting-fs-install-nfsclient"></a>
 
 To mount your EFS file system on your Amazon EC2 instance, first you need to install an NFS client. To connect to your EC2 instance and install an NFS client, you need the public DNS name of the EC2 instance and a user name to log in. That user name for your instance is typically `ec2-user`.
 

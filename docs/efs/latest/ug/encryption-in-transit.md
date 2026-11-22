@@ -1,7 +1,6 @@
 
 
 # Encrypting data in transit
-<a name="encryption-in-transit"></a>
 
 Amazon EFS supports encryption of data in transit with Transport Layer Security (TLS). When encryption of data in transit is declared as a mount option for your EFS file system, Amazon EFS establishes a secure TLS connection with your EFS file system upon mounting your file system. All NFS traffic is routed through this encrypted connection.
 

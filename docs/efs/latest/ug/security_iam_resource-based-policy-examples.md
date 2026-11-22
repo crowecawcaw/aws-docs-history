@@ -1,7 +1,6 @@
 
 
 # Resource-based policy examples for Amazon EFS
-<a name="security_iam_resource-based-policy-examples"></a>
 
 In this section, you can find example file system policies that grant or deny permissions for various Amazon EFS actions. EFS file system policies have a 20,000 character limit. For information about the elements of a resource-based policy, see [Resource-based policies within Amazon EFS](security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies).
 

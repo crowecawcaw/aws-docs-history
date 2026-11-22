@@ -1,7 +1,6 @@
 
 
 # CloudWatch metrics for Amazon EFS
-<a name="efs-metrics"></a>
 
 Amazon EFS metrics use the `EFS` namespace. The `AWS/EFS` namespace includes the following metrics. All metrics except for `TimeSinceLastSync` are for a single dimension, `FileSystemId`. A file system's ID can be found in the Amazon EFS console, and it takes the form of `fs-abcdef0123456789a`.
 

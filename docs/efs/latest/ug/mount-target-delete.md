@@ -1,7 +1,6 @@
 
 
 # Deleting mount targets
-<a name="mount-target-delete"></a>
 
 When you delete a mount target, the operation forcibly breaks any mounts of the file system, which might disrupt instances or applications using those mounts. To avoid application disruption, stop applications and unmount the file system before deleting the mount target. For more information, see [Unmounting file systems](unmounting-fs.md).
 

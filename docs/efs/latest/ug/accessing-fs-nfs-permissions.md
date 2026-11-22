@@ -1,7 +1,6 @@
 
 
 # Network File System (NFS) level users, groups, and permissions
-<a name="accessing-fs-nfs-permissions"></a>
 
 After creating a file system, by default only the root user (UID 0) has read, write, and execute permissions. For other users to modify the file system, the root user must explicitly grant them access. You can use access points to automate the creation of directories that a nonroot user can write from. For more information, see [Working with access points](efs-access-points.md).
 
@@ -134,7 +133,7 @@ Clients that aren't anonymous can get root access to the file system through an 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

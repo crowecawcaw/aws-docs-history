@@ -1,7 +1,6 @@
 
 
 # Monitoring tools
-<a name="monitoring_automated_manual"></a>
 
 AWS provides various tools that you can use to monitor Amazon EFS. You can configure some of these tools to do the monitoring for you, but some of the tools require manual intervention. We recommend that you automate monitoring tasks as much as possible.
 

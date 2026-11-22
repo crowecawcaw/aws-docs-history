@@ -1,7 +1,6 @@
 
 
 # Internetwork privacy
-<a name="internetwork-privacy"></a>
 
 This topic describes how Amazon EFS secures connections from the service to other locations. 
 

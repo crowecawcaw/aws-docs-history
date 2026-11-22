@@ -1,7 +1,6 @@
 
 
 # Mounting with EFS access points
-<a name="mounting-access-points"></a>
 
 You can mount an EFS file system using an EFS access point only by using the EFS mount helper. 
 

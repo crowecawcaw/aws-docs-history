@@ -1,7 +1,6 @@
 
 
 # Tagging EFS resources
-<a name="manage-fs-tags"></a>
 
 To help you manage your EFS resources, you can assign your own metadata to each resource in the form of *tags*. With tags, you can categorize your AWS resources in different ways, for example, by purpose, owner, or environment. This categorization is useful when you have many resources of the same type—you can quickly identify a specific resource based on the tags that you've assigned to it. This topic describes tags and shows you how to create them.
 

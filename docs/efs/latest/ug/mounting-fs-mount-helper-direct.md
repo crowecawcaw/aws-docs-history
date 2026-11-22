@@ -1,7 +1,6 @@
 
 
 # Tutorial: Mounting with on-premises Linux clients
-<a name="mounting-fs-mount-helper-direct"></a>
 
 You can mount your EFS file systems on your on-premises data center servers when connected to your Amazon VPC with Direct Connect or VPN. The following graphic shows a high-level schematic diagram of the AWS services required in mounting EFS file systems from on-premises.
 
