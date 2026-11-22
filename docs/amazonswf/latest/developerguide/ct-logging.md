@@ -1,7 +1,6 @@
 
 
 # Recording API calls with AWS CloudTrail
-<a name="ct-logging"></a>
 
 Amazon Simple Workflow Service is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for Amazon SWF as events. The calls captured include calls from the Amazon SWF console and code calls to the Amazon SWF API operations. Using the information collected by CloudTrail, you can determine the request that was made to Amazon SWF, the IP address from which the request was made, when it was made, and additional details.
 
@@ -86,7 +85,7 @@ An event represents a single request from any source and includes information ab
 
 The following example shows a CloudTrail event that demonstrates the `CountClosedWorkflowExecutions` operation.
 
-```
+```JSON
 {
     "eventVersion": "1.09",
     "userIdentity": {

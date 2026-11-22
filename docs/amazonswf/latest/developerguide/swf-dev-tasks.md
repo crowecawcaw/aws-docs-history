@@ -1,7 +1,6 @@
 
 
 # Tasks in Amazon SWF
-<a name="swf-dev-tasks"></a>
 
 Amazon SWF interacts with activity workers and deciders by providing them with work assignments known as tasks. There are three types of tasks in Amazon SWF:
 + **Activity task** – An *Activity* task tells an activity worker to perform its function, such as to check inventory or charge a credit card. The activity task contains all the information that the activity worker needs to perform its function.

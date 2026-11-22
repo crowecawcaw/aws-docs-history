@@ -1,7 +1,6 @@
 
 
 # Child workflows in Amazon SWF
-<a name="swf-dev-adv-child-workflows"></a>
 
 Complicated workflows can be broken into smaller, more manageable, and potentially reusable components by using child workflows. A child workflow is a workflow execution that is initiated by another (parent) workflow execution. To initiate a child workflow, the decider for the parent workflow uses the `StartChildWorkflowExecution` decision. Input data specified with this decision is made available to the child workflow through its history.
 

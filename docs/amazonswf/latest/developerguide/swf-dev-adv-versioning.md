@@ -1,7 +1,6 @@
 
 
 # Versioning
-<a name="swf-dev-adv-versioning"></a>
 
 Business needs often require you to have different implementations or variations of the same workflow or activity running simultaneously. For example, you might want to test a new implementation of a workflow while another one is in production. You might also want to run two different implementations with two different feature sets, such as a basic and premium implementation. Versioning enables you to run multiple implementations of workflows and activities concurrently, for any purpose that meets your requirements.
 

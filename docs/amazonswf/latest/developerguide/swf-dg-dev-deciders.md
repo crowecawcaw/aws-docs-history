@@ -1,7 +1,6 @@
 
 
 # Developing deciders in Amazon SWF
-<a name="swf-dg-dev-deciders"></a>
 
 A decider is an implementation of the coordination logic of your workflow type that runs during the execution of your workflow. You can run multiple deciders for a single workflow type.
 
@@ -34,7 +33,7 @@ You can implement the decider in any language that you like and run it anywhere,
 
 The first thing to do when developing a decider is to define the coordination logic. In the e-commerce example, coordination logic that schedules each activity after the previous activity completes might look similar to the following:
 
-```
+```ruby
 IF lastEvent = "StartWorkflowInstance"
  addToDecisions ScheduleVerifyOrderActivity
 
@@ -62,7 +61,7 @@ Each decider polls for decision tasks. The decision tasks contain the informatio
 
 In this example, the decider polls for a decision task, specifying the `customerOrderWorkflow-0.1` tasklist.
 
-```
+```json
 https://swf.us-east-1.amazonaws.com
 PollForDecisionTask
 {
@@ -80,7 +79,7 @@ If a decision task is available, Amazon SWF returns a response that contains the
 
 In this example, the type of the most recent event indicates the workflow execution started and the input element contains the information needed to perform the first task.
 
-```
+```json
 {
   "events": [
     {
@@ -133,7 +132,7 @@ After the decider receives a decision task, program it to interpret the workflow
 
 In the e-commerce example, we are concerned only with the last event in the workflow history, so we define the following logic.
 
-```
+```ruby
 IF lastEvent = "StartWorkflowInstance"
  addToDecisions ScheduleVerifyOrderActivity
 
@@ -167,7 +166,7 @@ In the e-commerce example, when the decider responds with the set of decisions t
 
 When all activities in the workflow execution are complete, the decider closes the workflow execution.
 
-```
+```json
 https://swf.us-east-1.amazonaws.com
 RespondDecisionTaskCompleted
 {
@@ -212,7 +211,7 @@ You might also support cancellation of workflow executions. This could be especi
 
 The following example calls `RespondDecisionTaskCompleted` to specify that the current workflow execution is canceled. 
 
-```
+```json
 https://swf.us-east-1.amazonaws.com
 RespondDecisionTaskCompleted
 {

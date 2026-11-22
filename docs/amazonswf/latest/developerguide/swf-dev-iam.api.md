@@ -1,7 +1,6 @@
 
 
 # API Summary
-<a name="swf-dev-iam.api"></a>
 
 This section briefly describes how you can use IAM policies to control how an actor can use each API and pseudo API to access Amazon SWF resources.
 + For all actions except `RegisterDomain` and `ListDomains`, you can allow or deny access to any or all of an account's domains by expressing permissions for the domain resource. 

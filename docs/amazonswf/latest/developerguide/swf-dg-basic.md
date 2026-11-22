@@ -1,7 +1,6 @@
 
 
 # Basic workflow concepts in Amazon SWF
-<a name="swf-dg-basic"></a>
 
 **Note**  
 The concepts in this chapter provide an overview of the Amazon Simple Workflow Service and describe its major features. If you are looking for examples, see [Working with Amazon SWF APIs](swf-dg-using-swf-api.md).

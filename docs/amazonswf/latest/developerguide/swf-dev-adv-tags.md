@@ -1,7 +1,6 @@
 
 
 # Tags in Amazon SWF
-<a name="swf-dev-adv-tags"></a>
 
 Amazon SWF supports tagging a workflow execution. This is especially useful when you have many resources.
 
@@ -55,7 +54,7 @@ Assume you have already set up two executions that are tagged as follows.
 
 You can filter the list of executions returned by `ListOpenWorkflowExecutions` on the Consumer tag. The `oldestDate` and `latestDate` values are specified as [Unix Time](https://en.wikipedia.org/wiki/Unix_time) values.
 
-```
+```json
 https://swf.us-east-1.amazonaws.com
   RespondDecisionTaskCompleted
   {
@@ -77,7 +76,7 @@ You can control access to Amazon Simple Workflow Service domains by referencing 
 
 For instance, you could restrict Amazon SWF domains that include a tag with the key `environment` and the value `production` with the following condition:
 
-```
+```json
 "Condition": {
     "StringEquals": {"aws:ResourceTag/environment": "production"}
 }

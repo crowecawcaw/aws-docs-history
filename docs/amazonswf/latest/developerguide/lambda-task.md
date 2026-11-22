@@ -1,7 +1,6 @@
 
 
 # AWS Lambda tasks in Amazon SWF
-<a name="lambda-task"></a>
 
 **Topics**
 + [About AWS Lambda](#about-aws-lambda)
@@ -63,7 +62,7 @@ In the following example, `SourceArn` context key restricts the IAM service role
 
   **Action** : `sts:AssumeRole` 
 
-```
+```json
 "Condition": {
    "ArnLike": {
      "aws:SourceArn": "arn:aws:swf:*:123456789012:/domain/someDomain"
@@ -73,7 +72,7 @@ In the following example, `SourceArn` context key restricts the IAM service role
 
 In the following example, the `SourceAccount` context key restricts the IAM service role to only be used in Amazon Simple Workflow Service executions in the account, `123456789012`.
 
-```
+```json
 "Condition": {
    "StringLike": {
      "aws:SourceAccount": "123456789012"
@@ -161,7 +160,7 @@ You can use the ScheduleLambdaFunctionDecisionAttributes data type to identify t
 
 During a call to RespondDecisionTaskCompleted, provide a ScheduleLambdaFunctionDecisionAttributes to your decisions list. For example:
 
-```
+```json
 {
   "decisions": [{
     "ScheduleLambdaFunctionDecisionAttributes": {

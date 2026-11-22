@@ -1,7 +1,6 @@
 
 
 # Markers in Amazon SWF
-<a name="swf-dev-adv-markers"></a>
 
 At times, you might want to record information in the workflow history of a workflow execution that is specific to your use case. Markers enable you to record information in the workflow execution history that you can use for any custom or scenario-specific purpose.
 

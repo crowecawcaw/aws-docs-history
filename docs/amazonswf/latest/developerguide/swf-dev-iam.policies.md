@@ -1,7 +1,6 @@
 
 
 # Amazon SWF IAM Policies
-<a name="swf-dev-iam.policies"></a>
 
 An IAM policy contains one or more `Statement` elements, each of which contains a set of elements that define the policy. For a complete list of elements and a general discussion of how to construct policies, see [The Access Policy Language](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccessPolicyLanguage.html). Amazon SWF access control is based on the following elements:
 
@@ -74,7 +73,7 @@ You can optionally constrain the action's allowable parameter values by using a 
 
 To restrict which workflows an actor can start, constrain one or more of the `StartWorkflowExecution` parameter values, as follows:
 
-```
+```json
 "Condition" : {
    "StringEquals" : { 
       "swf:workflowType.name" : "workflow1",
@@ -87,7 +86,7 @@ An actor with the previous constraints can run only `version2` of `workflow1` an
 
 You can constrain a parameter without requiring it to be included in a request by using a `StringEqualsIfExists` operator, as follows:
 
-```
+```json
 "Condition" : {
    "StringEqualsIfExists" : { "swf:taskList.name" : "task_list_name" }
 }
@@ -101,7 +100,7 @@ You must be careful how you constrain tag lists. For instance, the following con
 
 The following Condition is **not** recommended because it allows you to optionally specify either `some_ok_tag` or `another_ok_tag`. However, the Condition constrains only the **first element **of the tag list. The list could have additional elements with arbitrary values that would all be allowed because the condition doesn't apply any conditions to `swf:tagList.member.1`, `swf:tagList.member.2`, and so on.
 
-```
+```json
 // Example to illustrate an insecure Condition
 "Condition" : {
    "StringEqualsIfExists" : {
@@ -114,7 +113,7 @@ One way to address the previous issue is to disallow the use of tag lists.
 
 The following policy ensures that only `some_ok_tag` or `another_ok_tag` are allowed by requiring the list to have only one element.
 
-```
+```json
 "Condition" : {
    "StringEqualsIfExists" : {
       "swf:tagList.member.0" : "some_ok_tag", "another_ok_tag"
@@ -158,7 +157,7 @@ You must consider service model constraints when creating IAM policies. It is po
 
 For example, the Amazon SWF service model does **not** allow the `typeFilter` and `tagFilter` parameters to be used in the same `[ListOpenWorkflowExecutions](https://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListOpenWorkflowExecutions.html)` request. The following condition would allow calls that the service will reject—by throwing `ValidationException`—as an invalid request:
 
-```
+```json
 "Condition" : {
    "StringEquals" : { 
       "swf:typeFilter.name" : "workflow_name",

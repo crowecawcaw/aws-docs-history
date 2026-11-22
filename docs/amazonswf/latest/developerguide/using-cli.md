@@ -1,7 +1,6 @@
 
 
 # Using the AWS CLI with Amazon Simple Workflow Service
-<a name="using-cli"></a>
 
 Many of the features of Amazon Simple Workflow Service can be accessed from the AWS CLI. The AWS CLI provides an alternative to using Amazon SWF with the AWS Management Console or in some cases, to programming with the Amazon SWF API and the AWS Flow Framework.
 

@@ -1,7 +1,6 @@
 
 
 # Calculating the HMAC-SHA Signature for Amazon SWF
-<a name="HMACAuth-swf"></a>
 
 Every request to Amazon SWF must be authenticated. The AWS SDKs automatically sign your requests and manage your token-based authentication. However, if you want to write your own HTTP `POST` requests, you need to create an `x-amzn-authorization` value for the HTTP `POST Header` content as part of your request authentication.
 
@@ -28,7 +27,7 @@ You can use either SHA1 or SHA256 to sign your requests. However, make sure that
 
    1. Build a map of the header name to comma-separated header values.
 
-      ```
+      ```json
       x-amz-example: value1
       x-amz-example: value2  =>  x-amz-example:value1,value2
       ```
@@ -37,7 +36,7 @@ You can use either SHA1 or SHA256 to sign your requests. However, make sure that
 
    1. For each header name-value pair, convert the name-value pair into a string in the format `headerName:headerValue`. Trim any whitespace from the beginning and end of both `headerName` and `headerValue`, with no spaces on each side of the colon.
 
-      ```
+      ```json
       x-amz-example1:value1,value2
       x-amz-example2:value3
       ```

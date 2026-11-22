@@ -1,7 +1,6 @@
 
 
 # Subscription Workflow Tutorial Part 3: Implementing the Activities
-<a name="swf-sns-tutorial-implementing-activities"></a>
 
 We'll now implement each of the activities in our workflow, beginning with a base class that provides some common features for the activity code.
 
@@ -26,13 +25,13 @@ We'll implement each of these activities now. Because our activities will share 
 
 As with the other source files, we'll include `utils.rb` to access the `init_domain` function to set up the sample domain.
 
-```
+```ruby
    require_relative 'utils.rb' 
 ```
 
 Next, we'll declare the basic activity class and some common data that we'll be interested in for each activity. We'll save the activity's [AWS::SimpleWorkflow::ActivityType](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityType.html) instance, *name*, and *results* in attributes of the class.
 
-```
+```ruby
    class BasicActivity
 
      attr_accessor :activity_type
@@ -42,7 +41,7 @@ Next, we'll declare the basic activity class and some common data that we'll be 
 
 These attributes access instance data that's defined in the class' `initialize` method, which takes an activity *name*, and an optional *version* and map of *options* to be used when registering the activity with Amazon SWF.
 
-```
+```ruby
      def initialize(name, version = 'v1', options = nil)
 
        @activity_type = nil
@@ -80,7 +79,7 @@ Also, as with workflow types, you can set *default options* that are stored with
 
 The last thing our basic activity gets is a consistent way to run it. We'll define a `do_activity` method that takes an activity task. As shown, we can use the passed-in activity task to receive data via its `input` instance attribute.
 
-```
+```ruby
      def do_activity(task)
        @results = task.input # may be nil
        return true
@@ -97,7 +96,7 @@ The first activity that is run during a workflow execution is `get_contact_activ
 
 Create a new file called `get_contact_activity.rb`, and require both `yaml`, which we'll use to prepare a string for passing to Amazon SWF, and `basic_activity.rb`, which we'll use as the basis for this **GetContactActivity** class.
 
-```
+```ruby
    require 'yaml'
    require_relative 'basic_activity.rb'
 
@@ -109,7 +108,7 @@ Create a new file called `get_contact_activity.rb`, and require both `yaml`, whi
 
 Because we put the activity registration code in **BasicActivity**, the `initialize` method for **GetContactActivity** is pretty simple. We simply call the base class constructor with the activity name, `get_contact_activity`. This is all that is required to register our activity.
 
-```
+```ruby
      # initialize the activity
      def initialize
        super('get_contact_activity')
@@ -118,7 +117,7 @@ Because we put the activity registration code in **BasicActivity**, the `initial
 
 We'll now define the `do_activity` method, which prompts for the user's email and/or phone number. 
 
-```
+```ruby
      def do_activity(task)
        puts ""
        puts "Please enter either an email address or SMS message (mobile phone) number to"
@@ -173,7 +172,7 @@ We'll now delve into Amazon SNS and create an activity that uses the information
 
 Create a new file called `subscribe_topic_activity.rb`, add the same requirements that we used for `get_contact_activity`, declare your class, and provide its `initialize` method.
 
-```
+```ruby
    require 'yaml'
    require_relative 'basic_activity.rb'
 
@@ -190,7 +189,7 @@ Now that we have the code in place to get the activity set up and registered, we
 
 Add the `create_topic` method to your class, which takes a passed-in Amazon SNS client object.
 
-```
+```ruby
      def create_topic(sns_client)
        topic_arn = sns_client.create_topic(:name => 'SWF_Sample_Topic')[:topic_arn]
 
@@ -218,7 +217,7 @@ Lastly, we'll define the `do_activity` method. We'll start by collecting any dat
 
 Here's the beginning of `do_activity`, in which we retrieve the input data.
 
-```
+```ruby
      def do_activity(task)
        activity_data = {
          :topic_arn => nil,
@@ -247,7 +246,7 @@ If we didn't receive any input, there isn't much to do, so we'll just fail the a
 
 Assuming that everything is fine, however, we'll continue filling in our `do_activity` method, get an Amazon SNS client with the AWS SDK for Ruby, and pass it to our `create_topic` method to create the Amazon SNS topic.
 
-```
+```ruby
        # Create the topic and get the ARN
        activity_data[:topic_arn] = create_topic(sns_client)
 
@@ -262,7 +261,7 @@ There are a couple of things worth noting here:
 
 Finally, this activity subscribes the user to the Amazon SNS topic, using the passed-in endpoints (email and SMS). We don't require the user to enter *both* endpoints, but we do need at least one.
 
-```
+```ruby
        # Subscribe the user to the topic, using either or both endpoints.
        [:email, :sms].each do | x |
          ep = activity_data[x][:endpoint]
@@ -280,7 +279,7 @@ Finally, this activity subscribes the user to the Amazon SNS topic, using the pa
 
 Finally, we re-package the information for the next activity in YAML format, so that we can send it back to Amazon SWF.
 
-```
+```ruby
        # if at least one subscription arn is set, consider this a success.
        if (activity_data[:email][:subscription_arn] != nil) or (activity_data[:sms][:subscription_arn] != nil)
          @results = activity_data.to_yaml
@@ -303,7 +302,7 @@ Once a user is subscribed to an Amazon SNS topic, he or she will still need to c
 
 The activity that waits for the user to confirm the subscription is called `wait_for_confirmation_activity`, and we'll define it here. To begin, create a new file called `wait_for_confirmation_activity.rb` and set it up as we've set up the previous activities.
 
-```
+```ruby
    require 'yaml'
    require_relative 'basic_activity.rb'
 
@@ -320,7 +319,7 @@ The activity that waits for the user to confirm the subscription is called `wait
 
 Next, we'll begin defining the `do_activity` method and retrieve any input data into a local variable called `subscription_data`.
 
-```
+```ruby
      def do_activity(task)
        if task.input.nil?
          @results = { :reason => "Didn't receive any input!", :detail => "" }.to_yaml
@@ -332,7 +331,7 @@ Next, we'll begin defining the `do_activity` method and retrieve any input data 
 
 Now that we have the topic ARN, we can retrieve the topic by creating a new instance of [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SNS/Topic.html) and pass it the ARN.
 
-```
+```ruby
        topic = AWS::SNS::Topic.new(subscription_data[:topic_arn])
 
        if topic.nil?
@@ -347,7 +346,7 @@ Now, we'll check the topic to see if the user has confirmed the subscription usi
 
 An Amazon SNS topic maintains a list of the [subscriptions](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SNS/Topic.html#subscriptions-instance_method) for that topic, and we can check whether or not the user has confirmed a particular subscription by checking to see if the subscription's ARN is set to anything other than `PendingConfirmation`.
 
-```
+```ruby
        # loop until we get some indication that a subscription was confirmed.
        subscription_confirmed = false
        while(!subscription_confirmed)
@@ -370,7 +369,7 @@ If we get an ARN for the subscription, we'll save it in the activity's result da
 
 Because waiting for a subscription to be confirmed might take a while, we'll occasionally call `record_heartbeat` on the activity task. This signals to Amazon SWF that the activity is still processing, and can also be used to provide updates about the progress of the activity (if you are doing something, like processing files, that you can report progress for).
 
-```
+```ruby
          task.record_heartbeat!(
            { :details => "#{topic.num_subscriptions_confirmed} confirmed, #{topic.num_subscriptions_pending} pending" })
          # sleep a bit.
@@ -380,7 +379,7 @@ Because waiting for a subscription to be confirmed might take a while, we'll occ
 
 This ends our `while` loop. If we somehow get out of the while loop without success, we'll report failure and finish the `do_activity` method.
 
-```
+```ruby
        if (subscription_confirmed == false)
          @results = {
            :reason => "No subscriptions could be confirmed",
@@ -402,7 +401,7 @@ Our last activity, `send_result_activity`, sends the user a confirmation of the 
 
 Create a new file called `send_result_activity.rb` and set it up as we've set up all the activities so far.
 
-```
+```ruby
    require 'yaml'
    require_relative 'basic_activity.rb'
 
@@ -418,7 +417,7 @@ Create a new file called `send_result_activity.rb` and set it up as we've set up
 
 Our `do_activity` method begins similarly, as well, getting the input data from the workflow, converting it from YAML, and then using the topic ARN to create an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SNS/Topic.html) instance.
 
-```
+```ruby
      def do_activity(task)
        if task.input.nil?
          @results = { :reason => "Didn't receive any input!", :detail => "" }
@@ -440,7 +439,7 @@ Our `do_activity` method begins similarly, as well, getting the input data from 
 
 Once we have the topic, we'll [publish](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SNS/Topic.html#publish-instance_method) a message to it (and echo it to the screen, as well).
 
-```
+```ruby
        @results = "Thanks, you've successfully confirmed registration, and your workflow is complete!"
 
        # send the message via SNS, and also print it on the screen.

@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon SWF
-<a name="swf-sns-tutorial"></a>
 
 You can get started with the following Amazon Simple Workflow Service workflow application which consists of a set of four activities that operate sequentially. The tutorial also covers the following topics:
 + Setting *default* and *execution-time* workflow and activity options.

@@ -1,7 +1,6 @@
 
 
 # Amazon SWF Quotas
-<a name="swf-dg-limits"></a>
 
 Amazon SWF places quotas on the sizes of certain workflow parameters, such as on the number of domains per account and on the size of the workflow execution history. These quotas are designed to prevent erroneous workflows from consuming all of the resources of the system, but are not hard limits. If you find that your application is frequently exceeding these quotas, you can [request a service quota increase](#swf-dg-limits-how-to-increase).
 

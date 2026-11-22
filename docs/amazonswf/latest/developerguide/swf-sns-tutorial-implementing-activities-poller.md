@@ -1,7 +1,6 @@
 
 
 # Subscription Workflow Tutorial Part 4: Implementing the Activities Task Poller
-<a name="swf-sns-tutorial-implementing-activities-poller"></a>
 
 In Amazon SWF, activity tasks for a running workflow execution appear on the *activity task list*, which is provided when you schedule an activity in the workflow.
 
@@ -14,7 +13,7 @@ To begin, create a new file called `swf_sns_activities.rb`. We'll use it to:
 
 In `swf_sns_activities.rb`, add the following statements to require each of the activity classes we defined.
 
-```
+```ruby
 require_relative 'get_contact_activity.rb'
 require_relative 'subscribe_topic_activity.rb'
 require_relative 'wait_for_confirmation_activity.rb'
@@ -23,7 +22,7 @@ require_relative 'send_result_activity.rb'
 
 Now, we'll create the class and provide some initialization code.
 
-```
+```ruby
 class ActivitiesPoller
 
   def initialize(domain, workflowId)
@@ -53,7 +52,7 @@ For each activity instantiated, we store it on a map using the activity name (su
 
 Create a new method called `poll_for_activities` and call [poll](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTaskCollection.html#poll-instance_method) on the [activity\_tasks](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.html#activity_tasks-instance_method) held by the domain to get activity tasks.
 
-```
+```ruby
   def poll_for_activities
     @domain.activity_tasks.poll(@workflowId) do | task |
       activity_name = task.activity_type.name
@@ -61,7 +60,7 @@ Create a new method called `poll_for_activities` and call [poll](https://docs.aw
 
 We can get the activity name from the task's [activity\_type](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTask.html#activity_type-instance_method) member. Next, we'll use the activity name associated with this task to look up the class to run `do_activity` on, passing it the task (which includes any input data that should be transferred to the activity).
 
-```
+```ruby
       # find the task on the activities list, and run it.
       if @activities.key?(activity_name.to_sym)
         activity = @activities[activity_name.to_sym]
@@ -95,7 +94,7 @@ This code exits from the poller once the final activity has been launched, becau
 
 That's the end of the code for our **ActivitiesPoller** class, but we'll add a little more code at the end of the file to allow the user to run it from the command-line.
 
-```
+```ruby
 if __FILE__ == $0
   if ARGV.count < 1
     puts "You must supply a task-list name to use!"

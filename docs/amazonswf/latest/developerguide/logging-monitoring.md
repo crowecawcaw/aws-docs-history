@@ -1,7 +1,6 @@
 
 
 # Logging and Monitoring
-<a name="logging-monitoring"></a>
 
 This section provides information about logging and monitoring Amazon SWF.
 

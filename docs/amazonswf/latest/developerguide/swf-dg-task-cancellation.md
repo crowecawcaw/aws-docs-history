@@ -1,7 +1,6 @@
 
 
 # Cancelling activity tasks in Amazon SWF
-<a name="swf-dg-task-cancellation"></a>
 
 Activity task cancellation informs the decider to end activities that no longer need to be performed. Amazon SWF uses a cooperative cancellation mechanism and doesn't forcibly interrupt running activity tasks. You must program your activity workers to handle cancellation requests.
 

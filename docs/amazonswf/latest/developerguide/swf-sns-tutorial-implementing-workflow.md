@@ -1,7 +1,6 @@
 
 
 # Subscription Workflow Tutorial Part 2: Implementing the Workflow
-<a name="swf-sns-tutorial-implementing-workflow"></a>
 
 Up until now, our code has been pretty generic. This is the part where we begin to really define what our workflow does, and what activities we'll need to implement it.
 
@@ -51,7 +50,7 @@ The workflow and activity implementations can be run in separate windows, separa
 
 We'll begin by creating a file called `swf_sns_workflow.rb`. In this file, declare a class called **SampleWorkflow**. Here is the class declaration and its constructor, the `initialize` method.
 
-```
+```ruby
 require_relative 'utils.rb'
 
 # SampleWorkflow - the main workflow for the SWF/SNS Sample
@@ -100,7 +99,7 @@ To use a workflow type, we must first register it. Like an activity type, a work
 
 Here is the code for `register_workflow`, which is used to either retrieve the existing workflow type we registered on a previous run or to register the workflow if it has not yet been registered.
 
-```
+```ruby
   # Registers the workflow
   def register_workflow
     workflow_name = 'swf-sns-workflow'
@@ -134,7 +133,7 @@ First, we check to see if the workflow name and version is already registered by
 
 If we don't find a match, then a new workflow type is registered (by calling [register](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowTypeCollection.html#register-instance_method) on the same `workflow_types` collection that we were searching for the workflow in) with the name 'swf-sns-workflow', version '1', and the following options.
 
-```
+```ruby
       options =  {
         :default_child_policy => :terminate,
         :default_task_start_to_close_timeout => 3600,
@@ -158,7 +157,7 @@ The returned events are [AWS::SimpleWorkflow::HistoryEvent](https://docs.aws.ama
 
 Here is the beginning of the decision task poller's logic. A new method in our workflow class called `poll_for_decisions`.
 
-```
+```ruby
   def poll_for_decisions
     # first, poll for decision tasks...
     @domain.decision_tasks.poll(@workflowId) do | task |
@@ -170,7 +169,7 @@ We'll now branch the execution of our decider based on the `event_type` that is 
 
 We'll pass it the first activity we declared in our activity list, which, because we reversed the list so we can use it like a stack, occupies the `last` position on the list. The "activities" we defined are just maps consisting of a name and version number, but this is all that Amazon SWF needs to identify the activity for scheduling, assuming that the activity has already been registered.
 
-```
+```ruby
           when 'WorkflowExecutionStarted'
             # schedule the last activity on the (reversed, remember?) list to
             # begin the workflow.
@@ -184,7 +183,7 @@ When we schedule an activity, Amazon SWF sends an *activity task* to the activit
 
 The next activity that we'll need to address is the **ActivityTaskCompleted** event, which occurs when Amazon SWF has received an activity completed response from an activity task.
 
-```
+```ruby
           when 'ActivityTaskCompleted'
             # we are running the activities in strict sequential order, and
             # using the results of the previous activity as input for the next
@@ -220,7 +219,7 @@ By retrieving the `result` values of completed activities, and by setting the `i
 
 For the purposes of this tutorial, these two event types are the most important in defining the behavior of our workflow. However, an activity can generate events other than **ActivityTaskCompleted**. We'll wrap up our decider code by providing demonstration handler code for the **ActivityTaskTimedOut** and **ActivityTaskFailed** events, and for the **WorkflowExecutionCompleted** event, which will be generated when Amazon SWF processes the `complete_workflow_execution` call that we make when we run out of activities to run.
 
-```
+```ruby
           when 'ActivityTaskTimedOut'
             puts "!! Failing workflow execution! (timed out activity)"
             task.fail_workflow_execution
@@ -248,7 +247,7 @@ Before any decision tasks will be generated for the workflow to poll for, we nee
 
 To start the workflow execution, call [start\_execution](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.html#start_execution-instance_method) on your registered workflow type ([AWS::SimpleWorkflow::WorkflowType](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.html)). We'll define a small wrapper around this to make use of the `workflow_type` instance member that we retrieved in the class constructor.
 
-```
+```ruby
   def start_execution
     workflow_execution = @workflow_type.start_execution( {
       :workflowId => @workflowId } )
@@ -263,7 +262,7 @@ Unlike options that are provided when the workflow type is registered, options t
 
 Because we'd like the workflow to begin executing when we run the file, add some code that instantiates the class and then calls the `start_execution` method that we just defined.
 
-```
+```ruby
 if __FILE__ == $0
   require 'securerandom'
 

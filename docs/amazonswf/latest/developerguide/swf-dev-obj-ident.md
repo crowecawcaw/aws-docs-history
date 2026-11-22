@@ -1,7 +1,6 @@
 
 
 # Object identifiers in Amazon SWF
-<a name="swf-dev-obj-ident"></a>
 
 The following list describes how Amazon SWF objects, such as workflow executions, are uniquely identified.
 +  **Workflow Type** – A registered workflow type is identified by its domain, name, and version. Workflow types are specified in the call to `RegisterWorkflowType`.

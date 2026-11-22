@@ -1,7 +1,6 @@
 
 
 # Polling for tasks in Amazon SWF
-<a name="swf-dev-comm-proto"></a>
 
 Deciders and activity workers communicate with Amazon SWF using *long polling*. The decider or activity worker periodically initiates communication with Amazon SWF, notifying Amazon SWF of its availability to accept a task, and then specifies a task list to get tasks from.
 

@@ -1,7 +1,6 @@
 
 
 # Viewing Amazon SWF Metrics for CloudWatch using the AWS Management Console
-<a name="cw-metrics-console"></a>
 
 Amazon CloudWatch provides a number of viewable metrics for Amazon SWF workflows and activities. You can view the metrics and set alarms for your Amazon SWF workflow executions using the [AWS Management Console](https://console.aws.amazon.com/). *You must be logged in to the console to proceed*.
 

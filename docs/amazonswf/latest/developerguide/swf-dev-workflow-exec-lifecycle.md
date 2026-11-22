@@ -1,7 +1,6 @@
 
 
 # Life cycle of a Amazon SWF workflow
-<a name="swf-dev-workflow-exec-lifecycle"></a>
 
 From the start of a workflow execution to its completion, Amazon SWF interacts with actors by assigning them appropriate tasks, either activity tasks or decision tasks.
 

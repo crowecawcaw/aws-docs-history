@@ -1,7 +1,6 @@
 
 
 # Encryption in Amazon Simple Workflow Service
-<a name="security-encryption"></a>
 
 ## Encryption at rest
 <a name="security-encryption-at-rest"></a>

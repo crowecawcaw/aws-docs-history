@@ -1,7 +1,6 @@
 
 
 # Advanced workflow concepts in Amazon SWF
-<a name="swf-dg-adv"></a>
 
 The e-commerce example in the [](swf-dg-basic.md) section represents a simplified workflow scenario. In reality, you are likely to want your workflow to do concurrent tasks (send an order confirmation email while authorizing a credit card), record major events (all items are packed), update the order with changes (add or remove an item), and make other more advanced decisions as part of your workflow execution. This section describes advanced workflow concepts that you can use to construct your workflows.
 

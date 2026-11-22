@@ -1,7 +1,6 @@
 
 
 # Developing an Activity Worker in Amazon SWF
-<a name="swf-dg-develop-activity"></a>
 
 An activity worker provides the implementation of one or more activity types. An activity worker communicates with Amazon SWF to receive activity tasks and perform them. You can have a fleet of multiple activity workers performing activity tasks of the same activity type.
 
@@ -33,7 +32,7 @@ To perform activity tasks, each activity worker must poll Amazon SWF by periodic
 
 In the following example, the activity worker `ChargeCreditCardWorker01` polls for a task on the task list, `ChargeCreditCard-v0.1`. If no activity tasks are available, after 60 seconds, Amazon SWF sends back an empty response. An empty response is a `Task` structure in which the value of the `taskToken` is an empty string.
 
-```
+```json
 https://swf.us-east-1.amazonaws.com
 PollForActivityTask
 {
@@ -73,7 +72,7 @@ To record an activity task heartbeat, program your activity worker to call the `
 
 In this example, the activity worker reports heartbeat to Amazon SWF and uses the details field to report that the activity task is 40 percent complete. To report heartbeat, the activity worker must specify the task token of the activity task.
 
-```
+```json
 https://swf.us-east-1.amazonaws.com
 RecordActivityTaskHeartbeat
 {
@@ -96,7 +95,7 @@ To complete an activity task, program the activity worker to call the `RespondAc
 
 In this example, the activity worker indicates that the task completed successfully.
 
-```
+```json
 https://swf.us-east-1.amazonaws.com
 RespondActivityTaskCompleted
 {
@@ -120,7 +119,7 @@ If an activity worker can't perform an activity task for some reason, but it can
 
 To program an activity worker to fail an activity task, program the activity worker to call the `RespondActivityTaskFailed` action that specifies the task token of the task.
 
-```
+```json
 https://swf.us-east-1.amazonaws.com
 RespondActivityTaskFailed
 {

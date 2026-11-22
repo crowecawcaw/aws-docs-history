@@ -1,7 +1,6 @@
 
 
 # Developing workflow components with Amazon SWF
-<a name="intro"></a>
 
 Developing distributed applications requires coordinating many components and dealing with latency and unreliability inherent in remote communication. 
 

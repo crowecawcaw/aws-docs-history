@@ -1,7 +1,6 @@
 
 
 # Actors in Amazon SWF
-<a name="swf-dev-actors"></a>
 
 **Topics**
 + [What is an Actor in Amazon SWF?](#what-is-an-actor-swf)
@@ -32,7 +31,7 @@ A decider is an implementation of a workflow's coordination logic. Deciders cont
 
 Here is an example of a decision in JSON format, the format in which it is transmitted to Amazon SWF. This decision schedules a new activity task.
 
-```
+```json
 {
    "decisionType" : "ScheduleActivityTask",
    "scheduleActivityTaskDecisionAttributes" : {

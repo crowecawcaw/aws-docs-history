@@ -1,7 +1,6 @@
 
 
 # Signals
-<a name="swf-dev-adv-signals"></a>
 
 Signals enable you to inject information into a running workflow execution. In some scenarios, you might want to add information to a running workflow execution to let it know that something has changed or to inform it of an external event. Any process can send a signal to an open workflow execution. For example, one workflow execution might signal another.
 

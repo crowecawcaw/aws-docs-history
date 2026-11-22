@@ -1,7 +1,6 @@
 
 
 # Implementing exclusive choice with Amazon SWF
-<a name="swf-dg-exclusive-choice"></a>
 
 In some scenarios, you might want to schedule a different set of activities based on the outcome of a previous activity. With the exclusive choice pattern, you can create flexible workflows that meet the complex requirements of your application.
 
@@ -19,7 +18,7 @@ The decider schedules the `ShipOrder` activity if the credit card is successfull
 
 In this case, program the decider to interpret the history and determine whether the credit card was successfully charged. To do this, you might have logic similar to the following
 
-```
+```ruby
 IF lastEvent = "WorkflowExecutionStarted"
 	addToDecisions ScheduleActivityTask(ActivityType = "VerifyOrderActivity")
 
@@ -58,7 +57,7 @@ ENDIF
 
 If the credit card was successfully charged, the decider should respond with `RespondDecisionTaskCompleted` to schedule the `ShipOrder` activity.
 
-```
+```json
 https://swf.us-east-1.amazonaws.com
 RespondDecisionTaskCompleted
 {
@@ -89,7 +88,7 @@ RespondDecisionTaskCompleted
 
 If the credit card was not successfully charged, the decider should respond with `RespondDecisionTaskCompleted` to schedule the `CancelOrder` activity.
 
-```
+```json
 https://swf.us-east-1.amazonaws.com
 RespondDecisionTaskCompleted
 {
@@ -120,7 +119,7 @@ RespondDecisionTaskCompleted
 
 If Amazon SWF is able to validate the data in the `RespondDecisionTaskCompleted` action, Amazon SWF returns a successful HTTP response similar to the following.
 
-```
+```json
 HTTP/1.1 200 OK
 Content-Length: 11
 Content-Type: application/json

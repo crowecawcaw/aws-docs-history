@@ -1,7 +1,6 @@
 
 
 # Workflow history in Amazon SWF
-<a name="swf-dev-about-workflow-history"></a>
 
 Amazon SWF records the progress of every workflow execution in the *workflow history* - a detailed, complete, and consistent record of every event that occurred since the workflow execution started. 
 
@@ -71,7 +70,7 @@ You can obtain a copy of the current state of the workflow execution history by 
 
 Below is a section of an example workflow execution history in JSON format.
 
-```
+```json
 [  {
       "eventId": 11,
       "eventTimestamp": 1326671603.102,

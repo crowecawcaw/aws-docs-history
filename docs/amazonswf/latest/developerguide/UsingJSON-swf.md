@@ -1,7 +1,6 @@
 
 
 # Making HTTP Requests to Amazon SWF
-<a name="UsingJSON-swf"></a>
 
 If you don't use one of the AWS SDKs, you can perform Amazon Simple Workflow Service (Amazon SWF) operations over HTTP using the POST request method. The POST method requires that you specify the operation in the header of the request and provide the data for the operation in JSON format in the body of the request. 
 
@@ -41,7 +40,7 @@ Amazon SWF requires the following information in the header of an HTTP request:
 
  The following is an example header for an HTTP request to create a domain. 
 
-```
+```json
 POST http://swf.us-east-1.amazonaws.com/ HTTP/1.1
 Host: swf.us-east-1.amazonaws.com
 User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.25) Gecko/20111212 Firefox/3.6.25 ( .NET CLR 3.5.30729; .NET4.0E)
@@ -81,7 +80,7 @@ x-amzn-RequestId: 4ec4ac3f-3e16-11e1-9b11-7182192d0b57
 
 The body of an HTTP request contains the data for the operation specified in the header of the HTTP request. Use the JSON data format to convey data values and data structure, simultaneously. Elements can be nested within other elements using bracket notation. For example, the following shows a request to list all workflow executions that started between two specified points in time—using Unix Time notation. 
 
-```
+```json
 {
  "domain": "867530901",
  "startTimeFilter":

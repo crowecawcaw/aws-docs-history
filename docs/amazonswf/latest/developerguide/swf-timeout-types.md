@@ -1,7 +1,6 @@
 
 
 # Amazon SWF Timeout Types
-<a name="swf-timeout-types"></a>
 
 To ensure that workflow executions run correctly, you can set different types of timeouts with Amazon SWF. Some timeouts specify how long the workflow can run in its entirety. Other timeouts specify how long activity tasks can take before being assigned to a worker and how long they can take to complete from the time they are scheduled. All timeouts in the Amazon SWF API are specified in seconds. Amazon SWF also supports the string `NONE` as a timeout value, which indicates no timeout.
 

@@ -1,7 +1,6 @@
 
 
 # Handling errors in Amazon SWF
-<a name="swf-dg-error-handling"></a>
 
 There are a number of different types of errors that can occur during the course of a workflow execution.
 

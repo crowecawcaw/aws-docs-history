@@ -1,7 +1,6 @@
 
 
 # Setting task priority in Amazon SWF
-<a name="programming-priority"></a>
 
 By default, tasks on a task list are delivered based upon their *arrival time*: tasks that are scheduled first are generally run first, as far as possible. By setting an optional *task priority*, you can give priority to certain tasks: Amazon SWF will attempt to deliver higher-priority tasks on a task list before those with lower priority.
 
@@ -24,7 +23,7 @@ You can set the task priority for a workflow when you register it or start it. T
 
 To register a workflow type with a default task priority, set the *defaultTaskPriority* option when using the [RegisterWorkflowType](https://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterWorkflowType.html) action:
 
-```
+```json
 {
   "domain": "867530901",
   "name": "expeditedOrderWorkflow",
@@ -40,7 +39,7 @@ To register a workflow type with a default task priority, set the *defaultTaskPr
 
 You can override a workflow type's registered task priority when you start a workflow execution with [StartWorkflowExecution](https://docs.aws.amazon.com/amazonswf/latest/apireference/API_StartWorkflowExecution.html):
 
-```
+```json
 {
   "childPolicy": "TERMINATE",
   "domain": "867530901",
@@ -59,7 +58,7 @@ You can also override the registered task priority when starting a child workflo
 
 To set a child workflow's task priority, provide the value in `startChildWorkflowExecutionDecisionAttributes`:
 
-```
+```json
 {
   "taskToken": "AAAAKgAAAAEAAAAAAAAAA...",
   "decisions": [
@@ -86,7 +85,7 @@ To set a child workflow's task priority, provide the value in `startChildWorkflo
 
 When continuing a workflow as new, set the task priority in `continueAsNewWorkflowExecutionDecisionAttributes`:
 
-```
+```json
 {
   "taskToken": "AAAAKgAAAAEAAAAAAAAAA...",
   "decisions": [
@@ -113,7 +112,7 @@ You can set the task priority for an activity either when registering it or when
 
 To set task priority when registering an activity type, set the *defaultTaskPriority* option when using the [RegisterActivityType](https://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterActivityType.html) action:
 
-```
+```json
 {
   "defaultTaskHeartbeatTimeout": "120",
   "defaultTaskList": {"name": "mainTaskList"},
@@ -130,7 +129,7 @@ To set task priority when registering an activity type, set the *defaultTaskPrio
 
 To schedule a task with a task priority, use the *taskPriority* option when scheduling the activity with the [RespondDecisionTaskCompleted](https://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondDecisionTaskCompleted.html) action:
 
-```
+```json
 {
   "taskToken": "AAAAKgAAAAEAAAAAAAAAA...",
   "decisions": [

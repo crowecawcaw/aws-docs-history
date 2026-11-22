@@ -1,7 +1,6 @@
 
 
 # Starting workflows in Amazon SWF
-<a name="swf-dg-start-workflow-exec"></a>
 
 You can start a workflow execution of a registered workflow type from any application using the `StartWorkflowExecution` action. When you start the execution you associate an identifier, called the `workflowId`, with it. The `workflowId` can be any string that is appropriate for your application, such as the order number in an order processing application. You can't use the same `workflowId` for multiple open workflow executions within the same domain. For example, if you start two workflow executions with the `workflowId` `Customer Order 01`, the second workflow execution will not start and the request will fail. You can, however, reuse the `workflowId` of a closed execution. Amazon SWF also associates a unique system generated identifier, called the `runId`, with each workflow execution. 
 

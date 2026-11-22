@@ -1,7 +1,6 @@
 
 
 # Compliance Validation for Amazon Simple Workflow Service
-<a name="SWF-compliance"></a>
 
 Third-party auditors assess the security and compliance of Amazon Simple Workflow Service as part of multiple AWS compliance programs. These include SOC, PCI, FedRAMP, HIPAA, and others.
 

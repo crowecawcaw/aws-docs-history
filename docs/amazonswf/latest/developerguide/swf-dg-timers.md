@@ -1,7 +1,6 @@
 
 
 # Timers in Amazon SWF
-<a name="swf-dg-timers"></a>
 
 With a timer, you can notify your decider when a certain amount of time has elapsed.
 

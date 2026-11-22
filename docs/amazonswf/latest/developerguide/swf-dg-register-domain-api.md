@@ -1,7 +1,6 @@
 
 
 # Registering a Domain with Amazon SWF
-<a name="swf-dg-register-domain-api"></a>
 
 Your workflow and activity types and the workflow execution itself are all scoped to a *domain*. Domains isolate a set of types, executions, and task lists from others within the same account.
 

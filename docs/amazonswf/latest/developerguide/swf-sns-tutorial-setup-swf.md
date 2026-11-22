@@ -1,7 +1,6 @@
 
 
 # Subscription Workflow Tutorial Part 1: Using Amazon SWF with the AWS SDK for Ruby
-<a name="swf-sns-tutorial-setup-swf"></a>
 
 **Topics**
 + [Include the AWS SDK for Ruby](#include-the-sdk-for-ruby)
@@ -16,7 +15,7 @@ Begin by creating a file called `utils.rb`. The code in this file will obtain, o
 
 First, we need to include the `aws-sdk-v1` library in our code, so that we can use the features provided by the SDK for Ruby.
 
-```
+```ruby
 require 'aws-sdk-v1'
 ```
 
@@ -29,7 +28,7 @@ We'll configure the AWS Session by setting our AWS credentials (which are needed
 
 There are a number of ways to [set AWS credentials in the AWS SDK for Ruby](https://docs.aws.amazon.com/AWSRubySDK/latest/index.html#Basic_Configuration): by setting them in environment variables (AWS\_ACCESS\_KEY\_ID and AWS\_SECRET\_ACCESS\_KEY) or by setting them with [`AWS.config`](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS.html#config-class_method). We'll use the latter method, loading them from a YAML configuration file, called `aws-config.txt`, that looks like this.
 
-```
+```yaml
 ---
 :access_key_id: REPLACE_WITH_ACCESS_KEY_ID
 :secret_access_key: REPLACE_WITH_SECRET_ACCESS_KEY
@@ -45,7 +44,7 @@ For more information about sending SMS messages, see [Sending and Receiving SMS 
 
 We'll now add some code to `utils.rb` to load the config file, get the user's credentials, then provide both the credentials and region to [`AWS.config`](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS.html#config-class_method).
 
-```
+```ruby
 require 'yaml'
 
 # Load the user's credentials from a file, if it exists.
@@ -85,7 +84,7 @@ To work with Amazon SWF domains in the SDK for Ruby, use [AWS::SimpleWorkflow.do
 
 Here is the code for `init_domain` in `utils.rb`.
 
-```
+```ruby
 # Registers the domain that the workflow will run in.
 def init_domain
   domain_name = 'SWFSampleDomain'

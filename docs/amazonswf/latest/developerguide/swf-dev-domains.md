@@ -1,7 +1,6 @@
 
 
 # Domains in Amazon SWF
-<a name="swf-dev-domains"></a>
 
 Workflows run in an AWS resource called a *domain* which provide a way of scoping Amazon SWF resources within your AWS account. All the components of a workflow, such as the workflow type and activity types, must be specified to be in a domain. 
 

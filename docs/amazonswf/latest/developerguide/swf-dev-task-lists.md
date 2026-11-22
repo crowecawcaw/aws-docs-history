@@ -1,7 +1,6 @@
 
 
 # Task lists in Amazon SWF
-<a name="swf-dev-task-lists"></a>
 
 Task lists provide a way of organizing the various tasks associated with a workflow. You can think of task lists as similar to dynamic queues. When a task is scheduled in Amazon SWF, you can specify a queue (task list) to put it in. Similarly, when you poll Amazon SWF for a task you say which queue (task list) to get the task from.
 

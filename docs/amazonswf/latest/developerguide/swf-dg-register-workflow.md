@@ -1,7 +1,6 @@
 
 
 # Registering a Workflow Type with Amazon SWF
-<a name="swf-dg-register-workflow"></a>
 
 The example discussed in this section registers a workflow type using the Amazon SWF API. The name and version that you specify during registration form a unique identifier for the workflow type. The specified domain must have already been registered using the `[RegisterDomain](https://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterDomain.html)` API action.
 
