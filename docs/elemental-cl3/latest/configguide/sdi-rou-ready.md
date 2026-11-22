@@ -1,7 +1,6 @@
 
 
 # Step B: Run cables from the router to each node
-<a name="sdi-rou-ready"></a>
 
 Perform this procedure on the Elemental Live node that is connected to the router.
 

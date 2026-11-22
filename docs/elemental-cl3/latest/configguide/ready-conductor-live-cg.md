@@ -1,7 +1,6 @@
 
 
 # Designing the cluster
-<a name="ready-conductor-live-cg"></a>
 
 You should make some decisions about features you want to configure on the cluster. 
 

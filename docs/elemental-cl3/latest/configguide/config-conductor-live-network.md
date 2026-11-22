@@ -1,7 +1,6 @@
 
 
 # Configuring nodes for connectivity
-<a name="config-conductor-live-network"></a>
 
 This section describe how to configure the node so that it can communicate with Conductor Live, and with upstream systems and downstream systems.
 

@@ -1,9 +1,8 @@
 
 
 # SNMP polling
-<a name="notification-polling"></a>
 
-AWS Elemental Conductor Live generates SNMP traps for activity on the cluster. You can set up to poll the SNMP interface for messages. (If you prefer to receive traps, see [SNMP polling](#notification-polling).)
+AWS Elemental Conductor Live generates SNMP traps for activity on the cluster. You can set up to poll the SNMP interface for messages. (If you prefer to receive traps, see [SNMP polling](notification-polling.md).)
 
 You can interact with Conductor Live using a variety of network management systems. AWS Elemental products ship with the Net-SNMP ([http://www.net-snmp.org/](http://www.net-snmp.org/)) command line tools. These tools let you access the SNMP interface while you are logged into the system directly or over SSH. Examples in this document are given using `net-snmp` commands.
 

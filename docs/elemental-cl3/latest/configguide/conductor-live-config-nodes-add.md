@@ -1,7 +1,6 @@
 
 
 # Adding (recruiting) worker nodes to the cluster
-<a name="conductor-live-config-nodes-add"></a>
 
 You can add nodes into the cluster. Here are some scenarios where you add nodes:
 + When you initially configure the cluster, you must add the secondary AWS Elemental Conductor Live node and all the worker nodes into the cluster. You perform this step after you have installed the software on the primary Conductor Live node. At this point, the cluster exists but it contains only the primary node.

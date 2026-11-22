@@ -1,7 +1,6 @@
 
 
 # Deploying a new cluster
-<a name="config-conductor-live-checklist-newcluster"></a>
 
 Read this section if you are setting up AWS Elemental Conductor Live, AWS Elemental Live, and (optionally) AWS Elemental Statmux for the first time. 
 

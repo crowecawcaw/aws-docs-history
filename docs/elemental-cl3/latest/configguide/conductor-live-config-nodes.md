@@ -1,7 +1,6 @@
 
 
 # Managing nodes in the Conductor Live cluster
-<a name="conductor-live-config-nodes"></a>
 
 
 

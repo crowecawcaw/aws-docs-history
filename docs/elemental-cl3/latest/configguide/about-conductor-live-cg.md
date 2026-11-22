@@ -1,7 +1,6 @@
 
 
 # About this guide
-<a name="about-conductor-live-cg"></a>
 
 This guide describes how to configure the Conductor Live and worker nodes in a AWS Elemental Conductor Live cluster. It describes how to configure the Conductor Live manager node, AWS Elemental Live nodes, and AWS Elemental Statmux nodes (if your deployment includes that product).
 

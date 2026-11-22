@@ -1,7 +1,6 @@
 
 
 # Key cluster setup procedures
-<a name="config-conductor-live-checklists"></a>
 
 This section describes the correct order of work for some key setup procedures for a AWS Elemental Conductor Live cluster. It is often important to perform tasks in a specific order.
 

@@ -1,7 +1,6 @@
 
 
 # MIBs in Conductor Live
-<a name="notification-polling-mibs"></a>
 
 AWS Elemental provides the following MIBs for use with Conductor Live:
 

@@ -1,7 +1,6 @@
 
 
 # Step D: Complete the Router Input Mappings
-<a name="sdi-rou-input"></a>
 
 Perform this procedure on the primary Conductor Live node.
 

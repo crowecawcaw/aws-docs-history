@@ -1,7 +1,6 @@
 
 
 # Restoring a backup
-<a name="conductor-live-config-bkup-restore"></a>
 
 To restore a backup version of the database on a Conductor Live, Elemental Live, or Elemental Statmux node, follow this procedure.
 

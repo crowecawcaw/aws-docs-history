@@ -1,7 +1,6 @@
 
 
 # Creating a Conductor Live redundancy group
-<a name="conductor-live-config-redundancy-cl"></a>
 
 If you are implementing Conductor Live redundancy, then you should have two Conductor Live nodes — a primary node and a secondary node. You must create a redundancy group and add the nodes to this group. 
 

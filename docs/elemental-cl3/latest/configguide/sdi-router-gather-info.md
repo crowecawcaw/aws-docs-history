@@ -1,7 +1,6 @@
 
 
 # Step A: Gather information
-<a name="sdi-router-gather-info"></a>
 
 To set up the router information in Conductor Live, gather the following information:
 + **Information on the router**: The name you want to use for the router, its IP address, and any information required by your router’s protocol, such as user, level, or matrix ID.

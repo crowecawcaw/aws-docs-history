@@ -1,7 +1,6 @@
 
 
 # Adding mount points to worker nodes
-<a name="config-wrkr-cf-config-mount"></a>
 
 Create mount points if you need to make remote assets available on the Conductor Live cluster. Remote assets include scripts, image files, and video source files. 
 

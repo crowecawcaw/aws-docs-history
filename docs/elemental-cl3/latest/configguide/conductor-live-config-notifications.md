@@ -1,7 +1,6 @@
 
 
 # Configuring notifications for messages
-<a name="conductor-live-config-notifications"></a>
 
 AWS Elemental Conductor Live provides status information through alerts and messages. You can configure these notifications so you know when the node might need attention. The following table describes the differences between alerts and messages and how you can access each.
 

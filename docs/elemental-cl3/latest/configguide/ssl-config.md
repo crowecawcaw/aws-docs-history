@@ -1,7 +1,6 @@
 
 
 # Enabling and disabling HTTPS
-<a name="ssl-config"></a>
 
 Read this section only if you are using Conductor Live version 3.25 or earlier. With these versions, you must explicitly enable HTTPS if you want users or applications to have a secure connection to Conductor Live and worker nodes.
 

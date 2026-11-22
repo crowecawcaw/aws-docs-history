@@ -1,7 +1,6 @@
 
 
 # Configuring user authentication in Conductor Live
-<a name="config-conductor-live-user-auth"></a>
 
 You can enable user authentication on the cluster, so that all users must provide valid credentials to work from either the web interface or the REST API. When user authentication is enabled, users must provide the following credentials:
 + For the web interface, users must enter user credentials—a user name and a password. 

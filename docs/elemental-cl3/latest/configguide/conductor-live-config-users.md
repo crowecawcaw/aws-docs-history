@@ -1,7 +1,6 @@
 
 
 # Adding users to Conductor Live
-<a name="conductor-live-config-users"></a>
 
 Read this section if you've set up for [local user authentication](config-conductor-live-users.md). You must add regular administrators, operators, and viewers to the cluster. You add these types of users by working on the primary Conductor Live.
 

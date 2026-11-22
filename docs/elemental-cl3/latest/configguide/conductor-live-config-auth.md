@@ -1,7 +1,6 @@
 
 
 # Step 1: Enable the user authentication feature
-<a name="conductor-live-config-auth"></a>
 
 There are two steps to enabling user authentication in the cluster.
 + The first step is to enable the *user authentication *feature. You perform this step on the primary Conductor Live, by running the configuration script. 

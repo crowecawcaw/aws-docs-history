@@ -1,7 +1,6 @@
 
 
 # Creating or modifying a bond
-<a name="config-conductor-live-config-bond-add"></a>
 
 If you set up more Ethernet interfaces on the Conductor Live node, you can optionally bond two Ethernet interfaces. 
 

@@ -1,7 +1,6 @@
 
 
 # Adding Conductor redundancy to an existing cluster
-<a name="config-conductor-live-checklist-add-redundancy"></a>
 
 You might have originally deployed the cluster with only one AWS Elemental Conductor Live node. You might now want to add a secondary Conductor Live node, to implement node redundancy on the Conductor nodes.
 

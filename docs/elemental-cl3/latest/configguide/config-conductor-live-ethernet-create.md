@@ -1,7 +1,6 @@
 
 
 # Creating an Ethernet interface
-<a name="config-conductor-live-ethernet-create"></a>
 
 You use the CLI to create Ethernet interfaces using the web interface. 
 + If the node is a Conductor Live node and if HA is currently enabled, disable it now. Conductor Live redundancy (HA, or *high availability*) must be disabled before you configure Ethernet interfaces. For instructions, see [Disabling Conductor Live HA (high availability)](conductor-live-config-ha-chg.md).

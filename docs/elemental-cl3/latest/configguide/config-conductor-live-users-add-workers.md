@@ -1,7 +1,6 @@
 
 
 # Adding users to worker nodes
-<a name="config-conductor-live-users-add-workers"></a>
 
 Read this section if you've set up for [local user authentication](config-conductor-live-users.md#config-conductor-live-users.title). You can add users to worker nodes. 
 

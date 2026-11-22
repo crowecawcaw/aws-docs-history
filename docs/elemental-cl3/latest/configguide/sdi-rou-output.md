@@ -1,7 +1,6 @@
 
 
 # Step E: Complete the Router Output Mappings
-<a name="sdi-rou-output"></a>
 
 Perform this procedure on the Conductor Live node.
 

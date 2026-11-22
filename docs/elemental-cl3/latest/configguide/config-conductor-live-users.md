@@ -1,7 +1,6 @@
 
 
 # Managing users in Conductor Live
-<a name="config-conductor-live-users"></a>
 
 If you have enabled user authentication, you must add users to the cluster. After you've added users, you can manage existing users and add new users. If you don't enable user authentication, there is no need to create users. However, we strongly advise against deploying a cluster without user authentication enabled.
 

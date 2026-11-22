@@ -1,7 +1,6 @@
 
 
 # Disabling database backups
-<a name="conductor-live-config-bkup-dis"></a>
 
     Disable database backups on the AWS Elemental Conductor Live interface.  disable database backup  
 

@@ -1,7 +1,6 @@
 
 
 # Configuring for RTMP inputs
-<a name="conductor-live-config-rtmp"></a>
 
 The Elemental Live nodes are configured by default to support RTMP inputs. In this mode, Elemental Live is using processing resources to continually poll for input at the RTMP port. If you don't plan to support RTMP inputs, you can choose to disable these inputs, to release the processing resources.
 

@@ -1,7 +1,6 @@
 
 
 # Configure Ethernet interfaces
-<a name="config-conductor-live-config-ethernet-add"></a>
 
 When you installed the software on the individual nodes in an AWS Elemental Conductor Live cluster, you configured eth0. If you need to set up more Ethernet interfaces (network devices), read this section. You can optionally bond Ethernet interfaces to suit your networking requirements. 
 

@@ -1,7 +1,6 @@
 
 
 # Document History for Configuration Guide
-<a name="doc-history"></a>
 
 The following table describes the documentation for this release of AWS Elemental Conductor Live.
 + **API version:** 3.22.0 and later

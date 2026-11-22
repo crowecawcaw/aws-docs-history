@@ -1,7 +1,6 @@
 
 
 # Creating worker redundancy groups
-<a name="conductor-live-config-wrkr-red"></a>
 
 To set up worker nodes for failover resiliency, you create one or more redundancy groups, then you add worker nodes to each group. 
 

@@ -1,7 +1,6 @@
 
 
 # Configure DNS servers
-<a name="config-cluster-dns"></a>
 
 You can configure a node to use one or more DNS servers. 
 

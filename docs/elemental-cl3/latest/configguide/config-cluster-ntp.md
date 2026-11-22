@@ -1,7 +1,6 @@
 
 
 # Configuring NTP and PTP servers
-<a name="config-cluster-ntp"></a>
 
 You must configure a clock server for the nodes to use. You can configure any of these types of clock servers:
 + An NTP clock. 

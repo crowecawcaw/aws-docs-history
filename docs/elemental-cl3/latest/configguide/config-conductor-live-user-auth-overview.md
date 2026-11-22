@@ -1,7 +1,6 @@
 
 
 # About user authentication
-<a name="config-conductor-live-user-auth-overview"></a>
 
 ## Summary of procedure
 <a name="config-conductor-live-user-auth-summary"></a>

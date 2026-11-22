@@ -1,7 +1,6 @@
 
 
 # Disabling Conductor Live HA (high availability)
-<a name="conductor-live-config-ha-chg"></a>
 
 The main reason to disable HA is to make a change to the configuration of one or both Conductor Live nodes. You must disable HA to make these configuration changes:
 + Configure DNS

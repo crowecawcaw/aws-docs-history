@@ -1,7 +1,6 @@
 
 
 # Step C: Add the router
-<a name="sdi-rou-create"></a>
 
 Perform this procedure on the primary Conductor Live node.
 

@@ -1,7 +1,6 @@
 
 
 # Types of users
-<a name="users-types"></a>
 
 In a cluster, there are several types of users, as described in the following sections. 
 

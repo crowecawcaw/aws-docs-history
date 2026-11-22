@@ -1,7 +1,6 @@
 
 
 # Configure worker features
-<a name="config-conductor-live-features"></a>
 
 There are some features of the workers that you must configure individually. 
 

@@ -1,7 +1,6 @@
 
 
 # Disabling user authentication
-<a name="conductor-live-config-auth-chg"></a>
 
 This section describes how to disable user authentication on the cluster. 
 

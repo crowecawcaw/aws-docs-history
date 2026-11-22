@@ -1,7 +1,6 @@
 
 
 # Step 2: Apply user authentication on worker nodes
-<a name="conductor-live-config-auth-wrkr"></a>
 
 The following steps describe how to enable *node authentication* in the cluster. Before you enable node authentication, you must [enable user authentication](conductor-live-config-auth.md).
 

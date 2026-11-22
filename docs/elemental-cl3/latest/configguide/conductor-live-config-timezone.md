@@ -1,7 +1,6 @@
 
 
 # Setting the web interface time zone
-<a name="conductor-live-config-timezone"></a>
 
 This information applies to AWS Elemental Conductor Live, AWS Elemental Live and AWS Elemental Statmux. Follow this procedure if you didn't set the time zone when you installed the software on each node, or if you want to change the time zone on any node.
 

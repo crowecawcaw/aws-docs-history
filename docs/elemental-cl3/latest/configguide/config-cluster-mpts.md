@@ -1,7 +1,6 @@
 
 
 # Dedicating interfaces to MPTS
-<a name="config-cluster-mpts"></a>
 
 This section applies only of your cluster includes AWS Elemental Statmux nodes.
 

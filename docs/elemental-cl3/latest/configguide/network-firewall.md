@@ -1,7 +1,6 @@
 
 
 # Configuring a firewall and opening ports
-<a name="network-firewall"></a>
 
 You can enable the firewall on each node on the cluster. You can customize which ports are open on the firewall on a node.
 

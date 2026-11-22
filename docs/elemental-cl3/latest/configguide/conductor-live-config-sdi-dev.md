@@ -1,7 +1,6 @@
 
 
 # Adding SDI input devices
-<a name="conductor-live-config-sdi-dev"></a>
 
 Individual Elemental Live nodes in the AWS Elemental Conductor Live cluster might be set up with SDI cards. Each input on the card can have a direct cable connection to an SDI video input. 
 
