@@ -1,7 +1,6 @@
 
 
 # Specifying Amazon S3 encryption using EMRFS properties
-<a name="emr-emrfs-encryption"></a>
 
 **Important**  
 Beginning with Amazon EMR release version 4.8.0, you can use security configurations to apply encryption settings more easily and with more options. We recommend using security configurations. For information, see [Configure data encryption](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-create-security-configuration.html#emr-security-configuration-encryption). The console instructions described in this section are available for release versions earlier than 4.8.0. If you use the AWS CLI to configure Amazon S3 encryption both in the cluster configuration and in a security configuration in subsequent versions, the security configuration overrides the cluster configuration.

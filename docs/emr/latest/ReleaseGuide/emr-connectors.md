@@ -1,7 +1,6 @@
 
 
 # Connectors and utilities
-<a name="emr-connectors"></a>
 
 Amazon EMR provides a number of connectors and utilities to access other AWS services as data sources. You can usually access data in these services within a program. For example, you can specify an Kinesis stream in a Hive query, Pig script, or MapReduce application and then operate on that data.
 
@@ -20,7 +19,7 @@ Partially copied files are saved to the HDFS `tmp` directory in sub-directories 
 
 For example, for an S3DistCp job with the ID `4b1c37bb-91af-4391-aaf8-46a6067085a6`, you can connect to the master node of the cluster and run the following command to view output files associated with the job.
 
-```
+```bash
 hdfs dfs -ls /tmp/4b1c37bb-91af-4391-aaf8-46a6067085a6/output
 ```
 
@@ -40,6 +39,6 @@ Found 8 items
 
 You can then run the following command to delete the directory and all contents.
 
-```
+```bash
 hdfs dfs -rm -rf /tmp/4b1c37bb-91af-4391-aaf8-46a6067085a6
 ```

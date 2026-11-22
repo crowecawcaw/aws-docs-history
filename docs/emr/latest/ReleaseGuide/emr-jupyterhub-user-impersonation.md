@@ -1,7 +1,6 @@
 
 
 # User impersonation
-<a name="emr-jupyterhub-user-impersonation"></a>
 
 A Spark job running inside a Jupyter notebook traverses multiple applications during its execution on Amazon EMR. For example, PySpark3 code that a user runs inside Jupyter is received by Sparkmagic, which uses an HTTP POST request to submit it to Livy, which then creates a Spark job to execute on the cluster using YARN.
 
@@ -47,7 +46,7 @@ Add JupyterHub users using PAM or LDAP. For more information, see [Using PAM aut
 
 You connected to the master node to create users. While still connected to the master node, copy the contents below and save it to a script file. The script creates HDFS home directories for each JupyterHub user on the master node. The script assumes you are using the default administrator user ID, {{jovyan}}.
 
-```
+```bash
 #!/bin/bash
 
 CURL="curl --silent -k"

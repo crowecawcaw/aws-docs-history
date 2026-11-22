@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 5.28.0
-<a name="emr-5280-release"></a>
 
 ## 5.28.0 application versions
 <a name="emr-5280-app-versions"></a>

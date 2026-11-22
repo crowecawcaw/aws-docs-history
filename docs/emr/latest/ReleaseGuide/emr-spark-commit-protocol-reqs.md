@@ -1,7 +1,6 @@
 
 
 # Requirements for the EMRFS S3-optimized commit protocol
-<a name="emr-spark-commit-protocol-reqs"></a>
 
 The EMRFS S3-optimized commit protocol is used when the following conditions are met:
 + You run Spark jobs that use Spark, DataFrames, or Datasets to overwrite partitioned tables.
@@ -24,7 +23,7 @@ The `partitionOverwriteMode` write option was introduced in Spark 2.4.0. For Spa
 **Example – Dynamic partition overwrite mode**  
 In this Scala example, optimization is triggered. First, you set the `partitionOverwriteMode` property to `dynamic`. This only overwrites those partitions to which you're writing data. Then, you specify dynamic partition columns with `partitionBy` and set the write mode to `overwrite`.  
 
-```
+```scala
 val dataset = spark.range(0, 10)
   .withColumn("dt", expr("date_sub(current_date(), id)"))
 
@@ -53,7 +52,7 @@ The following Scala examples demonstrate some additional situations that the EMR
 **Example – Dynamic partition overwrite mode with custom partition location**  
 In this example, the Scala programs overwrites two partitions in dynamic partition overwrite mode. One partition has a custom partition location. The other partition uses the default partition location. The EMRFS S3-optimized commit protocol only improves the partition that uses the default partition location.  
 
-```
+```scala
 val table = "dataset"
 val inputView = "tempView"
 val location = "s3://bucket/table"
@@ -88,7 +87,7 @@ spark.sql(s"INSERT OVERWRITE TABLE $table SELECT * FROM $inputView")
 ```
 The Scala code creates the following Amazon S3 objects:  
 
-```
+```scala
 custom/part-00001-035a2a9c-4a09-4917-8819-e77134342402.c000.snappy.parquet
 custom_$folder$
 table/_SUCCESS

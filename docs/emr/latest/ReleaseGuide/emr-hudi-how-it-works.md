@@ -1,7 +1,6 @@
 
 
 # How Hudi works
-<a name="emr-hudi-how-it-works"></a>
 
 When using Hudi with Amazon EMR, you can write data to the dataset using the Spark Data Source API or the Hudi DeltaStreamer utility. Hudi organizes a dataset into a partitioned directory structure under a `{{basepath}}` that is similar to a traditional Hive table. The specifics of how the data is laid out as files in these directories depend on the dataset type that you choose. You can choose either Copy on Write (CoW) or Merge on Read (MoR).
 

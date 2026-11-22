@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 4.8.0
-<a name="emr-480-release"></a>
 
 ## 4.8.0 application versions
 <a name="emr-480-app-versions"></a>

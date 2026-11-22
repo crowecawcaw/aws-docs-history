@@ -1,7 +1,6 @@
 
 
 # Example: Create an HCatalog table and write to it using Pig
-<a name="emr-hcatalog-pig"></a>
 
 You can create an HCatalog table and use Apache Pig to write to it by way of HCatStorer using a data source in Amazon S3. HCatalog requires that you disable direct write, or the operation fails silently. Set both the `mapred.output.direct.NativeS3FileSystem `and the `mapred.output.direct.EmrFileSystem` configurations to `false` either using the `mapred-site` classification, or manually from within the Grunt shell. The following example shows a table created using the HCat CLI, followed by commands executed in the Grunt shell to populate the table from a sample data file in Amazon S3. 
 

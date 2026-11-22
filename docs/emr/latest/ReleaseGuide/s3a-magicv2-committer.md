@@ -1,7 +1,6 @@
 
 
 # S3A MagicV2 Committer
-<a name="s3a-magicv2-committer"></a>
 
 With the EMR-6.15.0 release, Amazon EMR introduces a new S3A committer type known as the MagicV2 committer. For comprehensive information about this feature, please consult the relevant documentation sections.
 

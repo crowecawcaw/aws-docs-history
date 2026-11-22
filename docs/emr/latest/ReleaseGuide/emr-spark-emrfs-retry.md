@@ -1,7 +1,6 @@
 
 
 # Retry Amazon S3 requests with EMRFS
-<a name="emr-spark-emrfs-retry"></a>
 
 This topic provides information about the retry strategies that you can use when making requests to Amazon S3 with EMRFS. When your request rate increases, S3 tries to scale to support the new rate. During this process S3 can throttle requests and return a `503 Slow Down` error. To improve the success rate of your S3 requests, you can adjust your retry strategy by configuring properties in your `emrfs-site` configuration.
 

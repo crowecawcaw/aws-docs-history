@@ -1,7 +1,6 @@
 
 
 # Amazon EMR 6.9.0 - Tez release notes
-<a name="Tez-release-history-690"></a>
 
 ## Amazon EMR 6.9.0 - Tez changes
 <a name="Tez-release-history-changes-690"></a>

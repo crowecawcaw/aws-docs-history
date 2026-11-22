@@ -1,7 +1,6 @@
 
 
 # HBase application specifics for earlier AMI versions of Amazon EMR
-<a name="emr-3x-hbase"></a>
 
 ## Supported HBase versions
 <a name="emr-3x-hbase-versions"></a>

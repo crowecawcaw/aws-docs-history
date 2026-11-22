@@ -1,7 +1,6 @@
 
 
 # Hue
-<a name="emr-hue"></a>
 
 Hue (Hadoop User Experience) is an open-source, web-based, graphical user interface for use with Amazon EMR and Apache Hadoop. Hue groups together several different Hadoop ecosystem projects into a configurable interface. Amazon EMR has also added customizations specific to Hue in Amazon EMR. Hue acts as a front-end for applications that run on your cluster, allowing you to interact with applications using an interface that may be more familiar or user-friendly. The applications in Hue, such as the Hive and Pig editors, replace the need to log in to the cluster to run scripts interactively using each application's respective shell. After a cluster launches, you might interact entirely with applications using Hue or a similar interface. For more information about Hue, see [http://gethue.com](http://gethue.com).
 

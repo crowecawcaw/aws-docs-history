@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 6.8.1
-<a name="emr-681-release"></a>
 
 ## 6.8.1 application versions
 <a name="emr-681-app-versions"></a>

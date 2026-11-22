@@ -1,7 +1,6 @@
 
 
 # Submit Pig work
-<a name="emr-pig-launch"></a>
 
 This section demonstrates submitting Pig work to an Amazon EMR cluster. The examples that follow generate a report containing the total bytes transferred, a list of the top 50 IP addresses, a list of the top 50 external referrers, and the top 50 search terms using Bing and Google. The Pig script is located in the Amazon S3 bucket `s3://elasticmapreduce/samples/pig-apache/do-reports2.pig`. Input data is located in the Amazon S3 bucket `s3://elasticmapreduce/samples/pig-apache/input`. The output is saved to an Amazon S3 bucket.
 

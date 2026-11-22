@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 5.30.2
-<a name="emr-5302-release"></a>
 
 ## 5.30.2 application versions
 <a name="emr-5302-app-versions"></a>

@@ -1,7 +1,6 @@
 
 
 # Authorizing access to EMRFS data in Amazon S3
-<a name="emr-plan-credentialsprovider"></a>
 
 By default, the EMR role for EC2 determines the permissions for accessing EMRFS data in Amazon S3. The IAM policies that are attached to this role apply regardless of the user or group making the request through EMRFS. The default is `EMR_EC2_DefaultRole`. For more information, see [Service role for cluster EC2 instances (EC2 instance profile)](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-role-for-ec2.html).
 

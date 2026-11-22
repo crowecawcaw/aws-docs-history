@@ -1,7 +1,6 @@
 
 
 # Considerations when using JupyterHub on Amazon EMR
-<a name="emr-jupyterhub-considerations"></a>
 
 Consider the following when using JupyterHub on Amazon EMR.
 + 

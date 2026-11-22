@@ -1,7 +1,6 @@
 
 
 # EMR WAL cross-cluster replication
-<a name="emr-hbase-wal-cross-cluster"></a>
 
 From EMR 7.5, EMR WAL supports HBase cross-cluster replication of write-ahead logs. This topic shows you how to enable the feature and check that it's working. For more details about cluster-replication, see [Cluster Replication](https://hbase.apache.org/book.html#_cluster_replication) in the Apache HBase documentation.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon EMR 7.10.0 - Oozie release notes
-<a name="Oozie-release-history-changes-7100"></a>
 
 **Oozie known issues:**
 + Version Conflict in Oozie Sharelib:

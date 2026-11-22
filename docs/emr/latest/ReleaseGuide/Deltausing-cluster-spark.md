@@ -1,7 +1,6 @@
 
 
 # Use a Delta Lake cluster with Spark
-<a name="Deltausing-cluster-spark"></a>
 
 Starting with Amazon EMR version 6.9.0, you can use Delta Lake with your Spark cluster without the need for bootstrap actions. For Amazon EMR releases 6.8.0 and lower, you can use bootstrap actions to pre-install the necessary dependencies. 
 
@@ -11,13 +10,13 @@ To use Delta Lake on Amazon EMR with the AWS Command Line Interface, first creat
 
 1. Create a file, `configurations.json`, with the following content:
 
-   ```
+   ```json
    [{"Classification":"delta-defaults",  "Properties":{"delta.enabled":"true"} }]
    ```
 
 1. Create a cluster with the following configuration, replacing the example Amazon S3 **bucket path** and the **subnet ID** with your own.
 
-   ```
+   ```bash,sh,zsh
    aws emr create-cluster 
         --release-label  emr-6.9.0  
         --applications Name=Spark  
@@ -45,7 +44,7 @@ If you use Amazon EMR releases 7.0.0 or higher, use `/usr/share/aws/delta/lib/de
 
    To include a jar dependency in the Spark job, you can add the following configuration properties to the Spark application:
 
-   ```
+   ```bash,sh,zsh
    --conf “spark.jars=/usr/share/aws/delta/lib/delta-core.jar,
         /usr/share/aws/delta/lib/delta-storage.jar,
         /usr/share/aws/delta/lib/delta-storage-s3-dynamodb.jar"
@@ -55,7 +54,7 @@ If you use Amazon EMR releases 7.0.0 or higher, use `/usr/share/aws/delta/lib/de
 
    If you use Amazon EMR releases 7.0.0 or higher, add the `/usr/share/aws/delta/lib/delta-spark.jar` configuration instead.
 
-   ```
+   ```bash,sh,zsh
    --conf “spark.jars=/usr/share/aws/delta/lib/delta-spark.jar,
         /usr/share/aws/delta/lib/delta-storage.jar,
         /usr/share/aws/delta/lib/delta-storage-s3-dynamodb.jar"
@@ -73,7 +72,7 @@ The following examples show how to launch the interactive Spark shell, use Spark
 
 1. Enter the following command to launch the Spark shell. To use the PySpark shell, replace `spark-shell` with `pyspark`.
 
-   ```
+   ```bash,sh,zsh
    spark-shell \
       --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" \
       --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"
@@ -81,7 +80,7 @@ The following examples show how to launch the interactive Spark shell, use Spark
 
    If you run Amazon EMR releases 6.15.0 or higher, you must also use the following configurations to use fine-grained access control based on Lake Formation with Delta Lake.
 
-   ```
+   ```bash,sh,zsh
    spark-shell \  
      --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension,com.amazonaws.emr.recordserver.connector.spark.sql.RecordServerSQLExtension \  
      --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog \  
@@ -95,7 +94,7 @@ The following examples show how to launch the interactive Spark shell, use Spark
 
 1. Enter the following command to launch the Spark session for Delta Lake.
 
-   ```
+   ```bash,sh,zsh
    spark-submit  
    —conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" 
    —conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"
@@ -103,7 +102,7 @@ The following examples show how to launch the interactive Spark shell, use Spark
 
    If you run Amazon EMR releases 6.15.0 or higher, you must also use the following configurations to use fine-grained access control based on Lake Formation with Delta Lake.
 
-   ```
+   ```bash,sh,zsh
    spark-submit \  `
    --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension,com.amazonaws.emr.recordserver.connector.spark.sql.RecordServerSQLExtension 
    --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog \  
@@ -127,7 +126,7 @@ To initialize a Spark session using Amazon EMR Studio notebooks, configure your 
 
 If you run Amazon EMR releases 6.15.0 or higher, you must also use the following configurations to use fine-grained access control based on Lake Formation with Delta Lake.
 
-```
+```bash,sh,zsh
 %%configure -f   
 {
   "conf": {
@@ -153,7 +152,7 @@ To paste code samples into the Spark shell, type :paste at the prompt, paste the
 
 Spark includes a Python based shell, `pyspark`, that you can use to prototype Spark programs written in Python. Just as with `spark-shell`, invoke `pyspark` on the primary node.
 
-```
+```sql
 ## Create a DataFrame
 data =  spark.createDataFrame([("100", "2015-01-01", "2015-01-01T13:51:39.340396Z"),
 ("101",  "2015-01-01", "2015-01-01T12:14:58.597216Z"),
@@ -173,7 +172,7 @@ data.writeTo("delta_table").append()
 ------
 #### [ Scala ]
 
-```
+```scala
 import org.apache.spark.sql.SaveMode
 import org.apache.spark.sql.functions._
  
@@ -196,7 +195,7 @@ data.write.format("delta").mode("append").saveAsTable("delta_table")
 ------
 #### [ SQL ]
 
-```
+```sql
 -- Create a Delta  Lake table with the S3 location
 CREATE TABLE delta_table(id string,
 creation_date string, 
@@ -219,7 +218,7 @@ INSERT INTO delta_table VALUES  ("100", "2015-01-01",  "2015-01-01T13:51:39.3403
 ------
 #### [ PySpark ]
 
-```
+```python,py
 ddf = spark.table("delta_table")
 ddf.show()
 ```
@@ -227,7 +226,7 @@ ddf.show()
 ------
 #### [ Scala ]
 
-```
+```scala
 val ddf =  spark.table("delta_table")
 ddf.show()
 ```
@@ -235,7 +234,7 @@ ddf.show()
 ------
 #### [ SQL ]
 
-```
+```sql
 SELECT * FROM delta_table;
 ```
 

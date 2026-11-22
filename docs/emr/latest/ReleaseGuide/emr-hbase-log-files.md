@@ -1,7 +1,6 @@
 
 
 # View HBase log files
-<a name="emr-hbase-log-files"></a>
 
 As part of its operation, HBase writes log files with details about configuration settings, daemon actions, and exceptions. These log files can be useful for debugging issues with HBase as well as for tracking performance. 
 

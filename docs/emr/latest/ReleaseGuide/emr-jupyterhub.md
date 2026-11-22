@@ -1,7 +1,6 @@
 
 
 # JupyterHub
-<a name="emr-jupyterhub"></a>
 
 [Jupyter Notebook](https://jupyter.org/) is an open-source web application that you can use to create and share documents that contain live code, equations, visualizations, and narrative text. [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/) allows you to host multiple instances of a single-user Jupyter notebook server. When you create a cluster with JupyterHub, Amazon EMR creates a Docker container on the cluster's master node. JupyterHub, all the components required for Jupyter, and [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic/blob/master/README.md) run within the container.
 

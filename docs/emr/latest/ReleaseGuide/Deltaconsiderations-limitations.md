@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations
-<a name="Deltaconsiderations-limitations"></a>
 + Delta Lake is supported for use with Amazon EMR releases 6.9.0 and higher. You can use [Apache Spark](https://aws.amazon.com/emr/features/spark/) 3.x on Amazon EMR clusters with Delta tables.
 + We recommend that you use s3 URI scheme for S3 location paths instead of s3a for best performance, security and reliability. For more information see [Working with storage and file systems](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-file-systems.html).
 + With Amazon EMR 7.0, Delta Universal Format (UniForm) and convert-to-Iceberg statements aren't supported.

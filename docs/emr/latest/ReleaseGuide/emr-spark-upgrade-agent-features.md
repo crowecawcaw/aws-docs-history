@@ -1,7 +1,6 @@
 
 
 # Features and Capabilities
-<a name="emr-spark-upgrade-agent-features"></a>
 
 ## Supported Technologies
 <a name="emr-spark-upgrade-agent-supported-technologies"></a>

@@ -1,7 +1,6 @@
 
 
 # Apache Zeppelin
-<a name="emr-zeppelin"></a>
 
 Use Apache Zeppelin as a notebook for interactive data exploration. For more information about Zeppelin, see [https://zeppelin.apache.org/](https://zeppelin.apache.org/). Zeppelin is included in Amazon EMR releases 5.0.0 and later. Earlier releases include Zeppelin as a sandbox application. For more information, see [Amazon EMR 4.x release versions](emr-release-4x.md).
 

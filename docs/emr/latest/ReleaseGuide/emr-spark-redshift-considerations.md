@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations when using the Spark connector
-<a name="emr-spark-redshift-considerations"></a>
 + We recommend that you turn on SSL for the JDBC connection from Spark on Amazon EMR to Amazon Redshift.
 + We recommend that you manage the credentials for the Amazon Redshift cluster in AWS Secrets Manager as a best practice. See [Using AWS Secrets Manager to retrieve credentials for connecting to Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-secrets-manager-integration.html) for an example.
 + We recommend that you pass an IAM role with the parameter `aws_iam_role` for the Amazon Redshift authentication parameter.

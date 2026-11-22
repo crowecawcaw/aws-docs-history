@@ -1,11 +1,12 @@
 
 
 # Using materialized views with Amazon EMR
-<a name="emr-spark-materialized-views"></a>
 
 Amazon EMR release 7.12.0 and later supports creating and managing Apache Iceberg materialized views in the AWS Glue Data Catalog. A materialized view is a managed table that stores the precomputed result of a SQL query in Apache Iceberg format and incrementally updates as the underlying source tables change. You can use materialized views to simplify data transformation pipelines and accelerate query performance for complex analytical workloads.
 
 When you create a materialized view using Spark on Amazon EMR, the view definition and metadata are stored in the AWS Glue Data Catalog. The precomputed results are stored as Apache Iceberg tables in Amazon S3 Tables buckets or Amazon S3 general purpose buckets within your AWS account. The AWS Glue Data Catalog automatically monitors source tables and refreshes materialized views using managed compute infrastructure.
+
+With Amazon EMR release 8.2.0, you can use incremental refresh on materialized views that project, filter, or inner-join data, not only those that aggregate. You can change a materialized view's definition in place with `CREATE OR REPLACE MATERIALIZED VIEW`, without dropping and recreating it. You can also create materialized views on source tables governed by AWS Lake Formation fine-grained access control (FGAC). Finally, you can route Spark Declarative Pipelines to Iceberg materialized views for incremental refresh. The sections that follow describe these capabilities.
 
 **Topics**
 + [How materialized views work with Amazon EMR](#emr-spark-materialized-views-how-it-works)
@@ -14,6 +15,9 @@ When you create a materialized view using Spark on Amazon EMR, the view definiti
 + [Creating materialized views](#emr-spark-materialized-views-create)
 + [Querying materialized views](#emr-spark-materialized-views-query)
 + [Refreshing materialized views](#emr-spark-materialized-views-refresh)
++ [Changing a materialized view definition](#emr-spark-materialized-views-change-definition)
++ [Materialized views on AWS Lake Formation fine-grained access control source tables](#emr-spark-materialized-views-fgac)
++ [Materialized views in Spark Declarative Pipelines](#emr-spark-materialized-views-sdp)
 + [Managing materialized views](#emr-spark-materialized-views-manage)
 + [Permissions for materialized views](#emr-spark-materialized-views-permissions)
 + [Monitoring materialized view operations](#emr-spark-materialized-views-monitoring)
@@ -34,13 +38,15 @@ The AWS Glue Data Catalog handles all operational aspects of materialized view m
 
 You can query materialized views from Amazon EMR using the same Spark SQL interfaces you use for regular tables. The precomputed data is also accessible from other services including Amazon Athena and Amazon Redshift.
 
+With Amazon EMR release 8.2.0, incremental refresh keeps a materialized view current by merging only the rows that changed since the last refresh. It applies to views that aggregate (`SUM`, `COUNT`) and to views that project, filter, or inner-join data. Non-aggregate views are maintained using Apache Iceberg format version 3 row lineage, which traces every materialized view row back to the source row that produced it and is stable across compaction. When a materialized view or a change doesn't qualify for incremental refresh, Amazon EMR performs a full refresh instead, so the result is always correct.
+
 ## Prerequisites
 <a name="emr-spark-materialized-views-prerequisites"></a>
 
 To use materialized views with Amazon EMR, you need:
 + An AWS account
-+ An Amazon EMR cluster running release 7.12.0 or later
-+ Source tables registered in the AWS Glue Data Catalog. Apache Iceberg source tables are supported on Amazon EMR release 7.12.0 and later. Apache Hive (non-Iceberg) source tables with a PARQUET, ORC, CSV, or JSON provider are supported on Amazon EMR release 7.14.0 and later.
++ An Amazon EMR cluster running release 7.12.0 or later. Incremental refresh of non-aggregate materialized views, `CREATE OR REPLACE MATERIALIZED VIEW`, Lake Formation fine-grained access control source tables, and Spark Declarative Pipelines routing require Amazon EMR release 8.2.0 or later.
++ Source tables registered in the AWS Glue Data Catalog. Apache Iceberg source tables are supported on Amazon EMR release 7.12.0 and later. Apache Hive (non-Iceberg) source tables with a PARQUET, ORC, CSV, or JSON provider are supported on Amazon EMR release 7.14.0 and later. Incremental refresh of non-aggregate materialized views requires Apache Iceberg format version 3 source tables.
 + AWS Lake Formation permissions configured for source tables and target databases
 + An S3 Tables bucket or S3 general purpose bucket registered with AWS Lake Formation for storing materialized view data
 
@@ -106,6 +112,8 @@ spark-sql \
   --conf spark.sql.optimizer.incrementalMVRefresh.enabled=true \
 ```
 
+On Amazon EMR release 8.2.0 and later, incremental refresh covers aggregate and non-aggregate materialized views by default. To restrict incremental refresh to aggregate materialized views only, add `--conf spark.sql.optimizer.incrementalMVRefresh.nonAggregate.enabled=false`.
+
 ### Configuration parameters
 <a name="emr-spark-materialized-views-configure-parameters"></a>
 
@@ -113,6 +121,7 @@ The following configuration parameters control materialized view behavior:
 + `spark.sql.extensions` – Enables Iceberg Spark session extensions required for materialized view support.
 + `spark.sql.optimizer.answerQueriesWithMVs.enabled` – Enables automatic query rewrite to use materialized views. Set to true to activate this optimization.
 + `spark.sql.optimizer.incrementalMVRefresh.enabled` – Enables incremental refresh optimization. Set to true to process only changed data during refresh operations.
++ `spark.sql.optimizer.incrementalMVRefresh.nonAggregate.enabled` – Default `true`. You can use incremental refresh for materialized views with no aggregation (projection, filter, inner join). Set to `false` to use incremental refresh for aggregate materialized views only. This parameter takes effect only when `spark.sql.optimizer.incrementalMVRefresh.enabled` is `true`. Available on Amazon EMR release 8.2.0 and later.
 + `spark.sql.materializedView.v1SourceTables.enabled` – Allows Apache Hive (non-Iceberg) tables with a PARQUET, ORC, CSV, or JSON provider in the AWS Glue Data Catalog to be used as source tables for a materialized view. Set to true to create materialized views over Hive source tables. Available on Amazon EMR release 7.14.0 and later.
 + `spark.sql.materializedView.v1ETagVersioning.enabled` – Set to true to detect changes in Apache Hive (non-Iceberg) source tables by comparing the ETags of the source data files. This is required to refresh a materialized view that references Hive source tables. Available on Amazon EMR release 7.14.0 and later.
 
@@ -161,6 +170,32 @@ SELECT
 FROM glue_catalog.sales.orders
 GROUP BY customer_name;
 ```
+
+### Creating a non-aggregate materialized view
+<a name="emr-spark-materialized-views-create-non-aggregate"></a>
+
+Starting with Amazon EMR release 8.2.0, incremental refresh covers materialized views that project, filter, and inner-join data, not only those that aggregate. You can build a transformation stage that cleans and conforms raw data into a derived table as a materialized view, so each refresh merges only the rows that changed instead of recomputing the whole table.
+
+Incremental refresh of a non-aggregate materialized view relies on row lineage in the source tables, so the source tables must already use Apache Iceberg format version 3. Setting format version 3 on the materialized view alone isn't enough. The following example creates a non-aggregate materialized view over two Iceberg format version 3 source tables and also creates the materialized view with format version 3. In the example, replace `completed_orders`, `glue_catalog.sales.orders`, and `glue_catalog.sales.customers` with the names of your own materialized view and source tables.
+
+```
+CREATE MATERIALIZED VIEW completed_orders
+TBLPROPERTIES ('format-version'='3')
+AS
+SELECT o.order_id, o.customer_name, c.region, o.amount
+FROM glue_catalog.sales.orders o
+JOIN glue_catalog.sales.customers c ON o.customer_id = c.customer_id
+WHERE o.status = 'complete';
+```
+
+Incremental refresh of non-aggregate materialized views tracks individual rows using Iceberg format version 3 row lineage. Every materialized view row traces back to the source row that produced it. The lineage is stable across compaction. For an inner join, Amazon EMR tracks lineage from all base tables. Deleting any contributing source row removes the corresponding materialized view row.
+
+Non-aggregate materialized views have the following limitations:
++ Incremental refresh of non-aggregate materialized views requires Apache Iceberg format version 3 source tables for row lineage. On format version 2 source tables, only aggregate materialized views (`SUM` or `COUNT`) refresh incrementally. Non-aggregate materialized views refresh in full.
++ Joins are incremental for inner joins without join hints only, and only when the change lands on one side of the join. If more than one source table changed since the last refresh, the refresh falls back to full.
++ A materialized view that combines a join with an aggregation (a join feeding a `GROUP BY`) refreshes in full. The engine maintains a join alone or an aggregation alone incrementally, but not the two stacked.
++ Outer, cross, semi, and anti joins; `UNION`; subqueries (including `IN (SELECT ...)`); `DISTINCT`; window functions; and `LIMIT` or `ORDER BY` always refresh in full.
++ The `spark.sql.optimizer.incrementalMVRefresh.nonAggregate.enabled` parameter (default `true`) controls incremental refresh for non-aggregate materialized views. This parameter takes effect only when `spark.sql.optimizer.incrementalMVRefresh.enabled` is `true`.
 
 ### Creating a materialized view with automatic refresh
 <a name="emr-spark-materialized-views-create-auto-refresh"></a>
@@ -247,6 +282,8 @@ The Spark optimizer automatically rewrites this query to use the customer\_order
 
 Starting with Amazon EMR release 8.1.0, automatic query rewrite can also rewrite queries over Apache Hive (non-Iceberg) source tables to use a matching materialized view. If the materialized view is stale, the optimizer does not rewrite the query and instead reads directly from the source tables, so a stale materialized view is never used to answer a query.
 
+Automatic query rewrite isn't available on clusters that enforce AWS Lake Formation fine-grained access control.
+
 ### Verifying automatic query rewrite
 <a name="emr-spark-materialized-views-query-verify"></a>
 
@@ -267,7 +304,7 @@ Automatic query rewrite requires time for the Spark metadata cache to populate a
 ## Refreshing materialized views
 <a name="emr-spark-materialized-views-refresh"></a>
 
-You can refresh materialized views using two methods: full refresh or incremental refresh. Full refresh recomputes the entire materialized view from all base table data, while incremental refresh processes only the data that has changed since the last refresh.
+You can refresh materialized views using two methods: full refresh or incremental refresh. Full refresh recomputes the entire materialized view from all base table data, while incremental refresh processes only the data that has changed since the last refresh. On Amazon EMR release 8.2.0 and later, incremental refresh covers aggregate materialized views (`SUM`, `COUNT`) and non-aggregate materialized views (projection, filter, inner join).
 
 ### Manual full refresh
 <a name="emr-spark-materialized-views-refresh-full"></a>
@@ -293,7 +330,7 @@ To perform an incremental refresh, ensure incremental refresh is enabled in your
 REFRESH MATERIALIZED VIEW customer_orders;
 ```
 
-The AWS Glue Data Catalog automatically determines whether incremental refresh is applicable based on the view definition and the amount of changed data. If incremental refresh is not possible, the operation falls back to full refresh.
+The AWS Glue Data Catalog automatically determines whether incremental refresh is applicable based on the view definition and the amount of changed data. If incremental refresh is not possible, the operation falls back to full refresh. A refresh that falls back to full records a reason in the Spark event log. Examples include too many rows or data files changed, more than one source table changed, an expired source snapshot, or an explicit full-refresh request. For more information, see [Considerations and limitations](#emr-spark-materialized-views-limitations).
 
 ### Verifying incremental refresh execution
 <a name="emr-spark-materialized-views-refresh-verify"></a>
@@ -328,6 +365,74 @@ Also, this can also be achieved by enabling debug logging by modifying your Spar
    DEBUG RefreshMaterializedViewExec: Executed Incremental Refresh
    ```
 
+## Changing a materialized view definition
+<a name="emr-spark-materialized-views-change-definition"></a>
+
+Starting with Amazon EMR release 8.2.0, you can change a materialized view's definition in place with `CREATE OR REPLACE MATERIALIZED VIEW`, without dropping it. This updates the SQL and runs a full refresh that recomputes the data from the new definition. The materialized view keeps its name and grants. Readers continue to see the previous results until the recomputed data is written in a single commit, so there is no gap in analytics while the change takes effect. In the following example, replace `customer_orders` with the name of your materialized view.
+
+```
+CREATE OR REPLACE MATERIALIZED VIEW customer_orders
+AS
+SELECT
+    customer_name,
+    channel,
+    COUNT(*) as order_count,
+    SUM(amount) as total_amount
+FROM glue_catalog.sales.orders
+GROUP BY customer_name, channel;
+```
+
+Use `CREATE OR REPLACE MATERIALIZED VIEW` to include a column that a source table added, to add a join or change an aggregation, or to re-expand `SELECT *` after a source widened.
+
+Changing a definition has the following limitations:
++ `CREATE OR REPLACE MATERIALIZED VIEW` runs a full refresh. It isn't an incremental operation.
++ A materialized view defined with an explicit column list keeps working with no action when a source adds a column, but it doesn't include the new column until you restate it with `CREATE OR REPLACE MATERIALIZED VIEW`.
++ A source column rename, a type change, or dropping a column that the view references is a breaking change that requires dropping and recreating the view.
++ `OR REPLACE` can't be combined with `IF NOT EXISTS`.
++ Use `ALTER MATERIALIZED VIEW` only for operational changes such as the refresh schedule, not for definition changes.
+
+## Materialized views on AWS Lake Formation fine-grained access control source tables
+<a name="emr-spark-materialized-views-fgac"></a>
+
+Starting with Amazon EMR release 8.2.0, on a cluster that enforces AWS Lake Formation fine-grained access control (FGAC), you can create, read, refresh, and drop materialized views directly on governed source tables. The materialized view contains only the rows and columns that you can see when you run CREATE or REFRESH. AWS Lake Formation applies the same row filters and column masks that it applies to a direct read. On an incremental refresh, AWS Lake Formation applies the same row filters and column masks to the change data read as it does to a full read.
+
+The following table lists the operations that fine-grained access control (FGAC) source tables support.
+
+
+| Operation | Supported | 
+| --- | --- | 
+| Create, read, full refresh, drop | Yes | 
+| Incremental refresh | Aggregate materialized views only (SUM or COUNT, over Iceberg base tables) | 
+| Automatic query rewrite | No | 
+
+Materialized views on FGAC source tables have the following limitations:
++ On a cluster that enforces fine-grained access control, non-aggregate materialized views (projections, filters, joins with no `GROUP BY`) always refresh in full. This is a cluster-level behavior. It applies to every non-aggregate materialized view on the cluster, even over source tables that have no row filters or column masks. If you don't use fine-grained access control, run non-aggregate incremental refresh on a non-FGAC cluster to avoid this fallback.
++ The following conditions fall back to a full refresh on a per-table basis:
+  + Materialized views over Hive or Parquet base tables always refresh in full.
+  + If the fine-grained access control policy of a base table changed since the last refresh, the next refresh is full, under the current policy.
++ You can't create or refresh Apache Iceberg format version 3 materialized views on an FGAC cluster, for the same reason. Create FGAC materialized views with Iceberg format version 2.
++ Incremental refresh is supported for aggregate materialized views only (`SUM` or `COUNT`, over Iceberg base tables) on an FGAC cluster. If the row filters and column masks can't be applied to the change data read, the refresh fails.
++ A materialized view contains only what you can see when you run CREATE or REFRESH. If you run a full refresh, your access policy determines the contents. If a different user runs the full refresh, that user's policy determines the contents instead, so run refreshes as a consistent principal.
++ Permissions on a materialized view are set separately from permissions on its base tables. Grant access on the materialized view directly.
++ Automatic query rewrite is turned off on FGAC clusters.
++ Scheduled (automatic) refresh isn't supported for a materialized view over fine-grained access control source tables. Refresh these materialized views manually with `REFRESH MATERIALIZED VIEW`.
+
+## Materialized views in Spark Declarative Pipelines
+<a name="emr-spark-materialized-views-sdp"></a>
+
+In a Spark Declarative Pipeline (SDP), you declare the datasets you want and the SQL that defines each one, and the pipeline resolves the dependency graph and runs it. By default, a materialized view in an SDP pipeline is a plain Iceberg table that the pipeline rebuilds in full on every run.
+
+Starting with Amazon EMR release 8.2.0, you can route an SDP materialized view to a Glue Iceberg materialized view. The declared view is then backed by a materialized view that records its sources and the snapshot it last read. Each pipeline run skips any materialized view whose sources didn't change, and merges only the delta for the ones that did, using the same pipeline code. Set the routing mode in the pipeline spec. The following table lists the routing modes.
+
+
+| Mode | When Glue can back the materialized view | When Glue can't | 
+| --- | --- | --- | 
+| GLUE\_ICEBERG\_MV\_PREFERRED | Glue Iceberg materialized view | Plain Glue Iceberg table, reason logged | 
+| GLUE\_ICEBERG\_MV\_ONLY | Glue Iceberg materialized view | Pipeline run fails | 
+| NO\_GLUE\_ICEBERG\_MV (default) | Plain Glue Iceberg table | Plain Glue Iceberg table | 
+
+A routed materialized view's sources and the materialized view itself must be Iceberg tables in a Glue catalog in the same Region and account. A routed materialized view is a managed artifact of the pipeline. It refreshes only when the pipeline runs, and it doesn't support standalone REFRESH, scheduled automatic refresh, or automatic query rewrite.
+
 ## Managing materialized views
 <a name="emr-spark-materialized-views-manage"></a>
 
@@ -359,6 +464,8 @@ ALTER MATERIALIZED VIEW customer_orders
 DROP SCHEDULE;
 ```
 
+Use `ALTER MATERIALIZED VIEW` for the refresh schedule. To change the view definition, use `CREATE OR REPLACE MATERIALIZED VIEW`. For more information, see [Changing a materialized view definition](#emr-spark-materialized-views-change-definition).
+
 ### Dropping a materialized view
 <a name="emr-spark-materialized-views-manage-drop"></a>
 
@@ -381,7 +488,7 @@ To create and manage materialized views, you must configure permissions for the 
 <a name="emr-spark-materialized-views-permissions-definer"></a>
 
 The definer role must have the following Lake Formation permissions:
-+ On source tables – SELECT or ALL permissions without row, column, or cell filters
++ On source tables – SELECT or ALL permissions without row, column, or cell filters (except on fine-grained access control source tables. For more information, see [Materialized views on AWS Lake Formation fine-grained access control source tables](#emr-spark-materialized-views-fgac))
 + On the target database – CREATE\_TABLE permission
 + On the AWS Glue Data Catalog – GetTable and CreateTable API permissions
 
@@ -554,20 +661,30 @@ Schema evolution is not supported for a system-managed materialized view. To cha
 <a name="emr-spark-materialized-views-limitations"></a>
 
 Consider the following when using materialized views with Amazon EMR:
-+ Materialized views require Amazon EMR release 7.12.0 or later.
++ Materialized views require Amazon EMR release 7.12.0 or later. Incremental refresh of non-aggregate materialized views, `CREATE OR REPLACE MATERIALIZED VIEW`, Lake Formation fine-grained access control source tables, and Spark Declarative Pipelines routing require Amazon EMR release 8.2.0 or later.
 + Source tables must be registered in the AWS Glue Data Catalog. Apache Iceberg source tables are supported on Amazon EMR release 7.12.0 and later. Apache Hive (non-Iceberg) source tables are supported on Amazon EMR release 7.14.0 and later. Apache Hudi and Linux Foundation Delta Lake source tables are not supported.
 + Source tables must reside in the same AWS Region and AWS account as the materialized view.
 + Materialized views cannot reference AWS Glue Data Catalog views or multi-dialect views as source tables.
 + A materialized view can reference another materialized view as a source table.
-+ The view definer role must have full read access (SELECT or ALL permission) on all source tables without row, column, or cell filters applied.
++ The view definer role must have full read access (SELECT or ALL permission) on all source tables. Fine-grained access control on source tables is supported as described in [Materialized views on AWS Lake Formation fine-grained access control source tables](#emr-spark-materialized-views-fgac).
 + Materialized views are eventually consistent with source tables. During the refresh window, queries may return stale data. Execute manual refresh for immediate consistency.
-+ The minimum automatic refresh interval is one hour.
-+ Incremental refresh supports a restricted subset of SQL operations. The view definition must be a single SELECT-FROM-WHERE-GROUP BY-HAVING block and cannot contain set operations, subqueries, the DISTINCT keyword in SELECT or aggregate functions, window functions, or joins other than INNER JOIN.
++ The minimum automatic refresh interval is one hour on Amazon EMR releases earlier than 7.14.0, and 10 minutes on Amazon EMR release 7.14.0 and later. The maximum interval is 90 days.
++ Incremental refresh of aggregations covers `SUM` and `COUNT`. `AVG`, `MIN`, `MAX`, and `DISTINCT` aggregates refresh in full.
++ Incremental refresh of non-aggregate materialized views (projection, filter, inner join) requires Apache Iceberg format version 3 source tables and is available on Amazon EMR release 8.2.0 and later. On format version 2 source tables, only aggregate materialized views (`SUM` or `COUNT`) refresh incrementally, and non-aggregate materialized views refresh in full. A materialized view that combines a join with an aggregation refreshes in full, and inner joins refresh incrementally only when one source table changed per refresh.
++ An eligible materialized view still falls back to a full refresh in the following cases. Amazon EMR records the reason in the Spark event log.
+  + Too many rows or data files changed in a source table.
+  + More than one source table changed.
+  + A source snapshot expired.
+  + The session time zone changed since create.
+  + A full refresh is requested.
+  + The materialized view's integrity check fails.
++ A materialized view records the Spark version and session time zone it was computed with. Refreshing from a different Spark version is blocked, and query rewrite doesn't use the materialized view. Refreshing from a different time zone runs in full.
 + Incremental refresh does not support user-defined functions or certain built-in functions. Only a subset of Spark SQL built-in functions are supported.
-+ Query automatic rewrite only considers materialized views whose definitions belong to a restricted SQL subset similar to incremental refresh restrictions.
++ Automatic query rewrite only considers materialized views whose definitions belong to a restricted SQL subset similar to the incremental refresh restrictions. It isn't available on AWS Lake Formation fine-grained access control clusters.
 + Full refresh operations override the entire table and make previous snapshots unavailable.
 + Identifiers containing special characters other than alphanumeric characters and underscores are not supported in CREATE MATERIALIZED VIEW queries.
 + Materialized view columns starting with the \_\_ivm prefix are reserved for system use. AWS reserves the right to modify or remove these columns in future releases.
 + The SORT BY, LIMIT, OFFSET, CLUSTER BY, and ORDER BY clauses are not supported in materialized view definitions.
 + Cross-Region and cross-account source tables are not supported.
 + Non-deterministic functions such as rand() or current\_timestamp() are not supported in materialized view definitions.
++ Direct writes to a materialized view table aren't supported. They break the integrity check and force a full refresh or recreation.

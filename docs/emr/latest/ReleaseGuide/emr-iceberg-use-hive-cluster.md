@@ -1,7 +1,6 @@
 
 
 # Use an Iceberg cluster with Hive
-<a name="emr-iceberg-use-hive-cluster"></a>
 
 With Amazon EMR releases 6.9.0 and higher, you can use Iceberg with a Hive cluster without having to perform the setup steps that are required for Open Source Iceberg Hive Integration. For Amazon EMR versions 6.8.0 and earlier, you can use a bootstrap action to install `iceberg-hive-runtime` jar for configuring Hive for Iceberg support.
 
@@ -96,19 +95,19 @@ The `STORED AS` file format of ORC/AVRO/PARQUET is not supported in Hive 3. The 
 
 Starting with Amazon EMR 7.3.0, Hive with Iceberg supports the AWS Glue Data Catalog as a metastore. To use the AWS Glue Data Catalog as the metastore, set the following property.
 
-```
+```bash,sh,zsh
 SET iceberg.catalog.<catalog_name>.catalog-impl=org.apache.iceberg.aws.glue.GlueCatalog;
 ```
 
 Alternatively, you can also set the following property.
 
-```
+```bash,sh,zsh
 SET iceberg.catalog.<catalog_name>.type=glue;
 ```
 
 You can then create a table using the following example.
 
-```
+```sql
 CREATE EXTERNAL TABLE table_name (col1 type1, col2 type2,..)
 ROW FORMAT SERDE 'org.apache.iceberg.mr.hive.HiveIcebergSerDe'
 STORED BY 'org.apache.iceberg.mr.hive.HiveIcebergStorageHandler'

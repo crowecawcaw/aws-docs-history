@@ -1,59 +1,58 @@
 
 
-# Prompt Examples
-<a name="spark-troubleshooting-agent-prompt-examples"></a>
+# Troubleshooting prompt examples
 
-Here is a list of prompt examples that can be used in the troubleshooting experience.
+You can use the following prompt examples in the troubleshooting experience.
 
-## 1. Troubleshoot Spark job execution failure
+## Troubleshoot a Spark job execution failure
 <a name="troubleshoot-job-failure"></a>
 
-EMR on EC2 Troubleshooting:
+EMR on EC2 troubleshooting:
 
 ```
 Troubleshoot my EMR-EC2 step with id s-xxxxxxxxxxxx on cluster j-xxxxxxxxxxxxx
 ```
 
-Glue Job Troubleshooting:
+AWS Glue job troubleshooting:
 
 ```
 Troubleshoot my Glue job with job run id jr_xxxxxxxxxxxxxxxxxxxxxxxxxxxx and job name test_job
 ```
 
-EMR Serverless Troubleshooting:
+EMR Serverless troubleshooting:
 
 ```
 Troubleshoot my EMR-Serverless job run with application id 00xxxxxxxx and job run id 00xxxxxxxx
 ```
 
-EMR on EKS Troubleshooting:
+EMR on EKS troubleshooting:
 
 ```
 Troubleshoot my EMR on EKS job run with virtual cluster id <vc-id> and job run id <jr-id>
 ```
 
-## 2. Request for code fix recommendation
+## Request a code fix recommendation
 <a name="request-code-fix"></a>
 
-Request code fix recommendation for EMR on EC2 job:
+Request a code fix recommendation for an EMR on EC2 job:
 
 ```
 Recommend code fix for my EMR on EC2 step with id s-STEP_ID on cluster j-CLUSTER_ID
 ```
 
-Request code fix recommendation for Glue job:
+Request a code fix recommendation for an AWS Glue job:
 
 ```
 Recommend code fix for my Glue job with job run id jr_JOB_RUN_ID and job name test_job
 ```
 
-Request code fix recommendation for EMR Serverless job:
+Request a code fix recommendation for an EMR Serverless job:
 
 ```
 Recommend code fix for my EMR Serverless job run with application id 00xxxxxxxx and job run id 00xxxxxxxx
 ```
 
-Request code fix recommendation for EMR on EKS job:
+Request a code fix recommendation for an EMR on EKS job:
 
 ```
 Recommend code fix for my EMR on EKS job run with virtual cluster id <vc-id> and job run id <jr-id>

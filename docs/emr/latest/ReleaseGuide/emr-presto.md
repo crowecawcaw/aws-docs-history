@@ -1,7 +1,6 @@
 
 
 # Presto
-<a name="emr-presto"></a>
 
 **Important**  
 Presto, the previous version of Trino, is still available for use with Amazon EMR. However, we highly recommend Trino going forward for use with Amazon EMR. Also note that Trino and Presto can't run simultaneously on the same cluster. For more information, see [Trino](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-trino.html).

@@ -1,7 +1,6 @@
 
 
 # Enabling Amazon EMR WAL
-<a name="emr-hbase-wal-enabling"></a>
 
 Use the following steps to enable writing to the Amazon EMR WAL when you create a cluster with the AWS Command Line Interface.
 
@@ -17,7 +16,7 @@ You can't enable Amazon EMR WAL for a cluster that is already running, and you c
 
 1. To enable WAL for the new cluster, set the `hbase.emr.wal.enabled` property to `true`. The following command contains a JSON snippet with an example configuration object.
 
-   ```
+   ```bash,sh,zsh
    aws emr create-cluster --name "{{hbasewal}}" --release-label {{emr-6.x.y}} \
    --applications Name=HBase --use-default-roles --ec2-attributes KeyName={{myKey}} \
    --instance-type {{m6i.xlarge}} --instance-count {{1}} --configurations hbase.json
@@ -43,7 +42,7 @@ When HBase is online on the newly created cluster, HBase will automatically writ
 
 **Example 1: Creating an EMR cluster that uses Amazon EMR WAL**  
 
-```
+```json
 [
     {
         "Classification": "hbase-site",
@@ -63,7 +62,7 @@ When HBase is online on the newly created cluster, HBase will automatically writ
 
 **Example 2: Creating an EMR cluster with a custom WAL workspace**  
 
-```
+```json
 [
     {
         "Classification": "hbase-site",

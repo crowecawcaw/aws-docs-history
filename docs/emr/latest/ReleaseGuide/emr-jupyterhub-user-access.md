@@ -1,7 +1,6 @@
 
 
 # Adding Jupyter Notebook users and administrators
-<a name="emr-jupyterhub-user-access"></a>
 
 You can use one of two methods for users to authenticate to JupyterHub so that they can create notebooks and, optionally, administer JupyterHub. The easiest method is to use JupyterHub's pluggable authentication module (PAM). In addition, JupyterHub on Amazon EMR supports the [LDAP authenticator plugin for JupyterHub](https://github.com/jupyterhub/ldapauthenticator/) for obtaining user identities from an LDAP server, such as a Microsoft Active Directory server. Instructions and examples for adding users with each authentication method are provided in this section.
 

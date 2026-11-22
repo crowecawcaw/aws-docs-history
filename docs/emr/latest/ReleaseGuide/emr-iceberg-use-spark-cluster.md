@@ -1,7 +1,6 @@
 
 
 # Use an Iceberg cluster with Spark
-<a name="emr-iceberg-use-spark-cluster"></a>
 
 Starting with Amazon EMR version 6.5.0, you can use Iceberg with your Spark cluster with no requirement to include bootstrap actions. For Amazon EMR versions 6.4.0 and earlier, you can use a bootstrap action to pre-install all necessary dependencies.
 
@@ -16,7 +15,7 @@ To use Iceberg on Amazon EMR with the AWS CLI, first create a cluster with the f
 
 1. Create a `configurations.json` file with the following content:
 
-   ```
+   ```bash
    [{
        "Classification":"iceberg-defaults",
        "Properties":{"iceberg.enabled":"true"}
@@ -25,7 +24,7 @@ To use Iceberg on Amazon EMR with the AWS CLI, first create a cluster with the f
 
 1. Next, create a cluster with the following configuration. Replace the example Amazon S3 bucket path and the subnet ID with your own.
 
-   ```
+   ```bash
    aws emr create-cluster --release-label emr-6.5.0 \
    --applications Name=Spark \
    --configurations file://configurations.json \
@@ -42,7 +41,7 @@ Alternatively, you can create an Amazon EMR cluster including the Spark applicat
 
 To include the jar as a dependency in a Spark job, add the following configuration property to the Spark application:
 
-```
+```bash
 --conf "spark.jars=/usr/share/aws/iceberg/lib/iceberg-spark3-runtime.jar"
 ```
 
@@ -60,7 +59,7 @@ The following examples demonstrate how to launch the interactive Spark shell, us
 
 1. Enter the following command to launch the Spark shell. To use the PySpark shell, replace `spark-shell` with `pyspark`.
 
-   ```
+   ```bash
    spark-shell \
        --conf spark.sql.catalog.my_catalog=org.apache.iceberg.spark.SparkCatalog \
        --conf spark.sql.catalog.my_catalog.warehouse=s3://{{amzn-s3-demo-bucket}}/{{prefix}}/
@@ -76,7 +75,7 @@ The following examples demonstrate how to launch the interactive Spark shell, us
 
 1. Enter the following command to launch the Spark session for Iceberg.
 
-   ```
+   ```bash
    spark-submit \
    --conf spark.sql.catalog.my_catalog=org.apache.iceberg.spark.SparkCatalog \
    --conf spark.sql.catalog.my_catalog.warehouse=s3://{{amzn-s3-demo-bucket1}}/{{prefix}} \
@@ -90,7 +89,7 @@ The following examples demonstrate how to launch the interactive Spark shell, us
 
 To initialize a Spark session using EMR Studio notebooks, configure your Spark session using the `%%configure` magic command in your Amazon EMR notebook, as in the following example. For more information, see [Use EMR Notebooks magics](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-magics.html#emr-magics) in the *Amazon EMR Management Guide*.
 
-```
+```bash
 %%configure -f{
 "conf":{
     "spark.sql.catalog.my_catalog":"org.apache.iceberg.spark.SparkCatalog",
@@ -107,7 +106,7 @@ To initialize a Spark session using EMR Studio notebooks, configure your Spark s
 
 To initialize a Spark cluster using the CLI and set all of the Spark Iceberg session default configurations, run the following sample. For more information about specifying a configuration classification using the AWS CLI and Amazon EMR API, see [Configure applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html).
 
-```
+```bash
 [
   {
     "Classification": "spark-defaults",
@@ -137,7 +136,7 @@ To paste code samples into the Spark shell, type `:paste` at the prompt, paste t
 
 Spark includes a Python-based shell, `pyspark`, that you can use to prototype Spark programs written in Python. Invoke `pyspark` on the master node.
 
-```
+```python
 ## Create a DataFrame.
 data = spark.createDataFrame([
  ("100", "2015-01-01", "2015-01-01T13:51:39.340396Z"),
@@ -159,7 +158,7 @@ data.writeTo("dev.db.iceberg_table").append()
 ------
 #### [ Scala ]
 
-```
+```scala
 import org.apache.spark.sql.SaveMode
 import org.apache.spark.sql.functions._
 
@@ -189,7 +188,7 @@ data.writeTo("dev.db.iceberg_table").append()
 ------
 #### [ PySpark ]
 
-```
+```python
 df = spark.read.format("iceberg").load("dev.db.iceberg_table")
 df.show()
 ```
@@ -197,7 +196,7 @@ df.show()
 ------
 #### [ Scala ]
 
-```
+```scala
 val df = spark.read.format("iceberg").load("dev.db.iceberg_table")
 df.show()
 ```
@@ -205,7 +204,7 @@ df.show()
 ------
 #### [ Spark SQL ]
 
-```
+```sql
 SELECT * from dev.db.iceberg_table LIMIT 10
 ```
 

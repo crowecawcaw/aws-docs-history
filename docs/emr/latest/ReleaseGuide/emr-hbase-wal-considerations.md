@@ -1,7 +1,6 @@
 
 
 # Considerations and Regions for Amazon EMR WAL
-<a name="emr-hbase-wal-considerations"></a>
 
 ## Considerations for Amazon EMR WAL
 <a name="emr-hbase-wal-consid"></a>

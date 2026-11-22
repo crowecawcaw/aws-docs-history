@@ -1,7 +1,6 @@
 
 
 # Configure Hue for LDAP users
-<a name="hue-ldap"></a>
 
 Integration with LDAP allows users to log into Hue using existing credentials stored in an LDAP directory. When you integrate Hue with LDAP, you do not need to independently manage user information in Hue. The information below demonstrates Hue integration with Microsoft Active Directory, but the configuration options are analogous to any LDAP directory.
 

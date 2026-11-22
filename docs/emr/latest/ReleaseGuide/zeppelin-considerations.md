@@ -1,7 +1,6 @@
 
 
 # Considerations when using Zeppelin on Amazon EMR
-<a name="zeppelin-considerations"></a>
 + Connect to Zeppelin using the same [SSH tunneling method](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ssh-tunnel.html) to connect to other web servers on the master node. Zeppelin server is found at port 8890.
 + Zeppelin on Amazon EMR release versions 5.0.0 and later supports [Shiro authentication](https://zeppelin.apache.org/docs/0.8.0/setup/security/shiro_authentication.html).
 + Zeppelin on Amazon EMR release versions 5.8.0 and later supports using AWS Glue Data Catalog as the metastore for Spark SQL. For more information, see [Using AWS Glue Data Catalog as the metastore for Spark SQL.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark-glue.html)

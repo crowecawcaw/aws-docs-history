@@ -1,14 +1,13 @@
 
 
 # Authenticating with Amazon Redshift integration for Apache Spark
-<a name="emr-spark-redshift-auth"></a>
 
 ## Using AWS Secrets Manager to retrieve credentials and connect to Amazon Redshift
 <a name="emr-spark-redshift-secrets"></a>
 
 The following code sample shows how you can use AWS Secrets Manager to retrieve credentials to connect to an Amazon Redshift cluster with the PySpark interface for Apache Spark in Python.
 
-```
+```python
 from pyspark.sql import SQLContext
 import boto3
 
@@ -57,7 +56,7 @@ You also must make sure that Amazon Redshift can assume the IAM role during `COP
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -82,7 +81,7 @@ You also must make sure that Amazon Redshift can assume the IAM role during `COP
 
 The following example uses IAM authentication between Spark and Amazon Redshift:
 
-```
+```bash,sh,zsh
 from pyspark.sql import SQLContext
 import boto3
 

@@ -1,7 +1,6 @@
 
 
 # Understanding Amazon EMR WAL pricing and metrics
-<a name="emr-hbase-wal-metrics"></a>
 
 
 | Core feature billing unit | Details | 

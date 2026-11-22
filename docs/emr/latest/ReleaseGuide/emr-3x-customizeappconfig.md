@@ -1,7 +1,6 @@
 
 
 # Customizing cluster and application configuration with earlier AMI versions of Amazon EMR
-<a name="emr-3x-customizeappconfig"></a>
 
 Amazon EMR release version 4.0.0 introduced a simplified method of configuring applications using configuration classifications. For more information, see [Configure applications](emr-configure-apps.md). When using an AMI version, you configure applications using bootstrap actions along with arguments that you pass. For example, the `configure-hadoop` and `configure-daemons` bootstrap actions set Hadoop and YARN–specific environment properties like `--namenode-heap-size`. In more recent versions, these are configured using the `hadoop-env` and `yarn-env` configuration classifications. For bootstrap actions that perform common configurations, see the [emr-bootstrap-actions repository on Github](https://github.com/awslabs/emr-bootstrap-actions).
 

@@ -1,7 +1,6 @@
 
 
 # Work with a Hudi dataset
-<a name="emr-hudi-work-with-dataset"></a>
 
 Hudi supports inserting, updating, and deleting data in Hudi datasets through Spark. For more information, see [Writing Hudi tables](https://hudi.apache.org/docs/writing_data.html) in Apache Hudi documentation.
 
@@ -21,7 +20,7 @@ Amazon EMR 6.7.0 uses [Apache Hudi](https://hudi.apache.org/) 0.11.0-amzn-0, whi
 
 1. Enter the following command to launch the Spark shell. To use the PySpark shell, replace {{spark-shell}} with {{pyspark}}.
 
-   ```
+   ```bash
    {{spark-shell}} --jars /usr/lib/hudi/hudi-spark-bundle.jar \
    --conf "spark.serializer=org.apache.spark.serializer.KryoSerializer" \    
    --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.hudi.catalog.HoodieCatalog"  \
@@ -48,7 +47,7 @@ Amazon EMR 6.6 and 5.36 and later (Hudi 0.10.x and later) must include the `Hood
 
 1. Enter the following command to launch the Spark shell. To use the PySpark shell, replace {{spark-shell}} with {{pyspark}}.
 
-   ```
+   ```bash
    {{spark-shell }}\
    --conf "spark.serializer=org.apache.spark.serializer.KryoSerializer" \
    --conf "spark.sql.hive.convertMetastoreParquet=false" \
@@ -66,17 +65,17 @@ To use Hudi with Amazon EMR Notebooks, you must first copy the Hudi jar files fr
 
 1. Connect to the master node of the cluster using SSH and then copy the jar files from the local filesystem to HDFS as shown in the following examples. In the example, we create a directory in HDFS for clarity of file management. You can choose your own destination in HDFS, if desired.
 
-   ```
+   ```bash
    hdfs dfs -mkdir -p /apps/hudi/lib
    ```
 
-   ```
+   ```bash
    hdfs dfs -copyFromLocal /usr/lib/hudi/hudi-spark-bundle.jar /apps/hudi/lib/hudi-spark-bundle.jar
    ```
 
 1. Open the notebook editor, enter the code from the following example, and run it.
 
-   ```
+   ```spark
    %%configure
    { "conf": {
                "spark.jars":"hdfs:///apps/hudi/lib/hudi-spark-bundle.jar",
@@ -97,21 +96,21 @@ To use Hudi with Amazon EMR Notebooks, you must first copy the Hudi jar files fr
 
 1. Connect to the master node of the cluster using SSH and then copy the jar files from the local filesystem to HDFS as shown in the following examples. In the example, we create a directory in HDFS for clarity of file management. You can choose your own destination in HDFS, if desired.
 
-   ```
+   ```bash
    hdfs dfs -mkdir -p /apps/hudi/lib
    ```
 
-   ```
+   ```bash
    hdfs dfs -copyFromLocal /usr/lib/hudi/hudi-spark-bundle.jar /apps/hudi/lib/hudi-spark-bundle.jar
    ```
 
-   ```
+   ```bash
    hdfs dfs -copyFromLocal /usr/lib/spark/external/lib/spark-avro.jar /apps/hudi/lib/spark-avro.jar
    ```
 
 1. Open the notebook editor, enter the code from the following example, and run it.
 
-   ```
+   ```spark
    { "conf": {
                "spark.jars":"hdfs:///apps/hudi/lib/hudi-spark-bundle.jar,hdfs:///apps/hudi/lib/spark-avro.jar",
                "spark.serializer":"org.apache.spark.serializer.KryoSerializer",
@@ -124,7 +123,7 @@ To use Hudi with Amazon EMR Notebooks, you must first copy the Hudi jar files fr
 
 When you use Scala, you must import the following classes in your Spark session. This needs to be done once per Spark session.
 
-```
+```scala
 import org.apache.spark.sql.SaveMode
 import org.apache.spark.sql.functions._
 import org.apache.hudi.DataSourceWriteOptions
@@ -151,7 +150,7 @@ Each time you write a DataFrame to a Hudi dataset, you must specify `DataSourceW
 **Note**  
 Amazon EMR 6.7.0 uses [Apache Hudi](https://hudi.apache.org/) 0.11.0-amzn-0, which contains significant improvements over previous Hudi versions. For more information, see the [Apache Hudi 0.11.0 Migration Guide](https://hudi.apache.org/releases/release-0.11.0/#migration-guide). The examples on this tab reflect these changes.
 
-```
+```scala
 // Create a DataFrame
 val inputDF = Seq(
  ("100", "2015-01-01", "2015-01-01T13:51:39.340396Z"),
@@ -191,7 +190,7 @@ val hudiOptions = Map[String,String](
 ### Write using Scala with Amazon EMR 6.6 and earlier
 <a name="scala-examples-66"></a>
 
-```
+```scala
 // Create a DataFrame
 val inputDF = Seq(
  ("100", "2015-01-01", "2015-01-01T13:51:39.340396Z"),
@@ -227,7 +226,7 @@ val hudiOptions = Map[String,String](
 ### Write using PySpark
 <a name="pyspark-examples"></a>
 
-```
+```python
 # Create a DataFrame
 inputDF = spark.createDataFrame(
     [
@@ -303,7 +302,7 @@ The following example demonstrates how to upsert data by writing a DataFrame. Un
 **Note**  
 Amazon EMR 6.7.0 uses [Apache Hudi](https://hudi.apache.org/) 0.11.0-amzn-0, which contains significant improvements over previous Hudi versions. For more information, see the [Apache Hudi 0.11.0 Migration Guide](https://hudi.apache.org/releases/release-0.11.0/#migration-guide). The examples on this tab reflect these changes.
 
-```
+```scala
 // Create a new DataFrame from the first row of inputDF with a different creation_date value
 val updateDF = inputDF.limit(1).withColumn("creation_date", lit("new_value"))
 
@@ -318,7 +317,7 @@ val updateDF = inputDF.limit(1).withColumn("creation_date", lit("new_value"))
 ### Upsert using Scala with Amazon EMR 6.6 and earlier
 <a name="scala-upsert-66"></a>
 
-```
+```scala
 // Create a new DataFrame from the first row of inputDF with a different creation_date value
 val updateDF = inputDF.limit(1).withColumn("creation_date", lit("{{new_value}}"))
 
@@ -333,7 +332,7 @@ val updateDF = inputDF.limit(1).withColumn("creation_date", lit("{{new_value}}")
 ### Upsert using PySpark
 <a name="pyspark-upsert"></a>
 
-```
+```python
 from pyspark.sql.functions import lit
 
 # Create a new DataFrame from the first row of inputDF with a different creation_date value
@@ -358,7 +357,7 @@ To hard delete a record, you can upsert an empty payload. In this case, the `PAY
 **Note**  
 Amazon EMR 6.7.0 uses [Apache Hudi](https://hudi.apache.org/) 0.11.0-amzn-0, which contains significant improvements over previous Hudi versions. For more information, see the [Apache Hudi 0.11.0 Migration Guide](https://hudi.apache.org/releases/release-0.11.0/#migration-guide). The examples on this tab reflect these changes.
 
-```
+```scala
 (updateDF.write
     .format("hudi")
     .options(hudiOptions)
@@ -370,7 +369,7 @@ Amazon EMR 6.7.0 uses [Apache Hudi](https://hudi.apache.org/) 0.11.0-amzn-0, whi
 ### Delete using Scala with Amazon EMR 6.6 and earlier
 <a name="scala-delete-66"></a>
 
-```
+```scala
 (updateDF.write
     .format("org.apache.hudi")
     .option(DataSourceWriteOptions.OPERATION_OPT_KEY, DataSourceWriteOptions.UPSERT_OPERATION_OPT_VAL)
@@ -382,7 +381,7 @@ Amazon EMR 6.7.0 uses [Apache Hudi](https://hudi.apache.org/) 0.11.0-amzn-0, whi
 ### Delete using PySpark
 <a name="pyspark-delete"></a>
 
-```
+```python
 updateDF.write \
     .format('org.apache.hudi') \
     .option('hoodie.datasource.write.operation', 'upsert') \
@@ -405,7 +404,7 @@ To retrieve data at the present point in time, Hudi performs snapshot queries by
 **Note**  
 Amazon EMR 6.7.0 uses [Apache Hudi](https://hudi.apache.org/) 0.11.0-amzn-0, which contains significant improvements over previous Hudi versions. For more information, see the [Apache Hudi 0.11.0 Migration Guide](https://hudi.apache.org/releases/release-0.11.0/#migration-guide). The examples on this tab reflect these changes.
 
-```
+```scala
 val snapshotQueryDF = spark.read
     .format("hudi")
     .load({{"s3://amzn-s3-demo-bucket/myhudidataset"}}) 
@@ -415,7 +414,7 @@ val snapshotQueryDF = spark.read
 ### Read using Scala with Amazon EMR 6.6 and earlier
 <a name="scala-read-66"></a>
 
-```
+```scala
 (val snapshotQueryDF = spark.read
     .format("org.apache.hudi")
     .load("{{s3://amzn-s3-demo-bucket/myhudidataset}}" + "/*/*"))
@@ -426,7 +425,7 @@ snapshotQueryDF.show()
 ### Read using PySpark
 <a name="pyspark-read"></a>
 
-```
+```python
 snapshotQueryDF = spark.read \
     .format('org.apache.hudi') \
     .load('{{s3://amzn-s3-demo-bucket/myhudidataset}}' + '/*/*')
@@ -447,7 +446,7 @@ Presto does not support incremental queries.
 #### Incremental queries using Scala
 <a name="scala-incremental-queries"></a>
 
-```
+```scala
 val incQueryDF = spark.read
     .format("org.apache.hudi")
     .option(DataSourceReadOptions.QUERY_TYPE_OPT_KEY, DataSourceReadOptions.QUERY_TYPE_INCREMENTAL_OPT_VAL)
@@ -460,7 +459,7 @@ incQueryDF.show()
 #### Incremental queries using PySpark
 <a name="pyspark-incremental-queries"></a>
 
-```
+```python
 readOptions = {
   'hoodie.datasource.query.type': 'incremental',
   'hoodie.datasource.read.begin.instanttime': {{<beginInstantTime>}},

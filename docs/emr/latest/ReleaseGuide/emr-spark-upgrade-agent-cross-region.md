@@ -1,7 +1,6 @@
 
 
 # Cross-region processing for the Apache Spark Upgrade Agent
-<a name="emr-spark-upgrade-agent-cross-region"></a>
 
 The Apache Spark Upgrade Agent uses cross-region inference to process natural language requests and generate responses. With cross-region inference, the agent will automatically route your inference request to optimize performance, maximizing available compute resources and model availability, and providing the best customer experience. The type of cross-region inference used depends on the region where you run the Apache Spark Upgrade Agent. In most Regions the agent will select the optimal region within your geography to process your inference requests. However, in some Regions an inference request made by the Agent will be securely routed to all available compute resources across all global commercial AWS Regions.
 

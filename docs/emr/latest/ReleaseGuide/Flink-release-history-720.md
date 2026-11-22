@@ -1,7 +1,6 @@
 
 
 # Amazon EMR 7.2.0 - Flink release notes
-<a name="Flink-release-history-720"></a>
 
 
 | Type | Description | 

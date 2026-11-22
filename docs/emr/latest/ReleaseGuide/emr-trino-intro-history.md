@@ -1,7 +1,6 @@
 
 
 # Trino history and design
-<a name="emr-trino-intro-history"></a>
 
 Trino is specialized for querying large datasets from many different sources. Trino can access and query HDFS in a traditional big-data use case, but it can also query additional sources like relational databases and NoSQL databases. Trino originally started as a fork of the Presto query engine, in 2019. Since then, it has been developed independently from the Presto code base. 
 

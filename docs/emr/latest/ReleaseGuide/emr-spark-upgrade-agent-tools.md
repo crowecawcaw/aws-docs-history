@@ -1,7 +1,6 @@
 
 
 # Using Spark Upgrade Tools
-<a name="emr-spark-upgrade-agent-tools"></a>
 
 ## Available Upgrade Tools
 <a name="emr-spark-upgrade-agent-available-tools"></a>

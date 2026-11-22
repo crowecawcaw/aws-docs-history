@@ -1,7 +1,6 @@
 
 
 # EMR File System (EMRFS)
-<a name="emr-fs"></a>
 
 **Note**  
 Starting from the EMR 7.10.0 release, the S3A filesystem has replaced EMRFS as the default EMR S3 connector.

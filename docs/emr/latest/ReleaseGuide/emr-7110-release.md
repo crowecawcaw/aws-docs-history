@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 7.11.0
-<a name="emr-7110-release"></a>
 
 ## 7.11.0 supported lifecycle
 <a name="emr-7110-supported-lifecycle"></a>

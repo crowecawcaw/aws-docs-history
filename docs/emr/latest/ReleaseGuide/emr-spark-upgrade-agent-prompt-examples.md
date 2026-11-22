@@ -1,7 +1,6 @@
 
 
 # Prompt Examples for the Spark Upgrade Agent
-<a name="emr-spark-upgrade-agent-prompt-examples"></a>
 
 We list a few different prompt examples that can be used in the upgrade process.
 

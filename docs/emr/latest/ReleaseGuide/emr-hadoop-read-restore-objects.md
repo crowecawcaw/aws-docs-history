@@ -1,7 +1,6 @@
 
 
 # Read restored objects
-<a name="emr-hadoop-read-restore-objects"></a>
 
  With Amazon EMR release 7.2.0 and higher, you can read restored Glacier objects from the S3 location of the table with the `S3A` protocol. Engines in previous releases don't distinguish between Glacier and Glacier Deep Archive files, which means you would get an `AmazonS3Exception` if you tried to access an in-progress Glacier file with `S3A`. This read operation ignores archived Glacier files if they still in progress of being restored. To enable this behavior, use the setting `fs.s3a.glacier.read.restored.objects`. This setting can be three values: 
 + **READ\_ALL** – this value indicates that Amazon EMR shouldn't account for the storage classes retrieved from Amazon S3. This is the default behavior.
@@ -15,13 +14,13 @@
 
 To read restored objects when you use Spark, use the following configuration:
 
-```
+```bash,sh,zsh
 --conf spark.hadoop.fs.s3a.glacier.read.restored.objects={{<value>}}
 ```
 
 If you use spark-sql, use the following configuration instead;
 
-```
+```bash,sh,zsh
 spark-sql --conf spark.hadoop.fs.s3a.glacier.read.restored.objects={{<value>}}
 ```
 
@@ -29,13 +28,13 @@ spark-sql --conf spark.hadoop.fs.s3a.glacier.read.restored.objects={{<value>}}
 
 If you use Flink, you can set the configuration in the `flink-conf.yaml` file
 
-```
+```bash,sh,zsh
 fs.s3a.glacier.read.restored.objects: {{<value>}}
 ```
 
 You can also set the `flink-conf` classification:
 
-```
+```bash,sh,zsh
 [
 	{
 		"Classification": "flink-conf",
@@ -50,7 +49,7 @@ You can also set the `flink-conf` classification:
 
 If you use Hive, set the configuration in the `hive-site.xml` file.
 
-```
+```bash,sh,zsh
 <property>
 	<name>fs.s3a.glacier.read.restored.objects</name>
 	<value>{{<value>}}</value>
@@ -59,7 +58,7 @@ If you use Hive, set the configuration in the `hive-site.xml` file.
 
 You can also use the Hive CLI to set the property `--hiveconf`:
 
-```
+```bash,sh,zsh
 hive --hiveconf fs.s3a.glacier.read.restored.objects={{<value>}}
 ```
 

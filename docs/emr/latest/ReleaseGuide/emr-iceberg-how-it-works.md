@@ -1,7 +1,6 @@
 
 
 # How Iceberg works
-<a name="emr-iceberg-how-it-works"></a>
 
 Iceberg tracks individual data files in a table instead of in directories. This way, writers can create data files in place (files are not moved or changed). Also, writers can only add files to the table in an explicit commit. The table state is maintained in metadata files. All changes to the table state create a new metadata file that atomically replaces the older metadata. The table metadata file tracks the table schema, partitioning configuration, and other properties.
 

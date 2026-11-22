@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 5.22.0
-<a name="emr-5220-release"></a>
 
 ## 5.22.0 application versions
 <a name="emr-5220-app-versions"></a>
@@ -98,13 +97,13 @@ Initial release date: March 20, 2019
 
     1. Search for the term `appblacklist` and modify the line to the following:
 
-       ```
+       ```bash
        appblacklist = search
        ```
 
     1. Save your changes and restart Hue as shown in the following example:
 
-       ```
+       ```bash
        sudo stop hue; sudo start hue
        ```
 + Known issue in clusters with multiple primary nodes and Kerberos authentication

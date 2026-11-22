@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations for using Hudi on Amazon EMR
-<a name="emr-hudi-considerations"></a>
 + **Record key field cannot be null or empty** – The field that you specify as the record key field cannot have `null` or empty values.
 + **Schema updated by default on upsert and insert** – Hudi provides an interface, `HoodieRecordPayload` that determines how the input DataFrame and existing Hudi dataset are merged to produce a new, updated dataset. Hudi provides a default implementation of this class, `OverwriteWithLatestAvroPayload`, that overwrites existing records and updates the schema as specified in the input DataFrame. To customize this logic for implementing merge and partial updates, you can provide an implementation of the `HoodieRecordPayload` interface using the `DataSourceWriteOptions.PAYLOAD_CLASS_OPT_KEY` parameter.
 + **Deletion requires schema** – When deleting, you must specify the record key, the partition key, and the pre-combine key fields. Other columns can be made `null` or empty, but the full schema is required.
@@ -24,7 +23,7 @@
       ```
     + To set the value at the cluster level, use the `presto-connector-hive` configuration classification to set `hive.parquet.use_column_names` to `true`, as shown in the following example. For more information, see [Configure applications](emr-configure-apps.md).
 
-      ```
+      ```json
       [
         {
           "Classification": "presto-connector-hive",

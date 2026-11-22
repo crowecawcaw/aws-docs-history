@@ -1,7 +1,6 @@
 
 
 # Use an Iceberg cluster with Flink
-<a name="emr-iceberg-use-flink-cluster"></a>
 
 Starting with Amazon EMR version 6.9.0, you can use Iceberg with a Flink cluster without the setup steps required when using the open source Iceberg Flink Integration.
 

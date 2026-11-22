@@ -1,7 +1,6 @@
 
 
 # Spark Upgrade Agent Workflow in Detail
-<a name="emr-spark-upgrade-agent-workflow-details"></a>
 
 To initiate the upgrade process, you will need the Spark application code cloned to your developer environment (locally or EC2 or [ Amazon SageMaker Unified Studio IDE Spaces](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/create-space.html)), preferably with Git version control initialized. Additionally, an EMR cluster running the target Spark version must be provisioned and accessible. Finally, a designated Amazon S3 bucket path should be configured to store deployment artifacts and upgrade summary throughout the upgrade process.
 

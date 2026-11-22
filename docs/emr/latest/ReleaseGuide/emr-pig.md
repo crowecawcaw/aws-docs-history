@@ -1,7 +1,6 @@
 
 
 # Apache Pig
-<a name="emr-pig"></a>
 
 Apache Pig is an open-source Apache library that runs on top of Hadoop, providing a scripting language that you can use to transform large data sets without having to write complex code in a lower level computer language like Java. The library takes SQL-like commands written in a language called Pig Latin and converts those commands into Tez jobs based on directed acyclic graphs (DAGs) or MapReduce programs. Pig works with structured and unstructured data in a variety of formats. For more information about Pig, see [http://pig.apache.org/](http://pig.apache.org/).
 

@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 5.32.0
-<a name="emr-5320-release"></a>
 
 ## 5.32.0 application versions
 <a name="emr-5320-app-versions"></a>
@@ -124,7 +123,7 @@ Initial release date: Jan 8, 2021
 
   You can also use a bootstrap action (BA) script to configure the instance-controller ulimit to 65536 files at cluster creation.
 
-  ```
+  ```bash
   #!/bin/bash
   for user in hadoop spark hive; do
   sudo tee /etc/security/limits.d/$user.conf << EOF

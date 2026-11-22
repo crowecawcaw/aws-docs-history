@@ -1,7 +1,6 @@
 
 
 # Access Amazon EMR WAL through AWS PrivateLink
-<a name="emr-hbase-wal-privatelink"></a>
 
 If you want to keep your connection within the AWS network, Amazon EMR WAL offers AWS PrivateLink support. To set up AWS PrivateLink, use the AWS Management Console or AWS Command Line Interface (AWS CLI) to create an interface VPC endpoint that connects to Amazon EMR WAL. For more information, see [Access an AWS service using an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the *AWS PrivateLink Guide*.
 
@@ -21,7 +20,7 @@ The basic steps are as follows:
 
 1. To use your AWS PrivateLink endpoint, modify the `emr.wal.client.endpoint` configuration when you create your [Amazon EMR WAL enabled cluster](emr-hbase-wal-enabling.md) as shown in the following example:
 
-   ```
+   ```json
    [
        {
            "Classification": "hbase-site",

@@ -1,7 +1,6 @@
 
 
 # Enable the EMRFS S3-optimized committer for Amazon EMR 5.19.0
-<a name="emr-spark-committer-enable"></a>
 
 If you are using Amazon EMR 5.19.0 , you can manually set the `spark.sql.parquet.fs.optimized.committer.optimization-enabled` property to `true` when you create a cluster or from within Spark if you are using Amazon EMR .
 
@@ -17,7 +16,7 @@ You can set `spark.sql.parquet.fs.optimized.committer.optimization-enabled` to `
 
 The following example shows how to enable the committer while running a spark-sql command.
 
-```
+```bash,sh,zsh
 spark-sql \
   --conf spark.sql.parquet.fs.optimized.committer.optimization-enabled=true \
   -e "INSERT OVERWRITE TABLE target_table SELECT * FROM source_table;"

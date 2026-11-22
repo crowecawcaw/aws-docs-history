@@ -1,7 +1,6 @@
 
 
 # Amazon EMR 7.2.0 - Hive release notes
-<a name="Hive-release-history-720"></a>
 
 ## Amazon EMR 7.2.0 - Hive changes
 <a name="Hive-release-history-changes-720"></a>

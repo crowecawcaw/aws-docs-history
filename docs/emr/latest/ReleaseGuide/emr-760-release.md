@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 7.6.0
-<a name="emr-760-release"></a>
 
 ## 7.6.0 supported lifecycle
 <a name="emr-760-supported-lifecycle"></a>

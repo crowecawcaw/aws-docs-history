@@ -1,7 +1,6 @@
 
 
 # Access HBase tables with Hive
-<a name="emr-hbase-access-hive"></a>
 
 HBase and [Apache Hive](emr-hive.md) are tightly integrated, allowing you run massively parallel processing workloads directly on data stored in HBase. To use Hive with HBase, you can usually launch them on the same cluster. You can, however, launch Hive and HBase on separate clusters. Running HBase and Hive separately on different clusters can improve performance because this allows each application to use cluster resources more efficiently.
 

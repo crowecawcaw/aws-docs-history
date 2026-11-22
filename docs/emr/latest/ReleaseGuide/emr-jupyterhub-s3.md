@@ -1,7 +1,6 @@
 
 
 # Configuring persistence for notebooks in Amazon S3
-<a name="emr-jupyterhub-s3"></a>
 
 You can configure a JupyterHub cluster in Amazon EMR so that notebooks saved by a user persist in Amazon S3, outside of ephemeral storage on cluster EC2 instances.
 

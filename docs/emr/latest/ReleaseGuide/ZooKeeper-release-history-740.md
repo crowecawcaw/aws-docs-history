@@ -1,7 +1,6 @@
 
 
 # Amazon EMR 7.4.0 - ZooKeeper release notes
-<a name="ZooKeeper-release-history-740"></a>
 
 
 | Type | Description | 

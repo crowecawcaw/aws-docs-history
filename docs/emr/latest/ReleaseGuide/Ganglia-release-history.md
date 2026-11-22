@@ -1,7 +1,6 @@
 
 
 # Ganglia release history
-<a name="Ganglia-release-history"></a>
 
 **Note**  
 The last release of Amazon EMR to include Ganglia was Amazon EMR 6.15.0. To monitor your cluster, releases higher than 6.15.0 include the [Amazon CloudWatch agent](emr-AmazonCloudWatchAgent.md).

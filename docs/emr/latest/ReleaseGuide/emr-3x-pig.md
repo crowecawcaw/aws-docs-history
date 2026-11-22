@@ -1,7 +1,6 @@
 
 
 # Pig application specifics for earlier AMI versions of Amazon EMR
-<a name="emr-3x-pig"></a>
 
 ## Supported Pig versions
 <a name="emr-3x-Pig_SupportedVersions"></a>

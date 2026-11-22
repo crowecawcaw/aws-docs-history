@@ -1,7 +1,6 @@
 
 
 # Considerations for using Pig on Amazon EMR 4.x
-<a name="emr-Pig-4x"></a>
 
 Pig version 0.14.0 is installed on clusters created using Amazon EMR 4.x release versions. Pig was upgraded to version 0.16.0 in Amazon EMR 5.0.0. Significant differences are covered below.
 

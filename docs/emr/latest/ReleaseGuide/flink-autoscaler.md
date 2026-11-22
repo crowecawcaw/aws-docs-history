@@ -1,7 +1,6 @@
 
 
 # Flink autoscaler
-<a name="flink-autoscaler"></a>
 
 ## Overview
 <a name="flink-autoscaler-overview"></a>
@@ -32,7 +31,7 @@ Use the following steps to enable the Flink autoscaler when you create an Amazon
 
 1. In the **Software settings** section, enter the following configuration to enable Flink autoscaler. For testing scenarios, set the decision interval, metrics window interval, and stabilization interval to a lower value so that the job immediately makes a scaling decision for easier verification.
 
-   ```
+   ```json
    [
      {
        "Classification": "flink-conf",

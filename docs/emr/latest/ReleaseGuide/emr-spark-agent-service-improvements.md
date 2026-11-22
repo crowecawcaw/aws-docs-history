@@ -1,7 +1,6 @@
 
 
 # Data handling for Upgrade Agent
-<a name="emr-spark-agent-service-improvements"></a>
 
 ## How AWS uses your content
 <a name="emr-spark-upgrade-agent-content-usage"></a>

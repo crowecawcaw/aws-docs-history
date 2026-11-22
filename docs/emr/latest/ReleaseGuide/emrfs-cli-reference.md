@@ -1,7 +1,6 @@
 
 
 # EMRFS CLI Command Reference
-<a name="emrfs-cli-reference"></a>
 
 The EMRFS CLI is installed by default on all cluster master nodes created using Amazon EMR release version 3.2.1 or later. You can use the EMRFS CLI to manage the metadata for consistent view. 
 

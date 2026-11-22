@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 4.5.0
-<a name="emr-450-release"></a>
 
 ## 4.5.0 application versions
 <a name="emr-450-app-versions"></a>

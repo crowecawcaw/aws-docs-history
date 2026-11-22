@@ -1,7 +1,6 @@
 
 
 # 7.8.0 release components details
-<a name="emr-780-release-components-details"></a>
 
 See the following table for more information about the *Extras* packages in Amazon EMR 7.7.0.
 

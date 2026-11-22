@@ -1,7 +1,6 @@
 
 
 # Common challenges when scaling Trino workloads
-<a name="emr-trino-common-issues"></a>
 
 The primary benefits of using Amazon S3 with Trino are S3's ability to scale for large data volumes and S3's cost effectiveness. But when you query large data volumes, a collection of related performance issues can happen on occasion. These can result from how data is stored, or by configuration settings that restrict good performance, or from other reasons. When these issues occur, there are effective steps you can take to avoid or mitigate them.
 

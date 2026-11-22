@@ -1,7 +1,6 @@
 
 
 # Using Presto automatic scaling with Graceful Decommission
-<a name="presto-graceful-autoscale"></a>
 
 Amazon EMR release versions 5.30.0 and later include a feature you can use to set a grace period for certain scaling actions. The grace period allows Presto tasks to keep running before the node terminates because of a scale-in resize action or an automatic scaling policy request. For more information about scaling rules, see [Understanding automatic scaling rules](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html#emr-scaling-rules) in the *Amazon EMR Management Guide*. Presto autoscaling with Graceful Decommission prevents new tasks from being scheduled on a node that is decommissioning, while at the same time allowing tasks that are already running to complete before the shut down timeout is reached. Queries that are running will complete execution before the node is decommissioned. Autoscaling is not supported on instance fleets.
 

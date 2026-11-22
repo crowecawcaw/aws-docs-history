@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 5.18.1
-<a name="emr-5181-release"></a>
 
 ## 5.18.1 application versions
 <a name="emr-5181-app-versions"></a>

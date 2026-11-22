@@ -1,7 +1,6 @@
 
 
 # HBase on Amazon S3 (Amazon S3 storage mode)
-<a name="emr-hbase-s3"></a>
 
 When you run HBase on Amazon EMR version 5.2.0 or later, you can enable HBase on Amazon S3, which offers the following advantages:
 + The HBase root directory is stored in Amazon S3, including HBase store files and table metadata. This data is persistent outside of the cluster, available across Amazon EC2 Availability Zones, and you don't need to recover using snapshots or other methods.
@@ -222,7 +221,7 @@ If you experience any of the following symptoms, set the S3A read policy to `seq
 
 Specify the following configuration when you create your cluster:
 
-```
+```json
 [
   {
     "Classification": "hbase-site",
@@ -245,7 +244,7 @@ If you need to improve only bulk load performance without changing the cluster-w
 
 To use the sequential read policy for a single bulk load operation:
 
-```
+```bash
 sudo -u hbase hbase completebulkload \
   -Dfs.s3a.experimental.input.fadvise=sequential \
   s3://amzn-s3-demo-bucket/path/to/hfiles table_name
@@ -253,7 +252,7 @@ sudo -u hbase hbase completebulkload \
 
 Alternatively, you can use EMRFS for the bulk load operation:
 
-```
+```bash
 sudo -u hbase hbase completebulkload \
   -Dfs.s3.impl=com.amazon.ws.emr.hadoop.fs.EmrFileSystem \
   s3://amzn-s3-demo-bucket/path/to/hfiles table_name

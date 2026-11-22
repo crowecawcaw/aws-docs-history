@@ -1,7 +1,6 @@
 
 
 # Amazon EMR 7.5.0 - Hadoop release notes
-<a name="Hadoop-release-history-750"></a>
 
 ## Amazon EMR 7.5.0 - Hadoop changes
 <a name="Hadoop-release-history-750-changes"></a>

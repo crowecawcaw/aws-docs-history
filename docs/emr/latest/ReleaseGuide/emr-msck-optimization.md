@@ -1,7 +1,6 @@
 
 
 # MSCK Optimization
-<a name="emr-msck-optimization"></a>
 
 Hive stores a list of partitions for each table in its metastore. However, when partitions are directly added to or removed from the file system, the Hive metastore is unaware of these changes. The [ MSCK command](https://cwiki.apache.org/confluence/display/hive/languagemanual+ddl#LanguageManualDDL-RecoverPartitions(MSCKREPAIRTABLE)) updates the partition metadata in the Hive metastore for partitions that were directly added to or removed from the file system. The syntax for the command is:
 

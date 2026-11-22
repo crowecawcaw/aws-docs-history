@@ -1,7 +1,6 @@
 
 
 # Creating target EMR Cluster/EMR-S application from existing ones
-<a name="emr-spark-upgrade-agent-target-cluster"></a>
 
 If you already have an EMR-EC2 cluster running the source Spark version, you can clone it to create a new cluster with the same configuration but an updated EMR release version to run the validation steps during the Upgrade process.
 

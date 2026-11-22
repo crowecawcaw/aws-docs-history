@@ -1,7 +1,6 @@
 
 
 # Connecting to the master node and Notebook servers
-<a name="emr-jupyterhub-connect"></a>
 
 JupyterHub administrators and notebook users must connect to the cluster master node using an SSH tunnel and then connecting to web interfaces served by JupyterHub on the master node. For more information about configuring an SSH tunnel and using the tunnel to proxy Web connections, see [Connect to the cluster](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node.html) in the *Amazon EMR Management Guide*.
 

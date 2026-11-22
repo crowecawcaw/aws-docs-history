@@ -1,7 +1,6 @@
 
 
 # Logging Amazon SageMaker Unified Studio MCP calls using AWS CloudTrail
-<a name="spark-troubleshooting-cloudtrail-integration"></a>
 
 Amazon SageMaker Unified Studio MCP Server is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon SageMaker Unified Studio MCP Server. CloudTrail captures all API calls for Amazon SageMaker Unified Studio MCP Server as events. The calls captured include calls to Amazon SageMaker Unified Studio MCP Server and code calls to other AWS operations during the tool executions from the SageMaker Unified Studio MCP Server. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon SageMaker Unified Studio MCP Server. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Amazon SageMaker Unified Studio MCP Server, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -32,11 +31,11 @@ For more information, see the [CloudTrail userIdentity element](https://docs.aws
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
-The following example shows a CloudTrail log entry that demonstrates the `CallTool` action.
+The following example shows a CloudTrail log entry that demonstrates the `CallPrivilegedTool` action for an `analyze_spark_workload` invocation.
 
 ```
 {
-    "eventVersion": "1.09",
+    "eventVersion": "1.11",
     "userIdentity": {
         ...
     },
@@ -50,9 +49,10 @@ The following example shows a CloudTrail log entry that demonstrates the `CallTo
         "id": 1,
         "method": "tools/call",
         "params": {
-            "name": "generate_spark_upgrade_plan",
+            "name": "analyze_spark_workload",
             "arguments": "***",
             "_meta": {
+                "AWS_REGION": "us-east-1",
                 "progressToken": 1
             }
         },
@@ -73,11 +73,15 @@ The following example shows a CloudTrail log entry that demonstrates the `CallTo
     "eventType": "AwsMcpEvent",
     "managementEvent": true,
     "recipientAccountId": "123456789012",
-    "eventCategory": "Management"
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256"
+    }
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the `AddJobFlowSteps` action from Amazon SageMaker Unified Studio MCP during an upgrade tool invocation.
+The following example shows a CloudTrail log entry that demonstrates the Amazon EMR Serverless `GetJobRun` action that Amazon SageMaker Unified Studio MCP calls during a tool invocation.
 
 ```
 {
@@ -91,34 +95,26 @@ The following example shows a CloudTrail log entry that demonstrates the `AddJob
         "sessionContext": {
             ...
         },
-        "invokedBy": "sagemaker-unified-studio-mcp.amazonaws.com"
+        "invokedBy": "us-east-1.dataprocessing-mcp.amazonaws.com"
     },
     "eventTime": "...",
-    "eventSource": "elasticmapreduce.amazonaws.com",
-    "eventName": "AddJobFlowSteps",
+    "eventSource": "emr-serverless.amazonaws.com",
+    "eventName": "GetJobRun",
     "awsRegion": "us-east-1",
-    "sourceIPAddress": "sagemaker-unified-studio-mcp.amazonaws.com",
-    "userAgent": "sagemaker-unified-studio-mcp.amazonaws.com",
+    "sourceIPAddress": "us-east-1.dataprocessing-mcp.amazonaws.com",
+    "userAgent": "us-east-1.dataprocessing-mcp.amazonaws.com",
     "requestParameters": {
-        "jobFlowId": "j-2PY4KXXXXXX63",
-        "steps": [
-            ...
-        ]
+        "jobRunId": "00xxxxxxxxxxxxxx",
+        "applicationId": "00yyyyyyyyyyyyyy"
     },
-    "responseElements": {
-        "stepIds": [
-            ...
-        ]
-    },
+    "responseElements": null,
     "requestID": "12345678-1234-1234-1234-123456789013",
     "eventID": "87654321-4321-4321-4321-210987654322",
-    "readOnly": false,
+    "readOnly": true,
     "eventType": "AwsApiCall",
     "managementEvent": true,
     "recipientAccountId": "123456789012",
-    "sharedEventID": "12345678-1234-1234-1234-123456789012",
-    "vpcEndpointId": "sagemaker-unified-studio-mcp.amazonaws.com",
-    "vpcEndpointAccountId": "sagemaker-unified-studio-mcp.amazonaws.com",
+    "vpcEndpointId": "vpce-1234567890abcdef0",
     "eventCategory": "Management"
 }
 ```

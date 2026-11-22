@@ -1,7 +1,6 @@
 
 
 # Spark application specifics with earlier AMI versions of Amazon EMR
-<a name="emr-3x-spark"></a>
 
 ## Use Spark interactively or in batch mode
 <a name="emr-3x-spark-interactive-batch"></a>
@@ -78,7 +77,7 @@ aws emr create-cluster --name "Spark cluster" --ami-version {{3.11.0}} \
 
 To submit work to a cluster, use a step to run the `spark-submit` script on your EMR cluster. Add the step using the `addJobFlowSteps` method in [AmazonElasticMapReduceClient](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/AmazonElasticMapReduceClient.html):
 
-```
+```java
 AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
 AmazonElasticMapReduceClient emr = new AmazonElasticMapReduceClient(credentials);
 StepFactory stepFactory = new StepFactory();

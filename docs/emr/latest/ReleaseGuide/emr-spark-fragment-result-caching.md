@@ -1,7 +1,6 @@
 
 
 # Spark Result Fragment Caching
-<a name="emr-spark-fragment-result-caching"></a>
 
 Amazon EMR 6.6.0 and higher include the optional Spark Result Fragment Caching feature that automatically caches result fragments. These result fragments are parts of results from subtrees of queries that are stored in an Amazon S3 bucket of your choosing. The stored query result fragments are reused on subsequent query executions, resulting in faster queries.
 
@@ -9,7 +8,7 @@ Result Fragment Caching analyzes your Spark queries, and caches eligible result 
 
 Consider the following query, which counts orders until the year 2022:
 
-```
+```XML
 select
     l_returnflag,
     l_linestatus,
@@ -37,7 +36,7 @@ To enable Spark Result Fragment Caching, perform the following steps:
 
 1. Set Amazon EMR Spark config to enable the feature.
 
-   ```
+   ```XML
    spark.subResultCache.enabled = true
    spark.subResultCache.fs.root.path = s3://&example-s3-bucket;/cache_dir/
    ```
@@ -46,7 +45,7 @@ To enable Spark Result Fragment Caching, perform the following steps:
 
 1. Optionally, configure the reductionRationThreshold and maxBufferSize properties to further tune the feature.
 
-   ```
+   ```XML
    spark.sql.subResultCache.reductionRatioThreshold
    spark.sql.subResultCache.maxBufferSize
    ```
@@ -65,7 +64,7 @@ The following are additional considerations when using Result Fragment Caching:
 + The Result Fragment Caching feature works exclusively with Parquet files. Other file formats are not supported.
 + The Result Fragment Caching feature buffers will only attempt to cache scans with file split sizes of 128 MB or larger. With the default Spark configuration, Result Fragment Caching will be disabled if the scan size (total size across all files being scanned) divided by the number of executor cores is less than 128 MB. When any of the Spark configurations listed below are set, the file split size will be:
 
-  ```
+  ```XML
   min(maxPartitionBytes, max(openCostInBytes, scan size / minPartitionNum))
   ```
   + spark.sql.leafNodeDefaultParallelism (default value is spark.default.parallelism)
@@ -76,7 +75,7 @@ The following are additional considerations when using Result Fragment Caching:
 + The Result Fragment Caching feature uses a 16MB write buffer by default for each RDD partition being cached.If more than 16mb will be cached per RDD partition, the cost of determining that a write is not possible may result in a performance regression.
 + While, by default, Result Fragment Caching will not attempt to cache RDD partition results with a reduction ratio smaller than 8:1 and will cap its write buffer at 16MB, both of these values are tunable through the following configurations:
 
-  ```
+  ```XML
   spark.sql.subResultCache.reductionRatioThreshold (default: 8.0)
   spark.sql.subResultCache.maxBufferSize (default: 16MB, max: 64MB)
   ```

@@ -1,7 +1,6 @@
 
 
 # Adding database connectors
-<a name="presto-adding-db-connectors"></a>
 
 You can use configuration classifications to configure JDBC connector properties when you create a cluster. Configuration classifications begin with `presto-connector`, for example, `presto-connector-postgresql`. The available configuration classifications depend on the Amazon EMR release version. For the configuration classifications available with the most recent release version, see [5.36.2 configuration classifications](emr-5362-release.md#emr-5362-class) for Amazon EMR 5.36.2. If you are using a different version of Amazon EMR, see [Amazon EMR 5.x release versions](emr-release-5x.md) for the configuration classifications. For more information about the properties that can be configured with each connector, see [https://prestodb.io/docs/current/connector.html](https://prestodb.io/docs/current/connector.html). 
 

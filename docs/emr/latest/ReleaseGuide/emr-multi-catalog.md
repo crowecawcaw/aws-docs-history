@@ -1,7 +1,6 @@
 
 
 # Working with a multi-catalog hierarchy in AWS Glue Data Catalog with Spark on Amazon EMR
-<a name="emr-multi-catalog"></a>
 
 You can register your Amazon EMR cluster to access the AWS Glue Data Catalog, which makes tables and other catalog resources available to various consumers. AWS Glue Data Catalog supports a multi-catalog hierarchy, which unifies your data across Amazon S3 data lakes. It also provides both a Hive metastore API and an open-source Apache Iceberg REST API for accessing the data. These features are available to Amazon EMR and other services like Amazon Athena and Amazon Redshift.
 
@@ -64,7 +63,7 @@ The following examples demonstrate how to use interactive Spark shell, Spark sub
 
 1. Enter the following command to launch the Spark shell. To use the PySpark shell, replace `spark-shell` with `pyspark`.
 
-   ```
+   ```bash
    spark-shell \
        --conf spark.sql.catalog.my_catalog=org.apache.iceberg.spark.SparkCatalog \
        --conf spark.sql.catalog.my_catalog.warehouse=s3://{{amzn-s3-demo-bucket}}/{{prefix}}/
@@ -81,7 +80,7 @@ The following examples demonstrate how to use interactive Spark shell, Spark sub
 
 1. Enter the following command to launch the Spark session for Spark.
 
-   ```
+   ```bash
    spark-submit \
    --conf spark.sql.catalog.my_catalog=org.apache.iceberg.spark.SparkCatalog \
    --conf spark.sql.catalog.my_catalog.warehouse=s3://{{amzn-s3-demo-bucket1}}/{{prefix}} \
@@ -96,7 +95,7 @@ The following examples demonstrate how to use interactive Spark shell, Spark sub
 
 To initialize a Spark session using EMR Studio notebooks, configure your Spark session using the `%%configure` magic command in your Amazon EMR notebook, as in the following example. For more information, see [Use EMR Notebooks magics](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-magics.html#emr-magics) in the *Amazon EMR Management Guide*.
 
-```
+```bash
 %%configure -f{
 "conf":{
     "spark.sql.catalog.my_catalog":"org.apache.iceberg.spark.SparkCatalog",
@@ -114,7 +113,7 @@ To initialize a Spark session using EMR Studio notebooks, configure your Spark s
 
 To initialize a Spark session using the CLI, run the following sample. For more information about specifying a configuration classification using the AWS CLI and Amazon EMR API, see [Configure applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html).
 
-```
+```bash
 [
   {
     "Classification": "spark-defaults",
@@ -137,7 +136,7 @@ To initialize a Spark session using the CLI, run the following sample. For more 
 
 The following sample command initializes a Spark session with the AWS Glue Data Catalog.
 
-```
+```bash
 spark-sql \
   --conf spark.sql.catalog.rms=org.apache.iceberg.spark.SparkCatalog \
   --conf spark.sql.catalog.rms.type=glue \
@@ -148,7 +147,7 @@ spark-sql \
 
 The following sample initializes a Spark session using the Iceberg REST API and Redshift Managed Storage with AWS Glue Data Catalog.
 
-```
+```bash
 spark-sql \
   --conf spark.sql.catalog.rms=org.apache.iceberg.spark.SparkCatalog \
   --conf spark.sql.catalog.rms.type=rest \

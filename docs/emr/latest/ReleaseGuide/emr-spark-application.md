@@ -1,7 +1,6 @@
 
 
 # Write a Spark application
-<a name="emr-spark-application"></a>
 
 [Spark](https://aws.amazon.com/big-data/what-is-spark/) applications can be written in Scala, Java, or Python. There are several examples of Spark applications located on [Spark examples](https://spark.apache.org/examples.html) topic in the Apache Spark documentation. The Estimating Pi example is shown below in the three natively supported applications. You can also view complete examples in `$SPARK_HOME/examples` and at [GitHub](https://github.com/apache/spark/tree/master/examples/src/main). For more information about how to build JARs for Spark, see the [Quick start](https://spark.apache.org/docs/latest/quick-start.html) topic in the Apache Spark documentation.
 
@@ -10,7 +9,7 @@
 
 To avoid Scala compatibility issues, we suggest you use Spark dependencies for the correct Scala version when you compile a Spark application for an Amazon EMR cluster. The Scala version you should use depends on the version of Spark installed on your cluster. For example, Amazon EMR release 5.30.1 uses Spark 2.4.5, which is built with Scala 2.11. If your cluster uses Amazon EMR release 5.30.1, use Spark dependencies for Scala 2.11. For more information about the Scala versions used by Spark, see the [Apache Spark documentation](https://spark.apache.org/documentation.html).
 
-```
+```scala
 package org.apache.spark.examples
 import scala.math.random
 import org.apache.spark._
@@ -36,7 +35,7 @@ object SparkPi {
 ## Java
 <a name="emr-spark-application-java"></a>
 
-```
+```scala
 package org.apache.spark.examples;
 
 import org.apache.spark.SparkConf;
@@ -91,7 +90,7 @@ public final class JavaSparkPi {
 ## Python
 <a name="emr-spark-application-spark27"></a>
 
-```
+```python
 import argparse
 import logging
 from operator import add

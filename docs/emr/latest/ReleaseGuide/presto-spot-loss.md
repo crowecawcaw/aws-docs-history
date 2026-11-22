@@ -1,7 +1,6 @@
 
 
 # Handling Spot Instance loss in Presto
-<a name="presto-spot-loss"></a>
 
 With Spot Instances in Amazon EMR, you can run big data workloads on spare Amazon EC2 capacity at a reduced cost. In exchange for the lower cost, Amazon EC2 can interrupt Spot Instances with a two-minute notification. When you terminate a node, Presto can take up to 10 minutes before it returns an error. This causes unnecessary delays in error reports and possible retries. Quick termination is a feature that gives you control over the way Presto handles terminated nodes.
 

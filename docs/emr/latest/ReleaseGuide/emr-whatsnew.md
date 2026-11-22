@@ -1,7 +1,6 @@
 
 
 # What's new?
-<a name="emr-whatsnew"></a>
 
 This page describes the changes and functionality available in the latest releases of Amazon EMR 7.x, 6.x, and 5.x. 
 
@@ -12,7 +11,7 @@ These release notes are also available on the [Amazon EMR 7.14.0](emr-7140-relea
 **Note**  
 Later releases of Amazon EMR use AWS Signature Version 4 (SigV4) to authenticate requests to Amazon S3. We recommend that you use an Amazon EMR release that supports SigV4 so that you can access new S3 buckets and avoid interruption to your workloads. For more information and a list of Amazon EMR releases that support SigV4, see [Amazon EMR and AWS Signature Version 4](#emr-sigv4).
 
-## Apache Spark Upgrade and Troubleshooting Agents
+## Apache Spark Upgrade, Troubleshooting, and Optimization Agents
 <a name="emr-spark-agents-whatsnew"></a>
 
 **Apache Spark Upgrade Agent**
@@ -25,7 +24,11 @@ You can use the agent to upgrade PySpark and Scala applications running on Amazo
 
 The Apache Spark troubleshooting agent for Amazon EMR is a conversational AI capability that simplifies the troubleshooting of Apache Spark applications on Amazon EMR, AWS Glue and Amazon SageMaker Notebooks. Traditional Spark troubleshooting requires extensive manual analysis of logs, performance metrics, and error patterns to identify root causes and code fixes. The agent simplifies this process through natural language prompts, automated workload analysis, and intelligent code recommendations.
 
-You can use the agent to troubleshoot PySpark and Scala applications failures. The agent analyzes your failed jobs, identifies performance bottlenecks, and provides actionable recommendations and code fixes while giving you full control over implementation decisions. For more details refer to [What is Apache Spark Troubleshooting Agent for Amazon EMR and AWS Glue](spark-troubleshoot.md).
+You can use the agent to troubleshoot PySpark and Scala applications failures. The agent analyzes your failed jobs, identifies performance bottlenecks, and provides actionable recommendations and code fixes while giving you full control over implementation decisions. For more details refer to [Spark Troubleshooting and Optimization Agents](spark-troubleshoot.md).
+
+**Apache Spark Optimization Agent**
+
+The Apache Spark Optimization Agent analyzes successful Apache Spark runs on EMR Serverless and AWS Glue and returns prioritized configuration, infrastructure, and data recommendations that reduce cost or runtime. You can compare a run against an earlier baseline run to find out why it regressed. You can use the agent from MCP clients or with the **Analyze with AI** button in the console. For more information, see [Apache Spark Optimization Agent for Amazon EMR and AWS Glue](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/spark-optimization-agent.html).
 
 ## Amazon EMR 7.14.0 (latest release of 7.x series)
 <a name="emr-7140-whatsnew"></a>

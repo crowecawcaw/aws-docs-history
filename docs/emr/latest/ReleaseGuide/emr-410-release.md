@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 4.1.0
-<a name="emr-410-release"></a>
 
 ## 4.1.0 application versions
 <a name="emr-410-app-versions"></a>

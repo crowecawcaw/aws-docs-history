@@ -1,7 +1,6 @@
 
 
 # Supported and unsupported features of Hue on Amazon EMR
-<a name="emr-hue-supported-features"></a>
 
 With Amazon EMR 7.0.0 and higher, Hue requires Python 3.9 or higher. When you use in-transit encryption, you must use a 2048-bit cipher key.
 + Amazon S3 and Hadoop File System (HDFS) Browser

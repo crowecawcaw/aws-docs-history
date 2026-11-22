@@ -1,7 +1,6 @@
 
 
 # Using HBase snapshots
-<a name="emr-hbase-snapshot"></a>
 
 HBase uses a built-in [snapshot](https://hbase.apache.org/book.html#ops.snapshots) functionality to create lightweight backups of tables. In EMR clusters, these backups can be exported to Amazon S3 using EMRFS. You can create a snapshot on the primary node using the HBase shell. This topic shows you how to run these commands interactively with the shell or through a step using `command-runner.jar` with either the AWS CLI or AWS SDK for Java. For more information about other types of HBase backups, see [HBase backup](https://hbase.apache.org/book.html#ops.backup) in the HBase documentation.
 
@@ -22,7 +21,7 @@ Args=[ "hbase", "snapshot", "create","-n","{{snapshotName}}","-t","{{tableName}}
 
 AWS SDK for Java
 
-```
+```java
 HadoopJarStepConfig hbaseSnapshotConf = new HadoopJarStepConfig()
   .withJar("command-runner.jar")
   .withArgs("hbase","snapshot","create","-n","snapshotName","-t","tableName");
@@ -67,7 +66,7 @@ Args=[ "hbase", "snapshot", "export","-snapshot","{{snapshotName}}","-copy-to","
 
 AWS SDK for Java:
 
-```
+```java
 HadoopJarStepConfig hbaseImportSnapshotConf = new HadoopJarStepConfig()
   .withJar("command-runner.jar")
   .withArgs("hbase","snapshot","export",
@@ -101,7 +100,7 @@ Args=["sudo","-u","hbase","hbase snapshot export","-snapshot","{{snapshotName}}"
 
 AWS SDK for Java:
 
-```
+```java
 HadoopJarStepConfig hbaseImportSnapshotConf = new HadoopJarStepConfig()
   .withJar("command-runner.jar")
   .withArgs("sudo","-u","hbase","hbase","snapshot","export", "-D","hbase.rootdir=s3://path/to/snapshot",
@@ -152,7 +151,7 @@ aws emr add-steps --cluster-id j-2AXXXXXXGAPLF \
 
 AWS SDK for Java:
 
-```
+```java
 HadoopJarStepConfig hbaseRestoreSnapshotConf = new HadoopJarStepConfig()
   .withJar("command-runner.jar")
   .withArgs("bash","-c","echo $'disable \"tableName\"; restore_snapshot \"snapshotName\"; enable \"snapshotName\"' | hbase shell");

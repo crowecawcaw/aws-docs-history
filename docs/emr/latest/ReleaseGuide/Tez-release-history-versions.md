@@ -1,7 +1,6 @@
 
 
 # Tez release notes by version
-<a name="Tez-release-history-versions"></a>
 
 **Topics**
 + [Amazon EMR 7.10.0 - Tez release notes](Tez-release-history-7100.md)

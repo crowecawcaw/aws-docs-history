@@ -1,7 +1,6 @@
 
 
 # Apache Flink
-<a name="emr-flink"></a>
 
 [Apache Flink](https://flink.apache.org/) is a streaming dataflow engine that you can use to run real-time stream processing on high-throughput data sources. Flink supports event time semantics for out-of-order events, exactly-once semantics, backpressure control, and APIs optimized to write both streaming and batch applications.
 

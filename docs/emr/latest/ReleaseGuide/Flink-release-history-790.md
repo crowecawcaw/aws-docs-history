@@ -1,7 +1,6 @@
 
 
 # Amazon EMR 7.9.0 - Flink release notes
-<a name="Flink-release-history-790"></a>
 
 **Amazon EMR 7.9.0 - Flink Changes**
 

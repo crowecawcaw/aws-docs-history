@@ -1,7 +1,6 @@
 
 
 # Write-ahead logs (WAL) for Amazon EMR
-<a name="emr-hbase-wal"></a>
 
 With Amazon EMR 6.15 and higher, you can write your Apache HBase write-ahead logs (WAL) to the Amazon EMR WAL. With lower Amazon EMR releases, when you create a cluster with the **HBase on Amazon S3** option, WAL is the only Apache HBase component that gets stored in the local disk for clusters, and you can store other components such as the root directory, store files (HFiles), table metadata, and data on Amazon S3.
 

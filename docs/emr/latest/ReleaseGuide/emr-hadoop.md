@@ -1,7 +1,6 @@
 
 
 # Apache Hadoop
-<a name="emr-hadoop"></a>
 
 [Apache Hadoop](https://aws.amazon.com/elasticmapreduce/details/hadoop/) is an open-source Java software framework that supports massive data processing across a cluster of instances. It can run on a single instance or thousands of instances. Hadoop uses many processing models, such as MapReduce and Tez, to distribute processing across multiple instances and also uses a distributed file system called HDFS to store data across multiple instances. Hadoop monitors the health of instances in the cluster and can recover from the failure of one or more nodes. In this way, Hadoop provides increased processing and storage capacity, as well as high availability. For more information, see the[Hadoop documentation](http://hadoop.apache.org).
 

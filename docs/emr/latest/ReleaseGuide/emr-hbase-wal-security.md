@@ -1,7 +1,6 @@
 
 
 # Using security configurations with Amazon EMR WAL
-<a name="emr-hbase-wal-security"></a>
 
 Amazon EMR automatically encrypts both data in transit between your cluster and Amazon EMR WAL service, and the data at rest in Amazon EMR WAL. For more information, see [Encryption at rest for Amazon EMR WAL](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-data-encryption-options.html#emr-encryption-WAL). You can also use a security configuration to bring your own keys from AWS Key Management Service (KMS) service and encrypt the data that you store in Amazon EMR WAL. 
 

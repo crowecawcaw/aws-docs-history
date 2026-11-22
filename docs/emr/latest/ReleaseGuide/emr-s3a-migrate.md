@@ -1,7 +1,6 @@
 
 
 # Migration Guide: EMRFS to S3A Filesystem
-<a name="emr-s3a-migrate"></a>
 
 Starting with the EMR-7.10.0 release, S3A Filesystem is the default filesystem/s3 connector for EMR clusters for all S3 file schemes, including the following:
 + **s3://**

@@ -1,7 +1,6 @@
 
 
 # Apache HCatalog
-<a name="emr-hcatalog"></a>
 
 HCatalog is a tool that allows you to access Hive metastore tables within Pig, Spark SQL, and/or custom MapReduce applications. HCatalog has a REST interface and command line client that allows you to create tables or do other operations. You then write your applications to access the tables using HCatalog libraries. For more information, see [Using HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog+UsingHCat). HCatalog is included in Amazon EMR release version 4.4.0 and later.
 

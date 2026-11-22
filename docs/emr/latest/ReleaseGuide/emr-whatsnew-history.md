@@ -1,7 +1,6 @@
 
 
 # Amazon EMR archive of release notes
-<a name="emr-whatsnew-history"></a>
 
 Release notes for all Amazon EMR releases are available below. For comprehensive release information for each release, see [Amazon EMR 6.x release versions](emr-release-6x.md), [Amazon EMR 5.x release versions](emr-release-5x.md) and [Amazon EMR 4.x release versions](emr-release-4x.md).
 
@@ -974,7 +973,7 @@ Updated documentation date: June 15, 2022
 
   The workaround for this issue is to run the script below as a Bootstrap Action to disable the Garbage Collection logging parameters in jvm.config while creating or cloning the cluster for Amazon EMR 6.6.0.
 
-  ```
+  ```bash
   #!/bin/bash
     set -ex
     PRESTO_PUPPET_DIR='/var/aws/emr/bigtop-deploy/puppet/modules/trino'
@@ -1388,7 +1387,7 @@ Initial release date: Jan 8, 2021
 
   You can also use a bootstrap action (BA) script to configure the instance-controller ulimit to 65536 files at cluster creation.
 
-  ```
+  ```bash
   #!/bin/bash
   for user in hadoop spark hive; do
   sudo tee /etc/security/limits.d/$user.conf << EOF
@@ -1514,7 +1513,7 @@ Last updated date: Oct 04, 2021
 
   You can also use a bootstrap action (BA) script to configure the instance-controller ulimit to 65536 files at cluster creation.
 
-  ```
+  ```bash
   #!/bin/bash
   for user in hadoop spark hive; do
   sudo tee /etc/security/limits.d/$user.conf << EOF
@@ -1679,7 +1678,7 @@ Last updated date: Oct 15, 2020
 
   You can also use a bootstrap action (BA) script to configure the instance-controller ulimit to 65536 files at cluster creation.
 
-  ```
+  ```bash
   #!/bin/bash
   for user in hadoop spark hive; do
   sudo tee /etc/security/limits.d/$user.conf << EOF
@@ -1814,7 +1813,7 @@ Last updated date: Oct 15, 2020
 
   You can also use a bootstrap action (BA) script to configure the instance-controller ulimit to 65536 files at cluster creation.
 
-  ```
+  ```bash
   #!/bin/bash
   for user in hadoop spark hive; do
   sudo tee /etc/security/limits.d/$user.conf << EOF
@@ -1936,7 +1935,7 @@ Flink, Sqoop, Pig, and Mahout are not available in Amazon EMR version 6.0.0.
 
   You can also use a bootstrap action (BA) script to configure the instance-controller ulimit to 65536 files at cluster creation.
 
-  ```
+  ```bash
   #!/bin/bash
   for user in hadoop spark hive; do
   sudo tee /etc/security/limits.d/$user.conf << EOF
@@ -2021,7 +2020,7 @@ Last updated date: August 24, 2020
 
   You can also use a bootstrap action (BA) script to configure the instance-controller ulimit to 65536 files at cluster creation.
 
-  ```
+  ```bash
   #!/bin/bash
   for user in hadoop spark hive; do
   sudo tee /etc/security/limits.d/$user.conf << EOF
@@ -2149,7 +2148,7 @@ Last updated date: June 25, 2020
 
   You can also use a bootstrap action (BA) script to configure the instance-controller ulimit to 65536 files at cluster creation.
 
-  ```
+  ```bash
   #!/bin/bash
   for user in hadoop spark hive; do
   sudo tee /etc/security/limits.d/$user.conf << EOF
@@ -2590,13 +2589,13 @@ Last updated date: April 30, 2019
 
     1. Search for the term `appblacklist` and modify the line to the following:
 
-       ```
+       ```bash
        appblacklist = search
        ```
 
     1. Save your changes and restart Hue as shown in the following example:
 
-       ```
+       ```bash
        sudo stop hue; sudo start hue
        ```
 + Known issue in clusters with multiple primary nodes and Kerberos authentication
@@ -2661,13 +2660,13 @@ Initial release date: March 20, 2019
 
     1. Search for the term `appblacklist` and modify the line to the following:
 
-       ```
+       ```bash
        appblacklist = search
        ```
 
     1. Save your changes and restart Hue as shown in the following example:
 
-       ```
+       ```bash
        sudo stop hue; sudo start hue
        ```
 + Known issue in clusters with multiple primary nodes and Kerberos authentication
@@ -2750,13 +2749,13 @@ Last updated date: April 3, 2019
 
     1. Search for the term `appblacklist` and modify the line to the following:
 
-       ```
+       ```bash
        appblacklist = search
        ```
 
     1. Save your changes and restart Hue as shown in the following example:
 
-       ```
+       ```bash
        sudo stop hue; sudo start hue
        ```
 + Tez
@@ -2832,13 +2831,13 @@ Last updated date: January 22, 2019
 
     1. Search for the term `appblacklist` and modify the line to the following:
 
-       ```
+       ```bash
        appblacklist = search
        ```
 
     1. Save your changes and restart Hue as shown in the following example:
 
-       ```
+       ```bash
        sudo stop hue; sudo start hue
        ```
 + Tez

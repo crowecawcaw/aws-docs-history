@@ -1,7 +1,6 @@
 
 
 # Trino Considerations
-<a name="Trino-considerations"></a>
 
 Consider the following when you run Trino on Amazon EMR.
 

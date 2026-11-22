@@ -1,7 +1,6 @@
 
 
 # Setup for Upgrade Agent
-<a name="emr-spark-upgrade-agent-setup"></a>
 
 **Note**  
 The Apache Spark Upgrade Agent uses cross-region inference to process natural language requests and generate responses. For more details please refer to this page on [Cross-region processing for the Apache Spark Upgrade Agent](emr-spark-upgrade-agent-cross-region.md). 

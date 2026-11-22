@@ -1,7 +1,6 @@
 
 
 # Improve Hive performance
-<a name="emr-hive-s3-performance"></a>
 
 Amazon EMR offers features to help optimize performance when using Hive to query, read and write data saved in Amazon S3.
 

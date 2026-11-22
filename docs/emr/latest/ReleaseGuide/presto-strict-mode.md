@@ -1,7 +1,6 @@
 
 
 # Activating Presto strict mode
-<a name="presto-strict-mode"></a>
 
 In certain situations, long-running queries can lead to high costs and cause Amazon EMR to use more cluster resources. This takes resources away from other workloads on the cluster. With Amazon EMR versions 6.8 and later, you can use a strict mode feature that rejects or warns you about the following types of long-running queries:
 + Queries without predicates on the partitioned columns that result in table scans of large amounts of data

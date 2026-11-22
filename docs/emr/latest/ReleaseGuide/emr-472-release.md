@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 4.7.2
-<a name="emr-472-release"></a>
 
 ## 4.7.2 application versions
 <a name="emr-472-app-versions"></a>

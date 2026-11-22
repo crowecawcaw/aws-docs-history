@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations
-<a name="AmazonCloudWatchAgent-considerations"></a>
 + The native Amazon CloudWatch agent is available for clusters that you create with Amazon EMR releases 7.0.0 and higher.
 + The configuration for CloudWatch agent in Amazon EMR 7.0.0 requires the use of [bootstrap actions](AmazonCloudWatchAgent-config-700.md). In an upcoming release, Amazon EMR will provide additional configuration options through the Amazon EMR API.
 + You can't install the Amazon EMR CloudWatch agent if you've already deployed the CloudWatch agent by another method such as AWS Systems Manager Agent (SSM Agent) in the Region where you create your cluster. Doing so will result in your cluster terminating with errors.

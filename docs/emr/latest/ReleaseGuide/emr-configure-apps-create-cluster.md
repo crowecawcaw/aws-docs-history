@@ -1,7 +1,6 @@
 
 
 # Configure applications when you create a cluster
-<a name="emr-configure-apps-create-cluster"></a>
 
 When you create a cluster, you can override the default configurations for applications using the Amazon EMR console, the AWS Command Line Interface (AWS CLI), or the AWS SDK. 
 
@@ -46,7 +45,7 @@ aws emr create-cluster --use-default-roles --release-label emr-5.34.0 --instance
 
 The following program excerpt shows how to supply a configuration using the AWS SDK for Java.
 
-```
+```java
 Application hive = new Application().withName("Hive");
 
 Map<String,String> hiveProperties = new HashMap<String,String>();

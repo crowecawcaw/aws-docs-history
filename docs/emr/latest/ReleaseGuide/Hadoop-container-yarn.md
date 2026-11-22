@@ -1,7 +1,6 @@
 
 
 # YARN container bin packing
-<a name="Hadoop-container-yarn"></a>
 
 Starting with Amazon EMR version 7.9.0, container bin-packing policy is now available for the YARN capacity scheduler, which is built on top of YARN's multi-node placement policy. Although the feature is disabled by default, when activated, YARN prioritizes filling up a single node with containers before expanding to other cluster nodes, while respecting a predefined packing threshold defined by the configuration `yarn.scheduler.capacity.multi-node-placement.container.bin-packing.percentage`.
 

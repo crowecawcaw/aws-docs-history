@@ -1,7 +1,6 @@
 
 
 # Using Presto with the AWS Glue Data Catalog
-<a name="emr-presto-glue"></a>
 
 Using Amazon EMR release version 5.10.0 and later, you can specify the AWS Glue Data Catalog as the default Hive metastore for Presto. We recommend this configuration when you require a persistent metastore or a metastore shared by different clusters, services, applications, or AWS accounts.
 

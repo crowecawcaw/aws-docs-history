@@ -1,7 +1,6 @@
 
 
 # Amazon EMR 6.6.0 - Hive release notes
-<a name="Hive-release-history-660"></a>
 
 ## Amazon EMR 6.6.0 - Hive changes
 <a name="Hive-release-history-changes-660"></a>

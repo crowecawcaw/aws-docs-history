@@ -1,101 +1,68 @@
 
 
-# Setup for Troubleshooting Agent
-<a name="spark-troubleshooting-agent-setup"></a>
+# Set up the Apache Spark agents
 
 **Note**  
-The Apache Spark Troubleshooting Agent uses cross-region inference to process natural language requests and generate responses. For more details, please refer to [Cross-Region Processing for the Apache Spark Troubleshooting Agent](spark-troubleshooting-cross-region-processing.md).
+The Apache Spark agents use cross-Region inference to process natural language requests and generate responses. For more information, see [Cross-Region processing for the Apache Spark agents](spark-troubleshooting-cross-region-processing.md).
+
+**Note**  
+Both agents use the `sagemaker-unified-studio-mcp-troubleshooting` server and the `/spark-troubleshooting/mcp` endpoint, despite "troubleshooting" in the names. Both agents use the same setup. If you've already set up one agent, you can use the other on the same platforms without additional setup. Only the troubleshooting agent uses the code recommendation server, `sagemaker-unified-studio-mcp-code-rec` (`/spark-code-recommendation/mcp`). If you use only the optimization agent, you can skip it.
 
 ## Prerequisites
 <a name="spark-troubleshooting-agent-prerequisites"></a>
 
-Before we begin our setup process for integration with Kiro CLI, make sure you have the following installed on your workstation:
-+  [ Install AWS CLI ](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) 
-+  [ Install Python 3.10\+ ](https://www.python.org/downloads/release/python-3100/) 
-+  [ Install the `uv` package manager ](https://docs.astral.sh/uv/getting-started/installation/) for [ MCP Proxy for AWS](https://github.com/aws/mcp-proxy-for-aws?tab=readme-ov-file) 
-+  [ Install Kiro CLI ](https://kiro.dev/docs/cli/) 
-+ AWS local credentials configured (via [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html), environment variables, or IAM roles) - for local operations such uploading upgraded job artifacts for EMR validation job execution.
+Before you begin the setup for integration with Kiro CLI, make sure that you have the following installed on your workstation:
++ [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
++ [Install Python 3.10\+](https://www.python.org/downloads/release/python-3100/)
++ [Install the `uv` package manager](https://docs.astral.sh/uv/getting-started/installation/) for [MCP Proxy for AWS](https://github.com/aws/mcp-proxy-for-aws?tab=readme-ov-file)
++ [Install Kiro CLI](https://kiro.dev/docs/cli/)
++ AWS local credentials configured (through the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html), environment variables, or IAM roles). The MCP Proxy for AWS uses these credentials to authenticate the agents' requests to AWS services as your IAM identity.
 
-## Setup Resources
-<a name="spark-troubleshooting-agent-setup-resources"></a>
+## How the agents access your resources
+<a name="spark-agents-setup-access"></a>
 
-You can use an AWS CloudFormation template to setup the resource for the MCP server. These templates are samples that you should modify to meet your requirements. The template creates the following resources for the troubleshooting process:
+The MCP server authorizes operations at the AWS service level using the IAM identity that your MCP client is configured with. The agents act as that identity, so they can only access what that identity is permitted to access. No separate MCP-specific permissions are required.
 
-1. IAM role which has permissions to call MCP Server and required permissions for troubleshooting process for the selected platform.
+Point the MCP client at an AWS profile for a role that you already use to analyze your Spark jobs today. The agents' access then matches your own. Make sure that role carries the permissions described in [IAM permissions for the Apache Spark agents](spark-troubleshooting-agent-iam-setup.md) so the agents can read all the signals from your Spark jobs.
 
-Choose one of the **Launch Stack** buttons in the following table. This launches the stack on the AWS CloudFormation console in the respective region.
+If you want tighter, scoped control over what the agents can access, see [How can I get more fine-grained control over the agents' permissions?](spark-troubleshooting-agent-iam-setup.md#qa-fine-grained-permissions). To give the agents their own role, see [How do I create a dedicated IAM role for the agents?](spark-troubleshooting-agent-iam-setup.md#qa-dedicated-role).
 
+## Add the Apache Spark agents to your MCP client
+<a name="spark-agents-setup-add-servers"></a>
 
-| Region | Launch | 
-| --- | --- | 
-| US East (Ohio) |  [![Launch Stack button with information icon.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/new?templateURL=https%3A%2F%2Fsmus-mcp-cfn-template-prod-us-east-2.s3.us-east-2.amazonaws.com%2Fcloudformation%2Fspark-troubleshooting-mcp-setup.yaml&stackName=spark-troubleshooting-mcp-setup)  | 
-| US East (N. Virginia) |  [![Launch Stack button with information icon.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?templateURL=https%3A%2F%2Fsmus-mcp-cfn-template-prod-us-east-1.s3.us-east-1.amazonaws.com%2Fcloudformation%2Fspark-troubleshooting-mcp-setup.yaml&stackName=spark-troubleshooting-mcp-setup)  | 
-| US West (Oregon) |  [![Launch Stack button with information icon.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https%3A%2F%2Fsmus-mcp-cfn-template-prod-us-west-2.s3.us-west-2.amazonaws.com%2Fcloudformation%2Fspark-troubleshooting-mcp-setup.yaml&stackName=spark-troubleshooting-mcp-setup)  | 
-| Asia Pacific (Tokyo) |  [![Launch Stack button with information icon.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/new?templateURL=https%3A%2F%2Fsmus-mcp-cfn-template-prod-ap-northeast-1.s3.ap-northeast-1.amazonaws.com%2Fcloudformation%2Fspark-troubleshooting-mcp-setup.yaml&stackName=spark-troubleshooting-mcp-setup)  | 
-| Europe (Ireland) |  [![Launch Stack button with information icon.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?templateURL=https%3A%2F%2Fsmus-mcp-cfn-template-prod-eu-west-1.s3.eu-west-1.amazonaws.com%2Fcloudformation%2Fspark-troubleshooting-mcp-setup.yaml&stackName=spark-troubleshooting-mcp-setup)  | 
-| Asia Pacific (Singapore) |  [![Launch Stack button with information icon.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/new?templateURL=https%3A%2F%2Fsmus-mcp-cfn-template-prod-ap-southeast-1.s3.ap-southeast-1.amazonaws.com%2Fcloudformation%2Fspark-troubleshooting-mcp-setup.yaml&stackName=spark-troubleshooting-mcp-setup)  | 
-| Asia Pacific (Sydney) |  [![Launch Stack button with information icon.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/new?templateURL=https%3A%2F%2Fsmus-mcp-cfn-template-prod-ap-southeast-2.s3.ap-southeast-2.amazonaws.com%2Fcloudformation%2Fspark-troubleshooting-mcp-setup.yaml&stackName=spark-troubleshooting-mcp-setup)  | 
-| Canada (Central) |  [![Launch Stack button with information icon.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/new?templateURL=https%3A%2F%2Fsmus-mcp-cfn-template-prod-ca-central-1.s3.ca-central-1.amazonaws.com%2Fcloudformation%2Fspark-troubleshooting-mcp-setup.yaml&stackName=spark-troubleshooting-mcp-setup)  | 
-| South America (São Paulo) |  [![Launch Stack button with information icon.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/new?templateURL=https%3A%2F%2Fsmus-mcp-cfn-template-prod-sa-east-1.s3.sa-east-1.amazonaws.com%2Fcloudformation%2Fspark-troubleshooting-mcp-setup.yaml&stackName=spark-troubleshooting-mcp-setup)  | 
-| Europe (Frankfurt) |  [![Launch Stack button with information icon.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?templateURL=https%3A%2F%2Fsmus-mcp-cfn-template-prod-eu-central-1.s3.eu-central-1.amazonaws.com%2Fcloudformation%2Fspark-troubleshooting-mcp-setup.yaml&stackName=spark-troubleshooting-mcp-setup)  | 
-| Europe (Stockholm) |  [![Launch Stack button with information icon.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-north-1#/stacks/new?templateURL=https%3A%2F%2Fsmus-mcp-cfn-template-prod-eu-north-1.s3.eu-north-1.amazonaws.com%2Fcloudformation%2Fspark-troubleshooting-mcp-setup.yaml&stackName=spark-troubleshooting-mcp-setup)  | 
-| Europe (London) |  [![Launch Stack button with information icon.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/new?templateURL=https%3A%2F%2Fsmus-mcp-cfn-template-prod-eu-west-2.s3.eu-west-2.amazonaws.com%2Fcloudformation%2Fspark-troubleshooting-mcp-setup.yaml&stackName=spark-troubleshooting-mcp-setup)  | 
-| Europe (Paris) |  [![Launch Stack button with information icon.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/new?templateURL=https%3A%2F%2Fsmus-mcp-cfn-template-prod-eu-west-3.s3.eu-west-3.amazonaws.com%2Fcloudformation%2Fspark-troubleshooting-mcp-setup.yaml&stackName=spark-troubleshooting-mcp-setup)  | 
-| Asia Pacific (Seoul) |  [![Launch Stack button with information icon.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-2#/stacks/new?templateURL=https%3A%2F%2Fsmus-mcp-cfn-template-prod-ap-northeast-2.s3.ap-northeast-2.amazonaws.com%2Fcloudformation%2Fspark-troubleshooting-mcp-setup.yaml&stackName=spark-troubleshooting-mcp-setup)  | 
-| Asia Pacific (Mumbai) |  [![Launch Stack button with information icon.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/new?templateURL=https%3A%2F%2Fsmus-mcp-cfn-template-prod-ap-south-1.s3.ap-south-1.amazonaws.com%2Fcloudformation%2Fspark-troubleshooting-mcp-setup.yaml&stackName=spark-troubleshooting-mcp-setup)  | 
-
-Proceed to the **Specify stack details** page, enter the **Stack name**. Enter additional information under **Parameters**. Provide the following information and proceed to create the stack.
-+ **TroubleshootingRoleName** - Name of the IAM role to create for troubleshooting operations
-+ **EnableEMREC2** - Enable EMR-EC2 troubleshooting permissions (default: true)
-+ **EnableEMRServerless** - Enable EMR-Serverless troubleshooting permissions (default: true)
-+ **EnableEMREKS** - Enable EMR on EKS troubleshooting permissions (default: true)
-+ **EnableGlue** - Enable Glue troubleshooting permissions (default: true)
-+ **CloudWatchKmsKeyArn** - (Optional) ARN of existing KMS key for CloudWatch Logs encryption (EMR Serverless only, leave empty for default encryption)
-
-You may also download and review [the CloudFormation template](https://github.com/aws-samples/aws-emr-utilities/blob/03c20fece616de23ec0ea5389f0113a5bc65fc3a/utilities/apache-spark-agents/spark-troubleshooting-agent-cloudformation/spark-troubleshooting-mcp-setup.yaml), specify the options above and launch the template by yourself with CloudFormation CLI commands, see below for an example:
+The agents use the AWS profile that you pass to the MCP servers. Use a profile for a role you already have. If your default profile already uses that role, use it. Otherwise, create a profile that assumes the role, replacing `your-role-name` with your role's name:
 
 ```
-# deploy the stack with CloudFormation CLI commands
-aws cloudformation deploy \
-  --template-file spark-troubleshooting-mcp-setup.yaml \
-  --stack-name spark-troubleshooting-mcp-setup \
-  --region <your Spark MCP server launch region> \
-  --capabilities CAPABILITY_NAMED_IAM \
-  --parameter-overrides \
-    TroubleshootingRoleName=spark-troubleshooting-role
-
-
-# retrieve the 1-line instruction to set the local environment variables, which will be used for the following MCP server configuration
-aws cloudformation describe-stacks \
-  --stack-name spark-troubleshooting-mcp-setup \
-  --region <your Spark MCP server launch region> \
-  --query "Stacks[0].Outputs[?OutputKey=='ExportCommand'].OutputValue" \
-  --output text
+aws configure set profile.smus-mcp-profile.role_arn arn:aws:iam::111122223333:role/your-role-name
+aws configure set profile.smus-mcp-profile.source_profile default
+aws configure set profile.smus-mcp-profile.region <your mcp server launch region>
 ```
 
-Open the Outputs tab (or retrieve from the CloudFormation describe-stacks CLI command above) and copy the 1-line instruction from the CloudFormation output to set your environment variables, then execute it in your local environment. Example 1-line instruction:
+For the permissions the role needs, see [IAM permissions for the Apache Spark agents](spark-troubleshooting-agent-iam-setup.md).
+
+To set your Region and add the MCP servers, run the following commands. Point `--profile` at the profile for the role you use. This example uses the `smus-mcp-profile` profile from the previous step. If you use a different profile, replace it.
 
 ```
-export SMUS_MCP_REGION=<your mcp server launch region> && export IAM_ROLE=arn:aws:iam::111122223333:role/spark-troubleshooting-role-xxxxxx
-```
+export SMUS_MCP_REGION=<your mcp server launch region>
 
-Then run the following command locally to setup the IAM profile and MCP server configuration:
-
-```
-# Step 1: Configure AWS CLI Profile
-aws configure set profile.smus-mcp-profile.role_arn ${IAM_ROLE}
-aws configure set profile.smus-mcp-profile.source_profile <AWS CLI Profile to assume the IAM role - ex: default>
-aws configure set profile.smus-mcp-profile.region ${SMUS_MCP_REGION}
-
-# Step 2: if you are using kiro CLI, use the following command to add the MCP configuration
-# Add Spark Troubleshooting MCP Server
+# Add Spark Troubleshooting and Optimization MCP Server
 kiro-cli-chat mcp add \
     --name "sagemaker-unified-studio-mcp-troubleshooting" \
     --command "uvx" \
     --args "[\"mcp-proxy-for-aws@latest\",\"https://sagemaker-unified-studio-mcp.${SMUS_MCP_REGION}.api.aws/spark-troubleshooting/mcp\", \"--service\", \"sagemaker-unified-studio-mcp\", \"--profile\", \"smus-mcp-profile\", \"--region\", \"${SMUS_MCP_REGION}\", \"--read-timeout\", \"180\"]" \
     --timeout 180000 \
     --scope global
-    
+
+# If you use Claude Code, use the following command instead
+# claude mcp add --scope user \
+#     sagemaker-unified-studio-mcp-troubleshooting \
+#  -- uvx mcp-proxy-for-aws@latest \
+#     https://sagemaker-unified-studio-mcp.${SMUS_MCP_REGION}.api.aws/spark-troubleshooting/mcp \
+#     --service sagemaker-unified-studio-mcp \
+#     --profile smus-mcp-profile \
+#     --region ${SMUS_MCP_REGION} \
+#     --read-timeout 180
+
 # Add Spark Code Recommendation MCP Server
 kiro-cli-chat mcp add \
     --name "sagemaker-unified-studio-mcp-code-rec" \
@@ -103,9 +70,19 @@ kiro-cli-chat mcp add \
     --args "[\"mcp-proxy-for-aws@latest\",\"https://sagemaker-unified-studio-mcp.${SMUS_MCP_REGION}.api.aws/spark-code-recommendation/mcp\", \"--service\", \"sagemaker-unified-studio-mcp\", \"--profile\", \"smus-mcp-profile\", \"--region\", \"${SMUS_MCP_REGION}\", \"--read-timeout\", \"180\"]" \
     --timeout 180000 \
     --scope global
+
+# If you use Claude Code, use the following command instead
+# claude mcp add --scope user \
+#     sagemaker-unified-studio-mcp-code-rec \
+#  -- uvx mcp-proxy-for-aws@latest \
+#     https://sagemaker-unified-studio-mcp.${SMUS_MCP_REGION}.api.aws/spark-code-recommendation/mcp \
+#     --service sagemaker-unified-studio-mcp \
+#     --profile smus-mcp-profile \
+#     --region ${SMUS_MCP_REGION} \
+#     --read-timeout 180
 ```
 
-This should update `~/.kiro/settings/mcp.json` to include the MCP server configuration as below.
+This updates `~/.kiro/settings/mcp.json` to include the MCP server configuration as follows. If you use Claude Code, the command updates `~/.claude.json` instead.
 
 ```
 {
@@ -150,4 +127,11 @@ This should update `~/.kiro/settings/mcp.json` to include the MCP server configu
 }
 ```
 
-See [Supported Interfaces](spark-troubleshooting-using-troubleshooting-agent.md#supported-interfaces) for the configuration guidance for different MCP clients like Kiro, Cline and GitHub CoPilot.
+## Configure your MCP client
+<a name="integration-other-mcp-clients"></a>
+
+You can also use the preceding configuration in other MCP clients and IDEs to connect to the managed MCP server:
++ **Integration with Claude Code** – To use the MCP server with Claude Code, modify the configuration file to include the MCP configuration. The file path varies depending on your operating system. For detailed setup, see [https://code.claude.com/docs/en/mcp](https://code.claude.com/docs/en/mcp).
++ **Integration with Codex** – To use the MCP server with Codex, add the MCP server configuration shown earlier to your Codex configuration file (`~/.codex/config.toml`), in Codex's TOML format. For more information, see [Model Context Protocol](https://developers.openai.com/codex/mcp) in the Codex documentation.
++ **Integration with Cline** – To use the MCP server with Cline, modify `cline_mcp_settings.json` and add the MCP server configuration shown earlier. For more information about how to manage MCP configuration, see the [Cline documentation](https://docs.cline.bot/mcp/configuring-mcp-servers).
++ **Integration with GitHub Copilot** – To use the MCP server with GitHub Copilot, follow the instructions in [Extending Copilot Chat with MCP](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp) to modify the corresponding configuration file, and follow the instructions for each IDE to activate the setup.

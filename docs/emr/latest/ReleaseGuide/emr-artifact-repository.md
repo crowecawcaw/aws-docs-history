@@ -1,7 +1,6 @@
 
 
 # Checking dependencies using the Amazon EMR artifact repository
-<a name="emr-artifact-repository"></a>
 
 You can use the Amazon EMR artifact repository to build Apache Hive and Apache Hadoop job code against the exact versions of libraries and dependencies that are available with specific Amazon EMR release versions, beginning with Amazon EMR release version 5.18.0. Building against Amazon EMR artifacts in the repository helps avoid runtime class path issues by ensuring that the versions of the libraries that the job is built against are exactly the same versions provided at runtime on the cluster. Currently, Amazon EMR artifacts are only available for Maven builds.
 

@@ -1,7 +1,6 @@
 
 
 # Consistent view
-<a name="emr-plan-consistent-view"></a>
 
 **Warning**  
 On June 1, 2023, EMRFS consistent view will reach end of standard support for future Amazon EMR releases. EMRFS consistent view will continue to work for existing releases.

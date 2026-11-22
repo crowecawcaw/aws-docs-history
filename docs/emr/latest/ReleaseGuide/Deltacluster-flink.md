@@ -1,7 +1,6 @@
 
 
 # Use a Delta Lake cluster with Flink
-<a name="Deltacluster-flink"></a>
 
 With Amazon EMR release 6.11 and higher, you can use Delta Lake with your Flink cluster. The following examples use the AWS CLI to work with Delta Lake on an Amazon EMR Flink cluster.
 
@@ -13,14 +12,14 @@ Amazon EMR supports the Flink DataStream API when you use Delta Lake with a Flin
 
 1. Create a file, `delta_configurations.json`, with the following content:
 
-   ```
+   ```json
    [{"Classification":"delta-defaults",  
        "Properties":{"delta.enabled":"true"}}]
    ```
 
 1. Create a cluster with the following configuration. Replace the `example Amazon S3 bucket path` and the `subnet ID` with your own.
 
-   ```
+   ```bash,sh,zsh
    aws emr create-cluster 
    --release-label emr-6.11.0   
    --applications Name=Flink  
@@ -38,7 +37,7 @@ Amazon EMR supports the Flink DataStream API when you use Delta Lake with a Flin
 
 To initialize a Flink yarn session, run the following command:
 
-```
+```bash,sh,zsh
 flink-yarn-session -d
 ```
 
@@ -52,7 +51,7 @@ The following examples show how to use sbt or Maven to build your Flink job with
 
 [sbt](https://www.scala-sbt.org/1.x/docs/index.html) is a build tool for Scala that you can use with little to no configuration when you have small projects. 
 
-```
+```scala
 libraryDependencies ++= Seq(
   "io.delta" %% "delta-flink" % {{deltaConnectorsVersion}} % "provided",
   "io.delta" %% "delta-standalone" % {{deltaConnectorsVersion}} % "provided",
@@ -68,7 +67,7 @@ libraryDependencies ++= Seq(
 
 [Maven](https://maven.apache.org) is an open-source build automation tool from the Apache Software Foundation. With Maven, you can build, publish, and deploy a Flink job with Delta Lake on Amazon EMR.
 
-```
+```scala
 <project>
 <properties>
     <scala.main.version>2.12</scala.main.version>
@@ -130,7 +129,7 @@ libraryDependencies ++= Seq(
 
 Use the following example to create a DeltaSink to write to the table with a `deltaTablePath:`
 
-```
+```java
 public static DataStream<RowData> createDeltaSink(
         DataStream<RowData> stream,
         String deltaTablePath,
@@ -152,7 +151,7 @@ public static DataStream<RowData> createDeltaSink(
 
 Use the following example to create a bounded DeltaSource to read from the table with a `deltaTablePath:`
 
-```
+```java
 public static DataStream<RowData> createBoundedDeltaSourceAllColumns(
         StreamExecutionEnvironment env,
         String deltaTablePath) {
@@ -172,7 +171,7 @@ public static DataStream<RowData> createBoundedDeltaSourceAllColumns(
 
 Use the following example to create a DeltaSink to write to table with a `deltaTablePath` and [multi cluster support](https://docs.delta.io/latest/delta-standalone.html#multi-cluster-setup):
 
-```
+```java
 public DataStream<RowData> createDeltaSink(
         DataStream<RowData> stream,
         String deltaTablePath) {
@@ -197,6 +196,6 @@ public DataStream<RowData> createDeltaSink(
 
 Use the following command to run your job:
 
-```
+```bash,sh,zsh
 flink run FlinkJob.jar
 ```

@@ -1,7 +1,6 @@
 
 
 # Creating a cluster with Tez
-<a name="tez-create-cluster"></a>
 
 To install Tez, choose Apache Tez as an application when you create your cluster.<a name="emr-tez-create"></a>
 

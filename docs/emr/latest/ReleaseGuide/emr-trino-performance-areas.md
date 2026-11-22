@@ -1,7 +1,6 @@
 
 
 # Key areas of focus for performance improvement
-<a name="emr-trino-performance-areas"></a>
 
 Trino maximizes query parallelism and memory optimization. This architecture provides flexibility by enabling it to query multiple, varied data sources while efficiently scaling. Key areas of performance improvement in Trino include those listed below.
 

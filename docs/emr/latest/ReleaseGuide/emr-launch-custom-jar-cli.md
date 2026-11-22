@@ -1,7 +1,6 @@
 
 
 # Submit a custom JAR step
-<a name="emr-launch-custom-jar-cli"></a>
 
 A custom JAR runs a compiled Java program that you can upload to Amazon S3. You should compile the program against the version of Hadoop you want to launch, and submit a `CUSTOM_JAR` step to your Amazon EMR cluster. For more information about how to compile a JAR file, see [Build binaries using Amazon EMR](emr-build-binaries.md).
 

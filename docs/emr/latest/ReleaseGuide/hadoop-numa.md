@@ -1,13 +1,12 @@
 
 
 # Turn on non-uniform memory access awareness for YARN containers
-<a name="hadoop-numa"></a>
 
 With Amazon EMR versions 6.x and later, you can use non-uniform memory access (NUMA) for multiprocessing your data on clusters. NUMA is a computer memory design pattern where the processor can access its own local memory faster than memory on another processor or shared between processors. YARN containers have better performance with NUMA because they can bind to a specific NUMA node that serves all subsequent memory allocations. This reduces the amount of times that your cluster has to access remote memory. 
 
 You can turn on NUMA support for YARN container when the worker node machine is a multi-NUMA node. To confirm if a worker node is a single-NUMA or multi-NUMA node, run the following command.
 
-```
+```bash,sh,zsh
 lscpu | grep -i numa
 NUMA node(s): 2
 ```
@@ -18,7 +17,7 @@ In general, instances that are larger than 12x have two NUMA nodes. This does no
 
 1. Use the following `yarn-site` configuration in your Amazon EMR 6.x cluster.
 
-   ```
+   ```json
     [
    	{
    		"classification":"yarn-site",
@@ -37,7 +36,7 @@ In general, instances that are larger than 12x have two NUMA nodes. This does no
 
 1. Provide the following bootstrap action in your cluster.
 
-   ```
+   ```bash,sh,zsh
    #!/bin/bash
    
    sudo yum -y install numactl
@@ -57,7 +56,7 @@ In general, instances that are larger than 12x have two NUMA nodes. This does no
 
 1. Every container must be aware of NUMA. You can notify the Java virtual machine (JVM) in each container with a NUMA flag. For example, to notify the JVM to use NUMA in a MapReduce job, add the following properties in `mapred-site.xml`.
 
-   ```
+   ```bash,sh,zsh
    <property>
    	<name>mapreduce.reduce.java.opts</name>
    	<value>-XX:+UseNUMA</value>
@@ -70,12 +69,12 @@ In general, instances that are larger than 12x have two NUMA nodes. This does no
 
 1. To verify that you turned NUMA on, search any of the NodeManager log files with the following command.
 
-   ```
+   ```bash,sh,zsh
    grep "NUMA resources allocation is enabled," *
    ```
 
    To verify that NodeManager has assigned NUMA node resources to a container, search the NodeManager log with the following command, replacing `{{<container_id>}}` with your own container ID.
 
-   ```
+   ```bash,sh,zsh
    grep "NUMA node" | grep {{<container_id>}}
    ```

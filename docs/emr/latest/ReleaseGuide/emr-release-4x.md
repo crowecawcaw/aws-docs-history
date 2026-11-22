@@ -1,7 +1,6 @@
 
 
 # Amazon EMR 4.x release versions
-<a name="emr-release-4x"></a>
 
 This section contains application versions, release notes, component versions, and configuration classifications available in each Amazon EMR 4.x release version.
 

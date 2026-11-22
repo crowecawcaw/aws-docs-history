@@ -1,7 +1,6 @@
 
 
 # Apache Oozie
-<a name="emr-oozie"></a>
 
 **Note**  
 *Oozie deprecation* – Because OSS Oozie has gone into attic mode, it will be removed from one of the upcoming EMR releases. We recommend that customers use [MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html) as an alternative to Oozie. You can refer to the utility [oozie-to-airflow-emr](https://github.com/dgghosalaws/oozie-to-airflow-emr) on GitHub to migrate existing Oozie workflows to MWAA.

@@ -1,7 +1,6 @@
 
 
 # Use a Delta Lake cluster with Trino
-<a name="Deltacluster-trino"></a>
 
 With Amazon EMR releases 6.9.0 and higher, you can use Delta Lake with your Trino cluster.
 
@@ -14,7 +13,7 @@ In this tutorial, we will use the AWS CLI to work with Delta Lake on Amazon EMR 
 
 1. Create a file, `delta_configurations.json`, and set values for your chosen catalog. For example, if you want to use the Hive metastore as your catalog, your file should have the following content:
 
-   ```
+   ```json
    [{"Classification":"delta-defaults",  
        "Properties":{"delta.enabled":"true"}},  
        {"Classification":"trino-connector-delta",  
@@ -23,7 +22,7 @@ In this tutorial, we will use the AWS CLI to work with Delta Lake on Amazon EMR 
 
    If you want to use the AWS Glue Catalog as your store, your file should have the following content:
 
-   ```
+   ```json
    [{"Classification":"delta-defaults",  
        "Properties":{"delta.enabled":"true"}},  
        {"Classification":"trino-connector-delta",  
@@ -32,7 +31,7 @@ In this tutorial, we will use the AWS CLI to work with Delta Lake on Amazon EMR 
 
 1. Create a cluster with the following configuration, replacing the **example Amazon S3 bucket path** and the **subnet ID** with your own.
 
-   ```
+   ```bash,sh,zsh
    aws emr create-cluster 
        --release-label emr-6.9.0   
        --applications Name=Trino  
@@ -50,7 +49,7 @@ In this tutorial, we will use the AWS CLI to work with Delta Lake on Amazon EMR 
 
 To initialize Trino session, run the following command
 
-```
+```bash,sh,zsh
 trino-cli --catalog delta
 ```
 
@@ -59,7 +58,7 @@ trino-cli --catalog delta
 
 Create and write to your table with the following SQL commands:
 
-```
+```sql
 SHOW SCHEMAS;
 
 CREATE TABLE default.delta_table (id  int, data varchar, category varchar) WITH 
@@ -73,6 +72,6 @@ INSERT INTO default.delta_table VALUES  (1,'a','c1'), (2,'b','c2'), (3,'c','c3')
 
 Read from your table with the following SQL command:
 
-```
+```sql
 SELECT * from default.delta_table;
 ```

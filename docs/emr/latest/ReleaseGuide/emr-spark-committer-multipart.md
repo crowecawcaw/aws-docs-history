@@ -1,7 +1,6 @@
 
 
 # The EMRFS S3-optimized committer and multipart uploads
-<a name="emr-spark-committer-multipart"></a>
 
 To use the EMRFS S3-optimized committer, you must enable multipart uploads for Amazon EMR . Multipart uploads are enabled by default. You can re-enable it if required. For more information, see [Configure multipart upload for Amazon S3](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-upload-s3.html#Config_Multipart) in the *Amazon EMR Management Guide*. 
 

@@ -1,7 +1,6 @@
 
 
 # Reconfigure an instance group in a running cluster
-<a name="emr-configure-apps-running-cluster"></a>
 
 With Amazon EMR version 5.21.0 and later, you can reconfigure cluster applications and specify additional configuration classifications for each instance group in a running cluster. To do so, you can use the Amazon EMR console, the AWS Command Line Interface (AWS CLI), or the AWS SDK.
 
@@ -86,7 +85,7 @@ The following example references a configuration JSON file called `instanceGroup
 
 1. Prepare your configuration classification, and save it as `instanceGroups.json` in the same directory where you will run the command.
 
-   ```
+   ```json
    [
       {
          "InstanceGroupId":"{{<ig-1xxxxxxx9>}}",
@@ -106,7 +105,7 @@ The following example references a configuration JSON file called `instanceGroup
 
 1. Run the following command.
 
-   ```
+   ```bash
    aws emr modify-instance-groups --cluster-id {{<j-2AL4XXXXXX5T9>}} \
    --instance-groups file://instanceGroups.json
    ```
@@ -117,7 +116,7 @@ The following example adds a property for the YARN NodeManager virtual memory ch
 
 1. Prepare the following contents in `instanceGroups.json` and save it in the same directory where you will run the command.
 
-   ```
+   ```json
    [
       {
          "InstanceGroupId":"{{<ig-1xxxxxxx9>}}",
@@ -139,7 +138,7 @@ The following example adds a property for the YARN NodeManager virtual memory ch
 
 1. Run the following command.
 
-   ```
+   ```bash
    aws emr modify-instance-groups --cluster-id {{<j-2AL4XXXXXX5T9>}} \
    --instance-groups file://instanceGroups.json
    ```
@@ -150,7 +149,7 @@ The following example adds a property for the YARN NodeManager virtual memory ch
 
 1. Prepare the following contents in `instanceGroups.json` and save it in the same directory where you will run the command.
 
-   ```
+   ```json
    [
       {"InstanceGroupId":"{{<ig-1xxxxxxx9>}}",
        "ReconfigurationType" :"MERGE",
@@ -169,7 +168,7 @@ The following example adds a property for the YARN NodeManager virtual memory ch
 
 1. Run the following command.
 
-   ```
+   ```bash
    aws emr modify-instance-groups --cluster-id {{<j-2AL4XXXXXX5T9>}} \
    --instance-groups file://instanceGroups.json
    ```
@@ -179,7 +178,7 @@ To delete a configuration for an instance group, submit a new reconfiguration re
 You can only override the initial *cluster* configuration. You cannot delete it.
 For example, to delete the configuration for the YARN NodeManager disk health checker from the previous example, submit a new `instanceGroups.json` with the following contents.   
 
-```
+```json
 [
    {
       "InstanceGroupId":"{{<ig-1xxxxxxx9>}}",
@@ -198,7 +197,7 @@ For example, to delete the configuration for the YARN NodeManager disk health ch
 ```
 To delete all of the configurations in your last reconfiguration request, submit a reconfiguration request with an empty array of configurations. For example,  
 
-```
+```json
 [
    {
       "InstanceGroupId":"{{<ig-1xxxxxxx9>}}",
@@ -210,7 +209,7 @@ To delete all of the configurations in your last reconfiguration request, submit
 **Example – Reconfigure and resize an instance group in one request**  
 The following example JSON demonstrates how to reconfigure and resize an instance group in the same request.  
 
-```
+```json
 [
    {
       "InstanceGroupId":"{{<ig-1xxxxxxx9>}}",
@@ -247,7 +246,7 @@ In the following examples, replace {{<j-2AL4XXXXXX5T9>}} with your cluster ID, a
 
 The following code snippet provides a new configuration for an instance group using the AWS SDK for Java.
 
-```
+```java
 AWSCredentials credentials = new BasicAWSCredentials("access-key", "secret-key");
 AmazonElasticMapReduce emr = new AmazonElasticMapReduceClient(credentials);
 
@@ -273,7 +272,7 @@ emr.modifyInstanceGroups(migRequest);
 
 The following code snippet deletes a previously specified configuration for an instance group by supplying an empty array of configurations.
 
-```
+```java
 List<Configuration> configurations = new ArrayList<Configuration>();
 
 InstanceGroupModifyConfig igConfig = new InstanceGroupModifyConfig()
@@ -362,7 +361,7 @@ Each log file contains a detailed provisioning report for the associated reconfi
 
 The following example shows error information for Amazon EMR release versions earlier than 5.32.0 and 6.2.0.
 
-```
+```yaml
 - !ruby/object:Puppet::Util::Log
       level: !ruby/sym err
       tags: 
@@ -374,7 +373,7 @@ The following example shows error information for Amazon EMR release versions ea
 
 Amazon EMR release versions 5.32.0 and 6.2.0 and later use the following format instead.
 
-```
+```yaml
 - level: err
   message: 'Example detailed error message.'
   source: Puppet

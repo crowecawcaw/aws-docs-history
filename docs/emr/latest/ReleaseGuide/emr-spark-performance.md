@@ -1,11 +1,12 @@
 
 
 # Optimize Spark performance
-<a name="emr-spark-performance"></a>
 
 Amazon EMR provides multiple performance optimization features for Spark. This topic explains each optimization feature in detail.
 
 For more information on how to set Spark configuration, see [Configure Spark](emr-spark-configure.md).
+
+To get configuration recommendations based on your successful Spark runs on Amazon EMR Serverless and AWS Glue, see [Apache Spark Optimization Agent for Amazon EMR and AWS Glue](spark-optimization-agent.md).
 
 ## Adaptive query execution
 <a name="emr-spark-performance-aqe"></a>
@@ -53,7 +54,7 @@ This optimization improves upon the existing capabilities of Spark 2.4.2, which 
 
 The following are examples of static predicate push down in Spark 2.4.2.
 
-```
+```SQL
 partition_col = 5
 
 partition_col IN (1,3,5)
@@ -65,7 +66,7 @@ partition_col = 1 + 3
 
 Dynamic partition pruning allows the Spark engine to dynamically infer at runtime which partitions need to be read and which can be safely eliminated. For example, the following query involves two tables: the `store_sales` table that contains all of the total sales for all stores and is partitioned by region, and the `store_regions` table that contains a mapping of regions for each country. The tables contain data about stores distributed around the globe, but we are only querying data for North America.
 
-```
+```SQL
 select ss.quarter, ss.region, ss.store, ss.total_sales 
 from store_sales ss, store_regions sr
 where ss.region = sr.region and sr.country = 'North America'
@@ -80,7 +81,7 @@ This optimization improves the performance of queries that have scalar subquerie
 
 Following is a sample of a query that will benefit from this optimization.
 
-```
+```SQL
 select (select avg(age) from students                    /* Subquery 1 */
                  where age between 5 and 10) as group1,
        (select avg(age) from students                    /* Subquery 2 */
@@ -91,7 +92,7 @@ select (select avg(age) from students                    /* Subquery 1 */
 
 The optimization rewrites the previous query as:
 
-```
+```SQL
 select c1 as group1, c2 as group2, c3 as group3
 from (select avg (if(age between 5 and 10, age, null)) as c1,
              avg (if(age between 10 and 15, age, null)) as c2,
@@ -107,7 +108,7 @@ This optimization optimizes joins when using INTERSECT. With Amazon EMR 5.26.0, 
 
 Following is a sample of a query that will benefit from this optimization.
 
-```
+```SQL
 (select item.brand brand from store_sales, item
      where store_sales.item_id = item.item_id)
 intersect
@@ -117,7 +118,7 @@ intersect
 
 Without enabling this property `spark.sql.optimizer.distinctBeforeIntersect.enabled`, the query will be rewritten as follows.
 
-```
+```SQL
 select distinct brand from
   (select item.brand brand from store_sales, item
      where store_sales.item_id = item.item_id)
@@ -129,7 +130,7 @@ left semi join
 
 When you enable this property `spark.sql.optimizer.distinctBeforeIntersect.enabled`, the query will be rewritten as follows.
 
-```
+```SQL
 select brand from
   (select distinct item.brand brand from store_sales, item
      where store_sales.item_id = item.item_id)
@@ -146,7 +147,7 @@ This optimization can improve the performance of some joins by pre-filtering one
 
 The following is an example query that can benefit from a Bloom filter.
 
-```
+```sql
 select count(*)
 from sales, item
 where sales.item_id = item.id
@@ -162,7 +163,7 @@ This optimization can improve query performance by reordering joins involving ta
 
 The example query below reports all returned items from all stores in a country. Without optimized join reorder, Spark joins the two large tables `store_sales` and `store_returns` first, and then joins them with `store` and eventually with `item`.
 
-```
+```SQL
 select ss.item_value, sr.return_date, s.name, i.desc, 
 from store_sales ss, store_returns sr, store s, item i
 where ss.id = sr.id and ss.store_id = s.id and ss.item_id = i.id

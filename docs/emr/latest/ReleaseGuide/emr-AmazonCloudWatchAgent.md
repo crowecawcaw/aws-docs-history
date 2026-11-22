@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch agent
-<a name="emr-AmazonCloudWatchAgent"></a>
 
 The Amazon CloudWatch agent on Amazon EMR is a tool that can monitor the Amazon EC2 instances in your EMR cluster. You can store and view the metrics that you collect with the CloudWatch agent in CloudWatch. For more information about the CloudWatch agent, see the [*Amazon CloudWatch User Guide*](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html).
 

@@ -1,7 +1,6 @@
 
 
 # Configuring Trino on Amazon EMR
-<a name="emr-trino-config"></a>
 
 **Topics**
 + [Configuring connectors for Trino](#emr-trino-config-connector)

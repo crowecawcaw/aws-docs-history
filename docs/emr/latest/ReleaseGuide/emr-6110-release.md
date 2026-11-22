@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 6.11.0
-<a name="emr-6110-release"></a>
 
 ## 6.11.0 application versions
 <a name="emr-6110-app-versions"></a>

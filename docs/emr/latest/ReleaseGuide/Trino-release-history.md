@@ -1,7 +1,6 @@
 
 
 # Trino release history
-<a name="Trino-release-history"></a>
 
 The release notes sections detail changes and updates for specific version of Trino on Amazon EMR.
 

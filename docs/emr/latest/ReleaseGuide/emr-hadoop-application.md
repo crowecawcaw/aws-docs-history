@@ -1,7 +1,6 @@
 
 
 # Create or run a Hadoop application
-<a name="emr-hadoop-application"></a>
 
 **Topics**
 + [Build binaries using Amazon EMR](emr-build-binaries.md)

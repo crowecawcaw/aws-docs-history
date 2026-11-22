@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 6.3.1
-<a name="emr-631-release"></a>
 
 ## 6.3.1 application versions
 <a name="emr-631-app-versions"></a>

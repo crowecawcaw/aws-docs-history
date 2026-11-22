@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 5.3.0
-<a name="emr-530-release"></a>
 
 ## 5.3.0 application versions
 <a name="emr-530-app-versions"></a>

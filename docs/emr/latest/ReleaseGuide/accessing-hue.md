@@ -1,7 +1,6 @@
 
 
 # Connecting to the Hue web user interface
-<a name="accessing-hue"></a>
 
 Connecting to the Hue web user interface is the same as connecting to any HTTP interface hosted on the master node of a cluster. The following procedure describes how to access the Hue user interface. For more information, see [View web interfaces hosted on EMR clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-web-interfaces.html) in the *Amazon EMR Management Guide*.
 

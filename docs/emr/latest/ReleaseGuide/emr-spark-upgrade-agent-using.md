@@ -1,7 +1,6 @@
 
 
 # Using the Upgrade Agent
-<a name="emr-spark-upgrade-agent-using"></a>
 
 ## Supported Deployment Modes
 <a name="emr-spark-upgrade-agent-deployment-modes"></a>

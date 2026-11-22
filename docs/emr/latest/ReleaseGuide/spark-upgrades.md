@@ -1,7 +1,6 @@
 
 
 # What is Apache Spark Upgrade Agent for Amazon EMR
-<a name="spark-upgrades"></a>
 
 ## Introduction
 <a name="emr-spark-upgrade-agent-intro"></a>

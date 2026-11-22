@@ -1,7 +1,6 @@
 
 
 # Apache Phoenix
-<a name="emr-phoenix"></a>
 
 Apache Phoenix is used for OLTP and operational analytics, allowing you to use standard SQL queries and JDBC APIs to work with an Apache HBase backing store. For more information, see [Phoenix in 15 minutes or less](https://phoenix.apache.org/docs/quick-start). Phoenix is included in Amazon EMR release version 4.7.0 and later.
 

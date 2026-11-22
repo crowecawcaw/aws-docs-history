@@ -1,7 +1,6 @@
 
 
 # Create a cluster with JupyterHub
-<a name="emr-jupyterhub-launch"></a>
 
 You can create an Amazon EMR cluster with JupyterHub using the AWS Management Console, AWS Command Line Interface, or the Amazon EMR API. Ensure that the cluster is not created with the option to terminate automatically after completing steps (`--auto-terminate` option in the AWS CLI). Also, make sure that administrators and notebook users can access the key pair that you use when you create the cluster. For more information, see [Use a key pair for SSH credentials](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-ssh.html) in the *Amazon EMR Management Guide*.
 

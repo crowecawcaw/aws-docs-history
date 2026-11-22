@@ -1,7 +1,6 @@
 
 
 # Configuring Tez
-<a name="tez-configure"></a>
 
 You can customize Tez by setting values using the `tez-site` configuration classification, which configures settings in the `tez-site.xml` configuration file. For more information, see [TezConfiguration](https://tez.apache.org/releases/0.8.2/tez-api-javadocs/configs/TezConfiguration.html) in the Apache Tez documentation. To change Hive or Pig to use the Tez execution engine, use the `hive-site` and `pig-properties` configuration classifications as appropriate. Examples are shown below.
 

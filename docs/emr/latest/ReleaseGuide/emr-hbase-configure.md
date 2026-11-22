@@ -1,7 +1,6 @@
 
 
 # Configure HBase
-<a name="emr-hbase-configure"></a>
 
 Although the default HBase settings should work for most applications, you can modify your HBase configuration settings. To do this, use properties of HBase configuration classifications. For more information, see [Configure applications](emr-configure-apps.md).
 

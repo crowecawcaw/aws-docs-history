@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 7.1.0
-<a name="emr-710-release"></a>
 
 ## 7.1.0 application versions
 <a name="emr-710-app-versions"></a>

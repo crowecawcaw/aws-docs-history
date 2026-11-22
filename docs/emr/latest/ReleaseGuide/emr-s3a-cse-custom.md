@@ -1,7 +1,6 @@
 
 
 # Setup CSE-CUSTOM
-<a name="emr-s3a-cse-custom"></a>
 
 To use CSE-CUSTOM, you must create a custom key provider by implementing the [Keyring](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/choose-keyring.html) interface. Here's a sample implementation:
 

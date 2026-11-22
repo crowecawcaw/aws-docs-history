@@ -1,7 +1,6 @@
 
 
 # Delta Lake
-<a name="emr-delta"></a>
 
 Delta Lake is a storage layer framework for lakehouse architectures commonly built on Amazon S3. With Amazon EMR releases 6.9.0 and higher, you can use [Apache Spark](https://aws.amazon.com/emr/features/spark/) 3.x on Amazon EMR clusters with Delta Lake tables. For more information about lakehouses with Delta Lake, see [https://delta.io/](https://delta.io/).
 

@@ -1,7 +1,6 @@
 
 
 # Using PAM authentication
-<a name="emr-jupyterhub-pam-users"></a>
 
 Creating PAM users in JupyterHub on Amazon EMR is a two-step process. The first step is to add users to the operating system running in the `jupyterhub` container on the master node, and to add a corresponding user home directory for each user. The second step is to add these operating system users as JupyterHub users—a process known as whitelisting in JupyterHub. After a JupyterHub user is added, they can connect to the JupyterHub URL and provide their operating system credentials for access.
 

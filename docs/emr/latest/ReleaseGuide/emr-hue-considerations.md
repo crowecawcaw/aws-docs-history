@@ -1,7 +1,6 @@
 
 
 # Considerations
-<a name="emr-hue-considerations"></a>
 
 Consider the following limitations when you use [Hue](https://gethue.com) on Amazon EMR.
 
@@ -18,7 +17,7 @@ If the Hue metadata database gets too big, performance might degrade. To check t
 
 If running that query returns a count of more than 100000, you should run the following clean up command to delete the old records.
 
-```
+```bash,sh,zsh
 cd /opt/cloudera/parcels/CDH/lib/hue # Hue home directory ./build/env/bin/hue desktop_document_cleanup
 ```
 
@@ -26,7 +25,7 @@ For more information about cleaning up your database, see the [reference page in
 
 Hue doesn't automatically clean the tables, but Amazon EMR releases 5.12.0 and higher provide a method to delete old documents in the tables. Create the following shell script and run it as a step in an Amazon EMR cluster with an integer parameter that represents the maximum number of days of how long to keep documents in the metadata database.
 
-```
+```bash,sh,zsh
 #!/bin/bash
 if grep isMaster /mnt/var/lib/info/instance.json | grep false;
 then

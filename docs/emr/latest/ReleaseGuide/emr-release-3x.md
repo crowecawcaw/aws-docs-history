@@ -1,7 +1,6 @@
 
 
 # Amazon EMR 2.x and 3.x AMI versions
-<a name="emr-release-3x"></a>
 
 **Note**  
 AWS is updating the TLS configuration for all AWS API endpoints to a minimum version of TLS 1.2. Amazon EMR releases 3.10 and lower only support TLS 1.0/1.1 connections. After December 4, 2023, you won't be able to create clusters with Amazon EMR 3.10 and lower.  

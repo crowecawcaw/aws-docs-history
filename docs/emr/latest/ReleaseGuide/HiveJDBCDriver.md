@@ -1,7 +1,6 @@
 
 
 # Use the Hive JDBC driver
-<a name="HiveJDBCDriver"></a>
 
 You can use popular business intelligence tools like Microsoft Excel, MicroStrategy, QlikView, and Tableau with Amazon EMR to explore and visualize your data. Many of these tools require Java Database Connectivity (JDBC) driver or an Open Database Connectivity (ODBC) driver. Amazon EMR supports both JDBC and ODBC connectivity to a Spark, Hive or Presto cluster.
 

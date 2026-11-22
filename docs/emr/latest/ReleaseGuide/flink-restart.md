@@ -1,7 +1,6 @@
 
 
 # Optimizing job restart times for task recovery and scaling operations
-<a name="flink-restart"></a>
 
 When a task fails or when a scaling operation occurs, Flink attempts to re-execute the task from the last completed checkpoint. The restart process could take a minute or longer to execute, depending on the size of the checkpoint state and the number of parallel tasks. During the restart period, backlog tasks can accumulate for the job. There are some ways though, that Flink optimizes the speed of recovery and restart of execution graphs to improve job stability.
 
@@ -29,7 +28,7 @@ Our benchmark tests with sample jobs have shown that the recovery time has been 
 
 To enable task-local recovery, set the following configurations in your `flink-conf.yaml` file. Specify the checkpointing interval value in milliseconds.
 
-```
+```yaml
     state.backend.local-recovery: true
     state.backend: {{hasmap or rocksdb}}
     state.checkpoints.dir: s3://{{storage-location-bucket-path}}/checkpoint
@@ -83,7 +82,7 @@ Fine-grained recovery works only with perfectly parallel Flink jobs. It's not su
 
 To enable fine-grained recovery, set the following configurations in your `flink-conf.yaml` file.
 
-```
+```yaml
 jobmanager.execution.failover-strategy: region 
 restart-strategy: {{exponential-delay or fixed-delay}}
 ```
@@ -102,7 +101,7 @@ With sample jobs, our benchmark tests have shown that this feature processes 10%
 
 To enable the combined restart mechanism, set the following configurations in your `flink-conf.yaml` file.
 
-```
+```yaml
 jobmanager.adaptive-scheduler.combined-restart.enabled: true 
 jobmanager.adaptive-scheduler.combined-restart.window-interval: 1m
 ```

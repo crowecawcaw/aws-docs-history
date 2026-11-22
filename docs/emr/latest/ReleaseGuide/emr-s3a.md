@@ -1,7 +1,6 @@
 
 
 # Amazon S3 client-side encryption with S3A
-<a name="emr-s3a"></a>
 
 Starting with Amazon Elastic Map Reduce (EMR) release version 7.6.0, the S3A filesystem connector now supports Amazon S3 client-side encryption. This means that encryption and decryption of Amazon S3 data occurs directly within the S3A client on your computing cluster. When using this feature, files are automatically encrypted before being uploaded to Amazon S3 and decrypted upon download. For comprehensive details about the encryption methodology and its implementation, users can refer to [Protecting data using client-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingClientSideEncryption.html) in the *Amazon Simple Storage Service User Guide*.
 

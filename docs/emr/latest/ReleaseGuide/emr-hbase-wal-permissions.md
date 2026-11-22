@@ -1,7 +1,6 @@
 
 
 # Required permissions for Amazon EMR WAL
-<a name="emr-hbase-wal-permissions"></a>
 
 For your cluster to connect to Amazon EMR WAL, the instance profile for the cluster requires certain IAM permissions:
 + Amazon EMR WAL uses the [AWSServiceRoleForEMRWAL](https://docs.aws.amazon.com/emr/latest/ManagementGuide/using-service-linked-roles-wal.html) service-linked role to retrieve a cluster status. Amazon EMR automatically creates this service-linked role when you create a WAL workspace, or HBase will create the service-linked role when you configure a workspace for Amazon EMR WAL and the service-linked role doesn't yet exist.

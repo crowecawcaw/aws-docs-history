@@ -1,7 +1,6 @@
 
 
 # Hive command examples for exporting, importing, and querying data in DynamoDB
-<a name="EMR_Hive_Commands"></a>
 
 The following examples use Hive commands to perform operations such as exporting data to Amazon S3 or HDFS, importing data to DynamoDB, joining tables, querying tables, and more. 
 

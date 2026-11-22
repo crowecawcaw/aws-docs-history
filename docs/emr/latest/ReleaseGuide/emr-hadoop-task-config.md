@@ -1,7 +1,6 @@
 
 
 # Task configuration
-<a name="emr-hadoop-task-config"></a>
 
 You can set configuration variables to tune the performance of your MapReduce jobs. This section provides the default values for important settings. Default values vary based on the EC2 instance type of the node used in the cluster. HBase is available when using Amazon EMR release version 4.6.0 and later. Different defaults are used when HBase is installed. Those values are provided along with the initial defaults.
 

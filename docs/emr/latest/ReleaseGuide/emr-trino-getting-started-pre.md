@@ -1,7 +1,6 @@
 
 
 # Complete prerequisite steps for using Amazon EMR with Trino
-<a name="emr-trino-getting-started-pre"></a>
 
 If you haven't used AWS, or if you haven't created an Amazon EMR cluster, complete these prerequisite steps before you create an Amazon EMR cluster with Trino.
 

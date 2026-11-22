@@ -1,7 +1,6 @@
 
 
 # Configure CloudWatch agent for Amazon EMR 7.0.0
-<a name="AmazonCloudWatchAgent-config-700"></a>
 
 You can configure the Amazon CloudWatch agent to use additional system metrics beyond those that [the default CloudWatch agent configuration](AmazonCloudWatchAgent-metrics.md) provides. The configuration for 7.0.0 requires the use of bootstrap actions, which we've provided examples for in the following sections. In an upcoming release, Amazon EMR will provide additional configuration options through the Amazon EMR API.
 
@@ -97,7 +96,7 @@ To configure the agent to publish metrics to Amazon Managed Service for Promethe
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -133,7 +132,7 @@ Once the service policy has the correct permissions, use the following steps to 
 
 1. Use the AWS CLI to create an EMR cluster with the `add_prometheus_endpoint_launcher.sh` bootstrap action. In the following command, replace `{{amzn-s3-demo-bucket}}` with the bucket that holds the bootstrap action, and replace `{{managedpro-remote-write-workspace-url}}` with the remote write endpoint for your Amazon Managed Service for Prometheus workspace. Be sure to specify an Amazon EMR release label of `emr-7.0.0` or higher.
 
-   ```
+   ```bash,sh,zsh
    aws emr create-cluster --name managedpro-cluster \
        --release-label emr-7.0.0 \
        --applications Name=Hadoop Name=AmazonCloudWatchAgent \

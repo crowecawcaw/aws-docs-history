@@ -1,7 +1,6 @@
 
 
 # Using LDAP authentication
-<a name="emr-jupyterhub-ldap-users"></a>
 
 Lightweight Directory Access Protocol (LDAP) is an application protocol for querying and modifying objects that correspond to resources such as users and computers stored in an LDAP-compatible directory service provider such as Active Directory or an OpenLDAP server. You can use the [LDAP authenticator plugin for JupyterHub](https://github.com/jupyterhub/ldapauthenticator/) with JupyterHub on Amazon EMR to use LDAP for user authentication. The plugin handles login sessions for LDAP users and provides user information to Jupyter. This lets users connect to JupyterHub and notebooks by using the credentials for their identities stored in an LDAP-compatible server.
 
@@ -54,7 +53,7 @@ c.LDAPAuthenticator.bind_dn_template = 'cn={username},ou={{people}},dc={{example
 
 Use a text editor to create a bash script with the following contents:
 
-```
+```bash
 #!/bin/bash
 
 # Uncomment the following lines to install LDAP client libraries only if

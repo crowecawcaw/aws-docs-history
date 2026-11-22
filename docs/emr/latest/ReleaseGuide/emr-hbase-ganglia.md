@@ -1,7 +1,6 @@
 
 
 # Monitor HBase with Ganglia
-<a name="emr-hbase-ganglia"></a>
 
 **Note**  
 The last release of Amazon EMR to include Ganglia was Amazon EMR 6.15.0. To monitor your cluster, releases higher than 6.15.0 include the [Amazon CloudWatch agent](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-AmazonCloudWatchAgent.html).

@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 5.21.0
-<a name="emr-5210-release"></a>
 
 ## 5.21.0 application versions
 <a name="emr-5210-app-versions"></a>
@@ -89,13 +88,13 @@ Last updated date: April 3, 2019
 
     1. Search for the term `appblacklist` and modify the line to the following:
 
-       ```
+       ```bash
        appblacklist = search
        ```
 
     1. Save your changes and restart Hue as shown in the following example:
 
-       ```
+       ```bash
        sudo stop hue; sudo start hue
        ```
 + Tez

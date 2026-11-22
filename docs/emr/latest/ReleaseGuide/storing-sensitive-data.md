@@ -1,7 +1,6 @@
 
 
 # Store sensitive configuration data in AWS Secrets Manager
-<a name="storing-sensitive-data"></a>
 
 The Amazon EMR describe and list API operations that emit custom configuration data (such as `DescribeCluster` and `ListInstanceGroups`) do so in plaintext. Amazon EMR integrates with AWS Secrets Manager so that you can store your data in Secrets Manager and use the secret ARN in your configurations. This way, you don't pass sensitive configuration data to Amazon EMR in plaintext and expose it to external APIs. If you indicate that a key-value pair contains an ARN for a secret stored in Secrets Manager, Amazon EMR retrieves this secret when it sends configuration data to the cluster. Amazon EMR doesn't send the annotation when it uses external APIs to display the configuration.
 

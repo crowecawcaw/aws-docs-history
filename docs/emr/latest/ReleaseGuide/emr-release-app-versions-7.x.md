@@ -1,7 +1,6 @@
 
 
 # Application versions in Amazon EMR 7.x releases
-<a name="emr-release-app-versions-7.x"></a>
 
 The following table lists the application versions that are available in each Amazon EMR 7.x release.
 

@@ -1,7 +1,6 @@
 
 
 # Using LDAP authentication for Presto on Amazon EMR
-<a name="emr-presto-ldap"></a>
 
 Follow the steps in this section to configure LDAP. See each step for examples and links to more information.
 

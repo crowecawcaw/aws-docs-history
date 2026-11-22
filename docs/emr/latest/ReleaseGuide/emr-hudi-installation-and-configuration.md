@@ -1,7 +1,6 @@
 
 
 # Create a cluster with Hudi installed
-<a name="emr-hudi-installation-and-configuration"></a>
 
 With Amazon EMR release version 5.28.0 and later, Amazon EMR installs Hudi components by default when Spark, Hive, or Presto is installed. To use Hudi on Amazon EMR, create a cluster with one or more of the following applications installed:
 + Hadoop

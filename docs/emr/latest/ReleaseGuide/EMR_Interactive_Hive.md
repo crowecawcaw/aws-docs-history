@@ -1,7 +1,6 @@
 
 
 # Set up a Hive table to run Hive commands
-<a name="EMR_Interactive_Hive"></a>
 
 Apache Hive is a data warehouse application you can use to query data contained in Amazon EMR clusters using a SQL-like language. For more information about Hive, see [http://hive.apache.org/](http://hive.apache.org/).
 
@@ -114,7 +113,7 @@ The following table shows the available Hive data types, the default DynamoDB ty
 
 If you want to write your Hive data as a corresponding alternate DynamoDB type, or if your DynamoDB data contains attribute values of an alternate DynamoDB type, you can specify the column and the DynamoDB type with the `dynamodb.type.mapping` parameter. The following example shows the syntax for specifying an alternate type mapping.
 
-```
+```SQL
 CREATE EXTERNAL TABLE hive_tablename (hive_column1_name column1_datatype, hive_column2_name column2_datatype...)
 STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
 TBLPROPERTIES ("dynamodb.table.name" = "dynamodb_tablename",
@@ -126,7 +125,7 @@ The type mapping parameter is optional, and only has to be specified for the col
 
 For example, the following Hive command creates a table named `hivetable2` that references the DynamoDB table `dynamodbtable2`. It is similar to `hivetable1`, except that it maps the `col3` column to the string set (SS) type. 
 
-```
+```SQL
 CREATE EXTERNAL TABLE hivetable2 (col1 string, col2 bigint, col3 array<string>)
 STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
 TBLPROPERTIES ("dynamodb.table.name" = "dynamodbtable2",
@@ -138,7 +137,7 @@ In Hive, `hivetable1` and `hivetable2` are identical. However, when data from th
 
 If you want to write Hive `null` values as attributes of DynamoDB `null` type, you can do so with the `dynamodb.null.serialization` parameter. The following example shows the syntax for specifying `null` serialization.
 
-```
+```SQL
 CREATE EXTERNAL TABLE hive_tablename (hive_column1_name column1_datatype, hive_column2_name column2_datatype...)
 STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
 TBLPROPERTIES ("dynamodb.table.name" = "dynamodb_tablename",

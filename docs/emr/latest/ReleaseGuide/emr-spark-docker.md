@@ -1,7 +1,6 @@
 
 
 # Run Spark applications with Docker on Amazon EMR 6.x
-<a name="emr-spark-docker"></a>
 
 **Note**  
 The procedure described works only with Amazon EMR version 6.x.
@@ -18,7 +17,7 @@ When you run Spark with Docker, make sure the following prerequisites are met:
 + On Amazon EMR 6.1.0 and later, you can alternatively install Docker on a primary node by using following commands.
   + 
 
-    ```
+    ```bash,sh,zsh
     sudo yum install -y docker
     sudo systemctl start docker
     ```
@@ -45,7 +44,7 @@ Docker images are created using a Dockerfile, which defines the packages and con
 
 Docker images created from this Dockerfile include Python 3 and the NumPy Python package. This Dockerfile uses Amazon Linux 2 and the Amazon Corretto JDK 8.
 
-```
+```dockerfile,docker
 FROM amazoncorretto:8
 
 RUN yum -y update
@@ -71,7 +70,7 @@ RUN python3 -c "import numpy as np"
 
 Docker images created from this Dockerfile include R and the randomForest CRAN package. This Dockerfile includes Amazon Linux 2 and the Amazon Corretto JDK 8.
 
-```
+```dockerfile,docker
 FROM amazoncorretto:8
 
 RUN java -version
@@ -98,7 +97,7 @@ To make sure that Amazon EMR hosts can access the images stored in Amazon ECR, y
 
 In this example, the cluster must be created with the following additional configuration to ensure that the Amazon ECR registry is trusted. Replace the {{123456789123.dkr.ecr.us-east-1.amazonaws.com}} endpoint with your Amazon ECR endpoint.
 
-```
+```dockerfile,docker
 [
   {
     "Classification": "container-executor",
@@ -124,33 +123,33 @@ After you launch the cluster, use SSH to connect to a core node and run the foll
 
 First, create a directory and a Dockerfile.
 
-```
+```bash,sh,zsh
 mkdir pyspark
 vi pyspark/Dockerfile
 ```
 
 Paste the contents of the PySpark Dockerfile and run the following commands to build a Docker image.
 
-```
+```bash,sh,zsh
 sudo docker build -t local/pyspark-example pyspark/
 ```
 
 Create the `emr-docker-examples` ECR repository for the examples.
 
-```
+```bash,sh,zsh
 aws ecr create-repository --repository-name emr-docker-examples
 ```
 
 Tag and upload the locally built image to ECR, replacing {{123456789123.dkr.ecr.us-east-1.amazonaws.com}} with your ECR endpoint.
 
-```
+```bash,sh,zsh
 sudo docker tag local/pyspark-example 123456789123.dkr.ecr.us-east-1.amazonaws.com/emr-docker-examples:pyspark-example
 sudo docker push {{123456789123.dkr.ecr.us-east-1.amazonaws.com}}/emr-docker-examples:pyspark-example
 ```
 
 Use SSH to connect to the primary node and prepare a Python script with the filename `main.py`. Paste the following content into the `main.py` file and save it.
 
-```
+```python,py
 from pyspark.sql import SparkSession
 spark = SparkSession.builder.appName("docker-numpy").getOrCreate()
 sc = spark.sparkContext
@@ -162,7 +161,7 @@ print(a)
 
 On Amazon EMR 6.0.0, to submit the job, reference the name of the Docker image. Define the additional configuration parameters to make sure that the job execution uses Docker as the runtime. When using Amazon ECR, the `YARN_CONTAINER_RUNTIME_DOCKER_CLIENT_CONFIG` must reference the `config.json` file containing the credentials used to authenticate to Amazon ECR.
 
-```
+```shell
 DOCKER_IMAGE_NAME=123456789123.dkr.ecr.us-east-1.amazonaws.com/emr-docker-examples:pyspark-example
 DOCKER_CLIENT_CONFIG=hdfs:///user/hadoop/config.json
 spark-submit --master yarn \
@@ -179,7 +178,7 @@ main.py -v
 
 On Amazon EMR 6.1.0 and later, to submit the job, reference the name of the Docker image. When ECR auto authentication is enabled, run the following command.
 
-```
+```shell
 DOCKER_IMAGE_NAME=123456789123.dkr.ecr.us-east-1.amazonaws.com/emr-docker-examples:pyspark-example
 spark-submit --master yarn \
 --deploy-mode cluster \
@@ -193,7 +192,7 @@ main.py -v
 
 When the job completes, take note of the YARN application ID, and use the following command to obtain the output of the PySpark job.
 
-```
+```bash,sh,zsh
 yarn logs --applicationId application_id | grep -C2 '\[\['
 LogLength:55
 LogContents:
@@ -210,20 +209,20 @@ After you launch the cluster, use SSH to connect to a core node and run the foll
 
 First, create a directory and the Dockerfile.
 
-```
+```bash,sh,zsh
 mkdir sparkr
 vi sparkr/Dockerfile
 ```
 
 Paste the contents of the SparkR Dockerfile and run the following commands to build a Docker image.
 
-```
+```bash,sh,zsh
 sudo docker build -t local/sparkr-example sparkr/
 ```
 
 Tag and upload the locally built image to Amazon ECR, replacing {{123456789123.dkr.ecr.us-east-1.amazonaws.com}} with your Amazon ECR endpoint.
 
-```
+```bash,sh,zsh
 sudo docker tag local/sparkr-example {{123456789123.dkr.ecr.us-east-1.amazonaws.com}}/emr-docker-examples:sparkr-example
 sudo docker push {{123456789123.dkr.ecr.us-east-1.amazonaws.com}}/emr-docker-examples:sparkr-example
 ```
@@ -244,7 +243,7 @@ sparkR.session.stop()
 
 On Amazon EMR 6.0.0, to submit the job, refer to the name of the Docker image. Define the additional configuration parameters to make sure that the job execution uses Docker as the runtime. When using Amazon ECR, the `YARN_CONTAINER_RUNTIME_DOCKER_CLIENT_CONFIG` must refer to the `config.json` file containing the credentials used to authenticate to ECR.
 
-```
+```shell
 DOCKER_IMAGE_NAME=123456789123.dkr.ecr.us-east-1.amazonaws.com/emr-docker-examples:sparkr-example
 DOCKER_CLIENT_CONFIG=hdfs:///user/hadoop/config.json
 spark-submit --master yarn \
@@ -260,7 +259,7 @@ sparkR.R
 
 On Amazon EMR 6.1.0 and later, to submit the job, reference the name of the Docker image. When ECR auto authentication is enabled, run following command.
 
-```
+```shell
 DOCKER_IMAGE_NAME=123456789123.dkr.ecr.us-east-1.amazonaws.com/emr-docker-examples:sparkr-example
 spark-submit --master yarn \
 --deploy-mode cluster \
@@ -273,7 +272,7 @@ sparkR.R
 
 When the job has completed, note the YARN application ID, and use the following command to obtain the output of the SparkR job. This example includes testing to make sure that the randomForest library, version installed, and release notes are available.
 
-```
+```bash,sh,zsh
 yarn logs --applicationId application_id | grep -B4 -A10 "Type rfNews"
 randomForest 4.6-14
 Type rfNews() to see new features/changes/bug fixes.

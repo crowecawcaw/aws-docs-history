@@ -1,7 +1,6 @@
 
 
 # Requirements for the EMRFS S3-optimized committer
-<a name="emr-spark-committer-reqs"></a>
 
 The EMRFS S3-optimized committer is used when the following conditions are met:
 + You run Spark jobs that use Spark, DataFrames, or Datasets to write files to Amazon S3. Starting with Amazon EMR 6.4.0, this committer can be used for all common formats including parquet, ORC, and text-based formats (including CSV and JSON). For releases prior to Amazon EMR 6.4.0, only the Parquet format is supported.
@@ -38,7 +37,7 @@ The following Scala examples demonstrate some additional situations that prevent
 **Example – Dynamic partition overwrite mode**  
 The following Scala example instructs Spark to use a different commit algorithm, which prevents use of the EMRFS S3-optimized committer altogether. The code sets the `partitionOverwriteMode` property to `dynamic` to overwrite only those partitions to which you're writing data. Then, dynamic partition columns are specified by `partitionBy`, and the write mode is set to `overwrite`.   
 
-```
+```scala
 val dataset = spark.range(0, 10)
   .withColumn("dt", expr("date_sub(current_date(), id)"))
 
@@ -63,7 +62,7 @@ The algorithm in Spark 2.4.0 follows these steps:
 **Example – Custom partition location**  
 In this example, the Scala code inserts into two partitions. One partition has a custom partition location. The other partition uses the default partition location. The EMRFS S3-optimized committer is only used for writing task output to the partition that uses the default partition location.  
 
-```
+```scala
 val table = "dataset"
 val location = "s3://bucket/table"
                             

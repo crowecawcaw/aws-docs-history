@@ -1,7 +1,6 @@
 
 
 # Amazon EMR 7.1.0 - Oozie release notes
-<a name="Oozie-release-history-changes-710"></a>
 
 
 | Type | Description | 

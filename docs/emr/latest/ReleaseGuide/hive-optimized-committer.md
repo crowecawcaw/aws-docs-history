@@ -1,7 +1,6 @@
 
 
 # Enabling Hive EMRFS S3 optimized committer
-<a name="hive-optimized-committer"></a>
 
 The Hive EMRFS S3 Optimized Committer is an alternative way using which EMR Hive writes files for insert queries when using EMRFS. The Committer eliminates list and rename operations done on Amazon S3 and improves application’s performance. The feature is available beginning with EMR 5.34 and EMR 6.5.
 

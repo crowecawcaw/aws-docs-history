@@ -1,7 +1,6 @@
 
 
 # The EMRFS S3-optimized commit protocol and multipart uploads
-<a name="emr-spark-commit-protocol-multipart"></a>
 
 To use make use of the optimization for dynamic partition overwrite in the EMRFS S3-optimized commit protocol, multipart uploads must be enabled in Amazon EMR . Multipart uploads are enabled by default. You can re-enable it if required. For more information, see [Configure multipart upload for Amazon S3](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-upload-s3.html#Config_Multipart) in the *Amazon EMR Management Guide*. 
 

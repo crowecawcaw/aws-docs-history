@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 7.8.0
-<a name="emr-780-release"></a>
 
 ## 7.8.0 supported lifecycle
 <a name="emr-780-supported-lifecycle"></a>

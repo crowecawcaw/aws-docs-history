@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 5.26.0
-<a name="emr-5260-release"></a>
 
 ## 5.26.0 application versions
 <a name="emr-5260-app-versions"></a>

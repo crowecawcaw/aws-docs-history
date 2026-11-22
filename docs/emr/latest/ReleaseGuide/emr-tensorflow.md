@@ -1,7 +1,6 @@
 
 
 # TensorFlow
-<a name="emr-tensorflow"></a>
 
 TensorFlow is an open-source symbolic math library for machine intelligence and deep learning applications. For more information, see the [TensorFlow website](https://www.tensorflow.org/). TensorFlow is available with Amazon EMR release version 5.17.0 and later.
 

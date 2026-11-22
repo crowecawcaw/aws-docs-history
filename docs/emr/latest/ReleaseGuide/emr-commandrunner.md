@@ -1,7 +1,6 @@
 
 
 # Run commands and scripts on an Amazon EMR cluster
-<a name="emr-commandrunner"></a>
 
 This topic covers how to run a command or a script as a step on your cluster. Running a command or script as a step is one of the many ways you can [Submit work to a cluster](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-work-with-steps.html) and is useful in the following situations:
 + When you don't have SSH access to your Amazon EMR cluster

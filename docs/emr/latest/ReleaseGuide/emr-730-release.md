@@ -1,7 +1,6 @@
 
 
 # Amazon EMR release 7.3.0
-<a name="emr-730-release"></a>
 
 ## 7.3.0 supported lifecycle
 <a name="emr-730-supported-lifecycle"></a>
@@ -80,7 +79,7 @@ The following release notes include information for Amazon EMR release 7.3.0. Ch
 + If you use in-transit encryption and Kerberos authentication, you won't be able to use Spark applications that depend on the Hive metastore. This issue is fixed in [HIVE-16340](https://issues.apache.org/jira/browse/HIVE-16340) and will be fully resolved in [SPARK-44114](https://issues.apache.org/jira/browse/SPARK-44114) when open-source Spark can upgrade to Hive 3. In the meantime, you can temporarily work around this issue by setting `hive.metastore.use.SSL` to `false`. For more information, see [Configure applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html).
   + If you don't use Kerberos authentication, you must configure Spark to use SSL. To do so, set the following configurations when you provision your cluster.
 
-    ```
+    ```bash,sh,zsh
     [{
         "Classification": "spark-defaults",
         "Properties": {
@@ -91,7 +90,7 @@ The following release notes include information for Amazon EMR release 7.3.0. Ch
     ```
 + If you use custom domains, some links in the Spark History Server UI in the AWS console might not work. Upload the following script to an S3 bucket, and then [ add a step](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-add-steps-console.html) to use the shell script.
 
-  ```
+  ```bash,sh,zsh
   #!/bin/bash
   
   if grep -q ":8042" /etc/nginx/nginx.conf; then

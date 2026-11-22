@@ -1,7 +1,6 @@
 
 
 # Default metrics for CloudWatch agent with Amazon EMR
-<a name="AmazonCloudWatchAgent-metrics"></a>
 
 When you install the Amazon CloudWatch agent on Amazon EMR, the default configuration publishes the following system metrics for all of the instances in your cluster unless you [configure the agent differently](AmazonCloudWatchAgent-config.md). For definitions of each metric, see [Metrics collected by the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/metrics-collected-by-CloudWatch-agent.html) in the *Amazon CloudWatch User Guide*.
 

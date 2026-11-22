@@ -1,7 +1,6 @@
 
 
 # Troubleshooting and Q&A
-<a name="emr-spark-upgrade-agent-troubleshooting"></a>
 
 ## Troubleshooting
 <a name="spark-upgrade-agent-troubleshooting-common"></a>

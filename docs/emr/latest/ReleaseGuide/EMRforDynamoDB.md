@@ -1,7 +1,6 @@
 
 
 # Export, import, query, and join tables in DynamoDB using Amazon EMR
-<a name="EMRforDynamoDB"></a>
 
 **Note**  
 The Amazon EMR-DynamoDB Connector is open-sourced on GitHub. For more information, see [https://github.com/awslabs/emr-dynamodb-connector](https://github.com/awslabs/emr-dynamodb-connector).

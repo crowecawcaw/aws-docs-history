@@ -1,7 +1,6 @@
 
 
 # Configuring Interface VPC Endpoints for Amazon SageMaker Unified Studio MCP
-<a name="spark-upgrade-agent-vpc-endpoints"></a>
 
 You can establish a private connection between your VPC and Amazon SageMaker Unified Studio MCP service by creating an *interface VPC endpoint*. Interface endpoints are powered by [Amazon VPC](https://aws.amazon.com/vpc/), which enables you to privately access the MCP server in your VPC without an internet gateway, NAT device, VPN connection, or connection. Instances in your VPC don't need public IP addresses to communicate with the MCP service and traffic between your VPC and MCP service does not leave the Amazon network.
 

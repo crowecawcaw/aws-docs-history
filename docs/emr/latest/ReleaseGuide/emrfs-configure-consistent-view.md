@@ -1,7 +1,6 @@
 
 
 # Configure consistent view
-<a name="emrfs-configure-consistent-view"></a>
 
 You can configure additional settings for consistent view by providing them using configuration properties for `emrfs-site` properties. For example, you can choose a different default DynamoDB throughput by supplying the following arguments to the CLI `--emrfs` option, using the emrfs-site configuration classification (Amazon EMR release version 4.x and later only), or a bootstrap action to configure the emrfs-site.xml file on the master node:
 

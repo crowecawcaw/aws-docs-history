@@ -1,7 +1,6 @@
 
 
 # Spark release history
-<a name="Spark-release-history"></a>
 
 The following table lists the version of Spark included in each release version of Amazon EMR, along with the components installed with the application. For component versions in each release, see the Component Version section for your release in [Amazon EMR 7.x release versions](emr-release-7x.md), [Amazon EMR 6.x release versions](emr-release-6x.md), or [Amazon EMR 5.x release versions](emr-release-5x.md).
 

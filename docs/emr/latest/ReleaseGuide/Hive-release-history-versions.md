@@ -1,7 +1,6 @@
 
 
 # Hive release notes by version
-<a name="Hive-release-history-versions"></a>
 
 **Topics**
 + [Amazon EMR 7.10.0 - Hive release notes](Hive-release-history-7100.md)

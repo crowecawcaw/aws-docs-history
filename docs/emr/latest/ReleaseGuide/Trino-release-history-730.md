@@ -1,7 +1,6 @@
 
 
 # Amazon EMR 7.3.0 - Trino release notes
-<a name="Trino-release-history-730"></a>
 
 ## Amazon EMR 7.3.0 - Trino changes
 <a name="Trino-release-history-changes-730"></a>

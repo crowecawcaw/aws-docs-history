@@ -1,7 +1,6 @@
 
 
 # Using a cluster with Delta Lake installed
-<a name="Deltausing-cluster"></a>
 
 **Topics**
 + [Use a Delta Lake cluster with Flink](Deltacluster-flink.md)

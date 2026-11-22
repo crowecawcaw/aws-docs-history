@@ -1,7 +1,6 @@
 
 
 # Considerations for using Hive on Amazon EMR 4.x
-<a name="emr-Hive-4x"></a>
 
 This section covers differences to consider when using Hive version 1.0.0 on Amazon EMR 4.x release versions, as compared to Hive 2.x on Amazon EMR 5.x release versions.
 

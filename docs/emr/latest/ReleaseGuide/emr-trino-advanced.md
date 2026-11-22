@@ -1,7 +1,6 @@
 
 
 # Best practices for Trino on Amazon EMR
-<a name="emr-trino-advanced"></a>
 
 Trino’s architecture is designed for fast, distributed SQL queries on large datasets across multiple data sources, following a coordinator-worker model, where each component has a specialized role in query execution. There are a few areas or categories you can focus on in order to configure your Amazon EMR cluster running Trino for its best performance. These include the following:
 + Adjusting cluster configuration settings for memory optimization.

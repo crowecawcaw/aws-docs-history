@@ -1,7 +1,6 @@
 
 
 # IAM Role Setup
-<a name="emr-spark-upgrade-agent-iam-role"></a>
 
 ## Prerequisites
 <a name="emr-spark-upgrade-agent-iam-prerequisites"></a>

@@ -1,7 +1,6 @@
 
 
 # Application versions in Amazon EMR 4.x releases
-<a name="emr-release-app-versions-4.x"></a>
 
 The following table lists the application versions that are available in each Amazon EMR 4.x release.
 

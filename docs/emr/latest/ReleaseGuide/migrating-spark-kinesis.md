@@ -1,7 +1,6 @@
 
 
 # Migrating Spark Kinesis connector to SDK 2.x for Amazon EMR 7.0
-<a name="migrating-spark-kinesis"></a>
 
 The AWS SDK provides a rich set of APIs and libraries to interact with AWS cloud computing services, such as managing credentials, connecting to S3 and Kinesis services. The Spark Kinesis connector is used to consume data from Kinesis Data Streams, and the received data is transformed and processed in Spark’s execution engine. Currently this connector is built on top of 1.x of AWS SDK and Kinesis-client-library (KCL). 
 
@@ -47,7 +46,7 @@ This section describes the steps to migrate an application to the upgraded Spark
 
   1. Change the import statements for `com.amazonaws.services.kinesis.clientlibrary.lib.worker.KinesisClientLibConfiguration` and `com.amazonaws.services.kinesis.metrics.interfaces.MetricsLevel` to `software.amazon.kinesis.metrics.MetricsLevel` and `software.amazon.kinesis.metrics.MetricsUtil` respectively.
 
-     ```
+     ```java
      // import com.amazonaws.services.kinesis.metrics.interfaces.MetricsLevel
      import software.amazon.kinesis.metrics.MetricsLevel
       
@@ -59,7 +58,7 @@ This section describes the steps to migrate an application to the upgraded Spark
 
   Following is an updated version of the `KinesisInputDStream` with customized metrics level and metrics dimensions:
 
-  ```
+  ```java
   import software.amazon.kinesis.metrics.MetricsLevel
   import software.amazon.kinesis.metrics.MetricsUtil
    
@@ -84,7 +83,7 @@ This section describes the steps to migrate an application to the upgraded Spark
 
   Following is an example of providing a message handler in KCL 1.x:
 
-  ```
+  ```java
   import com.amazonaws.services.kinesis.model.Record
    
    
@@ -105,21 +104,21 @@ This section describes the steps to migrate an application to the upgraded Spark
 
   1. Change the import statement for `com.amazonaws.services.kinesis.model.Record` to `software.amazon.kinesis.retrieval.KinesisClientRecord`.
 
-     ```
+     ```java
      // import com.amazonaws.services.kinesis.model.Record
      import software.amazon.kinesis.retrieval.KinesisClientRecord
      ```
 
   1. Update the the method signature of the message handler.
 
-     ```
+     ```java
      //def addFive(r: Record): Int = JavaUtils.bytesToString(r.getData).toInt + 5
      def addFive = (r: KinesisClientRecord) => JavaUtils.bytesToString(r.data()).toInt + 5
      ```
 
   Following is an updated example of providing the message handler in KCL 2.x:
 
-  ```
+  ```java
   import software.amazon.kinesis.retrieval.KinesisClientRecord
    
    
@@ -145,7 +144,7 @@ Credentials providers are used to obtain AWS credentials for interactions with A
 
 Following is an example of using the credential providers in AWS SDK 1.x:
 
-```
+```java
 import org.apache.spark.streaming.kinesis.SparkAWSCredentials
 import com.amazonaws.auth.AWSCredentialsProvider
  
@@ -161,14 +160,14 @@ assert(credentialProvider.isInstanceOf[AWSCredentialsProvider], "Type should be 
 
 1. Change the import statement for `com.amazonaws.auth.AWSCredentialsProvider` to `software.amazon.awssdk.auth.credentials.AwsCredentialsProvider`
 
-   ```
+   ```java
    //import com.amazonaws.auth.AWSCredentialsProvider
    import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider
    ```
 
 1. Update the remaining codes that use this class. 
 
-   ```
+   ```java
    import org.apache.spark.streaming.kinesis.SparkAWSCredentials
    import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider
     
@@ -187,7 +186,7 @@ AWS service clients have different package names in 2.x (i.e. `software.amazon.a
 
 Following is an example of creating a client in SDK 1.x:
 
-```
+```java
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient
 import com.amazonaws.services.dynamodbv2.document.DynamoDB
  
@@ -199,7 +198,7 @@ AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient();
 
 1. Change the import statements for service clients. Take DynamoDB clients as an example. You would need to change `com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient` or `com.amazonaws.services.dynamodbv2.document.DynamoDB` to `software.amazon.awssdk.services.dynamodb.DynamoDbClient`.
 
-   ```
+   ```java
    // import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient
    // import com.amazonaws.services.dynamodbv2.document.DynamoDB
    import software.amazon.awssdk.services.dynamodb.DynamoDbClient
@@ -207,7 +206,7 @@ AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient();
 
 1. Update the codes that initialize the clients
 
-   ```
+   ```java
    // AmazonDynamoDB ddbClient = AmazonDynamoDBClientBuilder.defaultClient();
    // AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient();
     
@@ -220,7 +219,7 @@ AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient();
 ### Code examples for streaming applications
 <a name="migrating-spark-kinesis-streaming-examples"></a>
 
-```
+```java
 import java.net.URI
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider
 import software.amazon.awssdk.http.apache.ApacheHttpClient
@@ -323,7 +322,7 @@ object KinesisWordCountASLSDKV2 {
 <a name="migrating-spark-kinesis-considerations"></a>
 + If your applications uses the `Kinesis-producer-library` with JDK version lower than 11, you may run into exceptions like `java.lang.NoClassDefFoundError: javax/xml/bind/DatatypeConverter`. This happens because EMR 7.0 comes with JDK 17 by default and J2EE modules have been removed from the standard libraries since Java 11\+. This could be fixed by adding the following dependency in the pom file. Replace the library version with one as you see fit.
 
-  ```
+  ```json
   <dependency>
         <groupId>javax.xml.bind</groupId>
         <artifactId>jaxb-api</artifactId>

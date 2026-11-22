@@ -1,7 +1,6 @@
 
 
 # Add a Spark step
-<a name="emr-spark-submit-step"></a>
 
 You can use Amazon EMR steps to submit work to the Spark framework installed on an EMR cluster. For more information, see [Steps](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-overview.html#emr-overview-data-processing) in the Amazon EMR Management Guide. In the console and CLI, you do this using a Spark application step, which runs the `spark-submit` script as a step on your behalf. With the API, you use a step to invoke `spark-submit` using `command-runner.jar`.
 
@@ -38,7 +37,7 @@ Submit a step when you create the cluster or use the `aws emr add-steps` subcomm
 **Note**  
 Linux line continuation characters (\\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
 
-   ```
+   ```bash
    aws emr create-cluster --name "Add Spark Step Cluster" --release-label {{emr-7.14.0}} --applications Name=Spark \
    --ec2-attributes KeyName=myKey --instance-type m5.xlarge --instance-count 3 \
    --steps Type=Spark,Name="Spark Program",ActionOnFailure=CONTINUE,Args=[--class,org.apache.spark.examples.SparkPi,/usr/lib/spark/examples/jars/spark-examples.jar,10] --use-default-roles
@@ -46,7 +45,7 @@ Linux line continuation characters (\\) are included for readability. They can b
 
    As an alternative, you can use `command-runner.jar` as shown in the following example.
 
-   ```
+   ```bash
    aws emr create-cluster --name "Add Spark Step Cluster" --release-label {{emr-7.14.0}} \
    --applications Name=Spark --ec2-attributes KeyName=myKey --instance-type m5.xlarge --instance-count 3 \
    --steps Type=CUSTOM_JAR,Name="Spark Program",Jar="command-runner.jar",ActionOnFailure=CONTINUE,Args=[spark-example,SparkPi,10] --use-default-roles
@@ -56,13 +55,13 @@ Linux line continuation characters (\\) are included for readability. They can b
 
 1. Alternatively, add steps to a cluster already running. Use `add-steps`.
 
-   ```
+   ```bash,sh,zsh
    aws emr add-steps --cluster-id j-2AXXXXXXGAPLF --steps Type=Spark,Name="Spark Program",ActionOnFailure=CONTINUE,Args=[--class,org.apache.spark.examples.SparkPi,/usr/lib/spark/examples/jars/spark-examples.jar,10]
    ```
 
    As an alternative, you can use `command-runner.jar` as shown in the following example.
 
-   ```
+   ```bash,sh,zsh
    aws emr add-steps --cluster-id j-2AXXXXXXGAPLF --steps Type=CUSTOM_JAR,Name="Spark Program",Jar="command-runner.jar",ActionOnFailure=CONTINUE,Args=[spark-example,SparkPi,10]
    ```
 
@@ -70,7 +69,7 @@ Linux line continuation characters (\\) are included for readability. They can b
 
 1. The following example shows how to add a step to a cluster with Spark using Java.
 
-   ```
+   ```java
    AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
    AmazonElasticMapReduce emr = new AmazonElasticMapReduceClient(credentials);
     

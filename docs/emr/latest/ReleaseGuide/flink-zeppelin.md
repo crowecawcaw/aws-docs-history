@@ -1,7 +1,6 @@
 
 
 # Working with Flink jobs from Zeppelin in Amazon EMR
-<a name="flink-zeppelin"></a>
 
 ## Introduction
 <a name="flink-zeppelin-intro"></a>
