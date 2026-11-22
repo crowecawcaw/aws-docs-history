@@ -1,7 +1,6 @@
 
 
 # HPC Simulation Workload for Renewable Energy Data
-<a name="hpc-simulation-renewable-energy"></a>
 
 Publication date: **September 28, 2022 ([Diagram history](#hpc-re-history))**
 
