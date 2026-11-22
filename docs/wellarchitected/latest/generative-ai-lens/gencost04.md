@@ -1,7 +1,6 @@
 
 
 # Cost-informed vector stores
-<a name="gencost04"></a>
 
 
 | GENCOST04: How do you optimize vector stores for cost? | 

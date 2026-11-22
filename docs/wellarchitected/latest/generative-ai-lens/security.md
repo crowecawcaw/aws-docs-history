@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
  The security best practices introduced in this paper are represented by at least one of the following principles: 
 +  **Implement comprehensive access controls:** Apply the principle of least privilege across all components of your generative AI system. By carefully managing permissions for models, data stores, endpoints, and agent workflows, you can make sure that each component has only the access required for its specific function. This layered approach to access control reduces the potential exploit surface and limits the scope of security incidents. 

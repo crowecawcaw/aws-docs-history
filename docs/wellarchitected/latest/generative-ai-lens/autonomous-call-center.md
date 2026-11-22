@@ -1,7 +1,6 @@
 
 
 # Autonomous call center
-<a name="autonomous-call-center"></a>
 
  Great customer service and support are keys to customer onboarding and retention, and it is an ongoing concern for small and medium businesses (SMBs), who face the dual challenge of delivering high-quality customer service while operating with limited resources and budgets. Traditional contact centers often require significant up-front investment and ongoing operational costs, making scalability, availability, and customer satisfaction difficult to achieve. However, SMBs can use advances in cloud-based contact centers, specifically Amazon Connect, Amazon Lex, and AWS Bedrock, to offer autonomous, human-like customer experiences. 
 

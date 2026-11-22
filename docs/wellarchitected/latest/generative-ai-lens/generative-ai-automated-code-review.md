@@ -1,7 +1,6 @@
 
 
 # Generative AI automated code review
-<a name="generative-ai-automated-code-review"></a>
 
  This scenario presents a Well-Architected approach to implementing generative AI-powered automated code reviews. The solution aims to optimize development workflows by automating routine code reviews while maintaining high quality standards through human oversight. It addresses the challenge of time-consuming manual reviews by implementing both general code guidelines and company-specific standards, with a clear feedback loop for continuous improvement. The solution recognizes that while automation can significantly reduce review time, human oversight remains crucial for maintaining code quality and addressing complex scenarios. 
 

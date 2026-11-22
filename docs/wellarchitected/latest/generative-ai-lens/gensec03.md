@@ -1,7 +1,6 @@
 
 
 # Event monitoring
-<a name="gensec03"></a>
 
 
 | GENSEC03: How do you monitor and audit events associated with your generative AI workloads? | 

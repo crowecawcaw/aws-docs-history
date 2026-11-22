@@ -1,7 +1,6 @@
 
 
 # GENOPS01-BP01 Periodically evaluate functional performance
-<a name="genops01-bp01"></a>
 
  Implement periodic evaluations using stratified sampling and custom metrics to maintain the performance and reliability of large language models. This practice verifies that models remain accurate and relevant over time by regularly assessing their performance against ground truth data and specific evaluation criteria. By employing stratified sampling, organizations can obtain a representative subset of data that reflects the diversity of real-world inputs, leading to more reliable performance metrics. Custom metrics allow for tailored assessments that align with specific business goals and user expectations. This practice helps customers achieve consistent model performance, detect and address model drift promptly, and integrate evaluation results into continuous improvement processes. 
 

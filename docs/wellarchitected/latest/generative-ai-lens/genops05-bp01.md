@@ -1,7 +1,6 @@
 
 
 # GENOPS05-BP01 Learn when to customize models
-<a name="genops05-bp01"></a>
 
  Prioritize prompt engineering and RAG before model customization to optimize resources and enhance performance in developing generative AI solutions. This best practice aims to guide you in making informed decisions about when and how to customize AI models, which helps you verify that they achieve the best balance between efficiency and effectiveness. By starting with prompt engineering and RAG, you can leverage existing model capabilities to meet their needs, reducing the time, cost, and complexity associated with model customization. This approach allows organizations to quickly iterate on solutions, minimize resource consumption, and focus on achieving desired outcomes with minimal upfront investment. 
 

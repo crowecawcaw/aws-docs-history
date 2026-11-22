@@ -1,7 +1,6 @@
 
 
 # Prompt remediation and recovery actions
-<a name="genrel03"></a>
 
 
 | GENREL03: How do you implement remediation actions for generative AI workload loops, retries, and failures? | 

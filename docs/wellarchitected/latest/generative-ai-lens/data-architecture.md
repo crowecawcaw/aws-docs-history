@@ -1,7 +1,6 @@
 
 
 # Data architecture
-<a name="data-architecture"></a>
 
  Organizations might need to reimagine their data strategies to unlock the transformative potential of generative AI, moving beyond traditional data management to create dynamic, AI-ready data environments that enable rapid experimentation, personalization, and innovation at scale. As enterprises strive to capture value from generative AI, data has emerged as the strategic differentiator. Gen AI models thrive on high-quality, context-rich, and well-governed data. However, issues like fragmented data environments, inconsistent governance, and unclear ownership slow down generative AI experimentation and scale. A deliberate data strategy is essential to accelerate generative AI innovation while mitigating data risks. 
 

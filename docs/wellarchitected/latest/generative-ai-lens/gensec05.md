@@ -1,7 +1,6 @@
 
 
 # Excessive agency
-<a name="gensec05"></a>
 
 
 | GENSEC05: How do you avoid excessive agency for models? | 

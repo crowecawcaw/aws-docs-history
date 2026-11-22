@@ -1,7 +1,6 @@
 
 
 # GENCOST03-BP04 Annotate user input to enable cost-aware content filtering
-<a name="gencost03-bp04"></a>
 
  Annotate specific sections of input prompts to selectively apply content filtering and reduce token usage costs. By using input tags to mark only the user-provided content for filtering, you can avoid unnecessary processing of system prompts, search results, and conversation history while maintaining essential safeguards. 
 
@@ -28,7 +27,7 @@
 
 1.  Use XML-style tags to mark specific sections of input prompts for content filtering. Add tags using the format: 
 
-```
+```xml
 <amazon-bedrock-guardrails-guardContent_xyz>
 [Content to be filtered]
 </amazon-bedrock-guardrails-guardContent_xyz>
@@ -38,7 +37,7 @@
 
  Include the tag suffix in the guardrailConfig: 
 
-```
+```json
 {
     "amazon-bedrock-guardrailConfig": {
         "tagSuffix": "xyz"

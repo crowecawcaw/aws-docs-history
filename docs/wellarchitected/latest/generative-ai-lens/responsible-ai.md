@@ -1,7 +1,6 @@
 
 
 # Responsible AI
-<a name="responsible-ai"></a>
 
  As with any new technology, generative AI creates new challenges as well. Potential users must evaluate the promise of the technology while also analyzing the risks. Responsible AI is the practice of designing, developing, and using AI technology with the goal of maximizing benefits and minimizing risks. At AWS, we define responsible AI using a core set of dimensions that we assess and update over time as AI technology evolves: 
 + **Fairness**: Considering impacts on different groups of stakeholders.

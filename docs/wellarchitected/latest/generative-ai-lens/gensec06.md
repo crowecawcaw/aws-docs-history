@@ -1,7 +1,6 @@
 
 
 # Data poisoning
-<a name="gensec06"></a>
 
 
 | GENSEC06: How do you detect and remediate data poisoning risks? | 

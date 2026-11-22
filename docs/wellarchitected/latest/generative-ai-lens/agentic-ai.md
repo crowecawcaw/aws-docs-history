@@ -1,7 +1,6 @@
 
 
 # Agentic AI
-<a name="agentic-ai"></a>
 
  AI agents are autonomous entities that are capable of perceiving their environment, reasoning, and taking actions to achieve defined goals. Agents can interact with users, services, and other agents in complex, real-time environments. In generative AI, the core of an agentic system is usually a large language model (LLM), augmented with capabilities like retrieval (access to information), tools (interacting with its environment), and memory. The term agentic derives from agency (the ability to act independently, make decisions, and take actions within its environment). Agentic systems can have varying degrees of agency, ranging from making narrowly scoped actions to autonomously orchestrating themselves. When designing an agentic system, it's important to only increase the agency of the system when the task complexity requires it. 
 

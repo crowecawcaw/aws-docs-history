@@ -1,7 +1,6 @@
 
 
 # Generative AI Lens - AWS Well-Architected Framework
-<a name="generative-ai-lens"></a>
 
 Publication date: **November 19, 2025** ([Document revisions](document-revisions.md))
 

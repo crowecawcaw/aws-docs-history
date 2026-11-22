@@ -1,7 +1,6 @@
 
 
 # Observability in workloads
-<a name="genops03"></a>
 
 
 | GENOPS03: How do you maintain traceability for your models, prompts, and assets? | 

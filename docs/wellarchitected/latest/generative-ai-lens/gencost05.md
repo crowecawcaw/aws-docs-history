@@ -1,7 +1,6 @@
 
 
 # Cost-informed agents
-<a name="gencost05"></a>
 
 
 | GENCOST05: How do you optimize agent workflows for cost? | 

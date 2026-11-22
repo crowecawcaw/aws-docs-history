@@ -1,7 +1,6 @@
 
 
 # Generative AI automated Kanban workflow
-<a name="generative-ai-automated-kanban-workflow"></a>
 
  This scenario presents a Well-Architected approach to implementing automated task breakdown in Kanban workflows using generative AI. The solution optimizes project delivery by automatically analyzing Jira tickets and decomposing them into well-defined subtasks while maintaining high-quality standards through human oversight. It addresses the challenges of inconsistent task breakdown and insufficient task details through a combination of automated quality checks and systematic task decomposition, with built-in feedback loops for continuous improvement. By using Amazon Bedrock for generative AI capabilities, the solution provides consistent, scalable, and reliable task management automation while maintaining the flexibility to adapt to different project needs and team requirements. 
 

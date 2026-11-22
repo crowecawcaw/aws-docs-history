@@ -1,7 +1,6 @@
 
 
 # Prompt management
-<a name="genrel04"></a>
 
 
 | GENREL04: How do you maintain versions for prompts, model parameters, and foundation models? | 

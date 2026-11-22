@@ -1,7 +1,6 @@
 
 
 # Code transformation with generative AI
-<a name="code-transformation-with-generative-ai"></a>
 
  Organizations today face mounting pressure to modernize their legacy applications while maintaining business continuity and maximizing return on investment. With the majority of Fortune 500 companies still running software written over two decades ago and a large volume of enterprise workloads remaining on-premises, the need for efficient, scalable modernization solutions has never been more critical. 
 

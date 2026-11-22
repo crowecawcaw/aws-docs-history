@@ -1,7 +1,6 @@
 
 
 # GENSUS01-BP01 Implement auto scaling and serverless architectures to optimize resource utilization
-<a name="gensus01-bp01"></a>
 
  Adopt efficient and sustainable AI/ML practices to minimize resource usage, reduce costs, and lower environmental impact. Use serverless architectures, auto scaling, and specialized hardware to optimize resource utilization. This approach enhances performance efficiency, aligns with cost optimization, and supports sustainability goals. Implementing these practices enables responsible and economical deployment of generative AI workloads and promotes effective scaling without unnecessary resource waste. 
 

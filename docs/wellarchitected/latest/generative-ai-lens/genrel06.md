@@ -1,7 +1,6 @@
 
 
 # Distributed compute tasks
-<a name="genrel06"></a>
 
 
 | GENREL06: How do you design high-performance distributed computation tasks to maximize successful completion? | 

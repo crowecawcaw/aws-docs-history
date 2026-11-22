@@ -1,7 +1,6 @@
 
 
 # GENREL01-BP01 Scale and balance foundation model throughput as a function of utilization
-<a name="genrel01-bp01"></a>
 
  Collect information on the generative AI workload's utilization, and implement dynamic scaling strategies to match capacity with demand. Use this information to determine the required throughput for your foundation model and establish appropriate quotas and scaling policies. 
 

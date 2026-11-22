@@ -1,7 +1,6 @@
 
 
 # GENOPS02-BP01 Monitor all application layers
-<a name="genops02-bp01"></a>
 
  Implement comprehensive monitoring and logging across all layers of your generative AI application to maintain operational health, provide reliability, and optimize performance. This best practice aims to provide clear visibility into the application's behavior, from user interactions to core model performance. By tracking key metrics, organizations can quickly identify and address issues, enhance user experiences, and make data-driven decisions to improve their AI systems. 
 

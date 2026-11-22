@@ -1,7 +1,6 @@
 
 
 # GENSEC01-BP02 Implement private network communication between foundation models and applications
-<a name="gensec01-bp02"></a>
 
  Implementing a scoped down data perimeter on foundation model endpoints helps reduce the surface-area of potential threat vectors and encourages a zero-trust security architecture. This best practice describes how to implement private network communications for your generative AI workloads. 
 

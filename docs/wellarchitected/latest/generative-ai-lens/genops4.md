@@ -1,7 +1,6 @@
 
 
 # Automate lifecycle management
-<a name="genops4"></a>
 
 
 | GENOPS4: How do you automate the lifecycle management of your generative AI workloads? | 

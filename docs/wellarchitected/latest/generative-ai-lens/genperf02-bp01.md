@@ -1,7 +1,6 @@
 
 
 # GENPERF02-BP01 Load test model endpoints
-<a name="genperf02-bp01"></a>
 
  Hosting architecture is a significant factor in determining the performance efficiency of a foundation model. Load test model endpoints to determine a baseline level of performance. Load tests should evaluate foundation model performance under average workload throughput, as well as extremes. Capturing a comprehensive understanding of model endpoint performance under a variety of workload demands helps improve architectural decision-making in regard to performance efficiency and endpoint selection. 
 

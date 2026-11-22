@@ -1,7 +1,6 @@
 
 
 # Monitor and manage operational health
-<a name="genops02"></a>
 
 
 | GENOPS02: How do you monitor and manage the operational health of your applications? | 

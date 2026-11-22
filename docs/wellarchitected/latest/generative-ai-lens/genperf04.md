@@ -1,7 +1,6 @@
 
 
 # Vector store optimization
-<a name="genperf04"></a>
 
 
 | GENPERF04: How do you improve the performance of data retrieval systems? | 

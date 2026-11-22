@@ -1,7 +1,6 @@
 
 
 # Endpoint security
-<a name="gensec01"></a>
 
 
 | GENSEC01: How do you manage access to generative AI endpoints? | 

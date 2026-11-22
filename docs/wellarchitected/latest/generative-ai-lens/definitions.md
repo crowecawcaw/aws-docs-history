@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 + **Agent:** An AI system that can perform tasks autonomously and interact with its environment to achieve specific goals.
 + **Bias and fairness testing:** Evaluating and mitigating potential biases or unfair outcomes from AI models, particularly in areas like gender, race, or age.
 + **Continuous pre-training:** The process of continuously updating a pre-trained model with new data to improve its performance and adapt to evolving domains or tasks.

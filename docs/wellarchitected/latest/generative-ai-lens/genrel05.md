@@ -1,7 +1,6 @@
 
 
 # Distributed availability
-<a name="genrel05"></a>
 
 
 | GENREL05: How do you distribute inference workloads over multiple regions of availability? | 

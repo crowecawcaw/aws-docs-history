@@ -1,7 +1,6 @@
 
 
 # Establish performance evaluation processes
-<a name="genperf01"></a>
 
 
 | GENPERF01: How do you capture and improve the performance of your generative AI models in production? | 

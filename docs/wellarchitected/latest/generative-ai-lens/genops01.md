@@ -1,7 +1,6 @@
 
 
 # Model performance evaluation
-<a name="genops01"></a>
 
 
 | GENOPS01: How do you achieve and verify consistent model output quality? | 

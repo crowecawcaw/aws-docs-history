@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  The following individuals and organizations contributed to this document: 
 +  Aaron Sempf, APJ Next-Gen Tech Lead, Amazon Web Services 

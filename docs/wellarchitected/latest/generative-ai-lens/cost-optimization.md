@@ -1,7 +1,6 @@
 
 
 # Cost optimization
-<a name="cost-optimization"></a>
 
  The cost optimization best practices introduced in this paper are represented by at least of one of the following principles: 
 +  **Optimize model and inference selection:** Choose foundation models and inference approaches that align with your actual performance requirements and avoid over-provisioning. By carefully evaluating model size, accuracy needs, and inference paradigms, you can reduce operational costs while maintaining necessary quality levels. This principle helps you avoid paying for excess capacity or capabilities that don't deliver proportional business value. 

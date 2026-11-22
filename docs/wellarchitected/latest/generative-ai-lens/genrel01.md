@@ -1,7 +1,6 @@
 
 
 # Manage throughput quotas
-<a name="genrel01"></a>
 
 
 | GENREL01: How do you determine throughput quotas (or needs) for foundation models? | 

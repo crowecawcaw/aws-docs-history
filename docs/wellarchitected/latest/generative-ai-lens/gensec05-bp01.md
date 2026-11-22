@@ -1,7 +1,6 @@
 
 
 # GENSEC05-BP01 Implement least privilege access and permissions boundaries for agentic workflows
-<a name="gensec05-bp01"></a>
 
  Implementing least privilege and permissions bounded agents limits the scope of agentic workflows and helps stop them from taking actions beyond their intended purpose on behalf of the user. This best practice describes how to reduce the risk of excessive agency. 
 

@@ -1,7 +1,6 @@
 
 
 # GENREL06-BP01 Design for fault-tolerance for high-performance distributed computation tasks
-<a name="genrel06-bp01"></a>
 
  Fault-tolerant infrastructure identifies issues in long-running, high-performance distributed computation tasks and remediates them before they can disrupt the task. Because these tasks are expensive and time-consuming, use fault-tolerant infrastructure to reliably perform model customization jobs. 
 

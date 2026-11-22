@@ -1,7 +1,6 @@
 
 
 # Scenarios
-<a name="scenarios"></a>
 
  The following section presents scenarios that implement generative AI services in a variety of use cases. 
 

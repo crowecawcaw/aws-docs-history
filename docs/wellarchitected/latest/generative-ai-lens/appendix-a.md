@@ -1,7 +1,6 @@
 
 
 # Appendix A: Best practice lifecycle mapping
-<a name="appendix-a"></a>
 
  This table maps the best practices in this lens to the stages of the generative AI lifecycle. This mapping is only a suggestion and is prone to adjustments based on your business problem, generative AI use case, and other external factors. An absence of a best practice does not indicate no best practices exist for the corresponding lifecycle phase, but that they are not relevant for discussion in this lens. An example of this is the absence of performance efficiency best practices in the deployment phase of the lifecycle. This lens approaches performance efficiency for generative AI from the perspective of inference latency and model response quality. The best practices for these initiatives fall more appropriately under different lifecycle phases. This mapping is subject to change and grow as the scope of this lens evolves over time. 
 

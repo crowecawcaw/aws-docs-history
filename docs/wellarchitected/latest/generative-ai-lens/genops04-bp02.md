@@ -1,7 +1,6 @@
 
 
 # GENOPS04-BP02 Implement GenAIOps to optimize the application lifecycle
-<a name="genops04-bp02"></a>
 
  To optimize generative AI workloads, organizations should implement [GenAIOps](https://genaiops.ai/), a best practice that automates the development, deployment, and management of models. This approach establishes CI/CD pipelines for training, tuning, and deploying foundation models. GenAIOps enhances operational efficiency, reduces time-to-market, and enables consistent, high-quality model performance. It creates a robust, automated framework that supports the entire generative AI project lifecycle from development to production deployment. Through GenAIOps, customers can achieve greater agility, improved model reliability, and quick adaptation to changing business requirements, driving innovation and competitive advantage. 
 

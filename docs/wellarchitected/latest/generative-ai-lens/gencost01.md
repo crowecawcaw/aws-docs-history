@@ -1,7 +1,6 @@
 
 
 # Model selection and cost optimization
-<a name="gencost01"></a>
 
 
 | GENCOST01: How do you select the appropriate model to optimize costs? | 

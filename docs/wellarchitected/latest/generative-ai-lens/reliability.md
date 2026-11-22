@@ -1,7 +1,6 @@
 
 
 # Reliability
-<a name="reliability"></a>
 
  Reliability in generative AI workloads refers to the system's ability to consistently perform its intended functions correctly and deliver expected results under both normal and adverse conditions. This includes maintaining consistent model inference quality, handling varying workload demands, managing resource utilization, and recovering from failures gracefully. 
 

@@ -1,7 +1,6 @@
 
 
 # Consume energy efficient models
-<a name="gensus03"></a>
 
 
 | GENSUS03: How do you maintain model efficiency and resource optimization when working with large language models? | 

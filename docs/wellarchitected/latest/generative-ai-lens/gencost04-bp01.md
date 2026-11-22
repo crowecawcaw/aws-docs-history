@@ -1,7 +1,6 @@
 
 
 # GENCOST04-BP01 Reduce vector length on embedded tokens
-<a name="gencost04-bp01"></a>
 
  Using a smaller vector size for data embeddings results in a reduced response length for data-driven generative AI workflows. By keeping vector lengths small, we can save on model output as well as vector database computation requirements. 
 

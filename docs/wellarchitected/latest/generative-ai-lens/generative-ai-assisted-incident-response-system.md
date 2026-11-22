@@ -1,7 +1,6 @@
 
 
 # Generative AI-assisted incident response system
-<a name="generative-ai-assisted-incident-response-system"></a>
 
  The generative AI-assisted incident response system represents a transformative approach to IT incident management that uses generative AI to accelerate incident resolution and improve operational efficiency. Organizations today face increasing complexity in their IT systems and a growing volume of incidents that require rapid response. Traditional incident management approaches are hindered by time-consuming manual searches through documentation, inconsistent response quality depending on responder experience, and knowledge loss when experienced staff depart. This scenario presents a Well-Architected approach to implementing an incident response system powered by generative AI. 
 

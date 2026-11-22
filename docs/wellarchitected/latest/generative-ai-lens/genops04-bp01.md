@@ -1,7 +1,6 @@
 
 
 # GENOPS04-BP01 Automate generative AI application lifecycle with infrastructure as code (IaC)
-<a name="genops04-bp01"></a>
 
  Implementing and managing IaC is crucial for consistent, version-controlled, and automated infrastructure deployment across environments. This practice streamlines deployment, reduces errors, and enhances team collaboration. IaC helps customers achieve efficiency, reliability, and scalability in infrastructure management, which allows for rapid iteration, straightforward rollback, and improved governance and results in secure deployments. 
 

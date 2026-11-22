@@ -1,7 +1,6 @@
 
 
 # GENSEC01-BP01 Grant least privilege access to foundation model endpoints
-<a name="gensec01-bp01"></a>
 
  Granting least privilege access to foundation model endpoints helps limit unintended access and encourages a zero-trust security framework. This best practice describes how to secure foundation model endpoints associated with generative AI workloads. 
 

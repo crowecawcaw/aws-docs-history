@@ -1,7 +1,6 @@
 
 
 # GENPERF04-BP02 Optimize vector sizes for your use case
-<a name="genperf04-bp02"></a>
 
  Embedding models may offer support for different sizes of vectors when embedding data. Optimizing the vector size for an embedding may introduce long-term performance gains. 
 

@@ -1,7 +1,6 @@
 
 
 # Consume sustainable data processing and storage services
-<a name="gensus02"></a>
 
 
 | GENSUS02: How can you optimize data processing and storage to minimize energy consumption and maximize efficiency? | 

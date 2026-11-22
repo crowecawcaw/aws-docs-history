@@ -1,7 +1,6 @@
 
 
 # Operational excellence
-<a name="operational-excellence"></a>
 
  The operational excellence best practices introduced in this paper are represented by at least one of the following principles: 
 +  **Implement comprehensive observability:** Monitor and measure performance across all layers of your generative AI system, from foundation models to user interactions. By collecting metrics, user feedback, and functional performance data, you can understand how your system behaves in production and identify areas for improvement. This holistic approach to monitoring enables data-driven decisions about system optimizations and helps maintain consistent service quality. 

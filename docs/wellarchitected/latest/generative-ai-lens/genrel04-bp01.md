@@ -1,7 +1,6 @@
 
 
 # GENREL04-BP01 Implement a prompt catalog
-<a name="genrel04-bp01"></a>
 
  Prompt catalogs store and manage prompts and prompt versions. They act as a reliable store for prompts for generative AI workloads. 
 

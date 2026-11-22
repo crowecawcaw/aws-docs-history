@@ -1,7 +1,6 @@
 
 
 # GENCOST03-BP02 Control model response length
-<a name="gencost03-bp02"></a>
 
  The costs of a foundation model are often measured in the lengths of the model's responses. This best practice describes how to control model responses to reduce costs. 
 

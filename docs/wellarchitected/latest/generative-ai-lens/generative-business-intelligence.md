@@ -1,7 +1,6 @@
 
 
 # Generative business intelligence
-<a name="generative-business-intelligence"></a>
 
  A key objective for organizations across industries is to enable business users to independently explore and analyze data through natural language interactions, deriving deeper insights from both structured and unstructured sources. Generative business intelligence (BI) uses AI-powered capabilities to transform how users interact with data, moving beyond traditional dashboards and reports to more intuitive, conversational experiences. 
 

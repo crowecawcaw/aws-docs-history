@@ -1,7 +1,6 @@
 
 
 # GENSEC02-BP01 Implement guardrails to mitigate harmful or incorrect model responses
-<a name="gensec02-bp01"></a>
 
  Guardrails are powerful, expansive techniques associated with reducing the risk of harmful, biased or incorrect model responses. This best practice discusses why and how to implement guardrails in generative AI workloads, as well as other complementary techniques. 
 

@@ -1,7 +1,6 @@
 
 
 # Multi-tenant generative AI platform scenario
-<a name="multi-tenant-generative-ai-platform-scenario"></a>
 
  This scenario presents a *generative AI service approach* to alleviate challenges that organizations are facing in governing generative AI development. A generative AI service provides a managed and governed environment to develop generative AI applications at scale. The service aims to consolidate components and offer as foundational building blocks to lines of businesses (LOBs) and internal teams. 
 

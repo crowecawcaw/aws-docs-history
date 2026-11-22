@@ -1,7 +1,6 @@
 
 
 # Conclusion
-<a name="conclusion"></a>
 
  The AWS Well-Architected Generative AI Lens provides comprehensive guidance for organizations building generative AI workloads on AWS. It offers a wealth of best practices and strategies across multiple domains, including security, reliability, performance, cost optimization, operational excellence, and sustainability. By following the principles outlined in this lens, enterprises can design, deploy, and operate generative AI workloads that are robust, efficient, and aligned with industry standards. 
 

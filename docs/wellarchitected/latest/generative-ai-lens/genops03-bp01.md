@@ -1,7 +1,6 @@
 
 
 # GENOPS03-BP01 Implement prompt template management
-<a name="genops03-bp01"></a>
 
  Implement and maintain a versioned prompt template management system to achieve consistent and optimized performance of language models. This best practice aims to provide a structured approach to managing prompt templates, which helps teams systematically version, test, and optimize prompts. By adhering to this practice, you can achieve greater predictability in model behavior, enhance traceability of changes, and improve overall operational efficiency. This leads to more reliable language model deployments, reduced risks associated with prompt modifications, and the ability to quickly roll back to previous versions if needed. Ultimately, this best practice helps you deliver higher-quality outputs and maintain compliance with security and governance standards. 
 

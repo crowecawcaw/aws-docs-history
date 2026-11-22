@@ -1,7 +1,6 @@
 
 
 # Cost-aware prompting
-<a name="gencost03"></a>
 
 
 | GENCOST03: How do you engineer prompts to optimize cost? | 

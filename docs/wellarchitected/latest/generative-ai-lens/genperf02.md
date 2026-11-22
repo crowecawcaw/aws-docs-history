@@ -1,7 +1,6 @@
 
 
 # Maintaining model performance
-<a name="genperf02"></a>
 
 
 | GENPERF02: How do you verify your generative AI workload maintains acceptable performance levels? | 

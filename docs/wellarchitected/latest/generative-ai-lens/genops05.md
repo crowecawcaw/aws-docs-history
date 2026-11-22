@@ -1,7 +1,6 @@
 
 
 # Model customization
-<a name="genops05"></a>
 
 
 | GENOPS05: How do you determine when to execute Gen AI model customization? | 

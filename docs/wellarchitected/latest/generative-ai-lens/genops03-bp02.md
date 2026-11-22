@@ -1,7 +1,6 @@
 
 
 # GENOPS03-BP02 Enable tracing for agents and RAG workflows
-<a name="genops03-bp02"></a>
 
  Implement comprehensive tracing for generative AI agents and RAG workflows to enhance operational excellence and performance efficiency. This practice offers clear visibility into model decision-making, which helps you identify inefficiencies, optimize performance, and debug efficiently. By adopting tracing, customers achieve more reliable and efficient workflows, which improves model accuracy, speeds up decision-making, and enhances overall system performance. This approach supports continuous improvement while keeping data secure throughout the tracing process. 
 

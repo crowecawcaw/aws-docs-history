@@ -1,7 +1,6 @@
 
 
 # GENCOST02-BP01 Balance cost and performance when selecting inference paradigms
-<a name="gencost02-bp01"></a>
 
  Hosting a foundation model for inference requires many choices, and many of these decisions can affect the cost of your workload. One of these choices includes the selection of a managed, serverless deployment of a foundation model against a self-hosted option. 
 
