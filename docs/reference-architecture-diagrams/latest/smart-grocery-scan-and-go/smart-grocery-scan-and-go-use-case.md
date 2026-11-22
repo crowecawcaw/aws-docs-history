@@ -1,7 +1,6 @@
 
 
 # Scan-and-Go use case
-<a name="smart-grocery-scan-and-go-use-case"></a>
 
 With this use case, you can build a Scan-and-Go checkout experience by using in-store IP cameras, sensors, and POS integration with AWS computer vision and streaming services.
 

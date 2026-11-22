@@ -1,7 +1,6 @@
 
 
 # Curbside pickup use case
-<a name="smart-grocery-curbside-pickup"></a>
 
 With this use case, you can automate curbside pickup by using geofencing, computer vision, and serverless order management on AWS.
 
