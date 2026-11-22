@@ -1,7 +1,6 @@
 
 
 # Using a webcam on Windows, Linux and macOS clients
-<a name="using-webcam-native"></a>
 
 **Note**  
 The webcam option is available only if the following conditions are met:  

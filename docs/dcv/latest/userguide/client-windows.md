@@ -1,7 +1,6 @@
 
 
 # Windows client
-<a name="client-windows"></a>
 
 The Amazon DCV Windows client is supported on Windows computers only. The Windows client is a standalone application that runs on the Windows operating system.
 

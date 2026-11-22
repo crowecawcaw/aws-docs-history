@@ -1,7 +1,6 @@
 
 
 # Web browser client
-<a name="client-web"></a>
 
 The Amazon DCV web browser client runs inside a web browser. You don't need to install the web client. The web browser client is supported on the following browsers across all major desktop operating systems (including Windows, macOS, and Linux):
 

@@ -1,7 +1,6 @@
 
 
 # Getting Started with Amazon DCV
-<a name="getting-started"></a>
 
 To use Amazon DCV, install the Amazon DCV server software on a server. The Amazon DCV server software is used to create a secure [session](https://docs.aws.amazon.com/dcv/latest/adminguide/managing-sessions.html). You install and run your applications on the server. The server uses its hardware to perform the high-performance processing that the installed applications require. Your users access the application by remotely connecting to the session using a Amazon DCV client application. When the connection is established, the Amazon DCV server software compresses the visual output of the application and streams it back to the client application in an encrypted pixel stream. The client application receives the compressed pixel stream, decrypts it, and then outputs it to the local display.
 

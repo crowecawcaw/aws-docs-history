@@ -1,7 +1,6 @@
 
 
 # macOS connection diagnostics
-<a name="troubleshooting-macos-diagnostics"></a>
 
 If you encounter a connection error on the macOS client, choose **Diagnose…** on the error screen to run automated connectivity checks.
 

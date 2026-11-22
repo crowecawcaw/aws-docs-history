@@ -1,7 +1,6 @@
 
 
 # Extending full-screen across all monitors
-<a name="full-screen-all-monitors"></a>
 
 You can use the Amazon DCV clients to extend the display for a session across all at full screen resolution.
 

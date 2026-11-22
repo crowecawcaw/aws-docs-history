@@ -1,7 +1,6 @@
 
 
 # Extending full-screen across selected monitors
-<a name="full-screen-selected-monitors"></a>
 
 If there are three or more monitors connected, DCV can also extend full-screen across a selection of those available monitors. If your selected monitors cannot go full screen, an error message will appear and you will need to perform the procedure again.
 

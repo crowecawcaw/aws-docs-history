@@ -1,7 +1,6 @@
 
 
 # Streaming modes on Windows, Linux, and macOS clients
-<a name="using-streaming-native"></a>
 
 The steps depend on the client used.
 

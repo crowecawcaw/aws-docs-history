@@ -1,7 +1,6 @@
 
 
 # Managing streaming modes
-<a name="using-streaming"></a>
 
 Amazon DCV uses an adaptive protocol that automatically optimizes the streaming mode depending on the network capabilities. However, you can specify whether you prefer to prioritize responsiveness or image quality.
 + Prioritizing responsiveness (**Best responsiveness**) reduces the image quality to improve the frame rate. This option prioritizes faster response times though It might result in lower image quality.

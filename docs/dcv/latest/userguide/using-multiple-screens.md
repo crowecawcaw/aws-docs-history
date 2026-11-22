@@ -1,7 +1,6 @@
 
 
 # Using multiple monitors
-<a name="using-multiple-screens"></a>
 
 **Note**  
 When collaborating on Amazon DCV sessions, the multiple monitor function is disabled.

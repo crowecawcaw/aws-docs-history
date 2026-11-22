@@ -1,7 +1,6 @@
 
 
 # Using a webcam on the web browser client
-<a name="using-webcam-web"></a>
 
 Webcam functionality is only supported with Chromium-based browsers, such as Google Chrome or Microsoft Edge. It isn't supported on Mozilla Firefox or Apple Safari.
 

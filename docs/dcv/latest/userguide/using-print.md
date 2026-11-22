@@ -1,7 +1,6 @@
 
 
 # Printing from a session
-<a name="using-print"></a>
 
 You can use Amazon DCV to print content from a Amazon DCV session. The available printing devices depend on the client that you're using.
 + **Windows client, Linux client, and macOS client** – You can print to the physical printer that's connected to your client computer. Or, you can print to a `PDF` document that uses the Amazon DCV virtual printer.

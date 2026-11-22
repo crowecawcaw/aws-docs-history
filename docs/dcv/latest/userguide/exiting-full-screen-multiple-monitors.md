@@ -1,7 +1,6 @@
 
 
 # Exiting full screen on multiple monitors
-<a name="exiting-full-screen-multiple-monitors"></a>
 
 To exit full screen on multiple monitors, do one of the following depending on your client.
 

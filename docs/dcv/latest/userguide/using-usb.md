@@ -1,7 +1,6 @@
 
 
 # Using USB remotization
-<a name="using-usb"></a>
 
 **Note**  
 This feature is for installable Windows clients only.

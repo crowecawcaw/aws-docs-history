@@ -1,7 +1,6 @@
 
 
 # Step 3: Connect to a Amazon DCV session
-<a name="using-connecting"></a>
 
 After the Amazon DCV session starts running on the Amazon DCV server, you can connect to it using your preferred client. Ensure that you have the required information when connecting to your Amazon DCV session. For more information, see [Step 1: Get the Amazon DCV session information](getting-started-session.md).
 

@@ -1,7 +1,6 @@
 
 
 # Using Amazon DCV
-<a name="using"></a>
 
 After you choose a Amazon DCV client, you can use it to interact with a Amazon DCV session. From here, you can changes settings, perform basic tasks, and manage external devices. Some of the functionalities Amazon DCV is capable of are:
 

@@ -1,7 +1,6 @@
 
 
 # Using high color accuracy
-<a name="using-high-color-accuracy"></a>
 
 By default, Amazon DCV uses YUV 4:2:0 chroma subsampling when compressing the display output and then updates the parts of the screen that are not changing over time to a full lossless RGB implementation. This default behavior aims to strike a balance between performance and image fidelity, though it may introduce chroma artifacts. By enabling the High color accuracy setting, the YUV chroma subsampling will be set to 4:4:4, thus increasing color fidelity. However this will increase network bandwidth and could affect performance of clients, especially at high resolution, because most client machines do not support HW accelerated decoding when using YUV 4:4:4.
 

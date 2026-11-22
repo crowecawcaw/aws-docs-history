@@ -1,7 +1,6 @@
 
 
 # Using WebAuthn redirection
-<a name="using-webauthn-redirection"></a>
 
 Amazon DCV offers the WebAuthn Redirection feature, specifically designed for use with Google Chrome and Microsoft Edge browsers. This functionality enables authentication in session for web applications. This feature operates through a dedicated browser extension that, once installed, redirects the WebAuthn requests from the web application to the DCV client.
 

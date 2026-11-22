@@ -1,7 +1,6 @@
 
 
 # Copying and pasting
-<a name="using-copy-paste"></a>
 
 You can use Amazon DCV to copy and paste text between your local computer and the Amazon DCV session. You must be authorized to use this feature. If you are not authorized, the functionality is not available in the client. For more information, see [Configuring Amazon DCV Authorization](https://docs.aws.amazon.com/dcv/latest/adminguide/security-authorization.html) in the *Amazon DCV Administrator Guide*.
 

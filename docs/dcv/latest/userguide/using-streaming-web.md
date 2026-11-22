@@ -1,7 +1,6 @@
 
 
 # Streaming modes on Web browser client
-<a name="using-streaming-web"></a>
 
 The steps for managing the streaming modes are the same across all supported web browsers.
 

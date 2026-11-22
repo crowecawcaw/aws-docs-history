@@ -1,7 +1,6 @@
 
 
 # Step 4: Create a connection file (optional)
-<a name="using-connection-file"></a>
 
 Using the Windows, Linux, or macOS native client, you can create a connection file that you can use to instantly connect to a Amazon DCV session. 
 

@@ -1,7 +1,6 @@
 
 
 # Using accurate audio/video synchronization
-<a name="using-av-sync"></a>
 
  The **Accurate Audio/Video synchronization** setting enables a mode that minimizes the time difference in audio and video playback. This mode is useful in workloads that require the video and audio to be accurately synchronized, such as lip sync. 
 
