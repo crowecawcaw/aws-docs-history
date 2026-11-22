@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Configuring AWS tags for provisioned products
-<a name="configure-aws-tags"></a>
 
 The AWS Service Management Connector enables ServiceNow administrators to add tags (metadata) to provisioned products globally across the scoped app or granularly at the portfolio level. These tags are not visible to end users. 
 

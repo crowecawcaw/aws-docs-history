@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Manually syncing scheduled jobs
-<a name="manual-sync-scheduled-jobs"></a>
 
 The Connector for ServiceNow includes nine sync jobs related to AWS services integrations. During the initial setup, manually execute the sync job for your AWS service integration instead of waiting for Scheduled Jobs to run.
 

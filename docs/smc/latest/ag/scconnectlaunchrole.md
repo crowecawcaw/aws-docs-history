@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Creating the SCConnectLaunch role
-<a name="scconnectlaunchrole"></a>
 
 The `SCConnectLaunch` role is an IAM role that places baseline AWS service permissions into the AWS Service Catalog launch constraints. Configuring this role enables segregation of duty through provisioning product resources for ServiceNow end users. 
 
@@ -20,7 +19,7 @@ This section describes how to create the `SCConnectLaunch` role. This role place
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[
@@ -64,7 +63,7 @@ This section describes how to create the `SCConnectLaunch` role. This role place
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[
@@ -111,7 +110,7 @@ This section describes how to create the `SCConnectLaunch` role. This role place
 
 ****  
 
-   ```
+   ```json
                                {
              "Version":"2012-10-17",		 	 	 
              "Statement": [

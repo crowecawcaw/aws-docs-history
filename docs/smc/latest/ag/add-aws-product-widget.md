@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Adding the My AWS Products widget to the Service Portal view
-<a name="add-aws-product-widget"></a>
 
 We recommend ServiceNow administrators add the **My AWS Products** widget to the ServiceNow Portal view. The widget enables users to view their AWS product requests, view outputs, and perform post-operational actions such as update, terminate, and service actions (AWS Systems Manager documents). 
 

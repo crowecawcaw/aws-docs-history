@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # AWS Service Management Connector end of support
-<a name="smc-end-of-support"></a>
 
 End of support notice: As of March 31, 2026, AWS Service Management Connector is no longer available to new customers. If you are an existing customer, you can continue using the service until March 31, 2027. After March 31, 2027, you will no longer be able to access AWS Service Management Connector functionality.
 

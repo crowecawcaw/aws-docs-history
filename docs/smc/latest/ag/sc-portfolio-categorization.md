@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Activate AWS Service Catalog portfolio categorization in ServiceNow Service Portal
-<a name="sc-portfolio-categorization"></a>
 
 AWS Service Management Connector can display portfolios with an additional categorization of AWS Account and Region names in the ServiceNow Service Portal. This allows you to identify the account and region a portfolio and its product belongs to if the end user has access to multiple portfolios with the same name. 
 

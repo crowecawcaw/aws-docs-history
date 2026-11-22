@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Creating SCConnectLaunch Role
-<a name="jsd-creating-scconnectlaunch-role"></a>
 
 The following section describes how to create the **SCConnectLaunch** role. This role places baseline AWS service permissions into the Service Catalog launch constraints. For more information, see CORRECT LINK.
 
@@ -16,7 +15,7 @@ The following section describes how to create the **SCConnectLaunch** role. This
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -58,7 +57,7 @@ The following section describes how to create the **SCConnectLaunch** role. This
 
 ****  
 
-   ```
+   ```json
     {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -92,7 +91,7 @@ The following section describes how to create the **SCConnectLaunch** role. This
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

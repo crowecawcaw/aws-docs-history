@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Configuring the AWS Service Catalog product widget components and assignment group for closed change records
-<a name="configure-sc-widget"></a>
 
 To address the varying personas of end users requesting AWS products, the Connector for ServiceNow includes a scoped app setting to enable or disable components of the AWS product widget. By default, all AWS product components are active. 
 

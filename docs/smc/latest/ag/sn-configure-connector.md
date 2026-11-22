@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Platform system administrator components
-<a name="sn-configure-connector"></a>
 
 To enable the AWS Service Management Connector scoped application named **AWS Service Management**, the system admin must create a discovery source, and configure specific platform tables, forms, and views.
 

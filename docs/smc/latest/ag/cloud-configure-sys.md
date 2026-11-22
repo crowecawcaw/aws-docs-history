@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Validating AWS Systems Manager Automation in Jira Service Management Cloud
-<a name="cloud-configure-sys"></a>
 
 To allow the Connector to execute Automation Documents, you must ensure that the Connector's sync user and end user have the required permissions. For more information, review [Setting up Automation](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-setup.html) in the *AWS Systems Manager user guide*. 
 

@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Configuring AWS Health integration
-<a name="cloud-sys-health-configure"></a>
 
 This section describes how to configure AWS Health integration in Jira Service Management.
 
@@ -16,7 +15,7 @@ To allow the connector to synchronize AWS Health data for a specific Region, you
 
 1. Set up an Amazon EventBridge rule to detect changes to findings and push them to the queue. For more information, refer to [Getting started with Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-get-started.html). The rule should have the following event pattern and point to the SQS queue from step 1.
 
-```
+```json
 "EventPattern": {
     "source": ["aws.health"]
 }

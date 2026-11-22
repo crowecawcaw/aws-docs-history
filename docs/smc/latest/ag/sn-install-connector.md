@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Installing ServiceNow Connector scoped application
-<a name="sn-install-connector"></a>
 
 The AWS Service Management Connector for ServiceNow is a conventional, scoped application that was developed and released through a ServiceNow update set. Update sets are code changes to the base platform that lets developers move code across ServiceNow instances.
 

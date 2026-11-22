@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # AWS Service Management Connector for Jira Service Management Cloud
-<a name="integrations-jsmcloud"></a>
 
 The AWS Service Management Connector (SMC) streamlines cloud operations of AWS resources with your existing operational IT Service Management (ITSM) tooling. The AWS Service Management Connector for Atlassian's [ Jira Service Management Cloud](https://www.atlassian.com/software/jira/service-management) enables internal customers and Jira agents to provision, manage, and operate AWS resources natively through Atlassian's Jira Service Management. Using the Connector for Jira Service Management Cloud improves the efficiency of Service Management governance and oversight for AWS resources and services.
 

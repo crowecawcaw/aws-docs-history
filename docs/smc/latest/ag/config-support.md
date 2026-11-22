@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Configuring Support Integration
-<a name="config-support"></a>
 
 To enable the Connector to synchronize Support tickets, the account should have a [Business](https://aws.amazon.com/premiumsupport/plans/business/) or [Enterprise](https://aws.amazon.com/premiumsupport/plans/enterprise/) Support plan. For more information, see [Getting started with Support.](https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html)
 
@@ -18,7 +17,7 @@ AWS Service Management Connector allows AWS Managed Services (AMS) Accelerate us
 
    The Amazon EventBridge rule should have the following event pattern and should point to the SQS queue created in Step 2.
 
-   ```
+   ```json
    EventPattern":{
       "source":[
          "aws.support"

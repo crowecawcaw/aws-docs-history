@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Configuring Service Catalog Integration
-<a name="jsd-integration-configure-sc"></a>
 
 After you create two IAM users with baseline permissions in each account, you can now configure Service Catalog. This section describes how to configure Service Catalog to have a portfolio that includes an Amazon S3 bucket product. Use the Amazon S3 template in [Creating an Amazon S3 Bucket for Website Hosting](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-s3.html#scenario-s3-bucket-website ) for your preliminary product. Copy and save the Amazon S3 template to your device.
 

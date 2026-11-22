@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # ServiceNow permissions for administrators of the Connector scoped app
-<a name="sn-permissions-admin"></a>
 
 The AWS Service Management scoped app has two ServiceNow roles that enable access to configure the application. This feature enables system admins to grant one or more user's privileges to administer the application, without having to open full sysadmin access to them. System admins can assign these roles to either individual users or to one administrator user.
 

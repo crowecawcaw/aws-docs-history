@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Creating the AWS Service Management Connector Sync user
-<a name="scsyncuser"></a>
 
 This section describes how to create the AWS Sync user and associate the appropriate IAM permission. To perform this task, you need IAM permissions to create new users. The following steps to create a Sync user and End user are not required if you use the CloudFormation template to deploy the permissions. Review [Setting baseline permissions for AWS Service Management Connector for ServiceNow](sn-base-perms.md) for more information. 
 
@@ -27,7 +26,7 @@ The CloudFormation template to set up the AWS configurations of the Connector fo
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -56,7 +55,7 @@ The CloudFormation template to set up the AWS configurations of the Connector fo
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -88,7 +87,7 @@ The CloudFormation template to set up the AWS configurations of the Connector fo
 
 ****  
 
-   ```
+   ```json
      {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -115,7 +114,7 @@ The CloudFormation template to set up the AWS configurations of the Connector fo
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -146,7 +145,7 @@ The CloudFormation template to set up the AWS configurations of the Connector fo
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -173,7 +172,7 @@ The CloudFormation template to set up the AWS configurations of the Connector fo
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

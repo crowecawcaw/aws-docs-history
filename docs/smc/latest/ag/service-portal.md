@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Ordering Service Catalog products through the ServiceNow Service portal
-<a name="service-portal"></a>
 
  The Connector for ServiceNow supports the ordering of Service Catalog products through Service Portal. You can use the **Service Catalog **and** Order Something** views. The release also includes pages and widgets you can add to Service Portal that enable users to view their provisioned products. 
 

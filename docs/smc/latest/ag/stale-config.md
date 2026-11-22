@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Addressing stale AWS Config items in the ServiceNow CMDB
-<a name="stale-config"></a>
 
 **Note**  
 ServiceNow administrators are the target audience for this section.
@@ -17,7 +16,7 @@ This feature requires you to enable the creation relationship to sync the status
 
 The script includes `x_126749_aws_sc.AwsSmc` and exposes a public API. You can use this script to access any application scope, including *global* scope. As an example, run this script:
 
-```
+```json
    x_126749_aws_sc.AwsSmc.asSyncUser().getStaleConfigItems().forAll(function(object)
 {
   gs.info(
@@ -32,7 +31,7 @@ The script includes `x_126749_aws_sc.AwsSmc` and exposes a public API. You can u
 
 As a background script, it would log the following: 
 
-```
+```json
 Info: 11111111/us-east-1 ci: i-1234567fg6j8 - Installed
 Info: 11111111/us-west-1 ci: i-9876541fdgfd - Installed
 Info: 22222222/eu-west-1 aggregator: all-dev ci: i-1df5235ftt55 - Installed

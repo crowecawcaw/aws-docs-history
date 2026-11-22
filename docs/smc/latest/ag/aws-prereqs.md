@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # AWS Service Management Connector for ServiceNow prerequisites
-<a name="aws-prereqs"></a>
 
 Make sure you have AWS and ServiceNow prerequisites configured before you get started.
 + ** AWS Service Catalog with the Connector** — You must have an AWS account to configure your AWS portfolios and products. For details, refer to [Setting up for Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/setup.html) and [Using AppRegistry.](https://docs.aws.amazon.com/servicecatalog/latest/arguide/intro-app-registry.html)

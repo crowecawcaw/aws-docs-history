@@ -3,7 +3,6 @@
 End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Configuring Support integration system properties with ServiceNow
-<a name="changemanager-config"></a>
 
 The AWS Systems Manager Change Manager integration for AWS Service Management Connector aligns with the Change Management process in ServiceNow. It enables you to align the internal Change Management process for executing pre-approved change templates directly from a ServiceNow instance.
 
