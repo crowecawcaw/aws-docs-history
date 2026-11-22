@@ -1,7 +1,6 @@
 
 
 # Rebooting a data node in Amazon OpenSearch Service
-<a name="restart-node"></a>
 
 **To reboot a data node**
 

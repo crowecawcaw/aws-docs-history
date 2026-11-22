@@ -1,7 +1,6 @@
 
 
 # Amazon OpenSearch Service ML connectors for AWS services
-<a name="ml-amazon-connector"></a>
 
 When you use Amazon OpenSearch Service machine learning (ML) connectors with another AWS service, you need to set up an IAM role to securely connect OpenSearch Service to that service. AWS services that you can set up a connector to include Amazon SageMaker AI and Amazon Bedrock. In this tutorial, we cover how to create a connector from OpenSearch Service to SageMaker Runtime. For more information about connectors, see [Supported connectors](https://opensearch.org/docs/latest/ml-commons-plugin/remote-models/connectors/#supported-connectors).
 
@@ -31,7 +30,7 @@ Set up an IAM role to delegate SageMaker Runtime permissions to OpenSearch Servi
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -60,7 +59,7 @@ Set up an IAM role to delegate SageMaker Runtime permissions to OpenSearch Servi
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -94,6 +93,8 @@ Set up an IAM role to delegate SageMaker Runtime permissions to OpenSearch Servi
    }
    ```
 
+   This condition block applies only to OpenSearch Service domains. For information about configuring connectors for OpenSearch Serverless, see [Configure Machine Learning on Amazon OpenSearch Serverless](serverless-configure-machine-learning.md).
+
 ### Configure permissions
 <a name="connector-sagemaker-permissions"></a>
 
@@ -104,7 +105,7 @@ In order to create the connector, you need permission to pass the IAM role to Op
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -124,7 +125,9 @@ In order to create the connector, you need permission to pass the IAM role to Op
 
 ------
 
-If your user or role doesn't have `iam:PassRole` permissions to pass your role, you might encounter an authorization error when you try to register a repository in the next step.
+If your user or role doesn't have `iam:PassRole` permissions to pass your role, you might encounter an authorization error when you try to create the connector.
+
+The `es:ESHttpPost` permission applies only to OpenSearch Service domains. For information about configuring connectors for OpenSearch Serverless, see [Configure Machine Learning on Amazon OpenSearch Serverless](serverless-configure-machine-learning.md).
 
 ### Map the ML role in OpenSearch Dashboards (if using fine-grained access control)
 <a name="connector-sagemaker-fgac"></a>
@@ -150,7 +153,7 @@ Fine-grained access control introduces an additional step when setting up a conn
 
 To create a connector, send a `POST` request to the OpenSearch Service domain endpoint. You can use curl, the sample Python client, Postman, or another method to send a signed request. Note that you can't use a `POST` request in the Kibana console. The request takes the following format:
 
-```
+```json
 POST {{domain-endpoint}}/_plugins/_ml/connectors/_create
 {
    "name": "sagemaker: embedding",
@@ -185,7 +188,7 @@ If your domain resides within a virtual private cloud (VPC), your computer must 
 
 The Python client is simpler to automate than a HTTP request and has better re-usability. To create the AI connector with the Python client, save the following sample code to a Python file. The client requires the [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/), [`requests`](https://requests.readthedocs.io/en/latest/), and [`requests-aws4auth`](https://pypi.org/project/requests-aws4auth/) packages. 
 
-```
+```python
 import boto3
 import requests 
 from requests_aws4auth import AWS4Auth
@@ -238,7 +241,7 @@ If you plan to use the connected model for semantic search, you must include the
 
 Include a `model_config` object in your register model request:
 
-```
+```json
 POST _plugins/_ml/models/_register
 {
   "name": "Bedrock embedding model",

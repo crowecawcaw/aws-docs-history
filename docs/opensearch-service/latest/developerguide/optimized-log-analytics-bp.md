@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="optimized-log-analytics-bp"></a>
 
 Follow these best practices to optimize performance and cost when running domains with the Optimized engine.
 
@@ -97,7 +96,7 @@ Consider the following trade-offs when enabling index sort:
 
 The following index configuration applies encoding, compression, bloom filter, and index sort recommendations together:
 
-```
+```json
 PUT my-logs
 {
   "settings": {
@@ -178,7 +177,7 @@ For head N from a given offset, each shard returns `ceil((offset + N) × factor)
 
 The setting is dynamic. The following example sets a positive factor at the cluster level:
 
-```
+```json
 PUT _cluster/settings
 {
   "transient": {

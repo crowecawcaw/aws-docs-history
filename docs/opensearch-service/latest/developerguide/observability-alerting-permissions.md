@@ -1,7 +1,6 @@
 
 
 # Configuring alerting permissions
-<a name="observability-alerting-permissions"></a>
 
 Before you configure alerting, set up access to the data sources that your monitors query. The permissions you need depend on the data source: an Amazon OpenSearch Service domain or an Amazon OpenSearch Serverless collection.
 

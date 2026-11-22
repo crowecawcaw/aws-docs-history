@@ -1,7 +1,6 @@
 
 
 # Auto-Tune for Amazon OpenSearch Service
-<a name="auto-tune"></a>
 
 Auto-Tune in Amazon OpenSearch Service uses performance and usage metrics from your OpenSearch cluster to suggest memory-related configuration changes, including queue and cache sizes and Java virtual machine (JVM) settings on your nodes. These optional changes improve cluster speed and stability. 
 

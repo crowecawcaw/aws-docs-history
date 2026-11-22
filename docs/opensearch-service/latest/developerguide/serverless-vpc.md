@@ -1,7 +1,6 @@
 
 
 # Data plane access through AWS PrivateLink
-<a name="serverless-vpc"></a>
 
 Amazon OpenSearch Serverless supports two types of AWS PrivateLink connections for control plane and data plane operations. Control plane operations include the creation and deletion of collections and the management of access policies. Data plane operations are for indexing and querying data within a collection. This page covers data plane VPC endpoints. For information about control plane AWS PrivateLink endpoints, see [Control plane access through AWS PrivateLink](serverless-vpc-cp.md).
 
@@ -65,7 +64,7 @@ An endpoint policy does not override or replace other identity-based policies, r
 
 By default, an endpoint policy grants full access to your VPC endpoint. 
 
-```
+```json
 {
     "Statement": [
         {
@@ -85,7 +84,7 @@ Although the default VPC endpoint policy grants full endpoint access, you can co
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -113,7 +112,7 @@ You can specify an OpenSearch Serverless collection to be included as a conditio
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -138,7 +137,7 @@ You can specify an OpenSearch Serverless collection to be included as a conditio
 
 Support for `aoss:CollectionId` is supported.
 
-```
+```json
 Condition": {
          "StringEquals": {
                "aoss:CollectionId": "collection-id"
@@ -153,7 +152,7 @@ You can use SAML identities in your VPC endpoint policy to determine VPC endpoin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -185,7 +184,7 @@ Additionally, you can configure your endpoint policy to include a specific SAML 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -216,7 +215,7 @@ You can also include IAM and SAML users in the same VPC endpoint policy. To do t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

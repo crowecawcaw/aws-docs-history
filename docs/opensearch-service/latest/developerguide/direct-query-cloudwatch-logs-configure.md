@@ -1,7 +1,6 @@
 
 
 # Configuring and querying a CloudWatch Logs data source in OpenSearch Dashboards
-<a name="direct-query-cloudwatch-logs-configure"></a>
 
 Now that you've created your data source, you can get started with it OpenSearch Dashboards. This section walks you through various use cases with your data source in OpenSearch Dashboards.
 

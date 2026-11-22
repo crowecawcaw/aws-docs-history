@@ -1,7 +1,6 @@
 
 
 # Tutorial: Creating a search application with Amazon OpenSearch Service
-<a name="search-example"></a>
 
 A common way to create a search application with Amazon OpenSearch Service is to use web forms to send user queries to a server. Then you can authorize the server to call the OpenSearch APIs directly and have the server send requests to OpenSearch Service. However, if you want to write client-side code that doesn't rely on a server, you should compensate for the security and performance risks. Allowing unsigned, public access to the OpenSearch APIs is inadvisable. Users might access unsecured endpoints or impact cluster performance through overly broad queries (or too many queries).
 
@@ -247,7 +246,7 @@ Your OpenSearch Service domain must allow the Lambda function to make `GET` requ
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -272,7 +271,7 @@ Alternatively, you can choose to make your domain access policy more granular. F
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -307,7 +306,7 @@ Attach the following IAM policy to your Lambda execution role to allow it to mak
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -334,7 +333,7 @@ If you're using OpenSearch Service Serverless, attach the following IAM policy t
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Taking manual snapshots
-<a name="managedomains-snapshot-create"></a>
 
 Snapshots are not instantaneous. They take time to complete and don't represent perfect point-in-time views of the cluster. While a snapshot is in progress, you can still index documents and make other requests to the cluster, but new documents and updates to existing documents generally aren't included in the snapshot. The snapshot includes primary shards as they existed when OpenSearch initiated the snapshot. Depending on the size of your snapshot thread pool, different shards might be included in the snapshot at slightly different times. For snapshot best practices, see [Improve snapshot performance](bp.md#bp-stability-snapshots).
 

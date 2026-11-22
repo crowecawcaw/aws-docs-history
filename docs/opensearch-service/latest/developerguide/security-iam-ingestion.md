@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for Amazon OpenSearch Ingestion
-<a name="security-iam-ingestion"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use OpenSearch Ingestion resources. IAM is an AWS service that you can use with no additional charge.
 
@@ -159,7 +158,7 @@ The following policy allows a user to access OpenSearch Ingestion within the Ope
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -192,7 +191,7 @@ This policy is an example of a "pipeline admin" policy that allows a user to man
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -235,7 +234,7 @@ This example policy allows a user or other entity to ingest data into an Amazon 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

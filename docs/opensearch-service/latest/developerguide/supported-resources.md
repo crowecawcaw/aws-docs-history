@@ -1,7 +1,6 @@
 
 
 # Other supported resources in Amazon OpenSearch Service
-<a name="supported-resources"></a>
 
 This topic describes additional resources that Amazon OpenSearch Service supports.
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Ingesting data into a domain using Amazon OpenSearch Ingestion
-<a name="osis-get-started"></a>
 
 This tutorial shows you how to use Amazon OpenSearch Ingestion to configure a simple pipeline and ingest data into an Amazon OpenSearch Service domain. A *pipeline* is a resource that OpenSearch Ingestion provisions and manages. You can use a pipeline to filter, enrich, transform, normalize, and aggregate data for downstream analytics and visualization in OpenSearch Service.
 
@@ -29,7 +28,7 @@ To complete this tutorial, your user or role must have an attached [identity-bas
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -78,7 +77,7 @@ First, create a role that the pipeline will assume in order to access the OpenSe
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -115,7 +114,7 @@ For simplicity in this tutorial, we use a broad access policy. In production env
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[
@@ -162,7 +161,7 @@ Make sure that the domain has the following domain-level access policy, which gr
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -240,7 +239,7 @@ First, get the ingestion URL from the **Pipeline settings** page:
 
 Then, ingest some sample data. The following request uses [awscurl](https://github.com/okigan/awscurl) to send a single log file to the pipeline:
 
-```
+```curl
 awscurl --service osis --region {{us-east-1}} \
     -X POST \
     -H "Content-Type: application/json" \
@@ -260,7 +259,7 @@ awscurl --service es --region {{us-east-1}} \
 
 **Sample response**:
 
-```
+```json
 {
    "took":984,
    "timed_out":false,

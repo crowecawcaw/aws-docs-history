@@ -1,7 +1,6 @@
 
 
 # Supported SQL and PPL commands
-<a name="direct-query-supported-commands"></a>
 
 OpenSearch SQL and OpenSearch Pipeline Processing Language (PPL) are languages for querying, analyzing, and processing data in OpenSearch, CloudWatch Logs Insights, and Security Lake. You can use OpenSearch SQL and OpenSearch PPL in OpenSearch Discover to query data within CloudWatch Logs, Amazon S3, or Security Lake. CloudWatch Logs Insights also supports both OpenSearch PPL and OpenSearch SQL query languages, in addition to Logs Insights QL, a purpose-built query language for analyzing CloudWatch Logs.
 + **OpenSearch SQL**: OpenSearch SQL provides a familiar option if you're used to working with relational databases. OpenSearch SQL offers a subset of SQL functionality, making it a good choice for performing ad-hoc queries and data analysis tasks. With OpenSearch SQL, you can use commands such as SELECT, FROM, WHERE, GROUP BY, HAVING, and various other SQL commands and functions available in SQL. You can execute JOINs across tables (or log groups), correlate data across tables (or log groups) using subqueries, and use the rich set of JSON, mathematical, string, conditional, and other SQL functions to perform powerful analysis on log and security data.

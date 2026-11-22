@@ -1,7 +1,6 @@
 
 
 # Overview of security in Amazon OpenSearch Serverless
-<a name="serverless-security"></a>
 
 Security in Amazon OpenSearch Serverless differs fundamentally from security in Amazon OpenSearch Service in the following ways:
 
@@ -82,7 +81,7 @@ Switching from Public to Private Access for your collection, will remove the Ind
 
  IAM principals and SAML identities are one of the building blocks of a data access policy. Within the `principal` statement of an access policy, you can include IAM roles, users, and SAML identities. These principals are then granted the permissions that you specify in the associated policy rules.
 
-```
+```json
 [
    {
       "Rules":[

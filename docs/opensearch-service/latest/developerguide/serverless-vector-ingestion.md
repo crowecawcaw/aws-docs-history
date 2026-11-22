@@ -1,7 +1,6 @@
 
 
 # Vector ingestion
-<a name="serverless-vector-ingestion"></a>
 
 Vector ingestion helps you quickly ingest and index OpenSearch domains and OpenSearch Serverless collections. The service examines your domain or collection and creates an ingestion pipeline on your behalf to load your data into OpenSearch. The ingestion and indexing of your domain or collection are managed for you by Vector ingestion.
 

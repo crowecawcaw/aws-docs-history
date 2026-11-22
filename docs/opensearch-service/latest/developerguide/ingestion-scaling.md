@@ -1,7 +1,6 @@
 
 
 # Scaling pipelines in Amazon OpenSearch Ingestion
-<a name="ingestion-scaling"></a>
 
 OpenSearch Ingestion automatically scales pipeline capacity based on your specified minimum and maximum Ingestion OpenSearch Compute Units (Ingestion OCUs). This eliminates the need for manual provisioning and management.
 

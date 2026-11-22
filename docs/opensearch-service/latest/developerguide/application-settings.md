@@ -1,7 +1,6 @@
 
 
 # Configuring settings and preferences in OpenSearch UI
-<a name="application-settings"></a>
 
 With OpenSearch UI, you can configure settings for your entire organization, individual workspaces, or just your personal preferences. These range from organization-wide governance, performance, and feature settings to personal display preferences such as color theme and time zone. A setting can be applied at more than one scope. An organization-wide default can coexist with per-workspace defaults and personal, per-user preferences.
 

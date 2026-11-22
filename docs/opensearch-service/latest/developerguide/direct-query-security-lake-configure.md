@@ -1,7 +1,6 @@
 
 
 # Configuring and querying a Security Lake data source in OpenSearch Dashboards
-<a name="direct-query-security-lake-configure"></a>
 
 Now that you've created your data source, you can set it up in OpenSearch Dashboards. 
 

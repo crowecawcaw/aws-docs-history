@@ -1,7 +1,6 @@
 
 
 # Using the AWS SDKs to interact with Amazon OpenSearch Service
-<a name="configuration-samples"></a>
 
 This section includes examples of how to use the AWS SDKs to interact with the Amazon OpenSearch Service configuration API. These code samples show how to create, update, and delete OpenSearch Service domains.
 
@@ -15,7 +14,7 @@ This section includes examples for versions 1 and 2 of the AWS SDK for Java.
 
 This example uses the [OpenSearchClientBuilder](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/opensearch/OpenSearchClientBuilder.html) constructor from version 2 of the AWS SDK for Java to create an OpenSearch domain, update its configuration, and delete it. Uncomment the calls to `waitForDomainProcessing` (and comment the call to `deleteDomain`) to allow the domain to come online and be useable.
 
-```
+```java
 package com.example.samples;
 
 import java.util.concurrent.TimeUnit;
@@ -247,7 +246,7 @@ public class OpenSearchSample {
 
 This example uses the [AWSElasticsearchClientBuilder](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticsearch/AWSElasticsearchClientBuilder.html) constructor from version 1 of the AWS SDK for Java to create a legacy Elasticsearch domain, update its configuration, and delete it. Uncomment the calls to `waitForDomainProcessing` (and comment the call to `deleteDomain`) to allow the domain to come online and be useable.
 
-```
+```java
 package com.amazonaws.samples;
 
 import java.util.concurrent.TimeUnit;
@@ -442,7 +441,7 @@ public class OpenSearchSample {
 
 This example uses the [OpenSearchService](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html) low-level Python client from the AWS SDK for Python (Boto) to create a domain, update its configuration, and delete it. 
 
-```
+```python
 import boto3
 import botocore
 from botocore.config import Config
@@ -563,7 +562,7 @@ def main():
 
 This example uses the version 3 of the SDK for JavaScript in Node.js [OpenSearch client](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/) to create a domain, update its configuration, and delete it. 
 
-```
+```javascript
 var {
     OpenSearchClient,
     CreateDomainCommand,

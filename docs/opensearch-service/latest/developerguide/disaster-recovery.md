@@ -1,7 +1,6 @@
 
 
 # Setting up managed disaster recovery in Amazon OpenSearch Service
-<a name="disaster-recovery"></a>
 
 Amazon OpenSearch Service managed disaster recovery (DR) replicates data from a primary domain in one AWS Region to a secondary domain in another Region. The service manages the connection between the domains and encrypts replicated data in transit, so you don't need to configure network connectivity, such as VPC peering, between the domains.
 
@@ -104,7 +103,7 @@ Create and configure both domains before you establish the replication relations
 
 Call `AddReplicationPeer` in the Region of the primary domain. The following AWS CLI command adds the secondary domain as a replication peer:
 
-```
+```bash
 aws opensearch add-replication-peer \
   --domain-name {{primary-domain-name}} \
   --peer-domain-arn arn:aws:es:{{secondary-region}}:{{account-id}}:domain/{{secondary-domain-name}} \
@@ -136,7 +135,7 @@ After you set up DR, and after each switchover or failover, check the role of ea
 
 The following AWS CLI command calls `DescribeDomainReplication` for either domain. Run the command in that domain's Region:
 
-```
+```bash
 aws opensearch describe-domain-replication \
   --domain-name {{domain-name}} \
   --region {{region}}
@@ -144,7 +143,7 @@ aws opensearch describe-domain-replication \
 
 The response includes the role of the domain that you specify and, for its peer, the peer's role and the status of the relationship. The status is `ACTIVE` when replication is running.
 
-```
+```json
 {
   "DomainArn": "arn:aws:es:{{primary-region}}:{{account-id}}:domain/{{primary-domain-name}}",
   "Role": "PRIMARY",
@@ -187,7 +186,7 @@ When you remove the replication relationship, replication stops for both domains
 
 The following AWS CLI command calls `RemoveReplicationPeer`. Run the command in the Region of the domain that you specify, and specify the other domain as the peer:
 
-```
+```bash
 aws opensearch remove-replication-peer \
   --domain-name {{domain-name}} \
   --peer-domain-arn arn:aws:es:{{peer-region}}:{{account-id}}:domain/{{peer-domain-name}} \
@@ -268,7 +267,7 @@ OpenSearch Service coordinates with the current primary domain, replicates any p
 
 The following AWS CLI command calls `SwitchoverReplication` in the Region of the secondary domain that you want to promote. For the peer, specify the current primary domain:
 
-```
+```bash
 aws opensearch switchover-replication \
   --domain-name {{secondary-domain-name}} \
   --peer-domain-arn arn:aws:es:{{primary-region}}:{{account-id}}:domain/{{primary-domain-name}} \
@@ -314,7 +313,7 @@ An unplanned failover can cause data loss. Writes that the old primary domain ac
 
 The following AWS CLI command calls `FailoverReplication` in the Region of the secondary domain that you want to promote. For the peer, specify the current primary domain. Because a failover can lose data, you must include the `--allow-data-loss` option:
 
-```
+```bash
 aws opensearch failover-replication \
   --domain-name {{secondary-domain-name}} \
   --peer-domain-arn arn:aws:es:{{primary-region}}:{{account-id}}:domain/{{primary-domain-name}} \

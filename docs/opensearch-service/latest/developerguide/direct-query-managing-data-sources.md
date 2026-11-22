@@ -1,7 +1,6 @@
 
 
 # Managing a data source in Amazon OpenSearch Service
-<a name="direct-query-managing-data-sources"></a>
 
 Managing your data source is an important part of maintaining the reliability, availability, and performance of direct query data sources and your other AWS solutions. AWS provides the following tools to monitor, report when something is wrong, and take automatic actions when appropriate.
 

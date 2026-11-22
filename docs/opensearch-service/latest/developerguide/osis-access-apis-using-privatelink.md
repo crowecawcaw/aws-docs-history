@@ -1,7 +1,6 @@
 
 
 # Amazon OpenSearch Ingestion and interface endpoints API (AWS PrivateLink)
-<a name="osis-access-apis-using-privatelink"></a>
 
 You can establish a private connection between your VPC and OpenSearch Ingestion API endpoints by creating an *interface VPC endpoint*. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink). 
 
@@ -54,7 +53,7 @@ For more information, see [Controlling access to services with VPC endpoints](ht
 **Example: VPC endpoint policy for OpenSearch Ingestion API actions**  
 The following is an example of an endpoint policy for OpenSearch Ingestion API. When attached to an endpoint, this policy grants access to the listed OpenSearch Ingestion API actions for all principals on all resources.
 
-```
+```json
 {
    "Statement":[
       {
@@ -74,7 +73,7 @@ The following is an example of an endpoint policy for OpenSearch Ingestion API. 
 **Example: VPC endpoint policy that denies all access from a specified AWS account**  
 The following VPC endpoint policy denies AWS account `123456789012` all access to resources using the endpoint. The policy allows all actions from other accounts.
 
-```
+```json
 {
   "Statement": [
     {

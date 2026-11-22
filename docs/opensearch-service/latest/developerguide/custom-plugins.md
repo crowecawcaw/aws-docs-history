@@ -1,7 +1,6 @@
 
 
 # Managing custom plugins in Amazon OpenSearch Service
-<a name="custom-plugins"></a>
 
 Using custom plugins for OpenSearch Service, you can extend OpenSearch functionality in areas like language analysis, custom filtering, ranking and more, making it possible for you to craft personalized search experiences. Custom plugins for OpenSearch can be developed by extending the `org.opensearch.plugins.Plugin` class and then packaging it in a `.zip` file. 
 
@@ -63,7 +62,7 @@ Before you install a custom plugin and associate it to a domain, make sure you m
     See also [opensearch-https-required](https://docs.aws.amazon.com/config/latest/developerguide/opensearch-https-required.html) in the *AWS Config Developer Guide*.
   + Clients must support **Policy-Min-TLS-1-2-PFS-2023-10**. You can specify this support using the following command. Replace the {{placeholder value}} with your own information:
 
-    ```
+    ```sh
     aws opensearch update-domain-config \
         --domain-name {{domain-name}} \
         --domain-endpoint-options '{"TLSSecurityPolicy":"Policy-Min-TLS-1-2-PFS-2023-10" }'
@@ -139,7 +138,7 @@ You can optionally secure a custom plugin when you create the plugin by specifyi
 
    Replace the {{placeholder values}} with your own information:
 
-   ```
+   ```sh
    aws opensearch create-package \
        --package-name {{package-name}} \
        --region {{region}} \
@@ -150,7 +149,7 @@ You can optionally secure a custom plugin when you create the plugin by specifyi
 
 1. (Optional) View the status of the `create-package` operation, including any validation and security vulnerability findings, by using the [describe-packages](https://docs.aws.amazon.com/cli/latest/reference/es/describe-packages.html) command. Replace the {{placeholder values}} with your own information:
 
-   ```
+   ```sh
    aws opensearch describe-packages \
        --region {{region}}  \
        --filters '[{"Name": "PackageType","Value": ["ZIP-PLUGIN"]}, {"Name": "PackageName","Value": ["{{package-name}}"]}]'
@@ -186,7 +185,7 @@ If you have multiple plugins, you can instead use the [associate-packages](https
 
    Replace the {{placeholder values}} with your own information:
 
-   ```
+   ```sh
    aws opensearch associate-package \
        --domain-name {{domain-name}} \
        --region {{region}} \
@@ -199,7 +198,7 @@ The plugin is installed and uninstalled using a [blue/green deployment process](
 
    Replace the {{placeholder values}} with your own information.
 
-   ```
+   ```sh
    aws opensearch list-packages-for-domain \
        --region {{region}} \
        --domain-name {{domain-name}}
@@ -216,7 +215,7 @@ You can optionally secure a custom plugin when you update the plugin by specifyi
 **To update a custom plugin using the AWS CLI**
 + Run the following command. Replace the {{placeholder values}} with your own information.
 
-  ```
+  ```sh
   aws opensearch update-package \
       --region {{region}} \
       --package-id {{package-id}} \
@@ -236,7 +235,7 @@ You can secure a custom plugin when you create or update the plugin by specifyin
 
 **Example: Create a custom plugin with AWS KMS key security**
 
-```
+```sh
 aws opensearch create-package \
     --region us-east-2  --package-name my-custom-package \
     --package-type ZIP-PLUGIN \
@@ -253,7 +252,7 @@ aws opensearch create-package \
 
 **Example: Update a custom plugin with AWS KMS key security**
 
-```
+```sh
 aws opensearch update-package \
     --region us-east-2  --package-name my-custom-package \
     --package-type ZIP-PLUGIN \
@@ -304,7 +303,7 @@ You can also use [dissociate-packages](https://docs.aws.amazon.com/cli/latest/re
 
 1. Run the following command to uninstall the plugin. Replace the {{placeholder values}} with your own information.
 
-   ```
+   ```sh
    aws opensearch dissociate-package \
        --region {{region}} \
        --package-id {{plugin-package-id}} \

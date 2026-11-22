@@ -1,7 +1,6 @@
 
 
 # Configure Workflows on Amazon OpenSearch Serverless
-<a name="serverless-configure-workflows"></a>
 
 ## Workflows
 <a name="serverless-configure-workflows-what-is"></a>
@@ -9,7 +8,7 @@
 Workflows support builders in innovating AI applications on OpenSearch. The current process of using machine learning (ML) offerings in OpenSearch, such as Semantic Search, requires complex setup and pre-processing tasks, along with verbose user queries, both of which can be time-consuming and error-prone. Workflows are a simplification framework to chain multiple API calls for OpenSearch.
 
 For setup and usage, see [Automating configurations](https://docs.opensearch.org/docs/latest/automating-configurations/index/) on the *OpenSearch* website. When you use Workflows in OpenSearch Serverless, consider these important differences:
-+ OpenSearch Serverless uses only remote models in workflow steps. You don't need to deploy these models.
++ OpenSearch Serverless uses only remote models in workflow steps. Workflow steps that deploy models, such as `deploy_model`, require the `aoss:UpdateMLResource` permission.
 + OpenSearch Serverless doesn't support the **Re-index** Workflow step.
 + When you search **Workflows** and **Workflow states** after other API calls, expect up to 15 seconds of latency for updates to appear.
 
@@ -23,7 +22,7 @@ Before you create and provision a template, verify that you have the required pe
 **Example : Workflows policy**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -49,4 +48,4 @@ Before you create and provision a template, verify that you have the required pe
 ```
 + **aoss:\*CollectionItems** – Grants permission to create and manage templates, and provision [search and ingest pipelines](serverless-configure-neural-search.md).
 + **aoss:\*Index** – Grants permission to create and delete indices using OpenSearch API operations.
-+ **aoss:\*MLResource** – Grants permission to provision workflow steps that use the [Configure Machine Learning](serverless-configure-machine-learning.md).
++ **aoss:\*MLResource** – Grants permission to provision workflow steps that use [machine learning resources](serverless-configure-machine-learning.md). Add these permissions to a data access policy rule with the `model` resource type, and grant them on `model/{{collection_name}}/*`.

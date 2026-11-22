@@ -1,7 +1,6 @@
 
 
 # Configuring a multi-AZ domain in Amazon OpenSearch Service
-<a name="managedomains-multiaz"></a>
 
 To prevent data loss and minimize Amazon OpenSearch Service cluster downtime in the event of a service disruption, you can distribute nodes across two or three *Availability Zones* in the same Region, a configuration known as Multi-AZ. Availability Zones are isolated locations within each AWS Region.
 

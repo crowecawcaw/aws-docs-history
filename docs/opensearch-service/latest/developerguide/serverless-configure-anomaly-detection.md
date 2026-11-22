@@ -1,7 +1,6 @@
 
 
 # Configuring anomaly detection on Amazon OpenSearch Serverless
-<a name="serverless-configure-anomaly-detection"></a>
 
 Anomaly detection automatically detects anomalies in your OpenSearch data in near real time by using the Random Cut Forest (RCF) algorithm. RCF is an unsupervised machine learning algorithm that models a sketch of your incoming data stream. For each incoming data point, RCF computes an `anomaly grade` and a `confidence score`. For a conceptual overview of anomaly detection, see [Anomaly detection](https://docs.opensearch.org/latest/observing-your-data/ad/index/) on the OpenSearch website.
 
@@ -32,7 +31,7 @@ For more information about collection types, see [Choosing a collection type](se
 
 Detectors run as background jobs against your collection. The following collection data access policy grants the permissions that anomaly detection requires. Replace the {{placeholder values}} with your specific information. The ARN partition depends on the AWS Region. Standard AWS Regions use `aws`, and China Regions use `aws-cn`. For more information, see [Supported policy permissions](serverless-data-access.md#serverless-data-supported-permissions).
 
-```
+```JSON
 {
     "Rules": [
         {
@@ -85,7 +84,7 @@ Detectors on serverless collections must write their results to a *custom result
 
 Specify the custom result index in the `resultIndex` field when you create a detector. The index name must begin with `opensearch-ad-plugin-result-`.
 
-```
+```JSON
 "resultIndex": "opensearch-ad-plugin-result-{{my-detector}}"
 ```
 
@@ -184,7 +183,7 @@ You must stop a detector before you update or delete it. Anomaly results and tas
 ### Example: Create a detector
 <a name="serverless-ad-api-create"></a>
 
-```
+```curl
 awscurl --service opensearch --region {{us-west-2}} \
   -X POST \
   'https://{{application_endpoint}}/w/{{workspace_id}}/api/anomaly_detectors/detectors/{{data_source_id}}' \
@@ -215,7 +214,7 @@ awscurl --service opensearch --region {{us-west-2}} \
 
 The response returns the detector ID in the `id` field.
 
-```
+```JSON
 {"ok": true, "response": {"id": "2d67c887-9420-4078-8b2c-fb5ce4830487", "name": "deny-anomalies"}}
 ```
 
@@ -229,7 +228,7 @@ Note the following serverless-specific requirements:
 
 Send the start request without a body to begin real-time detection. The detector evaluates new data at each detection interval.
 
-```
+```curl
 awscurl --service opensearch --region {{us-west-2}} \
   -X POST \
   'https://{{application_endpoint}}/w/{{workspace_id}}/api/anomaly_detectors/detectors/{{detector_id}}/start/{{data_source_id}}' \
@@ -238,13 +237,13 @@ awscurl --service opensearch --region {{us-west-2}} \
   -H "osd-version: 3.6.0"
 ```
 
-```
+```JSON
 {"ok": true, "response": {"_id": "2d67c887-9420-4078-8b2c-fb5ce4830487"}}
 ```
 
 To run a historical analysis over a past time range instead, include `startTime` and `endTime` in the request body, as epoch milliseconds. The response returns the ID of the historical analysis task.
 
-```
+```curl
 awscurl --service opensearch --region {{us-west-2}} \
   -X POST \
   'https://{{application_endpoint}}/w/{{workspace_id}}/api/anomaly_detectors/detectors/{{detector_id}}/start/{{data_source_id}}' \
@@ -254,13 +253,13 @@ awscurl --service opensearch --region {{us-west-2}} \
   -d '{"startTime": 1778363544000, "endTime": 1781041944000}'
 ```
 
-```
+```JSON
 {"ok": true, "response": {"_id": "e3d68a89-d50f-4d9f-8284-21865795f886"}}
 ```
 
 To stop real-time detection, send a stop request with {{is\_historical}} set to `false`. Use `true` to stop a historical analysis.
 
-```
+```curl
 awscurl --service opensearch --region {{us-west-2}} \
   -X POST \
   'https://{{application_endpoint}}/w/{{workspace_id}}/api/anomaly_detectors/detectors/{{detector_id}}/stop/false/{{data_source_id}}' \
@@ -274,7 +273,7 @@ awscurl --service opensearch --region {{us-west-2}} \
 
 Profiling returns the runtime state of a detector, such as whether it's initializing or running and how far model initialization has progressed.
 
-```
+```curl
 awscurl --service opensearch --region {{us-west-2}} \
   -X GET \
   'https://{{application_endpoint}}/w/{{workspace_id}}/api/anomaly_detectors/detectors/{{detector_id}}/_profile/{{data_source_id}}' \
@@ -283,13 +282,13 @@ awscurl --service opensearch --region {{us-west-2}} \
   -H "osd-version: 3.6.0"
 ```
 
-```
+```JSON
 {"ok": true, "response": {"state": "RUNNING", "error": "", "init_progress": {"percentage": "100%"}}}
 ```
 
 Use the `type` query parameter to request specific profile types as a comma-separated list. The following example requests entity counts for a high cardinality detector.
 
-```
+```curl
 awscurl --service opensearch --region {{us-west-2}} \
   -X GET \
   'https://{{application_endpoint}}/w/{{workspace_id}}/api/anomaly_detectors/detectors/{{detector_id}}/_profile/{{data_source_id}}?type=total_entities,active_entities' \
@@ -298,7 +297,7 @@ awscurl --service opensearch --region {{us-west-2}} \
   -H "osd-version: 3.6.0"
 ```
 
-```
+```JSON
 {"ok": true, "response": {"total_entities": 10000, "active_entities": 28721}}
 ```
 
@@ -307,7 +306,7 @@ awscurl --service opensearch --region {{us-west-2}} \
 
 The list operation returns the detectors in the workspace along with their anomaly counts, which is the view that the OpenSearch UI detector list uses.
 
-```
+```curl
 awscurl --service opensearch --region {{us-west-2}} \
   -X GET \
   'https://{{application_endpoint}}/w/{{workspace_id}}/api/anomaly_detectors/detectors/_list?dataSourceId={{data_source_id}}' \
@@ -318,7 +317,7 @@ awscurl --service opensearch --region {{us-west-2}} \
 
 The search operation runs a query against the detector configurations.
 
-```
+```curl
 awscurl --service opensearch --region {{us-west-2}} \
   -X POST \
   'https://{{application_endpoint}}/w/{{workspace_id}}/api/anomaly_detectors/detectors/_search?dataSourceId={{data_source_id}}' \
@@ -330,7 +329,7 @@ awscurl --service opensearch --region {{us-west-2}} \
 
 The following example shows a truncated search response.
 
-```
+```JSON
 {
   "ok": true,
   "response": {
@@ -367,7 +366,7 @@ The following example shows a truncated search response.
 
 The count operation returns the number of detectors in the workspace. Use it to check your usage against the detector quota.
 
-```
+```curl
 awscurl --service opensearch --region {{us-west-2}} \
   -X GET \
   'https://{{application_endpoint}}/w/{{workspace_id}}/api/anomaly_detectors/detectors/_count/{{data_source_id}}' \
@@ -376,7 +375,7 @@ awscurl --service opensearch --region {{us-west-2}} \
   -H "osd-version: 3.6.0"
 ```
 
-```
+```JSON
 {"ok": true, "response": {"count": 303}}
 ```
 
@@ -385,7 +384,7 @@ awscurl --service opensearch --region {{us-west-2}} \
 
 The following example queries the anomaly results that the detector wrote to its custom result index.
 
-```
+```curl
 awscurl --service opensearch --region {{us-west-2}} \
   -X POST \
   'https://{{application_endpoint}}/w/{{workspace_id}}/api/anomaly_detectors/detectors/results/_search/{{data_source_id}}' \
@@ -408,7 +407,7 @@ awscurl --service opensearch --region {{us-west-2}} \
 
 Detector tasks track individual real-time and historical runs. Task documents include the task state, progress, execution times, and the detector configuration that the task ran with.
 
-```
+```curl
 awscurl --service opensearch --region {{us-west-2}} \
   -X POST \
   'https://{{application_endpoint}}/w/{{workspace_id}}/api/anomaly_detectors/detectors/tasks/_search/{{data_source_id}}' \
@@ -420,7 +419,7 @@ awscurl --service opensearch --region {{us-west-2}} \
 
 The following example shows a truncated response.
 
-```
+```JSON
 {
   "ok": true,
   "response": {
@@ -459,7 +458,7 @@ The following example shows a truncated response.
 
 Preview runs a detector configuration over a past time range and returns sample anomaly results without creating the detector. The preview request body uses camelCase field names, and it nests the detector configuration under a `detector` field.
 
-```
+```curl
 awscurl --service opensearch --region {{us-west-2}} \
   -X POST \
   'https://{{application_endpoint}}/w/{{workspace_id}}/api/anomaly_detectors/detectors/preview/{{data_source_id}}' \
@@ -494,7 +493,7 @@ awscurl --service opensearch --region {{us-west-2}} \
 ### Example: Get anomaly detection statistics
 <a name="serverless-ad-api-stats"></a>
 
-```
+```curl
 awscurl --service opensearch --region {{us-west-2}} \
   -X GET \
   'https://{{application_endpoint}}/w/{{workspace_id}}/api/anomaly_detectors/stats/ad_execute_request_count,ad_execute_failure_count,anomaly_results_index_status,anomaly_detectors_index_status,models_checkpoint_index_status/{{data_source_id}}' \
@@ -503,7 +502,7 @@ awscurl --service opensearch --region {{us-west-2}} \
   -H "osd-version: 3.6.0"
 ```
 
-```
+```JSON
 {
   "ok": true,
   "response": {
@@ -525,7 +524,7 @@ awscurl --service opensearch --region {{us-west-2}} \
 
 Stop the detector before you delete it. Deleting a detector doesn't delete its custom result index or the results in it.
 
-```
+```curl
 awscurl --service opensearch --region {{us-west-2}} \
   -X DELETE \
   'https://{{application_endpoint}}/w/{{workspace_id}}/api/anomaly_detectors/detectors/{{detector_id}}/{{data_source_id}}' \

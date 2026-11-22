@@ -1,7 +1,6 @@
 
 
 # Logging OpenSearch Serverless API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon OpenSearch Serverless is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Serverless. 
 
@@ -56,7 +55,7 @@ In the following example:
 
 **Example**  
 
-```
+```json
  {
       "eventVersion": "1.11",
       "userIdentity": {
@@ -122,7 +121,7 @@ An event represents a single request from any source. It includes information ab
 
 The following example displays a CloudTrail log entry that demonstrates the `CreateCollection` action.
 
-```
+```json
 {
    "eventVersion":"1.08",
    "userIdentity":{

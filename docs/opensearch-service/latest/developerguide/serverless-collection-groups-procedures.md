@@ -1,7 +1,6 @@
 
 
 # Create collection groups
-<a name="serverless-collection-groups-procedures"></a>
 
 This topic describes how to create, configure, and manage collection groups in Amazon OpenSearch Serverless. Use collection groups to organize collections and share compute resources to optimize costs. Set minimum and maximum OCU limits at the collection group level to control performance and spending.
 

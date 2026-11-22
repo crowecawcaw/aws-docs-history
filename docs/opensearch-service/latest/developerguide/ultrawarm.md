@@ -1,7 +1,6 @@
 
 
 # UltraWarm storage for Amazon OpenSearch Service
-<a name="ultrawarm"></a>
 
 UltraWarm provides a cost-effective way to store large amounts of read-only data on Amazon OpenSearch Service. Standard data nodes use "hot" storage, which takes the form of instance stores or Amazon EBS volumes attached to each node. Hot storage provides the fastest possible performance for indexing and searching new data.
 
@@ -116,7 +115,7 @@ Domains support a maximum number of warm nodes. For details, see [Amazon OpenSea
 
 The following AWS CLI command creates a domain with three data nodes, three dedicated master nodes, six warm nodes, and fine-grained access control enabled:
 
-```
+```bash
 aws opensearch create-domain \
   --domain-name {{my-domain}} \
   --engine-version Opensearch_1.0 \
@@ -137,7 +136,7 @@ For detailed information, see the [AWS CLI Command Reference](https://docs.aws.a
 
 The following request to the configuration API creates a domain with three data nodes, three dedicated master nodes, and six warm nodes with fine-grained access control enabled and a restrictive access policy:
 
-```
+```json
 POST https://es.us-east-2.amazonaws.com/2021-01-01/opensearch/domain
 {
   "ClusterConfig": {
@@ -196,7 +195,7 @@ POST _ultrawarm/migration/{{my-index}}/_warm
 
 Then check the status of the migration:
 
-```
+```json
 GET _ultrawarm/migration/{{my-index}}/_status
 
 {
@@ -247,7 +246,7 @@ As these states indicate, migrations might fail during snapshots, shard relocati
 
 After a migration finishes, the same `_status` request returns an error. If you check the index at that time, you can see some settings that are unique to warm indexes:
 
-```
+```json
 GET {{my-index}}/_settings
 
 {
@@ -292,7 +291,7 @@ GET {{my-index}}/_settings
 
 Indexes in warm storage are read-only unless you [return them to hot storage](#ultrawarm-migrating-back), which makes UltraWarm best-suited to immutable data, such as logs. You can query the indexes and delete them, but you can't add, update, or delete individual documents. If you try, you might encounter the following error:
 
-```
+```json
 {
   "error" : {
     "root_cause" : [
@@ -320,7 +319,7 @@ Index migrations to UltraWarm storage require a force merge. Each OpenSearch ind
 
 You can change this value up to 1,000 segments using the `index.ultrawarm.migration.force_merge.max_num_segments` setting. Higher values speed up the migration process, but increase query latency for the warm index after the migration finishes. To change the setting, make the following request:
 
-```
+```json
 PUT {{my-index}}/_settings
 {
   "index": {
@@ -389,7 +388,7 @@ When you restore a snapshot from `cs-ultrawarm`, it restores to warm storage, no
 
 1. Identify the latest snapshot that contains the index you want to restore:
 
-   ```
+   ```json
    GET _snapshot/cs-ultrawarm/_all?verbose=false
    
    {
@@ -415,7 +414,7 @@ By default, the `GET _snapshot/<repo>` operation displays verbose data informati
 
 1. Restore the snapshot:
 
-   ```
+   ```json
    POST _snapshot/cs-ultrawarm/{{snapshot-name}}/_restore
    ```
 

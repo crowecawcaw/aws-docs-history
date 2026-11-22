@@ -1,7 +1,6 @@
 
 
 # Cross-cluster replication for Amazon OpenSearch Service
-<a name="replication"></a>
 
 With cross-cluster replication in Amazon OpenSearch Service, you can replicate user indexes, mappings, and metadata from one OpenSearch Service domain to another. Using cross-cluster replication helps to ensure disaster recovery if there is an outage, and allows you to replicate data across geographically distant data centers to reduce latency. You pay [standard AWS data transfer charges](https://aws.amazon.com/opensearch-service/pricing/) for the data transferred between domains. 
 
@@ -65,7 +64,7 @@ In order to start replication, you must include the `es:ESCrossClusterGet` permi
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Resolving data source health and access errors in OpenSearch UI
-<a name="application-troubleshooting-data-sources"></a>
 
 Each data source that you associate with an OpenSearch UI application reports a health status.
 
@@ -27,7 +26,7 @@ When `update-application` reports that the domain does not exist, check the foll
 
 Confirm which principal you are using with `aws sts get-caller-identity`, and confirm that it has the following permissions.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -46,7 +45,7 @@ Confirm which principal you are using with `aws sts get-caller-identity`, and co
 
 Then review the access policy of the domain:
 
-```
+```sh
 aws opensearch describe-domain-config \
     --domain-name {{domain-name}} \
     --query 'DomainConfig.AccessPolicies' \
@@ -55,7 +54,7 @@ aws opensearch describe-domain-config \
 
 The access policy of the domain must allow the OpenSearch UI service principal.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -90,7 +89,7 @@ Serverless collections use `aoss` rather than `es`, and they use the collection 
 
 If a connection remains pending, no one has accepted it yet. List the pending connections and accept the one that you expect:
 
-```
+```sh
 aws opensearch describe-inbound-connections \
     --filters '[{"Name":"connection-status","Values":["PENDING_ACCEPTANCE"]}]' \
     --region {{region}}
@@ -102,7 +101,7 @@ aws opensearch accept-inbound-connection \
 
 If a cross-account domain reports that it is unavailable, confirm that the cross-cluster connection is active, that the access policy of the remote domain includes the source account, and, for VPC domains, that VPC endpoint access is authorized for the OpenSearch UI service principal:
 
-```
+```sh
 aws opensearch authorize-vpc-endpoint-access \
     --domain-name {{domain-name}} \
     --service application.opensearchservice.amazonaws.com \
@@ -130,7 +129,7 @@ If a collection does not appear in the data source list, confirm that it exists 
 
 A collection that reports access denied requires both a network policy, which allows the service to connect, and a data access policy, which allows the service to read data. The network policy must list the OpenSearch UI service in `SourceServices`:
 
-```
+```json
 [{
     "Rules": [{
         "ResourceType": "collection",

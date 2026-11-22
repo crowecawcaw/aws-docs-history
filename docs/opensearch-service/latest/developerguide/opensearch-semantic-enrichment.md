@@ -1,7 +1,6 @@
 
 
 # Automatic semantic enrichment for Amazon OpenSearch Service
-<a name="opensearch-semantic-enrichment"></a>
 
 ## Introduction
 <a name="semantic-enrichment-intro"></a>
@@ -43,7 +42,7 @@ Console experience - The AWS console allows you to easily create an index with a
 
 API experience - To create an automatic semantic enrichment index using the AWS Command Line Interface (AWS CLI), use the create-index command: 
 
-```
+```json
 aws opensearch create-index \
 --domain-name [domain_name] \
 --index-name [index_name] \
@@ -52,7 +51,7 @@ aws opensearch create-index \
 
  In the following example index-schema, the *title\_semantic *field has a field type set to *text* and has parameter *semantic\_enrichment *set to status *ENABLED*. Setting the *semantic\_enrichment* parameter enables automatic semantic enrichment on the *title\_semantic* field. You can use the *language\_options* field to specify either *english* or *MULTI-LINGUAL*. 
 
-```
+```json
     aws opensearch create-index \
     --id XXXXXXXXX \
     --index-name 'product-catalog' \
@@ -79,7 +78,7 @@ aws opensearch create-index \
 
 To describe the created index, use the following command:
 
-```
+```json
 aws opensearch get-index \
 --domain-name [domain_name] \
 --index-name [index_name] \
@@ -95,7 +94,7 @@ Index `settings` cannot be updated. If you include a `settings` block in the req
 
 To update an index using the AWS CLI, use the `update-index` command:
 
-```
+```json
 aws opensearch update-index \
 --domain-name [domain_name] \
 --index-name [index_name] \
@@ -110,7 +109,7 @@ You can add a new `text` field with semantic enrichment enabled to an existing i
 **Important**  
 Existing documents are not backfilled. To populate the semantic enrichment field on existing documents, you must re-ingest them after the update. Until re-ingested, existing documents will not benefit from semantic search on the new field.
 
-```
+```json
 aws opensearch update-index \
 --domain-name my-domain \
 --index-name product-catalog \
@@ -134,7 +133,7 @@ aws opensearch update-index \
 
 To disable semantic enrichment on a field that currently has it enabled, set `status` to `DISABLED`. The field is removed from the ingest and search pipelines. The underlying text field and its embedding field remain in the index but are no longer enriched.
 
-```
+```json
 aws opensearch update-index \
 --domain-name my-domain \
 --index-name product-catalog \
@@ -189,7 +188,7 @@ For VPC access domains, Amazon OpenSearch Service uses a managed service to prov
 
 Grant access with the `AuthorizeVpcEndpointAccess` API, specifying `features.opensearchservice.amazonaws.com` as the service principal:
 
-```
+```sh
 aws opensearch authorize-vpc-endpoint-access \
   --domain-name {{domain-name}} \
   --service "features.opensearchservice.amazonaws.com" \
@@ -198,7 +197,7 @@ aws opensearch authorize-vpc-endpoint-access \
 
 A successful call returns:
 
-```
+```json
 {
     "AuthorizedPrincipal": {
         "PrincipalType": "AWS Service",
@@ -290,7 +289,7 @@ To delete an index with automatic semantic enrichment, you need the following IA
 
 The following sample identity-based access policy provides the permissions necessary for a user to manage indexes with automatic semantic enrichment:
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [

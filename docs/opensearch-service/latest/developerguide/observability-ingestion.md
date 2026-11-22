@@ -1,7 +1,6 @@
 
 
 # Ingesting application telemetry
-<a name="observability-ingestion"></a>
 
 To use observability features in Amazon OpenSearch Service, you need to ingest application traces, logs, and metrics. This page covers configuring the OpenTelemetry Collector and OpenSearch Ingestion pipelines to process and route telemetry data to OpenSearch and Amazon Managed Service for Prometheus.
 

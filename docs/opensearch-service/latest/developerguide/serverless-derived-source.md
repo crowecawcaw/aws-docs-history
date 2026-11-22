@@ -1,7 +1,6 @@
 
 
 # Save Storage by Using Derived Source
-<a name="serverless-derived-source"></a>
 
 By default, OpenSearch Serverless stores each ingested document in the `_source` field, which contains the original JSON document body, and indexes individual fields for search. While the `_source` field is not searchable, it is retained so that the full document can be returned when executing fetch requests, such as get and search. When derived source is enabled, OpenSearch Serverless skips storing the `_source` field and instead reconstructs it dynamically on demand — for example, during search, get, mget, reindex, or update operations. Using the derived source setting can reduce storage usage by up to 50%.
 
@@ -10,7 +9,7 @@ By default, OpenSearch Serverless stores each ingested document in the `_source`
 
 To configure derived source for your index, create the index using the `index.derived_source.enabled` setting:
 
-```
+```json
 PUT my-index1
 {
   "settings": {

@@ -1,7 +1,6 @@
 
 
 # Configuring alerting for Amazon OpenSearch Serverless
-<a name="serverless-configure-alerting"></a>
 
 Alerting automatically monitors your OpenSearch data on a defined schedule and notifies you when trigger conditions are met. A monitor is a job that runs a query against your data, evaluates trigger conditions, and generates alerts. When a trigger fires, the monitor runs actions that send notifications through configured channels. For a conceptual overview of monitors, triggers, and actions, see [Alerting](https://docs.opensearch.org/latest/observing-your-data/alerting/index/) on the OpenSearch website.
 
@@ -33,7 +32,7 @@ For more information about collection types, see [Choosing a collection type](se
 
 Monitors run as background jobs against your collection. The following collection data access policy grants the permissions that alerting requires. Replace the {{placeholder values}} with your specific information. For more information, see [Supported policy permissions](serverless-data-access.md#serverless-data-supported-permissions).
 
-```
+```JSON
 {
     "Rules": [
         {
@@ -226,7 +225,7 @@ awscurl --service opensearch --region us-west-2 \
 
 The response returns the monitor ID in the `id` field.
 
-```
+```JSON
 {"ok": true, "response": {"id": "a3f8c214-7b62-4e91-9d05-1c3b6f4e8a92", "name": "error-spike-monitor"}}
 ```
 
@@ -248,7 +247,7 @@ awscurl --service opensearch --region us-west-2 \
   -H "osd-version: 3.6.0"
 ```
 
-```
+```JSON
 {
   "ok": true,
   "response": {
@@ -285,7 +284,7 @@ awscurl --service opensearch --region us-west-2 \
   -d '{"query": {"match_all": {}}, "size": 1}'
 ```
 
-```
+```JSON
 {
   "ok": true,
   "response": {
@@ -316,7 +315,7 @@ awscurl --service opensearch --region us-west-2 \
   -H "osd-version: 3.6.0"
 ```
 
-```
+```JSON
 {
   "ok": true,
   "response": {
@@ -350,7 +349,7 @@ awscurl --service opensearch --region us-west-2 \
   -d '{"alerts": ["d7e5b324-1f93-4a2d-bc89-6e4f1d2c3a56"]}'
 ```
 
-```
+```JSON
 {"ok": true, "response": {"success": ["d7e5b324-1f93-4a2d-bc89-6e4f1d2c3a56"], "failed": []}}
 ```
 
@@ -368,6 +367,6 @@ awscurl --service opensearch --region us-west-2 \
   -H "osd-version: 3.6.0"
 ```
 
-```
+```JSON
 {"ok": true, "response": {}}
 ```

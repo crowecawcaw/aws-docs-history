@@ -1,7 +1,6 @@
 
 
 # Choosing an authentication method for OpenSearch UI
-<a name="application-auth-choose"></a>
 
 Every OpenSearch UI application authenticates its users through AWS Identity and Access Management (IAM), so you control who reaches the interface with IAM policies. With OpenSearch UI, you can choose from more than one authentication method on top of that foundation. The right choice depends on the size of your team, the identity provider you already use, and how your users access the application.
 

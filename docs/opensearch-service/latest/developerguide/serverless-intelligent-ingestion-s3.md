@@ -1,7 +1,6 @@
 
 
 # Ingesting from Amazon S3
-<a name="serverless-intelligent-ingestion-s3"></a>
 
 Intelligent ingestion reads structured data and unstructured documents from Amazon Simple Storage Service (Amazon S3), processes their content, and indexes the results in your Amazon OpenSearch Serverless (OpenSearch Serverless) NextGen collection. This topic explains how intelligent ingestion works with Amazon S3 and the content that it processes.
 
@@ -91,7 +90,7 @@ Automatic semantic enrichment requires additional permissions beyond the ingesti
 
 The following AWS CLI command creates an index with semantic enrichment enabled on the `text` field. Replace the {{placeholder values}} with your own information:
 
-```
+```sh
 aws opensearchserverless create-index \
     --id {{collection-id}} \
     --index-name {{my-index}} \
@@ -131,7 +130,7 @@ Intelligent ingestion also sets the document routing value (`_routing`) based on
 
 The following example shows an indexed document that intelligent ingestion created from a PDF document. The `text_embedding` field is truncated for readability:
 
-```
+```json
 {
   "_index": "my-index",
   "_id": "04f19ce9-66d3-314f-9b4c-2ab3dfe00b3c",
@@ -167,7 +166,7 @@ An ingestion job doesn't use a separate ingestion role. The identity that create
 
 Grant the IAM identity that creates and manages ingestion jobs the following permissions policy. The policy allows the identity to call the ingestion job APIs on the collection, access the collection's data plane, and read the source Amazon S3 bucket. Replace the {{placeholder values}} with your own information:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -217,7 +216,7 @@ This permissions policy includes the following placeholders:
 
 In addition to the IAM permissions, the caller identity must be listed as a principal in a data access policy on the collection. The policy must allow the identity to create and write to the target index. The following data access policy rules grant the minimum index permissions that an ingestion job requires. Replace the {{placeholder values}} with your own information:
 
-```
+```json
 [
   {
     "Rules": [
@@ -262,7 +261,7 @@ The new job appears on the **Ingestion** tab and starts processing immediately.
 
 Alternatively, the following AWS CLI command creates the ingestion job. Specify the source bucket by its ARN, and optionally a key prefix that limits the objects to scan. Replace the {{placeholder values}} with your own information:
 
-```
+```sh
 aws opensearchserverless create-ingestion-job \
     --collection-id {{collection-id}} \
     --ingestion-job-name {{my-ingestion-job}} \
@@ -282,7 +281,7 @@ This command includes the following placeholders:
 
 The job starts immediately and runs until it processes the matching objects. Depending on the number and size of the objects, the job can take several minutes or longer to complete. To monitor its progress, run the following AWS CLI command with the `ingestionJobId` value from the create response. The job status changes to `COMPLETED` when processing finishes:
 
-```
+```sh
 aws opensearchserverless get-ingestion-job \
     --collection-id {{collection-id}} \
     --ingestion-job-id {{ingestion-job-id}} \
@@ -303,7 +302,7 @@ Unlike an ingestion job, an ingestion stream uses a dedicated IAM ingestion role
 
 The ingestion role must trust the intelligent ingestion service so the service can assume it. Attach the following trust policy to the ingestion role. The `aws:SourceArn` condition provides confused-deputy protection by limiting the role to ingestion streams in your collection. Replace the {{placeholder values}} with your own information:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -328,7 +327,7 @@ This trust policy includes the following placeholders:
 
 Grant the ingestion role the following permissions policy. The policy allows the role to receive and delete messages from the Amazon SQS queue, read the source Amazon S3 bucket, and access the collection's data plane. Replace the {{placeholder values}} with your own information:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -374,7 +373,7 @@ This permissions policy includes the following additional placeholders:
 
 Grant the IAM identity that creates and manages ingestion streams the following permissions policy. The policy allows the identity to call the ingestion stream APIs on the collection and to pass the ingestion role to the service. Replace the {{placeholder values}} with your own information:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -412,7 +411,7 @@ This permissions policy includes the following placeholders:
 
 The ingestion role must also be listed as a principal in a data access policy on the collection. Because the service assumes the ingestion role to write documents, grant the index permissions to the ingestion role, not to the caller identity. The following data access policy rules grant the minimum index permissions that an ingestion stream requires. Replace the {{placeholder values}} with your own information:
 
-```
+```json
 [
   {
     "Rules": [
@@ -457,7 +456,7 @@ The new stream appears on the **Ingestion** tab with a status of **Active**.
 
 Alternatively, the following AWS CLI command creates the ingestion stream. Specify the Amazon SQS queue that receives the Amazon S3 event notifications and the ingestion role that the service assumes. Replace the {{placeholder values}} with your own information:
 
-```
+```sh
 aws opensearchserverless create-ingestion-stream \
     --collection-id {{collection-id}} \
     --ingestion-stream-name {{my-ingestion-stream}} \
@@ -478,7 +477,7 @@ This command includes the following placeholders:
 
 The stream becomes active and processes new objects as their event notifications arrive on the queue. To monitor the stream, run the following AWS CLI command with the `ingestionStreamId` value from the create response. The response includes the stream status and the count of objects discovered, ingested, and failed:
 
-```
+```sh
 aws opensearchserverless get-ingestion-stream \
     --collection-id {{collection-id}} \
     --ingestion-stream-id {{ingestion-stream-id}} \
@@ -492,7 +491,7 @@ An ingestion stream continues to run until you delete it. Ingestion jobs don't r
 
 To delete an ingestion stream from the console, open the collection, and then on the **Ingestion** tab, select the stream and delete it. Alternatively, the following AWS CLI command deletes the ingestion stream. Replace the {{placeholder values}} with your own information:
 
-```
+```sh
 aws opensearchserverless delete-ingestion-stream \
     --collection-id {{collection-id}} \
     --ingestion-stream-id {{ingestion-stream-id}} \

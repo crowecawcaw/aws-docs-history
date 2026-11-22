@@ -1,7 +1,6 @@
 
 
 # Setting up Amazon OpenSearch Service
-<a name="setting-up"></a>
 
 ## Grant permissions
 <a name="setting-up-iam"></a>
@@ -24,7 +23,7 @@ If you want to use OpenSearch Service APIs, you must install the latest version 
 
 1. To verify the setup, enter the following DataBrew command at the command prompt.
 
-   ```
+   ```bash
    aws opensearch help
    ```
 
@@ -32,7 +31,7 @@ If you want to use OpenSearch Service APIs, you must install the latest version 
 
    To set your AWS Region with a profile, first add a named profile in the `~/.aws/config` file or the `%UserProfile%/.aws/config` file (for Microsoft Windows). Follow the steps in [Named profiles for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html). Next, set your AWS Region and other settings with a command similar to the one in the following example.
 
-   ```
+   ```bash
    [profile opensearch]
    aws_access_key_id = ACCESS-KEY-ID-OF-IAM-USER
    aws_secret_access_key = SECRET-ACCESS-KEY-ID-OF-IAM-USER

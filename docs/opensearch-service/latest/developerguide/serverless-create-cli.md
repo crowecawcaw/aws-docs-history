@@ -1,7 +1,6 @@
 
 
 # Create a collection (CLI)
-<a name="serverless-create-cli"></a>
 
 Use the procedures in this section to create an OpenSearch Serverless collection using the AWS CLI. 
 
@@ -88,7 +87,7 @@ Use the following procedure to create a new OpenSearch Serverless collection wit
 
 Run the following command to create the collection and an index.
 
-```
+```json
 &aws opensearchserverless create-index \
 --region {{Region ID}} \
 --id {{collection name}} --index-name {{index name}} \
@@ -98,7 +97,7 @@ Run the following command to create the collection and an index.
 
 Here's an example.
 
-```
+```json
 &aws opensearchserverless create-index \
 --region us-east-1 \
 --id conversation_history --index-name conversation_history_index \

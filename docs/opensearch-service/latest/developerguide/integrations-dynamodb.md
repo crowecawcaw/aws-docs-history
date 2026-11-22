@@ -1,7 +1,6 @@
 
 
 # Loading streaming data from Amazon DynamoDB
-<a name="integrations-dynamodb"></a>
 
 You can use AWS Lambda to send data to your OpenSearch Service domain from Amazon DynamoDB. New data that arrives in the database table triggers an event notification to Lambda, which then runs your custom code to perform the indexing.
 
@@ -19,7 +18,7 @@ Before proceeding, you must have the following resources.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -44,7 +43,7 @@ Before proceeding, you must have the following resources.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -64,7 +63,7 @@ Before proceeding, you must have the following resources.
 
 Follow the instructions in [Create the Lambda deployment package](integrations-s3-lambda.md#integrations-s3-lambda-deployment-package), but create a directory named `ddb-to-opensearch` and use the following code for `sample.py`:
 
-```
+```python
 import boto3
 import requests
 from requests_aws4auth import AWS4Auth

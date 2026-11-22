@@ -1,7 +1,6 @@
 
 
 # Backing up collections using snapshots
-<a name="serverless-snapshots"></a>
 
 Snapshots are point-in-time backups of your Amazon OpenSearch Serverless collections that provide disaster recovery capabilities. OpenSearch Serverless automatically creates and manages snapshots of your collections, ensuring business continuity and data protection. Each snapshot contains index metadata (settings and mappings for your indexes), cluster metadata (index templates and aliases), and index data (all documents and data stored in your indexes).
 
@@ -149,7 +148,7 @@ Replace `<snapshot_id>` with the actual snapshot ID retrieved from `GET /_cat/sn
 
   Example Response:
 
-  ```
+  ```json
   {
       "snapshots": [
           {

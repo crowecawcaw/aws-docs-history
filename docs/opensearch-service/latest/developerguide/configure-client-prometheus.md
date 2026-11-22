@@ -1,7 +1,6 @@
 
 
 # Using an OpenSearch Ingestion pipeline with Amazon Managed Service for Prometheus
-<a name="configure-client-prometheus"></a>
 
 You can use Amazon Managed Service for Prometheus as a destination for your OpenSearch Ingestion pipeline to store metrics in time series format. The Prometheus sink allows you to send OpenTelemetry metrics or other time series data from your pipeline to an Amazon Managed Service for Prometheus workspace for monitoring, alerting, and analysis.
 
@@ -33,7 +32,7 @@ The Prometheus sink automatically inherits the [pipeline role's](pipeline-securi
 
 The following sample policy shows the required permissions for using Amazon Managed Service for Prometheus as a sink:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -58,7 +57,7 @@ You must attach these permissions to your pipeline role.
 
 Ensure your pipeline role has a trust relationship that allows OpenSearch Ingestion to assume it:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -83,7 +82,7 @@ After you've set up your permissions, you can configure an OpenSearch Ingestion 
 
 The following example shows a minimal Prometheus sink configuration:
 
-```
+```yaml
 version: "2"
 sink:
   - prometheus:
@@ -115,7 +114,7 @@ Use the following options to configure batching and flushing behavior for the Pr
 
 This pipeline receives OpenTelemetry metrics from an external agent and writes them to Amazon Managed Service for Prometheus:
 
-```
+```yaml
 version: "2"
 source:
   otel_metrics_source:
@@ -133,7 +132,7 @@ sink:
 
 This pipeline routes metrics to both OpenSearch and Amazon Managed Service for Prometheus:
 
-```
+```yaml
 version: "2"
 source:
   otel_metrics_source:
@@ -159,7 +158,7 @@ sink:
 
 This pipeline filters metrics before sending to Amazon Managed Service for Prometheus:
 
-```
+```yaml
 version: "2"
 source:
   otel_metrics_source:
@@ -205,7 +204,7 @@ You can use a preconfigured Amazon Managed Service for Prometheus blueprint to c
 
 Create a pipeline configuration file (for example, `amp-pipeline.yaml`) with your desired configuration, then run:
 
-```
+```bash
 aws osis create-pipeline \
   --pipeline-name my-amp-pipeline \
   --min-units 2 \
@@ -216,7 +215,7 @@ aws osis create-pipeline \
 #### Using AWS CloudFormation
 <a name="prometheus-cfn"></a>
 
-```
+```yaml
 Resources:
   MyAMPPipeline:
     Type: AWS::OSIS::Pipeline

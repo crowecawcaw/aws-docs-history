@@ -1,7 +1,6 @@
 
 
 # Cross-cluster search in Amazon OpenSearch Service
-<a name="cross-cluster-search"></a>
 
 Cross-cluster search in Amazon OpenSearch Service lets you perform queries and aggregations across multiple connected domains. It often makes more sense to use multiple smaller domains instead of a single large domain, especially when you're running different types of workloads.
 
@@ -111,7 +110,7 @@ You can't delete a domain with active cross-cluster connections. To delete a dom
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -142,7 +141,7 @@ If you include remote indexes in the path, you must URL-encode the URI in the do
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -179,7 +178,7 @@ If you include remote indexes in the path, you must URL-encode the URI in the do
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -206,7 +205,7 @@ If you include remote indexes in the path, you must URL-encode the URI in the do
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -245,7 +244,7 @@ All cross-cluster search requests between domains are encrypted in transit by de
 1. We recommend [Postman](https://www.postman.com/) for testing requests:
    + On the destination domain, index a document:
 
-     ```
+     ```json
      POST https://dst-domain.us-east-1.es.amazonaws.com/books/_doc/1
      
      {
@@ -254,7 +253,7 @@ All cross-cluster search requests between domains are encrypted in transit by de
      ```
    + To query this index from the source domain, include the connection alias of the destination domain within the query.
 
-     ```
+     ```json
      GET https://src-domain.us-east-1.es.amazonaws.com/<connection_alias>:books/_search
      
      {
@@ -276,7 +275,7 @@ All cross-cluster search requests between domains are encrypted in transit by de
      You can find the connection alias on the **Connections** tab on your domain dashboard.
    + If you set up a connection between `domain-a -> domain-b` with connection alias `cluster_b` and `domain-a -> domain-c` with connection alias `cluster_c`, search `domain-a`, `domain-b`, and `domain-c` as follows:
 
-     ```
+     ```json
      GET https://src-domain.us-east-1.es.amazonaws.com/local_index,cluster_b:b_index,cluster_c:c_index/_search
      {
        "query": {
@@ -289,7 +288,7 @@ All cross-cluster search requests between domains are encrypted in transit by de
 
      **Response**
 
-     ```
+     ```json
      {
        "took": 150,
        "timed_out": false,

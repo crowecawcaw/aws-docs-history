@@ -1,7 +1,6 @@
 
 
 # Starting an Amazon OpenSearch Ingestion pipeline
-<a name="pipeline--start"></a>
 
 You always start an OpenSearch Ingestion pipeline beginning with a pipeline that's already in the stopped state. The pipeline keeps its configuration settings such as capacity limits, network settings, and log publishing options.
 

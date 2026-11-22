@@ -1,7 +1,6 @@
 
 
 # Search documents in Amazon OpenSearch Service
-<a name="gsgsearch"></a>
 
 To search documents in an Amazon OpenSearch Service domain, use the OpenSearch search API. Alternatively, you can use [OpenSearch Dashboards](dashboards.md) to search documents in the domain.
 
@@ -18,7 +17,7 @@ If you used the bulk data on the previous page, try searching for *rebel* instea
 
 You should see a response similar to the following:
 
-```
+```json
 {
   "took" : 5,
   "timed_out" : false,

@@ -1,7 +1,6 @@
 
 
 # Logging Amazon OpenSearch Ingestion API calls using AWS CloudTrail
-<a name="osis-logging-using-cloudtrail"></a>
 
 Amazon OpenSearch Ingestion is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in OpenSearch Ingestion. 
 
@@ -44,7 +43,7 @@ An event represents a single request from any source. It includes information ab
 
 The following example shows a CloudTrail log entry that demonstrates the `DeletePipeline` action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

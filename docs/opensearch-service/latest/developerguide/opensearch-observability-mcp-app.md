@@ -1,7 +1,6 @@
 
 
 # Agentic Observability with MCP Apps
-<a name="opensearch-observability-mcp-app"></a>
 
 OpenSearch provides an agentic observability experience with MCP Apps that brings observability workflows into your agentic IDE, with MCP App rendered visualizations that you can verify. This experience augments the webpage-based observability experience on OpenSearch UI (logs, traces, metrics, alerts). Your AI agent can investigate incidents with data stored in OpenSearch domains and collections. With MCP Apps, each MCP tool call returns both a text summary for the agent to reason over and an interactive visualization for you to verify in the same conversation thread.
 
@@ -91,7 +90,7 @@ Alternatively, if opening the mcpb file does not work, you can use the server.js
 
 The following example shows a configuration for the MCP server.
 
-```
+```json
 {
   "mcpServers": {
     "opensearch-observability-stack-mcp": {
@@ -132,7 +131,7 @@ After you configure the MCP server, verify the connection by entering a question
 
 (Optional) To verify the signature of the downloaded artifact, import the [public signing key](https://d373kuglijqwic.cloudfront.net/opensearch-mcp-signing-public.asc) and run the following commands.
 
-```
+```bash
 # 1. Import the public signing key (one-time)
 curl -s https://d373kuglijqwic.cloudfront.net/opensearch-mcp-signing-public.asc | gpg --import
 

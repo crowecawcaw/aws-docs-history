@@ -1,7 +1,6 @@
 
 
 # Datasets
-<a name="observability-datasets"></a>
 
 Datasets are collections of indexes that represent a logical grouping of your observability data. You use datasets to organize logs and traces data so that you can query and analyze related indexes together in the Discover experience. Each dataset maps to one or more indexes in your OpenSearch Service domain and defines the data type, time field, and query language for the Discover page.
 

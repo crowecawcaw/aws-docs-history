@@ -1,7 +1,6 @@
 
 
 # Agentic search in Amazon OpenSearch Service
-<a name="agentic-search"></a>
 
 Starting with OpenSearch version 3.3, agentic search enables an AI-powered process that uses an autonomous agent to execute complex searches on your behalf.
 

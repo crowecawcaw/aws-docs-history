@@ -1,7 +1,6 @@
 
 
 # Setting up roles and users in Amazon OpenSearch Ingestion
-<a name="pipeline-security-overview"></a>
 
 Amazon OpenSearch Ingestion uses a variety of permissions models and IAM roles in order to allow source applications to write to pipelines, and to allow pipelines to write to sinks. Before you can start ingesting data, you need to create one or more IAM roles with specific permissions based on your use case.
 
@@ -98,7 +97,7 @@ Attach a separate permissions policy to the pipeline role that provides DLQ acce
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -131,7 +130,7 @@ For push-based sources, data is sent or pushed to the ingestion pipeline from an
 
 The following IAM access policy demonstrates how to grant this permission to the ingestion role:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -166,7 +165,7 @@ You might need to ingest data into a pipeline from a different AWS account, such
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{

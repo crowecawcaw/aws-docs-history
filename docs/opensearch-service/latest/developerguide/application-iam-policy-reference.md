@@ -1,7 +1,6 @@
 
 
 # IAM policy reference for OpenSearch UI
-<a name="application-iam-policy-reference"></a>
 
 The permissions that OpenSearch UI requires fall into two groups: base permissions, which every application requires regardless of authentication method, and permissions that are required only when the application uses AWS IAM Identity Center.
 
@@ -71,7 +70,7 @@ Add the following permissions, on top of the base permissions, when the applicat
 
 The following IAM policy grants a user access to an OpenSearch UI application. Replace the placeholder values with your own information:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -91,7 +90,7 @@ To scope the policy to a single application, replace the wildcard with the appli
 
 The following IAM policy covers creating and managing applications with AWS IAM Identity Center. Replace the placeholder values with your own information, and scope the resources as narrowly as your use case allows:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

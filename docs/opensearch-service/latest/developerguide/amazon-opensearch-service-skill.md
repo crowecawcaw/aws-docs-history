@@ -1,7 +1,6 @@
 
 
 # amazon-opensearch-service skill
-<a name="amazon-opensearch-service-skill"></a>
 
 `amazon-opensearch-service` is a skill in the Agent Toolkit for AWS that brings Amazon OpenSearch Service expertise directly into your AI coding agent. A skill is a curated package of instructions, scripts, and reference material that helps an agent complete a task correctly – encapsulating domain knowledge and best practices the model would not otherwise have. The agent loads the skill only when your request is about OpenSearch, so it adds capability without slowing the agent down on unrelated work.
 

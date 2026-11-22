@@ -1,7 +1,6 @@
 
 
 # Troubleshooting OpenSearch Dashboards
-<a name="dashboards-troubleshooting"></a>
 
 This section describes known issues that can cause OpenSearch Dashboards to become unavailable, fail to load, or behave unexpectedly. Each issue includes the actions you can take to resolve it yourself. Dashboards runs on the hot data nodes in your domain and stores its state (index patterns, visualizations, and dashboards) in the OpenSearch Dashboards index. As a result, most Dashboards availability issues trace back to cluster health, storage, an OpenSearch Dashboards index migration, a cluster or Dashboards setting, resource limits, or the domain's service software version.
 

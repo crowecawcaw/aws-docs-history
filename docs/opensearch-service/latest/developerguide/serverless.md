@@ -1,7 +1,6 @@
 
 
 # Amazon OpenSearch Serverless
-<a name="serverless"></a>
 
 Amazon OpenSearch Serverless is an on-demand, auto-scaling configuration for Amazon OpenSearch Service. Unlike provisioned OpenSearch domains, which require manual capacity management, an OpenSearch Serverless collection automatically scales compute resources based on your application's needs.
 

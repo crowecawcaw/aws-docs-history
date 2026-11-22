@@ -1,7 +1,6 @@
 
 
 # Creating ML connectors in OpenSearch Service
-<a name="ml-create"></a>
 
 Amazon OpenSearch Service flow framework templates allow you to configure and install ML connectors by utilizing the create connector API offered in ml-commons. You can use ML connectors to connect OpenSearch Service to other AWS services or third party platforms. For more information on this, see [Creating connectors for third-party ML platforms](https://opensearch.org/docs/2.13/ml-commons-plugin/remote-models/connectors/). The Amazon OpenSearch Service flow framework API allows you to automate OpenSearch Service setup and preprocessing tasks and can be used to create ML connectors. 
 
@@ -18,7 +17,7 @@ For more information on how to setup ML connectors for AWS services, see [Amazon
 
 To create a flow-framework template with connector, you will need to send a `POST` request to your OpenSearch Service domain endpoint. You can use cURL, a sample Python client, Postman, or another method to send a signed request. The `POST` request takes the following format:
 
-```
+```JSON
 POST /_plugins/_flow_framework/workflow 
 {
   "name": "Deploy Claude Model",

@@ -1,7 +1,6 @@
 
 
 # Loading streaming data from Amazon Data Firehose
-<a name="integrations-fh"></a>
 
 Firehose supports OpenSearch Service as a delivery destination. For instructions about how to load streaming data into OpenSearch Service, see [Creating a Kinesis Data Firehose Delivery Stream](https://docs.aws.amazon.com/firehose/latest/dev/basic-create.html) and [Choose OpenSearch Service for Your Destination](https://docs.aws.amazon.com/firehose/latest/dev/create-destination.html#create-destination-elasticsearch) in the *Amazon Data Firehose Developer Guide*.
 

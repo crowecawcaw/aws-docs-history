@@ -1,7 +1,6 @@
 
 
 # Unsupported Machine Learning APIs and features
-<a name="serverless-machine-learning-unsupported-features"></a>
 
 ## Unsupported APIs
 <a name="serverless-unsupported-ml-api"></a>
@@ -9,14 +8,14 @@
 The following Machine Learning (ML) APIs are not supported on Amazon OpenSearch Serverless:
 + Local Model functionality
 + Model Train API
-+ Model Predict algorithm API
++ Predict API with an algorithm path (`POST /_plugins/_ml/_predict/{{algorithm}}/{{model_id}}`). To pass `text_docs` to a remote text embedding model, use the model Predict API with `?algorithm=text_embedding` instead. For more information, see [Run predictions](serverless-configure-machine-learning.md#serverless-configure-machine-learning-predict).
 + Model Batch Predict API
 + Agents API
 + MCP Server APIs
 + Memory APIs
 + Controller APIs
 + Execute Algorithm API
-+ ML Profile AP
++ ML Profile API
 + ML stats API
 
 For more information about ML APIs, see [ML APIs](https://docs.opensearch.org/latest/ml-commons-plugin/api/index/) on the *OpenSearch Documentation* website.

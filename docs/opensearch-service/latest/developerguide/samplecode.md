@@ -1,7 +1,6 @@
 
 
 # Sample code for Amazon OpenSearch Service
-<a name="samplecode"></a>
 
 This chapter contains common sample code for working with Amazon OpenSearch Service: HTTP request signing in a variety of programming languages, compressing HTTP request bodies, and using the AWS SDKs to create domains.
 

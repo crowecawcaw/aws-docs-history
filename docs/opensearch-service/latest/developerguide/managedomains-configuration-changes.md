@@ -1,7 +1,6 @@
 
 
 # Making configuration changes in Amazon OpenSearch Service
-<a name="managedomains-configuration-changes"></a>
 
 Amazon OpenSearch Service uses a *blue/green* deployment process when updating domains. A blue/green deployment creates an idle environment for domain updates that copies the production environment, and routes users to the new environment after those updates are complete. In a blue/green deployment, the blue environment is the current production environment. The green environment is the idle environment. 
 
@@ -67,6 +66,9 @@ In *most* cases, the following operations do not cause blue/green deployments:
 Prior to March 10, 2026, in-place volume increases were supported only for volumes up to 3 TiB for gp3. On March 10, 2026, this limitation was removed, allowing in-place volume increases beyond 3 TiB. However, if your cluster had a volume size above 3 TiB before this limitation was removed, the first volume increase will require a blue/green deployment. All subsequent volume increases for that cluster will be performed as in-place updates and will not require a blue/green deployment.
 + Increasing the EBS volume size
 + Adding or removing tags
+
+**Note**  
+Although each of the preceding operations usually doesn't cause a blue/green deployment individually, combining two or more changes in a single update can trigger one. To check how your changes will be applied before you update your domain, perform a dry run. For more information, see [Determining whether a change will cause a blue/green deployment](#dryrun).
 
 **Note**  
 There are some exceptions depending on your service software version. If you want to be sure that a change won't cause a blue/green deployment, [perform a dry run](#dryrun) before updating your domain, if this option is available. Some changes don't offer a dry run option. We generally recommend that you make changes to your cluster outside of peak traffic hours.
@@ -259,7 +261,7 @@ To run a dry run analysis without a validation check, set `DryRunMode` to `Basic
 
 The following Python code uses the [UpdateDomainConfig](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateDomainConfig.html) API to perform a dry run validation check and, if the check succeeds, calls the same API without a dry run to start the update. If the check fails, the script prints out the error and stops.
 
-```
+```python
 import time
 import boto3
 
@@ -352,7 +354,7 @@ POST https://es.{{us-east-1}}.amazonaws.com/2021-01-01/opensearch/domain/{{my-do
 
 Set the `AcceptedWarnings` property on your domain resource to accept warnings directly in your template. Include the code of each warning you want to accept. As with the API, this property applies only to the update it's included in and isn't persisted on the domain.
 
-```
+```yaml
 Resources:
   MyDomain:
     Type: AWS::OpenSearchService::Domain
@@ -476,7 +478,7 @@ During blue/green deployment your Amazon OpenSearch Service cluster is available
 ## Charges for configuration changes
 <a name="managedomains-config-charges"></a>
 
-If you change the configuration for a domain, OpenSearch Service creates a new cluster as described in [Making configuration changes in Amazon OpenSearch Service](#managedomains-configuration-changes). During the migration of old to new, you incur the following charges:
+If you change the configuration for a domain, OpenSearch Service creates a new cluster as described in [Making configuration changes in Amazon OpenSearch Service](managedomains-configuration-changes.md). During the migration of old to new, you incur the following charges:
 + If you change the instance type, you're charged for both clusters for the first hour. After the first hour, you're only charged for the new cluster. EBS volumes aren't charged twice because they're part of your cluster, so their billing follows instance billing.
 
   **Example**: You change the configuration from three `m3.xlarge` instances to four `m4.large` instances. For the first hour, you're charged for both clusters (3 \* `m3.xlarge` \+ 4 \* `m4.large`). After the first hour, you're charged only for the new cluster (4 \* `m4.large`).

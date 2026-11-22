@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon Managed Service for Prometheus data source
-<a name="direct-query-prometheus-creating"></a>
 
 To create an Amazon Managed Service for Prometheus data source, you need an active workspace and an IAM role that grants OpenSearch Service the necessary permissions to query your metrics.
 
@@ -94,7 +93,7 @@ In the following sample policy, replace the {{placeholder}} text with your own i
 **Sample IAM policy**  
 Attach the following permissions to your IAM role to allow OpenSearch Service to fetch metric metadata and execute queries:
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -139,7 +138,7 @@ Attach the following permissions to your IAM role to allow OpenSearch Service to
 **Sample trust policy**  
 Attach the following trust policy to your IAM role:
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [

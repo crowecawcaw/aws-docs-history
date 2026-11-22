@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon Cognito authentication for OpenSearch Dashboards
-<a name="cognito-auth"></a>
 
 You can authenticate and protect your Amazon OpenSearch Service default installation of OpenSearch Dashboards using [Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html). Amazon Cognito authentication is optional and available only for domains using OpenSearch or Elasticsearch 5.1 or later. If you don't configure Amazon Cognito authentication, you can still protect Dashboards using an [IP-based access policy](ac.md#ac-types-ip) and a [proxy server](dashboards.md#dashboards-proxy), HTTP basic authentication, or [SAML](saml.md).
 
@@ -87,7 +86,7 @@ If you use the AWS CLI or one of the AWS SDKs, you must create your own role, at
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -124,7 +123,7 @@ Because it creates the `CognitoAccessForAmazonOpenSearch` role for you, the cons
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -161,7 +160,7 @@ If `CognitoAccessForAmazonOpenSearch` already exists, you need fewer permissions
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -254,7 +253,7 @@ For the `Principal`, specify the ARN of the Cognito authenticated role that you 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -367,7 +366,7 @@ The following tables list common configuration issues and solutions.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -402,7 +401,7 @@ The following tables list common configuration issues and solutions.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{

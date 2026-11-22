@@ -1,7 +1,6 @@
 
 
 # Using an OpenSearch Ingestion pipeline with OpenTelemetry Collector
-<a name="configure-client-otel"></a>
 
 You can use the [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) to ingest logs, traces, and metrics into OpenSearch Ingestion pipelines. A single pipeline can be used to ingest all logs, traces, and metrics to different indices on a domain or collection. You can also use pipelines to ingest only logs, traces, or metrics individually. 
 
@@ -22,7 +21,7 @@ While setting up the [OpenTelemetry configuration file](https://opentelemetry.io
 + The service value must be `osis`.
 + The compression option for the OTLP/HTTP Exporter must match the compression option on the pipeline's selected source.
 
-```
+```YAML
 extensions:
     sigv4auth:
         region: "region"
@@ -57,7 +56,7 @@ service:
 
 OTLP source pipeline configuration:
 
-```
+```YAML
 version: 2
 otlp-pipeline:
     source:
@@ -76,7 +75,7 @@ otlp-pipeline:
 
 OpenTelemetry Logs pipeline configuration:
 
-```
+```YAML
 version: 2
 otel-logs-pipeline:
   source:
@@ -93,7 +92,7 @@ otel-logs-pipeline:
 
 OpenTelemetry Metrics pipeline configuration:
 
-```
+```YAML
 version: 2
 otel-metrics-pipeline:
   source:
@@ -110,7 +109,7 @@ otel-metrics-pipeline:
 
 OpenTelemetry Traces pipeline configuration:
 
-```
+```YAML
 version: 2
 otel-trace-pipeline:
   source:

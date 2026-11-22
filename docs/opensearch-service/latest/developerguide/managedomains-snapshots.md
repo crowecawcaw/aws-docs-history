@@ -1,7 +1,6 @@
 
 
 # Creating index snapshots in Amazon OpenSearch Service
-<a name="managedomains-snapshots"></a>
 
 Snapshots in Amazon OpenSearch Service are backups of a cluster's indexes and state. *State* includes cluster settings, node information, index settings, and shard allocation.
 
@@ -33,7 +32,7 @@ To create snapshots manually, you need to work with IAM and Amazon S3. Make sure
 
 To delete a manual snapshot, run the following command:
 
-```
+```json
 DELETE _snapshot/{{repository-name}}/{{snapshot-name}}
 ```
 

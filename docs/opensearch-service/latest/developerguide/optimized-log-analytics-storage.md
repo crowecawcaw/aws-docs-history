@@ -1,7 +1,6 @@
 
 
 # Storage behavior
-<a name="optimized-log-analytics-storage"></a>
 
 The Optimized engine stores data in two structures, each optimized for its purpose.
 

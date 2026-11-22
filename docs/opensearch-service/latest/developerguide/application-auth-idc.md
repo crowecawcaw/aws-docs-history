@@ -1,7 +1,6 @@
 
 
 # AWS IAM Identity Center authentication for OpenSearch UI
-<a name="application-auth-idc"></a>
 
 With AWS IAM Identity Center, your team gets a browser-based single sign-on experience. Your users sign in with their AWS IAM Identity Center credentials instead of generating presigned URLs.
 
@@ -20,7 +19,7 @@ If your organization instance of AWS IAM Identity Center uses a customer managed
 
 To check whether your instance uses a customer managed key, open the AWS IAM Identity Center console, choose **Settings**, choose the **Management** tab, and review **Key for encrypting IAM Identity Center data at rest**. If it shows a customer managed key ARN rather than an AWS owned key, add the following statements to the key policy in the management account where AWS IAM Identity Center is enabled. Replace {{organization-id}} with your AWS Organizations organization ID, in the format `o-xxxxxxxxxx`.
 
-```
+```json
 {
     "Sid": "Allow_AWS_app_admins_in_the_same_AWS_organization_to_use_the_KMS_key",
     "Effect": "Allow",
@@ -88,7 +87,7 @@ AWS IAM Identity Center assumes an IAM role when users access your OpenSearch UI
 
 Use the following permissions policy. Replace the placeholder values with your own information.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -103,7 +102,7 @@ Use the following permissions policy. Replace the placeholder values with your o
 
 Use the following trust policy, which allows AWS IAM Identity Center to assume the role:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -120,7 +119,7 @@ Use the following trust policy, which allows AWS IAM Identity Center to assume t
 
 To create the role and attach the permissions policy with the AWS CLI, run the following commands:
 
-```
+```sh
 aws iam create-role \
     --role-name OpenSearchUI-IDC-Role \
     --assume-role-policy-document '{
@@ -176,7 +175,7 @@ Continue in the same form to turn on single sign-on and finish creating the appl
 
 To create the same application with the AWS CLI, run the following command. Replace the placeholder values with your own information.
 
-```
+```sh
 aws opensearch create-application \
     --name "{{application-name}}" \
     --iam-identity-center-options '{
@@ -241,7 +240,7 @@ You need three identifiers before you manage assignments.
 
 The following commands find a user by their user name, and a group by its display name. Replace the {{placeholder values}} with your own information:
 
-```
+```sh
 aws identitystore list-users \
     --identity-store-id {{identity-store-id}} \
     --filters '[{"AttributePath":"UserName","AttributeValue":"{{user-name}}"}]' \
@@ -257,7 +256,7 @@ aws identitystore list-groups \
 
 The following commands assign a user or a group to the application, and review or remove assignments. For a group, set `--principal-type` to `GROUP` and use the group ID that you found earlier as the principal ID:
 
-```
+```sh
 aws sso-admin create-application-assignment \
     --application-arn {{identity-center-application-arn}} \
     --principal-id {{principal-id}} \
@@ -279,7 +278,7 @@ If a user or group does not exist in your identity store yet, create it with `aw
 
 The following Python code example looks up a user by user name and assigns that user to the application with the AWS SDK for Python (Boto3):
 
-```
+```python
 import boto3
 
 region = "{{region}}"

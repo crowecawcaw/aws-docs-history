@@ -1,7 +1,6 @@
 
 
 # Tutorial: Listening for Amazon OpenSearch Service EventBridge events
-<a name="listening-events"></a>
 
 In this tutorial, you set up a simple AWS Lambda function that listens for Amazon OpenSearch Service events and writes them to a CloudWatch Logs log stream.
 
@@ -29,7 +28,7 @@ In this procedure, you create a simple Lambda function to serve as a target for 
 
 1. In the **Function code** section, edit the sample code to match the following example:
 
-   ```
+   ```python
    import json
    
    def lambda_handler(event, context):

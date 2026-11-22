@@ -1,7 +1,6 @@
 
 
 # Machine learning for Amazon OpenSearch Service
-<a name="ml"></a>
 
 ML Commons is an OpenSearch plugin that provides a set of common machine learning (ML) algorithms through transport and REST API calls. Those calls choose the right nodes and resources for each ML request and monitors ML tasks to ensure uptime. This allows you to leverage existing open-source ML algorithms and reduce the effort required to develop new ML features. For more about the plugin, see [Machine learning](https://opensearch.org/docs/latest/ml-commons-plugin/index/) in the OpenSearch documentation. This chapter covers how to use the plugin with Amazon OpenSearch Service.
 

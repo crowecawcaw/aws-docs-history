@@ -1,7 +1,6 @@
 
 
 # Tutorial: Visualizing customer support calls with OpenSearch Service and OpenSearch Dashboards
-<a name="walkthrough"></a>
 
 This chapter is a full walkthrough of the following situation: a business receives some number of customer support calls and wants to analyze them. What is the subject of each call? How many were positive? How many were negative? How can managers search or review the the transcripts of these calls?
 
@@ -66,7 +65,7 @@ These commands use the `us-west-2` Region, but you can use any Region that Amazo
 
 1. Copy and paste the following Python 3 sample code into a new file named `call-center.py`:
 
-   ```
+   ```python
    import boto3
    import datetime
    import json
@@ -194,7 +193,7 @@ These commands use the `us-west-2` Region, but you can use any Region that Amazo
 
 1. Install the required packages using the following commands:
 
-   ```
+   ```bash
    pip install boto3
    pip install requests
    pip install requests_aws4auth
@@ -245,7 +244,7 @@ If you don't have a bunch of call recordings handy—and who does?—you can [in
 
 1. Create a file named `bulk-helper.py`:
 
-   ```
+   ```python
    import boto3
    from opensearchpy import OpenSearch, RequestsHttpConnection
    import json
@@ -276,7 +275,7 @@ If you don't have a bunch of call recordings handy—and who does?—you can [in
 
 1. Install the required package using the following command:
 
-   ```
+   ```bash
    pip install opensearch-py
    ```
 

@@ -1,24 +1,10 @@
 
 
 # Automatic semantic enrichment for Serverless
-<a name="serverless-semantic-enrichment"></a>
 
-## Overview
-<a name="serverless-semantic-enrichment-intro"></a>
+Semantic search finds conceptually related results rather than exact keyword matches. Automatic semantic enrichment manages the machine learning (ML) model infrastructure and search engine integration for you. Automatic semantic enrichment is available for the Search, Time Series, and Vector search collection types.
 
-The automatic semantic enrichment feature can help improve search relevance by up to 20% over lexical search. Automatic semantic enrichment eliminates the undifferentiated heavy lifting of managing your own ML (machine learning) model infrastructure and integration with the search engine. The feature is available for all three serverless collection types: Search, Time Series, and Vector.
-
-## Semantic search concepts
-<a name="serverless-semantic-enrichment-whats-is"></a>
-
- Traditional search engines rely on word-to-word matching (referred to as lexical search) to find results for queries. Although this works well for specific queries such as television model numbers, it might not return relevant results for more abstract searches. For example, when searching for "shoes for the beach," a lexical search merely matches individual words "shoes," "beach," "for," and "the" in catalog items, potentially missing relevant products like "water-resistant sandals" or "surf footwear" that don't contain the exact search terms.
-
- Semantic search returns query results that incorporate not just keyword matching, but the intent and contextual meaning of the user's search. For example, if a user searches for "how to treat a headache," a semantic search system might return the following results: 
-+ Migraine remedies
-+ Pain management techniques
-+ Over-the-counter pain relievers 
-
-## Model details and performance benchmark
+## Model details and performance benchmarks
 <a name="serverless-semantic-enrichment-model-detail"></a>
 
  Although this feature handles the technical complexities behind the scenes without exposing the underlying model, the following model description and benchmark results help you make informed decisions about feature adoption in your critical workloads.
@@ -48,7 +34,7 @@ With the AWS console, you can create an index with automatic semantic enrichment
 
 To create an automatic semantic enrichment index using the AWS Command Line Interface (AWS CLI), use the create-index command: 
 
-```
+```json
 aws opensearchserverless create-index \
 --id [collection_id] \
 --index-name [index_name] \
@@ -57,7 +43,7 @@ aws opensearchserverless create-index \
 
  In the following example index-schema, the `title_semantic` field has a field type set to `text` and has parameter `semantic_enrichment` set to status `ENABLED`. Setting the `semantic_enrichment` parameter enables automatic semantic enrichment on the `title_semantic` field. You can use the `language_options` field to specify either `english` or `multi-lingual`. 
 
-```
+```json
     aws opensearchserverless create-index \
     --id XXXXXXXXX \
     --index-name 'product-catalog' \
@@ -84,7 +70,7 @@ aws opensearchserverless create-index \
 
 To describe the created index, use the following command:
 
-```
+```json
 aws opensearchserverless get-index \
 --id [collection_id] \
 --index-name [index_name] \
@@ -102,7 +88,7 @@ Index `settings` cannot be updated. If you include a `settings` block in the req
 
 To update an index using the AWS CLI, use the `update-index` command:
 
-```
+```json
 aws opensearchserverless update-index \
 --id [collection_id] \
 --index-name [index_name] \
@@ -117,7 +103,7 @@ You can add a new `text` field with semantic enrichment enabled to an existing i
 **Important**  
 Existing documents are not backfilled. To populate the semantic enrichment field on existing documents, you must re-ingest them after the update. Until re-ingested, existing documents will not benefit from semantic search on the new field.
 
-```
+```json
 aws opensearchserverless update-index \
 --id my-collection-id \
 --index-name product-catalog \
@@ -141,7 +127,7 @@ aws opensearchserverless update-index \
 
 To disable semantic enrichment on a field that currently has it enabled, set `status` to `DISABLED`. The field is removed from the ingest and search pipelines. The underlying text field and its embedding field remain in the index but are no longer enriched.
 
-```
+```json
 aws opensearchserverless update-index \
 --id my-collection-id \
 --index-name product-catalog \
@@ -199,7 +185,7 @@ Use the following AWS Identity and Access Management (IAM) policy to grant the n
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -234,7 +220,7 @@ To set up an index for automatic semantic enrichment, you must have appropriate 
 #### Data access permissions
 <a name="serverless-collection-data-access-permissions"></a>
 
-```
+```json
 [
     {
         "Description": "Create index permission",
@@ -364,3 +350,19 @@ Automatic semantic search is most effective when applied to small-to-medium size
 Amazon OpenSearch Service bills automatic semantic enrichment based on OpenSearch Compute Units (OCUs) consumed during sparse vector generation at indexing time. You're charged only for actual usage during indexing for the text fields where you enabled automatic semantic enrichment. One Semantic Search OCU can process 11.1 million tokens for English content. To process 2.4 billion tokens, you'd need about 216 Semantic Search OCU-hours (2.4 billion / 11.10 million). With a price of $0.24 per Semantic Search OCU-hour, the cost for processing 10 GB of data for automatic semantic search would be $51 (216 OCU-hours x $0.24/OCU-hour). There are no additional Semantic Search OCU charges during search operations or for data storage.
 
 You can monitor this consumption using the Amazon CloudWatch metric `SemanticSearchOCU`. For specific details about model token limits, volume throughput per OCU, and an example of a sample calculation, visit [OpenSearch Service Pricing](https://aws.amazon.com/opensearch-service/pricing/).
+
+## Choosing between automatic semantic enrichment and the semantic field
+<a name="serverless-semantic-enrichment-vs-semantic-field"></a>
+
+OpenSearch Serverless offers two ways to set up semantic search that generate embeddings for you: automatic semantic enrichment and the `semantic` field type. The following table compares them.
+
+
+| Category | Automatic semantic enrichment | `semantic` field | 
+| --- | --- | --- | 
+| Model | A service-managed sparse model. You don't create or manage a model. | A remote dense or sparse model that you connect to and register. | 
+| Setup | Enable semantic\_enrichment on a text field in the console, the AWS CLI, or CloudFormation. | Create a connector, register the model with a model configuration, and map a field as semantic. | 
+| Queries | Your existing match queries are rewritten automatically. | Use a neural query on the field. | 
+| Collections | Search, Time Series, and Vector search collections. | Search, Time Series, and Vector search collections with a sparse model. Vector search collections with a dense model. | 
+| Cost | Semantic Search OCUs consumed at indexing time. | Your model provider's charges for each model call at indexing and search time. | 
+
+Choose automatic semantic enrichment if you want semantic search without managing a model. Choose the `semantic` field if you want to use your own model, including a dense embedding model. For more information, see [Semantic field](serverless-configure-neural-search.md#serverless-configure-neural-search-semantic-field).

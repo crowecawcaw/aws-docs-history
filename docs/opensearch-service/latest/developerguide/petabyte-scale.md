@@ -1,7 +1,6 @@
 
 
 # Petabyte scale in Amazon OpenSearch Service
-<a name="petabyte-scale"></a>
 
 Amazon OpenSearch Service domains offer attached storage of up to 10 PB. You can configure a domain with 1000 `OR1.16xlarge.search` instance types, each with 36 TB of storage. Because of the sheer difference in scale, recommendations for domains of this size differ from [our general recommendations](bp.md). This section discusses considerations for creating domains, costs, storage, and shard size.
 

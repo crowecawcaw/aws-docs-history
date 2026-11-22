@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for Amazon OpenSearch Serverless
-<a name="security-iam-serverless"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use OpenSearch Serverless resources. IAM is an AWS service that you can use with no additional charge.
 
@@ -92,7 +91,7 @@ In addition to attribute-based access control (ABAC), OpenSearch Serverless supp
 
 You can use these condition keys even when providing permissions for access policies and security policies. For example:
 
-```
+```json
 [
    {
       "Effect":"Allow",
@@ -202,7 +201,7 @@ The following policy allows a user to access OpenSearch Serverless within the Op
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -239,7 +238,7 @@ This policy is an example of a "collection admin" policy that allows a user to m
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -278,7 +277,7 @@ This example policy allows a user to view details for all Amazon OpenSearch Serv
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -316,7 +315,7 @@ This example policy allows a user to access data plane APIs for a specified coll
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -365,7 +364,7 @@ Both `aoss:APIAccessAll` and `aoss:DashboardsAccessAll` give full IAM permission
 
 The following is an example of using `aws:SourceIp` in the condition block in your principal's IAM policy for data plane calls:
 
-```
+```json
 "Condition": {
     "IpAddress": {
          "aws:SourceIp": "203.0.113.0"
@@ -375,7 +374,7 @@ The following is an example of using `aws:SourceIp` in the condition block in yo
 
 The following is an example of using `aws:SourceVpc` in the condition block in your principal's IAM policy for data plane calls:
 
-```
+```json
 "Condition": {
     "StringEquals": {
         "aws:SourceVpc": "vpc-0fdd2445d8EXAMPLE"
@@ -389,7 +388,7 @@ Additonally, support is offered for the following OpenSearch Serverless specific
 
 The following is an example of using `aoss:collection` in the condition block in your principal's IAM policy for data plane calls:
 
-```
+```json
 "Condition": {
     "StringLike": {
          "aoss:collection": "log-*"
@@ -407,7 +406,7 @@ Identity-based policies let you use tags to control access to Amazon OpenSearch 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -434,7 +433,7 @@ The following policy is an example to deny attached principals to access data pl
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

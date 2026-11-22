@@ -1,7 +1,6 @@
 
 
 # Set up the AWS MCP Server
-<a name="aws-mcp-server"></a>
 
 The AWS MCP Server is a managed Model Context Protocol server from the Agent Toolkit for AWS. It gives your AI agent authenticated access to AWS – running AWS API calls on your behalf, executing scripts in a sandboxed environment, and serving AWS skills (including the [amazon-opensearch-service skill](amazon-opensearch-service-skill.md)) on demand. Use it to work with OpenSearch Service domains and OpenSearch Serverless collections from your agent.
 
@@ -20,14 +19,14 @@ The `aws-data-analytics` plugin bundles the AWS MCP Server configuration and the
 
 **Claude Code**
 
-```
+```bash
 /plugin install aws-data-analytics@claude-plugins-official
 /reload-plugins
 ```
 
 **Codex**
 
-```
+```bash
 codex plugin marketplace add aws/agent-toolkit-for-aws
 ```
 
@@ -51,7 +50,7 @@ Create an OpenSearch Serverless search collection named "my-collection" in us-ea
 
 The agent calls the OpenSearch Serverless `CreateCollection` API on your behalf using your configured credentials:
 
-```
+```json
 {
   "name": "my-collection",
   "type": "SEARCH",
@@ -104,7 +103,7 @@ You can integrate the AWS MCP Server into Python agent frameworks for programmat
 
 [Strands Agents](https://strandsagents.com) is an AWS-native agent SDK with built-in MCP support and Amazon Bedrock as the default model provider.
 
-```
+```python
 from strands import Agent
 from strands.tools.mcp import MCPClient
 from mcp_proxy_for_aws.client import aws_iam_streamablehttp_client
@@ -128,7 +127,7 @@ with opensearch_client:
 
 Install the required packages:
 
-```
+```bash
 pip install strands-agents mcp-proxy-for-aws
 ```
 
@@ -137,7 +136,7 @@ pip install strands-agents mcp-proxy-for-aws
 
 [LangGraph](https://github.com/langchain-ai/langgraph) is a low-level orchestration framework for building stateful agents. The following example uses `mcp-proxy-for-aws` to provide an authenticated transport and `langchain-mcp-adapters` to load the AWS MCP tools into a LangChain agent backed by Amazon Bedrock.
 
-```
+```python
 import asyncio
 from mcp import ClientSession
 from mcp_proxy_for_aws.client import aws_iam_streamablehttp_client
@@ -172,7 +171,7 @@ asyncio.run(main())
 
 Install the required packages:
 
-```
+```bash
 pip install mcp-proxy-for-aws langchain langchain-aws langchain-mcp-adapters langgraph
 ```
 

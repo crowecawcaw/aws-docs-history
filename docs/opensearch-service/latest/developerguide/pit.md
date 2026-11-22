@@ -1,7 +1,6 @@
 
 
 # Point in time search in Amazon OpenSearch Service
-<a name="pit"></a>
 
 Point in Time (PIT) is a type of search that lets you run different queries against a dataset that's fixed in time. Typically, when you run the same query on the same index at different points in time, you receive different results because documents are constantly indexed, updated, and deleted. With PIT, you can query against a constant state of your dataset.
 
@@ -24,7 +23,7 @@ Consider the following when you configure your PIT searches:
 
 To run a PIT query, send HTTP requests to `_search/point_in_time` using the following format:
 
-```
+```json
 POST {{opensearch-domain}}/{{my-index}}/_search/point_in_time?keep_alive={{5m}}
 ```
 
@@ -41,7 +40,7 @@ You can specify the following PIT options:
 
 **Sample response**
 
-```
+```json
 {
     "pit_id": "o463QQEPbXktaW5kZXgtMDAwMDAxFnNOWU43ckt3U3IyaFVpbGE1UWEtMncAFjFyeXBsRGJmVFM2RTB6eVg1aVVqQncAAAAAAAAAAAIWcDVrM3ZIX0pRNS1XejE5YXRPRFhzUQEWc05ZTjdyS3dTcjJoVWlsYTVRYS0ydwAA",
     "_shards": {
@@ -61,7 +60,7 @@ When you create a PIT, you receive a PIT ID in the response. This is the ID that
 
 PIT supports [fine-grained access control](fgac.md). If you're upgrading to an OpenSearch version 2.5 domain and need fine-grain access control, you need to manually create roles with the following permissions:
 
-```
+```yaml
 # Allows users to use all point in time search search functionality
 point_in_time_full_access:
   reserved: true

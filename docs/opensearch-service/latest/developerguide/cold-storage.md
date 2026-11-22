@@ -1,7 +1,6 @@
 
 
 # Cold storage for Amazon OpenSearch Service
-<a name="cold-storage"></a>
 
 Cold storage lets you store any amount of infrequently accessed or historical data on your Amazon OpenSearch Service domain and analyze it on demand, at a lower cost than other storage tiers. Cold storage is appropriate if you need to do periodic research or forensic analysis on your older data. Practical examples of data suitable for cold storage include infrequently accessed logs, data that must be preserved to meet compliance requirements, or logs that have historical value. 
 
@@ -99,7 +98,7 @@ You can also use the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api
 
 The following AWS CLI command creates a domain with three data nodes, three dedicated master nodes, cold storage enabled, and fine-grained access control enabled:
 
-```
+```bash
 aws opensearch create-domain \
   --domain-name {{my-domain}} \
   --engine-version Opensearch_1.0 \
@@ -119,7 +118,7 @@ For detailed information, see the [AWS CLI Command Reference](https://docs.aws.a
 
 The following request to the configuration API creates a domain with three data nodes, three dedicated master nodes, cold storage enabled, and fine-grained access control enabled:
 
-```
+```json
 POST https://es.us-east-2.amazonaws.com/2021-01-01/opensearch/domain
 {
   "ClusterConfig": {
@@ -189,7 +188,7 @@ If you don't want to specify a timestamp, add `?ignore=timestamp` to the request
 
 The following request migrates a warm index to cold storage and provides start and end times for the data in that index:
 
-```
+```json
 POST _ultrawarm/migration/{{my-index}}/_cold
   {
     "start_time": "2020-03-09",
@@ -199,7 +198,7 @@ POST _ultrawarm/migration/{{my-index}}/_cold
 
 Then check the status of the migration:
 
-```
+```json
 GET _ultrawarm/migration/{{my-index}}/_status
 
 {
@@ -235,7 +234,7 @@ An explicit `timestamp_field` is required in order to move indexes to cold stora
 
 If a migration to cold storage is queued or in a failed state, you can cancel the migration using the following request:
 
-```
+```json
 POST _ultrawarm/migration/_cancel/{{my-index}}
 
 {
@@ -250,7 +249,7 @@ If your domain uses fine-grained access control, you need the `indices:admin/ult
 
 Before querying, you can list the indexes in cold storage to decide which ones to migrate to UltraWarm for further analysis. The following request lists all cold indexes, sorted by index name:
 
-```
+```json
 GET _cold/indices/_search
 ```
 
@@ -296,7 +295,7 @@ You can filter cold indexes based on a prefix-based index pattern and time range
 
 The following request lists indexes that match the prefix pattern of `event-*`:
 
-```
+```json
 GET _cold/indices/_search
  {
    "filters":{
@@ -326,7 +325,7 @@ GET _cold/indices/_search
 
 The following request returns indexes with `start_time` and `end_time` metadata fields between `2019-03-01` and `2020-03-01`:
 
-```
+```json
 GET _cold/indices/_search
 {
   "filters": {
@@ -362,7 +361,7 @@ GET _cold/indices/_search
 
 You can sort cold indexes by metadata fields such as index name or size. The following request lists all indexes sorted by size in descending order:
 
-```
+```json
 GET _cold/indices/_search
  {
  "sort_key": "size:desc"
@@ -413,7 +412,7 @@ You can paginate a list of cold indexes. Configure the number of indexes to be r
 
 The following request paginates the results of a `_search` request of your cold indexes and displays the next 100 results:
 
-```
+```json
 GET _cold/indices/_search?page_size=100
 {
 "pagination_id": "je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY"
@@ -427,7 +426,7 @@ After you narrow down your list of cold indexes with the filtering criteria in t
 
 The following request migrates two cold indexes back to warm storage:
 
-```
+```json
 POST _cold/migration/_warm
  {
  "indices": "{{my-index1,my-index2}}"
@@ -441,13 +440,13 @@ POST _cold/migration/_warm
 
 To check the status of the migration and retrieve the migration ID, send the following request:
 
-```
+```json
 GET _cold/migration/_status
 ```
 
 **Sample response**
 
-```
+```json
 {
   "cold_to_warm_migration_status" : [
     {
@@ -463,7 +462,7 @@ GET _cold/migration/_status
 
 To get index-specific migration information, include the index name:
 
-```
+```json
 GET _cold/migration/{{my-index}}/_status
 ```
 
@@ -498,7 +497,7 @@ If you need to restore a deleted cold index, you can restore it back to the warm
 
 If an index migration from cold to warm storage is queued or in a failed state, you can cancel it with the following request:
 
-```
+```json
 POST _cold/migration/{{my-index}}/_cancel
 
 {
@@ -508,7 +507,7 @@ POST _cold/migration/{{my-index}}/_cancel
 
 To cancel migration for a batch of indexes (maximum of 10 at a time), specify the migration ID:
 
-```
+```json
 POST _cold/migration/_cancel?migration_id={{my-migration-id}}
 
 {
@@ -523,7 +522,7 @@ Retrieve the migration ID using the status request.
 
 You can update the `start_time` and `end_time` fields for a cold index:
 
-```
+```json
 PATCH _cold/{{my-index}}
  {
  "start_time": "2020-01-01",
@@ -541,7 +540,7 @@ OpenSearch Dashboards doesn't support the PATCH method. Use [curl](https://curl.
 
 If you're not using an ISM policy you can delete cold indexes manually. The following request deletes a cold index:
 
-```
+```json
 DELETE _cold/{{my-index}}
 
 {

@@ -1,7 +1,6 @@
 
 
 # Supported PPL commands
-<a name="supported-ppl"></a>
 
 The following tables show which PPL commands OpenSearch Dashboards supports for querying CloudWatch Logs, Amazon S3, or Security Lake, and which commands CloudWatch Logs Insights supports. CloudWatch Logs Insights uses the same PPL syntax as OpenSearch Dashboards when querying CloudWatch Logs, and the tables refer to both as CloudWatch Logs. 
 
@@ -168,7 +167,7 @@ These data sources might share common dimensions. To transition from one data so
 
 Example:
 
-```
+```json
 {
   "@timestamp": "2018-07-02T22:23:00.186Z",
   "aws": {
@@ -223,7 +222,7 @@ Assuming you have access to additional traces and metrics indices, and you're fa
 
 Here's an example of a trace index document containing HTTP information you might want to correlate:
 
-```
+```json
 {
   "traceId": "c1d985bd02e1dbb85b444011f19a1ecc",
   "spanId": "55a698828fe06a42",
@@ -390,7 +389,7 @@ Use the `dedup` command to remove identical documents from your search results b
 **Syntax**  
 Use the following syntax:
 
-```
+```sql
 dedup [int] <field-list> [keepempty=<bool>] [consecutive=<bool>] 
 ```
 
@@ -565,7 +564,7 @@ The `eval` command evaluates the expression and appends the result to the search
 **Syntax**  
 Use the following syntax:
 
-```
+```sql
 eval <field>=<expression> ["," <field>=<expression> ]...    
 ```
 + `field`: Mandatory. If the field name doesn't exist, a new field is added. If the field name already exists, it will be overridden.
@@ -594,7 +593,7 @@ This example shows how to override the existing age field with age plus 1.
 
 PPL query:
 
-```
+```sql
 os> source=accounts | eval age = age + 1 | fields age ;
 fetched rows / total rows = 4/4
 +-------+
@@ -648,7 +647,7 @@ Assumptions: `a`, `b`, `c` are existing fields in `table`
 **Eval with case example:**  
 
 
-```
+```sql
 source = table | eval e = eval status_category =
 case(a >= 200 AND a < 300, 'Success',
 a >= 300 AND a < 400, 'Redirection',
@@ -683,7 +682,7 @@ Assumptions: `a`, `b`, `c` are existing fields in `table`
 **Eval with case example:**  
 
 
-```
+```sql
 source = table | eval e = eval status_category =
 case(a >= 200 AND a < 300, 'Success',
 a >= 300 AND a < 400, 'Redirection',
@@ -695,7 +694,7 @@ else 'Unknown')
 **Eval with another case example:**  
 
 
-```
+```sql
 source = table |  where ispresent(a) |
 eval status_category =
  case(a >= 200 AND a < 300, 'Success',
@@ -710,7 +709,7 @@ eval status_category =
 **Limitations**
 + Overriding existing fields is unsupported. Queries attempting to do so will throw exceptions with the message "Reference 'a' is ambiguous".
 
-  ```
+  ```sql
   - `source = table | eval a = 10 | fields a,b,c`
   - `source = table | eval a = a * 2 | stats avg(a)`
   - `source = table | eval a = abs(a) | where a > 0`
@@ -1124,7 +1123,7 @@ The `explain` command helps you understand query execution plans, enabling you t
 **Complex filters**  
 
 
-```
+```sql
 source = table | eval status_category =
 case(a >= 200 AND a < 300, 'Success',
     a >= 300 AND a < 400, 'Redirection',
@@ -1139,7 +1138,7 @@ else 'Incorrect HTTP status code'
 ) = 'Incorrect HTTP status code'
 ```
 
-```
+```sql
 source = table
 | eval factor = case(a > 15, a - 14, isnull(b), a - 7, a < 3, a + 1 else 1)
 | where case(factor = 2, 'even', factor = 4, 'even', factor = 6, 'even', factor = 8, 'even' else 'odd') = 'even'
@@ -1333,7 +1332,7 @@ fetched rows / total rows = 4/4
 
 Nested-fields example:
 
-```
+```sql
 `source = catalog.schema.table1, catalog.schema.table2 | fields A.nested1, B.nested1`
 `source = catalog.table | where struct_col2.field1.subfield > 'valueA' | sort int_col | fields  int_col, struct_col.field1.subfield, struct_col2.field1.subfield`
 `source = catalog.schema.table | where struct_col2.field1.subfield > 'valueA' | sort int_col | fields  int_col, struct_col.field1.subfield, struct_col2.field1.subfield`
@@ -1459,7 +1458,7 @@ The `grok` command parses a text field with a grok pattern and appends the resul
 **Syntax**  
 Use the following syntax:
 
-```
+```sql
 grok <field> <pattern>
 ```
 
@@ -1639,7 +1638,7 @@ For each service, join span index on service map index to calculate metrics unde
 
 This sample query calculates latency when filtered by trace group `client_cancel_order` for the `order` service. 
 
-```
+```sql
 SELECT avg(durationInNanos)
 FROM `otel-v1-apm-span-000001` t1
 WHERE t1.serviceName = `order`
@@ -1660,7 +1659,7 @@ WHERE t1.serviceName = `order`
 **Migrate to PPL**  
 Syntax of the join command
 
-```
+```sql
 SEARCH source=<left-table>
 | <other piped command>
 | [joinType] JOIN
@@ -1673,7 +1672,7 @@ SEARCH source=<left-table>
 **Rewriting**  
 
 
-```
+```sql
 SEARCH source=otel-v1-apm-span-000001
 | WHERE serviceName = 'order'
 | JOIN left=t1 right=t2
@@ -1710,7 +1709,7 @@ SEARCH source=otel-v1-apm-span-000001
 **More examples**  
 Migration from SQL query (TPC-H Q13):
 
-```
+```sql
 SELECT c_count, COUNT(*) AS custdist
 FROM
   ( SELECT c_custkey, COUNT(o_orderkey) c_count
@@ -1724,7 +1723,7 @@ ORDER BY custdist DESC, c_count DESC;
 
 Rewritten by PPL join query:
 
-```
+```sql
 SEARCH source=customer
 | FIELDS c_custkey
 | LEFT OUTER JOIN
@@ -1739,7 +1738,7 @@ Limitation: sub searches are unsupported in join right side.
 
 If sub searches are supported, you can rewrite the above PPL query as follows:
 
-```
+```sql
 SEARCH source=customer
 | FIELDS c_custkey
 | LEFT OUTER JOIN
@@ -1765,7 +1764,7 @@ Use the `lookup` command to enrich your search data by adding or replacing data 
 **Syntax**  
 Use the following syntax:
 
-```
+```sql
 SEARCH source=<sourceIndex>
 | <other piped command>
 | LOOKUP <lookupIndex> (<lookupMappingField> [AS <sourceMappingField>])...
@@ -1810,14 +1809,14 @@ SEARCH source=<sourceIndex>
 **Example**  
 See the following examples.
 
-```
+```sql
 SEARCH source=<sourceIndex>
 | WHERE orderType = 'Cancelled'
 | LOOKUP account_list, mkt_id AS mkt_code REPLACE amount, account_name AS name
 | STATS count(mkt_code), avg(amount) BY name
 ```
 
-```
+```sql
 SEARCH source=<sourceIndex>
 | DEDUP market_id
 | EVAL category=replace(category, "-", ".")
@@ -1825,7 +1824,7 @@ SEARCH source=<sourceIndex>
 | LOOKUP bounce_category category AS category APPEND classification
 ```
 
-```
+```sql
 SEARCH source=<sourceIndex>
 | LOOKUP bounce_category category
 ```
@@ -1841,7 +1840,7 @@ To see which AWS data source integrations support this PPL command, see [Command
 **Syntax**  
 Use the following syntax:
 
-```
+```sql
 parse <field> <pattern>    
 ```
 
@@ -1923,21 +1922,21 @@ There are a few limitations with the parse command:
 
   `where` will not match any documents since `street` cannot be overridden:
 
-  ```
+  ```sql
   source=accounts | parse address '\d+ (?<street>.+)' | eval street='1' | where street='1' ;        
   ```
 + The text field used by parse cannot be overridden.
 
   `street` will not be successfully parsed since `address` is overridden:
 
-  ```
+  ```sql
   source=accounts | parse address '\d+ (?<street>.+)' | eval address='1' ;        
   ```
 + Fields defined by parse cannot be filtered or sorted after using them in the `stats` command.
 
   `where` in the following command will not work:
 
-  ```
+  ```sql
   source=accounts | parse email '.+@(?<host>.+)' | stats avg(age) by host | where host=pyrami.com ;        
   ```
 
@@ -2748,7 +2747,7 @@ fetched rows / total rows = 2/2
 +-------+------------+----------+
 ```
 
-```
+```sql
 - `source = table | stats avg(a) `
 - `source = table | where a < 50 | stats avg(c) `
 - `source = table | stats max(c) by b`
@@ -2763,7 +2762,7 @@ fetched rows / total rows = 2/2
 **Aggregations with span**  
 
 
-```
+```sql
 - `source = table  | stats count(a) by span(a, 10) as a_span`
 - `source = table  | stats sum(age) by span(age, 5) as age_span | head 2`
 - `source = table  | stats avg(age) by span(age, 20) as age_span, country  | sort - age_span |  head 2`
@@ -2772,7 +2771,7 @@ fetched rows / total rows = 2/2
 **Aggregations with timewindow span (tumble windowing function)**  
 
 
-```
+```sql
 - `source = table | stats sum(productsAmount) by span(transactionDate, 1d) as age_date | sort age_date`
 - `source = table | stats sum(productsAmount) by span(transactionDate, 1w) as age_date, productId`
 ```
@@ -2780,7 +2779,7 @@ fetched rows / total rows = 2/2
 **Aggregations group by multiple levels**  
 
 
-```
+```sql
 - `source = table | stats avg(age) as avg_state_age by country, state | stats avg(avg_state_age) as avg_country_age by country`
 - `source = table | stats avg(age) as avg_city_age by country, state, city | eval new_avg_city_age = avg_city_age - 1 | stats avg(new_avg_city_age) as avg_state_age by country, state | where avg_state_age > 18 | stats avg(avg_state_age) as avg_adult_country_age by country`
 ```
@@ -2793,7 +2792,7 @@ To see which AWS data source integrations support this PPL command, see [Command
 
 Use the `subquery` command to perform complex, nested queries within your Piped Processing Language (PPL) statements.
 
-```
+```sql
 source=logs | where field in [ subquery source=events | where condition | fields field ]
 ```
 
@@ -2804,7 +2803,7 @@ The subquery command supports multiple levels of nesting for complex data analys
 **Nested Subquery Example**  
 
 
-```
+```sql
 source=logs | where id in [ subquery source=users | where user in [ subquery source=actions | where action="login" | fields user] | fields uid ]  
 ```
 
@@ -2823,7 +2822,7 @@ source=logs | where id in [ subquery source=users | where user in [ subquery sou
 **SQL Migration Examples with IN-Subquery PPL**  
 TPC-H Q4 (in-subquery with aggregation)
 
-```
+```sql
 select
   o_orderpriority,
   count(*) as order_count
@@ -2847,7 +2846,7 @@ order by
 
 Rewritten by PPL InSubquery query:
 
-```
+```sql
 source = orders
 | where o_orderdate >= "1993-07-01" and o_orderdate < "1993-10-01" and o_orderkey IN
   [ source = lineitem
@@ -2861,7 +2860,7 @@ source = orders
 
 TPC-H Q20 (nested in-subquery)
 
-```
+```sql
 select
   s_name,
   s_address
@@ -2892,7 +2891,7 @@ order by
 
 Rewritten by PPL InSubquery query:
 
-```
+```sql
 source = supplier
 | where s_suppkey IN [
     source = partsupp
@@ -2979,7 +2978,7 @@ search source=* <boolean expression> | ...
 
 A subquery expression could be used in a boolean expression:
 
-```
+```sql
 | where orders.order_id in [ source=returns | where return_reason="damaged" | field order_id ]    
 ```
 
@@ -2990,7 +2989,7 @@ In general, we name this kind of subquery clause the `InSubquery` expression. It
 **Subquery with different join types**  
 Example using a `ScalarSubquery`:
 
-```
+```sql
 source=employees
 | join source=sales on employees.employee_id = sales.employee_id
 | where sales.sale_amount > [ source=targets | where target_met="true" | fields target_value ]
@@ -2998,7 +2997,7 @@ source=employees
 
 Unlike InSubquery, ExistsSubquery, and ScalarSubquery, a RelationSubquery is not a subquery expression. Instead, it's a subquery plan.
 
-```
+```sql
 SEARCH source=customer
 | FIELDS c_custkey
 | LEFT OUTER JOIN left = c, right = o ON c.c_custkey = o.o_custkey

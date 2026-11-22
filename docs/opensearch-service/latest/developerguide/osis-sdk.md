@@ -1,7 +1,6 @@
 
 
 # Using the AWS SDKs to interact with Amazon OpenSearch Ingestion
-<a name="osis-sdk"></a>
 
 This section includes an example of how to use the AWS SDKs to interact with Amazon OpenSearch Ingestion. The code example demonstrates how to create a domain and a pipeline, and then ingest data into the pipeline.
 
@@ -24,7 +23,7 @@ pip install requests-auth-aws-sigv4
 
 Within the script, replace all instances of `{{account-id}}` with your AWS account ID.
 
-```
+```python
 import boto3
 import botocore
 from botocore.config import Config

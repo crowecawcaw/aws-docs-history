@@ -1,7 +1,6 @@
 
 
 # Directly querying Amazon CloudWatch Logs data in OpenSearch Service
-<a name="direct-query-cloudwatch-logs-overview"></a>
 
 This section will walk you through the process of creating and configuring a data source integration in Amazon OpenSearch Service, enabling you to efficiently query and analyze your data stored in CloudWatch Logs.
 

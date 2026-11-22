@@ -1,7 +1,6 @@
 
 
 # Supported query languages
-<a name="optimized-log-analytics-queries"></a>
 
 The Optimized engine supports PPL (Piped Processing Language) and SQL as query languages. The Optimized engine runs both PPL and SQL natively through its vectorized execution engine. For complete syntax references, see the [OpenSearch SQL and PPL documentation](https://docs.opensearch.org/latest/sql-and-ppl/) on the OpenSearch website.
 
@@ -88,7 +87,7 @@ The `search` command covers free-text terms, phrases, string equality, and strin
 **Tip**  
 Use the `where` command instead of inline `search` filters for non-text fields. The `where` command executes through the native analytics engine for acceleration, whereas `search` filters on numeric, date, or IP fields return zero rows.  
 
-```
+```sql
 // Instead of: search source=logs Age > 50
 // Use:
 search source=logs | where Age > 50
@@ -108,7 +107,7 @@ Higher-order array functions (`transform`, `mvmap`, `reduce`, `forall`, `exists`
 
 The following PPL query combines full-text search with aggregation in a single statement to count errors by host and status:
 
-```
+```sql
 search source=logs "connection refused"
 | where status_code = 503
 | stats count() as hits by host, status_code
@@ -117,7 +116,7 @@ search source=logs "connection refused"
 
 The following query keeps predicates correlated to one nested event, so values from different events do not combine:
 
-```
+```sql
 source=otel-spans
 | where events.name = 'exception'
   and events.attributes.exception.type = 'TimeoutException'
@@ -126,7 +125,7 @@ source=otel-spans
 
 The following query uses `expand` to produce one row per element in a nested event list:
 
-```
+```sql
 source=otel-spans
 | expand events
 | fields span_id, events.time, events.name
@@ -135,7 +134,7 @@ source=otel-spans
 
 The following query uses `mvexpand` to produce one row per value in a multi-value scalar field:
 
-```
+```sql
 source=otel-logs
 | mvexpand tags
 | stats count() as logs by tags
@@ -201,7 +200,7 @@ The following SQL features are not supported on the Optimized engine:
 
 The following SQL query combines full-text search with aggregation to find and count log entries by service:
 
-```
+```sql
 SELECT service, region, COUNT(*) AS hits
 FROM logs
 WHERE MATCH(body, 'connection timeout')

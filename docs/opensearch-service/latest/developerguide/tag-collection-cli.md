@@ -1,7 +1,6 @@
 
 
 # Tagging collections (AWS CLI)
-<a name="tag-collection-cli"></a>
 
 To tag a collection using the AWS CLI, send a [TagResource](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_TagResource.html) request: 
 

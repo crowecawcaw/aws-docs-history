@@ -1,7 +1,6 @@
 
 
 # Managing time-series data in Amazon OpenSearch Service with data streams
-<a name="data-streams"></a>
 
 A typical workflow to manage time-series data involves multiple steps, such as creating a rollover index alias, defining a write index, and defining common mappings and settings for the backing indices.
 
@@ -22,7 +21,7 @@ A data stream is internally composed of multiple backing indices. Search request
 
 To create a data stream, you first need to create an index template that configures a set of indexes as a data stream. The `data_stream` object indicates that it’s a data stream and not a regular index template. The index pattern matches with the name of the data stream:
 
-```
+```json
 PUT _index_template/logs-template
 {
   "index_patterns": [
@@ -36,7 +35,7 @@ PUT _index_template/logs-template
 
 In this case, each ingested document must have an `@timestamp` field. You can also define your own custom timestamp field as a property in the `data_stream` object:
 
-```
+```json
 PUT _index_template/logs-template
 {
   "index_patterns": "my-data-stream",
@@ -55,7 +54,7 @@ After you create an index template, you can directly start ingesting data withou
 
 Because we have a matching index template with a `data_stream` object, OpenSearch automatically creates the data stream:
 
-```
+```json
 POST logs-staging/_doc
 {
   "message": "login attempt failed",
@@ -68,7 +67,7 @@ POST logs-staging/_doc
 
 To ingest data into a data stream, you can use the regular indexing APIs. Make sure every document that you index has a timestamp field. If you try to ingest a document that doesn’t have a timestamp field, you get an error.
 
-```
+```json
 POST logs-redis/_doc
 {
   "message": "login attempt",
@@ -81,7 +80,7 @@ POST logs-redis/_doc
 
 You can search a data stream just like you search a regular index or an index alias. The search operation applies to all of the backing indexes (all data present in the stream).
 
-```
+```json
 GET logs-redis/_search
 {
   "query": {
@@ -116,6 +115,6 @@ The delete operation first deletes the backing indexes of a data stream and then
 
 To delete a data stream and all of its hidden backing indices:
 
-```
+```json
 DELETE _data_stream/{{name_of_data_stream}}
 ```

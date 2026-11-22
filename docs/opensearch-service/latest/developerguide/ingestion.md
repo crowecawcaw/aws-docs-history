@@ -1,7 +1,6 @@
 
 
 # Overview of Amazon OpenSearch Ingestion
-<a name="ingestion"></a>
 
 Amazon OpenSearch Ingestion is a fully managed, serverless data collector that streams real-time logs, metrics, and trace data to Amazon OpenSearch Service domains and OpenSearch Serverless collections.
 

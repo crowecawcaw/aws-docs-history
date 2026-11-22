@@ -1,7 +1,6 @@
 
 
 # Loading data into Amazon OpenSearch Service with Logstash
-<a name="managedomains-logstash"></a>
 
 The open source version of Logstash (Logstash OSS) provides a convenient way to use the bulk API to upload data into your Amazon OpenSearch Service domain. The service supports all standard Logstash input plugins, including the Amazon S3 input plugin. OpenSearch Service supports the [logstash-output-opensearch](https://github.com/opensearch-project/logstash-output-opensearch) output plugin, which supports both basic authentication and IAM credentials. The plugin works with version 8.1 and lower of Logstash OSS.
 
@@ -65,7 +64,7 @@ If your domain uses an IAM-based domain access policy or fine-grained access con
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -109,7 +108,7 @@ output {
 
 If you don't want to provide your IAM credentials within the configuration file, you can export them (or run `aws configure`):
 
-```
+```bash
 export AWS_ACCESS_KEY_ID="{{your-access-key}}"
 export AWS_SECRET_ACCESS_KEY="{{your-secret-key}}"
 export AWS_SESSION_TOKEN="{{your-session-token}}"

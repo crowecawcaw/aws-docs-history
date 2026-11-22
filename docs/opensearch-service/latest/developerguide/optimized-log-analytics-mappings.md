@@ -1,7 +1,6 @@
 
 
 # Mappings and index templates
-<a name="optimized-log-analytics-mappings"></a>
 
 This topic shows how to model logs, OpenTelemetry data, and security findings for the Optimized engine. The core choice is straightforward: use `object` for one structured value, `nested` for a list of objects whose fields must stay correlated, `multi_value` for a list of scalar values, and `flat_object` for an open-ended key/value bag.
 
@@ -27,7 +26,7 @@ Choose a mapping from the shape of the data. This distinction keeps the physical
 
 A scalar field is single-valued by default. Add `multi_value: true` when a field can contain zero, one, or many scalar values.
 
-```
+```json
 "host.ip": { "type": "ip", "multi_value": true },
 "tags":    { "type": "keyword", "multi_value": true }
 ```
@@ -57,7 +56,7 @@ The first observed shape establishes the mapping. A field first seen as a scalar
 
 Dynamic templates are evaluated before automatic inference. They can pin a known scalar list, keep an identifier scalar, map a known object collection as `nested`, or apply `low_cardinality` to string dimensions.
 
-```
+```json
 PUT _index_template/observability-dynamic-shapes
 {
   "index_patterns": ["observability-*"],
@@ -116,7 +115,7 @@ Use `dynamic: true` for the evolving portion of a payload, templates for known f
 
 Use `object` when the document contains one structured value. Use `nested` when it contains an array of objects and predicates on several child fields must match the same element. Given the following events array:
 
-```
+```json
 "events": [
   { "name": "exception", "type": "TimeoutException" },
   { "name": "retry", "type": "none" }
@@ -125,7 +124,7 @@ Use `object` when the document contains one structured value. Use `nested` when 
 
 A correlated predicate such as `events.name = 'retry' AND events.type = 'TimeoutException'` must not combine values from different events. Mapping `events` as `nested` preserves that boundary.
 
-```
+```json
 "events": {
   "type": "nested",
   "properties": {
@@ -144,7 +143,7 @@ For strings inside `nested`, use `keyword`. Put free text that needs `match` or 
 
 Use `flat_object` for attributes whose keys are not known when the template is created.
 
-```
+```json
 "attributes": { "type": "flat_object" }
 ```
 
@@ -157,7 +156,7 @@ If one key can contain several values, promote it to a dedicated field with `mul
 
 The following template keeps free-text log content at the root, models repeated addresses and tags as scalar lists, promotes commonly filtered dimensions, and leaves the long tail of attributes flexible.
 
-```
+```json
 PUT _index_template/otel-logs-optimized
 {
   "index_patterns": ["otel-logs-*"],
@@ -203,7 +202,7 @@ PUT _index_template/otel-logs-optimized
 
 A span contains lists of event and link objects, so both fields are `nested`. Their string leaves are `keyword`, and each element's open-ended attributes remain a `flat_object`.
 
-```
+```json
 PUT _index_template/otel-traces-optimized
 {
   "index_patterns": ["otel-traces-*"],
@@ -262,7 +261,7 @@ PUT _index_template/otel-traces-optimized
 
 A finding-like record can combine one structured context, scalar lists, correlated item lists, and flexible resource attributes. This example keeps classification as one object, maps references as a scalar list, and maps scores, affected\_items, resources, and resource tags as `nested` because each element's fields belong together. The names and values are intentionally generic; the example illustrates structure rather than a particular product schema.
 
-```
+```json
 PUT _index_template/findings-optimized
 {
   "index_patterns": ["findings-*"],
@@ -325,7 +324,7 @@ PUT _index_template/findings-optimized
 
 The following is a representative record for this template:
 
-```
+```json
 {
   "finding_id": "finding-001",
   "category": "CONFIGURATION",
@@ -366,7 +365,7 @@ The following is a representative record for this template:
 
 The following query requires `name` and `version` to come from the same affected-item element:
 
-```
+```sql
 source=findings-*
 | where classification.affected_items.name = 'component-a'
   and classification.affected_items.version = '1.2.0'

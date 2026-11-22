@@ -1,7 +1,6 @@
 
 
 # Summarizing indexes in Amazon OpenSearch Service with index rollups
-<a name="rollup"></a>
 
 Index rollups in Amazon OpenSearch Service let you reduce storage costs by periodically rolling up old data into summarized indexes.
 
@@ -46,7 +45,7 @@ You can use the standard `_search` API to search the target index. You can’t a
 
 To query the target index, set `size` to 0:
 
-```
+```json
 GET target_index/_search
 {
   "size": 0,

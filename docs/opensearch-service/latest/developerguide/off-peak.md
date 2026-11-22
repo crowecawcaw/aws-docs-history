@@ -1,7 +1,6 @@
 
 
 # Defining off-peak windows for Amazon OpenSearch Service
-<a name="off-peak"></a>
 
 When you create an Amazon OpenSearch Service domain, you define a daily 10-hour window that's considered *off-peak* hours. OpenSearch Service uses this window to schedule service software updates and Auto-Tune optimizations that require a [blue/green deployment](managedomains-configuration-changes.md) during comparatively lower traffic times, whenever possible. Blue/green refers to the process of creating a new environment for domain updates and routing users to the new environment after those updates are complete.
 
@@ -141,7 +140,7 @@ aws opensearch list-scheduled-actions \
 
 **Response**:
 
-```
+```json
 {
     "ScheduledActions": [
         {
@@ -217,7 +216,7 @@ aws opensearch update-scheduled-action \
 
 **Response**:
 
-```
+```json
 {
    "ScheduledAction": { 
       "Cancellable": true,

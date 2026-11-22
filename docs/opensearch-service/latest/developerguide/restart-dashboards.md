@@ -1,7 +1,6 @@
 
 
 # Restarting the OpenSearch Dashboards process on a node in Amazon OpenSearch Service
-<a name="restart-dashboards"></a>
 
 You can restart the OpenSearch Dashboards (previously Kibana) process to recover from issues such as a frozen interface, loading failures, or unresponsive visualizations. The option to restart OpenSearch Dashboards is only available for the node that is actively running the Dashboards process. In most OpenSearch Service domains, this process runs on dedicated coordinator nodes, not data nodes. As a result, when you open the **Actions** dropdown in the console, the option typically appears only for coordinator nodes. For more information, see [Dedicated coordinator nodes in Amazon OpenSearch Service](Dedicated-coordinator-nodes.md).
 

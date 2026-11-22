@@ -1,7 +1,6 @@
 
 
 # Encryption of data at rest for Amazon OpenSearch Service
-<a name="encryption-at-rest"></a>
 
 OpenSearch Service domains offer encryption of data at rest, a security feature that helps prevent unauthorized access to your data. The feature uses AWS Key Management Service (AWS KMS) to store and manage your encryption keys and the Advanced Encryption Standard algorithm with 256-bit keys (AES-256) to perform the encryption. If enabled, the feature encrypts the following aspects of a domain:
 + All indexes (including those in UltraWarm storage)
@@ -31,7 +30,7 @@ To use the OpenSearch Service console to configure encryption of data at rest, y
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -53,7 +52,7 @@ If you want to use a key other than the AWS owned key, you must also have permis
 
 If you want to keep your key exclusive to OpenSearch Service, you can add the [kms:ViaService](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-via-service) condition to that key policy:
 
-```
+```json
 "Condition": {
   "StringEquals": {
     "kms:ViaService": "es.{{us-west-1}}.amazonaws.com"
@@ -81,7 +80,7 @@ Encryption of data at rest on new domains requires either OpenSearch or Elastics
 
 You can also enable encryption through the configuration API. The following request enables encryption of data at rest on an existing domain:
 
-```
+```json
 {
    "ClusterConfig":{
       "EncryptionAtRestOptions":{

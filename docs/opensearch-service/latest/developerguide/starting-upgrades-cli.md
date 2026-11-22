@@ -1,7 +1,6 @@
 
 
 # Upgrading a domain (CLI)
-<a name="starting-upgrades-cli"></a>
 
 You can use the following operations to identify the correct version of OpenSearch or Elasticsearch for your domain, start an in-place or clone-based upgrade, perform the pre-upgrade check, and view progress:
 + `get-compatible-versions` (`GetCompatibleVersions`)
@@ -16,7 +15,7 @@ You can use the following operations to identify the correct version of OpenSear
 
 To check whether your domain is eligible without starting an upgrade, use the `--perform-check-only` option:
 
-```
+```sh
 aws opensearch upgrade-domain \
   --domain-name my-domain \
   --target-version OpenSearch_2.19 \
@@ -25,7 +24,7 @@ aws opensearch upgrade-domain \
 
 To start the upgrade, run the same command without `--perform-check-only`:
 
-```
+```sh
 aws opensearch upgrade-domain \
   --domain-name my-domain \
   --target-version OpenSearch_2.19
@@ -33,7 +32,7 @@ aws opensearch upgrade-domain \
 
 To view progress, use `get-upgrade-status`:
 
-```
+```sh
 aws opensearch get-upgrade-status --domain-name my-domain
 ```
 
@@ -47,7 +46,7 @@ A clone-based upgrade has more steps than an in-place upgrade. For information a
 
 To start a clone-based upgrade, run `upgrade-domain` with `DeploymentStrategy` set to `ClonedBlueGreen` in `--deployment-strategy-options`. The retention period is optional. The maximum is 336 hours (14 days). To request a longer period, contact [AWS Support](https://aws.amazon.com/premiumsupport/).
 
-```
+```sh
 aws opensearch upgrade-domain \
   --domain-name my-domain \
   --target-version OpenSearch_3.1 \
@@ -56,7 +55,7 @@ aws opensearch upgrade-domain \
 
 The response includes a `ChangeId`. Use it to monitor the upgrade:
 
-```
+```sh
 aws opensearch describe-domain-change-progress \
   --domain-name my-domain \
   --change-id 9f1c2b7a-4d3e-4e21-9a5f-0c8b7d6e5f40
@@ -69,7 +68,7 @@ When the `ConfigChangeStatus` is `PendingUserInput`, the cloned cluster is ready
 
 `CloneReadTrafficPercent` is the share of read requests that go to the cloned cluster, from 0 to 100. Writes always go to the primary cluster.
 
-```
+```sh
 aws opensearch update-clone \
   --domain-name my-domain \
   --traffic-split-options Strategy=ShiftReadTrafficPercent,CloneReadTrafficPercent=10
@@ -80,7 +79,7 @@ aws opensearch update-clone \
 
 Set `Target` to `ClonedCluster`.
 
-```
+```sh
 aws opensearch update-clone \
   --domain-name my-domain \
   --cutover-options Target=ClonedCluster
@@ -91,7 +90,7 @@ aws opensearch update-clone \
 
 Set `Target` to `PrimaryCluster`. OpenSearch Service deletes the cloned cluster, and your domain stays as it was.
 
-```
+```sh
 aws opensearch update-clone \
   --domain-name my-domain \
   --cutover-options Target=PrimaryCluster
@@ -102,7 +101,7 @@ aws opensearch update-clone \
 
 You can set or change the retention period before or after cutover.
 
-```
+```sh
 aws opensearch update-clone \
   --domain-name my-domain \
   --retention-options RetentionInHours=24
@@ -113,13 +112,13 @@ aws opensearch update-clone \
 
 After cutover, you can roll back to the primary cluster, or delete the primary cluster now.
 
-```
+```sh
 aws opensearch update-clone \
   --domain-name my-domain \
   --retention-options '{"RetentionAction":"RollbackToPrimaryCluster"}'
 ```
 
-```
+```sh
 aws opensearch update-clone \
   --domain-name my-domain \
   --retention-options '{"RetentionAction":"DeletePrimaryCluster"}'

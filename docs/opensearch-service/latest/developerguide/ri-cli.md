@@ -1,7 +1,6 @@
 
 
 # Purchasing Reserved Instances (AWS CLI)
-<a name="ri-cli"></a>
 
 The AWS CLI has commands for viewing offerings, purchasing a reservation, and viewing your reservations. The following command and sample response show the offerings for a given AWS Region:
 

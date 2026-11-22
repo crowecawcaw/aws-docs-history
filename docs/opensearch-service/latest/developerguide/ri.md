@@ -1,7 +1,6 @@
 
 
 # Reserved Instances in Amazon OpenSearch Service
-<a name="ri"></a>
 
 Reserved Instances (RIs) in Amazon OpenSearch Service offer significant discounts compared to standard On-Demand Instances. The instances themselves are identical; RIs are just a billing discount applied to On-Demand Instances in your account. For long-lived applications with predictable usage, RIs can provide considerable savings over time.
 

@@ -1,7 +1,6 @@
 
 
 # Managing capacity limits for Amazon OpenSearch Serverless
-<a name="serverless-scaling"></a>
 
 With Amazon OpenSearch Serverless, you don't have to manage capacity yourself. OpenSearch Serverless automatically scales the compute capacity for your account based on the current workload. Serverless compute capacity is measured in *OpenSearch Compute Units* (OCUs). Each OCU is a combination of 6 GiB of memory and corresponding virtual CPU (vCPU), as well as data transfer to the shared storage and Amazon S3. For more information about the decoupled architecture in OpenSearch Serverless, see [How it works](serverless-overview.md#serverless-process).
 

@@ -1,7 +1,6 @@
 
 
 # Enabling SAML federation with AWS Identity and Access Management
-<a name="application-enable-SAML-identity-federation"></a>
 
 OpenSearch UI supports Security Assertion Markup Language 2.0 (SAML), an open standard that many identity providers use. This enables identity federation with AWS Identity and Access Management (IAM). With this support, users in your account or organization can directly access OpenSearch UI by assuming IAM roles. You can create an identity provider-initiated (IdP) single sign-on experience for your end users, where they can authenticate in the external identity provider and be routed directly to your defined page in OpenSearch UI. You can also implement fine-grained access control by configuring your end-users or groups to assume different IAM roles with different permissions for accessing OpenSearch UI and the associated data sources.
 
@@ -218,13 +217,13 @@ Learn how to configure your IAM roles for OpenSearch access control. With IAM ro
 
 Request:
 
-```
+```sh
 GET _plugins/_security/api/roles/alice-group
 ```
 
 Result:
 
-```
+```json
 {
   "alice-group": {
     "reserved": false,
@@ -265,13 +264,13 @@ Result:
 
 Request:
 
-```
+```sh
 GET _plugins/_security/api/roles/bob-group
 ```
 
 Result:
 
-```
+```json
 {
   "bob-group": {
     "reserved": false,
@@ -311,7 +310,7 @@ Result:
 
 You can map the Amazon OpenSearch Service domain roles to IAM roles using backend roles mapping, as demonstrated in the following example:
 
-```
+```json
 {
   "bob-group": {
     "hosts": [],
@@ -353,13 +352,13 @@ You can also verify the fine-grained access control permissions for the user by 
 
 Request:
 
-```
+```sh
 GET _plugins/_security/api/account
 ```
 
 Result:
 
-```
+```json
 {
   "user_name": "arn:aws:iam::XXXXXXXXXXXX:role/bob-group",
   "is_reserved": false,
@@ -385,13 +384,13 @@ Result:
 
 Request:
 
-```
+```sh
 GET bob-test/_search
 ```
 
 Result:
 
-```
+```json
 {
   "took": 390,
   "timed_out": false,
@@ -427,13 +426,13 @@ Result:
 
 Request:
 
-```
+```sh
 GET alice-test
 ```
 
 Result:
 
-```
+```json
 {
   "error": {
     "root_cause": [

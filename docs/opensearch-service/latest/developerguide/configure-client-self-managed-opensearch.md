@@ -1,7 +1,6 @@
 
 
 # Migrating data from self-managed OpenSearch clusters using Amazon OpenSearch Ingestion
-<a name="configure-client-self-managed-opensearch"></a>
 
 You can use an Amazon OpenSearch Ingestion pipeline with self-managed OpenSearch or Elasticsearch to migrate data to Amazon OpenSearch Service domains and OpenSearch Serverless collections. OpenSearch Ingestion supports both public and private network configurations for the migration of data from self-managed OpenSearch and Elasticsearch. 
 
@@ -30,7 +29,7 @@ Before you create your OpenSearch Ingestion pipeline, perform the following step
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -69,7 +68,7 @@ You can specify multiple OpenSearch Service domains as destinations for your dat
 
 You can also migrate data from a source OpenSearch or Elasticsearch cluster to an OpenSearch Serverless VPC collection. Ensure you provide a network access policy within the pipeline configuration.
 
-```
+```YAML
 version: "2"
 opensearch-migration-pipeline:
   source:
@@ -146,7 +145,7 @@ To provide a custom CIDR, select **Other** from the dropdown menu. To avoid a co
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -181,7 +180,7 @@ After you have your pipeline prerequisites set up, [configure the pipeline role]
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -252,7 +251,7 @@ You can specify multiple OpenSearch Service domains as destinations for your dat
 
 You can also migrate data from a source OpenSearch or Elasticsearch cluster to an OpenSearch Serverless VPC collection. Ensure you provide a network access policy within the pipeline configuration.
 
-```
+```YAML
 version: "2"
 opensearch-migration-pipeline:
   source:

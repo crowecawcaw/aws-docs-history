@@ -1,7 +1,6 @@
 
 
 # Supported instance types in Amazon OpenSearch Service
-<a name="supported-instance-types"></a>
 
 Amazon OpenSearch Service supports the following instance types. Not all Regions support all instance types. For availability details, see [Amazon OpenSearch Service pricing](https://aws.amazon.com/opensearch-service/pricing/).
 

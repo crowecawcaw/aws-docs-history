@@ -1,7 +1,6 @@
 
 
 # Learning to Rank for Amazon OpenSearch Service
-<a name="learning-to-rank"></a>
 
 OpenSearch uses a probabilistic ranking framework called BM-25 to calculate relevance scores. If a distinctive keyword appears more frequently in a document, BM-25 assigns a higher relevance score to that document. This framework, however, doesn’t take into account user behavior like click-through data, which can further improve relevance.
 
@@ -29,11 +28,11 @@ You need to provide a judgment list, prepare a training dataset, and train the m
 
 To initialize the Learning to Rank plugin, send the following request to your OpenSearch Service domain:
 
-```
+```json
 PUT _ltr
 ```
 
-```
+```json
 {
   "acknowledged" : true,
   "shards_acknowledged" : true,
@@ -64,7 +63,7 @@ In this example, we have a judgment list for a movie dataset. A grade of 4 indic
 
 Prepare your judgment list in the following format:
 
-```
+```json
 4 qid:1 # 7555 Rambo
 3 qid:1 # 1370 Rambo III
 3 qid:1 # 1369 Rambo: First Blood Part II
@@ -86,7 +85,7 @@ Build a feature set with a Mustache template for each feature. For more informat
 
 In this example, we build a `movie_features` feature set with the `title` and `overview` fields:
 
-```
+```json
 POST _ltr/_featureset/movie_features
 {
   "featureset" : {
@@ -123,7 +122,7 @@ POST _ltr/_featureset/movie_features
 
 If you query the original `.ltrstore` index, you get back your feature set:
 
-```
+```json
 GET _ltr/_featureset
 ```
 
@@ -136,7 +135,7 @@ Combine the feature set and judgment list to log the feature values. For more in
 
 In this example, the `bool` query retrieves the graded documents with the filter, and then selects the feature set with the `sltr` query. The `ltr_log` query combines the documents and the features to log the corresponding feature values:
 
-```
+```json
 POST tmdb/_search
 {
   "_source": {
@@ -183,7 +182,7 @@ POST tmdb/_search
 
 A sample response might look like the following:
 
-```
+```json
 {
   "took" : 7,
   "timed_out" : false,
@@ -330,7 +329,7 @@ You must perform this step outside of OpenSearch Service.
 
 The next step is to combine the judgment list and feature values to create a training dataset. If your original judgment list looks like this:
 
-```
+```json
 4 qid:1 # 7555 Rambo
 3 qid:1 # 1370 Rambo III
 3 qid:1 # 1369 Rambo: First Blood Part II
@@ -339,7 +338,7 @@ The next step is to combine the judgment list and feature values to create a tra
 
 Convert it into the final training dataset, which looks like this:
 
-```
+```json
 4 qid:1 1:12.318474 2:10.573917 # 7555 rambo
 3 qid:1 1:10.357875 2:11.950391 # 1370 rambo
 3 qid:1 1:7.010513 2:11.220095 # 1369 rambo
@@ -365,7 +364,7 @@ After you have built the model, deploy it into the Learning to Rank plugin. For 
 
 In this example, we build a `my_ranklib_model` model using the Ranklib library:
 
-```
+```json
 POST _ltr/_featureset/movie_features/_createmodel?pretty
 {
   "model": {
@@ -649,7 +648,7 @@ POST _ltr/_featureset/movie_features/_createmodel?pretty
 
 To see the model, send the following request:
 
-```
+```json
 GET _ltr/_model/my_ranklib_model
 ```
 
@@ -660,7 +659,7 @@ After you deploy the model, you’re ready to search.
 
 Perform the `sltr` query with the features that you’re using and the name of the model that you want to execute:
 
-```
+```json
 POST tmdb/_search
 {
   "_source": {
@@ -689,7 +688,7 @@ POST tmdb/_search
 
 With Learning to Rank, you see “Rambo” as the first result because we have assigned it the highest grade in the judgment list:
 
-```
+```json
 {
   "took" : 12,
   "timed_out" : false,
@@ -783,7 +782,7 @@ With Learning to Rank, you see “Rambo” as the first result because we have a
 
 If you search without using the Learning to Rank plugin, OpenSearch returns different results:
 
-```
+```json
 POST tmdb/_search
 {
   "_source": {
@@ -798,7 +797,7 @@ POST tmdb/_search
 }
 ```
 
-```
+```json
 {
   "took" : 5,
   "timed_out" : false,
@@ -882,7 +881,7 @@ Use the Learning to Rank operations to programmatically work with feature sets a
 
 Creates a hidden `.ltrstore` index that stores metadata information such as feature sets and models.
 
-```
+```json
 PUT _ltr
 ```
 
@@ -891,7 +890,7 @@ PUT _ltr
 
 Deletes the hidden `.ltrstore` index and resets the plugin.
 
-```
+```json
 DELETE _ltr
 ```
 
@@ -900,7 +899,7 @@ DELETE _ltr
 
 Creates a feature set.
 
-```
+```json
 POST _ltr/_featureset/<name_of_features>
 ```
 
@@ -909,7 +908,7 @@ POST _ltr/_featureset/<name_of_features>
 
 Deletes a feature set.
 
-```
+```json
 DELETE _ltr/_featureset/<name_of_feature_set>
 ```
 
@@ -918,7 +917,7 @@ DELETE _ltr/_featureset/<name_of_feature_set>
 
 Retrieves a feature set.
 
-```
+```json
 GET _ltr/_featureset/<name_of_feature_set>
 ```
 
@@ -927,7 +926,7 @@ GET _ltr/_featureset/<name_of_feature_set>
 
 Creates a model.
 
-```
+```json
 POST _ltr/_featureset/<name_of_feature_set>/_createmodel
 ```
 
@@ -936,7 +935,7 @@ POST _ltr/_featureset/<name_of_feature_set>/_createmodel
 
 Deletes a model.
 
-```
+```json
 DELETE _ltr/_model/<name_of_model>
 ```
 
@@ -945,7 +944,7 @@ DELETE _ltr/_model/<name_of_model>
 
 Retrieves a model.
 
-```
+```json
 GET _ltr/_model/<name_of_model>
 ```
 
@@ -954,7 +953,7 @@ GET _ltr/_model/<name_of_model>
 
 Provides information about how the plugin is behaving.
 
-```
+```json
 GET _ltr/_stats
 ```
 
@@ -966,7 +965,7 @@ GET _ltr/_stats/<stat>
 
 Futthermore, you can limit the information to a single node in the cluster:
 
-```
+```json
 GET _ltr/_stats/<stat>/nodes/<nodeId>
 
 {
@@ -1052,7 +1051,7 @@ The statistics are provided at two levels, node and cluster, as specified in the
 
 Returns statistics about the cache and memory usage.
 
-```
+```json
 GET _ltr/_cachestats
 
 {
@@ -1139,6 +1138,6 @@ GET _ltr/_cachestats
 
 Clears the plugin cache. Use this to refresh the model.
 
-```
+```json
 POST _ltr/_clearcache
 ```

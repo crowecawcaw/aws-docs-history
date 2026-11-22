@@ -1,7 +1,6 @@
 
 
 # Managing Amazon OpenSearch Serverless collections
-<a name="serverless-manage"></a>
 
 A *collection* in Amazon OpenSearch Serverless is a logical grouping of one or more indexes that represent an analytics workload. OpenSearch Serverless automatically manages and tunes the collection, requiring minimal manual input.
 

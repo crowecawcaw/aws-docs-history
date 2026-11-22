@@ -1,7 +1,6 @@
 
 
 # Direct queries in Amazon Managed Service for Prometheus
-<a name="direct-query-prometheus-overview"></a>
 
 You can use Amazon OpenSearch Service to directly query operational metrics stored in Amazon Managed Service for Prometheus. This integration allows you to analyze and visualize your Prometheus time-series data alongside your logs and traces within OpenSearch UI, enabling a unified observability experience.
 

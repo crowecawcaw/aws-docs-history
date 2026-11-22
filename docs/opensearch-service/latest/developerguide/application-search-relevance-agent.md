@@ -1,7 +1,6 @@
 
 
 # Search Relevance Agent in Amazon OpenSearch Service
-<a name="application-search-relevance-agent"></a>
 
 The Search Relevance Agent is a feature in Amazon OpenSearch Service that automates search relevance tuning tasks. Through a chat interface in OpenSearch UI, you can find relevance issues, get tuning tips, and run workflows using natural language. With the Search Relevance Agent, you can take a data-driven approach instead of tuning manually.
 

@@ -1,7 +1,6 @@
 
 
 # Setting up
-<a name="optimized-log-analytics-prerequisites"></a>
 
 Before you create a domain with the Optimized engine, review the following requirements, limitations, and configuration options.
 
@@ -144,7 +143,7 @@ You configure the Optimized engine during domain creation in the Amazon OpenSear
 
 Use the `create-domain` command with the `--engine-mode` parameter:
 
-```
+```bash
 aws opensearch create-domain \
   --domain-name my-domain \
   --engine-version "OpenSearch_3.5" \

@@ -1,7 +1,6 @@
 
 
 # Compressing HTTP requests in Amazon OpenSearch Service
-<a name="gzip"></a>
 
 You can compress HTTP requests and responses in Amazon OpenSearch Service domains using gzip compression. Gzip compression can help you reduce the size of your documents and lower bandwidth utilization and latency, thereby leading to improved transfer speeds.
 
@@ -14,7 +13,7 @@ Not to be confused with similar OpenSearch settings, `http_compression.enabled` 
 
 To enable gzip compression, send the following request:
 
-```
+```json
 PUT _cluster/settings
 {
   "persistent" : {
@@ -51,7 +50,7 @@ When including a gzip-compressed request body, keep the standard `Content-Type: 
 
 The following sample uses [opensearch-py](https://pypi.org/project/opensearch-py/) to perform the compression and send the request. This code signs the request using your IAM credentials. 
 
-```
+```python
 from opensearchpy import OpenSearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
 import boto3
@@ -86,7 +85,7 @@ print(search.index(index='movies', id='1', body=document, refresh=True))
 
 Alternately, you can specify the proper headers, compress the request body yourself, and use a standard HTTP library like [Requests](https://2.python-requests.org). This code signs the request using HTTP basic credentials, which your domain might support if you use [fine-grained access control](fgac.md).
 
-```
+```python
 import requests
 import gzip
 import json

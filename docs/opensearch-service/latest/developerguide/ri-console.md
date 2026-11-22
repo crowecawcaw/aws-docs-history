@@ -1,7 +1,6 @@
 
 
 # Purchasing Reserved Instances (console)
-<a name="ri-console"></a>
 
 The console lets you view your existing Reserved Instances and purchase new ones.
 

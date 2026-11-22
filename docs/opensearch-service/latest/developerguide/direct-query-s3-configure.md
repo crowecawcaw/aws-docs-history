@@ -1,7 +1,6 @@
 
 
 # Configuring and querying an S3 data source in OpenSearch Dashboards
-<a name="direct-query-s3-configure"></a>
 
 Now that you've created your data source, you can configure security settings, define your Amazon S3 tables, or set up accelerated data indexing. This section walks you through various use cases with your data source in OpenSearch Dashboards before you query your data.
 
@@ -16,7 +15,7 @@ To manage existing databases and tables in your data source, or to create new ta
 
 To set up a table for VPC Flow logs stored in S3 in Parquet format, run the following query: 
 
-```
+```JSON
 CREATE TABLE 
 {{datasourcename.gluedatabasename.vpclogstable}} (version INT, account_id STRING, interface_id STRING, 
 srcaddr STRING, dstaddr STRING, srcport INT, dstport INT, protocol INT, packets BIGINT, 
@@ -32,7 +31,7 @@ LOCATION "s3://{{accountnum-vpcflow}}/AWSLogs"
 
 After creating the table, run the following query to ensure that it's compatible with direct queries:
 
-```
+```JSON
 MSCK REPAIR TABLE {{ datasourcename.databasename.vpclogstable}}
 ```
 

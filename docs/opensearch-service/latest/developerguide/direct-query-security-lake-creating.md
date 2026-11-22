@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon Security Lake data source integration in OpenSearch Service
-<a name="direct-query-security-lake-creating"></a>
 
 You can use Amazon OpenSearch Serverless to directly query security data in Amazon Security Lake. To do this, you create a data source that enables you to use OpenSearch zero-ETL capabilities on Security Lake data. When you create a data source you can directly search, gain insights from, and analyze data stored in Security Lake. You can accelerate your query performance and use advanced OpenSearch analytics on select Security Lake data sets using on-demand indexing.
 
@@ -122,7 +121,7 @@ In the following sample policy, replace the {{placeholder text }}with your own i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -179,7 +178,7 @@ The role must also have the following trust policy, which specifies the target I
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

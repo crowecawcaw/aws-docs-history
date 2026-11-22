@@ -1,7 +1,6 @@
 
 
 # GPU-acceleration for vector indexing
-<a name="gpu-acceleration-vector-index"></a>
 
 GPU-acceleration helps you build large-scale vector databases faster and more efficiently. You can enable this feature on new or existing OpenSearch domains and OpenSearch Serverless collections. This feature uses GPU-acceleration to reduce the time needed to index data into vector indexes.
 

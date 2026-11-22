@@ -1,7 +1,6 @@
 
 
 # ML inference pipelines in Amazon OpenSearch Serverless
-<a name="serverless-ml-inference"></a>
 
 The `ml_inference` processor in Amazon OpenSearch Serverless is a general-purpose processor that calls a configured machine learning model and maps the model's inputs and outputs to document or query fields. You control the mapping with the `input_map` and `output_map` parameters, which specify the document or query fields that supply the model input and the fields that receive the model output.
 
@@ -58,7 +57,7 @@ The examples in this topic use an Amazon Titan Text Embeddings V2 model in Amazo
 
 1. Create the connector. Replace {{region}} with the AWS Region of the Amazon Bedrock model, {{account-id}} with your AWS account ID, and {{bedrock-role}} with the name of the role from the previous step.
 
-   ```
+   ```json
    POST /_plugins/_ml/connectors/_create
    {
      "name": "Amazon Bedrock Titan Text Embeddings V2",
@@ -93,7 +92,7 @@ The examples in this topic use an Amazon Titan Text Embeddings V2 model in Amazo
 
 1. Register the model with the connector. Replace {{my-connector-id}} with the connector ID from the previous step.
 
-   ```
+   ```json
    POST /_plugins/_ml/models/_register
    {
      "name": "titan-embed-text-v2",
@@ -107,7 +106,7 @@ The examples in this topic use an Amazon Titan Text Embeddings V2 model in Amazo
 
 1. Deploy the model. Replace {{my-model-id}} with the model ID from the previous step.
 
-   ```
+   ```json
    POST /_plugins/_ml/models/{{my-model-id}}/_deploy
    ```
 
@@ -132,7 +131,7 @@ The following table shows where each part of the mapping comes from.
 
 The following example calls the predict API for a text embedding model. The `inputText` parameter is the same name that the ingest pipeline example uses as the key in `input_map`. Replace {{my-model-id}} with the ID of your deployed model.
 
-```
+```json
 POST /_plugins/_ml/models/{{my-model-id}}/_predict
 {
   "parameters": {
@@ -143,7 +142,7 @@ POST /_plugins/_ml/models/{{my-model-id}}/_predict
 
 The model returns a response like the following. The `data` array is shortened for readability.
 
-```
+```json
 {
   "inference_results": [
     {
@@ -171,7 +170,7 @@ The request parameters and the response shape depend on the model and its connec
 
 For example, a large language model that returns its raw response has a different shape. The text is nested inside the `dataAsMap` object, and the parameter you send is named after the connector placeholder instead of `inputText`.
 
-```
+```json
 POST /_plugins/_ml/models/{{my-llm-model-id}}/_predict
 {
   "parameters": {
@@ -180,7 +179,7 @@ POST /_plugins/_ml/models/{{my-llm-model-id}}/_predict
 }
 ```
 
-```
+```json
 {
   "inference_results": [
     {
@@ -232,7 +231,7 @@ In an ingest pipeline, the `ml_inference` processor runs model inference during 
 
 The following example creates a pipeline that sends the `text` field to the model and writes the returned embedding to an `embedding` field. Replace {{my-pipeline}} with the name of your pipeline and {{my-model-id}} with the ID of your deployed model.
 
-```
+```json
 PUT _ingest/pipeline/{{my-pipeline}}
 {
   "description": "Generates embeddings with a configured model",
@@ -259,7 +258,7 @@ PUT _ingest/pipeline/{{my-pipeline}}
 
 The request returns the following response:
 
-```
+```json
 {
   "acknowledged": true
 }
@@ -271,7 +270,7 @@ Before you apply the pipeline to live traffic, you can simulate it against sampl
 
 The following example indexes a document and runs the pipeline. Replace {{my-index}} with the name of your index and {{my-pipeline}} with the name of your pipeline.
 
-```
+```json
 POST {{my-index}}/_doc?pipeline={{my-pipeline}}
 {
   "text": "Example document text"
@@ -280,7 +279,7 @@ POST {{my-index}}/_doc?pipeline={{my-pipeline}}
 
 The response confirms that the document was indexed:
 
-```
+```json
 {
   "_index": "my-index",
   "_id": "93VTg6EBtHTIBjFym5yW",
@@ -304,7 +303,7 @@ The target index must be configured for vector search. Enable `index.knn` and ma
 
 In a search pipeline, the `ml_inference` processor runs model inference as part of a query. A search request processor transforms or rewrites the query before it runs. A search response processor enriches the results before you receive them. To run a search pipeline, send the request with the `search_pipeline` query parameter. Replace {{my-index}} with the name of your index and {{my-pipeline}} with the name of your pipeline.
 
-```
+```json
 POST {{my-index}}/_search?search_pipeline={{my-pipeline}}
 ```
 
@@ -318,7 +317,7 @@ A newly created search pipeline can take a few minutes to take effect, even afte
 
 You use a search request processor to rewrite an incoming query before OpenSearch Serverless runs it. The following example takes the text of a `match` query, generates a vector from it with a configured model, and rewrites the request into a k-NN query with the `query_template` parameter. OpenSearch Serverless replaces the `${query_vec}` placeholder in the template with the model output that `output_map` captures. Replace {{my-model-id}} with the ID of your deployed model.
 
-```
+```json
 PUT /_search/pipeline/{{my-pipeline}}
 {
   "request_processors": [
@@ -353,7 +352,7 @@ Set `ignore_missing` to `true` when the source field might be missing. A query t
 
 A search response processor runs after a query returns, so you can enrich or summarize each hit. The following example sends the `text` field of each hit to a configured model and writes the model output to a `text_vec` field. Set `one_to_one` to `true` so that the processor runs the model once for each search hit. The default is `false`, which sends all hits to the model in a single request, and models that expect a single input value reject that request. Replace {{my-model-id}} with the ID of your deployed model.
 
-```
+```json
 PUT /_search/pipeline/{{my-pipeline}}
 {
   "response_processors": [
@@ -380,7 +379,7 @@ PUT /_search/pipeline/{{my-pipeline}}
 
 To summarize results with a large language model, add a `model_config` object that contains the model prompt, and set `one_to_one` to `true` so that the processor summarizes each search hit separately. The prompt can reference the mapped input through a template parameter such as `${parameters.context}`. The `output_map` path in this example matches a model that returns its raw response. For more information, see [Match the processor to your model](#serverless-ml-inference-match-model). Replace {{my-model-id}} with the ID of your deployed model.
 
-```
+```json
 PUT /_search/pipeline/{{my-pipeline}}
 {
   "response_processors": [
@@ -430,7 +429,7 @@ The principal that sends a request through the pipeline needs the `aoss:ExecuteM
 
 The following example data access policy grants a principal permission to manage pipelines in a collection and to run the models in that collection. Replace {{collection-name}} with the name of your collection, {{account-id}} with your AWS account ID, and {{role-name}} with the name of the IAM role that manages and uses the pipelines.
 
-```
+```json
 [
     {
         "Description": "Manage pipelines and run models",

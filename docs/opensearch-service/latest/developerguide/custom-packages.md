@@ -1,7 +1,6 @@
 
 
 # Importing and managing packages in Amazon OpenSearch Service
-<a name="custom-packages"></a>
 
 Amazon OpenSearch Service lets you upload custom dictionary files, such as stop words and synonyms, and associate plugins with your domain. These plugins can be pre-packaged, custom, or third-party, which gives you flexibility to extend your domain’s functionality. The generic term for all these types of files is *packages*.
 + **Dictionary files** help refine search results by instructing OpenSearch to ignore common high-frequency words or to treat similar terms, like "frozen custard," "gelato," and "ice cream," as equivalent. They can also improve [stemming](https://en.wikipedia.org/wiki/Stemming), as seen with the Japanese (kuromoji) analysis plugin.
@@ -103,7 +102,7 @@ For the IK (Chinese) Analysis plugin, you can upload a custom dictionary file as
 
 The following example adds a synonyms file to a new index:
 
-```
+```json
 PUT {{my-index}}
 {
   "settings": {
@@ -148,7 +147,7 @@ Finally, note the line `"updateable": true` in the token filter. This field only
 
 For testing purposes, add some documents to the index:
 
-```
+```json
 POST _bulk
 { "index": { "_index": "my-index", "_id": "1" } }
 { "description": "ice cream" }
@@ -162,7 +161,7 @@ POST _bulk
 
 Then search them using a synonym:
 
-```
+```json
 GET my-index/_search
 {
   "query": {
@@ -175,7 +174,7 @@ GET my-index/_search
 
 In this case, OpenSearch returns the following response:
 
-```
+```json
 {
   "hits": {
     "total": {
@@ -284,7 +283,7 @@ Instead of manually updating a package in the console, you can use the SDKs to a
 
 You must provide values for `host`, `region`, `file_name`, `bucket_name`, `s3_key`, `package_id`, `domain_name`, and `query`.
 
-```
+```python
 from requests_aws4auth import AWS4Auth
 import boto3
 import requests
@@ -370,7 +369,7 @@ def sample_search(query):
 **Note**  
 If you receive a "package not found" error when you run the script using the AWS CLI, it likely means Boto3 is using whichever Region is specified in \~/.aws/config, which isn't the Region your S3 bucket is in. Either run `aws configure` and specify the correct Region, or explicitly add the Region to the client:   
 
-```
+```python
 client = boto3.client('opensearch', region_name='us-east-1')
 ```
 
@@ -391,7 +390,7 @@ To update analyzers with the new package files, you have two options:
   ```
 + Reindex the indexes. First, create an index that uses the updated synonyms file (or an entirely new file). Note that only UTF-8 is supported.
 
-  ```
+  ```json
   PUT {{my-new-index}}
   {
     "settings": {
@@ -426,7 +425,7 @@ To update analyzers with the new package files, you have two options:
 
   Then [reindex](https://docs.opensearch.org/latest/opensearch/reindex-data/) the old index to that new index:
 
-  ```
+  ```json
   POST _reindex
   {
     "source": {
@@ -440,7 +439,7 @@ To update analyzers with the new package files, you have two options:
 
   If you frequently update index analyzers, use [index aliases](https://docs.opensearch.org/latest/opensearch/index-alias/) to maintain a consistent path to the latest index:
 
-  ```
+  ```json
   POST _aliases
   {
     "actions": [

@@ -1,7 +1,6 @@
 
 
 # Using an OpenSearch Ingestion pipeline with Fluent Bit
-<a name="configure-client-fluentbit"></a>
 
 This sample [Fluent Bit configuration file](https://docs.fluentbit.io/manual/pipeline/outputs/http) sends log data from Fluent Bit to an OpenSearch Ingestion pipeline. For more information about ingesting log data, see [Log Analytics](https://github.com/opensearch-project/data-prepper/blob/main/docs/log_analytics.md) in the Data Prepper documentation.
 
@@ -34,7 +33,7 @@ Note the following:
 
 You can then configure an OpenSearch Ingestion pipeline like the following, which has HTTP as the source:
 
-```
+```yaml
 version: "2"
 unaggregated-log-pipeline:
   source:

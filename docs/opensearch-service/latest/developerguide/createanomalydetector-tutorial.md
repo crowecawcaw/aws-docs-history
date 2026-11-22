@@ -1,7 +1,6 @@
 
 
 # Tutorial: Detect high CPU usage with anomaly detection
-<a name="createanomalydetector-tutorial"></a>
 
 This tutorial demonstrates how to create an anomaly detector in Amazon OpenSearch Service to detect high CPU usage. You'll use OpenSearch Dashboards to configure a detector to monitor CPU usage, and generate an alert when your CPU usage rises above a specified threshold. 
 

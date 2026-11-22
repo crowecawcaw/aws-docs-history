@@ -1,7 +1,6 @@
 
 
 # Granting Amazon OpenSearch Ingestion pipelines access to domains
-<a name="pipeline-domain-access"></a>
 
 An Amazon OpenSearch Ingestion pipeline needs permission to write to the OpenSearch Service domain that is configured as its sink. To provide access, you configure an AWS Identity and Access Management (IAM) role with a restrictive permissions policy that limits access to the domain that a pipeline is sending data to. For example, you might want to limit an ingestion pipeline to only the domain and indexes that are required to support its use case.
 
@@ -25,7 +24,7 @@ The following sample policy demonstrates the [least privilege](https://docs.aws.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -54,7 +53,7 @@ The role must have the following [trust relationship](https://docs.aws.amazon.co
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -83,7 +82,7 @@ The following sample domain access policy allows the pipeline role named `pipeli
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

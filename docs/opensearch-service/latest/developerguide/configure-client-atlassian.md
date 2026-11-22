@@ -1,7 +1,6 @@
 
 
 # Using an OpenSearch Ingestion pipeline with Atlassian Services
-<a name="configure-client-atlassian"></a>
 
 You can use the Atlassian Jira and Confluence source plugins to ingest data from Atlassian services into your OpenSearch Ingestion pipeline. These integrations enable you to create a unified searchable knowledge base by synchronizing complete Jira projects and Confluence spaces, while maintaining real-time relevance through continuous monitoring and automatic synchronization of updates.
 
@@ -83,7 +82,7 @@ The role passed in the pipeline must have the following policy attached to read 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -112,7 +111,7 @@ The role should also have a policy attached to access and write to your chosen s
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

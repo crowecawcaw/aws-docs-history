@@ -1,7 +1,6 @@
 
 
 # Amazon OpenSearch Service custom package AWS KMS integration
-<a name="custom-package-kms-integration"></a>
 
 Amazon OpenSearch Service custom packages provide encryption by default to protect your `ZIP-PLUGIN` packages at rest using AWS managed keys.
 + **AWS owned keys** – Amazon OpenSearch Service custom packages use these keys by default to automatically encrypt your `ZIP-PLUGIN` packages. You can't view, manage, or use AWS owned keys or audit their use. However, you don't need to take any action or change any programs to protect the keys that encrypt your data. For more information, see [AWS owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) in the *AWS Key Management Service Developer Guide*.

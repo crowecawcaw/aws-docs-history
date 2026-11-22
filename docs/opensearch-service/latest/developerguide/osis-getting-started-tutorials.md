@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon OpenSearch Ingestion
-<a name="osis-getting-started-tutorials"></a>
 
 Amazon OpenSearch Ingestion supports ingesting data into managed OpenSearch Service domains and OpenSearch Serverless collections. The following tutorials walk you through the basic steps to get a pipeline up and running.
 

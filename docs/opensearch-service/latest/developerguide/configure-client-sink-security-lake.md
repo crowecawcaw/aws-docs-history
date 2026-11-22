@@ -1,7 +1,6 @@
 
 
 # Using an OpenSearch Ingestion pipeline with Amazon Security Lake as a sink
-<a name="configure-client-sink-security-lake"></a>
 
 Use the Amazon S3 sink plugin in OpenSearch Ingestion to send data from any supported source to Amazon Security Lake. Security Lake collects and stores security data from AWS, on-premises environments, and SaaS providers in a dedicated data lake.
 

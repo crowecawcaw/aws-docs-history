@@ -1,7 +1,6 @@
 
 
 # CloudWatch metrics
-<a name="optimized-log-analytics-metrics"></a>
 
 Amazon OpenSearch Service publishes the following CloudWatch metrics for domains running the Optimized engine. These metrics help you monitor native analytics engine performance, resource utilization, and ingestion health. For the full list of Amazon OpenSearch Service metrics, see [Monitoring OpenSearch cluster metrics with Amazon CloudWatch](managedomains-cloudwatchmetrics.md).
 

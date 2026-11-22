@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management in Amazon OpenSearch Service
-<a name="ac"></a>
 
 Amazon OpenSearch Service offers several ways to control access to your domains. This topic covers the various policy types, how they interact with each other, and how to create your own custom policies.
 
@@ -28,7 +27,7 @@ For example, the following resource-based policy grants `test-user` full access 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -58,7 +57,7 @@ Two important considerations apply to this policy:
 
 You can specify a partial index name by adding a wildcard. This example identifies any indexes beginning with `commerce`:
 
-```
+```json
 arn:aws:es:us-west-1:987654321098:domain/test-domain/commerce*
 ```
 
@@ -71,7 +70,7 @@ To further restrict `test-user`, you can apply the following policy:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -102,7 +101,7 @@ Next, you might decide to configure a role for power users. This policy gives `p
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -146,7 +145,7 @@ Because identity-based policies attach to users or roles (principals), the JSON 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -171,7 +170,7 @@ An administrator might have full access to OpenSearch Service and all data store
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -195,7 +194,7 @@ Identity-based policies let you use tags to control access to the configuration 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -226,7 +225,7 @@ You can also use tags to control access to the OpenSearch API. Tag-based policie
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -261,7 +260,7 @@ OpenSearch Service supports the `RequestTag` and `TagKeys` global condition keys
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -306,7 +305,7 @@ The following policy grants all HTTP requests that originate from the specified 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -340,7 +339,7 @@ If your domain has a public endpoint and doesn't use [fine-grained access contro
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -404,7 +403,7 @@ OpenSearch Service supports most policy elements in the [IAM Policy Elements Ref
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -434,7 +433,7 @@ For example, consider the following resource-based policy:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -510,7 +509,7 @@ Similarly, the following resource-based policy contains two subtle issues:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

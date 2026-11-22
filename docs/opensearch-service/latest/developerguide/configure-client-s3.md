@@ -1,7 +1,6 @@
 
 
 # Using an OpenSearch Ingestion pipeline with Amazon S3
-<a name="configure-client-s3"></a>
 
 With OpenSearch Ingestion, you can use Amazon S3 as a source or as a destination. When you use Amazon S3 as a source, you send data to an OpenSearch Ingestion pipeline. When you use Amazon S3 as a destination, you write data from an OpenSearch Ingestion pipeline to one or more S3 buckets.
 
@@ -54,7 +53,7 @@ The following sample policy shows the required permissions for using S3 as a sou
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -89,7 +88,7 @@ The following sample policy shows the required permissions for using S3 as a sou
 
  You must attach these permissions to the IAM role that you specify in the `sts_role_arn` option within the S3 source plugin configuration:
 
-```
+```yaml
 version: "2"
 source:
   s3:
@@ -113,7 +112,7 @@ After you've set up your permissions, you can configure an OpenSearch Ingestion 
 
 To set up S3-SQS processing, configure your pipeline to specify S3 as the source and set up Amazon SQS notifications:
 
-```
+```yaml
 version: "2"
 s3-pipeline:
   source:
@@ -161,7 +160,7 @@ For example, a range set to `PT4H` scans all files created in the last four hour
 
 The following configuration sets up a one-time scan for all buckets and all objects in those buckets:
 
-```
+```yaml
 version: "2"
 log-pipeline:
   source:
@@ -209,7 +208,7 @@ log-pipeline:
 
 The following configuration sets up a one-time scan for all buckets during a specified time window. This means that S3 processes only those objects with creation times that fall within this window.
 
-```
+```yaml
 scan:
   start_time: 2023-01-21T18:00:00.000Z
   end_time: 2023-04-21T18:00:00.000Z
@@ -234,7 +233,7 @@ scan:
 
 The following configuration sets up a one-time scan at both the scan level and the bucket level. Start and end times at the bucket level override start and end times at the scan level. 
 
-```
+```yaml
 scan:
   start_time: 2023-01-21T18:00:00.000Z
   end_time: 2023-04-21T18:00:00.000Z
@@ -273,7 +272,7 @@ In your pipeline configuration, the `interval` specifies the frequency of the re
 
 The following configuration sets up a recurring scan, with a delay of 12 hours between the scans:
 
-```
+```yaml
 scan:
   scheduling:
     interval: PT12H
@@ -306,7 +305,7 @@ When you create your S3 sink, you can specify your preferred formatting from a v
 
 The following example defines an inline schema in an S3 sink:
 
-```
+```yaml
 - s3:
   codec:
     parquet:
@@ -347,7 +346,7 @@ You can grant access across accounts with Amazon S3 so that OpenSearch Ingestion
 
 Then, you can create a pipeline using `bucket_owners` to enable cross-account access to an Amazon S3 bucket as a source:
 
-```
+```yaml
 s3-pipeline:
  source:
   s3:

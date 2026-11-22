@@ -1,7 +1,6 @@
 
 
 # Using the timestamp field in time series collections
-<a name="serverless-timestamp-field"></a>
 
 Each index in an Amazon OpenSearch Serverless NextGen time series collection has a designated *timestamp field* – a single `date` field that represents the event time of every document in the index. OpenSearch Serverless uses this field to organize and manage time series data. Every document that you ingest into a NextGen time series collection must include the designated timestamp field. If a document is missing the timestamp field or provides an invalid value, OpenSearch Serverless rejects that document. For more information about this validation, see [Ingesting documents](#serverless-timestamp-field-ingest).
 
@@ -26,7 +25,7 @@ You specify the timestamp field for an index with the `index.timestamp_field` in
 
 The following OpenSearch REST API request creates an index that designates a field named `event-time` as the timestamp field. Replace {{my-logs}} with your index name and {{event-time}} with the name of the field that you want to use as the timestamp field.
 
-```
+```json
 PUT /{{my-logs}}
 {
   "settings": {

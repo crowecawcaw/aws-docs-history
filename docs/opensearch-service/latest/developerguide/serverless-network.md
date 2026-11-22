@@ -1,7 +1,6 @@
 
 
 # Network access for Amazon OpenSearch Serverless
-<a name="serverless-network"></a>
 
 The network settings for an Amazon OpenSearch Serverless collection determine whether the collection is accessible over the internet from public networks, or whether it must be accessed privately.
 
@@ -34,7 +33,7 @@ In a network policy, you specify a series of *rules*. These rules define access 
 ### Network policy syntax
 <a name="serverless-network-policy-syntax"></a>
 
-```
+```json
 {
    "Description": "string",
    "Rules": [
@@ -72,7 +71,7 @@ Private access to AWS services such as Amazon Bedrock *only* applies to the coll
 
 The second rule specifies public access to the `finance` collection, but only for the collection endpoint (no Dashboards access).
 
-```
+```json
 [
    {
       "Description":"Marketing access",
@@ -115,7 +114,7 @@ The second rule specifies public access to the `finance` collection, but only fo
 
 This policy provides public access only to OpenSearch Dashboards for collections beginning with "finance". Any attempts to directly access the OpenSearch API will fail.
 
-```
+```json
 [
   {
     "Description": "Dashboards access",
@@ -160,7 +159,7 @@ The following identity-based access policy allows a user to view all network pol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -200,7 +199,7 @@ There can be situations where network policy rules overlap, within or across pol
 
 For example, in the following policy, both rules assign network access to the `finance` collection, but one rule specifies VPC access while the other specifies public access. In this situation, public access overrides VPC access *only for the finance collection* (because it exists in both rules), so the finance collection will be accessible from public networks. The sales collection will have VPC access from the specified endpoint.
 
-```
+```json
 [
    {
       "Description":"Rule 1",
@@ -290,7 +289,7 @@ To specify private access, include one or both of the following elements:
 
 The following sample network policy provides private access, to a VPC endpoint and Amazon Bedrock, to collection endpoints only for collections beginning with the prefix `log*`. Authenticated users can't sign in to OpenSearch Dashboards; they can only access the collection endpoint programmatically.
 
-```
+```json
 [
    {
       "Description":"Private access for log collections",
@@ -315,7 +314,7 @@ The following sample network policy provides private access, to a VPC endpoint a
 
 The following policy provides public access to the OpenSearch endpoint *and* OpenSearch Dashboards for a single collection named `finance`. If the collection doesn't exist, the network settings will be applied to the collection if and when it's created.
 
-```
+```json
 [
    {
       "Description":"Public access for finance collection",
@@ -360,7 +359,7 @@ aws opensearchserverless list-security-policies --type network
 
 The request returns information about all configured network policies. To view the pattern rules defined in the one specific policy, find the policy information in the contents of the `securityPolicySummaries` element in the response. Note the `name` and `type` of this policy and use these properties in a [GetSecurityPolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_GetSecurityPolicy.html) request to receive a response with the following policy details: 
 
-```
+```json
 {
     "securityPolicyDetail": [
         {

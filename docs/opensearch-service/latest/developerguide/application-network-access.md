@@ -1,7 +1,6 @@
 
 
 # Restricting network access to OpenSearch UI applications
-<a name="application-network-access"></a>
 
 By default, an OpenSearch UI application exposes a public endpoint that accepts requests from any network location. Your users are still subject to authentication (IAM or AWS IAM Identity Center) and authorization, but anyone on the public internet can *reach* the application and its APIs.
 
@@ -61,7 +60,7 @@ The following procedure blocks the login page for users outside your approved ne
 
 1. Save a resource control policy that denies `opensearch:ViewLoginPage` and `opensearch:ApplicationAccessAll` unless the request matches your approved network to a local file named `policy.json`. The following example approves a single interface VPC endpoint. For the other condition keys, see [Network access control configuration reference for OpenSearch UI applications](application-network-access-reference.md). Replace the {{placeholder value}} with your own VPC endpoint ID.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [
@@ -86,7 +85,7 @@ The following procedure blocks the login page for users outside your approved ne
 
 1. Create the resource control policy. Run the following command from your organization's management account or from a delegated administrator account.
 
-   ```
+   ```sh
    aws organizations create-policy \
      --name {{DenyOpenSearchUIOffNetwork}} \
      --description "{{Denies OpenSearch UI access from outside the approved network}}" \
@@ -98,7 +97,7 @@ The following procedure blocks the login page for users outside your approved ne
 
 1. Attach the policy to the organization root, an organizational unit, or the account that contains the application. To limit the scope of your first change, attach it to a single account and expand the scope after you verify the behavior.
 
-   ```
+   ```sh
    aws organizations attach-policy \
      --policy-id {{p-example12345}} \
      --target-id {{111122223333}}

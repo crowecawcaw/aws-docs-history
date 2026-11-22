@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon S3 data source integration in OpenSearch Service
-<a name="direct-query-s3-creating"></a>
 
 You can create a new Amazon S3 direct-query data source for OpenSearch Service through the AWS Management Console or the API. Each new data source uses the AWS Glue Data Catalog to manage tables that represent Amazon S3 buckets. 
 
@@ -79,7 +78,7 @@ When using your own role, you must ensure it has all necessary permissions by at
 
 Use the [AddDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AddDataSource.html) API operation to create a new data source in your domain.
 
-```
+```JSON
 POST https://es.{{region}}.amazonaws.com/2021-01-01/opensearch/domain/{{domain-name}}/dataSource
 
 {
@@ -162,7 +161,7 @@ In the following sample policy, replace the {{placeholder text }}with your own i
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -262,7 +261,7 @@ To support Amazon S3 buckets in different accounts, you will need to include a c
 
 In the following sample condition, replace the {{placeholder text }}with your own information.
 
-```
+```JSON
 "Condition": {
                 "StringEquals": {
                     "aws:ResourceAccount": "{{{{accountId}}}}"
@@ -276,7 +275,7 @@ The role must also have the following trust policy, which specifies the target I
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[

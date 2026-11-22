@@ -1,7 +1,6 @@
 
 
 # Cross-region data access to OpenSearch domains
-<a name="application-cross-region-data-access-domains"></a>
 
 You can configure your OpenSearch UI applications in one AWS Region to access OpenSearch domains in different AWS Regions. This enables you to create unified dashboards that aggregate data from OpenSearch domains across multiple AWS Regions within the same partition. Cross-region data source support requires fine-grained access control to be enabled on the target domain. Fine-grained access control provides an additional authorization layer beyond the domain access policy, allowing you to control access to individual indices, documents, and fields.
 
@@ -54,7 +53,7 @@ In this scenario, you create an OpenSearch UI application in one Region and conn
 
 Create an OpenSearch domain in the target Region with fine-grained access control enabled. Scope the access policy to the account root or specific IAM principals.
 
-```
+```sh
 aws opensearch create-domain \
   --domain-name {{domain-name}} \
   --engine-version OpenSearch_2.19 \
@@ -75,7 +74,7 @@ Wait for the domain status to become `Active` before proceeding.
 
 Create the application in the application Region with the cross-region data source. The Region is extracted from the data source ARN automatically.
 
-```
+```sh
 aws opensearch create-application \
   --region {{application-region}} \
   --name "{{cross-region-iam-app}}" \
@@ -91,7 +90,7 @@ aws opensearch create-application \
 
 Retrieve the application details to get the endpoint URL:
 
-```
+```sh
 aws opensearch get-application \
   --region {{application-region}} \
   --id {{application-id}}
@@ -111,7 +110,7 @@ In this scenario, you create an OpenSearch UI application with IAM Identity Cent
 
 Create an OpenSearch domain in the target Region with fine-grained access control and IAM Identity Center integration enabled. Use the `--identity-center-options` parameter with `IdentityCenterInstanceRegion` to specify the Region where your IAM Identity Center instance is located. This Region should be the same as where the OpenSearch UI application is hosted.
 
-```
+```sh
 aws opensearch create-domain \
   --domain-name {{domain-name}} \
   --engine-version OpenSearch_2.19 \
@@ -137,7 +136,7 @@ Create an IAM role that OpenSearch UI uses for IAM Identity Center user data pla
 
 1. Create a trust policy with only the `sts:AssumeRole` statement. You will update this policy to add the `sts:SetContext` statement after creating the application in the next step.
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -154,7 +153,7 @@ Create an IAM role that OpenSearch UI uses for IAM Identity Center user data pla
 
 1. Create a permissions policy:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [{
@@ -168,7 +167,7 @@ Create an IAM role that OpenSearch UI uses for IAM Identity Center user data pla
 
 1. Create the role and attach the policies:
 
-   ```
+   ```sh
    aws iam create-role \
      --role-name {{NeoIdCAppRole}} \
      --assume-role-policy-document file://{{neoidc-trust-policy.json}}
@@ -185,7 +184,7 @@ Create an IAM role that OpenSearch UI uses for IAM Identity Center user data pla
 **Note**  
 Ensure that the IAM Identity Center instance is located in the same Region as the OpenSearch UI application Region.
 
-```
+```sh
 aws opensearch create-application \
   --region {{application-region}} \
   --name "{{cross-region-idc-app}}" \
@@ -203,7 +202,7 @@ aws opensearch create-application \
 
 After the application is created, note the SSO application ID from the response. Then update the trust policy on the IAM Identity Center application role to add the `sts:SetContext` statement:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -230,7 +229,7 @@ After the application is created, note the SSO application ID from the response.
 }
 ```
 
-```
+```sh
 aws iam update-assume-role-policy \
   --role-name {{NeoIdCAppRole}} \
   --policy-document file://{{updated-trust-policy.json}}
@@ -242,7 +241,7 @@ aws iam update-assume-role-policy \
 **Create an IAM Identity Center user**  
 Run the following command. Replace the {{placeholder values}} with your own information.
 
-```
+```sh
 aws identitystore create-user \
   --identity-store-id {{d-directory-id}} \
   --user-name {{user-email}} \
@@ -254,7 +253,7 @@ aws identitystore create-user \
 **Create an IAM Identity Center group and add the user**  
 Run the following commands:
 
-```
+```sh
 aws identitystore create-group \
   --identity-store-id {{d-directory-id}} \
   --display-name "{{OpenSearchUsers}}" \
@@ -269,7 +268,7 @@ aws identitystore create-group-membership \
 **Assign the user or group to the application**  
 Run the following command:
 
-```
+```sh
 aws sso-admin create-application-assignment \
   --application-arn "arn:aws:sso::{{account-id}}:application/ssoins-{{instance-id}}/apl-{{application-id}}" \
   --principal-id {{user-id-or-group-id}} \
@@ -279,7 +278,7 @@ aws sso-admin create-application-assignment \
 **Configure backend role mapping on the target domain**  
 Map the IAM Identity Center group to an OpenSearch security role on the target domain:
 
-```
+```sh
 curl -XPATCH "https://{{domain-endpoint}}/_plugins/_security/api/rolesmapping/all_access" \
   -u {{admin}}:{{master-password}} \
   -H 'Content-Type: application/json' \
@@ -291,7 +290,7 @@ curl -XPATCH "https://{{domain-endpoint}}/_plugins/_security/api/rolesmapping/al
 
 Retrieve the application details to get the endpoint URL:
 
-```
+```sh
 aws opensearch get-application \
   --region {{application-region}} \
   --id {{application-id}}
@@ -311,7 +310,7 @@ In this scenario, you create an OpenSearch UI application in one Region and conn
 
 Skip this step if a VPC already exists in the target Region.
 
-```
+```sh
 # Create VPC
 aws ec2 create-vpc \
   --cidr-block 10.0.0.0/16 \
@@ -345,7 +344,7 @@ Learn more about [VPC domain creation](https://docs.aws.amazon.com/opensearch-se
 ### Step 2: Create the VPC domain (target Region)
 <a name="cross-region-scenario-3-step-2"></a>
 
-```
+```sh
 aws opensearch create-domain \
   --domain-name {{vpc-domain-name}} \
   --engine-version OpenSearch_2.19 \
@@ -365,7 +364,7 @@ Wait for the domain status to become `Active` before proceeding.
 ### Step 3: Authorize the VPC endpoint for the OpenSearch UI service principal with cross-region support (target Region)
 <a name="cross-region-scenario-3-step-3"></a>
 
-```
+```sh
 # Authorize the service principal with cross-region support
 aws opensearch authorize-vpc-endpoint-access \
   --domain-name {{vpc-domain-name}} \
@@ -381,7 +380,7 @@ aws opensearch list-vpc-endpoint-access \
 
 Expected response:
 
-```
+```json
 {
   "AuthorizedPrincipalList": [
     {
@@ -398,7 +397,7 @@ Expected response:
 ### Step 4: Create the OpenSearch UI application (application Region)
 <a name="cross-region-scenario-3-step-4"></a>
 
-```
+```sh
 aws opensearch create-application \
   --region {{application-region}} \
   --name "{{cross-region-vpc-iam-app}}" \
@@ -414,7 +413,7 @@ aws opensearch create-application \
 
 Retrieve the application details to get the endpoint URL:
 
-```
+```sh
 aws opensearch get-application \
   --region {{application-region}} \
   --id {{application-id}}
@@ -434,7 +433,7 @@ In this scenario, you create an OpenSearch UI application with IAM Identity Cent
 
 Skip this step if a VPC already exists in the target Region.
 
-```
+```sh
 # Create VPC
 aws ec2 create-vpc \
   --cidr-block 10.0.0.0/16 \
@@ -470,7 +469,7 @@ Learn more about [VPC domain creation](https://docs.aws.amazon.com/opensearch-se
 
 Create an OpenSearch domain in the target Region with fine-grained access control, IAM Identity Center integration, and VPC configuration enabled. Update the access policy to allow the IAM Identity Center application role and add the `--identity-center-options` parameter:
 
-```
+```sh
 aws opensearch create-domain \
   --domain-name {{vpc-domain-name}} \
   --engine-version OpenSearch_2.19 \
@@ -494,7 +493,7 @@ Wait for the domain status to become `Active` before proceeding.
 **Important**  
 This is a critical step that is unique to VPC domains with cross-region access. The OpenSearch UI service must be explicitly authorized to access the VPC endpoint, and you must include the application Region in the `SupportedRegions` list.
 
-```
+```sh
 # Authorize the service principal with cross-region support
 aws opensearch authorize-vpc-endpoint-access \
   --domain-name {{vpc-domain-name}} \
@@ -510,7 +509,7 @@ aws opensearch list-vpc-endpoint-access \
 
 Expected response:
 
-```
+```json
 {
   "AuthorizedPrincipalList": [
     {
@@ -533,7 +532,7 @@ Create an IAM role that OpenSearch UI uses for IAM Identity Center user data pla
 
 1. Create a trust policy with only the `sts:AssumeRole` statement. You will update this policy to add the `sts:SetContext` statement after creating the application in the next step.
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -550,7 +549,7 @@ Create an IAM role that OpenSearch UI uses for IAM Identity Center user data pla
 
 1. Create a permissions policy:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [{
@@ -564,7 +563,7 @@ Create an IAM role that OpenSearch UI uses for IAM Identity Center user data pla
 
 1. Create the role and attach the policies:
 
-   ```
+   ```sh
    aws iam create-role \
      --role-name {{NeoIdCAppRole}} \
      --assume-role-policy-document file://{{neoidc-trust-policy.json}}
@@ -578,7 +577,7 @@ Create an IAM role that OpenSearch UI uses for IAM Identity Center user data pla
 ### Step 5: Create the OpenSearch UI application with IAM Identity Center (application Region)
 <a name="cross-region-scenario-4-step-5"></a>
 
-```
+```sh
 aws opensearch create-application \
   --region {{application-region}} \
   --name "{{cross-region-vpc-idc-app}}" \
@@ -596,7 +595,7 @@ aws opensearch create-application \
 
 After the application is created, note the SSO application ID from the response. Then update the trust policy on the IAM Identity Center application role to add the `sts:SetContext` statement:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -623,7 +622,7 @@ After the application is created, note the SSO application ID from the response.
 }
 ```
 
-```
+```sh
 aws iam update-assume-role-policy \
   --role-name {{NeoIdCAppRole}} \
   --policy-document file://{{updated-trust-policy.json}}
@@ -639,7 +638,7 @@ Follow the same steps as [Step 4: Create and assign IAM Identity Center users an
 
 Retrieve the application details to get the endpoint URL:
 
-```
+```sh
 aws opensearch get-application \
   --region {{application-region}} \
   --id {{application-id}}
@@ -655,7 +654,7 @@ aws opensearch get-application \
 **Update an application with cross-region data sources**  
 Run the following command. Replace the {{placeholder values}} with your own information.
 
-```
+```sh
 aws opensearch update-application \
   --region {{application-region}} \
   --id {{application-id}} \
@@ -674,7 +673,7 @@ The update operation replaces the entire data sources array. Include all data so
 **List applications**  
 Run the following command:
 
-```
+```sh
 aws opensearch list-applications \
   --region {{application-region}}
 ```
@@ -682,7 +681,7 @@ aws opensearch list-applications \
 **Delete an application**  
 Run the following command:
 
-```
+```sh
 aws opensearch delete-application \
   --region {{application-region}} \
   --id {{application-id}}
@@ -691,7 +690,7 @@ aws opensearch delete-application \
 **Revoke VPC endpoint access for specific Regions**  
 To revoke cross-region access for specific AWS Regions while keeping others, use the `--service-options` parameter with the Regions to revoke:
 
-```
+```sh
 aws opensearch revoke-vpc-endpoint-access \
   --domain-name {{vpc-domain-name}} \
   --service "application.opensearchservice.amazonaws.com" \

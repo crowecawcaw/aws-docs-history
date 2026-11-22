@@ -1,7 +1,6 @@
 
 
 # Upgrading Amazon OpenSearch Service domains
-<a name="version-migration"></a>
 
 **Note**  
 OpenSearch and Elasticsearch version upgrades differ from service software updates. For information on updating the service software for your OpenSearch Service domain, see [Service software updates in Amazon OpenSearch Service](service-software.md).

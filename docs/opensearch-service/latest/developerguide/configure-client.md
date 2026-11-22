@@ -1,7 +1,6 @@
 
 
 # Integrating Amazon OpenSearch Ingestion pipelines with other services and applications
-<a name="configure-client"></a>
 
 To successfully ingest data into an Amazon OpenSearch Ingestion pipeline, you must configure your client application (the *source*) to send data to the pipeline endpoint. Your source might be clients like Fluent Bit logs, the OpenTelemetry Collector, or a simple S3 bucket. The exact configuration differs for each client.
 
@@ -36,7 +35,7 @@ For example, the following AWS Identity and Access Management (IAM) policy allow
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -73,7 +72,7 @@ You might need to ingest data into a pipeline from a different AWS account, such
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [{
@@ -97,7 +96,7 @@ You might need to ingest data into a pipeline from a different AWS account, such
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Investigation Agent in Amazon OpenSearch Service
-<a name="application-investigation-agent"></a>
 
 The Investigation Agent is a goal-driven deep research agent in OpenSearch UI that autonomously investigates complex issues on your behalf. It plans using your data and the stated goal, executes queries and analysis, and reflects through a multi-step workflow. When the investigation completes, typically within a few minutes, it generates structured hypotheses ranked by likelihood, each backed by data evidence. It provides full transparency into every step of its reasoning, so that you can verify and trust the results.
 

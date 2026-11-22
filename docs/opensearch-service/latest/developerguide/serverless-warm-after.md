@@ -1,7 +1,6 @@
 
 
 # Using the warm-after setting in time series collections
-<a name="serverless-warm-after"></a>
 
 Amazon OpenSearch Serverless NextGen time series collections use a combination of hot and warm storage. You use the `index.warm.after` index setting to specify the *warm-after period*, which is how long data in an index stays in hot storage before OpenSearch Serverless moves it to warm storage. You can specify the setting when you create an index or in an index template, and you can change it later by updating the index settings. Warm storage applies to data within an index, not to the index as a whole, so an index can contain both hot and warm data at the same time.
 
@@ -37,7 +36,7 @@ OpenSearch Serverless resolves the warm-after period for an index in the followi
 
 The following OpenSearch REST API request creates an index named `my-logs` with a warm-after period of 7 days.
 
-```
+```json
 PUT /{{my-logs}}
 {
   "settings": {
@@ -62,7 +61,7 @@ OpenSearch Serverless validates the `index.warm.after` value when you create an 
 
 To change the warm-after period of an existing index, update the `index.warm.after` setting. The following OpenSearch REST API request changes the warm-after period of the `my-logs` index to 3 days.
 
-```
+```json
 PUT /{{my-logs}}/_settings
 {
   "index": {

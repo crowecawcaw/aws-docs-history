@@ -1,7 +1,6 @@
 
 
 # Operational best practices for Amazon OpenSearch Service
-<a name="bp"></a>
 
 This chapter provides best practices for operating Amazon OpenSearch Service domains and includes general guidelines that apply to many use cases. Each workload is unique, with unique characteristics, so no generic recommendation is exactly right for every use case. The most important best practice is to deploy, test, and tune your domains in a continuous cycle to find the optimal configuration, stability, and cost for your workload.
 

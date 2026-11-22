@@ -1,7 +1,6 @@
 
 
 # Auto-optimize
-<a name="serverless-auto-optimize"></a>
 
 Auto-optimize is a service that automates vector index optimizations, enabling users to balance search quality, speed, and cost without requiring weeks of manual expert tuning. It evaluates index configurations based on user-defined latency and recall requirements and generates optimization recommendations, so minimal expertise is required. Recommendations are typically delivered within 30-60 minutes.
 
@@ -141,7 +140,7 @@ JSONL (JSON Lines) is a text format where each line is a valid JSON object. Each
 
 Example JSONL file:
 
-```
+```json
 {"id": 1, "train_data": [0.12, 0.45, 0.78, 0.33]}
 {"id": 2, "train_data": [0.56, 0.89, 0.12, 0.67]}
 {"id": 3, "train_data": [0.34, 0.67, 0.90, 0.11]}
@@ -155,7 +154,7 @@ If your data is in a different format, you can use the following Python scripts 
 **Convert JSON or JSONL to Parquet**  
 
 
-```
+```python
 #!/usr/bin/env python3
 import json
 import pyarrow as pa
@@ -218,7 +217,7 @@ if __name__ == "__main__":
 **Convert Parquet to JSONL**  
 
 
-```
+```python
 #!/usr/bin/env python3
 import json
 import pyarrow.parquet as pq

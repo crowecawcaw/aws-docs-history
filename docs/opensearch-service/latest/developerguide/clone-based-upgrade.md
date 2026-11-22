@@ -1,7 +1,6 @@
 
 
 # Validating, cutting over, and rolling back during a clone-based upgrade
-<a name="clone-based-upgrade"></a>
 
 After you start a clone-based upgrade, OpenSearch Service creates a cloned cluster of your domain and copies your data to it. When the cloned cluster is ready, the upgrade waits for you. This page explains how to validate the cloned cluster, cut over to it, cancel the upgrade, and roll back. For information about the requests that perform each action, see [Upgrading a domain (CLI)](starting-upgrades-cli.md) and [Upgrading a domain (SDK)](starting-upgrades-sdk.md).
 

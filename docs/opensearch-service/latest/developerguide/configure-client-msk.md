@@ -1,7 +1,6 @@
 
 
 # Using an OpenSearch Ingestion pipeline with Amazon Managed Streaming for Apache Kafka
-<a name="configure-client-msk"></a>
 
 You can use the [Kafka plugin](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/kafka/) to ingest data from [Amazon Managed Streaming for Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/) (Amazon MSK) into your OpenSearch Ingestion pipeline. With Amazon MSK, you can build and run applications that use Apache Kafka to process streaming data. OpenSearch Ingestion uses AWS PrivateLink to connect to Amazon MSK. You can ingest data from both Amazon MSK and Amazon MSK Serverless clusters. The only difference between the two processes is the prerequisite steps you must take before you set up your pipeline.
 
@@ -31,7 +30,7 @@ Before you create your OpenSearch Ingestion pipeline, perform the following step
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -71,7 +70,7 @@ Before you create your OpenSearch Ingestion pipeline, perform the following step
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -137,7 +136,7 @@ Before you create your OpenSearch Ingestion pipeline, perform the following step
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -186,7 +185,7 @@ After you have your Amazon MSK provisoned or serverless cluster set up, add the 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -234,7 +233,7 @@ After you have your Amazon MSK provisoned or serverless cluster set up, add the 
 
 You can then configure an OpenSearch Ingestion pipeline like the following, which specifies Kafka as the source:
 
-```
+```yaml
 version: "2"
 log-pipeline:
   source:
@@ -272,7 +271,7 @@ When you use OpenSearch Ingestion with Amazon MSK, you can use the AVRO data for
 
 To use this option, enable the schema `type` in your pipeline configuration:
 
-```
+```yaml
 schema:
   type: "aws_glue"
 ```

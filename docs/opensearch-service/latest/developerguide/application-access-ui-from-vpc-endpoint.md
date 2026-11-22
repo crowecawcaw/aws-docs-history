@@ -1,7 +1,6 @@
 
 
 # Managing access to the OpenSearch UI from a VPC endpoint
-<a name="application-access-ui-from-vpc-endpoint"></a>
 
 You can create a private connection between your VPC and OpenSearch UI using AWS PrivateLink. Using this connection, you can access OpenSearch UI applications as if they were in the same VPC. This way, you don't need to configure an internet gateway, NAT device, VPN connection, or AWS Direct Connect to establish the connection. Instances in your VPC don't need public IP addresses to access OpenSearch UI.
 
@@ -46,7 +45,7 @@ In this step, you are limiting the ports, protocols, and sources for inbound tra
 **To create a private connection between a VPC and OpenSearch UI using the AWS CLI**  
 Run the following command. Replace the {{placeholder values}} with your own information.
 
-```
+```sh
 aws opensearchserverless create-vpc-endpoint \
     --region {{region}} \
     --endpoint {{endpoint}} \
@@ -64,7 +63,7 @@ For information about updating a VPC endpoint policy, see [Update a VPC endpoint
 
 Ensure that the VPC endpoint policy includes the following statement. Replace the {{placeholder values}} with your own AWS Region, account ID, and application ID.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [{
@@ -85,7 +84,7 @@ For information about updating a VPC endpoint policy, see [Update a VPC endpoint
 
 Alternatively, you can explicitly deny access. The following is an example of a VPC endpoint policy that denies access to an OpenSearch UI application from the VPC. Replace the {{placeholder values}} with your own AWS Region, account ID, and application ID.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [{

@@ -1,7 +1,6 @@
 
 
 # Directly querying Amazon S3 data in OpenSearch Service
-<a name="direct-query-s3-overview"></a>
 
 This section will walk you through the process of creating and configuring a data source integration in Amazon OpenSearch Service, enabling you to efficiently query and analyze your data stored in Amazon S3.
 

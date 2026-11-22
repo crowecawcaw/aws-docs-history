@@ -1,7 +1,6 @@
 
 
 # Tutorial: Creating and searching for documents in Amazon OpenSearch Service
-<a name="quick-start"></a>
 
 In this tutorial, you learn how to create and search for a document in Amazon OpenSearch Service. You add data to an index in the form of a JSON document. OpenSearch Service creates an index around the first document that you add.
 
@@ -36,7 +35,7 @@ To add a document to an index, you can use any HTTP tool, such as [Postman](http
 
 1. The HTTP verb for creating a new resource is PUT, which is what you use to create a new document and index. Enter the following command in the console:
 
-   ```
+   ```json
    PUT fruit/_doc/1
    {
      "name":"strawberry",
@@ -46,7 +45,7 @@ To add a document to an index, you can use any HTTP tool, such as [Postman](http
 
    The `PUT` request creates an index named *fruit* and adds a single document to the index with an ID of 1. It produces the following response:
 
-   ```
+   ```json
    {
      "_index" : "fruit",
      "_type" : "_doc",
@@ -70,7 +69,7 @@ OpenSearch Service can automatically generate an ID for your documents. The comm
 
 Enter the following request in the developer console:
 
-```
+```json
 POST veggies/_doc
 {
   "name":"beet",
@@ -81,7 +80,7 @@ POST veggies/_doc
 
 This request creates an index named *veggies* and adds the document to the index. It produces the following response:
 
-```
+```json
 {
   "_index" : "veggies",
   "_type" : "_doc",
@@ -110,7 +109,7 @@ To update a document, you use an HTTP `POST` command with the ID number.
 
 First, create a document with an ID of `42`:
 
-```
+```json
 POST fruits/_doc/42
 {
   "name":"banana",
@@ -214,7 +213,7 @@ The request produces a JSON response that contains the lettuce document.
 
 You can perform more advanced searches by providing the query options as JSON in the request body:
 
-```
+```json
 GET veggies/_search
 {
   "query": {

@@ -1,7 +1,6 @@
 
 
 # IAM Identity Center support for Amazon OpenSearch Serverless
-<a name="serverless-iam-identity-center"></a>
 
 ## IAM Identity Center support for Amazon OpenSearch Serverless
 <a name="serverless-iam-identity-support"></a>
@@ -27,7 +26,7 @@ The following identity-based access policy can be used to manage all IAM Identit
 
 ****  
 
-```
+```json
 {
 "Version": "2012-10-17",
     "Statement": [
@@ -77,7 +76,7 @@ You can create an IAM Identity Center provider to enable authentication with Ope
 
 To create an IAM Identity Center provider using the AWS Command Line Interface (AWS CLI) use the following command:
 
-```
+```JSON
 aws opensearchserverless create-security-config \
 --region us-east-2 \
 --name "iamidentitycenter-config" \
@@ -92,7 +91,7 @@ aws opensearchserverless create-security-config \
 
 After an IAM Identity Center is enabled, customers can only modify **user and group** attributes.
 
-```
+```JSON
 aws opensearchserverless update-security-config \
 --region us-east-1 \
 --id <id_from_list_security_configs> \
@@ -114,7 +113,7 @@ aws opensearchserverless list-security-configs --type iamidentitycenter
 
  IAM Identity Center offers two instances of providers, one for your organization account and one for your member account. If you need to change your IAM Identity Center instance, you need to delete your security configuration through the `DeleteSecurityConfig` API and create a new security configuration using the new IAM Identity Center instance. The following command can be used to delete an IAM Identity Center provider:
 
-```
+```JSON
 aws opensearchserverless delete-security-config \
 --region us-east-1 \
 --id <id_from_list_security_configs>
@@ -125,7 +124,7 @@ aws opensearchserverless delete-security-config \
 
 After your IAM Identity Center provider is enabled, you can update the collection data access policy to include IAM Identity Center principals. IAM Identity Center principals need to be updated in the following format: 
 
-```
+```JSON
 [
    {
 "Rules":[

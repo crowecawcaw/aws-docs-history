@@ -1,7 +1,6 @@
 
 
 # Metrics
-<a name="observability-metrics"></a>
 
 The Discover Metrics page in OpenSearch UI provides a dedicated interface for discovering, querying, and visualizing time-series metric data. This page is optimized for working with Prometheus metrics using PromQL.
 

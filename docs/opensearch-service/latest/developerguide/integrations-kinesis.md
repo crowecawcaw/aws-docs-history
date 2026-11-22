@@ -1,7 +1,6 @@
 
 
 # Loading streaming data from Amazon Kinesis Data Streams
-<a name="integrations-kinesis"></a>
 
 You can load streaming data from Kinesis Data Streams to OpenSearch Service. New data that arrives in the data stream triggers an event notification to Lambda, which then runs your custom code to perform the indexing. This section includes some unsophisticated Python sample code.
 
@@ -19,7 +18,7 @@ Before proceeding, you must have the following resources.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -44,7 +43,7 @@ Before proceeding, you must have the following resources.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

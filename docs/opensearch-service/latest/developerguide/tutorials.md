@@ -1,7 +1,6 @@
 
 
 # Amazon OpenSearch Service tutorials
-<a name="tutorials"></a>
 
 This chapter includes several start-to-finish tutorials for working with Amazon OpenSearch Service, including how to migrate to the service, build a simple search application, and create a visualization in OpenSearch Dashboards.
 

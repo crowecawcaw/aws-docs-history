@@ -1,7 +1,6 @@
 
 
 # Viewing Amazon OpenSearch Ingestion pipelines
-<a name="list-pipeline"></a>
 
 You can view the details about an Amazon OpenSearch Ingestion pipeline using the AWS Management Console, the AWS CLI, or the OpenSearch Ingestion API.
 
@@ -79,7 +78,7 @@ aws osis get-pipeline --pipeline-name "{{my-pipeline}}"
 
 The request returns configuration information for the specified pipeline:
 
-```
+```json
 {
     "Pipeline": {
         "PipelineName": "my-pipeline",

@@ -1,7 +1,6 @@
 
 
 # Managing indexes in Amazon OpenSearch Service
-<a name="managing-indices"></a>
 
 After you add data to Amazon OpenSearch Service, you often need to reindex that data, work with index aliases, move an index to more cost-effective storage, or delete it altogether. This chapter covers storage tiering solutions, Index State Management, and other index operations. For information on the OpenSearch index APIs, see the [OpenSearch documentation](https://docs.opensearch.org/latest/opensearch/reindex-data/).
 

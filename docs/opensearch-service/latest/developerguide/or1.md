@@ -1,7 +1,6 @@
 
 
 # OpenSearch Optimized Instances for Amazon OpenSearch Service domains
-<a name="or1"></a>
 
 The OpenSearch optimized instance family for Amazon OpenSearch Service is a cost-effective solution for storing large volumes of data. A domain with OpenSearch optimized instances use local storage as primary, with data copied synchronously to Amazon S3 as it arrives. This storage structure provides increased indexing throughput with high durability. OR1, OR2, OM2 uses uses Amazon Elastic Block Store (Amazon EBS) `gp3` or `io1` volumes locally whereas OI2 instances use local NVMe disks. The OpenSearch optimized instance family also supports automatic data recovery in the event of failure. For information about OpenSearch optimized instance type options, see [Current generation instance types](supported-instance-types.md#latest-gen). 
 

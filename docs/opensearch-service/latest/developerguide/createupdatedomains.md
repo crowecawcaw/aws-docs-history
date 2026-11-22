@@ -1,7 +1,6 @@
 
 
 # Creating and managing Amazon OpenSearch Service domains
-<a name="createupdatedomains"></a>
 
 This chapter describes how to create and manage Amazon OpenSearch Service domains. A domain is the AWS-provisioned equivalent of an open source OpenSearch cluster. When you create a domain, you specify its settings, instance types, instance counts, and storage allocation. For more information about open source clusters, see [Creating a cluster](https://opensearch.org/docs/latest/tuning-your-cluster/) in the OpenSearch documentation.
 

@@ -1,7 +1,6 @@
 
 
 # Data access control for Amazon OpenSearch Serverless
-<a name="serverless-data-access"></a>
 
 With data access control in Amazon OpenSearch Serverless, you can allow users to access collections and indexes, regardless of their access mechanism or network source. You can provide access to IAM roles and [SAML identities](serverless-saml.md).
 
@@ -34,7 +33,7 @@ For example, suppose an IAM policy denies a user from creating data access polic
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -73,7 +72,7 @@ Being granted permissions within a data access policy is not sufficient to acces
 
 Data access control for OpenSearch Serverless uses the following IAM permissions. You can specify IAM conditions to restrict users to specific access policy names. Amazon OpenSearch Service also supports global IAM condition keys in resource-based access policies, including `aws:SecureTransport`. You can use `aws:SecureTransport` to require that requests to your domain be made over HTTPS. For example:
 
-```
+```json
 "Condition": {"Bool": {"aws:SecureTransport": "true"}}
 ```
 + `aoss:CreateAccessPolicy` – Create an access policy.
@@ -89,7 +88,7 @@ The following identity-based access policy allows a user to view all access poli
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -132,14 +131,14 @@ A data access policy includes a set of rules, each with the following elements:
 
 | Element | Description | 
 | --- | --- | 
-| ResourceType | The type of resource (collection or index) that the permissions apply to. Alias and template permissions are at the collection level, while permissions for creating, modifying, and searching data are at the index level. For more information, see [Supported policy permissions](#serverless-data-supported-permissions). | 
-| Resource | A list of resource names and/or patterns. Patterns are prefixes followed by a wildcard (\*), which allow the associated permissions to apply to multiple resources.+  Collections take the format `collection/{{<name\|pattern>}}`. <br />+  Indexes take the format `index/{{<collection-name\|pattern>}}/{{<index-name\|pattern/>}}`.  | 
+| ResourceType | The type of resource (collection, index, or model) that the permissions apply to. Alias and template permissions are at the collection level, while permissions for creating, modifying, and searching data are at the index level. Permissions for machine learning connectors, models, and model groups use the model resource type. Each policy statement can contain at most one rule for each resource type. For more information, see [Supported policy permissions](#serverless-data-supported-permissions). | 
+| Resource | A list of resource names and/or patterns. Patterns are prefixes followed by a wildcard (\*), which allow the associated permissions to apply to multiple resources.+  Collections take the format `collection/{{<name\|pattern>}}`. <br />+  Indexes take the format `index/{{<collection-name\|pattern>}}/{{<index-name\|pattern/>}}`. <br />+  Models take the format `model/{{<collection-name\|pattern>}}/{{<model-name\|pattern>}}`. To scope a rule to specific models, use model names that start with a lowercase letter and contain only lowercase letters, numbers, hyphens, and underscores (3-64 characters). Permissions for connectors, model groups, and tasks, and for searching models, don't apply to a specific model name. Grant them, and the permissions for workflow steps, on `model/{{<collection-name>}}/*`. For information about scoping access to specific models, see [Configure permissions for Machine Learning](serverless-configure-machine-learning.md#serverless-configure-machine-learning-permissions).  | 
 | Permission | A list of permissions to grant for the specified resources. For a complete list of permissions and the API operations they allow, see [Supported OpenSearch API operations and permissions](serverless-genref.md#serverless-operations). | 
 | Principal | A list of one or more principals to grant access to. Principals can be IAM role ARNs or SAML identities. These principals must be within the current AWS account. Data access policies don't directly support cross-account access, but you can include a role in your policy that a user from a different AWS account can assume in the collection-owning account. For more information, see [Cross-account data access](#serverless-data-access-cross). | 
 
 The following example policy grants alias and template permissions to the collection called `autopartsinventory`, as well as any collections that begin with the prefix `sales*`. It also grants read and write permissions to all indexes within the `autopartsinventory` collection, and any indexes in the `salesorders` collection that begin with the prefix `orders*`.
 
-```
+```json
 [
    {
       "Description": "Rule 1",
@@ -200,6 +199,14 @@ The following permissions are supported in data access policies. For the OpenSea
 + `aoss:DescribeIndex`
 + `aoss:*`
 
+**Model permissions**
++ `aoss:CreateMLResource`
++ `aoss:DescribeMLResource`
++ `aoss:UpdateMLResource` (includes deploying and undeploying models)
++ `aoss:DeleteMLResource`
++ `aoss:ExecuteMLResource`
++ `aoss:*`
+
 **Note**  
 These permissions are specific to data access policies and are not IAM actions. They do not appear in the IAM console or IAM policy simulator. To grant principals access to collection resources, you also need the IAM permissions `aoss:APIAccessAll` and `aoss:DashboardsAccessAll`. For more information, see [Data access policies versus IAM policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-vs-iam).
 
@@ -208,7 +215,7 @@ These permissions are specific to data access policies and are not IAM actions. 
 
 OpenSearch Dashboards provides [sample datasets](https://opensearch.org/docs/latest/dashboards/quickstart-dashboards/#adding-sample-data) that come with visualizations, dashboards, and other tools to help you explore Dashboards before you add your own data. To create indexes from this sample data, you need a data access policy that provides permissions to the dataset that you want to work with. The following policy uses a wildcard (`*`) to provide permissions to all three sample datasets.
 
-```
+```json
 [
   {
     "Rules": [
@@ -290,7 +297,7 @@ aws opensearchserverless list-access-policies --type data
 
 The request returns information about all configured data access policies. To view the pattern rules defined in the one specific policy, find the policy information in the contents of the `accessPolicySummaries` element in the response. Note the `name` and `type` of this policy and use these properties in a [GetAccessPolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_GetAccessPolicy.html) request to receive a response with the following policy details: 
 
-```
+```json
 {
     "accessPolicyDetails": [
         {

@@ -1,7 +1,6 @@
 
 
 # Optimized for log analytics
-<a name="optimized-log-analytics"></a>
 
 Amazon OpenSearch Service optimized for log analytics is a new engine option that combines columnar analytical storage with full-text search in a single managed service. With the Optimized engine, you get significantly better price-performance for log analytics workloads. You also retain full-text search for incident investigation.
 

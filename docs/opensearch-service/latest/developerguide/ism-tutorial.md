@@ -1,7 +1,6 @@
 
 
 # Tutorial: Automating Index State Management processes
-<a name="ism-tutorial"></a>
 
 This tutorial demonstrates how to implement an ISM policy that automates routine index management tasks and apply them to indexes and index patterns.
 
@@ -33,7 +32,7 @@ First, configure an ISM policy in OpenSearch Dashboards.
 
 1. Replace the default policy with the following policy:
 
-   ```
+   ```json
    {
      "policy": {
        "description": "Move indexes between storage tiers",

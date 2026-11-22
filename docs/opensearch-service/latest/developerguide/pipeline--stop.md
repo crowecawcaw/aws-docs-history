@@ -1,7 +1,6 @@
 
 
 # Stopping an Amazon OpenSearch Ingestion pipeline
-<a name="pipeline--stop"></a>
 
 To use an OpenSearch Ingestion pipeline or perform administration, you always begin with an active pipeline, then stop the pipeline, and then start the pipeline again. While your pipeline is stopped, you're not charged for Ingestion OCU hours.
 

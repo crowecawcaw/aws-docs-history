@@ -1,7 +1,6 @@
 
 
 # Using CloudFormation to create Amazon OpenSearch Serverless collections
-<a name="serverless-cfn"></a>
 
 You can use CloudFormation to create Amazon OpenSearch Serverless resources such as collections, security policies, and VPC endpoints. For the comprehensive OpenSearch Serverless CloudFormation reference, see [Amazon OpenSearch Serverless](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpenSearchServerless.html) in the *CloudFormation User Guide*.
 
@@ -13,7 +12,7 @@ The following sample CloudFormation template creates a simple data access policy
 **Important**  
 This example uses public network access, which isn't recommended for production workloads. We recommend using VPC access to protect your collections. For more information, see [AWS::OpenSearchServerless::VpcEndpoint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-vpcendpoint.html) and [Data plane access through AWS PrivateLink](serverless-vpc.md).
 
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: 'Amazon OpenSearch Serverless template to create an IAM user, encryption policy, network policy, data access policy and collection'
 Resources:

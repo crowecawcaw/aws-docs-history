@@ -1,7 +1,6 @@
 
 
 # Accessing OpenSearch Dashboards
-<a name="serverless-dashboards"></a>
 
 After you create a collection with the AWS Management Console, you can navigate to the collection's OpenSearch Dashboards URL. You can find the Dashboards URL by choosing **Collections** in the left navigation pane and selecting the collection to open its details page. The URL takes the format `https://dashboards.{{us-east-1}}.aoss.amazonaws.com/_login/?collectionId={{07tjusf2h91cunochc}}`. After you navigate to the URL, you automatically log in to Dashboards.
 

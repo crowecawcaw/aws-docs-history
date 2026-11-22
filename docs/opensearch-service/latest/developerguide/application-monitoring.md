@@ -1,7 +1,6 @@
 
 
 # Monitoring OpenSearch UI with Amazon CloudWatch
-<a name="application-monitoring"></a>
 
 Amazon OpenSearch Service automatically publishes metrics for OpenSearch UI applications to CloudWatch. You can use these metrics to monitor the health and performance of your OpenSearch UI applications.
 

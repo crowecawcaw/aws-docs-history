@@ -1,7 +1,6 @@
 
 
 # Using an OpenSearch Ingestion pipeline with Fluentd
-<a name="configure-client-fluentd"></a>
 
 Fluentd is an open-source data collection ecosystem that provides SDKs for different languages and sub-projects like Fluent Bit. This sample [Fluentd configuration file](https://docs.fluentd.org/output/http#example-configuration) sends log data from Fluentd to an OpenSearch Ingestion pipeline. For more information about ingesting log data, see [Log Analytics](https://github.com/opensearch-project/data-prepper/blob/main/docs/log_analytics.md) in the Data Prepper documentation.
 
@@ -57,7 +56,7 @@ Note the following:
 
 You can then configure an OpenSearch Ingestion pipeline like the following, which has HTTP as the source:
 
-```
+```yaml
 version: "2"
 apache-log-pipeline:
   source:

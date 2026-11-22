@@ -1,7 +1,6 @@
 
 
 # An OpenSearch UI application remains in the Creating state
-<a name="application-troubleshooting-creating"></a>
 
 An OpenSearch UI application usually becomes active within a few minutes. In some cases it can remain in the Creating state for longer. Before you investigate, compare the elapsed time against the following expected durations.
 
@@ -29,7 +28,7 @@ If the application has been in the Creating state for less than 20 minutes, it m
 
 To check the status with the AWS CLI, run the following command:
 
-```
+```sh
 aws opensearch get-application \
     --id {{application-id}} \
     --region {{region}}
@@ -44,7 +43,7 @@ Missing IAM permissions are the most common cause. The application remains in th
 
 Confirm that the principal creating the application has the following permissions.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -73,14 +72,14 @@ OpenSearch UI uses the `AWSServiceRoleForAmazonOpenSearchService` service-linked
 
 Check whether the role exists:
 
-```
+```sh
 aws iam get-role \
     --role-name AWSServiceRoleForAmazonOpenSearchService
 ```
 
 If the role does not exist, create it:
 
-```
+```sh
 aws iam create-service-linked-role \
     --aws-service-name opensearchservice.amazonaws.com
 ```
@@ -97,7 +96,7 @@ When an application includes VPC-based data sources, OpenSearch UI must create V
 
 While you wait, confirm that VPC endpoint access is authorized:
 
-```
+```sh
 aws opensearch list-vpc-endpoint-access \
     --domain-name {{domain-name}}
 ```
@@ -109,7 +108,7 @@ Also confirm that the security group of the domain allows inbound traffic on TCP
 
 If an associated domain is itself creating, processing, or upgrading, application creation can stop while it waits. Check the status of every associated domain:
 
-```
+```sh
 aws opensearch describe-domain \
     --domain-name {{domain-name}} \
     --region {{region}}
@@ -117,7 +116,7 @@ aws opensearch describe-domain \
 
 Wait until all domains are active before you create the application. Alternatively, create the application without data sources and add them after it becomes active:
 
-```
+```sh
 aws opensearch create-application \
     --name {{application-name}} \
     --region {{region}}
@@ -139,7 +138,7 @@ Review the service control policies that apply to the account, confirm that they
 
 Each AWS Region limits the number of OpenSearch UI applications that you can create. Check how many applications already exist:
 
-```
+```sh
 aws opensearch list-applications --region {{region}}
 ```
 
@@ -164,7 +163,7 @@ If you have reached the quota, request an increase in the Service Quotas console
 
 If the application has been in the Creating state for more than 30 minutes and you have checked each item, delete the application, wait five minutes for cleanup, resolve the problem that you identified, and create a new application. Deleting an application that never became active does not delete saved objects or workspace data, because none were created.
 
-```
+```sh
 aws opensearch delete-application \
     --id {{application-id}} \
     --region {{region}}

@@ -1,7 +1,6 @@
 
 
 # Service software updates in Amazon OpenSearch Service
-<a name="service-software"></a>
 
 **Note**  
 For explanations of the changes and additions made in each *major* (non-patch) service software update, see the [release notes](release-notes.md).
@@ -122,7 +121,7 @@ If the request fails with a `BaseException`, it means that the time you specifie
 
 This sample Python script uses the [describe\_domain](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html#OpenSearchService.Client.describe_domain) and [start\_service\_software\_update](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html#OpenSearchService.Client.start_service_software_update) methods from the AWS SDK for Python (Boto3) to check whether a domain is eligible for a service software update and if so, starts the update. You must provide a value for `domain_name`.
 
-```
+```python
 import boto3
 from botocore.config import Config
 import time

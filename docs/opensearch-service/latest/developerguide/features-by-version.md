@@ -1,7 +1,6 @@
 
 
 # Features by engine version in Amazon OpenSearch Service
-<a name="features-by-version"></a>
 
 Many OpenSearch Service features have a minimum OpenSearch version requirement or legacy Elasticsearch OSS version requirement. If you meet the minimum version for a feature, but the feature isn't available on your domain, update your domain's [service software](service-software.md).
 

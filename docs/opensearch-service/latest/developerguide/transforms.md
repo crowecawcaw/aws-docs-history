@@ -1,7 +1,6 @@
 
 
 # Transforming indexes in Amazon OpenSearch Service
-<a name="transforms"></a>
 
 Whereas [index rollup jobs](rollup.md) let you reduce data granularity by rolling up old data into condensed indexes, transform jobs let you create a different, summarized view of your data centered around certain fields, so you can visualize or analyze the data in different ways.
 
@@ -46,7 +45,7 @@ After the job finishes, you can use the standard `_search` API to search the tar
 
 For example, after running a transform job that transforms the flight data based on the `DestAirportID` field, you can run the following request to return all fields that have a value of `SFO`:
 
-```
+```json
 GET target_index/_search
 {
   "query": {

@@ -1,7 +1,6 @@
 
 
 # What is Amazon OpenSearch Serverless?
-<a name="serverless-overview"></a>
 
 Amazon OpenSearch Serverless is an on-demand, serverless option for Amazon OpenSearch Service that eliminates the operational complexity of provisioning, configuring, and tuning OpenSearch clusters. It’s ideal for organizations that prefer not to self-manage their clusters or lack the dedicated resources and expertise to operate large-scale deployments. With OpenSearch Serverless, you can search and analyze large volumes of data without managing the underlying infrastructure.
 

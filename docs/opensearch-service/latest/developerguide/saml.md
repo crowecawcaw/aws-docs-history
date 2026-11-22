@@ -1,7 +1,6 @@
 
 
 # SAML authentication for OpenSearch Dashboards
-<a name="saml"></a>
 
 SAML authentication for OpenSearch Dashboards lets you use your existing identity provider to offer single sign-on (SSO) for Dashboards on Amazon OpenSearch Service domains running OpenSearch or Elasticsearch 6.7 or later. To use SAML authentication, you must enable [fine-grained access control](fgac.md).
 
@@ -48,7 +47,7 @@ We recommend the following [domain access policy](ac.md#ac-types-resource), whic
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -73,7 +72,7 @@ To make the policy more restrictive, you can add an IP address condition to the 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -259,7 +258,7 @@ For example, you might map your trusted colleague `jroe` to the `all_access` and
 
 If you prefer to use the API rather than OpenSearch Dashboards, see the following sample request:
 
-```
+```json
 PATCH _plugins/_security/api/rolesmapping
 [
   {
@@ -295,7 +294,7 @@ If you want to configure both SP- and IdP-initiated authentication, you must do 
 
 The following AWS CLI command enables SAML authentication for OpenSearch Dashboards on an existing domain:
 
-```
+```bash
 aws opensearch update-domain-config \
   --domain-name {{my-domain}} \
   --advanced-security-options '{"SAMLOptions":{"Enabled":{{true}},"MasterUserName":"{{my-idp-user}}","MasterBackendRole":"{{my-idp-group-or-role}}","Idp":{"EntityId":"{{entity-id}}","MetadataContent":"{{metadata-content-with-quotes-escaped}}"},"RolesKey":"{{optional-roles-key}}","SessionTimeoutMinutes":{{180}},"SubjectKey":"{{optional-subject-key}}"}}'
@@ -308,7 +307,7 @@ You must escape all quotes and newline characters in the metadata XML. For examp
 
 The following request to the configuration API enables SAML authentication for OpenSearch Dashboards on an existing domain:
 
-```
+```json
 POST https://es.{{us-east-1}}.amazonaws.com/2021-01-01/opensearch/domain/{{my-domain}}/config
 {
   "AdvancedSecurityOptions": {
@@ -336,11 +335,11 @@ You must escape all quotes and newline characters in the metadata XML. For examp
 
 | Error | Details | 
 | --- | --- | 
-| Your request: '{{/some/path}}' is not allowed. | Verify that you provided the correct [SSO URL](#saml-enable) (step 3) to your identity provider. | 
-| Please provide valid identity provider metadata document to enable SAML. | Your IdP metadata file does not conform to the SAML 2.0 standard. Check for errors using a validation tool. | 
+| `Your request: '{{/some/path}}' is not allowed.` | Verify that you provided the correct [SSO URL](#saml-enable) (step 3) to your identity provider. | 
+| `Please provide valid identity provider metadata document to enable SAML.` | Your IdP metadata file does not conform to the SAML 2.0 standard. Check for errors using a validation tool. | 
 | SAML configuration options aren't visible in the console. | Update to the latest [service software](service-software.md). | 
-| SAML configuration error: Something went wrong while retrieving the SAML configuration, please check your settings. | This generic error can occur for many reasons.+  Check that you provided your identity provider with the correct SP entity ID and SSO URL. <br />+  Regenerate the IdP metadata file, and verify the IdP entity ID. Add any updated metadata in the AWS console. <br />+  Verify that your domain access policy allows access to OpenSearch Dashboards and `_plugins/_security/*`. In general, we recommend an open access policy for domains that use fine-grained access control. <br />+  Consult your identity provider's documentation for steps on configuring SAML.  | 
-| Missing role: No roles available for this user, please contact your system administrator. | You successfully authenticated, but the username and any backend roles from the SAML assertion are not mapped to any roles and thus have no permissions. These mappings are case-sensitive.<br />Your system administrator can verify the contents of your SAML assertion using a tool like [SAML-tracer](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/), and then check your role mapping using the following request:<pre>GET _plugins/_security/api/rolesmapping</pre> | 
+| `SAML configuration error: Something went wrong while retrieving the SAML configuration, please check your settings.` | This generic error can occur for many reasons.+  Check that you provided your identity provider with the correct SP entity ID and SSO URL. <br />+  Regenerate the IdP metadata file, and verify the IdP entity ID. Add any updated metadata in the AWS console. <br />+  Verify that your domain access policy allows access to OpenSearch Dashboards and `_plugins/_security/*`. In general, we recommend an open access policy for domains that use fine-grained access control. <br />+  Consult your identity provider's documentation for steps on configuring SAML.  | 
+| `Missing role: No roles available for this user, please contact your system administrator.` | You successfully authenticated, but the username and any backend roles from the SAML assertion are not mapped to any roles and thus have no permissions. These mappings are case-sensitive.<br />Your system administrator can verify the contents of your SAML assertion using a tool like [SAML-tracer](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/), and then check your role mapping using the following request:<pre>GET _plugins/_security/api/rolesmapping</pre> | 
 | Your browser continuously redirects or receives HTTP 500 errors when trying to access OpenSearch Dashboards. | These errors can occur if your SAML assertion contains a large number of roles totaling approximately 1,500 characters. For example, if you pass 80 roles, the average length of which is 20 characters, you might exceed the size limit for cookies in your web browser. Starting with OpenSearch version 2.7, SAML assertion supports roles up to 5000 characters. | 
 | You can't log out of ADFS. | ADFS requires all logout request to be signed, which OpenSearch Service doesn't support. Remove `<SingleLogoutService />` from the IdP metadata file to force OpenSearch Service to use its own internal logout mechanism. | 
 | `Could not find entity descriptor for __PATH__.` | The entity ID of the IdP provided in the metadata XML to OpenSearch Service is different than the one in the SAML response. To fix this, make sure that they match. Enable **CW Application Error logs** on your domain to find the error message to debug the SAML integration issue. | 

@@ -1,7 +1,6 @@
 
 
 # Supported OpenSearch SQL commands and functions
-<a name="supported-directquery-sql"></a>
 
 The following reference tables show which SQL commands are supported in OpenSearch Discover for querying data in Amazon S3, Security Lake, or CloudWatch Logs, and which SQL commands are supported in CloudWatch Logs Insights. The SQL syntax supported in CloudWatch Logs Insights and that supported in OpenSearch Discover for querying CloudWatch Logs are the same, and referenced as CloudWatch Logs in the following tables.
 
@@ -216,7 +215,7 @@ For information about the limits that apply when querying CloudWatch Logs from O
 <a name="supported-sql-string"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 
 
@@ -1364,7 +1363,7 @@ SELECT upper('Feathers');
 <a name="supported-sql-date-time"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 
 
@@ -2264,7 +2263,7 @@ SELECT year('2016-07-30');
 <a name="supported-sql-aggregate"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 Aggregate functions operate on values across rows to perform mathematical calculations such as sum, average, counting, minimum/maximum values, standard deviation, and estimation, as well as some non-mathematical operations. 
 
@@ -2363,7 +2362,7 @@ ORDER BY department;
 <a name="supported-sql-conditional"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 
 
@@ -2455,7 +2454,7 @@ SELECT CASE WHEN 1 < 0 THEN 1 WHEN 2 < 0 THEN 2.0 END;
 <a name="supported-sql-json"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 
 
@@ -2473,7 +2472,7 @@ To see which AWS data source integrations support this SQL command, see [Support
 
 **Examples**
 
-```
+```SQL
 -- from_json
 SELECT from_json('{"a":1, "b":0.8}', 'a INT, b DOUBLE');
 +---------------------------+
@@ -2626,7 +2625,7 @@ SELECT to_json(array(map('a', 1)));
 <a name="supported-sql-array"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 
 
@@ -2942,7 +2941,7 @@ SELECT sort_array(array('b', 'd', null, 'c', 'a'), true);
 <a name="supported-sql-window"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 Window functions operate on a group of rows, referred to as a window, and calculate a return value for each row based on the group of rows. Window functions are useful for processing tasks such as calculating a moving average, computing a cumulative statistic, or accessing the value of rows given the relative position of the current row. 
 
@@ -3122,7 +3121,7 @@ ORDER BY id;
 <a name="supported-sql-conversion"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 
 
@@ -3158,7 +3157,7 @@ SELECT cast(field as int);
 <a name="supported-sql-predicate"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 
 
@@ -3547,7 +3546,7 @@ SELECT false or NULL;
 <a name="supported-sql-map"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 
 
@@ -3677,7 +3676,7 @@ SELECT try_element_at(map(1, 'a', 2, 'b'), 2);
 <a name="supported-sql-math"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 
 
@@ -4559,7 +4558,7 @@ SELECT width_bucket(INTERVAL '1' DAY, INTERVAL '0' DAY, INTERVAL '10' DAY, 10);
 <a name="supported-sql-generator"></a>
 
 **Note**  
-To see which AWS data source integrations support these SQL functions, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support these SQL functions, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 
 
@@ -4575,7 +4574,7 @@ To see which AWS data source integrations support these SQL functions, see [Supp
 
 **Examples**
 
-```
+```SQL
 -- explode
 SELECT explode(array(10, 20));
 +---+
@@ -4692,13 +4691,13 @@ SELECT stack(2, 1, 2, 3);
 <a name="supported-sql-select"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 OpenSearch SQL supports a `SELECT` statement used for retrieving result sets from one or more tables. The following section describes the overall query syntax and the different constructs of a query.
 
 **Syntax** 
 
-```
+```SQL
 select_statement 
 [ { UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ] select_statement, ... ]
 [ ORDER BY 
@@ -4818,13 +4817,13 @@ FROM { from_item [ , ... ] }
 <a name="supported-sql-where"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 The `WHERE` clause is used to limit the results of the `FROM` clause of a query or a subquery based on the specified condition. 
 
 **Syntax** 
 
-```
+```SQL
 WHERE boolean_expression
 ```
 
@@ -4837,7 +4836,7 @@ WHERE boolean_expression
 
 **Examples**
 
-```
+```SQL
 CREATE TABLE person (id INT, name STRING, age INT);
 INSERT INTO person VALUES
 (100, 'John', 30),
@@ -4913,7 +4912,7 @@ WHERE exists (SELECT id FROM person where id = 200);
 <a name="supported-sql-group-by"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 The `GROUP BY` clause is used to group the rows based on a set of specified grouping expressions and compute aggregations on the group of rows based on one or more specified aggregate functions. 
 
@@ -4923,14 +4922,14 @@ When a `FILTER` clause is attached to an aggregate function, only the matching r
 
 **Syntax** 
 
-```
+```SQL
 GROUP BY group_expression [ , group_expression [ , ... ] ] [ WITH { ROLLUP | CUBE } ]
 GROUP BY { group_expression | { ROLLUP | CUBE | GROUPING SETS } (grouping_set [ , ...]) } [ , ... ]
 ```
 
 While aggregate functions are defined as: 
 
-```
+```SQL
 aggregate_name ( [ DISTINCT ] expression [ , ... ] ) [ FILTER ( WHERE boolean_expression ) ]
 ```
 
@@ -5165,7 +5164,7 @@ SELECT FIRST(age IGNORE NULLS), LAST(id), SUM(id) FROM person;
 <a name="supported-sql-having"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 The `HAVING` clause is used to filter the results produced by `GROUP BY` based on the specified condition. It is often used in conjunction with a `GROUP BY` clause. 
 
@@ -5260,13 +5259,13 @@ SELECT sum(quantity) AS sum FROM dealer HAVING sum(quantity) > 10;
 <a name="supported-sql-order-by"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 The `ORDER BY` clause is used to return the result rows in a sorted manner in the user specified order. Unlike the SORT BY clause, this clause guarantees a total order in the output. 
 
 **Syntax** 
 
-```
+```SQL
 ORDER BY { expression [ sort_direction | nulls_sort_order ] [ , ... ] }
 ```
 
@@ -5297,7 +5296,7 @@ ORDER BY { expression [ sort_direction | nulls_sort_order ] [ , ... ] }
 
 **Examples**
 
-```
+```SQL
 CREATE TABLE person (id INT, name STRING, age INT);
 INSERT INTO person VALUES
 (100, 'John', 30),
@@ -5372,7 +5371,7 @@ SELECT * FROM person ORDER BY name ASC, age DESC;
 <a name="supported-sql-join"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 A SQL join is used to combine rows from two relations based on join criteria. The following section describes the overall join syntax and the different types of joins along with examples. 
 
@@ -5496,7 +5495,7 @@ SELECT id, name, employee.deptno, deptname FROM employee CROSS JOIN department;
 <a name="supported-sql-limit"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 The `LIMIT` clause is used to constrain the number of rows returned by the `SELECT` statement. In general, this clause is used in conjunction with `ORDER BY` to ensure that the results are deterministic. 
 
@@ -5516,7 +5515,7 @@ LIMIT { ALL | integer_expression }
 
 **Examples**
 
-```
+```SQL
 CREATE TABLE person (name STRING, age INT);
 INSERT INTO person VALUES
 ('Jane Doe', 25),
@@ -5565,7 +5564,7 @@ SELECT name, age FROM person ORDER BY name LIMIT length('OPENSEARCH');
 <a name="supported-sql-case"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 The `CASE` clause uses a rule to return a specific result based on the specified condition, similar to if/else statements in other programming languages. 
 
@@ -5627,7 +5626,7 @@ SELECT id, CASE id WHEN 100 then 'bigger' WHEN  id > 300 THEN '300' ELSE 'small'
 <a name="supported-sql-cte"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 A common table expression (CTE) defines a temporary result set that a user can reference possibly multiple times within the scope of a SQL statement. A CTE is used mainly in a `SELECT` statement. 
 
@@ -5713,13 +5712,13 @@ SELECT * FROM v;
 <a name="supported-sql-explain"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 The `EXPLAIN` statement is used to provide logical/physical plans for an input statement. By default, this clause provides information about a physical plan only. 
 
 **Syntax** 
 
-```
+```SQL
 EXPLAIN [ EXTENDED | CODEGEN | COST | FORMATTED ] statement
 ```
 
@@ -5748,7 +5747,7 @@ EXPLAIN [ EXTENDED | CODEGEN | COST | FORMATTED ] statement
 
 **Examples**
 
-```
+```SQL
 -- Default Output
 EXPLAIN select k, sum(v) from values (1, 2), (1, 3) t(k, v) group by k;
 +----------------------------------------------------+
@@ -5821,13 +5820,13 @@ EXPLAIN FORMATTED select k, sum(v) from values (1, 2), (1, 3) t(k, v) group by k
 <a name="supported-sql-lateral-subquery"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 `LATERAL SUBQUERY` is a subquery that is preceded by the keyword `LATERAL`. It provides a way to reference columns in the preceding `FROM` clause. Without the `LATERAL` keyword, subqueries can only refer to columns in the outer query, but not in the `FROM` clause. `LATERAL SUBQUERY` makes the complicated queries simpler and more efficient. 
 
 **Syntax** 
 
-```
+```SQL
 [ LATERAL ] primary_relation [ join_relation ]
 ```
 
@@ -5877,7 +5876,7 @@ LATERAL (SELECT a * b AS c);
 <a name="supported-sql-lateral-view"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 The `LATERAL VIEW` clause is used in conjunction with generator functions such as `EXPLODE`, which will generate a virtual table containing one or more rows. `LATERAL VIEW` will apply the rows to each original output row. 
 
@@ -5905,7 +5904,7 @@ LATERAL VIEW [ OUTER ] generator_function ( expression [ , ... ] ) [ table_alias
 
 **Examples**
 
-```
+```SQL
 CREATE TABLE person (id INT, name STRING, age INT, class INT, address STRING);
 INSERT INTO person VALUES
 (100, 'John', 30, 1, 'Street 1'),
@@ -5967,7 +5966,7 @@ LATERAL VIEW OUTER EXPLODE(ARRAY()) tableName AS c_age;
 <a name="supported-sql-like-predicate"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 A `LIKE` predicate is used to search for a specific pattern. This predicate also supports multiple patterns with quantifiers include `ANY`, `SOME`, and `ALL`. 
 
@@ -6108,7 +6107,7 @@ SELECT * FROM person WHERE name NOT LIKE SOME ('%an%', '%an');
 <a name="supported-sql-offset"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 The `OFFSET` clause is used to specify the number of rows to skip before beginning to return rows returned by the `SELECT` statement. In general, this clause is used in conjunction with `ORDER BY` to ensure that the results are deterministic. 
 
@@ -6169,13 +6168,13 @@ SELECT name, age FROM person ORDER BY name OFFSET length('WAGON');
 <a name="supported-sql-pivot"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 The `PIVOT` clause is used for data perspective. We can get the aggregated values based on specific column values, which will be turned to multiple columns used in `SELECT` clause. The `PIVOT` clause can be specified after the table name or subquery. 
 
 **Syntax** 
 
-```
+```SQL
 PIVOT ( { aggregate_expression [ AS aggregate_expression_alias ] } [ , ... ] FOR column_list IN ( expression_list ) ) 
 ```
 
@@ -6195,7 +6194,7 @@ PIVOT ( { aggregate_expression [ AS aggregate_expression_alias ] } [ , ... ] FOR
 
 **Examples**
 
-```
+```SQL
 CREATE TABLE person (id INT, name STRING, age INT, class INT, address STRING);
 INSERT INTO person VALUES
 (100, 'John', 30, 1, 'Street 1'),
@@ -6234,7 +6233,7 @@ FOR (name, age) IN (('John', 30) AS c1, ('Mike', 40) AS c2)
 <a name="supported-sql-set"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 Set operators are used to combine two input relations into a single one. OpenSearch SQL supports three types of set operators: 
 + `EXCEPT` or `MINUS`
@@ -6321,7 +6320,7 @@ SELECT c FROM table1 MINUS ALL (SELECT c FROM table2);
 
 **Examples**
 
-```
+```SQL
 (SELECT c FROM table1) INTERSECT (SELECT c FROM table2);
 +---+
 |  c|
@@ -6400,13 +6399,13 @@ SELECT c FROM table1 UNION ALL (SELECT c FROM table2);
 <a name="supported-sql-sort-by"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 The `SORT BY` clause is used to return the result rows sorted within each partition in the user specified order. When there is more than one partition `SORT BY` may return result that is partially ordered. This is different than `ORDER BY` clause which guarantees a total order of the output. 
 
 **Syntax** 
 
-```
+```SQL
 SORT BY { expression [ sort_direction | nulls_sort_order ] [ , ... ] }
 ```
 
@@ -6437,7 +6436,7 @@ SORT BY { expression [ sort_direction | nulls_sort_order ] [ , ... ] }
 
 **Examples**
 
-```
+```SQL
 CREATE TABLE person (zip_code INT, name STRING, age INT);
 INSERT INTO person VALUES
 (94588, 'Shirley Rodriguez', 50),
@@ -6537,13 +6536,13 @@ SORT BY name ASC, age DESC;
 <a name="supported-sql-unpivot"></a>
 
 **Note**  
-To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md).
 
 The `UNPIVOT` clause transforms multiple columns into multiple rows used in `SELECT` clause. The `UNPIVOT` clause can be specified after the table name or subquery. 
 
 **Syntax** 
 
-```
+```SQL
 UNPIVOT [ { INCLUDE | EXCLUDE } NULLS ] (
     { single_value_column_unpivot | multi_value_column_unpivot }
 ) [[AS] alias]
@@ -6572,7 +6571,7 @@ multi_value_column_unpivot:
 
 **Examples**
 
-```
+```SQL
 CREATE TABLE sales_quarterly (year INT, q1 INT, q2 INT, q3 INT, q4 INT);
 INSERT INTO sales_quarterly VALUES
 (2020, null, 1000, 2000, 2500),

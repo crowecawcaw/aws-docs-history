@@ -1,7 +1,6 @@
 
 
 # k-Nearest Neighbor (k-NN) search in Amazon OpenSearch Service
-<a name="knn"></a>
 
 Short for its associated *k-nearest neighbors* algorithm, k-NN for Amazon OpenSearch Service lets you search for points in a vector space and find the "nearest neighbors" for those points by Euclidean distance or cosine similarity. Use cases include recommendations (for example, an "other songs you might like" feature in a music application), image recognition, and fraud detection.
 
@@ -13,7 +12,7 @@ This documentation provides a brief overview of the k-NN plugin, as well as limi
 
 To use k-NN, you must create an index with the `index.knn` setting and add one or more fields of the `knn_vector` data type.
 
-```
+```json
 PUT my-index
 
 {
@@ -37,7 +36,7 @@ PUT my-index
 
 The `knn_vector` data type supports a single list of up to 10,000 floats, with the number of floats defined by the required `dimension` parameter. After you create the index, add some data to it.
 
-```
+```json
 POST _bulk
 
 { "index": { "_index": "my-index", "_id": "1" } }
@@ -62,7 +61,7 @@ POST _bulk
 
 Then you can search the data using the `knn` query type.
 
-```
+```json
 GET my-index/_search
 {
   "size": 2,
@@ -81,7 +80,7 @@ In this case, `k` is the number of neighbors you want the query to return, but y
 
 If you mix the `knn` query with other clauses, you might receive fewer than `k` results. In this example, the `post_filter` clause reduces the number of results from 2 to 1.
 
-```
+```json
 GET my-index/_search
 
 {

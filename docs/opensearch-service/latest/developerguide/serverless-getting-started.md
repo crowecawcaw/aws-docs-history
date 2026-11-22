@@ -1,7 +1,6 @@
 
 
 # Tutorial: Getting started with Amazon OpenSearch Serverless
-<a name="serverless-getting-started"></a>
 
 This tutorial shows you the basic steps to get an Amazon OpenSearch Serverless *search* collection up and running quickly. With a search collection, you can power applications in your internal networks and internet-facing applications, such as ecommerce website search and content search. 
 
@@ -31,7 +30,7 @@ Your user or role must have an attached [identity-based policy](security-iam-ser
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

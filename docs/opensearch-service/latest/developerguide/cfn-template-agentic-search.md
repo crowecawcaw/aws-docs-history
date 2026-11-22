@@ -1,7 +1,6 @@
 
 
 # Configuring Agentic Search with Bedrock Claude
-<a name="cfn-template-agentic-search"></a>
 
 Agentic search leverages autonomous agents to execute complex searches on your behalf by understanding user intent, orchestrating the right tools, generating optimized queries, and providing transparent summaries of their decisions through a natural language interface. These agents are powered by reasoning models, such as Bedrock Claude.
 

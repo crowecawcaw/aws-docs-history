@@ -1,7 +1,6 @@
 
 
 # Ingesting data into Amazon OpenSearch Serverless collections
-<a name="serverless-clients"></a>
 
 These sections provide details about the supported ingest pipelines for data ingestion into Amazon OpenSearch Serverless collections. They also cover some of the clients that you can use to interact with the OpenSearch API operations. Your clients should be compatible with OpenSearch 2.x in order to integrate with OpenSearch Serverless.
 
@@ -25,7 +24,7 @@ Amazon OpenSearch Serverless supports OpenSearch ingest pipelines, which transfo
 
 In order to ingest data into an OpenSearch Serverless collection, the principal that is writing the data must have the following minimum permissions assigned in a [data access policy](serverless-data-access.md):
 
-```
+```json
 [
    {
       "Rules":[
@@ -103,7 +102,7 @@ Before you send data to OpenSearch Serverless, you might need to perform transfo
 
 The following sample code uses the [opensearch-go](https://github.com/opensearch-project/opensearch-go) client for Go to establish a secure connection to the specified OpenSearch Serverless collection and create a single index. You must provide values for `region` and `host`.
 
-```
+```go
 package main
 
 import (
@@ -205,7 +204,7 @@ The client includes `software.amazon.opensearch.client.aoss.OpenSearchClient` fo
 
 The AWS SDK dependencies of the client are optional, so you must declare `software.amazon.awssdk:sdk-core`, `software.amazon.awssdk:auth`, `software.amazon.awssdk:http-auth-aws`, and an HTTP client such as `software.amazon.awssdk:url-connection-client` in your project. The client requires AWS SDK for Java 2.x version 2.25.69 or later. The following example shows the Maven dependencies:
 
-```
+```xml
 <dependencyManagement>
   <dependencies>
     <dependency>
@@ -243,7 +242,7 @@ The AWS SDK dependencies of the client are optional, so you must declare `softwa
 </dependencies>
 ```
 
-```
+```java
 import software.amazon.awssdk.http.SdkHttpClient;
 import software.amazon.awssdk.http.urlconnection.UrlConnectionHttpClient;
 import software.amazon.awssdk.regions.Region;
@@ -273,7 +272,7 @@ try (SdkHttpClient httpClient = UrlConnectionHttpClient.builder().build()) {
 
 The following sample code establishes a secure connection and indexes a document into a collection.
 
-```
+```java
 import java.util.HashMap;
 import java.util.Map;
 import software.amazon.awssdk.http.SdkHttpClient;
@@ -299,7 +298,7 @@ try (SdkHttpClient httpClient = UrlConnectionHttpClient.builder().build()) {
 
 The following sample code establishes a secure connection, and then searches the `books-index` index that the previous sample writes to. Newly indexed documents can take a short time to become searchable, so the search might not return a document immediately after you index it.
 
-```
+```java
 import java.util.Map;
 import software.amazon.awssdk.http.SdkHttpClient;
 import software.amazon.awssdk.http.urlconnection.UrlConnectionHttpClient;
@@ -322,7 +321,7 @@ try (SdkHttpClient httpClient = UrlConnectionHttpClient.builder().build()) {
 
 If you use the open-source [opensearch-java](https://search.maven.org/artifact/org.opensearch.client/opensearch-java) client, pass `aoss` as the signing service name to `AwsSdk2Transport`. The following sample code establishes a secure connection to the specified OpenSearch Serverless collection and creates a single index. In each sample, replace the example collection endpoint and signing Region with your own values.
 
-```
+```java
 import org.opensearch.client.opensearch.OpenSearchClient;
 import org.opensearch.client.opensearch.indices.CreateIndexRequest;
 import org.opensearch.client.opensearch.indices.CreateIndexResponse;
@@ -368,7 +367,7 @@ httpClient.close();
 
 The following sample code establishes a secure connection and indexes a document into a collection.
 
-```
+```java
 import java.util.HashMap;
 import java.util.Map;
 import org.opensearch.client.opensearch.OpenSearchClient;
@@ -415,7 +414,7 @@ httpClient.close();
 
 The following sample code again establishes a secure connection, and then searches the `books-index` index that the previous sample writes to. Newly indexed documents can take a short time to become searchable, so the search might not return a document immediately after you index it.
 
-```
+```java
 import org.opensearch.client.opensearch.OpenSearchClient;
 import org.opensearch.client.opensearch.generic.Requests;
 import org.opensearch.client.opensearch.generic.Response;
@@ -468,7 +467,7 @@ The important difference compared to OpenSearch Service *domains* is the service
 
 This example uses [version 3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/) of the SDK for JavaScript in Node.js.
 
-```
+```javascript
 const { defaultProvider } = require('@aws-sdk/credential-provider-node');
 const { Client } = require('@opensearch-project/opensearch');
 const { AwsSigv4Signer } = require('@opensearch-project/opensearch/aws');
@@ -515,7 +514,7 @@ main();
 
 This example uses [version 2](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/) of the SDK for JavaScript in Node.js.
 
-```
+```javascript
 const AWS = require('aws-sdk');
 const { Client } = require('@opensearch-project/opensearch');
 const { AwsSigv4Signer } = require('@opensearch-project/opensearch/aws');
@@ -678,7 +677,7 @@ The following sample code uses the [opensearch-py](https://pypi.org/project/open
 
 The important difference compared to OpenSearch Service *domains* is the service name (`aoss` instead of `es`).
 
-```
+```python
 from opensearchpy import OpenSearch, RequestsHttpConnection, AWSV4SignerAuth
 import boto3
 
@@ -742,7 +741,7 @@ The `opensearch-aws-sigv4` gem provides access to OpenSearch Serverless, along w
 
 When instantiating the Sigv4 signer, specify `aoss` as the service name:
 
-```
+```ruby
 require 'opensearch-aws-sigv4'
 require 'aws-sigv4'
 

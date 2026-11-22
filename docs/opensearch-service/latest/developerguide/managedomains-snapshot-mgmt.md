@@ -1,7 +1,6 @@
 
 
 # Automating snapshots with Snapshot Management
-<a name="managedomains-snapshot-mgmt"></a>
 
 You can set up a Snapshot Management (SM) policy in OpenSearch Dashboards to automate periodic snapshot creation and deletion. SM can snapshot of a group of indices, whereas [Index State Management](managedomains-snapshots.md#managedomains-snapshot-ism) can only take one snapshot per index. To use SM in OpenSearch Service, you need to register your own Amazon S3 repository. For instructions to register your repository, see [Registering a manual snapshot repository](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-snapshots.html#managedomains-snapshot-registerdirectory).
 

@@ -1,7 +1,6 @@
 
 
 # Deleting collections
-<a name="serverless-delete"></a>
 
 Deleting a collection deletes all data and indexes in the collection. You can't recover collections after you delete them.
 

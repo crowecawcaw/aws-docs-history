@@ -1,7 +1,6 @@
 
 
 # Tagging domains (AWS CLI)
-<a name="managedomains-awsresourcetagging-cli"></a>
 
 You can create resource tags using the AWS CLI with the **--add-tags** command. 
 

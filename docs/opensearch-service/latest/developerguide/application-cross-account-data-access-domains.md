@@ -1,7 +1,6 @@
 
 
 # Cross-account data access to OpenSearch domains
-<a name="application-cross-account-data-access-domains"></a>
 
 You can configure your OpenSearch UI applications in one account to access OpenSearch domains in different accounts. When you create an OpenSearch UI application with cross-account data sources, you provide an `iamRoleForDataSourceArn` that points to an IAM role in the target account. OpenSearch UI validates the request by assuming this role and calling `es:DescribeDomain` to verify domain accessibility. The cross-account role is used only during data source association. Data plane access is controlled separately by the target domain's access policy.
 
@@ -64,7 +63,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Create a trust policy that allows the source account to assume the role:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [{
@@ -79,7 +78,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Create the role:
 
-   ```
+   ```sh
    aws iam create-role \
      --role-name {{OpenSearchUIAccessRole}} \
      --assume-role-policy-document file://{{trust-policy.json}}
@@ -87,7 +86,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Create a permissions policy with only the `es:DescribeDomain` action:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [{
@@ -100,7 +99,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Attach the permissions policy to the role:
 
-   ```
+   ```sh
    aws iam put-role-policy \
      --role-name {{OpenSearchUIAccessRole}} \
      --policy-name {{ValidationOnly}} \
@@ -112,7 +111,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 Create an OpenSearch domain in the target account with fine-grained access control and encryption enabled:
 
-```
+```sh
 aws opensearch create-domain \
   --domain-name {{domain-name}} \
   --engine-version OpenSearch_2.19 \
@@ -136,7 +135,7 @@ Wait for the domain status to become `Active` before proceeding.
 
 Create the application in the source account with the cross-account data source:
 
-```
+```sh
 aws opensearch create-application \
   --region {{region}} \
   --name "{{cross-account-iam-app}}" \
@@ -153,7 +152,7 @@ aws opensearch create-application \
 
 Retrieve the application details to get the endpoint URL:
 
-```
+```sh
 aws opensearch get-application \
   --region {{region}} \
   --id {{application-id}}
@@ -175,7 +174,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Create a trust policy that allows the source account to assume the role:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [{
@@ -190,7 +189,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Create the role:
 
-   ```
+   ```sh
    aws iam create-role \
      --role-name {{OpenSearchUIAccessRole}} \
      --assume-role-policy-document file://{{trust-policy.json}}
@@ -198,7 +197,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Create a permissions policy with only the `es:DescribeDomain` action:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [{
@@ -211,7 +210,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Attach the permissions policy to the role:
 
-   ```
+   ```sh
    aws iam put-role-policy \
      --role-name {{OpenSearchUIAccessRole}} \
      --policy-name {{ValidationOnly}} \
@@ -223,7 +222,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 Create an OpenSearch domain in the target account. Use the same command as [Step 2: Create the OpenSearch domain (target account)](#scenario-1-step-2), but update the access policy to allow the IAM Identity Center application role from the source account:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [{
@@ -248,7 +247,7 @@ Create an IAM role in the source account that OpenSearch UI uses for IAM Identit
 
 1. Create a trust policy:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -277,7 +276,7 @@ Create an IAM role in the source account that OpenSearch UI uses for IAM Identit
 
 1. Create a permissions policy:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [{
@@ -291,7 +290,7 @@ Create an IAM role in the source account that OpenSearch UI uses for IAM Identit
 
 1. Create the role and attach the policies:
 
-   ```
+   ```sh
    aws iam create-role \
      --role-name {{NeoIdCAppRole}} \
      --assume-role-policy-document file://{{neoidc-trust-policy.json}}
@@ -305,7 +304,7 @@ Create an IAM role in the source account that OpenSearch UI uses for IAM Identit
 ### Step 4: Create the OpenSearch UI application with IAM Identity Center (source account)
 <a name="scenario-2-step-4"></a>
 
-```
+```sh
 aws opensearch create-application \
   --region {{region}} \
   --name "{{cross-account-idc-app}}" \
@@ -328,7 +327,7 @@ aws opensearch create-application \
 **Create an IAM Identity Center user**  
 Run the following command. Replace the {{placeholder values}} with your own information.
 
-```
+```sh
 aws identitystore create-user \
   --identity-store-id {{d-directory-id}} \
   --user-name {{user-email}} \
@@ -340,7 +339,7 @@ aws identitystore create-user \
 **Create an IAM Identity Center group and add the user**  
 Run the following commands:
 
-```
+```sh
 aws identitystore create-group \
   --identity-store-id {{d-directory-id}} \
   --display-name "{{OpenSearchUsers}}" \
@@ -355,7 +354,7 @@ aws identitystore create-group-membership \
 **Assign the user or group to the application**  
 Run the following command:
 
-```
+```sh
 aws sso-admin create-application-assignment \
   --application-arn "arn:aws:sso:::{{source-account-id}}:application/ssoins-{{instance-id}}/apl-{{application-id}}" \
   --principal-id {{user-id-or-group-id}} \
@@ -365,7 +364,7 @@ aws sso-admin create-application-assignment \
 **Configure backend role mapping on the target domain**  
 Map the IAM Identity Center group to an OpenSearch security role on the target domain:
 
-```
+```sh
 curl -XPUT "https://{{domain-endpoint}}/_plugins/_security/api/rolesmapping/all_access" \
   -u {{admin}}:{{master-password}} \
   -H 'Content-Type: application/json' \
@@ -379,7 +378,7 @@ curl -XPUT "https://{{domain-endpoint}}/_plugins/_security/api/rolesmapping/all_
 ### Step 6: Verify and access
 <a name="scenario-2-step-6"></a>
 
-```
+```sh
 aws opensearch get-application \
   --region {{region}} \
   --id {{application-id}}
@@ -401,7 +400,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Create a trust policy that allows the source account to assume the role:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [{
@@ -416,7 +415,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Create the role:
 
-   ```
+   ```sh
    aws iam create-role \
      --role-name {{OpenSearchUIAccessRole}} \
      --assume-role-policy-document file://{{trust-policy.json}}
@@ -424,7 +423,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Create a permissions policy with only the `es:DescribeDomain` action:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [{
@@ -437,7 +436,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Attach the permissions policy to the role:
 
-   ```
+   ```sh
    aws iam put-role-policy \
      --role-name {{OpenSearchUIAccessRole}} \
      --policy-name {{ValidationOnly}} \
@@ -449,7 +448,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 Skip this step if a VPC already exists in the target account.
 
-```
+```sh
 # Create VPC
 aws ec2 create-vpc \
   --cidr-block 10.0.0.0/16 \
@@ -483,7 +482,7 @@ Learn more about [VPC domain creation](https://docs.aws.amazon.com/opensearch-se
 ### Step 3: Create the VPC domain (target account)
 <a name="scenario-3-step-3"></a>
 
-```
+```sh
 aws opensearch create-domain \
   --domain-name {{vpc-domain-name}} \
   --engine-version OpenSearch_2.19 \
@@ -509,7 +508,7 @@ Wait for the domain status to become `Active` before proceeding.
 **Important**  
 This is a critical step that is unique to VPC domains. The OpenSearch UI service must be explicitly authorized to access the VPC endpoint.
 
-```
+```sh
 # Authorize the service principal
 aws opensearch authorize-vpc-endpoint-access \
   --domain-name {{vpc-domain-name}} \
@@ -524,7 +523,7 @@ aws opensearch list-vpc-endpoint-access \
 
 Expected response:
 
-```
+```json
 {
   "AuthorizedPrincipalList": [
     {
@@ -538,7 +537,7 @@ Expected response:
 ### Step 5: Create the OpenSearch UI application (source account)
 <a name="scenario-3-step-5"></a>
 
-```
+```sh
 aws opensearch create-application \
   --region {{region}} \
   --name "{{cross-account-vpc-iam-app}}" \
@@ -555,7 +554,7 @@ aws opensearch create-application \
 
 Retrieve the application details to get the endpoint URL:
 
-```
+```sh
 aws opensearch get-application \
   --region {{region}} \
   --id {{application-id}}
@@ -577,7 +576,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Create a trust policy that allows the source account to assume the role:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [{
@@ -592,7 +591,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Create the role:
 
-   ```
+   ```sh
    aws iam create-role \
      --role-name {{OpenSearchUIAccessRole}} \
      --assume-role-policy-document file://{{trust-policy.json}}
@@ -600,7 +599,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Create a permissions policy with only the `es:DescribeDomain` action:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [{
@@ -613,7 +612,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 1. Attach the permissions policy to the role:
 
-   ```
+   ```sh
    aws iam put-role-policy \
      --role-name {{OpenSearchUIAccessRole}} \
      --policy-name {{ValidationOnly}} \
@@ -625,7 +624,7 @@ Create an IAM role in the target account that allows the source account to assum
 
 Skip this step if a VPC already exists in the target account.
 
-```
+```sh
 # Create VPC
 aws ec2 create-vpc \
   --cidr-block 10.0.0.0/16 \
@@ -661,7 +660,7 @@ Learn more about [VPC domain creation](https://docs.aws.amazon.com/opensearch-se
 
 Use the same command as [Step 3: Create the VPC domain (target account)](#scenario-3-step-3), but update the access policy to allow the IAM Identity Center application role from the source account:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [{
@@ -683,7 +682,7 @@ Wait for the domain status to become `Active` before proceeding.
 **Important**  
 This is a critical step that is unique to VPC domains. The OpenSearch UI service must be explicitly authorized to access the VPC endpoint.
 
-```
+```sh
 # Authorize the service principal
 aws opensearch authorize-vpc-endpoint-access \
   --domain-name {{vpc-domain-name}} \
@@ -698,7 +697,7 @@ aws opensearch list-vpc-endpoint-access \
 
 Expected response:
 
-```
+```json
 {
   "AuthorizedPrincipalList": [
     {
@@ -718,7 +717,7 @@ Create an IAM role in the source account that OpenSearch UI uses for IAM Identit
 
 1. Create a trust policy:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -747,7 +746,7 @@ Create an IAM role in the source account that OpenSearch UI uses for IAM Identit
 
 1. Create a permissions policy:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [{
@@ -761,7 +760,7 @@ Create an IAM role in the source account that OpenSearch UI uses for IAM Identit
 
 1. Create the role and attach the policies:
 
-   ```
+   ```sh
    aws iam create-role \
      --role-name {{NeoIdCAppRole}} \
      --assume-role-policy-document file://{{neoidc-trust-policy.json}}
@@ -775,7 +774,7 @@ Create an IAM role in the source account that OpenSearch UI uses for IAM Identit
 ### Step 6: Create the OpenSearch UI application with IAM Identity Center (source account)
 <a name="scenario-4-step-6"></a>
 
-```
+```sh
 aws opensearch create-application \
   --region {{region}} \
   --name "{{cross-account-vpc-idc-app}}" \
@@ -798,7 +797,7 @@ aws opensearch create-application \
 **Create an IAM Identity Center user**  
 Run the following command. Replace the {{placeholder values}} with your own information.
 
-```
+```sh
 aws identitystore create-user \
   --identity-store-id {{d-directory-id}} \
   --user-name {{user-email}} \
@@ -810,7 +809,7 @@ aws identitystore create-user \
 **Create an IAM Identity Center group and add the user**  
 Run the following commands:
 
-```
+```sh
 aws identitystore create-group \
   --identity-store-id {{d-directory-id}} \
   --display-name "{{OpenSearchUsers}}" \
@@ -825,7 +824,7 @@ aws identitystore create-group-membership \
 **Assign the user or group to the application**  
 Run the following command:
 
-```
+```sh
 aws sso-admin create-application-assignment \
   --application-arn "arn:aws:sso:::{{source-account-id}}:application/ssoins-{{instance-id}}/apl-{{application-id}}" \
   --principal-id {{user-id-or-group-id}} \
@@ -835,7 +834,7 @@ aws sso-admin create-application-assignment \
 **Configure backend role mapping on the target domain**  
 Map the IAM Identity Center group to an OpenSearch security role on the target domain:
 
-```
+```sh
 curl -XPUT "https://{{domain-endpoint}}/_plugins/_security/api/rolesmapping/all_access" \
   -u {{admin}}:{{master-password}} \
   -H 'Content-Type: application/json' \
@@ -849,7 +848,7 @@ curl -XPUT "https://{{domain-endpoint}}/_plugins/_security/api/rolesmapping/all_
 ### Step 8: Verify and access
 <a name="scenario-4-step-8"></a>
 
-```
+```sh
 aws opensearch get-application \
   --region {{region}} \
   --id {{application-id}}
@@ -865,7 +864,7 @@ aws opensearch get-application \
 **Update an application with cross-account data sources**  
 Run the following command. Replace the {{placeholder values}} with your own information.
 
-```
+```sh
 aws opensearch update-application \
   --region {{region}} \
   --id {{application-id}} \
@@ -886,7 +885,7 @@ The update operation replaces the entire data sources array. Include all data so
 **List applications**  
 Run the following command:
 
-```
+```sh
 aws opensearch list-applications \
   --region {{region}}
 ```
@@ -894,7 +893,7 @@ aws opensearch list-applications \
 **Delete an application**  
 Run the following command:
 
-```
+```sh
 aws opensearch delete-application \
   --region {{region}} \
   --id {{application-id}}
@@ -903,7 +902,7 @@ aws opensearch delete-application \
 **Revoke VPC endpoint access**  
 Run the following command:
 
-```
+```sh
 aws opensearch revoke-vpc-endpoint-access \
   --domain-name {{vpc-domain-name}} \
   --service "application.opensearchservice.amazonaws.com" \

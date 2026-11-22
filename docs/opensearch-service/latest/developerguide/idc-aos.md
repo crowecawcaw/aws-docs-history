@@ -1,7 +1,6 @@
 
 
 # IAM Identity Center Trusted Identity Propagation Support for OpenSearch
-<a name="idc-aos"></a>
 
  You can now use your centrally configured AWS IAM Identity Center principals (users and groups) via [ Trusted Identity Propagation](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html) to access Amazon OpenSearch Service domains through [ OpenSearch Service applications ](application.md). In order to enable IAM Identity Center support for OpenSearch, you will need to enable use of IAM Identity Center To learn more on how to do this, see [What is IAM Identity Center?](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html). See [ How to associate OpenSearch domain as datasource in OpenSearch applications?](application.md) for details. 
 
@@ -31,7 +30,7 @@ Before you configure IAM Identity Center, you must update the domain access poli
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -75,7 +74,7 @@ Amazon OpenSearch Service can support up to **100 groups** for a single user. If
 ## Configuring IAM Identity Center authentication and authorization (CLI)
 <a name="idc-configure-cli"></a>
 
-```
+```bash
 	 aws opensearch update-domain-config \
 	     --domain-name {{my-domain}} \
 	     --identity-center-options '{"EnabledAPIAccess": {{true}}, "IdentityCenterInstanceARN": "{{instance arn}}",  "SubjectKey": "{{UserId/UserName/UserEmail}}" , "RolesKey": "{{GroupId/GroupName}}"}'
@@ -96,7 +95,7 @@ To disable IAM Identity Center on your OpenSearch domain:
 
 To disable IAM Identity Center through CLI, you can use following
 
-```
+```bash
 	 aws opensearch update-domain-config \
 	     --domain-name {{my-domain}} \
 	     --identity-center-options '{"EnabledAPIAccess": {{false}}}'

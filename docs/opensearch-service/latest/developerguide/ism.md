@@ -1,7 +1,6 @@
 
 
 # Index State Management in Amazon OpenSearch Service
-<a name="ism"></a>
 
 Index State Management (ISM) in Amazon OpenSearch Service lets you define custom management policies that automate routine tasks, and apply them to indexes and index patterns. You no longer need to set up and manage external processes to run your index operations.
 
@@ -38,7 +37,7 @@ You can no longer use index templates to apply ISM policies to newly created ind
 
 1. After you create a policy, attach it to one or more indexes:
 
-   ```
+   ```json
    POST _plugins/_ism/add/{{my-index}}
    {
      "policy_id": "{{my-policy-id}}"
@@ -63,7 +62,7 @@ The index is initially in the `hot` state. After ten days, ISM moves it  to th
 
 Note that cold indexes require the `cold_delete` operation rather than the normal `delete` operation. Also note that an explicit `timestamp_field` is required in your data in order to manage cold indexes with ISM.
 
-```
+```json
 {
   "policy": {
     "description": "Demonstrate a hot-warm-cold-delete workflow.",
@@ -138,7 +137,7 @@ Note that cold indexes require the `cold_delete` operation rather than the norma
 
 This sample policy reduces replica count to zero after seven days to conserve disk space and then deletes the index after 21 days. This policy assumes your index is non-critical and no longer receiving write requests; having zero replicas carries some risk of data loss.
 
-```
+```json
 {
   "policy": {
     "description": "Changes replica count and deletes.",
@@ -185,7 +184,7 @@ This sample policy reduces replica count to zero after seven days to conserve di
 
 This sample policy uses the `[snapshot](https://docs.opensearch.org/latest/im-plugin/ism/policies/#snapshot)` operation to take a snapshot of an index as soon as it contains at least one document. `repository` is the name of the manual snapshot repository you registered in Amazon S3. `snapshot` is the name of the snapshot. For snapshot prerequisites and steps to register a repository, see [Creating index snapshots in Amazon OpenSearch Service](managedomains-snapshots.md).
 
-```
+```json
 {
   "policy": {
     "description": "Takes an index snapshot.",
@@ -221,7 +220,7 @@ This sample policy uses the `[snapshot](https://docs.opensearch.org/latest/im-pl
 
 You can set up an `ism_template` field in a policy so when you create an index that matches the template pattern, the policy is automatically attached to that index. In this example, any index you create with a name that begins with "log" is automatically matched to the ISM policy `my-policy-id`:
 
-```
+```json
 PUT _plugins/_ism/policies/{{my-policy-id}}
 {
   "policy": {

@@ -1,7 +1,6 @@
 
 
 # Semantic search in Amazon OpenSearch Service
-<a name="semantic-search"></a>
 
 Starting with version 2.19, you can use automatic semantic enrichment to implement semantic search with minimal configuration effort. This feature automatically generates sparse encoding for your text fields, eliminating the need for manual ingestion pipeline setup. For details, see [Automatic Semantic Enrichment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-semantic-enrichment.html) in the OpenSearch documentation.
 

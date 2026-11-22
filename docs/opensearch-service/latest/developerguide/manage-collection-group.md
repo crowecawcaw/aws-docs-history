@@ -1,7 +1,6 @@
 
 
 # Manage Amazon OpenSearch Serverless collection groups
-<a name="manage-collection-group"></a>
 
 After creating Amazon OpenSearch Serverless collection groups, you can modify their settings as your needs change. Use these management operations to update capacity limits and view collection group details. These changes help you optimize resource allocation and maintain efficient organization of your collections.
 

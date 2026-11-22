@@ -1,7 +1,6 @@
 
 
 # Limitations of Amazon OpenSearch Ingestion
-<a name="ingestion-limitations"></a>
 
 OpenSearch Ingestion has the following limitations:
 + You can only ingest data into domains running OpenSearch 1.0 or later, or Elasticsearch 6.8 or later. If you're using the [OTel trace](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/otel-trace/) source, we recommend using Elasticsearch 7.9 or later so that you can use the [OpenSearch Dashboards plugin](https://opensearch.org/docs/latest/observability-plugin/trace/ta-dashboards/).

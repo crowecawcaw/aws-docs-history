@@ -1,7 +1,6 @@
 
 
 # Key concepts in Amazon OpenSearch Ingestion
-<a name="ingestion-process"></a>
 
 Before you start using OpenSearch Ingestion, it's helpful to understand these key concepts.
 

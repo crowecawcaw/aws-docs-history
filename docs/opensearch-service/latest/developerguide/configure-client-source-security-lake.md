@@ -1,7 +1,6 @@
 
 
 # Using an OpenSearch Ingestion pipeline with Amazon Security Lake as a source
-<a name="configure-client-source-security-lake"></a>
 
 You can use the Amazon S3 source plugin within your OpenSearch Ingestion pipeline to ingest data from Amazon Security Lake. Security Lake automatically centralizes security data from AWS environments, on-premises systems, and SaaS providers into a purpose-built data lake.
 
@@ -35,7 +34,7 @@ Create a new permissions policy in IAM that combines only the required permissio
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -73,7 +72,7 @@ Security Lake doesn’t manage the pipeline role policy for you. If you add or r
 
 You must attach these permissions to the IAM role that you specify in the `sts_role_arn` option within the S3 source plugin configuration, under `sqs`.
 
-```
+```yaml
 version: "2"
 source:
   s3:

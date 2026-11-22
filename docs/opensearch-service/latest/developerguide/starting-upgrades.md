@@ -1,7 +1,6 @@
 
 
 # Upgrading a domain (console)
-<a name="starting-upgrades"></a>
 
 You can start an in-place upgrade or a clone-based upgrade from the console. For information about choosing a method, see [Choose an upgrade method](version-migration.md#upgrade-methods). Before you start either type of upgrade, [take a manual snapshot](managedomains-snapshots.md) of your domain. This snapshot serves as a backup that you can [restore on a new domain](managedomains-snapshot-restore.md) if you want to return to using the prior OpenSearch version.
 

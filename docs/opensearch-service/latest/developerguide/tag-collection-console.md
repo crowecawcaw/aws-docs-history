@@ -1,7 +1,6 @@
 
 
 # Tagging collections (console)
-<a name="tag-collection-console"></a>
 
 The console is the simplest way to tag a collection.
 

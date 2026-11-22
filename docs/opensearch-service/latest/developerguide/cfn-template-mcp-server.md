@@ -1,7 +1,6 @@
 
 
 # MCP server integration templates
-<a name="cfn-template-mcp-server"></a>
 
 With the Model Context Protocol (MCP) server templates, you can deploy an OpenSearch hosted MCP server on Amazon Bedrock AgentCore, reducing the integration complexity between AI agents and OpenSearch tools. For more information, see [What is Amazon Bedrock AgentCore?](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html).
 
@@ -65,7 +64,7 @@ Central hosted agents can connect to multiple services with OpenSearch as one co
 ### Example using the Strands Agents framework
 <a name="strands-agent-integration-id"></a>
 
-```
+```python
 import os
 import requests
 from strands import Agent

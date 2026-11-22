@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon CloudWatch Logs data source integration in OpenSearch Service
-<a name="direct-query-cloudwatch-logs-creating"></a>
 
 If you use Amazon OpenSearch Serverless for your observability needs, you can now analyze your Amazon CloudWatch Logs without copying or ingesting the data into OpenSearch Service. This capability leverages direct query for querying data, similar to analyzing data in Amazon S3 from OpenSearch Service. You can get started by creating a new connected data source from the AWS Management Console.
 
@@ -131,7 +130,7 @@ In the following sample policy, replace the {{placeholder text }}with your own i
 
 ****  
 
-```
+```json
     {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -161,7 +160,7 @@ In the following sample policy, replace the {{placeholder text }}with your own i
 **Note**  
 If you use a Amazon CloudWatch Logs monitoring account to aggregate logs from multiple source accounts, you must update the `Resource` element in the IAM policy to include the log groups from each source account. For example:  
 
-```
+```json
 "Resource": [
     "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:*",
     "arn:aws:logs:{{us-east-1}}:{{444455556666}}:log-group:*"
@@ -175,7 +174,7 @@ The role must also have the following trust policy, which specifies the target I
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -209,7 +208,7 @@ Access policies for direct query data sources follow IAM policy syntax. The poli
 
 In the following sample policy, replace the {{placeholder text}} with your own information.
 
-```
+```JSON
 {
  "Version": "2012-10-17", 		 	 	 
  "Statement": [

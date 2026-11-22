@@ -1,7 +1,6 @@
 
 
 # Calculating storage requirements
-<a name="bp-storage"></a>
 
 Most OpenSearch workloads fall into one of two broad categories:
 + **Long-lived index**: You write code that processes data into one or more OpenSearch indexes and then updates those indexes periodically as the source data changes. Some common examples are website, document, and ecommerce search.

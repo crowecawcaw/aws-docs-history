@@ -1,7 +1,6 @@
 
 
 # Tutorial: Migrating to Amazon OpenSearch Service
-<a name="migration"></a>
 
 Index snapshots are a popular way to migrate from a self-managed OpenSearch or legacy Elasticsearch cluster to Amazon OpenSearch Service. Broadly, the process consists of the following steps:
 
@@ -26,13 +25,13 @@ For smaller clusters, a one-time approach is to take a [shared file system snaps
 
 1. Add the `path.repo` setting to `opensearch.yml` (or `Elasticsearch.yml`) on all nodes, and then restart each node.
 
-   ```
+   ```yaml
    path.repo: ["{{/my/shared/directory/snapshots}}"]
    ```
 
 1. Register a [snapshot repository](https://opensearch.org/docs/latest/opensearch/snapshot-restore/#register-repository), which is required before you take a snapshot. A repository is just a storage location: a shared file system, Amazon S3, Hadoop Distributed File System (HDFS), etc. In this case, we'll use a shared file system ("fs"):
 
-   ```
+   ```json
    PUT _snapshot/{{my-snapshot-repo-name}}
    {
      "type": "fs",
@@ -44,7 +43,7 @@ For smaller clusters, a one-time approach is to take a [shared file system snaps
 
 1. Take the snapshot:
 
-   ```
+   ```json
    PUT _snapshot/{{my-snapshot-repo-name}}/{{my-snapshot-name}}
    {
      "indices": "{{migration-index1}},{{migration-index2}},{{other-indices-*}}",
@@ -56,7 +55,7 @@ For smaller clusters, a one-time approach is to take a [shared file system snaps
 
 1. Navigate to the snapshot directory. Then run the following commands to create a new S3 bucket and upload the contents of the snapshot directory to that bucket:
 
-   ```
+   ```bash
    aws s3 mb s3://{{amzn-s3-demo-bucket}} --region {{us-west-2}}
    aws s3 sync . s3://{{amzn-s3-demo-bucket}} --sse AES256
    ```
@@ -68,7 +67,7 @@ For smaller clusters, a one-time approach is to take a [shared file system snaps
 
 Although the console is the easiest way to create a domain, in this case, you already have the terminal open and the AWS CLI installed. Modify the following command to create a domain that fits your needs:
 
-```
+```bash
 aws opensearch create-domain \
   --domain-name {{migration-domain}} \
   --engine-version {{OpenSearch_1.0}} \
@@ -101,7 +100,7 @@ In the AWS Identity and Access Management (IAM) console, [create a role](https:/
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -137,7 +136,7 @@ In the AWS Identity and Access Management (IAM) console, [create a role](https:/
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -162,7 +161,7 @@ Then give your personal IAM role permissions to assume `OpenSearchSnapshotRole`.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -215,7 +214,7 @@ Most programming languages have libraries to assist with signing requests, but t
 
 1. Regardless of how you choose to sign your requests, the first step is to register the repository:
 
-   ```
+   ```json
    PUT _snapshot/{{my-snapshot-repo-name}}
    {
      "type": "s3",
@@ -234,13 +233,13 @@ The `base_path` parameter specifies the path within the S3 bucket where snapshot
 
    **Shorthand**
 
-   ```
+   ```json
    GET _snapshot/{{my-snapshot-repo-name}}/_all
    ```
 
    **curl**
 
-   ```
+   ```bash
    curl -XGET -u '{{master-user}}:{{master-user-password}}' https://{{domain-endpoint}}/_snapshot/{{my-snapshot-repo-name}}/_all
    ```
 
@@ -248,7 +247,7 @@ The `base_path` parameter specifies the path within the S3 bucket where snapshot
 
    **Shorthand**
 
-   ```
+   ```json
    POST _snapshot/{{my-snapshot-repo-name}}/{{my-snapshot-name}}/_restore
    {
      "indices": "{{migration-index1}},{{migration-index2}},{{other-indices-*}}",
@@ -258,7 +257,7 @@ The `base_path` parameter specifies the path within the S3 bucket where snapshot
 
    **curl**
 
-   ```
+   ```bash
    curl -XPOST -u '{{master-user}}:{{master-user-password}}' https://{{domain-endpoint}}/_snapshot/{{my-snapshot-repo-name}}/{{my-snapshot-name}}/_restore \
      -H 'Content-Type: application/json' \
      -d '{"indices":"{{migration-index1}},{{migration-index2}},{{other-indices-*}}","include_global_state":false}'
@@ -268,13 +267,13 @@ The `base_path` parameter specifies the path within the S3 bucket where snapshot
 
    **Shorthand**
 
-   ```
+   ```json
    GET _cat/indices?v
    ```
 
    **curl**
 
-   ```
+   ```bash
    curl -XGET -u '{{master-user}}:{{master-user-password}}' https://{{domain-endpoint}}/_cat/indices?v
    ```
 

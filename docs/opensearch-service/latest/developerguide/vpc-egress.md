@@ -1,7 +1,6 @@
 
 
 # Routing domain egress traffic through your VPC
-<a name="vpc-egress"></a>
 
 Learn how to route egress traffic from your Amazon OpenSearch Service VPC domain through your own VPC instead of the public internet.
 

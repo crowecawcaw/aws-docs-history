@@ -1,7 +1,6 @@
 
 
 # Insights Catalog
-<a name="insights-catalog"></a>
 
 Cluster Insights delivers the following actionable insights on impacted Clusters
 

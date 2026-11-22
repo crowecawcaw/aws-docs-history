@@ -1,7 +1,6 @@
 
 
 # Using an OpenSearch Ingestion pipeline with Kafka
-<a name="configure-client-self-managed-kafka"></a>
 
 You can use the [Kafka](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/kafka/) plugin to stream data from self-managed Kafka clusters to Amazon OpenSearch Service domains and OpenSearch Serverless collections. OpenSearch Ingestion supports connections from Kafka clusters configured with either public or private (VPC) networking. This topic outlines the prerequisites and steps to set up an ingestion pipeline, including configuring network settings and authentication methods such as mutual TLS (mTLS), SASL/SCRAM, or IAM.
 
@@ -30,7 +29,7 @@ Before you create your OpenSearch Ingestion pipeline, perform the following step
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -69,7 +68,7 @@ You can specify multiple OpenSearch Service domains as destinations for your dat
 
 You can also migrate data from a source Confluent Kafka cluster to an OpenSearch Serverless VPC collection. Ensure you provide a network access policy within the pipeline configuration. You can use a Confluent schema registry to define a Confluent schema.
 
-```
+```YAML
 version: "2"
 kafka-pipeline:
   source:
@@ -141,7 +140,7 @@ To provide a custom CIDR, select **Other** from the dropdown menu. To avoid a co
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -176,7 +175,7 @@ After you have your pipeline prerequisites set up, [configure the pipeline role]
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -247,7 +246,7 @@ You can specify multiple OpenSearch Service domains as destinations for your dat
 
 You can also migrate data from a source Confluent Kafka cluster to an OpenSearch Serverless VPC collection. Ensure you provide a network access policy within the pipeline configuration. You can use a Confluent schema registry to define a Confluent schema.
 
-```
+```YAML
  version: "2"
 kafka-pipeline:
   source:

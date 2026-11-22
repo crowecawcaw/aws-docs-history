@@ -1,7 +1,6 @@
 
 
 # Observability in Amazon OpenSearch Service
-<a name="observability"></a>
 
 Observability is the practice of understanding the internal state and performance of complex systems by examining their outputs. Traditional monitoring tells you a system is down; observability helps you understand why by letting you ask new questions about your telemetry data.
 
@@ -13,7 +12,7 @@ Amazon OpenSearch Service provides a unified observability solution by collectin
 + **Traces** – End-to-end journey of requests through distributed services.
 + **Metrics** – Time-series data representing system health, through the Amazon Managed Service for Prometheus direct query integration.
 
-By bringing these together in a single interface, Amazon OpenSearch Service helps operations teams, SREs, and developers detect, diagnose, and resolve issues faster.
+By bringing these together in a single interface, Amazon OpenSearch Service helps operations teams, and developers detect, diagnose, and resolve issues faster.
 
 ## The Amazon OpenSearch Service approach to observability
 <a name="observability-approach"></a>

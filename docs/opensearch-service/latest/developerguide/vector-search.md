@@ -1,7 +1,6 @@
 
 
 # Vector search
-<a name="vector-search"></a>
 
 Vector search in Amazon OpenSearch Service enables you to search for semantically similar content using machine learning embeddings rather than traditional keyword matching. Vector search converts your data (text, images, audio, etc.) into high-dimensional numerical vectors (embeddings) that capture the semantic meaning of the content. When you perform a search, OpenSearch compares the vector representation of your query against the stored vectors to find the most similar items.
 

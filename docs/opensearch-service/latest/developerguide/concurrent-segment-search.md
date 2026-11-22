@@ -1,7 +1,6 @@
 
 
 # Concurrent segment search in Amazon OpenSearch Service
-<a name="concurrent-segment-search"></a>
 
 Starting with OpenSearch version 2.17, concurrent segment search uses a new setting to control concurrent search behavior.
 + New domains created with version 2.17 have default concurrent segment search set to **auto** mode by default on nodes that are 2xl or above. 

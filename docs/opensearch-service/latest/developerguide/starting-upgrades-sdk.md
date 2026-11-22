@@ -1,7 +1,6 @@
 
 
 # Upgrading a domain (SDK)
-<a name="starting-upgrades-sdk"></a>
 
 This sample uses the [OpenSearchService](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html) low-level Python client from the AWS SDK for Python (Boto) to check if a domain is eligible for upgrade to a specific version, upgrades it, and continuously checks the upgrade status.
 
@@ -10,7 +9,7 @@ The first sample upgrades a domain in place. The second sample runs a clone-base
 ## In-place upgrade
 <a name="sdk-in-place"></a>
 
-```
+```python
 import boto3
 from botocore.config import Config
 import time
@@ -84,7 +83,7 @@ if __name__ == "__main__":
 
 This sample starts a clone-based upgrade, waits for the cloned cluster to be ready, sends 10 percent of read traffic to the cloned cluster, and then cuts over or cancels. For information about each step, see [Validating, cutting over, and rolling back during a clone-based upgrade](clone-based-upgrade.md).
 
-```
+```python
 import boto3
 import time
 

@@ -1,9 +1,8 @@
 
 
 # Getting started with Amazon OpenSearch Service
-<a name="gsg"></a>
 
-To get started, [sign up for an AWS account](https://aws.amazon.com/ ) if you don't already have one. After you are set up with an account, complete the [getting started](#gsg) tutorial for Amazon OpenSearch Service. Consult the following introductory topics if you need more information while learning about the service:
+To get started, [sign up for an AWS account](https://aws.amazon.com/ ) if you don't already have one. After you are set up with an account, complete the [getting started](gsg.md) tutorial for Amazon OpenSearch Service. Consult the following introductory topics if you need more information while learning about the service:
 + [Create a domain](createupdatedomains.md).
 + [Size the domain](sizing-domains.md) appropriately for your workload.
 + Control access to your domain using a [domain access policy](ac.md) or [fine-grained access control](fgac.md).

@@ -1,7 +1,6 @@
 
 
 # RDS for PostgreSQL
-<a name="rds-PostgreSQL"></a>
 
 Complete the following steps to configure an OpenSearch Ingestion pipeline with Amazon RDS for PostgreSQL.
 
@@ -40,7 +39,7 @@ Before you create your OpenSearch Ingestion pipeline, perform the following step
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -72,7 +71,7 @@ Before you create your OpenSearch Ingestion pipeline, perform the following step
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -103,7 +102,7 @@ After you have your Amazon RDS pipeline prerequisites set up, [configure the pip
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -253,7 +252,7 @@ After you have your Amazon RDS pipeline prerequisites set up, [configure the pip
 
 Configure an OpenSearch Ingestion pipeline like the following, which specifies an RDS for PostgreSQL instance as the source. 
 
-```
+```YAML
 version: "2"
 rds-postgres-pipeline:
   source:

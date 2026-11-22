@@ -1,7 +1,6 @@
 
 
 # Cross-cluster search
-<a name="application-cross-cluster-search"></a>
 
 Using [Cross-cluster search](cross-cluster-search.md) in Amazon OpenSearch Serverless, you can perform queries and aggregations across multiple connected domains. 
 
@@ -48,7 +47,7 @@ When you send a cross-cluster search request to the source domain, the domain ev
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Statement": [
@@ -84,7 +83,7 @@ If you choose to use a restrictive access policy in addition to fine-grained acc
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -118,7 +117,7 @@ The source domain passes the request to the destination domain. The destination 
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
  "Statement": [
@@ -257,7 +256,7 @@ After you've set up access permissions for cross-Region and cross-account data a
 
    Response:
 
-   ```
+   ```json
    {
    "took": 150,
      "timed_out": false,

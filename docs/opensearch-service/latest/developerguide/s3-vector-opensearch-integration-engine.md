@@ -1,7 +1,6 @@
 
 
 # Advanced search capabilities with an Amazon S3 vector engine
-<a name="s3-vector-opensearch-integration-engine"></a>
 
 Amazon OpenSearch Service offers the ability to use Amazon S3 as a vector engine for vector indexes. This feature allows you to offload vector data to Amazon S3 while maintaining sub-second vector search capabilities at low cost.
 
@@ -38,7 +37,7 @@ Here are some examples that create S3 vector engine indexes.
 
 **Example: Creating a k-NN index with S3 vector engine**
 
-```
+```json
 PUT my-first-s3vector-index
 {
   "settings": {
@@ -111,7 +110,7 @@ PUT my-vector-index
 
 The following approach is not supported and will fail.
 
-```
+```json
 PUT my-first-s3vector-index
 {
   "settings": {
@@ -155,17 +154,18 @@ Consider the following limitations before using `s3vector` engine in an index:
 | Cross-cluster replication | Indices configured with `s3vector` engine don't support cross-cluster replication. | 
 | Accidental delete protection | Because snapshots aren't supported for indices using `s3vector` engine, accidental delete protection isn't available. You can still restore other indices in the domain. | 
 | Radial search | Queries with radial search aren't supported on fields using `s3vector` engine. | 
+| Field-level security (FLS) | [FLS](fgac.md#fgac-field-level) isn't supported with `knn_vector` fields using `s3vector` engine. | 
 
 ## Indexing documents
 <a name="s3-vector-opensearch-integration-engine-index-documents"></a>
 
 After creating an index with S3 vector engine, you can ingest documents using the standard `_bulk` API. OpenSearch automatically offloads vector data of `knn_vector` fields using the `s3vector` engine to the S3 vector index in real time. Data belonging to other fields or `knn_vector` fields using different engines will be persisted by OpenSearch in its own storage layer.
 
-For all bulk requests that are acknowledged, OpenSearch guarantees that all data (vector and non-vector) is durable. If a request receives a negative acknowledgment, there are no guarantees on the durability of the documents in that bulk request. You should retry such requests preferably after deleting the previous failed request using the document id to avoid duplicate documents in these rare cases.
+For all bulk requests that are acknowledged, OpenSearch guarantees that all data (vector and non-vector) is durable. If a bulk request receives a negative acknowledgment (at the request or item level), there are no guarantees on the durability of the documents in that bulk request. You should retry such requests preferably after deleting the previous failed request using the document ID to avoid duplicate documents in these rare cases.
 
 **Example bulk indexing**
 
-```
+```json
 POST _bulk
 { "index": { "_index": "my-first-s3vector-index", "_id": "1" } }
 { "my_vector_1": [1.5, 2.5], "price": 12.2 }
@@ -185,11 +185,11 @@ POST _bulk
 You can search your index using the standard `_search` API to execute text, k-NN, or hybrid queries. For queries on `knn_vector` fields configured with `s3vector` engine, OpenSearch automatically offloads the query to the corresponding S3 vectors index.
 
 **Note**  
-With `s3vector` engine, k-NN search queries support a maximum `k` value of 100. This means a maxmium of 100 nearest neighbors can be returned in the search results.
+With the `s3vector` engine, k-NN search queries support a maximum `k` value of 100 in OpenSearch 2.19. Starting with OpenSearch 3.1, the maximum `k` value is 10,000, and this limit applies to all subsequent 3.x releases. For versions 3.1 through 3.5, the limit requires [service software](service-software.md) R20260720 or later. The `k` value is the maximum number of nearest neighbors returned in the search results.
 
 **Example search query**
 
-```
+```json
 GET my-first-s3vector-index/_search
 {
   "size": 2,
@@ -208,7 +208,7 @@ You can run filtered vector search on OpenSearch kNN index using s3vector engine
 
 **Example search query with filter:**
 
-```
+```json
 GET my-index/_search
 {
   "size": 10,

@@ -1,7 +1,6 @@
 
 
 # Get started
-<a name="observability-get-started"></a>
 
 Get your observability stack running on AWS and start sending telemetry data in minutes.
 

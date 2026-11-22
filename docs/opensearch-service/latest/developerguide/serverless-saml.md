@@ -1,7 +1,6 @@
 
 
 # SAML authentication for Amazon OpenSearch Serverless
-<a name="serverless-saml"></a>
 
 With SAML authentication for Amazon OpenSearch Serverless, you can use your existing identity provider to offer single sign-on (SSO) for the OpenSearch Dashboards endpoints of serverless collections.
 
@@ -52,7 +51,7 @@ The following identity-based access policy allows a user to manage all IdP confi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -180,7 +179,7 @@ After you create a SAML provider, you still need to grant the underlying users a
 
 To grant access, create a data access policy and specify your SAML user and/or group IDs in the `Principal` statement:
 
-```
+```json
 [
    {
       "Rules":[
@@ -210,7 +209,7 @@ aws opensearchserverless create-security-config \
 
 Specify `saml-options`, including the metadata XML, as a key-value map within a .json file. The metadata XML must be encoded as a [JSON escaped string](https://www.freeformatter.com/json-escape.html).
 
-```
+```json
 {
    "sessionTimeout": 70,
    "groupAttribute": "department",
@@ -234,7 +233,7 @@ aws opensearchserverless list-security-configs --type saml
 
 The request returns information about all existing SAML providers, including the full IdP metadata that your identity provider generates:
 
-```
+```json
 {
    "securityConfigDetails": [ 
       { 

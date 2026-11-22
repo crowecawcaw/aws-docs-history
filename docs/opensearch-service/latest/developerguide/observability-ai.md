@@ -1,7 +1,6 @@
 
 
 # AI observability
-<a name="observability-ai"></a>
 
 AI observability in OpenSearch provides end-to-end tooling for monitoring, debugging, and optimizing AI agent and large language model (LLM) workflows. Built on GenAI semantic conventions and natively integrated with OpenTelemetry (OTel), it gives you full visibility into how your AI applications behave in production.
 
@@ -30,7 +29,7 @@ pip install opentelemetry-instrumentation-openai-v2 opentelemetry-sdk openteleme
 
 The following example shows how to register the OTel SDK, annotate your agent functions with the `@observe` decorator, and enrich spans with GenAI attributes.
 
-```
+```python
 from opentelemetry import trace
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor

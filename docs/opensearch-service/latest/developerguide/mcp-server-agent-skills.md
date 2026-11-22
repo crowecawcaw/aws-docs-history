@@ -1,7 +1,6 @@
 
 
 # MCP Server and Agent Skills for Amazon OpenSearch Service
-<a name="mcp-server-agent-skills"></a>
 
 You can work with Amazon OpenSearch Service and OpenSearch Serverless directly from AI coding agents – such as Claude Code, Kiro, Cursor, and Codex – using the Agent Toolkit for AWS. The toolkit gives your agent two things that work together:
 + **[Set up the AWS MCP Server](aws-mcp-server.md)** – A managed Model Context Protocol server that gives your agent authenticated access to AWS. It runs AWS API calls on your behalf, executes scripts in a sandboxed environment, and lets your agent discover and load AWS skills on demand.

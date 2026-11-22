@@ -1,7 +1,6 @@
 
 
 # Registering a manual snapshot repository
-<a name="managedomains-snapshot-registerdirectory"></a>
 
 You need to register a snapshot repository with OpenSearch Service before you can take manual index snapshots. This one-time operation requires that you sign your AWS request with credentials that are allowed to access `TheSnapshotRole`, as described in [Prerequisites](managedomains-snapshots.md#managedomains-snapshot-prerequisites).
 
@@ -83,7 +82,7 @@ The Python client is easier to automate than a simple HTTP request and has bette
 
 Update the following variables in the sample code: `host`, `region`, `path`, and `payload`.
 
-```
+```python
 import boto3
 import requests
 from requests_aws4auth import AWS4Auth

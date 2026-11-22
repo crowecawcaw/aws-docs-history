@@ -1,7 +1,6 @@
 
 
 # Using an OpenSearch Ingestion pipeline with machine learning offline batch inference
-<a name="configure-clients-ml-commons-batch"></a>
 
 Amazon OpenSearch Ingestion (OSI) pipelines support machine learning (ML) offline batch inference processing to efficiently enrich large volumes of data at low cost. Use offline batch inference whenever you have large datasets that can be processed asynchronously. Offline batch inference works with Amazon Bedrock and SageMaker models. This feature is available in all AWS Regions that support OpenSearch Ingestion with OpenSearch Service 2.17\+ domains.
 

@@ -1,7 +1,6 @@
 
 
 # Managing data source associations and Virtual Private Cloud access permissions
-<a name="application-data-sources-and-vpc"></a>
 
 Use the procedures in this section to manage data source associations and to configure any needed access permissions for a virtual private cloud (VPC).
 
@@ -42,7 +41,7 @@ For information about working with workspaces, see [Using Amazon OpenSearch Serv
 
 Use the `update-application` command to associate one or more data sources. Replace the {{placeholder values}} with your own information.
 
-```
+```sh
 aws opensearch update-application \
     --id {{application-id}} \
     --region {{region}} \
@@ -133,7 +132,7 @@ If an OpenSearch domain in a VPC was associated with the application, a VPC admi
 **To authorize a VPC domain using the AWS CLI**  
 To authorize VPC domain using the AWS CLI, run the following command. Replace the {{placeholder values}} with your own information.
 
-```
+```sh
 aws opensearch authorize-vpc-endpoint-access \
  --domain-name {{domain-name}} \
  --service application.opensearchservice.amazonaws.com \
@@ -158,7 +157,7 @@ When an association is no longer needed, the VPC domain owner can revoke access 
 **To revoke a VPC domain association using the AWS CLI**  
 To revoke a VPC domain association with the OpenSearch UI application, run the following command. Replace the {{placeholder values}} with your own information.
 
-```
+```sh
 aws opensearch revoke-vpc-endpoint-access \
     --domain-name {{domain-name}} \
     --service application.opensearchservice.amazonaws.com \
@@ -170,7 +169,7 @@ aws opensearch revoke-vpc-endpoint-access \
 
 To confirm that the authorization is in place, run the following command. The response includes `application.opensearchservice.amazonaws.com` in the list of authorized services.
 
-```
+```sh
 aws opensearch list-vpc-endpoint-access \
     --domain-name {{domain-name}} \
     --region {{region}}
@@ -225,7 +224,7 @@ If an Amazon OpenSearch Serverless collection in a VPC was associated with the a
 
 1. Create a .json file similar to the following. Replace the {{placeholder values}} with your own information.
 
-   ```
+   ```json
    {
        "Description" : "{{policy-description}}",
        "Rules": [{
@@ -246,7 +245,7 @@ If an Amazon OpenSearch Serverless collection in a VPC was associated with the a
 
    Run the following command. Replace the {{placeholder values}} with your own information.
 
-   ```
+   ```sh
    aws opensearchserverless create-security-policy \
        --type network  \
        --region {{region}} \
@@ -257,7 +256,7 @@ If an Amazon OpenSearch Serverless collection in a VPC was associated with the a
 
    The command returns information similar to the following: 
 
-   ```
+   ```json
    {
        "securityPolicyDetail": {
            "createdDate": ******,
@@ -292,7 +291,7 @@ If an Amazon OpenSearch Serverless collection in a VPC was associated with the a
 
    Run the following command. Replace the {{placeholder values}} with your own information.
 
-   ```
+   ```sh
    aws opensearchserverless update-security-policy \
        --type network  \
        --region {{region}} \
@@ -304,7 +303,7 @@ If an Amazon OpenSearch Serverless collection in a VPC was associated with the a
 
    The command returns information similar to the following: 
 
-   ```
+   ```json
    {
        "securityPolicyDetail": {
            "createdDate": ******,

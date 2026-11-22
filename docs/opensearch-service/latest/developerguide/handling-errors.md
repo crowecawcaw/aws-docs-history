@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon OpenSearch Service
-<a name="handling-errors"></a>
 
 This topic describes how to identify and solve common Amazon OpenSearch Service issues. Consult the information in this section before contacting [AWS Support](https://aws.amazon.com/premiumsupport/).
 
@@ -57,7 +56,7 @@ GET _cat/indices?v
 
 Then run some searches to verify that the expected data is present. If it is, you can remove the read-only state using the following request:
 
-```
+```json
 PUT _cluster/settings
 {
   "persistent": {
@@ -170,6 +169,11 @@ In general, to avoid high JVM memory pressure in the future, follow these best p
 + Optimize search and indexing requests by [choosing the correct number of shards](bp-sharding.md).
 + Set up Index State Management (ISM) policies to regularly [remove unused indexes](bp.md#bp-stability-remove).
 
+### Write block during a configuration change
+<a name="handling-errors-bg-storage"></a>
+
+If neither of the previous causes applies, check whether a configuration change is in progress. During a [blue/green deployment](managedomains-configuration-changes.md), OpenSearch Service also blocks writes when the new configuration doesn't have enough storage for your data plus a free-space buffer. For more information about the buffer, see [Lack of available storage space](#handling-errors-watermark). The block clears automatically when enough storage is available. To resolve it, delete indexes that you no longer need. Before your next configuration change, make sure that the new configuration has enough storage, for example by [choosing a larger volume](limits.md#ebsresource) or more data nodes. If no configuration change is in progress, contact [AWS Support](https://aws.amazon.com/premiumsupport/).
+
 ## Error migrating to Multi-AZ with Standby
 <a name="troubleshooting-multi-az-standby"></a>
 
@@ -248,7 +252,7 @@ To avoid latency issues and request rejections, perform EBS volume resizes only 
 
 You might encounter the following error when you try to enable audit log publishing using the OpenSearch Service console:
 
-The Resource Access Policy specified for the CloudWatch Logs log group does not grant sufficient permissions for Amazon OpenSearch Service to create a log stream. Please check the Resource Access Policy.
+`The Resource Access Policy specified for the CloudWatch Logs log group does not grant sufficient permissions for Amazon OpenSearch Service to create a log stream. Please check the Resource Access Policy.`
 
 If you encounter this error, verify that the `resource` element of your policy includes the correct log group ARN. If it does, take the following steps:
 
@@ -336,7 +340,7 @@ Clone-based upgrades are different. You can cancel a clone-based upgrade any tim
 
 The following script uses the Amazon EC2 [describe-regions](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-regions.html) AWS CLI command to create a list of all Regions in which OpenSearch Service could be available. Then it calls [list-domain-names](https://docs.aws.amazon.com/cli/latest/reference/es/list-domain-names.html) for each Region:
 
-```
+```bash
 for region in `aws ec2 describe-regions --output text | cut -f4`
 do
     echo "\nListing domains in region '$region':"
@@ -346,7 +350,7 @@ done
 
 You receive the following output for each Region:
 
-```
+```json
 Listing domains in region:'us-west-2'...
 [
   {
@@ -440,7 +444,7 @@ For example, the following policy used to only deny access to the `CreateDomain`
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -529,13 +533,13 @@ PluginValidationFailureReason : The provided plugin could not be loaded.
 
    **API request:**
 
-   ```
+   ```curl
    curl -X GET {{your-opensearch-endpoint}}/
    ```
 
    **Dev Tools console in dashboard:**
 
-   ```
+   ```curl
    GET /
    ```
 

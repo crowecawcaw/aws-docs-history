@@ -1,7 +1,6 @@
 
 
 # Scale to zero for Amazon OpenSearch Serverless
-<a name="serverless-scale-to-zero"></a>
 
 **Note**  
 Scale to zero is only available for NextGen collections that are part of a collection group. For more information, see [Amazon OpenSearch Serverless collection groups](serverless-collection-groups.md).

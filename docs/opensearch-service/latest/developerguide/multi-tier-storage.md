@@ -1,7 +1,6 @@
 
 
 # Multi-tier storage for Amazon OpenSearch Service
-<a name="multi-tier-storage"></a>
 
 Multi-tier storage for Amazon OpenSearch Service is an intelligent data management solution that optimizes both performance and costs by managing data across different storage tiers. This architecture allows organizations to efficiently balance the trade-off between performance and cost by keeping frequently accessed data in high-performance hot storage while moving less frequently accessed data to more cost-effective warm storage.
 

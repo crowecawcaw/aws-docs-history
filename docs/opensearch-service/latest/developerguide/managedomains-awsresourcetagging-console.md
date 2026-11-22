@@ -1,7 +1,6 @@
 
 
 # Tagging domains (console)
-<a name="managedomains-awsresourcetagging-console"></a>
 
 The console is the simplest way to tag a domain.
 

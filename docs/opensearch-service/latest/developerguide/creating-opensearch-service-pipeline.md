@@ -1,7 +1,6 @@
 
 
 # Migrating data between domains and collections using Amazon OpenSearch Ingestion
-<a name="creating-opensearch-service-pipeline"></a>
 
 You can use OpenSearch Ingestion pipelines to migrate data between Amazon OpenSearch Service domains or OpenSearch Serverless VPC collections. To do so, you set up a pipeline in which you configure one domain or collection as the source, and another domain or collection as the sink. This effectively migrates your data from one domain or collection to the other.
 
@@ -48,7 +47,7 @@ To create your OpenSearch Ingestion pipeline, you must first create a pipeline r
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[
@@ -118,7 +117,7 @@ You can specify multiple public OpenSearch Service domains as destinations for y
 
 In the following example, incoming data is conditionally routed to different OpenSearch Service domains:
 
-```
+```yaml
 ...
   route:
     - 2xx_status: "/response >= 200 and /response < 300"

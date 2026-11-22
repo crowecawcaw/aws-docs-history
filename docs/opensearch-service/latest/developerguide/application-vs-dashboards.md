@@ -1,7 +1,6 @@
 
 
 # How OpenSearch UI compares to OpenSearch Dashboards
-<a name="application-vs-dashboards"></a>
 
 OpenSearch UI and OpenSearch Dashboards are both analytics interfaces for Amazon OpenSearch Service, but they differ in where they run and what they can connect to. OpenSearch Dashboards runs on a single domain. OpenSearch UI is hosted in the AWS Cloud, connects to multiple data sources, remains available during cluster upgrades, and adds workspaces, single sign-on, and generative AI features.
 

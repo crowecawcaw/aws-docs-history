@@ -1,7 +1,6 @@
 
 
 # Creating Amazon OpenSearch Ingestion pipelines
-<a name="creating-pipeline"></a>
 
 A *pipeline* is the mechanism that Amazon OpenSearch Ingestion uses to move data from its *source* (where the data comes from) to its *sink* (where the data goes). In OpenSearch Ingestion, the sink will always be a single Amazon OpenSearch Service domain, while the source of your data could be clients like Amazon S3, Fluent Bit, or the OpenTelemetry Collector.
 
@@ -46,7 +45,7 @@ For example, the following policy grants permission to create a pipeline:
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -88,7 +87,7 @@ For more information about each permission, see [Actions, resources, and conditi
 
 When you create a pipeline using the configuration editor, you must specify the major [version of Data Prepper](https://github.com/opensearch-project/data-prepper/releases) that the pipeline will run. To specify the version, include the `version` option in your pipeline configuration:
 
-```
+```yaml
 {{version: "2"}}
 log-pipeline:
   source:
@@ -220,7 +219,7 @@ The following sample command creates a pipeline with the following configuration
 + Provisioned within a virtual private cloud (VPC)
 + Log publishing enabled
 
-```
+```bash
 aws osis create-pipeline \
   --pipeline-name {{my-pipeline}} \
   --min-units 4 \

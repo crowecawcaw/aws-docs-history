@@ -1,7 +1,6 @@
 
 
 # Supported plugins and options for Amazon OpenSearch Ingestion pipelines
-<a name="pipeline-config-reference"></a>
 
 Amazon OpenSearch Ingestion supports a subset of sources, processors, and sinks within open source [OpenSearch Data Prepper](https://opensearch.org/docs/latest/data-prepper/). In addition, there are some constraints that OpenSearch Ingestion places on the available options for each supported plugin. The following sections describe the plugins and associated options that OpenSearch Ingestion supports.
 

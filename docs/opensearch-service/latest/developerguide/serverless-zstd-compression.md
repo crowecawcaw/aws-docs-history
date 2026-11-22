@@ -1,7 +1,6 @@
 
 
 # Zstandard Codec Support in Amazon OpenSearch Serverless
-<a name="serverless-zstd-compression"></a>
 
 Index codecs determine how an index's stored fields are compressed and stored on disk and in S3. The index codec is controlled by the static `index.codec` setting that specifies the compression algorithm. This setting impacts both index shard size and index operation performance.
 
@@ -17,7 +16,7 @@ For more details, refer to the [OpenSearch Index Codecs documentation](https://o
 
 You can specify the ZSTD codec during index creation using the `index.codec` setting:
 
-```
+```json
 PUT /your_index
 {
   "settings": {
@@ -31,7 +30,7 @@ PUT /your_index
 
 ZSTD codecs support optional compression levels via the `index.codec.compression_level` setting, accepting integers in the range [1, 6]. Higher compression levels result in better compression ratios (smaller storage) but slower compression and decompression speeds. The default compression level is 3.
 
-```
+```json
 PUT /your_index
 {
   "settings": {

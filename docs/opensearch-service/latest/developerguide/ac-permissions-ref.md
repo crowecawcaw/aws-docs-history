@@ -1,7 +1,6 @@
 
 
 # Amazon OpenSearch Service API permissions reference
-<a name="ac-permissions-ref"></a>
 
 When you set up [access control](ac.md), you write permission policies that you can attach to an IAM identity (identity-based policies). For detailed reference information, see the following topics in the *Service Authorization Reference*:
 + [Actions, resources, and condition keys for OpenSearch Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonopensearchservice.html).

@@ -1,7 +1,6 @@
 
 
 # Using an OpenSearch Ingestion pipeline with Amazon DocumentDB
-<a name="configure-client-docdb"></a>
 
 You can use the [DocumentDB](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/documentdb/) plugin to stream document changes, such as creates, updates, and deletes, to Amazon OpenSearch Service. The pipeline supports change data capture (CDC), if available, or API polling for high-scale, low-latency streaming.
 
@@ -37,7 +36,7 @@ Before you create your OpenSearch Ingestion pipeline, perform the following step
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -72,7 +71,7 @@ After you have your Amazon DocumentDB pipeline prerequisites set up, [configure 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -167,7 +166,7 @@ You must provide the above Amazon EC2 permissions on the IAM role that you use t
 
 You can then configure an OpenSearch Ingestion pipeline like the following, which specifies Amazon DocumentDB as the source. Note that to populate the index name, the `getMetadata` function uses `{{documentdb_collection}}` as a metadata key. If you want to use a different index name without the `getMetadata` method, you can use the configuration `index: "{{my_index_name}}"`.
 
-```
+```YAML
 version: "2"
 documentdb-pipeline:
   source:
