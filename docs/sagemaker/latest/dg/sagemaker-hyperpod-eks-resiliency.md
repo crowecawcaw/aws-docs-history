@@ -1,12 +1,12 @@
 
 
 # Cluster resiliency features for SageMaker HyperPod cluster orchestration with Amazon EKS
-<a name="sagemaker-hyperpod-eks-resiliency"></a>
 
 SageMaker HyperPod provides the following cluster resiliency features. 
 
 **Topics**
 + [Health Monitoring System](sagemaker-hyperpod-eks-resiliency-health-monitoring-agent.md)
++ [Kubernetes Resource Monitoring Agent](sagemaker-hyperpod-eks-resiliency-kubernetes-resource-monitoring-agent.md)
 + [Basic health checks](sagemaker-hyperpod-eks-resiliency-basic-health-check.md)
 + [Deep health checks](sagemaker-hyperpod-eks-resiliency-deep-health-checks.md)
 + [Automatic node recovery](sagemaker-hyperpod-eks-resiliency-node-recovery.md)

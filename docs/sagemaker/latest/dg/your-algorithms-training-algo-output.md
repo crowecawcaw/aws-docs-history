@@ -1,7 +1,6 @@
 
 
 # How Amazon SageMaker AI Processes Training Output
-<a name="your-algorithms-training-algo-output"></a>
 
 As your algorithm runs in a container, it generates output including the status of the training job and model and output artifacts. Your algorithm should write this information to the following files, which are located in the container's `/output` directory. Amazon SageMaker AI processes the information contained in this directory as follows:
 + `/opt/ml/model` – Your algorithm should write all final model artifacts to this directory. SageMaker AI copies this data as a single object in compressed tar format to the S3 location that you specified in the `CreateTrainingJob` request. If multiple containers in a single training job write to this directory they should ensure no `file/directory` names clash. SageMaker AI aggregates the result in a TAR file and uploads to S3 at the end of the training job. 

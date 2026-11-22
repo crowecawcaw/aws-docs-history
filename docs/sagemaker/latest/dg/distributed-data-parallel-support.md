@@ -1,7 +1,6 @@
 
 
 # Supported frameworks, AWS Regions, and instances types
-<a name="distributed-data-parallel-support"></a>
 
 Before using the SageMaker AI distributed data parallelism (SMDDP) library, check what are the supported ML frameworks and instance types and if there are enough quotas in your AWS account and AWS Region.
 
@@ -74,7 +73,7 @@ The SMDDP library is available for PyTorch Lightning in the following SageMaker 
 **Note**  
 PyTorch Lightning and its utility libraries such as Lightning Bolts are not preinstalled in the PyTorch DLCs. When you construct a SageMaker AI PyTorch ModelTrainer and submit a training job request in [Step 2](https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html#data-parallel-framework-estimator), you need to provide `requirements.txt` to install `pytorch-lightning` and `lightning-bolts` in the SageMaker AI PyTorch training container.  
 
-```
+```txt
 # requirements.txt
 pytorch-lightning
 lightning-bolts
@@ -125,7 +124,7 @@ For specs of the instance types, see the **Accelerated Computing** section in th
 
 If you encountered an error message similar to the following, follow the instructions at [Request a service quota increase for SageMaker AI resources](https://docs.aws.amazon.com/sagemaker/latest/dg/regions-quotas.html#service-limit-increase-request-procedure).
 
-```
+```txt
 ResourceLimitExceeded: An error occurred (ResourceLimitExceeded) when calling
 the CreateTrainingJob operation: The account-level service limit 'ml.p3dn.24xlarge
 for training job usage' is 0 Instances, with current utilization of 0 Instances

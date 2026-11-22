@@ -1,7 +1,6 @@
 
 
 # Pre-check the model container
-<a name="clarify-online-explainability-precheck"></a>
 
 This section shows how to pre-check the model container inputs and outputs for compatibility before configuring an endpoint. The SageMaker Clarify explainer is **model agnostic**, but it has requirements for model container input and output.
 
@@ -128,7 +127,7 @@ We recommend that you deploy your model to a SageMaker AI real-time inference en
 
 The following commands show how to request a response using the AWS CLI. The AWS CLI is pre-installed in SageMaker Studio Classic, and SageMaker Notebook instances. If you need to install the AWS CLI, follow this [installation guide](https://aws.amazon.com/cli/).
 
-```
+```python
 aws sagemaker-runtime invoke-endpoint \
   --endpoint-name $ENDPOINT_NAME \
   --content-type $CONTENT_TYPE \

@@ -1,7 +1,6 @@
 
 
 # List of Debugger built-in rules
-<a name="debugger-built-in-rules"></a>
 
 **Note**  
 Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
@@ -18,7 +17,7 @@ The maximum numbers of built-in rules that you can attach to a training job is 2
 **Important**  
 To use the new Debugger features, you need to upgrade the SageMaker Python SDK and the SMDebug client library. In your iPython kernel, Jupyter notebook, or JupyterLab environment, run the following code to install the latest versions of the libraries and restart the kernel.  
 
-```
+```py
 import sys
 import IPython
 !{sys.executable} -m pip install -U sagemaker smdebug
@@ -49,7 +48,7 @@ Debugger built-in rules for debugging model training data (output tensors)
 
 **To use the built-in rules with default parameter values** – use the following configuration format:
 
-```
+```py
 from sagemaker.core.debugger import Rule, ProfilerRule, rule_configs
 
 rules = [
@@ -62,7 +61,7 @@ rules = [
 
 **To use the built-in rules with customizing the parameter values** – use the following configuration format:
 
-```
+```py
 from sagemaker.core.debugger import Rule, ProfilerRule, rule_configs
 
 rules = [
@@ -106,7 +105,7 @@ Parameter Descriptions for the CreateXgboostReport Rule
 | --- | --- | 
 | base\_trial | The base trial training job name. This parameter is automatically set to the current training job by Amazon SageMaker Debugger.<br />**Required**<br />Valid values: String | 
 
-```
+```py
 rules=[
     Rule.sagemaker(
         rule_configs.create_xgboost_report()
@@ -129,7 +128,7 @@ Parameter Descriptions for the DeadRelu Rule
 | threshold\_inactivity | Defines a level of activity below which a ReLU is considered to be dead. A ReLU might be active in the beginning of a trial and then slowly die during the training process. If the ReLU is active less than the `threshold_inactivity`, it is considered to be dead.<br />**Optional**<br />Valid values: Float<br />Default values: `1.0` (in percentage) | 
 | threshold\_layer | Returns `True` if the percentage of inactive ReLUs in a layer is greater than `threshold_layer`.<br />Returns `False` if the percentage of inactive ReLUs in a layer is less than `threshold_layer`.<br />**Optional**<br />Valid values: Float<br />Default values: `50.0` (in percentage) | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.dead_relu(),
@@ -171,7 +170,7 @@ Parameter Descriptions for the ExplodingTensor Rule
 | tensor\_regex | A list of regex patterns used to restrict this comparison to specific scalar-valued tensors. The rule inspects only the tensors that match the regex patterns specified in the list. If no patterns are passed, the rule compares all tensors gathered in the trials by default. Only scalar-valued tensors can be matched.<br />**Optional**<br />Valid values: String <br />Default value: `None` | 
 | only\_nan |  `True` to monitor the `base_trial` tensors only for `NaN` values and not for infinity. <br />`False` to treat both `NaN` and infinity as exploding values and to monitor for both.<br />**Optional**<br />Default value: `False` | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{exploding_tensor}}(),
@@ -215,7 +214,7 @@ Parameter Descriptions for the PoorWeightInitialization Rule
 | patience | The number of steps to wait until the loss is considered to be no longer decreasing.<br />**Optional**<br />Valid values: Integer<br />Default value: `5` | 
 | steps | The number of steps this rule analyzes. You typically need to check only the first few iterations.<br />**Optional**<br />Valid values: Float<br />Default value: `10` | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{poor_weight_initialization}}(),
@@ -264,7 +263,7 @@ Parameter Descriptions for the SaturatedActivation Rule
 | threshold\_inactivity | The percentage of inactivity below which the activation layer is considered to be saturated. The activation might be active in the beginning of a trial and then slowly become less active during the training process.<br />**Optional**<br />Valid values: Float<br />Default values: `1.0` | 
 | threshold\_layer | Returns `True` if the number of saturated activations in a layer is greater than the `threshold_layer` percentage.<br />Returns `False` if the number of saturated activations in a layer is less than the `threshold_layer` percentage.<br />**Optional**<br />Valid values: Float<br />Default values: `50.0` | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{saturated_activation}}(),
@@ -308,7 +307,7 @@ Parameters Descriptions for the VanishingGradient Rule
 | base\_trial | The base trial training job name. This parameter is automatically set to the current training job by Amazon SageMaker Debugger. <br />**Required**<br />Valid values: String | 
 | threshold | The value at which the gradient is determined to be vanishing.**Optional**<br />Valid values: Float<br />Default value: `0.0000001`. | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{vanishing_gradient}}(),
@@ -350,7 +349,7 @@ Parameter Descriptions for the WeightUpdateRatio Rule
 | small\_threshold | The minimum value that the ratio of updates to weight can take, below which the rule returns `True`.<br />**Optional**<br />Valid values: Float<br />Default value: `0.00000001` | 
 | epsilon | A small constant used to ensure that Debugger does not divide by zero when computing the ratio updates to weigh.<br />**Optional**<br />Valid values: Float<br />Default value: `0.000000001` | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{weight_update_ratio}}(),
@@ -396,7 +395,7 @@ Parameters Descriptions for the AllZero Rule
 | tensor\_regex | A list of regex patterns used to restrict this comparison to specific scalar-valued tensors. The rule inspects only the tensors that match the regex patterns specified in the list. If no patterns are passed, the rule compares all tensors gathered in the trials by default. Only scalar-valued tensors can be matched.<br />**Optional**<br />Valid values: List of strings or a comma-separated string<br />Default value: `None` | 
 | threshold | Specifies the percentage of values in the tensor that needs to be zero for this rule to be invoked. <br />**Optional**<br />Valid values: Float<br />Default value: 100 (in percentage) | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{all_zero}}(),
@@ -442,7 +441,7 @@ Parameter Descriptions for the ClassImbalance Rule
 | labels\_regex | The name of the tensor that contains the labels.<br />**Optional**<br />Valid values: String<br />Default value: `".*labels"` | 
 | predictions\_regex | The name of the tensor that contains the predictions.<br />**Optional**<br />Valid values: String<br />Default value: `".*predictions"` | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{class_imbalance}}(),
@@ -490,7 +489,7 @@ Parameter Descriptions for the LossNotDecreasing Rule
 | increase\_threshold\_percent | The maximum threshold percent that loss is allowed to increase in case loss has been increasing<br />**Optional**<br />Valid values: `0` < float < `100`<br />Default value: `5` (in percentage) | 
 | mode | The name of the Debugger mode to query tensor values for rule checking. If this is not passed, the rule checks in order by default for the `mode.EVAL`, then `mode.TRAIN`, and then `mode.GLOBAL`. <br />**Optional**<br />Valid values: String (`EVAL`, `TRAIN`, or `GLOBAL`)<br />Default value: `GLOBAL` | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{loss_not_decreasing}}(),
@@ -537,7 +536,7 @@ Parameter Descriptions for the Overfit Rule
 | patience | The number of steps for which the `ratio_threshold` is allowed to exceed the value set before the model is considered to be overfit.<br />**Optional**<br />Valid values: Integer<br />Default value: `1` | 
 | ratio\_threshold | The maximum ratio of the difference between the mean validation loss and mean training loss to the mean training loss. If this threshold is exceeded for a `patience` number of steps, the model is being overfit and the rule returns `True`.<br />**Optional**<br />Valid values: Float<br />Default value: `0.1` | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{overfit}}(),
@@ -582,7 +581,7 @@ Parameter Descriptions for the Overtraining Rule
 | patience\_validation | The number of steps to wait before the validation loss is considered to not to be improving anymore.**Optional**<br />Valid values: Integer<br />Default value: `10` | 
 | delta | The minimum threshold by how much the error should improve before it is considered as a new optimum.<br />**Optional**<br />Valid values: Float<br />Default value: `0.01` | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{overtraining}}(),
@@ -622,7 +621,7 @@ Parameter Descriptions for the SimilarAcrossRuns Rule
 | collection\_names | The list of collection names whose tensors the rule inspects.<br />**Optional**<br />Valid values: List of strings or a comma-separated string<br />Default value: None | 
 | tensor\_regex | A list of regex patterns used to restrict this comparison to specific scalar-valued tensors. The rule inspects only the tensors that match the regex patterns specified in the list. If no patterns are passed, the rule compares all tensors gathered in the trials by default. Only scalar-valued tensors can be matched.<br />**Optional**<br />Valid values: List of strings or a comma-separated string <br />Default value: None | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{similar_across_runs}}(),
@@ -658,7 +657,7 @@ Parameter Descriptions for the StalledTrainingRule Rule
 | stop\_training\_on\_fire | If set to `True`, watches if the base training job outputs tensors in "`threshold`" seconds.<br />**Optional**<br />Valid values: Boolean<br />Default value: `False` | 
 | training\_job\_name\_prefix | The prefix of base training job name. If `stop_training_on_fire` is true, the rule searches for SageMaker training jobs with this prefix in the same account. If there is an inactivity found, the rule takes a `StopTrainingJob` action. Note if there are multiple jobs found with same prefix, the rule skips termination. It is important that the prefix is set unique per each training job.<br />**Optional**<br />Valid values: String | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{stalled_training_rule}}(),
@@ -699,7 +698,7 @@ Parameter Descriptions for the TensorVariance Rule
 | max\_threshold | The threshold for the upper bound of tensor variance.<br />**Optional**<br />Valid values: Float<br />Default value: None | 
 | min\_threshold | The threshold for the lower bound of tensor variance.<br />**Optional**<br />Valid values: Float<br />Default value: None | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{tensor_variance}}(),
@@ -744,7 +743,7 @@ Parameter Descriptions for the UnchangedTensor Rule
 | atol | The absolute tolerance parameter to be passed to the `[numpy.allclose](https://docs.scipy.org/doc/numpy/reference/generated/numpy.allclose.html)` method.<br />**Optional**<br />Valid values: Float<br />Default value: `1e-08` | 
 | equal\_nan | Whether to compare NaNs as equal. If `True`, NaNs in input array a are considered equal to NaNs in input array b in the output array. This parameter is passed to the `[numpy.allclose](https://docs.scipy.org/doc/numpy/reference/generated/numpy.allclose.html)` method.<br />**Optional**<br />Valid values: Boolean<br />Default value: `False` | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{unchanged_tensor}}(),
@@ -788,7 +787,7 @@ Parameter Descriptions for the CheckInputImages Rule
 | regex | The name of the input data tensor.<br />**Optional**<br />Valid values: String<br />Default value: `".*hybridsequential0_input_0"` (the name of the input tensor for Apache MXNet models using HybridSequential) | 
 | channel | The position of the color channel in the input tensor shape array. <br />**Optional**<br />Valid values: Integer<br />Default value: `1` (for example, MXNet expects input data in the form of (batch\_size, channel, height, width)) | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{check_input_images}}(),
@@ -830,7 +829,7 @@ Parameter Descriptions for the NLPSequenceRatio Rule
 | token\_values | A string of a list of the numerical values of the tokens. For example, "3, 0".<br />**Optional**<br />Valid values: Comma-separated string of numerical values<br />Default value: `0` | 
 | token\_thresholds\_percent | A string of a list of thresholds (in percentages) that correspond to each of the `token_values`. For example,"50.0, 50.0".<br />**Optional**<br />Valid values: Comma-separated string of floats<br />Default value: `"50"` | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{nlp_sequence_ratio}}(),
@@ -878,7 +877,7 @@ Parameter Descriptions for the Confusion Rule
 | min\_diag | The minimum threshold for the ratio of data on the diagonal.<br />**Optional**<br />Valid values: `0`≤float≤`1`<br />Default value: `0.9` | 
 | max\_off\_diag | The maximum threshold for the ratio of data off the diagonal.<br />**Optional**<br />Valid values: `0`≤float≤`1`<br />Default value: `0.1` | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{confusion}}(),
@@ -931,7 +930,7 @@ Parameter Descriptions for the FeatureImportanceOverweight Rule
 | nfeatures | The number of largest features.<br />**Optional**<br />Valid values: Integer<br />Default value: `3` | 
 | tensor\_regex | Regular expression (regex) of tensor names the rule to analyze.<br />**Optional**<br />Valid values: String<br />Default value: `".*feature_importance/weight"` | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{feature_importance_overweight}}(),
@@ -969,7 +968,7 @@ Parameter Descriptions for the TreeDepth Rule
 | base\_trial | The base trial training job name. This parameter is automatically set to the current training job by Amazon SageMaker Debugger. <br />**Required**<br />Valid values: String | 
 | depth | The depth of the tree. The depth of the tree is obtained by computing the base 2 logarithm of the largest node ID.<br />**Optional**<br />Valid values: Float<br />Default value: `4` | 
 
-```
+```py
 built_in_rules = [
     Rule.sagemaker(
         base_config=rule_configs.{{tree_depth}}(),

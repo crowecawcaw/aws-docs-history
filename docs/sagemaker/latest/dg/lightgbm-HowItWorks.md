@@ -1,7 +1,6 @@
 
 
 # How LightGBM works
-<a name="lightgbm-HowItWorks"></a>
 
 LightGBM implements a conventional Gradient Boosting Decision Tree (GBDT) algorithm with the addition of two novel techniques: Gradient-based One-Side Sampling (GOSS) and Exclusive Feature Bundling (EFB). These techniques are designed to significantly improve the efficiency and scalability of GBDT.
 

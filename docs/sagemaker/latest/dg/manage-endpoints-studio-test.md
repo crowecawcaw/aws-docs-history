@@ -1,7 +1,6 @@
 
 
 # Test inference
-<a name="manage-endpoints-studio-test"></a>
 
 On the **Test inference** tab, you can send a test inference request to a deployed model. This is useful if you’d like to verify that your endpoint responds to requests as expected.
 

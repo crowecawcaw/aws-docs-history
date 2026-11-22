@@ -1,7 +1,6 @@
 
 
 # Data preparation using AWS Glue interactive sessions
-<a name="studio-notebooks-glue"></a>
 
 [AWS Glue interactive sessions](https://docs.aws.amazon.com/glue/latest/dg/interactive-sessions-overview.html) is a serverless service that you can enlist to collect, transform, clean, and prepare data for storage in your data lakes and data pipelines. AWS Glue interactive sessions provides an on-demand, serverless Apache Spark runtime environment that you can initialize in seconds on a dedicated Data Processing Unit (DPU) without having to provision and manage complex compute cluster infrastructure. After initialization, you can browse the AWS Glue data catalog, run large queries, access data governed by AWS Lake Formation, and interactively analyze and prepare data using Spark, right in your Studio or Studio Classic notebooks. You can then use the prepared data to train, tune, and deploy models using the purpose-built ML tools within SageMaker Studio or Studio Classic. You should consider AWS Glue Interactive Sessions for your data preparation workloads when you want a serverless Spark service with moderate control of configurability and flexibility.
 

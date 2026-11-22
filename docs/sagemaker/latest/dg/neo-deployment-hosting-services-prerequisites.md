@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="neo-deployment-hosting-services-prerequisites"></a>
 
 **Note**  
 Follow the instructions in this section if you compiled your model using AWS SDK for Python (Boto3), AWS CLI, or the SageMaker AI console. 
@@ -30,7 +29,7 @@ To create a SageMaker Neo-compiled model, you need the following:
 ------
 #### [ MXNet Module ]
 
-      ```
+      ```python
       import numpy as np
       import json
       import mxnet as mx
@@ -82,7 +81,7 @@ To create a SageMaker Neo-compiled model, you need the following:
 ------
 #### [ MXNet Gluon ]
 
-      ```
+      ```python
       import numpy as np
       import json
       import mxnet as mx
@@ -134,7 +133,7 @@ To create a SageMaker Neo-compiled model, you need the following:
 ------
 #### [ PyTorch 1.4 and Older ]
 
-      ```
+      ```python
       import os
       import torch
       import torch.nn.parallel
@@ -212,7 +211,7 @@ To create a SageMaker Neo-compiled model, you need the following:
 ------
 #### [ PyTorch 1.5 and Newer ]
 
-      ```
+      ```python
       import os
       import torch
       import torch.nn.parallel
@@ -296,7 +295,7 @@ Note that if handler function is implemented, `input_handler` and `output_handle
 
       The following is a code example of `inference.py` script that you can put together with the compile model to perform custom pre- and post-processing on an image classification model. The SageMaker AI client sends the image file as an `application/x-image` content type to the `input_handler` function, where it is converted to JSON. The converted image file is then sent to the [Tensorflow Model Server (TFX)](https://www.tensorflow.org/tfx/serving/api_rest) using the REST API. 
 
-      ```
+      ```python
       import json
       import numpy as np
       import json

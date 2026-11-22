@@ -1,7 +1,6 @@
 
 
 # Use AWS KMS permissions for MLflow Apps
-<a name="mlflow-kms"></a>
 
 You can protect your data at rest using encryption for MLflow Apps. By default, MLflow Apps use server-side encryption with an AWS owned key. SageMaker also supports an option for server-side encryption with a customer managed KMS key.
 
@@ -65,7 +64,7 @@ The following are policy statement examples you can add for MLflow Apps based on
 
 The following policy can be used for the administrator who is creating MLflow Apps.
 
-```
+```json
 {
     "Sid": "AllowMLflowAppAdministratorAccess",
     "Effect": "Allow",
@@ -113,7 +112,7 @@ Accessing an MLflow App — through the MLflow APIs or a presigned URL — does 
 
 To encrypt your MLflow App with a customer managed key, specify the key when you create the app by using the `--kms-key-id` parameter of the `create-mlflow-app` AWS CLI command. If you omit this parameter, SageMaker uses an AWS owned key. The role that calls `create-mlflow-app` must have `kms:CreateGrant` and `kms:DescribeKey` permissions on the customer managed key.
 
-```
+```bash
 aws sagemaker create-mlflow-app \
   --name {{app-name}} \
   --artifact-store-uri s3://{{bucket-name}} \

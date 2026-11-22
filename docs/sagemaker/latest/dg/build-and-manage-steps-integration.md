@@ -1,7 +1,6 @@
 
 
 # Add integration
-<a name="build-and-manage-steps-integration"></a>
 
 MLflow integration allows you to use MLflow with pipelines to select a tracking server or serverless application, choose an experiment, and log metrics.
 
@@ -26,14 +25,14 @@ MLflow integration allows you to use MLflow with pipelines to select a tracking 
 
 Integrations side panel
 
-![The to do description.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/screenshot-pipeline-1.png)
+![The Pipelines integrations side panel with MLflow available to select.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/screenshot-pipeline-1.png)
 
 
 MLflow configuration
 
-![The to do description.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/screenshot-pipeline-2.png)
+![The MLflow configuration pane for selecting an application and experiment.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/screenshot-pipeline-2.png)
 
 
 How to override experiment during pipeline execution
 
-![The to do description.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/screenshot-pipeline-3.png)
+![Overriding the MLflow experiment during a pipeline execution.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/screenshot-pipeline-3.png)

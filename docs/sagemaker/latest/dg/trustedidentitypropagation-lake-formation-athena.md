@@ -1,7 +1,6 @@
 
 
 # Connect Studio JupyterLab notebooks to Lake Formation and Athena with trusted identity propagation enabled
-<a name="trustedidentitypropagation-lake-formation-athena"></a>
 
 AWS Lake Formation and Amazon Athena work together to provide a comprehensive data lake solution with fine-grained access control and serverless query capabilities. Lake Formation centralizes permissions management for your data lake, while Athena provides interactive query services. When integrated with trusted identity propagation, this combination enables data scientists to access only the data they're authorized to see, with all queries and data access automatically logged for compliance and auditing purposes. The following page provides information and instructions on how to connect trusted identity propagation with Amazon SageMaker Studio to Lake Formation and Athena
 

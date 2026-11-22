@@ -1,7 +1,6 @@
 
 
 # Label verification and adjustment data in the output manifest
-<a name="sms-data-verify-manifest"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
@@ -12,7 +11,7 @@ Amazon SageMaker Ground Truth writes label verification data to the output manif
 
 The following example output manifest shows how label verification data appears:
 
-```
+```json
 {
   "source-ref":"S3 bucket location", 
   "verify-bounding-box":"1",    

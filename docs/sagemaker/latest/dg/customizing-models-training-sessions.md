@@ -1,7 +1,6 @@
 
 
 # Training session APIs
-<a name="customizing-models-training-sessions"></a>
 
 The SageMaker AI training session APIs run model customization on stateful, serverless GPU sessions where you orchestrate training operations directly. Existing high-level fine-tuning APIs constrain your training loop to predefined workflows such as supervised fine-tuning (SFT). You cannot write custom loss functions or run frontier reinforcement learning (RL) with elastic rollouts. You are also locked into the infrastructure decisions those APIs make for you.
 
@@ -12,7 +11,7 @@ Training session APIs require you to write Python code that drives the training 
 
 With the training session APIs, instead of submitting a complete training script, you open a session and call operations like `forward_backward()`, `optim_step()`, and `sample()` as API calls, and compose them into whatever training procedure your technique requires. The model stays loaded on GPUs across calls, and the service handles distributed execution, gradient synchronization, and tenant isolation.
 
-```
+```python
 from sagemaker.train.training_session import ServiceClient, AdamParams
 
 svc = ServiceClient(region="us-west-2", role_arn="arn:aws:iam::111122223333:role/MyRole")
@@ -22,13 +21,16 @@ tc = svc.create_lora_training_client(base_model="openai/gpt-oss-20b", rank=32, a
 sc = tc.create_sampling_client()
 for step in range(num_steps):
     ops = [sc.sample(p, num_samples=4, sampling_params=params) for p in prompts]
-    rollouts = [op.result() for op in ops]
-    tc.forward_backward(build_batch(rollouts), loss_fn="ppo").result()
+    responses = [op.result() for op in ops]
+    batch = ...  # score responses and build Datum objects
+    tc.forward_backward(batch, loss_fn="ppo").result()
     tc.optim_step(AdamParams(learning_rate=5e-5)).result()
     sc = tc.save_weights_and_get_sampling_client()
 
 tc.stop()
 ```
+
+For more information about building the batch, see [Training data](training-sessions-sdk.md#training-sessions-sdk-training-data).
 
 Use the training session APIs when you need:
 + Full control over a custom training loop (SFT, RL, or novel techniques).
@@ -69,6 +71,7 @@ Use the training session APIs when you need:
 | google/gemma-4-31B-it | us-east-1, us-west-2, ap-south-1 | 
 | Qwen/Qwen3.6-27B | us-west-2, ap-south-1 | 
 | Qwen/Qwen3.8-27B | us-west-2 | 
+| nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16 | us-east-1, us-west-2 | 
 
 ### Context length limits
 <a name="training-sessions-context-length"></a>
@@ -85,6 +88,7 @@ The following table lists the maximum context length for each supported model an
 | google/gemma-4-31B-it | 32,768 | No | 
 | Qwen/Qwen3.6-27B | 65,536 | No | 
 | Qwen/Qwen3.8-27B | 65,536 | No | 
+| nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16 | 131,072 | No | 
 
 ### Pricing
 <a name="training-sessions-pricing"></a>

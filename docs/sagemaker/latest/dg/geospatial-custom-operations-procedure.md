@@ -1,7 +1,6 @@
 
 
 # Using `ProcessingJob` to calculate the Normalized Difference Vegetation Index (NDVI) using Sentinel-2 satellite data
-<a name="geospatial-custom-operations-procedure"></a>
 
 **Note**  
 Amazon SageMaker geospatial capabilities is no longer open to new customers. Offboard any previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportEarthObservationJob.html) and [ExportVectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportVectorEnrichmentJob.html) API operations.
@@ -35,7 +34,7 @@ A `search_raster_data_collection` API request requires two parameters:
 
 The following code example contains the necessary key-value pairs needed for the `RasterDataCollectionQuery` parameter saved to the `search_rdc_query` variable.
 
-```
+```JSON
 search_rdc_query = {
     "AreaOfInterest": {
         "AreaOfInterestGeometry": {
@@ -71,7 +70,7 @@ search_rdc_query = {
 
 To make the `search_raster_data_collection` request, you must specify the ARN of the Sentinel-2 raster data collection: `arn:aws:sagemaker-geospatial:us-west-2:378778860802:raster-data-collection/public/nmqj48dcu3g7ayw8`. You also must need to pass in the Python dictionary that was defined previously, which specifies query parameters. 
 
-```
+```python
 ## Creates a SageMaker Geospatial client instance 
 sm_geo_client= session.create_client(service_name="sagemaker-geospatial")
 
@@ -83,7 +82,7 @@ search_rdc_response1 = sm_geo_client.search_raster_data_collection(
 
 The results of this API can not be paginated. To collect all the satellite images returned by the `search_raster_data_collection` operation, you can implement a `while` loop. This checks for`NextToken` in the API response:
 
-```
+```python
 ## Holds the list of API responses from search_raster_data_collection
 items_list = []
 while search_rdc_response1.get('NextToken') and search_rdc_response1['NextToken'] != None:
@@ -98,7 +97,7 @@ while search_rdc_response1.get('NextToken') and search_rdc_response1['NextToken'
 
 The API response returns a list of URLs under the `Assets` key corresponding to specific image bands. The following is a truncated version of the API response. Some of the image bands were removed for clarity.
 
-```
+```json
 {
 	'Assets': {
         'aot': {
@@ -147,7 +146,7 @@ When you run a processing job, you must specify a data input from Amazon S3. The
 
 Use SDK for Python (Boto3) to get the default bucket and the ARN of the execution role that is associated with your Studio Classic notebook instance:
 
-```
+```python
 from sagemaker.core.helper.session_helper import Session, get_execution_role
 sm_session = Session()
 s3 = boto3.resource('s3')
@@ -163,7 +162,7 @@ s3_folder = "script-processor-input-manifest"
 
 Next, you create a manifest file. It will hold the URLs of the satellite images that you wanted processed when you run your processing job later in step 4.
 
-```
+```python
 # Format of a manifest file
 manifest_prefix = {}
 manifest_prefix['prefix'] = 's3://' + s3_bucket + '/' + s3_folder + '/'
@@ -174,7 +173,7 @@ print(manifest)
 
 The following code sample returns the S3 URI where your manifest files will be created.
 
-```
+```python
 [{'prefix': 's3://sagemaker-us-west-2-111122223333/script-processor-input-manifest/'}]
 ```
 
@@ -182,7 +181,7 @@ All the response elements from the search\_raster\_data\_collection response are
 
 The following code snippet removes the unnecessary elements `'Properties'`, `'Geometry'`, and `'DateTime'`. The `'Id'` key-value pair, `'Id': 'S2A_15TUH_20221230_0_L2A'`, contains the year and the month. The following code example parses that data to create new keys in the Python dictionary **dict\_month\_items**. The values are the assets that are returned from the `SearchRasterDataCollection` query. 
 
-```
+```python
 # For each response get the month and year, and then remove the metadata not related to the satelite images.
 dict_month_items = {}
 for item in items_list:
@@ -202,7 +201,7 @@ for item in items_list:
 
 This code example uploads the `dict_month_items` to Amazon S3 as a JSON object using the [`.upload_file()`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/upload_file.html) API operation:
 
-```
+```python
 ## key_ is the yyyymm timestamp formatted above
 ## value_ is the reference to all the satellite images collected via our searchRDC query 
 for key_, value_ in dict_month_items.items():
@@ -216,7 +215,7 @@ for key_, value_ in dict_month_items.items():
 
 This code example uploads a parent `manifest.json` file that points to all the other manifests uploaded to Amazon S3. It also saves the path to a local variable: **s3\_manifest\_uri**. You'll use that variable again to specify the source of the input data when you run the processing job in step 4.
 
-```
+```python
 with open('manifest.json', 'w') as fp:
     json.dump(manifest, fp)
 s3.meta.client.upload_file('manifest.json', s3_bucket, s3_folder + '/' + 'manifest.json')
@@ -237,7 +236,7 @@ Amazon SageMaker Studio Classic supports the use of the `%%writefile` cell magic
 
   The following code example loads the arrays into the processing job container. When arrays build up and fill in the memory, the processing job crashes. To prevent this crash, the following example contains commands that remove the arrays from the processing job’s container.
 
-```
+```python
 %%writefile compute_ndvi.py
 
 import os
@@ -293,7 +292,7 @@ You now have a script that can calculate the NDVI. Next, you can create an insta
 
 This demo uses the [ScriptProcessor](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html) class that is available via the Amazon SageMaker Python SDK. First, you need to create an instance of the class, and then you can start your Processing job by using the `.run()` method.
 
-```
+```python
 from sagemaker.core.processing import Processor, ProcessingInput, ProcessingOutput
 
 image_uri = '081189585635.dkr.ecr.us-west-2.amazonaws.com/sagemaker-geospatial-v1-0:latest'
@@ -315,7 +314,7 @@ When you start your Processing job, you need to specify a [`ProcessingInput`](ht
 + The path to where you want the input data to be saved in the container. This must match the path that you specified in your script.
 + Use the `s3_data_type` parameter to specify the input as `"ManifestFile"`.
 
-```
+```python
 s3_output_prefix_url = f"s3://{s3_bucket}/{s3_folder}/output"
 
 processor.run(
@@ -340,7 +339,7 @@ processor.run(
 
 The following code example uses the [`.describe()` method](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html) to get details of your Processing job.
 
-```
+```python
 preprocessing_job_descriptor = processor.jobs[-1].describe()
 s3_output_uri = preprocessing_job_descriptor["ProcessingOutputConfig"]["Outputs"][0]["S3Output"]["S3Uri"]
 print(s3_output_uri)
@@ -351,7 +350,7 @@ print(s3_output_uri)
 
 With the [Matplotlib](https://matplotlib.org/stable/index.html) Python library, you can plot raster data. Before you plot the data, you need to calculate the NDVI using sample images from the Sentinel-2 satellites. The following code example opens the image arrays using the `.open_rasterio()` API operation, and then calculates the NDVI using the `nir` and `red` image bands from the Sentinel-2 satellite data. 
 
-```
+```python
 # Opens the python arrays 
 import rioxarray
 

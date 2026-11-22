@@ -1,7 +1,6 @@
 
 
 # Deploy models from JumpStart using kubectl
-<a name="sagemaker-hyperpod-model-deployment-deploy-js-kubectl"></a>
 
 The following steps show you how to deploy a JumpStart model to a HyperPod cluster using kubectl.
 

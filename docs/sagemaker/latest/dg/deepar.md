@@ -1,7 +1,6 @@
 
 
 # Use the SageMaker AI DeepAR forecasting algorithm
-<a name="deepar"></a>
 
 The Amazon SageMaker AI DeepAR forecasting algorithm is a supervised learning algorithm for forecasting scalar (one-dimensional) time series using recurrent neural networks (RNN). Classical forecasting methods, such as autoregressive integrated moving average (ARIMA) or exponential smoothing (ETS), fit a single model to each individual time series. They then use that model to extrapolate the time series into the future. 
 

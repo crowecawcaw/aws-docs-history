@@ -1,7 +1,6 @@
 
 
 # Deploy models for real-time inference
-<a name="autopilot-deploy-models-realtime"></a>
 
 Real-time inference is ideal for inference workloads where you have real-time, interactive, low latency requirements. This section shows how you can use real-time inferencing to obtain predictions interactively from your model.
 
@@ -52,7 +51,7 @@ For complete code examples for both AWS CLI commands and AWS SDK for Python (bot
 
    The following example uses the [DescribeAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html) API to obtain candidate definitions for the best model candidate. See the following AWS CLI command as an example.
 
-   ```
+   ```bash
    aws sagemaker describe-auto-ml-job --auto-ml-job-name {{<job-name>}} --region {{<region>}}
    ```
 
@@ -60,7 +59,7 @@ For complete code examples for both AWS CLI commands and AWS SDK for Python (bot
 
    The following example uses the [ListCandidatesForAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCandidatesForAutoMLJob.html) API to list all candidates. See the following AWS CLI command as an example.
 
-   ```
+   ```bash
    aws sagemaker list-candidates-for-auto-ml-job --auto-ml-job-name {{<job-name>}} --region {{<region>}}
    ```
 
@@ -68,7 +67,7 @@ For complete code examples for both AWS CLI commands and AWS SDK for Python (bot
 
    Use the container definitions from the previous steps to create a SageMaker AI model by using the [CreateModel](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html) API. See the following AWS CLI command as an example.
 
-   ```
+   ```bash
    aws sagemaker create-model --model-name '{{<your-custom-model-name>}}' \
                        --containers ['{{<container-definition1}}>, {{<container-definition2>}}, {{<container-definition3>}}]' \
                        --execution-role-arn '{{<execution-role-arn>}}' --region '{{<region>}}
@@ -78,7 +77,7 @@ For complete code examples for both AWS CLI commands and AWS SDK for Python (bot
 
    The following example uses the [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html) API to create an endpoint configuration. See the following AWS CLI command as an example.
 
-   ```
+   ```bash
    aws sagemaker create-endpoint-config --endpoint-config-name '{{<your-custom-endpoint-config-name>}}' \
                        --production-variants '{{<list-of-production-variants>}}' \
                        --region '{{<region>}}'
@@ -88,7 +87,7 @@ For complete code examples for both AWS CLI commands and AWS SDK for Python (bot
 
    The following AWS CLI example uses the [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html) API to create the endpoint.
 
-   ```
+   ```bash
    aws sagemaker create-endpoint --endpoint-name '{{<your-custom-endpoint-name>}}' \
                        --endpoint-config-name '{{<endpoint-config-name-you-just-created>}}' \
                        --region '{{<region>}}'
@@ -96,7 +95,7 @@ For complete code examples for both AWS CLI commands and AWS SDK for Python (bot
 
    Check the progress of your endpoint deployment by using the [DescribeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html) API. See the following AWS CLI command as an example.
 
-   ```
+   ```bash
    aws sagemaker describe-endpoint —endpoint-name '{{<endpoint-name>}}' —region {{<region>}}
    ```
 
@@ -106,7 +105,7 @@ For complete code examples for both AWS CLI commands and AWS SDK for Python (bot
 
    The following command structure invokes the endpoint for real-time inferencing.
 
-   ```
+   ```bash
    aws sagemaker invoke-endpoint --endpoint-name '{{<endpoint-name>}}' \ 
                      --region '{{<region>}}' --body '{{<your-data>}}' [--content-type] '{{<content-type>}}' {{<outfile>}}
    ```
@@ -136,7 +135,7 @@ The following tabs contain complete code examples for deploying a model with AWS
 
 1. **Create the model** by using the following the code example.
 
-   ```
+   ```python
    # Create Model
    model_name = '{{test-model}}' 
    sagemaker_role = '{{arn:aws:iam:444455556666:role/sagemaker-execution-role}}'
@@ -203,13 +202,13 @@ The following tabs contain complete code examples for deploying a model with AWS
 
 1. **Obtain the candidate definitions** by using the following code example.
 
-   ```
+   ```bash
    aws sagemaker describe-auto-ml-job --auto-ml-job-name '{{test-automl-job}}' --region {{us-west-2}}
    ```
 
 1. **Create the model** by using the following code example.
 
-   ```
+   ```bash
    aws sagemaker create-model --model-name '{{test-sagemaker-model}}'
    --containers '[{
        "Image": "{{348316444620.dkr.ecr.us-west-2.amazonaws.com/sagemaker-sklearn-automl:2.5-1-cpu-py3}}", amzn-s3-demo-bucket1
@@ -259,7 +258,7 @@ The following tabs contain complete code examples for deploying a model with AWS
 
 1. **Create an endpoint configuration** by using the following code example.
 
-   ```
+   ```bash
    aws sagemaker create-endpoint-config --endpoint-config-name '{{test-endpoint-config}}' \
    --production-variants '[{"VariantName": "{{variant1}}", 
                            "ModelName": "{{test-sagemaker-model}}",
@@ -279,7 +278,7 @@ The following tabs contain complete code examples for deploying a model with AWS
 
 1. **Create an endpoint** by using the following code example.
 
-   ```
+   ```bash
    aws sagemaker create-endpoint --endpoint-name '{{test-endpoint}}' \    
    --endpoint-config-name '{{test-endpoint-config}}' \                 
    --region {{us-west-2}}
@@ -295,7 +294,7 @@ The following tabs contain complete code examples for deploying a model with AWS
 
    Check the progress of the endpoint deployment by using the following [describe-endpoint](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/describe-endpoint.html) CLI code example.
 
-   ```
+   ```bash
    aws sagemaker describe-endpoint --endpoint-name '{{test-endpoint}}' --region {{us-west-2}}
    ```
 
@@ -359,7 +358,7 @@ You can deploy an Autopilot model from a different account than the original acc
 
    The following code example describes the model from the deploying account.
 
-   ```
+   ```python
    import sagemaker 
    import boto3
    session = sagemaker.session.Session()

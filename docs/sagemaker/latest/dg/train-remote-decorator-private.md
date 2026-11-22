@@ -1,7 +1,6 @@
 
 
 # Private repository for runtime dependencies
-<a name="train-remote-decorator-private"></a>
 
 You can use pre-execution commands or script to configure a dependency manager like pip or conda in your job environment. To achieve network isolation, use either of these options to redirect your dependency managers to access your private repositories and run remote functions within a VPC. The pre-execution commands or script will run before your remote function runs. You can define them with the @remote decorator, the `RemoteExecutor` API, or within a configuration file.
 

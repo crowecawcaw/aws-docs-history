@@ -1,7 +1,6 @@
 
 
 # Data preparation using Amazon EMR
-<a name="studio-notebooks-emr-cluster"></a>
 
 **Important**  
 Amazon SageMaker Studio and Amazon SageMaker Studio Classic are two of the machine learning environments that you can use to interact with SageMaker AI.  

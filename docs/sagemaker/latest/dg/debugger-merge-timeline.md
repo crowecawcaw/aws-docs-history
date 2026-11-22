@@ -1,7 +1,6 @@
 
 
 # Merge timelines of multiple profile trace files
-<a name="debugger-merge-timeline"></a>
 
 **Note**  
 End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources. For more information, see [Profiler availability change](profiler-availability-change.md).
@@ -19,7 +18,7 @@ The `MergedTimeline` class provides tools to integrate and correlate different p
 **Tip**  
 If you want to list all of the JSON trace files, use the following AWS CLI command:  
 
-```
+```py
 ! aws s3 ls {tj.profiler_s3_output_path} --recursive | grep '\.json$'
 ```
 
@@ -53,7 +52,7 @@ The `merge_timeline()` classmethod passes the following parameters to execute th
 Using the following example codes, execute the `merge_timeline()` method and download the merged JSON file. 
 + Merge timeline with the `"time"` unit option. The following example code merges all available trace files between the Unix start time (the absolute zero Unix time) and the current Unix time, which means that you can merge the timelines for the entire training duration.
 
-  ```
+  ```py
   import time
   from smdebug.profiler.analysis.utils.merge_timelines import MergedTimeline
   from smdebug.profiler.profiler_constants import CONVERT_TO_MICROSECS
@@ -63,7 +62,7 @@ Using the following example codes, execute the `merge_timeline()` method and dow
   ```
 + Merge timeline with the `"step"` unit option. The following example code merges all available timelines between step 3 and step 9.
 
-  ```
+  ```py
   from smdebug.profiler.analysis.utils.merge_timelines import MergedTimeline
   
   combined_timeline = MergedTimeline(tj.profiler_s3_output_path, output_directory="./")

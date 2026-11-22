@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker geospatial Map SDK
-<a name="geospatial-notebook-sdk"></a>
 
 **Note**  
 Amazon SageMaker geospatial capabilities is no longer open to new customers. Offboard any previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportEarthObservationJob.html) and [ExportVectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportVectorEnrichmentJob.html) API operations.
@@ -26,7 +25,7 @@ Adds a raster or vector dataset object to the map.
 
 **Request syntax**
 
-```
+```py
 Request = 
     add_dataset(
       self,
@@ -72,7 +71,7 @@ Updates an existing dataset's settings.
 
 **Request syntax**
 
-```
+```py
 Request = 
     update_dataset(
     self,
@@ -113,7 +112,7 @@ Adds a new layer to the map. This function requires at least one valid layer con
 
 **Request syntax**
 
-```
+```py
 Request = 
     add_layer(
     self,
@@ -144,7 +143,7 @@ Update an existing layer with given values.
 
 **Request syntax**
 
-```
+```py
 Request = 
     update_layer(
   self,

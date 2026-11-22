@@ -1,7 +1,6 @@
 
 
 # Schedule monitoring jobs
-<a name="model-monitor-scheduling"></a>
 
 **Note**  
 Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
@@ -38,7 +37,7 @@ boto3.Session().resource('s3').Bucket(bucket).Object(s3_key).upload_fileobj(trai
 **Example schedule for recurring analysis**  
 If you are scheduling a model monitor for a real-time endpoint, use the baseline constraints and statistics to compare against real-time traffic. The following code snippet shows the general format you use to schedule a model monitor for a real-time endpoint. This example schedules the model monitor to run hourly.  
 
-```
+```python
 from sagemaker.model_monitor import CronExpressionGenerator
 from time import gmtime, strftime
 
@@ -61,7 +60,7 @@ my_default_monitor.create_monitoring_schedule(
 **Example schedule for one-time analysis**  
 You can also schedule the analysis to run once without recurring by passing arguments like the following to the `create_monitoring_schedule` method:  
 
-```
+```pyth
     schedule_cron_expression=CronExpressionGenerator.now(),
     data_analysis_start_time="-PT1H",
     data_analysis_end_time="-PT0H",
@@ -71,7 +70,7 @@ In these arguments, the `schedule_cron_expression` parameter schedules the analy
 **Example schedule for a batch transform job**  
 The following code snippet shows the general format you use to schedule a model monitor for a batch transform job.  
 
-```
+```python
 from sagemaker.model_monitor import (
     CronExpressionGenerator,
     BatchTransformInput, 

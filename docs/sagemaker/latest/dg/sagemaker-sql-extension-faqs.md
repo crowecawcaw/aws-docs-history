@@ -1,7 +1,6 @@
 
 
 # Frequently asked questions
-<a name="sagemaker-sql-extension-faqs"></a>
 
 The following FAQs answer common general questions for the SQL extension in JupyterLab.
 

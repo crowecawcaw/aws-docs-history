@@ -1,7 +1,6 @@
 
 
 # Model evaluation results
-<a name="clarify-foundation-model-reports"></a>
 
 Accuracy metrics for LLMs are numerical values meant to represent how well a model responded to your prompt. However, sometimes a numerical value cannot capture the intricacies of human language. We report different accuracy metrics for each task designed to measure the quality of the answer along a different aspect. For example, recall measures whether the correct answer is included in the model output while precision gives an indication of how verbose a model answer is. Multiple metrics should be compared and, where possible, combined with qualitative evaluation (i.e., manually investigating samples) to determine if your model is giving the desired output.
 

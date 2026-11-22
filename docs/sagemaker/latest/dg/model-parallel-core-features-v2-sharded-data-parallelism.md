@@ -1,7 +1,6 @@
 
 
 # Hybrid sharded data parallelism
-<a name="model-parallel-core-features-v2-sharded-data-parallelism"></a>
 
 *Sharded data parallelism* is a memory-saving distributed training technique that splits the state of a model (model parameters, gradients, and optimizer states) across devices. This helps you fit a larger model or increase the batch size using the freed-up GPU memory. The SMP library offers a capability of running sharded data parallelism with PyTorch Fully Sharded Data Parallel (FSDP). PyTorch FSDP by default shards across the whole set of GPUs being used. In SMP v2, the library offers this sharded data parallelism on top of PyTorch FSDP by extending PyTorch hybrid sharding (`HYBRID_SHARD`), which is one of the [sharding strategies provided by PyTorch FSDP](https://pytorch.org/docs/stable/fsdp.html#torch.distributed.fsdp.ShardingStrategy): `FULL_SHARD`, `SHARD_GRAD_OP`, `HYBRID_SHARD`, `_HYBRID_SHARD_ZERO2`. Extending hybrid sharding in this manner helps implement scale-aware-sharding as described in the blog [Near-linear scaling of gigantic-model training on AWS](https://www.amazon.science/blog/near-linear-scaling-of-gigantic-model-training-on-aws) for PyTorch FSDP.
 
@@ -11,13 +10,13 @@ The following code snippets show how to add the SMP initialization module `torch
 
 **SMP configuration dictionary**
 
-```
+```json
 { "hybrid_shard_degree": 16 }
 ```
 
 **In training script**
 
-```
+```py
 import torch.sagemaker as tsm
 tsm.init()
 

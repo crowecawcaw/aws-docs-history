@@ -1,7 +1,6 @@
 
 
 # Send predictions to Quick
-<a name="canvas-send-predictions"></a>
 
 **Note**  
 You can send batch predictions to Quick for numeric and categorical prediction and time series forecasting models. Single-label image prediction and multi-category text prediction models are excluded.

@@ -1,7 +1,6 @@
 
 
 # Algorithms support for time-series forecasting
-<a name="timeseries-forecasting-algorithms"></a>
 
 Autopilot trains the following six built-in algorithms with your target time-series. Then, using a stacking ensemble method, it combines these model candidates to create an optimal forecasting model for a given objective metric.
 + **Convolutional Neural Network - Quantile Regression (CNN-QR)** – CNN-QR is a proprietary machine learning algorithm for forecasting time-series using causal convolutional neural networks (CNNs). CNN-QR works best with large datasets containing hundreds of time-series.

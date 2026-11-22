@@ -1,7 +1,6 @@
 
 
 # Create an Image Classification Job using the AutoML API
-<a name="autopilot-create-experiment-image-classification"></a>
 
 The following instructions show how to create an Amazon SageMaker Autopilot job as a pilot experiment for image classification problem types using SageMaker [API Reference](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-reference.html).
 

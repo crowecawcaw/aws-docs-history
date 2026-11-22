@@ -1,7 +1,6 @@
 
 
 # Data refining during training with Amazon SageMaker smart sifting
-<a name="train-smart-sifting"></a>
 
 SageMaker smart sifting is a capability of SageMaker Training that helps improve the efficiency of your training datasets and reduce total training time and cost.
 

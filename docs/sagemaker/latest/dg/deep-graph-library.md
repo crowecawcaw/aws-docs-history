@@ -1,7 +1,6 @@
 
 
 # Deep Graph Networks
-<a name="deep-graph-library"></a>
 
 Deep graph networks refer to a type of neural network that is trained to solve graph problems. A deep graph network uses an underlying deep learning framework like PyTorch or MXNet. The potential for graph networks in practical AI applications is highlighted in the Amazon SageMaker AI tutorials for [Deep Graph Library](https://www.dgl.ai/) (DGL). Examples for training models on graph datasets include social networks, knowledge bases, biology, and chemistry. 
 

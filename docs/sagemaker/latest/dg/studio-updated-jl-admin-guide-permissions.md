@@ -1,7 +1,6 @@
 
 
 # Give your users access to spaces
-<a name="studio-updated-jl-admin-guide-permissions"></a>
 
 To give users access to private or shared spaces, you must attach a permissions policy to their IAM roles. You can also use the permissions policy to restrict private spaces and their associated applications to a specific user profile.
 
@@ -18,7 +17,7 @@ To provide permissions, you can scope down the permissions of the following poli
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

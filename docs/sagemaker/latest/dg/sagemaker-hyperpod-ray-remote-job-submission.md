@@ -1,7 +1,6 @@
 
 
 # Submitting Ray jobs remotely with the toolkit library
-<a name="sagemaker-hyperpod-ray-remote-job-submission"></a>
 
 When the `toolkit-for-ray-on-sagemaker-ai` package is installed, Ray's standard Jobs CLI and Python SDK authenticate through the cluster's secured endpoint using the `sagemaker_ray://` address scheme the package registers. You submit and track jobs from a laptop, a CI/CD pipeline, or any environment with AWS credentials, with no `kubectl port-forward` and no direct network path to the cluster. The package is preinstalled in SageMaker Distribution images.
 
@@ -12,7 +11,7 @@ Remote job submission requires the following:
 + An authenticated endpoint on the cluster. For more information, see [Installing the HyperPod Ray Endpoint Operator](sagemaker-hyperpod-ray-endpoint-operator.md).
 + The toolkit package, if you are not in a SageMaker Distribution image:
 
-  ```
+  ```bash
   pip install toolkit-for-ray-on-sagemaker-ai
   ```
 
@@ -21,7 +20,7 @@ Remote job submission requires the following:
 
 The package adds a `sagemaker_ray` address scheme. You pass it to any `ray job` command with `--address`:
 
-```
+```bash
 sagemaker_ray://{{my-cluster}}/{{my-namespace}}
 ```
 
@@ -30,7 +29,7 @@ sagemaker_ray://{{my-cluster}}/{{my-namespace}}
 
 List the jobs on a cluster, then submit a working directory with an entry script.
 
-```
+```bash
 ray job list --address sagemaker_ray://{{my-cluster}}/{{my-namespace}}
 
 ray job submit \
@@ -46,7 +45,7 @@ The endpoint authenticates the request against your identity, so you reach the c
 
 To submit from Python, use Ray's standard `JobSubmissionClient` with the `sagemaker_ray` address. When the `toolkit-for-ray-on-sagemaker-ai` package is installed, it registers the address scheme, so no other change is needed.
 
-```
+```python
 from ray.job_submission import JobSubmissionClient
 
 client = JobSubmissionClient("sagemaker_ray://{{my-cluster}}/{{my-namespace}}")
@@ -62,7 +61,7 @@ print(job_id)
 
 The same address manages the job, so a job you submitted remotely is tracked remotely. Each command takes the job ID returned at submission.
 
-```
+```bash
 ray job status {{my-job-id}} --address sagemaker_ray://{{my-cluster}}/{{my-namespace}}
 
 ray job logs {{my-job-id}} --address sagemaker_ray://{{my-cluster}}/{{my-namespace}} --follow

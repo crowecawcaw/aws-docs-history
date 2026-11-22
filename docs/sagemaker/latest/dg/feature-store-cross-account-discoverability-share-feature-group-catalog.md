@@ -1,7 +1,6 @@
 
 
 # Share your feature group catalog
-<a name="feature-store-cross-account-discoverability-share-feature-group-catalog"></a>
 
 The feature group catalog, `DefaultFeatureGroupCatalog`, contains *all* feature group entities owned by the resource owner account. The catalog can be shared by the resource owner account to grant discoverability to a single or multiple resource consumer accounts. This is done by creating a resource share in AWS Resource Access Manager (AWS RAM). A feature group is the main resource in Amazon SageMaker Feature Store and is composed of feature definitions and records that are managed by Feature Store. For more information about feature groups, see [Feature Store concepts](feature-store-concepts.md).
 

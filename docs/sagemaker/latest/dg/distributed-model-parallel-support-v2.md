@@ -1,7 +1,6 @@
 
 
 # Supported frameworks and AWS Regions
-<a name="distributed-model-parallel-support-v2"></a>
 
 Before using the SageMaker model parallelism library v2 (SMP v2), check the supported frameworks and instance types and determine if there are enough quotas in your AWS account and AWS Region.
 
@@ -114,7 +113,7 @@ For specs of the SageMaker machine learning instance types in general, see the *
 
 If you encountered an error message similar to the following, follow the instructions at [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *AWS Service Quotas User Guide*.
 
-```
+```txt
 ResourceLimitExceeded: An error occurred (ResourceLimitExceeded) when calling
     the CreateTrainingJob operation: The account-level service limit 'ml.p3dn.24xlarge
     for training job usage' is 0 Instances, with current utilization of 0 Instances

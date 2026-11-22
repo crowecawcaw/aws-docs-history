@@ -1,7 +1,6 @@
 
 
 # Troubleshoot
-<a name="data-wrangler-trouble-shooting"></a>
 
 If an issue arises when using Amazon SageMaker Data Wrangler, we recommend you do the following:
 + If an error message is provided, read the message and resolve the issue it reports if possible.
@@ -75,7 +74,7 @@ If you aren't able to debug the error, you can create the configuration file man
 
 1. Add a JSON object containing the Amazon Resource Name (ARN) of the Secrets Manager secret to the file. You can use the following template to create the object.
 
-   ```
+   ```json
    {
      "secret_arn": "{{example-secret-ARN}}"
    }
@@ -142,13 +141,13 @@ When your user exports the transformations that they've made to their Salesforce
 
 To address the issue, we recommend having your users go back to the step where they're importing the data and changing the order of the columns that they're querying . For example, they can change the following query:
 
-```
+```sql
 SELECT col_A, col_B FROM table                
 ```
 
 To the following query:
 
-```
+```sql
 SELECT col_B, col_A FROM table                
 ```
 

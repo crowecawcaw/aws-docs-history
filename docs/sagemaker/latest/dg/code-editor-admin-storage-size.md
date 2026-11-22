@@ -1,7 +1,6 @@
 
 
 # Change the default storage size
-<a name="code-editor-admin-storage-size"></a>
 
 You can change the default storage settings of your users. You can also change the default storage settings based on your organizational requirements and the needs of your users.
 

@@ -1,7 +1,6 @@
 
 
 # Custom models
-<a name="canvas-custom-models"></a>
 
 In Amazon SageMaker Canvas, you can train custom machine learning models tailored to your specific data and use case. By training a custom model on your data, you are able to capture characteristics and trends that are specific and most representative of your data. For example, you might want to create a custom time series forecasting model that you train on inventory data from your warehouse to manage your logistics operations.
 

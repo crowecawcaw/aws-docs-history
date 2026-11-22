@@ -1,7 +1,6 @@
 
 
 # Exported metrics reference
-<a name="sagemaker-hyperpod-cluster-observability-slurm-exported-metrics-reference"></a>
 
 The following sections present comprehensive lists of metrics exported from SageMaker HyperPod to Amazon Managed Service for Prometheus upon the successful configuration of the CloudFormation stack for SageMaker HyperPod observability. You can start monitoring these metrics visualized in the Amazon Managed Grafana dashboards.
 
@@ -116,7 +115,7 @@ The following table shows a list of the metrics that provides insights into the 
 ## EFA metrics dashboard
 <a name="sagemaker-hyperpod-cluster-observability-slurm-exported-metrics-reference-efa-exporter"></a>
 
-Provides visualized information of the metrics from [Amazon Elastic Fabric Adapter (EFA)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) equipped on P instances collected by the [EFA node exporter](https://github.com/aws-samples/awsome-distributed-training/blob/main/4.validation_and_observability/3.efa-node-exporter/README.md).
+Provides visualized information of the metrics from [Amazon Elastic Fabric Adapter (EFA)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) equipped on P instances collected by the [EFA node exporter](https://github.com/awslabs/awsome-distributed-ai/blob/main/observability/efa-node-exporter/README.md).
 
 **Types of metrics**
 + **EFA error metrics:** Visualizing errors such as allocation errors, command errors, and memory map errors.

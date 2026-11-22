@@ -1,7 +1,6 @@
 
 
 # Model customization
-<a name="customizing-models"></a>
 
 Amazon SageMaker AI model customization lets you adapt foundation models to your specific use case by training them on your data. You choose a *customization technique* (how the model learns), a *training type* (how much of the model to update), and an *infrastructure option* (where to run the job).
 

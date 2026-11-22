@@ -1,7 +1,6 @@
 
 
 # LightGBM hyperparameters
-<a name="lightgbm-hyperparameters"></a>
 
 The following table contains the subset of hyperparameters that are required or most commonly used for the Amazon SageMaker AI LightGBM algorithm. Users set these parameters to facilitate the estimation of model parameters from data. The SageMaker AI LightGBM algorithm is an implementation of the open-source [LightGBM](https://github.com/microsoft/LightGBM) package. 
 

@@ -1,7 +1,6 @@
 
 
 # (Optional) Migrate custom images and lifecycle configurations
-<a name="studio-updated-migrate-lcc"></a>
 
 You must update your custom images and lifecycle configuration (LCC) scripts to work with the simplified local run model in Amazon SageMaker Studio. If you have not created custom images or lifecycle configurations in your domain, skip this phase.
 

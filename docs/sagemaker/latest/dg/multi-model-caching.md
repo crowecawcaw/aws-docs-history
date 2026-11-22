@@ -1,7 +1,6 @@
 
 
 # Set SageMaker AI multi-model endpoint model caching behavior
-<a name="multi-model-caching"></a>
 
 By default, multi-model endpoints cache frequently used models in memory (CPU or GPU, depending on whether you have CPU or GPU backed instances) and on disk to provide low latency inference. The cached models are unloaded and/or deleted from disk only when a container runs out of memory or disk space to accommodate a newly targeted model.
 

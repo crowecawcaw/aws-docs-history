@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker AI domain entities and statuses
-<a name="sm-domain"></a>
 
 Amazon SageMaker AI domain supports SageMaker AI machine learning (ML) environments. A SageMaker AI domain is composed of the following entities and their associated status values. For onboarding steps to create a domain, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md).
 +  **Domain**: A domain consists of the following.

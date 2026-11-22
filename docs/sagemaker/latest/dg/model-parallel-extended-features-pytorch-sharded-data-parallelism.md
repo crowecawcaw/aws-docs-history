@@ -1,7 +1,6 @@
 
 
 # Sharded Data Parallelism
-<a name="model-parallel-extended-features-pytorch-sharded-data-parallelism"></a>
 
 *Sharded data parallelism* is a memory-saving distributed training technique that splits the state of a model (model parameters, gradients, and optimizer states) across GPUs in a data parallel group. 
 
@@ -48,7 +47,7 @@ Follow the instructions at [Step 1: Modify a PyTorch Training Script](model-para
 
 If your model is built with `torch.nn.Module` and uses parameters that is not defined within the module class, you should register them to the module manually for SMP to gather the full parameters while . To register parameters to a module, use `smp.register_parameter(module, parameter)`.
 
-```
+```py
 class Module(torch.nn.Module):
     def __init__(self, *args):
         super().__init__(self, *args)
@@ -77,7 +76,7 @@ To turn on sharded data parallelism, add the `sharded_data_parallel_degree` para
 
 The following code shows an example of how to configure sharded data parallelism.
 
-```
+```py
 import sagemaker
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import SourceCode, Compute, InputData
@@ -180,7 +179,7 @@ Since the SageMaker model parallelism library version 1.13.0, the `"ddp_dist_bac
 
 The following code example shows how to set up a PyTorch ModelTrainer using the sharded data parallelism with the `"ddp_dist_backend"` parameter, which is set to `"auto"` by default and, therefore, optional to add. 
 
-```
+```py
 import sagemaker
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import SourceCode, Compute, InputData
@@ -271,7 +270,7 @@ Some collectives might fall back to use NCCL; hence, you might not get the perfo
 
 The following code shows how you can configure the environment variables by appending them to `mpi_options` in the distribution parameter for the PyTorch ModelTrainer.
 
-```
+```py
 import sagemaker
 from sagemaker.train import ModelTrainer
 from sagemaker.core.helper.session_helper import get_execution_role
@@ -334,7 +333,7 @@ Mixed precision training with sharded data parallelism is available in the SageM
 
 To run FP16 training with sharded data parallelism, add `"fp16": True"` to the `smp_options` configuration dictionary. In your training script, you can choose between the static and dynamic loss scaling options through the `smp.DistributedOptimizer` module. For more information, see [FP16 Training with Model Parallelism](model-parallel-extended-features-pytorch-fp16.md).
 
-```
+```py
 smp_options = {
     "enabled": {{True}},
     "parameters": {
@@ -354,7 +353,7 @@ Currently, BF16 training works only when sharded data parallelism is activated.
 
 To run BF16 training with sharded data parallelism, add `"bf16": True` to the `smp_options` configuration dictionary.
 
-```
+```py
 smp_options = {
     "enabled": {{True}},
     "parameters": {
@@ -383,14 +382,14 @@ This feature is available for the supported models by the tensor parallelism fun
 
 Assume that we want to train a model over a cluster of 1536 GPUs (192 nodes with 8 GPUs in each), setting the degree of sharded data parallelism to 32 (`sharded_data_parallel_degree=32`) and the batch size per GPU to 1, where each batch has a sequence length of 4096 tokens. In this case, there are 1536 model replicas, the global batch size becomes 1536, and each global batch contains about 6 million tokens. 
 
-```
+```txt
 (1536 GPUs) * (1 batch per GPU) = (1536 global batches)
 (1536 batches) * (4096 tokens per batch) = (6,291,456 tokens)
 ```
 
 Adding tensor parallelism to it can lower the global batch size. One configuration example can be setting the tensor parallel degree to 8 and the batch size per GPU to 4. This forms 192 tensor parallel groups or 192 model replicas, where each model replica is distributed across 8 GPUs. The batch size of 4 is the amount of training data per iteration and per tensor parallel group; that is, each model replica consumes 4 batches per iteration. In this case, the global batch size becomes 768, and each global batch contains about 3 million tokens. Hence, the global batch size is reduced by half compared to the previous case with sharded data parallelism only.
 
-```
+```txt
 (1536 GPUs) / (8 tensor parallel degree) = (192 tensor parallelism groups)
 (192 tensor parallelism groups) * (4 batches per tensor parallelism group) = (768 global batches)
 (768 batches) * (4096 tokens per batch) = (3,145,728 tokens)
@@ -422,7 +421,7 @@ You also need to activate `prescaled_batch`. This means that, instead of each GP
 
 The following code snippet shows an example of creating a PyTorch ModelTrainer object based on the aforementioned scenario in [Example 2](#model-parallel-extended-features-pytorch-sharded-data-parallelism-with-tensor-parallelism-ex2).
 
-```
+```py
 from sagemaker.train.configs import SourceCode, Compute
 from sagemaker.core import image_uris
 

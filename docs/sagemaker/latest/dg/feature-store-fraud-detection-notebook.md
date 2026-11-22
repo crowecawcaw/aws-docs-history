@@ -1,7 +1,6 @@
 
 
 # Fraud detection with Feature Store example notebook
-<a name="feature-store-fraud-detection-notebook"></a>
 
 **Important**  
 Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studio Classic to create Amazon SageMaker resources must also grant permissions to add tags to those resources. The permission to add tags to resources is required because Studio and Studio Classic automatically tag any resources they create. If an IAM policy allows Studio and Studio Classic to create resources but does not allow tagging, "AccessDenied" errors can occur when trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions).  
@@ -31,7 +30,7 @@ To start using Feature Store, create a SageMaker AI session, Boto3 session, and 
 **Note**  
 The role that you use to run the notebook must have the following managed policies attached to it: `AmazonSageMakerFullAccess` and `AmazonSageMakerFeatureStoreAccess`. For information about adding policies to your IAM role, see [Adding policies to your IAM role](feature-store-adding-policies.md).
 
-```
+```python
 import boto3
 import sagemaker
 from sagemaker.core.helper.session_helper import Session
@@ -60,7 +59,7 @@ feature_store_session = Session(
 
 Load your data into data frames for each of your features. You use these data frames after you set up the feature group. In the fraud detection example, you can see these steps in the following code.
 
-```
+```python
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt

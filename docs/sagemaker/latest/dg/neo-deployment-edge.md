@@ -1,7 +1,6 @@
 
 
 # Deploy Models
-<a name="neo-deployment-edge"></a>
 
 You can deploy the compute module to resource-constrained edge devices by: downloading the compiled model from Amazon S3 to your device and using [DLR](https://github.com/neo-ai/neo-ai-dlr), or you can use [AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html).
 
@@ -14,13 +13,13 @@ Before moving on, make sure your edge device must be supported by SageMaker Neo.
 
 You can install latest release of DLR package using the following pip command:
 
-```
+```python
 pip install dlr
 ```
 
 For installation of DLR on GPU targets or non-x86 edge devices, please refer to [Releases](https://github.com/neo-ai/neo-ai-dlr/releases) for prebuilt binaries, or [Installing DLR](https://neo-ai-dlr.readthedocs.io/en/latest/install.html) for building DLR from source. For example, to install DLR for Raspberry Pi 3, you can use: 
 
-```
+```python
 pip install https://neo-ai-dlr-release.s3-us-west-2.amazonaws.com/v1.3.0/pi-armv7l-raspbian4.14.71-glibc2_24-libstdcpp3_4/dlr-1.3.0-py3-none-any.whl
 ```
 

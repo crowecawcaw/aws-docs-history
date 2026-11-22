@@ -1,7 +1,6 @@
 
 
 # Invoke the endpoint
-<a name="clarify-online-explainability-invoke-endpoint"></a>
 
 After the endpoint is running, use the SageMaker AI Runtime [InvokeEndpoint ](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html) API in the SageMaker AI Runtime service to send requests to, or invoke the endpoint. In response, the requests are handled as explainability requests by the SageMaker Clarify explainer.
 
@@ -20,7 +19,7 @@ The `ContentType` and `Accept` parameters of the `InvokeEndpoint` API are requir
 
 Use the `sagemaker_runtime_client` to send a request to the endpoint, as follows:
 
-```
+```JMESPath
 response = sagemaker_runtime_client.invoke_endpoint(
     EndpointName='name-of-your-endpoint',
     EnableExplanations='`true`',

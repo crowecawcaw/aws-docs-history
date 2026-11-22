@@ -1,9 +1,10 @@
 
 
 # Amazon SageMaker HyperPod Slurm metrics
-<a name="smcluster-slurm-metrics"></a>
 
 Amazon SageMaker HyperPod provides a set of Amazon CloudWatch metrics that you can use to monitor the health and performance of your HyperPod clusters. These metrics are collected from the Slurm workload manager running on your HyperPod clusters and are available in the `/aws/sagemaker/Clusters` CloudWatch namespace.
+
+If you install cluster extensions, HyperPod also publishes extension health metrics to the `/aws/sagemaker/Clusters` namespace: `extension_healthy_count`, `extension_unhealthy_count`, and `extension_unknown_count`, with the `ClusterId` and `ExtensionName` dimensions. For more information, see [Monitoring cluster extension health](sagemaker-hyperpod-slurm-extensions-health.md).
 
 ## Cluster level metrics
 <a name="smcluster-slurm-metrics-cluster"></a>

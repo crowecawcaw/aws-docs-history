@@ -1,7 +1,6 @@
 
 
 # View training plan details
-<a name="training-plan-details"></a>
 
 From the training plans list, follow a plan's name to view its details. Specifically, you can check your current capacity usage, and list your workloads in your plan's details page. 
 

@@ -1,7 +1,6 @@
 
 
 # Hyperparameters for optimizing the learning process of your text generation models
-<a name="autopilot-llms-finetuning-hyperparameters"></a>
 
 You can optimize the learning process of your base model by adjusting any combination of the following hyperparameters. These parameters are available for all models.
 + **Epoch Count**: The `epochCount` hyperparameter determines how many times the model goes through the entire training dataset. It influences the training duration and can prevent overfitting when set appropriately. Large number of epochs may increase the overall runtime of fine-tuning jobs. We recommend setting a large `MaxAutoMLJobRuntimeInSeconds` within the `CompletionCriteria` of the `[TextGenerationJobConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TextGenerationJobConfig.html)` to avoid fine-tuning jobs from stopping prematurely.

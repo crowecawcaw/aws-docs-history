@@ -1,7 +1,6 @@
 
 
 # Create, store, and share features with Feature Store
-<a name="feature-store"></a>
 
 The machine learning (ML) development process includes extracting raw data, transforming it into *features* (meaningful inputs for your ML model). Those features are then stored in a serviceable way for data exploration, ML training, and ML inference. Amazon SageMaker Feature Store simplifies how you create, store, share, and manage features. This is done by providing feature store options and reducing repetitive data processing and curation work.
 

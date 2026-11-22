@@ -1,7 +1,6 @@
 
 
 # Multi-container endpoints
-<a name="multi-container-endpoints"></a>
 
 SageMaker AI multi-container endpoints enable customers to deploy multiple containers, that use different models or frameworks, on a single SageMaker AI endpoint. The containers can be run in a sequence as an inference pipeline, or each container can be accessed individually by using direct invocation to improve endpoint utilization and optimize costs.
 
@@ -25,7 +24,7 @@ The following policy allows `invoke_endpoint` requests only when the value of th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -57,7 +56,7 @@ The following policy denies `invoke_endpoint` requests when the value of the `Ta
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

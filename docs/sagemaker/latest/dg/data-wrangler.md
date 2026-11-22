@@ -1,7 +1,6 @@
 
 
 # Prepare ML Data with Amazon SageMaker Data Wrangler
-<a name="data-wrangler"></a>
 
 **Important**  
 Amazon SageMaker Data Wrangler has been integrated into Amazon SageMaker Canvas. Within the new Data Wrangler experience in SageMaker Canvas, you can use a natural language interface to explore and transform your data in addition to the visual interface. For more information about Data Wrangler in SageMaker Canvas, see [Data preparation](canvas-data-prep.md).

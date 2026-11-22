@@ -1,7 +1,6 @@
 
 
 # Run Training and Inference Containers in Internet-Free Mode
-<a name="mkt-algo-model-internet-free"></a>
 
 SageMaker AI training and deployed inference containers are internet-enabled by default. This allows containers to access external services and resources on the public internet as part of your training and inference workloads. However, this could provide an avenue for unauthorized access to your data. For example, a malicious user or code that you accidentally install on the container (in the form of a publicly available source code library) could access your data and transfer it to a remote host. 
 

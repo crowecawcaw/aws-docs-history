@@ -1,7 +1,6 @@
 
 
 # Connect a Notebook Instance in a VPC to External Resources
-<a name="appendix-notebook-and-internet-access"></a>
 
 The following topic gives information on how to connect your notebook instance in a VPC to external resources.
 
@@ -32,7 +31,7 @@ A notebook instance user has root access for installing packages and other perti
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

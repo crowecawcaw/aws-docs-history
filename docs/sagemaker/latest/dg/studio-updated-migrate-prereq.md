@@ -1,7 +1,6 @@
 
 
 # Complete prerequisites to migrate the Studio experience
-<a name="studio-updated-migrate-prereq"></a>
 
 Migration of the default experience from Studio Classic to Studio is managed by the administrator of the existing domain. If you do not have permissions to set Studio as the default experience for the existing domain, contact your administrator. To migrate your default experience, you must have administrator permissions or at least have permissions to update the existing domain, AWS Identity and Access Management (IAM), and Amazon Simple Storage Service (Amazon S3). Complete the following prerequisites before migrating an existing domain from Studio Classic to Studio.
 + The AWS Identity and Access Management role used to complete migration must have a policy attached with at least the following permissions. For information about creating an IAM policy, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html).

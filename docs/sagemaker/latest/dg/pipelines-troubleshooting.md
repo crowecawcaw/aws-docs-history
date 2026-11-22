@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon SageMaker Pipelines
-<a name="pipelines-troubleshooting"></a>
 
 When using Amazon SageMaker Pipelines, you might run into issues for various reasons. This topic provides information about common errors and how to resolve them. 
 
@@ -15,7 +14,7 @@ You can only include steps in a pipeline definition once. Because of this, steps
 
 You can view the status of your steps using the following command: 
 
-```
+```python
 execution.list_steps()
 ```
 

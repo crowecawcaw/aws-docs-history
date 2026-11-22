@@ -1,7 +1,6 @@
 
 
 # Configuration file
-<a name="train-remote-decorator-config"></a>
 
 The Amazon SageMaker Python SDK supports setting of default values for AWS infrastructure primitive types. After administrators configure these defaults, they are automatically passed when SageMaker Python SDK calls supported APIs. The arguments for the decorator function can be put inside of configuration files. This is so that you can separate settings that are related to the infrastructure from the code base. For more information about parameters and arguments for the remote function and methods, see [Remote function classes and methods specification](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html).
 

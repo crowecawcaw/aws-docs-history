@@ -1,7 +1,6 @@
 
 
 # How custom models work
-<a name="canvas-build-model"></a>
 
 Use Amazon SageMaker Canvas to build a custom model on the dataset that you've imported. Use the model that you've built to make predictions on new data. SageMaker Canvas uses the information in the dataset to build up to 250 models and choose the one that performs the best.
 

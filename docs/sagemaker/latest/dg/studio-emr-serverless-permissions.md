@@ -1,7 +1,6 @@
 
 
 # Set up the permissions to enable listing and launching Amazon EMR applications from SageMaker Studio
-<a name="studio-emr-serverless-permissions"></a>
 
 In this section, we detail the roles and permissions required to list and connect to EMR Serverless applications from SageMaker Studio, considering scenarios where Studio and the EMR Serverless applications are deployed in the same AWS account or across different accounts.
 
@@ -55,7 +54,7 @@ If your Amazon EMR applications and Studio are deployed in the same AWS account,
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -144,7 +143,7 @@ Failure to complete this step will prevent you from connecting a JupyterLab note
 
    In a JupyterLab application started from a private space using the SageMaker AI execution role whose permissions you updated, run the following command in a terminal. Replace the `domainID`, `user-profile-name`, `studio-accountID`, and `EMRServerlessRuntimeExecutionRole`(s) with their proper values. This code snippet updates the user profile settings for a specific user profile (`client.update_user_profile`) or domain settings (`client.update_domain`), specifically associating the EMR Serverless runtime execution roles you previously created.
 
-   ```
+   ```python
    import botocore.session
    import json
    sess = botocore.session.get_session()
@@ -217,7 +216,7 @@ Follow these steps to create the necessary roles and policies on the account whe
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -277,7 +276,7 @@ The `EMRServerlessAppRuntimeRole` here is the job runtime execution role created
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -338,7 +337,7 @@ On the account where Studio is deployed, also referred to as the *trusted accoun
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": {
@@ -382,7 +381,7 @@ Failure to complete this step will prevent you from connecting a JupyterLab note
 
     In a JupyterLab application started from a private space using the SageMaker AI execution role whose permissions you updated, run the following command in a terminal. Replace the `domainID`, `user-profile-name`, `studio-accountID`, and `EMRServerlessRuntimeExecutionRole` with their proper values. This code snippet updates the user profile settings for a specific user profile (`client.update_user_profile`) or domain settings (`client.update_domain`) within a SageMaker AI domain. Specifically, it sets the runtime execution roles for Amazon EMR Serverless, which you have previously created. It also allows the JupyterLab application to assume a particular IAM role (`AssumableRole`) for running EMR Serverless applications within the Amazon EMR account.
 
-   ```
+   ```python
    import botocore.session
    import json
    sess = botocore.session.get_session()
@@ -426,7 +425,7 @@ Failure to complete this step will prevent you from connecting a JupyterLab note
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -520,7 +519,7 @@ Failure to complete this step will prevent you from connecting a JupyterLab note
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

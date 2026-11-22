@@ -1,7 +1,6 @@
 
 
 # Activation Checkpointing
-<a name="model-parallel-extended-features-pytorch-activation-checkpointing"></a>
 
 *Activation checkpointing* (or *gradient checkpointing*) is a technique to reduce memory usage by clearing activations of certain layers and recomputing them during a backward pass. Effectively, this trades extra computation time for reduced memory usage. If a module is checkpointed, at the end of a forward pass, the inputs to and outputs from the module stay in memory. Any intermediate tensors that would have been part of the computation inside that module are freed up during the forward pass. During the backward pass of checkpointed modules, these tensors are recomputed. At this point, the layers beyond this checkpointed module have finished their backward pass, so the peak memory usage with checkpointing can be lower.
 
@@ -23,7 +22,7 @@ PyTorch’s native checkpointing API is not compatible with `smdistributed.model
 
 **Example 1:** The following sample code shows how to use activation checkpointing when you have a model definition in your script.
 
-```
+```py
 import torch.nn as nn
 import torch.nn.functional as F
 
@@ -50,7 +49,7 @@ class Net(nn.Module):
 
 **Example 2:** The following sample code shows how to use activation checkpointing when you have a sequential model in your script.
 
-```
+```py
 import torch.nn as nn
 from smdistributed.modelparallel.torch.patches.checkpoint import checkpoint_sequential
 
@@ -78,7 +77,7 @@ class Net(nn.Module):
 
 1. Wrap the sequential layer object by `smp.set_activation_checkpointig()`.
 
-```
+```py
 import smdistributed.modelparallel.torch as smp
 from transformers import AutoModelForCausalLM
 

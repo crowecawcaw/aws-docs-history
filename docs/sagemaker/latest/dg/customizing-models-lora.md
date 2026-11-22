@@ -1,7 +1,6 @@
 
 
 # LoRA
-<a name="customizing-models-lora"></a>
 
 **LoRA** (Low-Rank Adaptation) efficiently adapts large models by training a small set of *low-rank decomposition matrices* rather than all model weights. The base model weights remain frozen — only the adapter weights are learned.
 

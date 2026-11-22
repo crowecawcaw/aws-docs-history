@@ -1,7 +1,6 @@
 
 
 # Deploying uncompressed models
-<a name="large-model-inference-uncompressed"></a>
 
  When deploying ML models, one option is to archive and compress the model artifacts into a `tar.gz` format. Although this method works well for small models, compressing a large model artifact with hundreds of billions of parameters and then decompressing it on an endpoint can take a significant amount of time. For large model inference, we recommend that you deploy uncompressed ML model. This guide shows how you can deploy uncompressed ML model. 
 
@@ -9,7 +8,7 @@
 
  For deploying with SageMaker AI, you must use slash (/) as the delimiter. You have to ensure that only artifacts associated with your ML model are organized with the prefix. For ML models with a single uncompressed artifact, the prefix will be identical to the key name. You can check which objects are associated with your prefix with the AWS CLI: 
 
-```
+```bash
 aws s3 ls --recursive s3://{{bucket}}/{{prefix}}
 ```
 
@@ -17,7 +16,7 @@ aws s3 ls --recursive s3://{{bucket}}/{{prefix}}
 
  The following code snippet shows how you can invoke the `CreateModel` API when deploying an uncompressed model. Replace the {{italicized user text}} with your own information. 
 
-```
+```py
 model_name = "{{model-name}}"
 sagemaker_role = "arn:aws:iam::{{123456789012:role/SageMakerExecutionRole}}"
 container = "{{123456789012.dkr.ecr.us-west-2.amazonaws.com/inference-image:latest}}"

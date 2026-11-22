@@ -1,7 +1,6 @@
 
 
 # Private curated hubs for foundation model access control in JumpStart
-<a name="jumpstart-curated-hubs"></a>
 
 Curate pretrained JumpStart foundation models for your organization with private hubs. Use the latest publicly available and proprietary foundation models while enforcing governance guardrails and ensuring that your organization can only access approved models.
 

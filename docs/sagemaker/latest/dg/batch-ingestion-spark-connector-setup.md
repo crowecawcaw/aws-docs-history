@@ -1,7 +1,6 @@
 
 
 # Batch ingestion with Amazon SageMaker Feature Store Spark
-<a name="batch-ingestion-spark-connector-setup"></a>
 
 Amazon SageMaker Feature Store Spark is a Spark connector that connects the Spark library to Feature Store. Feature Store Spark simplifies data ingestion from Spark `DataFrame`s to feature groups. Feature Store supports batch data ingestion with Spark, using your existing ETL pipeline, on Amazon EMR, GIS, an AWS Glue job, an Amazon SageMaker Processing job, or a SageMaker notebook.
 
@@ -101,14 +100,14 @@ If you want to install the dependent JARs automatically to SPARK\_HOME, do not u
 
 Install a version of PySpark that's compatible with the Spark connector using the following commands:
 
-```
+```python
 !pip3 install pyspark=={{3.1.1}} 
 !pip3 install sagemaker-feature-store-pyspark-{{3.1}} --no-binary :all:
 ```
 
 If you're performing batch ingestion to the offline store, the dependencies aren't within the notebook instance environment.
 
-```
+```python
 from pyspark.sql import SparkSession
 import feature_store_pyspark
 
@@ -150,7 +149,7 @@ You must use AWS Glue Version 2.0 or later.
 
 To install the Spark connector on a AWS Glue job, use the `--extra-jars` argument to provide the necessary JARs and `--additional-python-modules` to install the Spark Connector as job parameters when you create the AWS Glue job as shown in the following example. For more information on uploading the required JAR to your S3 bucket, see [Retrieving the JAR for Feature Store Spark](#retrieve-jar-spark-connector).
 
-```
+```python
 glue_client = boto3.client('glue', region_name=region)
 response = glue_client.create_job(
     Name=pipeline_id,
@@ -203,7 +202,7 @@ After you've installed Feature Store Spark, you can retrieve the JAR location an
 
 The `feature-store-pyspark-dependency-jars` command provides the location of the necessary dependency JAR that Feature Store Spark added. You can use the command to retrieve the JAR and upload it to Amazon S3.
 
-```
+```python
 jar_location = !feature-store-pyspark-dependency-jars
 jar_location = jar_location[0]
 
@@ -219,7 +218,7 @@ s3_client.upload_file(jar_location, "{{<YOUR_BUCKET>}}","spark-connector-jars/sa
 
  *FeatureStoreBatchIngestion.py* 
 
-```
+```python
 from pyspark.sql import SparkSession
 from feature_store_pyspark.FeatureStoreManager import FeatureStoreManager
 import feature_store_pyspark

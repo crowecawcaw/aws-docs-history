@@ -1,7 +1,6 @@
 
 
 # The Edge Manager Agent
-<a name="edge-device-fleet-about"></a>
 
 The Edge Manager agent is an inference engine for your edge devices. Use the agent to make predictions with models loaded onto your edge devices. The agent also collects model metrics and captures data at specific intervals. Sample data is stored in your Amazon S3 bucket.
 

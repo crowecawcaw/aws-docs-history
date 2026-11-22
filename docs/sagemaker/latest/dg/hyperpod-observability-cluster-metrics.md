@@ -1,7 +1,6 @@
 
 
 # SageMaker HyperPod cluster metrics
-<a name="hyperpod-observability-cluster-metrics"></a>
 
 Amazon SageMaker HyperPod (SageMaker HyperPod) publishes various metrics across 9 distinct categories to your Amazon Managed Service for Prometheus workspace. Not all metrics are enabled by default or displayed in your Amazon Managed Grafana workspace. The following table shows which metrics are enabled by default when you install the observability add-on, which categories have additional metrics that can be enabled for more granular cluster information, and where they appear in the Amazon Managed Grafana workspace.
 

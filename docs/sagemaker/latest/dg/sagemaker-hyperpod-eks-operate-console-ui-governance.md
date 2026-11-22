@@ -1,7 +1,6 @@
 
 
 # SageMaker HyperPod task governance
-<a name="sagemaker-hyperpod-eks-operate-console-ui-governance"></a>
 
 SageMaker HyperPod task governance is a robust management system designed to streamline resource allocation and ensure efficient utilization of compute resources across teams and projects for your Amazon EKS clusters. This provides administrators with the capability to set:
 + Priority levels for various tasks

@@ -1,7 +1,6 @@
 
 
 # Autopilot data exploration report
-<a name="autopilot-data-exploration-report"></a>
 
 Amazon SageMaker Autopilot cleans and pre-processes your dataset automatically. High-quality data improves machine learning efficiency and produces models that make more accurate predictions. 
 

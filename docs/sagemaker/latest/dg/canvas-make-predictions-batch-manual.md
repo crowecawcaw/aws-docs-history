@@ -1,7 +1,6 @@
 
 
 # Make manual batch predictions
-<a name="canvas-make-predictions-batch-manual"></a>
 
 Choose one of the following procedures to make manual batch predictions based on your model type.
 

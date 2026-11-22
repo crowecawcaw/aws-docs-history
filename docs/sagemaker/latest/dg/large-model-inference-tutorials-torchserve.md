@@ -1,7 +1,6 @@
 
 
 # Deploy large models for inference with TorchServe
-<a name="large-model-inference-tutorials-torchserve"></a>
 
 This tutorial demonstrates how to deploy large models and serve inference in Amazon SageMaker AI with TorchServe on GPUs. This example deploys the [OPT-30b](https://huggingface.co/facebook/opt-30b) model to an `ml.g5` instance. You can modify this to work with other models and instance types. Replace the `{{italicized placeholder text}}` in the examples with your own information.
 
@@ -45,7 +44,7 @@ To get started, ensure that you have the following prerequisites:
 
    1. Install version 2 of the AWS CLI:
 
-      ```
+      ```bash
       # Install the latest AWS CLI v2 if it is not installed
       !curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" !unzip awscliv2.zip
       #Follow the instructions to install v2 on the terminal
@@ -54,7 +53,7 @@ To get started, ensure that you have the following prerequisites:
 
    1. Install SageMaker AI and the Boto3 client:
 
-      ```
+      ```bash
       # If already installed, update your client
       #%pip install sagemaker pip --upgrade --quiet
       !pip install -U sagemaker
@@ -74,7 +73,7 @@ In addition to this default behavior, TorchServe provides the flexibility for us
 
 In the following `model_config.yaml` example, we configure both front-end and back-end parameters for the [OPT-30b ](https://huggingface.co/facebook/opt-30b) model. The configured front-end parameters are `parallelType`, `deviceType`, `deviceIds `and `torchrun`. For more detailed information about the front-end parameters you can configure, see the [PyTorch GitHub documentation](https://github.com/pytorch/serve/blob/2bf505bae3046b0f7d0900727ec36e611bb5dca3/docs/configuration.md?plain=1#L267). The back-end configuration is based on a YAML map that allows for free-style customization. For the back-end parameters, we define the DeepSpeed configuration and additional parameters used by custom handler code.
 
-```
+```python
 # TorchServe front-end parameters
 minWorkers: 1
 maxWorkers: 1
@@ -106,7 +105,7 @@ handler: # parameters for custom handler code
 
 TorchServe offers[ base handlers](https://github.com/pytorch/serve/tree/master/ts/torch_handler/distributed) and [handler utilities](https://github.com/pytorch/serve/tree/master/ts/handler_utils) for large model inference built with popular libraries. The following example demonstrates how the custom handler class [TransformersSeqClassifierHandler](https://github.com/pytorch/serve/blob/ab69b69a59d6ca6074df7e6d4014f07eb48dedba/examples/large_models/deepspeed/custom_handler.py#L16C7-L16C39) extends [BaseDeepSpeedHandler](https://github.com/pytorch/serve/blob/ab69b69a59d6ca6074df7e6d4014f07eb48dedba/ts/torch_handler/distributed/base_deepspeed_handler.py#L8) and uses the [handler utilities](https://github.com/pytorch/serve/blob/master/ts/handler_utils/distributed/deepspeed.py). For a full code example, see the [`custom_handler.py` code on the PyTorch GitHub documentation](https://github.com/pytorch/serve/blob/master/examples/large_models/deepspeed/custom_handler.py).
 
-```
+```python
 class TransformersSeqClassifierHandler(BaseDeepSpeedHandler, ABC):
     """
     Transformers handler class for sequence, token classification and question answering.
@@ -187,20 +186,20 @@ class TransformersSeqClassifierHandler(BaseDeepSpeedHandler, ABC):
 
 Before deploying your model on SageMaker AI, you must package your model artifacts. For large models, we recommend that you use the PyTorch [torch-model-archiver](https://github.com/pytorch/serve/blob/master/model-archiver/README.md) tool with the argument `--archive-format no-archive`, which skips compressing model artifacts. The following example saves all of the model artifacts to a new folder named `opt/`.
 
-```
+```bash
 torch-model-archiver --model-name opt --version 1.0 --handler custom_handler.py --extra-files ds-config.json -r requirements.txt --config-file opt/model-config.yaml --archive-format no-archive
 ```
 
 Once the `opt/` folder is created, download the OPT-30b model to the folder using the PyTorch [Download\_model](https://github.com/pytorch/serve/blob/master/examples/large_models/utils/Download_model.py) tool.
 
-```
+```bash
 cd opt
 python path_to/Download_model.py --model_path model --model_name facebook/opt-30b --revision main
 ```
 
 Lastly, upload the model artifacts to an Amazon S3 bucket. 
 
-```
+```bash
 aws s3 cp opt {{{your_s3_bucket}}}/opt --recursive
 ```
 
@@ -215,7 +214,7 @@ To deploy your model, complete the following steps:
 
 1. Create a SageMaker AI session, as shown in the following example.
 
-   ```
+   ```python
    import boto3
    import sagemaker
    from sagemaker.core.resources import Model
@@ -239,7 +238,7 @@ To deploy your model, complete the following steps:
 
 1. Create an uncompressed model in SageMaker AI, as shown in the following example.
 
-   ```
+   ```python
    from datetime import datetime
    
    instance_type = "ml.g5.24xlarge"
@@ -266,7 +265,7 @@ To deploy your model, complete the following steps:
 
 1. Deploy the model to an Amazon EC2 instance, as shown in the following example.
 
-   ```
+   ```python
    model.deploy(
        initial_instance_count=1,
        instance_type=instance_type,
@@ -279,7 +278,7 @@ To deploy your model, complete the following steps:
 
 1. Initialize a class to process the streaming response, as shown in the following example.
 
-   ```
+   ```python
    import io
    
    class Parser:
@@ -330,7 +329,7 @@ To deploy your model, complete the following steps:
 
 1. Test a streaming response prediction, as shown in the following example.
 
-   ```
+   ```python
    import json
    
    body = "Today the weather is really nice and I am planning on".encode('utf-8')

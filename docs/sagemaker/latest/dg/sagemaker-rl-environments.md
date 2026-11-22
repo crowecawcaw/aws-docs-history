@@ -1,7 +1,6 @@
 
 
 # RL Environments in Amazon SageMaker AI
-<a name="sagemaker-rl-environments"></a>
 
 Amazon SageMaker AI RL uses environments to mimic real-world scenarios. Given the current state of the environment and an action taken by the agent or agents, the simulator processes the impact of the action, and returns the next state and a reward. Simulators are useful in cases where it is not safe to train an agent in the real world (for example, flying a drone) or if the RL algorithm takes a long time to converge (for example, when playing chess).
 

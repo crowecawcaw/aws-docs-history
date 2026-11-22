@@ -1,7 +1,6 @@
 
 
 # Data Formats for Object2Vec Inference
-<a name="object2vec-inference-formats"></a>
 
 The following page describes the input request and output response formats for getting scoring inference from the Amazon SageMaker AI Object2Vec model.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting for distributed training in Amazon SageMaker AI
-<a name="distributed-troubleshooting-data-parallel"></a>
 
 If you have problems in running a training job when you use the library, use the following list to try to troubleshoot. If you need further support, reach out to the SageMaker AI team through [AWS Support Center](https://console.aws.amazon.com/support/) or [AWS Developer Forums for Amazon Amazon SageMaker AI](https://forums.aws.amazon.com/forum.jspa?forumID=285).
 
@@ -51,7 +50,7 @@ This is due to an internal error between Debugger and checkpoints, which occurs 
 
 For PyTorch distributed training jobs, an unexpected prefix (`model` for example) might be attached to `state_dict` keys (model parameters). The SageMaker AI data parallel library does not directly alter or prepend any model parameter names when PyTorch training jobs save model artifacts. The PyTorch's distributed training changes the names in the `state_dict` to go over the network, prepending the prefix. If you encounter any model failure problem due to different parameter names while you are using the SageMaker AI data parallel library and checkpointing for PyTorch training, adapt the following example code to remove the prefix at the step you load checkpoints in your training script.
 
-```
+```py
 state_dict = {k.partition('{{model.}}')[2]:state_dict[k] for k in state_dict.keys()}
 ```
 

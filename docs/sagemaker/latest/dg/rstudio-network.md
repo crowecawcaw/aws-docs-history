@@ -1,7 +1,6 @@
 
 
 # Network and Storage
-<a name="rstudio-network"></a>
 
 The following topic describes network access and data storage considerations for your RStudio instance. For general information about network access and data storage when using Amazon SageMaker AI, see [Data Protection in Amazon SageMaker AI](data-protection.md).
 

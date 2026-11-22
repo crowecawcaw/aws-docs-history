@@ -1,7 +1,6 @@
 
 
 # Example: Hyperparameter Tuning Job
-<a name="automatic-model-tuning-ex"></a>
 
 This example shows how to create a new notebook for configuring and launching a hyperparameter tuning job. The tuning job uses the [XGBoost algorithm with Amazon SageMaker AI](xgboost.md) to train a model to predict whether a customer will enroll for a term deposit at a bank after being contacted by phone.
 

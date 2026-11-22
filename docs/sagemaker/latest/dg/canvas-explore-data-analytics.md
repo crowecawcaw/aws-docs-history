@@ -1,7 +1,6 @@
 
 
 # Explore your data using analytics
-<a name="canvas-explore-data-analytics"></a>
 
 **Note**  
 You can only use SageMaker Canvas analytics for models built on tabular datasets. Multi-category text prediction models are also excluded.

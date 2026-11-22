@@ -1,7 +1,6 @@
 
 
 # Access strategies and security best practices
-<a name="sagemaker-hyperpod-ray-dashboard-access-strategies"></a>
 
 An access strategy sets who can reach a Ray cluster's dashboard and Jobs API endpoint. You set it with annotations on the Ray resource.
 
@@ -10,7 +9,7 @@ An access strategy sets who can reach a Ray cluster's dashboard and Jobs API end
 
 Add the following annotations under `metadata.annotations` on your Ray resource (`RayCluster`, `RayJob`, `RayService`, or `RayCronJob`).
 
-```
+```yaml
 metadata:
   annotations:
     access.sagemaker.amazonaws.com/enabled: "true"

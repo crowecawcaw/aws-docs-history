@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker HyperPod
-<a name="sagemaker-hyperpod"></a>
 
 SageMaker HyperPod helps you provision resilient clusters for running machine learning (ML) workloads and developing state-of-the-art models such as large language models (LLMs), diffusion models, and foundation models (FMs). It accelerates development of FMs by removing undifferentiated heavy-lifting involved in building and maintaining large-scale compute clusters powered by thousands of accelerators such as AWS Trainium and NVIDIA A100 and H100 Graphical Processing Units (GPUs). When accelerators fail, the resiliency features of SageMaker HyperPod monitor the cluster instances automatically detect and replace the faulty hardware on the fly so that you can focus on running ML workloads.
 
@@ -57,6 +56,7 @@ SageMaker HyperPod is available in the following AWS Regions.
 + [Using topology-aware scheduling in Amazon SageMaker HyperPod](sagemaker-hyperpod-topology.md)
 + [Deploying models on Amazon SageMaker HyperPod](sagemaker-hyperpod-model-deployment.md)
 + [SageMaker HyperPod cluster events reference](sagemaker-hyperpod-cluster-events-reference.md)
++ [Tracking requests with SageMaker HyperPod cluster operations](sagemaker-hyperpod-cluster-operations.md)
 + [HyperPod in Studio](sagemaker-hyperpod-studio.md)
 + [SageMaker HyperPod references](sagemaker-hyperpod-ref.md)
 + [Amazon SageMaker HyperPod release notes](sagemaker-hyperpod-release-notes.md)

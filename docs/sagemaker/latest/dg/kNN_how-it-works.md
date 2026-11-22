@@ -1,7 +1,6 @@
 
 
 # How the k-NN Algorithm Works
-<a name="kNN_how-it-works"></a>
 
 The Amazon SageMaker AI k-nearest neighbors (k-NN) algorithm follows a multi-step training process which includes sampling the input data, performing dimension reduction, and building an index. The indexed data is then used during inference to efficiently find the k-nearest neighbors for a given data point and make predictions based on the neighboring labels or values.
 

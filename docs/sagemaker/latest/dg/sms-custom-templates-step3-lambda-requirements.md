@@ -1,7 +1,6 @@
 
 
 # Using pre-annotation and post-annotation Lambda functions
-<a name="sms-custom-templates-step3-lambda-requirements"></a>
 
 Use these topics to learn about the syntax of the requests sent to pre-annotation and post-annotation Lambda functions, and the required response syntax that Ground Truth uses in custom labeling workflows.
 
@@ -21,7 +20,7 @@ The following are 2 example JSON formatted requests.
 ------
 #### [ Data object identified with "source-ref" ]
 
-```
+```json
 {
     "version": "2018-10-16",
     "labelingJobArn": {{<labelingJobArn>}}
@@ -34,7 +33,7 @@ The following are 2 example JSON formatted requests.
 ------
 #### [ Data object identified with "source" ]
 
-```
+```json
 {
     "version": "2018-10-16",
     "labelingJobArn": {{<labelingJobArn>}}
@@ -56,7 +55,7 @@ The following tabbed examples show examples of a pre-annotation request. Each pa
 ------
 #### [ Data object identified with "source-ref" ]
 
-```
+```json
 {
     "version": "2018-10-16",
     "labelingJobArn": "arn:aws:sagemaker:us-west-2:111122223333:labeling-job/<labeling_job_name>"
@@ -69,7 +68,7 @@ The following tabbed examples show examples of a pre-annotation request. Each pa
 ------
 #### [ Data object identified with "source" ]
 
-```
+```json
 {
     "version": "2018-10-16",
     "labelingJobArn": "arn:aws:sagemaker:<aws_region>:111122223333:labeling-job/<labeling_job_name>"
@@ -85,7 +84,7 @@ In return, Ground Truth requires a response formatted like the following:
 
 **Example of expected return data**  
 
-```
+```json
 {
     "taskInput": {{<json object>}},
     "isHumanAnnotationRequired": {{<boolean>}} # Optional
@@ -104,7 +103,7 @@ If you have a mix of objects in your manifest, with some requiring human annotat
 
 The following basic pre-annotation Lambda function accesses the JSON object in `dataObject` from the initial request, and returns it in the `taskInput` parameter.
 
-```
+```python
 import json
 
 def lambda_handler(event, context):
@@ -127,7 +126,7 @@ If the input manifest file used `source` to identify the data object, the work t
 
 The following pre-annotation Lambda example includes logic to identify the key used in `dataObject`, and to point to that data object using `taskObject` in the Lambda's return statement.
 
-```
+```python
 import json
 
 def lambda_handler(event, context):
@@ -171,7 +170,7 @@ To see an example of a post-consolidation Lambda function, see [annotation\_cons
 
 The following code block contains the post-annotation request schema. Each parameter is described in the following bulleted list.
 
-```
+```json
 {
     "version": "2018-10-16",
     "labelingJobArn": {{<string>}},
@@ -194,7 +193,7 @@ The following code block contains an example of a post-annotation request. Each 
 
 **Example of an post-annotation Lambda request**  
 
-```
+```json
 {
     "version": "2018-10-16",
     "labelingJobArn": "arn:aws:sagemaker:us-west-2:111122223333:labeling-job/labeling-job-name",
@@ -216,7 +215,7 @@ Each parameter is described in the following bulleted list.
 
 **Example of an annotation file**  
 
-```
+```json
 [
     {
         "datasetObjectId": {{<string>}},
@@ -245,7 +244,7 @@ The following table contains examples of the content that you may find in payloa
 ------
 #### [ Named Entity Recognition Payload ]
 
-```
+```json
 [
     {
       "datasetObjectId": "1",
@@ -267,7 +266,7 @@ The following table contains examples of the content that you may find in payloa
 ------
 #### [ Semantic Segmentation Payload ]
 
-```
+```json
 [
     {
       "datasetObjectId": "2",
@@ -289,7 +288,7 @@ The following table contains examples of the content that you may find in payloa
 ------
 #### [ Bounding Box Payload ]
 
-```
+```json
 [
     {
       "datasetObjectId": "0",
@@ -312,7 +311,7 @@ The following table contains examples of the content that you may find in payloa
 
 Your post-annotation Lambda function may contain logic similar to the following to loop through and access all annotations contained in the request. For a full example, see [annotation\_consolidation\_lambda.py](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe/blob/master/aws_sagemaker_ground_truth_sample_lambda/annotation_consolidation_lambda.py) in the [aws-sagemaker-ground-truth-recipe](https://github.com/aws-samples/aws-sagemaker-ground-truth-recipe) GitHub repository. In this GitHub example, you must add your own annotation consolidation logic. 
 
-```
+```py
 for i in range(len(annotations)):
     worker_id = annotations[i]["workerId"]
     annotation_content = annotations[i]['annotationData'].get('content')
@@ -332,7 +331,7 @@ In return, Ground Truth requires a response formatted like the following:
 
 **Example of expected return data**  
 
-```
+```json
 [
    {        
         "datasetObjectId": {{<string>}},
@@ -365,7 +364,7 @@ When you return annotations in `content`, this results in an entry in your job's
 
 **Example of label format in output manifest**  
 
-```
+```json
 {  "source-ref"/"source" : "{{<s3uri or content>}}", 
    "<{{labelAttributeName>}}": {
         {{# ... label content from you}}

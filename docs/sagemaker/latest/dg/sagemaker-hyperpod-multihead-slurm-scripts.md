@@ -1,7 +1,6 @@
 
 
 # Preparing and uploading lifecycle scripts
-<a name="sagemaker-hyperpod-multihead-slurm-scripts"></a>
 
 After creating all the required resources, you'll need to set up [lifecycle scripts](https://github.com/aws-samples/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts) for your SageMaker HyperPod cluster. These [lifecycle scripts](https://github.com/aws-samples/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts) provide a [base configuration](https://github.com/aws-samples/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config) you can use to create a basic HyperPod Slurm cluster.
 
@@ -25,7 +24,7 @@ Follow these steps to create the configuration file and upload it to the same Am
 
 1. Create a configuration file named `provisioning_parameters.json` with the following configuration. Note that `slurm_sns_arn` is optional. If not provided, HyperPod will not set up the Amazon SNS notifications.
 
-   ```
+   ```bash
    cat <<EOF > /tmp/provisioning_parameters.json
    {
      "version": "1.0.0",
@@ -53,7 +52,7 @@ Follow these steps to create the configuration file and upload it to the same Am
 
 1. Upload the `provisioning_parameters.json` file to the same Amazon S3 bucket where you store the lifecycle scripts.
 
-   ```
+   ```bash
    aws s3 cp /tmp/provisioning_parameters.json s3://${ROOT_BUCKET_NAME}/LifeCycleScripts/base-config/provisioning_parameters.json
    ```
 **Note**  

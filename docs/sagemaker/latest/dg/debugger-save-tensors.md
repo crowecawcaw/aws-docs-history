@@ -1,7 +1,6 @@
 
 
 # Example notebooks and code samples to configure Debugger hook
-<a name="debugger-save-tensors"></a>
 
 **Note**  
 Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
@@ -46,7 +45,7 @@ In the following example code, the `s3_output_path` parameter for `DebuggerHookC
 "s3://sagemaker-us-east-1-111122223333/sagemaker-debugger-training-YYYY-MM-DD-HH-MM-SS-123/debug-output"
 ```
 
-```
+```python.py
 import boto3
 import sagemaker
 from sagemaker.train import ModelTrainer
@@ -108,7 +107,7 @@ To see a list of Debugger built-in collections, see [Debugger Built-in Collectio
 
 You can modify the Debugger built-in collections using the `CollectionConfig` API operation. The following example shows how to tweak the built-in `losses` collection and construct a SageMaker AI TensorFlow estimator. You can also use this for MXNet, PyTorch, and XGBoost estimators.
 
-```
+```python.py
 import boto3
 import sagemaker
 from sagemaker.train import ModelTrainer
@@ -168,7 +167,7 @@ For a full list of `CollectionConfig` parameters, see [ Debugger CollectionConfi
 
 You can also save a reduced number of tensors instead of the full set of tensors (for example, if you want to reduce the amount of data saved in your Amazon S3 bucket). The following example shows how to customize the Debugger hook configuration to specify target tensors that you want to save. You can use this for TensorFlow, MXNet, PyTorch, and XGBoost estimators.
 
-```
+```python.py
 import boto3
 import sagemaker
 from sagemaker.train import ModelTrainer

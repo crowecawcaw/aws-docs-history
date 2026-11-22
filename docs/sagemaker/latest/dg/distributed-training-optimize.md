@@ -1,7 +1,6 @@
 
 
 # Distributed training optimization
-<a name="distributed-training-optimize"></a>
 
 Customize hyperparameters for your use case and your data to get the best scaling efficiency. In the following discussion, we highlight some of the most impactful training variables and provide references to state-of-the-art implementations so you can learn more about your options. Also, we recommend that you refer to your preferred framework’s distributed training documentation. 
 +  [Apache MXNet distributed training](https://mxnet.apache.org/versions/1.7/api/faq/distributed_training) 

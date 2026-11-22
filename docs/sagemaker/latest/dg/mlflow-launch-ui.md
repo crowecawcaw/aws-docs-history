@@ -1,7 +1,6 @@
 
 
 # Launch the MLflow UI using a presigned URL
-<a name="mlflow-launch-ui"></a>
 
 You can access the MLflow UI to view your experiments using a presigned URL. You can launch the MLflow UI either through Studio or using the AWS CLI in a terminal of your choice. 
 
@@ -30,7 +29,7 @@ You can access the MLflow UI to view your experiments using a presigned URL.
 
 Within your terminal, use the `create-presigned-mlflow-tracking-server-url` API to generate a presigned URL. 
 
-```
+```bash
 aws sagemaker create-presigned-mlflow-tracking-server-url \
   --tracking-server-name {{$ts_name}} \
   --session-expiration-duration-in-seconds {{1800}} \
@@ -40,7 +39,7 @@ aws sagemaker create-presigned-mlflow-tracking-server-url \
 
 The output should look similar to the following: 
 
-```
+```bash
 {
     "AuthorizedUrl": "https://{{unique-key}}.{{us-west-2}}.experiments.sagemaker.aws.a2z.com/auth?authToken={{example_token}}"
 }

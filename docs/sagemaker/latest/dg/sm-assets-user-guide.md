@@ -1,7 +1,6 @@
 
 
 # Work with assets (user guide)
-<a name="sm-assets-user-guide"></a>
 
 Use SageMaker Assets to seamlessly collaborate on machine learning projects with other individuals in your organization. With SageMaker Assets, you and your collaborators create and share models and data tables with each other. Within SageMaker Assets, these models and data tables are known as *assets*.
 
@@ -270,7 +269,7 @@ Use the following procedure to publish an asset from your owned assets to the as
 
 You can use the following SageMaker Python SDK code to publish a feature group or model package group. The code assumes that you've already created the feature group or model package group.
 
-```
+```python
 from sagemaker.asset import AssetManager
 
 publisher = AssetPublisher()

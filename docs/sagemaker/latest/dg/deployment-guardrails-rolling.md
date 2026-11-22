@@ -1,7 +1,6 @@
 
 
 # Use rolling deployments
-<a name="deployment-guardrails-rolling"></a>
 
 When you update your endpoint, you can specify a rolling deployment to gradually shift traffic from your old fleet to a new fleet. You can control the size of the traffic shifting steps, as well as specify an evaluation period to monitor the new instances for issues before terminating instances from the old fleet. With rolling deployments, instances on the old fleet are cleaned up after each traffic shift to the new fleet, reducing the amount of additional instances needed to update your endpoint. This is useful especially for accelerated instances that are in high demand.
 
@@ -70,7 +69,7 @@ To configure a rolling deployment, use the following example and fields:
   + `MaximumBatchSize` — Specify the `Type` of batch you want to use (either instance count or overall percentage of your fleet) and the `Value`, or the size of each batch.
   + `RollbackMaximumBatchSize` — Use this object to specify the rollback strategy in case an alarm trips. Specify the `Type` of batch you want to use (either instance count or overall percentage of your fleet), and the `Value`, or the size of each batch. If you don’t specify these fields, or if you set the value to 100% of your endpoint, then SageMaker AI uses a blue/green rollback strategy and rolls all traffic back to the old fleet when an alarm trips.
 
-```
+```python
 import boto3
 client = boto3.client("sagemaker")
 

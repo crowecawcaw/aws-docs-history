@@ -1,7 +1,6 @@
 
 
 # Batch transform for inference with Amazon SageMaker AI
-<a name="batch-transform"></a>
 
 Use batch transform when you need to do the following: 
 + Preprocess datasets to remove noise or bias that interferes with training or inference from your dataset.

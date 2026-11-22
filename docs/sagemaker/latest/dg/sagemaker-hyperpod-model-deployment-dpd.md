@@ -1,7 +1,6 @@
 
 
 # Disaggregated Prefill and Decode for HyperPod inference
-<a name="sagemaker-hyperpod-model-deployment-dpd"></a>
 
 Disaggregated Prefill and Decode (DPD) separates the two phases of LLM inference, prefill and decode, onto dedicated GPU pools and transfers key-value (KV) cache between them over Elastic Fabric Adapter (EFA) using GPU-Direct Remote Direct Memory Access (RDMA).
 
@@ -255,7 +254,7 @@ Expected output: `DPD prefill and decode deployments are ready`
 
 Confirm the prefiller reports `sender` and the decoder reports `receiver`. This is the single most discriminating startup signal — if both pods report the same role or neither prints the line, the operator did not wire DPD correctly.
 
-```
+```bash
 PREFILL_POD=$(kubectl get pod -n ${NAMESPACE} \
   -l 'inference.sagemaker.aws.amazon.com/dpd-role=prefill' \
   -o jsonpath='{.items[0].metadata.name}')
@@ -283,7 +282,7 @@ Expected output:
 
 Once the endpoint is ready, send a short and a long prompt to exercise both routing paths, then check the logs to confirm KV transfer over EFA.
 
-```
+```bash
 PREFILL_POD=$(kubectl get pod -n ${NAMESPACE} \
   -l 'inference.sagemaker.aws.amazon.com/dpd-role=prefill' \
   -o jsonpath='{.items[0].metadata.name}')
@@ -303,7 +302,7 @@ ROUTER_URL=http://${DEPLOYMENT_NAME}-${NAMESPACE}-routing-service.hyperpod-infer
 
 Requests with fewer tokens than `routingThreshold` bypass the prefiller and go directly to the decoder:
 
-```
+```bash
 kubectl run curl-short --rm -it --image=curlimages/curl --restart=Never -- \
   curl -s -k -X POST "$ROUTER_URL" \
     -H "Content-Type: application/json" \
@@ -320,7 +319,7 @@ kubectl run curl-short --rm -it --image=curlimages/curl --restart=Never -- \
 
 Requests that exceed the threshold route through the prefiller for KV cache computation, then to the decoder for token generation:
 
-```
+```bash
 kubectl run curl-long --rm -it --image=curlimages/curl --restart=Never -- sh -c '
 LONG=""
 i=0; while [ $i -lt 600 ]; do LONG="${LONG}The quick brown fox jumps over the lazy dog. "; i=$((i+1)); done
@@ -335,7 +334,7 @@ curl -s -k -X POST "'"$ROUTER_URL"'" \
 
 After sending a long prompt, confirm the KV cache was transferred by checking decoder logs:
 
-```
+```bash
 kubectl logs $DECODE_POD -n ${NAMESPACE} -c decode-${DEPLOYMENT_NAME} \
   | grep -E "Retrieved.*tokens.*throughput" | tail -2
 ```
@@ -351,7 +350,7 @@ Expected output (one line per TP rank):
 
 You can also verify the routing decision in the router logs:
 
-```
+```bash
 kubectl logs $ROUTER_POD -n hyperpod-inference-system -c router-container --tail=20 \
   | grep -E "Conditional routing"
 ```

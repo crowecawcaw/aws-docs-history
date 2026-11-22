@@ -1,7 +1,6 @@
 
 
 # Custom RStudio image specifications
-<a name="rstudio-byoi-specs"></a>
 
 In this guide, you'll learn custom RStudio image specifications to use when you bring your own image. There are two sets of requirements that you must satisfy with your custom RStudio image to use it with Amazon SageMaker AI. These requirements are imposed by RStudio PBC and the Amazon SageMaker Studio Classic platform. If either of these sets of requirements aren't satisfied, then your custom image won't function properly.
 

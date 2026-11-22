@@ -1,7 +1,6 @@
 
 
 # Use Feature Store with SDK for Python (Boto3)
-<a name="feature-store-create-feature-group"></a>
 
 The feature group is the main Feature Store resource that contains your machine learning (ML) data and metadata stored in Amazon SageMaker Feature Store. A feature group is a logical grouping of features and records. A feature group’s definition is composed of a configurations for its online and offline store and a list of feature definitions that are used to describe the values of your records. The feature definitions must include a record identifier name and an event time name. For more information on feature store concepts, see [Feature Store concepts](feature-store-concepts.md).
 

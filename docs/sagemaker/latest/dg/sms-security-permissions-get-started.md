@@ -1,7 +1,6 @@
 
 
 # Use IAM Managed Policies with Ground Truth
-<a name="sms-security-permissions-get-started"></a>
 
 SageMaker AI and Ground Truth provide AWS managed policies that you can use to create a labeling job. If you are getting started using Ground Truth and you do not require granular permissions for your use case, it is recommended that you use the following policies:
 + `[AmazonSageMakerFullAccess](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess)` – Use this policy to give a user or role permission to create a labeling job. This is a broad policy that grants a entity permission to use SageMaker AI features, as well as features of necessary AWS services through the console and API. This policy gives the entity permission to create a labeling job and to create and manage workforces using Amazon Cognito. To learn more, see [AmazonSageMakerFullAccess Policy](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonSageMakerFullAccess).

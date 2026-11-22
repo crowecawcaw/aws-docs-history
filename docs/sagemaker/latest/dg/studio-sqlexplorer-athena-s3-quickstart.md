@@ -1,7 +1,6 @@
 
 
 # Quickstart: Query data in Amazon S3
-<a name="studio-sqlexplorer-athena-s3-quickstart"></a>
 
 Users can analyze data stored in Amazon S3 by running SQL queries from JupyterLab notebooks using the SQL extension. The extension integrates with Athena enabling the functionality for data in Amazon S3 with a few extra steps.
 
@@ -54,7 +53,7 @@ To avoid collisions between table names from different Amazon S3 locations, crea
 
       1. Enter the path to your dataset in Amazon S3. For example:
 
-         ```
+         ```bash
          s3://dsoaws/nyc-taxi-orig-cleaned-split-parquet-per-year-multiple-files/ride-info/year=2019/
          ```
 
@@ -112,7 +111,7 @@ In the following steps you grant the execution role of your user profile permiss
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

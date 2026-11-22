@@ -1,7 +1,6 @@
 
 
 # Deprecated Versions of XGBoost and their Upgrades
-<a name="xgboost-previous-versions"></a>
 
 This topic contains documentation for previous versions of Amazon SageMaker AI XGBoost that are still available but deprecated. It also provides instructions on how to upgrade deprecated versions of XGBoost, when possible, to more current versions.
 

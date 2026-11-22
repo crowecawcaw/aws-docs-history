@@ -1,7 +1,6 @@
 
 
 # Use Amazon SNS Topics for Data Labeling
-<a name="sms-create-sns-input-topic"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
@@ -43,7 +42,7 @@ Replace {{`<account_id>`}} with the ID of the account that you are using to crea
 
 ****  
 
-```
+```json
 {
     "Id": "key-console-policy",
     "Version":"2012-10-17",		 	 	 
@@ -96,7 +95,7 @@ Replace {{`<account_id>`}} with the ID of the account that you are using to crea
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

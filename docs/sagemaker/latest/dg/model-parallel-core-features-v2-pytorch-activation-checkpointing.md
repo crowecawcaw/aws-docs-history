@@ -1,7 +1,6 @@
 
 
 # Activation checkpointing
-<a name="model-parallel-core-features-v2-pytorch-activation-checkpointing"></a>
 
 *Activation checkpointing* is a technique to reduce memory usage by clearing activations of certain layers and recomputing them during the backward pass. Effectively, this trades extra computation time for reducing memory usage. If a module is checkpointed, at the end of a forward pass, only the initial inputs to the module and final outputs from the module stay in memory. PyTorch releases any intermediate tensors that are part of the computation inside that module during the forward pass. During the backward pass of the checkpointed modules, PyTorch recomputes these tensors. At this point, the layers beyond this checkpointed module have finished their backward pass, so the peak memory usage with checkpointing becomes lower.
 
@@ -9,7 +8,7 @@ SMP v2 supports the PyTorch activation checkpointing module, [`apply_activation_
 
 **Checkpointing Transformer layers of the Hugging Face GPT-NeoX model**
 
-```
+```py
 from transformers.models.gpt_neox import GPTNeoXLayer
 from torch.distributed.algorithms._checkpoint.checkpoint_wrapper import (
     apply_activation_checkpointing
@@ -26,7 +25,7 @@ apply_activation_checkpointing(model, check_fn=is_transformer_layer)
 
 **Checkpointing every other Transformer layer of the Hugging Face GPT-NeoX model**
 
-```
+```py
 # check_fn receives a module as arg, 
 # and it needs to return whether the module is to be checkpointed
 # here we define that function based on global variable (transformer_layers)

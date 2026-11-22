@@ -1,7 +1,6 @@
 
 
 # Troubleshoot SageMaker Clarify Processing Jobs
-<a name="clarify-processing-job-run-troubleshooting"></a>
 
 **Note**  
 Amazon SageMaker Clarify is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md). 
@@ -51,17 +50,17 @@ Check to see if your resource configuration is sufficient to handle your computi
 ## Processing job finishes without results and you get a CloudWatch warning message
 <a name="clarify-troubleshooting-no-results-and-warning"></a>
 
-If the processing job finishes but no results are found, the CloudWatch logs produce a warning message that says Signal 15 received, cleaning up.This warning indicates that the job was stopped either because a customer request called the `StopProcessingJob` API, or that the job ran out of the allotted time for its completion. In the latter case, check the maximum runtime in the job configuration (`max_runtime_in_seconds`) and increase it as needed.
+If the processing job finishes but no results are found, the CloudWatch logs produce a warning message that says `Signal 15 received, cleaning up.`This warning indicates that the job was stopped either because a customer request called the `StopProcessingJob` API, or that the job ran out of the allotted time for its completion. In the latter case, check the maximum runtime in the job configuration (`max_runtime_in_seconds`) and increase it as needed.
 
 ## Error message for invalid analysis configuration
 <a name="clarify-troubleshooting-invalid-analysis-configuration"></a>
-+  If you get the error message Unable to load analysis configuration as JSON., this means that the analysis configuration input file for the processing job does not contain a valid JSON object. Check the validity of the JSON object using a JSON linter.
-+ If you get the error message Analysis configuration schema validation error., this means that the analysis configuration input file for the processing job contains unknown fields or invalid types for some field values. Review the configuration parameters in the file and cross-check them with the parameters listed in the analysis configuration file. For more information, see [Analysis Configuration Files](clarify-processing-job-configure-analysis.md).
++  If you get the error message `Unable to load analysis configuration as JSON.`, this means that the analysis configuration input file for the processing job does not contain a valid JSON object. Check the validity of the JSON object using a JSON linter.
++ If you get the error message `Analysis configuration schema validation error.`, this means that the analysis configuration input file for the processing job contains unknown fields or invalid types for some field values. Review the configuration parameters in the file and cross-check them with the parameters listed in the analysis configuration file. For more information, see [Analysis Configuration Files](clarify-processing-job-configure-analysis.md).
 
 ## Bias metric computation fails for several or all metrics
 <a name="clarify-troubleshooting-bias-metric-computation-fails"></a>
 
-If your receive one of the following error messages No Label values are present in the predicted Label Column, Positive Predicted Index Series contains all False values. or Predicted Label Column series data type is not the same as Label Column series., try the following:
+If your receive one of the following error messages `No Label values are present in the predicted Label Column, Positive Predicted Index Series contains all False values.` or `Predicted Label Column series data type is not the same as Label Column series.`, try the following:
 + Check that the correct dataset is being used.
 + Check whether the dataset size is too small; whether, for example, it contains only a few rows. This may cause the model outputs to have the same value or the data type is inferred incorrectly.
 + Check if the label or facet is treated as continuous or categorical. SageMaker Clarify uses heuristics to determine the [`DataType`](https://github.com/aws/amazon-sagemaker-clarify/blob/master/src/smclarify/bias/metrics/common.py#L114)). For post-training bias metrics, the data type returned by the model may not match what is in the dataset or SageMaker Clarify may not be able to transform it correctly. 
@@ -71,14 +70,14 @@ If your receive one of the following error messages No Label values are present 
 ## Mismatch between analysis config and dataset/model input/output
 <a name="clarify-troubleshooting-mismatch-analysis-config-and-data-model"></a>
 + Check that the baseline format in the analysis config is the same as dataset format.
-+ If your receive the error message Could not convert string to float., check that the format is correctly specified. It could also indicate that the model predictions have a different format than the label column or it could indicate that the configuration for the label or probabilities is incorrect.
-+ If your receive the error message Unable to locate the facet. or Headers must contain label. or Headers in config do not match with the number of columns in the dataset. or Feature names not found., check that the headers match the columns.
-+ If your receive the error message Data must contain features., check the content template for JSON Lines and compare it with the dataset sample if available.
++ If your receive the error message `Could not convert string to float.`, check that the format is correctly specified. It could also indicate that the model predictions have a different format than the label column or it could indicate that the configuration for the label or probabilities is incorrect.
++ If your receive the error message `Unable to locate the facet.` or `Headers must contain label.` or `Headers in config do not match with the number of columns in the dataset.` or `Feature names not found.`, check that the headers match the columns.
++ If your receive the error message `Data must contain features.`, check the content template for JSON Lines and compare it with the dataset sample if available.
 
 ## Model returns 500 Internal Server Error or container falls back to per-record predictions due to model error
 <a name="clarify-troubleshooting-500-internal-server-error"></a>
 
-If you receive the error message Fallback to per-record prediction because of model error., this could indicate that model cannot handle the batch size, or be throttled, or just does not accept the input passed by the container due to serialization problems. You should review the CloudWatch logs for the SageMaker AI endpoint and look for error messages or tracebacks. For model throttling cases, it may help to use a different instance type or increasing the number of instances for the endpoint.
+If you receive the error message `Fallback to per-record prediction because of model error.`, this could indicate that model cannot handle the batch size, or be throttled, or just does not accept the input passed by the container due to serialization problems. You should review the CloudWatch logs for the SageMaker AI endpoint and look for error messages or tracebacks. For model throttling cases, it may help to use a different instance type or increasing the number of instances for the endpoint.
 
 ## Execution role is invalid
 <a name="clarify-troubleshooting-execution-role-invalid"></a>

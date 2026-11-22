@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker AI detailed observability for inference endpoints
-<a name="monitoring-cloudwatch-detailed-observability"></a>
 
 Detailed observability is a next-generation metrics experience for Amazon SageMaker AI real-time inference endpoints. Built on OpenTelemetry (OTel), it collects fine-grained operational metrics from GPU, node, and inference framework layers and publishes them to Amazon CloudWatch with rich labels including endpoint name, inference component name, instance ID, availability zone, and instance type.
 

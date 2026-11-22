@@ -1,7 +1,6 @@
 
 
 # SageMaker Autopilot
-<a name="autopilot-automate-model-development"></a>
 
 **Important**  
 As of November 30, 2023, Autopilot's UI is migrating to [Amazon SageMaker Canvas](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas.html) as part of the updated [Amazon SageMaker Studio](studio-updated.md) experience. SageMaker Canvas provides analysts and citizen data scientists no-code capabilities for tasks such as data preparation, feature engineering, algorithm selection, training and tuning, inference, and more. Users can leverage built-in visualizations and what-if analysis to explore their data and different scenarios, with automated predictions enabling them to easily productionize their models. Canvas supports a variety of use cases, including computer vision, demand forecasting, intelligent search, and generative AI.  

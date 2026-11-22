@@ -1,7 +1,6 @@
 
 
 # Blogs and whitepapers
-<a name="studio-notebooks-emr-resources"></a>
 
 The following blogs use a case study of sentiment prediction for a movie review to illustrate the process of executing a complete machine learning workflow. This includes data preparation, monitoring Spark jobs, and training and deploying a ML model to get predictions directly from your Studio or Studio Classic notebook.
 + [Create and manage Amazon EMR clusters from SageMaker Studio or Studio Classic to run interactive Spark and ML workloads](https://aws.amazon.com/blogs/machine-learning/part-1-create-and-manage-amazon-emr-clusters-from-sagemaker-studio-to-run-interactive-spark-and-ml-workloads/).

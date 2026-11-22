@@ -1,7 +1,6 @@
 
 
 # Time Series Forecasts in Amazon SageMaker Canvas
-<a name="canvas-time-series"></a>
 
 **Note**  
 Time series forecasting models are only supported for tabular datasets.

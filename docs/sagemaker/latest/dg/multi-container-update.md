@@ -1,7 +1,6 @@
 
 
 # Update a multi-container endpoint
-<a name="multi-container-update"></a>
 
 To update an Amazon SageMaker AI multi-container endpoint, complete the following steps.
 

@@ -1,7 +1,6 @@
 
 
 # Low-level SageMaker APIs for model cards
-<a name="model-cards-apis"></a>
 
 You can create an Amazon SageMaker Model Card directly through the SageMaker API or the AWS Command Line Interface (AWS CLI).
 

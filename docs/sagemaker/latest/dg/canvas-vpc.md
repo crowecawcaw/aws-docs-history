@@ -1,7 +1,6 @@
 
 
 # Configure Amazon SageMaker Canvas in a VPC without internet access
-<a name="canvas-vpc"></a>
 
 The Amazon SageMaker Canvas application runs in a container in an AWS managed Amazon Virtual Private Cloud (VPC). If you want to further control access to your resources or run SageMaker Canvas without public internet access, you can configure your Amazon SageMaker AI domain and VPC settings. Within your own VPC, you can configure settings such as security groups (virtual firewalls that control inbound and outbound traffic from Amazon EC2 instances) and subnets (ranges of IP addresses in your VPC). To learn more about VPCs, see [How Amazon VPC works](https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html).
 
@@ -99,7 +98,7 @@ The following are two VPC endpoint policies that you can use. Use the first poli
 
 The following policy grants the necessary access to your VPC endpoint for basic operations in Canvas.
 
-```
+```json
         {
             "Effect": "Allow",
             "Action": [
@@ -131,7 +130,7 @@ The following policy grants the necessary access to your VPC endpoint for basic 
 
 The following policy grants the necessary access to your VPC endpoint for basic operations in Canvas, as well as using generative AI foundation models.
 
-```
+```json
         {
             "Effect": "Allow",
             "Action": [
@@ -188,7 +187,7 @@ To grant your user’s IAM role the granular `ec2:DescribeVpcEndpointServices` p
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

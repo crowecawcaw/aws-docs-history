@@ -1,7 +1,6 @@
 
 
 # Continuous provisioning for enhanced cluster operations on Amazon EKS
-<a name="sagemaker-hyperpod-scaling-eks"></a>
 
 Amazon SageMaker HyperPod clusters created with Amazon EKS orchestration now supports continuous provisioning, a new capability that enables greater flexibility and efficiency running large-scale AI/ML workloads. Continuous provisioning lets you start training quickly, scale seamlessly, perform maintenance without disrupting operations, and have granular visibility into cluster operations. 
 
@@ -23,6 +22,17 @@ Continuous provisioning is the default for new clusters. You can also explicitly
 With continuous provisioning enabled, you can initiate multiple scaling operations simultaneously without waiting for previous operations to complete. This lets you scale different instance groups in the same cluster concurrently and submit multiple scaling requests to the same instance group. 
 
 Continuous provisioning also gives you access to [DescribeClusterEvent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeClusterEvent.html) and [ListClusterEvent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListClusterEvents.html) for detailed event monitoring and operational visibility. 
+
+## Tracking scaling requests with cluster operations
+<a name="sagemaker-hyperpod-scaling-eks-tracking"></a>
+
+Because scaling requests return as soon as HyperPod accepts them, you can track each request using the cluster operation it creates. With the operation, you can see whether HyperPod is still working on the request or has finished, what the request changed on each instance group, and whether a newer request took over. The instance and instance group events that HyperPod records while working on the request carry the operation's ID. You can list only that request's events to find the reason if an instance group doesn't reach its target.
+
+```bash
+aws sagemaker list-cluster-operations --cluster-name my-eks-cluster --status InProgress
+```
+
+For more information, see [Tracking requests with SageMaker HyperPod cluster operations](sagemaker-hyperpod-cluster-operations.md).
 
 ## Usage metering
 <a name="sagemaker-hyperpod-scaling-eks-metering"></a>

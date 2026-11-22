@@ -1,7 +1,6 @@
 
 
 # AWS Batch support for SageMaker AI training jobs
-<a name="training-job-queues"></a>
 
 An [AWS Batch job queue](https://docs.aws.amazon.com/batch/latest/userguide/job_queues.html) stores and prioritizes submitted jobs before they run on compute resources. You can submit SageMaker AI training jobs to a job queue in order to take advantage of the serverless job scheduling and prioritization tools provided by AWS Batch.
 

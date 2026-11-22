@@ -1,7 +1,6 @@
 
 
 # Configure request limits for your HyperPod inference model deployment
-<a name="sagemaker-hyperpod-model-deployment-request-limits"></a>
 
 You can configure request limiting on your Amazon SageMaker HyperPod inference model deployments to control the number of concurrent requests each pod accepts. When the limit is reached, excess requests receive a configurable HTTP error response, enabling fail-fast behavior and allowing the load balancer to redirect traffic to other pods.
 
@@ -18,7 +17,7 @@ Before configuring request limits, verify that:
 
 Add the `requestLimits` section under `worker` in your `InferenceEndpointConfig` YAML. The following example limits each pod to 10 concurrent requests with a queue of 5, returning HTTP 503 when limits are exceeded.
 
-```
+```yaml
 apiVersion: inference.sagemaker.aws.amazon.com/v1
 kind: InferenceEndpointConfig
 metadata:
@@ -84,7 +83,7 @@ When an inference request arrives at the nginx sidecar proxy:
 
 1. If the queue is full (or no queue is configured), the request is immediately rejected with the configured `overflowStatusCode` and a JSON error response:
 
-   ```
+   ```json
    {
      "error": "Too many concurrent requests",
      "max_concurrent": 10,
@@ -100,7 +99,7 @@ When an inference request arrives at the nginx sidecar proxy:
 
 To reject excess requests immediately without queuing:
 
-```
+```yaml
 requestLimits:
   maxConcurrentRequests: 5
   overflowStatusCode: 429
@@ -110,7 +109,7 @@ requestLimits:
 
 To allow a small queue before rejecting:
 
-```
+```yaml
 requestLimits:
   maxConcurrentRequests: 10
   maxQueueSize: 5

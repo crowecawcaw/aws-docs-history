@@ -1,7 +1,6 @@
 
 
 # Schedule model quality monitoring jobs
-<a name="model-monitor-model-quality-schedule"></a>
 
 **Note**  
 Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
@@ -32,7 +31,7 @@ The schedule cadence should be such that one execution finishes before the next 
 
 To schedule a model quality monitor for a real-time endpoint, pass your `EndpointInput` instance to the `endpoint_input` argument of your `ModelQualityMonitor` instance, as shown in the following code sample:
 
-```
+```py
 from sagemaker.model_monitor import CronExpressionGenerator
 from sagemaker.core.helper.session_helper import get_execution_role
                     
@@ -64,7 +63,7 @@ schedule = model_quality_model_monitor.create_monitoring_schedule(
 
 To schedule a model quality monitor for a batch transform job, pass your `BatchTransformInput` instance to the `batch_transform_input` argument of your `ModelQualityMonitor` instance, as shown in the following code sample:
 
-```
+```py
 from sagemaker.model_monitor import CronExpressionGenerator
 from sagemaker.core.helper.session_helper import get_execution_role
 

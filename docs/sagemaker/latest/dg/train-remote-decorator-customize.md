@@ -1,7 +1,6 @@
 
 
 # Customize your runtime environment
-<a name="train-remote-decorator-customize"></a>
 
 You can customize your runtime environment to use your preferred local integrated development environments (IDEs), SageMaker notebooks, or SageMaker Studio Classic notebooks to write your ML code. SageMaker AI will help package and submit your functions and its dependencies as a SageMaker training job. This allows you to access the capacity of the SageMaker training server to run your training jobs.
 

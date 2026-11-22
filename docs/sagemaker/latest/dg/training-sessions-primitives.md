@@ -1,7 +1,6 @@
 
 
 # Core operations
-<a name="training-sessions-primitives"></a>
 
 The training session APIs expose a set of first-class operations that you compose into a training loop. Each operation is an API call against your active session. The model remains loaded on GPUs between calls, and gradient state persists within a training step.
 

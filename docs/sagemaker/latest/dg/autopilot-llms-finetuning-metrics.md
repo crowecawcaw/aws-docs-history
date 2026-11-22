@@ -1,7 +1,6 @@
 
 
 # Metrics for fine-tuning large language models in Autopilot
-<a name="autopilot-llms-finetuning-metrics"></a>
 
 The following section describes the metrics that you can use to understand your fine-tuned large language models (LLMs). Using your dataset, Autopilot directly fine-tunes a target LLM to enhance a default objective metric, the cross-entropy loss.
 

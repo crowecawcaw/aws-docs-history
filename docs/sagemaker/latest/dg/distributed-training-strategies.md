@@ -1,7 +1,6 @@
 
 
 # Strategies for distributed training
-<a name="distributed-training-strategies"></a>
 
 Distributed training is usually split by two approaches: data parallel and model parallel. *Data parallel* is the most common approach to distributed training: You have a lot of data, batch it up, and send blocks of data to multiple CPUs or GPUs (nodes) to be processed by the neural network or ML algorithm, then combine the results. The neural network is the same on each node. A *model parallel* approach is used with large models that won’t fit in a node’s memory in one piece; it breaks up the model and places different parts on different nodes. In this situation, you need to send your batches of data out to each node so that the data is processed on all parts of the model. 
 

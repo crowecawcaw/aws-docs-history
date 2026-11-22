@@ -1,7 +1,6 @@
 
 
 # Setting up trusted identity propagation for Studio
-<a name="trustedidentitypropagation-setup"></a>
 
 Setting up trusted identity propagation for Amazon SageMaker Studio requires your Amazon SageMaker AI domain to have IAM Identity Center authentication method configured. This section guides you through the prerequisites and steps needed to enable and configure trusted identity propagation for your Studio users.
 
@@ -97,7 +96,7 @@ To enable trusted identity propagation for your Studio users, all trusted identi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

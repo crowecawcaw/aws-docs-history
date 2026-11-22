@@ -1,7 +1,6 @@
 
 
 # Evaluate your model's performance
-<a name="canvas-scoring"></a>
 
 Amazon SageMaker Canvas provides overview and scoring information for the different types of model. Your model’s score can help you determine how accurate your model is when it makes predictions. The additional scoring insights can help you quantify the differences between the actual and predicted values.
 

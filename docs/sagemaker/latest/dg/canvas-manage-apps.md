@@ -1,7 +1,6 @@
 
 
 # Applications management
-<a name="canvas-manage-apps"></a>
 
 The following sections describe how you can manage your SageMaker Canvas applications. You can view, delete, or relaunch your applications from the **Domains** section of the SageMaker AI console.
 

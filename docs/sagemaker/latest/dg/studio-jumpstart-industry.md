@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker JumpStart Industry: Financial
-<a name="studio-jumpstart-industry"></a>
 
 Use SageMaker JumpStart Industry: Financial solutions, models, and example notebooks to learn about SageMaker AI features and capabilities through curated one-step solutions and example notebooks of industry-focused machine learning (ML) problems. The notebooks also walk through how to use the SageMaker JumpStart Industry Python SDK to enhance industry text data and fine-tune pretrained models.
 

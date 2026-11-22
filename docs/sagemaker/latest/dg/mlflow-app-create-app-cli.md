@@ -1,7 +1,6 @@
 
 
 # Create an app using the AWS CLI
-<a name="mlflow-app-create-app-cli"></a>
 
 You can create an app using the AWS CLI for more granular security customization.
 
@@ -25,7 +24,7 @@ Follow these command line steps within a terminal to set up the AWS CLI for Amaz
 
 1. Verify that the AWS CLI is installed using the following command: 
 
-   ```
+   ```bash
    aws sagemaker help
    ```
 
@@ -46,7 +45,7 @@ Within your terminal, use the following commands to create a general purpose Ama
 **Important**  
 When you provide the Amazon S3 URI for your artifact store, ensure the Amazon S3 bucket is in the same AWS Region as your MLflow App. **Cross-region artifact storage is not supported**.
 
-```
+```bash
 bucket_name={{bucket-name}}
   region={{valid-region}}
   
@@ -58,7 +57,7 @@ bucket_name={{bucket-name}}
 
 The output should look similar to the following:
 
-```
+```bash
 {
       "Location": "/{{bucket-name}}"
   }
@@ -71,7 +70,7 @@ Use the following steps to create an IAM trust policy. For more information abou
 
 1. Within your terminal, use the following command to create a file called `mlflow-trust-policy.json`.
 
-   ```
+   ```bash
    cat <<EOF > /tmp/{{mlflow-trust-policy.json}}
      {
           "Version": "2012-10-17",		 	 	 
@@ -92,7 +91,7 @@ Use the following steps to create an IAM trust policy. For more information abou
 
 1. Within your terminal, use the following command to create a file called `custom-policy.json`.
 
-   ```
+   ```bash
    cat <<EOF > /tmp/custom-policy.json
      {
          "Version": "2012-10-17",		 	 	 
@@ -120,7 +119,7 @@ Use the following steps to create an IAM trust policy. For more information abou
 **Note**  
 If you are updating an existing role, use the following command instead: `aws iam update-assume-role-policy --role-name {{$role_name}} --policy-document {{file:///tmp/mlflow-trust-policy.json}}`.
 
-   ```
+   ```bash
    role_name={{role-name}}
      
      aws iam  create-role \
@@ -149,7 +148,7 @@ It may take up to 2-3 minutes to complete app creation. If the app takes over 3 
 
 By default, the app that is created is the latest version and will be automatically updated.
 
-```
+```bash
 app_name={{app-name}}
   region={{valid-region}}
   version={{valid-version}}        
@@ -165,7 +164,7 @@ app_name={{app-name}}
 
 The output should be similar to the following: 
 
-```
+```bash
 {
       "AppArn": "arn:aws:sagemaker:{{region}}:{{123456789012}}:mlflow-app/{{app-name}}"
   }

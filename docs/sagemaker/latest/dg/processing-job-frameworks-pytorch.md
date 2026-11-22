@@ -1,7 +1,6 @@
 
 
 # PyTorch Framework Processor
-<a name="processing-job-frameworks-pytorch"></a>
 
 PyTorch is an open-source machine learning framework. The `PyTorchProcessor` in the Amazon SageMaker Python SDK provides you with the ability to run processing jobs with PyTorch scripts. When you use the `PyTorchProcessor`, you can leverage an Amazon-built Docker container with a managed PyTorch environment so that you don't need to bring your own container.
 
@@ -9,7 +8,7 @@ The following code example shows how you can run your Processing job using a Doc
 
 For the PyTorch versions supported by SageMaker AI, see the available [ Deep Learning Container images](https://github.com/aws/deep-learning-containers/blob/master/available_images.md).
 
-```
+```python
 from sagemaker.core.resources import ProcessingJob
 from sagemaker.core.helper.session_helper import get_execution_role
 

@@ -1,7 +1,6 @@
 
 
 # SageMaker HyperPod FAQs
-<a name="sagemaker-hyperpod-faq-slurm"></a>
 
 Use the following frequently asked questions to troubleshoot problems with using SageMaker HyperPod.
 
@@ -13,6 +12,7 @@ Use the following frequently asked questions to troubleshoot problems with using
 + [How do I use local NVMe store of P instances for launching Docker or Enroot containers with Slurm?](#hyperpod-faqs-q5)
 + [How to set up EFA security groups?](#hyperpod-faqs-q6)
 + [How do I monitor my HyperPod cluster nodes? Are there any CloudWatch metrics exported from HyperPod?](#hyperpod-faqs-q7)
++ [How do I add a user to a running Slurm cluster?](#hyperpod-faqs-add-user)
 + [Can I add an additional storage to the HyperPod cluster nodes? The cluster instances have limited local instance store.](#hyperpod-faqs-q8)
 + [Why are my compute nodes showing as "DOWN" or "DRAINED" after a reboot?](#hyperpod-faqs-q9)
 + [Why do my nodes keep getting drained due to Out of Memory (OOM) issues?](#hyperpod-faqs-q10)
@@ -31,7 +31,7 @@ However, if you use custom paths for collecting logs from lifecycle provisioning
 
   1. Each HyperPod cluster instance contains a CloudWatch agent configuration file in JSON format at `/opt/aws/amazon-cloudwatch-agent/sagemaker_cwagent_config.json`. In the configuration file, find the field name `logs.logs_collected.files.collect_list.file_path`. With the default setup by HyperPod, the key-value pair should be `"file_path": "/var/log/provision/provisioning.log"` as documented at [Logging SageMaker HyperPod at instance level](sagemaker-hyperpod-cluster-management-slurm.md#sagemaker-hyperpod-cluster-management-slurm-logging-at-instance-level). The following code snippet shows how the JSON file looks with the HyperPod default configuration.
 
-     ```
+     ```json
      "logs": {
          "logs_collected": {
              "files": {
@@ -51,13 +51,13 @@ However, if you use custom paths for collecting logs from lifecycle provisioning
 
   1. Replace the value for the `"file_path"` field name with the custom path you use in your lifecycle scripts. For example, if you have set up your lifecycle scripts to write to `/var/log/custom-provision/custom-provisioning.log`, update the value to match with it as follows.
 
-     ```
+     ```json
      "file_path": "{{/var/log/custom-provision/custom-provisioning.log}}"
      ```
 
   1. Restart the CloudWatch agent with the configuration file to finish applying the custom path. For example, the following CloudWatch command shows how to restart the CloudWatch agent with the CloudWatch agent configuration file from step 1. For more information, see also [Troubleshooting the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/troubleshooting-CloudWatch-Agent.html).
 
-     ```
+     ```sh
      sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
          -a fetch-config -m ec2 -s -c \
          file:/opt/aws/amazon-cloudwatch-agent/sagemaker_cwagent_config.json
@@ -98,7 +98,7 @@ To disable cleanup at the systemd level, complete the following steps.
 
 1.  By default, Slurm doesn't clean up shared resources. We recommend that you set up a Slurm epilog script to clean up shared resources. This cleanup is useful when you have a lot of shared resources and want to clean them up after training jobs. The following is an example script.
 
-   ```
+   ```bash,sh,zsh
    #!/bin/bash
    : <<'SUMMARY'
    Script: epilog.sh
@@ -161,13 +161,13 @@ To disable cleanup at the systemd level, complete the following steps.
 
 1. In the `slurm.conf` file from the controller node, add in a line to point to the epilog script you created.
 
-   ```
+   ```bash,sh,zsh
    Epilog="/path/to/epilog.sh"  #For example: /fsx/epilogue/epilog.sh
    ```
 
 1. Run the following commands to change permissions of the script and to make it executable.
 
-   ```
+   ```bash,sh,zsh
    chown slurm:slurm /path/to/epilog.sh
    chmod +x  /path/to/epilog.sh
    ```
@@ -187,7 +187,12 @@ If you want to create a HyperPod cluster with EFA-enabled instances, make sure t
 ## How do I monitor my HyperPod cluster nodes? Are there any CloudWatch metrics exported from HyperPod?
 <a name="hyperpod-faqs-q7"></a>
 
-To gain observability into the resource utilization of your HyperPod cluster, we recommend that you integrate the HyperPod cluster with Amazon Managed Grafana and Amazon Managed Service for Prometheus. With various open-source Grafana dashboards and exporter packages, you can export and visualize metrics related to the HyperPod cluster resources. To learn more about setting up SageMaker HyperPod with Amazon Managed Grafana and Amazon Managed Service for Prometheus, see [SageMaker HyperPod cluster resources monitoring](sagemaker-hyperpod-cluster-observability-slurm.md). Note that SageMaker HyperPod currently doesn't support the exportation of system metrics to Amazon CloudWatch.
+To gain observability into the resource utilization of your HyperPod cluster, we recommend that you integrate the HyperPod cluster with Amazon Managed Grafana and Amazon Managed Service for Prometheus. With various open-source Grafana dashboards and exporter packages, you can export and visualize metrics related to the HyperPod cluster resources. To learn more about setting up SageMaker HyperPod with Amazon Managed Grafana and Amazon Managed Service for Prometheus, see [Observability for Amazon SageMaker HyperPod clusters orchestrated by Slurm](sagemaker-hyperpod-cluster-observability-slurm.md).
+
+## How do I add a user to a running Slurm cluster?
+<a name="hyperpod-faqs-add-user"></a>
+
+Use the user management extension. It creates the users and groups that you declare on every node, including nodes that you add later. For more information, see [User management extension](sagemaker-hyperpod-slurm-user-management-extension.md).
 
 ## Can I add an additional storage to the HyperPod cluster nodes? The cluster instances have limited local instance store.
 <a name="hyperpod-faqs-q8"></a>

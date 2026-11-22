@@ -1,7 +1,6 @@
 
 
 # Prepare data using EMR Serverless
-<a name="studio-notebooks-emr-serverless"></a>
 
 Beginning with [SageMaker distribution image](sagemaker-distribution.md) version `1.10`, Amazon SageMaker Studio integrates with EMR Serverless. Within JupyterLab notebooks in SageMaker Studio, data scientists and data engineers can discover and connect to EMR Serverless applications, then interactively explore, visualize, and prepare large-scale Apache Spark or Apache Hive workloads. This integration allows to perform interactive data preprocessing at scale in preparation for ML model training and deployment.
 

@@ -1,7 +1,6 @@
 
 
 # Describe a serverless endpoint
-<a name="serverless-endpoints-describe"></a>
 
 You might want to retrieve information about your endpoint, including details such as the endpoint’s ARN, current status, deployment configuration, and failure reasons. You can find information about your endpoint using the [SageMaker AI console](https://console.aws.amazon.com/sagemaker/home), the [DescribeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html) API, or the AWS CLI.
 
@@ -10,7 +9,7 @@ You might want to retrieve information about your endpoint, including details su
 
 The following example uses the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#id309) to call the [DescribeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html) API. For `EndpointName`, use the name of the endpoint you want to check.
 
-```
+```python
 response = client.describe_endpoint(
     EndpointName="{{<your-endpoint-name>}}",
 )

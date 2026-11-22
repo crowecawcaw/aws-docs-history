@@ -1,7 +1,6 @@
 
 
 # SageMaker training plans creation using the SageMaker AI console
-<a name="training-plan-creation-using-console"></a>
 
 SageMaker training plans offer a convenient way to create training plans through the SageMaker AI console UI, allowing users to easily schedule their machine learning training resources. This guide walks you through the process of creating a training plan for SageMaker training jobs and SageMaker HyperPod clusters using the SageMaker AI console. By following these steps, you will search for training plan offerings, review available options, and purchase the plan that best fits your needs.
 

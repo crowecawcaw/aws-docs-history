@@ -1,7 +1,6 @@
 
 
 # Schedule Pipeline Runs
-<a name="pipeline-eventbridge"></a>
 
 You can schedule your Amazon SageMaker Pipelines executions using [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html). Amazon SageMaker Pipelines is supported as a target in [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html). This allows you to initiate the execution of your model building pipeline based on any event in your event bus. With EventBridge, you can automate your pipeline executions and respond automatically to events such as training job or endpoint status changes. Events include a new file being uploaded to your Amazon S3 bucket, a change in status of your Amazon SageMaker AI endpoint due to drift, and *Amazon Simple Notification Service* (SNS) topics.
 
@@ -106,7 +105,7 @@ You need to have necessary permissions to use the pipeline scheduler. Complete t
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement":
@@ -149,7 +148,7 @@ You need to have necessary permissions to use the pipeline scheduler. Complete t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -174,7 +173,7 @@ You need to have necessary permissions to use the pipeline scheduler. Complete t
 
 Using the `PipelineSchedule` constructor, you can schedule a pipeline to run once or at a predetermined interval. A pipeline schedule must be of the type `at`, `rate`, or `cron`. This set of scheduling types is an extension of the [EventBridge scheduling options](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html). For more information about how to use the `PipelineSchedule` class, see [sagemaker.workflow.triggers.PipelineSchedule](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#pipeline-schedule). The following example demonstrates how to create each scheduling type with `PipelineSchedule`.
 
-```
+```py
 from sagemaker.workflow.triggers import PipelineSchedule
 
 # schedules a pipeline run for 12/13/2023 at time 10:15:20 UTC
@@ -206,7 +205,7 @@ To attach your `PipelineSchedule` to your pipeline, invoke the `put_triggers` ca
 
 The following example demonstrates how to attach a schedule to a pipeline.
 
-```
+```py
 scheduled_pipeline = Pipeline(
     name="{{<pipeline-name>}}",
     steps=[...],
@@ -224,7 +223,7 @@ scheduled_pipeline.put_triggers(triggers=[custom_schedule], role_arn={{<role>}})
 
 To retrieve information about your created pipeline triggers, you can invoke the `describe_trigger()` API with the trigger name. This command returns details about the created schedule expression such as its start time, enabled state, and other useful information. The following snippet shows a sample invocation:
 
-```
+```py
 scheduled_pipeline.describe_trigger(name="{{<schedule-name>}}")
 ```
 
@@ -233,7 +232,7 @@ scheduled_pipeline.describe_trigger(name="{{<schedule-name>}}")
 
 Before you delete your pipeline, clean up existing triggers to avoid a resource leak in your account. You should delete the triggers before destroying the parent pipeline. You can delete your triggers by passing a list of trigger names to the `delete_triggers` API. The following snippet demonstrates how to delete triggers.
 
-```
+```py
 pipeline.delete_triggers(trigger_names=["{{<schedule-name>}}"])
 ```
 

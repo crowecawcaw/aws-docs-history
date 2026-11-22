@@ -1,14 +1,13 @@
 
 
 # Input and output interface for the Object Detection - TensorFlow algorithm
-<a name="object-detection-tensorflow-inputoutput"></a>
 
 Each of the pretrained models listed in TensorFlow Models can be fine-tuned to any dataset with any number of image classes. Be mindful of how to format your training data for input to the Object Detection - TensorFlow model.
 + **Training data input format:** Your training data should be a directory with an `images` subdirectory and an `annotations.json` file. 
 
 The following is an example of an input directory structure. The input directory should be hosted in an Amazon S3 bucket with a path similar to the following: `s3://{{bucket_name}}/{{input_directory}}/`. Note that the trailing `/` is required.
 
-```
+```None
 input_directory
     |--images
         |--abc.png
@@ -37,7 +36,7 @@ You can host the fine-tuned model that results from your TensorFlow Object Detec
 
 Running inference results in bounding boxes, predicted classes, and the scores of each prediction encoded in JSON format. The Object Detection - TensorFlow model processes a single image per request and outputs only one line. The following is an example of a JSON format response:
 
-```
+```json
 accept: application/json;verbose
 
 {"normalized_boxes":[[{{xmin1}}, {{xmax1}}, {{ymin1}}, {{ymax1}}],....], 

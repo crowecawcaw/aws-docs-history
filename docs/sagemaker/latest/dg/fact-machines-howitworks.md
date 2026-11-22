@@ -1,7 +1,6 @@
 
 
 # How Factorization Machines Work
-<a name="fact-machines-howitworks"></a>
 
 The prediction task for a Factorization Machines model is to estimate a function ŷ from a feature set xi to a target domain. This domain is real-valued for regression and binary for classification. The Factorization Machines model is supervised and so has a training dataset (xi,yj) available. The advantages this model presents lie in the way it uses a factorized parametrization to capture the pairwise feature interactions. It can be represented mathematically as follows: 
 

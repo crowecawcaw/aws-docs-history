@@ -1,13 +1,12 @@
 
 
 # Specify a Custom Run Group Name
-<a name="pipelines-experiments-custom-trial"></a>
 
 In addition to setting a custom experiment name, you can also specify a custom name for the run groups created by SageMaker Experiments during pipeline executions. This name is appended with the pipeline execution ID to ensure uniqueness. You can specify a custom run group name to identify and analyze related pipeline runs within the same experiment. The following section shows how to define a pipeline with a custom run group name while using the default pipeline name for the experiment name.
 
 **Create a pipeline**
 
-```
+```py
 pipeline_name = f"MyPipeline"
 pipeline = Pipeline(
     name=pipeline_name,
@@ -22,7 +21,7 @@ pipeline = Pipeline(
 
 **Pipeline definition file**
 
-```
+```json
 {
   ...,
   "PipelineExperimentConfig": {

@@ -1,7 +1,6 @@
 
 
 # Feature Processor SDK data sources
-<a name="feature-store-feature-processor-data-sources-sdk"></a>
 
 The Amazon SageMaker Feature Store Feature Processor SDK for Python (Boto3) provides constructs to load data from feature groups or objects stored in Amazon S3. For a full list of Feature Store provided data source definitions, see the [Feature Processor data source Feature Store Python SDK](https://github.com/aws/sagemaker-python-sdk/blob/master/src/sagemaker/feature_store/feature_processor/_data_source.py). 
 

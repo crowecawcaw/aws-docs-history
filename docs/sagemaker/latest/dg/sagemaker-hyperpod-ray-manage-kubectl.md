@@ -1,7 +1,6 @@
 
 
 # Managing Ray workloads with kubectl
-<a name="sagemaker-hyperpod-ray-manage-kubectl"></a>
 
 Ray on HyperPod uses the upstream KubeRay custom resources without modification. If you already run Ray on Kubernetes, your existing manifests apply unchanged, and the Ray documentation is the reference for every field. This page covers what is specific to HyperPod.
 
@@ -28,7 +27,7 @@ If your principal is a SageMaker AI domain execution role, the HyperPod console 
 
 The following manifest creates a head pod and a GPU worker group on HyperPod nodes.
 
-```
+```yaml
 apiVersion: ray.io/v1
 kind: RayCluster
 metadata:
@@ -66,7 +65,7 @@ spec:
                 requests: { cpu: "4", memory: "16Gi", nvidia.com/gpu: "1" }
 ```
 
-```
+```bash
 kubectl apply -f my-cluster.yaml -n {{my-namespace}}
 kubectl get raycluster {{my-cluster}} -n {{my-namespace}}
 ```

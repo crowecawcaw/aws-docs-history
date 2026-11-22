@@ -1,7 +1,6 @@
 
 
 # Generative AI in SageMaker notebook environments
-<a name="jupyterai"></a>
 
 [Jupyter AI](https://github.com/jupyterlab/jupyter-ai) is an open-source extension of JupyterLab integrating generative AI capabilities into Jupyter notebooks. Through the Jupyter AI chat interface and magic commands, users experiment with code generated from natural language instructions, explain existing code, ask questions about their local files, generate entire notebooks, and more. The extension connects Jupyter notebooks with large language models (LLMs) that users can use to generate text, code, or images, and to ask questions about their own data. Jupyter AI supports generative model providers such as AI21, Anthropic, AWS (JumpStart and Amazon Bedrock), Cohere, and OpenAI.
 

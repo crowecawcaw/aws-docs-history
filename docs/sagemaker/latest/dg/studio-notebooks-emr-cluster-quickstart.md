@@ -1,7 +1,6 @@
 
 
 # Quickstart: Create a SageMaker AI sandbox domain to launch Amazon EMR clusters in Studio
-<a name="studio-notebooks-emr-cluster-quickstart"></a>
 
 This section walks you through the quick set up of a complete test environment in Amazon SageMaker Studio. You will be creating a new Studio domain that lets users launch new Amazon EMR clusters directly from Studio. The steps provide an example notebook that you can connect to an Amazon EMR cluster to start running Spark workloads. Using this notebook, you will build a Retrieval Augmented Generation System (RAG) using Amazon EMR Spark distributed processing and OpenSearch vector database.
 
@@ -141,7 +140,7 @@ The notebook deploys two models, `Llama 2` and `all-MiniLM-L6-v2 Models`, on `ml
 **Note**  
 Ensure that the connection string to your Amazon EMR cluster has an authentication type set to `None`. This is illustrated by the value `--auth-type None` in the following example. You can modify the field if necessary.  
 
-      ```
+      ```bash
       %load_ext sagemaker_studio_analytics_extension.magics
       %sm_analytics emr connect --verify-certificate False --cluster-id {{your-cluster-id}} --auth-type {{None}} --language python
       ```

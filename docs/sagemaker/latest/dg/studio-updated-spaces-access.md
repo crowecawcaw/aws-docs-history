@@ -1,7 +1,6 @@
 
 
 # Launch spaces
-<a name="studio-updated-spaces-access"></a>
 
 The following sections give information about accessing spaces in a domain. Spaces can be accessed in one of the following ways:
 + from the Amazon SageMaker AI console

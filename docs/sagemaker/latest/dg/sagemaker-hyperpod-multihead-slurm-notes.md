@@ -1,7 +1,6 @@
 
 
 # Considering important notes
-<a name="sagemaker-hyperpod-multihead-slurm-notes"></a>
 
 This section provides several important notes which you might find helpful. 
 

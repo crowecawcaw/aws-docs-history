@@ -1,7 +1,6 @@
 
 
 # Example notebooks
-<a name="train-remote-decorator-examples"></a>
 
 You can transform a training code in an existing workspace environment and any associated data processing code and datasets into a SageMaker training job. The following notebooks show you how to customize your environment, job settings, and more for an image classification problem, using the XGBoost algorithm and Hugging Face.
 

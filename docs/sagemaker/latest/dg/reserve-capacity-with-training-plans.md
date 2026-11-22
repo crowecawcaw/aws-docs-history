@@ -1,7 +1,6 @@
 
 
 # Reserve Flexible Training Plans for ML workloads
-<a name="reserve-capacity-with-training-plans"></a>
 
 Amazon SageMaker training plans is a capability that allows you to reserve and help maximize the use of GPU capacity for ML workloads. This feature provides access to highly sought-after instance types that cover a range of GPU-accelerated computing options, including the latest NVIDIA GPU technologies and AWS Trainium chips. With SageMaker training plans, you can secure predictable access to these high-demand, high-performance computational resources within your specified timelines and budgets, without the need to manage underlying infrastructure. This flexibility is particularly valuable for organizations dealing with the challenges of acquiring and scheduling these oversubscribed compute instances for their mission-critical AI workloads.
 
@@ -113,7 +112,7 @@ SageMaker training plans return up to three offerings of one or two segments. Fo
 **Important**  
 Training plan purchases are final and cannot be cancelled.
 Training plans cannot be modified to add or remove instances; they can only be extended to a new end date.
-Training plans cannot be shared across AWS accounts or within your AWS Organization.
+You can share a training plan only with other AWS accounts in your organization in AWS Organizations, by using AWS Resource Access Manager. For more information, see [Setting up cross-account sharing for SageMaker training plans](training-plan-resource-sharing-ram.md).
 + When searching for training plan offerings, SageMaker training plans adapts its search strategy based on the [target resources](#training-plans-target-resources):
 
   **For SageMaker HyperPod clusters**:

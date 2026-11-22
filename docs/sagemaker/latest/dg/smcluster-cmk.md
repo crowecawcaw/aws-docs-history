@@ -1,7 +1,6 @@
 
 
 # Customer managed AWS KMS key encryption for SageMaker HyperPod
-<a name="smcluster-cmk"></a>
 
 By default, the root Amazon EBS volume attached to your SageMaker HyperPod cluster is encrypted using an AWS KMS key owned by AWS. You now have the option to encrypt both the root Amazon EBS volume and the secondary volume with your own customer managed KMS keys. The following topic describes how customer managed keys (CMKs) work with volumes in HyperPod clusters.
 
@@ -28,7 +27,7 @@ Before you can use your customer managed key with HyperPod, you must complete th
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -52,7 +51,7 @@ Before you can use your customer managed key with HyperPod, you must complete th
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Id": "hyperpod-key-policy",

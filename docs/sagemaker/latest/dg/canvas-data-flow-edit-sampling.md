@@ -1,7 +1,6 @@
 
 
 # Edit the data flow sampling configuration
-<a name="canvas-data-flow-edit-sampling"></a>
 
 When importing tabular data into a Data Wrangler data flow, you can opt to take a sample of your dataset to speed up the data exploration and cleaning process. Running exploratory transforms on a sample of your dataset is often faster than running transforms on your entire dataset, and when you're ready to export your dataset and build a model, you can apply the transforms to the full dataset.
 

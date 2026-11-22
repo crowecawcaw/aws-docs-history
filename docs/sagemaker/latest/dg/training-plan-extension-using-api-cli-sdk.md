@@ -1,7 +1,6 @@
 
 
 # Extend a training plan using the SageMaker API or AWS CLI
-<a name="training-plan-extension-using-api-cli-sdk"></a>
 
 SageMaker training plans support extending training plans programmatically through its API. You can interact with the training plans API using the AWS CLI or SageMaker SDKs.
 

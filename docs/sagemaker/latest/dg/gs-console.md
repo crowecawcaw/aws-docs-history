@@ -1,7 +1,6 @@
 
 
 # Tutorial for building models with Notebook Instances
-<a name="gs-console"></a>
 
 This Get Started tutorial walks you through how to create a SageMaker notebook instance, open a Jupyter notebook with a preconfigured kernel with the Conda environment for machine learning, and start a SageMaker AI session to run an end-to-end ML cycle. You'll learn how to save a dataset to a default Amazon S3 bucket automatically paired with the SageMaker AI session, submit a training job of an ML model to Amazon EC2, and deploy the trained model for prediction by hosting or batch inferencing through Amazon EC2. 
 

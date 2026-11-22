@@ -1,7 +1,6 @@
 
 
 # Deploy a Model
-<a name="neo-deployment-hosting-services"></a>
 
 To deploy an Amazon SageMaker Neo-compiled model to an HTTPS endpoint, you must configure and create the endpoint for the model using Amazon SageMaker AI hosting services. Currently, developers can use Amazon SageMaker APIs to deploy modules on to ml.c5, ml.c4, ml.m5, ml.m4, ml.p3, ml.p2, and ml.inf1 instances. 
 

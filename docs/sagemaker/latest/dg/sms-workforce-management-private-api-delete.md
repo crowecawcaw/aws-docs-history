@@ -1,7 +1,6 @@
 
 
 # Delete a private workforce
-<a name="sms-workforce-management-private-api-delete"></a>
 
 You can only have one private workforce in each AWS Region. You may want to delete your private workforce in an AWS Region when:
 + You want to create a workforce using a new Amazon Cognito user pool. 

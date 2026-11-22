@@ -1,7 +1,6 @@
 
 
 # Create AWS Glue connections (for administrators)
-<a name="sagemaker-sql-extension-datasources-glue-connection"></a>
 
 To use data sources with the SQL extension, administrators can set up AWS Glue connections for each data source. These connections store the necessary configuration details to access and interact with the data sources. Once the connections are created, and the [appropriate permissions](sagemaker-sql-extension-datasources-connection-permissions.md) are granted, the connections become visible to all users of the [Amazon SageMaker Studio spaces](studio-updated-spaces.md) that share the same execution role.
 
@@ -26,7 +25,7 @@ The connection definition file should follow the following general format:
 + **ConnectionType** is the type of connection. Choose `REDSHIFT`, `ATHENA`, or `SNOWFLAKE`.
 + **ConnectionProperties** is a map of key-value pairs for the connection properties, such as the ARN of your AWS secret, or the name of your database.
 
-```
+```JSON
 {
     "ConnectionInput": {
         "Name": <GLUE_CONNECTION_NAME>,
@@ -79,7 +78,7 @@ This section provides details on the secret and connection properties in JSON de
 #### Configure an AWS Glue connection for Amazon Redshift
 <a name="sagemaker-sql-extension-redshift-glue-connection-creation"></a>
 
-The SQL extension connects to data sources using custom AWS Glue connections. For general information on creating AWS Glue connections to connect a data source, see [Create AWS Glue connections (for administrators)](#sagemaker-sql-extension-datasources-glue-connection). The following example is a sample AWS Glue connection definition for connecting to Amazon Redshift.
+The SQL extension connects to data sources using custom AWS Glue connections. For general information on creating AWS Glue connections to connect a data source, see [Create AWS Glue connections (for administrators)](sagemaker-sql-extension-datasources-glue-connection.md). The following example is a sample AWS Glue connection definition for connecting to Amazon Redshift.
 
 Before creating a new connection, keep these recommendations in mind:
 + The properties within the `PythonProperties` key consist of stringified key-value pairs. Escape any double quotes used in the keys or values with a backslash (`\`) character.
@@ -90,7 +89,7 @@ Before creating a new connection, keep these recommendations in mind:
 By default, the SQL extension connector for Python runs all queries in a transaction, unless the `auto_commit` in connection properties is set to `true`. 
 You can add all connection parameters, including the `database` name, to a secret.
 
-```
+```JSON
 {
   "ConnectionInput": {
       "Name": "{{Redshift connection name}}",
@@ -113,7 +112,7 @@ This section provides details on the connection properties in JSON definition fi
 #### Configure an AWS Glue connection for Athena
 <a name="sagemaker-sql-extension-athena-glue-connection-creation"></a>
 
-The SQL extension connects to data sources using custom AWS Glue connections. For general information on creating AWS Glue connections to connect a data source, see [Create AWS Glue connections (for administrators)](#sagemaker-sql-extension-datasources-glue-connection). The following example is a sample AWS Glue connection definition for connecting to Athena.
+The SQL extension connects to data sources using custom AWS Glue connections. For general information on creating AWS Glue connections to connect a data source, see [Create AWS Glue connections (for administrators)](sagemaker-sql-extension-datasources-glue-connection.md). The following example is a sample AWS Glue connection definition for connecting to Athena.
 
 Before creating a new connection, keep these recommendations in mind:
 + The properties within the `ConnectionProperties` key consist of stringified key-value pairs. Escape any double quotes used in the keys or values with a backslash (`\`) character. 
@@ -123,7 +122,7 @@ Before creating a new connection, keep these recommendations in mind:
 You can add all connection parameters, including the `catalog_name` or `s3_staging_dir`, to a secret.
 If you specify a `workgroup`, you don't need to specify `s3_staging_dir`.
 
-```
+```JSON
 {
     "ConnectionInput": {
         "Name": "{{Athena connection name}}",
@@ -156,7 +155,7 @@ This section provides details on the secret and connection properties in JSON de
 
 1. In the key-value pair, choose **Plaintext**, and then copy the following JSON content. Replace the `user`, `password`, and `account` by their values.
 
-   ```
+   ```JSON
    {
        "user":"{{snowflake_user}}",
        "password":"{{snowflake_password}}",
@@ -173,7 +172,7 @@ This section provides details on the secret and connection properties in JSON de
 #### Configure an AWS Glue connection for Snowflake
 <a name="sagemaker-sql-extension-snowflake-glue-connection-creation"></a>
 
-The SQL extension connects to data sources using custom AWS Glue connections. For general information on creating AWS Glue connections to connect a data source, see [Create AWS Glue connections (for administrators)](#sagemaker-sql-extension-datasources-glue-connection). The following example is a sample AWS Glue connection definition for connecting to Snowflake.
+The SQL extension connects to data sources using custom AWS Glue connections. For general information on creating AWS Glue connections to connect a data source, see [Create AWS Glue connections (for administrators)](sagemaker-sql-extension-datasources-glue-connection.md). The following example is a sample AWS Glue connection definition for connecting to Snowflake.
 
 Before creating a new connection, keep these recommendations in mind:
 + The properties within the `ConnectionProperties` key consist of stringified key-value pairs. Escape any double quotes used in the keys or values with a backslash (`\`) character. 
@@ -182,7 +181,7 @@ Before creating a new connection, keep these recommendations in mind:
 **Note**  
 You can add all connection parameters, including the `account`, to a secret.
 
-```
+```JSON
 {
     "ConnectionInput": {
         "Name": "{{Snowflake connection name}}",
@@ -205,13 +204,13 @@ To create an AWS Glue connection through the AWS CLI, use your connection defini
 **Note**  
 The path to your configuration definition file must be preceded by `file://`.
 
-```
+```bash
 aws --region {{region}} glue create-connection --cli-input-json file://{{path_to_file/sagemaker-sql-connection.json}}
 ```
 
 Verify that the AWS Glue connection was created by running the following command and check for your connection name.
 
-```
+```bash
 aws --region {{region}} glue get-connections
 ```
 
@@ -219,6 +218,6 @@ Alternatively, you can update an existing AWS Glue connection as follows:
 + Modify the AWS Glue connection definition file as required.
 + Run the following command to update the connection.
 
-  ```
+  ```bash
   aws --region {{region}} glue update-connection --name {{glue_connection_name}} --cli-input-json file://{{path_to_file/sagemaker-sql-connection.json}}
   ```

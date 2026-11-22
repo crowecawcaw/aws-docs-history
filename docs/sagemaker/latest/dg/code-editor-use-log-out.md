@@ -1,7 +1,6 @@
 
 
 # Shut down Code Editor resources
-<a name="code-editor-use-log-out"></a>
 
 When you're finished using a Code Editor space, you can use Studio to stop it. That way, you stop incurring costs for the space. 
 

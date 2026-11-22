@@ -1,7 +1,6 @@
 
 
 # Inference Pipeline Logs and Metrics
-<a name="inference-pipeline-logs-metrics"></a>
 
 Monitoring is important for maintaining the reliability, availability, and performance of Amazon SageMaker AI resources. To monitor and troubleshoot inference pipeline performance, use Amazon CloudWatch logs and error messages. For information about the monitoring tools that SageMaker AI provides, see [Monitoring AWS resources in Amazon SageMaker AI](monitoring-overview.md).
 

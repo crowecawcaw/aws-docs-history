@@ -1,7 +1,6 @@
 
 
 # Visualize Amazon SageMaker Debugger output tensors in TensorBoard
-<a name="debugger-enable-tensorboard-summaries"></a>
 
 **Note**  
 Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
@@ -22,7 +21,7 @@ The following procedure explains how to save scalars, weights, and biases as ful
 
 1. Set up a `tensorboard_output_config` configuration object to save TensorBoard output using the Debugger `TensorBoardOutputConfig` class. For the `s3_output_path` parameter, specify the default S3 bucket of the current SageMaker AI session or a preferred S3 bucket. This example does not add the `container_local_output_path` parameter; instead, it is set to the default local path `/opt/ml/output/tensors`.
 
-   ```
+   ```py
    from sagemaker.core.debugger import TensorBoardOutputConfig
    from sagemaker.core.helper.session_helper import Session
    
@@ -36,7 +35,7 @@ The following procedure explains how to save scalars, weights, and biases as ful
 
 1. Configure the Debugger hook and customize the hook parameter values. For example, the following code configures a Debugger hook to save all scalar outputs every 100 steps in training phases and 10 steps in validation phases, the `weights` parameters every 500 steps (the default `save_interval` value for saving tensor collections is 500), and the `bias` parameters every 10 global steps until the global step reaches 500.
 
-   ```
+   ```py
    from sagemaker.debugger import CollectionConfig, DebuggerHookConfig
    
    hook_config = DebuggerHookConfig(
@@ -62,7 +61,7 @@ The following procedure explains how to save scalars, weights, and biases as ful
 
 1. Construct a SageMaker AI ModelTrainer with the Debugger parameters passing the configuration objects. The following example template shows how to create a generic SageMaker AI ModelTrainer. Available ModelTrainer frameworks for this functionality are `[TensorFlow](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html)`, `[PyTorch](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html)`, and `[MXNet](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html)`.
 
-   ```
+   ```py
    from sagemaker.train import ModelTrainer
    
    model_trainer = ModelTrainer(
@@ -80,7 +79,7 @@ The following procedure explains how to save scalars, weights, and biases as ful
 
 1. After the training has completed, check the names of saved output tensors:
 
-   ```
+   ```py
    from smdebug.trials import create_trial
    trial = create_trial(model_trainer.latest_job_debugger_artifacts_path())
    trial.tensor_names()
@@ -88,7 +87,7 @@ The following procedure explains how to save scalars, weights, and biases as ful
 
 1. Check the TensorBoard output data in Amazon S3:
 
-   ```
+   ```py
    tensorboard_output_path=model_trainer.latest_job_tensorboard_artifacts_path()
    print(tensorboard_output_path)
    !aws s3 ls {tensorboard_output_path}/
@@ -96,19 +95,19 @@ The following procedure explains how to save scalars, weights, and biases as ful
 
 1. Download the TensorBoard output data to your notebook instance. For example, the following AWS CLI command downloads the TensorBoard files to `/logs/fit` under the current working directory of your notebook instance.
 
-   ```
+   ```py
    !aws s3 cp --recursive {tensorboard_output_path} {{./logs/fit}}
    ```
 
 1. Compress the file directory to a TAR file to download to your local machine.
 
-   ```
+   ```bash
    !tar -cf logs.tar logs
    ```
 
 1. Download and extract the Tensorboard TAR file to a directory on your device, launch a Jupyter notebook server, open a new notebook, and run the TensorBoard app.
 
-   ```
+   ```bash
    !tar -xf logs.tar
    %load_ext tensorboard
    %tensorboard --logdir logs/fit

@@ -1,7 +1,6 @@
 
 
 # Example notebooks
-<a name="jumpstart-foundation-models-example-notebooks"></a>
 
 For step-by-step examples on how to use publicly available JumpStart foundation models with the SageMaker Python SDK, refer to the following notebooks on text generation, image generation, and model customization.
 

@@ -1,7 +1,6 @@
 
 
 # Set up SageMaker Assets (administrator guide)
-<a name="sm-assets-set-up"></a>
 
 **Important**  
 SageMaker Assets is only available in Amazon SageMaker Studio. If you're using Amazon SageMaker Studio Classic, you must migrate to Studio. For more information about Studio and Studio Classic, see [Machine learning environments offered by Amazon SageMaker AI](machine-learning-environments.md). For information about migrating, see [Migration from Amazon SageMaker Studio Classic](studio-updated-migrate.md).
@@ -61,7 +60,7 @@ If your SageMaker AI users are SSO and your Amazon DataZone domain is SSO, you c
 
 To onboard existing SageMaker AI users, run the [Amazon DataZone Import SageMaker AI Domain](https://github.com/aws/amazon-sagemaker-examples/tree/default/%20%20%20ml_ops/sm-datazone_import) script in your environment. You must pass the name of your AWS Region and the AWS account ID of your Amazon SageMaker AI domain as arguments. The following is an example AWS CLI command that runs the script.
 
-```
+```bash
 python {{example-script}} {{AWS Region}} {{111122223333}}                    
 ```
 

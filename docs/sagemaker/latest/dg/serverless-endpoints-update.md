@@ -1,7 +1,6 @@
 
 
 # Update a serverless endpoint
-<a name="serverless-endpoints-update"></a>
 
 Before updating your endpoint, create a new endpoint configuration or use an existing endpoint configuration. The endpoint configuration is where you specify the changes for your update. Then, you can update your endpoint with the [SageMaker AI console](https://console.aws.amazon.com/sagemaker/home), the [UpdateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html) API, or the AWS CLI. The process for updating a serverless endpoint is the same as the process for updating a [real-time endpoint](realtime-endpoints.md). Note that when updating your endpoint, you can experience cold starts when making requests to the endpoint because SageMaker AI must re-initialize your container and model.
 
@@ -24,7 +23,7 @@ The following example uses the [AWS SDK for Python (Boto3)](https://boto3.amazon
 + For `EndpointName`, use the name of the endpoint you’re updating.
 + For `EndpointConfigName`, use the name of the endpoint configuration that you want to use for the update.
 
-```
+```python
 response = client.update_endpoint(
     EndpointName="{{<your-endpoint-name>}}",
     EndpointConfigName="{{<new-endpoint-config>}}",

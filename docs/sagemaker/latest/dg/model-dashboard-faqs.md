@@ -1,7 +1,6 @@
 
 
 # Model Dashboard FAQ
-<a name="model-dashboard-faqs"></a>
 
 Refer to the following FAQ topics for answers to commonly asked questions about Amazon SageMaker Model Dashboard.
 

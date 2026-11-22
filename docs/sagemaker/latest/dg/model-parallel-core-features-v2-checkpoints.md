@@ -1,7 +1,6 @@
 
 
 # Checkpointing using SMP
-<a name="model-parallel-core-features-v2-checkpoints"></a>
 
 The SageMaker model parallelism (SMP) library supports PyTorch APIs for checkpoints, and provides APIs that help checkpoint properly while using the SMP library. 
 
@@ -15,7 +14,7 @@ When training machine learning models, there is no need for subsequent iteration
 **Note**  
 Maintaining consistency in the FSDP `SHARD_DEGREE` is a requirement for utilizing the `SMStateDictType.SM_LOCAL_STATE_DICT`. Ensure that the `SHARD_DEGREE` remains unchanged. While the number of model replications can vary, the model shard degree needs to be identical to the previous training setup when resuming from a checkpoint.
 
-```
+```py
 import os
 import torch.distributed as dist
 import torch.sagemaker as tsm
@@ -69,7 +68,7 @@ async_save(
 
 The following code snippet demonstrates how to load a checkpoint utilizing `SMStateDictType.SM_LOCAL_STATE_DICT`.
 
-```
+```py
 import os
 import torch.sagemaker as tsm
 from torch.sagemaker import state
@@ -122,7 +121,7 @@ load(
 
 Storing checkpoints for large language models (LLMs) can be expensive as it often requires creating a large filesystem volume. To reduce costs, you have the option to save checkpoints directly to Amazon S3 without the need for additional filesystem services such as Amazon FSx. You can leverage the previous example with the following code snippet to save checkpoints to S3 by specifying an S3 URL as the destination. 
 
-```
+```py
 key = os.path.join(checkpoint_dir, sub_dir)
 checkpoint_id= f"{{s3://{your_s3_bucket}/{key}}}"
 async_save(state_dict, checkpoint_id=checkpoint_id, **kw)
@@ -134,7 +133,7 @@ load(state_dict, checkpoint_id=checkpoint_id, **kw)
 
 There may be situations where you need to continue training with different hardware configurations, such as changing the number of GPUs. In these cases, your training processes must load checkpoints while resharding, which means resuming subsequent training with a different number of `SHARD_DEGREE`. In order to address the scenario where you need to resume training with a different number of `SHARD_DEGREE`, you must save your model checkpoints using the sharded state dictionary type, which is represented by `StateDictType.SHARDED_STATE_DICT`. Saving checkpoints in this format allows you to properly handle the resharding process when continuing the training with a modified hardware configuration. The provided code snippet illustrates how to use the `tsm` API to asynchronously save sharded checkpoints, enabling a more efficient and streamlined training process.
 
-```
+```py
 import os
 import torch.sagemaker as tsm
 from torch.sagemaker import state
@@ -179,7 +178,7 @@ if action_rank:
 
 The process of loading shared checkpoints is similar to the previous section, but it involves using the `torch.sagemaker.distributed.checkpoint.filesystem.DistributedFileSystemReader` and its `load` method. The `load` method of this class allows you to load the shared checkpoint data, following a process analogous to the one described earlier.
 
-```
+```py
 import os
 from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
 from torch.distributed.fsdp import StateDictType
@@ -235,7 +234,7 @@ Note that if you use the SMP [Tensor parallelism](model-parallel-core-features-v
 
 In cases where you train with the SMP tensor parallelism and turn off the SMP translation process, you can use the `translate_on_save` argument of the PyTorch `FullStateDictConfig` API to switch the SMP auto-translation on or off as needed. For example, if you are focusing on training a model, you don’t need to add the translation process which adds overhead. In that case, we recommend you to set `translate_on_save=False`. Also, if you plan to keep using the SMP translation of the model for further training in future, you can switch it off to save the SMP translation of the model for later use. Translating the model back to the Hugging Face Transformers model checkpoint format is needed when you wrap up the training of your model and use that for inference.
 
-```
+```py
 from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
 from torch.distributed.fsdp import FullStateDictConfig
 import torch.sagemaker as tsm
@@ -265,7 +264,7 @@ Note that the option `FullStateDictConfig(rank0_only=True, offload_to_cpu=True)`
 
 To load the model back for inference, you do so as shown in the following code example. Note that the class `AutoModelForCausalLM` might change to other factor builder classes in Hugging Face Transformers, such as `AutoModelForSeq2SeqLM`, depending on your model. For more information, see [Hugging Face Transformers documentation](https://huggingface.co/docs/transformers/v4.36.1/en/model_doc/auto#natural-language-processing).
 
-```
+```py
 from transformers import AutoModelForCausalLM
 model = AutoModelForCausalLM.from_pretrained({{save_dir}})
 ```

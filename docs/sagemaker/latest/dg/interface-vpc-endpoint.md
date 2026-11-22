@@ -1,7 +1,6 @@
 
 
 # Connect to SageMaker AI Within your VPC
-<a name="interface-vpc-endpoint"></a>
 
 You can connect directly to the SageMaker API or to Amazon SageMaker Runtime through an [interface endpoint](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-interface.html) in your virtual private cloud (VPC) instead of connecting over the internet. When you use a VPC interface endpoint, communication between your VPC and the SageMaker AI API or Runtime is conducted entirely and securely within an AWS network. 
 
@@ -19,7 +18,7 @@ You can create an AWS PrivateLink interface endpoint to connect to SageMaker AI 
 
 If you haven't enabled a private Domain Name System (DNS) hostname for your VPC endpoint, *after you have created a VPC endpoint*, specify the internet endpoint URL to the SageMaker API or SageMaker AI Runtime. Example code using AWS CLI commands to specify the `endpoint-url` parameter follows.
 
-```
+```bash
 aws sagemaker list-notebook-instances --endpoint-url {{VPC_Endpoint_ID}}.api.sagemaker.{{Region}}.vpce.amazonaws.com
 
 aws sagemaker list-training-jobs --endpoint-url {{VPC_Endpoint_ID.api}}.sagemaker.{{Region}}.vpce.amazonaws.com
@@ -79,7 +78,7 @@ VPC endpoint policies aren't supported for Federal Information Processing Standa
 
 The following example VPC endpoint policy specifies that all users who have access to the VPC interface endpoint are allowed to invoke the SageMaker AI hosted endpoint named `myEndpoint`.
 
-```
+```json
 {
   "Statement": [
       {

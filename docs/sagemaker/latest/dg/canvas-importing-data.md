@@ -1,7 +1,6 @@
 
 
 # Data import
-<a name="canvas-importing-data"></a>
 
 Amazon SageMaker Canvas supports importing tabular, image, and document data. You can import datasets from your local machine, Amazon services such as Amazon S3 and Amazon Redshift, and external data sources. When importing datasets from Amazon S3, you can bring a dataset of any size. Use the datasets that you import to build models and make predictions for other datasets.
 

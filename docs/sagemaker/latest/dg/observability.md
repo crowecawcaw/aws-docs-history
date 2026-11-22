@@ -1,7 +1,6 @@
 
 
 # Observability
-<a name="observability"></a>
 
 ## Standard Kubernetes Monitoring
 <a name="observability-monitor"></a>

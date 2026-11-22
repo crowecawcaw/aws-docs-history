@@ -1,7 +1,6 @@
 
 
 # Setting up GPU partitions on Amazon SageMaker HyperPod
-<a name="sagemaker-hyperpod-eks-gpu-partitioning-setup"></a>
 
 **Topics**
 + [Prerequisites](#sagemaker-hyperpod-eks-gpu-partitioning-setup-prerequisites)
@@ -54,7 +53,7 @@ aws sagemaker create-cluster \
 ### Using CloudFormation
 <a name="sagemaker-hyperpod-eks-gpu-partitioning-setup-create-cluster-cfn"></a>
 
-```
+```json
 {
   "ClusterName": "my-mig-cluster",
   "InstanceGroups": [
@@ -87,7 +86,7 @@ aws sagemaker create-cluster \
 
 Replace `{$AWS_REGION}` with your cluster region (e.g., us-east-1, us-west-2).
 
-```
+```bash
 helm install gpuo helm_chart/HyperPodHelmChart/charts/gpu-operator \
 -f helm_chart/HyperPodHelmChart/charts/gpu-operator/regional-values/values-{$AWS_REGION}.yaml \
 -n kube-system
@@ -98,7 +97,7 @@ helm install gpuo helm_chart/HyperPodHelmChart/charts/gpu-operator \
 
 Check all GPU operator pods are running:
 
-```
+```bash
 kubectl get pods -n kube-system | grep -E "(gpu-operator|nvidia-)"
 ```
 
@@ -112,7 +111,7 @@ kubectl get pods -n kube-system | grep -E "(gpu-operator|nvidia-)"
 
 Disable the existing nvidia-device-plugin:
 
-```
+```bash
 helm upgrade dependencies helm_chart/HyperPodHelmChart \
 --set nvidia-device-plugin.devicePlugin.enabled=false \
 -n kube-system
@@ -123,7 +122,7 @@ helm upgrade dependencies helm_chart/HyperPodHelmChart \
 
 Confirm nodes show GPU capacity. It should display: nvidia.com/gpu: 8 (or your actual GPU count).
 
-```
+```bash
 kubectl describe nodes | grep "nvidia.com/gpu"
 ```
 
@@ -138,7 +137,7 @@ Before updating MIG configurations on your instance group, you must prepare the 
 
 First, identify all nodes that belong to the instance group you want to update:
 
-```
+```bash
 # List all nodes in the instance group
 kubectl get nodes -l sagemaker.amazonaws.com/instance-group-name={{INSTANCE_GROUP_NAME}}
 
@@ -158,7 +157,7 @@ For each node identified in Step 1, perform the following actions:
 
 Cordoning prevents new pods from being scheduled on the node:
 
-```
+```bash
 # Cordon a single node
 kubectl cordon {{NODE_NAME}}
 
@@ -171,7 +170,7 @@ kubectl cordon hyperpod-i-014a41a7001adca60
 
 Drain the node to evict all workload pods while preserving system pods:
 
-```
+```bash
 # Drain the node (ignore DaemonSets and evict pods)
 kubectl drain {{NODE_NAME}} \
   --ignore-daemonsets \
@@ -203,7 +202,7 @@ DaemonSet pods will remain on the node (they are ignored by design)
 
 After draining, verify that no workload pods remain on the nodes (excluding system namespaces):
 
-```
+```bash
 # Check for any remaining pods outside system namespaces
 kubectl get pods --all-namespaces --field-selector spec.nodeName={{NODE_NAME}} \
   | grep -v "kube-system" \
@@ -242,7 +241,7 @@ kubectl get pods --all-namespaces --field-selector spec.nodeName=hyperpod-i-014a
 
 Before proceeding with the MIG update, confirm that all nodes are cordoned:
 
-```
+```bash
 # Check node status - should show "SchedulingDisabled"
 kubectl get nodes -l sagemaker.amazonaws.com/instance-group-name={{INSTANCE_GROUP_NAME}}
 ```
@@ -278,7 +277,7 @@ If jobs are already running on a node, the MIG partitioning will fail. User will
 
 After cluster creation or update, verify the MIG configuration:
 
-```
+```bash
 # Update kubeconfig
 aws eks update-kubeconfig --name {{your-eks-cluster}} --region {{us-east-2}}
 
@@ -294,7 +293,7 @@ kubectl describe node {{NODE_NAME}} | grep -A 10 "Allocatable:"
 
 Use the following commands to troubleshoot and validate MIG configuration in your cluster:
 
-```
+```bash
 # Check GPU Operator status
 kubectl get pods -n gpu-operator-resources
 

@@ -1,7 +1,6 @@
 
 
 # Update the Details of a Model Version
-<a name="model-registry-details"></a>
 
 You can view and update details of a specific model version by using either the AWS SDK for Python (Boto3) or the Amazon SageMaker Studio console.
 
@@ -15,13 +14,13 @@ To view the details of a model version by using Boto3, complete the following st
 
 1. Call the `list_model_packages` API operation to view the model versions in a Model Group.
 
-   ```
+   ```python
    sm_client.list_model_packages(ModelPackageGroupName="ModelGroup1")
    ```
 
    The response is a list of model package summaries. You can get the Amazon Resource Name (ARN) of the model versions from this list.
 
-   ```
+   ```java
    {'ModelPackageSummaryList': [{'ModelPackageGroupName': 'AbaloneMPG-16039329888329896',
       'ModelPackageVersion': 1,
       'ModelPackageArn': 'arn:aws:sagemaker:us-east-2:123456789012:model-package/ModelGroup1/1',
@@ -40,13 +39,13 @@ To view the details of a model version by using Boto3, complete the following st
 
 1. Call `describe_model_package` to see the details of the model version. You pass in the ARN of a model version that you got in the output of the call to `list_model_packages`.
 
-   ```
+   ```python
    sm_client.describe_model_package(ModelPackageName="arn:aws:sagemaker:us-east-2:123456789012:model-package/ModelGroup1/1")
    ```
 
    The output of this call is a JSON object with the model version details.
 
-   ```
+   ```python
    {'ModelPackageGroupName': 'ModelGroup1',
     'ModelPackageVersion': 1,
     'ModelPackageArn': 'arn:aws:sagemaker:us-east-2:123456789012:model-package/ModelGroup/1',
@@ -82,7 +81,7 @@ All details related to the model version are encapsulated in the model packageâ€
 #### Model package model card schema
 <a name="collapsible-section-model-package-model-card-schema"></a>
 
-```
+```json
 {
   "title": "SageMakerModelCardSchema",
   "description": "Schema of a model packageâ€™s model card.",

@@ -1,7 +1,6 @@
 
 
 # Update a dataset
-<a name="canvas-update-dataset"></a>
 
 After importing your initial dataset into Amazon SageMaker Canvas, you might have additional data that you want to add to your dataset. For example, you might get inventory data at the end of every week that you want to add to your dataset. Instead of importing your data multiple times, you can update your existing dataset and add or remove files from it.
 

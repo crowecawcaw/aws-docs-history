@@ -1,7 +1,6 @@
 
 
 # AWS Managed Policies for Model Registry
-<a name="security-iam-awsmanpol-model-registry"></a>
 
 These AWS managed policies adds permissions required to use Model Registry. The policies are available in your AWS account and are used by execution roles created from the Amazon SageMaker AI console.
 
@@ -27,7 +26,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

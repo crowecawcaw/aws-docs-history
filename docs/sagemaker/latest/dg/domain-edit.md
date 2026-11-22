@@ -1,7 +1,6 @@
 
 
 # Edit domain settings
-<a name="domain-edit"></a>
 
 You can edit the settings of a domain from the SageMaker AI console or the AWS CLI. The following considerations apply when updating the settings of a domain.
 + If `DefaultUserSettings` and `DefaultSpaceSettings` are set, they cannot be unset.
@@ -19,9 +18,9 @@ You can edit the settings of a domain from the SageMaker AI console or the AWS C
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/).
 
-1. On the left navigation pane, choose **Admin configurations**.
+1. On the left navigation pane, choose **Environment configuration**.
 
-1. Under **Admin configurations**, choose **domains**. 
+1. Under **Environment configuration**, choose **domains**. 
 
 1.  From the list of domains, select the domain for which you want to open the **domain settings** page. 
 

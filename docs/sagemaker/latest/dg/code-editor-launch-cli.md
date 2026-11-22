@@ -1,7 +1,6 @@
 
 
 # Launch a Code Editor application using the AWS CLI
-<a name="code-editor-launch-cli"></a>
 
 To configure and access your Code Editor integrated development environment through the AWS Command Line Interface (AWS CLI), you must create a Code Editor space. Be sure to meet the [Complete prerequisites](code-editor-admin-prerequisites.md) before going through the following steps. Use the following procedure to create and run a Code Editor space.
 

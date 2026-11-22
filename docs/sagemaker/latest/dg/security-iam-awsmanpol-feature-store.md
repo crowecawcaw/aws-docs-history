@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon SageMaker Feature Store
-<a name="security-iam-awsmanpol-feature-store"></a>
 
 These AWS managed policies add permissions required to use Feature Store. The policies are available in your AWS account and are used by execution roles created from the SageMaker AI console.
 
@@ -26,7 +25,7 @@ This AWS managed policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

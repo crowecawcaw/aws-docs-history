@@ -1,7 +1,6 @@
 
 
 # Getting started with local mode
-<a name="studio-updated-local-get-started"></a>
 
 The following sections outline the steps needed to get started with local mode in Amazon SageMaker Studio, including:
 + Completing prerequisites

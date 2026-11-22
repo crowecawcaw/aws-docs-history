@@ -1,7 +1,6 @@
 
 
 # Profiler availability change
-<a name="profiler-availability-change"></a>
 
 **Note**  
 End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources.
@@ -46,7 +45,7 @@ If your training script uses the SageMaker Profiler Python modules (`smprof` or 
 
 Remove the `profiler_config` parameter from your SageMaker training configuration:
 
-```
+```python
 # Remove this configuration
 # V2
 from sagemaker import ProfilerConfig, Profiler
@@ -108,7 +107,7 @@ Update your training script to use your framework's built-in profiler. Both PyTo
 
 **PyTorch:**
 
-```
+```python
 import torch
 from torch.profiler import profile, schedule, tensorboard_trace_handler
 
@@ -131,7 +130,7 @@ with profile(
 
 To annotate specific operations (replacing `smprof.annotate()`):
 
-```
+```python
 with torch.profiler.record_function("forward_pass"):
     outputs = model(inputs)
 
@@ -141,7 +140,7 @@ with torch.profiler.record_function("backward_pass"):
 
 **TensorFlow:**
 
-```
+```python
 import tensorflow as tf
 
 tf.profiler.experimental.start("./tensorboard/logs")
@@ -157,7 +156,7 @@ As with SageMaker Profiler, profiling an entire training job is not recommended.
 
 Launch TensorBoard to view profiling results, execution timelines, and performance recommendations:
 
-```
+```bash
 tensorboard --logdir=./tensorboard/logs
 ```
 

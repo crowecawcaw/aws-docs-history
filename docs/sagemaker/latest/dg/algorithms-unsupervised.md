@@ -1,7 +1,6 @@
 
 
 # Unsupervised Built-in SageMaker AI Algorithms
-<a name="algorithms-unsupervised"></a>
 
 Amazon SageMaker AI provides several built-in algorithms that can be used for a variety of unsupervised learning tasks such as clustering, dimension reduction, pattern recognition, and anomaly detection.
 + [IP Insights](ip-insights.md)—learns the usage patterns for IPv4 addresses. It is designed to capture associations between IPv4 addresses and various entities, such as user IDs or account numbers.

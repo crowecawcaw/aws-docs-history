@@ -1,7 +1,6 @@
 
 
 # Adding policies to your IAM role
-<a name="feature-store-adding-policies"></a>
 
 To get started with Amazon SageMaker Feature Store you must have a role and add the required policy to your role, `AmazonSageMakerFeatureStoreAccess`. The following is a walkthrough on how to view the policies attached to a role and how to add a policy to your role. For information on how to create a role, see [How to use SageMaker AI execution roles](sagemaker-roles.md). For information on how to get your execution role, see [Get your execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role).
 

@@ -1,7 +1,6 @@
 
 
 # Automatic model evaluation
-<a name="clarify-foundation-model-evaluate-auto"></a>
 
 You can create an automatic model evaluation in Studio or by using the `fmeval` library inside your own code. Studio uses a wizard to create the model evaluation job. The `fmeval` library provides tools to customize your work flow further.
 

@@ -1,7 +1,6 @@
 
 
 # Prepare a training job to collect TensorBoard output data
-<a name="debugger-htb-prepare-training-job"></a>
 
 A typical training job for machine learning in SageMaker AI consists of two main steps: preparing a training script and configuring a SageMaker AI ModelTrainer (formerly estimator in PySDK v2) object of the SageMaker AI Python SDK. In this section, you'll learn about the required changes to collect TensorBoard-compatible data from SageMaker training jobs.
 
@@ -32,13 +31,13 @@ Also make sure that you specify the TensorBoard data output path as the log dire
 For more information about callbacks per framework, see the following resources.
 + For PyTorch, use [torch.utils.tensorboard.SummaryWriter](https://pytorch.org/docs/stable/tensorboard.html#module-torch.utils.tensorboard). See also the [Using TensorBoard in PyTorch](https://pytorch.org/tutorials/recipes/recipes/tensorboard_with_pytorch.html#using-tensorboard-in-pytorch) and [Log scalars](https://pytorch.org/tutorials/recipes/recipes/tensorboard_with_pytorch.html#log-scalars) sections in the *PyTorch tutorials*. Alternatively, you can use [TensorBoardX Summary Writer](https://tensorboardx.readthedocs.io/en/latest/tutorial.html).
 
-  ```
+  ```py
   LOG_DIR="/opt/ml/output/tensorboard"
   tensorboard_callback=torch.utils.tensorboard.writer.SummaryWriter(log_dir=LOG_DIR)
   ```
 + For TensorFlow, use the native callback for TensorBoard, [tf.keras.callbacks.TensorBoard](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/TensorBoard).
 
-  ```
+  ```py
   LOG_DIR="/opt/ml/output/tensorboard"
   tensorboard_callback=tf.keras.callbacks.TensorBoard(
       log_dir=LOG_DIR, histogram_freq=1)
@@ -58,14 +57,14 @@ Use the `sagemaker.debugger.TensorBoardOutputConfig` while configuring a SageMak
 **Note**  
 This example assumes that you use the SageMaker Python SDK. If you use the low-level SageMaker API, you should include the following to the request syntax of the [CreateTrainingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html) API.  
 
-```
+```json
 "TensorBoardOutputConfig": { 
   "LocalPath": "/opt/ml/output/tensorboard",
   "S3OutputPath": "{{s3_output_bucket}}"
 }
 ```
 
-```
+```py
 import os
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import SourceCode

@@ -1,7 +1,6 @@
 
 
 # Deploy your models to an endpoint
-<a name="canvas-deploy-model"></a>
 
 In Amazon SageMaker Canvas, you can deploy your models to an endpoint to make predictions. SageMaker AI provides the ML infrastructure for you to host your model on an endpoint with the compute instances that you choose. Then, you can *invoke* the endpoint (send a prediction request) and get a real-time prediction from your model. With this functionality, you can use your model in production to respond to incoming requests, and you can integrate your model with existing applications and workflows.
 

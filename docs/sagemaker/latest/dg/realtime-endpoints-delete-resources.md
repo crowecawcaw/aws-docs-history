@@ -1,7 +1,6 @@
 
 
 # Delete Endpoints and Resources
-<a name="realtime-endpoints-delete-resources"></a>
 
 Delete endpoints to stop incurring charges.
 
@@ -20,7 +19,7 @@ When you delete an endpoint from the SageMaker AI console, SageMaker AI first de
 
 Use the [`DeleteEndpoint`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html) API to delete your endpoint. Specify the name of your endpoint for the `EndpointName` field.
 
-```
+```python
 import boto3
 
 # Specify your AWS Region
@@ -41,7 +40,7 @@ sagemaker_client.delete_endpoint(EndpointName=endpoint_name)
 
 Use the [`delete-endpoint`](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/delete-endpoint.html) command to delete your endpoint. Specify the name of your endpoint for the `endpoint-name` flag.
 
-```
+```bash
 aws sagemaker delete-endpoint --endpoint-name {{<endpoint-name>}}
 ```
 
@@ -96,7 +95,7 @@ Do not delete an endpoint configuration in use by an endpoint that is live or wh
 
 Use the [`DeleteEndpointConfig`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpointConfig.html) API to delete your endpoint. Specify the name of your endpoint configuration for the `EndpointConfigName` field.
 
-```
+```python
 import boto3
 
 # Specify your AWS Region
@@ -114,7 +113,7 @@ sagemaker_client.delete_endpoint_config(EndpointConfigName=endpoint_config_name)
 
 You can optionally use the [`DescribeEndpointConfig`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html) API to return information about the name of the your deployed models (production variants) such as the name of your model and the name of the endpoint configuration associated with that deployed model. Provide the name of your endpoint for the `EndpointConfigName` field. 
 
-```
+```python
 # Specify the name of your endpoint
 endpoint_name={{'<endpoint_name>'}}
 
@@ -138,14 +137,14 @@ For more information about other response elements returned by `DescribeEndpoint
 
 Use the [`delete-endpoint-config`](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/delete-endpoint-config.html) command to delete your endpoint configuration. Specify the name of your endpoint configuration for the `endpoint-config-name` flag.
 
-```
+```bash
 aws sagemaker delete-endpoint-config \
                         --endpoint-config-name {{<endpoint-config-name>}}
 ```
 
 You can optionally use the [`describe-endpoint-config`](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/describe-endpoint-config.html) command to return information about the name of the your deployed models (production variants) such as the name of your model and the name of the endpoint configuration associated with that deployed model. Provide the name of your endpoint for the `endpoint-config-name` flag.
 
-```
+```bash
 aws sagemaker describe-endpoint-config --endpoint-config-name {{<endpoint-config-name>}}
 ```
 
@@ -178,7 +177,7 @@ Delete your SageMaker AI model programmaticially using AWS SDK for Python (Boto3
 
 Use the [`DeleteModel`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteModel.html) API to delete your SageMaker AI model. Specify the name of your model for the `ModelName` field.
 
-```
+```python
 import boto3
 
 # Specify your AWS Region
@@ -196,7 +195,7 @@ sagemaker_client.delete_model(ModelName=model_name)
 
 You can optionally use the [`DescribeEndpointConfig`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html) API to return information about the name of the your deployed models (production variants) such as the name of your model and the name of the endpoint configuration associated with that deployed model. Provide the name of your endpoint for the `EndpointConfigName` field. 
 
-```
+```python
 # Specify the name of your endpoint
 endpoint_name={{'<endpoint_name>'}}
 
@@ -218,14 +217,14 @@ For more information about other response elements returned by `DescribeEndpoint
 
 Use the [`delete-model`](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/delete-model.html) command to delete your SageMaker AI model. Specify the name of your model for the `model-name` flag.
 
-```
+```bash
 aws sagemaker delete-model \
                         --model-name {{<model-name>}}
 ```
 
 You can optionally use the [`describe-endpoint-config`](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/describe-endpoint-config.html) command to return information about the name of the your deployed models (production variants) such as the name of your model and the name of the endpoint configuration associated with that deployed model. Provide the name of your endpoint for the `endpoint-config-name` flag.
 
-```
+```bash
 aws sagemaker describe-endpoint-config --endpoint-config-name {{<endpoint-config-name>}}
 ```
 

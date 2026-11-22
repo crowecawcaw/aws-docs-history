@@ -1,7 +1,6 @@
 
 
 # TensorBoard in Amazon SageMaker AI
-<a name="tensorboard-on-sagemaker"></a>
 
 Amazon SageMaker AI with TensorBoard is a capability of Amazon SageMaker AI that brings the [TensorBoard](https://www.tensorflow.org/tensorboard) visualization tools to SageMaker AI and integrated with SageMaker Training and domain. It provides options to administer your AWS account and users belonging to the account through [SageMaker AI domain](https://docs.aws.amazon.com/sagemaker/latest/dg/sm-domain.html), to give the domain users access to the TensorBoard data with appropriate permissions to Amazon S3, and help the domain users perform model debugging tasks using the TensorBoard visualization plugins. SageMaker AI with TensorBoard is extended with the SageMaker AI Data Manager plugin, with which domain users can access a number of training jobs in one place within the TensorBoard application.
 

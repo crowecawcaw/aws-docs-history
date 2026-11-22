@@ -1,7 +1,6 @@
 
 
 # Open weight model customization
-<a name="model-customize-open-weight"></a>
 
 This section walks you through the process to get started with open weight model customization.
 
@@ -22,7 +21,7 @@ The following table shows the supported fine-tuning recipes for each model, incl
 
 | Provider | Model | Model ID | SFT (LoRA) | SFT (FFT) | DPO (LoRA) | DPO (FFT) | RLVR (LoRA) | RLVR (FFT) | RLAIF (LoRA) | RLAIF (FFT) | MTRL (LoRA) | Training session APIs | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| Alibaba | Qwen3.8 27B | huggingface-vlm-qwen3-8-27b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  | ✓ | 
+| Alibaba | Qwen3.8 27B | huggingface-vlm-qwen3-8-27b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Alibaba | Qwen3.6 27B | huggingface-vlm-qwen3-6-27b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Alibaba | Qwen3.6 A3B 35B | huggingface-vlm-qwen3-6-35b-a3b | ✓ | ✓ |  |  | ✓ | ✓ | ✓ | ✓ |  |  | 
 | Alibaba | Qwen3.5 27B | huggingface-vlm-qwen3-5-27b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  |  | 

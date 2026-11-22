@@ -1,7 +1,6 @@
 
 
 # Export
-<a name="data-wrangler-data-export"></a>
 
 In your Data Wrangler flow, you can export some or all of the transformations that you've made to your data processing pipelines.
 
@@ -150,7 +149,7 @@ Under **(Optional) Configure Spark Cluster Driver Memory** you can configure Spa
 
 The following shows the `config` dictionary.
 
-```
+```python
 config = json.dumps({
     "Classification": "spark-defaults",
     "Properties": {
@@ -161,7 +160,7 @@ config = json.dumps({
 
 To apply the configuration to the processing job, uncomment the following lines:
 
-```
+```python
 # data_sources.append(ProcessingInput(
 #     source=config_s3_uri,
 #     destination="/opt/ml/processing/input/conf",
@@ -270,7 +269,7 @@ The serial inference pipeline supports the following data types for the input an
 
   The following is an example of a validly formatted CSV string that you can provide in an inference request.
 
-  ```
+  ```text
   abc,0.0,"Doe, John",12345\ndef,1.1,"Doe, Jane",67890                    
   ```
 + `application/json` – the datatype for JSON strings
@@ -279,7 +278,7 @@ The serial inference pipeline supports the following data types for the input an
 
   The following is an example of a validly formatted JSON string that you can provide in an inference request.
 
-  ```
+  ```json
   {
       "instances": [
           {
@@ -615,7 +614,7 @@ The following permissions allow Data Wrangler to access EventBridge and allow Ev
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -634,7 +633,7 @@ The following permissions allow Data Wrangler to access EventBridge and allow Ev
 
   Add the following trust policy to the role to allow EventBridge to assume it.
 
-  ```
+  ```json
   {
       "Effect": "Allow",
       "Principal": {

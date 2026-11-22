@@ -1,7 +1,6 @@
 
 
 # SageMaker geospatial capabilities roles
-<a name="sagemaker-geospatial-roles"></a>
 
 As a managed service, Amazon SageMaker geospatial capabilities performs operations on your behalf on the AWS hardware that is managed by SageMaker AI. Use AWS Identity and Access Management to grant users, groups, and roles access to SageMaker geospatial.
 

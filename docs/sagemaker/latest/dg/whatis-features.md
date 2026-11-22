@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker AI Features
-<a name="whatis-features"></a>
 
 Amazon SageMaker AI includes the following features.
 

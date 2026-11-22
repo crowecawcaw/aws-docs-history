@@ -1,7 +1,6 @@
 
 
 # Create policies
-<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-policies-create"></a>
 
 You can create your **Cluster policy** and **Compute allocation** configurations in the **Policies** tab. The following provides instructions on how to create the following configurations.
 + Create your **Cluster policy** to update how tasks are prioritized and idle compute is allocated.

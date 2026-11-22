@@ -1,7 +1,6 @@
 
 
 # Use advanced metrics in your analyses
-<a name="canvas-advanced-metrics"></a>
 
 The following section describes how to find and interpret the advanced metrics for your model in Amazon SageMaker Canvas.
 

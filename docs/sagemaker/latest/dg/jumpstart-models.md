@@ -1,7 +1,6 @@
 
 
 # Task-Specific Models
-<a name="jumpstart-models"></a>
 
 JumpStart supports task-specific models across fifteen of the most popular problem types. Of the supported problem types, Vision and NLP-related types total thirteen. There are eight problem types that support incremental training and fine-tuning. For more information about incremental training and hyper-parameter tuning, see [SageMaker AI Automatic Model Tuning](https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning.html).​ JumpStart also supports four popular algorithms for tabular data modeling.
 
@@ -9,7 +8,7 @@ You can search and browse models from the JumpStart landing page in Studio or St
 
 You can also programmatically utilize models with the [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/). To list all available models, use `list_jumpstart_models()` from the SDK:
 
-```
+```python
 from sagemaker.core.jumpstart.notebook_utils import list_jumpstart_models
 
 # List every available JumpStart model ID.

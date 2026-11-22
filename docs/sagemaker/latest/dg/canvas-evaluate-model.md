@@ -1,7 +1,6 @@
 
 
 # Model evaluation
-<a name="canvas-evaluate-model"></a>
 
 After you’ve built your model, you can evaluate how well your model performed on your data before using it to make predictions. You can use information, such as the model’s accuracy when predicting labels and advanced metrics, to determine whether your model can make sufficiently accurate predictions for your data.
 

@@ -1,7 +1,6 @@
 
 
 # SageMaker smart sifting Python SDK reference
-<a name="train-smart-sifting-pysdk-reference"></a>
 
 This page provides a reference of Python modules you need for applying SageMaker smart sifting to your training script.
 

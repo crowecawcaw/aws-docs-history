@@ -1,7 +1,6 @@
 
 
 # Creating assets for multi-turn reinforcement learning
-<a name="model-customize-mtrl-assets"></a>
 
 ## Prompt dataset format
 <a name="model-customize-mtrl-assets-prompt-dataset-format"></a>
@@ -51,7 +50,7 @@ For straightforward training tasks with plain text prompts.
 
 **Parquet (Python)**
 
-```
+```python
 import pyarrow as pa
 import pyarrow.parquet as pq
 
@@ -71,7 +70,7 @@ pq.write_table(table, "training_data.parquet")
 
 **JSON Lines (.jsonl)**
 
-```
+```json
 {"prompt": "What is 2 + 2?"}
 {"prompt": "Explain the concept of machine learning."}
 {"prompt": "Write a Python function to reverse a string."}
@@ -98,7 +97,7 @@ prompt (column) = JSON string (recommend encoded/encrypted) containing:
 
 **Example Row:**
 
-```
+```python
 import pyarrow as pa
 import pyarrow.parquet as pq
 import json
@@ -175,7 +174,7 @@ prompt (column) = JSON string (recommend encoded/encrypted) containing:
 
 **Example Row:**
 
-```
+```python
 import pyarrow as pa
 import pyarrow.parquet as pq
 import json
@@ -267,7 +266,7 @@ In practice, a reward function takes the full message history of an episode as i
 
 The following example shows a reward function for an agent that answers questions using search. It demonstrates outcome evaluation, format shaping, and answer correctness checking.
 
-```
+```python
 class TextAnswerReward:
     """Reward function to check text answer against gold answers.
 

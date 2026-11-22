@@ -1,7 +1,6 @@
 
 
 # Datasets format and objective metric for text classification
-<a name="text-classification-data-format-and-metric"></a>
 
 In this section we learn about the available formats for datasets used in text classification as well as the metric used to evaluate the predictive quality of machine learning model candidates. The metrics calculated for candidates are specified using an array of [MetricDatum](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_MetricDatum.html) types.
 

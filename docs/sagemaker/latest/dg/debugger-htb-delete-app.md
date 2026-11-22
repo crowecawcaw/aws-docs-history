@@ -1,7 +1,6 @@
 
 
 # Delete unused TensorBoard applications
-<a name="debugger-htb-delete-app"></a>
 
 After you are done with monitoring and experimenting with jobs in TensorBoard, shut the TensorBoard application down.
 

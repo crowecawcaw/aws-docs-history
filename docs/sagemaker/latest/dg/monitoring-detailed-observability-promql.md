@@ -1,7 +1,6 @@
 
 
 # Connect to your observability tool
-<a name="monitoring-detailed-observability-promql"></a>
 
 To query detailed observability metrics from your existing observability tool instead of using the SageMaker AI Insights dashboard in Amazon CloudWatch, SageMaker AI publishes metrics to Amazon CloudWatch through a regional PromQL endpoint that is compatible with Prometheus-based tools, including Amazon Managed Grafana, self-hosted Grafana, and other PromQL-compatible platforms. You authenticate using AWS Signature Version 4 (SigV4). This section describes how to configure a Prometheus data source, import the pre-configured dashboard template, and write PromQL queries for your inference metrics.
 
@@ -42,7 +41,7 @@ To query detailed observability metrics from your existing observability tool in
 ### Option 2: Standard Prometheus data source
 <a name="detailed-observability-promql-grafana-standard"></a>
 
-```
+```json
 {
     "name": "SageMaker Inference (PromQL)",
     "type": "prometheus",
@@ -61,7 +60,7 @@ To query detailed observability metrics from your existing observability tool in
 ## IAM policy
 <a name="detailed-observability-promql-iam"></a>
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [{
@@ -112,7 +111,7 @@ In PromQL, labels with dots must be enclosed in single quotes:
 ## Example PromQL queries
 <a name="detailed-observability-promql-examples"></a>
 
-```
+```promql
 # GPU utilization per IC
 avg by ('aws.sagemaker.inference_component.name') (
     DCGM_FI_DEV_GPU_UTIL{'aws.sagemaker.endpoint.name'="$endpoint"})

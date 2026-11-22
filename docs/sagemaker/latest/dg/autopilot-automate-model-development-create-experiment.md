@@ -1,7 +1,6 @@
 
 
 # Create Regression or Classification Jobs for Tabular Data Using the AutoML API
-<a name="autopilot-automate-model-development-create-experiment"></a>
 
 You can create an Autopilot regression or classification job for tabular data programmatically by calling the [`CreateAutoMLJobV2`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html) API action in any language supported by Autopilot or the AWS CLI. The following is a collection of mandatory and optional input request parameters for the `CreateAutoMLJobV2` API action. You can find the alternative information for the previous version of this action, `CreateAutoMLJob`. However, we recommend using `CreateAutoMLJobV2`. 
 
@@ -130,7 +129,7 @@ You can specify an array of selected `AutoMLAlgorithms` in the `AlgorithmsConfig
 
 The following is an example of an `AlgorithmsConfig` attribute listing exactly three algorithms ("xgboost", "fastai", "catboost") in its `AutoMLAlgorithms` field for the ensembling training mode.
 
-```
+```json
 {
    "[AutoMLProblemTypeConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html#sagemaker-CreateAutoMLJobV2-request-AutoMLProblemTypeConfig)": {
         "[TabularJobConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TabularJobConfig.html)": {
@@ -152,7 +151,7 @@ You can specify an array of selected `AutoMLAlgorithms` in the `AlgorithmsConfig
 
 The following is an example of an `AlgorithmsConfig` attribute listing exactly three algorithms ("xgboost", "fastai", "catboost") in its `AutoMLAlgorithms` field for the ensembling training mode.
 
-```
+```json
 {
    "[AutoMLJobConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-AutoMLJobConfig)": {
         "[CandidateGenerationConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html#sagemaker-Type-AutoMLJobConfig-CandidateGenerationConfig)": {
@@ -256,7 +255,7 @@ This role should have the following trust relationship:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -290,7 +289,7 @@ The IAM policy defined in the provided JSON document grants those permissions:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -408,7 +407,7 @@ We recommend users of `CreateAutoMLJob` to migrate to `CreateAutoMLJobV2`.
 This section explains the differences in the input parameters between [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker-api/src/AWSSageMakerAPIDoc/build/server-root/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#API_CreateAutoMLJob_RequestSyntax) and [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html#API_CreateAutoMLJobV2_RequestSyntax) by highlighting the changes in the position, name, or structure of the objects and attributes of the input request between the two versions.
 + **Request attributes that did not change between versions.**
 
-  ```
+  ```JSON
   {
      "AutoMLJobName": "string",
      "AutoMLJobObjective": { 
@@ -438,7 +437,7 @@ This section explains the differences in the input parameters between [CreateAut
 ------
 #### [ CreateAutoMLJob ]
 
-  ```
+  ```JSON
   { 
       "AutoMLJobConfig": { 
           "Mode": "string",
@@ -470,7 +469,7 @@ This section explains the differences in the input parameters between [CreateAut
 ------
 #### [ CreateAutoMLJobV2 ]
 
-  ```
+  ```JSON
   {       
       "AutoMLProblemTypeConfig": {
           "TabularJobConfig": {
@@ -509,7 +508,7 @@ This section explains the differences in the input parameters between [CreateAut
 ------
 #### [ CreateAutoMLJob ]
 
-  ```
+  ```JSON
   {
      "AutoMLJobConfig": { 
         "CandidateGenerationConfig": { 
@@ -526,7 +525,7 @@ This section explains the differences in the input parameters between [CreateAut
 ------
 #### [ CreateAutoMLJobV2 ]
 
-  ```
+  ```JSON
   {
       "AutoMLProblemTypeConfig": {
           "TabularJobConfig": {
@@ -550,7 +549,7 @@ This section explains the differences in the input parameters between [CreateAut
 ------
 #### [ CreateAutoMLJob ]
 
-  ```
+  ```JSON
   {    
       "InputDataConfig": [ 
           { 
@@ -573,7 +572,7 @@ This section explains the differences in the input parameters between [CreateAut
 ------
 #### [ CreateAutoMLJobV2 ]
 
-  ```
+  ```JSON
   {    
       "AutoMLJobInputDataConfig": [ 
           { 

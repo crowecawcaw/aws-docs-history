@@ -1,7 +1,6 @@
 
 
 # Create an Amazon SageMaker Studio Classic notebook using the geospatial image
-<a name="geospatial-launch-notebook"></a>
 
 **Note**  
 Amazon SageMaker geospatial capabilities is no longer open to new customers. Offboard any previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportEarthObservationJob.html) and [ExportVectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportVectorEnrichmentJob.html) API operations.
@@ -33,7 +32,7 @@ Use the following procedure to create Studio Classic notebook with the SageMaker
 
    SageMaker geospatial supports two types of notebook instances: CPU and GPU. The supported CPU instance is called **ml.geospatial.interactive**. Any of the G5-family of GPU instances can be used with the Geospatial 1.0 image.
 **Note**  
-If you receive a ResourceLimitExceeded error when attempting to start a GPU based instance, you need to request a quota increase. To get started on a Service Quotas quota increase request, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide* 
+If you receive a `ResourceLimitExceeded` error when attempting to start a GPU based instance, you need to request a quota increase. To get started on a Service Quotas quota increase request, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide* 
 
 1. Choose **Select**.
 

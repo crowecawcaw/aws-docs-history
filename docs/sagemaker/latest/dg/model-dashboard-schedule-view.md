@@ -1,7 +1,6 @@
 
 
 # View scheduled monitors
-<a name="model-dashboard-schedule-view"></a>
 
 Use SageMaker Model Monitor to continuously monitor your machine learning models for data drift, model quality, bias, and other issues that might impact model performance. After you've set up monitoring schedules, you can view the details of these scheduled monitors through the SageMaker AI console. The following procedure outlines the steps to access and review the scheduled monitors for a particular model, including their current status:
 

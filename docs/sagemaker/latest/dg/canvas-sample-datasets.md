@@ -1,7 +1,6 @@
 
 
 # Sample datasets in Canvas
-<a name="canvas-sample-datasets"></a>
 
 SageMaker Canvas provides sample datasets addressing unique use cases so you can start building, training, and validating models quickly without writing any code. The use cases associated with these datasets highlight the capabilities of SageMaker Canvas, and you can leverage these datasets to get started with building models. You can find the sample datasets in the **Datasets** page of your SageMaker Canvas application.
 

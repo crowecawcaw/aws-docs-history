@@ -1,7 +1,6 @@
 
 
 # Create an automatic model evaluation job in Studio
-<a name="clarify-foundation-model-evaluate-auto-ui"></a>
 
  The wizard available in Studio guides you through choosing a model to evaluate, selecting a task type, choosing metrics and datasets, and configuring any required resources. The following topics show you how to format an optional custom input dataset, set up your environment, and create the model evaluation job in Studio.
 
@@ -133,7 +132,7 @@ After your domain and role are created, use the following steps to add the permi
 
 ****  
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="best-practices"></a>
 
 The following topics provide guidance on best practices for deploying machine learning models in Amazon SageMaker AI.
 

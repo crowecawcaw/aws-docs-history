@@ -1,7 +1,6 @@
 
 
 # Deploy a workload
-<a name="sagemaker-hyperpod-eks-autoscaling-workload"></a>
 
 The following examples demonstrate how HyperPod autoscaling with Karpenter automatically provisions nodes in response to workload demands. These examples show basic scaling behavior and multi-availability zone distribution patterns.
 
@@ -42,3 +41,5 @@ The following examples demonstrate how HyperPod autoscaling with Karpenter autom
    Karpenter will add new nodes to the cluster with at least one node it a different availability zone.
 
 For more examples, see [Karpenter example workloads](https://github.com/aws/karpenter-provider-aws/tree/main/examples/workloads) on GitHub.
+
+Each time Karpenter adds or removes nodes, HyperPod creates a cluster operation of type `Scaling` for that request. Because Karpenter can make many requests in a short time, a newer request often takes over an instance group from an earlier one, and the earlier operation shows `Superseded`. To see what a scaling request did, filter its events by operation ID. For more information, see [Tracking requests with SageMaker HyperPod cluster operations](sagemaker-hyperpod-cluster-operations.md).

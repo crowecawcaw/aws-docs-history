@@ -1,7 +1,6 @@
 
 
 # SageMaker Edge Manager end of life
-<a name="edge-eol"></a>
 
  Starting in April 26, 2024, you can no longer access Amazon SageMaker Edge Manager through the AWS management console, make edge packaging jobs, and manage edge device fleets. 
 

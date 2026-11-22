@@ -1,7 +1,6 @@
 
 
 # Best Practices for Hyperparameter Tuning
-<a name="automatic-model-tuning-considerations"></a>
 
 Hyperparameter optimization (HPO) is not a fully-automated process. To improve optimization, follow these best practices for hyperparameter tuning.
 

@@ -1,7 +1,6 @@
 
 
 # SageMaker AI Spark for Scala examples
-<a name="apache-spark-example1"></a>
 
 Amazon SageMaker AI provides an Apache Spark library ([SageMaker AI Spark](https://github.com/aws/sagemaker-spark/tree/master/sagemaker-spark-sdk)) that you can use to integrate your Apache Spark applications with SageMaker AI. This topic contains examples to help get you started with SageMaker AI Spark with Scala. For information about the SageMaker AI Apache Spark library, see [Apache Spark with Amazon SageMaker AI](apache-spark.md).
 

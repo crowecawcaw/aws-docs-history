@@ -1,7 +1,6 @@
 
 
 # Semantic Segmentation Hyperparameters
-<a name="segmentation-hyperparameters"></a>
 
 The following tables list the hyperparameters supported by the Amazon SageMaker AI semantic segmentation algorithm for network architecture, data inputs, and training. You specify Semantic Segmentation for training in the `AlgorithmName` of the [`CreateTrainingJob`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html) request.
 

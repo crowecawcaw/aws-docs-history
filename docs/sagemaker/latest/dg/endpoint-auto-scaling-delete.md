@@ -1,7 +1,6 @@
 
 
 # Delete a scaling policy
-<a name="endpoint-auto-scaling-delete"></a>
 
 If you no longer need a scaling policy, you can delete it at any time.
 

@@ -1,7 +1,6 @@
 
 
 # Automatically register SageMaker AI models with SageMaker Model Registry
-<a name="mlflow-track-experiments-model-registration"></a>
 
 When you register an MLflow model, SageMaker AI automatically creates a corresponding Model Package Group and Model Package version in the SageMaker Model Registry. This enables you to:
 + Register models from the MLflow SDK or the MLflow UI.
@@ -27,7 +26,7 @@ This section covers how to prepare a model for registration, register it with th
 
 The MLflow tracking server or MLflow App IAM service role must have the following permissions to register models:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -69,7 +68,7 @@ Before registering a model, you log it during a training run. You can optionally
 
 Use the MLflow SDK to log a model during a training run:
 
-```
+```python
 import mlflow
 from sklearn.datasets import make_regression
 from sklearn.ensemble import RandomForestRegressor
@@ -97,7 +96,7 @@ An inference specification defines the container image and instance types requir
 
 Use `sagemaker_mlflow.log_inference_specification()` to attach an inference specification:
 
-```
+```python
 import sagemaker_mlflow
 
 # Get the logged model's artifact location
@@ -137,7 +136,7 @@ Evaluation metrics provide a standardized summary of your model's performance. W
 
 Use `sagemaker_mlflow.evaluate()` to log evaluation metrics:
 
-```
+```python
 import sagemaker_mlflow
 import pandas as pd
 
@@ -159,7 +158,7 @@ After logging, the evaluation group is stored as an artifact alongside your mode
 
 Use `mlflow.register_model()` to register a model with the SageMaker Model Registry. This automatically creates a Model Package Group (if one does not exist) and a Model Package version in SageMaker AI.
 
-```
+```python
 model_uri = f"runs:/{run.info.run_id}/sklearn-model"
 mv = mlflow.register_model(model_uri, "MyRegisteredModel")
 
@@ -169,7 +168,7 @@ print(f"Version: {mv.version}")
 
 You can also use `create_registered_model` to create the Model Package Group before registering versions:
 
-```
+```python
 from mlflow import MlflowClient
 
 client = MlflowClient()
@@ -178,7 +177,7 @@ client.create_registered_model("MyRegisteredModel", tags={"team": "ml-platform"}
 
 After registration, the model version is tagged with the SageMaker AI Model Package ARN. You can retrieve it as follows:
 
-```
+```python
 mv = client.get_model_version("MyRegisteredModel", mv.version)
 sm_arn = mv.tags["sagemaker.model_package_arn"]
 print(f"SageMaker Model Package ARN: {sm_arn}")
@@ -262,7 +261,7 @@ You can use IAM condition keys to control which lifecycle transitions a role is 
 
 **Example: Deny production promotions**
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -282,7 +281,7 @@ You can use IAM condition keys to control which lifecycle transitions a role is 
 
 **Example: Allow only staging/pending transitions**
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -321,7 +320,7 @@ Supported statuses: `pending`, `active`
 **Note**  
 Stage and status values must be lowercase. MLflow aliases only support lowercase characters, so values such as `Production` or `Active` are not valid.
 
-```
+```python
 import mlflow
 
 mlflow.set_tracking_uri({{arn}})
@@ -336,7 +335,7 @@ client.set_registered_model_alias("MyRegisteredModel", "sagemakerlifecycle-produ
 
 You can verify the lifecycle state by describing the SageMaker AI Model Package:
 
-```
+```python
 import boto3
 
 sm = boto3.client("sagemaker")
@@ -371,7 +370,7 @@ You can use IAM resource tag-based conditions to prevent the MLflow tracking ser
 
 For example, the following policy denies `UpdateModelPackage` on any Model Package that has the tag `locked=true`:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -393,7 +392,7 @@ When this policy is attached to the tracking server or MLflow App role, any atte
 
 You can similarly restrict `CreateModelPackage` on a Model Package Group to prevent new versions from being registered:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

@@ -1,11 +1,10 @@
 
 
 # Get event notifications for ModelLifeCycle
-<a name="model-registry-staging-construct-event-bridge"></a>
 
 You can get the ModelLifeCycle update notifications and events with EventBridge in your account. The following is an example of an EventBridge rule, to be configured in your account, in order to get the ModelLifeCycle event notifications.
 
-```
+```json
 {
   "source": ["aws.sagemaker"],
   "detail-type": ["SageMaker Model Package State Change"]

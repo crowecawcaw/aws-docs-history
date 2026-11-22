@@ -1,7 +1,6 @@
 
 
 # Configure data input channel to use Amazon FSx for Lustre
-<a name="model-access-training-data-fsx"></a>
 
 Learn how to use Amazon FSx for Lustre as your data source for higher throughput and faster training by reducing the time for data loading.
 
@@ -15,27 +14,27 @@ To link your Amazon S3 to Amazon FSx for Lustre and upload your training dataset
 
 1. Prepare your dataset and upload to an Amazon S3 bucket. For example, assume that the Amazon S3 paths for a train dataset and a test dataset are in the following format.
 
-   ```
+   ```txt
    s3://amzn-s3-demo-bucket/data/train
    s3://amzn-s3-demo-bucket/data/test
    ```
 
 1. To create an FSx for Lustre file system linked with the Amazon S3 bucket with the training data, follow the steps at [Linking your file system to an Amazon S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html) in the *Amazon FSx for Lustre User Guide*. Make sure that you add an endpoint to your VPC allowing Amazon S3 access. For more information, see [Create an Amazon S3 VPC Endpoint](train-vpc.md#train-vpc-s3). When you specify **Data repository path**, provide the Amazon S3 bucket URI of the folder that contains your datasets. For example, based on the example S3 paths in step 1, the data repository path should be the following.
 
-   ```
+   ```txt
    s3://amzn-s3-demo-bucket/data
    ```
 
 1. After the FSx for Lustre file system is created, check the configuration information by running the following commands.
 
-   ```
+   ```bash
    aws fsx describe-file-systems && \
    aws fsx describe-data-repository-association
    ```
 
    These commands return `FileSystemId`, `MountName`, `FileSystemPath`, and `DataRepositoryPath`. For example, the outputs should look like the following.
 
-   ```
+   ```txt
    # Output of aws fsx describe-file-systems
    "FileSystemId": "fs-0123456789abcdef0"
    "MountName": "1234abcd"
@@ -47,7 +46,7 @@ To link your Amazon S3 to Amazon FSx for Lustre and upload your training dataset
 
    After the sync between Amazon S3 and Amazon FSx has completed, your datasets are saved in Amazon FSx in the following directories.
 
-   ```
+   ```txt
    /ns1/train  # synced with s3://amzn-s3-demo-bucket/data/train
    /ns1/test   # synced with s3://amzn-s3-demo-bucket/data/test
    ```
@@ -64,7 +63,7 @@ To properly set the Amazon FSx file system as the data source, configure the Sag
 
 1. Configure a FileSystemInput class object.
 
-   ```
+   ```py
    from sagemaker.core.inputs import FileSystemInput
    
    train_fs = FileSystemInput(
@@ -79,7 +78,7 @@ When you specify `directory_path`, make sure that you provide the Amazon FSx fil
 
 1. Configure a SageMaker AI ModelTrainer with the VPC configuration used for the Amazon FSx file system.
 
-   ```
+   ```py
    from sagemaker.{{train}} import {{ModelTrainer}}
    from sagemaker.train.configs import Networking
    
@@ -97,7 +96,7 @@ When you specify `directory_path`, make sure that you provide the Amazon FSx fil
 
 1. Launch the training job by running the ModelTrainer.train method with the Amazon FSx file system.
 
-   ```
+   ```py
    model_trainer.train(train_fs)
    ```
 
@@ -108,7 +107,7 @@ To find more code examples, see [Use File Systems as Training Inputs](https://sa
 
 As part of the [CreateTrainingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html) request JSON, configure `InputDataConfig` as follows.
 
-```
+```json
 "InputDataConfig": [ 
     { 
         "ChannelName": "{{string}}",

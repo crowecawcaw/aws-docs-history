@@ -1,7 +1,6 @@
 
 
 # Installing KubeRay on HyperPod Amazon EKS
-<a name="sagemaker-hyperpod-ray-install-kuberay"></a>
 
 The KubeRay operator manages the lifecycle of `RayCluster`, `RayJob`, `RayCronJob`, and `RayService` resources. It is required for every Ray capability on HyperPod. HyperPod uses the open source operator without any changes.
 
@@ -12,7 +11,7 @@ To install the KubeRay operator, you need the following:
 + A HyperPod cluster orchestrated by Amazon EKS. For more information, see [Creating a SageMaker HyperPod cluster with Amazon EKS orchestration](sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md).
 + `kubectl` and `helm` installed, with `kubectl` configured for your cluster:
 
-  ```
+  ```bash
   aws eks update-kubeconfig --name {{my-eks-cluster}} --region {{my-region}}
   ```
 
@@ -25,20 +24,20 @@ If your cluster does not already run KubeRay, install the operator with Helm.
 
 1. Add the KubeRay Helm repository.
 
-   ```
+   ```bash
    helm repo add kuberay https://ray-project.github.io/kuberay-helm/
    helm repo update
    ```
 
 1. Install the operator.
 
-   ```
+   ```bash
    helm install kuberay-operator kuberay/kuberay-operator
    ```
 
 1. Confirm that the operator pod is running.
 
-   ```
+   ```bash
    kubectl get pods -l app.kubernetes.io/name=kuberay-operator
    ```
 
@@ -49,14 +48,14 @@ For more information about operator installation options, see [KubeRay operator 
 
 Upgrade the operator to the latest chart version:
 
-```
+```bash
 helm repo update
 helm upgrade kuberay-operator kuberay/kuberay-operator
 ```
 
 Uninstalling removes the operator but not your Ray custom resources:
 
-```
+```bash
 helm uninstall kuberay-operator
 ```
 

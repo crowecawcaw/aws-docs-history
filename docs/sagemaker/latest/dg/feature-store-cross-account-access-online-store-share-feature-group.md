@@ -1,7 +1,6 @@
 
 
 # Share your feature group entities
-<a name="feature-store-cross-account-access-online-store-share-feature-group"></a>
 
 As the resource owner account you can use the feature group resource type for Amazon SageMaker Feature Store to share feature group entities, by creating a resource share in AWS Resource Access Manager (AWS RAM). 
 

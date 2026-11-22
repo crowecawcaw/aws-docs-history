@@ -1,7 +1,6 @@
 
 
 # Best Practices
-<a name="pipelines-step-decorator-best"></a>
 
 The following sections suggest best practices to follow when you use the `@step` decorator for your pipeline steps.
 
@@ -10,7 +9,7 @@ The following sections suggest best practices to follow when you use the `@step`
 
 For faster pipeline step runs, use the warm pooling functionality provided for training jobs. You can turn on the warm pool functionality by providing the `keep_alive_period_in_seconds` argument to the `@step` decorator as demonstrated in the following snippet:
 
-```
+```py
 @step(
    keep_alive_period_in_seconds=900
 )
@@ -23,7 +22,7 @@ For more information about warm pools, see [SageMaker AI Managed Warm Pools](tra
 
 You are advised to use code modules while using the `@step` decorator. Put the `pipeline.py` module, in which you invoke the step functions and define the pipeline, at the root of the workspace. The recommended structure is shown as follows:
 
-```
+```py
 .
 ├── config.yaml # the configuration file that define the infra settings
 ├── requirements.txt # dependencies
@@ -42,7 +41,7 @@ The `@step` decorator saves function inputs and outputs to Amazon S3. By default
 
 To keep your pipeline data safe, set `S3RootUri` in your SageMaker AI configuration file. Use a bucket that only your pipeline uses. The following example shows how to set this value:
 
-```
+```yaml
 SchemaVersion: '1.0'
 SageMaker:
   PythonSDK:

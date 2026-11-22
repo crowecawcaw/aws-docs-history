@@ -1,7 +1,6 @@
 
 
 # View your deployments
-<a name="canvas-deploy-model-view"></a>
 
 You might want to check the status or details of a model deployment in Amazon SageMaker Canvas. For example, if your deployment failed, you might want to check the details to troubleshoot.
 

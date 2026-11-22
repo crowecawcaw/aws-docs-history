@@ -1,7 +1,6 @@
 
 
 # Use a Private Docker Registry for Real-Time Inference Containers
-<a name="your-algorithms-containers-inference-private"></a>
 
 Amazon SageMaker AI hosting enables you to use images stored in Amazon ECR to build your containers for real-time inference by default. Optionally, you can build containers for real-time inference from images in a private Docker registry. The private registry must be accessible from an Amazon VPC in your account. Models that you create based on the images stored in your private Docker registry must be configured to connect to the same VPC where the private Docker registry is accessible. For information about connecting your model to a VPC, see [Give SageMaker AI Hosted Endpoints Access to Resources in Your Amazon VPC](host-vpc.md).
 
@@ -35,7 +34,7 @@ When you create a model and deploy it to SageMaker AI hosting, you can specify t
 
 1. Create the image configuration object and specify a value of `Vpc` for the `RepositoryAccessMode` field.
 
-   ```
+   ```python
    image_config = {
                        'RepositoryAccessMode': 'Vpc'
                   }
@@ -43,7 +42,7 @@ When you create a model and deploy it to SageMaker AI hosting, you can specify t
 
 1. If your private Docker registry requires authentication, add a `RepositoryAuthConfig` object to the image configuration object. For the `RepositoryCredentialsProviderArn` field of the `RepositoryAuthConfig` object, specify the Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials that allows SageMaker AI to authenticate to your private Docker Registry. For information about how to create the Lambda function to provide authentication, see [Allow SageMaker AI to authenticate to a private Docker registry](#inference-private-docker-authenticate).
 
-   ```
+   ```python
    image_config = {
                        'RepositoryAccessMode': 'Vpc',
                        'RepositoryAuthConfig': {
@@ -56,7 +55,7 @@ When you create a model and deploy it to SageMaker AI hosting, you can specify t
 
    Provide your image in [digest](https://docs.docker.com/engine/reference/commandline/pull/#pull-an-image-by-digest-immutable-identifier) form. If you provide your image using the `:latest` tag, there is a risk that SageMaker AI pulls a newer version of the image than intended. Using the digest form ensures that SageMaker AI pulls the intended image version.
 
-   ```
+   ```python
    primary_container = {
        'ContainerHostname': 'ModelContainer',
        'Image': 'myteam.myorg.com/docker-local/my-inference-image:{{<IMAGE-TAG>}}',
@@ -66,14 +65,14 @@ When you create a model and deploy it to SageMaker AI hosting, you can specify t
 
 1. Specify the model name and the execution role that you want to pass to `create_model`.
 
-   ```
+   ```python
    model_name = 'vpc-model'
    execution_role_arn = 'arn:aws:iam::123456789012:role/SageMakerExecutionRole'
    ```
 
 1. Specify one or more security groups and subnets for the VPC configuration for your model. Your private Docker registry must allow inbound traffic from the security groups that you specify. The subnets that you specify must be in the same VPC as your private Docker registry.
 
-   ```
+   ```python
    vpc_config = {
        'SecurityGroupIds': ['sg-0123456789abcdef0'],
        'Subnets': ['subnet-0123456789abcdef0','subnet-0123456789abcdef1']
@@ -82,14 +81,14 @@ When you create a model and deploy it to SageMaker AI hosting, you can specify t
 
 1. Get a Boto3 SageMaker AI client.
 
-   ```
+   ```python
    import boto3
    sm = boto3.client('sagemaker')
    ```
 
 1. Create the model by calling `create_model`, using the values you specified in the previous steps for the `PrimaryContainer` and `VpcConfig` parameters.
 
-   ```
+   ```python
    try:
        resp = sm.create_model(
            ModelName=model_name,
@@ -105,7 +104,7 @@ When you create a model and deploy it to SageMaker AI hosting, you can specify t
 
 1. Finally, call [create\_endpoint\_config](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint_config) and [create\_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint) to create the hosting endpoint, using the model that you created in the previous step.
 
-   ```
+   ```python
    endpoint_config_name = 'my-endpoint-config'
    sm.create_endpoint_config(
        EndpointConfigName=endpoint_config_name,
@@ -138,7 +137,7 @@ To pull an inference image from a private Docker registry that requires authenti
 
 Create an AWS Lambda function that returns a response with the following form:
 
-```
+```py
 def handler(event, context):
    response = {
       "Credentials": {"Username": "{{username}}", "Password": "{{password}}"}
@@ -155,7 +154,7 @@ Depending on how you set up authentication for your private Docker registry, the
 
 The execution role that you use to call `create_model` must have permissions to call AWS Lambda functions. Add the following to the permissions policy of your execution role.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [

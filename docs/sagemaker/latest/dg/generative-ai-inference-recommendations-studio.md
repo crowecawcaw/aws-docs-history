@@ -1,7 +1,6 @@
 
 
 # Get inference recommendations by using Amazon SageMaker Studio
-<a name="generative-ai-inference-recommendations-studio"></a>
 
 With Amazon SageMaker Studio, you get a guided, end-to-end console experience for generative AI inference recommendations. Instead of writing code to call the API, you configure an optimization job through a visual workflow: choose a preset use case profile, set an optimization goal, select your model and compute, and then review and deploy ranked, deployment-ready configurations. This experience uses the same benchmarking infrastructure as the API. When you use the API, the same workflow is called an AI recommendation job. For more information about the API workflow, see [Get generative AI inference deployment recommendations](generative-ai-inference-recommendations-get-started.md).
 

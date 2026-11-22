@@ -1,7 +1,6 @@
 
 
 # AWS Identity and Access Management for SageMaker HyperPod
-<a name="sagemaker-hyperpod-prerequisites-iam"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use Amazon EKS resources. IAM is an AWS service that you can use with no additional charge.
 
@@ -47,7 +46,7 @@ Creating HyperPod clusters requires the IAM permissions outlined in the followin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -521,7 +520,7 @@ IAM users with cluster admin roles can use condition keys to provide granular ac
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -555,7 +554,7 @@ IAM users with cluster admin roles can use condition keys to provide granular ac
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -596,6 +595,25 @@ IAM users with cluster admin roles can use condition keys to provide granular ac
 
 ------
 
+To view cluster operations and the events for a request, cluster administrators also need the following permissions:
++ `sagemaker:ListClusterOperations`: list the cluster operations on a cluster
++ `sagemaker:DescribeClusterOperation`: describe a cluster operation
+
+The following example policy statement grants permission to view cluster operations and cluster events. For more information, see [Tracking requests with SageMaker HyperPod cluster operations](sagemaker-hyperpod-cluster-operations.md).
+
+```json
+{
+    "Effect": "Allow",
+    "Action": [
+        "sagemaker:ListClusterOperations",
+        "sagemaker:DescribeClusterOperation",
+        "sagemaker:ListClusterEvents",
+        "sagemaker:DescribeClusterEvent"
+    ],
+    "Resource": "arn:aws:sagemaker:region:account-id:cluster/*"
+}
+```
+
 To grant permissions to access the SageMaker AI console, use the sample policy provided at [Permissions required to use the Amazon SageMaker AI console](https://docs.aws.amazon.com/sagemaker/latest/dg/security_iam_id-based-policy-examples.html#console-permissions).
 
 To grant permissions to access the Amazon EC2 Systems Manager console, use the sample policy provided at [Using the AWS Systems Manager console](https://docs.aws.amazon.com/systems-manager/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-console) in the * AWS Systems Manager User Guide*.
@@ -619,7 +637,7 @@ Add the following policy to grant SSM session permissions to connect to an SSM t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	             
     "Statement": [
@@ -647,7 +665,7 @@ Grant the following IAM role permissions for data scientists to run `hyperpod li
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -716,7 +734,7 @@ For HyperPod orchestrated with Slurm, you must attach the following managed poli
 
 If you want to use your own Amazon Virtual Private Cloud (VPC) instead of the default SageMaker AI VPC, you should add the following additional permissions to the IAM role for SageMaker HyperPod.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -745,7 +763,7 @@ If you want to use your own Amazon Virtual Private Cloud (VPC) instead of the de
 The following list breaks down which permissions are needed to enable SageMaker HyperPod cluster functionalities when you configure the cluster with your own Amazon VPC.
 + The following `ec2` permissions are required to enable configuring a SageMaker HyperPod cluster with your VPC.
 
-  ```
+  ```json
   {
       "Effect": "Allow",
       "Action": [
@@ -764,7 +782,7 @@ The following list breaks down which permissions are needed to enable SageMaker 
   ```
 + The following `ec2` permission is required to enable the [SageMaker HyperPod auto-resume functionality](sagemaker-hyperpod-resiliency-slurm-auto-resume.md).
 
-  ```
+  ```json
   {
       "Effect": "Allow",
       "Action": [
@@ -775,7 +793,7 @@ The following list breaks down which permissions are needed to enable SageMaker 
   ```
 + The following `ec2` permission allows SageMaker HyperPod to create tags on the network interfaces within your account.
 
-  ```
+  ```json
   {
       "Effect": "Allow",
       "Action": "ec2:CreateTags",
@@ -798,7 +816,7 @@ In addition to the managed policies, attach the following permission policy to t
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -848,6 +866,8 @@ In addition to the managed policies, attach the following permission policy to t
 **Note**  
 The `"eks-auth:AssumeRoleForPodIdentity"` permission is optional. It's required if you plan to use EKS Pod identity.
 
+The `sagemaker:AttachClusterNodeNetworkInterface` permission lets the Amazon VPC CNI attach more ENIs to cluster nodes. For more information, see [Increasing pods per node with dynamic ENI attachment](sagemaker-hyperpod-eks-dynamic-eni-attachment.md).
+
 **SageMaker HyperPod service-linked role**
 
 For Amazon EKS support in SageMaker HyperPod, HyperPod creates a service-linked role with [AWS managed policy: AmazonSageMakerHyperPodServiceRolePolicy](security-iam-awsmanpol-AmazonSageMakerHyperPodServiceRolePolicy.md) to monitor and support resiliency on your EKS cluster such as replacing nodes and restarting jobs.
@@ -861,7 +881,7 @@ Workloads running in restricted instance groups rely on the execution role to lo
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

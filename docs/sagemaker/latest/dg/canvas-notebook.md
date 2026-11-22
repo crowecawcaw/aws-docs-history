@@ -1,7 +1,6 @@
 
 
 # Download a model notebook
-<a name="canvas-notebook"></a>
 
 **Note**  
 The model notebook feature is available for quick build and standard build tabular models, and fine-tuned foundation models. Model notebooks aren't supported for image prediction, text prediction, or time series forecasting models.  

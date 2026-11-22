@@ -1,7 +1,6 @@
 
 
 # Core features of the SageMaker model parallelism library v2
-<a name="model-parallel-core-features-v2"></a>
 
 The Amazon SageMaker AI model parallelism library v2 (SMP v2) offers distribution strategies and memory-saving techniques, such as sharded data parallelism, tensor parallelism, and checkpointing. The model parallelism strategies and techniques offered by SMP v2 help distribute large models across multiple devices while optimizing training speed and memory consumption. SMP v2 also provides a Python package `torch.sagemaker` to help adapt your training script with few lines of code change.
 

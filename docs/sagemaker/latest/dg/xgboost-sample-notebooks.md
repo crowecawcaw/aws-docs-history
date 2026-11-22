@@ -1,7 +1,6 @@
 
 
 # XGBoost sample notebooks
-<a name="xgboost-sample-notebooks"></a>
 
 The following list contains a variety of sample Jupyter notebooks that address different use cases of Amazon SageMaker AI XGBoost algorithm.
 + [How to Create a Custom XGBoost container](https://sagemaker-examples.readthedocs.io/en/latest/aws_sagemaker_studio/sagemaker_studio_image_build/xgboost_bring_your_own/Batch_Transform_BYO_XGB.html) – This notebook shows you how to build a custom XGBoost Container with Amazon SageMaker AI Batch Transform.

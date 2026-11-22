@@ -1,7 +1,6 @@
 
 
 # Task governance setup
-<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-setup-task-governance"></a>
 
 This section includes information on how to set up the Amazon SageMaker HyperPod task governance EKS add-on. This includes granting permissions that allows you to set task prioritization, compute allocation for teams, how idle compute is shared, and task preemption for teams.
 
@@ -37,7 +36,7 @@ HyperPod task governance leverages Kueue for Kubernetes-native job queueing, sch
 
 The following information outlines the configuration settings utilized by the HyperPod task governance add-on for setting up Kueue.
 
-```
+```kueue
   apiVersion: config.kueue.x-k8s.io/v1beta2
     kind: Configuration
     health:
@@ -97,7 +96,7 @@ For more information about each configuration entry, see [Configuration](https:/
 ## HyperPod Task governance prerequisites
 <a name="hp-eks-task-governance-prerequisites"></a>
 + Ensure that you have the minimum permission policy for HyperPod cluster administrators, in [IAM users for cluster admin](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin). This includes permissions to run the SageMaker HyperPod core APIs, manage SageMaker HyperPod clusters within your AWS account, and performing the tasks in [Managing SageMaker HyperPod clusters orchestrated by Amazon EKS](sagemaker-hyperpod-eks-operate.md). 
-+ You will need to have your Kubernetes version >= 1.30. For instructions, see [Update existing clusters to the new Kubernetes version](https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html).
++ You will need to have your Kubernetes version >= 1.31. For instructions, see [Update existing clusters to the new Kubernetes version](https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html).
 + If you already have Kueue installed in their clusters, uninstall Kueue before installing the EKS add-on.
 + A HyperPod node must already exist in the EKS cluster before installing the HyperPod task governance add-on. 
 
@@ -118,7 +117,7 @@ You already have all of the following permissions attached if you have already g
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Complete prerequisites
-<a name="code-editor-admin-prerequisites"></a>
 
 To use Code Editor, based on Code-OSS, Visual Studio Code - Open Source, you must complete the following prerequisites.
 

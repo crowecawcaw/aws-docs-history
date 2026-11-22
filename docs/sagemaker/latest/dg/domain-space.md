@@ -1,7 +1,6 @@
 
 
 # Collaboration with shared spaces
-<a name="domain-space"></a>
 
 An Amazon SageMaker Studio Classic shared space consists of a shared JupyterServer application and a shared directory. A JupyterLab shared space consists of a shared JupyterLab application and a shared directory within Amazon SageMaker Studio. All user profiles in a domain have access to all shared spaces in the domain. Amazon SageMaker AI automatically scopes resources in a shared space within the context of the Amazon SageMaker Studio Classic application that you launch in that shared space. Resources in a shared space include notebooks, files, experiments, and models. Use shared spaces to collaborate with other users in real-time using features like automatic tagging, real time co-editing of notebooks, and customization. 
 

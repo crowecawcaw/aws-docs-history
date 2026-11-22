@@ -1,7 +1,6 @@
 
 
 # Enable training
-<a name="jumpstart-content-sharing-training"></a>
 
 When adding a model to share, you can optionally provide a training environment and allow collaborators in your organization to train the shared model. 
 

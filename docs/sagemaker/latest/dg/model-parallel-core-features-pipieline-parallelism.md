@@ -1,7 +1,6 @@
 
 
 # Pipelining a Model
-<a name="model-parallel-core-features-pipieline-parallelism"></a>
 
 One of the core features of SageMaker's model parallelism library is *pipeline parallelism*, which determines the order in which computations are made and data is processed across devices during model training. Pipelining is a technique to achieve true parallelization in model parallelism, by having the GPUs compute simultaneously on different data samples, and to overcome the performance loss due to sequential computation. When you use pipeline parallelism, training job is executed in a pipelined fashion over microbatches to maximize GPU usage.
 

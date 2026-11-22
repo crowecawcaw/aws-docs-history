@@ -1,7 +1,6 @@
 
 
 # IP Insights Inference Data Formats
-<a name="ip-insights-inference-data-formats"></a>
 
 The following are the available input and output formats for the IP Insights algorithm. Amazon SageMaker AI built-in algorithms adhere to the common input inference format described in [Common data formats for inference](cdf-inference.md). However, the SageMaker AI IP Insights algorithm does not currently support RecordIO format.
 

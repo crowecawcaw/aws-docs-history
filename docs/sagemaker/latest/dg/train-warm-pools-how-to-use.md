@@ -1,7 +1,6 @@
 
 
 # Use SageMaker AI managed warm pools
-<a name="train-warm-pools-how-to-use"></a>
 
 You can use SageMaker AI managed warm pools through the SageMaker Python SDK, the Amazon SageMaker AI console, or through the low-level APIs. Administrators can optionally use the `sagemaker:KeepAlivePeriod` condition key to further restrict the `KeepAlivePeriodInSeconds` limits for certain users or groups.
 
@@ -31,7 +30,7 @@ To create a warm pool, use the SageMaker Python SDK to create a training job wit
 
 Use the SageMaker Python SDK to create a `ModelTrainer` with a `keep_alive_period_in_seconds` value greater than 0 in the `Compute` configuration and call `train()`. For more information on training with the SageMaker Python SDK, see [Train a Model with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/).
 
-```
+```python
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import Compute, SourceCode
 from sagemaker.core.helper.session_helper import Session, get_execution_role
@@ -76,7 +75,7 @@ model_trainer.train(input_data_config=[train_data])
 
 Next, create a second matching training job. In this example, we create `my-training-job-2`, which has all of the necessary attributes to match with `my-training-job-1`, but has a different hyperparameter for experimentation. The second training job reuses the warm pool and starts up faster than the first training job. The following code example uses a Tensorflow estimator. The warm pool feature can be used with any training algorithm that runs on Amazon SageMaker AI. For more information on which attributes need to match, see [Matching training jobs](train-warm-pools.md#train-warm-pools-matching-criteria).
 
-```
+```python
 # Creates a second ModelTrainer that reuses the warm pool
 model_trainer_2 = ModelTrainer(
     training_image=training_image,
@@ -107,14 +106,14 @@ Check the warm pool status of both training jobs to confirm that the warm pool i
 **Note**  
 Training job names have date/time suffixes. The example training job names `my-training-job-1` and `my-training-job-2` should be replaced with actual training job names. You can use the `estimator.latest_training_job.job_name` command to fetch the actual training job name.
 
-```
+```python
 session.describe_training_job({{'my-training-job-1'}})
 session.describe_training_job({{'my-training-job-2'}})
 ```
 
 The result of `describe_training_job` provides all details about a given training job. Find the `WarmPoolStatus` attribute to check information about a training job’s warm pool. Your output should look similar to the following example:
 
-```
+```json
 # Warm pool status for training-job-1
 ...
 'WarmPoolStatus': {'Status': 'Reused', 
@@ -133,7 +132,7 @@ The result of `describe_training_job` provides all details about a given trainin
 
 When the training job is complete and the warm pool status is `Available`, then you can update the `KeepAlivePeriodInSeconds` value.
 
-```
+```python
 session.update_training_job(job_name, resource_config={"KeepAlivePeriodInSeconds":{{3600}}})
 ```
 
@@ -142,7 +141,7 @@ session.update_training_job(job_name, resource_config={"KeepAlivePeriodInSeconds
 
 To manually terminate a warm pool, set the `KeepAlivePeriodInSeconds ` value to 0.
 
-```
+```python
 session.update_training_job(job_name, resource_config={"KeepAlivePeriodInSeconds":0})
 ```
 
@@ -194,7 +193,7 @@ Administrators can optionally use the `sagemaker:KeepAlivePeriod` condition key 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Delete a serverless endpoint
-<a name="serverless-endpoints-delete"></a>
 
 You can delete your serverless endpoint using the [SageMaker AI console](https://console.aws.amazon.com/sagemaker/home), the [DeleteEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html) API, or the AWS CLI. The following examples show you how to delete your endpoint through the API and the SageMaker AI console.
 
@@ -10,7 +9,7 @@ You can delete your serverless endpoint using the [SageMaker AI console](https:/
 
 The following example uses the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) to call the [DeleteEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html) API. For `EndpointName`, use the name of the serverless endpoint you want to delete.
 
-```
+```python
 response = client.delete_endpoint(
     EndpointName="{{<your-endpoint-name>}}",
 )

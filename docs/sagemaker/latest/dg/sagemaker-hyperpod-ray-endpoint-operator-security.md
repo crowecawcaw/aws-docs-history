@@ -1,7 +1,6 @@
 
 
 # Security best practices for the HyperPod Ray Endpoint Operator
-<a name="sagemaker-hyperpod-ray-endpoint-operator-security"></a>
 
 The following best practices help you secure your HyperPod Ray Endpoint Operator deployment. For installation instructions, see [Installing the HyperPod Ray Endpoint Operator](sagemaker-hyperpod-ray-endpoint-operator.md).
 
@@ -27,7 +26,7 @@ Environment variables and entrypoint scripts are visible through the Ray dashboa
 
 The `sagemaker_ray://` address scheme handles authentication without exposing a URL in terminal output or logs. The [toolkit-for-ray-on-sagemaker-ai](https://pypi.org/project/toolkit-for-ray-on-sagemaker-ai/) Python library on the PyPI website registers this scheme, so Ray's standard Jobs CLI and Python SDK authenticate through the cluster's secured endpoint. The library is preinstalled in SageMaker AI Distribution images. For more information, see [Submitting Ray jobs remotely with the toolkit library](sagemaker-hyperpod-ray-remote-job-submission.md).
 
-```
+```bash
 ray job submit --address "sagemaker_ray://{{cluster-name}}/{{namespace}}" -- python train.py
 ```
 
@@ -59,7 +58,7 @@ To enable per-user access control when users share an execution role, configure 
 
 To revoke all sessions (requires cluster access), run the following commands. This invalidates sessions for all users on all Ray clusters in the Amazon EKS cluster.
 
-```
+```bash
 kubectl patch secret hyperpod-ray-endpoint-operator-extensionapi-jwt-secret \
   -n hyperpod-ray --type merge -p '{"data":null}'
 
@@ -69,7 +68,7 @@ kubectl create job --from=cronjob/hyperpod-ray-endpoint-operator-jwt-rotator \
 
 To revoke all sessions through AWS KMS (no cluster access required), disable the AWS KMS key in the AWS Management Console or by using the AWS CLI. For more information, see [Enabling and disabling keys](https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html) in the *AWS KMS Developer Guide*.
 
-```
+```bash
 aws kms disable-key --key-id {{key-id}}
 ```
 
@@ -92,7 +91,7 @@ The deployed chart does not receive security updates automatically. You must man
 
 We recommend that you routinely update to the latest version of the HyperPod Ray Endpoint Operator Helm chart to ensure that you have the latest security fixes and improvements. When upgrading, change `install` to `upgrade` in the Helm command:
 
-```
+```bash
 helm upgrade --install hyperpod-ray-endpoint-operator \
   ./helm_chart/HyperPodHelmChart/charts/hyperpod-ray-endpoint-operator \
   --namespace hyperpod-ray \

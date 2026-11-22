@@ -1,7 +1,6 @@
 
 
 # Configure IAM runtime roles for Amazon EMR cluster access in Studio
-<a name="studio-notebooks-emr-cluster-rbac"></a>
 
 When you connect to an Amazon EMR cluster from your Studio or Studio Classic notebooks, you can visually browse a list of IAM roles, known as runtime roles, and select one on the fly. Subsequently, all your Apache Spark, Apache Hive, or Presto jobs created from your notebook access only the data and resources permitted by policies attached to the runtime role. Also, when data is accessed from data lakes managed with AWS Lake Formation, you can enforce table-level and column-level access using policies attached to the runtime role.
 
@@ -62,7 +61,7 @@ The following example policy permits Amazon EMR runtime execution roles belongin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -103,7 +102,7 @@ If your Amazon EMR cluster is not in your Studio account, allow your SageMaker A
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -126,7 +125,7 @@ If your Amazon EMR cluster is not in your Studio account, allow your SageMaker A
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -151,7 +150,7 @@ If your Amazon EMR cluster is not in your Studio account, allow your SageMaker A
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -220,7 +219,7 @@ In a JupyterLab application started from a space using the SageMaker AI executio
 
 Alternatively, use `client.update_domain` to update the domain settings if your space uses an execution role set at the domain level.
 
-```
+```python
 import botocore.session
 import json
 sess = botocore.session.get_session()

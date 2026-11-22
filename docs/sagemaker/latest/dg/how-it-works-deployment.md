@@ -1,7 +1,6 @@
 
 
 # Model deployment options in Amazon SageMaker AI
-<a name="how-it-works-deployment"></a>
 
 After you train your machine learning model, you can deploy it using Amazon SageMaker AI to get predictions. Amazon SageMaker AI supports the following ways to deploy a model, depending on your use case:
 + For persistent, real-time endpoints that make one prediction at a time, use SageMaker AI real-time hosting services. See [Real-time inference](realtime-endpoints.md).

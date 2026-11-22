@@ -1,7 +1,6 @@
 
 
 # Create Custom Worker Task Templates
-<a name="a2i-custom-templates"></a>
 
 **Note**  
 Amazon SageMaker A2I is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for A2I, but we do not plan to introduce new features.
@@ -30,7 +29,7 @@ Amazon Augmented AI custom templates enable you to embed external scripts and st
 
 **Example**  
 
-```
+```html
 <script src="https://www.example.com/my-enhancment-script.js"></script>
 <link rel="stylesheet" type="text/css" href="https://www.example.com/my-enhancement-styles.css">
 ```

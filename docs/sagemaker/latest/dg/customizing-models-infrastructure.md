@@ -1,7 +1,6 @@
 
 
 # Infrastructure options
-<a name="customizing-models-infrastructure"></a>
 
 Amazon SageMaker AI offers three infrastructure options for model customization. Choose based on your requirements for control, scale, and capacity access. For example, if you have reserved compute capacity through [SageMaker AI Flexible Training Plans](https://docs.aws.amazon.com/sagemaker/latest/dg/reserve-capacity-with-training-plans.html), you can use the customization Recipes to run customization jobs on your reserved capacity. The difference is in how compute resources are managed.
 

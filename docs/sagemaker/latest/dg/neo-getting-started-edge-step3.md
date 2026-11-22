@@ -1,13 +1,12 @@
 
 
 # Make Inferences on Your Device
-<a name="neo-getting-started-edge-step3"></a>
 
 In this example, you will use Boto3 to download the output of your compilation job onto your edge device. You will then import DLR, download an example images from the dataset, resize this image to match the model’s original input, and then you will make a prediction.
 
 1. **Download your compiled model from Amazon S3 to your device and extract it from the compressed tarfile.** 
 
-   ```
+   ```python
    # Download compiled model locally to edge device
    object_path = f'output/{model_name}-{target_device}.tar.gz'
    neo_compiled_model = f'compiled-{model_name}.tar.gz'
@@ -20,7 +19,7 @@ In this example, you will use Boto3 to download the output of your compilation j
 
 1. **Import DLR and an initialized `DLRModel` object.**
 
-   ```
+   ```python
    import dlr
    
    device = 'cpu'
@@ -31,7 +30,7 @@ In this example, you will use Boto3 to download the output of your compilation j
 
    For the `coco_ssd_mobilenet` example, you can download an image from the [COCO dataset](https://cocodataset.org/#home) and then reform the image to `300x300`: 
 
-   ```
+   ```python
    from PIL import Image
    
    # Download an image for model to make a prediction
@@ -49,7 +48,7 @@ In this example, you will use Boto3 to download the output of your compilation j
 
    Finally, you can use DLR to make a prediction on the image you just downloaded: 
 
-   ```
+   ```python
    out = model.run(x)
    ```
 

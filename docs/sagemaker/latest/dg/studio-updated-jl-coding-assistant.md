@@ -1,7 +1,6 @@
 
 
 # Using a coding assistant to expedite your machine learning workflows
-<a name="studio-updated-jl-coding-assistant"></a>
 
 ## Overview
 <a name="studio-updated-jl-coding-assistant-overview"></a>
@@ -117,7 +116,7 @@ Please note that for Claude Code specifically, you can configure it to use AWS B
 
 `~/.claude/settings.json`:
 
-```
+```json
 {
   "env": {
     "CLAUDE_CODE_USE_BEDROCK": "1"

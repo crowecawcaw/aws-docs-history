@@ -1,7 +1,6 @@
 
 
 # Granting SageMaker Studio Permissions Required to Use Projects
-<a name="sagemaker-projects-studio-updates"></a>
 
 The Amazon SageMaker Studio (or Studio Classic) administrator and Studio (or Studio Classic) users that you add to your domain can view project templates provided by SageMaker AI and create projects with those templates. By default, the administrator can view the SageMaker AI templates in the Service Catalog console. The administrator can see what another user creates if the user has permission to use SageMaker Projects. The administrator can also view the CloudFormation template that the SageMaker AI project templates define in the Service Catalog console. For information about using the Service Catalog console, see [What Is Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html) in the *Service Catalog User Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # Complete prerequisites
-<a name="edge-packaging-job-prerequisites"></a>
 
 To package a model, you must do the following:
 
@@ -20,7 +19,7 @@ To package a model, you must do the following:
    Use one of the following methods to get your IAM ARN:
    + **Programmatically with the SageMaker AI Python SDK**
 
-     ```
+     ```python
      from sagemaker.core.helper.session_helper import Session, get_execution_role
      
      # Initialize SageMaker Session object so you can interact with AWS resources
@@ -49,7 +48,7 @@ To package a model, you must do the following:
 
      You can use the default Amazon S3 bucket during a session. A default bucket is created based on the following format: `sagemaker-{region}-{aws-account-id}`. To create a default bucket with the SageMaker Python SDK, use the following:
 
-     ```
+     ```python
      import sagemaker
      
      session=sagemaker.create_session()

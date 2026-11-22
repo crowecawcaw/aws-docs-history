@@ -1,7 +1,6 @@
 
 
 # Install SageMaker AI Spaces Add-on
-<a name="operator-install"></a>
 
 ## Dependencies
 <a name="dependencies"></a>
@@ -41,7 +40,7 @@
 <a name="installation"></a>
 
 Before you begin, ensure that you have:
-+ An active SageMaker HyperPod cluster with at least one worker node running Kubernetes version 1.30 or later
++ An active SageMaker HyperPod cluster with at least one worker node running Kubernetes version 1.31 or later
 + At least one worker node with minimum instance type (XX vCPU, YY GiB memory)
 
 ### Installing the Amazon SageMaker Spaces add-on
@@ -106,7 +105,7 @@ Standard Route 53 charges apply for hosted zones and DNS queries. For pricing in
 
 Create `addon-config.yaml`:
 
-```
+```yaml
 jupyter-k8s:
   workspacePodWatching:
     enable: true

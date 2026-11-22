@@ -1,7 +1,6 @@
 
 
 # HyperPod
-<a name="customizing-models-hyperpod"></a>
 
 HyperPod runs model customization on persistent compute clusters that remain available across multiple training jobs. HyperPod provides advanced fault detection and recovery, making it ideal for large-scale and long-running training workloads.
 

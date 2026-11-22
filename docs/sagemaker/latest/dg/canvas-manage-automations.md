@@ -1,7 +1,6 @@
 
 
 # How to manage automations
-<a name="canvas-manage-automations"></a>
 
 In SageMaker Canvas, you can create automations that update your dataset or generate predictions from your model on a schedule. For example, you might receive new shipping data on a daily basis. You can set up an automatic update for your dataset and automatic batch predictions that run whenever the dataset is updated. Using these features, you can set up an automated workflow and reduce the amount of time you spend manually updating datasets and making predictions.
 

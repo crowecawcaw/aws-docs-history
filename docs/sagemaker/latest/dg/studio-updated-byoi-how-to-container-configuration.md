@@ -1,7 +1,6 @@
 
 
 # Update container configuration
-<a name="studio-updated-byoi-how-to-container-configuration"></a>
 
 You can bring custom Docker images into your machine learning workflows. A key aspect of customizing these images is configuring the container configurations, or [`ContainerConfig`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerConfig.html). The following page provides an example on how to configure your `ContainerConfig`. 
 

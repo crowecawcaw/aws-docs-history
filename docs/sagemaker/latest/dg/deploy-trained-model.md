@@ -1,7 +1,6 @@
 
 
 # Deploy a custom model
-<a name="deploy-trained-model"></a>
 
 After training completes, deploy your model for inference. You can deploy a custom model using either the CLI or the SDK.
 

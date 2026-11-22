@@ -1,7 +1,6 @@
 
 
 # Access containers through SSM
-<a name="ssm-access"></a>
 
  Amazon SageMaker AI allows you to securely connect to the Docker containers on which your models are deployed on for Inference using AWS Systems Manager (SSM). This gives you shell level access to the container so that you can debug the processes running within the container and log commands and responses with Amazon CloudWatch. You can also set up an AWS PrivateLink connection to the ML instances that host your containers for accessing the containers via SSM privately. 
 
@@ -20,7 +19,7 @@
 
  To enable SSM access for an existing container on an endpoint, update the endpoint with a new endpoint configuration, with the `EnableSSMAccess` parameter set to `true` The following example provides a sample endpoint configuration. 
 
-```
+```json
 {
     "EndpointConfigName": {{"endpoint-config-name"}},
     "ProductionVariants": [
@@ -51,7 +50,7 @@
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	             
     "Statement": [
@@ -81,7 +80,7 @@
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	             
     "Statement": [
@@ -106,7 +105,7 @@
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	  
     "Statement": [
@@ -144,7 +143,7 @@
 
  The following example shows how you can use the AWS CLI to access a model container using its target ID. 
 
-```
+```bash
 aws ssm start-session --target sagemaker-endpoint:prod-image-classifier_variant1_i-003a121c1b21a90a9_container_1
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Ingest Ground Truth labels and merge them with predictions
-<a name="model-monitor-model-quality-merge"></a>
 
 **Note**  
 Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
@@ -10,7 +9,7 @@ Model quality monitoring compares the predictions your model makes with ground t
 
 To match Ground Truth labels with captured prediction data, there must be a unique identifier for each record in the dataset. The structure of each record for ground truth data is as follows:
 
-```
+```json
 {
   "groundTruthData": {
     "data": "1",
@@ -34,7 +33,7 @@ You must upload Ground Truth data to an Amazon S3 bucket that has the same path 
 **Data format requirements**  
 When you save your data to Amazon S3 it must use the jsonlines format (.jsonl), and be saved using the following naming structure. To learn more about jsonline requirements, see [Use input and output data](sms-data.md). 
 
-```
+```sh
 s3://{{amzn-s3-demo-bucket1}}/{{prefix}}{{/yyyy}}/{{mm}}/{{dd}}/{{hh}}
 ```
 

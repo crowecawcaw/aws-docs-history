@@ -1,7 +1,6 @@
 
 
 # Updating inference containers to comply with the NVIDIA Container Toolkit
-<a name="container-nvidia-compliance"></a>
 
 As of versions 1.17.4 and higher, the NVIDIA Container Toolkit no longer mounts CUDA compatibility libraries automatically. This change in behavior could affect your SageMaker AI inference workloads. Your SageMaker AI endpoints and batch transform jobs might use containers that are incompatible with the latest versions of the NVIDIA Container Toolkit. To ensure that your workloads comply with the latest requirements, you might need to update your endpoints or configure your batch transform jobs.
 
@@ -29,7 +28,7 @@ We suggest that you enable the CUDA compatibility based on the detected NVIDIA d
 
 The following script demonstrates how to dynamically switch the use of the CUDA compatibility based on the detected NVIDIA driver version on the deployed host for your model container.
 
-```
+```bash
 #!/bin/bash
 
 verlt() {
@@ -75,7 +74,7 @@ al2-ami-sagemaker-inference-gpu-3-1
 
 Use the following example to update an existing endpoint. The example uses an inference AMI version that disables automatic mounting of CUDA compatibility libraries.
 
-```
+```bash
 ENDPOINT_NAME="<endpoint name>"
 INFERENCE_AMI_VERSION="al2-ami-sagemaker-inference-gpu-3-1"
 
@@ -111,7 +110,7 @@ aws sagemaker update-endpoint \
 
 Use the following example to create a new endpoint. The example uses an inference AMI version that disables automatic mounting of CUDA compatibility libraries.
 
-```
+```bash
 INFERENCE_AMI_VERSION="al2-ami-sagemaker-inference-gpu-3-1"
 
 aws sagemakercreate-endpoint-config \
@@ -140,7 +139,7 @@ The changed behavior of the NVIDIA Container Toolkit affects batch transform job
 
    For example, when you create a batch transform job by using the AWS CLI, you set the environment variable with the `--environment` parameter:
 
-   ```
+   ```bash
    aws sagemaker create-transform-job \
        --environment '{"SAGEMAKER_CUDA_COMPAT_DISABLED": "true"}'\
        . . .

@@ -1,7 +1,6 @@
 
 
 # Ray on SageMaker HyperPod
-<a name="sagemaker-hyperpod-ray"></a>
 
 Ray is an open source unified framework for scaling AI and Python applications. It provides the compute layer for parallel processing, so you do not need to be a distributed systems expert to run work across a cluster. Ray Core distributes the work, and the Ray AI libraries cover data processing, distributed training, hyperparameter tuning, reinforcement learning, and model serving. For more information, see [Overview](https://docs.ray.io/en/latest/ray-overview/index.html) in the Ray documentation.
 

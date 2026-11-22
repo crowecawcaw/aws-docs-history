@@ -1,7 +1,6 @@
 
 
 # Share model group in Studio
-<a name="model-registry-ram-studio-share"></a>
 
 You can share your model groups with other AWS principals (AWS accounts or AWS Organizations) using the Studio UI. This streamlined sharing process enables cross-team collaboration, promotes best practices, and facilitates model reuse across your teams. The following will provide instructions on how to share model groups in Studio.
 
@@ -20,7 +19,7 @@ To share model groups you will first need to make sure that you have the followi
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

@@ -1,7 +1,6 @@
 
 
 # API reference
-<a name="training-sessions-api"></a>
 
 The training session APIs expose two groups of API operations: control-plane operations that manage the session lifecycle, and runtime operations that run training and sampling against an active session. For complete request and response syntax, see the reference pages linked below.
 

@@ -1,7 +1,6 @@
 
 
 # Update an evaluation job (Studio)
-<a name="model-registry-details-studio-evaluate-update"></a>
 
 Complete the following steps to update the details of an evaluation job, created externally or with SageMaker AI, associated with your model.
 

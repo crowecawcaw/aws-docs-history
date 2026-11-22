@@ -1,7 +1,6 @@
 
 
 # Custom images with RStudio on SageMaker AI
-<a name="rstudio-byoi"></a>
 
 A SageMaker image is a file that identifies language packages and other dependencies that are required to run RStudio on Amazon SageMaker AI. SageMaker AI uses these images to create an environment where you run RStudio. Amazon SageMaker AI provides a built-in RStudio image for you to use. If you need different functionality, you can bring your own custom images. This page gives information about key concepts for using custom images with RStudio on SageMaker AI. The process to bring your own image to use with RStudio on SageMaker AI takes three steps:
 

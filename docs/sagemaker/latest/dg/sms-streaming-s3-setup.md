@@ -1,7 +1,6 @@
 
 
 # Creating Amazon S3 based bucket event notifications based of the Amazon SNS defined in your labeling job
-<a name="sms-streaming-s3-setup"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.

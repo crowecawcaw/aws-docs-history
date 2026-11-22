@@ -1,7 +1,6 @@
 
 
 # Deploy a Model in Studio
-<a name="model-registry-deploy-studio"></a>
 
 After you register a model version and approve it for deployment, deploy it to a Amazon SageMaker AI endpoint for real-time inference. You can [Deploy a Model from the Registry with Python](model-registry-deploy.md) or deploy your model in Amazon SageMaker Studio. The following provides instructions on how to deploy your model in Studio.
 

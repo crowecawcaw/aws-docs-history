@@ -1,7 +1,6 @@
 
 
 # Register a model version in the SageMaker AI model registry
-<a name="canvas-register-model"></a>
 
 With SageMaker Canvas, you can build multiple iterations, or versions, of your model to improve it over time. You might want to build a new version of your model if you acquire better training data or if you want to attempt to improve the model’s accuracy. For more information about adding versions to your model, see [Update a model](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-update-model.html).
 

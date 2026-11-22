@@ -1,7 +1,6 @@
 
 
 # Supported AWS Regions
-<a name="remote-access-supported-regions"></a>
 
 The following table lists the AWS Regions where Remote IDE connections to Studio spaces are supported, along with the IDEs available in each Region.
 

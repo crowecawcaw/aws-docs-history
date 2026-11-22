@@ -1,7 +1,6 @@
 
 
 # SageMaker AI Insights dashboard
-<a name="monitoring-detailed-observability-dashboard"></a>
 
 Use CloudWatch SageMaker AI Insights to monitor and troubleshoot SageMaker AI inference endpoints at scale. The dashboard displays curated metrics and visualizations across three views — Performance, Capacity, and Reliability — so you can quickly identify issues, optimize resource utilization, and ensure high availability across your endpoints.
 

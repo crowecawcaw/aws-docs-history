@@ -1,7 +1,6 @@
 
 
 # How data processing works in Data Wrangler
-<a name="canvas-data-processing"></a>
 
 While working with data interactively in an Amazon SageMaker Data Wrangler data flow, Amazon SageMaker Canvas only applies the transformations to a sample dataset for you to preview. After finishing your data flow in SageMaker Canvas, you can process all of your data and save it in a location that is suitable for your machine learning workflows.
 

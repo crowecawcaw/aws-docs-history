@@ -1,7 +1,6 @@
 
 
 # Code Editor in Amazon SageMaker Studio
-<a name="code-editor"></a>
 
 Code Editor, based on [Code-OSS, Visual Studio Code - Open Source](https://github.com/microsoft/vscode#visual-studio-code---open-source-code---oss), helps you write, test, debug, and run your analytics and machine learning code. Code Editor extends and is fully integrated with Amazon SageMaker Studio. It also supports integrated development environment (IDE) extensions available in the [Open VSX Registry](https://open-vsx.org/). The following page gives information about Code Editor and key details for using it.
 

@@ -1,7 +1,6 @@
 
 
 # Creating a SageMaker HyperPod cluster
-<a name="sagemaker-hyperpod-eks-operate-cli-command-create-cluster"></a>
 
 Learn how to create SageMaker HyperPod clusters orchestrated by Amazon EKS using the AWS CLI.
 
@@ -33,7 +32,7 @@ If you create an [IAM role for SageMaker HyperPod](sagemaker-hyperpod-prerequisi
 **Note**  
 Ensure that your SageMaker HyperPod cluster is deployed within the same Virtual Private Cloud (VPC) as your Amazon EKS cluster. The subnets and security groups specified in the SageMaker HyperPod cluster configuration must allow network connectivity and communication with the Amazon EKS cluster's API server endpoint.
 
-   ```
+   ```json
    // create_cluster.json
    {
        "ClusterName": {{"string"}},
@@ -124,7 +123,7 @@ Instead of specifying a single `InstanceType`, you can use the `InstanceRequirem
 Flexible instance groups require continuous node provisioning mode.
 The following example shows an instance group using `InstanceRequirements`:  
 
-   ```
+   ```json
    {
        "InstanceGroupName": "flexible-ig",
        "InstanceRequirements": {

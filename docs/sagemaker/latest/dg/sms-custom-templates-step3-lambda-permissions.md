@@ -1,7 +1,6 @@
 
 
 # Add required permissions to use AWS Lambda with Ground Truth
-<a name="sms-custom-templates-step3-lambda-permissions"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
@@ -36,7 +35,7 @@ Additionally, if you want the user to be able to access and deploy the Ground Tr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -78,7 +77,7 @@ If the pre-annotation or post-annotation Lambda function names do not include on
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -118,7 +117,7 @@ To allow a Lambda function to assume a SageMaker AI execution role, you must att
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -138,7 +137,7 @@ To allow a Lambda function to assume a SageMaker AI execution role, you must att
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -164,7 +163,7 @@ You can add a policy similar to the following to the post-annotation Lambda func
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

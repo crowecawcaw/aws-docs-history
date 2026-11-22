@@ -1,7 +1,6 @@
 
 
 # Using training plans in Studio applications
-<a name="training-plan-utilization-for-studio-apps"></a>
 
 You can use SageMaker training plans with SageMaker Studio apps by specifying the training plan ARN in the resource specification when you create a Studio app. A Studio app can only use a training plan if it is in the `Active` status. Only `JupyterLab` and `CodeEditor` app types are supported with training plans.
 
@@ -20,7 +19,7 @@ Apps running on training plan capacity are automatically shut down **30 minutes*
 
   For the Studio UI, add the following policy to your execution role:
 
-  ```
+  ```JSON
   {
       "Version": "2012-10-17",		 	 	 
       "Statement": [
@@ -38,7 +37,7 @@ Apps running on training plan capacity are automatically shut down **30 minutes*
 
   For the API or AWS CLI only, add the following policy to your execution role:
 
-  ```
+  ```JSON
   {
       "Version": "2012-10-17",		 	 	 
       "Statement": [

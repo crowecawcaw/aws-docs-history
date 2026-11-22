@@ -1,7 +1,6 @@
 
 
 # Running distributed training workloads with Slurm on HyperPod
-<a name="sagemaker-hyperpod-run-jobs-slurm-distributed-training-workload"></a>
 
 SageMaker HyperPod is specialized for workloads of training large language models (LLMs) and foundation models (FMs). These workloads often require the use of multiple parallelism techniques and optimized operations for ML infrastructure and resources. Using SageMaker HyperPod, you can use the following SageMaker AI distributed training frameworks:
 + The [SageMaker AI distributed data parallelism (SMDDP) library](data-parallel.md) that offers collective communication operations optimized for AWS.
@@ -51,7 +50,7 @@ Docker images pre-installed with the SMDDP library or the URLs to the SMDDP bina
 **Note**  
 If you work in a Conda environment, ensure that you install PyTorch using `conda install` instead of `pip`.  
 
-  ```
+  ```sh
   conda install pytorch=={{X.Y.Z}}  torchvision=={{X.Y.Z}} torchaudio=={{X.Y.Z}} pytorch-cuda={{X.Y.Z}} -c pytorch -c nvidia
   ```
 
@@ -60,7 +59,7 @@ If you work in a Conda environment, ensure that you install PyTorch using `conda
 **Important**  
 To use the SMDDP library in a Docker container, mount the `/var/log` directory from the host machine onto `/var/log` in the container. This can be done by adding the following option when running your container.  
 
-  ```
+  ```sh
   docker run {{<OTHER_OPTIONS>}} -v /var/log:/var/log ...
   ```
 

@@ -1,7 +1,6 @@
 
 
 # Scaling training
-<a name="distributed-training-scenarios"></a>
 
 The following sections cover scenarios in which you may want to scale up training, and how you can do so using AWS resources. You may want to scale training in one of the following situations:
 + Scaling from a single GPU to many GPUs

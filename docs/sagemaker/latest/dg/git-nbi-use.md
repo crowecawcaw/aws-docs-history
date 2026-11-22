@@ -1,11 +1,10 @@
 
 
 # Use Git Repositories in a Notebook Instance
-<a name="git-nbi-use"></a>
 
 When you open a notebook instance that has Git repositories associated with it, it opens in the default repository, which is installed in your notebook instance directly under `/home/ec2-user/SageMaker`. You can open and create notebooks, and you can manually run Git commands in a notebook cell. For example:
 
-```
+```python
 !git pull origin master
 ```
 

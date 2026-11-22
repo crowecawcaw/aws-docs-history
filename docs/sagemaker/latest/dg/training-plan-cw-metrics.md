@@ -1,7 +1,6 @@
 
 
 # Monitor capacity reservation usage with Amazon CloudWatch metrics
-<a name="training-plan-cw-metrics"></a>
 
 You can use [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) metrics to monitor the utilization of capacity reservations associated with your SageMaker training plans. This feature provides access to both historical and real-time metrics on instance usage—at the individual plan level and across all plans in your account—so you can make informed decisions about capacity and cost. These metrics will be published directly in your account, and the SageMaker training plans service will not have access to them.
 
@@ -12,7 +11,7 @@ The `AWSServiceRoleForSageMakerCapacityReservation` service-linked role (SLR) mu
 
 The following statement needs to be added to your IAM policy:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "iam:CreateServiceLinkedRole",
@@ -33,7 +32,7 @@ While the `Resource` field is set to `"*"` (required for `CreateServiceLinkedRol
 
 You can also create the SLR through the AWS CLI instead of relying on SageMaker AI to set it up by running the following command:
 
-```
+```sh
 aws iam create-service-linked-role --aws-service-name capacityreservation.sagemaker.amazonaws.com
 ```
 
@@ -88,6 +87,6 @@ You can view capacity reservation metrics by using the Amazon CloudWatch console
 
 To list available metrics by using the AWS CLI, run the following command:
 
-```
+```sh
 aws cloudwatch list-metrics --namespace "aws/sagemaker/CapacityReservations"
 ```

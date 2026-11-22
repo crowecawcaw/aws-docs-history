@@ -1,7 +1,6 @@
 
 
 # Why Should You Use MLOps?
-<a name="sagemaker-projects-why"></a>
 
 As you move from running individual artificial intelligence and machine learning (AI/ML) projects to using AI/ML to transform your business at scale, the discipline of ML Operations (MLOps) can help. MLOps accounts for the unique aspects of AI/ML projects in project management, CI/CD, and quality assurance, helping you improve delivery time, reduce defects, and make data science more productive. MLOps refers to a methodology that is built on applying DevOps practices to machine learning workloads. For a discussion of DevOps principles, see the white paper [Introduction to DevOps on AWS](https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/welcome.html?did=wp_card). To learn more about implementation using AWS services, see [Practicing CI/CD on AWS](https://d1.awsstatic.com/whitepapers/DevOps/practicing-continuous-integration-continuous-delivery-on-AWS.pdf) and [Infrastructure as Code](https://d1.awsstatic.com/whitepapers/DevOps/infrastructure-as-code.pdf).
 

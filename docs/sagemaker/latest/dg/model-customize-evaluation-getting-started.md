@@ -1,7 +1,6 @@
 
 
 # Getting Started
-<a name="model-customize-evaluation-getting-started"></a>
 
 ## Submit an Evaluation Job Through SageMaker Studio
 <a name="model-customize-evaluation-studio"></a>
@@ -65,7 +64,7 @@ Your completed evaluation job is displayed in Evaluations of your model card:
 
 Pass your registered trained model, AWS S3 output location, and MLFlow resource ARN to `BenchMarkEvaluator` and then initialize it.
 
-```
+```python
 from sagemaker.train.evaluate import BenchMarkEvaluator, Benchmark  
   
 evaluator = BenchMarkEvaluator(  
@@ -82,7 +81,7 @@ evaluator = BenchMarkEvaluator(
 
 Call the `evaluate()` method to submit the evaluation job.
 
-```
+```python
 execution = evaluator.evaluate()
 ```
 
@@ -91,7 +90,7 @@ execution = evaluator.evaluate()
 
 Call the `wait()` method of the execution to get a live update of the evaluation job progress.
 
-```
+```python
 execution.wait(target_status="Succeeded", poll=5, timeout=3600)
 ```
 
@@ -100,6 +99,6 @@ execution.wait(target_status="Succeeded", poll=5, timeout=3600)
 
 Call the `show_results()` method to display your evaluation job results.
 
-```
+```python
 execution.show_results()
 ```

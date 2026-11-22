@@ -1,7 +1,6 @@
 
 
 # (Archived) SageMaker model parallelism library v1.x
-<a name="model-parallel"></a>
 
 **Important**  
 As of December 19, 2023, the SageMaker model parallelism (SMP) library v2 is released. In favor of the SMP library v2, the SMP v1 capabilites are no longer supported in future releases. The following section and topics are archived and specific to using the SMP library v1. For information about using the SMP library v2, see [SageMaker model parallelism library v2](model-parallel-v2.md).

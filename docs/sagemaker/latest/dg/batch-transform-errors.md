@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="batch-transform-errors"></a>
 
 If you are having errors in Amazon SageMaker AI Batch Transform, refer to the following troubleshooting tips.
 

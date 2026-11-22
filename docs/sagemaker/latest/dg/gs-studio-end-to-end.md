@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker Studio Classic Tour
-<a name="gs-studio-end-to-end"></a>
 
 **Note**  
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For information about using the updated Studio experience, see [Amazon SageMaker Studio](studio-updated.md).  
@@ -24,7 +23,7 @@ To run the notebook for this tour, you need:
 
 1. At the command prompt, run the following command to clone the [aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples) GitHub repository.
 
-   ```
+   ```zsh
    $ git clone https://github.com/aws/amazon-sagemaker-examples.git
    ```
 

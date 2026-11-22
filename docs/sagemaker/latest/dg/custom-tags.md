@@ -1,7 +1,6 @@
 
 
 # Custom tag propagation
-<a name="custom-tags"></a>
 
  Amazon SageMaker AI supports the ability to propagate custom tags set at the domain, user profile, and space level to all of the SageMaker AI resources created in the context of Amazon SageMaker Studio, JupyterLab, Code Editor, based on Code-OSS, Visual Studio Code - Open Source, and Amazon SageMaker Canvas. With custom tag propagation, users can propagate their own custom tags to resources to improve cost tracking and tie resources to specific projects and teams. 
 

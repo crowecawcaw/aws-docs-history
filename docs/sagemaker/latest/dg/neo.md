@@ -1,7 +1,6 @@
 
 
 # Model performance optimization with SageMaker Neo
-<a name="neo"></a>
 
 Neo is a capability of Amazon SageMaker AI that enables machine learning models to train once and run anywhere in the cloud and at the edge. 
 

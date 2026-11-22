@@ -1,7 +1,6 @@
 
 
 # Kubernetes cluster pre-training tutorial (GPU)
-<a name="sagemaker-hyperpod-gpu-kubernetes-cluster-pretrain-tutorial"></a>
 
 There are two ways to launch a training job in a GPU Kubernetes cluster:
 + (Recommended) [HyperPod command-line tool](https://github.com/aws/sagemaker-hyperpod-cli)
@@ -23,14 +22,14 @@ ARROW
 To set up a GPU Kubernetes environment, do the following:
 + Set up the virtual environment. Make sure you're using Python 3.9 or greater.
 
-  ```
+  ```bash
   python3 -m venv ${PWD}/venv
   source venv/bin/activate
   ```
 + Install dependencies using one of the following methods:
   + (Recommended): [HyperPod command-line tool](https://github.com/aws/sagemaker-hyperpod-cli) method:
 
-    ```
+    ```bash
     # install HyperPod command line tools
     git clone https://github.com/aws/sagemaker-hyperpod-cli
     cd sagemaker-hyperpod-cli
@@ -38,7 +37,7 @@ To set up a GPU Kubernetes environment, do the following:
     ```
   + SageMaker HyperPod recipes method:
 
-    ```
+    ```bash
     # install SageMaker HyperPod Recipes.
     git clone --recursive git@github.com:aws/sagemaker-hyperpod-recipes.git
     cd sagemaker-hyperpod-recipes
@@ -48,7 +47,7 @@ To set up a GPU Kubernetes environment, do the following:
 + [Install Helm](https://helm.sh/docs/intro/install/)
 + Connect to your Kubernetes cluster
 
-  ```
+  ```bash
   aws eks update-kubeconfig --region "{{CLUSTER_REGION}}" --name "{{CLUSTER_NAME}}"
   hyperpod connect-cluster --cluster-name "{{CLUSTER_NAME}}" [--region "{{CLUSTER_REGION}}"] [--namespace <namespace>]
   ```
@@ -60,11 +59,11 @@ We recommend using the SageMaker HyperPod command-line interface (CLI) tool to s
 + `your_training_container`: A Deep Learning container. To find the most recent release of the SMP container, see [Release notes for the SageMaker model parallelism library](model-parallel-release-notes.md).
 + (Optional) You can provide the HuggingFace token if you need pre-trained weights from HuggingFace by setting the following key-value pair:
 
-  ```
+  ```bash
   "recipes.model.hf_access_token": "{{<your_hf_token>}}"
   ```
 
-```
+```bash
 hyperpod start-job --recipe training/llama/hf_llama3_8b_seq16k_gpu_p5x16_pretrain \
 --persistent-volume-claims fsx-claim:data \
 --override-parameters \
@@ -81,7 +80,7 @@ hyperpod start-job --recipe training/llama/hf_llama3_8b_seq16k_gpu_p5x16_pretrai
 
 After you've submitted a training job, you can use the following command to verify if you submitted it successfully.
 
-```
+```bash
 kubectl get pods
 NAME                             READY   STATUS             RESTARTS        AGE
 hf-llama3-<your-alias>-worker-0   0/1     running         0               36s
@@ -89,13 +88,13 @@ hf-llama3-<your-alias>-worker-0   0/1     running         0               36s
 
 If the `STATUS` is `PENDING` or `ContainerCreating`, run the following command to get more details.
 
-```
+```bash
 kubectl describe pod {{name_of_pod}}
 ```
 
 After the job `STATUS` changes to `Running`, you can examine the log by using the following command.
 
-```
+```bash
 kubectl logs {{name_of_pod}}
 ```
 
@@ -107,14 +106,14 @@ The `STATUS` becomes `Completed` when you run `kubectl get pods`.
 Alternatively, you can use the SageMaker HyperPod recipes to submit your training job. Using the recipes involves updating `k8s.yaml`, `config.yaml`, and running the launch script.
 + In `k8s.yaml`, update `persistent_volume_claims`. It mounts the Amazon FSx claim to the `/data` directory of each computing pod
 
-  ```
+  ```yaml
   persistent_volume_claims:
     - claimName: fsx-claim
       mountPath: data
   ```
 + In `config.yaml`, update `repo_url_or_path` under `git`.
 
-  ```
+  ```yaml
   git:
     repo_url_or_path: {{<training_adapter_repo>}}
     branch: null
@@ -126,11 +125,11 @@ Alternatively, you can use the SageMaker HyperPod recipes to submit your trainin
   + `your_contrainer`: A Deep Learning container. To find the most recent release of the SMP container, see [Release notes for the SageMaker model parallelism library](model-parallel-release-notes.md).
   + (Optional) You can provide the HuggingFace token if you need pre-trained weights from HuggingFace by setting the following key-value pair:
 
-    ```
+    ```bash
     recipes.model.hf_access_token={{<your_hf_token>}}
     ```
 
-  ```
+  ```bash
   #!/bin/bash
   #Users should setup their cluster type in /recipes_collection/config.yaml
   REGION="{{<region>}}"
@@ -153,30 +152,30 @@ Alternatively, you can use the SageMaker HyperPod recipes to submit your trainin
   ```
 + Launch the training job
 
-  ```
+  ```bash
   bash launcher_scripts/llama/run_hf_llama3_8b_seq16k_gpu_p5x16_pretrain.sh
   ```
 
 After you've submitted the training job, you can use the following command to verify if you submitted it successfully.
 
-```
+```bash
 kubectl get pods
 ```
 
-```
+```bash
 NAME READY   STATUS             RESTARTS        AGE
 hf-llama3-<your-alias>-worker-0   0/1     running         0               36s
 ```
 
 If the `STATUS` is `PENDING` or `ContainerCreating`, run the following command to get more details.
 
-```
+```bash
 kubectl describe pod <name-of-pod>
 ```
 
 After the job `STATUS` changes to `Running`, you can examine the log by using the following command.
 
-```
+```bash
 kubectl logs {{name_of_pod}}
 ```
 

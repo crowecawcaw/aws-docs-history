@@ -1,7 +1,6 @@
 
 
 # Security and access control
-<a name="feature-store-security"></a>
 
  Amazon SageMaker Feature Store enables you to create two types of stores: an online store or offline store. The online store is used for low latency real-time inference use cases whereas the offline store is used for training and batch inference use cases. When you create a feature group for online or offline use you can provide a AWS Key Management Service customer managed key to encrypt all your data at rest. In case you do not provide a AWS KMS key then we ensure that your data is encrypted on the server side using an AWS owned AWS KMS key or AWS managed AWS KMS key. While creating a feature group, you can select storage type and optionally provide a AWS KMS key for encrypting data, then you can call various APIs for data management such as `PutRecord`, `GetRecord`, `DeleteRecord`, `ListRecords`, and `BatchWriteRecord`.
 
@@ -50,7 +49,7 @@ You do not pay a monthly fee for AWS owned customer managed keys. Customer manag
 
 ****  
 
-```
+```json
 {"Id": "key-policy-feature-store",
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -145,7 +144,7 @@ IAM authorizes `UpdateRecord` against the `sagemaker:PutRecord` action. With the
 With these condition keys, you can build policies such as the following:
 + The following JSON IAM policy allows only `UpdateRecord` calls and blocks direct `PutRecord` calls on a feature group. This policy also blocks `BatchWriteRecord`. The `sagemaker:IsUpdateRecord` key is not present during the `sagemaker:PutRecord` authorization check that `BatchWriteRecord` performs. If you need to allow `BatchWriteRecord`, add a separate statement without the `IsUpdateRecord` condition:
 
-  ```
+  ```json
   {
       "Version": "2012-10-17",
       "Statement": [
@@ -164,7 +163,7 @@ With these condition keys, you can build policies such as the following:
   ```
 + The following JSON IAM policy allows `PutRecord` calls and blocks `UpdateRecord` calls on a feature group. The `BoolIfExists` condition operator ensures the statement also matches the `sagemaker:PutRecord` check that `BatchWriteRecord` performs. For `BatchWriteRecord`, the authorization context does not include `sagemaker:IsUpdateRecord`:
 
-  ```
+  ```json
   {
       "Version": "2012-10-17",
       "Statement": [
@@ -183,7 +182,7 @@ With these condition keys, you can build policies such as the following:
   ```
 + The following JSON IAM policy denies `UpdateRecord` calls that attempt to modify sensitive features, regardless of what other features are included in the request:
 
-  ```
+  ```json
   {
       "Version": "2012-10-17",
       "Statement": [
@@ -205,7 +204,7 @@ With these condition keys, you can build policies such as the following:
   ```
 + The following JSON IAM policy allows `UpdateRecord` calls only when all requested features are on an approved safe-to-update list. The `Null` condition requires `sagemaker:UpdatableFeatures` to exist, because the `ForAllValues` operator otherwise evaluates to `true` when the key is absent:
 
-  ```
+  ```json
   {
       "Version": "2012-10-17",
       "Statement": [

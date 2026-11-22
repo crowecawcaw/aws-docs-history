@@ -1,7 +1,6 @@
 
 
 # Online explainability with SageMaker Clarify
-<a name="clarify-online-explainability"></a>
 
 This guide shows how to configure online explainability with SageMaker Clarify. With SageMaker AI [real-time inference](https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints.html) endpoints, you can analyze explainability in real time, continuously. The online explainability function fits into the **Deploy to production** part of the[ Amazon SageMaker AI Machine Learning workflow](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-mlconcepts.html).
 

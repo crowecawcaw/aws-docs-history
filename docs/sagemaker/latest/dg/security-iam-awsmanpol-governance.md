@@ -1,7 +1,6 @@
 
 
 # AWS Managed Policies for SageMaker AI Model Governance
-<a name="security-iam-awsmanpol-governance"></a>
 
 This AWS managed policy adds permissions required to use SageMaker AI Model Governance. The policy is available in your AWS account and is used by execution roles created from the SageMaker AI console.
 
@@ -23,7 +22,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

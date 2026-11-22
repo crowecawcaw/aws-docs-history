@@ -1,7 +1,6 @@
 
 
 # Creating an new SageMaker AI execution role
-<a name="sagemaker-geospatial-roles-create-execution-role"></a>
 
 To work with SageMaker geospatial capabilities, you must set up a user, group, or role, and an execution role. A user role is an AWS identity with permissions policies that determine what the user can and cannot do within AWS. An execution role is an IAM role that grants the service permission to access your AWS resources. An execution role consists of permissions and trust policy. The trust policy specifies which principals have the permission to assume the role.
 

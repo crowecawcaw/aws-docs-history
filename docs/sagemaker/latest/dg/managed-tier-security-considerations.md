@@ -1,7 +1,6 @@
 
 
 # Security considerations for managed tiered checkpointing
-<a name="managed-tier-security-considerations"></a>
 
 This section covers important security considerations when using managed tiered checkpointing. It includes Python pickle usage, Amazon S3 encryption, and network endpoint security.
 

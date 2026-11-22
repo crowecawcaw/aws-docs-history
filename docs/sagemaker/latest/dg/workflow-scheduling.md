@@ -1,7 +1,6 @@
 
 
 # Schedule your ML workflows
-<a name="workflow-scheduling"></a>
 
 With Amazon SageMaker AI you can manage your entire ML workflow as you create datasets, perform data transforms, build models from data, and deploy your models to endpoints for inference. If you perform any subset of steps of your workflow periodically, you can also choose to run these steps on a schedule. For example, you might want to schedule a job in SageMaker Canvas to run a transform on new data every hour. In another scenario, you might want to schedule a weekly job to monitor model drift of your deployed model. You can specify a recurring schedule of any time interval—you can iterate every second, minute, daily, weekly, monthly, or the 3rd Friday of every month at 3pm.
 

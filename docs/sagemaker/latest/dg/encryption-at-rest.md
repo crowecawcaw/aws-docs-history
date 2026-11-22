@@ -1,7 +1,6 @@
 
 
 # Protect Data at Rest Using Encryption
-<a name="encryption-at-rest"></a>
 
 Amazon SageMaker AI automatically encrypts your data using an AWS managed key for Amazon S3 (SSE-S3) by default for the following features: Studio notebooks, notebook instances, model-building data, model artifacts, and output from Training, Batch Transform, and Processing jobs.
 

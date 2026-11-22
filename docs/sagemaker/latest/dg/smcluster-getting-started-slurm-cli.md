@@ -1,7 +1,6 @@
 
 
 # Getting started with SageMaker HyperPod using the AWS CLI
-<a name="smcluster-getting-started-slurm-cli"></a>
 
 The following tutorial demonstrates how to create a new SageMaker HyperPod cluster with Slurm through the [AWS CLI commands for SageMaker HyperPod](sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-cli). By the end of this tutorial, you will have a working Slurm cluster with a controller node, a login node, and a compute worker group, ready to schedule and run ML workloads. The tutorial covers Slurm topology setup, node lifecycle configuration options, optional FSx shared storage, and how to connect to your cluster.
 
@@ -35,7 +34,7 @@ At the cluster level, `Orchestrator.Slurm` controls how HyperPod manages the par
 
 **SlurmConfig** (per instance group):
 
-```
+```json
 "SlurmConfig": {
     "NodeType": "Controller | Login | Compute",
     "PartitionNames": ["partition-name"]
@@ -50,7 +49,7 @@ At the cluster level, `Orchestrator.Slurm` controls how HyperPod manages the par
 
 **Orchestrator.Slurm** (cluster level):
 
-```
+```json
 "Orchestrator": {
     "Slurm": {
         "SlurmConfigStrategy": "Managed | Overwrite | Merge"
@@ -82,7 +81,7 @@ When creating a SageMaker HyperPod Slurm cluster, you choose how each instance g
 
 With **AMI-based configuration** only, you omit `LifeCycleConfig` entirely. HyperPod automatically configures nodes using AMI-based configuration, setting up Slurm, installing essential packages, and starting all required services. This is the simplest path and requires no Amazon S3 bucket or scripts.
 
-With the **Extension** option, you specify `OnInitComplete` in `LifeCycleConfig` along with a `SourceS3Uri` pointing to your extension script in Amazon S3. HyperPod runs the full AMI-based configuration first, then executes your script. This lets you add customizations, such as monitoring agents, LDAP integration, or additional storage mounts, without managing the baseline provisioning.
+With the **Extension** option, you specify `OnInitComplete` in `LifeCycleConfig` along with a `SourceS3Uri` pointing to your extension script in Amazon S3. HyperPod runs the full AMI-based configuration first, then executes your script. This lets you add customizations, such as additional storage mounts or container runtimes like Docker and Enroot, without managing the baseline provisioning.
 
 With the **Custom** option, you specify `OnCreate` in `LifeCycleConfig` along with a `SourceS3Uri` pointing to your full lifecycle script set in Amazon S3. HyperPod does not run AMI-based configuration and does not start Slurm. Your scripts own the entire provisioning sequence. This gives you complete control over what software is installed, how it is configured, and when Slurm starts.
 
@@ -97,6 +96,9 @@ With the **Custom** option, you specify `OnCreate` in `LifeCycleConfig` along wi
 Optional node lifecycle configuration is supported only for Slurm-orchestrated clusters. Amazon EKS-orchestrated clusters continue to require `LifeCycleConfig` with `OnCreate` and `SourceS3Uri` on every instance group.
 
 **Note**  
+To set up observability and user management, use cluster extensions after you create the cluster, not lifecycle scripts. Cluster extensions require continuous provisioning. For more information, see [Cluster extensions for SageMaker HyperPod Slurm clusters](sagemaker-hyperpod-slurm-extensions.md).
+
+**Note**  
 `OnCreate` and `OnInitComplete` are mutually exclusive. Specifying both on the same instance group results in a validation error.
 
 ### FSx and VPC configuration
@@ -108,7 +110,7 @@ FSx configuration works with all three node lifecycle configuration options. Whe
 
 **FSx for Lustre:**
 
-```
+```json
 "InstanceStorageConfigs": [
     {
         "FsxLustreConfig": {
@@ -129,7 +131,7 @@ FSx configuration works with all three node lifecycle configuration options. Whe
 
 **FSx for OpenZFS:**
 
-```
+```json
 "InstanceStorageConfigs": [
     {
         "FsxOpenZfsConfig": {
@@ -153,7 +155,7 @@ Each instance group can have at most one FSx for Lustre and one FSx for OpenZFS 
 
 Add `VpcConfig` at the cluster level in your `CreateCluster` request:
 
-```
+```json
 "VpcConfig": {
     "SecurityGroupIds": ["sg-0abc123def456789a"],
     "Subnets": ["subnet-0abc123def456789a"]
@@ -192,7 +194,7 @@ The following table lists the capabilities included in AMI-based configuration:
 
 1. Save the following as `create_cluster.json`:
 
-   ```
+   ```json
    {
        "ClusterName": "my-hyperpod-cluster",
        "InstanceGroups": [
@@ -274,7 +276,7 @@ If you are testing without FSx, you can omit `FsxLustreConfig` from `InstanceSto
 
    With AMI-based configuration only, instance groups in the response do not include a `LifeCycleConfig` block. The following is a truncated example showing the controller instance group:
 
-   ```
+   ```json
    {
        "ClusterName": "my-hyperpod-cluster",
        "ClusterStatus": "InService",
@@ -292,21 +294,15 @@ If you are testing without FSx, you can omit `FsxLustreConfig` from `InstanceSto
 ### Option B: Extend AMI-based configuration with OnInitComplete
 <a name="smcluster-getting-started-slurm-cli-option-b"></a>
 
-Use this option when you need customizations on top of the AMI-based configuration, such as monitoring agents, LDAP/SSSD integration, or additional storage mounts. SageMaker HyperPod runs AMI-based configuration first, then executes your extension script.
+Use this option when you need customizations on top of the AMI-based configuration, such as additional storage mounts or container runtimes like Docker and Enroot. To set up observability and user management, use [Cluster extensions for SageMaker HyperPod Slurm clusters](sagemaker-hyperpod-slurm-extensions.md) instead. SageMaker HyperPod runs AMI-based configuration first, then executes your extension script.
 
 1. Write your extension script. For example, `extend-defaults.sh`:
 
-   ```
+   ```bash
    #!/bin/bash
    set -e
    
    echo "Running post-initialization customizations..."
-   
-   # Example: Install a monitoring agent
-   # apt-get install -y my-monitoring-agent
-   
-   # Example: Configure LDAP integration
-   # /opt/custom/setup-ldap.sh
    
    # Example: Mount an additional S3 bucket
    # mount-s3 my-data-bucket /mnt/s3-data
@@ -314,7 +310,7 @@ Use this option when you need customizations on top of the AMI-based configurati
    echo "Custom extensions complete."
    ```
 **Using extension scripts from the Awsome Distributed Training repository**  
-The [Extensions folder](https://github.com/awslabs/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/Extensions) in the Awsome Distributed Training repository provides ready-to-use extension scripts for common tasks such as adding users and enabling observability. Each capability is self-contained in its own directory with its own entry point script that can be provided directly as the `OnInitComplete` script.  
+The [Extensions folder](https://github.com/awslabs/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/Extensions) in the Awsome Distributed Training repository provides ready-to-use extension scripts for common tasks such as adding users and enabling observability. Each capability is self-contained in its own directory with its own entry point script that can be provided directly as the `OnInitComplete` script. To set up observability and user management, use [Cluster extensions for SageMaker HyperPod Slurm clusters](sagemaker-hyperpod-slurm-extensions.md) instead.  
 For clusters that need multiple capabilities, we recommend using the `run_extensions.sh` script available at the top level of the Extensions folder. This script orchestrates all available extension scripts and provides simple boolean toggles to enable or disable each capability. To use it, upload the entire Extensions folder to your Amazon S3 bucket and specify `run_extensions.sh` as the `OnInitComplete` script:  
 
    ```
@@ -326,7 +322,7 @@ For clusters that need multiple capabilities, we recommend using the `run_extens
    ```
 Inside `run_extensions.sh`, enable or disable each capability by setting the corresponding flag:  
 
-   ```
+   ```bash
    ENABLE_ADD_USERS="true"
    ENABLE_OBSERVABILITY="true"
    ```
@@ -341,7 +337,7 @@ Each enabled capability's configuration file must be populated before uploading 
 
 1. Save the following as `create_cluster.json`:
 
-   ```
+   ```json
    {
        "ClusterName": "my-hyperpod-cluster",
        "InstanceGroups": [
@@ -422,7 +418,7 @@ You can mix options within a cluster. For example, use AMI-based configuration o
 
    With `OnInitComplete`, the response shows `OnInitComplete` in the `LifeCycleConfig`. The following is a truncated example showing the controller instance group:
 
-   ```
+   ```json
    {
        "ClusterName": "my-hyperpod-cluster",
        "ClusterStatus": "InService",
@@ -451,7 +447,7 @@ If you are new to SageMaker HyperPod and do not have specific customization requ
 
 1. Prepare and upload lifecycle scripts to Amazon S3. If starting from scratch, use the sample scripts from the [Awsome Distributed Training GitHub repository](https://github.com/aws-samples/awsome-distributed-training/):
 
-   ```
+   ```bash
    git clone https://github.com/aws-samples/awsome-distributed-training/
    cd awsome-distributed-training/1.architectures/5.sagemaker_hyperpods/LifecycleScripts/base-config
    ```
@@ -467,7 +463,7 @@ If you are new to SageMaker HyperPod and do not have specific customization requ
 
 1. Save the following as `create_cluster.json`:
 
-   ```
+   ```json
    {
        "ClusterName": "my-hyperpod-cluster",
        "InstanceGroups": [
@@ -544,7 +540,7 @@ If you are new to SageMaker HyperPod and do not have specific customization requ
 
    With `OnCreate`, the response shows `OnCreate` in the `LifeCycleConfig`. The following is a truncated example showing the controller instance group:
 
-   ```
+   ```json
    {
        "ClusterName": "my-hyperpod-cluster",
        "ClusterStatus": "InService",
@@ -599,7 +595,7 @@ After the cluster status turns to **InService** (typically 10 to 15 minutes), co
 
 1. Verify Slurm is configured correctly:
 
-   ```
+   ```bash
    # Check Slurm nodes
    sinfo
    

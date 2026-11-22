@@ -1,7 +1,6 @@
 
 
 # VPC ENI permission issue
-<a name="sagemaker-hyperpod-model-deployment-ts-permissions"></a>
 
 SageMaker AI endpoint creation fails due to insufficient permissions for creating network interfaces in VPC.
 

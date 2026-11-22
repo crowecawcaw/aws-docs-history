@@ -1,7 +1,6 @@
 
 
 # Caching pipeline steps
-<a name="pipelines-caching"></a>
 
 In Amazon SageMaker Pipelines, you can use step caching to save time and resources when rerunning pipelines. Step caching reuses the output of a previous successful run of a step (instead of recomputing it) when the step has the same configuration and inputs. This helps you achieve consistent results across pipeline reruns with identical parameters. The following topic shows you how to configure and turn on step caching for your pipelines.
 
@@ -22,6 +21,7 @@ Step caching is available for the following step types:
 + [`ClarifyCheck`](build-and-manage-steps-types.md#step-type-clarify-check)
 + [`QualityCheck`](build-and-manage-steps-types.md#step-type-quality-check)
 + [EMR](build-and-manage-steps-types.md#step-type-emr)
++ [Athena](build-and-manage-steps-types.md#step-type-athena)
 
 **Topics**
 + [Turn on step caching](pipelines-caching-enabling.md)

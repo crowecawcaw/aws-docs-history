@@ -1,7 +1,6 @@
 
 
 # Using an external accounting database with SageMaker HyperPod Slurm clusters
-<a name="sagemaker-hyperpod-external-accounting-db-slurm"></a>
 
 Slurm stores job history, fairshare data, user associations, and quality of service (QOS) policy in a backing SQL database. By default, SageMaker HyperPod deploys MariaDB on your cluster's controller instance, so accounting works with no database for you to manage.
 
@@ -59,7 +58,7 @@ Complete the following before you create or update a cluster with an `Accounting
 
 Add the following statements to your cluster execution role. Include the `kms:Decrypt` statement only if your secret is encrypted with a customer managed key.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -90,7 +89,7 @@ If you configure the external accounting database in the SageMaker AI console, t
 + `secretsmanager:ListSecrets` – Lists your secrets in **Database secret ARN**.
 + `rds:DescribeDBInstances` – Lists your Amazon RDS instances when you choose **Choose an existing RDS instance**.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -117,7 +116,7 @@ Do not use plaintext database connections in production environments.
 
 The secret must contain a JSON object with `username` and `password` keys. Additional keys are ignored.
 
-```
+```json
 {
     "username": "slurm",
     "password": "your-password-EXAMPLE"
@@ -132,7 +131,7 @@ SageMaker AI does not read your secret before you submit the request, so it cann
 
 Grant the privileges on the accounting database (for example, `slurm_acct_db`) that you pre-created:
 
-```
+```sql
 GRANT ALL ON slurm_acct_db.* TO 'username'@'%';
 ```
 
@@ -141,7 +140,7 @@ Alternatively, to let `slurmdbd` create the database itself, you can change your
 **Important**  
 Granting `ALL ON *.*` is not recommended for security reasons. Use this alternative option only for convenience in testing, not production. A database user holding `ALL ON *.*` on a shared server can read, modify, or drop every other cluster's accounting tables and the shared global tables.
 
-```
+```sql
 GRANT ALL ON *.* TO 'username'@'%';
 ```
 
@@ -156,7 +155,7 @@ The database must use a case-insensitive collation, which is the MySQL and Maria
 
 `AccountingDatabase` is an optional object on the cluster-level `Orchestrator.Slurm` field. Include it in `CreateCluster` to create a cluster that uses an external accounting database, or in `UpdateCluster` to change the database on an existing cluster.
 
-```
+```json
 "Orchestrator": {
     "Slurm": {
         "AccountingDatabase": {
@@ -188,7 +187,7 @@ If you provide lifecycle scripts with an external accounting database, you must 
 
 In your `create_cluster.json` file, add an `AccountingDatabase` object to the cluster-level `Orchestrator.Slurm` field:
 
-```
+```json
 "Orchestrator": {
     "Slurm": {
         "AccountingDatabase": {
@@ -203,20 +202,20 @@ In your `create_cluster.json` file, add an `AccountingDatabase` object to the cl
 
 1. Create the cluster:
 
-   ```
+   ```bash
    aws sagemaker create-cluster \
        --cli-input-json file://create_cluster.json
    ```
 
 1. Check the status:
 
-   ```
+   ```bash
    aws sagemaker describe-cluster --cluster-name my-training-cluster
    ```
 
    The response echoes the accounting database configuration under `Orchestrator.Slurm`. The secret ARN is returned, but the credentials are not.
 
-   ```
+   ```json
    {
        "ClusterName": "my-training-cluster",
        "ClusterStatus": "InService",
@@ -271,7 +270,7 @@ Changing the database connection does not move your data. Accounting data in the
 
 1. Save the following as `update_cluster.json`:
 
-   ```
+   ```json
    {
        "ClusterName": "my-training-cluster",
        "Orchestrator": {
@@ -287,7 +286,7 @@ Changing the database connection does not move your data. Accounting data in the
 
 1. Apply the update:
 
-   ```
+   ```bash
    aws sagemaker update-cluster \
        --cli-input-json file://update_cluster.json
    ```
@@ -296,7 +295,7 @@ Changing the database connection does not move your data. Accounting data in the
 
 1. Confirm the new configuration:
 
-   ```
+   ```bash
    aws sagemaker describe-cluster --cluster-name my-training-cluster
    ```
 
@@ -337,7 +336,7 @@ To confirm which database a cluster is using, do one of the following:
 
 To verify that accounting is recording jobs, connect to a login or controller instance and run a Slurm accounting command:
 
-```
+```bash
 # Show the accounting configuration that slurmctld is using
 scontrol show config | grep -i accounting
 
@@ -389,13 +388,13 @@ Migrating the data preserves job history, associations, fairshare data, QOS, and
 
 1. Connect to the controller instance and export the internal database:
 
-   ```
+   ```bash
    mysqldump --single-transaction -u slurm -p slurm_acct_db > slurm_backup.sql
    ```
 
 1. Import the data into your external database:
 
-   ```
+   ```bash
    mysql -h my-cluster-db.abc123.us-west-2.rds.amazonaws.com -u slurm -p slurm_acct_db < slurm_backup.sql
    ```
 

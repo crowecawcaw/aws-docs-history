@@ -1,7 +1,6 @@
 
 
 # Orchestrating SageMaker HyperPod clusters with Slurm
-<a name="sagemaker-hyperpod-slurm"></a>
 
 Slurm support in SageMaker HyperPod helps you provision resilient clusters for running machine learning (ML) workloads and developing state-of-the-art models such as large language models (LLMs), diffusion models, and foundation models (FMs). It accelerates development of FMs by removing undifferentiated heavy-lifting involved in building and maintaining large-scale compute clusters powered by thousands of accelerators such as AWS Trainium and NVIDIA A100 and H100 Graphical Processing Units (GPUs). When accelerators fail, the resiliency features of SageMaker HyperPod monitors the cluster instances automatically detect and replace the faulty hardware on the fly so that you can focus on running ML workloads. Additionally, with lifecycle configuration support in SageMaker HyperPod, you can customize your computing environment to best suit your needs and configure it with the Amazon SageMaker AI distributed training libraries to achieve optimal performance on AWS.
 
@@ -37,11 +36,12 @@ SageMaker AI automatically allocates jobs to instances within your UltraServer b
 + [Getting started with SageMaker HyperPod](smcluster-getting-started-slurm.md)
 + [SageMaker HyperPod Slurm cluster operations](sagemaker-hyperpod-operate-slurm.md)
 + [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md)
++ [Cluster extensions for SageMaker HyperPod Slurm clusters](sagemaker-hyperpod-slurm-extensions.md)
 + [User management on a SageMaker HyperPod Slurm cluster](sagemaker-hyperpod-slurm-user-management.md)
 + [SageMaker HyperPod multi-head node support](sagemaker-hyperpod-multihead-slurm.md)
 + [Using an external accounting database with SageMaker HyperPod Slurm clusters](sagemaker-hyperpod-external-accounting-db-slurm.md)
 + [Jobs on SageMaker HyperPod clusters](sagemaker-hyperpod-run-jobs-slurm.md)
-+ [SageMaker HyperPod cluster resources monitoring](sagemaker-hyperpod-cluster-observability-slurm.md)
++ [Observability for Amazon SageMaker HyperPod clusters orchestrated by Slurm](sagemaker-hyperpod-cluster-observability-slurm.md)
 + [SageMaker HyperPod Slurm cluster events](sagemaker-hyperpod-cluster-events-slurm-page.md)
 + [SageMaker HyperPod cluster resiliency](sagemaker-hyperpod-resiliency-slurm.md)
 + [Continuous provisioning for enhanced cluster operations with Slurm](sagemaker-hyperpod-scaling-slurm.md)

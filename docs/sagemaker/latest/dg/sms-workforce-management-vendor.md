@@ -1,7 +1,6 @@
 
 
 # Subscribe to vendor workforces
-<a name="sms-workforce-management-vendor"></a>
 
 You can use a vendor-managed workforce to label your data using Amazon SageMaker Ground Truth (Ground Truth) and Amazon Augmented AI (Amazon A2I). Vendors have extensive experience in providing data labeling services for the purpose of machine learning. Vendor workforces for these two services must be created and managed seperately through the Amazon SageMaker AI console. 
 

@@ -1,7 +1,6 @@
 
 
 # SageMaker training jobs pre-training tutorial (GPU)
-<a name="sagemaker-hyperpod-gpu-sagemaker-training-jobs-pretrain-tutorial"></a>
 
 This tutorial guides you through the process of setting up and running a pre-training job using SageMaker training jobs with GPU instances.
 + Set up your environment
@@ -33,7 +32,7 @@ Before you run a SageMaker training job, configure your AWS credentials and pref
 We strongly recommend using a SageMaker AI Jupyter notebook in SageMaker AI JupyterLab to launch a SageMaker training job. For more information, see [SageMaker JupyterLab](studio-updated-jl.md).
 + (Optional) Set up the virtual environment and dependencies. If you are using a Jupyter notebook in Amazon SageMaker Studio, you can skip this step. Make sure you're using Python 3.9 or greater.
 
-  ```
+  ```bash
   # set up a virtual environment
   python3 -m venv ${PWD}/venv
   source venv/bin/activate
@@ -48,7 +47,7 @@ We strongly recommend using a SageMaker AI Jupyter notebook in SageMaker AI Jupy
   ```
 + Install SageMaker AI Python SDK
 
-  ```
+  ```bash
   pip3 install --upgrade sagemaker
   ```
 + `Container`: The GPU container is set automatically by the SageMaker AI Python SDK. You can also provide your own container.
@@ -64,7 +63,7 @@ If you're running a Llama 3.2 multi-modal training job, the `transformers` versi
 
 You can use the following Python code to run a SageMaker training job with your recipe. It leverages the PyTorch ModelTrainer from the [SageMaker AI Python SDK](https://sagemaker.readthedocs.io/en/stable/) to submit the recipe. The following example launches the llama3-8b recipe on the SageMaker AI Training platform.
 
-```
+```python
 import os
 import boto3
 from sagemaker.core.debugger import TensorBoardOutputConfig
@@ -126,7 +125,7 @@ Append `transformers==4.45.2` to `requirements.txt` in `source_dir` only when yo
 
 When you deploy the endpoint for a SageMaker training job, you must specify the image URI that you're using. If don't provide the image URI, the ModelTrainer uses the training image as the image for the deployment. The training images that SageMaker HyperPod provides don't contain the dependencies required for inference and deployment. The following is an example of how an inference image can be used for deployment:
 
-```
+```python
 from sagemaker.serve import ModelBuilder
 from sagemaker.core import image_uris
 
@@ -150,7 +149,7 @@ Running the preceding code on Sagemaker notebook instance might need more than t
 
 Update the `./recipes_collection/cluster/sm_jobs.yaml` file to look like the following:
 
-```
+```yaml
 sm_jobs_config:
   output_path: {{<s3_output_path>}}
   tensorboard_config:
@@ -176,7 +175,7 @@ sm_jobs_config:
 
 Update `./recipes_collection/config.yaml` to specify `sm_jobs` in the `cluster` and `cluster_type`.
 
-```
+```yaml
 defaults:
   - _self_
   - cluster: sm_jobs  # set to `slurm`, `k8s` or `sm_jobs`, depending on the desired cluster
@@ -186,7 +185,7 @@ cluster_type: sm_jobs  # bcm, bcp, k8s or sm_jobs. If bcm, k8s or sm_jobs, it mu
 
 Launch the job with the following command
 
-```
+```bash
 python3 main.py --config-path recipes_collection --config-name config
 ```
 

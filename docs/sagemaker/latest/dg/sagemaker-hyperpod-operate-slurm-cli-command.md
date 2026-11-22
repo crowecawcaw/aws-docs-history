@@ -1,7 +1,6 @@
 
 
 # Managing SageMaker HyperPod Slurm clusters using the AWS CLI
-<a name="sagemaker-hyperpod-operate-slurm-cli-command"></a>
 
 The following topics provide guidance on writing SageMaker HyperPod API request files in JSON format and run them using the AWS CLI commands.
 
@@ -25,7 +24,7 @@ Make sure that you set the S3 path to start with `s3://sagemaker-`. The [IAM rol
 
 1. Prepare a [CreateCluster](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCluster.html) API request file in JSON format. You should configure instance groups to match with the Slurm cluster you design in the `provisioning_parameters.json` file that'll be used during cluster creating as part of running a set of lifecycle scripts. To learn more, see [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md). The following template has two instance groups to meet the minimum requirement for a Slurm cluster: one controller (head) node and one compute (worker) node. For `ExecutionRole`, provide the ARN of the IAM role you created with the managed `AmazonSageMakerClusterInstanceRolePolicy` from the section [IAM role for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod).
 
-   ```
+   ```json
    // create_cluster.json
    {
        "ClusterName": "{{your-hyperpod-cluster}}",
@@ -85,7 +84,7 @@ Make sure that you set the S3 path to start with `s3://sagemaker-`. The [IAM rol
 
 1. Run the [create-cluster](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/create-cluster.html) command as follows.
 
-   ```
+   ```sh
    aws sagemaker create-cluster \
        --cli-input-json {{file://complete/path/to/create_cluster.json}}
    ```
@@ -97,7 +96,7 @@ Make sure that you set the S3 path to start with `s3://sagemaker-`. The [IAM rol
 
 Run [describe-cluster](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/describe-cluster.html) to check the status of the cluster. You can specify either the name or the ARN of the cluster.
 
-```
+```sh
 aws sagemaker describe-cluster --cluster-name {{your-hyperpod-cluster}}
 ```
 
@@ -108,7 +107,7 @@ After the status of the cluster turns to **InService**, proceed to the next step
 
 Run [list-cluster-nodes](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/list-cluster-nodes.html) to check the key information of the cluster nodes.
 
-```
+```sh
 aws sagemaker list-cluster-nodes --cluster-name {{your-hyperpod-cluster}}
 ```
 
@@ -119,7 +118,7 @@ This returns a response, and the `InstanceId` is what you need to use for loggin
 
 Run [describe-cluster-node](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/describe-cluster-node.html) to retrieve details of a cluster node. You can get the cluster node ID from list-cluster-nodes output. You can specify either the name or the ARN of the cluster.
 
-```
+```sh
 aws sagemaker describe-cluster-node \
     --cluster-name {{your-hyperpod-cluster}} \
     --node-id {{i-111222333444555aa}}
@@ -130,7 +129,7 @@ aws sagemaker describe-cluster-node \
 
 Run [list-clusters](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/list-clusters.html) to list all clusters in your account.
 
-```
+```sh
 aws sagemaker list-clusters
 ```
 
@@ -182,7 +181,7 @@ You can use the `UpdateCluster` API to scale down or remove entire instance grou
 
    The following code snippet is a JSON request file template you can use. For more information about the request syntax and parameters of this API, see the [UpdateCluster](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateCluster.html) API reference.
 
-   ```
+   ```json
    // update_cluster.json
    {
        // Required
@@ -218,7 +217,7 @@ You can use the `UpdateCluster` API to scale down or remove entire instance grou
 
 1. Run the following `update-cluster` command to submit the request. 
 
-   ```
+   ```sh
    aws sagemaker update-cluster \
        --cli-input-json {{file://complete/path/to/update_cluster.json}}
    ```
@@ -231,7 +230,7 @@ Run [update-cluster-software](https://docs.aws.amazon.com/cli/latest/reference/s
 **Important**  
 Note that you must back up your work before running this API. The patching process replaces the root volume with the updated AMI, which means that your previous data stored in the instance root volume will be lost. Make sure that you back up your data from the instance root volume to Amazon S3 or Amazon FSx for Lustre. For more information, see [Use the backup script provided by SageMaker HyperPod](#sagemaker-hyperpod-operate-slurm-cli-command-update-cluster-software-backup).
 
-```
+```sh
 aws sagemaker update-cluster-software --cluster-name {{your-hyperpod-cluster}}
 ```
 
@@ -290,6 +289,6 @@ You cannot remove instances that are configured as Slurm controller nodes. Attem
 
 Run [delete-cluster](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/delete-cluster.html) to delete a cluster. You can specify either the name or the ARN of the cluster.
 
-```
+```sh
 aws sagemaker delete-cluster --cluster-name {{your-hyperpod-cluster}}
 ```

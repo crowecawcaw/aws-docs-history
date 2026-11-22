@@ -1,7 +1,6 @@
 
 
 # Troubleshooting guide
-<a name="clarify-online-explainability-troubleshooting"></a>
 
 If you encounter errors using SageMaker Clarify online explainability, consult the topics in this section.
 

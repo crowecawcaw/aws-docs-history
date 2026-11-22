@@ -1,7 +1,6 @@
 
 
 # Instance Types for Built-in Algorithms
-<a name="cmn-info-instance-types"></a>
 
 Most Amazon SageMaker AI algorithms have been engineered to take advantage of GPU computing for training. Despite higher per-instance costs, GPUs train more quickly, making them more cost effective. Exceptions are noted in this guide.
 

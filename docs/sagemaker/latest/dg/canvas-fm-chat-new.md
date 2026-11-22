@@ -1,7 +1,6 @@
 
 
 # Start a new conversation to generate, extract, or summarize content
-<a name="canvas-fm-chat-new"></a>
 
 To get started with generative AI foundation models in Canvas, you can initiate a new chat session with one of the models. For JumpStart models, you are charged while the model is active, so you must start up models when you want to use them and shut them down when you are done interacting. If you do not shut down a JumpStart model, Canvas shuts it down after 2 hours of inactivity. For Amazon Bedrock models (such as Amazon Titan), you are charged by prompt; the models are already active and don’t need to be started up or shut down. You are charged directly for use of these models by Amazon Bedrock.
 

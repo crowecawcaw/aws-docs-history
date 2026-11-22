@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="model-customize-open-weight-prereq"></a>
 
 Before you begin, complete the following prerequisites:
 + Onboard to a SageMaker AI domain with Studio access. If you don't have permissions to set Studio as the default experience for your domain, contact your administrator. For more information, see [Amazon SageMaker AI domain overview](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-onboard.html).
@@ -33,7 +32,7 @@ Attach the `AmazonSageMakerModelCustomizationCoreAccess` managed policy to your 
 
 If you prefer to manage permissions manually, create an inline policy with the following JSON and attach it to your execution role:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -559,7 +558,7 @@ If you previously followed this documentation and updated your SageMaker AI exec
 
 To use this approach, your execution role's trust policy must include the following service principals:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -607,7 +606,7 @@ This role allows Lambda to execute custom reward functions during RL-based model
 
 1. Create an IAM role with the following trust policy. Replace `<ACCOUNT_ID>` with your 12-digit AWS account ID.
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -644,7 +643,7 @@ This role allows Bedrock to read model artifacts from your SageMaker AI-managed 
 
 1. Create an IAM role with the following trust policy. Replace `<ACCOUNT_ID>` with your 12-digit AWS account ID.
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -669,7 +668,7 @@ This role allows Bedrock to read model artifacts from your SageMaker AI-managed 
 
 1. Attach the following inline policy to the role:
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",		 	 	 
        "Statement": [

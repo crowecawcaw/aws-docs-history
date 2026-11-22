@@ -1,7 +1,6 @@
 
 
 # Step 1: Modify Your Own Training Script Using SageMaker's Distributed Model Parallel Library
-<a name="model-parallel-customize-training-script"></a>
 
 Use this section to learn how to customize your training script to use the core features of the Amazon SageMaker AI model parallelism library. To use the library-specific API functions and parameters, we recommend you use this documentation alongside the [SageMaker model parallel library APIs](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel.html) in the *SageMaker Python SDK documentation*.
 

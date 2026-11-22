@@ -1,7 +1,6 @@
 
 
 # Connect to Amazon SageMaker AI resources from within a VPC
-<a name="infrastructure-connect-to-resources"></a>
 
 **Important**  
 The following information applies to both Amazon SageMaker Studio and Amazon SageMaker Studio Classic. The same concepts of connecting to resources within a VPC apply to both Studio and Studio Classic.

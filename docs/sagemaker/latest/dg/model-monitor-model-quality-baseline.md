@@ -1,7 +1,6 @@
 
 
 # Create a model quality baseline
-<a name="model-monitor-model-quality-baseline"></a>
 
 **Note**  
 Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
@@ -16,7 +15,7 @@ To create a baseline job use the `ModelQualityMonitor` class provided by the Sag
 
 1.  First, create an instance of the `ModelQualityMonitor` class. The following code snippet shows how to do this.
 
-   ```
+   ```python
    from sagemaker.core.helper.session_helper import get_execution_role, session, Session
    from sagemaker.model_monitor import ModelQualityMonitor
                    
@@ -35,7 +34,7 @@ To create a baseline job use the `ModelQualityMonitor` class provided by the Sag
 
 1. Now call the `suggest_baseline` method of the `ModelQualityMonitor` object to run a baseline job. The following code snippet assumes that you have a baseline dataset that contains both predictions and labels stored in Amazon S3.
 
-   ```
+   ```python
    baseline_job_name = "MyBaseLineJob"
    job = model_quality_monitor.suggest_baseline(
        job_name=baseline_job_name,
@@ -52,13 +51,13 @@ To create a baseline job use the `ModelQualityMonitor` class provided by the Sag
 
 1. After the baseline job finishes, you can see the constraints that the job generated. First, get the results of the baseline job by calling the `latest_baselining_job` method of the `ModelQualityMonitor` object.
 
-   ```
+   ```python
    baseline_job = model_quality_monitor.latest_baselining_job
    ```
 
 1. The baseline job suggests constraints, which are thresholds for metrics that model monitor measures. If a metric goes beyond the suggested threshold, Model Monitor reports a violation. To view the constraints that the baseline job generated, call the `suggested_constraints` method of the baseline job. The following code snippet loads the constraints for a binary classification model into a Pandas dataframe.
 
-   ```
+   ```python
    import pandas as pd
    pd.DataFrame(baseline_job.suggested_constraints().body_dict["binary_classification_constraints"]).T
    ```

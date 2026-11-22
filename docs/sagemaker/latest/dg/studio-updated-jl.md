@@ -1,7 +1,6 @@
 
 
 # SageMaker JupyterLab
-<a name="studio-updated-jl"></a>
 
 Create a JupyterLab space within Amazon SageMaker Studio to launch the JupyterLab application. A JupyterLab space is a private or shared space within Studio that manages the storage and compute resources needed to run the JupyterLab application. The JupyterLab application is a web-based interactive development environment (IDE) for notebooks, code, and data. Use the JupyterLab application's flexible and extensive interface to configure and arrange machine learning (ML) workflows.
 

@@ -1,7 +1,6 @@
 
 
 # Model Registry Collections
-<a name="modelcollections"></a>
 
 You can use Collections to group registered models that are related to each other and organize them in hierarchies to improve model discoverability at scale. With Collections, you can organize registered models that are associated with one another. For example, you could categorize your models based on the domain of the problem they solve as Collections titled * NLP-models*, *CV-models*, or * Speech-recognition-models*. To organize your registered models in a tree structure, you can nest Collections within each other. Any operations you perform on a Collection, such as create, read, update, or delete, will not alter your registered models. You can use the Amazon SageMaker Studio UI or the Python SDK to manage your Collections.
 

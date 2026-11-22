@@ -1,7 +1,6 @@
 
 
 # Implementing inference observability on HyperPod clusters
-<a name="sagemaker-hyperpod-model-deployment-observability"></a>
 
 Amazon SageMaker HyperPod provides comprehensive inference observability capabilities that enable data scientists and machine learning engineers to monitor and optimize their deployed models. This solution is enabled through SageMaker HyperPod Observability and automatically collects performance metrics for inference workloads, delivering production-ready monitoring through integrated [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/oss/) dashboards.
 

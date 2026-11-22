@@ -1,7 +1,6 @@
 
 
 # Policies
-<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-policies"></a>
 
 Amazon SageMaker HyperPod task governance simplifies how your Amazon EKS cluster resources are allocated and how tasks are prioritized. The following provides information on HyperPod EKS cluster policies. For information on how to set up task governance, see [Task governance setup](sagemaker-hyperpod-eks-operate-console-ui-governance-setup-task-governance.md).
 
@@ -59,7 +58,7 @@ Unallocated resource sharing automatically manages the pool of resources that ar
 
  You can verify that unallocated resource sharing is fully configured by checking for unallocated resource sharing ClusterQueues: 
 
-```
+```bash
 kubectl get clusterqueue | grep hyperpod-ns-idle-resource-sharing
 ```
 

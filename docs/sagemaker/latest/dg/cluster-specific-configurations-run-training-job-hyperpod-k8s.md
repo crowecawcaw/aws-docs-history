@@ -1,7 +1,6 @@
 
 
 # Running a training job on HyperPod k8s
-<a name="cluster-specific-configurations-run-training-job-hyperpod-k8s"></a>
 
 SageMaker HyperPod Recipes supports submitting a training job to a GPU/Trainium Kubernetes cluster. Before you submit the training job do one of the following:
 + Modify the `k8s.yaml` cluster configuration file
@@ -14,7 +13,7 @@ After you've done either of the preceding steps, install the corresponding envir
 
 To submit a training job to a Kubernetes cluster, you specify Kubernetes-specific configurations. The configurations include the cluster namespace or the location of the persistent volume.
 
-```
+```yaml
 pullPolicy: Always
 restartPolicy: Never
 namespace: default

@@ -1,7 +1,6 @@
 
 
 # Develop Algorithms and Models in Amazon SageMaker AI
-<a name="sagemaker-marketplace-develop"></a>
 
 Before you can create algorithm and model package resources to use in Amazon SageMaker AI or list on AWS Marketplace, you have to develop them and package them in Docker containers.
 

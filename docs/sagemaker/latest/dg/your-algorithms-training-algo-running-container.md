@@ -1,7 +1,6 @@
 
 
 # How Amazon SageMaker AI Provides Training Information
-<a name="your-algorithms-training-algo-running-container"></a>
 
 This section explains how SageMaker AI makes training information, such as training data, hyperparameters, and other configuration information, available to your Docker container. 
 
@@ -21,7 +20,7 @@ When you send a [`CreateTrainingJob`](https://docs.aws.amazon.com/sagemaker/late
 
 The following is an example of a hyperparameter configuration in `hyperparameters.json` to specify the `num_round` and `eta` hyperparameters in the `CreateTrainingJob` operation for [XGBoost](https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost.html). 
 
-```
+```python
 {
     "num_round": "128",
     "eta": "0.001"

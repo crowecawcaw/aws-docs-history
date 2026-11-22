@@ -1,7 +1,6 @@
 
 
 # SageMaker AI Components for Kubeflow Pipelines
-<a name="kubernetes-sagemaker-components-for-kubeflow-pipelines"></a>
 
 With SageMaker AI components for Kubeflow Pipelines, you can create and monitor native SageMaker AI training, tuning, endpoint deployment, and batch transform jobs from your Kubeflow Pipelines. By running Kubeflow Pipeline jobs on SageMaker AI, you move data processing and training jobs from the Kubernetes cluster to SageMaker AI's machine learning-optimized managed service. This document assumes prior knowledge of Kubernetes and Kubeflow. 
 

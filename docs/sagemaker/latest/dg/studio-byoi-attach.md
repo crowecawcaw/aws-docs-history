@@ -1,7 +1,6 @@
 
 
 # Attach a Custom SageMaker Image in Amazon SageMaker Studio Classic
-<a name="studio-byoi-attach"></a>
 
 **Important**  
 Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studio Classic to create Amazon SageMaker resources must also grant permissions to add tags to those resources. The permission to add tags to resources is required because Studio and Studio Classic automatically tag any resources they create. If an IAM policy allows Studio and Studio Classic to create resources but does not allow tagging, "AccessDenied" errors can occur when trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions).  
@@ -86,7 +85,7 @@ The following section demonstrates how to create a new domain with the version a
 
 1. Get your default VPC ID.
 
-   ```
+   ```cmd
    aws ec2 describe-vpcs \
        --filters Name=isDefault,Values=true \
        --query "Vpcs[0].VpcId" --output text
@@ -94,13 +93,13 @@ The following section demonstrates how to create a new domain with the version a
 
    The response should look similar to the following.
 
-   ```
+   ```cmd
    vpc-xxxxxxxx
    ```
 
 1. Get your default subnet IDs using the VPC ID from the previous step.
 
-   ```
+   ```cmd
    aws ec2 describe-subnets \
        --filters Name=vpc-id,Values={{<vpc-id>}} \
        --query "Subnets[*].SubnetId" --output json
@@ -108,7 +107,7 @@ The following section demonstrates how to create a new domain with the version a
 
    The response should look similar to the following.
 
-   ```
+   ```json
    [
        "subnet-b55171dd",
        "subnet-8a5f99c6",
@@ -118,7 +117,7 @@ The following section demonstrates how to create a new domain with the version a
 
 1. Create a configuration file named `create-domain-input.json`. Insert the VPC ID, subnet IDs, `ImageName`, and `AppImageConfigName` from the previous steps. Because `ImageVersionNumber` isn't specified, the latest version of the image is used, which is the only version in this case.
 
-   ```
+   ```json
    {
        "DomainName": "domain-with-custom-image",
        "VpcId": "{{<vpc-id>}}",
@@ -142,14 +141,14 @@ The following section demonstrates how to create a new domain with the version a
 
 1. Create the domain with the attached custom SageMaker image.
 
-   ```
+   ```cmd
    aws sagemaker create-domain \
        --cli-input-json file://create-domain-input.json
    ```
 
    The response should look similar to the following.
 
-   ```
+   ```json
    {
        "DomainArn": "arn:aws:sagemaker:us-east-2:acct-id:domain/d-xxxxxxxxxxxx",
        "Url": "https://d-xxxxxxxxxxxx.studio.us-east-2.sagemaker.aws/..."
@@ -183,14 +182,14 @@ You perform the following steps to add the SageMaker image to your current domai
 
 1. Use the domain ID to get the description of the domain.
 
-   ```
+   ```cmd
    aws sagemaker describe-domain \
        --domain-id {{<d-xxxxxxxxxxxx>}}
    ```
 
    The response should look similar to the following.
 
-   ```
+   ```json
    {
        "DomainId": "d-xxxxxxxxxxxx",
        "DefaultUserSettings": {
@@ -207,7 +206,7 @@ You perform the following steps to add the SageMaker image to your current domai
 
 1. Insert the `ImageName` and `AppImageConfigName` from the previous steps as a custom image. Because `ImageVersionNumber` isn't specified, the latest version of the image is used, which is the only version in this case.
 
-   ```
+   ```json
    {
        "DefaultUserSettings": {
            "KernelGatewayAppSettings": { 
@@ -225,7 +224,7 @@ You perform the following steps to add the SageMaker image to your current domai
 
 1. Use the domain ID and default user settings file to update your domain.
 
-   ```
+   ```cmd
    aws sagemaker update-domain \
        --domain-id {{<d-xxxxxxxxxxxx>}} \
        --cli-input-json file://default-user-settings.json
@@ -233,7 +232,7 @@ You perform the following steps to add the SageMaker image to your current domai
 
    The response should look similar to the following.
 
-   ```
+   ```json
    {
        "DomainArn": "arn:aws:sagemaker:us-east-2:acct-id:domain/d-xxxxxxxxxxxx"
    }
@@ -266,14 +265,14 @@ You perform the following steps to add the SageMaker image to a shared space.
 
 1. Use the domain ID to get the description of the domain.
 
-   ```
+   ```cmd
    aws sagemaker describe-domain \
        --domain-id {{<d-xxxxxxxxxxxx>}}
    ```
 
    The response should look similar to the following.
 
-   ```
+   ```json
    {
        "DomainId": "d-xxxxxxxxxxxx",
        ...
@@ -291,7 +290,7 @@ You perform the following steps to add the SageMaker image to a shared space.
 
 1. Insert the `ImageName` and `AppImageConfigName` from the previous steps as a custom image. Because `ImageVersionNumber` isn't specified, the latest version of the image is used, which is the only version in this case.
 
-   ```
+   ```json
    {
        "DefaultSpaceSettings": {
            "KernelGatewayAppSettings": { 
@@ -309,7 +308,7 @@ You perform the following steps to add the SageMaker image to a shared space.
 
 1. Use the domain ID and default space settings file to update your domain.
 
-   ```
+   ```cmd
    aws sagemaker update-domain \
        --domain-id {{<d-xxxxxxxxxxxx>}} \
        --cli-input-json file://default-space-settings.json
@@ -317,7 +316,7 @@ You perform the following steps to add the SageMaker image to a shared space.
 
    The response should look similar to the following.
 
-   ```
+   ```json
    {
        "DomainArn": "arn:aws:sagemaker:us-east-2:acct-id:domain/d-xxxxxxxxxxxx"
    }
@@ -328,7 +327,7 @@ You perform the following steps to add the SageMaker image to a shared space.
 
 After you create the custom SageMaker image and attach it to your domain, the image appears in the **Environment** tab of the domain. You can only view the attached images for shared spaces using the AWS CLI by using the following command.
 
-```
+```cmd
 aws sagemaker describe-domain \
     --domain-id {{<d-xxxxxxxxxxxx>}}
 ```

@@ -1,7 +1,6 @@
 
 
 # Augmented Manifest File Format for Pipe Mode Training
-<a name="augmented-manifest-stream"></a>
 
 Augmented manifest format enables you to do training in Pipe mode using files without needing to create RecordIO files. You need to specify both train and validation channels as values for the `InputDataConfig` parameter of the [`CreateTrainingJob`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html) request. Augmented manifest files are supported only for channels using Pipe input mode. For each channel, the data is extracted from its augmented manifest file and streamed (in order) to the algorithm through the channel's named pipe. Pipe mode uses the first in first out (FIFO) method, so records are processed in the order in which they are queued. For information about Pipe input mode, see [`Input Mode`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html#SageMaker-Type-Channel-InputMode).
 

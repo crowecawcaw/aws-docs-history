@@ -1,7 +1,6 @@
 
 
 # Best practices to minimize interruptions during GPU driver upgrades
-<a name="inference-gpu-drivers"></a>
 
 SageMaker AI Model Deployment upgrades GPU drivers on the ML instances for Real-time, Batch, and Asynchronous Inference options over time to provide customers access to improvements from the driver providers. Below you can see the GPU version supported for each Inference option. Different driver versions can change how your model interacts with the GPUs. Below are some strategies to help you understand how your application works with different driver versions. 
 
@@ -45,7 +44,7 @@ If you encounter an issue when running your GPU workload, see the following guid
 
 Run the `nvidia-smi` (NVIDIA System Management Interface) command from within the Docker container. If the NVIDIA System Management Interface detects a GPU detection error or NVIDIA initialization error, it will return the following error message:
 
-```
+```bash
 Failed to initialize NVML: Driver/library version mismatch
 ```
 
@@ -60,7 +59,7 @@ Refer to the [NVIDIA System Management Interface page](https://developer.nvidia.
 
  If your GPU instance uses NVIDIA driver versions that are not compatible with the CUDA version in the Docker container, then deploying an endpoint will fail with the following error message: 
 
-```
+```bash
  Failure reason CannotStartContainerError. Please ensure the model container for variant <variant_name> starts correctly when invoked with 'docker run <image> serve'
 ```
 
@@ -100,7 +99,7 @@ To verify if the platform Nvidia driver version supports the CUDA Compatibility 
 
 The script demonstrates how to dynamically switch the use of the CUDA Compatibility Package based on the detected Nvidia driver version on the deployed host for your model container. When SageMaker releases a newer Nvidia driver version, the installed CUDA Compatibility Package can be turned off automatically if the CUDA application is supported natively on the new driver.
 
-```
+```bash
 #!/bin/bash
 
 verlt() {

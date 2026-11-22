@@ -1,7 +1,6 @@
 
 
 # Pipelines overview
-<a name="pipelines-overview"></a>
 
 An Amazon SageMaker AI pipeline is a series of interconnected steps in directed acyclic graph (DAG) that are defined using the drag-and-drop UI or [Pipelines SDK](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html). You can also build your pipeline using the [pipeline definition JSON schema](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/). This DAG JSON definition gives information on the requirements and relationships between each step of your pipeline. The structure of a pipeline's DAG is determined by the data dependencies between steps. These data dependencies are created when the properties of a step's output are passed as the input to another step. The following image is an example of a pipeline DAG:
 
@@ -37,6 +36,8 @@ The following topics describe fundamental Pipelines concepts. For a tutorial des
 + [Caching pipeline steps](pipelines-caching.md)
 + [Retry Policy for Pipeline Steps](pipelines-retry-policy.md)
 + [Selective execution of pipeline steps](pipelines-selective-ex.md)
++ [Pipeline version aliases](pipelines-version-aliases.md)
++ [AWS managed pipelines](pipelines-managed.md)
 + [Baseline calculation, drift detection and lifecycle with ClarifyCheck and QualityCheck steps in Amazon SageMaker Pipelines](pipelines-quality-clarify-baseline-lifecycle.md)
 + [Schedule Pipeline Runs](pipeline-eventbridge.md)
 + [Amazon SageMaker Experiments Integration](pipelines-experiments.md)

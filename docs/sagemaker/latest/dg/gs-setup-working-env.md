@@ -1,7 +1,6 @@
 
 
 # Create an Amazon SageMaker Notebook Instance for the tutorial
-<a name="gs-setup-working-env"></a>
 
 **Important**  
 Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studio Classic to create Amazon SageMaker resources must also grant permissions to add tags to those resources. The permission to add tags to resources is required because Studio and Studio Classic automatically tag any resources they create. If an IAM policy allows Studio and Studio Classic to create resources but does not allow tagging, "AccessDenied" errors can occur when trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions).  
@@ -22,7 +21,7 @@ An Amazon SageMaker notebook instance is a fully-managed machine learning (ML) A
 
    1. For **Notebook Instance type**, choose `ml.t2.medium`. This is the least expensive instance type that notebook instances support, and is enough for this exercise. If a `ml.t2.medium` instance type isn't available in your current AWS Region, choose `ml.t3.medium`.
 
-   1. For **Platform Identifier**, choose a platform type to create the notebook instance on. This platform type defines the Operating System and the JupyterLab version that your notebook instance is created with. The latest and recommended version is `notebook-al2023-v1`, for an Amazon Linux 2023 notebook instance. For information about platform identifier types, see [AL2023 notebook instances](nbi-al2023.md) and [Amazon Linux 2 notebook instances](nbi-al2.md). For information about JupyterLab versions, see [JupyterLab versioning](nbi-jl.md).
+   1. For **Platform Identifier**, choose a platform type to create the notebook instance on. The platform identifier that you choose determines the operating system and the JupyterLab version of your notebook instance. The default and recommended platform identifier is `notebook-al2023-v1`, for an Amazon Linux 2023 notebook instance. For Python 3.12, choose `notebook-al2023-v2`. For information about platform identifier types, see [AL2023 notebook instances](nbi-al2023.md) and [Amazon Linux 2 notebook instances](nbi-al2.md). For information about JupyterLab versions, see [JupyterLab versioning](nbi-jl.md).
 
    1. For **IAM role**, choose **Create a new role**, and then choose **Create role**. This IAM role automatically gets permissions to access any S3 bucket that has `sagemaker` in the name. It gets these permissions through the `AmazonSageMakerFullAccess` policy, which SageMaker AI attaches to the role. 
 **Note**  

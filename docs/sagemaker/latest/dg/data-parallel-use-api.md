@@ -1,7 +1,6 @@
 
 
 # Launching distributed training jobs with SMDDP using the SageMaker Python SDK
-<a name="data-parallel-use-api"></a>
 
 To run a distributed training job with your adapted script from [Adapting your training script to use the SMDDP collective operations](data-parallel-modify-sdp-select-framework.md), use the SageMaker Python SDK's framework or generic estimators by specifying the prepared training script as an entry point script and the distributed training configuration.
 

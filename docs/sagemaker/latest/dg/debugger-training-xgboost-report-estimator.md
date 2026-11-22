@@ -1,7 +1,6 @@
 
 
 # Construct a SageMaker AI XGBoost ModelTrainer with the Debugger XGBoost Report rule
-<a name="debugger-training-xgboost-report-estimator"></a>
 
 **Note**  
 Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
@@ -17,7 +16,7 @@ The output tensors are saved at a default S3 bucket. For example, `s3://sagemake
 
 When you construct a SageMaker AI ModelTrainer for an XGBoost training job, specify the rule as shown in the following example code.
 
-```
+```py
 import boto3
 import sagemaker
 from sagemaker.train import ModelTrainer

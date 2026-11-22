@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for SageMaker AI Inference
-<a name="using-service-linked-roles-inference"></a>
 
 Amazon SageMaker AI Inference uses the service-linked role named `AWSServiceRoleForSageMakerInference`. The `AmazonSageMakerInferenceServiceRolePolicy` policy attached to this role grants SageMaker AI Inference permissions to manage Elastic Network Interfaces (ENIs) in your virtual private cloud (VPC) for real-time inference endpoints.
 
@@ -38,7 +37,7 @@ You don't need to manually create a service-linked role. When you create a real-
 
 To allow SageMaker AI Inference to create the service-linked role on your behalf, your IAM principal must have the following permission when calling `CreateEndpoint`:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "iam:CreateServiceLinkedRole",

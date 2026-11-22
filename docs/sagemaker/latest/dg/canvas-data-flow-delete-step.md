@@ -1,7 +1,6 @@
 
 
 # Delete a step from your data flow
-<a name="canvas-data-flow-delete-step"></a>
 
 Within your data flows, you have the flexibility to delete your join and concatenate steps and choose whether or not to still apply any subsequent transforms to your data.
 

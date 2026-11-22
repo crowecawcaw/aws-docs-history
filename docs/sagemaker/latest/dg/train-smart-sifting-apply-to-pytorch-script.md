@@ -1,7 +1,6 @@
 
 
 # Apply SageMaker smart sifting to your PyTorch script
-<a name="train-smart-sifting-apply-to-pytorch-script"></a>
 
 These instructions demonstrate how to enable SageMaker smart sifting with your training script.
 
@@ -15,7 +14,7 @@ These instructions demonstrate how to enable SageMaker smart sifting with your t
 
    The following code example demonstrates setting up an object of the `RelativeProbabilisticSiftConfig` class.
 
-   ```
+   ```py
    from smart_sifting.sift_config.sift_configs import (
        RelativeProbabilisticSiftConfig
        LossConfig
@@ -64,7 +63,7 @@ These instructions demonstrate how to enable SageMaker smart sifting with your t
       The following are examples of custom batch transform classes of the `SiftingBatchTransform` module.
       + An example of a custom list batch transform implementation with SageMaker smart sifting for cases where the dataloader chunk has inputs, masks, and labels.
 
-        ```
+        ```py
         from typing import Any
         
         import torch
@@ -84,7 +83,7 @@ These instructions demonstrate how to enable SageMaker smart sifting with your t
         ```
       + An example of a custom list batch transform implementation with SageMaker smart sifting for cases where no labels are needed for reverse transformation.
 
-        ```
+        ```py
         class {{ListBatchTransformNoLabels}}(SiftingBatchTransform):
             def transform(self, batch: Any):
                 return ListBatch(batch[0].tolist())
@@ -95,7 +94,7 @@ These instructions demonstrate how to enable SageMaker smart sifting with your t
         ```
       + An example of a custom tensor batch implementation with SageMaker smart sifting for cases where the data loader chunk has inputs, masks, and labels.
 
-        ```
+        ```py
         from typing import Any
         
         from smart_sifting.data_model.data_model_interface import SiftingBatchTransform
@@ -132,7 +131,7 @@ This is also shown in the following code example.
 
    The following code is an example of a smart-sifting-implemented `Loss` interface named `SiftingImplementedLoss`.
 
-   ```
+   ```py
    from typing import Any
    
    import torch
@@ -171,7 +170,7 @@ This is also shown in the following code example.
 
    Finally, use all the SageMaker smart sifting implemented classes you configured in the previous steps to the SageMaker AI `SiftingDataloder` configuration class. This class is a wrapper for PyTorch [`DataLoader`](https://pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader). By wrapping PyTorch `DataLoader`, SageMaker smart sifting is registered to run as part of data loading in each iteration of a PyTorch training job. The following code example demonstrates implementing SageMaker AI data sifting to a PyTorch `DataLoader`.
 
-   ```
+   ```py
    from smart_sifting.dataloader.sift_dataloader import SiftingDataloader
    from torch.utils.data import DataLoader
    

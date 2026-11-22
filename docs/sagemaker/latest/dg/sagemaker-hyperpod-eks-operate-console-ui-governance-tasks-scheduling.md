@@ -1,7 +1,6 @@
 
 
 # Using topology-aware scheduling in Amazon SageMaker HyperPod task governance
-<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-tasks-scheduling"></a>
 
 ## Overview
 <a name="sagemaker-hyperpod-eks-operate-console-ui-governance-tasks-scheduling-overview"></a>

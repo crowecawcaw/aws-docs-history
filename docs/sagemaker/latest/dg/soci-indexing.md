@@ -1,7 +1,6 @@
 
 
 # Speed up container startup with SOCI
-<a name="soci-indexing"></a>
 
 SOCI (Seekable Open Container Initiative) indexing enables lazy loading of custom container images in [Amazon SageMaker Studio](studio-updated.md) or [Amazon SageMaker Unified Studio](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/what-is-sagemaker-unified-studio.html). SOCI significantly reduces startup times by roughly 30-70% for your custom [Bring your own image (BYOI)](studio-updated-byoi.md) containers. Latency improvement varies depending on the size of the image, hosting instance availability, and other application dependencies. SOCI creates an index that allows containers to launch with only necessary components, fetching additional files on-demand as needed.
 

@@ -1,7 +1,6 @@
 
 
 # Create secrets for database access credentials in Secrets Manager
-<a name="sagemaker-sql-extension-glue-connection-secrets"></a>
 
 Before creating your connection, we recommend storing your database access credentials as a secret in AWS Secrets Manager. Alternatively, you can generate temporary database credentials based on permissions granted through an AWS Identity and Access Management (IAM) permissions policy to manage the access that your users have to your database. For more information, see [Using IAM authentication to generate database user credentials](https://docs.aws.amazon.com/redshift/latest/mgmt/generating-user-credentials.html)
 
@@ -65,7 +64,7 @@ This section provides details on the secret and connection properties in JSON de
 
 1. In the key-value pair, choose **Plaintext**, and then copy the following JSON content. Replace the `user`, `password`, and `account` by their values.
 
-   ```
+   ```JSON
    {
        "user":"{{snowflake_user}}",
        "password":"{{snowflake_password}}",

@@ -1,7 +1,6 @@
 
 
 # Understand the results of a human evaluation job
-<a name="clarify-foundation-model-evaluate-results-human"></a>
 
 When you created a model evaluation job that uses human workers you selected one or more *metric types*. When members of the workteam evaluate a response in the worker portal their responses are saved in the `humanAnswers` json object. How those responses are stored change based on the metric type selected when the job was created.
 
@@ -71,7 +70,7 @@ The following entries describe the `inputRecord` key value pairs.
 
 An example JSON input record.
 
-```
+```json
 {
   "prompt": {
      "text": "Who invented the airplane?"
@@ -147,7 +146,7 @@ The structure of answer depends on the evaluation metrics selected when model ev
 
     `result`: An array of JSON objects. For each model (`modelResponseIdMap`) workers provide a `rank`.
 
-    ```
+    ```json
     "result": [{
     	"modelResponseId": "0",
     	"rank": 1
@@ -176,7 +175,7 @@ The following JSON object is an example model evaluation job output that is save
 
 For clarity this job only contains the responses from a two workers. Some key value pairs may have also been truncated for readability
 
-```
+```json
 {
 	"humanEvaluationResult": {
 		"flowDefinitionArn": "arn:aws:sagemaker:us-west-2:111122223333:flow-definition/flow-definition-name",

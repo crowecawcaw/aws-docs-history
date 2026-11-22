@@ -1,7 +1,6 @@
 
 
 # Select and deploy text classification models
-<a name="jumpstart-text-classification-deploy"></a>
 
 Deploy two text classification models for comparison: DistilBERT Base Cased and BERT Base Uncased. You'll see the differences between these models and deploy them using the optimal instance configuration.
 

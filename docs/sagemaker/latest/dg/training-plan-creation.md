@@ -1,7 +1,6 @@
 
 
 # Training plans creation
-<a name="training-plan-creation"></a>
 
 To reserve compute capacity using the SageMaker training plans capability, follow these steps:
 

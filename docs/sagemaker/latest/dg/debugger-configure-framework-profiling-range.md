@@ -1,7 +1,6 @@
 
 
 # Default system monitoring and customized framework profiling for target steps or a target time range
-<a name="debugger-configure-framework-profiling-range"></a>
 
 **Note**  
 End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources. For more information, see [Profiler availability change](profiler-availability-change.md).
@@ -11,7 +10,7 @@ If you want to specify target steps or target time intervals to profile your tra
 
   With the following example configuration, Debugger monitors the entire training job every 500 milliseconds (the default monitoring) and profiles a target step range from step 5 to step 15 (for 10 steps).
 
-  ```
+  ```py
   from sagemaker.core.debugger import ProfilerConfig, FrameworkProfile
       
   profiler_config=ProfilerConfig(
@@ -21,7 +20,7 @@ If you want to specify target steps or target time intervals to profile your tra
 
   With the following example configuration, Debugger monitors the entire training job every 1000 milliseconds and profiles a target step range from step 5 to step 15 (for 10 steps).
 
-  ```
+  ```py
   from sagemaker.core.debugger import ProfilerConfig, FrameworkProfile
       
   profiler_config=ProfilerConfig(
@@ -33,7 +32,7 @@ If you want to specify target steps or target time intervals to profile your tra
 
   With the following example configuration, Debugger monitors the entire training job every 500 milliseconds (the default monitoring) and profiles a target time range from the current Unix time for 600 seconds.
 
-  ```
+  ```py
   import time
   from sagemaker.core.debugger import ProfilerConfig, FrameworkProfile
   
@@ -44,7 +43,7 @@ If you want to specify target steps or target time intervals to profile your tra
 
   With the following example configuration, Debugger monitors the entire training job every 1000 milliseconds and profiles a target time range from the current Unix time for 600 seconds.
 
-  ```
+  ```py
   import time
   from sagemaker.core.debugger import ProfilerConfig, FrameworkProfile
   

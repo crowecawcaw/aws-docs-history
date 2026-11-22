@@ -1,7 +1,6 @@
 
 
 # Grant permissions for cross-account Amazon S3 storage
-<a name="canvas-permissions-cross-account"></a>
 
 When setting up your SageMaker AI domain or user profile for users to access SageMaker Canvas, you specify an Amazon S3 storage location for Canvas artifacts. These artifacts include saved copies of your input datasets, model artifacts, predictions, and other application data. You can either use the default SageMaker AI created Amazon S3 bucket, or you can customize the storage location and specify your own bucket for storing Canvas application data.
 
@@ -38,7 +37,7 @@ Bucket-level actions, such as `GetBucketCors` and `GetBucketLocation`, should be
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -81,7 +80,7 @@ Admins must also turn off **Block all public access** under the bucket **Permiss
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -137,7 +136,7 @@ The following procedure shows you how to grant the necessary permissions so that
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -189,7 +188,7 @@ The following procedure shows you how to grant the necessary permissions so that
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -224,7 +223,7 @@ The following procedure shows you how to grant the necessary permissions so that
 
    The following example is a key policy that you attach to the KMS key `s3KmsInAccountA` in Account A to grant `roleB` access. For more information about how to create and attach a key policy statement, see [Creating a key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html) in the *AWS KMS Developer Guide*.
 
-   ```
+   ```json
    {
      "Sid": "Allow use of the key",
      "Effect": "Allow",

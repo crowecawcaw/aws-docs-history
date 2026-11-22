@@ -1,7 +1,6 @@
 
 
 # Configure listing Amazon EMR clusters
-<a name="studio-notebooks-configure-discoverability-emr-cluster"></a>
 
 Administrators can configure permissions for the SageMaker Studio execution role to grant users the ability to view the list of Amazon EMR clusters they have access to, allowing them to connect to these clusters. The clusters to which you want access can be deployed in the same AWS account as Studio (choose *Single account*) or in separate accounts (choose *Cross account*). The following page describes how to grant the permissions for viewing Amazon EMR clusters from Studio or Studio Classic.
 
@@ -96,7 +95,7 @@ Follow these steps to create the necessary roles and policies on the account whe
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -123,7 +122,7 @@ Follow these steps to create the necessary roles and policies on the account whe
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -183,7 +182,7 @@ On the account where Studio is deployed, also referred to as the *trusted accoun
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -229,7 +228,7 @@ On the account where Studio is deployed, also referred to as the *trusted accoun
 
     In a JupyterLab application started from a space using the SageMaker AI execution role whose permissions you updated, run the following command in a terminal. Replace the `domainID`, `user-profile-name`, `emr-accountID`, and `AssumableRole` ( `EMRServiceRole` for [RBAC runtime roles]()) with their proper values. This code snippet updates the user profile settings for a specific user profile (use `client.update_userprofile`) or domain settings (use `client.update_domain`) within a SageMaker AI domain. Specifically, it allows the JupyterLab application to assume a particular IAM role (`AssumableRole`) for running Amazon EMR clusters within the Amazon EMR account.
 
-   ```
+   ```python
    import botocore.session
    import json
    sess = botocore.session.get_session()

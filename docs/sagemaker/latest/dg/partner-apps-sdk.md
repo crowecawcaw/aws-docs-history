@@ -1,7 +1,6 @@
 
 
 # Set up the Amazon SageMaker Partner AI Apps SDKs
-<a name="partner-apps-sdk"></a>
 
  The following topic outlines the process needed to install and use the application-specific SDKs with Amazon SageMaker Partner AI Apps. To install and use SDKs for applications, you must specify environment variables specific to Partner AI Apps, so the application’s SDK can pick up environment variables and trigger authorization. The following sections give information about the steps needed to complete this for each of the supported application types. 
 

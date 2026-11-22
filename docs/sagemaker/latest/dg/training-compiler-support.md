@@ -1,7 +1,6 @@
 
 
 # Supported Frameworks, AWS Regions, Instance Types, and Tested Models
-<a name="training-compiler-support"></a>
 
 **Important**  
 Amazon Web Services (AWS) announces that there will be no new releases or versions of SageMaker Training Compiler. You can continue to utilize SageMaker Training Compiler through the existing AWS Deep Learning Containers (DLCs) for SageMaker Training. It is important to note that while the existing DLCs remain accessible, they will no longer receive patches or updates from AWS, in accordance with the [AWS Deep Learning Containers Framework Support Policy](https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/support-policy.html).
@@ -72,7 +71,7 @@ For specs of the instance types, see the **Accelerated Computing** section in th
 
 If you encountered an error message similar to the following, follow the instructions at [Request a service quota increase for SageMaker AI resources](https://docs.aws.amazon.com/sagemaker/latest/dg/regions-quotas.html#service-limit-increase-request-procedure).
 
-```
+```txt
 ResourceLimitExceeded: An error occurred (ResourceLimitExceeded) when calling
 the CreateTrainingJob operation: The account-level service limit 'ml.p3dn.24xlarge
 for training job usage' is 0 Instances, with current utilization of 0 Instances

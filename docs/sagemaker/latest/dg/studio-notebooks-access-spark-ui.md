@@ -1,7 +1,6 @@
 
 
 # Access Spark UI from Studio or Studio Classic
-<a name="studio-notebooks-access-spark-ui"></a>
 
 The following sections give instructions for accessing the Spark UI from SageMaker AI Studio or Studio Classic notebooks. The Spark UI allows you to monitor and debug your Spark Jobs submitted to run on Amazon EMR from Studio or Studio Classic notebooks. SSH tunneling and presigned URLs are two ways for accessing the Spark UI.
 

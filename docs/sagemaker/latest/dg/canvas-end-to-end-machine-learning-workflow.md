@@ -1,7 +1,6 @@
 
 
 # Tutorial: Build an end-to-end machine learning workflow in SageMaker Canvas
-<a name="canvas-end-to-end-machine-learning-workflow"></a>
 
 This tutorial guides you through an end-to-end machine learning (ML) workflow using Amazon SageMaker Canvas. SageMaker Canvas is a visual no-code interface that you can use to prepare data and to train and deploy ML models. For the tutorial, you use a NYC taxi dataset to train a model that predicts the fare amount for a given trip. You get hands-on experience with key ML tasks such as assessing data quality and addressing data issues, splitting data into training and test sets, model training and evaluation, making predictions, and deploying your trained model–all within the SageMaker Canvas application.
 

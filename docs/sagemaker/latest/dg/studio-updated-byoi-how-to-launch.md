@@ -1,7 +1,6 @@
 
 
 # Launch a custom image in Studio
-<a name="studio-updated-byoi-how-to-launch"></a>
 
 After you have attached a custom image to your Amazon SageMaker AI domain, the image becomes available to the users in the domain. Use the following instructions to launch an application with the custom image.
 

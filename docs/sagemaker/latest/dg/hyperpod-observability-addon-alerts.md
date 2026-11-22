@@ -1,11 +1,10 @@
 
 
 # Preconfigured alerts
-<a name="hyperpod-observability-addon-alerts"></a>
 
 The Amazon SageMaker HyperPod (SageMaker HyperPod) observability add-on enables default alerts for your cluster and workloads to notify you when the system detects common early indicators of cluster under-performance. These alerts are defined within the Amazon Managed Grafana built-in alerting system. For information about how to modify these pre-configured alerts or create new ones, see [Alerts in Grafana version 10](https://docs.aws.amazon.com/grafana/latest/userguide/v10-alerts.html) in the *Amazon Managed Grafana User Guide*. The following YAML shows the default alerts.
 
-```
+```yaml
 groups:
 - name: sagemaker_hyperpod_alerts
   rules:

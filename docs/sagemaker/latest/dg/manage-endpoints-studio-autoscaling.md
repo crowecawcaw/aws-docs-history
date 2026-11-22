@@ -1,7 +1,6 @@
 
 
 # Auto-scaling
-<a name="manage-endpoints-studio-autoscaling"></a>
 
 On the **Auto-scaling** tab, you can view any auto-scaling policies configured for the models hosted on your endpoint. The following screenshot shows you the **Auto-scaling** tab.
 

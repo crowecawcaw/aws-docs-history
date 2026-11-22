@@ -1,7 +1,6 @@
 
 
 # Set up automated Studio space filtering when using the AWS Toolkit
-<a name="remote-access-remote-setup-filter"></a>
 
 Users can filter spaces in the AWS Toolkit for Visual Studio Code explorer to display only relevant spaces. This section provides information on filtering and how to set up automated filtering.
 
@@ -43,7 +42,7 @@ This setup is not required for direct IAM user credentials or IdC authentication
 
 **Set up trust policy for IAM role session credentials example** Create a trust policy that enforces role sessions to include the IAM user name. The following is an example policy:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

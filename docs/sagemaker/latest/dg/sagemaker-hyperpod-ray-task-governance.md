@@ -1,7 +1,6 @@
 
 
 # Queueing with task governance
-<a name="sagemaker-hyperpod-ray-task-governance"></a>
 
 SageMaker HyperPod task governance streamlines resource allocation and keeps compute used efficiently across teams and projects on your Amazon EKS clusters. Administrators set priority levels for tasks, compute allocation for each team, how teams lend and borrow idle compute, and whether a team preempts its own tasks.
 

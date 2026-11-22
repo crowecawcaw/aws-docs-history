@@ -1,7 +1,6 @@
 
 
 # Recommendation results
-<a name="inference-recommender-interpret-results"></a>
 
 Each Inference Recommender job result includes `InstanceType`, `InitialInstanceCount`, and `EnvironmentParameters`, which are tuned environment variable parameters for your container to improve its latency and throughput. The results also include performance and cost metrics such as `MaxInvocations`, `ModelLatency`, `CostPerHour`, `CostPerInference`, `CpuUtilization`, and `MemoryUtilization`.
 

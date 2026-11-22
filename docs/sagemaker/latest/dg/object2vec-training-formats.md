@@ -1,7 +1,6 @@
 
 
 # Data Formats for Object2Vec Training
-<a name="object2vec-training-formats"></a>
 
 When training with the Object2Vec algorithm, make sure that the input data in your request is in JSON Lines format, where each line represents a single data point.
 

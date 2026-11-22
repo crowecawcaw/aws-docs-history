@@ -1,7 +1,6 @@
 
 
 # Appendix
-<a name="sagemaker-eks-checkpointless-appendix"></a>
 
 **Monitor training results via HyperPod recipes**
 

@@ -1,7 +1,6 @@
 
 
 # Idle shutdown
-<a name="studio-updated-idle-shutdown"></a>
 
 Amazon SageMaker AI supports shutting down idle resources to manage costs and prevent cost overruns due to cost accrued by idle, billable resources. It accomplishes this by detecting an app’s idle state and performing an app shutdown when idle criteria are met. 
 

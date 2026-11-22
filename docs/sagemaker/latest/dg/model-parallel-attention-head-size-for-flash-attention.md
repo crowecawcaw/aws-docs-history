@@ -1,7 +1,6 @@
 
 
 # Support for FlashAttention
-<a name="model-parallel-attention-head-size-for-flash-attention"></a>
 
 Support for FlashAttention is a feature of the library only applicable for the *distributed transformer* model, which is a Transformer model wrapped by [`smp.DistributedModel()`](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#smdistributed-modelparallel-torch-distributedmodel) for model-parallel training. This feature is also compatible with [Tensor Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism.md). 
 

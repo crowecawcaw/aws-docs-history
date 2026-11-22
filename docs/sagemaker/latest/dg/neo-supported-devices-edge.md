@@ -1,7 +1,6 @@
 
 
 # Supported Frameworks, Devices, Systems, and Architectures
-<a name="neo-supported-devices-edge"></a>
 
 Amazon SageMaker Neo supports common machine learning frameworks, edge devices, operating systems, and chip architectures. Find out if Neo supports your framework, edge device, OS, and chip architecture by selecting one of the topics below.
 

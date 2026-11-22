@@ -1,7 +1,6 @@
 
 
 # Schedule data quality monitoring jobs
-<a name="model-monitor-schedule-data-monitor"></a>
 
 **Note**  
 Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
@@ -16,7 +15,7 @@ You can specify either a batch transform input or an endpoint input, but not bot
 
 To schedule a data quality monitor for a real-time endpoint, pass your `EndpointInput` instance to the `endpoint_input` argument of your `DefaultModelMonitor` instance, as shown in the following code sample:
 
-```
+```py
 from sagemaker.model_monitor import CronExpressionGenerator
                 
 data_quality_model_monitor = DefaultModelMonitor(
@@ -45,7 +44,7 @@ schedule = data_quality_model_monitor.create_monitoring_schedule(
 
 To schedule a data quality monitor for a batch transform job, pass your `BatchTransformInput` instance to the `batch_transform_input` argument of your `DefaultModelMonitor` instance, as shown in the following code sample:
 
-```
+```py
 from sagemaker.model_monitor import CronExpressionGenerator
                 
 data_quality_model_monitor = DefaultModelMonitor(

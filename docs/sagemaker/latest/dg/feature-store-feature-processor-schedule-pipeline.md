@@ -1,7 +1,6 @@
 
 
 # Scheduled and event based executions for Feature Processor pipelines
-<a name="feature-store-feature-processor-schedule-pipeline"></a>
 
 Amazon SageMaker Feature Store Feature Processing pipeline executions can be configured to start automatically and asynchronously based on a preconfigured schedule or as a result of another AWS service event. For example, you can schedule Feature Processing pipelines to execute on the first of every month or chain two pipelines together so that a target pipeline is executed automatically after a source pipeline execution completes.
 

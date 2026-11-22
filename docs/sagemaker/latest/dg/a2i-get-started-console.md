@@ -1,7 +1,6 @@
 
 
 # Tutorial: Get Started in the Amazon A2I Console
-<a name="a2i-get-started-console"></a>
 
 **Note**  
 Amazon SageMaker A2I is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for A2I, but we do not plan to introduce new features.
@@ -148,7 +147,7 @@ Select your task type in the following table to see example requests for Amazon 
 
 The following example uses the AWS SDK for Python (Boto3) to call `analyze_document` in us-west-2. Replace the italicized red text with your resources. For more information, see the `[analyze\_document](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract.html#Textract.Client.analyze_document)` documention in the *AWS SDK for Python (Boto) API Reference*.
 
-```
+```python
    response = client.analyze_document(
          Document={
                 "S3Object": {
@@ -171,7 +170,7 @@ The following example uses the AWS SDK for Python (Boto3) to call `analyze_docum
 
 The following example uses the AWS SDK for Python (Boto3) to call `detect_moderation_labels` in us-west-2. Replace the italicized red text with your resources. For more information, see the `[detect\_moderation\_labels](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels)` documentation in the *AWS SDK for Python (Boto) API Reference*.
 
-```
+```python
    response = client.detect_moderation_labels(
             Image={
                 "S3Object":{

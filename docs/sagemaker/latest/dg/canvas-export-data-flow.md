@@ -1,7 +1,6 @@
 
 
 # Export a data flow
-<a name="canvas-export-data-flow"></a>
 
 Exporting your data flow translates the operations that you've made in Data Wrangler and exports it into a Jupyter notebook of Python code that you can modify and run. This can be helpful for integrating the code for your data transformations into your machine learning pipelines.
 

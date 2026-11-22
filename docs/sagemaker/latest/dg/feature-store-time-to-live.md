@@ -1,7 +1,6 @@
 
 
 # Time to live (TTL) duration for records
-<a name="feature-store-time-to-live"></a>
 
 Amazon SageMaker Feature Store provides the option for records to be hard deleted from the online store after a time duration is reached, with time to live (TTL) duration (`TtlDuration`). The record will expire after the record’s `EventTime` plus the `TtlDuration` is reached, or `ExpiresAt` = `EventTime` \+ `TtlDuration`. The `TtlDuration` can be applied at a feature group level, where all records within the feature group will have the `TtlDuration` by default, or at an individual record level. If `TtlDuration` is unspecified, the default value is `null` and the record will remain in the online store until it is overwritten. 
 

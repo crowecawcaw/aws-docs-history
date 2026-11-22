@@ -1,7 +1,6 @@
 
 
 # Control root access to a SageMaker notebook instance
-<a name="nbi-root-access"></a>
 
 By default, when you create a notebook instance, users that log into that notebook instance have root access. Data science is an iterative process that might require the data scientist to test and use different software tools and packages, so many notebook instance users need to have root access to be able to install these tools and packages. Because users with root access have administrator privileges, users can access and edit all files on a notebook instance with root access enabled.
 

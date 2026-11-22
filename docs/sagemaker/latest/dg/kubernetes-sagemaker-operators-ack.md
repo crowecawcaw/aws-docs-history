@@ -1,7 +1,6 @@
 
 
 # Latest SageMaker AI Operators for Kubernetes
-<a name="kubernetes-sagemaker-operators-ack"></a>
 
 This section is based on the latest version of SageMaker AI Operators for Kubernetes using AWS Controllers for Kubernetes (ACK).
 

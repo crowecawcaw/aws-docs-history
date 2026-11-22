@@ -1,7 +1,6 @@
 
 
 # View training job metrics
-<a name="view-train-metrics"></a>
 
 You can view the metrics emitted from your Amazon SageMaker training jobs in either the Amazon CloudWatch or SageMaker AI console.
 

@@ -1,7 +1,6 @@
 
 
 # Activate or deactivate a model monitor
-<a name="model-dashboard-schedule-activate"></a>
 
 Use the following procedure to activate or deactivate a model monitor.
 

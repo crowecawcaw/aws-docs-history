@@ -1,7 +1,6 @@
 
 
 # Connect to Amazon SageMaker Studio and Studio Classic Through an Interface VPC Endpoint
-<a name="studio-interface-endpoint"></a>
 
 You can connect to your Amazon SageMaker Studio and Amazon SageMaker Studio Classic from your [Amazon Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) (Amazon VPC) through an [interface endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html) in your VPC instead of connecting over the internet. When you use an interface VPC endpoint (interface endpoint), communication between your VPC and Studio or Studio Classic is conducted entirely and securely within the AWS network.
 
@@ -53,7 +52,7 @@ For more information, see [Controlling access to services with VPC endpoints](ht
 
 The following example of a VPC endpoint policy specifies that all users that have access to the endpoint are allowed to access the user profiles in the SageMaker AI domain with the specified domain ID. Access to other domains is denied.
 
-```
+```json
 {
   "Statement": [
       {
@@ -80,7 +79,7 @@ If you apply an IAM policy similar to one of the following examples, users canno
 
 The following policy allows connections only to callers within the subnet where you created the interface endpoint.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -106,7 +105,7 @@ The following policy allows connections only to callers within the subnet where 
 
 The following policy allows connections only to those made through the interface endpoints specified by the `aws:sourceVpce` condition key. For example, the first interface endpoint could allow access through the SageMaker AI console. The second interface endpoint could allow access through the SageMaker API.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -141,7 +140,7 @@ aws sagemaker describe-user-profile \
 
 Response:
 
-```
+```json
 {
     "DomainId": "domain-id",
     "UserProfileArn": "arn:aws:sagemaker:us-west-2:acct-id:user-profile/domain-id/profile-name",
@@ -161,7 +160,7 @@ aws sagemaker create-presigned-domain-url
 
 Response:
 
-```
+```json
 {
     "AuthorizedUrl": "https://domain-id.studio.us-west-2.sagemaker.aws/auth?token=AuthToken"
 }
@@ -180,7 +179,7 @@ aws sagemaker create-presigned-domain-url
 
 The following policy allows connections only from the specified range of IP addresses using the `aws:SourceIp` condition key.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -209,7 +208,7 @@ The following policy allows connections only from the specified range of IP addr
 
 If you are accessing Studio or Studio Classic through an interface endpoint, you can use the `aws:VpcSourceIp` condition key to allow connections only from the specified range of IP addresses within the subnet where you created the interface endpoint as shown in the following policy:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

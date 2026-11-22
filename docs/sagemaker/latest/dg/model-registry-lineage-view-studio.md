@@ -1,7 +1,6 @@
 
 
 # View model lineage details in Studio
-<a name="model-registry-lineage-view-studio"></a>
 
 You can view the lineage details of a registered model in Amazon SageMaker Studio. The following will provide instructions on how to access the lineage view in Studio. See [Amazon SageMaker ML Lineage Tracking](lineage-tracking.md) for more information about lineage tracking in Amazon SageMaker Studio.
 

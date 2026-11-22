@@ -1,7 +1,6 @@
 
 
 # Set up prerequisite permissions
-<a name="modelcollections-permissions"></a>
 
 Create a custom policy which includes the following required Resource Groups actions:
 + `resource-groups:CreateGroup`
@@ -18,7 +17,7 @@ For instructions on how to add an inline policy, see [ Adding IAM identity permi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

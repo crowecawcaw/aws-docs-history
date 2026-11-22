@@ -1,7 +1,6 @@
 
 
 # Reviewing environment variables reference
-<a name="sagemaker-hyperpod-multihead-slurm-variables-reference"></a>
 
 The following environment variables are defined and used in the tutorial of [Setting up multiple controller nodes for a SageMaker HyperPod Slurm cluster](sagemaker-hyperpod-multihead-slurm-setup.md). These environment variables are only available in the current session unless explicitly preserved. They are defined using the `$variable_name` syntax. Variables with key/value pairs represent AWS-created resources, while variables without keys are user-defined.
 

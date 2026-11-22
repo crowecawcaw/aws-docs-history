@@ -1,14 +1,13 @@
 
 
 # Use the Debugger APIs to run your own custom rules
-<a name="debugger-custom-rules-python-sdk"></a>
 
 **Note**  
 Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
 
 The following code sample shows how to configure a custom rule with the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable). This example assumes that the custom rule script you created in the previous step is located at '*path/to/my\_custom\_rule.py*'.
 
-```
+```python.py
 from sagemaker.core.debugger import Rule, CollectionConfig
 
 custom_rule = Rule.custom(
@@ -33,7 +32,7 @@ The following list explains the Debugger `Rule.custom` API arguments.
 
 After you set up the `custom_rule` object, you can use it for building a SageMaker AI estimator for any training jobs. Specify the `entry_point` to your training script. You do not need to make any change of your training script.
 
-```
+```python.py
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import SourceCode, Compute
 from sagemaker.core.helper.session_helper import get_execution_role

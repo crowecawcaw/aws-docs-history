@@ -1,7 +1,6 @@
 
 
 # Observability for Amazon SageMaker HyperPod cluster orchestrated by Amazon EKS
-<a name="sagemaker-hyperpod-eks-cluster-observability"></a>
 
 To achieve comprehensive observability into your Amazon SageMaker HyperPod (SageMaker HyperPod) cluster resources and software components, integrate the cluster with [Amazon CloudWatch Container Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContainerInsights.html), [Amazon Managed Service for Prometheus](https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html), and [Amazon Managed Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.html). These tools provide visibility into cluster health, performance metrics, and resource utilization.
 

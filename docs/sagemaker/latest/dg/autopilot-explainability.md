@@ -1,7 +1,6 @@
 
 
 # SageMaker Clarify explainability with SageMaker AI Autopilot
-<a name="autopilot-explainability"></a>
 
 Autopilot uses tools provided by Amazon SageMaker Clarify to help provide insights into how machine learning (ML) models make predictions. These tools can help ML engineers, product managers, and other internal stakeholders understand model characteristics. To trust and interpret decisions made on model predictions, both consumers and regulators rely on transparency in machine learning in order.
 

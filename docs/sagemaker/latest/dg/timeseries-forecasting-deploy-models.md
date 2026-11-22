@@ -1,7 +1,6 @@
 
 
 # Forecast a deployed Autopilot model
-<a name="timeseries-forecasting-deploy-models"></a>
 
 After training your models using the AutoML API, you can deploy them for real-time or batch-based forecasting. 
 

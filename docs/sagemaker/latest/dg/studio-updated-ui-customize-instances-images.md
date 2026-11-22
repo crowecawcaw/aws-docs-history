@@ -1,7 +1,6 @@
 
 
 # Hide instance types and images in the Amazon SageMaker Studio UI
-<a name="studio-updated-ui-customize-instances-images"></a>
 
 **Important**  
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named Amazon SageMaker Studio Classic. The following section is specific to using the updated Studio experience. For information about using the Studio Classic application, see [Amazon SageMaker Studio Classic](studio.md).

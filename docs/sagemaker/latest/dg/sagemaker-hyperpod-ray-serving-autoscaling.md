@@ -1,7 +1,6 @@
 
 
 # Autoscaling serving capacity
-<a name="sagemaker-hyperpod-ray-serving-autoscaling"></a>
 
 Serving capacity scales at two levels on HyperPod. Ray Serve scales replicas inside the cluster to match request load, and managed Karpenter scales cluster nodes to hold those replicas. The two work together: replica autoscaling reacts first, and node autoscaling adds capacity when the existing nodes run out.
 
@@ -10,7 +9,7 @@ Serving capacity scales at two levels on HyperPod. Ray Serve scales replicas ins
 
 Ray Serve adjusts the number of replicas for a deployment based on request load. Set an autoscaling configuration on the deployment instead of a fixed replica count:
 
-```
+```yaml
 deployments:
   - name: Model
     autoscaling_config:
@@ -21,7 +20,7 @@ deployments:
 
 For replica autoscaling to add and remove worker pods, the Ray autoscaler must be turned on for the cluster. Set `enableInTreeAutoscaling: true` in the `RayCluster` spec, or in the `rayClusterConfig` of a `RayService`:
 
-```
+```yaml
 spec:
   enableInTreeAutoscaling: true
 ```

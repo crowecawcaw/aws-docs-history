@@ -1,7 +1,6 @@
 
 
 # Setting up training jobs to access datasets
-<a name="model-access-training-data"></a>
 
 When creating a training job, you specify the location of training datasets in a data storage of your choice and the data input mode for the job. Amazon SageMaker AI supports Amazon Simple Storage Service (Amazon S3), Amazon Elastic File System (Amazon EFS), and Amazon FSx for Lustre. You can choose one of the input modes to stream the dataset in real time or download the whole dataset at the start of the training job.
 

@@ -1,7 +1,6 @@
 
 
 # Extend a training plan using the SageMaker AI console
-<a name="training-plan-extension-using-console"></a>
 
 SageMaker training plans offer a convenient way to extend your existing training plans through the SageMaker AI console UI. This guide walks you through the process of extending a training plan for SageMaker training jobs and SageMaker HyperPod clusters using the SageMaker AI console.
 

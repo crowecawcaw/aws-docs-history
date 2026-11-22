@@ -1,7 +1,6 @@
 
 
 # `ExportEarthObservationJob` API: Execution role permissions
-<a name="sagemaker-roles-export-eoj-perms"></a>
 
 For an execution role that you can pass in a `ExportEarthObservationJob` API request, you can attach the following minimum permissions policy to the role:
 
@@ -10,7 +9,7 @@ For an execution role that you can pass in a `ExportEarthObservationJob` API req
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

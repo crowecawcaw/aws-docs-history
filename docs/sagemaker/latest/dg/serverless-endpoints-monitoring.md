@@ -1,7 +1,6 @@
 
 
 # Alarms and logs for tracking metrics from serverless endpoints
-<a name="serverless-endpoints-monitoring"></a>
 
 To monitor your serverless endpoint, you can use Amazon CloudWatch alarms. CloudWatch is a service that collects metrics in real time from your AWS applications and resources. An alarm watches metrics as they are collected and gives you the ability to pre-specify a threshold and the actions to take if that threshold is breached. For example, your CloudWatch alarm can send you a notification if your endpoint breaches an error threshold. By setting up CloudWatch alarms, you gain visibility into the performance and functionality of your endpoint. For more information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # Define metrics and environment variables
-<a name="automatic-model-tuning-define-metrics-variables"></a>
 
 A tuning job optimizes hyperparameters for training jobs that it launches by using a metric to evaluate performance. This guide shows how to define metrics so that you can use a custom algorithm for training, or use a built-in algorithm from Amazon SageMaker AI. This guide also shows how to specify environment variables during an Automatic model tuning (AMT) job.
 
@@ -39,7 +38,7 @@ GAN_loss=0.138318;  Scaled_reg=2.654134; disc:[-0.017371,0.102429] real 93.3% ge
 
 The following code example shows how to use regular expressions in Python (regex). This is used to search the sample log output and capture the numeric values of four different metrics.
 
-```
+```json
 [
     {
         "Name": "ganloss",

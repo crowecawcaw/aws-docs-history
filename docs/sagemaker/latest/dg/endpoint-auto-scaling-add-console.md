@@ -1,7 +1,6 @@
 
 
 # Configure model auto scaling with the console
-<a name="endpoint-auto-scaling-add-console"></a>
 
 **Note**  
 You configure auto scaling differently depending on the endpoint type. For a Single Model Endpoint (SME), follow the next procedure, which scales the number of instances for the production variant. For an endpoint that hosts Inference Components, follow the Inference Component procedure later in this section, which scales the number of copies of each Inference Component.

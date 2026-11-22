@@ -1,7 +1,6 @@
 
 
 # Deploy proprietary foundation models with the `ModelBuilder` class
-<a name="jumpstart-foundation-models-use-python-sdk-proprietary"></a>
 
 Proprietary models must be deployed using the model package information after subscribing to the model in AWS Marketplace. For more information about SageMaker AI and AWS Marketplace, see [Buy and Sell Amazon SageMaker AI Algorithms and Models in AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-marketplace.html). To find AWS Marketplace links for the latest proprietary models, see [Getting started with Amazon SageMaker JumpStart](https://aws.amazon.com/sagemaker/jumpstart/getting-started/?sagemaker-jumpstart-cards.sort-by=item.additionalFields.priority&sagemaker-jumpstart-cards.sort-order=asc&awsf.sagemaker-jumpstart-filter-product-type=product-type%23foundation-model&awsf.sagemaker-jumpstart-filter-text=*all&awsf.sagemaker-jumpstart-filter-vision=*all&awsf.sagemaker-jumpstart-filter-tabular=*all&awsf.sagemaker-jumpstart-filter-audio-tasks=*all&awsf.sagemaker-jumpstart-filter-multimodal=*all&awsf.sagemaker-jumpstart-filter-RL=*all&sagemaker-jumpstart-cards.q=proprietary&sagemaker-jumpstart-cards.q_operator=AND).
 
@@ -9,7 +8,7 @@ After subscribing to the model of your choice in AWS Marketplace, you can deploy
 
 For example, the following code deploys a JumpStart model using Jurassic-2 Jumbo Instruct from AI21 Labs:
 
-```
+```python
 from sagemaker.core.resources import ModelPackage
 from sagemaker.serve import ModelBuilder
 

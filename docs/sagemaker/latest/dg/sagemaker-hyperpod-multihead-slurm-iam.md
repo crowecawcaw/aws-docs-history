@@ -1,7 +1,6 @@
 
 
 # Creating and attaching an IAM policy
-<a name="sagemaker-hyperpod-multihead-slurm-iam"></a>
 
 This section explains how to create an IAM policy and attach it to the execution role you created in [Provision additional resources to support multiple controller nodes](sagemaker-hyperpod-multihead-slurm-cfn.md#sagemaker-hyperpod-multihead-slurm-cfn-multihead).
 
@@ -17,7 +16,7 @@ This section explains how to create an IAM policy and attach it to the execution
 
    Example output of the command.
 
-   ```
+   ```JSON
    {
        "Policy": {
            "PolicyName": "AmazonSagemakerExecutionPolicy",

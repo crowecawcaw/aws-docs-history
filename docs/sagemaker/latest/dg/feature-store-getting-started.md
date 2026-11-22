@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon SageMaker Feature Store
-<a name="feature-store-getting-started"></a>
 
 The following topics give information about using Amazon SageMaker Feature Store. First learn the Feature Store concepts, then how to manage permissions to use Feature Store, how to create and use feature groups using Studio Classic, Jupyter or JupyterLab notebook, how to use Feature Store using the User Interface through the console, and how to delete feature groups using the console and AWS SDK for Python (Boto3).
 

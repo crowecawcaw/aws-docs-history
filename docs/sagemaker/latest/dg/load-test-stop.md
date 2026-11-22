@@ -1,7 +1,6 @@
 
 
 # Stop your load test
-<a name="load-test-stop"></a>
 
 You might want to stop a job that is currently running if you began a job by mistake or no longer need to run the job. Stop your load test jobs programmatically with the `StopInferenceRecommendationsJob` API, or through Studio Classic or the SageMaker AI console.
 
@@ -10,7 +9,7 @@ You might want to stop a job that is currently running if you began a job by mis
 
 Specify the job name of the load test for the `JobName` field:
 
-```
+```python
 sagemaker_client.stop_inference_recommendations_job(
                                     JobName={{'<INSERT>'}}
                                     )
@@ -21,7 +20,7 @@ sagemaker_client.stop_inference_recommendations_job(
 
 Specify the job name of the load test for the `job-name` flag:
 
-```
+```bash
 aws sagemaker stop-inference-recommendations-job --job-name {{<job-name>}}
 ```
 

@@ -1,7 +1,6 @@
 
 
 # National holiday calendars
-<a name="autopilot-timeseries-forecasting-holiday-calendars"></a>
 
 Autopilot supports a feature-engineered dataset of national holiday information that provides access to the holiday calendars of over 250 countries. Holiday calendar features are especially useful in the retail domain, where public holidays can significantly affect demand. The following section lists the country codes that you can use to access the holiday calendars of each supported country.
 

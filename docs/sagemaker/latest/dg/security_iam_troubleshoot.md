@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon SageMaker AI Identity and Access
-<a name="security_iam_troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with SageMaker AI and IAM.
 

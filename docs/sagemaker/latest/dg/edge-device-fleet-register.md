@@ -1,7 +1,6 @@
 
 
 # Register a Device
-<a name="edge-device-fleet-register"></a>
 
 **Important**  
 Device registration is required to use any part of SageMaker Edge Manager.
@@ -19,7 +18,7 @@ See the [Getting Started Guide](https://docs.aws.amazon.com/sagemaker/latest/dg/
 
 Use the `RegisterDevices` API to register your device. Provide the name of the fleet of which you want the devices to be a part, as well as a name for the device. You can optionally add a description to the device, tags, and AWS IoT thing name associated with the device.
 
-```
+```python
 sagemaker_client.register_devices(
     DeviceFleetName={{"sample-fleet-name"}},
     Devices=[

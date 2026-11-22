@@ -1,7 +1,6 @@
 
 
 # Logging parameters and metrics with Amazon SageMaker Experiments
-<a name="train-remote-decorator-experiments"></a>
 
 This guide show how to log parameters and metrics with Amazon SageMaker Experiments. A SageMaker AI experiment consists of runs, and each run consists of all the inputs, parameters, configurations and results for a single model training interaction. 
 

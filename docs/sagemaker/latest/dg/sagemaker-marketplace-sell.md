@@ -1,7 +1,6 @@
 
 
 # Listings for your own algorithms and models with the AWS Marketplace
-<a name="sagemaker-marketplace-sell"></a>
 
 Selling Amazon SageMaker AI algorithms and model packages is a three-step process:
 

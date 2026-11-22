@@ -1,7 +1,6 @@
 
 
 # Set up IAM permissions for MLflow Apps
-<a name="mlflow-app-setup-prerequisites-iam"></a>
 
 You must configure the necessary IAM service roles to get started with MLflow Apps in Amazon SageMaker AI. 
 
@@ -48,7 +47,7 @@ When creating the app IAM service role, use the following IAM trust policy:
 
 ****  
 
-```
+```json
 {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -77,7 +76,7 @@ In the IAM console, add the following permissions policy to your app service rol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -113,7 +112,7 @@ You can create a new role or update an existing role. The SageMaker AI service r
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	     
     "Statement": [        
@@ -156,7 +155,7 @@ The following SageMaker AI MLflow actions are supported for authorization access
 
 When you register MLflow models with the SageMaker AI Model Registry, the MLflow App IAM service role requires the following permissions to perform model registration, lifecycle management, and lineage tracking:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -218,7 +217,7 @@ You can use IAM condition keys to control which lifecycle transitions a role is 
 
 The following policy prevents a role from promoting models to the `production` stage:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -240,7 +239,7 @@ The following policy prevents a role from promoting models to the `production` s
 
 The following policy restricts a role to only set models to the `staging` stage with `pending` status:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

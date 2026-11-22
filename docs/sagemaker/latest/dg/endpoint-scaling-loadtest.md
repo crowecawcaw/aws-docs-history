@@ -1,7 +1,6 @@
 
 
 # Load testing your auto scaling configuration
-<a name="endpoint-scaling-loadtest"></a>
 
 Perform load tests to choose a scaling configuration that works the way you want.
 

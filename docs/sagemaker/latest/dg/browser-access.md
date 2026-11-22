@@ -1,7 +1,6 @@
 
 
 # Web browser access
-<a name="browser-access"></a>
 
 Web UI access allows you to connect directly to development spaces running on your SageMaker HyperPod cluster through a secure web browser interface. This provides immediate access to Jupyter Lab and other web-based development environments without requiring local software installation.
 

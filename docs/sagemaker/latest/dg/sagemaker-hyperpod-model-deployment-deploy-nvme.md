@@ -1,7 +1,6 @@
 
 
 # Deploy models from local NVMe storage using kubectl
-<a name="sagemaker-hyperpod-model-deployment-deploy-nvme"></a>
 
 This topic shows you how to deploy inference endpoints on Amazon SageMaker HyperPod that load model weights from a node's local NVMe storage instead of pulling them over the network from Amazon S3 or Amazon FSx. Reading weights locally eliminates the network hop during pod startup, which reduces inference pod cold-start time and is useful for autoscaling events, scale-from-zero workloads, and latency-sensitive failovers. For workloads where cold-start latency is not a concern, use `modelSourceType: s3` or `fsx` and skip this topic.
 
@@ -79,7 +78,7 @@ When using `modelSourceType: kubernetesVolume`, the operator derives the expecte
 
 1. Create the `InferenceEndpointConfig` YAML file. Replace the placeholder values with your actual resource identifiers.
 
-   ```
+   ```yaml
    cat <<EOF> deploy_nvme_k8s_volume.yaml
    apiVersion: inference.sagemaker.aws.amazon.com/v1
    kind: InferenceEndpointConfig
@@ -134,15 +133,25 @@ To configure KV caching and intelligent routing for improved performance, see [C
 
 1. Deploy the `InferenceEndpointConfig`.
 
-   ```
+   ```bash
    kubectl apply -f deploy_nvme_k8s_volume.yaml
    ```
 
 1. Verify the deployment status.
 
-   ```
+   ```bash
    kubectl describe InferenceEndpointConfig nvme-k8s-volume -n default
    ```
+
+### Restrict host path volumes
+<a name="sagemaker-hyperpod-model-deployment-deploy-nvme-hostpath-security"></a>
+
+With `modelSourceType: kubernetesVolume`, the worker mounts the `kubernetes.volumes` entry named by `modelVolumeMount.name`. The inference operator mounts it read-only, but it doesn't yet restrict which host paths a `hostPath` volume can use. Any user who can create an `InferenceEndpointConfig` can mount a node directory into a GPU pod. To limit this risk:
++ Grant permission to create and update `InferenceEndpointConfig` resources only to trusted users.
++ Use a `persistentVolumeClaim` for model storage where possible.
++ If you use `hostPath`, use a dedicated model directory such as `/opt/dlami/nvme/hyperpod-inference/models/` with `type: Directory`. Don't mount system paths such as `/`, `/var/lib/kubelet` or the container runtime socket.
+
+To enforce these rules, use a Kubernetes admission policy, such as a `ValidatingAdmissionPolicy`, that rejects other `hostPath` values on `InferenceEndpointConfig` resources.
 
 ## Deploy using a Kubernetes volume with fallback
 <a name="sagemaker-hyperpod-model-deployment-deploy-nvme-fallback"></a>
@@ -158,14 +167,14 @@ Before deploying, configure IAM Roles for Service Accounts (IRSA) to give your p
 
 1. Get the OIDC provider ID for your cluster.
 
-   ```
+   ```bash
    aws eks describe-cluster --name <CLUSTER_NAME> --region <REGION> \
      --query "cluster.identity.oidc.issuer" --output text
    ```
 
 1. Create an IAM trust policy. Save the following as `trust-policy.json`, replacing the placeholder values.
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [{
@@ -188,7 +197,7 @@ Always scope the trust policy to a specific namespace and ServiceAccount name. N
 
 1. Create the IAM role and attach a scoped Amazon S3 read policy for your model bucket.
 
-   ```
+   ```bash
    aws iam create-role --role-name <ROLE_NAME> \
      --assume-role-policy-document file://trust-policy.json
    
@@ -209,7 +218,7 @@ Always scope the trust policy to a specific namespace and ServiceAccount name. N
 
 1. Create the Kubernetes service account with the IRSA annotation.
 
-   ```
+   ```bash
    kubectl create sa <SA_NAME> -n <NAMESPACE>
    kubectl annotate sa <SA_NAME> -n <NAMESPACE> \
      eks.amazonaws.com/role-arn=arn:aws:iam::<ACCOUNT_ID>:role/<ROLE_NAME>
@@ -220,7 +229,7 @@ Always scope the trust policy to a specific namespace and ServiceAccount name. N
 
 1. Create the `InferenceEndpointConfig` YAML file. Replace the placeholder values with your actual resource identifiers.
 
-   ```
+   ```yaml
    cat <<EOF> deploy_nvme_k8s_volume_fallback.yaml
    apiVersion: inference.sagemaker.aws.amazon.com/v1
    kind: InferenceEndpointConfig
@@ -289,13 +298,13 @@ To configure KV caching and intelligent routing for improved performance, see [C
 
 1. Deploy the `InferenceEndpointConfig`.
 
-   ```
+   ```bash
    kubectl apply -f deploy_nvme_k8s_volume_fallback.yaml
    ```
 
 1. Verify the deployment status.
 
-   ```
+   ```bash
    kubectl describe InferenceEndpointConfig nvme-k8s-volume-fallback -n default
    ```
 
@@ -320,7 +329,7 @@ Do not include `model-weights-copy` in `kubernetes.volumes`. It is a reserved na
 
 1. Create the `InferenceEndpointConfig` YAML file. Replace the placeholder values with your actual resource identifiers.
 
-   ```
+   ```yaml
    cat <<EOF> deploy_nvme_s3_prefetch_fallback.yaml
    apiVersion: inference.sagemaker.aws.amazon.com/v1
    kind: InferenceEndpointConfig
@@ -404,13 +413,13 @@ To configure KV caching and intelligent routing for improved performance, see [C
 
 1. Deploy the `InferenceEndpointConfig`.
 
-   ```
+   ```bash
    kubectl apply -f deploy_nvme_s3_prefetch_fallback.yaml
    ```
 
 1. Verify the deployment status.
 
-   ```
+   ```bash
    kubectl describe InferenceEndpointConfig nvme-s3-prefetch-fallback -n default
    ```
 
@@ -423,7 +432,7 @@ When using prefetch, the operator creates two model-related volumes:
 
 In your `InferenceEndpointConfig`, you define:
 
-```
+```yaml
 modelVolumeMount:
     name: model-weights
     mountPath: /opt/ml/model
@@ -449,7 +458,7 @@ If you do not specify a ServiceAccount, the namespace's default ServiceAccount i
 Custom service account support is disabled by default. A cluster administrator must enable it in the operator's Helm configuration before users can reference custom ServiceAccounts in their `InferenceEndpointConfig`.
 + Update the operator Helm values to enable the feature. If you deployed the operator via Helm, upgrade with the flag:
 
-  ```
+  ```bash
   helm upgrade hyperpod-inference-operator <CHART_PATH> \
     --set enableCustomServiceAccounts=true \
     --reuse-values
@@ -457,7 +466,7 @@ Custom service account support is disabled by default. A cluster administrator m
 + If you deployed the operator as an Amazon EKS add-on, update the add-on configuration to include `enableCustomServiceAccounts: true` in the advanced configuration settings.
 + Verify the operator pod has the environment variable set:
 
-  ```
+  ```bash
   kubectl get deployment hyperpod-inference-controller-manager \
     -n hyperpod-inference-system \
     -o jsonpath='{.spec.template.spec.containers[0].env}' | jq '.[] | select(.name=="ENABLE_CUSTOM_SERVICE_ACCOUNTS")'
@@ -465,7 +474,7 @@ Custom service account support is disabled by default. A cluster administrator m
 
   You should see:
 
-  ```
+  ```json
   {
     "name": "ENABLE_CUSTOM_SERVICE_ACCOUNTS",
     "value": "true"
@@ -480,7 +489,7 @@ If this feature is not enabled, any `InferenceEndpointConfig` that specifies `ku
 
 Before you can reference a custom ServiceAccount, a cluster administrator must label it as user-assignable:
 
-```
+```bash
 kubectl label serviceaccount <your-service-account> \
   sagemaker.amazonaws.com/user-assignable=true \
   -n <namespace>
@@ -493,7 +502,7 @@ Only ServiceAccounts with this label can be referenced by inference endpoints. T
 
 Add the `serviceAccountName` field under `spec.kubernetes` in your `InferenceEndpointConfig`:
 
-```
+```yaml
 apiVersion: inference.sagemaker.aws.amazon.com/v1
 kind: InferenceEndpointConfig
 metadata:
@@ -528,7 +537,7 @@ When you use a custom ServiceAccount with inference endpoints, the HyperPod infe
 + Create a dedicated ServiceAccount for each inference workload. Do not reuse ServiceAccounts across unrelated workloads.
 + Bind only the minimum RBAC permissions required. For example, if your init container only needs to read from Amazon S3, the ServiceAccount should not have permissions to list or modify Kubernetes resources.
 
-  ```
+  ```yaml
   # Example: minimal Role for an inference workload that only needs S3 access via IRSA
   # No Kubernetes API permissions needed — IRSA provides AWS credentials directly
   apiVersion: v1
@@ -547,7 +556,7 @@ When you use a custom ServiceAccount with inference endpoints, the HyperPod infe
 + When annotating a ServiceAccount with `eks.amazonaws.com/role-arn`, ensure the IAM role follows least-privilege principles.
 + Scope Amazon S3 permissions to the specific bucket and prefix containing your model weights.
 
-  ```
+  ```json
   {
     "Version": "2012-10-17",		 	 	 
     "Statement": [{
@@ -567,12 +576,12 @@ When you use a custom ServiceAccount with inference endpoints, the HyperPod infe
 + Review the RBAC roles and IAM permissions associated with a ServiceAccount before labeling it as user-assignable.
 + Periodically audit which ServiceAccounts carry the `user-assignable` label.
 
-  ```
+  ```bash
   kubectl get serviceaccounts -n <NAMESPACE> -l sagemaker.amazonaws.com/user-assignable=true
   ```
 + Ensure non-admin roles do not include `patch`, `update`, or `create` verbs on ServiceAccount resources. The operator validates the `user-assignable` label at deployment time, but does not prevent unauthorized users from adding the label to a ServiceAccount. Restricting who can modify ServiceAccounts via RBAC is the primary control for protecting this label. Non-admin users should only have `get` and `list` access:
 
-  ```
+  ```yaml
   # Example: RBAC Role for non-admin users — read-only access to ServiceAccounts
   apiVersion: rbac.authorization.k8s.io/v1
   kind: Role
@@ -598,7 +607,7 @@ This approach targets a specific node via `nodeName` and does not work with auto
 
 1. Create the preload pod YAML file. Replace the placeholder values with your actual resource identifiers.
 
-   ```
+   ```yaml
    cat <<EOF> nvme-s3-copy.yaml
    apiVersion: v1
    kind: Pod
@@ -634,7 +643,7 @@ This approach targets a specific node via `nodeName` and does not work with auto
 
 1. Apply the pod and monitor the sync progress.
 
-   ```
+   ```bash
    kubectl apply -f nvme-s3-copy.yaml
    kubectl get pod nvme-s3-copy -w
    kubectl logs nvme-s3-copy -f
@@ -642,7 +651,7 @@ This approach targets a specific node via `nodeName` and does not work with auto
 
 1. Clean up the pod after the sync completes.
 
-   ```
+   ```bash
    kubectl delete pod nvme-s3-copy
    ```
 
@@ -681,32 +690,32 @@ The operator manages several internal volumes that cannot be overridden via `kub
 Use these debugging commands if your deployment isn't working as expected.
 + Check the `InferenceEndpointConfig` status to see the high-level deployment state and any configuration issues.
 
-  ```
+  ```bash
   kubectl describe InferenceEndpointConfig <ENDPOINT_NAME> -n <NAMESPACE>
   ```
 + Check the Kubernetes deployment status.
 
-  ```
+  ```bash
   kubectl describe deployment <ENDPOINT_NAME> -n <NAMESPACE>
   ```
 + Check the status of all Kubernetes objects in your namespace.
 
-  ```
+  ```bash
   kubectl get pods,svc,deployment,InferenceEndpointConfig,sagemakerendpointregistration -n <NAMESPACE>
   ```
 + Check initContainer logs if the model loading step fails.
 
-  ```
+  ```bash
   kubectl logs <POD_NAME> -c smart-loader -n <NAMESPACE>
   ```
 + If the deployment fails with "not found in namespace", verify the ServiceAccount exists:
 
-  ```
+  ```bash
   kubectl get serviceaccount <name> -n <namespace>
   ```
 + If the deployment fails with "not labeled as user-assignable", ask your cluster administrator to add the required label:
 
-  ```
+  ```bash
   kubectl label serviceaccount <name> sagemaker.amazonaws.com/user-assignable=true -n <namespace>
   ```
 + If the deployment fails with "must not reference the operator's service account", create a separate ServiceAccount for your workload. You cannot use the HyperPod inference operator's own ServiceAccount.

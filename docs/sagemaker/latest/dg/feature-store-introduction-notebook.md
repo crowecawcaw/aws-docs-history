@@ -1,7 +1,6 @@
 
 
 # Introduction to Feature Store example notebook
-<a name="feature-store-introduction-notebook"></a>
 
 **Important**  
 Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studio Classic to create Amazon SageMaker resources must also grant permissions to add tags to those resources. The permission to add tags to resources is required because Studio and Studio Classic automatically tag any resources they create. If an IAM policy allows Studio and Studio Classic to create resources but does not allow tagging, "AccessDenied" errors can occur when trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions).  
@@ -29,13 +28,13 @@ To start using Feature Store, create a SageMaker AI session. Then, set up the Am
 **Note**  
 The role that you use to run the notebook must have the following managed policies attached to it: `AmazonS3FullAccess` and `AmazonSageMakerFeatureStoreAccess`. For information about adding policies to your IAM role, see [Adding policies to your IAM role](feature-store-adding-policies.md).
 
-```
+```python
 # SageMaker Python SDK version 3.x is required
 import sagemaker
 import sys
 ```
 
-```
+```python
 import boto3
 import pandas as pd
 import numpy as np
@@ -56,7 +55,7 @@ s3_bucket_name = sagemaker_session.default_bucket()
 
 In this notebook example, we ingest synthetic data from the [GitHub repository](https://github.com/aws/amazon-sagemaker-examples/tree/master/sagemaker-featurestore/data) that hosts the full notebook.
 
-```
+```python
 customer_data = pd.read_csv("data/feature_store_introduction_customer.csv")
 orders_data = pd.read_csv("data/feature_store_introduction_orders.csv")
 
@@ -74,7 +73,7 @@ The following diagram illustrates the steps that data goes through before Featur
 
 We first start by creating feature group names for customer\_data and orders\_data. Following this, we create two feature groups, one for `customer_data` and another for `orders_data`:
 
-```
+```python
 import time
 from time import strftime, gmtime
 customers_feature_group_name = 'customers-feature-group-' + strftime('%d-%H-%M-%S', gmtime())
@@ -97,14 +96,14 @@ record_identifier_feature_name = "customer_id"
 
 Append `EventTime` feature to your data frame. This parameter is required, and timestamps each data point:
 
-```
+```python
 customer_data["EventTime"] = pd.Series([current_time_sec]*len(customer_data), dtype="float64")
 orders_data["EventTime"] = pd.Series([current_time_sec]*len(orders_data), dtype="float64")
 ```
 
 Load feature definitions to your feature group:
 
-```
+```python
 from sagemaker.mlops.feature_store import load_feature_definitions_from_dataframe
 
 customer_feature_defs = load_feature_definitions_from_dataframe(customer_data)
@@ -113,7 +112,7 @@ order_feature_defs = load_feature_definitions_from_dataframe(orders_data)
 
 The following calls `create` to create two feature groups, `customers_feature_group` and `orders_feature_group`, respectively:
 
-```
+```python
 from sagemaker.mlops.feature_store import OnlineStoreConfig, OfflineStoreConfig, S3StorageConfig
 
 FeatureGroup.create(
@@ -143,15 +142,15 @@ FeatureGroup.create(
 
 To confirm that your feature group was created, we display it by using `DescribeFeatureGroup` and `ListFeatureGroups` APIs:
 
-```
+```python
 customers_fg = FeatureGroup.get(feature_group_name=customers_feature_group_name)
 ```
 
-```
+```python
 orders_fg = FeatureGroup.get(feature_group_name=orders_feature_group_name)
 ```
 
-```
+```python
 sagemaker_session.boto_session.client('sagemaker', region_name=region).list_feature_groups() # We use the boto client to list FeatureGroups
 ```
 
@@ -160,7 +159,7 @@ sagemaker_session.boto_session.client('sagemaker', region_name=region).list_feat
 
 After feature groups are created, we can put data into them. If you're using the SageMaker AI AWS SDK for Python (Boto3), use the `ingest` API call. If you're using SDK for Python (Boto3), then use the `PutRecord` API. It will take less than 1 minute to ingest data both of these options. This example uses the SageMaker AI SDK for Python (Boto3), so it uses the `ingest` API call:
 
-```
+```python
 def check_feature_group_status(feature_group):
     status = feature_group.describe().get("FeatureGroupStatus")
     while status == "Creating":
@@ -181,7 +180,7 @@ ingest_dataframe(
 )
 ```
 
-```
+```python
 ingest_dataframe(
     feature_group_name=orders_feature_group_name, data_frame=orders_data, max_workers=3, wait=True
 )
@@ -189,12 +188,12 @@ ingest_dataframe(
 
 Using an arbitrary customer record id, 573291 we use `get_record` to check that the data has been ingested into the feature group.
 
-```
+```python
 customer_id = 573291
 sample_record = sagemaker_session.boto_session.client('sagemaker-featurestore-runtime', region_name=region).get_record(FeatureGroupName=customers_feature_group_name, RecordIdentifierValueAsString=str(customer_id))
 ```
 
-```
+```python
 print(sample_record)
 ```
 
@@ -226,7 +225,7 @@ print(all_records)
 
 Here we remove the Feature Groups that we created.
 
-```
+```python
 FeatureGroup(feature_group_name=customers_feature_group_name).delete()
 FeatureGroup(feature_group_name=orders_feature_group_name).delete()
 ```
@@ -247,7 +246,7 @@ The following is a list of API calls for this notebook. These calls exist within
 
  **SDK for Python (Boto3) API Calls ** 
 
-```
+```python
 describe()
 ingest()
 delete()
@@ -257,7 +256,7 @@ load_feature_definitions()
 
  **Boto3 API Calls** 
 
-```
+```python
 list_feature_groups()
 get_record()
 ```

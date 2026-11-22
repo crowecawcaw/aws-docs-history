@@ -1,7 +1,6 @@
 
 
 # Manage Model
-<a name="edge-manage-model"></a>
 
 The Edge Manager agent can load multiple models at a time and make inference with loaded models on edge devices. The number of models the agent can load is determined by the available memory on the device. The agent validates the model signature and loads into memory all the artifacts produced by the edge packaging job. This step requires all the required certificates described in previous steps to be installed along with rest of the binary installation. If the model’s signature cannot be validated, then loading of the model fails with appropriate return code and reason.
 
@@ -19,7 +18,7 @@ Extract the archive based on your OS. Where `VERSION` is broken into three compo
 
 The zip archive can be extracted with the command:
 
-```
+```shell
 tar -xvzf {{<VERSION>}}.tgz
 ```
 
@@ -28,7 +27,7 @@ tar -xvzf {{<VERSION>}}.tgz
 
 The zip archive can be extracted with the UI or command:
 
-```
+```shell
 unzip {{<VERSION>}}.tgz
 ```
 
@@ -36,7 +35,7 @@ unzip {{<VERSION>}}.tgz
 
 The release artifact hierarchy (after extracting the `tar/zip` archive) is shown below. The agent `proto` file is available under `api/`.
 
-```
+```shell
 0.20201205.7ee4b0b
 ├── bin
 │         ├── sagemaker_edge_agent_binary
@@ -74,7 +73,7 @@ The release artifact hierarchy (after extracting the `tar/zip` archive) is shown
 
 The Edge Manager agent supports loading multiple models. This API validates the model signature and loads into memory all the artifacts produced by the `EdgePackagingJob` operation. This step requires all the required certificates to be installed along with rest of the agent binary installation. If the model’s signature cannot be validated then this step fails with appropriate return code and error messages in the log.
 
-```
+```shell
 // perform load for a model
 // Note:
 // 1. currently only local filesystem paths are supported for loading models.
@@ -95,7 +94,7 @@ rpc LoadModel(LoadModelRequest) returns (LoadModelResponse);
 ------
 #### [ Input ]
 
-```
+```shell
 //
 // request for LoadModel rpc call
 //
@@ -108,7 +107,7 @@ message LoadModelRequest {
 ------
 #### [ Output ]
 
-```
+```shell
 //
 //
 // response for LoadModel rpc call
@@ -142,7 +141,7 @@ message Model {
 
 Unloads a previously loaded model. It is identified via the model alias which was provided during `loadModel`. If the alias is not found or model is not loaded then returns error.
 
-```
+```shell
 //
 // perform unload for a model
 // Status Codes:
@@ -157,7 +156,7 @@ rpc UnLoadModel(UnLoadModelRequest) returns (UnLoadModelResponse);
 ------
 #### [ Input ]
 
-```
+```shell
 //
 // request for UnLoadModel rpc call
 //
@@ -169,7 +168,7 @@ message UnLoadModelRequest {
 ------
 #### [ Output ]
 
-```
+```shell
 //
 // response for UnLoadModel rpc call
 //
@@ -183,7 +182,7 @@ message UnLoadModelResponse {}
 
 Lists all the loaded models and their aliases.
 
-```
+```shell
 //
 // lists the loaded models
 // Status Codes:
@@ -197,7 +196,7 @@ rpc ListModels(ListModelsRequest) returns (ListModelsResponse);
 ------
 #### [ Input ]
 
-```
+```shell
 //
 // request for ListModels rpc call
 //
@@ -207,7 +206,7 @@ message ListModelsRequest {}
 ------
 #### [ Output ]
 
-```
+```shell
 //
 // response for ListModels rpc call
 //
@@ -223,7 +222,7 @@ message ListModelsResponse {
 
 Describes a model that is loaded on the agent.
 
-```
+```shell
 //
 // Status Codes:
 // 1. OK - load is successful
@@ -237,7 +236,7 @@ rpc DescribeModel(DescribeModelRequest) returns (DescribeModelResponse);
 ------
 #### [ Input ]
 
-```
+```shell
 //
 // request for DescribeModel rpc call
 //
@@ -249,7 +248,7 @@ message DescribeModelRequest {
 ------
 #### [ Output ]
 
-```
+```shell
 //
 // response for DescribeModel rpc call
 //
@@ -265,7 +264,7 @@ message DescribeModelResponse {
 
 Allows the client application to capture input and output tensors in Amazon S3 bucket, and optionally the auxiliary. The client application is expected to pass a unique capture ID along with each call to this API. This can be later used to query status of the capture.
 
-```
+```shell
 //
 // allows users to capture input and output tensors along with auxiliary data.
 // Status Codes:
@@ -283,7 +282,7 @@ rpc CaptureData(CaptureDataRequest) returns (CaptureDataResponse);
 ------
 #### [ Input ]
 
-```
+```shell
 enum Encoding {
  CSV = 0;
  JSON = 1;
@@ -342,7 +341,7 @@ message CaptureDataRequest {
 ------
 #### [ Output ]
 
-```
+```shell
 //
 // response for CaptureData rpc call
 //
@@ -356,7 +355,7 @@ message CaptureDataResponse {}
 
 Depending on the models loaded the input and output tensors can be large (for many edge devices). Capture to the cloud can be time consuming. So the `CaptureData()` is implemented as an asynchronous operation. A capture ID is a unique identifier that the client provides during capture data call, this ID can be used to query the status of the asynchronous call.
 
-```
+```shell
 //
 // allows users to query status of capture data operation
 // Status Codes:
@@ -371,7 +370,7 @@ rpc GetCaptureDataStatus(GetCaptureDataStatusRequest) returns (GetCaptureDataSta
 ------
 #### [ Input ]
 
-```
+```shell
 //
 // request for GetCaptureDataStatus rpc call
 //
@@ -383,7 +382,7 @@ message GetCaptureDataStatusRequest {
 ------
 #### [ Output ]
 
-```
+```shell
 enum CaptureDataStatus {
   FAILURE = 0;
   SUCCESS = 1;
@@ -406,7 +405,7 @@ message GetCaptureDataStatusResponse {
 
 The `predict` API performs inference on a previously loaded model. It accepts a request in the form of a tensor that is directly fed into the neural network. The output is the output tensor (or scalar) from the model. This is a blocking call.
 
-```
+```shell
 //
 // perform inference on a model.
 //
@@ -436,7 +435,7 @@ rpc Predict(PredictRequest) returns (PredictResponse);
 ------
 #### [ Input ]
 
-```
+```shell
 // request for Predict rpc call
 //
 message PredictRequest {
@@ -509,7 +508,7 @@ message SharedMemoryHandle {
 **Note**  
 The `PredictResponse` only returns `Tensors` and not `SharedMemoryHandle`.
 
-```
+```shell
 // response for Predict rpc call
 //
 message PredictResponse {

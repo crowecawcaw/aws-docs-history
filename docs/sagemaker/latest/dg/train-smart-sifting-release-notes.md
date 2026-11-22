@@ -1,7 +1,6 @@
 
 
 # SageMaker smart sifting release notes
-<a name="train-smart-sifting-release-notes"></a>
 
 See the following release notes to track the latest updates for the SageMaker smart sifting capability.
 

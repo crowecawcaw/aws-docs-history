@@ -1,7 +1,6 @@
 
 
 # Testing models with production variants
-<a name="model-ab-testing"></a>
 
  In production ML workflows, data scientists and engineers frequently try to improve performance using various methods, such as [Automatic model tuning with SageMaker AI](automatic-model-tuning.md), training on additional or more-recent data, improving feature selection, using better updated instances and serving containers. You can use production variants to compare your models, instances and containers, and choose the best performing candidate to respond to inference requests. 
 
@@ -40,14 +39,14 @@
 
  First, we define where our models are located in Amazon S3. These locations are used when we deploy our models in subsequent steps: 
 
-```
+```python
 model_url = f"s3://{path_to_model_1}"
 model_url2 = f"s3://{path_to_model_2}"
 ```
 
  Next, we create the model objects with the image and model data. These model objects are used to deploy production variants on an endpoint. The models are developed by training ML models on different data sets, different algorithms or ML frameworks, and different hyperparameters: 
 
-```
+```python
 from sagemaker.core import image_uris
 
 model_name = f"DEMO-xgb-churn-pred-{datetime.now():%Y-%m-%d-%H-%M-%S}"
@@ -78,7 +77,7 @@ sm_session.create_model(
 
  We set an initial\_weight of 1 for both variants. This means that 50% of requests go to `Variant1`, and the remaining 50% of requests to `Variant2`. The sum of weights across both variants is 2 and each variant has weight assignment of 1. This means that each variant receives 1/2, or 50%, of the total traffic. 
 
-```
+```python
 from sagemaker.session import production_variant
 
 variant1 = production_variant(
@@ -100,7 +99,7 @@ variant2 = production_variant(
 
  Finally we’re ready to deploy these production variants on a SageMaker AI endpoint. 
 
-```
+```python
 endpoint_name = f"DEMO-xgb-churn-pred-{datetime.now():%Y-%m-%d-%H-%M-%S}"
 print(f"EndpointName={endpoint_name}")
 
@@ -117,7 +116,7 @@ sm_session.endpoint_from_production_variants(
 
  First, we use traffic distribution that we configured in the previous step. Each inference response contains the name of the production variant that processes the request, so we can see that traffic to the two production variants is roughly equal. 
 
-```
+```python
 # get a subset of test data for a quick test
 !tail -120 test_data/test-dataset-input-cols.csv > test_data/test_sample_tail_input_cols.csv
 print(f"Sending test traffic to the endpoint {endpoint_name}. \nPlease wait...")
@@ -143,7 +142,7 @@ print("Done!")
 
  Now let's invoke a specific version of the model by specifying `Variant1` as the `TargetVariant` in the call to `invoke_endpoint`. 
 
-```
+```python
 print(f"Sending test traffic to the endpoint {endpoint_name}. \nPlease wait...")
 with open('test_data/test_sample_tail_input_cols.csv', 'r') as f:
     for row in f:
@@ -188,7 +187,7 @@ Now let's look at the metrics for `Variant2`:
 
  Now we shift 75% of the traffic to `Variant2` by assigning new weights to each variant using `UpdateEndpointWeightsAndCapacities`. SageMaker AI now sends 75% of the inference requests to `Variant2` and remaining 25% of requests to `Variant1`. 
 
-```
+```python
 sm.update_endpoint_weights_and_capacities(
     EndpointName=endpoint_name,
     DesiredWeightsAndCapacities=[
@@ -211,7 +210,7 @@ sm.update_endpoint_weights_and_capacities(
 
  We can continue to monitor our metrics, and when we're satisfied with a variant's performance, we can route 100% of the traffic to that variant. We use [`UpdateEndpointWeightsAndCapacities`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html) to update the traffic assignments for the variants. The weight for `Variant1` is set to 0 and the weight for `Variant2` is set to 1. SageMaker AI now sends 100% of all inference requests to `Variant2`. 
 
-```
+```python
 sm.update_endpoint_weights_and_capacities(
     EndpointName=endpoint_name,
     DesiredWeightsAndCapacities=[

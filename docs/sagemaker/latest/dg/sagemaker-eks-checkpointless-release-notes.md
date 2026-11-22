@@ -1,7 +1,6 @@
 
 
 # Release notes
-<a name="sagemaker-eks-checkpointless-release-notes"></a>
 
 See the following release notes to track the latest updates for the SageMaker HyperPod checkpointless training.
 

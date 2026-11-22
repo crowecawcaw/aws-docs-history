@@ -1,7 +1,6 @@
 
 
 # Evaluating and comparing Amazon SageMaker JumpStart text classification models
-<a name="jumpstart-text-classification-evaluation"></a>
 
 SageMaker AI JumpStart offers multiple text classification models that categorize text into predefined classes. These models handle tasks such as sentiment analysis, topic classification, and content moderation. Choosing the right model for production requires careful evaluation using key metrics including accuracy, F1-score, and Matthews Correlation Coefficient (MCC).
 

@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for SageMaker AI training session APIs
-<a name="training-sessions-security-iam-awsmanpol"></a>
 
 Use these AWS managed policies to create and interact with Amazon SageMaker AI training session APIs. With `AmazonSageMakerTrainingSessionAccess`, you can manage training sessions and run training and sampling operations. With `AmazonSageMakerTrainingSessionFullAccess`, your training session execution role can access data in Amazon S3, use customer managed AWS Key Management Service (AWS KMS) keys, publish model packages, and manage Amazon VPC network interfaces.
 
@@ -28,7 +27,7 @@ This policy includes the following permissions.
 + `sagemaker` – Allows describing and listing public hub content, such as pre-built models, in the AWS owned SageMaker AI public hub.
 + `s3` – Allows creating the SageMaker AI default Amazon S3 bucket, listing its contents, and deleting output objects in buckets whose names begin with `sagemaker-`. Restricted to resources in the same account.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -203,7 +202,7 @@ This policy includes the following permissions.
 + `sagemaker` – Allows accessing, creating, and describing model packages, and describing model package groups for checkpoint publication workflows. Restricted to resources in the same account.
 + `ec2` – Allows managing Amazon VPC network interfaces for training sessions running in Amazon VPC mode, including creating, deleting, and describing network interfaces and related Amazon VPC resources. The `ec2:CreateTags` action is restricted to the `CreateNetworkInterface` action. Restricted to resources in the same account.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

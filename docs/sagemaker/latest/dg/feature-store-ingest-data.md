@@ -1,7 +1,6 @@
 
 
 # Data sources and ingestion
-<a name="feature-store-ingest-data"></a>
 
 Records are added to your feature groups through ingestion. Depending on your desired use case, the ingested records may be kept within the feature group or not. This depends on the storage configuration, if your feature group uses the offline or online store. The offline store is used as a historical database, that is typically used for data exploration, machine learning (ML) model training, and batch inference. The online store is used as a real-time lookup of records, that is typically used for ML model serving. For more information on Feature Store concepts and ingestion, see [Feature Store concepts](feature-store-concepts.md).
 

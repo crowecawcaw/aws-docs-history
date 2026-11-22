@@ -1,7 +1,6 @@
 
 
 # View SageMaker AI resources in your domain
-<a name="sm-console-domain-resources-view"></a>
 
 ## Use the SageMaker AI console to view your domain resources
 <a name="sm-console-domain-resources-view-console"></a>

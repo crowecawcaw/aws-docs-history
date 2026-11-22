@@ -1,7 +1,6 @@
 
 
 # How to connect with other AWS services with trusted identity propagation enabled
-<a name="trustedidentitypropagation-connect-other"></a>
 
 When trusted identity propagation is enabled for your Amazon SageMaker AI domain, the domain users can connect to other trusted identity propagation enabled AWS services. When trusted identity propagation is enabled, your identity context is automatically propagated to compatible services, allowing for fine-grained access control and improved auditing across your machine learning workflows. This integration eliminates the need for complex IAM role switching and provides a unified identity experience across AWS services. The following pages provide information on how to connect Amazon SageMaker Studio to other AWS services when trusted identity propagation is enabled.
 

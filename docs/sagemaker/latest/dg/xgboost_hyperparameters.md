@@ -1,7 +1,6 @@
 
 
 # XGBoost hyperparameters
-<a name="xgboost_hyperparameters"></a>
 
 The following table contains the subset of hyperparameters that are required or most commonly used for the Amazon SageMaker AI XGBoost algorithm. These are parameters that are set by users to facilitate the estimation of model parameters from data. The required hyperparameters that must be set are listed first, in alphabetical order. The optional hyperparameters that can be set are listed next, also in alphabetical order. The SageMaker AI XGBoost algorithm is an implementation of the open-source DMLC XGBoost package. For details about full set of hyperparameter that can be configured for this version of XGBoost, see [ XGBoost Parameters](https://xgboost.readthedocs.io/en/release_1.2.0/).
 

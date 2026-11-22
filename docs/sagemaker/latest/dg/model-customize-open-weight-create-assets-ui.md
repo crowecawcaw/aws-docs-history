@@ -1,7 +1,6 @@
 
 
 # Creating assets for model customization in the UI
-<a name="model-customize-open-weight-create-assets-ui"></a>
 
 You can create and manage the dataset and evaluator assets that you can use for model customization in the UI.
 
@@ -36,7 +35,7 @@ The UI also provides guidance on the format required for the reward function or 
 
 You can also use the SageMaker AI Python SDK to create assets. See sample code snippet below:
 
-```
+```python
 from sagemaker.ai_registry.air_constants import REWARD_FUNCTION, REWARD_PROMPT
 from sagemaker.ai_registry.dataset import DataSet, CustomizationTechnique
 from sagemaker.ai_registry.evaluator import Evaluator

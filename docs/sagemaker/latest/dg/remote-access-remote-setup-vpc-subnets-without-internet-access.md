@@ -1,7 +1,6 @@
 
 
 # Set up Studio to run with subnets without internet access within a VPC
-<a name="remote-access-remote-setup-vpc-subnets-without-internet-access"></a>
 
 This guide shows you how to connect to Amazon SageMaker Studio spaces from your Remote IDE when your Amazon SageMaker AI domain runs in private subnets without internet access. You’ll learn about connectivity requirements and setup options to establish secure remote connections in isolated network environments.
 
@@ -44,7 +43,7 @@ The following are the recommended VPC endpoint policies that allow the necessary
 
 Use the following policy for the `com.amazonaws.{{REGION}}.ssm` endpoint:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -80,7 +79,7 @@ Use the following policy for the `com.amazonaws.{{REGION}}.ssm` endpoint:
 
 Use the following policy for the `com.amazonaws.{{REGION}}.ssmmessages` endpoint:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

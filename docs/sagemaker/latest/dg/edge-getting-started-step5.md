@@ -1,7 +1,6 @@
 
 
 # Run Agent
-<a name="edge-getting-started-step5"></a>
 
 In this section you will run the agent as a binary using gRPC, and check that both your device and fleet are working and collecting sample data.
 
@@ -25,7 +24,7 @@ In this section you will run the agent as a binary using gRPC, and check that bo
 
    To run the agent with this example, provide the path to your socket file (.sock) and JSON .config file:
 
-   ```
+   ```bash
    ./bin/sagemaker_edge_agent_binary -a /tmp/sagemaker_edge_agent_example.sock -c sagemaker_edge_config.json
    ```
 
@@ -35,7 +34,7 @@ In this section you will run the agent as a binary using gRPC, and check that bo
 
    Provide the name of the fleet to which the device belongs and the unique device identifier. From your local machine, run the following:
 
-   ```
+   ```python
    sagemaker_client.describe_device(
        DeviceName=device_name,
        DeviceFleetName=device_fleet_name
@@ -44,7 +43,7 @@ In this section you will run the agent as a binary using gRPC, and check that bo
 
    For the given model, you can see the name, model version, latest sample time, and when the last inference was made.
 
-   ```
+   ```python
    { 
      "DeviceName": "sample-device",
      "DeviceFleetName": "demo-device-fleet",
@@ -68,7 +67,7 @@ In this section you will run the agent as a binary using gRPC, and check that bo
 
    Check that your fleet is working with `GetDeviceFleetReport`. Provide the name of the fleet the device belongs to.
 
-   ```
+   ```python
    sagemaker_client.get_device_fleet_report(
        DeviceFleetName=device_fleet_name
    )
@@ -76,7 +75,7 @@ In this section you will run the agent as a binary using gRPC, and check that bo
 
    For a given model, you can see the name, model version, latest sample time, and when the last inference was made, along with the Amazon S3 bucket URI where the data samples are stored.
 
-   ```
+   ```python
    # Sample output
    {
     "DeviceFleetName": "sample-device-fleet",

@@ -1,7 +1,6 @@
 
 
 # Understand the hyperparameter tuning strategies available in Amazon SageMaker AI
-<a name="automatic-model-tuning-how-it-works"></a>
 
 When you build complex machine learning systems like deep learning neural networks, exploring all of the possible combinations is impractical. Hyperparameter tuning can accelerate your productivity by trying many variations of a model. It looks for the best model automatically by focusing on the most promising combinations of hyperparameter values within the ranges that you specify. To get good results, you must choose the right ranges to explore. This page provides a brief explanation of the different hyperparameter tuning strategies that you can use with Amazon SageMaker AI.
 

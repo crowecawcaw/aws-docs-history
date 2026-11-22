@@ -1,7 +1,6 @@
 
 
 # Find the maximum concurrency an endpoint can serve under an SLA
-<a name="generative-ai-inference-recommendations-concurrency-search"></a>
 
 When you benchmark a generative artificial intelligence (generative AI) endpoint, you often want to find its maximum *concurrency*. Concurrency is the number of simultaneous requests the endpoint handles while still meeting a performance target, such as a latency ceiling. You can explore concurrency in two ways in a single benchmark job:
 + **Concurrency list** – Benchmark a fixed set of concurrency levels (for example, 1, 10, and 100) in one job. Use this when you already know the levels you want to compare.
@@ -30,7 +29,7 @@ Pass a list to the `concurrency` parameter of the workload configuration. The be
 
 **Python (Boto3)**
 
-```
+```python
 client.create_ai_workload_config(
     AIWorkloadConfigName="concurrency-list-config",
     AIWorkloadConfigs={"WorkloadSpec": {"Inline": json.dumps({
@@ -54,7 +53,7 @@ Set `search_recipe` to `max-concurrency-under-sla` and provide at least one SLA 
 
 **Python (Boto3)**
 
-```
+```python
 client.create_ai_workload_config(
     AIWorkloadConfigName="find-max-config",
     AIWorkloadConfigs={"WorkloadSpec": {"Inline": json.dumps({
@@ -88,7 +87,7 @@ A find-max-concurrency search writes a `search_history.json` file at the root of
 
 **Python (Boto3)**
 
-```
+```python
 import io, json, tarfile
 
 resp = client.describe_ai_benchmark_job(AIBenchmarkJobName="find-max-job")

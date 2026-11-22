@@ -1,7 +1,6 @@
 
 
 # Prebuilt SageMaker image support policy
-<a name="pre-built-containers-support-policy"></a>
 
 All [pre-built SageMaker images](https://docs.aws.amazon.com/sagemaker/latest/dg-ecr-paths/sagemaker-algo-docker-registry-paths.html), including framework-specific containers, built-in algorithm containers, algorithms and model packages listed in AWS Marketplace, and [AWS Deep Learning Containers](https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/what-is-dlc.html) are regularly scanned for common vulnerabilities listed by the [Common Vulnerabilities and Exposures (CVE) Program](https://www.cve.org/) and the [National Vulnerability Database (NVD)](https://nvd.nist.gov/). For more information about CVEs, see [CVE Frequently Asked Questions (FAQs)](https://www.cve.org/ResourcesSupport/FAQs). Supported pre-built container images receive an updated minor version release following any security patches. 
 
@@ -40,7 +39,7 @@ The SageMaker AI ML Framework Containers are a set of Docker images for training
 
 To retrieve the latest image version for XGBoost 3.2-0 in framework mode, use the following SageMaker Python SDK commands: 
 
-```
+```python
 from sagemaker import image_uris
 image_uris.retrieve(framework='xgboost',region='us-east-1',version='3.2-0')
 ```

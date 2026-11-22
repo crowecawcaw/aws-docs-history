@@ -1,7 +1,6 @@
 
 
 # Run pipelines using local mode
-<a name="pipelines-local-mode"></a>
 
 SageMaker Pipelines local mode is an easy way to test your training, processing and inference scripts, as well as the runtime compatibility of [pipeline parameters](https://sagemaker.readthedocs.io/en/stable/amazon_sagemaker_model_building_pipeline.html#pipeline-parameters) before you execute your pipeline on the managed SageMaker AI service. By using local mode, you can test your SageMaker AI pipeline locally using a smaller dataset. This allows quick and easy debugging of errors in user scripts and the pipeline definition itself without incurring the costs of using the managed service. The following topic shows you how to define and run pipelines locally.
 
@@ -22,7 +21,7 @@ Pipelines local mode is not compatible with SageMaker AI algorithms such as XGBo
 
 In order to execute a pipeline locally, the `sagemaker_session` fields associated with the pipeline steps and the pipeline itself need to be of type `LocalPipelineSession`. The following example shows how you can define a SageMaker AI pipeline to execute locally.
 
-```
+```python
 from sagemaker.core.workflow.pipeline_context import LocalPipelineSession
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import InputData, SourceCode
@@ -80,7 +79,7 @@ step_outputs = local_pipeline_session.sagemaker_client.describe_training_job(Tra
 
 Once you are ready to execute the pipeline on the managed SageMaker Pipelines service, you can do so by replacing `LocalPipelineSession` in the previous code snippet with `PipelineSession` (as shown in the following code sample) and rerunning the code.
 
-```
+```python
 from sagemaker.workflow.pipeline_context import PipelineSession
 
 pipeline_session = PipelineSession()

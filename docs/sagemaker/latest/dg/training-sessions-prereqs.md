@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="training-sessions-prereqs"></a>
 
 The training session APIs extend serverless model customization with the SageMaker AI `CreateTrainingSession` API and a set of runtime operations that run training and sampling against an active session. Before you create your first session, configure three things: the IAM identity that calls the API (the *caller identity*), the IAM execution role that the session assumes (the `RoleArn` you pass to `CreateTrainingSession`), and a model package group for your checkpoints.
 
@@ -17,7 +16,7 @@ The training session APIs provide two AWS managed policies. Attach each to the a
 
 Allow the caller identity to pass the execution role to the Training Sessions service principal. The `AmazonSageMakerTrainingSessionAccess` managed policy already includes this permission, scoped to roles under the `service-role` path whose names contain `SageMaker`. If you use a custom caller policy, include the following statement:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -41,7 +40,7 @@ Allow the caller identity to pass the execution role to the Training Sessions se
 
 Add the Training Sessions service principal to the trust policy of your execution role so that the service can assume it:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -61,7 +60,7 @@ Add the Training Sessions service principal to the trust policy of your executio
 
 The service registers each checkpoint you save as a model package in a SageMaker AI model package group. Create a group for your checkpoints and pass its ARN as `model_package_group_arn` when you create the `ServiceClient`:
 
-```
+```bash
 aws sagemaker create-model-package-group \
     --model-package-group-name {{my-training-session-checkpoints}} \
     --region {{us-west-2}}

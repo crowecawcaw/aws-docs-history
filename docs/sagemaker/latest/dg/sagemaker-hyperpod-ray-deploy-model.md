@@ -1,7 +1,6 @@
 
 
 # Deploying a model with Ray Serve
-<a name="sagemaker-hyperpod-ray-deploy-model"></a>
 
 You deploy a model with a `RayService` resource. The `serveConfigV2` field holds your Serve applications and their deployments, and KubeRay creates the Ray cluster that runs them. HyperPod does not modify KubeRay, so a `RayService` you already run continues to work.
 
@@ -10,7 +9,7 @@ You deploy a model with a `RayService` resource. The `serveConfigV2` field holds
 
 The following manifest runs one Serve application with a single GPU-backed deployment. Replace `import_path` with the module and application object in your working directory.
 
-```
+```yaml
 apiVersion: ray.io/v1
 kind: RayService
 metadata:
@@ -58,7 +57,7 @@ spec:
 
 Apply and confirm the service is ready:
 
-```
+```bash
 kubectl apply -f my-service.yaml -n my-namespace
 kubectl get rayservice my-service -n my-namespace
 ```
@@ -68,7 +67,7 @@ kubectl get rayservice my-service -n my-namespace
 
 Ray Serve listens on port `8000` on the head pod. From inside the cluster, send requests to the service that KubeRay creates for the `RayService`. For quick testing, you can use `kubectl port-forward`:
 
-```
+```bash
 kubectl port-forward svc/{{ray-service-head-svc}} 8000:8000
 curl http://localhost:8000/
 ```

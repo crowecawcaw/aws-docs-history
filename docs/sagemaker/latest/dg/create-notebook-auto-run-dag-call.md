@@ -1,18 +1,17 @@
 
 
 # Invoke another notebook in your notebook job
-<a name="create-notebook-auto-run-dag-call"></a>
 
 You can set up a pipeline in which one notebook job calls another notebook. The following sets up an example of a pipeline with a Notebook Job step in which the notebook calls two other notebooks. The input notebook contains the following lines:
 
-```
+```py
 %run 'subfolder/notebook_to_call_in_subfolder.ipynb'
 %run 'notebook_to_call.ipynb'
 ```
 
 Pass these notebooks into your `NotebookJobStep` instances with `additional_dependencies`, as shown in the following snippet. Note that the paths provided for the notebooks in `additional_dependencies` are provided from the root location. For information about how SageMaker AI uploads your dependent files and folders to Amazon S3 so you can correctly provide paths to your dependencies, see the description for `additional_dependencies` in [NotebookJobStep](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html).
 
-```
+```py
 input_notebook = "inputs/input_notebook.ipynb"
 simple_notebook_path = "inputs/notebook_to_call.ipynb"
 folder_with_sub_notebook = "inputs/subfolder"

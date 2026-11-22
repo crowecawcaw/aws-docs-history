@@ -1,7 +1,6 @@
 
 
 # Demo Template: Labeling Intents with `crowd-classifier`
-<a name="sms-custom-templates-step2-demo2"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
@@ -22,7 +21,7 @@ In this demonstration, you work with the **Intent Detection** template, which us
 
 This is the intent detection template that is provided as a starting point.
 
-```
+```html
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 
 <crowd-form>
@@ -75,7 +74,7 @@ You can not only use HTML, CSS, and JavaScript in these sections, you are encour
 **Example : Final Customized Intent Detection Template**  
 This uses the [example `<crowd-classifier>` task](https://jsfiddle.net/MTGT_Fiddle_Manager/bjc0y1vd/35/), but with a variable for the `<classification-target>`. If you are trying to keep a consistent CSS design among a series of different labeling jobs, you can include an external stylesheet using a `<link rel...>` element the same way you'd do in any other HTML document.  
 
-```
+```html
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 
 <crowd-form>
@@ -202,7 +201,7 @@ This uses the [example `<crowd-classifier>` task](https://jsfiddle.net/MTGT_Fidd
 **Example : Your manifest file**  
 If you are preparing your manifest file manually for a text-classification task like this, have your data formatted in the following manner.  
 
-```
+```json
 {"source": "Roses are red"}
 {"source": "Violets are Blue"}
 {"source": "Ground Truth is the best"}
@@ -224,7 +223,7 @@ When you're using the console, if you have Lambdas that are owned by your accoun
 
 In this very basic sample, where you have only one variable, it's primarily a pass-through function. Here's a sample pre-labeling Lambda using Python 3.7.
 
-```
+```python
 import json
 
 def lambda_handler(event, context):
@@ -248,7 +247,7 @@ In the Console page for creating your Lambda, scroll to the **Execution role** p
 
 The following sample is for Python 3.7.
 
-```
+```python
 import json
 import boto3
 from urllib.parse import urlparse

@@ -1,7 +1,6 @@
 
 
 # Deploy the model to Amazon EC2
-<a name="ex1-model-deployment"></a>
 
 To get predictions, deploy your model to Amazon EC2 using Amazon SageMaker AI.
 
@@ -17,7 +16,7 @@ To host a model through Amazon EC2 using Amazon SageMaker AI, deploy the model t
 
 Use the `ModelBuilder` class to build and deploy your model. `ModelBuilder` supports resource chaining, so you can pass the trained `ModelTrainer` directly to build and deploy your model.
 
-```
+```python
 from sagemaker.serve import ModelBuilder
 
 # Build and deploy using resource chaining from the trained model
@@ -38,7 +37,7 @@ endpoint = model_builder.deploy(endpoint_name="xgboost-endpoint")
 
 The `build()` method creates a SageMaker AI Model resource, and `deploy()` creates a SageMaker AI Endpoint resource. For more information, see the [SageMaker AI ModelBuilder](https://sagemaker.readthedocs.io/en/stable/) in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable). To retrieve the name of the endpoint, run the following code:
 
-```
+```py
 endpoint.endpoint_name
 ```
 
@@ -52,7 +51,7 @@ To learn more about compiling and optimizing your model for deployment to Amazon
 
 After you deploy the model to an endpoint, you can invoke it from any other notebook or application using the `Endpoint` class from sagemaker-core. The following example code shows how to get an existing endpoint and make predictions. Re-use the endpoint name from the deployment step above.
 
-```
+```py
 from sagemaker.core.resources import Endpoint
 
 endpoint = Endpoint.get(endpoint_name="{{xgboost-endpoint}}")
@@ -74,7 +73,7 @@ Instead of hosting an endpoint in production, you can run a one-time batch infer
 
 1. Run the following code to convert the feature columns of the test dataset to a CSV file and uploads to the S3 bucket:
 
-   ```
+   ```py
    X_test.to_csv('test.csv', index=False, header=False)
    
    boto3.Session().resource('s3').Bucket(bucket).Object(
@@ -83,7 +82,7 @@ Instead of hosting an endpoint in production, you can run a one-time batch infer
 
 1. Specify S3 bucket URIs of input and output for the batch transform job as shown following:
 
-   ```
+   ```py
    # The location of the test dataset
    batch_input = 's3://{}/{}/test'.format(bucket, prefix)
    
@@ -93,7 +92,7 @@ Instead of hosting an endpoint in production, you can run a one-time batch infer
 
 1. Create and run a batch transform job.
 
-   ```
+   ```py
    # Build a model from the trained ModelTrainer
    model_builder = ModelBuilder(model=xgb_model_trainer, role_arn=role)
    model = model_builder.build(model_name="xgboost-batch-model")
@@ -127,7 +126,7 @@ Instead of hosting an endpoint in production, you can run a one-time batch infer
 
 1. When the batch transform job is complete, SageMaker AI creates the `test.csv.out` prediction data saved in the `batch_output` path, which should be in the following format: `s3://sagemaker-<region>-111122223333/demo-sagemaker-xgboost-adult-income-prediction/batch-prediction`. Run the following AWS CLI to download the output data of the batch transform job:
 
-   ```
+   ```py
    ! aws s3 cp {batch_output} ./ --recursive
    ```
 

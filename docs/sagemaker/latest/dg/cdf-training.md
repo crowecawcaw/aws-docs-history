@@ -1,7 +1,6 @@
 
 
 # Common Data Formats for Training
-<a name="cdf-training"></a>
 
 To prepare for training, you can preprocess your data using a variety of AWS services, including AWS Glue, Amazon EMR, Amazon Redshift, Amazon Relational Database Service, and Amazon Athena. After preprocessing, publish the data to an Amazon S3 bucket. For training, the data must go through a series of conversions and transformations, including: 
 + Training data serialization (handled by you) 

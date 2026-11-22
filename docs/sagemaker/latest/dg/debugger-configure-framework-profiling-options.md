@@ -1,7 +1,6 @@
 
 
 # Default system monitoring and customized framework profiling with different profiling options
-<a name="debugger-configure-framework-profiling-options"></a>
 
 **Note**  
 End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources. For more information, see [Profiler availability change](profiler-availability-change.md).
@@ -22,7 +21,7 @@ Enabling Python profiling might slow down the overall training time. cProfile pr
 
 The following example configuration shows the full structure when you use the different profiling options with specified values.
 
-```
+```py
 import time
 from sagemaker.core.debugger import (ProfilerConfig, 
                                 FrameworkProfile, 

@@ -1,7 +1,6 @@
 
 
 # Use all at once traffic shifting
-<a name="deployment-guardrails-blue-green-all-at-once"></a>
 
 With all at once traffic shifting, you can quickly roll out an endpoint update using the safety guardrails of a blue/green deployment. You can use this traffic shifting option to minimize the update duration while still taking advantage of the availability guarantees of blue/green deployments. The baking period feature helps you to monitor the performance and functionality of your new instances before terminating your old instances, ensuring that your new fleet is fully operational.
 

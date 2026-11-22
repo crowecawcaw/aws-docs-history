@@ -1,7 +1,6 @@
 
 
 # Prepare Model for Compilation
-<a name="neo-compilation-preparing-model"></a>
 
 SageMaker Neo requires machine learning models to satisfy specific input data shapes. The input shape required for compilation depends on the deep learning framework you use. Once your model input shape is correctly formatted, save your model according to the requirements below. Once you have a saved model, compress the model artifacts.
 
@@ -86,7 +85,7 @@ There are two options for saving your Keras model in order to make it compatible
 
 Below is an example of how to export a `tf.keras` model as a frozen graph (option two):
 
-```
+```python
 import os
 import tensorflow as tf
 from tensorflow.keras.applications.resnet50 import ResNet50
@@ -130,7 +129,7 @@ MXNet models must be saved as a single symbol file `*-symbol.json` and a single 
 
 Define the neural network using the `HybridSequential` Class. This will run the code in the style of symbolic programming (as opposed to imperative programming).
 
-```
+```python
 from mxnet import nd, sym
 from mxnet.gluon import nn
 
@@ -172,7 +171,7 @@ For more information about hybridizing models, see the [MXNet hybridize document
 
 GluonCV model zoo models come pre-hybridized. So you can just export them.
 
-```
+```python
 import numpy as np
 import mxnet as mx
 import gluoncv as gcv
@@ -194,7 +193,7 @@ tar.close()
 
 All non-Gluon models when saved to disk use `*-symbol` and `*.params` files. They are therefore already in the correct format for Neo.
 
-```
+```python
 # Pass the following 3 parameters: sym, args, aux
 mx.model.save_checkpoint('<model_name>',0,sym,args,aux) # this will create <model_name>-symbol.json and <model_name>-0000.params files
 
@@ -215,7 +214,7 @@ PyTorch models must be saved as a definition file (`.pt` or `.pth`) with input d
 
 To save your model, use the `torch.jit.trace` method followed by the `torch.save` method. This process saves an object to a disk file and by default uses python pickle (`pickle_module=pickle`) to save the objects and some metadata. Next, convert the saved model to a compressed tar file.
 
-```
+```python
 import torchvision
 import torch
 
@@ -247,7 +246,7 @@ TensorFlow requires one `.pb` or one `.pbtxt` file and a variables directory tha
 
 The following code example shows how to use the tar Linux command to compress your model. Run the following in your terminal or in a Jupyter notebook (if you use a Jupyter notebook, insert the `!` magic command at the beginning of the statement):
 
-```
+```python
 # Download SSD_Mobilenet trained model
 !wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 
@@ -271,7 +270,7 @@ Built-in estimators are either made by framework-specific containers or algorith
 
 For example, you can use a `sagemaker.TensorFlow` to define a TensorFlow estimator:
 
-```
+```python
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import Compute, SourceCode
 
@@ -289,13 +288,13 @@ model_trainer = ModelTrainer(
 
 Then train the model with the `.train` method:
 
-```
+```python
 model_trainer.train(inputs)
 ```
 
 Before finally compiling model with the build in `compile_model` method:
 
-```
+```python
 # Neo compilation in V3 uses ModelBuilder.optimize() with compilation_config
 from sagemaker.serve import ModelBuilder
 
@@ -322,7 +321,7 @@ optimized_model = model_builder.optimize(
 
 You can also use the `sagemaker.estimator.Estimator` Class to initialize an estimator object for training and compiling a built-in algorithm with the `compile_model` method from the SageMaker Python SDK:
 
-```
+```python
 from sagemaker.core import image_uris
 from sagemaker.core.helper.session_helper import Session
 from sagemaker.train import ModelTrainer

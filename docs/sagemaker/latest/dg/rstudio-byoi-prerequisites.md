@@ -1,7 +1,6 @@
 
 
 # Complete prerequisites
-<a name="rstudio-byoi-prerequisites"></a>
 
 You must complete the following prerequisites before bringing your own image to use with RStudio on Amazon SageMaker AI. 
 + If you have an existing domain with RStudio that was created before April 7, 2022, you must delete your RStudioServerPro application and recreate it. For information about how to delete an application, see [Shut Down and Update Amazon SageMaker Studio Classic](studio-tasks-update-studio.md).
@@ -16,7 +15,7 @@ You must complete the following prerequisites before bringing your own image to 
 
 ****  
 
-  ```
+  ```json
   { 
       "Version":"2012-10-17",		 	 	  
       "Statement":[ 

@@ -1,7 +1,6 @@
 
 
 # Make automatic batch predictions
-<a name="canvas-make-predictions-batch-auto"></a>
 
 **Note**  
 Time series forecasting models don't support automatic batch predictions.

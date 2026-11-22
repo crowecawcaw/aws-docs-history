@@ -1,7 +1,6 @@
 
 
 # TensorFlow
-<a name="training-compiler-tensorflow"></a>
 
 Bring your own TensorFlow model to SageMaker AI, and run the training job with SageMaker Training Compiler.
 
@@ -126,7 +125,7 @@ TensorFlow 2.0 or later has the eager execution on by default, so you should add
 
 In addition to the changes needed for [Using Keras for distributed training](https://docs.aws.amazon.com/sagemaker/latest/dg/training-compiler-tensorflow-models.html#training-compiler-tensorflow-models-transformers-keras), you need to ensure that functions to be run on each GPU are annotated with `@tf.function`, while cross-GPU communication functions are not annotated. An example training code should look like the following:
 
-```
+```py
 @tf.function()
 def compiled_step(inputs, outputs):
     with tf.GradientTape() as tape:

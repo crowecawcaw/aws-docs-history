@@ -1,7 +1,6 @@
 
 
 # How CatBoost Works
-<a name="catboost-HowItWorks"></a>
 
 CatBoost implements a conventional Gradient Boosting Decision Tree (GBDT) algorithm with the addition of two critical algorithmic advances:
 

@@ -1,7 +1,6 @@
 
 
 # Release note
-<a name="model-customize-release-note"></a>
 
 **The SageMaker AI model customization images**
 

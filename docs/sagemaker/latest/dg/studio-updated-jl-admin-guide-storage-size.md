@@ -1,7 +1,6 @@
 
 
 # Change the default storage size for your JupyterLab users
-<a name="studio-updated-jl-admin-guide-storage-size"></a>
 
 You can change the default storage settings for your users. You can also change the default storage settings based on your organizational requirements and the needs of your users.
 

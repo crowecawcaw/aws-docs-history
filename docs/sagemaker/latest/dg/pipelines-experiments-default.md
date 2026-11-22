@@ -1,7 +1,6 @@
 
 
 # Default Behavior
-<a name="pipelines-experiments-default"></a>
 
 **Create a pipeline**
 
@@ -9,7 +8,7 @@ The default behavior when creating a SageMaker AI Pipeline is to automatically i
 
 The `pipeline_experiment_config` is omitted. `ExperimentName` defaults to the pipeline `name`. `TrialName` defaults to the execution ID.
 
-```
+```py
 pipeline_name = f"MyPipeline"
 pipeline = Pipeline(
     name=pipeline_name,
@@ -20,7 +19,7 @@ pipeline = Pipeline(
 
 **Pipeline definition file**
 
-```
+```json
 {
   "Version": "2020-12-01",
   "Parameters": [

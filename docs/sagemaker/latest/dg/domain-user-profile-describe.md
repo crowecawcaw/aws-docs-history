@@ -1,7 +1,6 @@
 
 
 # View user profile details
-<a name="domain-user-profile-describe"></a>
 
 The following section describes how to view the details of a user profile from the SageMaker AI console or the AWS CLI. 
 

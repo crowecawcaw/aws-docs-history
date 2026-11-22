@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker HyperPod observability dashboards
-<a name="hyperpod-observability-addon-viewing-dashboards"></a>
 
 This topic describes how to view metrics dashboards for your Amazon SageMaker HyperPod (SageMaker HyperPod) clusters and how to add new users to a dashboard. The topic also describes the different types of dashboards.
 

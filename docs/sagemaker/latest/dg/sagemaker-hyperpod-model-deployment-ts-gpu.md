@@ -1,7 +1,6 @@
 
 
 # Missing NVIDIA GPU plugin error
-<a name="sagemaker-hyperpod-model-deployment-ts-gpu"></a>
 
 Model deployment fails with GPU insufficiency error despite having available GPU nodes. This occurs when the NVIDIA device plugin is not installed in the HyperPod cluster.
 

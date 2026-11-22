@@ -1,7 +1,6 @@
 
 
 # Fine-tuning
-<a name="model-parallel-core-features-v2-fine-tuning"></a>
 
 Fine-tuning is a process of continuously training pre-trained models to improve performance for specific use cases.
 
@@ -9,7 +8,7 @@ Fine-tuning small models that fit fully on a single GPU, or those that fit 8 cop
 
 To address this, the SMP library loads the full model on one of the ranks while the rest of the ranks create models with empty weights on a meta device. Then, PyTorch FSDP initializes the weights on non-zero ranks using the `init_weights` function, and synchronizes the weights on all ranks to the weights on the 0th rank with `sync_module_states` set to `True`. The following code snippet shows how you should set it up in your training script.
 
-```
+```py
 import torch.distributed as dist
 from transformers import AutoModelForCasalLM
 from accelerate import init_empty_weights
@@ -35,7 +34,7 @@ model = FSDP(
 
 This section discusses loading Transformer models for two use cases: fine-tuning small Transformer models and fine-tuning large Transformer models. For smaller models without delayed parameter initialization, wrap the model with the `torch.sagemaker.transform` API before wrapping it with PyTorch FSDP.
 
-```
+```py
 import functools
 from transformers import AutoModelForCausalLM
 from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
@@ -57,7 +56,7 @@ model = FSDP(
 
 For larger models, the preceding approach causes to run out of CPU memory. We recommend that you use delayed parameter initialization to avoid such CPU memory issues. In this case, you can apply the `torch.sagemaker.transform` API and the `torch.sagemaker.delayed_param.DelayedParamIniter` API as shown in the following code example.
 
-```
+```py
 from transformers import AutoModelForCausalLM
 from torch.sagemaker import transform
 from torch.sagemaker.delayed_param import DelayedParamIniter

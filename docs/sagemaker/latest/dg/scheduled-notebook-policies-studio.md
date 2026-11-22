@@ -1,7 +1,6 @@
 
 
 # Set up policies and permissions for Studio
-<a name="scheduled-notebook-policies-studio"></a>
 
 You will need to install the proper policies and permissions before you schedule your first notebook run. The following provides instructions on setting up the following permissions:
 + Job execution role trust relationships
@@ -32,7 +31,7 @@ To modify the trust relationships, complete the following steps:
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -78,7 +77,7 @@ The following JSON snippet is an example policy that you should add to the Studi
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -234,7 +233,7 @@ If you want to use a custom KMS key, attach the following policy and supply your
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

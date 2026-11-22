@@ -1,7 +1,6 @@
 
 
 # Batch prediction dataset requirements
-<a name="canvas-make-predictions-batch-preqreqs"></a>
 
 For batch predictions, make sure that your datasets meet the requirements outlined in [Create a dataset](canvas-import-dataset.md). If your dataset is larger than 5 GB, then Canvas uses Amazon EMR Serverless to process your data and split it into smaller batches. After your data has been split, Canvas uses SageMaker AI Batch Transform to make predictions. You may see charges from both of these services after running batch predictions. For more information, see [Canvas pricing](https://aws.amazon.com/sagemaker/canvas/pricing/).
 

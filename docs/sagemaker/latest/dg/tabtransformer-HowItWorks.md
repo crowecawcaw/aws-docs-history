@@ -1,7 +1,6 @@
 
 
 # How TabTransformer works
-<a name="tabtransformer-HowItWorks"></a>
 
 TabTransformer is a novel deep tabular data modeling architecture for supervised learning. The TabTransformer is built upon self-attention based Transformers. The Transformer layers transform the embeddings of categorical features into robust contextual embeddings to achieve higher prediction accuracy. Furthermore, the contextual embeddings learned from TabTransformer are highly robust against both missing and noisy data features, and provide better interpretability.
 

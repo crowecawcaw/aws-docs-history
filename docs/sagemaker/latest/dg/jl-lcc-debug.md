@@ -1,7 +1,6 @@
 
 
 # Debug lifecycle configurations
-<a name="jl-lcc-debug"></a>
 
 The following topics show how to get information about and debug your lifecycle configurations.
 

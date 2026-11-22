@@ -1,7 +1,6 @@
 
 
 # Evaluate the model
-<a name="ex1-test-model"></a>
 
 Now that you have trained and deployed a model using Amazon SageMaker AI, evaluate the model to ensure that it generates accurate predictions on new data. For model evaluation, use the test dataset that you created in [Prepare a dataset](ex1-preprocess-data.md).
 
@@ -14,7 +13,7 @@ To evaluate the model and use it in production, invoke the endpoint with the tes
 
 1. Set up the following function to predict each line of the test set. In the following example code, the `rows` argument is to specify the number of lines to predict at a time. You can change the value of it to perform a batch inference that fully utilizes the instance's hardware resource.
 
-   ```
+   ```python
    import numpy as np
    from sagemaker.core.resources import Endpoint
    
@@ -41,7 +40,7 @@ To evaluate the model and use it in production, invoke the endpoint with the tes
 
 1. The predicted values are float type. To determine `True` or `False` based on the float values, you need to set a cutoff value. As shown in the following example code, use the Scikit-learn library to return the output confusion metrics and classification report with a cutoff of 0.5.
 
-   ```
+   ```py
    import sklearn
    
    cutoff=0.5
@@ -54,7 +53,7 @@ To evaluate the model and use it in production, invoke the endpoint with the tes
 
 1. To find the best cutoff with the given test set, compute the log loss function of the logistic regression. The log loss function is defined as the negative log-likelihood of a logistic model that returns prediction probabilities for its ground truth labels. The following example code numerically and iteratively calculates the log loss values (`-(y*log(p)+(1-y)log(1-p)`), where `y` is the true label and `p` is a probability estimate of the corresponding test sample. It returns a log loss versus cutoff graph.
 
-   ```
+   ```python
    import matplotlib.pyplot as plt
    
    cutoffs = np.arange(0.01, 1, 0.01)
@@ -76,7 +75,7 @@ To evaluate the model and use it in production, invoke the endpoint with the tes
 
 1. Find the minimum points of the error curve using the NumPy `argmin` and `min` functions:
 
-   ```
+   ```py
    print(
        'Log loss is minimized at a cutoff of ', cutoffs[np.argmin(log_loss)], 
        ', and the log loss value at the minimum is ', np.min(log_loss)

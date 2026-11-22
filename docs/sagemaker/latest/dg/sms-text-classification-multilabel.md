@@ -1,7 +1,6 @@
 
 
 # Categorize text with text classification (Multi-label)
-<a name="sms-text-classification-multilabel"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
@@ -98,7 +97,7 @@ If you create a labeling job using the API, you must supply a worker task templa
 
 Upload this template to S3, and provide the S3 URI for this file in `UiTemplateS3Uri`.
 
-```
+```html
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 <crowd-form>
   <crowd-classifier-multi-select

@@ -1,7 +1,6 @@
 
 
 # Parameters for Built-in Algorithms
-<a name="common-info-all-im-models"></a>
 
 The following table lists parameters for each of the algorithms provided by Amazon SageMaker AI.
 

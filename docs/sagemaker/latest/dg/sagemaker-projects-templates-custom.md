@@ -1,7 +1,6 @@
 
 
 # Create Custom Project Templates
-<a name="sagemaker-projects-templates-custom"></a>
 
 **Important**  
 As of October 28, 2024, the AWS CodeCommit templates have been removed. For new projects, select from the available project templates that use third-party Git repositories. For more information, see [MLOps Project Templates](sagemaker-projects-templates.md).
@@ -136,7 +135,7 @@ Then use the AWS console, Python, or the [CreateProject](https://docs.aws.amazon
 
 After you create the S3 bucket and uploaded your templates, you can use the following example to create a SageMaker project.
 
-```
+```Python
 sagemaker_client = boto3.client('sagemaker', region_name='us-west-2')
 
 response = sagemaker_client.create_project(
@@ -157,7 +156,7 @@ print(f"Project ARN: {response['ProjectArn']}")
 
 To update a SageMaker project, see the following example.
 
-```
+```Python
 sagemaker_client = boto3.client('sagemaker', region_name='us-west-2')
 
 response = sagemaker_client.update_project(

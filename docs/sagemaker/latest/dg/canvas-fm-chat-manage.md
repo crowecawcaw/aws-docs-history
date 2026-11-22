@@ -1,7 +1,6 @@
 
 
 # Start up models
-<a name="canvas-fm-chat-manage"></a>
 
 **Note**  
 The following section describe starting up models, which only applies to the JumpStart foundation models, such as Falcon-40B-Instruct. You can access Amazon Bedrock models, such as Amazon Titan, instantly at any time.

@@ -1,7 +1,6 @@
 
 
 # Debug lifecycle configurations in Studio
-<a name="code-editor-use-lifecycle-configurations-studio-debug"></a>
 
 To debug lifecycle configuration scripts for Code Editor, you must use Studio. For instructions about debugging lifecycle configurations in Studio, see [Debug lifecycle configurations](jl-lcc-debug.md). To find the logs for a specific application, search the log streams using the following format:
 

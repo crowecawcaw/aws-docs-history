@@ -1,7 +1,6 @@
 
 
 # Built-in SageMaker AI Algorithms for Time-Series Data
-<a name="algorithms-time-series"></a>
 
 SageMaker AI provides algorithms that are tailored to the analysis of time-series data for forecasting product demand, server loads, webpage requests, and more.
 + [Use the SageMaker AI DeepAR forecasting algorithm](deepar.md)—a supervised learning algorithm for forecasting scalar (one-dimensional) time series using recurrent neural networks (RNN).

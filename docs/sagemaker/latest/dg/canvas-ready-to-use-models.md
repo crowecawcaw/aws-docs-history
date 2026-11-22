@@ -1,7 +1,6 @@
 
 
 # Ready-to-use models
-<a name="canvas-ready-to-use-models"></a>
 
 With Amazon SageMaker Canvas Ready-to-use models, you can make predictions on your data without writing a single line of code or having to build a model—all you have to bring is your data. The Ready-to-use models use pre-built models to generate predictions without requiring you to spend the time, expertise, or cost required to build a model, and you can choose from a variety of use cases ranging from language detection to expense analysis.
 

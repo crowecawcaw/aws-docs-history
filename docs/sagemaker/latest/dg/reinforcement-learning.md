@@ -1,7 +1,6 @@
 
 
 # Use Reinforcement Learning with Amazon SageMaker AI
-<a name="reinforcement-learning"></a>
 
 Reinforcement learning (RL) combines fields such as computer science, neuroscience, and psychology to determine how to map situations to actions to maximize a numerical reward signal. This notion of a reward signal in RL stems from neuroscience research into how the human brain makes decisions about which actions maximize reward and minimize punishment. In most situations, humans are not given explicit instructions on which actions to take, but instead must learn both which actions yield the most immediate rewards, and how those actions influence future situations and consequences. 
 

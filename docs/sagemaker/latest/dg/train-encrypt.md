@@ -1,7 +1,6 @@
 
 
 # Protect Communications Between ML Compute Instances in a Distributed Training Job
-<a name="train-encrypt"></a>
 
 By default, Amazon SageMaker AI runs training jobs in an Amazon Virtual Private Cloud (Amazon VPC) to help keep your data secure. You can add another level of security to protect your training containers and data by configuring a *private* VPC. Distributed ML frameworks and algorithms usually transmit information that is directly related to the model, such as weights, not the training dataset. When performing distributed training, you can further protect data that is transmitted between instances. This can help you to comply with regulatory requirements. To do this, use inter-container traffic encryption. 
 

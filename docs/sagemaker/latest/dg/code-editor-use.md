@@ -1,7 +1,6 @@
 
 
 # Using the Code Editor
-<a name="code-editor-use"></a>
 
 The topics in this section provide guides for using Code Editor, including how to launch, add connections to AWS services, shut down resources, and more. After creating a Code Editor space, you can access your Code Editor session directly through the browser.
 

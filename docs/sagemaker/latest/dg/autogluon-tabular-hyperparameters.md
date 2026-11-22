@@ -1,7 +1,6 @@
 
 
 # AutoGluon-Tabular hyperparameters
-<a name="autogluon-tabular-hyperparameters"></a>
 
 The following table contains the subset of hyperparameters that are required or most commonly used for the Amazon SageMaker AI AutoGluon-Tabular algorithm. Users set these parameters to facilitate the estimation of model parameters from data. The SageMaker AI AutoGluon-Tabular algorithm is an implementation of the open-source [AutoGluon-Tabular](https://github.com/awslabs/autogluon) package.
 

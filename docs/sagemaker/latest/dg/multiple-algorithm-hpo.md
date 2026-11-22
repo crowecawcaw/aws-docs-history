@@ -1,7 +1,6 @@
 
 
 # Tune Multiple Algorithms with Hyperparameter Optimization to Find the Best Model
-<a name="multiple-algorithm-hpo"></a>
 
 To create a new hyperparameter optimization (HPO) job with Amazon SageMaker AI that tunes multiple algorithms, you must provide job settings that apply to all of the algorithms to be tested and a training definition for each of these algorithms. You must also specify the resources you want to use for the tuning job.
 + The **job settings** to configure include warm starting, early stopping, and the tuning strategy. Warm starting and early stopping are available only when tuning a single algorithm.

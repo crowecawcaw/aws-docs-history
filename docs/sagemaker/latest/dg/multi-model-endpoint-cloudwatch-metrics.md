@@ -1,7 +1,6 @@
 
 
 # CloudWatch Metrics for Multi-Model Endpoint Deployments
-<a name="multi-model-endpoint-cloudwatch-metrics"></a>
 
 Amazon SageMaker AI provides metrics for endpoints so you can monitor the cache hit rate, the number of models loaded and the model wait times for loading, downloading, and uploading at a multi-model endpoint. Some of the metrics are different for CPU and GPU backed multi-model endpoints, so the following sections describe the Amazon CloudWatch metrics that you can use for each type of multi-model endpoint.
 

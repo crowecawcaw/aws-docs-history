@@ -1,7 +1,6 @@
 
 
 # Protecting Data in Transit with Encryption
-<a name="encryption-in-transit"></a>
 
 All internetwork data in transit supports TLS 1.2 encryption. We recommend that you use TLS 1.3.
 

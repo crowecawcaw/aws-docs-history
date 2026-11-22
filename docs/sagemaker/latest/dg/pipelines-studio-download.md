@@ -1,7 +1,6 @@
 
 
 # Download a pipeline definition file
-<a name="pipelines-studio-download"></a>
 
 You can download the definition file for your SageMaker AI pipeline directly from the Amazon SageMaker Studio UI. You can use this pipeline definition file for:
 + Backup and restoration: Use the downloaded file to create a backup of your pipeline configuration, which you can restore in case of infrastructure failures or accidental changes.

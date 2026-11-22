@@ -1,7 +1,6 @@
 
 
 # Data Processing with Framework Processors
-<a name="processing-job-frameworks"></a>
 
 A `FrameworkProcessor` can run Processing jobs with a specified machine learning framework, providing you with an Amazon SageMaker AI–managed container for whichever machine learning framework you choose. `FrameworkProcessor` provides premade containers for the following machine learning frameworks: Hugging Face, MXNet, PyTorch, TensorFlow, and XGBoost.
 

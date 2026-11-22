@@ -1,7 +1,6 @@
 
 
 # Data collections
-<a name="geospatial-data-collections"></a>
 
 **Note**  
 Amazon SageMaker geospatial capabilities is no longer open to new customers. Offboard any previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportEarthObservationJob.html) and [ExportVectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportVectorEnrichmentJob.html) API operations.
@@ -19,7 +18,7 @@ To find the list of available raster data collections in your AWS Regions, use `
 **Example – Calling the `ListRasterDataCollections` API using the AWS SDK for Python (Boto3)**  <a name="list-raster-data-collections"></a>
 When you use the SDK for Python (Boto3) and SageMaker geospatial, you must create a geospatial client, `geospatial_client`. Use the following Python snippet to make a call to the `list_raster_data_collections` API:  
 
-```
+```python
 import boto3
 import sagemaker
 import sagemaker_geospatial_map
@@ -47,7 +46,7 @@ print (results)
 ```
 In the JSON response, you will receive the following, which has been truncated for clarity:  
 
-```
+```json
 {
     "Arn": "arn:aws:sagemaker-geospatial:us-west-2:555555555555:raster-data-collection/public/dxxbpqwvu9041ny8",
     "Description": "Copernicus DEM is a Digital Surface Model which represents the surface of the Earth including buildings, infrastructure, and vegetation. GLO-30 is instance of Copernicus DEM that provides limited worldwide coverage at 30 meters.",

@@ -1,7 +1,6 @@
 
 
 # Adapting your own training container
-<a name="adapt-training-container"></a>
 
 To run your own training model, build a Docker container using the [Amazon SageMaker Training Toolkit](https://github.com/aws/sagemaker-training-toolkit) through an Amazon SageMaker notebook instance.
 
@@ -77,7 +76,7 @@ To run your own training model, build a Docker container using the [Amazon SageM
 
 1. Upload a training script `train.py` to the `docker_test_folder`. You can use the following example script to create a model that reads handwritten digits trained on the [MNIST dataset](https://en.wikipedia.org/wiki/MNIST_database) for this exercise.
 
-   ```
+   ```python.py
    import tensorflow as tf
    import os
    
@@ -139,7 +138,7 @@ If you get the following error message that Docker cannot find the Dockerfile, m
    ```
 Remember that `docker` looks for a file specifically called `Dockerfile` without any extension within the current directory. If you named it something else, you can pass in the file name manually with the `-f` flag. For example, if you named your Dockerfile as `Dockerfile-text.txt`, run the following command:  
 
-   ```
+   ```py
    ! docker build -t tf-custom-container-test -f Dockerfile-text.txt .
    ```
 
@@ -150,7 +149,7 @@ Remember that `docker` looks for a file specifically called `Dockerfile` without
 
 1. Paste the following example script into the notebook code cell to configure a SageMaker AI ModelTrainer.
 
-   ```
+   ```py
    import sagemaker
    from sagemaker.train import ModelTrainer
    from sagemaker.train.configs import Compute
@@ -220,7 +219,7 @@ If this error occurs, you need to attach the **AmazonEC2ContainerRegistryFullAcc
 
 1. Run the following code in a Studio notebook cell to call the Amazon ECR image of your training container.
 
-   ```
+   ```py
    import boto3
    
    account_id = boto3.client('sts').get_caller_identity().get('Account')
@@ -245,7 +244,7 @@ If this error occurs, you need to attach the **AmazonEC2ContainerRegistryFullAcc
 ------
 #### [ SageMaker Python SDK v1 ]
 
-   ```
+   ```py
    import sagemaker
    from sagemaker.core.helper.session_helper import get_execution_role
    from sagemaker.train import ModelTrainer
@@ -265,7 +264,7 @@ If this error occurs, you need to attach the **AmazonEC2ContainerRegistryFullAcc
 ------
 #### [ SageMaker Python SDK v2 ]
 
-   ```
+   ```py
    import sagemaker
    from sagemaker.core.helper.session_helper import get_execution_role
    from sagemaker.train import ModelTrainer

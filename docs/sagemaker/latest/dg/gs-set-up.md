@@ -1,7 +1,6 @@
 
 
 # Complete Amazon SageMaker AI prerequisites
-<a name="gs-set-up"></a>
 
 Before you can set up Amazon SageMaker AI, you must complete the following prerequisites. 
 + **Required**: You will need to create an Amazon Web Services (AWS) account to get access to all of the AWS services and resources for the account.
@@ -31,7 +30,7 @@ If you intend to create your own custom policy, these permissions are required t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -77,7 +76,7 @@ For information about adding policies, see [Adding and removing IAM identity per
 
 ****  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

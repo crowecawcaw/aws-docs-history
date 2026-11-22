@@ -1,7 +1,6 @@
 
 
 # Deploy a Compiled Model Using SageMaker SDK
-<a name="neo-deployment-hosting-services-sdk"></a>
 
 You must satisfy the [ prerequisites](https://docs.aws.amazon.com/sagemaker/latest/dg/neo-deployment-hosting-services-prerequisites) section if the model was compiled using AWS SDK for Python (Boto3), AWS CLI, or the Amazon SageMaker AI console. Follow one of the following use cases to deploy a model compiled with SageMaker Neo based on how you compiled your model.
 
@@ -15,7 +14,7 @@ You must satisfy the [ prerequisites](https://docs.aws.amazon.com/sagemaker/late
 
 The [sagemaker.Model](https://sagemaker.readthedocs.io/en/stable/api/inference/model.html?highlight=sagemaker.Model) object handle for the compiled model supplies the [deploy()](https://sagemaker.readthedocs.io/en/stable/api/inference/model.html?highlight=sagemaker.Model#sagemaker.model.Model.deploy) function, which enables you to create an endpoint to serve inference requests. The function lets you set the number and type of instances that are used for the endpoint. You must choose an instance for which you have compiled your model. For example, in the job compiled in [Compile a Model (Amazon SageMaker SDK)](https://docs.aws.amazon.com/sagemaker/latest/dg/neo-job-compilation-sagemaker-sdk.html) section, this is `ml_c5`. 
 
-```
+```python
 from sagemaker.serve import ModelBuilder
 
 model_builder = ModelBuilder(
@@ -39,7 +38,7 @@ Create and deploy the SageMaker AI model using `ModelBuilder`. Specify the `s3_m
 
 The following example shows how to use these functions to deploy a compiled model using the SageMaker Python SDK: 
 
-```
+```python
 from sagemaker.serve import ModelBuilder
 
 # V3 uses a unified ModelBuilder approach for all frameworks
@@ -66,7 +65,7 @@ The `AmazonSageMakerFullAccess` and `AmazonS3ReadOnlyAccess` policies must be at
 
 Construct a model object, then call deploy: 
 
-```
+```python
 from sagemaker.serve import ModelBuilder
 
 model_builder = ModelBuilder(
@@ -91,7 +90,7 @@ Your first inference request might have high latency if you deploy your model on
 
 The following code snippet demonstrates how to produce the warm-up file for image classification example in the [prerequisites](https://docs.aws.amazon.com/sagemaker/latest/dg/neo-deployment-hosting-services-prerequisites) section: 
 
-```
+```python
 import tensorflow as tf
 from tensorflow_serving.apis import classification_pb2
 from tensorflow_serving.apis import inference_pb2

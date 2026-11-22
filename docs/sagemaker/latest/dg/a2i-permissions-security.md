@@ -1,7 +1,6 @@
 
 
 # Permissions and Security in Amazon Augmented AI
-<a name="a2i-permissions-security"></a>
 
 **Note**  
 Amazon SageMaker A2I is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for A2I, but we do not plan to introduce new features.
@@ -82,7 +81,7 @@ When you create a human review workflow (flow definition), Amazon A2I invokes Am
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -117,7 +116,7 @@ In addition, the IAM role must have the following trust policy to give SageMaker
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -198,7 +197,7 @@ To preview your template, you need an IAM role with the following permissions to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -228,7 +227,7 @@ If you specify an AWS Key Management Service (AWS KMS) customer managed key to e
 
 To use this policy, replace the IAM service-role ARN in `"Principal"` with the ARN of the execution role you use to create the human review workflow (flow definition). When you create a labeling job using `CreateFlowDefinition`, this is the ARN you specify for [`RoleArn`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html#sagemaker-CreateLabelingJob-request-RoleArn). Note that you cannot provide a `KmsKeyId` when you create a flow definition in the console.
 
-```
+```json
 {
     "Sid": "AllowUseOfKmsKey",
     "Effect": "Allow",

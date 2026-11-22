@@ -1,7 +1,6 @@
 
 
 # Update a Notebook Instance
-<a name="nbi-update"></a>
 
 After you create a notebook instance, you can update it using the SageMaker AI console and [`UpdateNotebookInstance`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateNotebookInstance.html) API operation.
 

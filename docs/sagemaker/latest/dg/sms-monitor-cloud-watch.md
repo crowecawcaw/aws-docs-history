@@ -1,7 +1,6 @@
 
 
 # Monitor Labeling Job Status
-<a name="sms-monitor-cloud-watch"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
@@ -19,7 +18,7 @@ To create a CloudWatch Events rule, you will need an AWS Identity and Access Man
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

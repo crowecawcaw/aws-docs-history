@@ -1,7 +1,6 @@
 
 
 # Introduction to Model Parallelism
-<a name="model-parallel-intro"></a>
 
 Model parallelism is a distributed training method in which the deep learning model is partitioned across multiple devices, within or across instances. This introduction page provides a high-level overview about model parallelism, a description of how it can help overcome issues that arise when training DL models that are typically very large in size, and examples of what the SageMaker model parallel library offers to help manage model parallel strategies as well as memory consumption.
 
@@ -61,7 +60,7 @@ To dive deep into sharded data parallelism and learn how to set it up or use a c
 
 *Pipeline parallelism* partitions the set of layers or operations across the set of devices, leaving each operation intact. When you specify a value for the number of model partitions (`pipeline_parallel_degree`), the total number of GPUs (`processes_per_host`) must be divisible by the number of the model partitions. To set this up properly, you have to specify the correct values for the `pipeline_parallel_degree` and `processes_per_host` parameters. The simple math is as follows:
 
-```
+```txt
 (pipeline_parallel_degree) x (data_parallel_degree) = processes_per_host
 ```
 

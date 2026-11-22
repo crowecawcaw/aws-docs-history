@@ -1,7 +1,6 @@
 
 
 # Crowd HTML Elements Reference
-<a name="sms-ui-template-reference"></a>
 
 Crowd HTML Elements are web components, a web standard that abstracts HTML markup, CSS, and JavaScript functionality into an HTML tag or set of tags. Amazon SageMaker AI provides customers with the ability to design their own custom task templates in HTML. 
 

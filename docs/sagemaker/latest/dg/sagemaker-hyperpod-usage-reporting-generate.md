@@ -1,7 +1,6 @@
 
 
 # Generate reports
-<a name="sagemaker-hyperpod-usage-reporting-generate"></a>
 
 This guide provides step-by-step instructions to configure and manage usage reporting for your SageMaker HyperPod clusters. Follow these procedures to deploy infrastructure, generate custom reports, and remove resources when no longer needed.
 

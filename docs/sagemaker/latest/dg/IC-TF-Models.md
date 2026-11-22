@@ -1,7 +1,6 @@
 
 
 # TensorFlow Hub Models
-<a name="IC-TF-Models"></a>
 
 The following pretrained models are available to use for transfer learning with the Image Classification - TensorFlow algorithm. 
 

@@ -1,7 +1,6 @@
 
 
 # How Amazon SageMaker AI works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 **Important**  
 Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studio Classic to create Amazon SageMaker resources must also grant permissions to add tags to those resources. The permission to add tags to resources is required because Studio and Studio Classic automatically tag any resources they create. If an IAM policy allows Studio and Studio Classic to create resources but does not allow tagging, "AccessDenied" errors can occur when trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions).  
@@ -46,7 +45,7 @@ Policy actions in SageMaker AI use the following prefix before the action: `sage
 
 To specify multiple actions in a single statement, separate them with commas as follows:
 
-```
+```json
 "Action": [
       "sagemaker:action1",
       "sagemaker:action2"
@@ -55,7 +54,7 @@ To specify multiple actions in a single statement, separate them with commas as 
 
 You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `Describe`, include the following action:
 
-```
+```json
 "Action": "sagemaker:Describe*"
 ```
 

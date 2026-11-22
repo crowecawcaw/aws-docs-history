@@ -1,7 +1,6 @@
 
 
 # Change the Image or a Kernel for an Amazon SageMaker Studio Classic Notebook
-<a name="notebooks-run-and-manage-change-image"></a>
 
 **Note**  
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For information about using the updated Studio experience, see [Amazon SageMaker Studio](studio-updated.md).  

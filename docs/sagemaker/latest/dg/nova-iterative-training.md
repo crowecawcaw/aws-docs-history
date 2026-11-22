@@ -1,7 +1,6 @@
 
 
 # Iterative Training
-<a name="nova-iterative-training"></a>
 
 Iterative training allows you to improve model performance through multiple training cycles, building on previous checkpoints to systematically address failure modes and adapt to changing requirements.
 

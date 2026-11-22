@@ -1,7 +1,6 @@
 
 
 # Image Classification - MXNet
-<a name="image-classification"></a>
 
 The Amazon SageMaker image classification algorithm is a supervised learning algorithm that supports multi-label classification. It takes an image as input and outputs one or more labels assigned to that image. It uses a convolutional neural network that can be trained from scratch or trained using transfer learning when a large number of training images are not available 
 
@@ -101,7 +100,7 @@ To use a pretrained model, in the [`CreateTrainingJob`](https://docs.aws.amazon.
 
 The generated models can be hosted for inference and support encoded `.jpg` and `.png` image formats as `image/png, image/jpeg`, and `application/x-image` content-type. The input image is resized automatically. The output is the probability values for all classes encoded in JSON format, or in [JSON Lines text format](http://jsonlines.org/) for batch transform. The image classification model processes a single image per request and so outputs only one line in the JSON or JSON Lines format. The following is an example of a response in JSON Lines format:
 
-```
+```json
 accept: application/jsonlines
 
  {"prediction": [prob_0, prob_1, prob_2, prob_3, ...]}

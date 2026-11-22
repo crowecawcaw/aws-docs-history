@@ -1,7 +1,6 @@
 
 
 # Model weights caching and image caching
-<a name="sagemaker-hyperpod-model-deployment-model-caching"></a>
 
 When you scale out an inference deployment, each new pod must pull the inference server container image from a registry. It must also download model weights from remote storage (Amazon S3 or Amazon FSx) before it can serve traffic. For large language models, downloading model weights and pulling container images contribute most to cold start latency.
 
@@ -39,7 +38,7 @@ If your instance type does not have local NVMe storage at the configured `hostPa
 
 Add a `modelCacheConfig` block to the `spec` of your `InferenceEndpointConfig` or `JumpStartModel` resource. The following example enables both model weights caching and image caching.
 
-```
+```yaml
 spec:
   # ... model source, worker, and TLS configuration ...
   modelCacheConfig:
@@ -95,7 +94,7 @@ Use the following checks to confirm that caching is active for your deployment.
 
 When a node's cache is warm, the operator applies a cache-ready label to it. Model weights caching uses a label with the prefix `inference.sagemaker.aws.amazon.com/weights-cache-ready.`, and image caching uses the prefix `inference.sagemaker.aws.amazon.com/image-cache-ready.`, each suffixed with the cache configuration's UID.
 
-```
+```bash
 kubectl get nodes --show-labels | grep "cache-ready"
 ```
 
@@ -106,7 +105,7 @@ No output means no nodes have warmed the cache yet.
 
 Inspect an inference pod and confirm it mounts the host-local cache path read-only. If the hostPath volume is absent, the pod is loading weights from remote storage.
 
-```
+```bash
 kubectl describe pod {{inference-pod-name}} -n {{namespace}}
 ```
 
@@ -115,7 +114,7 @@ kubectl describe pod {{inference-pod-name}} -n {{namespace}}
 
 Review the inference operator logs for cache warm-up activity or errors.
 
-```
+```bash
 kubectl logs -n hyperpod-inference-system deployment/hyperpod-inference-controller-manager | grep -i "cache"
 ```
 

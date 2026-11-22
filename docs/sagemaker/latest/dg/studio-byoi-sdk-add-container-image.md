@@ -1,7 +1,6 @@
 
 
 # Add a Docker Image Compatible with Amazon SageMaker Studio Classic to Amazon ECR
-<a name="studio-byoi-sdk-add-container-image"></a>
 
 **Note**  
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For information about using the updated Studio experience, see [Amazon SageMaker Studio](studio-updated.md).  

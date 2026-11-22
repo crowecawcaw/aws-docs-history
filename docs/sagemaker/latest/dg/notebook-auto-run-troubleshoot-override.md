@@ -1,7 +1,6 @@
 
 
 # Parameterize your notebook
-<a name="notebook-auto-run-troubleshoot-override"></a>
 
 To pass new parameters or parameter overrides to your scheduled notebook job, you might optionally want to modify your Jupyter notebook if you want your new parameters values to be applied after a cell. When you pass a parameter, the notebook job executor uses the methodology enforced by Papermill. The notebook job executor searches for a Jupyter cell tagged with the `parameters` tag and applies the new parameters or parameter overrides immediately after this cell. If you don’t have any cells tagged with `parameters`, the parameters are applied at the beginning of the notebook. If you have more than one cell tagged with `parameters`, the parameters are applied after the first cell tagged with `parameters`.
 

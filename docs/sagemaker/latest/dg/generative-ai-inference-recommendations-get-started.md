@@ -1,7 +1,6 @@
 
 
 # Get generative AI inference deployment recommendations
-<a name="generative-ai-inference-recommendations-get-started"></a>
 
 AI recommendation jobs analyze your model and workload characteristics to generate deployment configurations optimized for cost, latency, or throughput. The service evaluates instance types, applies optimizations like speculative decoding, and benchmarks each configuration on real GPU infrastructure.
 
@@ -20,7 +19,7 @@ A recommendation job analyzes your model and generates deployment recommendation
 
 **Python (boto3)**
 
-```
+```python
 response = client.create_ai_recommendation_job(
     AIRecommendationJobName="my-recommendation-job",
     ModelSource={
@@ -75,7 +74,7 @@ Poll the job status until it reaches a terminal state.
 
 **Python (boto3)**
 
-```
+```python
 import time
 
 while True:
@@ -137,7 +136,7 @@ Each metric in the `ExpectedPerformance` response includes a `Stat` field indica
 
 Use the following operations to manage your recommendation jobs and workload configurations.
 
-```
+```python
 # List recommendation jobs
 response = client.list_ai_recommendation_jobs(MaxResults=10)
 for job in response["AIRecommendationJobs"]:

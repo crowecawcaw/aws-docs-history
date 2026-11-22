@@ -1,7 +1,6 @@
 
 
 # Events that Amazon SageMaker AI sends to Amazon EventBridge
-<a name="automating-sagemaker-with-eventbridge"></a>
 
 Amazon EventBridge monitors status change events in Amazon SageMaker AI. EventBridge enables you to automate SageMaker AI and respond automatically to events such as a training job status change or endpoint status change. Events from SageMaker AI are delivered to EventBridge in near real time. You can write simple rules to indicate which events are of interest to you, and what automated actions to take when an event matches a rule. To create a rule, see [Creating rules that react to events in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule.html). If you use AWS CLI, see [put-rule](https://docs.aws.amazon.com/cli/latest/reference/events/put-rule.html) from the *AWS CLI Command Reference*.
 
@@ -45,7 +44,7 @@ The following examples may not work for all endpoints. For a list of features th
 
 Indicates a state change for an endpoint deployment. The following example shows an endpoint updating with a blue/green canary deployment.
 
-```
+```json
 {
     "version": "0",
     "id": "0bd4a141-0a02-9d8a-f977-3924c3fb259c",
@@ -100,7 +99,7 @@ Indicates a state change for an endpoint deployment. The following example shows
 
 The following example indicates a state change for an endpoint deployment, which is being updated with new capacity on an existing endpoint configuration.
 
-```
+```json
 {
     "version": "0",
     "id": "0bd4a141-0a02-9d8a-f977-3924c3fb259c",
@@ -163,7 +162,7 @@ Indicates a change in the status of a SageMaker AI hosted real-time inference en
 
 The following shows an event with an endpoint in the `IN_SERVICE` state.
 
-```
+```json
 {
   "version": "0",
   "id": "d2921b5a-b0ad-cace-a8e3-0f159d018e06",
@@ -200,7 +199,7 @@ The following shows an event with an endpoint in the `IN_SERVICE` state.
 
 Indicates a change either in the `FeatureGroupStatus` or the `OfflineStoreStatus` of a SageMaker feature group.
 
-```
+```json
 {
   "version": "0",
   "id": "93201303-abdb-36a4-1b9b-4c1c3e3671c0",
@@ -254,7 +253,7 @@ Indicates a change either in the `FeatureGroupStatus` or the `OfflineStoreStatus
 
 Indicates a change in the status of a SageMaker hyperparameter tuning job.
 
-```
+```json
 {
   "version": "0",
   "id": "844e2571-85d4-695f-b930-0153b71dcb42",
@@ -487,7 +486,7 @@ Indicates a change in the state of a SageMaker HyperPod cluster. For more inform
 
 Indicates a change in the status of a SageMaker image.
 
-```
+```json
 {
   "version": "0",
   "id": "cee033a3-17d8-49f8-865f-b9ebf485d9ee",
@@ -512,7 +511,7 @@ Indicates a change in the status of a SageMaker image.
 
 Indicates a change in the status of a SageMaker image version.
 
-```
+```json
 {
   "version": "0",
   "id": "07fc4615-ebd7-15fc-1746-243411f09f04",
@@ -539,7 +538,7 @@ Indicates a change in the status of a SageMaker job. SageMaker AI emits this eve
 
 If the value of `JobStatus` is `Failed`, the event contains the `FailureReason` field, which provides a description of why the job failed.
 
-```
+```json
 {
     "version": "0",
     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -577,7 +576,7 @@ If the value of `JobStatus` is `Failed`, the event contains the `FailureReason` 
 
 Indicates a change in the status of an Amazon SageMaker model card. For more information about model cards, see [Amazon SageMaker Model Cards](model-cards.md).
 
-```
+```json
 {
     "version": "0",
     "id": "aa7a9c4f-2caa-4d04-a6de-e67227ba4302",
@@ -617,7 +616,7 @@ Indicates a change in the status of an Amazon SageMaker model card. For more inf
 
 Indicates a change in the status of a SageMaker model package.
 
-```
+```json
 {
   "version": "0",
   "id": "844e2571-85d4-695f-b930-0153b71dcb42",
@@ -712,7 +711,7 @@ Indicates a change in the status of a SageMaker pipeline execution.
 + Stopping
 + Stopped
 
-```
+```json
 {
   "version": "0",
   "id": "315c1398-40ff-a850-213b-158f73kd93ir",
@@ -750,7 +749,7 @@ If there is a cache hit, the event contains the `cacheHitResult` field. `current
 
 If the value of `currentStepStatus` is `Failed`, the event contains the `failureReason` field, which provides a description of why the step failed.
 
-```
+```json
 {
   "version": "0",
   "id": "ea37ccbb-5e2b-05e9-4073-1daazc940304",
@@ -785,7 +784,7 @@ Indicates a change in the status of a SageMaker processing job.
 
 The following example event is for a failed processing job, where the `ProcessingJobStatus` value is `Failed`.
 
-```
+```json
 {
   "version": "0",
   "id": "0a15f67d-aa23-0123-0123-01a23w89r01t",
@@ -860,7 +859,7 @@ Indicates a change in the status of a SageMaker training job.
 
 If the value of `TrainingJobStatus` is `Failed`, the event contains the `FailureReason` field, which provides a description of why the training job failed.
 
-```
+```json
 {
     "version": "0",
     "id": "844e2571-85d4-695f-b930-0153b71dcb42",
@@ -937,7 +936,7 @@ Indicates a change in the status of a SageMaker batch transform job.
 
 If the value of `TransformJobStatus` is `Failed`, the event contains the `FailureReason` field, which provides a description of why the training job failed.
 
-```
+```json
 {
   "version": "0",
   "id": "844e2571-85d4-695f-b930-0153b71dcb42",

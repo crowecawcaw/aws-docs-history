@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="studio-notebooks-emr-troubleshooting"></a>
 
 When working with Amazon EMR clusters from Studio or Studio Classic notebooks, you may encounter various potential issues or challenges during the connection or usage process. To help you troubleshoot and resolve these errors, this section provides guidance on common problems that can arise. 
 
@@ -34,7 +33,7 @@ The following are Livy connectivity issues that might occur while using Amazon E
 
   We recommend upgrading your extension `0.0.18` and sooner by running the following upgrade command.
 
-  ```
+  ```python
   pip install --upgrade sagemaker-studio-analytics-extension
   ```
 

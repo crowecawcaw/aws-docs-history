@@ -1,7 +1,6 @@
 
 
 # How to Build Your Own Processing Container (Advanced Scenario)
-<a name="build-your-own-processing-container"></a>
 
 You can provide Amazon SageMaker Processing with a Docker image that has your own code and dependencies to run your data processing, feature engineering, and model evaluation workloads. The following provides information on how to build your own processing container.
 

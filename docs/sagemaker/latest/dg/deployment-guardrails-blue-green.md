@@ -1,7 +1,6 @@
 
 
 # Blue/Green Deployments
-<a name="deployment-guardrails-blue-green"></a>
 
 When you update your endpoint, Amazon SageMaker AI automatically uses a blue/green deployment to maximize the availability of your endpoints. In a blue/green deployment, SageMaker AI provisions a new fleet with the updates (the green fleet). Then, SageMaker AI shifts traffic from the old fleet (the blue fleet) to the green fleet. Once the green fleet operates smoothly for a set evaluation period (called the baking period), SageMaker AI terminates the blue fleet. With the additional capabilities in blue/green deployments, you can utilize traffic shifting modes and auto-rollback monitoring to protect your endpoint from significant production impact.
 

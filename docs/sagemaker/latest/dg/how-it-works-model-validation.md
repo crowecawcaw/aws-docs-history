@@ -1,7 +1,6 @@
 
 
 # Options for evaluating your machine learning model in Amazon SageMaker AI
-<a name="how-it-works-model-validation"></a>
 
 After training a model, evaluate it to determine whether its performance and accuracy enable you to achieve your business goals. You might generate multiple models using different methods and evaluate each. For example, you could apply different business rules for each model, and then apply various measures to determine each model's suitability. You might consider whether your model needs to be more sensitive than specific (or vice versa). 
 

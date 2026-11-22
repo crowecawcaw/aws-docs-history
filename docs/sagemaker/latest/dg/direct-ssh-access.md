@@ -1,7 +1,6 @@
 
 
 # Direct SSH
-<a name="direct-ssh-access"></a>
 
 **Security notice**  
 Direct SSH opens an inbound TCP port on your cluster pods. We recommend [Remote access using SSH over SSM](vscode-access.md) because it requires no open inbound ports. Only enable Direct SSH if remote access through SSM cannot meet your needs (for example, no internet access, or standard SSH tooling required).
@@ -48,7 +47,7 @@ HyperPod instance groups can override VPC config at the group level through `Ove
 
 Check whether your workspace instance group has an SG override:
 
-```
+```bash
 aws sagemaker describe-cluster \
   --cluster-name <HYPERPOD_CLUSTER_NAME> \
   --region <AWS_REGION> \
@@ -60,7 +59,7 @@ aws sagemaker describe-cluster \
 
 If `OverrideSGs` is non-null, add the rule to that Security Group:
 
-```
+```bash
 SG_ID=<SG_ID_FROM_OVERRIDE_VPC_CONFIG>
 aws ec2 authorize-security-group-ingress \
   --group-id $SG_ID \
@@ -75,7 +74,7 @@ aws ec2 authorize-security-group-ingress \
 
 If `OverrideSGs` is null, use the cluster-level Security Group from the SageMaker HyperPod cluster VPC configuration:
 
-```
+```bash
 SG_ID=$(aws sagemaker describe-cluster --cluster-name <HYPERPOD_CLUSTER_NAME> --region <AWS_REGION> \
   --query 'VpcConfig.SecurityGroupIds[0]' --output text)
 aws ec2 authorize-security-group-ingress \
@@ -101,7 +100,7 @@ The following table shows where to find each placeholder value.
 
 Add `directSSH` to your addon configuration alongside `clusterWebUI`:
 
-```
+```yaml
 jupyter-k8s-aws-hyperpod:
   clusterWebUI:
     enabled: true
@@ -130,7 +129,7 @@ The following table shows where to find each placeholder value.
 
 Update the addon:
 
-```
+```bash
 aws eks update-addon \
   --cluster-name <CLUSTER_NAME> \
   --addon-name amazon-sagemaker-spaces \
@@ -144,7 +143,7 @@ To disable Direct SSH, see [Revoking Direct SSH access](#direct-ssh-revoke).
 ### Step 3: Verify Direct SSH is active
 <a name="direct-ssh-admin-verify"></a>
 
-```
+```bash
 # Check addon status
 aws eks describe-addon \
   --cluster-name <CLUSTER_NAME> \
@@ -182,7 +181,7 @@ The SSH username is always `sagemaker-user` regardless of who is connecting. You
 
 Run this command once to create your key pair:
 
-```
+```bash
 ssh-keygen -t ed25519 -f ~/.ssh/my-workspace-key
 ```
 
@@ -206,14 +205,14 @@ Use **either** of the following methods to add your public key. You do not need 
 
 1. Paste into the workspace terminal:
 
-   ```
+   ```bash
    echo "ssh-ed25519 AAAA...your-key... user@machine" >> ~/.ssh/authorized_keys
    ```
 
 #### Add your key through kubectl
 <a name="direct-ssh-enduser-addkey-kubectl"></a>
 
-```
+```bash
 POD=$(kubectl get pods -n <namespace> -l workspace.jupyter.org/workspace-name=<space-name> \
   -o jsonpath='{.items[0].metadata.name}')
 cat ~/.ssh/my-workspace-key.pub | kubectl exec -n <namespace> -i $POD -c workspace -- \
@@ -223,7 +222,7 @@ cat ~/.ssh/my-workspace-key.pub | kubectl exec -n <namespace> -i $POD -c workspa
 ### Step 3: Connect to your workspace using SSH
 <a name="direct-ssh-enduser-connect"></a>
 
-```
+```bash
 ssh -p <SSH_PORT> -i ~/.ssh/my-workspace-key sagemaker-user@<space-name>.<namespace>.<domain>
 ```
 
@@ -232,7 +231,7 @@ Use the SSH port that your administrator configured for Direct SSH. If your admi
 
 Example:
 
-```
+```bash
 ssh -p 2222 -i ~/.ssh/my-workspace-key sagemaker-user@my-space.default.spaces.example.com
 ```
 
@@ -241,7 +240,7 @@ ssh -p 2222 -i ~/.ssh/my-workspace-key sagemaker-user@my-space.default.spaces.ex
 
 This optional step simplifies future connections. Add the following to `~/.ssh/config`:
 
-```
+```text
 Host my-space
     HostName <space-name>.<namespace>.<domain>
     Port <SSH_PORT>
@@ -300,7 +299,7 @@ We recommend rotating your keys periodically.
 
 1. Remove the old key from `authorized_keys` in your workspace terminal:
 
-   ```
+   ```bash
    # List current keys with line numbers
    cat -n ~/.ssh/authorized_keys
    # Remove a specific line (for example, line 1)
@@ -316,7 +315,7 @@ Act immediately. A compromised key grants full workspace access until you remove
 
 1. Remove the compromised key from `authorized_keys`:
 
-   ```
+   ```bash
    # View all authorized keys
    cat ~/.ssh/authorized_keys
    # Option A: Edit directly
@@ -355,7 +354,7 @@ Notify your users before you revoke access. ExternalDNS removes DNS records with
 
 Remove the `directSSH` section from your addon configuration file entirely. Helm defaults `directSSH.enabled` to `false` when the key is absent:
 
-```
+```yaml
 jupyter-k8s-aws-hyperpod:
   clusterWebUI:
     enabled: true
@@ -366,7 +365,7 @@ jupyter-k8s-aws-hyperpod:
 
 Alternatively, explicitly set `enabled: false`:
 
-```
+```yaml
 directSSH:
   enabled: false
 ```
@@ -374,7 +373,7 @@ directSSH:
 ### Step 2: Remove the security group inbound rule
 <a name="direct-ssh-revoke-sg"></a>
 
-```
+```bash
 # Find the rule ID
 aws ec2 describe-security-group-rules \
   --filters Name=group-id,Values=<SG_ID> \
@@ -392,7 +391,7 @@ aws ec2 revoke-security-group-ingress \
 ### Step 3: Apply to cluster
 <a name="direct-ssh-revoke-apply"></a>
 
-```
+```bash
 aws eks update-addon \
   --cluster-name <CLUSTER_NAME> \
   --addon-name amazon-sagemaker-spaces \
@@ -458,7 +457,7 @@ The standard AWS Load Balancer Controller installation documentation does not me
 
 Get your VPC ID:
 
-```
+```bash
 aws sagemaker describe-cluster \
   --cluster-name <HYPERPOD_CLUSTER_NAME> \
   --region <AWS_REGION> \
@@ -468,7 +467,7 @@ aws sagemaker describe-cluster \
 
 Install with the required HyperPod parameters:
 
-```
+```bash
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
   -n kube-system \
   --set clusterName=<EKS_CLUSTER_NAME> \
@@ -501,7 +500,7 @@ Use `--policy=upsert-only` only for testing, and change it to `--policy=sync` fo
 
 Configure your ExternalDNS deployment with the following arguments:
 
-```
+```text
 --provider=aws
 --source=service                          # watches Services (required for headless Services)
 --domain-filter=<ROUTE53_HOSTED_ZONE>     # restricts ExternalDNS to your hosted zone only
@@ -515,7 +514,7 @@ In the preceding arguments, replace the following values:
 
 To verify your current ExternalDNS policy, run the following command:
 
-```
+```bash
 kubectl get deployment -n kube-system external-dns \
   -o jsonpath='{.spec.template.spec.containers[0].args}' | tr ',' '\n' | grep -E 'policy|owner|source|domain'
 ```

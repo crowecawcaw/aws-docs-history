@@ -1,7 +1,6 @@
 
 
 # Using elastic training in Amazon SageMaker HyperPod
-<a name="sagemaker-eks-elastic-training"></a>
 
  Elastic training is a new Amazon SageMaker HyperPod capability that automatically scales training jobs based on compute resource availability and workload priority. Elastic training jobs can start with minimum compute resources required for model training and dynamically scale up or down through automatic checkpointing and resumption across different node configurations (world size). Scaling is achieved by automatically adjusting the number of data-parallel replicas. During high cluster utilization periods, elastic training jobs can be configured to automatically scale down in response to resource requests from higher-priority jobs, freeing up compute for critical workloads. When resources free up during off-peak periods, elastic training jobs automatically scale back up to accelerate training, then scale back down when higher-priority workloads need resources again. 
 
@@ -85,7 +84,7 @@ To keep these scale-ups predictable and under control, we recommend configuring 
 
 For example, a ResourceQuota for 8 ml.p5.48xlarge instances will have the following form:
 
-```
+```yaml
 apiVersion: v1
 kind: ResourceQuota
 metadata:
@@ -110,7 +109,7 @@ HyperPod training operator works with a custom PyTorch launcher provided via Hyp
 
 An example training container:
 
-```
+```dockerfile
 FROM ...
 
 ...
@@ -142,7 +141,7 @@ To enable elastic training for custom PyTorch training scripts, you will need to
 
 In your training loop, check for elastic events during each iteration:
 
-```
+```python
 from hyperpod_elastic_agent.elastic_event_handler import elastic_event_detected
 
 def train_epoch(model, dataloader, optimizer, args):
@@ -173,7 +172,7 @@ def train_epoch(model, dataloader, optimizer, args):
 
 Note: We recommend using PyTorch Distributed Checkpoint (DCP) for saving model and optimizer states, as DCP supports resuming from a checkpoint with different world sizes. Other checkpointing formats may not support checkpoint loading on different world sizes, in which case you'll need to implement custom logic to handle dynamic world size changes.
 
-```
+```python
 import torch.distributed.checkpoint as dcp
 from torch.distributed.checkpoint.state_dict import get_state_dict, set_state_dict
 
@@ -217,7 +216,7 @@ If you're only training for a single-epoch (i.e., one single pass through the en
 
 [HyperPod training operator](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-eks-operator-usage.html) defines a new resource type - `hyperpodpytorchjob`. Elastic training extends this resource type and add the highlighted fields below:
 
-```
+```yaml
 apiVersion: sagemaker.amazonaws.com/v1
 kind: HyperPodPyTorchJob
 metadata:
@@ -286,7 +285,7 @@ The `elastic_policy` field defines the job level configuration for the elastic t
 
 The following is a sample definition of this field, you can also find in on Hyperpod Recipe repo in recipe: `recipes_collection/recipes/fine-tuning/llama/llmft_llama3_1_8b_instruct_seq4k_gpu_sft_lora.yaml`
 
-```
+```yaml
 <static recipe>
 ...
 elastic_policy:
@@ -303,7 +302,7 @@ elastic_policy:
 
 The `scale_config` field defines overriding configurations at each specific scale. It's a key-value dictionary, where key is an integer representing the target scale and value is a subset of base recipe. At `<key>` scale, we use the `<value>` to update the specific configurations in the base/static recipe. The following show an example of this field:
 
-```
+```yaml
 scale_config:   
 ...
   2:
@@ -343,7 +342,7 @@ This is a field to define the batch distributing behavior when the global batch 
 
 Hyperpod recipe jobs support observability through MLFlow. Users can specify MLFlow configurations in recipe:
 
-```
+```yaml
 training_config:
   mlflow:
     tracking_uri: "<local_file_path or MLflow server URL>"
@@ -373,7 +372,7 @@ When more resources become available on the cluster (e.g., other workloads compl
 
 To simulate a situation when more resources become available we can submit a high-priority job, and then release resources back by deleting the high-priority job.
 
-```
+```bash
 # Submit a high-priority job on your cluster. As a result of this command
 # resources will not be available for elastic training
 kubectl apply -f high_prioriy_job.yaml
@@ -408,7 +407,7 @@ Expected behavior:
 
 Elastic jobs can be scaled down automatically when a high-priority job needs resources. To simulate this behavior you can submit an elastic training job, which uses the maximum number of available resources from the start of training, than submit a high priority job, and observe preemption behavior.
 
-```
+```bash
 # Submit an elastic job with normal priority
 kubectl apply -f hyperpod_job_with_elasticity.yaml
 
@@ -446,7 +445,7 @@ Preemption can cause the entire training job to pause, which may not be desirabl
 
 This configuration enables partial preemption, where only the elastic capacity is reclaimed—maintaining training continuity while still supporting fair resource sharing in multi-tenant environments. Example:
 
-```
+```yaml
 apiVersion: sagemaker.amazonaws.com/v1
 kind: HyperPodPyTorchJob
 metadata:

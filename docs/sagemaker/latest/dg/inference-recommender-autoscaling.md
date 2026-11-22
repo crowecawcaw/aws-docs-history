@@ -1,7 +1,6 @@
 
 
 # Get autoscaling policy recommendations
-<a name="inference-recommender-autoscaling"></a>
 
 With Amazon SageMaker Inference Recommender, you can get recommendations for autoscaling policies for your SageMaker AI endpoint based on your anticipated traffic pattern. If you’ve already completed an inference recommendation job, you can provide the details of the job to get a recommendation for an autoscaling policy that you can apply to your endpoint.
 
@@ -30,7 +29,7 @@ The following example shows the fields for the [ GetScalingConfigurationRecommen
   + `MinInvocationsPerMinute` – (Optional) The minimum number of expected requests to your endpoint per minute.
   + `MaxInvocationsPerMinute` – (Optional) The maximum number of expected requests to your endpoint per minute.
 
-```
+```json
 {
     "InferenceRecommendationsJobName": "{{string}}", // Required
     "RecommendationId": "{{string}}", // Optional, provide one of RecommendationId or EndpointName
@@ -50,7 +49,7 @@ After submitting your request, you’ll receive a response with autoscaling poli
 
 The following example shows the response from the [ GetScalingConfigurationRecommendation](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetScalingConfigurationRecommendation.html) API:
 
-```
+```json
 {
     "InferenceRecommendationsJobName": "string", 
     "RecommendationId": "string", // One of RecommendationId or EndpointName is shown

@@ -1,7 +1,6 @@
 
 
 # HyperPod in Studio
-<a name="sagemaker-hyperpod-studio"></a>
 
 You can launch machine learning workloads on Amazon SageMaker HyperPod clusters and view HyperPod cluster information in Amazon SageMaker Studio. The increased visibility into cluster details and hardware metrics can help your team identify the right candidate for your pre-training or fine-tuning workloads. 
 

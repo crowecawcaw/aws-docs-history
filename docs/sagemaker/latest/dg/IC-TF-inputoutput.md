@@ -1,14 +1,13 @@
 
 
 # Input and output interface for the Image Classification - TensorFlow algorithm
-<a name="IC-TF-inputoutput"></a>
 
 Each of the pretrained models listed in TensorFlow Hub Models can be fine-tuned to any dataset with any number of image classes. Be mindful of how to format your training data for input to the Image Classification - TensorFlow model.
 + **Training data input format:** Your training data should be a directory with as many subdirectories as the number of classes. Each subdirectory should contain images belonging to that class in .jpg, .jpeg, or .png format.
 
 The following is an example of an input directory structure. This example dataset has two classes: `roses` and `dandelion`. The image files in each class folder can have any name. The input directory should be hosted in an Amazon S3 bucket with a path similar to the following: `s3://{{bucket_name}}/{{input_directory}}/`. Note that the trailing `/` is required.
 
-```
+```None
 input_directory
     |--roses
         |--abc.jpg
@@ -39,7 +38,7 @@ You can host the fine-tuned model that results from your TensorFlow Image Classi
 
 Running inference results in probability values, class labels for all classes, and the predicted label corresponding to the class index with the highest probability encoded in JSON format. The Image Classification - TensorFlow model processes a single image per request and outputs only one line. The following is an example of a JSON format response:
 
-```
+```json
 accept: application/json;verbose
 
  {"probabilities": [prob_0, prob_1, prob_2, ...],

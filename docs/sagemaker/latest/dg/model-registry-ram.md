@@ -1,7 +1,6 @@
 
 
 # Cross-account discoverability
-<a name="model-registry-ram"></a>
 
 By exploring and accessing model package groups registered in other accounts, data scientists and data engineers can promote data consistency, streamline collaboration, and reduce duplication of effort. With Amazon SageMaker Model Registry, you can share model package groups across accounts. There are two categories of permissions associated with the sharing of resources:
 + **Discoverability**: *Discoverability* is the ability of the resource consumer account to see the model package groups shared by one or more resource owner accounts. Discoverability is only possible if the resource owner attaches the necessary resource policies to the shared model package groups. The resource consumer can view all shared model package groups in the AWS RAM UI and AWS CLI.

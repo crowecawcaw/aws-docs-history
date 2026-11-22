@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon SageMaker AI model customization
-<a name="security-iam-awsmanpol-model-customization"></a>
 
 These AWS managed policies add permissions required to use Amazon SageMaker AI model customization. The policies are available in your AWS account and are used by execution roles created from the SageMaker AI console.
 
@@ -32,7 +31,7 @@ This AWS managed policy includes the following permissions.
 
 **Example Permissions policy**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",
     "Statement": [

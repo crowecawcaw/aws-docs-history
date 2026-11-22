@@ -1,7 +1,6 @@
 
 
 # Invoke a Multi-Model Endpoint
-<a name="invoke-multi-model-endpoint"></a>
 
 To invoke a multi-model endpoint, use the [`invoke_endpoint`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.invoke_endpoint) from the SageMaker AI Runtime just as you would invoke a single model endpoint, with one change. Pass a new `TargetModel` parameter that specifies which of the models at the endpoint to target. The SageMaker AI Runtime `InvokeEndpoint` request supports `X-Amzn-SageMaker-Target-Model` as a new header that takes the relative path of the model specified for invocation. The SageMaker AI system constructs the absolute path of the model by combining the prefix that is provided as part of the `CreateModel` API call with the relative path of the model.
 
@@ -25,7 +24,7 @@ response = runtime_sagemaker_client.invoke_endpoint(
 
  The following example shows how to make a CSV request with two rows using the AWS Command Line Interface (AWS CLI):
 
-```
+```bash
 aws sagemaker-runtime invoke-endpoint \
   --endpoint-name {{"<ENDPOINT_NAME>"}} \
   --body {{"1.0,2.0,5.0"$'\n'"2.0,3.0,4.0"}} \
@@ -50,7 +49,7 @@ The first time you call `invoke_endpoint` for a model, the model is downloaded f
 
 SageMaker AI returns a response for a call to `invoke_endpoint` within 60 seconds. Some models are too large to download within 60 seconds. If the model does not finish loading before the 60 second timeout limit, the request to `invoke_endpoint` returns with the error code `ModelNotReadyException`, and the model continues to download and load into the inference container for up to 360 seconds. If you get a `ModelNotReadyException` error code for an `invoke_endpoint` request, retry the request. By default, the AWS SDKs for Python (Boto 3) (using [Legacy retry mode](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/retries.html#legacy-retry-mode)) and Java retry `invoke_endpoint` requests that result in `ModelNotReadyException` errors. You can configure the retry strategy to continue retrying the request for up to 360 seconds. If you expect your model to take longer than 60 seconds to download and load into the container, set the SDK socket timeout to 70 seconds. For more information about configuring the retry strategy for the AWS SDK for Python (Boto3), see [Configuring a retry mode](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/retries.html#configuring-a-retry-mode). The following code shows an example that configures the retry strategy to retry calls to `invoke_endpoint` for up to 180 seconds.
 
-```
+```python
 import boto3
 from botocore.config import Config
 

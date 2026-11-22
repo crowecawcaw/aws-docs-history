@@ -1,7 +1,6 @@
 
 
 # Configure a training job with a heterogeneous cluster in Amazon SageMaker AI
-<a name="train-heterogeneous-cluster-configure"></a>
 
 This section provides instructions on how to run a training job using a heterogeneous cluster that consists of multiple instance types.
 
@@ -28,7 +27,7 @@ For more information about available instance types and the maximum number of in
 
    The preceding diagram shows a conceptual example of how pre-training processes, such as data preprocessing, can be assigned to the CPU instance group and stream the preprocessed data to the GPU instance group.
 
-   ```
+   ```py
    from sagemaker.instance_group import InstanceGroup
    
    instance_group_1 = InstanceGroup(
@@ -43,7 +42,7 @@ For more information about available instance types and the maximum number of in
 
    The following example shows how to set two training input channels and assign the instance groups created in the example of the previous step. You can also specify Amazon S3 bucket paths for the instance groups to process data for your usage purposes.
 
-   ```
+   ```py
    from sagemaker.train.configs import InputData
    from sagemaker.core.shapes import Channel, DataSource, S3DataSource
    
@@ -84,7 +83,7 @@ The heterogeneous cluster feature is available through the SageMaker AI [PyTorch
 
    **PyTorch**
 
-   ```
+   ```py
    from sagemaker.train import ModelTrainer
    from sagemaker.train.configs import SourceCode
    from sagemaker.core import image_uris
@@ -106,7 +105,7 @@ The heterogeneous cluster feature is available through the SageMaker AI [PyTorch
 
    **TensorFlow**
 
-   ```
+   ```py
    from sagemaker.train import ModelTrainer
    from sagemaker.train.configs import SourceCode
    from sagemaker.core import image_uris
@@ -132,7 +131,7 @@ To find a complete list of available framework containers, framework versions, a
 
 1. Start the training job with the training input channels configured with the instance groups.
 
-   ```
+   ```py
    model_trainer.train(
        inputs={
            'training': {{training_input_channel_1}}, 

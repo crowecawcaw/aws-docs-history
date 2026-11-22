@@ -1,7 +1,6 @@
 
 
 # View shared model package groups
-<a name="model-registry-ram-view-shared"></a>
 
 After the resource owner completes the previous steps to create a resource share and the consumer accepts the invitation for the share, the consumer can view the shared model package groups using the AWS CLI or in the AWS RAM console.
 

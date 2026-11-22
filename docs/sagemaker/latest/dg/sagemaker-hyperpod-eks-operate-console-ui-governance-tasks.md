@@ -1,7 +1,6 @@
 
 
 # Tasks
-<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-tasks"></a>
 
 The following provides information on Amazon SageMaker HyperPod EKS cluster tasks. Tasks are operations or jobs that are sent to the cluster. These can be machine learning operations, like training, running experiments, or inference. The viewable task details list include status, run time, and how much compute is being used per task. 
 

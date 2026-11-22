@@ -1,7 +1,6 @@
 
 
 # Prepare data for model building
-<a name="canvas-prepare-data"></a>
 
 **Note**  
 You can now do advanced data preparation in SageMaker Canvas with Data Wrangler, which provides you with a natural language interface and over 300 built-in transformations. For more information, see [Data preparation](canvas-data-prep.md).

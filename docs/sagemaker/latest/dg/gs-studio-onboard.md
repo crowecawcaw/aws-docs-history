@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker AI domain overview
-<a name="gs-studio-onboard"></a>
 
 Amazon SageMaker AI uses domains to organize user profiles, applications, and their associated resources. An Amazon SageMaker AI domain consists of the following:
 + An associated Amazon Elastic File System (Amazon EFS) volume

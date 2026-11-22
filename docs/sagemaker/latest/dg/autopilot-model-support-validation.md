@@ -1,7 +1,6 @@
 
 
 # Training modes and algorithm support
-<a name="autopilot-model-support-validation"></a>
 
 Autopilot supports different training modes and algorithms to address machine learning problems, report on quality and objective metrics, and to use cross-validation automatically, when needed.
 

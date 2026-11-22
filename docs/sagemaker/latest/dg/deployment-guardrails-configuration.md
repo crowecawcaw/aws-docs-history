@@ -1,7 +1,6 @@
 
 
 # Auto-Rollback Configuration and Monitoring
-<a name="deployment-guardrails-configuration"></a>
 
 Amazon CloudWatch alarms are a prerequisite for using baking periods in deployment guardrails. You can only use the auto-rollback functionality in deployment guardrails if you set up CloudWatch alarms that can monitor an endpoint. If any of your alarms trip during the specified monitoring period, SageMaker AI initiates a complete rollback to the old endpoint to protect your application. If you do not have any CloudWatch alarms set up to monitor your endpoint, then the auto-rollback functionality does not work during your deployment.
 
@@ -29,7 +28,7 @@ Invocation errors coming from both the old fleet and new fleet contribute to the
 **Note**  
 For this alarm type, if your old fleet trips the alarm during the deployment, SageMaker AI terminates your deployment. Therefore, if your current production fleet already causes errors, consider using or modifying one of the following examples that only monitors the new fleet for errors.
 
-```
+```json
 #Applied deployment type: all types
 {
     "AlarmName": "EndToEndDeploymentHighErrorRateAlarm",
@@ -74,7 +73,7 @@ CloudWatch publishes the metrics with the dimension `EndpointConfigName:{New-Ep-
 
 You can use the following alarm example with any deployment type.
 
-```
+```json
 #Applied deployment type: all types
 {
     "AlarmName": "NewEndpointConfigVersionHighModelLatencyAlarm",

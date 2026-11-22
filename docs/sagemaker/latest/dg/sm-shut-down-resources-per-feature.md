@@ -1,7 +1,6 @@
 
 
 # Where to shut down resources per SageMaker AI features
-<a name="sm-shut-down-resources-per-feature"></a>
 
 You can shut down your Amazon SageMaker AI resources to avoid incurring unwanted charges. In the following table we list the SageMaker AI features or resources and provide links to the documentation on how to shut down SageMaker AI resources. 
 

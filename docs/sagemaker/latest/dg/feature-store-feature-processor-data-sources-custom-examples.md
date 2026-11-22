@@ -1,7 +1,6 @@
 
 
 # Custom data source examples
-<a name="feature-store-feature-processor-data-sources-custom-examples"></a>
 
 This section provides examples of custom data sources implementations for Feature Processors. For more information on custom data sources, see [Custom data sources](feature-store-feature-processor-data-sources-custom.md).
 

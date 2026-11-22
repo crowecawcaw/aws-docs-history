@@ -1,7 +1,6 @@
 
 
 # Clean Up Resources for Custom Images in Amazon SageMaker Studio Classic
-<a name="studio-byoi-cleanup"></a>
 
 **Note**  
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For information about using the updated Studio experience, see [Amazon SageMaker Studio](studio-updated.md).  
@@ -44,7 +43,7 @@ The following section shows how to clean up resources from the AWS CLI.
 
 1. Delete the custom images and then save the file.
 
-   ```
+   ```json
    "DefaultUserSettings": {
      "KernelGatewayAppSettings": {
         "CustomImages": [
@@ -65,7 +64,7 @@ The following section shows how to clean up resources from the AWS CLI.
 
    The response should look similar to the following.
 
-   ```
+   ```json
    {
        "DomainArn": "arn:aws:sagemaker:us-east-2:acct-id:domain/d-xxxxxxxxxxxx"
    }

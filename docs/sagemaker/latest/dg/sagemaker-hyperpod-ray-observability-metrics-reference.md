@@ -1,7 +1,6 @@
 
 
 # Ray metrics reference
-<a name="sagemaker-hyperpod-ray-observability-metrics-reference"></a>
 
 The SageMaker HyperPod Observability add-on collects the metrics that Ray exports. We do not add, rename, or remove Ray metrics, so metric names and labels match open source Ray.
 

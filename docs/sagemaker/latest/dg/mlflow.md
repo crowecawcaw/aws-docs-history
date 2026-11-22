@@ -1,7 +1,6 @@
 
 
 # Accelerate generative AI development using managed MLflow on Amazon SageMaker AI
-<a name="mlflow"></a>
 
 Fully managed MLflow on Amazon SageMaker AI enables you to accelerate generative AI by making it easier to track experiments and monitor performance of models and AI applications using a single tool.
 
@@ -177,7 +176,7 @@ All MLflow App data plane calls are recorded under the single event name `CallMl
 
 The following is an example `CallMlflowApp` data event for a `search_experiments` call, with account-specific values redacted:
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {

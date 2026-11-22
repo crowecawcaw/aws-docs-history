@@ -1,7 +1,6 @@
 
 
 # Advanced settings
-<a name="cluster-specific-configurations-advanced-settings"></a>
 
 The SageMaker HyperPod recipe adapter is built on top of the Nvidia Nemo and Pytorch-lightning frameworks. If you've already used these frameworks, integrating your custom models or features into the SageMaker HyperPod recipe adapter is a similar process. In addition to modifying the recipe adapter, you can change your own pre-training or fine-tuning script. For guidance on writing your custom training script, see [examples](https://github.com/aws/sagemaker-hyperpod-training-adapter-for-nemo/tree/main/examples).
 

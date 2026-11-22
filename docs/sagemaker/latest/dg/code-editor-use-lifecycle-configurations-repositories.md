@@ -1,7 +1,6 @@
 
 
 # Create a lifecycle configuration to clone repositories into a Code Editor application
-<a name="code-editor-use-lifecycle-configurations-repositories"></a>
 
 This section shows how to clone a repository and create a Code Editor application with the lifecycle configuration attached.
 
@@ -14,7 +13,7 @@ This section shows how to clone a repository and create a Code Editor applicatio
 
 1. Clone the repository of your choice in your lifecycle configuration script. 
 
-   ```
+   ```zsh
    export REPOSITORY_URL="{{https://github.com/aws-samples/sagemaker-studio-lifecycle-config-examples.git}}"
    git -C {{/home/sagemaker-user}} clone $REPOSITORY_URL
    ```

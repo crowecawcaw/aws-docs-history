@@ -1,7 +1,6 @@
 
 
 # Certificate download timeout
-<a name="sagemaker-hyperpod-model-deployment-ts-certificate"></a>
 
 When deploying a SageMaker AI endpoint, the creation process fails due to the inability to download the certificate authority (CA) certificate in a VPC environment. For detailed configuration steps, refer to the [Admin guide](https://github.com/aws-samples/sagemaker-genai-hosting-examples/blob/main/SageMakerHyperpod/hyperpod-inference/Hyperpod_Inference_Admin_Notebook.ipynb).
 

@@ -1,7 +1,6 @@
 
 
 # Get an RStudio license
-<a name="rstudio-license"></a>
 
 RStudio on Amazon SageMaker AI is a paid product and requires that each user is appropriately licensed. Licenses for RStudio on Amazon SageMaker AI may be obtained from RStudio PBC directly, or by purchasing a subscription to Posit Workbench on AWS Marketplace. For existing customers of Posit Workbench Enterprise, licenses are issued at no additional cost. To use an RStudio license with Amazon SageMaker AI, you must first have a valid RStudio license registered with AWS License Manager. For licenses purchased directly through Rstudio PBC, a licenses grant for your AWS Account must be created. Contact RStudio for direct license purchases or to enable existing licenses in AWS License Manager. For more information about registering a license with AWS License Manager, see [Seller issued licenses in AWS License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/seller-issued-licenses.html). 
 

@@ -1,7 +1,6 @@
 
 
 # Allow Access only from within your VPC
-<a name="mlflow-private-link-restrict"></a>
 
 Users outside your VPC can connect to SageMaker AI MLflow or over the internet even if you set up an interface endpoint in your VPC.
 
@@ -19,7 +18,7 @@ The following policy allows connections only to callers within the subnet where 
 
 ****  
 
-```
+```json
 {
     "Id": "mlflow-example-1",
     "Version":"2012-10-17",		 	 	 
@@ -52,7 +51,7 @@ The following policy allows connections only to those made through the interface
 
 ****  
 
-```
+```json
 {
     "Id": "sagemaker-mlflow-example-2",
     "Version":"2012-10-17",		 	 	 
@@ -88,7 +87,7 @@ The following policy allows connections only from the specified range of IP addr
 
 ****  
 
-```
+```json
 {
     "Id": "sagemaker-mlflow-example-3",
     "Version":"2012-10-17",		 	 	 
@@ -124,7 +123,7 @@ If you are accessing SageMaker AI MLflow through an interface endpoint, you can 
 
 ****  
 
-```
+```json
 {
     "Id": "sagemaker-mlflow-example-4",
     "Version":"2012-10-17",		 	 	 
@@ -159,7 +158,7 @@ If you are accessing SageMaker AI MLflow through an interface endpoint, you can 
 
 The preceding examples apply to an MLflow tracking server, which uses the `sagemaker-mlflow:*` action. For an MLflow App, use the `sagemaker:CallMlflowAppApi` action instead. The same `aws:SourceVpce`, `aws:SourceIp`, and `aws:VpcSourceIp` condition keys apply. For example, the following policy is the MLflow App equivalent of Example 2. It allows connections only through the interface endpoint that you created:
 
-```
+```json
 {
     "Id": "mlflow-app-example-1",
     "Version": "2012-10-17",

@@ -1,7 +1,6 @@
 
 
 # Deploy publicly available foundation models with the `ModelBuilder` class
-<a name="jumpstart-foundation-models-use-python-sdk-model-class"></a>
 
 You can deploy a built-in algorithm or pre-trained model to a SageMaker AI endpoint in just a few lines of code using the SageMaker Python SDK.
 
@@ -9,7 +8,7 @@ You can deploy a built-in algorithm or pre-trained model to a SageMaker AI endpo
 
 1. Using the model ID, define your model as a JumpStart model.
 
-   ```
+   ```python
    from sagemaker.serve import ModelBuilder
    from sagemaker.core.jumpstart.configs import JumpStartConfig
    
@@ -19,14 +18,14 @@ You can deploy a built-in algorithm or pre-trained model to a SageMaker AI endpo
 
 1. Use the `deploy` method to automatically deploy your model for inference. In this example, we use the FLAN-T5 XL model from Hugging Face.
 
-   ```
+   ```python
    model = model_builder.build()
    endpoint = model_builder.deploy()
    ```
 
 1. You can then run inference with the deployed model using the `invoke` method. Text-generation models like this one accept a JSON request body with an `inputs` key. Serialize the payload with `json.dumps` and set the content type to `application/json`.
 
-   ```
+   ```python
    import json
    
    question = {{"What is Southern California often abbreviated as?"}}
@@ -45,7 +44,7 @@ For more information about the `ModelBuilder` class and its parameters, see [Mod
 
 When deploying a pre-trained model, you can optionally specify a model version on your `JumpStartConfig`. You can also choose an instance type on your `ModelBuilder` (for example, with the `instance_type` parameter). All JumpStart models have a default instance type. Retrieve the default deployment instance type using the following code:
 
-```
+```python
 from sagemaker.core import instance_types
 
 instance_type = instance_types.retrieve_default(
@@ -62,7 +61,7 @@ See all supported instance types for a given JumpStart model with the `instance_
 
 An inference component is a SageMaker AI hosting object that you can use to deploy one or more models to an endpoint for increased flexibility and scalability. You must change the `endpoint_type` for your JumpStart model to be inference-component-based rather than the default model-based endpoint. Import `EndpointType` and deploy with the inference-component-based endpoint type:
 
-```
+```python
 from sagemaker.core.enums import EndpointType
 
 endpoint = model_builder.deploy(
@@ -78,7 +77,7 @@ For more information on creating endpoints with inference components and deployi
 
 To check valid data input and output formats for inference, you can use the `retrieve_options()` method from the `Serializers` and `Deserializers` classes.
 
-```
+```python
 from sagemaker.core.serializers.implementations import retrieve_options as retrieve_serializer_options
 from sagemaker.core.deserializers.implementations import retrieve_options as retrieve_deserializer_options
 
@@ -91,7 +90,7 @@ print(retrieve_deserializer_options(model_id=model_id, model_version=model_versi
 
 Similarly, you can use the `retrieve_options()` method to check the supported content and accept types for a model.
 
-```
+```python
 from sagemaker.core import content_types, accept_types
 
 print(content_types.retrieve_options(model_id=model_id, model_version=model_version))

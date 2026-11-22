@@ -1,7 +1,6 @@
 
 
 # Expert parallelism
-<a name="model-parallel-core-features-v2-expert-parallelism"></a>
 
 A *Mixture of Experts* (MoE) model is a type of transformer model that employs a *sparse* approach, making it lighter for training compared to training traditional dense models. In this MoE neural network architecture, only a subset of the model's components called *experts* are utilized for each input. This approach offers several advantages, including more efficient training and faster inference, even with a larger model size. In other words, with the same compute budget for training a full dense model, you can fit a larger model or dataset when using MoE.
 
@@ -38,7 +37,7 @@ PyTorch v2.2.0 and later
 
 As part of [Step 1](model-parallel-use-api-v2.md#model-parallel-adapt-pytorch-script-v2), initialize your script with `torch.sagemaker.init()` to activate SMP v2 and wrap your model with the [`torch.sagemaker.transform`](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-transform) API, adding the `config` parameter to the API to activate MoE. The following code snippet shows how to activate SMP MoE for the generic model class `AutoModelForCausalLM` pulling an MoE transformer model configuration using the `from_config` method for training from scratch, or the `from_pretrained` method for fine-tuning. To learn more about the SMP `MoEConfig` class, see [`torch.sagemaker.moe.moe_config.MoEConfig`](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-moe).
 
-```
+```py
 # Import the torch.sagemaker.transform API and initialize.
 import torch.sagemaker as tsm
 tsm.init()
@@ -72,7 +71,7 @@ model = tsm.transform(
 
 As part of [Step 2](model-parallel-use-api-v2.md#model-parallel-launch-a-training-job-v2), add the following parameter to the SMP configuration dictionary for the SageMaker PyTorch ModelTrainer.
 
-```
+```py
 {   
     ..., # other SMP config parameters
     "expert_parallel_degree": {{8}}

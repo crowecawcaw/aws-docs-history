@@ -1,7 +1,6 @@
 
 
 # Attach a Git repository (AWS CLI)
-<a name="studio-updated-git-attach-cli"></a>
 
 This section shows how to attach a Git repository (repo) URL using the AWS CLI. After you attach the Git repo URL, you can clone it by following the steps in [Clone a Git repo in Amazon SageMaker Studio](#studio-updated-tasks-git).
 

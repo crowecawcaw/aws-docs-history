@@ -1,7 +1,6 @@
 
 
 # Supported models reference
-<a name="optimization-supported-models"></a>
 
 The following tables show the models for which SageMaker AI support inference optimization, and they show the supported optimization techniques.
 

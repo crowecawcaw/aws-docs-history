@@ -1,7 +1,6 @@
 
 
 # What is Ray
-<a name="sagemaker-hyperpod-ray-what-is-ray"></a>
 
 Ray is an open source unified framework for scaling AI and Python applications. It provides the compute layer for parallel processing, so you do not need to be a distributed systems expert to run work across a cluster. You keep writing PyTorch, JAX, or vLLM, and Ray handles the scaling. For the full overview, see [Overview](https://docs.ray.io/en/latest/ray-overview/index.html) in the Ray documentation.
 

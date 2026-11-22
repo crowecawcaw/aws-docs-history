@@ -1,7 +1,6 @@
 
 
 # Reusing Data Flows for Different Datasets
-<a name="data-wrangler-parameterize"></a>
 
 For Amazon Simple Storage Service (Amazon S3) data sources, you can create and use parameters. A parameter is a variable that you've saved in your Data Wrangler flow. Its value can be any portion of the data source's Amazon S3 path. Use parameters to quickly change the data that you're importing into a Data Wrangler flow or exporting to a processing job. You can also use parameters to select and import a specific subset of your data.
 

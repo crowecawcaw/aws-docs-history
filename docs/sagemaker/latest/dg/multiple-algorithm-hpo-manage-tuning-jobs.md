@@ -1,7 +1,6 @@
 
 
 # Manage Hyperparameter Tuning and Training Jobs
-<a name="multiple-algorithm-hpo-manage-tuning-jobs"></a>
 
 A tuning job can contain many training jobs and creating and managing these jobs and their definitions can become a complex and onerous task. SageMaker AI provides tools to help facilitate the management of these jobs. Tuning jobs you have run can be accessed from the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/). Select **Hyperparameter tuning job** from the **Training** menu to see the list. This page is also where you start the procedure to create a new tuning job by selecting **Create hyperparameter tuning job**. 
 

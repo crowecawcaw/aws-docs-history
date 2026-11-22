@@ -1,7 +1,6 @@
 
 
 # Inference operator fails to start
-<a name="sagemaker-hyperpod-model-deployment-ts-startup"></a>
 
 Inference operator pod failed to start and is causing the following error message. This error is due to permission policy on the operator execution role not being authorized to perform `sts:AssumeRoleWithWebIdentity`. Due to this, the operator part running on the control plane is not started.
 
@@ -27,7 +26,7 @@ HyperpodInferenceAccessPolicy-ml-cluster to include all resources
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

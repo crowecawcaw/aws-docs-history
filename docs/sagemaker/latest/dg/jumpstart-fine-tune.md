@@ -1,7 +1,6 @@
 
 
 # Fine-Tune a Model
-<a name="jumpstart-fine-tune"></a>
 
 Fine-tuning trains a pretrained model on a new dataset without training from scratch. This process, also known as transfer learning, can produce accurate models with smaller datasets and less training time. You can fine-tune a model if its card shows a **fine-tunable** attribute set to **Yes**. 
 

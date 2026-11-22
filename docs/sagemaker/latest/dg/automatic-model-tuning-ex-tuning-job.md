@@ -1,7 +1,6 @@
 
 
 # Configure and Launch a Hyperparameter Tuning Job
-<a name="automatic-model-tuning-ex-tuning-job"></a>
 
 **Important**  
 Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studio Classic to create Amazon SageMaker resources must also grant permissions to add tags to those resources. The permission to add tags to resources is required because Studio and Studio Classic automatically tag any resources they create. If an IAM policy allows Studio and Studio Classic to create resources but does not allow tagging, "AccessDenied" errors can occur when trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions).  
@@ -37,7 +36,7 @@ The following code example shows how to configure a hyperparameter tuning job us
 
 In this code example, the objective metric for the hyperparameter tuning job finds the hyperparameter configuration that maximizes `validation:auc`. SageMaker AI built-in algorithms automatically write the objective metric to CloudWatch Logs. The following code example also shows how to set a `RandomSeed`. 
 
-```
+```python
 tuning_job_config = {
     "ParameterRanges": {
       "CategoricalParameterRanges": [],
@@ -102,7 +101,7 @@ The following code example sets static values for the `eval_metric`, `num_round`
 ------
 #### [ SageMaker Python SDK v1 ]
 
-```
+```python
 from sagemaker.amazon.amazon_estimator import get_image_uri
 training_image = get_image_uri(region, 'xgboost', repo_version='1.0-1')
 
@@ -165,7 +164,7 @@ training_job_definition = {
 ------
 #### [ SageMaker Python SDK v2 ]
 
-```
+```python
 training_image = sagemaker.image_uris.retrieve('xgboost', region, '1.0-1')
 
 s3_input_train = 's3://{}/{}/train'.format(bucket, prefix)

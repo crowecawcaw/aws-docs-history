@@ -1,7 +1,6 @@
 
 
 # Prerequisites for using SageMaker HyperPod
-<a name="sagemaker-hyperpod-prerequisites"></a>
 
 The following sections walk you through prerequisites before getting started with SageMaker HyperPod.
 
@@ -107,6 +106,7 @@ SageMaker HyperPod supports multi-Availability Zone deployment. For more informa
   + The subnet CIDR block size cannot be changed after creation. This is especially important when you use large accelerated instances like P5. Without sufficient block size, you must recreate your clusters when scaling up.
   + When choosing the appropriate subnet CIDR block size, consider these factors: your instance types, expected number of instances, and the number of IP addresses consumed by each instance.
   + For Slurm-orchestrated clusters, each P5 instance can create 32 IP addresses (one per network card). For EKS-orchestrated clusters, each P5 instance can create 81 IP addresses (50 from the primary card plus one from each of the remaining 31 cards). For detailed specifications, see [Network specifications ](https://docs.aws.amazon.com/ec2/latest/instancetypes/ac.html#ac_network) from *Amazon EC2 Instance Types Developer Guide*.
+  + For EKS-orchestrated clusters that use [Increasing pods per node with dynamic ENI attachment](sagemaker-hyperpod-eks-dynamic-eni-attachment.md), each node uses more IP addresses as its pod count grows. Size your subnets for the pod density you expect. More ENIs per node also count against the **Network interfaces per Region** quota.
   + For examples of CloudFormation templates that specify the subnet CIDR block size, see the [HyperPod Slurm template](https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/sagemaker-hyperpod.yaml) and [HyperPod Amazon EKS template](https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/7.sagemaker-hyperpod-eks/cfn-templates/nested-stacks/private-subnet-stack.yaml) in the [awsome-distributed-training repository](https://github.com/aws-samples/awsome-distributed-training/tree/main).
 
 ## Setting up SageMaker HyperPod clusters across multiple AZs

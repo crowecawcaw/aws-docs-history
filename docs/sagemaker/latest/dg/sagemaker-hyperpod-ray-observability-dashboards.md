@@ -1,7 +1,6 @@
 
 
 # Ray Grafana dashboards
-<a name="sagemaker-hyperpod-ray-observability-dashboards"></a>
 
 The SageMaker HyperPod Observability add-on provisions Grafana dashboards for your Ray workloads. You get them without importing dashboard JSON yourself.
 

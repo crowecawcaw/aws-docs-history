@@ -1,7 +1,6 @@
 
 
 # Check the version of Code Editor
-<a name="code-editor-use-version"></a>
 
 The following steps show how to check the version of your Code Editor application.
 

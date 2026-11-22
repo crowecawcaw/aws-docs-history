@@ -1,7 +1,6 @@
 
 
 # Lift-and-shift Python code with the @step decorator
-<a name="pipelines-step-decorator"></a>
 
 The `@step` decorator is a feature that converts your local machine learning (ML) code into one or more pipeline steps. You can write your ML function as you would for any ML project. Once tested locally or as a training job using the `@remote` decorator, you can convert the function to a SageMaker AI pipeline step by adding a `@step` decorator. You can then pass the output of the `@step`-decorated function call as a step to Pipelines to create and run a pipeline. You can chain a series of functions with the `@step` decorator to create a multi-step directed acyclic graph (DAG) pipeline as well.
 

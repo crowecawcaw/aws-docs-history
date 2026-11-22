@@ -1,7 +1,6 @@
 
 
 # Adding model versions in Amazon SageMaker Canvas
-<a name="canvas-update-model"></a>
 
 In Amazon SageMaker Canvas, you can update the models that you’ve built by adding *versions*. Each model that you build has a version number. The first model is version 1 or `V1`. You can use model versions to see changes in prediction accuracy when you update your data or use [advanced transformations](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-prepare-data.html).
 

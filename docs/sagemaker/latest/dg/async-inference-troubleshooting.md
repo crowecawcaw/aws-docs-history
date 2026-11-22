@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="async-inference-troubleshooting"></a>
 
 The following FAQs can help you troubleshoot issues with your Amazon SageMaker Asynchronous Inference endpoints.
 

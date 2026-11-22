@@ -1,7 +1,6 @@
 
 
 # Internetwork Traffic Privacy
-<a name="inter-network-privacy"></a>
 
 This topic describes how Amazon SageMaker AI secures connections from the service to other locations.
 

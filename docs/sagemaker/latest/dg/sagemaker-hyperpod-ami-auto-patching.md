@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker HyperPod AMI automatic patching
-<a name="sagemaker-hyperpod-ami-auto-patching"></a>
 
 Amazon SageMaker HyperPod can automatically apply security-only AMI patches to your clusters without disrupting running workloads. Auto-patching is an opt-in capability that you configure for each instance group, allowing HyperPod to keep your nodes on a secure, up-to-date AMI version on a predictable cadence while respecting active training jobs.
 

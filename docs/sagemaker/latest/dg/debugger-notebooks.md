@@ -1,7 +1,6 @@
 
 
 # Debugger example notebooks
-<a name="debugger-notebooks"></a>
 
 **Note**  
 Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
@@ -15,7 +14,7 @@ To clone the example repository to SageMaker Studio, follow the instructions at 
 **Important**  
 To use the new Debugger features, you need to upgrade the SageMaker Python SDK and the `SMDebug` client library. In your iPython kernel, Jupyter Notebook, or JupyterLab environment, run the following code to install the latest versions of the libraries and restart the kernel.  
 
-```
+```py
 import sys
 import IPython
 !{sys.executable} -m pip install -U sagemaker smdebug

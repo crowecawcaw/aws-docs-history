@@ -1,7 +1,6 @@
 
 
 # Create a shadow test
-<a name="shadow-tests-create"></a>
 
  You can create a shadow test to compare the performance of a shadow variant against a production variant. You can run the test on an existing endpoint that is serving inference requests or you can create a new endpoint on which to run the test. 
 

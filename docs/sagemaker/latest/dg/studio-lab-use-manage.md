@@ -1,7 +1,6 @@
 
 
 # Manage your environment
-<a name="studio-lab-use-manage"></a>
 
 **Note**  
 Amazon SageMaker Studio Lab is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Studio Lab, but we do not plan to introduce new features. For more information, see [Studio Lab availability change](studio-lab-availability-change.md). 
@@ -32,7 +31,7 @@ Studio Lab uses conda environments to encapsulate the software packages that are
 ## View environments
 <a name="studio-lab-use-view-conda-envs"></a>
 
-To view the environments in Studio Lab you can use a terminal or Jupyter notebook. The following command will be for a Studio Lab terminal. If you wish to run the corresponding commands in a Jupyter notebook, see [Manage your environment](#studio-lab-use-manage).
+To view the environments in Studio Lab you can use a terminal or Jupyter notebook. The following command will be for a Studio Lab terminal. If you wish to run the corresponding commands in a Jupyter notebook, see [Manage your environment](studio-lab-use-manage.md).
 
 Open the Studio Lab terminal by opening the **File Browser** panel (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)), choose the plus (**\+**) sign on the menu at the top of the file browser to open the **Launcher**, then choose **Terminal**. From the Studio Lab terminal, list the conda environments by running the following.
 

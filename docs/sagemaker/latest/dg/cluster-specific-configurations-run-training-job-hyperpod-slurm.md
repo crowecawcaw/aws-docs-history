@@ -1,7 +1,6 @@
 
 
 # Running a training job on HyperPod Slurm
-<a name="cluster-specific-configurations-run-training-job-hyperpod-slurm"></a>
 
 SageMaker HyperPod Recipes supports submitting a training job to a GPU/Trainium slurm cluster. Before you submit the training job, update the cluster configuration. Use one of the following methods to update the cluster configuration:
 + Modify `slurm.yaml`
@@ -14,7 +13,7 @@ After you've updated the cluster configuration, install the environment.
 
 To submit a training job to a Slurm cluster, specify the Slurm-specific configuration. Modify `slurm.yaml` to configure the Slurm cluster. The following is an example of a Slurm cluster configuration. You can modify this file for your own training needs:
 
-```
+```yaml
 job_name_prefix: 'sagemaker-'
 slurm_create_submission_file_only: False 
 stderr_to_stdout: True

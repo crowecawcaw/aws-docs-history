@@ -1,7 +1,6 @@
 
 
 # Delete endpoints configured for auto scaling
-<a name="endpoint-delete-with-scaling"></a>
 
 If you delete an endpoint, Application Auto Scaling checks to see whether any of the models on that endpoint are targets for auto scaling. If any are and you have permission to deregister the model, Application Auto Scaling deregisters those models as scalable targets without notifying you. If you use a custom permission policy that doesn't provide permission for the [DeregisterScalableTarget](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DeregisterScalableTarget.html) action, you must request access to this action before deleting the endpoint.
 

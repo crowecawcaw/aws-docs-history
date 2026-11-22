@@ -1,7 +1,6 @@
 
 
 # Use canary traffic shifting
-<a name="deployment-guardrails-blue-green-canary"></a>
 
 With canary traffic shifting, you can test a portion of your endpoint traffic on the new fleet while the old fleet serves the remainder of the traffic. This testing step is a safety guardrail that validates the new fleet’s functionality before shifting all of your traffic to the new fleet. You still have the benefits of a blue/green deployment, and the added canary feature lets you ensure that your new (green) fleet can serve inference before letting it handle 100% of the traffic.
 

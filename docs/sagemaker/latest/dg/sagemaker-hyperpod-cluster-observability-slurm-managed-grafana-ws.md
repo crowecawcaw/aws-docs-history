@@ -1,9 +1,11 @@
 
 
 # Setting up an Amazon Managed Grafana workspace
-<a name="sagemaker-hyperpod-cluster-observability-slurm-managed-grafana-ws"></a>
 
 Create a new Amazon Managed Grafana workspace or update an existing Amazon Managed Grafana workspace with Amazon Managed Service for Prometheus as the data source.
+
+**Note**  
+If you choose a Grafana workspace when you install the observability extension in the console, the console sets up the data source and the SageMaker HyperPod dashboards for you, and you don't need this page. Use this page to connect the extension's Amazon Managed Service for Prometheus workspace to a Grafana workspace that you manage yourself.
 
 **Topics**
 + [Create a Grafana workspace and set Amazon Managed Service for Prometheus as a data source](#sagemaker-hyperpod-cluster-observability-slurm-managed-grafana-ws-create)
@@ -53,7 +55,7 @@ After you've successfully set up your Amazon Managed Grafana workspace with Amaz
 
 1. Paste the URL to the [Slurm Dashboard](https://grafana.com/grafana/dashboards/4323-slurm-dashboard/).
 
-   ```
+   ```txt
    https://grafana.com/grafana/dashboards/4323-slurm-dashboard/
    ```
 
@@ -63,24 +65,24 @@ After you've successfully set up your Amazon Managed Grafana workspace with Amaz
 
    1. [Node Exporter Full Dashboard](https://grafana.com/grafana/dashboards/1860-node-exporter-full/)
 
-      ```
+      ```txt
       https://grafana.com/grafana/dashboards/1860-node-exporter-full/
       ```
 
    1. [NVIDIA DCGM Exporter Dashboard](https://grafana.com/grafana/dashboards/12239-nvidia-dcgm-exporter-dashboard/)
 
-      ```
+      ```txt
       https://grafana.com/grafana/dashboards/12239-nvidia-dcgm-exporter-dashboard/
       ```
 
    1. [EFA Metrics Dashboard](https://grafana.com/grafana/dashboards/20579-efa-metrics-dev/)
 
-      ```
+      ```txt
       https://grafana.com/grafana/dashboards/20579-efa-metrics-dev/
       ```
 
    1. [FSx for Lustre Metrics Dashboard](https://grafana.com/grafana/dashboards/20906-fsx-lustre/)
 
-      ```
+      ```txt
       https://grafana.com/grafana/dashboards/20906-fsx-lustre/
       ```

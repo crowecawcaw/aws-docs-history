@@ -1,7 +1,6 @@
 
 
 # Clean up
-<a name="serverless-endpoints-autoscale-cleanup"></a>
 
  After you have finished using autoscaling for your serverless endpoint with Provisioned Concurrency, you should clean up the resources you created. This involves deleting the scaling policy and deregistering the model from Application Auto Scaling. Cleaning up ensures that you don't incur unnecessary costs for resources you're no longer using. 
 
@@ -21,7 +20,7 @@
 
  The following example deletes scaling policy named `MyScalingPolicy` from a model named `MyVariant`. 
 
-```
+```bash
 aws application-autoscaling delete-scaling-policy \
     --policy-name MyScalingPolicy \
     --service-namespace sagemaker \
@@ -73,7 +72,7 @@ Authorization: AUTHPARAMS
 
  The following example deregisters a model named `MyVariant` from Application Auto Scaling. 
 
-```
+```bash
 aws application-autoscaling deregister-scalable-target \
     --service-namespace sagemaker \
     --scalable-dimension sagemaker:variant:DesiredProvisionedConcurrency \

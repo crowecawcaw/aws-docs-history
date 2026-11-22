@@ -1,7 +1,6 @@
 
 
 # Downgrade to a previous version
-<a name="rstudio-version-downgrade"></a>
 
 You can manually downgrade the version of your existing RStudio application to the `2025.05.1+513.pro3` version. 
 

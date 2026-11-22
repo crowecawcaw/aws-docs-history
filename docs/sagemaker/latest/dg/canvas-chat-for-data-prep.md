@@ -1,7 +1,6 @@
 
 
 # Chat for data prep
-<a name="canvas-chat-for-data-prep"></a>
 
 **Important**  
 For administrators:  

@@ -1,7 +1,6 @@
 
 
 # Set up discoverability
-<a name="model-registry-ram-discover"></a>
 
 The resource owner can set up model package group discoverability by creating resource shares and attaching resource policies to the entities. For detailed steps about how to create a general resource share in AWS RAM, see [Create a resource share](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-create) in the [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) documentation.
 

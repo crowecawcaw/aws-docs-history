@@ -1,7 +1,6 @@
 
 
 # Fine-tune a large language model (LLM) using domain adaptation
-<a name="jumpstart-foundation-models-fine-tuning-domain-adaptation"></a>
 
 Domain adaptation fine-tuning allows you to leverage pre-trained foundation models and adapt them to specific tasks using limited domain-specific data. If prompt engineering efforts do not provide enough customization, you can use domain adaption fine-tuning to get your model working with domain-specific language, such as industry jargon, technical terms, or other specialized data. This fine-tuning process modifies the weights of the model. 
 
@@ -44,7 +43,7 @@ The training data is taken from the **Text** column for CSV or JSON training dat
 
 The following is an example body of a TXT file to be used for fine-tuning:
 
-```
+```json
 This report includes estimates, projections, statements relating to our
 business plans, objectives, and expected operating results that are “forward-
 looking statements” within the meaning of the Private Securities Litigation
@@ -62,7 +61,7 @@ You can optionally provide another folder containing validation data. This folde
 
 Upload your prepared data to Amazon Simple Storage Service (Amazon S3) to use when fine-tuning a JumpStart foundation model. You can use the following commands to upload your data:
 
-```
+```python
 from sagemaker.s3 import S3Uploader
 import sagemaker
 import random

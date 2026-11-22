@@ -1,7 +1,6 @@
 
 
 # Edit your automatic configurations
-<a name="canvas-manage-automations-edit"></a>
 
 After setting up a configuration, you might want to make changes to it. For automatic dataset updates, you can update the Amazon S3 location for Canvas to import data, the frequency of the updates, and the starting time. For automatic batch predictions, you can change the dataset that the configuration tracks for updates. You can also turn off the automation to temporarily pause updates until you choose to resume them.
 

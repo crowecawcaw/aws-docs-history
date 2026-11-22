@@ -1,7 +1,6 @@
 
 
 # Use the PyTorch framework estimators in the SageMaker Python SDK
-<a name="data-parallel-framework-estimator"></a>
 
 You can launch distributed training by adding the `distribution` argument to the SageMaker AI [`PyTorch`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html) framework estimator. The SageMaker AI distributed data parallelism (SMDDP) library supports PyTorch distributed training.
 
@@ -11,17 +10,17 @@ SMDDP discontinued TensorFlow support after v2.11.0. For distributed training wi
 The following launcher options are available for launching PyTorch distributed training.
 + `pytorchddp` – This option runs `mpirun` and sets up environment variables needed for running PyTorch distributed training on SageMaker AI. To use this option, pass the following dictionary to the `distribution` parameter.
 
-  ```
+  ```py
   { "pytorchddp": { "enabled": True } }
   ```
 + `torch_distributed` – This option runs `torchrun` and sets up environment variables needed for running PyTorch distributed training on SageMaker AI. To use this option, pass the following dictionary to the `distribution` parameter.
 
-  ```
+  ```py
   { "torch_distributed": { "enabled": True } }
   ```
 + `smdistributed` – This option also runs `mpirun` but with `smddprun` that sets up environment variables needed for running PyTorch distributed training on SageMaker AI.
 
-  ```
+  ```py
   { "smdistributed": { "dataparallel": { "enabled": True } } }
   ```
 
@@ -29,7 +28,7 @@ If you chose to replace NCCL `AllGather` to SMDDP `AllGather`, you can use all t
 
 If you chose to replace NCCL `AllReduce` with SMDDP `AllReduce`, you should choose one of the `mpirun`-based options: `smdistributed` or `pytorchddp`. You can also add additional MPI options as follows.
 
-```
+```py
 { 
     "pytorchddp": {
         "enabled": True, 
@@ -38,7 +37,7 @@ If you chose to replace NCCL `AllReduce` with SMDDP `AllReduce`, you should choo
 }
 ```
 
-```
+```py
 { 
     "smdistributed": { 
         "dataparallel": {
@@ -51,7 +50,7 @@ If you chose to replace NCCL `AllReduce` with SMDDP `AllReduce`, you should choo
 
 The following code sample shows the basic structure of a ModelTrainer with distributed training options.
 
-```
+```py
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import SourceCode, Compute, InputData
 from sagemaker.core import image_uris
@@ -102,14 +101,14 @@ pt_model_trainer.train(input_data_config=[
 **Note**  
 PyTorch Lightning and its utility libraries such as Lightning Bolts are not preinstalled in the SageMaker AI PyTorch DLCs. Create the following `requirements.txt` file and save in the source directory where you save the training script.  
 
-```
+```txt
 # requirements.txt
 pytorch-lightning
 lightning-bolts
 ```
 For example, the tree-structured directory should look like the following.  
 
-```
+```bash
 ├── pytorch_training_launcher_jupyter_notebook.ipynb
 └── sub-folder-for-your-code
     ├──  adapted-training-script.py
@@ -123,6 +122,6 @@ For more information about specifying the source directory to place the `require
 + SMDDP `AllGather` is activated by default when using `torch_distributed` launcher, and `AllReduce` falls back to NCCL.
 + SMDDP `AllGather` can also be activated when using the `mpirun`-based launchers with an additional environment variable set as follows.
 
-  ```
+  ```py
   export SMDATAPARALLEL_OPTIMIZE_SDP=true
   ```

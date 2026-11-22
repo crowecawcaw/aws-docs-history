@@ -1,7 +1,6 @@
 
 
 # Billing and cost in SageMaker Canvas
-<a name="canvas-manage-cost"></a>
 
 To track the costs associated with your SageMaker Canvas application, you can use the AWS Billing and Cost Management service. Billing and Cost Management provides tools to help you gather information related to your cost and usage, analyze your cost drivers and usage trends, and take action to budget your spending. For more information, see [What is AWS Billing and Cost Management?](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html)
 

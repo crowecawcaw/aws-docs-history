@@ -1,13 +1,12 @@
 
 
 # Code example using HuggingFaceProcessor in the Amazon SageMaker Python SDK
-<a name="processing-job-frameworks-hugging-face"></a>
 
 Hugging Face is an open-source provider of natural language processing (NLP) models. The `HuggingFaceProcessor` in the Amazon SageMaker Python SDK provides you with the ability to run processing jobs with Hugging Face scripts. When you use the `HuggingFaceProcessor`, you can leverage an Amazon-built Docker container with a managed Hugging Face environment so that you don't need to bring your own container.
 
 The following code example shows how you can run your Processing job using a Docker image provided and maintained by SageMaker AI. Note that when you run the job, you can specify a directory containing your scripts and dependencies in the `source_dir` argument, and you can have a `requirements.txt` file located inside your `source_dir` directory that specifies the dependencies for your processing script(s). SageMaker Processing installs the dependencies in `requirements.txt` in the container for you.
 
-```
+```python
 from sagemaker.core.resources import ProcessingJob
 from sagemaker.core.helper.session_helper import get_execution_role
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot multi-container endpoints
-<a name="multi-container-troubleshooting"></a>
 
 The following sections can help you troubleshoot errors with multi-container endpoints.
 

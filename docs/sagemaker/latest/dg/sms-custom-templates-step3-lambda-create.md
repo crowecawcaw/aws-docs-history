@@ -1,7 +1,6 @@
 
 
 # Create Lambda functions using Ground Truth templates
-<a name="sms-custom-templates-step3-lambda-create"></a>
 
 You can create a Lambda function using the Lambda console, the AWS CLI, or an AWS SDK in a supported programming language of your choice. Use the AWS Lambda Developer Guide to learn more about each of these options:
 + To learn how to create a Lambda function using the console, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html).

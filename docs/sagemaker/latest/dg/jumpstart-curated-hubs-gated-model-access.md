@@ -1,7 +1,6 @@
 
 
 # Restrict access to JumpStart gated models
-<a name="jumpstart-curated-hubs-gated-model-access"></a>
 
 Amazon SageMaker JumpStart provides access to both publicly available and proprietary foundation models. There are certain gated models in private Amazon S3 buckets that require you to have accepted the model's EULA (end user license agreement) in order to access them. For more information, see [EULA acceptance with the SageMaker Python SDK](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-python-sdk).
 
@@ -9,7 +8,7 @@ The current default behavior is that if a user accepts a model's EULA, then the 
 
 The following is an example AWS Identity and Access Management (IAM) policy that an administrator can add to a user's IAM role:
 
-```
+```json
 {
     "Effect": "Deny",
     "Action": "sagemaker:CreateTrainingJob",

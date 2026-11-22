@@ -1,7 +1,6 @@
 
 
 # Managing storage paths for different types of instance local storage
-<a name="model-train-storage-tips-considerations"></a>
 
 Consider the following when setting up storage paths for training jobs in SageMaker AI.
 + If you want to store training artifacts for distributed training in the `/opt/ml/output/data` directory, you must properly append subdirectories or use unique file names for the artifacts through your model definition or training script. If the subdirectories and file names are not properly configured, all of the distributed training workers might write outputs to the same file name in the same output path in Amazon S3.

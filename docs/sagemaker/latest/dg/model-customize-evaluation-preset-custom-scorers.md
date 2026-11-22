@@ -1,7 +1,6 @@
 
 
 # Evaluate with Preset and Custom Scorers
-<a name="model-customize-evaluation-preset-custom-scorers"></a>
 
 When using the Custom Scorer evaluation type, SageMaker Evaluation supports two built-in scorers (also referred to as "reward functions") Prime Math and Prime Code taken from the [volcengine/verl](https://github.com/volcengine/verl) RL training library, or your own custom scorer implemented as a Lambda Function.
 
@@ -14,7 +13,7 @@ The prime math scorer expects a custom JSONL dataset of entries containing a mat
 
 Example dataset entry (expanded for clarity):
 
-```
+```json
 {
     "system":"You are a math expert: ",
     "query":"How many vertical asymptotes does the graph of $y=\\frac{2}{x^2+x-6}$ have?",
@@ -28,7 +27,7 @@ The prime code scorer expects a custom JSONL dataset of entries containing a cod
 
 Example dataset entry (expanded for clarity):
 
-```
+```json
 {
     "system":"\\nWhen tackling complex reasoning tasks, you have access to the following actions. Use them as needed to progress through your thought process.\\n\\n[ASSESS]\\n\\n[ADVANCE]\\n\\n[VERIFY]\\n\\n[SIMPLIFY]\\n\\n[SYNTHESIZE]\\n\\n[PIVOT]\\n\\n[OUTPUT]\\n\\nYou should strictly follow the format below:\\n\\n[ACTION NAME]\\n\\n# Your action step 1\\n\\n# Your action step 2\\n\\n# Your action step 3\\n\\n...\\n\\nNext action: [NEXT ACTION NAME]\\n\\n",
     "query":"A number N is called a factorial number if it is the factorial of a positive integer. For example, the first few factorial numbers are 1, 2, 6, 24, 120,\\nGiven a number N, the task is to return the list/vector of the factorial numbers smaller than or equal to N.\\nExample 1:\\nInput: N = 3\\nOutput: 1 2\\nExplanation: The first factorial number is \\n1 which is less than equal to N. The second \\nnumber is 2 which is less than equal to N,\\nbut the third factorial number is 6 which \\nis greater than N. So we print only 1 and 2.\\nExample 2:\\nInput: N = 6\\nOutput: 1 2 6\\nExplanation: The first three factorial \\nnumbers are less than equal to N but \\nthe fourth factorial number 24 is \\ngreater than N. So we print only first \\nthree factorial numbers.\\nYour Task:  \\nYou don't need to read input or print anything. Your task is to complete the function factorialNumbers() which takes an integer N as an input parameter and return the list/vector of the factorial numbers smaller than or equal to N.\\nExpected Time Complexity: O(K), Where K is the number of factorial numbers.\\nExpected Auxiliary Space: O(1)\\nConstraints:\\n1<=N<=10^{18}\\n\\nWrite Python code to solve the problem. Present the code in \\n```python\\nYour code\\n```\\nat the end.",
@@ -57,7 +56,7 @@ The container invokes your Lambda once per sample, passing a list that contains 
 #### OpenAI Chat format
 <a name="model-customize-evaluation-custom-scorers-lambda-input-openai"></a>
 
-```
+```json
 [
   {
     "id": "123",
@@ -81,7 +80,7 @@ Notes on the OpenAI payload:
 #### verl format
 <a name="model-customize-evaluation-custom-scorers-lambda-input-verl"></a>
 
-```
+```json
 [
   {
     "data_source": "openai/gsm8k",
@@ -108,7 +107,7 @@ Notes on the verl payload:
 #### Hugging Face Prompt-Completion format
 <a name="model-customize-evaluation-custom-scorers-lambda-input-hf-prompt"></a>
 
-```
+```json
 [
   {
     "id": "123",
@@ -126,7 +125,7 @@ Notes on the Hugging Face Prompt-Completion payload:
 #### Hugging Face Preference format
 <a name="model-customize-evaluation-custom-scorers-lambda-input-hf-preference"></a>
 
-```
+```json
 [
   {
     "id": "123",
@@ -147,7 +146,7 @@ Notes on the Hugging Face Preference payload:
 #### SageMaker AI Evaluation format
 <a name="model-customize-evaluation-custom-scorers-lambda-input-sm-eval"></a>
 
-```
+```json
 [
   {
     "id": "123",
@@ -175,7 +174,7 @@ Your AWS Lambda function must return one result object per input sample. The Sag
 #### Option A – Raw list (recommended)
 <a name="model-customize-evaluation-custom-scorers-lambda-output-raw"></a>
 
-```
+```json
 [
   {
     "id": "123",
@@ -193,7 +192,7 @@ Your AWS Lambda function must return one result object per input sample. The Sag
 
 In this format, `body` is the JSON-encoded string of the result list. This is the format emitted by the Studio "Create Reward Function" template.
 
-```
+```json
 {
   "statusCode": 200,
   "body": "[{\"id\": \"123\", \"aggregate_reward_score\": 0.85, \"metrics_list\": [...]}]"
@@ -215,7 +214,7 @@ Find an example of a fully-implemented custom scorer with sample input and expec
 
 Use the following skeleton as a starting point for your own function.
 
-```
+```python
 def lambda_handler(event, context):
     return lambda_grader(event)
 
@@ -299,7 +298,7 @@ def lambda_grader(samples: list[dict]) -> list[dict]:
 
 Ensure that the SageMaker execution role you use to run evaluation has AWS Lambda permissions.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -316,7 +315,7 @@ Ensure that the SageMaker execution role you use to run evaluation has AWS Lambd
 
 Ensure your AWS Lambda Function's execution role has basic Lambda execution permissions, as well as additional permissions you may require for any downstream AWS calls.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

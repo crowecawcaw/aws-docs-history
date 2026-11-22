@@ -1,7 +1,6 @@
 
 
 # Factual Knowledge
-<a name="clarify-factual-knowledge-evaluation"></a>
 
  Evaluates the ability of language models to reproduce facts about the real world. Foundation Model Evaluations (FMEval) can measure your model against your own custom dataset or use a built-in dataset based on the [T-REx](https://hadyelsahar.github.io/t-rex/) open source dataset.
 

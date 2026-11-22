@@ -1,7 +1,6 @@
 
 
 # Send your model to Quick
-<a name="canvas-send-model-to-quicksight"></a>
 
 If you use Quick and want to leverage SageMaker Canvas in your Quick visualizations, you can build an Amazon SageMaker Canvas model and use it as a *predictive field* in your Quick dataset. A *predictive field* is a field in your Quick dataset that can make predictions for a given column in your dataset, similar to how Canvas users make single or batch predictions with a model. To learn more about how to integrate Canvas predictive abilities into your Quick datasets, see [SageMaker Canvas integration](https://docs.aws.amazon.com/quicksight/latest/user/sagemaker-canvas-integration.html) in the [Quick User Guide](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html).
 

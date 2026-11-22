@@ -1,7 +1,6 @@
 
 
 # FP16 Training with Model Parallelism
-<a name="model-parallel-extended-features-pytorch-fp16"></a>
 
 For FP16 training, apply the following modifications to your training script and ModelTrainer.
 
@@ -12,7 +11,7 @@ This feature is available for PyTorch in the SageMaker model parallelism library
 
 1. Wrap your model using the [smdistributed.modelparallel.torch.model\_creation()](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#smdistributed.modelparallel.torch.model_creation) context manager.
 
-   ```
+   ```py
    # fp16_training_script.py
    
    import torch
@@ -26,7 +25,7 @@ This feature is available for PyTorch in the SageMaker model parallelism library
 **Tip**  
 If you are using tensor parallelism, add `tensor_parallelism=smp.tp_size() > 1` to the `smp.model_creation` context manager. Adding this line also helps automatically detect whether tensor parallelism is activated or not.  
 
-   ```
+   ```py
    with smp.model_creation(
        ... ,
        tensor_parallelism=smp.tp_size() > 1
@@ -38,7 +37,7 @@ If you are using tensor parallelism, add `tensor_parallelism=smp.tp_size() > 1` 
 
    The following code is an example of wrapping an `Adadelta` optimizer object with dynamic loss scaling for FP16 training.
 
-   ```
+   ```py
    optimizer = torch.optim.Adadelta(...)
    optimizer = smp.DistributedOptimizer(
        optimizer,
@@ -56,7 +55,7 @@ If you are using tensor parallelism, add `tensor_parallelism=smp.tp_size() > 1` 
 
 Add the FP16 parameter (`"fp16"`) to the distribution configuration for model parallelism when creating a SageMaker PyTorch ModelTrainer object. For a complete list of the configuration parameters for model parallelism, see [Parameters for `smdistributed`](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel_general.html#parameters-for-smdistributed).
 
-```
+```py
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import SourceCode
 
@@ -90,14 +89,14 @@ When FP16 training starts, the model and the optimizer are wrapped by `FP16_Modu
 **Tip**  
 You can apply gradient clipping by calling `clip_master_grads` before `optimizer.step`.  
 
-```
+```py
 optimizer.clip_master_grads(max_norm)     # max_norm(float or int): max norm of the gradients
 ```
 
 **Tip**  
 When using `torch.optim.lr_scheduler` and FP16 training, you need to pass `optimizer.optimizer` to the LR scheduler rather than the optimizer. See the following example code.  
 
-```
+```py
 from torch.optim.lr_scheduler import StepLR
 
 scheduler = StepLR(

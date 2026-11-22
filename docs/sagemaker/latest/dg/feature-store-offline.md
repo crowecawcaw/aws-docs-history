@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker Feature Store offline store data format
-<a name="feature-store-offline"></a>
 
 Amazon SageMaker Feature Store supports the AWS Glue and Apache Iceberg table formats for the offline store. You can choose the table format when you’re creating a new feature group. AWS Glue is the default format.
 

@@ -1,7 +1,6 @@
 
 
 # Managing Ray workloads
-<a name="sagemaker-hyperpod-ray-manage-workloads"></a>
 
 Ray workloads on HyperPod are KubeRay custom resources. You manage them from the Amazon SageMaker Studio web interface or by applying manifests with `kubectl`. Both surfaces act on the same resources, so you can move between them on the same workload.
 

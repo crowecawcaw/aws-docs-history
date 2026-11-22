@@ -1,7 +1,6 @@
 
 
 # Data preparation with SQL in Studio
-<a name="sagemaker-sql-extension"></a>
 
 Amazon SageMaker Studio provides a built-in SQL extension. This extension allows data scientists to perform tasks such as sampling, exploratory analysis, and feature engineering directly within their JupyterLab notebooks. It leverages AWS Glue connections to maintain a centralized data source catalog. The catalog stores metadata about various data sources. Through this SQL environment, data scientists can browse data catalogs, explore their data, author complex SQL queries, and further process the results in Python. 
 
@@ -18,14 +17,14 @@ The user-defined connections creation capability is available as a set of standa
 [amazon-sagemaker-sql-magic](https://pypi.org/project/amazon-sagemaker-sql-magic/)
 You can install these libraries by running the following commands in your JupyterLab terminal:  
 
-```
+```python
 pip install amazon-sagemaker-sql-editor>=0.1.13
 pip install amazon-sagemaker-sql-execution>=0.1.6
 pip install amazon-sagemaker-sql-magic>=0.1.3
 ```
 After installing the libraries, you will need to restart the JupyterLab server for the changes to take effect.  
 
-```
+```bash
 restart-jupyter-server
 ```
 

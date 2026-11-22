@@ -1,7 +1,6 @@
 
 
 # Create an inference optimization job
-<a name="model-optimize-create-job"></a>
 
 You can create an inference optimization job by using Studio or the SageMaker AI Python SDK. The job optimizes your model by applying the techniques that you choose. For more information, see [Optimization techniques](model-optimize.md#optimization-techniques).
 
@@ -149,7 +148,7 @@ For more information about the classes and methods used in the following example
 
 1. In your application code, import the necessary libraries. The following example imports the SDK for Python (Boto3). It also imports the classes from the SageMaker AI Python SDK that you use to define and work with models:
 
-   ```
+   ```python
    import boto3
    from sagemaker.serve.model_builder import ModelBuilder
    from sagemaker.serve.builder.schema_builder import SchemaBuilder
@@ -159,7 +158,7 @@ For more information about the classes and methods used in the following example
 
 1. Initialize a SageMaker AI session. The following example uses the `Session()` class:
 
-   ```
+   ```python
    sagemaker_session = Session()
    ```
 
@@ -171,7 +170,7 @@ For more information about the classes and methods used in the following example
 
    The following example provides sample input and output strings to the `SchemaBuilder` class:
 
-   ```
+   ```python
    response = "Jupiter is the largest planet in the solar system. It is the fifth planet from the sun."
    sample_input = {
        "inputs": "What is the largest planet in the solar system?",
@@ -183,7 +182,7 @@ For more information about the classes and methods used in the following example
 
 1. Define your model to SageMaker AI. The following example sets the parameters to initialize a `ModelBuilder` instance:
 
-   ```
+   ```python
    model_builder = ModelBuilder(
        model="{{jumpstart-model-id}}",
        schema_builder=schema_builder,
@@ -205,7 +204,7 @@ For more information about network isolation, see [Network Isolation](mkt-algo-m
 
 1. To run a quantization job, use the `optimize()` method, and set the `quantization_config` argument. The following example sets `OPTION_QUANTIZE` as an environment variable in the optimization container:
 
-   ```
+   ```python
    optimized_model = model_builder.optimize(
        instance_type="{{instance-type}}",
        accept_eula=True,
@@ -224,7 +223,7 @@ For more information about network isolation, see [Network Isolation](mkt-algo-m
 
 1. When the job completes, deploy the model. The following example uses the `deploy()` method:
 
-   ```
+   ```python
    endpoint = model_builder.deploy(
        instance_type="{{instance-type}}", 
        accept_eula=True,
@@ -243,7 +242,7 @@ To optimize with speculative decoding and the SageMaker AI draft model, you must
 
 1. To run a speculative decoding job, use the `optimize()` method, and set the `speculative_decoding_config` argument. The following example sets the `ModelProvider` key to `SAGEMAKER` to use the draft model that SageMaker AI provides.
 
-   ```
+   ```python
    optimized_model = model_builder.optimize(
        instance_type="{{instance-type}}",
        accept_eula=True,
@@ -259,7 +258,7 @@ To optimize with speculative decoding and the SageMaker AI draft model, you must
 
 1. When the job completes, deploy the model. The following example uses the `deploy()` method:
 
-   ```
+   ```python
    endpoint = model_builder.deploy(accept_eula=True)
    ```
 
@@ -273,7 +272,7 @@ The following examples demonstrate one possible way to provide a custom draft mo
 
 1. If you want to download a model from the Hugging Face Hub, add the `huggingface_hub` library to your project, and download a model with the `snapshot_download()` method. The following example downloads a model to a local directory:
 
-   ```
+   ```python
    import huggingface_hub
    
    huggingface_hub.snapshot_download(
@@ -290,7 +289,7 @@ The following examples demonstrate one possible way to provide a custom draft mo
 
 1. To make your downloaded model available to SageMaker AI, upload it to Amazon S3. The following example uploads the model with the `sagemaker_session` object:
 
-   ```
+   ```python
    custom_draft_model_uri = sagemaker_session.upload_data(
        path=hf_local_download_dir.as_posix(),
        bucket=sagemaker_session.default_bucket(),
@@ -304,7 +303,7 @@ The following examples demonstrate one possible way to provide a custom draft mo
 
 1. To run a speculative decoding job, use the `optimize()` method, and set the `speculative_decoding_config` argument. The following example sets the `ModelSource` key to the S3 URI of the custom draft model:
 
-   ```
+   ```python
    optimized_model = model_builder.optimize(
        instance_type="{{instance-type}}",
        accept_eula=True,
@@ -320,7 +319,7 @@ The following examples demonstrate one possible way to provide a custom draft mo
 
 1. When the job completes, deploy the model. The following example uses the `deploy()` method:
 
-   ```
+   ```python
    endpoint = model_builder.deploy(accept_eula=True)
    ```
 
@@ -330,7 +329,7 @@ The following examples demonstrate one possible way to provide a custom draft mo
 
 1. To run a compilation job, use the `optimize()` method, and set the `compilation_config` argument. The following example uses the `OverrideEnvironment` key to set the necessary environment variables in the optimization container:
 
-   ```
+   ```python
    optimized_model = model_builder.optimize(
        instance_type="{{instance-type}}",
        accept_eula=True,
@@ -352,7 +351,7 @@ The following examples demonstrate one possible way to provide a custom draft mo
 
 1. When the job completes, deploy the model. The following example uses the `deploy()` method:
 
-   ```
+   ```python
    endpoint = model_builder.deploy(accept_eula=True)
    ```
 
@@ -361,7 +360,7 @@ The following examples demonstrate one possible way to provide a custom draft mo
 **To test your model with an inference request**
 + To send a test inference request to your deployed model, use the `invoke()` method of the `Endpoint` object. The following example passes the `sample_input` variable that was also passed to the `SchemaBuilder` class in the examples to define your model:
 
-  ```
+  ```python
   import json
   
   response = endpoint.invoke(body=json.dumps(sample_input), content_type="application/json")
@@ -370,7 +369,7 @@ The following examples demonstrate one possible way to provide a custom draft mo
 
   The sample input has the prompt, `"What is the largest planet in the solar system?"`. The `invoke()` method returns the response that the model generated, as shown by the following example:
 
-  ```
+  ```python
   {'generated_text': ' Jupiter is the largest planet in the solar system. It is the fifth planet from the sun. It is a gas giant with . . .'}
   ```
 

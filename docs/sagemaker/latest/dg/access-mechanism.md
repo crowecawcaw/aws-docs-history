@@ -1,7 +1,6 @@
 
 
 # Remote access methods for SageMaker Spaces
-<a name="access-mechanism"></a>
 
 SageMaker AI Spaces supports two remote access mechanisms. Both connect a local IDE or terminal to a development space on your HyperPod cluster. The mechanisms differ in network model, client requirements, and administrator setup. Choose the one that best fits your network, tooling, and security requirements.
 

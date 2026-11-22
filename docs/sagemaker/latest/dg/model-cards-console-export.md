@@ -1,7 +1,6 @@
 
 
 # Export a model card
-<a name="model-cards-console-export"></a>
 
 Follow these steps to export a model card.
 
@@ -17,7 +16,7 @@ Follow these steps to export a model card.
 
 You can export a model card in the SageMaker Python SDK by specifying an S3 output path and export your model card PDF to it with the following commands:
 
-```
+```python
 s3_output_path = f"s3://{{{bucket}}}/{{{prefix}}}/export"
 pdf_s3_url = {{my_card}}.export_pdf(s3_output_path=s3_output_path).delete()
 ```

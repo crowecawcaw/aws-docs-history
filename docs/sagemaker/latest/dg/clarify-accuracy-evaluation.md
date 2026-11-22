@@ -1,7 +1,6 @@
 
 
 # Accuracy
-<a name="clarify-accuracy-evaluation"></a>
 
  This evaluation measures how accurately a model performs in a task by comparing the model output to the ground truth answer included in the dataset. 
 

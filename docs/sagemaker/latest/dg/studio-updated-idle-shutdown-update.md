@@ -1,7 +1,6 @@
 
 
 # Update default idle shutdown settings
-<a name="studio-updated-idle-shutdown-update"></a>
 
  You can update the default idle shutdown settings at either the domain or user profile level. 
 

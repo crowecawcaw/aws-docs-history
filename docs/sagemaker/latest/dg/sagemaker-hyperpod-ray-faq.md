@@ -1,7 +1,6 @@
 
 
 # Ray on HyperPod FAQs
-<a name="sagemaker-hyperpod-ray-faq"></a>
 
 ## Does HyperPod modify Ray or KubeRay?
 <a name="sagemaker-hyperpod-ray-faq-modify"></a>

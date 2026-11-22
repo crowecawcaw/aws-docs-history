@@ -1,7 +1,6 @@
 
 
 # Best practices for deploying models on SageMaker AI Hosting Services
-<a name="deployment-best-practices"></a>
 
 When hosting models using SageMaker AI hosting services, consider the following:
 + Typically, a client application sends requests to the SageMaker AI HTTPS endpoint to obtain inferences from a deployed model. You can also send requests to this endpoint from your Jupyter notebook during testing.

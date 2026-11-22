@@ -1,7 +1,6 @@
 
 
 # Metrics and validation
-<a name="autopilot-metrics-validation"></a>
 
 This guide shows metrics and validation techniques that you can use to measure machine learning model performance. Amazon SageMaker Autopilot produces metrics that measure the predictive quality of machine learning model candidates. The metrics calculated for candidates are specified using an array of [MetricDatum](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_MetricDatum.html) types.
 

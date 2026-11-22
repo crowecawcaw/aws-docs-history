@@ -1,7 +1,6 @@
 
 
 # MLflow Tracking Servers
-<a name="mlflow-create-tracking-server"></a>
 
 An [MLflow Tracking Server](https://mlflow.org/docs/latest/tracking.html#mlflow-tracking-server-optional) is a stand-alone HTTP server that serves multiple REST API endpoints for tracking runs and experiments. A tracking server is required to begin tracking your machine learning (ML) experiments with SageMaker AI and MLflow. You can create a tracking server through the Studio UI, or through the AWS CLI for more granular security customization.
 

@@ -1,7 +1,6 @@
 
 
 # Delete records from your feature groups
-<a name="feature-store-delete-records"></a>
 
 You can use the Amazon SageMaker Feature Store API to delete records from your feature groups. A feature group is an object that contains your machine learning (ML) data, where the columns of your data are described by features and your data are contained in records. A record contains values for features that are associated with a specific record identifier. 
 

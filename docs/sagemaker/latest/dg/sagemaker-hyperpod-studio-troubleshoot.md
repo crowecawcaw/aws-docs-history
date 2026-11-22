@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="sagemaker-hyperpod-studio-troubleshoot"></a>
 
 The following section lists troubleshooting solutions for HyperPod in Studio.
 
@@ -12,7 +11,7 @@ The following section lists troubleshooting solutions for HyperPod in Studio.
 ## Tasks tab
 <a name="sagemaker-hyperpod-studio-troubleshoot-tasks"></a>
 
-If you get Custom Resource Definition (CRD) is not configured on the cluster while in the **Tasks** tab.
+If you get `Custom Resource Definition (CRD) is not configured on the cluster` while in the **Tasks** tab.
 + Grant `EKSAdminViewPolicy` and `ClusterAccessRole` policies to your domain execution role. 
 
   For information on how to add tags to your execution role, see [Tag IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags_roles.html).

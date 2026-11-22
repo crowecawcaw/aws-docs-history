@@ -1,7 +1,6 @@
 
 
 # Set Auto Scaling Policies for Multi-Model Endpoint Deployments
-<a name="multi-model-endpoints-autoscaling"></a>
 
 SageMaker AI multi-model endpoints fully support automatic scaling, which manages replicas of models to ensure models scale based on traffic patterns. We recommend that you configure your multi-model endpoint and the size of your instances based on [Instance recommendations for multi-model endpoint deployments](multi-model-endpoint-instance.md) and also set up instance based auto scaling for your endpoint. The invocation rates used to trigger an auto-scale event are based on the aggregate set of predictions across the full set of models served by the endpoint. For additional details on setting up endpoint auto scaling, see [Automatically Scale Amazon SageMaker AI Models](https://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-auto-scaling.html).
 
@@ -28,7 +27,7 @@ To use a predefined metric in a scaling policy, create a target tracking configu
 
 The following example is a typical policy configuration for target-tracking scaling for a variant. In this configuration, we use the `SageMakerVariantInvocationsPerInstance` predefined metric to adjust the number of variant instances so that each instance has an `InvocationsPerInstance` metric of `70`.
 
-```
+```json
 {"TargetValue": 70.0,
     "PredefinedMetricSpecification":
     {
@@ -97,7 +96,7 @@ To add a cooldown period for scaling out your endpoint, specify a value, in seco
 
 The following is an example target-tracking configuration for a scaling policy. In this configuration, the `SageMakerVariantInvocationsPerInstance` predefined metric is used to adjust scaling based on an average of `70` across all instances of that variant. The configuration provides a scale-in cooldown period of 10 minutes and a scale-out cooldown period of 5 minutes.
 
-```
+```json
 {"TargetValue": 70.0,
     "PredefinedMetricSpecification":
     {"PredefinedMetricType": "SageMakerVariantInvocationsPerInstance"

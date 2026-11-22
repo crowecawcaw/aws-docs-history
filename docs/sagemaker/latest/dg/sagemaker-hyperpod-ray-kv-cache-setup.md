@@ -1,7 +1,6 @@
 
 
 # Setting up tiered KV cache
-<a name="sagemaker-hyperpod-ray-kv-cache-setup"></a>
 
 The managed tiered KV cache adds a cluster-wide cache tier to Ray Serve deployments, so one replica reads a token prefix that another replica already computed. This reduces time to first token for long documents, multi-turn conversations, and shared system prompts. The cluster-wide tier runs on HyperPod Tiered Storage using [LMCache with the HyperPod storage backend](https://docs.lmcache.ai/kv_cache/storage_backends/sagemaker_hyperpod.html) in the LMCache documentation, which integrates with Ray Serve and vLLM to provide distributed KV caching backed by HyperPod Tiered Storage.
 
@@ -21,7 +20,7 @@ When a request shares a token prefix with earlier work, the deployment reads the
 
 Add the following to your worker group spec to expose the Tiered Storage endpoint and shared memory to the Ray Serve replicas.
 
-```
+```yaml
 workerGroupSpecs:
 - template:
     spec:
@@ -49,7 +48,7 @@ The `NODE_IP` environment variable provides the host IP address so the LMCache c
 
 Use the `LLMConfig` API with the LMCache connector to enable KV caching in your Ray Serve deployment. The following example serves a model with tiered KV caching enabled:
 
-```
+```python
 from ray.serve.llm import LLMConfig, build_openai_app
 
 llm_config = LLMConfig(
@@ -88,7 +87,7 @@ The key configuration values are:
 
 To add a local CPU memory tier that caches KV entries before they are written to Tiered Storage, add the following environment variables to `runtime_env`:
 
-```
+```python
 "env_vars": {
     "LMCACHE_REMOTE_URL": "sagemaker-hyperpod://$(NODE_IP):9200",
     "LMCACHE_EXTRA_CONFIG": '{"sagemaker_hyperpod_bucket": "lmcache", "sagemaker_hyperpod_shared_memory_name": "ai_toolkit_cache"}',

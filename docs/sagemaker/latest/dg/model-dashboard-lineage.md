@@ -1,7 +1,6 @@
 
 
 # View a model lineage graph
-<a name="model-dashboard-lineage"></a>
 
 When you train a model, Amazon SageMaker AI creates a visualization of your entire ML workflow from data preparation to deployment. This visualization is called a model lineage graph. The following page describes how to view a model lineage graph in the SageMaker AI console.
 

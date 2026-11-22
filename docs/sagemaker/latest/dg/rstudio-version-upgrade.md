@@ -1,7 +1,6 @@
 
 
 # Upgrade to the new version
-<a name="rstudio-version-upgrade"></a>
 
 Existing domains using version `2025.05.1+513.pro3` can upgrade to `2026.08.2+200.pro1` version in one of two ways:
 + Create a new domain from the AWS CLI with RStudio enabled.

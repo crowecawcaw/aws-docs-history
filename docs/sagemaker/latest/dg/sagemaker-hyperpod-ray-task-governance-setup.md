@@ -1,7 +1,6 @@
 
 
 # Setting up task governance for Ray
-<a name="sagemaker-hyperpod-ray-task-governance-setup"></a>
 
 Set up Task Governance on your cluster first, then complete the Ray-specific steps on this page. For the concepts and the console setup, see [Setup for SageMaker HyperPod task governance](sagemaker-hyperpod-eks-operate-console-ui-governance-setup.md).
 

@@ -1,7 +1,6 @@
 
 
 # Model Deployment in SageMaker AI
-<a name="model-deploy-mlops"></a>
 
 Once you train and approve a model for production, use SageMaker AI to deploy your model to an endpoint for real-time inference. SageMaker AI provides multiple inference options so that you can pick the option that best suits your workload. You also configure your endpoint by choosing the instance type and number of instances you need for optimal performance. For details about model deployment, see [Deploy models for inference](deploy-model.md).
 

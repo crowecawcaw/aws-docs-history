@@ -1,7 +1,6 @@
 
 
 # Cluster management with custom AMIs
-<a name="hyperpod-custom-ami-cluster-management"></a>
 
 After the custom AMI is built, you can use it for creating or updating an Amazon SageMaker HyperPod cluster. You can also scale up or add instance groups that use the new AMI.
 
@@ -21,7 +20,7 @@ The following policy is a scoped down policy to ensure only AMIs tagged with `Al
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

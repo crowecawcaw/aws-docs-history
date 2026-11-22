@@ -1,7 +1,6 @@
 
 
 # Notebook Instance Software Updates
-<a name="nbi-software-updates"></a>
 
 Amazon SageMaker AI periodically tests and releases software that is installed on notebook instances. This includes:
 + Kernel updates

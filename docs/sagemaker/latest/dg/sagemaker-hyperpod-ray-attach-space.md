@@ -1,7 +1,6 @@
 
 
 # Attaching a Ray cluster to a space
-<a name="sagemaker-hyperpod-ray-attach-space"></a>
 
 Attaching a Ray cluster to a space points your IDE or notebook session at that cluster, so `ray.init()` connects to it. Inside the space, the cluster is reachable on port 8265 for interactive development, the same port a local Ray cluster uses. You get the experience of running Ray on a laptop, with cloud-scale compute behind it.
 
@@ -48,7 +47,7 @@ Replace the following values in both commands:
 
 Leave `ray-integration` and `jupyter-k8s-system` as they are. They identify the integration template the add-on installs.
 
-```
+```bash
 kubectl patch workspace {{my-workspace}} -n {{my-namespace}} --type=merge -p '{
   "spec": {
     "integrationTemplateRefs": [
@@ -66,7 +65,7 @@ kubectl patch workspace {{my-workspace}} -n {{my-namespace}} --type=merge -p '{
 
 To detach the space from its cluster, clear the integration references.
 
-```
+```bash
 kubectl patch workspace {{my-workspace}} -n {{my-namespace}} --type=merge -p '{"spec":{"integrationTemplateRefs":[]}}'
 ```
 

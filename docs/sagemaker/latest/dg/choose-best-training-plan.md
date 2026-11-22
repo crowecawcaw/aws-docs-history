@@ -1,7 +1,6 @@
 
 
 # Reserve the best training plan
-<a name="choose-best-training-plan"></a>
 
 The search of a training plan has returned offerings that fit your capacity needs and budget. 
 
@@ -10,7 +9,7 @@ The search of a training plan has returned offerings that fit your capacity need
 1. Review and **Submit** your purchase order.
 **Important**  
 Training plans cannot be modified once purchased.
-Training plans cannot be shared across AWS accounts or within your AWS Organization.
+You can share a training plan only with other AWS accounts in your organization in AWS Organizations, by using AWS Resource Access Manager. For more information, see [Setting up cross-account sharing for SageMaker training plans](training-plan-resource-sharing-ram.md).
 
    After submitting your order
    + The training plan initially appears as `Pending` in your training plan list.

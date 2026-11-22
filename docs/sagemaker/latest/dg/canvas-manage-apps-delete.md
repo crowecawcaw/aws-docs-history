@@ -1,7 +1,6 @@
 
 
 # Delete an application
-<a name="canvas-manage-apps-delete"></a>
 
 If you want to terminate your SageMaker Canvas workspace instance, you can either log out from the SageMaker Canvas application or delete your application from the SageMaker AI console. A *workspace instance* is dedicated for your use from when you start using SageMaker Canvas to the point when you stop using it. Deleting the application only terminates the workspace instance and stops workspace instance charges. Models and datasets aren’t affected, but Quick build tasks automatically restart when you relaunch the application.
 

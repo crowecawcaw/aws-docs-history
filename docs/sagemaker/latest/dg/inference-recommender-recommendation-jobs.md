@@ -1,7 +1,6 @@
 
 
 # Recommendation jobs with Amazon SageMaker Inference Recommender
-<a name="inference-recommender-recommendation-jobs"></a>
 
 Amazon SageMaker Inference Recommender can make two types of recommendations:
 

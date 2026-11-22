@@ -1,7 +1,6 @@
 
 
 # Distributed training in Amazon SageMaker AI
-<a name="distributed-training"></a>
 
 SageMaker AI provides distributed training libraries and supports various distributed training options for deep learning tasks such as computer vision (CV) and natural language processing (NLP). With SageMaker AI’s distributed training libraries, you can run highly scalable and cost-effective custom data parallel and model parallel deep learning training jobs. You can also use other distributed training frameworks and packages such as PyTorch DistributedDataParallel (DDP), `torchrun`, MPI (`mpirun`), and parameter server. The following section gives information about fundamental distributed training concepts. Throughout the documentation, instructions and examples focus on how to set up the distributed training options for deep learning tasks using the SageMaker Python SDK.
 

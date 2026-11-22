@@ -1,7 +1,6 @@
 
 
 # Data Privacy in Amazon SageMaker AI
-<a name="data-privacy"></a>
 
 Amazon SageMaker AI collects aggregate information about the use of AWS-owned and open source libraries used during training. SageMaker AI uses this aggregate metadata to improve services and customer experience.
 
@@ -104,6 +103,49 @@ SageMaker:
 ```
 
 For more information about how to opt out of tracking account-wide, see [Configuring and using defaults with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/).
+
+## Telemetry from inference endpoints
+<a name="data-privacy-inference"></a>
+
+For real-time inference endpoints that run on GPU instances, SageMaker AI collects operational telemetry from the endpoint's instances. SageMaker AI uses this telemetry only for the inference recommendations that improve your endpoints (see [Monitor endpoints with inference recommendations](realtime-endpoints-improvement-notifications.md)). The telemetry includes the following:
++ Metrics that the inference engine in your model container reports, such as request latency, throughput, and cache usage.
++ GPU metrics, such as utilization and memory use.
++ Configuration values that the inference engine reports in its startup logs, such as the engine version and its settings.
++ Records of changes to the endpoint, such as its creation, updates, scaling, and deletion, with the instance type and container image.
+
+SageMaker AI doesn't collect your model artifacts, or the requests and responses that your endpoint serves.
+
+### How telemetry is handled
+<a name="data-privacy-inference-handling"></a>
+
+Telemetry is stored in the AWS Region where your endpoint runs and is analyzed within the same geographic area: endpoints in the Americas, in Europe/Middle East/Africa, and in Asia Pacific are each analyzed within that area. Telemetry is retained for up to 365 days and is used only to generate these recommendations. It is not used to train models and is not shared outside SageMaker AI.
+
+### Opt out of telemetry from an inference endpoint
+<a name="data-privacy-inference-opt-out"></a>
+
+To opt out, set the environment variable `OPT_OUT_TRACKING`, with any value, in the `Environment` of a container when you create the model with the `CreateModel` API. If any container of the model sets the variable, SageMaker AI collects none of this telemetry from any endpoint that hosts the model, and sends no inference recommendations notifications for it.
+
+**Note**  
+Opting out with `OPT_OUT_TRACKING` isn't available yet for endpoints that host inference components.
+
+The following AWS CLI command creates a model that opts out. Replace the following values with your own:
++ {{your\_model\_name}} – the name of your model.
++ {{your\_role\_arn}} – the ARN of your SageMaker AI execution role.
++ {{your\_image\_uri}} – the URI of your container image.
++ {{s3://amzn-s3-demo-bucket/key-name-prefix/model.tar.gz}} – the Amazon S3 path to your model artifacts.
+
+```
+aws sagemaker create-model \
+--model-name {{your_model_name}} \
+--execution-role-arn {{your_role_arn}} \
+--primary-container Image={{your_image_uri}},ModelDataUrl={{s3://amzn-s3-demo-bucket/key-name-prefix/model.tar.gz}},Environment={OPT_OUT_TRACKING=1}
+```
+
+To opt out an existing endpoint, create a model that sets the variable, create an endpoint configuration that uses the model, and update the endpoint with that endpoint configuration.
+
+**After you opt out**
+
+Opting out stops collection for that endpoint; no further telemetry is gathered. Telemetry already collected is retained for the remainder of the retention period and is not deleted when you opt out.
 
 ## Additional information
 <a name="data-privacy-added-info"></a>

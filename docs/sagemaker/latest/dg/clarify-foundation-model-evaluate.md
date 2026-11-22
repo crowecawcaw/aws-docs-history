@@ -1,7 +1,6 @@
 
 
 # Understand options for evaluating large language models with SageMaker Clarify
-<a name="clarify-foundation-model-evaluate"></a>
 
 **Important**  
 In order to use SageMaker Clarify Foundation Model Evaluations, you must upgrade to the new Studio experience. As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named Amazon SageMaker Studio Classic. The foundation evaluation feature can only be used in the updated experience. For information about how to update Studio, see [Migration from Amazon SageMaker Studio Classic](studio-updated-migrate.md). For information about using the Studio Classic application, see [Amazon SageMaker Studio Classic](studio.md).

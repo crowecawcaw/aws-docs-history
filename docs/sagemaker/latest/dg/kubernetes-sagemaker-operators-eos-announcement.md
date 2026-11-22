@@ -1,7 +1,6 @@
 
 
 # Announcing the End of Support of the Original Version of SageMaker AI Operators for Kubernetes
-<a name="kubernetes-sagemaker-operators-eos-announcement"></a>
 
 This page announces the end of support for the original version of [SageMaker AI Operators for Kubernetes](https://github.com/aws/amazon-sagemaker-operator-for-k8s) and provides answers to frequently asked questions as well as migration information about the [ACK service controller for Amazon SageMaker AI](https://github.com/aws-controllers-k8s/sagemaker-controller), a new generation of fully supported SageMaker AI Operators for Kubernetes. For general information about the new SageMaker AI Operators for Kubernetes, see [Latest SageMaker AI Operators for Kubernetes](kubernetes-sagemaker-operators-ack.md). 
 

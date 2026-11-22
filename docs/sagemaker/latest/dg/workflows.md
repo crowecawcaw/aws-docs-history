@@ -1,7 +1,6 @@
 
 
 # SageMaker AI Workflows
-<a name="workflows"></a>
 
 As you scale your machine learning (ML) operations, you can use Amazon SageMaker AI fully managed workflow services to implement continuous integration and deployment (CI/CD) practices for your ML lifecycle. With the Pipelines SDK, you choose and integrate pipeline steps into a unified solution that automates the model-building process from data preparation to model deployment. For Kubernetes based architectures, you can install SageMaker AI Operators on your Kubernetes cluster to create SageMaker AI jobs natively using the Kubernetes API and command-line Kubernetes tools such as `kubectl`. With SageMaker AI components for Kubeflow pipelines, you can create and monitor native SageMaker AI jobs from your Kubeflow Pipelines. The job parameters, status, and outputs from SageMaker AI are accessible from the Kubeflow Pipelines UI. Lastly, if you want to schedule batch jobs, you can use either the AWS Batch job queue integration or the Jupyter notebook-based workflows service to initiate standalone or regular runs on a schedule you define.
 

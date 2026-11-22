@@ -1,7 +1,6 @@
 
 
 # Troubleshooting and best practices
-<a name="training-sessions-troubleshooting"></a>
 
 ## Common errors and solutions
 <a name="training-sessions-troubleshooting-errors"></a>
@@ -10,7 +9,7 @@
 A session supports one `TrainingClient` at a time. You opened a second client on a session that already has one. Stop the first client, or scope each client to a `with` block.
 
 `OperationError` on `forward_backward`  
-A required `loss_fn_inputs` key is missing, or a tensor length does not match the model input. Provide full-sequence values with prompt positions zero-padded, and include every key your loss function requires. See [Training data](training-sessions-sdk.md#training-sessions-sdk-training-data).
+A required `loss_fn_inputs` key is missing, or a tensor length does not match the model input. Provide one value per input token, with `0` at positions you do not want scored, and include every key your loss function requires. See [Training data](training-sessions-sdk.md#training-sessions-sdk-training-data).
 
 `ValueError` from a restore factory  
 You passed both `base_model` and `model_package_arn` and they name different base models, or you called `get_latest_model_package` without a `model_package_group_arn`. Pass matching values, or set the group on the client.

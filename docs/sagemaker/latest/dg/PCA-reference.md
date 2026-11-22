@@ -1,7 +1,6 @@
 
 
 # PCA Hyperparameters
-<a name="PCA-reference"></a>
 
 In the `CreateTrainingJob` request, you specify the training algorithm. You can also specify algorithm-specific HyperParameters as string-to-string maps. The following table lists the hyperparameters for the PCA training algorithm provided by Amazon SageMaker AI. For more information about how PCA works, see [How PCA Works](how-pca-works.md). 
 

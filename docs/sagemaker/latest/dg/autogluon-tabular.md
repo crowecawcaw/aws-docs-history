@@ -1,7 +1,6 @@
 
 
 # AutoGluon-Tabular
-<a name="autogluon-tabular"></a>
 
 [AutoGluon-Tabular](https://auto.gluon.ai/stable/index.html) is a popular open-source AutoML framework that trains highly accurate machine learning models on an unprocessed tabular dataset. Unlike existing AutoML frameworks that primarily focus on model and hyperparameter selection, AutoGluon-Tabular succeeds by ensembling multiple models and stacking them in multiple layers. This page includes information about Amazon EC2 instance recommendations and sample notebooks for AutoGluon-Tabular.
 

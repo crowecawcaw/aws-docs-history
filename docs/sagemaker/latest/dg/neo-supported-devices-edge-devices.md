@@ -1,7 +1,6 @@
 
 
 # Supported Devices, Chip Architectures, and Systems
-<a name="neo-supported-devices-edge-devices"></a>
 
 Amazon SageMaker Neo supports the following devices, chip architectures, and operating systems.
 

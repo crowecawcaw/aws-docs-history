@@ -1,7 +1,6 @@
 
 
 # Connect to an Amazon EMR cluster from SageMaker Studio or Studio Classic
-<a name="connect-emr-clusters"></a>
 
 Data scientists and data engineers can discover and then connect to an Amazon EMR cluster directly from the Studio user interface. Before you begin, ensure that you have configured the necessary permissions as described in the [Step 4: Set up the permissions to enable listing and launching Amazon EMR clusters from Studio](studio-notebooks-set-up-emr-templates.md#studio-emr-permissions) section. These permissions grant Studio the ability to create, start, view, access, and terminate clusters.
 
@@ -133,7 +132,7 @@ For self-signed or local Certificate Authority (CA) signed certificates, you can
 
 1. Enable the validation of the certificate by providing the path to your certificate in the `--verify-certificate` argument of your connection command.
 
-   ```
+   ```bash
    %sm_analytics emr connect --cluster-id {{cluster_id}} \
    --verify-certificate {{/home/user/certificateKey.pem}} ...
    ```

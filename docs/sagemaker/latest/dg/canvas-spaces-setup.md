@@ -1,7 +1,6 @@
 
 
 # Store SageMaker Canvas application data in your own SageMaker AI space
-<a name="canvas-spaces-setup"></a>
 
 Your Amazon SageMaker Canvas application data, such as datasets that you import and your model artifacts, is stored in a *Amazon SageMaker Studio private space*. The space consists of a storage volume for your application data with 100 GB of storage per user profile, the type of the space (in this case, a Canvas application), and the image for your application's container. When you set up Canvas and launch your application for the first time, SageMaker AI creates a default private space that is assigned to your user profile and stores your Canvas data. You don't have to do any additional configuration to set up the space because SageMaker AI automatically creates the space on your behalf. However, if you don't want to use the default space, you have the option to specify a space that you created yourself. This can be useful if you want to isolate your data. The following page shows you how to create and configure your own Studio space for storing Canvas application data.
 

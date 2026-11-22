@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Neo Compilation Errors
-<a name="neo-troubleshooting-compilation"></a>
 
 This section contains information about how to understand and prevent common compilation errors, the error messages they generate, and guidance on how to resolve these errors. 
 

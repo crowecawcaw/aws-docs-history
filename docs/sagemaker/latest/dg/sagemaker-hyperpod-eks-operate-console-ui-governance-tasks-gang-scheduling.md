@@ -1,7 +1,6 @@
 
 
 # Using gang scheduling in Amazon SageMaker HyperPod task governance
-<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-tasks-gang-scheduling"></a>
 
 In distributed ML training, a job often requires multiple pods running concurrently across nodes with pod-to-pod communication. HyperPod task governance uses Kueue's `waitForPodsReady` feature to implement gang scheduling. When enabled, the workload is monitored by Kueue until all of its pods are ready, meaning scheduled, running, and passing the optional readiness probe. If not all pods of the workload are ready within the configured timeout, the workload is evicted and requeued.
 

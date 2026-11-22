@@ -1,7 +1,6 @@
 
 
 # Tutorials - Amazon SageMaker HyperPod Checkpointless Full Finetuning GPT OSS 120b
-<a name="sagemaker-eks-checkpointless-recipes-finetune"></a>
 
 The following sequence of steps is required to run checkpointless training recipes on HyperPod.
 

@@ -1,7 +1,6 @@
 
 
 # Register a Model Version
-<a name="model-registry-version"></a>
 
 You can register an Amazon SageMaker AI model by creating a model version that specifies the model group to which it belongs. A model version must include a model artifacts (the trained weights of a model) and optionally the inference code for the model.
 
@@ -27,7 +26,7 @@ To register a model version by using Boto3, call the `create_model_package` API 
 
 First, you set up the parameter dictionary to pass to the `create_model_package` API operation.
 
-```
+```python
 # Specify the model source
 model_url = "s3://{{your-bucket-name/model.tar.gz}}"
 
@@ -57,7 +56,7 @@ create_model_package_input_dict.update(modelpackage_inference_specification)
 
 Then you call the `create_model_package` API operation, passing in the parameter dictionary that you just set up.
 
-```
+```python
 create_model_package_response = sm_client.create_model_package(**create_model_package_input_dict)
 model_package_arn = create_model_package_response["ModelPackageArn"]
 print('ModelPackage Version ARN : {}'.format(model_package_arn))
@@ -166,7 +165,7 @@ Amazon ECR, Amazon S3, and AWS KMS policies are demonstrated in the following co
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -194,7 +193,7 @@ Amazon ECR, Amazon S3, and AWS KMS policies are demonstrated in the following co
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -224,7 +223,7 @@ Amazon ECR, Amazon S3, and AWS KMS policies are demonstrated in the following co
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -251,7 +250,7 @@ Amazon ECR, Amazon S3, and AWS KMS policies are demonstrated in the following co
 
 The following policy configuration applies the policies discussed in the previous section and must be put in the model training account.
 
-```
+```python
 import json
 
 # The Model Registry account id of the Model Group 
@@ -330,7 +329,7 @@ response = client.create_grant(
 
 The following configuration needs to be put in the Model Registry account where the Model Group exists.
 
-```
+```python
 # The Model Registry account id of the Model Group 
 model_registry_account = "{{111111111111}}"
 
@@ -358,7 +357,7 @@ response = sm_client.put_model_package_group_policy(
 
 Finally, use the `create_model_package` action from the model training account to register the model package in the cross-account.
 
-```
+```python
 # Specify the model source
 model_url = "s3://{{{bucket}}}/model.tar.gz"
 

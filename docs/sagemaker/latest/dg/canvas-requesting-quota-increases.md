@@ -1,7 +1,6 @@
 
 
 # Request a Quota Increase
-<a name="canvas-requesting-quota-increases"></a>
 
 Your users might use AWS resources in amounts that exceed those specified by their quotas. If your users are resource constrained and encounter errors in SageMaker Canvas, you can request a quota increase for them.
 

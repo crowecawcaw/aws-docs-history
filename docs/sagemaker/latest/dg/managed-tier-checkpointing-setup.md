@@ -1,7 +1,6 @@
 
 
 # Set up managed tiered checkpointing
-<a name="managed-tier-checkpointing-setup"></a>
 
 This section contains setup process for managed tiered checkpointing for Amazon SageMaker HyperPod. You’ll learn how to enable the capability on your cluster and implement checkpointing in your training code.
 
@@ -67,7 +66,7 @@ The `InstanceMemoryAllocationPercentage` parameter specifies the `{{percentage}}
 
 Install the [Amazon SageMaker checkpointing library](https://pypi.org/project/amzn-sagemaker-checkpointing/) and its dependencies in your training image by adding it to your Dockerfile:
 
-```
+```bash
 # Add this line to your training image Dockerfile
 RUN pip install amzn-sagemaker-checkpointing s3torchconnector tenacity torch boto3 s3torchconnector
 ```
@@ -77,7 +76,7 @@ RUN pip install amzn-sagemaker-checkpointing s3torchconnector tenacity torch bot
 
 In your training loop, you can asynchronously save checkpoints using PyTorch DCP. The following is an example on how to do so.
 
-```
+```python
 import torch
 import torch.distributed as dist
 from torch.distributed.checkpoint import async_save, load
@@ -154,7 +153,7 @@ for training_step in range(1000):
 
 The following is an example on loading a checkpoint.
 
-```
+```python
 # Create state dictionary template
 state_dict = {
     "model": model.state_dict(),

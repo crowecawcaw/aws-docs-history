@@ -1,7 +1,6 @@
 
 
 # Download the SageMaker Debugger profiling report
-<a name="debugger-profiling-report-download"></a>
 
 **Note**  
 End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources. For more information, see [Profiler availability change](profiler-availability-change.md).
@@ -19,25 +18,25 @@ You can also download the report with a single click in the SageMaker Studio Deb
 
 1. Check the current job's default S3 output base URI.
 
-   ```
+   ```py
    model_trainer.output_path
    ```
 
 1. Check the current job name.
 
-   ```
+   ```py
    model_trainer.latest_training_job.job_name
    ```
 
 1. The Debugger profiling report is stored under `<default-s3-output-base-uri>/<training-job-name>/rule-output`. Configure the rule output path as follows:
 
-   ```
+   ```py
    rule_output_path = model_trainer.output_path + model_trainer.latest_training_job.job_name + "/rule-output"
    ```
 
 1. To check if the report is generated, list directories and files recursively under the `rule_output_path` using `aws s3 ls` with the `--recursive` option.
 
-   ```
+   ```py
    ! aws s3 ls {rule_output_path} --recursive
    ```
 
@@ -48,7 +47,7 @@ You can also download the report with a single click in the SageMaker Studio Deb
 
 1. Download the files recursively using `aws s3 cp`. The following command saves all of the rule output files to the `ProfilerReport-1234567890` folder under the current working directory.
 
-   ```
+   ```py
    ! aws s3 cp {rule_output_path} {{./}} --recursive
    ```
 **Tip**  

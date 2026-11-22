@@ -1,7 +1,6 @@
 
 
 # Apply SageMaker smart sifting to your Hugging Face Transformers script
-<a name="train-smart-sifting-apply-to-hugging-face-transformers-script"></a>
 
 There are two ways to implement the SageMaker smart sifting into the Transformers `Trainer` class.
 
@@ -13,7 +12,7 @@ If you use one of the DLCs for PyTorch with the SageMaker smart sifting package 
 
 The simplest way to implement SageMaker smart sifting into the Transformers `Trainer` class is to use the `enable_sifting` function. This function accepts an existing `Trainer` object, and wraps the existing `DataLoader` object with `SiftingDataloader`. You can continue using the same training object. See the following example usage.
 
-```
+```py
 from smart_sifting.integrations.trainer import enable_sifting
 from smart_sifting.loss.abstract_sift_loss_module import Loss
 from smart_sifting.sift_config.sift_configs import (
@@ -43,7 +42,7 @@ trainer.train()
 
 The `SiftingDataloader` class is an iterable data loader. The exact size of the resulting dataset is not known beforehand due to the random sampling during sifting. As a result, the Hugging Face `Trainer` expects the [`max_steps` training argument](https://huggingface.co/docs/transformers/main_classes/trainer#transformers.TrainingArguments.max_steps). Note that this argument overrides the epoch configuration parameter `num_train_epochs`. If your original data loader was also iterable, or your training uses `max_steps` and a single epoch, then the `SiftingDataloader` performs the same as the existing dataloader. If the original dataloader was not iterable or `max_steps` was not provided, the Hugging Face Trainer might throw an error message similar to the following. 
 
-```
+```py
 args.max_steps must be set to a positive value if dataloader does not have a length,
 was -1
 ```
@@ -55,7 +54,7 @@ To address this, the `enable_sifting` function provides an optional `set_epochs`
 
 For a custom integration of the SageMaker smart sifting dataloader, you can utilize a custom Hugging Face `Trainer` class. Within any subclass of `Trainer`, the `get_train_dataloader()` function can be overridden to return an object of the `SiftingDataloader` class instead. For cases with existing custom trainers, this approach might be less intrusive but requires code changes than the simple setup option. The following is an example implementation of SageMaker smart sifting into a custom Hugging Face `Trainer` class.
 
-```
+```py
 from smart_sifting.sift_config.sift_configs import (
     RelativeProbabilisticSiftConfig
     LossConfig
@@ -118,7 +117,7 @@ class {{SiftingImplementedTrainer}}(Trainer):
 
 Using the wrapped `Trainer` class, create an object of it as follows.
 
-```
+```py
 trainer = SiftingImplementedTrainer(
     model={{model}},
     args={{training_args}},

@@ -1,7 +1,6 @@
 
 
 # Object Detection - TensorFlow
-<a name="object-detection-tensorflow"></a>
 
 The Amazon SageMaker AI Object Detection - TensorFlow algorithm is a supervised learning algorithm that supports transfer learning with many pretrained models from the [TensorFlow Model Garden](https://github.com/tensorflow/models). Use transfer learning to fine-tune one of the available pretrained models on your own dataset, even if a large amount of image data is not available. The object detection algorithm takes an image as input and outputs a list of bounding boxes. Training datasets must consist of images in .`jpg`, `.jpeg`, or `.png` format. This page includes information about Amazon EC2 instance recommendations and sample notebooks for Object Detection - TensorFlow.
 

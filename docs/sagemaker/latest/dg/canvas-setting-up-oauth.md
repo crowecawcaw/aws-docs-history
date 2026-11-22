@@ -1,7 +1,6 @@
 
 
 # Set up connections to data sources with OAuth
-<a name="canvas-setting-up-oauth"></a>
 
 The following section describes the steps you must take to set up OAuth connections to data sources from SageMaker Canvas. [OAuth](https://oauth.net/2/) is a common authentication platform for granting access to resources without sharing passwords. With OAuth, you can quickly connect to your data from Canvas and import it for building models. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. 
 

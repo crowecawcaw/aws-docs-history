@@ -1,7 +1,6 @@
 
 
 # Training plans utilization for SageMaker training jobs
-<a name="training-plan-utilization-for-training-jobs"></a>
 
 You can use a SageMaker training plans for your training jobs by specifying the plan of your choice when creating a training job.
 
@@ -23,7 +22,7 @@ To achieve this, you can use the `SAGEMAKER_CURRENT_CAPACITY_BLOCK_EXPIRATION_TI
 
 Here's an example of how you can implement this checkpointing logic in your Python training script:
 
-```
+```python
 import os
 import time
 from datetime import datetime, timedelta

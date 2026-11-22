@@ -1,7 +1,6 @@
 
 
 # Setting up cross-account sharing for Amazon SageMaker AI partner AI apps
-<a name="partner-app-resource-sharing-ram"></a>
 
 Amazon SageMaker AI integrates with AWS Resource Access Manager (AWS RAM) to enable resource sharing. AWS RAM is a service that enables you to share some Amazon SageMaker AI resources with other AWS accounts or through AWS Organizations. With AWS RAM, you share resources that you own by creating a *resource share*. A resource share specifies the resources to share, and the consumers with whom to share them. Consumers can be specific AWS accounts inside or outside of its organization in AWS Organizations.
 
@@ -80,7 +79,7 @@ The account with which an Amazon SageMaker Partner AI App is shared needs to hav
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [

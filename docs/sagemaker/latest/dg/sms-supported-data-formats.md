@@ -1,7 +1,6 @@
 
 
 # Supported data formats
-<a name="sms-supported-data-formats"></a>
 
 When you create an input manifest file for a [built-in task types](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html) manually, your input data must be in one of the following support file formats for the respective input data type. To learn about automated data setup, see [Automate data setup for labeling jobs](sms-console-create-manifest-file.md).
 

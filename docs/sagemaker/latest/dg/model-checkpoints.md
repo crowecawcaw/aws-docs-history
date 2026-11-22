@@ -1,7 +1,6 @@
 
 
 # Checkpoints in Amazon SageMaker AI
-<a name="model-checkpoints"></a>
 
 Use checkpoints in Amazon SageMaker AI to save the state of machine learning (ML) models during training. Checkpoints are snapshots of the model and can be configured by the callback functions of ML frameworks. You can use the saved checkpoints to restart a training job from the last saved checkpoint. 
 

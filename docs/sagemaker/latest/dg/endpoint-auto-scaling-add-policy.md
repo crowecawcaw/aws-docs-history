@@ -1,7 +1,6 @@
 
 
 # Register a model
-<a name="endpoint-auto-scaling-add-policy"></a>
 
 Before you add a scaling policy to your model, you first must register your model for auto scaling and define the scaling limits for the model.
 

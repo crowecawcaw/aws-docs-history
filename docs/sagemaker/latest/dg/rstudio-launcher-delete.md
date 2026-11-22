@@ -1,7 +1,6 @@
 
 
 # Delete your RSessions
-<a name="rstudio-launcher-delete"></a>
 
 The following procedure demonstrates how to delete an RSession from the RStudio Launcher when using RStudio on Amazon SageMaker AI. For information about accessing the RStudio Launcher, see [Launch RSessions from the RStudio Launcher](rstudio-launcher.md).
 

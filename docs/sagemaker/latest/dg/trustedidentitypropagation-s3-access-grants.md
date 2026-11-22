@@ -1,7 +1,6 @@
 
 
 # Connect Studio JupyterLab notebooks to Amazon S3 Access Grants with trusted identity propagation enabled
-<a name="trustedidentitypropagation-s3-access-grants"></a>
 
 You can use [Amazon S3 Access Grants](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants.html) to flexibly grant identity-based fine-grain access control to Amazon S3 locations. These grant Amazon S3 buckets access directly to your corporate users and groups. The following pages provides information and instructions on how to use Amazon S3 Access Grants with trusted identity propagation for SageMaker AI.
 

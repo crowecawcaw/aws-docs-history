@@ -1,14 +1,13 @@
 
 
 # Use Debugger built-in rules with the default parameter settings
-<a name="debugger-built-in-rules-configuration"></a>
 
 **Note**  
 Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
 
 To specify Debugger built-in rules in an estimator, you need to configure a list object. The following example code shows the basic structure of listing the Debugger built-in rules:
 
-```
+```py
 from sagemaker.core.debugger import Rule, rule_configs
 
 rules=[

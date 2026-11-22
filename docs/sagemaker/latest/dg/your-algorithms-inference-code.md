@@ -1,7 +1,6 @@
 
 
 # Custom Inference Code with Hosting Services
-<a name="your-algorithms-inference-code"></a>
 
 This section explains how Amazon SageMaker AI interacts with a Docker container that runs your own inference code for hosting services. Use this information to write inference code and create a Docker image. 
 
@@ -108,7 +107,7 @@ To respond to inference requests, your container must meet the following require
 The following examples demonstrate how the code in your container can process inference requests. These examples handle requests that client applications send by using the InvokeEndpoint action.  
 FastAPI is a web framework for building APIs with Python.  
 
-```
+```python
 from fastapi import FastAPI, status, Request, Response
 . . .
 app = FastAPI()
@@ -129,7 +128,7 @@ async def invocations(request: Request):
 In this example, the `invocations` function handles the inference request that SageMaker AI sends to the `/invocations` endpoint.
 Flask is a framework for developing web applications with Python.  
 
-```
+```python
 import flask
 . . .
 app = flask.Flask(__name__)
@@ -147,7 +146,7 @@ The following examples demonstrate how the code in your inference container can 
 When a container handles a streaming inference request, it returns the model's inference as a series of parts incrementally as the model generates them. Client applications start receiving responses immediately when they're available. They don't need to wait for the model to generate the entire response. You can implement streaming to support fast interactive experiences, such as chatbots, virtual assistants, and music generators.  
 FastAPI is a web framework for building APIs with Python.  
 
-```
+```python
 from starlette.responses import StreamingResponse
 from fastapi import FastAPI, status, Request
 . . .
@@ -172,7 +171,7 @@ async def invocations(request: Request):
 In this example, the `invocations` function handles the inference request that SageMaker AI sends to the `/invocations` endpoint. To stream the response, the example uses the `StreamingResponse` class from the Starlette framework.
 Flask is a framework for developing web applications with Python.  
 
-```
+```python
 import flask
 . . .
 app = flask.Flask(__name__)
@@ -196,7 +195,7 @@ The following examples demonstrate how the code in your container can process st
 A container with bidirectional streaming capability handles streaming inference requests where parts are incrementally generated at the client and streamed to the container. It returns the model's inference back to the client as a series of parts as the model generates them. Client applications start receiving responses immediately when they're available. They don't need to wait for request to the fully generated at the client or for the model to generate the entire response. You can implement bidirectional streaming to support fast interactive experiences, such as chatbots, interactive voice AI assistants and real-time translations for a more real-time experience.  
 FastAPI is a web framework for building APIs with Python.  
 
-```
+```python
 import sys
 import asyncio
 import json

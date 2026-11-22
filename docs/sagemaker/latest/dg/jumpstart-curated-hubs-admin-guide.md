@@ -1,7 +1,6 @@
 
 
 # Admin guide for private model hubs in Amazon SageMaker JumpStart
-<a name="jumpstart-curated-hubs-admin-guide"></a>
 
 There are actions that administrators can take related to curated model hubs that users within your organization can access. This includes creating, adding, deleting, and managing access of private hubs. This page also includes information about the supported AWS Regions for curated private hubs, as well as the prerequisites needed to use curated private model hubs. 
 

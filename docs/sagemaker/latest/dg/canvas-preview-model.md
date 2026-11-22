@@ -1,7 +1,6 @@
 
 
 # Preview your model
-<a name="canvas-preview-model"></a>
 
 **Note**  
 The following functionality is only available for custom models built with tabular datasets. Multi-category text prediction models are also excluded.

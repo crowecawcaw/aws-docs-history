@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Ambarella Errors
-<a name="neo-troubleshooting-target-devices-ambarella"></a>
 
 SageMaker Neo requires models to be packaged in a compressed TAR file (`*.tar.gz`). Ambarella devices require additional files to be included within the compressed TAR file before it is sent for compilation. Include the following files within your compressed TAR file if you want to compile a model for Ambarella targets with SageMaker Neo:
 + A trained model using a framework supported by SageMaker Neo 
@@ -10,7 +9,7 @@ SageMaker Neo requires models to be packaged in a compressed TAR file (`*.tar.gz
 
 For example, the contents of your compressed TAR file should look similar to the following example:
 
-```
+```python
 ├──amba_config.json
 ├──calib_data
 |    ├── data1
@@ -47,7 +46,7 @@ The configuration file provides information required by the Ambarella toolchain 
 
 The following is a sample configuration file: 
 
-```
+```python
 {
     "inputs": {
         "data": {

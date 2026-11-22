@@ -1,7 +1,6 @@
 
 
 # Run TensorFlow Training Jobs with SageMaker Training Compiler
-<a name="training-compiler-enable-tensorflow"></a>
 
 **Important**  
 **Deprecation notice:** SageMaker Training Compiler is not supported in SageMaker Python SDK v3. If you are currently using Training Compiler, continue using SageMaker Python SDK v2. For new projects, consider using the unified `ModelTrainer` class with supported frameworks. See [SageMaker Python SDK documentation](https://sagemaker.readthedocs.io/en/stable/) for migration guidance.
@@ -32,7 +31,7 @@ For information that fits your use case, see one of the following options.
 ------
 #### [ TensorFlow ]
 
-```
+```py
 from sagemaker.tensorflow import TensorFlow, TrainingCompilerConfig
 
 # the original max batch size that can fit into GPU memory without compiler
@@ -72,7 +71,7 @@ To prepare your training script, see the following pages.
 ------
 #### [ Hugging Face Estimator with TensorFlow ]
 
-```
+```py
 from sagemaker.huggingface import HuggingFace, TrainingCompilerConfig
 
 # the original max batch size that can fit into GPU memory without compiler
@@ -118,7 +117,7 @@ To prepare your training script, see the following pages.
 ------
 #### [ Hugging Face Estimator with TensorFlow ]
 
-```
+```py
 from sagemaker.huggingface import HuggingFace, TrainingCompilerConfig
 
 # choose an instance type, specify the number of instances you want to use,
@@ -185,7 +184,7 @@ When using the SageMaker AI Hugging Face estimator, you must specify both `trans
 **Warning**  
 If you turn on SageMaker Debugger, it might impact the performance of SageMaker Training Compiler. We recommend that you turn off Debugger when running SageMaker Training Compiler to make sure there's no impact on performance. For more information, see [Considerations](training-compiler-tips-pitfalls.md#training-compiler-tips-pitfalls-considerations). To turn the Debugger functionalities off, add the following two arguments to the estimator:  
 
-```
+```py
 disable_profiler=True,
 debugger_hook_config=False
 ```
@@ -193,13 +192,13 @@ debugger_hook_config=False
 If the training job with the compiler is launched successfully, you receive the following logs during the job initialization phase: 
 + With `TrainingCompilerConfig(debug=False)`
 
-  ```
+  ```txt
   Found configuration for Training Compiler
   Configuring SM Training Compiler...
   ```
 + With `TrainingCompilerConfig(debug=True)`
 
-  ```
+  ```txt
   Found configuration for Training Compiler
   Configuring SM Training Compiler...
   Training Compiler set to debug mode
@@ -220,7 +219,7 @@ To extend and customize the SageMaker AI TensorFlow DLCs for your use-case, use 
 
 Use the following Dockerfile template to extend the SageMaker AI TensorFlow DLC. You must use the SageMaker AI TensorFlow DLC image as the base image of your Docker container. To find the SageMaker AI TensorFlow DLC image URIs, see [Supported Frameworks](https://docs.aws.amazon.com/sagemaker/latest/dg/training-compiler-support.html#training-compiler-supported-frameworks).
 
-```
+```docker
 # SageMaker AI TensorFlow Deep Learning Container image
 FROM 763104351884.dkr.ecr.{{<aws-region>}}.amazonaws.com/tensorflow-training:{{<image-tag>}}
 
@@ -242,7 +241,7 @@ Consider the following pitfalls when extending SageMaker AI Framework DLCs:
 
 For example, there’s a known issue that the [tensorflow/models](https://github.com/tensorflow/models) and [tensorflow/text](https://github.com/tensorflow/text) libraries always attempt to [reinstall open source TensorFlow](https://github.com/tensorflow/models/issues/9267). If you need to install these libraries to choose a specific version for your use case, we recommend that you look into the SageMaker AI TensorFlow DLC Dockerfiles for v2.9 or later. The paths to the Dockerfiles are typically in the following format: `tensorflow/training/docker/<tensorflow-version>/py3/<cuda-version>/Dockerfile.gpu`. In the Dockerfiles, you should find the code lines to reinstall AWS managed TensorFlow binary (specified to the `TF_URL` environment variable) and other dependencies in order. The reinstallation section should look like the following example:
 
-```
+```docker
 # tf-models does not respect existing installations of TensorFlow 
 # and always installs open source TensorFlow
 
@@ -269,7 +268,7 @@ To build and push your Docker container to Amazon ECR, follow the instructions i
 
 Use the SageMaker AI TensorFlow framework estimator as usual. You must specify `image_uri` to use the new container you hosted in Amazon ECR.
 
-```
+```py
 import sagemaker, boto3
 from sagemaker import get_execution_role
 from sagemaker.tensorflow import TensorFlow, TrainingCompilerConfig
@@ -310,7 +309,7 @@ estimator.fit()
 
 SageMaker Training Compiler configuration options must be specified through the `AlgorithmSpecification` and `HyperParameters` field in the request syntax for the [`CreateTrainingJob` API operation](https://amazonaws.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html).
 
-```
+```json
 "AlgorithmSpecification": {
     "TrainingImage": "{{<sagemaker-training-compiler-enabled-dlc-image>}}"
 },

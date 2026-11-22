@@ -1,7 +1,6 @@
 
 
 # Activation offloading
-<a name="model-parallel-core-features-v2-pytorch-activation-offloading"></a>
 
 **Important**  
 In SMP v2.2.0, the activation offloading functionality of the SMP library doesn't work. Use the native PyTorch activation offloading instead.
@@ -20,7 +19,7 @@ The following code snippets show how to add the SMP initialization module `torch
 
 **SMP configuration**
 
-```
+```json
 {
     "activation_loading_horizon": 2,
     "sm_activation_offloading": True
@@ -32,7 +31,7 @@ The following code snippets show how to add the SMP initialization module `torch
 **Note**  
 While activating the SMP activation offloading feature, make sure that you also use the PyTorch `offload_wrapper` function and apply it to the root module. The SMP activation offloading feature uses the root module to determine when forward pass is done to start pre-fetching.
 
-```
+```py
 import torch.sagemaker as tsm
 tsm.init()
 

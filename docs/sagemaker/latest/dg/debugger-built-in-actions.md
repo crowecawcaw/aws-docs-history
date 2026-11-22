@@ -1,7 +1,6 @@
 
 
 # Use Debugger built-in actions for rules
-<a name="debugger-built-in-actions"></a>
 
 **Note**  
 Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
@@ -87,7 +86,7 @@ In this step, you add the required policies to your IAM role.
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -139,7 +138,7 @@ You can use all of the built-in actions or a subset of actions by wrapping up us
 
 If you want to assign all of the three built-in actions to a single rule, configure a Debugger built-in action list while constructing a ModelTrainer. Use the following template to construct the ModelTrainer, and Debugger will stop training jobs and send notifications through email and text for any rules that you use to monitor your training job progress.
 
-```
+```py
 from sagemaker.core.debugger import Rule, rule_configs
 
 # Configure an action list object for Debugger rules
@@ -170,7 +169,7 @@ model_trainer.train()
 
 If you want to assign the built-in actions to be triggered at different threshold values of a single rule, you can create multiple built-in action objects as shown in the following script. To avoid a conflict error by running the same rule, you must submit different rule job names (specify different strings for the rules' `name` attribute) as shown in the following example script template. This example shows how to set up [StalledTrainingRule](debugger-built-in-rules.md#stalled-training) to take two different actions: send an email to `abc@abc.com` when a training job stalls for 60 seconds, and stop the training job if stalling for 120 seconds.
 
-```
+```py
 from sagemaker.core.debugger import Rule, rule_configs
 import time
 

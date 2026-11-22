@@ -1,7 +1,6 @@
 
 
 # Run a Processing Job with Apache Spark
-<a name="use-spark-processing-container"></a>
 
 Apache Spark is a unified analytics engine for large-scale data processing. Amazon SageMaker AI provides prebuilt Docker images that include Apache Spark and other dependencies needed to run distributed data processing jobs. The following provides an example on how to run a Amazon SageMaker Processing job using Apache Spark.
 
@@ -13,7 +12,7 @@ A code repository that contains the source code and Dockerfiles for the Spark im
 
  The following code example shows how to run a processing job that invokes your PySpark script `preprocess.py`. 
 
-```
+```python
 from sagemaker.core.spark.processing import PySparkProcessor
 
 spark_processor = PySparkProcessor(

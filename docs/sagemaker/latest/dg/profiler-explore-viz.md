@@ -1,7 +1,6 @@
 
 
 # Explore the profile output data visualized in the SageMaker Profiler UI
-<a name="profiler-explore-viz"></a>
 
 **Note**  
 End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources. For more information, see [Profiler availability change](profiler-availability-change.md).

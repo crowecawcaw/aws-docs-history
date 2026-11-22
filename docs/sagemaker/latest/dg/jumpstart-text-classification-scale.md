@@ -1,7 +1,6 @@
 
 
 # Deploy your model at scale
-<a name="jumpstart-text-classification-scale"></a>
 
 Set up auto-scaling and CloudWatch monitoring for your SageMaker AI endpoint to make it production-ready.
 

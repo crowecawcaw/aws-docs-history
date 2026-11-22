@@ -1,7 +1,6 @@
 
 
 # Orchestrating SageMaker HyperPod clusters with Amazon EKS
-<a name="sagemaker-hyperpod-eks"></a>
 
 SageMaker HyperPod is a SageMaker AI-managed service that enables large-scale training of foundation models on long-running and resilient compute clusters, integrating with Amazon EKS for orchestrating the HyperPod compute resources. You can run uninterrupted training jobs spanning weeks or months at scale using Amazon EKS clusters with HyperPod resiliency features that check for various hardware failures and automatically recover faulty nodes. 
 

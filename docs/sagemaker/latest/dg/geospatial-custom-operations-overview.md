@@ -1,7 +1,6 @@
 
 
 # Overview: Run processing jobs using `ProcessingJob` and a SageMaker geospatial container
-<a name="geospatial-custom-operations-overview"></a>
 
 **Note**  
 Amazon SageMaker geospatial capabilities is no longer open to new customers. Offboard any previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportEarthObservationJob.html) and [ExportVectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportVectorEnrichmentJob.html) API operations.
@@ -9,7 +8,7 @@ Amazon SageMaker geospatial capabilities is no longer open to new customers. Off
 SageMaker geospatial provides a purpose-built processing container, `081189585635.dkr.ecr.us-west-2.amazonaws.com/sagemaker-geospatial-v1-0:latest`. You can use this container when running a job with Amazon SageMaker Processing. When you create an instance of the [`ProcessingJob`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html) class that is available through the *Amazon SageMaker Python SDK for Processing*, specify this `image_uri`.
 
 **Note**  
-If you receive a ResourceLimitExceeded error when attempting to start a processing job, you need to request a quota increase. To get started on a Service Quotas quota increase request, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide* 
+If you receive a `ResourceLimitExceeded` error when attempting to start a processing job, you need to request a quota increase. To get started on a Service Quotas quota increase request, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide* 
 
 **Prerequisites for using `ProcessingJob`**
 
@@ -25,7 +24,7 @@ The following procedure show you how to create an instance of `ProcessingJob` an
 
 1. Instantiate an instance of the `ProcessingJob` class using the SageMaker geospatial image:
 
-   ```
+   ```python
    from sagemaker.core.processing import Processor, ProcessingInput, ProcessingOutput
    from sagemaker.core.helper.session_helper import Session, get_execution_role
    	
@@ -49,7 +48,7 @@ The following procedure show you how to create an instance of `ProcessingJob` an
 
 1. To start a processing job, use the `.run()` method:
 
-   ```
+   ```python
    # Can be replaced with any S3 compliant string for the name of the folder.
    s3_folder = {{geospatial-data-analysis}}
    

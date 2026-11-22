@@ -1,7 +1,6 @@
 
 
 # Automatic model tuning with SageMaker AI
-<a name="automatic-model-tuning"></a>
 
 Amazon SageMaker AI automatic model tuning (AMT) finds the best version of a model by running many training jobs on your dataset. Amazon SageMaker AI automatic model tuning (AMT) is also known as hyperparameter tuning. To do this, AMT uses the algorithm and ranges of hyperparameters that you specify. It then chooses the hyperparameter values that creates a model that performs the best, as measured by a metric that you choose.
 

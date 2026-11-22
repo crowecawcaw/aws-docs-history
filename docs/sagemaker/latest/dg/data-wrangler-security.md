@@ -1,7 +1,6 @@
 
 
 # Security and Permissions
-<a name="data-wrangler-security"></a>
 
 When you query data from Athena or Amazon Redshift, the queried dataset is automatically stored in the default SageMaker AI S3 bucket for the AWS Region in which you are using Studio Classic. Additionally, when you export a Jupyter Notebook from Amazon SageMaker Data Wrangler and run it, your data flows, or .flow files, are saved to the same default bucket, under the prefix *data\_wrangler\_flows*.
 
@@ -38,7 +37,7 @@ Use the following procedure to create an S3 bucket policy that you can add to re
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -112,7 +111,7 @@ The following policy assumes that the IAM role has permission to access the unde
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -196,7 +195,7 @@ The following policy grants permission to set up an Amazon Redshift connection t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -239,7 +238,7 @@ If your dataset is stored in Amazon S3, you can grant an IAM role permission to 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -278,7 +277,7 @@ Use a policy similar to the following to grant the permissions described in the 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -326,7 +325,7 @@ You can also access data in your Amazon S3 bucket from another AWS account by sp
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -366,7 +365,7 @@ The user that is accessing the bucket (not the bucket owner) must add a policy s
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -411,7 +410,7 @@ Use a policy like to the following to create an IAM execution role that can be u
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -502,7 +501,7 @@ If you're transferring data to Amazon S3, you must also attach the following pol
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -558,7 +557,7 @@ Amazon AppFlow needs to access AWS Glue and Data Wrangler for you to import the 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -585,7 +584,7 @@ To display the Amazon AppFlow data in Data Wrangler, add the following policy to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

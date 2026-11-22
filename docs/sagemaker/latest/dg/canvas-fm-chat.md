@@ -1,7 +1,6 @@
 
 
 # Generative AI foundation models in SageMaker Canvas
-<a name="canvas-fm-chat"></a>
 
 Amazon SageMaker Canvas provides generative AI foundation models that you can use to start conversational chats. These content generation models are trained on large amounts of text data to learn the statistical patterns and relationships between words, and they can produce coherent text that is statistically similar to the text on which they were trained. You can use this capability to increase your productivity by doing the following:
 + Generate content, such as document outlines, reports, and blogs

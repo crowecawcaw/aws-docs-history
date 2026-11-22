@@ -1,7 +1,6 @@
 
 
 # Analyze and Visualize
-<a name="data-wrangler-analyses"></a>
 
 Amazon SageMaker Data Wrangler includes built-in analyses that help you generate visualizations and data analyses in a few clicks. You can also create custom analyses using your own code. 
 
@@ -240,7 +239,7 @@ The following example uses the **Binned scatterplot** code snippet. It plots a h
 
 The snippets have comments to help you understand the changes that you need to make to the code. You usually need to specify the column names of your dataset in the code.
 
-```
+```python
 import altair as alt
 
 # Specify the number of top rows for plotting

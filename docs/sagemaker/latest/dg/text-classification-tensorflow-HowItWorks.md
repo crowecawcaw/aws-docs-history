@@ -1,7 +1,6 @@
 
 
 # How Text Classification - TensorFlow Works
-<a name="text-classification-tensorflow-HowItWorks"></a>
 
 The Text Classification - TensorFlow algorithm takes text as classifies it into one of the output class labels. Deep learning networks such as [BERT](https://arxiv.org/pdf/1810.04805.pdf) are highly accurate for text classification. There are also deep learning networks that are trained on large text datasets, such as TextNet, which has more than 11 million texts with about 11,000 categories. After a network is trained with TextNet data, you can then fine-tune the network on a dataset with a particular focus to perform more specific text classification tasks. The Amazon SageMaker AI Text Classification - TensorFlow algorithm supports transfer learning on many pretrained models that are available in the TensorFlow Hub.
 

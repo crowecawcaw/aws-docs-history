@@ -1,7 +1,6 @@
 
 
 # Hosting options
-<a name="realtime-endpoints-options"></a>
 
 The following topics describe available SageMaker AI realtime hosting options along with how to set up, invoke, and delete each hosting option.
 

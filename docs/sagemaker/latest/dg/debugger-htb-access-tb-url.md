@@ -1,7 +1,6 @@
 
 
 # Open TensorBoard using the `sagemaker.interactive_apps.tensorboard` module
-<a name="debugger-htb-access-tb-url"></a>
 
 The `sagemaker.interactive_apps.tensorboard` module provides a function called `get_app_url` that generates unsigned or presigned URLs to open the TensorBoard application in any environment in SageMaker AI or Amazon EC2. This is to provide a unified experience for both Studio Classic and non-Studio Classic users. For the Studio environment, you can open TensorBoard by running the `get_app_url()` function as it is, or you can also specify a job name to start tracking as the TensorBoard application opens. For non-Studio Classic environments, you can open TensorBoard by providing your domain and user profile information to the utility function. With this functionality, regardless of where or how you run training code and launch training jobs, you can directly access TensorBoard by running the `get_app_url` function in your Jupyter notebook or terminal.
 
@@ -21,7 +20,7 @@ If you are using SageMaker Studio Classic, you can directly open the TensorBoard
 
 The following code automatically opens the TensorBoard application from the unsigned URL that the `get_app_url()` function returns in the your environment's default web browser.
 
-```
+```py
 from sagemaker.interactive_apps import tensorboard
 
 region = "{{us-west-2}}"
@@ -36,7 +35,7 @@ app.get_app_url(
 
 The following code prints an unsigned URL that you can copy to a web browser and open the TensorBoard application.
 
-```
+```py
 from sagemaker.interactive_apps import tensorboard
 
 region = "{{us-west-2}}"
@@ -62,7 +61,7 @@ Note that this option requires the domain user to have the `sagemaker:CreatePres
 **Important**  
 Do not share any presigned URLs. The `get_app_url` function creates presigned URLs, which automatically authenticates with your domain and user profile and gives access to any applications and files associated with your domain.
 
-```
+```py
 print(
     app.get_app_url(
         training_job_name="{{your-training_job_name}}", # Optional. Specify the name of the job to track.
@@ -78,14 +77,14 @@ print(
 **Tip**  
 The `get_app_url` function runs the [`SageMaker.Client.create_presigned_domain_url`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_presigned_domain_url.html) API in the AWS SDK for Python (Boto3) in the backend. As the Boto3 `create_presigned_domain_url` API creates presigned domain URLs that expire in 300 seconds by default, presigned TensorBoard application URLs also expire in 300 seconds. If you want to extend the expiration time, pass the `ExpiresInSeconds` argument to the `optional_create_presigned_url_kwargs` argument of the `get_app_url` function as follows.  
 
-```
+```py
 optional_create_presigned_url_kwargs={"ExpiresInSeconds": {{1500}}}
 ```
 
 **Note**  
 If any of your input passed to the arguments of `get_app_url` is invalid, the function outputs a URL to the TensorBoard landing page instead of opening the TensorBoard application. The output message would be similar to the following.  
 
-```
+```txt
 Navigate to the following URL:
 https://us-west-2.console.aws.amazon.com/sagemaker/home?region=us-west-2#/tensor-board-landing
 ```

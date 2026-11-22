@@ -1,7 +1,6 @@
 
 
 # Advanced model building configurations
-<a name="canvas-advanced-settings"></a>
 
 Amazon SageMaker Canvas supports various advanced settings that you can configure when building a model. The following page lists all of the advanced settings along with additional information about their options and configurations.
 

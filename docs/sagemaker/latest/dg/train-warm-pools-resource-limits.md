@@ -1,7 +1,6 @@
 
 
 # Request a warm pool quota increase
-<a name="train-warm-pools-resource-limits"></a>
 
 To get started, you must first request a service limit increase for SageMaker AI managed warm pools. The default resource limit for warm pools is 0.
 

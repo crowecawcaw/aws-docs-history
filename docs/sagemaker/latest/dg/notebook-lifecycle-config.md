@@ -1,7 +1,6 @@
 
 
 # Customization of a SageMaker notebook instance using an LCC script
-<a name="notebook-lifecycle-config"></a>
 
 **Important**  
 Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studio Classic to create Amazon SageMaker resources must also grant permissions to add tags to those resources. The permission to add tags to resources is required because Studio and Studio Classic automatically tag any resources they create. If an IAM policy allows Studio and Studio Classic to create resources but does not allow tagging, "AccessDenied" errors can occur when trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions).  
@@ -42,7 +41,7 @@ Lifecycle configuration scripts run with root access and the notebook instance's
 
   For example, if you want to install a package only for the `python3` environment, use the following code:
 
-  ```
+  ```sh
   #!/bin/bash
   sudo -u ec2-user -i <<EOF
   
@@ -60,7 +59,7 @@ Lifecycle configuration scripts run with root access and the notebook instance's
 
   If you want to install a package in all conda environments in the notebook instance, use the following code:
 
-  ```
+  ```sh
   #!/bin/bash
   sudo -u ec2-user -i <<EOF
   

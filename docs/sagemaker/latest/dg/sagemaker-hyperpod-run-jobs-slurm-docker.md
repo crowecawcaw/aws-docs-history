@@ -1,7 +1,6 @@
 
 
 # Running Docker containers on a Slurm compute node on HyperPod
-<a name="sagemaker-hyperpod-run-jobs-slurm-docker"></a>
 
 To run Docker containers with Slurm on SageMaker HyperPod, you need to use [Enroot](https://github.com/NVIDIA/enroot) and [Pyxis](https://github.com/NVIDIA/pyxis). The Enroot package helps convert Docker images into a runtime that Slurm can understand, while the Pyxis enables scheduling the runtime as a Slurm job through an `srun` command, `srun --container-image={{docker/image:tag}}`. 
 
@@ -110,7 +109,7 @@ After you have completed setting up Slurm with Docker, you can bring any pre-bui
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -141,7 +140,7 @@ After you have completed setting up Slurm with Docker, you can bring any pre-bui
 
 1. In this tutorial, run the sample script [`docker_build.sh`](https://github.com/aws-samples/awsome-distributed-training/blob/main/3.test_cases/17.SM-modelparallelv2/docker_build.sh) that pulls the SMP Docker image, build the Docker container, and runs it as an Enroot runtime. You can modify this as you want.
 
-   ```
+   ```sh
    $ cat docker_build.sh
    #!/usr/bin/env bash
    
@@ -161,7 +160,7 @@ After you have completed setting up Slurm with Docker, you can bring any pre-bui
 **Important**  
 To use the a Docker container on SageMaker HyperPod, you must mount the `/var/log` directory from the host machine, which is the HyperPod compute node in this case, onto the `/var/log` directory in the container. You can set it up by adding the following variable for Enroot.  
 
-   ```
+   ```sh
    "${HYPERPOD_PATH:="{{/var/log/aws/clusters}}":"{{/var/log/aws/clusters}}"}"
    ```
 

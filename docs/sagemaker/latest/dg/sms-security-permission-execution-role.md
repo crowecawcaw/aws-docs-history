@@ -1,7 +1,6 @@
 
 
 # Create a SageMaker AI Execution Role for a Ground Truth Labeling Job
-<a name="sms-security-permission-execution-role"></a>
 
 When you configure your labeling job, you need to provide an *execution role*, which is a role that SageMaker AI has permission to assume to start and run your labeling job.
 
@@ -38,7 +37,7 @@ The following policy grants permission to create a labeling job for a [built-in 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -95,7 +94,7 @@ If you create a streaming labeling job, you must add a policy similar to the fol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -257,7 +256,7 @@ The following statement allows SageMaker AI to assume the execution role to crea
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {

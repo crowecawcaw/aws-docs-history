@@ -1,7 +1,6 @@
 
 
 # Model deployment with Triton Inference Server
-<a name="deploy-models-frameworks-triton"></a>
 
 [Triton Inference Server](https://github.com/triton-inference-server/server) is an open source inference serving software that streamlines AI inference. With Triton, you can deploy any model built with multiple deep learning and machine learning frameworks, including TensorRT, TensorFlow, PyTorch, ONNX, OpenVINO, Python, RAPIDS FIL, and more.
 

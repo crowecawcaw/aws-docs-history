@@ -1,7 +1,6 @@
 
 
 # Create an Algorithm Resource
-<a name="sagemaker-mkt-create-algo"></a>
 
 You can create an algorithm resource to use with training jobs in Amazon SageMaker AI, and you can publish it on AWS Marketplace. The following sections explain how to do that using the AWS Management Console and the SageMaker API.
 
@@ -78,7 +77,7 @@ You can create an algorithm by using either the SageMaker AI console or the Sage
 
    1. For **Hyperparameter specification**, specify the hyperparameters that your algorithm supports by editing the JSON object. For each hyperparameter that your algorithm supports, construct a JSON block similar to the following:
 
-      ```
+      ```JSON
       {
       "DefaultValue": "5",
       "Description": "The first hyperparameter",

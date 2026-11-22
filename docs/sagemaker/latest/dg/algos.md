@@ -1,7 +1,6 @@
 
 
 # Built-in algorithms and pretrained models in Amazon SageMaker
-<a name="algos"></a>
 
 Amazon SageMaker provides a suite of built-in algorithms, pre-trained models, and pre-built solution templates to help data scientists and machine learning practitioners get started on training and deploying machine learning models quickly. For someone who is new to SageMaker, choosing the right algorithm for your particular use case can be a challenging task. The following table provides a quick cheat sheet that shows how you can start with an example problem or use case and find an appropriate built-in algorithm offered by SageMaker that is valid for that problem type. Additional guidance organized by learning paradigms (supervised and unsupervised) and important data domains (text and images) is provided in the sections following the table.
 

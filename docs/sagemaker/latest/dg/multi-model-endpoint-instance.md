@@ -1,7 +1,6 @@
 
 
 # Instance recommendations for multi-model endpoint deployments
-<a name="multi-model-endpoint-instance"></a>
 
 There are several items to consider when selecting a SageMaker AI ML instance type for a multi-model endpoint:
 + Provision sufficient [ Amazon Elastic Block Store (Amazon EBS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html) capacity for all of the models that need to be served.

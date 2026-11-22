@@ -1,7 +1,6 @@
 
 
 # Invoke a remote function
-<a name="train-remote-decorator-invocation"></a>
 
 To invoke a function inside the @remote decorator, use either of the following methods:
 + [Use an @remote decorator to invoke a function](#train-remote-decorator-invocation-decorator).
@@ -14,7 +13,7 @@ If you use the @remote decorator method to invoke a function, the training job w
 
 You can use the @remote decorator to annotate a function. SageMaker AI will transform the code inside the decorator into a SageMaker training job. The training job will then invoke the function inside the decorator and wait for the job to complete. The following code example shows how to import the required libraries, start a SageMaker AI instance, and annotate a matrix multiplication with the @remote decorator.
 
-```
+```python
 from sagemaker.remote_function import remote
 import numpy as np
 
@@ -31,7 +30,7 @@ assert (matrix_multiply(a, b) == np.array([1,2])).all()
 
 The decorator is defined as follows.
 
-```
+```python
 def remote(
     *,
     **kwarg):
@@ -40,7 +39,7 @@ def remote(
 
 When you invoke a decorated function, SageMaker Python SDK loads any exceptions raised by an error into local memory. In the following code example, the first call to the divide function completes successfully and the result is loaded into local memory. In the second call to the divide function, the code returns an error and this error is loaded into local memory.
 
-```
+```python
 from sagemaker.remote_function import remote
 import pytest
 
@@ -68,7 +67,7 @@ The decorator function is run on a remote machine. Changing a non-local variable
 
 In the following code example, a list and a dict are appended inside the decorator function. This does not change when the decorator function is invoked.
 
-```
+```python
 a = []
 
 @remote
@@ -149,7 +148,7 @@ You can use the Python classes listed in this section with limitations. The next
 
 [Dask DataFrames](https://docs.dask.org/en/latest/dataframe.html) are often used to process large datasets because they can hold datasets that require more memory than is available. This is because a Dask DataFrame does not load your local data into memory. If you pass a Dask DataFrame as a function argument to your remote function, Dask may pass a reference to the data in your local disk or cloud storage, instead of the data itself. The following code shows an example of passing a Dask DataFrame inside your remote function that will operate on an empty DataFrame.
 
-```
+```python
 #Do not pass a Dask DataFrame  to your remote function as follows
 def clean(df: dask.DataFrame ):
     cleaned = df[] \ ...
@@ -159,7 +158,7 @@ Dask will load the data from the Dask DataFrame into memory only when you use th
 
 The following code example shows how to use a Dask DataFrame inside the remote function `clean`. In the code example, `raw_data_path` is passed to clean instead of the Dask DataFrame. When the code runs, the dataset is read directly from the location of an Amazon S3 bucket specified in `raw_data_path`. Then the `persist` function keeps the dataset in memory to facilitate the subsequent `random_split` function and written back to the output data path in an S3 bucket using Dask DataFrame API functions.
 
-```
+```python
 import dask.dataframe as dd
 
 @remote(
@@ -186,7 +185,7 @@ clean("{{s3://amzn-s3-demo-bucket/raw/}}", "{{s3://amzn-s3-demo-bucket/cleaned/}
 
 Summary statistics from a Dask DataFrame can be converted into a Pandas DataFrame by invoking the `compute` method as shown in the following example code. In the example, the S3 bucket contains a large Dask DataFrame that cannot fit into memory or into a Pandas dataframe. In the following example, a remote function scans the data set and returns a Dask DataFrame containing the output statistics from `describe` to a Pandas DataFrame.
 
-```
+```python
 executor = RemoteExecutor(
     instance_type='{{ml.m5.24xlarge}}',
     volume_size={{300}}, 
@@ -207,7 +206,7 @@ DMatrix is an internal data structure used by XGBoost to load data. A DMatrix ob
 
 To convert a Pandas DataFrame into a DMatrix instance and use it for training in your remote function, pass it directly to the remote function as shown in the following code example.
 
-```
+```python
 import xgboost as xgb
 
 @remote
@@ -222,7 +221,7 @@ def train(df, params):
 
 TensorFlow datasets and subclasses are internal objects used by TensorFlow to load data during training. TensorFlow datasets and subclasses can’t be pickled in order to move easily between compute sessions. Directly passing Tensorflow datasets or subclasses will fail with a `SerializationError`. Use the Tensorflow I/O APIs to load data from the storage, as shown in the following code example.
 
-```
+```python
 import tensorflow as tf
 import tensorflow_io as tfio
 
@@ -240,7 +239,7 @@ train("{{s3://amzn-s3-demo-bucket/data}}", {})
 
 PyTorch models are serializable and can be passed between your local environment and remote function. If your local environment and remote environment have different device types, such as (GPUs and CPUs), you cannot return a trained model to your local environment. For example, if the following code is developed in a local environment without GPUs but run in an instance with GPUs, returning the trained model directly will lead to a `DeserializationError`.
 
-```
+```python
 # Do not return a model trained on GPUs to a CPU-only environment as follows
 
 @remote(instance_type='{{ml.g4dn.xlarge}}')
@@ -262,7 +261,7 @@ model = train(...) #returns a DeserializationError if run on a device with GPU
 
 To return a model trained in a GPU environment to one that contains only CPU capabilities, use the PyTorch model I/O APIs directly as shown in the code example below.
 
-```
+```python
 import s3fs
 
 model_path = "{{s3://amzn-s3-demo-bucket/folder/}}"
@@ -301,7 +300,7 @@ Under `<job_name>`, the directory `workdir` contains a zipped archive of your cu
 
 The following is an example of the folder structure under an S3 bucket that you specify in your configuration file. 
 
-```
+```sh
 {{<s3_root_uri>}}/ # specified by s3_root_uri or S3RootUri
     <job_name>/ #automatically generated for you
         workdir/workspace.zip # archive of the current working directory (workdir)
@@ -333,7 +332,7 @@ Restrict write access to the `s3_root_uri` location to prevent tampering with se
 
 The following example shows how to specify a dedicated S3 location with the `@remote` decorator:
 
-```
+```python
 from sagemaker.remote_function import remote
 
 @remote(

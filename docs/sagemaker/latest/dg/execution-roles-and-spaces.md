@@ -1,7 +1,6 @@
 
 
 # Understanding domain space permissions and execution roles
-<a name="execution-roles-and-spaces"></a>
 
 For many SageMaker AI applications, when you start up a SageMaker AI application within a domain, a space is created for the application. When a user profile creates a space, that space assumes an AWS Identity and Access Management (IAM) role that defines the permissions granted to that space. The following page gives information about space types and the execution roles that define permissions for the space.
 

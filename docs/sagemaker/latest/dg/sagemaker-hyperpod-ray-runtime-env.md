@@ -1,7 +1,6 @@
 
 
 # Managing dependencies with runtime\_env
-<a name="sagemaker-hyperpod-ray-runtime-env"></a>
 
 Ray `runtime_env` installs pip packages and ships a working directory to the cluster at run time. You add a dependency without rebuilding a container image, which keeps interactive development fast.
 
@@ -10,7 +9,7 @@ Ray `runtime_env` installs pip packages and ships a working directory to the clu
 
 Pass `runtime_env` to `ray.init()`. Ray installs the packages and uploads the working directory to the cluster before your code runs.
 
-```
+```python
 import ray
 
 ray.init(runtime_env={
@@ -24,7 +23,7 @@ ray.init(runtime_env={
 
 For a job you submit from the command line, pass the same environment with `--working-dir` and `--runtime-env-json`.
 
-```
+```bash
 ray job submit \
     --address sagemaker_ray://{{my-cluster}}/{{my-namespace}} \
     --working-dir {{./src}} \

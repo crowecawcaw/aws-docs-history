@@ -1,7 +1,6 @@
 
 
 # Customize your workflow using the `fmeval` library
-<a name="clarify-foundation-model-evaluate-auto-lib-custom"></a>
 
 You can customize your model evaluation to allow for a model that is not a JumpStart or Amazon Bedrock model or use a custom workflow for evaluation. If you use your own model, you have to create a custom `ModelRunner`. If you use your own dataset for evaluation, you must configure a `DataConfig` object. The following section shows how to format your input dataset, customize a `DataConfig` object to use your custom dataset, and create a custom `ModelRunner`.
 

@@ -1,7 +1,6 @@
 
 
 # SageMaker AI Operators for Kubernetes
-<a name="kubernetes-sagemaker-operators"></a>
 
 SageMaker AI Operators for Kubernetes make it easier for developers and data scientists using Kubernetes to train, tune, and deploy machine learning (ML) models in SageMaker AI. You can install these SageMaker AI Operators on your Kubernetes cluster in Amazon Elastic Kubernetes Service (Amazon EKS) to create SageMaker AI jobs natively using the Kubernetes API and command-line Kubernetes tools such as `kubectl`. This guide shows how to set up and use the operators to run model training, hyperparameter tuning, or inference (real-time and batch) on SageMaker AI from a Kubernetes cluster. The procedures and guidelines in this chapter assume that you are familiar with Kubernetes and its basic commands.
 

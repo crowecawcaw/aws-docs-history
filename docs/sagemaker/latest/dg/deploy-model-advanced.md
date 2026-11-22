@@ -1,7 +1,6 @@
 
 
 # Advanced endpoint options for inference with Amazon SageMaker AI
-<a name="deploy-model-advanced"></a>
 
 With real-time inference, you can further optimize for performance and cost with the following advanced inference options:
 + [Multi-model endpoints](multi-model-endpoints.md) – Use this option if you have multiple models that use the same framework and can share a container. This option helps you optimize costs by improving endpoint utilization and reducing deployment overhead.

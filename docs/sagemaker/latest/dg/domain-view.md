@@ -1,7 +1,6 @@
 
 
 # View domains
-<a name="domain-view"></a>
 
 The following section shows how to view a list of your domains, and details of an individual domain from the SageMaker AI console or the AWS CLI. 
 
@@ -14,9 +13,9 @@ The following procedure shows how to view a list of your domains from the SageMa
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/).
 
-1. On the left navigation pane, choose **Admin configurations**.
+1. On the left navigation pane, choose **Environment configuration**.
 
-1. Under **Admin configurations**, choose **domains**. 
+1. Under **Environment configuration**, choose **domains**. 
 
 To view the details of the domain, complete the following procedure. This page gives information about the general settings for the domain, including the name, domain ID, execution role used to create the domain, and the authentication method of the domain.  
 

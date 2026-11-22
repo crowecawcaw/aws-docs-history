@@ -1,7 +1,6 @@
 
 
 # Prebuilt SageMaker AI Docker images for deep learning
-<a name="pre-built-containers-frameworks-deep-learning"></a>
 
 Amazon SageMaker AI provides prebuilt Docker images that include deep learning frameworks and other dependencies needed for training and inference. For a complete list of the prebuilt Docker images managed by SageMaker AI, see [Docker Registry Paths and Example Code](https://docs.aws.amazon.com/sagemaker/latest/dg-ecr-paths/sagemaker-algo-docker-registry-paths.html).
 

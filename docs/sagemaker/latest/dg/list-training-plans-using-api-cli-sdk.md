@@ -1,20 +1,19 @@
 
 
 # List training plans
-<a name="list-training-plans-using-api-cli-sdk"></a>
 
 You can list all the training plans that have been created in your AWS account and Region by calling the [`ListTrainingPlans`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrainingPlans.html) API.
 
 The following example uses an AWS CLI command to retrieve the list of your training plans.
 
-```
+```sh
 aws sagemaker list-training-plans \
 --start-time-after "2024-09-26T00:00:01.000Z"
 ```
 
 This JSON document is a sample response from the SageMaker training plans API. The response provides details about one training plan that has been successfully created and reserved.
 
-```
+```JSON
 {
    "[TrainingPlanSummaries](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingPlanSummary.html)": [ 
       { 
@@ -65,6 +64,6 @@ The following sections provide details on some optional parameters that you can 
 
 The following example uses an AWS CLI command to retrieve your list of training plans, using some of the optional parameters described above.
 
-```
+```sh
 aws sagemaker list-training-plans --max-results 10 --sort-by StartTime --sort-order Descending --start-time-after 13000000 --filters Name=Status,Value=Active
 ```

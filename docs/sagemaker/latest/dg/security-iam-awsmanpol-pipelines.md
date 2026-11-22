@@ -1,7 +1,6 @@
 
 
 # AWS Managed Policies for SageMaker Pipelines
-<a name="security-iam-awsmanpol-pipelines"></a>
 
 These AWS managed policies add permissions required to use SageMaker Pipelines. The policies are available in your AWS account and are used by execution roles created from the SageMaker AI console.
 
@@ -36,7 +35,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Get instant prospective instances
-<a name="inference-recommender-prospective"></a>
 
 Inference Recommender can also provide you with a list of *prospective instances*, or instance types that might be suitable for your model, on your SageMaker AI model details page. Inference Recommender automatically performs preliminary benchmarking against your model for you to provide the top five prospective instances. Since these are preliminary recommendations, we recommend that you run further instance recommendation jobs to get more accurate results.
 

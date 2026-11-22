@@ -1,7 +1,6 @@
 
 
 # Inspect Reports for Data Bias Drift
-<a name="clarify-model-monitor-bias-drift-report"></a>
 
 **Note**  
 Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 

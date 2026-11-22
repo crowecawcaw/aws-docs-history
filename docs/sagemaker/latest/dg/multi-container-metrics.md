@@ -1,7 +1,6 @@
 
 
 # Metrics for multi-container endpoints with direct invocation
-<a name="multi-container-metrics"></a>
 
 In addition to the endpoint metrics that are listed in [Amazon SageMaker AI metrics in Amazon CloudWatch](monitoring-cloudwatch.md), SageMaker AI also provides per-container metrics.
 

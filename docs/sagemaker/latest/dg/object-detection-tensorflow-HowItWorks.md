@@ -1,7 +1,6 @@
 
 
 # How Object Detection - TensorFlow Works
-<a name="object-detection-tensorflow-HowItWorks"></a>
 
 The Object Detection - TensorFlow algorithm takes an image as input and predicts bounding boxes and object labels. Various deep learning networks such as MobileNet, ResNet, Inception, and EfficientNet are highly accurate for object detection. There are also deep learning networks that are trained on large image datasets, such as Common Objects in Context (COCO), which has 328,000 images. After a network is trained with COCO data, you can then fine-tune the network on a dataset with a particular focus to perform more specific object detection tasks. The Amazon SageMaker AI Object Detection - TensorFlow algorithm supports transfer learning on many pretrained models that are available in the TensorFlow Model Garden.
 

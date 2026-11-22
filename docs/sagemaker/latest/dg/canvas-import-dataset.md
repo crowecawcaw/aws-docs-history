@@ -1,7 +1,6 @@
 
 
 # Create a dataset
-<a name="canvas-import-dataset"></a>
 
 **Note**  
 If you're importing datasets larger than 5 GB into Amazon SageMaker Canvas, we recommend that you use the [Data Wrangler feature](canvas-data-prep.md) in Canvas to create a data flow. Data Wrangler supports advanced data preparation features such as [joining](canvas-transform.md#canvas-transform-join) and [concatenating](canvas-transform.md#canvas-transform-concatenate) data. After you create a data flow, you can export your data flow as a Canvas dataset and begin building a model. For more information, see [Export to create a model](canvas-processing-export-model.md).
@@ -149,7 +148,7 @@ When you are building your model, you can edit your image dataset, and you can a
 
 The Ready-to-use models for expense analysis, identity document analysis, document analysis, and document queries support document data. You can’t build a custom model with document data.
 
-With document datasets, you can generate predictions for expense analysis, identity document analysis, document analysis, and document queries Ready-to-use models. Review the limitations table in the [Create a dataset](#canvas-import-dataset) section to ensure that your document dataset meets the requirements for document data.
+With document datasets, you can generate predictions for expense analysis, identity document analysis, document analysis, and document queries Ready-to-use models. Review the limitations table in the [Create a dataset](canvas-import-dataset.md) section to ensure that your document dataset meets the requirements for document data.
 
 **Note**  
 You can only import document datasets from local file upload or an Amazon S3 bucket.

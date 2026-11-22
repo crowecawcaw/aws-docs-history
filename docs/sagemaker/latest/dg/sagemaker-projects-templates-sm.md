@@ -1,7 +1,6 @@
 
 
 # Use SageMaker AI-Provided Project Templates
-<a name="sagemaker-projects-templates-sm"></a>
 
 **Important**  
 As of October 28, 2024, the AWS CodeCommit templates have been removed. For new projects, select from the available project templates that use third-party Git repositories.
@@ -165,7 +164,7 @@ The managed policy attached to the `AmazonSageMakerServiceCatalogProductsUseRole
   1. Toggle both settings and then choose **Submit**.
 + In the IAM console, add the following permissions to `AmazonSageMakerServiceCatalogProductsUseRole`:
 
-  ```
+  ```json
   {
         "Effect": "Allow",
         "Action": [

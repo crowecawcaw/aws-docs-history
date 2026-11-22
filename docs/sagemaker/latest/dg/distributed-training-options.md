@@ -1,7 +1,6 @@
 
 
 # Distributed computing with SageMaker AI best practices
-<a name="distributed-training-options"></a>
 
 This best practices page presents various flavors of distributed computing for machine learning (ML) jobs in general. The term *distributed computing* in this page encompasses distributed training for machine learning tasks and parallel computing for data processing, data generation, feature engineering, and reinforcement learning. In this page, we discuss about common challenges in distributed computing, and available options in SageMaker Training and SageMaker Processing. For additional reading materials about distributed computing, see [What Is Distributed Computing?](https://aws.amazon.com/what-is/distributed-computing/).
 

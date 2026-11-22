@@ -1,7 +1,6 @@
 
 
 # Checkpointless training in Amazon SageMaker HyperPod
-<a name="sagemaker-eks-checkpointless"></a>
 
 Checkpointless training on Amazon SageMaker HyperPod enables faster recovery from training infrastructure faults. The following documentation helps you get started with checkpointless training and fine-tuning for NeMo-supported models.
 

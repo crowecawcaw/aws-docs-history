@@ -1,7 +1,6 @@
 
 
 # What are foundation model evaluations?
-<a name="clarify-foundation-model-evaluate-whatis"></a>
 
 FMEval can help you quantify model risks, such as inaccurate, toxic, or biased content. Evaluating your LLM helps you comply with international guidelines around responsible generative AI, such as the [ISO 42001](https://aistandardshub.org/ai-standards/information-technology-artificial-intelligence-management-system/) AI Management System Standard and the NIST AI Risk Management Framework.
 
@@ -84,7 +83,7 @@ Also, if you modify a prompt for an evaluation dimension, the same prompt is app
 **Example of an updated prompt template using **Prompt template****  <a name="clarify-prompt-template"></a>
 Imagine a simple scenario where you have a simple dataset made up of only two prompts, and you want to evaluate them using ****meta-textgenerationneuron-llama-2-7b-f****.  
 
-```
+```json
 {
 	"model_input": "Is himalaya the highest mountain in the world?",
     "target_output": "False, Mt. Everest is the highest mountain in the world",

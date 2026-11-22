@@ -1,7 +1,6 @@
 
 
 # SDK for Python (Boto3)
-<a name="debugger-built-in-rules-api.Boto3"></a>
 
 **Note**  
 Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
@@ -13,7 +12,7 @@ The following code shows a complete example of how to configure Debugger for the
 **Note**  
 Ensure that you use the correct Docker container images. To find available AWS Deep Learning Container images, see [Available Deep Learning Containers Images](https://github.com/aws/deep-learning-containers/blob/master/available_images.md). To find a complete list of available Docker images for using the Debugger rules, see [Docker images for Debugger rules](debugger-reference.md#debugger-docker-images-rules).
 
-```
+```py
 import sagemaker, boto3
 import datetime, tarfile
 
@@ -107,7 +106,7 @@ The following code samples show how to configure a built-in `VanishingGradient` 
 
 Specify the Debugger hook configuration as follows:
 
-```
+```py
 DebugHookConfig={
     'S3OutputPath': '{{s3://<default-bucket>/<training-job-name>/debug-output}}',
     'CollectionConfigurations': [
@@ -128,7 +127,7 @@ This will make the training job save a tensor collection, `gradients`, every `sa
 
 The following `DebugRuleConfigurations` API example shows how to run the built-in `VanishingGradient` rule on the saved `gradients` collection.
 
-```
+```py
 DebugRuleConfigurations=[
     {
         'RuleConfigurationName': '{{VanishingGradient}}',
@@ -153,7 +152,7 @@ The following example code shows how to specify the ProfilerConfig API operation
 ------
 #### [ Target Step ]
 
-```
+```py
 ProfilerConfig={ 
     'S3OutputPath': '{{s3://<default-bucket>/<training-job-name>/profiler-output}}', # Optional. Path to an S3 bucket to save profiling outputs
     # Available values for ProfilingIntervalInMilliseconds: 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000 (1 minute) milliseconds.
@@ -182,7 +181,7 @@ ProfilerConfig={
 ------
 #### [ Target Time Duration ]
 
-```
+```py
 ProfilerConfig={ 
     'S3OutputPath': '{{s3://<default-bucket>/<training-job-name>/profiler-output}}', # Optional. Path to an S3 bucket to save profiling outputs
     # Available values for ProfilingIntervalInMilliseconds: 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000 (1 minute) milliseconds.
@@ -214,7 +213,7 @@ ProfilerConfig={
 
 The following example code shows how to configure the `ProfilerReport` rule.
 
-```
+```py
 ProfilerRuleConfigurations=[ 
     {
         'RuleConfigurationName': 'ProfilerReport',
@@ -235,7 +234,7 @@ To find a complete list of available Docker images for using the Debugger rules,
 
 Debugger profiling configuration can be updated while your training job is running by using the [`update_training_job()`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.update_training_job) function of the AWS Boto3 SageMaker AI client. Configure new [ProfilerConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProfilerConfig.html) and [ProfilerRuleConfiguration](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProfilerRuleConfiguration.html) objects, and specify the training job name to the `TrainingJobName` parameter.
 
-```
+```py
 ProfilerConfig={ 
     'DisableProfiler': {{boolean}},
     'ProfilingIntervalInMilliseconds': {{number}},
@@ -260,7 +259,7 @@ TrainingJobName='{{your-training-job-name-YYYY-MM-DD-HH-MM-SS-SSS}}'
 
 A custom rule can be configured for a training job using the [ DebugHookConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DebugHookConfig.html) and [ DebugRuleConfiguration](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DebugRuleConfiguration.html) objects using the AWS Boto3 SageMaker AI client's [`create_training_job()`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_training_job) function. The following code sample shows how to configure a custom `ImproperActivation` rule written with the *smdebug* library using this SageMaker API operation. This example assumes that you’ve written the custom rule in *custom\_rules.py* file and uploaded it to an Amazon S3 bucket. The example provides pre-built Docker images that you can use to run your custom rules. These are listed at [Amazon SageMaker Debugger image URIs for custom rule evaluators](debugger-reference.md#debuger-custom-rule-registry-ids). You specify the URL registry address for the pre-built Docker image in the `RuleEvaluatorImage` parameter.
 
-```
+```py
 DebugHookConfig={
     'S3OutputPath': '{{s3://<default-bucket>/<training-job-name>/debug-output}}',
     'CollectionConfigurations': [

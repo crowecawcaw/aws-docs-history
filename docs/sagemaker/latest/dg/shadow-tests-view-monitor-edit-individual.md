@@ -1,7 +1,6 @@
 
 
 # Edit a shadow test
-<a name="shadow-tests-view-monitor-edit-individual"></a>
 
  You can modify both scheduled and in-progress tests. Before your test starts, you can change the description, the shadow variant configuration, the start date, and the end date of the test. You can also turn on or turn off data capture. 
 

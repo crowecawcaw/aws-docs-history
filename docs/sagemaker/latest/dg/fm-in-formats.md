@@ -1,7 +1,6 @@
 
 
 # Factorization Machines Response Formats
-<a name="fm-in-formats"></a>
 
 Amazon SageMaker AI provides several response formats for getting inference from the Factorization Machines model, such as JSON, JSONLINES, and RECORDIO, with specific structures for binary classification and regression tasks.
 
@@ -38,13 +37,13 @@ let response =   {
 
 Binary classification
 
-```
+```json
 {"score": 0.4, "predicted_label": 0}
 ```
 
 Regression
 
-```
+```json
 {"score": 0.4}
 ```
 

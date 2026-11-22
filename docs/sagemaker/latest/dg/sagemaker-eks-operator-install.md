@@ -1,7 +1,6 @@
 
 
 # Installing the training operator
-<a name="sagemaker-eks-operator-install"></a>
 
 See the following sections to learn about how to install the training operator.
 
@@ -68,7 +67,7 @@ If you install the add-on through the Amazon EKS cluster, first make sure that y
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Recommendations for a first-time user of Amazon SageMaker AI
-<a name="first-time-user"></a>
 
 If you're a first-time user of SageMaker AI, we recommend that you complete the following:
 

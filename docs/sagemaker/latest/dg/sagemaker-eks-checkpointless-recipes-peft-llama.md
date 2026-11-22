@@ -1,7 +1,6 @@
 
 
 # Tutorials - Amazon SageMaker HyperPod Checkpointless PEFT-LoRA Llama 3 70b
-<a name="sagemaker-eks-checkpointless-recipes-peft-llama"></a>
 
 The following sequence of steps is required to run checkpointless training recipes on HyperPod.
 

@@ -1,7 +1,6 @@
 
 
 # Use the `fmeval` library to run an automatic evaluation
-<a name="clarify-foundation-model-evaluate-auto-lib"></a>
 
 Using the `fmeval` library in your own code gives you the most flexibility to customize your work flow. You can use the `fmeval`library to evaluate any LLM, and also to have more flexibility with your custom input datasets. The following steps show you how to set up your environment and how to run both a starting and a customized work flow using the `fmeval` library.
 
@@ -163,7 +162,7 @@ To use `ModelRunner` to evaluate a JumpStart model, create or provide an endpoin
 
    You can list the available JumpStart models with the Amazon SageMaker Python SDK:
 
-   ```
+   ```python
    from sagemaker.core.jumpstart.notebook_utils import list_jumpstart_models
    
    # List every available JumpStart model ID.

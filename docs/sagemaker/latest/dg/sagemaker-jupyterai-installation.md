@@ -1,7 +1,6 @@
 
 
 # Jupyter AI installation
-<a name="sagemaker-jupyterai-installation"></a>
 
 To use Jupyter AI, you must first install the Jupyter AI package. For [Amazon SageMaker AI Distribution](https://github.com/aws/sagemaker-distribution/tree/main/build_artifacts/v1) users, we recommend selecting the SageMaker Distribution image version 1.2 or later. No further installation is necessary. Users of JupyterLab in Studio can choose the version of their Amazon SageMaker Distribution when creating a space.
 

@@ -1,7 +1,6 @@
 
 
 # Using the role manager (AWS CDK)
-<a name="role-manager-tutorial-cdk"></a>
 
 **Note**  
 Amazon SageMaker Role Manager is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Role Manager, but we do not plan to introduce new features. For more information, see [Role Manager availability change](role-manager-availability-change.md). 
@@ -37,7 +36,7 @@ The following code creates a Data Scientist ML persona with a set of ML activiti
 
 After you’ve defined the class, you can create a role as a construct within the AWS CDK stack. You can also create a notebook instance. The person who is using the IAM role that you’ve created in the following code can access the notebook instance when they log in to their AWS account.
 
-```
+```js
 export class myCDKStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -61,7 +60,7 @@ The following code creates a Data Scientist ML persona with a set of ML activiti
 
 After you’ve defined the class, you can create a role as a construct within the AWS CDK stack. You can also create a notebook instance. The person who is using the IAM role that you’ve created in the following code can access the notebook instance when they log in to their AWS account.
 
-```
+```js
 export class myCDKStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -97,7 +96,7 @@ The following code creates an ML Ops persona with a set of ML activities specifi
 
 After you’ve defined the class, you can create a role as a construct within the AWS CDK stack. You can also create an Amazon SageMaker Studio Classic user profile. The person who is using the IAM role that you’ve created in the following code can open SageMaker Studio Classic when they log in to their AWS account.
 
-```
+```javascript
 export class myCDKStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -130,7 +129,7 @@ The following code creates an ML Ops persona with a set of ML activities specifi
 
 After you’ve defined the class, you can create a role as a construct within the AWS CDK stack. You can also create a notebook instance. The code grants permissions from the ML activities to the IAM role of the Lambda function.
 
-```
+```javascript
 export class myCDKStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -156,7 +155,7 @@ export class myCDKStack extends cdk.Stack {
 
 The following code creates an ML activity and creates a role from the activity. The permissions from the activity only apply to the VPC and KMS configuration that you specify for the user. 
 
-```
+```javascript
 export class myCDKStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -179,7 +178,7 @@ export class myCDKStack extends cdk.Stack {
 
 The following code creates an IAM role for a single ML activity.
 
-```
+```javascript
 export class myCDKStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);

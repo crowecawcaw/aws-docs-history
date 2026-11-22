@@ -1,7 +1,6 @@
 
 
 # How to Package Model
-<a name="edge-packaging-job"></a>
 
 SageMaker Edge Manager packaging jobs take Amazon SageMaker Neo–compiled models and make any changes necessary to deploy the model with the inference engine, Edge Manager agent.
 

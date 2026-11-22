@@ -1,7 +1,6 @@
 
 
 # Schedule Feature Attribute Drift Monitoring Jobs
-<a name="clarify-model-monitor-feature-attribute-drift-schedule"></a>
 
 **Note**  
 Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
@@ -18,7 +17,7 @@ If a baselining job has been submitted, the monitor automatically picks up analy
 
 To schedule a model explainability monitor for a real-time endpoint, pass your `EndpointInput` instance to the `endpoint_input` argument of your `ModelExplainabilityMonitor` instance, as shown in the following code sample:
 
-```
+```py
 from sagemaker.model_monitor import CronExpressionGenerator
 from sagemaker.core.helper.session_helper import get_execution_role
 
@@ -47,7 +46,7 @@ schedule = model_exp_model_monitor.create_monitoring_schedule(
 
 To schedule a model explainability monitor for a batch transform job, pass your `BatchTransformInput` instance to the `batch_transform_input` argument of your `ModelExplainabilityMonitor` instance, as shown in the following code sample:
 
-```
+```py
 from sagemaker.model_monitor import CronExpressionGenerator
 from sagemaker.core.helper.session_helper import get_execution_role
 

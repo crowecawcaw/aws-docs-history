@@ -1,7 +1,6 @@
 
 
 # Task governance for model deployment on HyperPod
-<a name="sagemaker-hyperpod-model-deployment-task-gov"></a>
 
 This section covers how to optimize your shared Amazon SageMaker HyperPod EKS clusters for real-time inference workloads. You'll learn to configure Kueue's task governance features—including quota management, priority scheduling, and resource sharing policies—to ensure your inference workloads get the GPU resources they need during traffic spikes while maintaining fair allocation across your teams' training, evaluation, and testing activities. For more general information on task governance, see [SageMaker HyperPod task governance](sagemaker-hyperpod-eks-operate-console-ui-governance.md) .
 

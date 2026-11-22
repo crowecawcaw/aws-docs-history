@@ -1,7 +1,6 @@
 
 
 # Deploy Autopilot models for real-time inference
-<a name="image-classification-deploy-models"></a>
 
 After you train your Amazon SageMaker Autopilot models, you can set up an endpoint and obtain predictions interactively. The following section describes the steps for deploying your model to a SageMaker AI real-time inference endpoint to get predictions from your model.
 
@@ -23,7 +22,7 @@ To avoid incurring unnecessary charges, you can delete unneeded endpoint and res
 
    The following AWS CLI command example uses the [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html) API to obtain candidate definitions for the best model candidate.
 
-   ```
+   ```bash
    aws sagemaker describe-auto-ml-job-v2 --auto-ml-job-name {{job-name}} --region {{region}}
    ```
 
@@ -31,7 +30,7 @@ To avoid incurring unnecessary charges, you can delete unneeded endpoint and res
 
    The following AWS CLI command example uses the [ListCandidatesForAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCandidatesForAutoMLJob.html) API to list all model candidates.
 
-   ```
+   ```bash
    aws sagemaker list-candidates-for-auto-ml-job --auto-ml-job-name {{<job-name>}} --region {{<region>}}
    ```
 
@@ -39,7 +38,7 @@ To avoid incurring unnecessary charges, you can delete unneeded endpoint and res
 
    Use the container definitions from the previous steps and a candidate of your choice to create a SageMaker AI model by using the [CreateModel](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html) API. See the following AWS CLI command as an example.
 
-   ```
+   ```bash
    aws sagemaker create-model --model-name '{{<your-candidate-name>}}' \
                        --containers ['{{<container-definition1}}>, {{<container-definition2>}}, {{<container-definition3>}}]' \
                        --execution-role-arn '{{<execution-role-arn>}}' --region '{{<region>}}
@@ -49,7 +48,7 @@ To avoid incurring unnecessary charges, you can delete unneeded endpoint and res
 
    The following AWS CLI command example uses the [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html) API to create an endpoint configuration.
 
-   ```
+   ```bash
    aws sagemaker create-endpoint-config --endpoint-config-name '{{<your-endpoint-config-name>}}' \
                        --production-variants '{{<list-of-production-variants>}}' \
                        --region '{{<region>}}'
@@ -59,7 +58,7 @@ To avoid incurring unnecessary charges, you can delete unneeded endpoint and res
 
    The following AWS CLI example uses the [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html) API to create the endpoint.
 
-   ```
+   ```bash
    aws sagemaker create-endpoint --endpoint-name '{{<your-endpoint-name>}}' \
                        --endpoint-config-name '{{<endpoint-config-name-you-just-created>}}' \
                        --region '{{<region>}}'
@@ -67,7 +66,7 @@ To avoid incurring unnecessary charges, you can delete unneeded endpoint and res
 
    Check the progress of your endpoint deployment by using the [DescribeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html) API. See the following AWS CLI command as an example.
 
-   ```
+   ```bash
    aws sagemaker describe-endpoint —endpoint-name '{{<endpoint-name>}}' —region {{<region>}}
    ```
 
@@ -77,7 +76,7 @@ To avoid incurring unnecessary charges, you can delete unneeded endpoint and res
 
    The following command structure invokes the endpoint for real-time inferencing.
 
-   ```
+   ```bash
    aws sagemaker invoke-endpoint --endpoint-name '{{<endpoint-name>}}' \ 
                      --region '{{<region>}}' --body '{{<your-data>}}' [--content-type] '{{<content-type>}}' {{<outfile>}}
    ```

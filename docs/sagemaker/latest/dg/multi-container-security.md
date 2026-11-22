@@ -1,7 +1,6 @@
 
 
 # Security with multi-container endpoints with direct invocation
-<a name="multi-container-security"></a>
 
  For multi-container endpoints with direct invocation, there are multiple containers hosted in a single instance by sharing memory and a storage volume. It's your responsibility to use secure containers, maintain the correct mapping of requests to target containers, and provide users with the correct access to target containers. SageMaker AI uses IAM roles to provide IAM identity-based policies that you use to specify whether access to a resource is allowed or denied to that role, and under what conditions. For information about IAM roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *AWS Identity and Access Management User Guide*. For information about identity-based policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html).
 

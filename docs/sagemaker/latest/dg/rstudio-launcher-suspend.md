@@ -1,7 +1,6 @@
 
 
 # Suspend your RSessions
-<a name="rstudio-launcher-suspend"></a>
 
 The following procedure demonstrates how to suspend an RSession from the RStudio Launcher when using RStudio on Amazon SageMaker AI. For information about accessing the RStudio Launcher, see [Launch RSessions from the RStudio Launcher](rstudio-launcher.md).
 

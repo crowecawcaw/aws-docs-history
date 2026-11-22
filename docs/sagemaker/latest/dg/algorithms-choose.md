@@ -1,7 +1,6 @@
 
 
 # Types of Algorithms
-<a name="algorithms-choose"></a>
 
 Machine learning can help you accomplish empirical tasks that require some sort of inductive inference. This task involves induction as it uses data to train algorithms to make generalizable inferences. This means that the algorithms can make statistically reliable predictions or decisions, or complete other tasks when applied to new data that was not used to train them. 
 

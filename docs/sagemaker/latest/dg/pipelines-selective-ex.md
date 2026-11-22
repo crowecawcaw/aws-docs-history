@@ -1,7 +1,6 @@
 
 
 # Selective execution of pipeline steps
-<a name="pipelines-selective-ex"></a>
 
 As you use Pipelines to create workflows and orchestrate your ML training steps, you might need to undertake multiple experimentation phases. Instead of running the full pipeline each time, you might only want to repeat certain steps. With Pipelines, you can execute pipeline steps selectively. This helps optimize your ML training. Selective execution is useful in the following scenarios: 
 + You want to restart a specific step with updated instance type, hyperparameters, or other variables while keeping the parameters from upstream steps.
@@ -37,7 +36,7 @@ The following discussion includes examples for the cases in which you want to sp
 
 The following example demonstrates a selective execution of the steps `AbaloneTrain` and `AbaloneEval` using a reference pipeline execution.
 
-```
+```py
 from sagemaker.workflow.selective_execution_config import SelectiveExecutionConfig
 
 selective_execution_config = SelectiveExecutionConfig(
@@ -57,7 +56,7 @@ selective_execution = pipeline.start(
 
 The following example demonstrates a selective execution of the steps `AbaloneTrain` and `AbaloneEval` using the latest pipeline execution as a reference. Since SageMaker AI uses the latest pipeline execution by default, you can optionally set the `reference_latest_execution` argument to `True`.
 
-```
+```py
 # Prepare a new selective execution. Select only the first step in the pipeline without providing source_pipeline_execution_arn.
 selective_execution_config = SelectiveExecutionConfig(
     selected_steps=["AbaloneTrain", "AbaloneEval"],
@@ -78,7 +77,7 @@ pipeline.start(
 
 The following example demonstrates a selective execution of the steps `AbaloneProcess` and `AbaloneTrain` without providing a reference ARN and turning off the option to use the latest pipeline run as a reference. SageMaker AI permits this configuration since this subset of steps doesn’t depend on previous steps.
 
-```
+```py
 # Prepare a new selective execution. Select only the first step in the pipeline without providing source_pipeline_execution_arn.
 selective_execution_config = SelectiveExecutionConfig(
     selected_steps=["AbaloneProcess", "AbaloneTrain"],
@@ -100,7 +99,7 @@ You can build the parameters from your reference pipeline execution using `build
 
 The following example shows you how to build parameters from a reference execution and apply an override for the `MseThreshold` parameter.
 
-```
+```py
 # Prepare a new selective execution.
 selective_execution_config = SelectiveExecutionConfig(
     source_pipeline_execution_arn="arn:aws:sagemaker:us-west-2:123123123123:pipeline/abalone/execution/123ab12cd3ef",

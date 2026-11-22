@@ -1,7 +1,6 @@
 
 
 # Inference options in Amazon SageMaker AI
-<a name="deploy-model-options"></a>
 
 SageMaker AI provides multiple inference options so that you can pick the option that best suits your workload:
 + [Real-Time Inference](https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints.html): *Real-time inference* is ideal for online inferences that have low latency or high throughput requirements. Use real-time inference for a persistent and fully managed endpoint (REST API) that can handle sustained traffic, backed by the instance type of your choice. Real-time inference can support payload sizes up to 25 MB and processing times of 60 seconds for regular responses and 8 min for streaming responses.

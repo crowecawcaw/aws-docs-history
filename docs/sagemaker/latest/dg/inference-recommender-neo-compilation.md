@@ -1,7 +1,6 @@
 
 
 # Compiled recommendations with Neo
-<a name="inference-recommender-neo-compilation"></a>
 
 In Inference Recommender, you can compile your model with Neo and get endpoint recommendations for your compiled model. [SageMaker Neo](https://docs.aws.amazon.com/sagemaker/latest/dg/neo.html) is a service that can optimize your model for a target hardware platform (that is, a specific instance type or environment). Optimizing a model with Neo might improve the performance of your hosted model.
 
@@ -12,7 +11,7 @@ For Neo-supported frameworks and containers, Inference Recommender automatically
 
   The following example shows how to specify the `DataInputConfig` field in the `InferenceSpecification`, where `data_input_configuration` is a variable that contains the data shape in dictionary format (for example, `{'input':[1,1024,1024,3]}`).
 
-  ```
+  ```json
   "InferenceSpecification": {
           "Containers": [
               {

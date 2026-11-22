@@ -1,7 +1,6 @@
 
 
 # Spot instances in Amazon SageMaker HyperPod
-<a name="sagemaker-hyperpod-spot"></a>
 
 Amazon SageMaker HyperPod supports Amazon EC2 Spot Instances, enabling significant cost savings for fault-tolerant and stateless AI/ML workloads. Use cases include batch inference and training jobs, hyperparameter tuning, and experimental workloads. You can also use Spot Instances to automatically scale your compute capacity when this low-cost capacity is available and scale back to On-Demand capacity when the added Spot capacity is reclaimed.
 

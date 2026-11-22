@@ -1,7 +1,6 @@
 
 
 # Managing SageMaker HyperPod Slurm clusters using the SageMaker console
-<a name="sagemaker-hyperpod-operate-slurm-console-ui"></a>
 
 The following topics provide guidance on how to manage SageMaker HyperPod through the console UI.
 

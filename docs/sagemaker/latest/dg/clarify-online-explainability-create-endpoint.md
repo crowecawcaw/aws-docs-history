@@ -1,13 +1,12 @@
 
 
 # Configure and create an endpoint
-<a name="clarify-online-explainability-create-endpoint"></a>
 
 Create a new endpoint configuration to fit your model, and use this configuration to create the endpoint. You can use the model container validated in the [pre-check step ](https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-precheck.html) to create an endpoint and enable the SageMaker Clarify online explainability feature.
 
 Use the `sagemaker_client` object to create an endpoint using the [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html) API. Set the member `ClarifyExplainerConfig` inside the `ExplainerConfig` parameter as follows:
 
-```
+```python
 sagemaker_client.create_endpoint_config(
     EndpointConfigName='name-of-your-endpoint-config',
     ExplainerConfig={

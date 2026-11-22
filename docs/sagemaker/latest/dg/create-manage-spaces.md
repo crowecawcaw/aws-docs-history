@@ -1,7 +1,6 @@
 
 
 # Create and manage spaces
-<a name="create-manage-spaces"></a>
 
 Data scientists can list to view all the spaces they have access to, create a space using one of the templates, update space to update the image, file system, and other attributes of space configuration, and delete a space. As a prerequisite, customers must install HyperPod CLI or use kubectl to create and manage spaces. For more details on HyperPod CLI, please see [this](https://github.com/aws/sagemaker-hyperpod-cli/blob/main/README.md#space). To use kubectl commands, please refer to [this guide](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html) to install kubectl.
 

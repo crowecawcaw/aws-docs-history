@@ -1,7 +1,6 @@
 
 
 # Custom Docker containers with SageMaker AI
-<a name="docker-containers-adapt-your-own"></a>
 
 You can adapt an existing Docker image to work with SageMaker AI. You may need to use an existing, external Docker image with SageMaker AI when you have a container that satisfies feature or safety requirements that are not currently supported by a pre-built SageMaker AI image. There are two toolkits that allow you to bring your own container and adapt it to work with SageMaker AI:
 + [SageMaker Training Toolkit](https://github.com/aws/sagemaker-training-toolkit) – Use this toolkit for training models with SageMaker AI.

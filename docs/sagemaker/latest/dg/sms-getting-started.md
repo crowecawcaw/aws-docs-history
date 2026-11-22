@@ -1,7 +1,6 @@
 
 
 # Getting started: Create a bounding box labeling job with Ground Truth
-<a name="sms-getting-started"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
@@ -42,7 +41,7 @@ Before you begin using the SageMaker AI console to create a labeling job, you mu
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

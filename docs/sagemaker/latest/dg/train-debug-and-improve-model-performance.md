@@ -1,7 +1,6 @@
 
 
 # Debugging and improving model performance
-<a name="train-debug-and-improve-model-performance"></a>
 
 The essence of training machine learning models, deep learning neural networks, transformer models is in achieving stable model convergence, and as such, state-of-the-art models have millions, billions, or trillions of model parameters. The number of operations to update the gigantic number of model parameters during each iteration can easily become astronomical. To identify model convergence issues, it is important to be able to access the model parameters, activations, and gradients computed during optimization processes. 
 

@@ -1,7 +1,6 @@
 
 
 # Sequence-to-Sequence Algorithm
-<a name="seq-2-seq"></a>
 
 Amazon SageMaker AI Sequence to Sequence is a supervised learning algorithm where the input is a sequence of tokens (for example, text, audio) and the output generated is another sequence of tokens. Example applications include: machine translation (input a sentence from one language and predict what that sentence would be in another language), text summarization (input a longer string of words and predict a shorter string of words that is a summary), speech-to-text (audio clips converted into output sentences in tokens). Recently, problems in this domain have been successfully modeled with deep neural networks that show a significant performance boost over previous methodologies. Amazon SageMaker AI seq2seq uses Recurrent Neural Networks (RNNs) and Convolutional Neural Network (CNN) models with attention as encoder-decoder architectures. 
 
@@ -39,7 +38,7 @@ For hosted endpoints, inference supports two data formats. To perform inference 
 
 For batch transform, inference supports JSON Lines format. Batch transform expects the input in JSON Lines format and returns the output in JSON Lines format. Both content and accept types should be `application/jsonlines`. The format for input is as follows:
 
-```
+```json
 content-type: application/jsonlines
 
 {"source": "source_sequence_0"}
@@ -48,7 +47,7 @@ content-type: application/jsonlines
 
 The format for response is as follows:
 
-```
+```json
 accept: application/jsonlines
 
 {"target": "predicted_sequence_0"}

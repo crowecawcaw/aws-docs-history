@@ -1,7 +1,6 @@
 
 
 # Step 2: Launch a Training Job Using the SageMaker Python SDK
-<a name="model-parallel-sm-sdk"></a>
 
 The SageMaker Python SDK supports managed training of models with ML frameworks such as TensorFlow and PyTorch. To launch a training job using one of these frameworks, you define a SageMaker [TensorFlow estimator](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html), a SageMaker [PyTorch estimator](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html), or a SageMaker generic [Estimator](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html) to use the modified training script and model parallelism configuration.
 
@@ -17,7 +16,7 @@ The TensorFlow and PyTorch estimator classes contain the `distribution` paramete
 
 The following template of a TensorFlow or PyTorch estimator shows how to configure the `distribution` parameter for using the SageMaker model parallel library with MPI.
 
-```
+```py
 import sagemaker
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import SourceCode, Compute
@@ -66,13 +65,13 @@ There is a breaking change in the parameter name. The `"pipeline_parallel_degree
  `process_per_host` *must* not be greater than the number of GPUs per instance and typically will be equal to the number of GPUs per instance.
   + `"custom_mpi_options"` (optional) – Use this key to pass any custom MPI options you might need. If you do not pass any MPI custom options to the key, the MPI option is set by default to the following flag.
 
-    ```
+    ```bash
     --mca btl_vader_single_copy_mechanism none
     ```
 **Note**  
 You do not need to explicitly specify this default flag to the key. If you explicitly specify it, your distributed model parallel training job might fail with the following error:  
 
-    ```
+    ```py
     The following MCA parameter has been listed multiple times on the command line: 
     MCA param: btl_vader_single_copy_mechanism MCA parameters can only be listed once 
     on a command line to ensure there is no ambiguity as to its value. 
@@ -81,7 +80,7 @@ You do not need to explicitly specify this default flag to the key. If you expli
 **Tip**  
 If you launch a training job using an EFA-enabled instance type, such as `ml.p4d.24xlarge` and `ml.p3dn.24xlarge`, use the following flag for best performance:  
 
-    ```
+    ```bash
     -x FI_EFA_USE_DEVICE_RDMA=1 -x FI_PROVIDER=efa -x RDMAV_FORK_SAFE=1
     ```
 
@@ -103,7 +102,7 @@ We recommend that you use the image that contains the latest version of TensorFl
 
 For example, your Dockerfile should contain a `FROM` statement similar to the following:
 
-```
+```py
 # Use the SageMaker DLC image URI for TensorFlow or PyTorch
 FROM {{aws-dlc-account-id}}.dkr.ecr.{{aws-region}}.amazonaws.com/{{framework}}-training:{{{framework-version-tag}}}
 
@@ -123,7 +122,7 @@ You must push this Docker container to Amazon Elastic Container Registry (Amazon
 
 After you finish hosting the Docker container and retrieving the image URI of the container, create a SageMaker `PyTorch` estimator object as follows. This example assumes that you have already defined `smp_options` and `mpi_options`. 
 
-```
+```py
 smd_mp_estimator = Estimator(
     entry_point="{{your_training_script.py}}",
     role=sagemaker.get_execution_role(),
@@ -153,7 +152,7 @@ This custom Docker option with the SageMaker model parallel library as a binary 
 
 1. Start with one of the [NVIDIA CUDA base images](https://hub.docker.com/r/nvidia/cuda).
 
-   ```
+   ```docker
    FROM {{<cuda-cudnn-base-image>}}
    ```
 **Tip**  
@@ -167,7 +166,7 @@ Because the SageMaker model parallel library requires the SageMaker data paralle
 
 1. Add the following arguments to specify the URLs of the SageMaker distributed training packages for PyTorch. The SageMaker model parallel library requires the SageMaker data parallel library to use the cross-node Remote Direct Memory Access (RDMA).
 
-   ```
+   ```docker
    ARG SMD_MODEL_PARALLEL_URL=https://sagemaker-distributed-model-parallel.s3.us-west-2.amazonaws.com/pytorch-1.10.0/build-artifacts/2022-02-21-19-26/smdistributed_modelparallel-1.7.0-cp38-cp38-linux_x86_64.whl
    ARG SMDATAPARALLEL_BINARY=https://smdataparallel.s3.amazonaws.com/binary/pytorch/1.10.2/cu113/2022-02-18/smdistributed_dataparallel-1.4.0-cp38-cp38-linux_x86_64.whl
    ```
@@ -176,7 +175,7 @@ Because the SageMaker model parallel library requires the SageMaker data paralle
 
    1. Install the [METIS](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview) library.
 
-      ```
+      ```docker
       ARG METIS=metis-{{5.1.0}}
       
       RUN rm /etc/apt/sources.list.d/* \
@@ -196,7 +195,7 @@ Because the SageMaker model parallel library requires the SageMaker data paralle
 
    1. Install the [RAPIDS Memory Manager library](https://github.com/rapidsai/rmm#rmm-rapids-memory-manager). This requires [CMake](https://cmake.org/) 3.14 or later.
 
-      ```
+      ```docker
       ARG RMM_VERSION={{0.15.0}}
       
       RUN  wget -nv https://github.com/rapidsai/rmm/archive/v${RMM_VERSION}.tar.gz \
@@ -210,19 +209,19 @@ Because the SageMaker model parallel library requires the SageMaker data paralle
 
 1. Install the SageMaker model parallel library.
 
-   ```
+   ```docker
    RUN pip install --no-cache-dir -U ${SMD_MODEL_PARALLEL_URL}
    ```
 
 1. Install the SageMaker data parallel library.
 
-   ```
+   ```docker
    RUN SMDATAPARALLEL_PT=1 pip install --no-cache-dir ${SMDATAPARALLEL_BINARY}
    ```
 
 1. Install the [sagemaker-training toolkit](https://github.com/aws/sagemaker-training-toolkit). The toolkit contains the common functionality that's necessary to create a container compatible with the SageMaker training platform and the SageMaker Python SDK.
 
-   ```
+   ```docker
    RUN pip install sagemaker-training
    ```
 

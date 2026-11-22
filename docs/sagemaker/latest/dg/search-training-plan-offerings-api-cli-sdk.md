@@ -1,7 +1,6 @@
 
 
 # Search training plan offerings
-<a name="search-training-plan-offerings-api-cli-sdk"></a>
 
 To create a training plan, start by calling the [`SearchTrainingPlanOfferings`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchTrainingPlanOfferings.html) API operation, passing your plan requirements (such as instance type, count, and desired time window) as input parameters. Training plans are specific to their target resource. Ensure that you specify which target resource the plan will be used for (`training-job` or `hyperpod-cluster`). The API returns a list of available offerings that match your requirements. If no suitable offerings are found, you may need to adjust your requirements and search again.
 
@@ -13,7 +12,7 @@ To learn about the list of available instances supported by SageMaker training p
 
 The following example uses an AWS CLI command to request training plan offerings with a specified instance type, count, and time information.
 
-```
+```sh
 # List training plan offerings with instance type, instance count, duration in hours, start time after, and end time before.
 aws sagemaker search-training-plan-offerings \
 --target-resources "{{training-job}}" \
@@ -26,7 +25,7 @@ aws sagemaker search-training-plan-offerings \
 
 This JSON document is a sample response from the SageMaker training plans API. The response provides information about multiple available training plan offerings that match the specified capacity requirements. It includes three distinct offerings with varying durations, upfront fees, and start/end times, all using the same instance type and targeting training jobs.
 
-```
+```JSON
 {
     "TrainingPlanOfferings": [
         {
@@ -111,7 +110,7 @@ aws sagemaker search-training-plan-offerings \
 --end-time-before "1737657600"
 ```
 
-```
+```JSON
 {
     "TrainingPlanOfferings": [
         {

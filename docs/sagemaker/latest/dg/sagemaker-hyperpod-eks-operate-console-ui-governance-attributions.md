@@ -1,7 +1,6 @@
 
 
 # Attribution document for Amazon SageMaker HyperPod task governance
-<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-attributions"></a>
 
 In the following you can learn about attributions and third-party licenses for material used in Amazon SageMaker HyperPod task governance.
 

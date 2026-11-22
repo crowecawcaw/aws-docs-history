@@ -1,7 +1,6 @@
 
 
 # Edit an image dataset
-<a name="canvas-edit-image"></a>
 
 In Amazon SageMaker Canvas, you can edit your image datasets and review your labels before building a model. You might want to perform tasks such as assigning labels to unlabeled images or adding more images to the dataset. These tasks can all be done in the Canvas application, providing you with one place to modify your dataset and build a model.
 

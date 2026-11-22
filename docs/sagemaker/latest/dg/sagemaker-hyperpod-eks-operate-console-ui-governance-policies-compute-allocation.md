@@ -1,7 +1,6 @@
 
 
 # Allocating compute quota in Amazon SageMaker HyperPod task governance
-<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-policies-compute-allocation"></a>
 
 Cluster administrators can decide how the organization uses purchased compute. Doing so reduces waste and idle resources. You can allocate compute quota such that teams can borrow unused resources from each other. Compute quota allocation in HyperPod task governance lets administrators allocate resources at the instance level and at a more granular resource level. This capability provides flexible and efficient resource management for teams by allowing granular control over individual compute resources instead of requiring entire instance allocations. Allocating at a granular level eliminates inefficiencies of traditional instance-level allocation. Through this approach, you can optimize resource utilization and reduce idle compute.
 

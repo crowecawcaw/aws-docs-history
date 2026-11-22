@@ -1,7 +1,6 @@
 
 
 # View shared model groups in Studio
-<a name="model-registry-ram-studio-view"></a>
 
 You can view model groups that are shared with you or an account belonging to the same AWS Organizations. If a model group is shared with an account belonging to the same AWS Organizations, the shared model group will be automatically approved and available for you to view in Studio. Otherwise, you will need to approve the pending invitation before you can view the shared model group in Studio. The following will provide instructions on how to view shared model groups and accept model group share invitations in Studio.
 

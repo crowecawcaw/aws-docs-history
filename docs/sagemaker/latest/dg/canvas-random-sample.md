@@ -1,7 +1,6 @@
 
 
 # Random sample
-<a name="canvas-random-sample"></a>
 
 SageMaker Canvas uses the random sampling method to sample your dataset. The random sample method means that each row has an equal chance of being picked for the sample. You can choose a column in the preview to get summary statistics for the random sample, such as the mean and the mode.
 

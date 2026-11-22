@@ -1,7 +1,6 @@
 
 
 # Preparing your agent
-<a name="model-customize-mtrl-agent"></a>
 
 Before you can launch a training job, you need to set up an agent that can participate in the training loop. This section walks you through how to configure and deploy your agent, whether you are using Amazon Bedrock AgentCore for managed hosting or bringing your own infrastructure with a custom agent.
 
@@ -36,7 +35,7 @@ Both `Sample` and `SampleWithResponseStream` are OpenAI-compatible APIs.
 
 Your agent authenticates with the Runtime Service using bearer tokens. Generate a token using the SDK:
 
-```
+```python
 from sagemaker.core.token_generator import generate_token
 
 token = generate_token(region="us-west-2")
@@ -48,7 +47,7 @@ Pass this token as the API key when calling the Runtime Service.
 
 If your agent framework cannot use the SDK decorator, call the APIs directly:
 
-```
+```python
 import requests
 import openai
 from sagemaker.core.token_generator import generate_token
@@ -111,7 +110,7 @@ During training, SageMaker AI assumes your SageMaker execution role to invoke yo
 
 Create the Bedrock AgentCore execution role with the following trust policy. This policy grants Bedrock AgentCore permission to assume the role on your behalf during training. Without it, Bedrock AgentCore cannot access your container image or call the RFT Runtime.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [{
@@ -135,13 +134,13 @@ Install the SDK in your agent's environment using one of the following methods.
 
 Option 1: Direct install
 
-```
+```bash
 pip install sagemaker-train
 ```
 
 Option 2: Build and install wheels individually. Use this if the direct install exceeds your environment's size constraints.
 
-```
+```bash
 # Clone the SDK repository
 git clone https://github.com/aws/sagemaker-python-sdk.git
 
@@ -172,7 +171,7 @@ Your agent must do the following for each rollout:
 
 The following example shows a basic agent template using the Strands SDK:
 
-```
+```python
 from sagemaker.train.rft import sagemaker_rft_handler, RolloutFeedbackClient
 from sagemaker.train.rft.adapters.strands import wrap_model
 from sagemaker.core.token_generator import generate_token
@@ -217,7 +216,7 @@ Once you have deployed your agent using the AgentCore CLI, note the Agent Runtim
 
 Verify your agent is deployed and healthy:
 
-```
+```bash
 aws bedrock-agentcore-control list-agent-runtimes --region us-west-2
 ```
 
@@ -239,7 +238,7 @@ The following sections provide more information about setting up a custom agent 
 
 During training, SageMaker AI assumes your SageMaker execution role to invoke your Lambda forwarder. The Lambda function requires its own execution role so that AWS Lambda can run it. This role allows Lambda to run and write logs.
 
-```
+```bash
 aws iam create-role \
   --role-name RFTLambdaForwarderRole \
   --assume-role-policy-document '{
@@ -265,7 +264,7 @@ Your agent must expose an HTTP endpoint that accepts rollout requests and intera
 
 Your agent receives requests in the following format from the Lambda forwarder:
 
-```
+```json
 {
     "prompt": "string",
     "metadata": {
@@ -292,7 +291,7 @@ For Amazon SageMaker AI to successfully complete rollouts, your agent must:
 
 The following example shows a custom agent with a FastAPI endpoint:
 
-```
+```python
 """
 Custom Lambda Agent for SageMaker RFT.
 
@@ -370,7 +369,7 @@ def health():
 
 Install the required dependencies in your agent environment:
 
-```
+```bash
 pip install sagemaker-train fastapi uvicorn openai
 ```
 
@@ -385,7 +384,7 @@ The following steps deploy a custom agent to Amazon EKS.
 
 For full EKS setup instructions, see the EKS Getting Started guide. The following is a minimal setup for this example:
 
-```
+```bash
 eksctl create cluster \
   --name external-agent \
   --region us-west-2 \
@@ -399,13 +398,13 @@ eksctl create cluster \
 
 Update your kubeconfig to connect to the cluster:
 
-```
+```bash
 aws eks update-kubeconfig --name external-agent --region us-west-2
 ```
 
 Build and push your container image:
 
-```
+```bash
 aws ecr create-repository --repository-name my-external-agent --region us-west-2
 
 aws ecr get-login-password --region us-west-2 | \
@@ -418,7 +417,7 @@ docker push account-id.dkr.ecr.us-west-2.amazonaws.com/my-external-agent:latest
 
 Deploy to EKS:
 
-```
+```bash
 kubectl apply -f - <<EOF
 apiVersion: apps/v1
 kind: Deployment
@@ -461,7 +460,7 @@ EOF
 
 Get your agent endpoint:
 
-```
+```bash
 AGENT_ENDPOINT=$(kubectl get svc external-agent -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 
 echo "Agent endpoint: http://$AGENT_ENDPOINT"
@@ -469,7 +468,7 @@ echo "Agent endpoint: http://$AGENT_ENDPOINT"
 
 Verify the deployment:
 
-```
+```bash
 curl -s "http://$AGENT_ENDPOINT/health"
 
 # Expected: {"status": "ok"}
@@ -482,7 +481,7 @@ The Lambda forwarder receives rollout requests from SageMaker AI and forwards th
 
 If your agent doesn't have a public HTTP endpoint, you can replace the HTTP call in `_call_agent()` with an SQS `send_message` and have your agent poll the queue instead.
 
-```
+```python
 """
 Lambda Template
 
@@ -608,13 +607,13 @@ def handler(event, context):
 
 Package the Lambda function:
 
-```
+```bash
 zip lambda_forwarder.zip lambda_forwarder.py
 ```
 
 Create the function:
 
-```
+```bash
 aws lambda create-function \
   --function-name rft-agent-forwarder \
   --runtime python3.12 \
@@ -628,7 +627,7 @@ aws lambda create-function \
 
 Test the Lambda:
 
-```
+```bash
 aws lambda invoke \
   --function-name rft-agent-forwarder \
   --cli-binary-format raw-in-base64-out \

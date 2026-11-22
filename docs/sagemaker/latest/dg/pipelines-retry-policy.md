@@ -1,7 +1,6 @@
 
 
 # Retry Policy for Pipeline Steps
-<a name="pipelines-retry-policy"></a>
 
 Retry policies help you automatically retry your Pipelines steps after an error occurs. Any pipeline step can encounter exceptions, and exceptions happen for various reasons. In some cases, a retry can resolve these issues. With a retry policy for pipeline steps, you can choose whether to retry a particular pipeline step or not.
 
@@ -33,7 +32,7 @@ The retry policy for pipeline steps supports the following exception types:
 
 The retry policy for Pipelines has the following JSON schema:
 
-```
+```json
 "RetryPolicy": {
    "ExceptionType": [String]
    "IntervalSeconds": Integer

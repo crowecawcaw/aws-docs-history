@@ -1,7 +1,6 @@
 
 
 # Complete the prerequisites
-<a name="serverless-endpoints-prerequisites"></a>
 
 The following topic describes the prerequisites that you must complete before creating a serverless endpoint. These prerequisites include properly storing your model artifacts, configuring an AWS IAM with the correct permissions, and selecting a container image.
 
@@ -54,7 +53,7 @@ The following topic describes the prerequisites that you must complete before cr
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

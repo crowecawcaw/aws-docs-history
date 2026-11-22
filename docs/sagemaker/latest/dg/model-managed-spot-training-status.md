@@ -1,7 +1,6 @@
 
 
 # Managed Spot Training Lifecycle
-<a name="model-managed-spot-training-status"></a>
 
 You can monitor a training job using `TrainingJobStatus` and `SecondaryStatus` returned by [DescribeTrainingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html). The list below shows how `TrainingJobStatus` and `SecondaryStatus` values change depending on the training scenario:
 + **Spot instances acquired with no interruption during training**

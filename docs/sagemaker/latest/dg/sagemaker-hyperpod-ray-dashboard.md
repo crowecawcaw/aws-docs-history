@@ -1,7 +1,6 @@
 
 
 # Ray Dashboard access and remote job submission
-<a name="sagemaker-hyperpod-ray-dashboard"></a>
 
 The Ray Dashboard shows cluster state, jobs, logs, and metrics. It grants read and write access to the cluster: a user with the dashboard can submit jobs, kill actors, and change cluster state. Control who reaches it.
 

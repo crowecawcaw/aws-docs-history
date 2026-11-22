@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Inference Pipelines
-<a name="inference-pipeline-troubleshoot"></a>
 
 To troubleshoot inference pipeline issues, use CloudWatch logs and error messages. If you are using custom Docker images in a pipeline that includes Amazon SageMaker AI built-in algorithms, you might also encounter permissions problems. To grant the required permissions, create an Amazon Elastic Container Registry (Amazon ECR) policy.
 
@@ -20,7 +19,7 @@ When you use custom Docker images in a pipeline that includes [SageMaker AI buil
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -90,7 +89,7 @@ The inference pipeline error messages indicate which containers failed.
 
 If an error occurs while SageMaker AI is invoking an endpoint, the service returns a `ModelError` (error code 424), which indicates which container failed. If the request payload (the response from the previous container) exceeds the limit of 5 MB, SageMaker AI provides a detailed error message, such as: 
 
-Received response from MyContainerName1 with status code 200. However, the request payload from MyContainerName1 to MyContainerName2 is 6000000 bytes, which has exceeded the maximum limit of 5 MB.
+`Received response from MyContainerName1 with status code 200. However, the request payload from MyContainerName1 to MyContainerName2 is 6000000 bytes, which has exceeded the maximum limit of 5 MB.`
 
 ``
 

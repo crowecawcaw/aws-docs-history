@@ -1,7 +1,6 @@
 
 
 # Remove an evaluation job (Studio)
-<a name="model-registry-details-studio-evaluate-remove"></a>
 
 You can remove an evaluation job, created externally or with SageMaker AI, from your model by completing the following steps.
 

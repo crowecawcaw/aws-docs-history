@@ -1,7 +1,6 @@
 
 
 # Installation guide
-<a name="scheduled-notebook-installation"></a>
 
 The following provides information about what you need to install to use Notebook Jobs in your JupyterLab environment.
 

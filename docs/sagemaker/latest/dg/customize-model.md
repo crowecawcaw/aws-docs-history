@@ -1,7 +1,6 @@
 
 
 # Serverless model customization
-<a name="customize-model"></a>
 
 Amazon SageMaker AI model customization is a capability that transforms the traditionally complex and time-consuming process of customizing AI models from a months-long endeavor into a streamlined workflow that can be completed in days. This feature addresses the critical challenge faced by AI developers who need to customize foundation models with proprietary data to create highly differentiated customer experiences. Detailed customization documentation, including step-by-step guides and advanced configuration options, is provided in this SageMaker AI guide. For a brief overview of Nova model customization, see [Customize and fine-tune with SageMaker](https://docs.aws.amazon.com/nova/latest/userguide/customize-fine-tune-sagemaker.html) in the Amazon Nova User Guide.
 

@@ -1,7 +1,6 @@
 
 
 # Tensor parallelism
-<a name="model-parallel-core-features-v2-tensor-parallelism"></a>
 
 *Tensor parallelism* is a type of model parallelism in which specific model weights, gradients, and optimizer states are split across devices. In contrast to pipeline parallelism, which keeps individual weights intact but partitions the *set* of weights, gradients, or optimizer across devices, tensor parallelism shards *individual* weights. This typically involves distributed computation of specific operations, modules, or layers of the model.
 
@@ -35,7 +34,7 @@ The following code snippets show how to add the SMP initialization module `torch
 
 **SMP configuration**
 
-```
+```json
 {
     "tensor_parallel_degree": 8,
     "random_seed": 0 
@@ -46,7 +45,7 @@ The following code snippets show how to add the SMP initialization module `torch
 
 Initialize with `torch.sagemaker.init()` to activate SMP v2 and wrap your model with the [`torch.sagemaker.transform`](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-transform) API.
 
-```
+```py
 import torch.sagemaker as tsm
 tsm.init()
 

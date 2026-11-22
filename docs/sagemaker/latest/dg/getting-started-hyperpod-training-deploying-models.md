@@ -1,7 +1,6 @@
 
 
 # Train and deploy models with HyperPod CLI and SDK
-<a name="getting-started-hyperpod-training-deploying-models"></a>
 
 Amazon SageMaker HyperPod helps you train and deploy machine learning models at scale. The AWS HyperPod CLI is a unified command-line interface that simplifies machine learning (ML) workflows on AWS. It abstracts infrastructure complexities and provides a streamlined experience for submitting, monitoring, and managing ML training jobs. The CLI is designed specifically for data scientists and ML engineers who want to focus on model development rather than infrastructure management. This topic walks you through three key scenarios: training a PyTorch model, deploying a custom model using trained artifacts, and deploying a JumpStart model. Designed for first-time users, this concise tutorial ensures you can set up, train, and deploy models effortlessly using either the HyperPod CLI or the SDK. The handshake process between training and inference helps you manage model artifacts effectively. 
 

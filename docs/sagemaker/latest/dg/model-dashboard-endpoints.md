@@ -1,7 +1,6 @@
 
 
 # View Endpoint Status
-<a name="model-dashboard-endpoints"></a>
 
 If you want to use your trained model to perform inference on live data, you deploy your model to a real-time endpoint. To ensure appropriate latency of your predictions, you want to make sure the instances that host your model are running efficiently. Model Dashboard’s endpoint monitoring feature displays real-time information about your endpoint configuration and helps you track endpoint performance with metrics. 
 

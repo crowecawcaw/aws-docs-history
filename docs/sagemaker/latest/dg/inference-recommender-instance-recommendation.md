@@ -1,7 +1,6 @@
 
 
 # Inference recommendations
-<a name="inference-recommender-instance-recommendation"></a>
 
 Inference recommendation jobs run a set of load tests on recommended instance types or a serverless endpoint. Inference recommendation jobs use performance metrics that are based on load tests using the sample data you provided during model version registration.
 

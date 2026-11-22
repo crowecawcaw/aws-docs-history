@@ -1,7 +1,6 @@
 
 
 # Set up Neo on Edge Devices
-<a name="neo-getting-started-edge"></a>
 
 This guide to getting started with Amazon SageMaker Neo shows you how to compile a model, set up your device, and make inferences on your device. Most of the code examples use Boto3. We provide commands using AWS CLI where applicable, as well as instructions on how to satisfy prerequisites for Neo. 
 

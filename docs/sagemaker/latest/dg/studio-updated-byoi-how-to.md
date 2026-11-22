@@ -1,7 +1,6 @@
 
 
 # How to bring your own image
-<a name="studio-updated-byoi-how-to"></a>
 
 The following pages will provide instructions on how to bring your own custom image. Ensure that the following prerequisites are satisfied before continuing.
 

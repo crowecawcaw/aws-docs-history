@@ -1,7 +1,6 @@
 
 
 # Add features and records to a feature group
-<a name="feature-store-update-feature-group"></a>
 
 You can use the Amazon SageMaker Feature Store API or the console to update and describe your feature group as well as add features and records to your feature group. A feature group is an object that contains your data and a feature describes a column in the table. When you add a feature to the feature group you are effectively adding a column to the table. When you add a new record to the feature group you are filling in values for features associated with a specific record identifier. For more information on Feature Store concepts, see [Feature Store concepts](feature-store-concepts.md). 
 
@@ -48,7 +47,7 @@ The example code walks you through the following process:
 
 The following code uses the [`UpdateFeatureGroup`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateFeatureGroup.html) operation to add new features to the feature group. It assumes that you have set up Feature Store and created a feature group. For more information about getting started, see [Introduction to Feature Store example notebook](feature-store-introduction-notebook.md).
 
-```
+```python
 import boto3
 
 sagemaker_client = boto3.client("sagemaker")
@@ -65,7 +64,7 @@ sagemaker_client.update_feature_group(
 
 The following code uses the [`DescribeFeatureGroup`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeFeatureGroup.html) operation to check the status of the update. If the [`LastUpdateStatus`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeFeatureGroup.html#sagemaker-DescribeFeatureGroup-response-LastUpdateStatus) field is `Successful`, you have added the features successfully.
 
-```
+```python
 sagemaker_client.describe_feature_group(
     FeatureGroupName=feature_group_name
 )
@@ -76,7 +75,7 @@ sagemaker_client.describe_feature_group(
 
 The following code uses the [`PutRecord`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_PutRecord.html) operation to add records to the feature group that you have created.
 
-```
+```python
 record_identifier_value = {{'new_record'}}
 
 sagemaker_featurestore_runtime_client = boto3.client("sagemaker-featurestore-runtime")
@@ -115,7 +114,7 @@ Use the [`GetRecord`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/
 
 To add or overwrite multiple records, use the [BatchWriteRecord](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_BatchWriteRecord.html) operation. To automatically expire records, specify a `TtlDuration`:
 
-```
+```python
 response = sagemaker_featurestore_runtime_client.batch_write_record(
     Entries=[
         {

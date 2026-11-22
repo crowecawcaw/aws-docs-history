@@ -1,7 +1,6 @@
 
 
 # CatBoost hyperparameters
-<a name="catboost-hyperparameters"></a>
 
 The following table contains the subset of hyperparameters that are required or most commonly used for the Amazon SageMaker AI CatBoost algorithm. Users set these parameters to facilitate the estimation of model parameters from data. The SageMaker AI CatBoost algorithm is an implementation of the open-source [CatBoost](https://github.com/catboost/catboost) package.
 

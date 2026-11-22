@@ -1,7 +1,6 @@
 
 
 # Deploying models on Amazon SageMaker HyperPod
-<a name="sagemaker-hyperpod-model-deployment"></a>
 
 Amazon SageMaker HyperPod now extends beyond training to deliver a comprehensive inference platform that combines the flexibility of Kubernetes with the operational excellence of AWS managed services. Deploy, scale, and optimize your machine learning models with enterprise-grade reliability using the same HyperPod compute throughout the entire model lifecycle.
 
@@ -68,5 +67,7 @@ We collect certain routine operational metrics to provide essential service avai
 + [HyperPod inference troubleshooting](sagemaker-hyperpod-model-deployment-ts.md)
 + [Model weights caching and image caching](sagemaker-hyperpod-model-deployment-model-caching.md)
 + [KV caching and intelligent routing](sagemaker-hyperpod-model-deployment-caching-routing.md)
++ [Deploy models with Managed NVIDIA Dynamo on HyperPod](sagemaker-hyperpod-model-deployment-dynamo.md)
 + [Inference Gateway for Amazon SageMaker HyperPod Inference](sagemaker-hyperpod-model-deployment-inference-gateway.md)
++ [Global Inference Gateway for Amazon SageMaker HyperPod Inference](sagemaker-hyperpod-model-deployment-global-inference-gateway.md)
 + [Amazon SageMaker HyperPod Inference release notes](sagemaker-hyperpod-inference-release-notes.md)

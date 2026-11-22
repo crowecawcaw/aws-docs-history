@@ -1,7 +1,6 @@
 
 
 # PyTorch
-<a name="training-compiler-pytorch-models"></a>
 
 Bring your own PyTorch model to SageMaker AI, and run the training job with SageMaker Training Compiler.
 
@@ -25,7 +24,7 @@ When you create a tokenizer for an NLP model using Transformers in your training
 
 If you use the transformers library’s Trainer class, you don’t need to make any additional changes to your training script. SageMaker Training Compiler automatically compiles your Trainer model if you enable it through the ModelTrainer class. The following code shows the basic form of a PyTorch training script with Hugging Face Trainer API.
 
-```
+```py
 from transformers import Trainer, TrainingArguments
 
 training_args=TrainingArguments(**kwargs)
@@ -82,14 +81,14 @@ If you have a training script that uses PyTorch directly, you need to make addit
 
 1. Import the optimization libraries.
 
-   ```
+   ```py
    import torch_xla
    import torch_xla.core.xla_model as xm
    ```
 
 1. Change the target device to be XLA instead of `torch.device("cuda")`
 
-   ```
+   ```py
    device=xm.xla_device()
    ```
 
@@ -97,45 +96,45 @@ If you have a training script that uses PyTorch directly, you need to make addit
 
    1. Replace `torch.cuda.amp` with the following:
 
-      ```
+      ```py
       import torch_xla.amp
       ```
 
    1. Replace `torch.optim.SGD` and `torch.optim.Adam` with the following:
 
-      ```
+      ```py
       import torch_xla.amp.syncfree.Adam as adam
       import torch_xla.amp.syncfree.SGD as SGD
       ```
 
    1. Replace `torch.cuda.amp.GradScaler` with the following:
 
-      ```
+      ```py
       import torch_xla.amp.GradScaler as grad_scaler
       ```
 
 1. If you're not using AMP, replace `optimizer.step()` with the following:
 
-   ```
+   ```py
    xm.optimizer_step(optimizer)
    ```
 
 1. If you're using a distributed dataloader, wrap your dataloader in the PyTorch/XLA's `ParallelLoader` class:
 
-   ```
+   ```py
    import torch_xla.distributed.parallel_loader as pl
    parallel_loader=pl.ParallelLoader(dataloader, [device]).per_device_loader(device)
    ```
 
 1. Add `mark_step` at the end of the training loop when you're not using `parallel_loader`:
 
-   ```
+   ```py
    xm.mark_step()
    ```
 
 1. To checkpoint your training, use the PyTorch/XLA's model checkpoint method:
 
-   ```
+   ```py
    xm.save(model.state_dict(), path_to_save)
    ```
 
@@ -148,21 +147,21 @@ In addition to the changes listed in the previous [For single GPU training](#tra
 
 1. If you're using AMP, add `all_reduce` after `scaler.scale(loss).backward()`:
 
-   ```
+   ```py
    gradients=xm._fetch_gradients(optimizer)
    xm.all_reduce('sum', gradients, scale=1.0/xm.xrt_world_size())
    ```
 
 1. If you need to set variables for `local_ranks` and `world_size`, use similar code to the following:
 
-   ```
+   ```py
    local_rank=xm.get_local_ordinal()
    world_size=xm.xrt_world_size()
    ```
 
 1. For any `world_size` (`num_gpus_per_node*num_nodes`) greater than `1`, you must define a train sampler which should look similar to the following:
 
-   ```
+   ```py
    import torch_xla.core.xla_model as xm
    
    if xm.xrt_world_size() > 1:
@@ -185,14 +184,14 @@ In addition to the changes listed in the previous [For single GPU training](#tra
 
 1. Make the following changes to make sure you use the `parallel_loader` provided by the `torch_xla distributed` module. 
 
-   ```
+   ```py
    import torch_xla.distributed.parallel_loader as pl
    train_device_loader=pl.MpDeviceLoader(train_loader, device)
    ```
 
    The `train_device_loader` functions like a regular PyTorch loader as follows: 
 
-   ```
+   ```py
    for step, (data, target) in enumerate(train_device_loader):
        optimizer.zero_grad()
        output=model(data)
@@ -227,7 +226,7 @@ If you want to leverage the SageMaker Training Compiler on your native PyTorch t
 **Note**  
 This section for best practices assumes that you use the following PyTorch/XLA modules:  
 
-```
+```py
 import torch_xla.core.xla_model as xm
 import torch_xla.distributed.parallel_loader as pl
 ```
@@ -247,7 +246,7 @@ For best performance, you should keep in mind the possible ways to initiate *com
 
 Training in Automatic Mixed Precision (AMP) mode significantly accelerates your training speed by leveraging the Tensor cores of NVIDIA GPUs. SageMaker Training Compiler provides `syncfree` optimizers that are optimized for XLA to improve AMP performance. Currently, the following three `syncfree` optimizers are available and should be used if possible for best performance.
 
-```
+```py
 torch_xla.amp.syncfree.SGD
 torch_xla.amp.syncfree.Adam
 torch_xla.amp.syncfree.AdamW

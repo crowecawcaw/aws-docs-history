@@ -1,7 +1,6 @@
 
 
 # Create a custom image and push to Amazon ECR
-<a name="studio-updated-byoi-how-to-prepare-image"></a>
 
 This page provides instructions on how to create a local Dockerfile, build the container image, and add it to Amazon Elastic Container Registry (Amazon ECR).
 

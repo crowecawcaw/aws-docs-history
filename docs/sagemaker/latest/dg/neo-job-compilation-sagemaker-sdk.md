@@ -1,7 +1,6 @@
 
 
 # Compile a Model (Amazon SageMaker AI SDK)
-<a name="neo-job-compilation-sagemaker-sdk"></a>
 
  You can use the [`compile_model`](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html) API in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/) to compile a trained model and optimize it for specific target hardware. The API should be invoked on the estimator object used during model training. 
 
@@ -10,7 +9,7 @@ You must set `MMS_DEFAULT_RESPONSE_TIMEOUT` environment variable to `500` when c
 
  The following is an example of how you can compile a model using the `trained_model_estimator` object: 
 
-```
+```python
 # Neo compilation in V3 uses ModelBuilder.optimize() with compilation_config
 from sagemaker.serve import ModelBuilder
 

@@ -1,7 +1,6 @@
 
 
 # Machine Learning Frameworks and Languages
-<a name="frameworks"></a>
 
 Amazon SageMaker AI provides native support for popular programming languages and machine learning frameworks, empowering developers and data scientists to leverage their preferred tools and technologies. This section offers references for working with Python and R, as well as their respective software development kits (SDKs) within SageMaker AI. Additionally, it covers a wide range of machine learning and deep learning frameworks, including Apache MXNet, PyTorch, TensorFlow. 
 

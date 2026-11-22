@@ -1,7 +1,6 @@
 
 
 # HyperPod Slurm cluster pre-training tutorial (GPU)
-<a name="hyperpod-gpu-slurm-pretrain-tutorial"></a>
 
 The following tutorial sets up Slurm environment and starts a training job on a Llama 8 billion parameter model.
 
@@ -25,7 +24,7 @@ To initiate a training job on a HyperPod GPU Slurm cluster, do the following:
 
 1. After you log in, set up the virtual environment. Make sure you're using Python 3.9 or greater.
 
-   ```
+   ```bash
    #set up a virtual environment
    python3 -m venv ${PWD}/venv
    source venv/bin/activate
@@ -33,7 +32,7 @@ To initiate a training job on a HyperPod GPU Slurm cluster, do the following:
 
 1. Clone the SageMaker HyperPod recipes and SageMaker HyperPod adapter repositories to a shared storage location.
 
-   ```
+   ```bash
    git clone https://github.com/aws/sagemaker-hyperpod-training-adapter-for-nemo.git
    git clone --recursive https://github.com/aws/sagemaker-hyperpod-recipes.git
    cd sagemaker-hyperpod-recipes
@@ -42,7 +41,7 @@ To initiate a training job on a HyperPod GPU Slurm cluster, do the following:
 
 1. Create a squash file using Enroot. To find the most recent release of the SMP container, see [Release notes for the SageMaker model parallelism library](model-parallel-release-notes.md). To gain a deeper understanding of how to use the Enroot file, see [Build AWS-optimized Nemo-Launcher image](https://github.com/aws-samples/awsome-distributed-training/tree/main/3.test_cases/2.nemo-launcher#2-build-aws-optimized-nemo-launcher-image).
 
-   ```
+   ```bash
    REGION="{{<region>}}"
    IMAGE="658645717510.dkr.ecr.${{{REGION}}}.amazonaws.com/smdistributed-modelparallel:2.4.1-gpu-py311-cu121"
    aws ecr get-login-password --region ${{{REGION}}} | docker login --username AWS --password-stdin 658645717510.dkr.ecr.${{{REGION}}}.amazonaws.com
@@ -52,7 +51,7 @@ To initiate a training job on a HyperPod GPU Slurm cluster, do the following:
 
 1. To use the Enroot squash file to start training, use the following example to modify the `recipes_collection/config.yaml` file.
 
-   ```
+   ```yaml
    container: /fsx/path/to/your/smdistributed-modelparallel.sqsh
    ```
 
@@ -65,11 +64,11 @@ First, pick your training recipe from Github, the model name is specified as par
 + `IMAGE`: The container from the environment setup section.
 + (Optional) You can provide the HuggingFace token if you need pre-trained weights from HuggingFace by setting the following key-value pair:
 
-  ```
+  ```bash
   recipes.model.hf_access_token={{<your_hf_token>}}
   ```
 
-```
+```bash
 #!/bin/bash
 IMAGE="${YOUR_IMAGE}"
 SAGEMAKER_TRAINING_LAUNCHER_DIR="${SAGEMAKER_TRAINING_LAUNCHER_DIR:-${PWD}}"
@@ -93,7 +92,7 @@ HYDRA_FULL_ERROR=1 python3 "${SAGEMAKER_TRAINING_LAUNCHER_DIR}/main.py" \
 
 After you've configured all the required parameters in the launcher script, you can run the script using the following command.
 
-```
+```bash
 bash launcher_scripts/llama/run_hf_llama3_8b_seq16k_gpu_p5x16_pretrain.sh
 ```
 

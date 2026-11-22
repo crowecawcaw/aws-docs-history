@@ -1,7 +1,6 @@
 
 
 # Create an endpoint with GPU partitions
-<a name="inference-components-accelerator-partitioning-create"></a>
 
 To create a partitioned endpoint, you declare a partition layout on the production variant of an endpoint configuration, and then create an endpoint from that configuration. SageMaker AI partitions the accelerators while it launches the instances for the endpoint.
 
@@ -34,7 +33,7 @@ The `ml.p4d.24xlarge` instance incurs charges while the endpoint runs, whether o
 **To create the endpoint config (AWS CLI)**
 + Create an endpoint configuration that sets `AcceleratorPartitionLayouts` on the production variant. The following `create-endpoint-config` command creates the endpoint configuration `partition-demo-config`. Replace `{{111122223333}}` with your AWS account ID and `{{my-execution-role}}` with the name of an execution role that can pull the container image from Amazon ECR and write to Amazon CloudWatch Logs.
 
-  ```
+  ```bash
   aws sagemaker create-endpoint-config \
     --region us-west-2 \
     --endpoint-config-name partition-demo-config \
@@ -55,7 +54,7 @@ The `ml.p4d.24xlarge` instance incurs charges while the endpoint runs, whether o
 
   To confirm that SageMaker AI stored the layout, run the following `describe-endpoint-config` command:
 
-  ```
+  ```bash
   aws sagemaker describe-endpoint-config \
     --region us-west-2 \
     --endpoint-config-name partition-demo-config \
@@ -73,7 +72,7 @@ After you create the endpoint config, create the endpoint from it.
 
 1. Create the endpoint, and wait for it to be in service. SageMaker AI partitions the accelerators while it launches the instances for the endpoint. Creating the endpoint can take some time. The following `create-endpoint` command creates the endpoint `partition-demo`, and the `wait endpoint-in-service` command waits until it's ready:
 
-   ```
+   ```bash
    aws sagemaker create-endpoint --region us-west-2 --endpoint-name partition-demo --endpoint-config-name partition-demo-config
    aws sagemaker wait endpoint-in-service --region us-west-2 --endpoint-name partition-demo
    ```
@@ -82,7 +81,7 @@ After you create the endpoint config, create the endpoint from it.
 
 1. Describe the endpoint. The following `describe-endpoint` command returns the endpoint status, any failure reason, and the layout:
 
-   ```
+   ```bash
    aws sagemaker describe-endpoint \
      --region us-west-2 \
      --endpoint-name partition-demo \

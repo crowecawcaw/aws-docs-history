@@ -1,7 +1,6 @@
 
 
 # How Amazon SageMaker Processing Runs Your Processing Container Image
-<a name="byoc-run-image"></a>
 
 Amazon SageMaker Processing runs your processing container image in a similar way as the following command, where `AppSpecification.ImageUri` is the Amazon ECR image URI that you specify in a `CreateProcessingJob` operation. 
 

@@ -1,7 +1,6 @@
 
 
 # Multi-turn reinforcement learning
-<a name="model-customize-mtrl"></a>
 
 Multi-turn reinforcement learning (RL) trains an agent to make good decisions across a sequence of steps, not just in a single moment. The agent observes its environment, takes an action, receives a reward, and moves to a new state, repeating this process over many timesteps. The goal is to learn a policy (model behavior) that maximizes cumulative reward across the whole sequence rather than optimizing for any one step in isolation. This approach is increasingly used to train language models on multi-step reasoning and agentic tasks, where the model takes actions like tool calls, code execution, or web search across several turns and is rewarded based on the whole sequence. This is different from single-turn RLHF/RLAIF, where a reward is assigned to one output at a time.
 
@@ -50,6 +49,7 @@ Here are some signals that point toward it:
 | GPT-OSS-20B | IAD (us-east-1), PDX (us-west-2) | 
 | Gemma-4-31B-it | PDX (us-west-2) | 
 | Qwen 3.6 27B | PDX (us-west-2) | 
+| Qwen 3.8 27B | PDX (us-west-2) | 
 
 ### Pricing
 <a name="model-customize-mtrl-pricing"></a>

@@ -1,7 +1,6 @@
 
 
 # Validation of models in production
-<a name="model-validation"></a>
 
  With SageMaker AI, you can test multiple models or model versions behind the same endpoint using variants. A variant consists of an ML instance and the serving components specified in a SageMaker AI model. You can have multiple variants behind an endpoint. Each variant can have a different instance type or a SageMaker AI model that can be autoscaled independently of the others. The models within the variants can be trained using different datasets, different algorithms, different ML frameworks, or any combination of all of these. All the variants behind an endpoint share the same inference code. SageMaker AI supports two types of variants, production variants and shadow variants. 
 

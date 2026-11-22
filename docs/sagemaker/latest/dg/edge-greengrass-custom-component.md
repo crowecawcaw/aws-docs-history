@@ -1,7 +1,6 @@
 
 
 # Create the AWS IoT Greengrass V2 Components
-<a name="edge-greengrass-custom-component"></a>
 
 AWS IoT Greengrass uses *components*, a software module that is deployed to and runs on a AWS IoT Greengrass core device. You need (at a minimum) three components:
 
@@ -16,7 +15,7 @@ AWS IoT Greengrass uses *components*, a software module that is deployed to and 
 
 Generate the model component with the [`CreateEdgePackagingJob`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEdgePackagingJob.html) API and specify `GreengrassV2Component` for the SageMaker Edge Manager packaging job API field `PresetDeploymentType`. When you call the `CreateEdgePackagingJob` API, Edge Manager takes your SageMaker AI Neo–compiled model in Amazon S3 and creates a model component. The model component is automatically stored in your account. You can view any of your components by navigating to the AWS IoT console [https://console.aws.amazon.com/iot/](https://console.aws.amazon.com/greengrass/). Select **Greengrass** and then select **Core** devices. The page has a list of AWS IoT Greengrass core devices associated with your account. If a model component name is not specified in `PresetDeploymentConfig`, the default name generated consists of `"SagemakerEdgeManager"` and the name of your Edge Manager agent packaging job. The following example demonstrates how to specify to Edge Manager to create a AWS IoT Greengrass V2 component with the `CreateEdgePackagingJob` API.
 
-```
+```python
 import sagemaker
 import boto3
 
@@ -89,7 +88,7 @@ You do not need to define the service in a .proto file. The service .proto files
 
 Install gRPC and other necessary tools on your host machine and create the gRPC stubs `agent_pb2_grpc.py` and `agent_pb2.py` in Python. Make sure you have `agent.proto` in your local directory.
 
-```
+```bash
 %%bash
 pip install grpcio
 pip install grpcio-tools
@@ -100,7 +99,7 @@ The preceding code generates the gRPC client and server interfaces from your .pr
 
 Next, use the gRPC API to write a client and server for your service (2). The following example script, `edge_manager_python_example.py`, uses Python to load, list, and unload a `yolov3` model to the edge device.
 
-```
+```python
 import grpc
 from PIL import Image
 import agent_pb2
@@ -202,7 +201,7 @@ You can create your AWS IoT Greengrass V2 Hello World component once you have ge
 + Upload your `edge_manager_python_example.py`, `agent_pb2_grpc.py`, and `agent_pb2.py` to your Amazon S3 bucket and note down their Amazon S3 path.
 + Create a private component in the AWS IoT Greengrass V2 console and define the recipe for your component. Specify the Amazon S3 URI to your Hello World application and gRPC stub in the following recipe.
 
-  ```
+  ```bash
   ---
   RecipeFormatVersion: 2020-01-25
   ComponentName: com.sagemaker.edgePythonExample

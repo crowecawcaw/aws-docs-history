@@ -1,7 +1,6 @@
 
 
 # Limitations
-<a name="pipelines-step-decorator-limit"></a>
 
 The following sections outline the limitations that you should be aware of when you use the `@step` decorator for your pipeline steps.
 
@@ -12,7 +11,7 @@ When you pass an input argument to the `@step`-decorated function, the following
 + You can pass the `DelayedReturn`, `Properties` (of steps of other types), `Parameter`, and `ExecutionVariable` objects to `@step`-decorated functions as arguments. But `@step`-decorated functions do not support `JsonGet` and `Join` objects as arguments.
 + You cannot directly access a pipeline variable from a `@step` function. The following example produces an error:
 
-  ```
+  ```py
   param = ParameterInteger(name="{{<parameter-name>}}", default_value=10)
   
   @step
@@ -23,7 +22,7 @@ When you pass an input argument to the `@step`-decorated function, the following
   ```
 + You cannot nest a pipeline variable in another object and pass it to a `@step` function. The following example produces an error:
 
-  ```
+  ```py
   param = ParameterInteger(name="{{<parameter-name>}}", default_value=10)
   
   @step
@@ -46,24 +45,24 @@ You should import the libraries required by the step inside rather than outside 
 If you reference child members of a `@step`-decorated function's return value, the following limitations apply:
 + You can reference the child members with `[]` if the `DelayedReturn` object represents a tuple, list or dict, as shown in the following example:
 
-  ```
+  ```py
   delayed_return[0]
   delayed_return["a_key"]
   delayed_return[1]["a_key"]
   ```
 + You cannot unpack a tuple or list output because the exact length of the underlying tuple or list can't be known when you invoke the function. The following example produces an error:
 
-  ```
+  ```py
   a, b, c = func() # this raises ValueError
   ```
 + You cannot iterate over a `DelayedReturn` object. The following example raises an error:
 
-  ```
+  ```py
   for item in func(): # this raises a NotImplementedError
   ```
 + You cannot reference arbitrary child members with '`.`'. The following example produces an error:
 
-  ```
+  ```py
   delayed_return.a_child # raises AttributeError
   ```
 

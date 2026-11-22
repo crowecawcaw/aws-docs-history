@@ -1,7 +1,6 @@
 
 
 # Create your own Docker container with the SageMaker AI distributed data parallel library
-<a name="data-parallel-bring-your-own-container"></a>
 
 To build your own Docker container for training and use the SageMaker AI data parallel library, you must include the correct dependencies and the binary files of the SageMaker AI distributed parallel libraries in your Dockerfile. This section provides instructions on how to create a complete Dockerfile with the minimum set of dependencies for distributed training in SageMaker AI using the data parallel library.
 
@@ -12,7 +11,7 @@ This custom Docker option with the SageMaker AI data parallel library as a binar
 
 1. Start with a Docker image from [NVIDIA CUDA](https://hub.docker.com/r/nvidia/cuda). Use the cuDNN developer versions that contain CUDA runtime and development tools (headers and libraries) to build from the [PyTorch source code](https://github.com/pytorch/pytorch#from-source).
 
-   ```
+   ```docker
    FROM nvidia/cuda:11.3.1-cudnn8-devel-ubuntu20.04
    ```
 **Tip**  
@@ -24,7 +23,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
    To find URLs for the `SMDATAPARALLEL_BINARY` argument, see the lookup tables at [Supported frameworks](distributed-data-parallel-support.md#distributed-data-parallel-supported-frameworks).
 
-   ```
+   ```docker
    ARG PYTORCH_VERSION={{1.10.2}}
    ARG PYTHON_SHORT_VERSION={{3.8}}
    ARG EFA_VERSION={{1.14.1}}
@@ -36,7 +35,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
 1. Set the following environment variables to properly build SageMaker training components and run the data parallel library. You use these variables for the components in the subsequent steps.
 
-   ```
+   ```docker
    # Set ENV variables required to build PyTorch
    ENV TORCH_CUDA_ARCH_LIST="7.0+PTX 8.0"
    ENV TORCH_NVCC_FLAGS="-Xfatbin -compress-all"
@@ -64,7 +63,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
 1. Install or update `curl`, `wget`, and `git` to download and build packages in the subsequent steps.
 
-   ```
+   ```docker
    RUN --mount=type=cache,id=apt-final,target=/var/cache/apt \
        apt-get update && apt-get install -y  --no-install-recommends \
            curl \
@@ -75,7 +74,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
 1. Install [Elastic Fabric Adapter (EFA)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) software for Amazon EC2 network communication.
 
-   ```
+   ```docker
    RUN DEBIAN_FRONTEND=noninteractive apt-get update
    RUN mkdir /tmp/efa \
        && cd /tmp/efa \
@@ -88,7 +87,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
 1. Install [Conda](https://docs.conda.io/en/latest/) to handle package management. 
 
-   ```
+   ```docker
    RUN curl -fsSL -v -o ~/miniconda.sh -O  https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  && \
        chmod +x ~/miniconda.sh && \
        ~/miniconda.sh -b -p $CONDA_PREFIX && \
@@ -101,7 +100,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
    1. Following the steps in the [PyTorch official dockerfile](https://github.com/pytorch/pytorch/blob/master/Dockerfile), install build dependencies and set up [ccache](https://ccache.dev/) to speed up recompilation.
 
-      ```
+      ```docker
       RUN DEBIAN_FRONTEND=noninteractive \
           apt-get install -y --no-install-recommends \
               build-essential \
@@ -120,7 +119,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
    1. Install [PyTorch’s common and Linux dependencies](https://github.com/pytorch/pytorch#install-dependencies).
 
-      ```
+      ```docker
       # Common dependencies for PyTorch
       RUN conda install astunparse numpy ninja pyyaml mkl mkl-include setuptools cmake cffi typing_extensions future six requests dataclasses
       
@@ -130,7 +129,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
    1. Clone the [PyTorch GitHub repository](https://github.com/pytorch/pytorch).
 
-      ```
+      ```docker
       RUN --mount=type=cache,target=/opt/ccache \
           cd / \
           && git clone --recursive https://github.com/pytorch/pytorch -b v${PYTORCH_VERSION}
@@ -138,7 +137,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
    1. Install and build a specific [NCCL](https://developer.nvidia.com/nccl) version. To do this, replace the content in the PyTorch’s default NCCL folder (`/pytorch/third_party/nccl`) with the specific NCCL version from the NVIDIA repository. The NCCL version was set in the step 3 of this guide.
 
-      ```
+      ```docker
       RUN cd /pytorch/third_party/nccl \
           && rm -rf nccl \
           && git clone https://github.com/NVIDIA/nccl.git -b v${NCCL_VERSION}-1 \
@@ -150,7 +149,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
    1. Build and install PyTorch. This process usually takes slightly more than 1 hour to complete. It is built using the NCCL version downloaded in a previous step.
 
-      ```
+      ```docker
       RUN cd /pytorch \
           && CMAKE_PREFIX_PATH="$(dirname $(which conda))/../" \
           python setup.py install \
@@ -159,7 +158,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
 1. Build and install [AWS OFI NCCL plugin](https://github.com/aws/aws-ofi-nccl). This enables [libfabric](https://github.com/ofiwg/libfabric) support for the SageMaker AI data parallel library.
 
-   ```
+   ```docker
    RUN DEBIAN_FRONTEND=noninteractive apt-get update \
        && apt-get install -y --no-install-recommends \
            autoconf \
@@ -181,7 +180,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
 1. Build and install [TorchVision](https://github.com/pytorch/vision.git).
 
-   ```
+   ```docker
    RUN pip install --no-cache-dir -U \
        packaging \
        mpi4py==3.0.3
@@ -195,7 +194,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
 1. Install and configure OpenSSH. OpenSSH is required for MPI to communicate between containers. Allow OpenSSH to talk to containers without asking for confirmation.
 
-   ```
+   ```docker
    RUN apt-get update \
        && apt-get install -y  --allow-downgrades --allow-change-held-packages --no-install-recommends \
        && apt-get install -y --no-install-recommends openssh-client openssh-server \
@@ -217,14 +216,14 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
 1. Install the PT S3 plug-in to efficiently access datasets in Amazon S3.
 
-   ```
+   ```docker
    RUN pip install --no-cache-dir -U ${PT_S3_WHL_GPU}
    RUN mkdir -p /etc/pki/tls/certs && cp /etc/ssl/certs/ca-certificates.crt /etc/pki/tls/certs/ca-bundle.crt
    ```
 
 1. Install the [libboost](https://www.boost.org/) library. This package is needed for networking the asynchronous IO functionality of the SageMaker AI data parallel library.
 
-   ```
+   ```docker
    WORKDIR /
    RUN wget https://sourceforge.net/projects/boost/files/boost/1.73.0/boost_1_73_0.tar.gz/download -O boost_1_73_0.tar.gz \
        && tar -xzf boost_1_73_0.tar.gz \
@@ -239,7 +238,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
 1. Install the following SageMaker AI tools for PyTorch training.
 
-   ```
+   ```docker
    WORKDIR /root
    RUN pip install --no-cache-dir -U \
        smclarify \
@@ -250,7 +249,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
 1. Finally, install the SageMaker AI data parallel binary and the remaining dependencies.
 
-   ```
+   ```docker
    RUN --mount=type=cache,id=apt-final,target=/var/cache/apt \
      apt-get update && apt-get install -y  --no-install-recommends \
      jq \
@@ -269,7 +268,7 @@ The official AWS Deep Learning Container (DLC) images are built from the [NVIDIA
 
 The following example code shows a complete Dockerfile after combining all the previous code blocks.
 
-```
+```docker
 # This file creates a docker image with minimum dependencies to run SageMaker AI data parallel training
 FROM nvidia/cuda:11.3.1-cudnn8-devel-ubuntu20.04
 

@@ -1,7 +1,6 @@
 
 
 # Train a Model with Amazon SageMaker
-<a name="how-it-works-training"></a>
 
 Amazon SageMaker Training is a fully managed machine learning (ML) service offered by SageMaker that helps you efficiently train a wide range of ML models at scale. The core of SageMaker AI jobs is the containerization of ML workloads and the capability of managing AWS compute resources. The SageMaker Training platform takes care of the heavy lifting associated with setting up and managing infrastructure for ML training workloads. With SageMaker Training, you can focus on developing, training, and fine-tuning your model. This page introduces three recommended ways to get started with training a model on SageMaker, followed by additional options you can consider.
 

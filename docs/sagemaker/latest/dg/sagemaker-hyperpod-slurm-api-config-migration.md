@@ -1,7 +1,6 @@
 
 
 # Migrating to API-driven Slurm configuration
-<a name="sagemaker-hyperpod-slurm-api-config-migration"></a>
 
 If you have an existing SageMaker HyperPod Slurm cluster that uses the legacy `provisioning_parameters.json` file for Slurm configuration, you can migrate to the API-driven configuration model. With API-driven configuration, you define Slurm node types, partition assignments, and Amazon FSx mounting directly in the [CreateCluster](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCluster.html) and [UpdateCluster](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateCluster.html) API payloads, removing the need to manage a separate configuration file in Amazon S3.
 
@@ -17,7 +16,7 @@ If you have an existing SageMaker HyperPod Slurm cluster that uses the legacy `p
 + [Step 6: Verify the migration](#sagemaker-hyperpod-slurm-api-config-migration-step6)
 + [Recovering from a failed migration](#sagemaker-hyperpod-slurm-api-config-migration-recovery)
 + [Post-migration considerations](#sagemaker-hyperpod-slurm-api-config-migration-post)
-+ [Troubleshooting](#sagemaker-hyperpod-slurm-api-config-migration-troubleshooting)
++ [Troubleshooting API-driven Slurm configuration migration](#sagemaker-hyperpod-slurm-api-config-migration-troubleshooting)
 + [Migration checklist](#sagemaker-hyperpod-slurm-api-config-migration-checklist)
 
 ## Before you begin
@@ -37,7 +36,7 @@ If your cluster is configured with multiple controller (head) nodes using the [S
 
 The multi-head node architecture relies on the `slurm_configurations` block in `provisioning_parameters.json` to configure several components that have no equivalent in the API-driven approach:
 
-```
+```json
 "slurm_configurations": {
     "slurm_database_secret_arn": "$SLURM_DB_SECRET_ARN",
     "slurm_database_endpoint": "$SLURM_DB_ENDPOINT_ADDRESS",
@@ -186,9 +185,9 @@ The `slurm_configurations` block used in multi-head node clusters (containing `s
 
 The following example shows a legacy `provisioning_parameters.json` file and the equivalent API-driven `UpdateCluster` request payload.
 
-Legacy `provisioning_parameters.json`:
+The following shows the legacy `provisioning_parameters.json` file:
 
-```
+```json
 {
     "version": "1.0.0",
     "workload_manager": "slurm",
@@ -209,9 +208,9 @@ Legacy `provisioning_parameters.json`:
 }
 ```
 
-Equivalent API-driven `UpdateCluster` request (`update_cluster_migration.json`):
+The following shows the equivalent API-driven `UpdateCluster` request (`update_cluster_migration.json`):
 
-```
+```json
 {
     "ClusterName": "my-hyperpod-cluster",
     "InstanceGroups": [
@@ -445,7 +444,7 @@ With API-driven configuration, HyperPod handles Slurm topology setup and Amazon 
 
 The following example shows a minimal `on_create.sh` lifecycle script for clusters using API-driven configuration:
 
-```
+```bash
 #!/bin/bash
 set -e
 
@@ -490,7 +489,7 @@ You can change the strategy in a later `UpdateCluster` request by including `Orc
 **Tip**  
 If you are unsure which strategy to use, start with `Merge`. It matches the behavior of the legacy approach and preserves any manual `slurm.conf` customizations. You can switch to `Managed` or `Overwrite` later as your operational practices evolve, unless you plan to migrate to continuous provisioning, which requires `Merge`.
 
-## Troubleshooting
+## Troubleshooting API-driven Slurm configuration migration
 <a name="sagemaker-hyperpod-slurm-api-config-migration-troubleshooting"></a>
 
 ### "Update required to use SlurmConfig in InstanceGroups"

@@ -1,14 +1,13 @@
 
 
 # Request Inferences from a Deployed Service (Boto3)
-<a name="neo-requests-boto3"></a>
 
  You can submit inference requests using SageMaker AI SDK for Python (Boto3) client and [`invoke_endpoint()`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.invoke_endpoint) API once you have an SageMaker AI endpoint `InService`. The following code example shows how to send an image for inference: 
 
 ------
 #### [ PyTorch and MXNet ]
 
-```
+```python
 import boto3
 
 import json
@@ -60,7 +59,7 @@ ioc_response = client.invoke_endpoint(
 
  For an XGBoost application, you should submit a CSV text instead: 
 
-```
+```python
 import boto3
 import json
  

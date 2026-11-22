@@ -1,7 +1,6 @@
 
 
 # How to use the SageMaker AI Object Detection - TensorFlow algorithm
-<a name="object-detection-tensorflow-how-to-use"></a>
 
 You can use Object Detection - TensorFlow as an Amazon SageMaker AI built-in algorithm. The following section describes how to use Object Detection - TensorFlow with the SageMaker AI Python SDK. For information on how to use Object Detection - TensorFlow from the Amazon SageMaker Studio Classic UI, see [SageMaker JumpStart pretrained models](studio-jumpstart.md).
 
@@ -14,7 +13,7 @@ Default hyperparameter values are different for different models. For example, f
 
 This example uses the [`PennFudanPed`](https://www.cis.upenn.edu/~jshi/ped_html/#pub1) dataset, which contains images of pedestriants in the street. We pre-downloaded the dataset and made it available with Amazon S3. To fine-tune your model, call `.train()` using the Amazon S3 location of your training dataset.
 
-```
+```python
 from sagemaker.core import image_uris
 from sagemaker.core import model_uris, script_uris, hyperparameters
 from sagemaker.train import ModelTrainer

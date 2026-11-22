@@ -1,7 +1,6 @@
 
 
 # View training plan details
-<a name="training-plan-details-using-api-cli-sdk"></a>
 
 To monitor the status or retrieve details of a training plan, you can use the [`DescribeTrainingPlan`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingPlan.html) API. The API response includes a `Status` field, which reflects the current state of the training plan:
 + If the plan purchase fails, the status is set to `Failed`.
@@ -19,14 +18,14 @@ For Studio apps, the app launches on reserved GPU capacity when the training pla
 
 The following example uses an AWS CLI command to retrieve the details of a training plan by its name.
 
-```
+```sh
 aws sagemaker describe-training-plan \
 --training-plan-name "{{name}}"
 ```
 
 This JSON document is a sample response from the SageMaker training plans API. This response provides details about a training plan that has been successfully created.
 
-```
+```JSON
       { 
          "AvailableInstanceCount": 2,
          "CurrencyCode": "USD",

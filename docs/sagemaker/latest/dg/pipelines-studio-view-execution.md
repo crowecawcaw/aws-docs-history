@@ -1,7 +1,6 @@
 
 
 # View the details of a pipeline run
-<a name="pipelines-studio-view-execution"></a>
 
 You can review the details of a particular SageMaker AI pipeline run. This can help you:
 + Identify and resolve problems that may have occurred during the run, such as failed steps or unexpected errors.

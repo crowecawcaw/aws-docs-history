@@ -1,7 +1,6 @@
 
 
 # K-Nearest Neighbors (k-NN) Algorithm
-<a name="k-nearest-neighbors"></a>
 
 Amazon SageMaker AI k-nearest neighbors (k-NN) algorithm is an index-based algorithm. It uses a non-parametric method for classification or regression. For classification problems, the algorithm queries the *k* points that are closest to the sample point and returns the most frequently used label of their class as the predicted label. For regression problems, the algorithm queries the *k* closest points to the sample point and returns the average of their feature values as the predicted value. 
 
@@ -32,7 +31,7 @@ For inference outputs, k-NN supports the `application/json` and `application/x-r
 
 For batch transform, k-NN supports the `application/jsonlines` data format for both input and output. An example input is as follows:
 
-```
+```json
 content-type: application/jsonlines
 
 {"features": [1.5, 16.0, 14.0, 23.0]}
@@ -41,7 +40,7 @@ content-type: application/jsonlines
 
 An example output is as follows:
 
-```
+```json
 accept: application/jsonlines
 
 {"predicted_label": 0.0}

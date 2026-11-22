@@ -1,7 +1,6 @@
 
 
 # Configure inference output in generated containers
-<a name="autopilot-automate-model-development-container-output"></a>
 
 Autopilot generates an ordered [`ContainerDefinition`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html) list. This can be used to build a model to deploy in a machine learning pipeline. This model can be used for online hosting and inference. 
 

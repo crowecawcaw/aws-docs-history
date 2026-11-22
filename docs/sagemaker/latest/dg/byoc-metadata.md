@@ -1,7 +1,6 @@
 
 
 # Save and Access Metadata Information About Your Processing Job
-<a name="byoc-metadata"></a>
 
 To save metadata from the processing container after exiting it, containers can write UTF-8 encoded text to the `/opt/ml/output/message` file. After the processing job enters any terminal status ("`Completed`", "`Stopped`", or "`Failed`"), the "`ExitMessage`" field in [`DescribeProcessingJob`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeProcessingJob.html) contains the first 1 KB of this file. Access that initial part of file with a call to [`DescribeProcessingJob`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeProcessingJob.html), which returns it through the `ExitMessage` parameter. For failed processing jobs, you can use this field to communicate information about why the processing container failed.
 

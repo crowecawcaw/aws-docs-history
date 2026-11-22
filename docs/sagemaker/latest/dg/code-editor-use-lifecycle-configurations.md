@@ -1,7 +1,6 @@
 
 
 # Code Editor lifecycle configurations
-<a name="code-editor-use-lifecycle-configurations"></a>
 
 You can use Code Editor lifecycle configurations to automate customization for your Studio environment. This customization includes installing custom packages, configuring extensions, preloading datasets, and setting up source code repositories
 

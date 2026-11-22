@@ -1,7 +1,6 @@
 
 
 # Trusted identity propagation with Studio
-<a name="trustedidentitypropagation"></a>
 
 Trusted identity propagation is an AWS IAM Identity Center feature that administrators of connected AWS services can use to grant and audit access to service data. Access to this data is based on user attributes such as group associations. Setting up trusted identity propagation requires collaboration between the administrators of connected AWS services and the IAM Identity Center administrator. For more information, see [Prerequisites and considerations](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overall-prerequisites.html).
 

@@ -1,7 +1,6 @@
 
 
 # NVMe stores with Amazon SageMaker Studio
-<a name="studio-updated-nvme"></a>
 
 Amazon SageMaker Studio applications and their associated notebooks run on Amazon Elastic Compute Cloud (Amazon EC2) instances. Some of the Amazon EC2 instance types, such as the `ml.m5d` instance family, offer non-volatile memory express (NVMe) solid state drives (SSD) instance stores. NVMe instance stores are local ephemeral disk stores that are physically connected to an instance for fast temporary storage. Studio applications support NVMe instance stores for supported instance types. For more information about instance types and their associated NVMe store volumes, see the [Amazon Elastic Compute Cloud Instance Type Details](https://aws.amazon.com/ec2/instance-types/). This topic provides information about accessing and using NVMe instance stores, as well as considerations when using NVMe instance stores with Studio.
 

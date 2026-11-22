@@ -1,7 +1,6 @@
 
 
 # Train a PyTorch model
-<a name="train-models-with-hyperpod"></a>
 
 This topic walks you through the process of training a PyTorch model using HyperPod.
 

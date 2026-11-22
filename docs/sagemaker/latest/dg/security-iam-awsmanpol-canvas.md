@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon SageMaker Canvas
-<a name="security-iam-awsmanpol-canvas"></a>
 
 These AWS managed policies add permissions required to use Amazon SageMaker Canvas. The policies are available in your AWS account and are used by execution roles created from the SageMaker AI console.
 
@@ -47,7 +46,7 @@ This AWS managed policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -601,7 +600,7 @@ This AWS managed policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1026,7 +1025,7 @@ This AWS managed policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1075,7 +1074,7 @@ This AWS managed policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1220,7 +1219,7 @@ This AWS managed policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1267,7 +1266,7 @@ This AWS managed policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1312,7 +1311,7 @@ This AWS managed policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1387,7 +1386,7 @@ This AWS managed policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

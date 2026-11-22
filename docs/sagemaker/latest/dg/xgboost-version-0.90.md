@@ -1,7 +1,6 @@
 
 
 # Upgrade XGBoost Version 0.90 to Version 1.5
-<a name="xgboost-version-0.90"></a>
 
 If you are using the SageMaker Python SDK, to upgrade existing XGBoost 0.90 jobs to version 1.5, you must have version 3.x of the SDK installed and change the XGBoost `version` and `framework_version` parameters to 1.5-1. If you are using Boto3, you need to update the Docker image, and a few hyperparameters and learning objectives.
 

@@ -1,7 +1,6 @@
 
 
 # Model evaluation notebook tutorials
-<a name="clarify-foundation-model-evaluate-auto-tutorial"></a>
 
 This section provides the following notebook tutorials, which include example code and explanations:
 + How to evaluate a JumpStart model for prompt stereotyping.

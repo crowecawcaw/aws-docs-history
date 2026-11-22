@@ -1,7 +1,6 @@
 
 
 # Set up the IAM permissions to access the data sources (for administrators)
-<a name="sagemaker-sql-extension-datasources-connection-permissions"></a>
 
 Administrators should ensure that the execution role used by the JupyterLab applications has the necessary AWS IAM permissions to access the data through the configured AWS Glue connections. 
 + **Connections created by administrators using the AWS CLI**: To view the AWS Glue connections [created by administrators](sagemaker-sql-extension-datasources-glue-connection.md) and access their data, users need to have their administrator attach specific permissions to the SageMaker AI execution role used by their JupyterLab application in Studio. This includes access to AWS Glue, Secrets Manager, and database-specific permissions. Connections created by administrators are visible to all applications sharing the execution role granted the permissions to view specific AWS Glue catalogs or databases. To learn about the list of required permissions per type of data source, see the admin-defined connections permissions in [Admin-defined connections required IAM permissions](#admin-defined-connections-permissions). 
@@ -29,7 +28,7 @@ We strongly recommend scoping down this policy to only the actions and resources
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -132,7 +131,7 @@ For more information, see *Example IAM permissions policies* in [Athena document
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -223,7 +222,7 @@ We strongly recommend scoping down this policy to only the resources required.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -278,7 +277,7 @@ We strongly recommend scoping down this policy to only the resources required.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -347,7 +346,7 @@ We strongly recommend scoping down this policy to only the resources required.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -420,7 +419,7 @@ To achieve this, administrators must grant the execution role used by the user p
 
 This permission restricts access to AWS Glue connections based on a specific user profile tag value. Update the `UserProfile` tag value with the profile name of the user you want to target.
 
-```
+```JSON
 "Action": [
     "glue:GetConnection",
     "glue:GetConnections"    
@@ -437,7 +436,7 @@ This permission restricts access to AWS Glue connections based on a specific use
 
 This permission restricts the ability to create, update, and delete user-created connections to only the connections created by the user profile with the specified `UserProfile` tag value.
 
-```
+```JSON
 "Action": [
     "glue:DeleteConnection",
     "glue:UpdateConnection",

@@ -1,7 +1,6 @@
 
 
 # Tune a k-NN Model
-<a name="kNN-tuning"></a>
 
 The Amazon SageMaker AI k-nearest neighbors algorithm is a supervised algorithm. The algorithm consumes a test data set and emits a metric about the accuracy for a classification task or about the mean squared error for a regression task. These accuracy metrics compare the model predictions for their respective task to the ground truth provided by the empirical test data. To find the best model that reports the highest accuracy or lowest error on the test dataset, run a hyperparameter tuning job for k-NN. 
 

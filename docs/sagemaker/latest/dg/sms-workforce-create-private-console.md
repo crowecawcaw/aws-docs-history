@@ -1,7 +1,6 @@
 
 
 # Create a Private Workforce (Amazon SageMaker AI Console)
-<a name="sms-workforce-create-private-console"></a>
 
  You can create a private workforce in the Amazon SageMaker AI console in one of two ways:
 + When creating a labeling job in the **Labeling jobs** page of the Amazon SageMaker Ground Truth section.

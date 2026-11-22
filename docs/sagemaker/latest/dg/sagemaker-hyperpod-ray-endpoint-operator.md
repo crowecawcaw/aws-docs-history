@@ -1,7 +1,6 @@
 
 
 # Installing the HyperPod Ray Endpoint Operator
-<a name="sagemaker-hyperpod-ray-endpoint-operator"></a>
 
 The HyperPod Ray Endpoint Operator generates authenticated public endpoints for Ray clusters on HyperPod. After installation, you can access the Ray Dashboard securely from anywhere with internet access, submit and monitor jobs, and view logs and cluster metrics without setting up `kubectl port-forward`.
 
@@ -38,7 +37,7 @@ To set up KMS signing, complete the following steps.
 
 1. Create an AWS KMS key. For more information, see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS KMS Developer Guide*.
 
-   ```
+   ```bash
    aws kms create-key \
      --key-spec SYMMETRIC_DEFAULT \
      --key-usage ENCRYPT_DECRYPT \
@@ -47,7 +46,7 @@ To set up KMS signing, complete the following steps.
 
 1. Create an IAM role with the following minimum permissions policy. For more information, see [Creating IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",
      "Statement": [
@@ -62,7 +61,7 @@ To set up KMS signing, complete the following steps.
 
 1. Create the Pod Identity association. For more information, see [Configuring a Kubernetes service account to assume an IAM role with EKS Pod Identity](https://docs.aws.amazon.com/eks/latest/userguide/pod-id-association.html) in the *Amazon EKS User Guide*.
 
-   ```
+   ```bash
    aws eks create-pod-identity-association \
      --cluster-name {{eks-cluster-name}} \
      --namespace hyperpod-ray \
@@ -75,7 +74,7 @@ To set up KMS signing, complete the following steps.
 
 1. Clone the `sagemaker-hyperpod-cli` repository and check out the latest release tag.
 
-   ```
+   ```bash
    git clone https://github.com/aws/sagemaker-hyperpod-cli.git
    cd sagemaker-hyperpod-cli
    git checkout $(git tag --sort=-v:refname | head -n 1)
@@ -83,7 +82,7 @@ To set up KMS signing, complete the following steps.
 
 1. Install with KMS-based signing (recommended).
 
-   ```
+   ```bash
    helm upgrade --install hyperpod-ray-endpoint-operator \
      ./helm_chart/HyperPodHelmChart/charts/hyperpod-ray-endpoint-operator \
      --namespace hyperpod-ray \
@@ -96,7 +95,7 @@ To set up KMS signing, complete the following steps.
 
    To install without KMS (signing keys are generated locally):
 
-   ```
+   ```bash
    helm upgrade --install hyperpod-ray-endpoint-operator \
      ./helm_chart/HyperPodHelmChart/charts/hyperpod-ray-endpoint-operator \
      --namespace hyperpod-ray \
@@ -112,7 +111,7 @@ To set up KMS signing, complete the following steps.
 
 1. Confirm the operator pods are running.
 
-   ```
+   ```bash
    kubectl get pods -n hyperpod-ray
    ```
 
@@ -121,7 +120,7 @@ To set up KMS signing, complete the following steps.
 
 After you install the HyperPod Ray Endpoint Operator, generate a presigned URL for a Ray cluster dashboard by using the HyperPod CLI:
 
-```
+```bash
 hyp create ray-dashboard-connection \
   --cluster-name {{ray-cluster-name}} \
   --namespace {{namespace}}
@@ -134,7 +133,7 @@ To generate a presigned URL, your Kubernetes user or service account must have p
 
 For programmatic job submission, use the [toolkit-for-ray-on-sagemaker-ai](https://pypi.org/project/toolkit-for-ray-on-sagemaker-ai/) Python library on the PyPI website with the `sagemaker_ray://` address scheme instead of generating URLs manually:
 
-```
+```bash
 ray job submit --address "sagemaker_ray://{{cluster-name}}/{{namespace}}" -- python train.py
 ```
 
@@ -143,7 +142,7 @@ The `sagemaker_ray://` address scheme handles authentication without exposing a 
 ## Uninstalling the HyperPod Ray Endpoint Operator
 <a name="sagemaker-hyperpod-ray-endpoint-operator-uninstall"></a>
 
-```
+```bash
 helm uninstall hyperpod-ray-endpoint-operator -n hyperpod-ray
 ```
 

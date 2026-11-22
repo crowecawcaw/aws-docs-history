@@ -1,7 +1,6 @@
 
 
 # Troubleshooting guide
-<a name="notebook-auto-run-troubleshoot"></a>
 
 Refer to this troubleshooting guide to help you debug failures you might experience when your scheduled notebook job runs.
 
@@ -19,7 +18,7 @@ If your job definition does not initiate any jobs, the notebook or training job 
 
 If you see a `Put*` error such as the following example, you exceeded an EventBridge quota. To resolve this, you can clean up unused EventBridge runs, or ask AWS Support to increase your quota.
 
-```
+```bash
 LimitExceededException) when calling the PutRule operation: 
 The requested resource exceeds the maximum number allowed
 ```
@@ -30,7 +29,7 @@ For more information about EventBridge quotas, see [Amazon EventBridge quotas](h
 
 If you see an error such as the following example, you exceeded the number of pipelines that you can run. To resolve this, you can clean up unused pipelines in your account, or ask AWS Support to increase your quota.
 
-```
+```bash
 ResourceLimitExceeded: The account-level service limit 
 'Maximum number of pipelines allowed per account' is XXX Pipelines, 
 with current utilization of XXX Pipelines and a request delta of 1 Pipelines.

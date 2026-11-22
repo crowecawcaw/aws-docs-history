@@ -1,7 +1,6 @@
 
 
 # Low latency real-time inference with AWS PrivateLink
-<a name="realtime-endpoints-privatelink"></a>
 
  Amazon SageMaker AI provides low latency for real-time inferences while maintaining high availability and resiliency using multi-AZ deployment. The application latency is made up of two primary components: infrastructure or overhead latency and model inference latency. Reduction of overhead latency opens up new possibilities such as deploying more complex, deep, and accurate models or splitting monolithic applications into scalable and maintainable microservice modules. You can reduce the latency for real-time inferences with SageMaker AI using an AWS PrivateLink deployment. With AWS PrivateLink, you can privately access all SageMaker API operations from your Virtual Private Cloud (VPC) in a scalable manner by using interface VPC endpoints. An interface VPC endpoint is an elastic network interface in your subnet with private IP addresses that serves as an entry point for all SageMaker API calls.
 
@@ -30,7 +29,7 @@ Also make sure that the VPC has DNS hostnames turned on. For more information on
 
 To achieve low overhead latency, create a SageMaker AI endpoint using the same subnets that you specified when deploying AWS PrivateLink. These subnets should match the AZs of your client application, as shown in the following code snippet.
 
-```
+```py
 model_name = {{'<the-name-of-your-model>'}}
 
 vpc = {{'vpc-0123456789abcdef0'}}
@@ -59,7 +58,7 @@ The aforementioned code snippet assumes that you have followed the steps in [Bef
 
 Finally, specify the SageMaker Runtime client and invoke the SageMaker AI endpoint as shown in the following code snippet.
 
-```
+```py
 endpoint_name = {{'<endpoint-name>'}}
   
 runtime_client = boto3.client('sagemaker-runtime')

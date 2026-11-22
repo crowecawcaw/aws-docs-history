@@ -1,7 +1,6 @@
 
 
 # Create an inference recommendation
-<a name="instance-recommendation-create"></a>
 
 Create an inference recommendation programmatically using the AWS SDK for Python (Boto3) or the AWS CLI, or interactively using Studio Classic or the SageMaker AI console. Specify a job name for your inference recommendation, an AWS IAM role ARN, an input configuration, and either a model package ARN when you registered your model with the model registry, or your model name and a `ContainerConfig` dictionary from when you created your model in the **Prerequisites** section.
 
@@ -19,7 +18,7 @@ Import the AWS SDK for Python (Boto3) package and create a SageMaker AI client o
 + Option 1: If you would like to create an inference recommendations job with a model package ARN, then store the model package group ARN in a variable named `model_package_arn`.
 + Option 2: If you would like to create an inference recommendations job with a model name and `ContainerConfig`, store the model name in a variable named `model_name` and the `ContainerConfig` dictionary in a variable named `container_config`.
 
-```
+```python
 # Create a low-level SageMaker service client.
 import boto3
 aws_region = {{'<INSERT>'}}
@@ -75,7 +74,7 @@ Use the `create-inference-recommendations-job` API to start an inference recomme
 
 To create an inference recommendation jobs with a model package ARN, use the following example:
 
-```
+```bash
 aws sagemaker create-inference-recommendations-job 
     --region {{<region>}}\
     --job-name {{<job_name>}}\
@@ -88,7 +87,7 @@ aws sagemaker create-inference-recommendations-job
 
 To create an inference recommendation jobs with a model name and `ContainerConfig`, use the following example. The example uses the `SupportedEndpointType` field to specify that we only want to return real-time inference recommendations:
 
-```
+```bash
 aws sagemaker create-inference-recommendations-job 
     --region {{<region>}}\
     --job-name {{<job_name>}}\

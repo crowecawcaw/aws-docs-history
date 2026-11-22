@@ -1,7 +1,6 @@
 
 
 # Billing and cost
-<a name="rstudio-billing"></a>
 
  To track the costs associated with your RStudio environment, you can use the AWS Billing and Cost Management service. AWS Billing and Cost Management provides useful tools to help you gather information related to your cost and usage, analyze your cost drivers and usage trends, and take action to budget your spending. For more information, see [What is AWS Billing and Cost Management?](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html). The following describes components required to run RStudio on Amazon SageMaker AI and how each component factors into billing for your RStudio instance. 
 +  RStudio License –You must purchase an RStudio license. There is no additional charge for using your RStudio license with Amazon SageMaker AI. For more information about your RStudio license, see [Get an RStudio license](rstudio-license.md).

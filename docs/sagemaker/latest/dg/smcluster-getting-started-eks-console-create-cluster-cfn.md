@@ -1,7 +1,6 @@
 
 
 # Creating SageMaker HyperPod clusters using CloudFormation templates
-<a name="smcluster-getting-started-eks-console-create-cluster-cfn"></a>
 
 You can create SageMaker HyperPod clusters using the CloudFormation templates for HyperPod. You must install AWS CLI to proceed.
 
@@ -60,6 +59,9 @@ Follow these steps.
        --parameters file://params.json
        --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM
    ```
+**Note**  
+When the template creates a new FSx for Lustre file system, set the `StorageCapacity` parameter to `1200`. CloudFormation rejects other values before it creates any resources. After you create the cluster, you can increase storage capacity from the [Amazon FSx console](https://console.aws.amazon.com/fsx).  
+To update a stack that you created with a larger file system, use the previous template (in the AWS CLI, use `--use-previous-template`). The current template doesn't accept a larger `StorageCapacity`, and the stack keeps its current configuration.
 
 1. To view the status of the resources provisioning, navigate to the CloudFormation console.
 

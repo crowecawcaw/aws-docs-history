@@ -1,7 +1,6 @@
 
 
 # Installing the SageMaker HyperPod CLI
-<a name="sagemaker-hyperpod-eks-run-jobs-access-nodes"></a>
 
 SageMaker HyperPod provides the [SageMaker HyperPod command line interface](https://github.com/aws/sagemaker-hyperpod-cli) (CLI) package. 
 
@@ -11,13 +10,13 @@ SageMaker HyperPod provides the [SageMaker HyperPod command line interface](http
 
 1. Clone the SageMaker HyperPod CLI package from GitHub.
 
-   ```
+   ```sh
    git clone https://github.com/aws/sagemaker-hyperpod-cli.git
    ```
 
 1. Install the SageMaker HyperPod CLI.
 
-   ```
+   ```sh
    cd sagemaker-hyperpod-cli && pip install .
    ```
 

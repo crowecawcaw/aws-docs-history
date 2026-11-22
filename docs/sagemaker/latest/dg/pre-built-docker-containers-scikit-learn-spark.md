@@ -1,7 +1,6 @@
 
 
 # Accessing Docker Images for Scikit-learn and Spark ML
-<a name="pre-built-docker-containers-scikit-learn-spark"></a>
 
 SageMaker AI provides prebuilt Docker images that install the scikit-learn and Spark ML libraries. These libraries also include the dependencies needed to build Docker images that are compatible with SageMaker AI using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable). With the SDK, you can use scikit-learn for machine learning tasks and use Spark ML to create and tune machine learning pipelines. For instructions on installing and using the SDK, see [SageMaker Python SDK](https://github.com/aws/sagemaker-python-sdk#installing-the-sagemaker-python-sdk). 
 

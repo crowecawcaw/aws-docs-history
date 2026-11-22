@@ -1,7 +1,6 @@
 
 
 # How the SageMaker AI XGBoost algorithm works
-<a name="xgboost-HowItWorks"></a>
 
 [XGBoost](https://github.com/dmlc/xgboost) is a popular and efficient open-source implementation of the gradient boosted trees algorithm. Gradient boosting is a supervised learning algorithm, which attempts to accurately predict a target variable by combining the estimates of a set of simpler, weaker models.
 

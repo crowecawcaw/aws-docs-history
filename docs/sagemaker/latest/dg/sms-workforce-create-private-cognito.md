@@ -1,7 +1,6 @@
 
 
 # Create a Private Workforce (Amazon Cognito Console)
-<a name="sms-workforce-create-private-cognito"></a>
 
  Amazon Cognito is used to define and manage your private workforce and your work teams. It is a service that you can use to create identities for your workers and authenticate these identities with identity providers.  A private workforce corresponds to a single **Amazon Cognito user pool**. Private work teams correspond to **Amazon Cognito user groups **within that user pool.  
 

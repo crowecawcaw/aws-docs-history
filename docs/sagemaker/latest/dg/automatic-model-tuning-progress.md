@@ -1,7 +1,6 @@
 
 
 # Track and set completion criteria for your tuning job
-<a name="automatic-model-tuning-progress"></a>
 
 You can use completion criteria to instruct Automatic model tuning (AMT) to stop your tuning job if certain conditions are met. With these conditions, you can set a minimum model performance or maximum number of training jobs that don’t improve when evaluated against the objective metric. You can also track the progress of your tuning job and decide to let it continue or to stop it manually. This guide shows you how to set completion criteria, check the progress of and stop your tuning job manually.
 

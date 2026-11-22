@@ -1,7 +1,6 @@
 
 
 # Create a tracking server using the AWS CLI
-<a name="mlflow-create-tracking-server-cli"></a>
 
 You can create a tracking server using the AWS CLI for more granular security customization.
 
@@ -25,7 +24,7 @@ Follow these command line steps within a terminal to set up the AWS CLI for Amaz
 
 1. Verify that the AWS CLI is installed using the following command: 
 
-   ```
+   ```bash
    aws sagemaker help
    ```
 
@@ -46,7 +45,7 @@ Within your terminal, use the following commands to create a general purpose Ama
 **Important**  
 When you provide the Amazon S3 URI for your artifact store, ensure the Amazon S3 bucket is in the same AWS Region as your tracking server. **Cross-region artifact storage is not supported**.
 
-```
+```bash
 bucket_name={{bucket-name}}
 region={{valid-region}}
 
@@ -58,7 +57,7 @@ aws s3api create-bucket \
 
 The output should look similar to the following:
 
-```
+```bash
 {
     "Location": "/{{bucket-name}}"
 }
@@ -71,7 +70,7 @@ Use the following steps to create an IAM trust policy. For more information abou
 
 1. Within your terminal, use the following command to create a file called `mlflow-trust-policy.json`.
 
-   ```
+   ```bash
    cat <<EOF > /tmp/{{mlflow-trust-policy.json}}
    {
         "Version": "2012-10-17",		 	 	 
@@ -92,7 +91,7 @@ Use the following steps to create an IAM trust policy. For more information abou
 
 1. Within your terminal, use the following command to create a file called `custom-policy.json`.
 
-   ```
+   ```bash
    cat <<EOF > /tmp/custom-policy.json
    {
        "Version": "2012-10-17",		 	 	 
@@ -120,7 +119,7 @@ Use the following steps to create an IAM trust policy. For more information abou
 **Note**  
 If you are updating an existing role, use the following command instead: `aws iam update-assume-role-policy --role-name {{$role_name}} --policy-document {{file:///tmp/mlflow-trust-policy.json}}`.
 
-   ```
+   ```bash
    role_name={{role-name}}
    
    aws iam  create-role \
@@ -153,7 +152,7 @@ When you create a tracking server, we recommend specifying the latest version. F
 
 By default, the tracking server that's created is the latest version. However, we recommend always specifying the latest version explicitly because the underlying MLflow APIs can change.
 
-```
+```bash
 ts_name={{tracking-server-name}}
 region={{valid-region}}
 version={{valid-version}}        
@@ -170,7 +169,7 @@ aws sagemaker create-mlflow-tracking-server \
 
 The output should be similar to the following: 
 
-```
+```bash
 {
     "TrackingServerArn": "arn:aws:sagemaker:{{region}}:{{123456789012}}:mlflow-tracking-server/{{tracking-server-name}}"
 }

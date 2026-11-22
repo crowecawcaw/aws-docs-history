@@ -1,7 +1,6 @@
 
 
 # Use Jupyter AI in JupyterLab or Studio Classic
-<a name="sagemaker-jupyterai-use"></a>
 
 You can use Jupyter AI in JupyterLab or Studio Classic by invoking language models from either the chat UI or from notebook cells. The following sections give information about the steps needed to complete this.
 
@@ -18,7 +17,7 @@ Clearing the message history does not erase the chat context with the model prov
 
 Before using the `%%ai` and `%ai` commands to invoke a language model, load the IPython extension by running the following command in a JupyterLab or Studio Classic notebook cell.
 
-```
+```python
 %load_ext jupyter_ai_magics
 ```
 + **For models hosted by AWS:**
@@ -43,7 +42,7 @@ Before using the `%%ai` and `%ai` commands to invoke a language model, load the 
 
     The following command invokes a Llama 2 7B model hosted by SageMaker AI.
 
-    ```
+    ```python
     %%ai sagemaker-endpoint:jumpstart-dft-meta-textgeneration-llama-2-7b -q {"inputs":"<prompt>","parameters":{"max_new_tokens":64,"top_p":0.9,"temperature":0.6,"return_full_text":false}} -n us-east-2 -p [0].generation -m {"endpoint_kwargs":{"CustomAttributes":"accept_eula=true"}} -f text
     Translate English to French:
     sea otter => loutre de mer
@@ -54,7 +53,7 @@ Before using the `%%ai` and `%ai` commands to invoke a language model, load the 
 
     The following example invokes a Flan-t5-small model hosted by SageMaker AI.
 
-    ```
+    ```python
     %%ai sagemaker-endpoint:hf-text2text-flan-t5-small --request-schema={"inputs":"<prompt>","parameters":{"num_return_sequences":4}} --region-name=us-west-2 --response-path=[0]["generated_text"] -f text
     What is the atomic number of Hydrogen?
     ```
@@ -62,7 +61,7 @@ Before using the `%%ai` and `%ai` commands to invoke a language model, load the 
 
     The following example invokes an [AI21 Labs Jurassic-2 model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-jurassic2.html) hosted by Amazon Bedrock.
 
-    ```
+    ```python
     %%ai bedrock:ai21.j2-mid-v1 -m {"model_kwargs":{"maxTokens":256}} -f code
     Write a function in python implementing a bubbble sort.
     ```
@@ -72,7 +71,7 @@ Before using the `%%ai` and `%ai` commands to invoke a language model, load the 
 
   The following command asks an Anthropic Claude model to output an HTML file containing the image of a white square with black borders.
 
-  ```
+  ```python
   %%ai anthropic:claude-v1.2 -f html
   Create a square using SVG with a black border and white fill.
   ```

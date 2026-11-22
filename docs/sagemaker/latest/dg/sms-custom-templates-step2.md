@@ -1,7 +1,6 @@
 
 
 # Creating a custom worker task template
-<a name="sms-custom-templates-step2"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
@@ -46,7 +45,7 @@ The following example code snippet loads the necessary code to render the custom
 
 **Example**  
 
-```
+```html
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 ```
 
@@ -57,7 +56,7 @@ Now that you have the base worker task template, you can use this topic to creat
 
 The following is an example entry from an input manifest file.
 
-```
+```json
 {
   "source": "This train is really late.",
   "labels": [ "angry" , "sad", "happy" , "inconclusive" ],
@@ -83,7 +82,7 @@ A simple version of this tool would look like the following. The variable **{{ t
 
 **Example of using `crowd-classifier` with the sample input manifest json**  
 
-```
+```html
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 <crowd-form>
   <crowd-classifier
@@ -138,7 +137,7 @@ You can optionally specify a *pre-annotation Lambda* function to manage how data
 
 **Example data object identified with the `source-ref` key-value pair**  
 
-```
+```json
 {
   "version": "2018-10-16",
   "labelingJobArn": arn:aws:lambda:us-west-2:555555555555:function:my-function
@@ -150,7 +149,7 @@ You can optionally specify a *pre-annotation Lambda* function to manage how data
 
 **Example data object identified with the `source` key-value pair**  
 
-```
+```json
 {
       "version": "2018-10-16",
       "labelingJobArn" : arn:aws:lambda:us-west-2:555555555555:function:my-function
@@ -180,7 +179,7 @@ Amazon SageMaker Ground Truth custom templates allow external scripts and style 
 
 **Example**  
 
-```
+```html
 <script src="https://www.example.com/my-enhancment-script.js"></script>
 <link rel="stylesheet" type="text/css" href="https://www.example.com/my-enhancement-styles.css">
 ```
@@ -210,7 +209,7 @@ When your custom labeling job is finished, the data is saved in the Amazon S3 bu
 
 In this example the JSON object is formatted for readability, in the actual output file the JSON object is on a single line.
 
-```
+```json
 {
   "source" : "This train is really late.",
   "labelAttributeName" : {},

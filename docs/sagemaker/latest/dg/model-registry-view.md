@@ -1,7 +1,6 @@
 
 
 # View Model Groups and Versions
-<a name="model-registry-view"></a>
 
 Model Groups and versions help you organize your models. You can view a list of the model versions in a Model Group by using either the AWS SDK for Python (Boto3) (Boto3) or the Amazon SageMaker Studio console.
 
@@ -15,7 +14,7 @@ You can view all of the model versions that are associated with a Model Group. I
 
 To view model versions associated with a Model Group by using Boto3, call the `list_model_packages` API operation, and pass the name of the Model Group as the value of the `ModelPackageGroupName` parameter. The following code lists the model versions associated with the Model Group you created in [Create a Model Group (Boto3)](model-registry-model-group.md#model-registry-package-group-api).
 
-```
+```python
 sm_client.list_model_packages(ModelPackageGroupName=model_package_group_name)
 ```
 

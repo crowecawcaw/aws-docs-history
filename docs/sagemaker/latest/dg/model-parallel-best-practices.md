@@ -1,7 +1,6 @@
 
 
 # SageMaker Distributed Model Parallelism Best Practices
-<a name="model-parallel-best-practices"></a>
 
 Use the following guidelines when you run a distributed training job with the SageMaker model parallel library.
 

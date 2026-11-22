@@ -1,7 +1,6 @@
 
 
 # SageMaker AI environment variables and the default paths for training storage locations
-<a name="model-train-storage-env-var-summary"></a>
 
 The following table summarizes the input and output paths for training datasets, checkpoints, model artifacts, and outputs, managed by the SageMaker training platform.
 

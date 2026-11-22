@@ -1,7 +1,6 @@
 
 
 # Inference pipelines in Amazon SageMaker AI
-<a name="inference-pipelines"></a>
 
 An *inference pipeline* is a Amazon SageMaker AI model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data. You use an inference pipeline to define and deploy any combination of pretrained SageMaker AI built-in algorithms and your own custom algorithms packaged in Docker containers. You can use an inference pipeline to combine preprocessing, predictions, and post-processing data science tasks. Inference pipelines are fully managed.
 

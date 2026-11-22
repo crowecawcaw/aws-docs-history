@@ -1,7 +1,6 @@
 
 
 # SQL extension connection caching
-<a name="sagemaker-sql-extension-features-connection-caching"></a>
 
 The SQL extension extension defaults to caching connections to prevent the creation of multiple connections for the same set of connection properties. The cached connections can be managed using the `%sm_sql_manage` magic command.
 

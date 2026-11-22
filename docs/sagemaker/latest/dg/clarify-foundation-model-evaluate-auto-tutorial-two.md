@@ -1,7 +1,6 @@
 
 
 # Evaluate an Amazon Bedrock model for text summarization accuracy
-<a name="clarify-foundation-model-evaluate-auto-tutorial-two"></a>
 
 You can use a high-level `ModelRunner` wrapper to create a custom evaluation based on a model that is hosted outside of JumpStart.
 

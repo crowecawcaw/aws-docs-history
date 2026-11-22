@@ -1,7 +1,6 @@
 
 
 # DPO
-<a name="customizing-models-dpo"></a>
 
 ## Description
 <a name="customizing-models-dpo-description"></a>
@@ -29,7 +28,7 @@ DPO requires pairs of chosen (preferred) and rejected (non-preferred) responses 
 
 Provide `chosen` and `rejected` as full message lists. If included, the `system` message must be the first element and must be the same in both `chosen` and `rejected`.
 
-```
+```json
 {
   "chosen": [
     {"role": "system", "content": "..."},
@@ -49,7 +48,7 @@ Provide `chosen` and `rejected` as full message lists. If included, the `system`
 
 Provide the prompt and both responses as separate string fields, with an optional top-level `system` field.
 
-```
+```json
 {
   "system": "...",
   "prompt": "...",
@@ -69,7 +68,7 @@ Provide the prompt and both responses as separate string fields, with an optiona
 
 Use `DPOTrainer` for serverless DPO customization jobs:
 
-```
+```python
 from sagemaker.train import DPOTrainer
 
 trainer = DPOTrainer(

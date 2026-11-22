@@ -1,7 +1,6 @@
 
 
 # KV caching and intelligent routing
-<a name="sagemaker-hyperpod-model-deployment-caching-routing"></a>
 
 Amazon SageMaker HyperPod Inference provides managed tiered key-value (KV) caching and intelligent routing to optimize inference performance for large language model (LLM) workloads. KV caching saves precomputed key-value vectors after processing previous tokens, eliminating redundant recalculations. Through a two-tier caching architecture, you can configure an L1 cache that uses CPU memory for low-latency local reuse, and an L2 cache that leverages Redis or managed tiered storage to enable scalable, node-level cache sharing.
 

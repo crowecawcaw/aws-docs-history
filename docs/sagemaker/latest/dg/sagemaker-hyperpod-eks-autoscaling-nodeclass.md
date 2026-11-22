@@ -1,7 +1,6 @@
 
 
 # Create a NodeClass
-<a name="sagemaker-hyperpod-eks-autoscaling-nodeclass"></a>
 
 **Important**  
 You must start with 0 nodes in your instance group and let Karpenter handle the autoscaling. If you start with more than 0 nodes, Karpenter will scale them down to 0.
@@ -29,7 +28,7 @@ The following steps cover how to create a `NodeClass`.
 
 1. Here's a sample `NodeClass` that uses a ml.c5.xlarge and ml.c5.4xlarge instance types:
 
-   ```
+   ```yaml
    apiVersion: karpenter.sagemaker.amazonaws.com/v1
    kind: HyperpodNodeClass
    metadata:
@@ -54,7 +53,7 @@ The following steps cover how to create a `NodeClass`.
    kubectl get hyperpodnodeclass sample-nc -o yaml
    ```
 
-   ```
+   ```yaml
    apiVersion: karpenter.sagemaker.amazonaws.com/v1
    kind: HyperpodNodeClass
    metadata:

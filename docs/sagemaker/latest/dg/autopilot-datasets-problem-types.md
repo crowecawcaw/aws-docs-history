@@ -1,7 +1,6 @@
 
 
 # Autopilot datasets and problem types
-<a name="autopilot-datasets-problem-types"></a>
 
 For tabular data (that is data in which each column contains a feature with a specific data type and each row contains an observation), Autopilot gives you the option of specifying the type of supervised learning problem available for the model candidates of the AutoML job, such as binary classification or regression, or of detecting it on your behalf based on the data you provide. Autopilot also supports multiple data formats and data types.
 

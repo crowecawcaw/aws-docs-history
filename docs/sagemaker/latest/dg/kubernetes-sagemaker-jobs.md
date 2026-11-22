@@ -1,7 +1,6 @@
 
 
 # Use Amazon SageMaker AI Jobs
-<a name="kubernetes-sagemaker-jobs"></a>
 
 This section is based on the original version of [SageMaker AI Operators for Kubernetes](https://github.com/aws/amazon-sagemaker-operator-for-k8s).
 
@@ -1056,7 +1055,7 @@ Follow these steps to create an Amazon SageMaker processing job by using a YAML 
 
 1. Download the `kmeans_preprocessing.py` pre-processing script.
 
-   ```
+   ```sh
    wget https://raw.githubusercontent.com/aws/amazon-sagemaker-operator-for-k8s/master/samples/kmeans_preprocessing.py
    ```
 
@@ -1064,13 +1063,13 @@ Follow these steps to create an Amazon SageMaker processing job by using a YAML 
 
 1. Download the `kmeans-mnist-processingjob.yaml` file.
 
-   ```
+   ```sh
    wget https://raw.githubusercontent.com/aws/amazon-sagemaker-operator-for-k8s/master/samples/kmeans-mnist-processingjob.yaml
    ```
 
 1. Edit the YAML file to specify your `sagemaker-execution-role` and replace all instances of `amzn-s3-demo-bucket` with your S3 bucket.
 
-   ```
+   ```sh
    ...
    metadata:
      name: kmeans-mnist-processing
@@ -1095,13 +1094,13 @@ Follow these steps to create an Amazon SageMaker processing job by using a YAML 
 
    For cluster-scoped installation:
 
-   ```
+   ```sh
    kubectl apply -f kmeans-mnist-processingjob.yaml
    ```
 
    For namespace-scoped installation:
 
-   ```
+   ```sh
    kubectl apply -f kmeans-mnist-processingjob.yaml -n {{<NAMESPACE>}}
    ```
 
@@ -1112,19 +1111,19 @@ Use one of the following commands to list all the jobs created using the Process
 
 For cluster-scoped installation:
 
-```
+```sh
 kubectl get ProcessingJob kmeans-mnist-processing
 ```
 
 For namespace-scoped installation:
 
-```
+```sh
 kubectl get ProcessingJob -n {{<NAMESPACE>}} kmeans-mnist-processing
 ```
 
 Your output should look similar to the following:
 
-```
+```sh
 NAME                    STATUS     CREATION-TIME        SAGEMAKER-JOB-NAME
 kmeans-mnist-processing InProgress 2020-09-22T21:13:25Z kmeans-mnist-processing-7410ed52fd1811eab19a165ae9f9e385
 ```
@@ -1146,13 +1145,13 @@ Use one of the following commands to get more details about a processing job. Th
 
 For cluster-scoped installation:
 
-```
+```sh
 kubectl describe processingjob kmeans-mnist-processing
 ```
 
 For namespace-scoped installation:
 
-```
+```sh
 kubectl describe processingjob kmeans-mnist-processing -n {{<NAMESPACE>}}
 ```
 
@@ -1244,19 +1243,19 @@ When you delete a processing job, the SageMaker Processing job is removed from K
 
 For cluster-scoped installation:
 
-```
+```sh
 kubectl delete processingjob kmeans-mnist-processing
 ```
 
 For namespace-scoped installation:
 
-```
+```sh
 kubectl delete processingjob kmeans-mnist-processing -n {{<NAMESPACE>}}
 ```
 
 The output for your processing job should look similar to the following.
 
-```
+```sh
 processingjob.sagemaker.aws.amazon.com "kmeans-mnist-processing" deleted
 ```
 
@@ -1288,7 +1287,7 @@ Use a YAML file to create a HostingAutoscalingPolicy (HAP) that applies a predef
 
 Amazon SageMaker AI requires specific values in order to apply autoscaling to your variant. If these values are not specified in the YAML spec, the HAP operator applies the following default values.
 
-```
+```sh
 # Do not change
 Namespace                    = "sagemaker"
 # Do not change
@@ -1306,7 +1305,7 @@ Use the following samples to create a HAP that applies a predefined or custom me
 
 1. Download the sample YAML file for a predefined metric using the following command:
 
-   ```
+   ```sh
    wget https://raw.githubusercontent.com/aws/amazon-sagemaker-operator-for-k8s/master/samples/hap-predefined-metric.yaml
    ```
 
@@ -1316,13 +1315,13 @@ Use the following samples to create a HAP that applies a predefined or custom me
 
    For cluster-scoped installation:
 
-   ```
+   ```sh
    kubectl apply -f hap-predefined-metric.yaml
    ```
 
    For namespace-scoped installation:
 
-   ```
+   ```sh
    kubectl apply -f hap-predefined-metric.yaml -n {{<NAMESPACE>}}
    ```
 
@@ -1331,7 +1330,7 @@ Use the following samples to create a HAP that applies a predefined or custom me
 
 1. Download the sample YAML file for a custom metric using the following command:
 
-   ```
+   ```sh
    wget https://raw.githubusercontent.com/aws/amazon-sagemaker-operator-for-k8s/master/samples/hap-custom-metric.yaml
    ```
 
@@ -1343,13 +1342,13 @@ Amazon SageMaker AI does not check the validity of your YAML spec.
 
    For cluster-scoped installation:
 
-   ```
+   ```sh
    kubectl apply -f hap-custom-metric.yaml
    ```
 
    For namespace-scoped installation:
 
-   ```
+   ```sh
    kubectl apply -f hap-custom-metric.yaml -n {{<NAMESPACE>}}
    ```
 
@@ -1360,7 +1359,7 @@ You can use the HAP operator to apply the same scaling policy to multiple resour
 
 1. Download the sample YAML file for a predefined metric using the following command:
 
-   ```
+   ```sh
    wget https://raw.githubusercontent.com/aws/amazon-sagemaker-operator-for-k8s/master/samples/hap-predefined-metric.yaml
    ```
 
@@ -1370,13 +1369,13 @@ You can use the HAP operator to apply the same scaling policy to multiple resour
 
    For cluster-scoped installation:
 
-   ```
+   ```sh
    kubectl apply -f hap-predefined-metric.yaml
    ```
 
    For namespace-scoped installation:
 
-   ```
+   ```sh
    kubectl apply -f hap-predefined-metric.yaml -n {{<NAMESPACE>}}
    ```
 
@@ -1395,26 +1394,26 @@ Use one of the following commands to list all HostingAutoscalingPolicies (HAPs) 
 
 For cluster-scoped installation:
 
-```
+```sh
 kubectl get hap
 ```
 
 For namespace-scoped installation:
 
-```
+```sh
 kubectl get hap -n {{<NAMESPACE>}}
 ```
 
 Your output should look similar to the following:
 
-```
+```sh
 NAME             STATUS   CREATION-TIME
 hap-predefined   Created  2021-07-13T21:32:21Z
 ```
 
 Use the following command to check the status of your HostingAutoscalingPolicy (HAP).
 
-```
+```sh
 kubectl get hap {{<job-name>}}
 ```
 
@@ -1440,7 +1439,7 @@ One of the following values is returned:
 
 Use the following command to get more details about a HostingAutoscalingPolicy (HAP). These commands are typically used for debugging a problem or checking the resource IDs (endpoint name and variant name combinations) of a HAP.
 
-```
+```sh
 kubectl describe hap {{<job-name>}}
 ```
 
@@ -1456,19 +1455,19 @@ Use one of the following commands to delete a HostingAutoscalingPolicy (HAP) pol
 
 For cluster-scoped installation:
 
-```
+```sh
 kubectl delete hap hap-predefined
 ```
 
 For namespace-scoped installation:
 
-```
+```sh
 kubectl delete hap hap-predefined -n {{<NAMESPACE>}}
 ```
 
 This command deletes the scaling policy and deregisters the scaling target from Kubernetes. This command returns the following output:
 
-```
+```sh
 hostingautoscalingpolicies.sagemaker.aws.amazon.com "hap-predefined" deleted
 ```
 

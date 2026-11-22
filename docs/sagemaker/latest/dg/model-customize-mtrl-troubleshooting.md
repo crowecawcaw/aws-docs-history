@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="model-customize-mtrl-troubleshooting"></a>
 
 If your training job fails or behaves unexpectedly, the following sections can help you identify and resolve the issue. Checking your job status can help narrow down whether the issue is in your configuration or your agent, and the agent-specific sections below cover logs and common issues for each deployment path.
 
@@ -10,7 +9,7 @@ If your training job fails or behaves unexpectedly, the following sections can h
 
 Use the `DescribeJob` API to check your job's current status and see why it failed. The response includes the job's status, a failure reason if the job has failed, and a timeline of status transitions that shows how far the job progressed before the issue occurred.
 
-```
+```bash
 aws sagemaker describe-job \
   --job-name "my-agent-rft-job" \
   --job-category AgentRFT \
@@ -59,13 +58,13 @@ These logs capture output from your agent code, including errors, stack traces, 
 
 Verify your agent runtime is healthy:
 
-```
+```bash
 aws bedrock-agentcore-control list-agent-runtimes --region us-west-2
 ```
 
 For details on a specific runtime:
 
-```
+```bash
 aws bedrock-agentcore-control get-agent-runtime \
   --agent-runtime-id <runtime-id> \
   --region us-west-2
@@ -95,7 +94,7 @@ If your Lambda logs show invocation errors or timeouts, the issue may be that th
 
 Health check — confirm your agent is running:
 
-```
+```bash
 curl -s "http://$AGENT_ENDPOINT/health"
 
 # Expected: {"status": "ok"}
@@ -103,7 +102,7 @@ curl -s "http://$AGENT_ENDPOINT/health"
 
 Lambda test invoke — confirm Lambda can reach your agent:
 
-```
+```bash
 aws lambda invoke \
   --function-name rft-agent-forwarder \
   --cli-binary-format raw-in-base64-out \
@@ -125,7 +124,7 @@ Your agent's own logs depend on where it's deployed. These logs can be used for 
 
 For example, if you deployed your agent to Amazon EKS, you can check your agent's logs with:
 
-```
+```bash
 kubectl logs -l app=external-agent --tail=50
 ```
 
@@ -193,7 +192,7 @@ You can configure advanced event selectors to filter on the `eventName`, `readOn
 
 The following example shows how to use the [put-event-selectors](https://docs.aws.amazon.com/cli/latest/reference/cloudtrail/put-event-selectors.html) AWS CLI command to add advanced event selectors:
 
-```
+```json
 [
   {
     "FieldSelectors": [
@@ -214,7 +213,7 @@ The following example shows how to use the [put-event-selectors](https://docs.aw
 
 Then run:
 
-```
+```bash
 aws cloudtrail put-event-selectors \
     --trail-name your-trail-name \
     --advanced-event-selectors=file://advanced-event-selectors.json

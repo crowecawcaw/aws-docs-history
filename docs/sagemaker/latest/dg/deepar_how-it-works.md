@@ -1,7 +1,6 @@
 
 
 # How the DeepAR Algorithm Works
-<a name="deepar_how-it-works"></a>
 
 During training, DeepAR accepts a training dataset and an optional test dataset. It uses the test dataset to evaluate the trained model. In general, the datasets don't have to contain the same set of time series. You can use a model trained on a given training set to generate forecasts for the future of the time series in the training set, and for other time series. Both the training and the test datasets consist of one or, preferably, more target time series. Each target time series can optionally be associated with a vector of feature time series and a vector of categorical features. For more information, see [Input/Output Interface for the DeepAR Algorithm](deepar.md#deepar-inputoutput). 
 

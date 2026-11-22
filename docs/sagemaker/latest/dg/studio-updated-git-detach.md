@@ -1,7 +1,6 @@
 
 
 # Detach Git repo URLs
-<a name="studio-updated-git-detach"></a>
 
 This section shows how to detach Git repository URLs from an Amazon SageMaker AI domain (domain) or a user profile. You can detach repo URLs by using the AWS Command Line Interface (AWS CLI) or the Amazon SageMaker AI console.
 

@@ -1,7 +1,6 @@
 
 
 # Logging Amazon SageMaker AI API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon SageMaker AI is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for Amazon SageMaker AI as events. The calls captured include calls from the Amazon SageMaker AI console and code calls to the Amazon SageMaker AI API operations. Using the information collected by CloudTrail, you can determine the request that was made to Amazon SageMaker AI, the IP address from which the request was made, when it was made, and additional details.
 
@@ -50,7 +49,7 @@ You can configure advanced event selectors to filter on the `eventName`, `readOn
 
 The following example shows you how to log data events for an Amazon SageMaker endpoint, an Amazon SageMaker job, and an Amazon SageMaker training session. In this example, you use the [put-event-selectors](https://docs.aws.amazon.com/cli/latest/reference/cloudtrail/put-event-selectors.html) AWS CLI command to add advanced event selectors that capture data events from your endpoint. You should have an existing CloudTrail trail. Before running the command, you can also save the advanced event selectors JSON object in a file like the following:
 
-```
+```Json
 [
   {
     "FieldSelectors": [
@@ -105,7 +104,7 @@ The following example shows you how to log data events for an Amazon SageMaker e
 
 Then, you can run the following command to start logging data events from the endpoint.
 
-```
+```bash
 aws cloudtrail put-event-selectors
       --trail-name {{your-trail-name}}
       --advanced-event-selectors=file://{{advanced-event-selectors.json}} # specify your previously created JSON file
@@ -132,7 +131,7 @@ An event represents a single request from any source and includes information ab
 
 The following example shows a CloudTrail event that demonstrates the `CreateEndpoint` operation.
 
-```
+```JSON
 {
     "eventVersion":"1.05",
     "userIdentity": {
@@ -165,7 +164,7 @@ The following example shows a CloudTrail event that demonstrates the `CreateEndp
 
 The following example shows a CloudTrail event that demonstrates the `CreateModel` operation.
 
-```
+```JSON
 {
     "eventVersion":"1.05",
     "userIdentity": {
@@ -203,7 +202,7 @@ The following examples show CloudTrail data events for SageMaker AI jobs.
 
 The following example shows a CloudTrail event that demonstrates the `CompleteRollout` operation.
 
-```
+```JSON
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -245,7 +244,7 @@ The following example shows a CloudTrail event that demonstrates the `CompleteRo
 
 The following example shows a CloudTrail event that demonstrates the `Sample` operation.
 
-```
+```JSON
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -289,7 +288,7 @@ The following example shows a CloudTrail event that demonstrates the `Sample` op
 
 The following example shows a CloudTrail event that demonstrates the `SampleWithResponseStream` operation.
 
-```
+```JSON
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -335,7 +334,7 @@ For information about CloudTrail record contents, see [CloudTrail record content
 
 The following example shows a CloudTrail event that demonstrates the `ExecuteTrainingOperation` operation on a training session. The `operationConfig` request parameter is redacted and logged as `HIDDEN_DUE_TO_SECURITY_REASONS`.
 
-```
+```JSON
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -382,7 +381,7 @@ The following example shows a CloudTrail event that demonstrates the `ExecuteTra
 
 The following example shows a CloudTrail event that demonstrates a `SampleTrainingSessionWithResponseStream` call that was denied.
 
-```
+```JSON
 {
     "eventVersion": "1.11",
     "userIdentity": {

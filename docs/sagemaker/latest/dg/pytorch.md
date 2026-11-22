@@ -1,7 +1,6 @@
 
 
 # Resources for using PyTorch with Amazon SageMaker AI
-<a name="pytorch"></a>
 
 You can use Amazon SageMaker AI to train and deploy a model using custom PyTorch code. The SageMaker AI Python SDK PyTorch ModelTrainers and models and the SageMaker AI open-source PyTorch container make writing a PyTorch script and running it in SageMaker AI easier. The following section provides reference material you can use to learn how to use PyTorch with SageMaker AI.
 

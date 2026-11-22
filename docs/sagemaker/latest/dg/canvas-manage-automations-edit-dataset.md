@@ -1,7 +1,6 @@
 
 
 # Edit your automatic dataset update configuration
-<a name="canvas-manage-automations-edit-dataset"></a>
 
 You might want to make changes to your auto update configuration for a dataset, such as changing the frequency of the updates. You might also want to turn off your automatic update configuration to pause the updates to your dataset.
 

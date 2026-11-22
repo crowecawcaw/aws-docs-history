@@ -1,7 +1,6 @@
 
 
 # Model and notebook sharing
-<a name="jumpstart-content-sharing-access"></a>
 
 To share models and notebooks, navigate to the **Shared models** section in Amazon SageMaker Studio Classic, choose **Shared by my organization**, and then select the **Add** dropdown list. Choose to either add a model or add a notebook. 
 

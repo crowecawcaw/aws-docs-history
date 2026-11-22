@@ -1,7 +1,6 @@
 
 
 # Supported Dataset Formats for Bring-Your-Own-Dataset (BYOD) Tasks
-<a name="model-customize-evaluation-dataset-formats"></a>
 
 The Custom Scorer and LLM-as-judge evaluation types require a custom dataset JSONL file located in AWS S3. You must provide the file as a JSON Lines file adhering to one of the following supported formats. The examples in this doc are expanded for clarity.
 
@@ -19,7 +18,7 @@ Each format has its own nuances but at a minimum all require a user prompt.
 
 **1. OpenAI Format**
 
-```
+```json
 {
     "messages": [
         {
@@ -40,7 +39,7 @@ Each format has its own nuances but at a minimum all require a user prompt.
 
 **2. SageMaker Evaluation**
 
-```
+```json
 {
    "system":"You are an English major with top marks in class who likes to give minimal word responses: ",
    "query":"What is the symbol that ends the sentence as a question",
@@ -53,7 +52,7 @@ Each format has its own nuances but at a minimum all require a user prompt.
 
 Both Standard and Conversational formats are supported.
 
-```
+```json
 # Standard
 
 {
@@ -82,7 +81,7 @@ Both Standard and Conversational formats are supported.
 
 Support for both standard format (string) and conversational format (messages array).
 
-```
+```json
 # Standard: {"prompt": "text", "chosen": "text", "rejected": "text"}
 {
      "prompt" : "The sky is", # Query
@@ -128,7 +127,7 @@ SageMaker preserves the following VERL-specific fields as metadata if present:
 + `attributes`
 + `difficulty`
 
-```
+```json
 # Newest VERL format where `prompt` is an array of messages.
 {
   "data_source": "openai/gsm8k",

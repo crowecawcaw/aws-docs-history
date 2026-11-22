@@ -1,7 +1,6 @@
 
 
 # Get Insights On Data and Data Quality
-<a name="data-wrangler-data-insights"></a>
 
 Use the **Data Quality and Insights Report** to perform an analysis of the data that you've imported into Data Wrangler. We recommend that you create the report after you import your dataset. You can use the report to help you clean and process your data. It gives you information such as the number of missing values and the number of outliers. If you have issues with your data, such as target leakage or imbalance, the insights report can bring those issues to your attention.
 

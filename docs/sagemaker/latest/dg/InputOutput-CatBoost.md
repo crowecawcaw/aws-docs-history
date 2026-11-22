@@ -1,7 +1,6 @@
 
 
 # Input and Output interface for the CatBoost algorithm
-<a name="InputOutput-CatBoost"></a>
 
 Gradient boosting operates on tabular data, with the rows representing observations, one column representing the target variable or label, and the remaining columns representing features. 
 
@@ -35,7 +34,7 @@ SageMaker AI CatBoost uses the `catboost.CatBoostClassifier` and `catboost.CatBo
 **To use a model trained with SageMaker AI CatBoost with `catboost`**
 + Use the following Python code:
 
-  ```
+  ```python
   import tarfile
   from catboost import CatBoostClassifier
   

@@ -1,7 +1,6 @@
 
 
 # Update a MLOps Project in Amazon SageMaker Studio or Studio Classic
-<a name="sagemaker-projects-update"></a>
 
 This procedure demonstrates how to update a MLOps project in Amazon SageMaker Studio or Studio Classic. Updating the project gives you the option to modify your end-to-end ML solution. You can update the **Description**, template version, and template parameters.
 
@@ -17,7 +16,7 @@ This procedure demonstrates how to update a MLOps project in Amazon SageMaker St
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -43,7 +42,7 @@ This procedure demonstrates how to update a MLOps project in Amazon SageMaker St
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

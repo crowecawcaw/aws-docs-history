@@ -1,7 +1,6 @@
 
 
 # Pass information to and from your notebook step
-<a name="create-notebook-auto-run-dag-seq"></a>
 
 The following sections describe ways to pass information to your notebook as environment variables and parameters.
 
@@ -10,7 +9,7 @@ The following sections describe ways to pass information to your notebook as env
 
 Pass environment variables as a dictionary to the `environment_variable` argument of your `NotebookJobStep`, as shown in the following example:
 
-```
+```py
 environment_variables = {"RATE": 0.0001, "BATCH_SIZE": 1000}
 
 notebook_job_step = NotebookJobStep(
@@ -22,7 +21,7 @@ notebook_job_step = NotebookJobStep(
 
 You can use the environment variables in the notebook using `os.getenv()`, as shown in the following example:
 
-```
+```py
 # inside your notebook
 import os
 print(f"ParentNotebook: env_key={os.getenv('env_key')}")
@@ -35,7 +34,7 @@ When you pass parameters to the first Notebook Job step in your `NotebookJobStep
 
 You pass parameters through the Notebook Job step's `parameters` parameter, as shown in the following snippet:
 
-```
+```py
 notebook_job_parameters = {
     "company": "Amazon",
 }
@@ -49,13 +48,13 @@ notebook_job_step = NotebookJobStep(
 
 Inside your input notebook, your parameters are applied after the cell tagged with `parameters` or at the beginning of the notebook if you don’t have a tagged cell.
 
-```
+```py
 # this cell is in your input notebook and is tagged with 'parameters'
 # your parameters and parameter overrides are applied after this cell
 company='default'
 ```
 
-```
+```py
 # in this cell, your parameters are applied
 # prints "company is Amazon"
 print(f'company is {company}')
@@ -78,7 +77,7 @@ You can use the following properties with the previous step's `properties` attri
 
 The following code snippet shows how to extract parameters from the properties attribute.
 
-```
+```py
 notebook_job_step2 = NotebookJobStep(
     ....
     parameters={
@@ -97,7 +96,7 @@ To extract JSON files in Amazon S3 with `JsonGet`, complete the following steps:
 
 1. Upload your JSON file to Amazon S3. If your data is already uploaded to Amazon S3, skip this step. The following example demonstrates uploading a JSON file to Amazon S3.
 
-   ```
+   ```py
    import json
    from sagemaker.s3 import S3Uploader
    
@@ -119,7 +118,7 @@ To extract JSON files in Amazon S3 with `JsonGet`, complete the following steps:
 
 1. Provide your S3 URI and the JSON path to the value you want to extract. In the following example, `JsonGet` returns an object representing index 2 of the value associated with key `key2` (`10`).
 
-   ```
+   ```py
    NotebookJobStep(
        ....
        parameters={

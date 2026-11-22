@@ -1,7 +1,6 @@
 
 
 # Track the lineage of a pipeline
-<a name="pipelines-lineage-tracking"></a>
 
 In this tutorial, you use Amazon SageMaker Studio to track the lineage of an Amazon SageMaker AI ML Pipeline.
 
@@ -91,7 +90,7 @@ To track the lineage of a pipeline in the Amazon SageMaker Studio console, compl
 **Note**  
 To get the full paths, right-click the path and then choose **Copy cell contents**.
 
-   ```
+   ```sh
    s3://sagemaker-eu-west-1-acct-id/sklearn-abalone-process-2020-12-05-17-28-28-509/output/train
    s3://sagemaker-eu-west-1-acct-id/sklearn-abalone-process-2020-12-05-17-28-28-509/output/validation
    s3://sagemaker-eu-west-1-acct-id/sklearn-abalone-process-2020-12-05-17-28-28-509/output/test
@@ -101,7 +100,7 @@ To get the full paths, right-click the path and then choose **Copy cell contents
 
 1. Find the Amazon S3 path to the model artifact in the **Output** tab, under **Files**:
 
-   ```
+   ```sh
    s3://sagemaker-eu-west-1-acct-id/AbaloneTrain/pipelines-6locnsqz4bfu-AbaloneTrain-NtfEpI0Ahu/output/model.tar.gz
    ```
 
@@ -109,7 +108,7 @@ To get the full paths, right-click the path and then choose **Copy cell contents
 
 1. Find the ARN of the model package in the **Output** tab, under **Files**:
 
-   ```
+   ```sh
    arn:aws:sagemaker:eu-west-1:acct-id:model-package/abalonemodelpackagegroupname/2
    ```
 

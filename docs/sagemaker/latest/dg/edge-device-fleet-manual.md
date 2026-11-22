@@ -1,7 +1,6 @@
 
 
 # Download and Set Up the Edge Manager Agent Manually
-<a name="edge-device-fleet-manual"></a>
 
 Download the Edge Manager agent based on your operating system, architecture, and AWS Region. The agent is periodically updated, so you have the option to choose your agent based on release dates and versions. Once you have the agent, create a JSON configuration file. Specify the device IoT thing name, fleet name, device credentials, and other key-value pairs. See [Running the Edge Manager agent](#edge-device-fleet-running-agent) for full a list of keys you must specify in the configuration file. You can run the agent as an executable binary or link against it as a dynamic shared object (DSO).
 
@@ -49,19 +48,19 @@ You must provide the `<MAJOR_VERSION>` and the time stamp in `YYYY-MM-DD` format
 
 Run the following in your command line to get the latest time stamp. Replace `<OS>` with your operating system:
 
-```
+```bash
 aws s3 ls s3://sagemaker-edge-release-store-us-west-2-{{<OS>}}/Releases/ | sort -r
 ```
 
 For example, if you have a Windows 32-bit OS, run:
 
-```
+```bash
 aws s3 ls s3://sagemaker-edge-release-store-us-west-2-windows-x86/Releases/ | sort -r
 ```
 
 This returns:
 
-```
+```bash
 2020-12-01 23:33:36 0 
 
                     PRE 1.20201218.81f481f/
@@ -78,7 +77,7 @@ Based on your operating system, use the following commands to install the artifa
 ------
 #### [ Windows 32-bit ]
 
-```
+```bash
 aws s3 cp s3://sagemaker-edge-release-store-us-west-2-windows-x86/Releases/{{<VERSION>}}/{{<VERSION>}}.zip .
 aws s3 cp s3://sagemaker-edge-release-store-us-west-2-windows-x86/Releases/{{<VERSION>}}/sha256_hex.shasum .
 ```
@@ -86,7 +85,7 @@ aws s3 cp s3://sagemaker-edge-release-store-us-west-2-windows-x86/Releases/{{<VE
 ------
 #### [ Windows 64-bit ]
 
-```
+```bash
 aws s3 cp s3://sagemaker-edge-release-store-us-west-2-windows-x64/Releases/{{<VERSION>}}/{{<VERSION>}}.zip .
 aws s3 cp s3://sagemaker-edge-release-store-us-west-2-windows-x64/Releases/{{<VERSION>}}/sha256_hex.shasum .
 ```
@@ -94,7 +93,7 @@ aws s3 cp s3://sagemaker-edge-release-store-us-west-2-windows-x64/Releases/{{<VE
 ------
 #### [ Linux x86-64 ]
 
-```
+```bash
 aws s3 cp s3://sagemaker-edge-release-store-us-west-2-linux-x64/Releases/{{<VERSION>}}/{{<VERSION>}}.tgz .
 aws s3 cp s3://sagemaker-edge-release-store-us-west-2-linux-x64/Releases/{{<VERSION>}}/sha256_hex.shasum .
 ```
@@ -102,7 +101,7 @@ aws s3 cp s3://sagemaker-edge-release-store-us-west-2-linux-x64/Releases/{{<VERS
 ------
 #### [ Linux ARMv8 ]
 
-```
+```bash
 aws s3 cp s3://sagemaker-edge-release-store-us-west-2-linux-armv8/Releases/{{<VERSION>}}/{{<VERSION>}}.tgz .
 aws s3 cp s3://sagemaker-edge-release-store-us-west-2-linux-armv8/Releases/{{<VERSION>}}/sha256_hex.shasum .
 ```
@@ -113,7 +112,7 @@ You also must download a root certificate. This certificate validates model arti
 
 Replace `<OS>` corresponding to your platform from the list of supported operation systems and replace `<REGION>` with your AWS Region.
 
-```
+```bash
 aws s3 cp s3://sagemaker-edge-release-store-us-west-2-{{<OS>}}/Certificates/{{<REGION>}}/{{<REGION>}}.pem .
 ```
 
@@ -148,7 +147,7 @@ To run the agent, first create a JSON configuration file. Specify the following 
 
 Your configuration file should look similar to the following example(with your specific values specified). This example uses the default AWS provider(`"Aws"`) and does not specify a periodic upload.
 
-```
+```python
 {
     "sagemaker_edge_core_device_name": {{"device-name"}},
     "sagemaker_edge_core_device_fleet_name": {{"fleet-name"}},
@@ -173,13 +172,13 @@ Your configuration file should look similar to the following example(with your s
 
 The release artifact includes a binary executable called `sagemaker_edge_agent_binary` in the `/bin` directory. To run the binary, use the `-a` flag to create a socket file descriptor (.sock) in a directory of your choosing and specify the path of the agent JSON config file you created with the `-c` flag.
 
-```
+```bash
 ./sagemaker_edge_agent_binary -a {{<ADDRESS_TO_SOCKET>}} -c {{<PATH_TO_CONFIG_FILE>}}
 ```
 
 The following example shows the code snippet with a directory and file path specified:
 
-```
+```bash
 ./sagemaker_edge_agent_binary -a /tmp/sagemaker_edge_agent_example.sock -c sagemaker_edge_config.json
 ```
 

@@ -1,7 +1,6 @@
 
 
 # SQL extension data source connections
-<a name="sagemaker-sql-extension-datasources-connection"></a>
 
 Before using the SQL extension in JupyterLab notebooks, administrators or users must create AWS Glue connections to their data sources. The SQL extension allows connecting to data sources such as Amazon Redshift Amazon Athena, or Snowflake.
 

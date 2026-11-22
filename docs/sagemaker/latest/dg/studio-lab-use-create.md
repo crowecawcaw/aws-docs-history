@@ -1,7 +1,6 @@
 
 
 # Create or open an Amazon SageMaker Studio Lab notebook
-<a name="studio-lab-use-create"></a>
 
 **Note**  
 Amazon SageMaker Studio Lab is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Studio Lab, but we do not plan to introduce new features. For more information, see [Studio Lab availability change](studio-lab-availability-change.md). 

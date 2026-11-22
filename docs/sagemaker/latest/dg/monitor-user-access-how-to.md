@@ -1,7 +1,6 @@
 
 
 # Turn on sourceIdentity in CloudTrail logs for SageMaker AI Studio Classic
-<a name="monitor-user-access-how-to"></a>
 
 With Amazon SageMaker Studio Classic, you can monitor user resource access. However, the AWS CloudTrail logs for resource access only list the Studio Classic execution IAM role as the identifier. When a single execution IAM role is shared between several user profiles, you must use the `sourceIdentity` configuration to get information about the specific user that accessed the AWS resources.
 
@@ -25,7 +24,7 @@ The following topics explain how to turn on or off the `sourceIdentity` configur
 
 ****  
 
-    ```
+    ```json
     {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

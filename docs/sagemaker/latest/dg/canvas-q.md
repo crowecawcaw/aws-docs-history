@@ -1,7 +1,6 @@
 
 
 # Generative AI assistance for solving ML problems in Canvas using Amazon Q Developer
-<a name="canvas-q"></a>
 
 While using Amazon SageMaker Canvas, you can chat with Amazon Q Developer in natural language to leverage generative AI and solve problems. Q Developer is an assistant that helps you translate your goals into machine learning (ML) tasks and describes each step of the ML workflow. Q Developer helps Canvas users reduce the amount of time, effort, and data science expertise required to leverage ML and make data-driven decisions for their organizations. 
 

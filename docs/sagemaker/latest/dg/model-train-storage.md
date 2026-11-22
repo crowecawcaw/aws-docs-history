@@ -1,7 +1,6 @@
 
 
 # Mapping of training storage paths managed by Amazon SageMaker AI
-<a name="model-train-storage"></a>
 
 This page provides a high-level summary of how the SageMaker training platform manages storage paths for training datasets, model artifacts, checkpoints, and outputs between AWS cloud storage and training jobs in SageMaker AI. Throughout this guide, you learn to identify the default paths set by the SageMaker AI platform and how the data channels can be streamlined with your data sources in Amazon Simple Storage Service (Amazon S3), FSx for Lustre, and Amazon EFS. For more information about various data channel input modes and storage options, see [Setting up training jobs to access datasets](model-access-training-data.md).
 

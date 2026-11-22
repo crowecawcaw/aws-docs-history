@@ -1,7 +1,6 @@
 
 
 # Create an Endpoint Configuration
-<a name="async-inference-create-endpoint-create-endpoint-config"></a>
 
 Once you have a model, create an endpoint configuration with [`CreateEndpointConfig`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html). Amazon SageMaker AI hosting services uses this configuration to deploy models. In the configuration, you identify one or more models, created using with [`CreateModel`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html), to deploy the resources that you want Amazon SageMaker AI to provision. Specify the `AsyncInferenceConfig` object and provide an output Amazon S3 location for `OutputConfig`. You can optionally specify [Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html) topics on which to send notifications about prediction results. For more information about Amazon SNS topics, see [Configuring Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/sns-configuring.html).
 
@@ -9,7 +8,7 @@ To improve endpoint availability and reduce insufficient capacity errors, you ca
 
 The following example shows how to create an endpoint configuration using AWS SDK for Python (Boto3):
 
-```
+```python
 import datetime
 from time import gmtime, strftime
 

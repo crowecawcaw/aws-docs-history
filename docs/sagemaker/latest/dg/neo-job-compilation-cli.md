@@ -1,7 +1,6 @@
 
 
 # Compile a Model (AWS Command Line Interface)
-<a name="neo-job-compilation-cli"></a>
 
 This section shows how to manage Amazon SageMaker Neo compilation jobs for machine learning models using AWS Command Line Interface (CLI). You can create, describe, stop, and list the compilation jobs. 
 
@@ -14,7 +13,7 @@ This section shows how to manage Amazon SageMaker Neo compilation jobs for machi
 ------
 #### [ Device Example ]
 
-   ```
+   ```json
    {
        "CompilationJobName": "neo-compilation-job-demo",
        "RoleArn": "arn:aws:iam::{{<your-account>}}:role/service-role/AmazonSageMaker-ExecutionRole-yyyymmddThhmmss",
@@ -36,7 +35,7 @@ This section shows how to manage Amazon SageMaker Neo compilation jobs for machi
 
    You can optionally specify the framework version you used with the [`FrameworkVersion`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InputConfig.html#sagemaker-Type-InputConfig-FrameworkVersion) field if you used the PyTorch framework to train your model and your target device is a `ml_* `target.
 
-   ```
+   ```json
    {
        "CompilationJobName": "neo-compilation-job-demo",
        "RoleArn": "arn:aws:iam::{{<your-account>}}:role/service-role/AmazonSageMaker-ExecutionRole-yyyymmddThhmmss",
@@ -67,7 +66,7 @@ This API field is only supported for PyTorch.
 ------
 #### [ Platform Example ]
 
-   ```
+   ```json
    {
        "CompilationJobName": "neo-test-compilation-job",
        "RoleArn": "arn:aws:iam::{{<your-account>:}}role/service-role/AmazonSageMaker-ExecutionRole-yyyymmddThhmmss",
@@ -102,7 +101,7 @@ For the `OutputConfig` API operation, the `TargetDevice` and `TargetPlatform` AP
 
 1. After you configure the JSON file, run the following command to create the compilation job:
 
-   ```
+   ```bash
    aws sagemaker create-compilation-job \
    --cli-input-json file://job.json \
    --region us-west-2 
@@ -112,7 +111,7 @@ For the `OutputConfig` API operation, the `TargetDevice` and `TargetPlatform` AP
 
 1. Describe the compilation job by running the following command:
 
-   ```
+   ```bash
    aws sagemaker describe-compilation-job \
    --compilation-job-name $JOB_NM \
    --region us-west-2
@@ -120,7 +119,7 @@ For the `OutputConfig` API operation, the `TargetDevice` and `TargetPlatform` AP
 
 1. Stop the compilation job by running the following command:
 
-   ```
+   ```bash
    aws sagemaker stop-compilation-job \
    --compilation-job-name $JOB_NM \
    --region us-west-2
@@ -130,7 +129,7 @@ For the `OutputConfig` API operation, the `TargetDevice` and `TargetPlatform` AP
 
 1. List the compilation job by running the following command:
 
-   ```
+   ```bash
    aws sagemaker list-compilation-jobs \
    --region us-west-2
    ```

@@ -1,7 +1,6 @@
 
 
 # Create or update a Studio app with a training plan in the Studio UI
-<a name="use-training-plan-for-studio-app-using-console"></a>
 
 To create a Studio app using training plans from the Studio UI, follow these steps:
 

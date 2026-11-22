@@ -1,7 +1,6 @@
 
 
 # Setting up Kubernetes role-based access control
-<a name="sagemaker-hyperpod-eks-setup-rbac"></a>
 
 Cluster admin users also need to set up [Kubernetes role-based access control (RBAC)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) for data scientist users to use the [SageMaker HyperPod CLI](https://github.com/aws/sagemaker-hyperpod-cli) to run workloads on HyperPod clusters orchestrated with Amazon EKS.
 
@@ -19,7 +18,7 @@ Create `ClusterRole` and `ClusterRoleBinding` with the minimum privilege, and cr
 
 Create a cluster-level configuration file `cluster_level_config.yaml` as follows.
 
-```
+```yaml
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -58,7 +57,7 @@ This is the namespace training operator that run training jobs and Resiliency wi
 
 Create a role configuration file `namespace_level_role.yaml` as follows. This example creates a role in the `kubeflow` namespace
 
-```
+```yaml
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:

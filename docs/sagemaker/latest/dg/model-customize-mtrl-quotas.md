@@ -1,7 +1,6 @@
 
 
 # Quotas
-<a name="model-customize-mtrl-quotas"></a>
 
 The following quotas apply to multi-turn reinforcement learning jobs. These quotas are adjustable. To request an increase, open the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas). For more information, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html).
 

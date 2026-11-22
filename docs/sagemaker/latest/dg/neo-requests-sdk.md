@@ -1,7 +1,6 @@
 
 
 # Request Inferences from a Deployed Service (Amazon SageMaker SDK)
-<a name="neo-requests-sdk"></a>
 
 Use the following the code examples to request inferences from your deployed service based on the framework you used to train your model. The code examples for the different frameworks are similar. The main difference is that TensorFlow requires `application/json` as the content type. 
 
@@ -19,7 +18,7 @@ For version 3.x, use the [`Endpoint`](https://sagemaker.readthedocs.io/en/stable
 
 The following code example shows how to use these APIs to send an image for inference: 
 
-```
+```python
 from sagemaker.core.resources import Endpoint
 
 endpoint_name = {{'insert name of your endpoint here'}}
@@ -39,7 +38,7 @@ print(inference_response.body.read().decode('utf-8'))
 
 The following code example shows how to use the SageMaker Python SDK API to send an image for inference: 
 
-```
+```python
 from sagemaker.core.resources import Endpoint
 from PIL import Image
 import numpy as np

@@ -1,7 +1,6 @@
 
 
 # Monitor a shadow test
-<a name="shadow-tests-view-monitor-edit-dashboard"></a>
 
  You can view the details of a shadow test and monitor it while it is in progress or after it has completed. SageMaker AI presents a live dashboard comparing the operational metrics like model latency, and error rate aggregated, of the production and shadow variants. 
 

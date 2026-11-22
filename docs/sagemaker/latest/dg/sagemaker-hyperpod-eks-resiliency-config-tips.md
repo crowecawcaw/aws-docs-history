@@ -1,7 +1,6 @@
 
 
 # Suggested resilience configurations
-<a name="sagemaker-hyperpod-eks-resiliency-config-tips"></a>
 
 When the deep health checks are enabled, whenever a new instance is added to the HyperPod cluster (either during create-cluster or through automatic node replacement), the new instance goes through the deep health check process (instance level stress tests) for about a couple of hours. The following are suggested resilience config combinations depending on possible cases.
 

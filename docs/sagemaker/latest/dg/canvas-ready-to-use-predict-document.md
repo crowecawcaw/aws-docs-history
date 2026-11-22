@@ -1,7 +1,6 @@
 
 
 # Make predictions for document data
-<a name="canvas-ready-to-use-predict-document"></a>
 
 The following procedures describe how to make both single and batch predictions for document datasets. Each Ready-to-use model supports both **Single predictions** and **Batch predictions** for your dataset. A **Single prediction** is when you only need to make one prediction. For example, you have one image from which you want to extract text, or one paragraph of text for which you want to detect the dominant language. A **Batch prediction** is when you’d like to make predictions for an entire dataset. For example, you might have a CSV file of customer reviews for which you’d like to analyze the customer sentiment, or you might have image files in which you’d like to detect objects.
 

@@ -1,7 +1,6 @@
 
 
 # How to use the SageMaker Image Classification - TensorFlow algorithm
-<a name="IC-TF-how-to-use"></a>
 
 You can use Image Classification - TensorFlow as an Amazon SageMaker AI built-in algorithm. The following section describes how to use Image Classification - TensorFlow with the SageMaker AI Python SDK. For information on how to use Image Classification - TensorFlow from the Amazon SageMaker Studio Classic UI, see [SageMaker JumpStart pretrained models](studio-jumpstart.md).
 
@@ -14,7 +13,7 @@ Default hyperparameter values are different for different models. For larger mod
 
 This example uses the [`tf_flowers`](https://www.tensorflow.org/datasets/catalog/tf_flowers) dataset, which contains five classes of flower images. We pre-downloaded the dataset from TensorFlow under the Apache 2.0 license and made it available with Amazon S3. To fine-tune your model, call `.fit` using the Amazon S3 location of your training dataset.
 
-```
+```python
 from sagemaker.core import image_uris
 from sagemaker.core import model_uris, script_uris, hyperparameters
 from sagemaker.train import ModelTrainer

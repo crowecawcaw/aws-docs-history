@@ -1,7 +1,6 @@
 
 
 # Create a Model Group
-<a name="model-registry-model-group"></a>
 
 A Model Group contains different versions of a model. You can create a Model Group that tracks all of the models that you train to solve a particular problem. Create a Model Group by using either the AWS SDK for Python (Boto3) or the Amazon SageMaker Studio console.
 
@@ -16,7 +15,7 @@ To create a Model Group by using Boto3, call the `create_model_package_group` AP
 
 First, import the required packages and set up the SageMaker AI Boto3 client.
 
-```
+```python
 import time
 import os
 from sagemaker.core.helper.session_helper import get_execution_role, session
@@ -31,7 +30,7 @@ sm_client = boto3.client('sagemaker', region_name=region)
 
 Now create the Model Group.
 
-```
+```python
 import time
 model_package_group_name = "scikit-iris-detector-" + str(round(time.time()))
 model_package_group_input_dict = {

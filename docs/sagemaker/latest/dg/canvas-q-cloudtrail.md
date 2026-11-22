@@ -1,7 +1,6 @@
 
 
 # Logging Q Developer conversations with AWS CloudTrail
-<a name="canvas-q-cloudtrail"></a>
 
 AWS CloudTrail is a service that records actions taken by users, roles, or AWS services in Amazon SageMaker AI. CloudTrail captures API calls resulting from your interactions with Amazon Q Developer (a conversational AI assistant) while using SageMaker Canvas (a no-code ML interface). CloudTrail data shows request details, the IP address of the requester, who made the request, and when.
 
@@ -14,7 +13,7 @@ To learn more about CloudTrail, see the [*AWS CloudTrail User Guide*](https://do
 
 The following is an example log file entry for the `SendConversation` API:
 
-```
+```json
 {
     "eventVersion":"1.10",
     "userIdentity": {

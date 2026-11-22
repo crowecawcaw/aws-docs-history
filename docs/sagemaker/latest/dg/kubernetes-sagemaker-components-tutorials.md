@@ -1,7 +1,6 @@
 
 
 # Use SageMaker AI components
-<a name="kubernetes-sagemaker-components-tutorials"></a>
 
 In this tutorial, you run a pipeline using SageMaker AI Components for Kubeflow Pipelines to train a classification model using Kmeans with the MNIST dataset on SageMaker AI. The workflow uses Kubeflow Pipelines as the orchestrator and SageMaker AI to execute each step of the workflow. The example was taken from an existing [ SageMaker AI example](https://github.com/aws/amazon-sagemaker-examples/blob/8279abfcc78bad091608a4a7135e50a0bd0ec8bb/sagemaker-python-sdk/1P_kmeans_highlevel/kmeans_mnist.ipynb) and modified to work with SageMaker AI Components for Kubeflow Pipelines.
 

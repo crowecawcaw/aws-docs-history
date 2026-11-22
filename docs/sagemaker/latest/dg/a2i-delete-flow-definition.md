@@ -1,7 +1,6 @@
 
 
 # Delete a Human Review Workflow
-<a name="a2i-delete-flow-definition"></a>
 
 **Note**  
 Amazon SageMaker A2I is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for A2I, but we do not plan to introduce new features.
@@ -51,7 +50,7 @@ You can delete a human review workflow (flow definition) using the SageMaker AI 
 
 The following request example uses the SDK for Python (Boto3) to delete the human review workflow. For more information, see [delete\_flow\_definition](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.delete_flow_definition) in the *AWS SDK for Python (Boto) API Reference*.
 
-```
+```python
 import boto3
 
 sagemaker_client = boto3.client('sagemaker')

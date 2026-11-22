@@ -1,7 +1,6 @@
 
 
 # Constraints
-<a name="modelcollections-limitations"></a>
 
 While using Collections, you may face issues related to tag length constraints or rate limits for Collection operations. Review the following list of caveats so you can avoid issues related to these limitations when you work with your Collections.
 

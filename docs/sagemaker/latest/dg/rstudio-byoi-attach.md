@@ -1,7 +1,6 @@
 
 
 # Attach a custom SageMaker image
-<a name="rstudio-byoi-attach"></a>
 
 **Important**  
 Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studio Classic to create Amazon SageMaker resources must also grant permissions to add tags to those resources. The permission to add tags to resources is required because Studio and Studio Classic automatically tag any resources they create. If an IAM policy allows Studio and Studio Classic to create resources but does not allow tagging, "AccessDenied" errors can occur when trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions).  
@@ -83,7 +82,7 @@ Use the following steps to create the domain and attach the custom SageMaker AI 
 
 1. Get your default VPC ID.
 
-   ```
+   ```cmd
    aws ec2 describe-vpcs \
        --filters Name=isDefault,Values=true \
        --query "Vpcs[0].VpcId" --output text
@@ -91,13 +90,13 @@ Use the following steps to create the domain and attach the custom SageMaker AI 
 
    Response:
 
-   ```
+   ```cmd
    vpc-xxxxxxxx
    ```
 
 1. Get your default subnet IDs using the VPC ID from the previous step.
 
-   ```
+   ```cmd
    aws ec2 describe-subnets \
        --filters Name=vpc-id,Values={{<vpc-id>}} \
        --query "Subnets[*].SubnetId" --output json
@@ -105,7 +104,7 @@ Use the following steps to create the domain and attach the custom SageMaker AI 
 
    Response:
 
-   ```
+   ```json
    [
        "subnet-b55171dd",
        "subnet-8a5f99c6",
@@ -115,7 +114,7 @@ Use the following steps to create the domain and attach the custom SageMaker AI 
 
 1. Create a configuration file named `create-domain-input.json`. Insert the VPC ID, subnet IDs, `ImageName`, and `AppImageConfigName` from the previous steps. Because `ImageVersionNumber` isn't specified, the latest version of the image is used, which is the only version in this case. Your execution role must satisfy the requirements in [Complete prerequisites](rstudio-byoi-prerequisites.md).
 
-   ```
+   ```json
    {
      "DomainName": "domain-with-custom-r-image",
      "VpcId": "{{<vpc-id>}}",
@@ -144,14 +143,14 @@ Use the following steps to create the domain and attach the custom SageMaker AI 
 
 1. Create the domain with the attached custom SageMaker image.
 
-   ```
+   ```cmd
    aws sagemaker create-domain \
        --cli-input-json file://create-domain-input.json
    ```
 
    Response:
 
-   ```
+   ```json
    {
        "DomainArn": "arn:aws:sagemaker:{{region}}:acct-id:domain/{{domain-id}}",
        "Url": "https://{{domain-id}}.studio.{{region}}.sagemaker.aws/..."
@@ -188,14 +187,14 @@ Use the following steps to add the SageMaker image to your current domain.
 
 1. Use the domain ID to get the description of the domain.
 
-   ```
+   ```cmd
    aws sagemaker describe-domain \
        --domain-id {{<d-xxxxxxxxxxxx>}}
    ```
 
    Response:
 
-   ```
+   ```json
    {
        "DomainId": "{{d-xxxxxxxxxxxx}}",
        "DefaultUserSettings": {
@@ -212,7 +211,7 @@ Use the following steps to add the SageMaker image to your current domain.
 
 1. Insert the `ImageName` and `AppImageConfigName` from the previous steps as a custom image. Because `ImageVersionNumber` isn't specified, the latest version of the image is used, which is the only version in this case.
 
-   ```
+   ```json
    {
        "DefaultUserSettings": {
            "RSessionAppSettings": { 
@@ -229,7 +228,7 @@ Use the following steps to add the SageMaker image to your current domain.
 
 1. Use the domain ID and default user settings file to update your domain.
 
-   ```
+   ```cmd
    aws sagemaker update-domain \
        --domain-id {{<d-xxxxxxxxxxxx>}} \
        --cli-input-json file://update-domain-input.json
@@ -237,7 +236,7 @@ Use the following steps to add the SageMaker image to your current domain.
 
    Response:
 
-   ```
+   ```json
    {
        "DomainArn": "arn:aws:sagemaker:{{region}}:acct-id:domain/{{domain-id}}"
    }

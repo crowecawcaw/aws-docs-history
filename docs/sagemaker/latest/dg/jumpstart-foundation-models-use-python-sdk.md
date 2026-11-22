@@ -1,7 +1,6 @@
 
 
 # Use foundation models with the SageMaker Python SDK
-<a name="jumpstart-foundation-models-use-python-sdk"></a>
 
 All JumpStart foundation models are available for programmatic deployment using the SageMaker Python SDK.
 

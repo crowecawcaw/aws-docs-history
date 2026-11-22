@@ -1,7 +1,6 @@
 
 
 # Delete an automatic configuration
-<a name="canvas-manage-automations-delete"></a>
 
 You might want to delete a configuration to stop your automated workflow in SageMaker Canvas.
 

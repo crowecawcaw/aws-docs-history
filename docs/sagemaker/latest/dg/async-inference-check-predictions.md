@@ -1,7 +1,6 @@
 
 
 # Check prediction results
-<a name="async-inference-check-predictions"></a>
 
 There are several ways you can check predictions results from your asynchronous endpoint. Some options are:
 
@@ -21,7 +20,7 @@ To use Amazon SNS to check prediction results from your asynchronous endpoint, y
 
 Provide the Amazon SNS topic ARN(s) in the `AsyncInferenceConfig` field when you create an endpoint configuration with `CreateEndpointConfig`. You can specify both an Amazon SNS `ErrorTopic` and an `SuccessTopic`.
 
-```
+```python
 import boto3
 
 sagemaker_client = boto3.client('sagemaker', region_name=<aws_region>)
@@ -52,7 +51,7 @@ sagemaker_client.create_endpoint_config(
 
 After creating your endpoint and invoking it, you receive a notification from your Amazon SNS topic. For example, if you subscribed to receive email notifications from your topic, you receive an email notification every time you invoke your endpoint. The following example shows the JSON content of a successful invocation email notification.
 
-```
+```json
 {
    "awsRegion":"us-east-1",
    "eventTime":"2022-01-25T22:46:00.608Z",
@@ -81,7 +80,7 @@ When you invoke an endpoint with `InvokeEndpointAsync`, it returns a response ob
 
 The following stores the output dictionary of `InvokeEndpointAsync` as a variable named response. With the response variable, you then get the Amazon S3 output URI and store it as a string variable called `output_location`. 
 
-```
+```python
 import uuid
 import boto3
 
@@ -105,7 +104,7 @@ For information about supported content types, see [Common data formats for infe
 
 With the Amazon S3 output location, you can then use a [SageMaker Python SDK SageMaker AI Session Class](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html) to read in Amazon S3 files. The following code example shows how to create a function (`get_ouput`) that repeatedly attempts to read a file from the Amazon S3 output location:
 
-```
+```python
 from sagemaker.core.helper.session_helper import Session
 import urllib, time
 from botocore.exceptions import ClientError

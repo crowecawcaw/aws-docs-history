@@ -1,7 +1,6 @@
 
 
 # Walk Through a SageMaker AI MLOps Project Using Third-party Git Repos
-<a name="sagemaker-projects-walkthrough-3rdgit"></a>
 
 **Note**  
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For information about using the updated Studio experience, see [Amazon SageMaker Studio](studio-updated.md).  
@@ -108,7 +107,7 @@ Now make a change to the pipeline code that builds the model and commit the chan
 
 1. In the `pipeline.py` file, find the line that sets the training instance type.
 
-   ```
+   ```python
    training_instance_type = ParameterString(
            name="TrainingInstanceType", default_value="ml.m5.xlarge"
    ```

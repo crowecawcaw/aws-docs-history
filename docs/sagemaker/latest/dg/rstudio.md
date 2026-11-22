@@ -1,7 +1,6 @@
 
 
 # RStudio on Amazon SageMaker AI
-<a name="rstudio"></a>
 
 RStudio is an integrated development environment for R, with a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management. Amazon SageMaker AI supports RStudio as a fully-managed integrated development environment (IDE) integrated with Amazon SageMaker AI domain through Posit Workbench. RStudio allows customers to create data science insights using an R environment. With RStudio integration, you can launch an RStudio environment in the domain to run your RStudio workflows on SageMaker AI resources. For more information about Posit Workbench, see the [Posit website](https://posit.co/products/enterprise/workbench/). This page gives information about important RStudio concepts.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker Feature Store resources
-<a name="feature-store-resources"></a>
 
 The following lists the available resources for Amazon SageMaker Feature Store users. For the Feature Store main page, see [Amazon SageMaker Feature Store](https://aws.amazon.com/sagemaker/feature-store/).
 

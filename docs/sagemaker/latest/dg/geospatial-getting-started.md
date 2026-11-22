@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon SageMaker geospatial
-<a name="geospatial-getting-started"></a>
 
 **Note**  
 Amazon SageMaker geospatial capabilities is no longer open to new customers. Offboard any previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportEarthObservationJob.html) and [ExportVectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportVectorEnrichmentJob.html) API operations.
@@ -10,7 +9,7 @@ Amazon SageMaker geospatial capabilities is no longer open to new customers. Off
 
 **Note**  
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named Amazon SageMaker Studio Classic. If prior to November 30, 2023 you created a Amazon SageMaker AI domain, Studio Classic remains the default experience. domains created after November 30, 2023 default to the new Studio experience.  
-Amazon SageMaker geospatial features and resources are *only* available in Studio Classic. To learn more about setting up a domain and getting started with Studio, see [Getting started with Amazon SageMaker geospatial](#geospatial-getting-started).
+Amazon SageMaker geospatial features and resources are *only* available in Studio Classic. To learn more about setting up a domain and getting started with Studio, see [Getting started with Amazon SageMaker geospatial](geospatial-getting-started.md).
 
 To access and get started using Amazon SageMaker geospatial, do the following:
 

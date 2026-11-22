@@ -1,7 +1,6 @@
 
 
 # Bring your own image (BYOI)
-<a name="studio-updated-byoi"></a>
 
 An image is a file that identifies the kernels, language packages, and other dependencies required to run your applications. It includes:
 + Programming languages (like Python or R)

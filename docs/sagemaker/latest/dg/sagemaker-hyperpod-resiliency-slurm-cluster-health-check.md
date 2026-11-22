@@ -1,7 +1,6 @@
 
 
 # Health monitoring agent
-<a name="sagemaker-hyperpod-resiliency-slurm-cluster-health-check"></a>
 
 This section describes the set of health checks that SageMaker HyperPod uses to regularly monitor cluster instance health for issues with devices such as accelerators (GPU and Trainium cores) and networking (EFA). SageMaker HyperPod health-monitoring agent (HMA) continuously monitors the health status of each GPU-based or Trainium-based instance. When it detects any instance or GPU failures, the agent marks the instance as unhealthy.
 

@@ -1,7 +1,6 @@
 
 
 # Connect Studio JupyterLab notebooks to Amazon S3 Access Grants with Training and Processing jobs
-<a name="trustedidentitypropagation-s3-access-grants-jobs"></a>
 
 Use the following information to grant Amazon S3 Access Grants to access data in Amazon SageMaker Training and Processing jobs.
 
@@ -43,7 +42,7 @@ After Amazon S3 Access Grants is set up, [add the following permissions](https:/
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

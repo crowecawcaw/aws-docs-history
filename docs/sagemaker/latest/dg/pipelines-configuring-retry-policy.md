@@ -1,13 +1,12 @@
 
 
 # Configuring a retry policy
-<a name="pipelines-configuring-retry-policy"></a>
 
 While SageMaker Pipelines provide a robust and automated way to orchestrate machine learning workflows, you might encounter failures when you run them. To handle such scenarios gracefully and improve the reliability of your pipelines, you can configure retry policies that define how and when to automatically retry specific steps after encountering an exception. The retry policy allows you to specify the types of exceptions to retry, the maximum number of retry attempts, the interval between retries, and the backoff rate for increasing the retry intervals. The following section provides examples of how to configure a retry policy for a training step in your pipeline, both in JSON and using the SageMaker Python SDK.
 
 The following is an example of a training step with a retry policy.
 
-```
+```JSON
 {
     "Steps": [
         {
@@ -33,7 +32,7 @@ The following is an example of a training step with a retry policy.
 
 The following is an example of how to build a `TrainingStep` in SDK for Python (Boto3) with a retry policy.
 
-```
+```Python
 from sagemaker.workflow.retry import (
     StepRetryPolicy, 
     StepExceptionTypeEnum,

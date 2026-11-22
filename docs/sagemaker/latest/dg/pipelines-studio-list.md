@@ -1,7 +1,6 @@
 
 
 # View the details of a pipeline
-<a name="pipelines-studio-list"></a>
 
 You can view the details of a SageMaker AI pipeline to understand its parameters, the dependencies of its steps, or monitor its progress and status. This can help you troubleshoot or optimize your workflow. You can access the details of a given pipeline using the Amazon SageMaker Studio console and explore its execution history, definition, parameters, and metadata.
 

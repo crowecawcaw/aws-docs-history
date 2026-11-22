@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker AI model parallelism library v1 examples
-<a name="distributed-model-parallel-examples"></a>
 
 This page provides a list of blogs and Jupyter notebooks that present practical examples of implementing the SageMaker model parallelism (SMP) library v1 to run distributed training jobs on SageMaker AI.
 
@@ -24,7 +23,7 @@ Clone and run the example notebooks in the following SageMaker AI ML IDEs.
 [Studio Classic](https://docs.aws.amazon.com/sagemaker/latest/dg/studio.html) (available as an application in [Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-updated.html) created after December 2023)
 [SageMaker Notebook Instances](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html)
 
-```
+```sh
 git clone https://github.com/aws/amazon-sagemaker-examples.git
 cd amazon-sagemaker-examples/training/distributed_training/pytorch/model_parallel
 ```

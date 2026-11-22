@@ -1,7 +1,6 @@
 
 
 # Disaggregated Prefill and Decode (DPD) deployment issues
-<a name="sagemaker-hyperpod-model-deployment-ts-dpd"></a>
 
 **Overview:** Common issues that can occur when deploying inference endpoints with Disaggregated Prefill and Decode (DPD). These problems typically involve pod startup, KV cache transfer, routing behavior, or resource allocation.
 
@@ -14,7 +13,7 @@
 + **Pods stuck in `ContainerCreating` for more than 10 minutes.** Run `kubectl describe pod <pod-name>` and look for `Failed to pull image` or `MountVolume.SetUp failed`. Verify the worker image exists and the Amazon S3 bucket is accessible from the cluster.
 + **Pods stuck at 2/3 Ready.** The vLLM worker is still loading the model. Llama 3.3 70B takes 5–10 minutes from a cold Amazon S3 fetch. Check progress:
 
-  ```
+  ```bash
   kubectl logs <pod-name> -c <prefill|decode>-<endpoint-name> | grep -i "engine\|loading"
   ```
 
@@ -22,7 +21,7 @@
 + **Pods restart with `EngineDeadError` or `TimeoutError`.** This indicates an operator version older than v3.2. Upgrade the inference operator before continuing.
 + **All HTTP requests return 503 immediately after deploy.** Pods are still loading the model. Wait for the `InferenceEndpointConfig` status to reach `DeploymentComplete`:
 
-  ```
+  ```bash
   kubectl get inferenceendpointconfig <endpoint-name> -n <namespace> -w
   ```
 
@@ -44,7 +43,7 @@
 **Symptoms and resolution:**
 + **All requests bypass the prefiller (even long prompts).** Check the router logs for routing decisions:
 
-  ```
+  ```bash
   ROUTER_POD=$(kubectl get pods -n hyperpod-inference-system -o name | grep router | head -1)
   kubectl logs $ROUTER_POD -n hyperpod-inference-system -c router-container --tail=50 \
     | grep "Conditional routing"

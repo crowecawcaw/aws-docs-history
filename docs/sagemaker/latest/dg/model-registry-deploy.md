@@ -1,7 +1,6 @@
 
 
 # Deploy a Model from the Registry with Python
-<a name="model-registry-deploy"></a>
 
 After you register a model version and approve it for deployment, deploy it to a SageMaker AI endpoint for real-time inference. You can deploy your model by using the SageMaker AI SDK or the AWS SDK for Python (Boto3).
 
@@ -19,7 +18,7 @@ You can also enable an AWS account to deploy model versions that were created in
 
 To deploy a model version using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable) use the following code snippet:
 
-```
+```python
 from sagemaker.serve import ModelBuilder
 
 model_package_arn = 'arn:aws:sagemaker:us-east-2:12345678901:model-package/modeltest/1'
@@ -47,7 +46,7 @@ To deploy a model version using the AWS SDK for Python (Boto3), complete the fol
 
    Create a model object from the model version by calling the [create\_model](https://docs.aws.amazon.com/boto3/latest/reference/services/sagemaker.html#SageMaker.Client.create_model) API operation. Pass the Amazon Resource Name (ARN) of the model version as part of the `Containers` for the model object:
 
-   ```
+   ```python
    model_name = 'DEMO-modelregistry-model-' + strftime("%Y-%m-%d-%H-%M-%S", gmtime())
    print("Model name : {}".format(model_name))
    container_list = [{'ModelPackageName': model_version_arn}]
@@ -62,7 +61,7 @@ To deploy a model version using the AWS SDK for Python (Boto3), complete the fol
 
 1. Create an endpoint configuration by calling `create_endpoint_config`. The endpoint configuration specifies the number and type of Amazon EC2 instances to use for the endpoint.
 
-   ```
+   ```python
    endpoint_config_name = 'DEMO-modelregistry-EndpointConfig-' + strftime("%Y-%m-%d-%H-%M-%S", gmtime())
    print(endpoint_config_name)
    create_endpoint_config_response = sm_client.create_endpoint_config(
@@ -77,7 +76,7 @@ To deploy a model version using the AWS SDK for Python (Boto3), complete the fol
 
 1. Create the endpoint by calling `create_endpoint`.
 
-   ```
+   ```python
    endpoint_name = 'DEMO-modelregistry-endpoint-' + strftime("%Y-%m-%d-%H-%M-%S", gmtime())
    print("EndpointName={}".format(endpoint_name))
    
@@ -106,7 +105,7 @@ The following example creates cross-account policies for all three of these reso
 + `model_package_group_name` – The Model Group to which you want to grant cross-account access.
 + `model_package_group_arn` – The Model Group ARN to which you want to grant cross-account access.
 
-```
+```python
 import json
 
 # The cross-account id to grant access to

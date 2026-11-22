@@ -1,7 +1,6 @@
 
 
 # View endpoint details in the SageMaker AI console
-<a name="manage-endpoints-console"></a>
 
 To view your endpoints in the SageMaker AI console, do the following:
 

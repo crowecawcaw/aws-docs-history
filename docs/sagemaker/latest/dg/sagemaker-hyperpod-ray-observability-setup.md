@@ -1,7 +1,6 @@
 
 
 # Setting up Ray metrics collection
-<a name="sagemaker-hyperpod-ray-observability-setup"></a>
 
 To collect Ray metrics, install or update the SageMaker HyperPod Observability add-on and turn on Ray metrics. The add-on deploys a collector with scrape configuration for Ray head pods, worker pods, and the KubeRay operator, so you do not hand-author scrape configuration per cluster. Metrics land in Amazon Managed Service for Prometheus and are visualized in Amazon Managed Grafana.
 

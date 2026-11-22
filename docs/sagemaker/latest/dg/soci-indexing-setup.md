@@ -1,7 +1,6 @@
 
 
 # Permissions for SOCI indexing
-<a name="soci-indexing-setup"></a>
 
 Create SOCI indexes for your container images and store them in Amazon ECR before using SOCI indexing with [Amazon SageMaker Studio](studio-updated.md) or [Amazon SageMaker Unified Studio](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/what-is-sagemaker-unified-studio.html).
 

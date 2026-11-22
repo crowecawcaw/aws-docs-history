@@ -1,7 +1,6 @@
 
 
 # Create SOCI indexes with nerdctl and SOCI CLI example
-<a name="soci-indexing-example-create-indexes"></a>
 
 The following page provides an example on how to create SOCI indexes with nerdctl and SOCI CLI.
 
@@ -9,7 +8,7 @@ The following page provides an example on how to create SOCI indexes with nerdct
 
 1. First set your variables for the AWS CLI commands that follow. The following is an example of setting up your variables.
 
-   ```
+   ```bash
    ACCOUNT_ID="{{111122223333}}"
    REGION="{{us-east-1}}"
    REPOSITORY_NAME="{{repository-name}}"
@@ -26,7 +25,7 @@ The following page provides an example on how to create SOCI indexes with nerdct
 
 1. Install required tools:
 
-   ```
+   ```bash
    # Install SOCI CLI, containerd, and nerdctl
    sudo yum install soci-snapshotter
    sudo yum install containerd jq  
@@ -37,14 +36,14 @@ The following page provides an example on how to create SOCI indexes with nerdct
 
 1. Set your registry variables:
 
-   ```
+   ```bash
    REGISTRY_USER=AWS
    REGISTRY="$ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com"
    ```
 
 1. Export your region and authenticate to Amazon ECR:
 
-   ```
+   ```bash
    export AWS_REGION=$REGION
    REGISTRY_PASSWORD=$(/usr/local/bin/aws ecr get-login-password --region $AWS_REGION)
    echo $REGISTRY_PASSWORD | sudo nerdctl login -u $REGISTRY_USER --password-stdin $REGISTRY
@@ -52,19 +51,19 @@ The following page provides an example on how to create SOCI indexes with nerdct
 
 1. Pull your original container image:
 
-   ```
+   ```bash
    sudo nerdctl pull $REGISTRY/$REPOSITORY_NAME:$ORIGINAL_IMAGE_TAG
    ```
 
 1. Create the SOCI index:
 
-   ```
+   ```bash
    sudo nerdctl image convert --soci $REGISTRY/$REPOSITORY_NAME:$ORIGINAL_IMAGE_TAG $REGISTRY/$REPOSITORY_NAME:$SOCI_IMAGE_TAG
    ```
 
 1. Push the SOCI-indexed image:
 
-   ```
+   ```bash
    sudo nerdctl push --platform linux/amd64 $REGISTRY/$REPOSITORY_NAME:$SOCI_IMAGE_TAG
    ```
 

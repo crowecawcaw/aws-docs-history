@@ -1,7 +1,6 @@
 
 
 # Create a custom RStudio image
-<a name="rstudio-byoi-create"></a>
 
 **Important**  
 Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studio Classic to create Amazon SageMaker resources must also grant permissions to add tags to those resources. The permission to add tags to resources is required because Studio and Studio Classic automatically tag any resources they create. If an IAM policy allows Studio and Studio Classic to create resources but does not allow tagging, "AccessDenied" errors can occur when trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions).  
@@ -34,7 +33,7 @@ The Amazon ECR repository must be in the same AWS Region as your domain.
 
 1. Create an Amazon ECR repository using the AWS CLI. To create the repository using the Amazon ECR console, see [Creating a repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-create.html).
 
-   ```
+   ```cmd
    aws ecr create-repository \
        --repository-name rstudio-custom \
        --image-scanning-configuration scanOnPush=true
@@ -42,7 +41,7 @@ The Amazon ECR repository must be in the same AWS Region as your domain.
 
    Response:
 
-   ```
+   ```cmd
    {
        "repository": {
            "repositoryArn": "arn:aws:ecr:us-east-2:acct-id:repository/rstudio-custom",
@@ -56,14 +55,14 @@ The Amazon ECR repository must be in the same AWS Region as your domain.
 
 1. Authenticate to Amazon ECR using the repository URI returned as a response from the `create-repository` command. Make sure that the Docker application is running. For more information, see [Registry Authentication](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth).
 
-   ```
+   ```cmd
    aws ecr get-login-password | \
        docker login --username AWS --password-stdin {{<repository-uri>}}
    ```
 
    Response:
 
-   ```
+   ```cmd
    Login Succeeded
    ```
 
@@ -81,13 +80,13 @@ The Amazon ECR repository must be in the same AWS Region as your domain.
 
 1. Push the container image to the Amazon ECR repository. For more information, see [ImagePush](https://docs.docker.com/engine/api/v1.40/#operation/ImagePush) and [Pushing an image](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html).
 
-   ```
+   ```cmd
    docker push {{<repository-uri>}}:{{<tag>}}
    ```
 
    Response:
 
-   ```
+   ```cmd
    The push refers to repository [{{<account-id>}}.dkr.ecr.us-east-2.amazonaws.com/rstudio-custom]
    r: digest: {{<digest>}} size: 3066
    ```
@@ -152,7 +151,7 @@ Use the following steps to create a SageMaker image:
 
 1. Create a SageMaker image. The role ARN must have at least the `AmazonSageMakerFullAccessPolicy` policy attached.
 
-   ```
+   ```cmd
    aws sagemaker create-image \
        --image-name rstudio-custom-image \
        --role-arn arn:aws:iam::{{<acct-id>}}:role/service-role/{{<execution-role>}}
@@ -160,7 +159,7 @@ Use the following steps to create a SageMaker image:
 
    Response:
 
-   ```
+   ```json
    {
        "ImageArn": "arn:aws:sagemaker:us-east-2:acct-id:image/rstudio-custom-image"
    }
@@ -168,7 +167,7 @@ Use the following steps to create a SageMaker image:
 
 1. Create a SageMaker image version from the image. Pass the unique tag value that you chose when you pushed the image to Amazon ECR.
 
-   ```
+   ```cmd
    aws sagemaker create-image-version \
        --image-name rstudio-custom-image \
        --base-image {{<repository-uri>}}:{{<tag>}}
@@ -176,7 +175,7 @@ Use the following steps to create a SageMaker image:
 
    Response:
 
-   ```
+   ```json
    {
        "ImageVersionArn": "arn:aws:sagemaker:us-east-2:acct-id:image-version/rstudio-image/1"
    }
@@ -184,7 +183,7 @@ Use the following steps to create a SageMaker image:
 
 1. Check that the image version was successfully created.
 
-   ```
+   ```cmd
    aws sagemaker describe-image-version \
        --image-name rstudio-custom-image \
        --version 1
@@ -192,7 +191,7 @@ Use the following steps to create a SageMaker image:
 
    Response:
 
-   ```
+   ```json
    {
        "ImageVersionArn": "arn:aws:sagemaker:us-east-2:acct-id:image-version/rstudio-custom-image/1",
        "ImageVersionStatus": "CREATED"
@@ -203,7 +202,7 @@ If the response is `"ImageVersionStatus": "CREATED_FAILED"`, the response also i
 
 1. Create a configuration file, named `app-image-config-input.json`. The app image config is used to configuration for running a SageMaker image as a Kernel Gateway application.
 
-   ```
+   ```json
    {
        "AppImageConfigName": "rstudio-custom-config"
    }
@@ -211,14 +210,14 @@ If the response is `"ImageVersionStatus": "CREATED_FAILED"`, the response also i
 
 1. Create the AppImageConfig using the file that you created in the previous step.
 
-   ```
+   ```cmd
    aws sagemaker create-app-image-config \
        --cli-input-json file://app-image-config-input.json
    ```
 
    Response:
 
-   ```
+   ```json
    {
        "AppImageConfigArn": "arn:aws:sagemaker:us-east-2:acct-id:app-image-config/r-image-config"
    }

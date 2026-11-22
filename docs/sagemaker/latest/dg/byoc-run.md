@@ -1,7 +1,6 @@
 
 
 # Run Your Processing Container Using the SageMaker AI Python SDK
-<a name="byoc-run"></a>
 
 You can use the SageMaker Python SDK to run your own processing image. The following example shows how to run your own processing container with one input from Amazon Simple Storage Service (Amazon S3) and one output to Amazon S3.
 

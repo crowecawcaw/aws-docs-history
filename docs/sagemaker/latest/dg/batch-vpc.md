@@ -1,7 +1,6 @@
 
 
 # Give Batch Transform Jobs Access to Resources in Your Amazon VPC
-<a name="batch-vpc"></a>
 
 To control access to your data and batch transform jobs, we recommend that you create a private Amazon VPC and configure it so that your jobs aren't accessible over the public internet. You specify your private VPC configuration when you create a model by specifying subnets and security groups. You then specify the same model when you create a batch transform job. When you specify the subnets and security groups, SageMaker AI creates *elastic network interfaces* that are associated with your security groups in one of the subnets. Network interfaces allow your model containers to connect to resources in your VPC. For information about network interfaces, see [Elastic Network Interfaces](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ElasticNetworkInterfaces.html) in the *Amazon VPC User Guide*.
 
@@ -14,7 +13,7 @@ To specify subnets and security groups in your private VPC, use the `VpcConfig` 
 
 The following is an example of the `VpcConfig` parameter that you include in your call to `CreateModel`:
 
-```
+```json
 VpcConfig: {
       "Subnets": [
           "subnet-0123456789abcdef0",
@@ -93,7 +92,7 @@ The default endpoint policy allows full access to S3 for any user or service in 
 
 The default endpoint policy allows users to install packages from the Amazon Linux and Amazon Linux 2 repositories on the training container. If you don't want users to install packages from that repository, create a custom endpoint policy that explicitly denies access to the Amazon Linux and Amazon Linux 2 repositories. The following is an example of a policy that denies access to these repositories:
 
-```
+```json
 { 
     "Statement": [ 
       { 
@@ -112,7 +111,7 @@ The default endpoint policy allows users to install packages from the Amazon Lin
 }
 ```
 
-```
+```json
 { 
     "Statement": [ 
         { "Sid": "AmazonLinux2AMIRepositoryAccess",

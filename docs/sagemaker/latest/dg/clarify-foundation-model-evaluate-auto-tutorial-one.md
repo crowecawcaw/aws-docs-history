@@ -1,7 +1,6 @@
 
 
 # Evaluate a JumpStart model for prompt stereotyping
-<a name="clarify-foundation-model-evaluate-auto-tutorial-one"></a>
 
 You can use a high-level `ModelRunner` wrapper to evaluate an Amazon SageMaker JumpStart model for prompt stereotyping. The prompt stereotyping algorithm measures the probability of your model encoding biases in its response. These biases include those for race, gender, sexual orientation, religion, age, nationality, disability, physical appearance, and socioeconomic status. 
 

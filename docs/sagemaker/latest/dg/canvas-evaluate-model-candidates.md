@@ -1,7 +1,6 @@
 
 
 # View model candidates in the model leaderboard
-<a name="canvas-evaluate-model-candidates"></a>
 
 When you do a [Standard build](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-build-model.html) for tabular and time series forecasting models in Amazon SageMaker Canvas, SageMaker AI trains multiple *model candidates* (different iterations of the model) and by default selects the one with the highest value for the optimization metric. For tabular models, Canvas builds up to 250 different model candidates using various algorithms and hyperparameter settings. For time series forecasting models, Canvas builds 7 different models—one for each of the [supported forecasting algorithms](canvas-advanced-settings.md#canvas-advanced-settings-time-series) and one ensemble model that averages the predictions of the other models to try to optimize accuracy.
 

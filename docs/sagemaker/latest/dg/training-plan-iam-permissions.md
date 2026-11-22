@@ -1,7 +1,6 @@
 
 
 # IAM for SageMaker training plans
-<a name="training-plan-iam-permissions"></a>
 
 SageMaker training plans requires specific permissions for two distinct roles::
 
@@ -41,7 +40,7 @@ The following list details the granular permissions that should be set in the IA
 <a name="training-plan-individual-permissions-list"></a>
 + `SearchTrainingPlanOfferings`: This permission allows users to search for available training plan offerings.
 
-  ```
+  ```JSON
   {
     "Sid": "SearchTrainingPlanOfferingsPermissions",
     "Effect": "Allow",
@@ -55,7 +54,7 @@ The following list details the granular permissions that should be set in the IA
 **Note**  
 You must also include permissions for `CreateReservedCapacity` and `AddTags`, and specify both `training-plan` and `reserved-capacity` resource types.
 
-  ```
+  ```JSON
   {
     "Sid": "CreateTrainingPlanPermissions",
     "Effect": "Allow",
@@ -72,7 +71,7 @@ You must also include permissions for `CreateReservedCapacity` and `AddTags`, an
   ```
 + `DescribeTrainingPlan` : This permission allows users to view details of existing training plans.
 
-  ```
+  ```JSON
   {
     "Sid": "DescribeTrainingPlanPermissions",
     "Effect": "Allow",
@@ -86,7 +85,7 @@ You must also include permissions for `CreateReservedCapacity` and `AddTags`, an
   ```
 + `ListTrainingPlans`: This permission allows users to list all training plans in their AWS account.
 
-  ```
+  ```JSON
   {
     "Sid": "ListTrainingPlansPermissions",
     "Effect": "Allow",
@@ -100,7 +99,7 @@ You must also include permissions for `CreateReservedCapacity` and `AddTags`, an
 ### Individual permissions per type of user
 <a name="training-plan-permissions-per-user-type"></a>
 
-This section provides a detailed breakdown of the individual permissions required for each role, as mentioned in the [IAM for SageMaker training plans](#training-plan-iam-permissions) section. 
+This section provides a detailed breakdown of the individual permissions required for each role, as mentioned in the [IAM for SageMaker training plans](training-plan-iam-permissions.md) section. 
 
 For plan creators, the following permissions are necessary:
 + `sagemaker:SearchTrainingPlanOfferings`
@@ -121,7 +120,7 @@ Plan users require these permissions:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -149,7 +148,7 @@ Similarly, for SageMaker HyperPod configurations, include these same ARNs in add
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

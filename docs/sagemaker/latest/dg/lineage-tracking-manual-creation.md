@@ -1,7 +1,6 @@
 
 
 # Manually Create Tracking Entities
-<a name="lineage-tracking-manual-creation"></a>
 
 You can manually create tracking entities for any property to establish model governance, reproduce your workflow, and maintain a record of your work history. For information on the tracking entities that Amazon SageMaker AI automatically creates, see [Amazon SageMaker AI–Created Tracking Entities](lineage-tracking-auto-creation.md). The following tutorial demonstrates the steps needed to manually create and associate artifacts between a SageMaker training job and endpoint, then track the workflow. 
 
@@ -23,7 +22,7 @@ The following procedure shows you how to create and associate artifacts between 
 
 1. Import the lineage tracking entities.
 
-   ```
+   ```py
    import sys
    !{sys.executable} -m pip install -q sagemaker
    
@@ -38,7 +37,7 @@ The following procedure shows you how to create and associate artifacts between 
 
 1. Create the input and output artifacts.
 
-   ```
+   ```py
    code_location_arn = artifact.Artifact.create(
        artifact_name='source-code-location',
        source_uri='s3://...',
@@ -58,7 +57,7 @@ The following procedure shows you how to create and associate artifacts between 
 
 1. Associate the input artifacts and output artifacts with the training job (trial component).
 
-   ```
+   ```py
    input_artifacts = [code_location_arn, train_data_location_arn, test_data_location_arn]
    for artifact_arn in input_artifacts:
        try:
@@ -84,7 +83,7 @@ The following procedure shows you how to create and associate artifacts between 
 
 1. Create the inference endpoint.
 
-   ```
+   ```py
    from sagemaker.serve import ModelBuilder
    
    # model_trainer is the trained model from the training step above
@@ -102,7 +101,7 @@ The following procedure shows you how to create and associate artifacts between 
 
 1. Create the endpoint context.
 
-   ```
+   ```py
    from sagemaker.lineage import context
    
    endpoint_details = sagemaker_client.describe_endpoint(EndpointName=endpoint.endpoint_name)
@@ -117,7 +116,7 @@ The following procedure shows you how to create and associate artifacts between 
 
 1. Associate the training job (trial component) and endpoint context.
 
-   ```
+   ```py
    association.Association.create(
        source_arn=trial_component_arn,
        destination_arn=endpoint_context_arn
@@ -135,7 +134,7 @@ Given the endpoint Amazon Resource Name (ARN) from the previous example, the fol
 
 1. Import the tracking entities.
 
-   ```
+   ```py
    import sys
    !{sys.executable} -m pip install -q sagemaker
    
@@ -150,28 +149,28 @@ Given the endpoint Amazon Resource Name (ARN) from the previous example, the fol
 
 1. Get the endpoint context from the endpoint ARN.
 
-   ```
+   ```py
    endpoint_context_arn = sagemaker_client.list_contexts(
        SourceUri=endpoint_arn)['ContextSummaries'][0]['ContextArn']
    ```
 
 1. Get the trial component from the association between the trial component and the endpoint context.
 
-   ```
+   ```py
    trial_component_arn = sagemaker_client.list_associations(
        DestinationArn=endpoint_context_arn)['AssociationSummaries'][0]['SourceArn']
    ```
 
 1. Get the training data location artifact from the association between the trial component and the endpoint context.
 
-   ```
+   ```py
    train_data_location_artifact_arn = sagemaker_client.list_associations(
        DestinationArn=trial_component_arn, SourceType='Model')['AssociationSummaries'][0]['SourceArn']
    ```
 
 1. Get the training data location from the training data location artifact.
 
-   ```
+   ```py
    train_data_location = sagemaker_client.describe_artifact(
        ArtifactArn=train_data_location_artifact_arn)['Source']['SourceUri']
        print(train_data_location)
@@ -179,7 +178,7 @@ Given the endpoint Amazon Resource Name (ARN) from the previous example, the fol
 
    Response:
 
-   ```
+   ```py
    s3://sagemaker-sample-data-us-east-2/mxnet/mnist/train
    ```
 

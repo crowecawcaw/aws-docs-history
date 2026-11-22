@@ -1,7 +1,6 @@
 
 
 # Add a step to your data flow
-<a name="canvas-data-flow-add-step"></a>
 
 In your Data Wrangler data flows, you can add steps that represent data transformations and analyses.
 

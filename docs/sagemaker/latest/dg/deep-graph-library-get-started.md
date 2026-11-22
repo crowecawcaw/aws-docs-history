@@ -1,7 +1,6 @@
 
 
 # Getting started with training a deep graph network
-<a name="deep-graph-library-get-started"></a>
 
 DGL is available as a deep learning container in Amazon ECR. You can select deep learning containers when you write your ModelTrainer function in an Amazon SageMaker notebook. You can also craft your own custom container with DGL by following the [Bring Your Own Container](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html) guide. The easiest way to get started with a deep graph network uses one of the DGL containers in Amazon Elastic Container Registry.  
 

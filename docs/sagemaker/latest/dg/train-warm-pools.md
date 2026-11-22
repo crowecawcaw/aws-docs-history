@@ -1,7 +1,6 @@
 
 
 # SageMaker AI Managed Warm Pools
-<a name="train-warm-pools"></a>
 
 SageMaker AI managed warm pools let you retain and reuse provisioned infrastructure after the completion of a training job to reduce latency for repetitive workloads, such as iterative experimentation or running many jobs consecutively. Subsequent training jobs that match specified parameters run on the retained warm pool infrastructure, which speeds up start times by reducing the time spent provisioning resources. 
 

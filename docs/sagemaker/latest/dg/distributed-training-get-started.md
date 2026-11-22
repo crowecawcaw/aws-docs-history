@@ -1,7 +1,6 @@
 
 
 # Get started with distributed training in Amazon SageMaker AI
-<a name="distributed-training-get-started"></a>
 
 The following page gives information about the steps needed to get started with distributed training in Amazon SageMaker AI. If you’re already familiar with distributed training, choose one of the following options that matches your preferred strategy or framework to get started. If you want to learn about distributed training in general, see [Distributed training concepts](distributed-training.md#distributed-training-basic-concepts).
 
@@ -30,7 +29,7 @@ You can technically use any instances for distributed training. For cases where 
 
 The SMDDP library improves communication between nodes with implementations of `AllReduce` and `AllGather` collective communication operations that are optimized for AWS network infrastructure and Amazon SageMaker AI ML instance topology. You can use the [SMDDP library as the backend of PyTorch-based distributed training packages](https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-modify-sdp-pt.html): [PyTorch distributed data parallel (DDP)](https://pytorch.org/docs/stable/notes/ddp.html), [PyTorch fully sharded data parallelism (FSDP)](https://pytorch.org/docs/stable/fsdp.html), [DeepSpeed](https://github.com/microsoft/DeepSpeed), and [Megatron-DeepSpeed](https://github.com/microsoft/Megatron-DeepSpeed). The following code example shows how to set a `PyTorch` estimator for launching a distributed training job on two `ml.p4d.24xlarge` instances.
 
-```
+```py
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import Compute
 from sagemaker.train.distributed import Torchrun
@@ -74,7 +73,7 @@ SageMaker AI also supports the following options to operate `mpirun` and `torchr
 **Note**  
 This option is available for PyTorch 1.12.0 and later.
 
-  ```
+  ```py
   from sagemaker.train import ModelTrainer
   from sagemaker.train.configs import Compute
   from sagemaker.train.distributed import Torchrun
@@ -93,7 +92,7 @@ This option is available for PyTorch 1.13.0 and later.
 
   The following code snippet shows an example of constructing a SageMaker AI PyTorch estimator to run distributed training on two `ml.p4d.24xlarge` instances with the `torch_distributed` distribution option.
 
-  ```
+  ```py
   from sagemaker.train import ModelTrainer
   from sagemaker.train.configs import Compute
   from sagemaker.train.distributed import Torchrun

@@ -1,7 +1,6 @@
 
 
 # Stop Training Jobs Early
-<a name="automatic-model-tuning-early-stopping"></a>
 
 Stop the training jobs that a hyperparameter tuning job launches early when they are not improving significantly as measured by the objective metric. Stopping training jobs early can help reduce compute time and helps you avoid overfitting your model. To configure a hyperparameter tuning job to stop training jobs early, do one of the following:
 + If you are using the AWS SDK for Python (Boto3), set the `TrainingJobEarlyStoppingType` field of the [`HyperParameterTuningJobConfig`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html) object that you use to configure the tuning job to `AUTO`.

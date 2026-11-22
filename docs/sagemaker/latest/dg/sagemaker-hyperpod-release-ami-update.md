@@ -1,7 +1,6 @@
 
 
 # Update your AMI version in your SageMaker HyperPod cluster
-<a name="sagemaker-hyperpod-release-ami-update"></a>
 
 Amazon SageMaker HyperPod Amazon Machine Images (AMIs) are specialized machine images for distributed machine learning workloads and high-performance computing. Each AMI comes pre-loaded with drivers, machine learning frameworks, training libraries, and performance monitoring tools. By updating the AMI version in your cluster, you can use the latest versions of these components and packages for your training jobs and workflows.
 

@@ -1,7 +1,6 @@
 
 
 # Connect to an EMR Serverless application from Studio
-<a name="connect-emr-serverless-application"></a>
 
 Data scientists and data engineers can discover and then connect to an EMR Serverless application directly from the Studio user interface. Before you begin, ensure that you have created an EMR Serverless application by following the instructions in [Create EMR Serverless applications from Studio](create-emr-serverless-application.md).
 

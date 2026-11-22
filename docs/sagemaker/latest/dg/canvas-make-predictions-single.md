@@ -1,7 +1,6 @@
 
 
 # Make single predictions
-<a name="canvas-make-predictions-single"></a>
 
 **Note**  
 This section describes how to get single predictions from your model inside the Canvas application. For information about making real-time invocations in a production environment by deploying your model to an endpoint, see [Deploy your models to an endpoint](canvas-deploy-model.md).

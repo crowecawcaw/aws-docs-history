@@ -1,7 +1,6 @@
 
 
 # Encrypt Output Data and Storage Volume with AWS KMS
-<a name="sms-security-kms-permissions"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
@@ -17,7 +16,7 @@ If you specify an AWS KMS customer managed key to encrypt output data, you must 
 
 To use this policy, replace the IAM service-role ARN in `"Principal"` with the ARN of the execution role you use to create the labeling job. When you create a labeling job in the console, this is the role you specify for **IAM Role** under the **Job overview** section. When you create a labeling job using `CreateLabelingJob`, this is ARN you specify for [`RoleArn`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html#sagemaker-CreateLabelingJob-request-RoleArn).
 
-```
+```json
 {
     "Sid": "AllowUseOfKmsKey",
     "Effect": "Allow",
@@ -47,7 +46,7 @@ If you specify a [`VolumeKmsKeyId`](https://docs.aws.amazon.com/sagemaker/latest
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	  
 "Statement": 

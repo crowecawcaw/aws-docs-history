@@ -1,7 +1,6 @@
 
 
 # Prerequisites for using Amazon SageMaker Inference Recommender
-<a name="inference-recommender-prerequisites"></a>
 
 Before you can use Amazon SageMaker Inference Recommender, you must complete the prerequisite steps. As an example, we show how to use a PyTorch (v1.7.1) ResNet-18 pre-trained model for both types of Amazon SageMaker Inference Recommender recommendation jobs. The examples shown use the AWS SDK for Python (Boto3).
 
@@ -17,7 +16,7 @@ You can run the following examples with the Python 3 (TensorFlow 2.6 Python 3.8 
 
    Import dependencies and create variables for your AWS Region, your SageMaker AI IAM role (from Step 1), and the SageMaker AI client.
 
-   ```
+   ```python
    !pip install --upgrade pip awscli botocore boto3  --quiet
    from sagemaker.core.helper.session_helper import get_execution_role, Session
    from sagemaker.core import image_uris
@@ -37,13 +36,13 @@ You can run the following examples with the Python 3 (TensorFlow 2.6 Python 3.8 
 
    You use the domain, framework, framework version, task, and model name in later steps to both select an inference Docker image and register your model with SageMaker Model Registry. The following demonstrates how to list model metadata with SDK for Python (Boto3): 
 
-   ```
+   ```python
    list_model_metadata_response=sagemaker_client.list_model_metadata()
    ```
 
    The output includes model summaries (`ModelMetadataSummaries`) and response metadata (`ResponseMetadata`) similar to the following example:
 
-   ```
+   ```python
    {
        'ModelMetadataSummaries': [{
                'Domain': 'NATURAL_LANGUAGE_PROCESSING',
@@ -85,7 +84,7 @@ You can run the following examples with the Python 3 (TensorFlow 2.6 Python 3.8 
 
    For this demo, we use a PyTorch (v1.7.1) ResNet-18 model to perform image classification. The following Python code sample stores the framework, framework version, domain, and task into variables for later use:
 
-   ```
+   ```python
    # ML framework details
    framework = 'pytorch'
    framework_version = '1.7.1'
@@ -99,7 +98,7 @@ You can run the following examples with the Python 3 (TensorFlow 2.6 Python 3.8 
 
    Use this PyTorch (v1.7.1) ResNet-18 model if you do not have a pre-trained machine learning model:
 
-   ```
+   ```python
    # Optional: Download a sample PyTorch model
    import torch
    from torchvision import models, transforms, datasets
@@ -120,7 +119,7 @@ You can run the following examples with the Python 3 (TensorFlow 2.6 Python 3.8 
 
    Download a sample inference script `inference.py`. Create a `code` directory and move the inference script to the `code` directory.
 
-   ```
+   ```bash
    # Download the inference script
    !wget https://aws-ml-blog-artifacts.s3.us-east-2.amazonaws.com/inference.py
    
@@ -131,7 +130,7 @@ You can run the following examples with the Python 3 (TensorFlow 2.6 Python 3.8 
 
    Amazon SageMaker AI requires pre-trained machine learning models to be packaged as a compressed TAR file (`*.tar.gz`). Compress your model and inference script to satisfy this requirement:
 
-   ```
+   ```python
    !tar -czf test.tar.gz model.pth code/inference.py
    ```
 
@@ -139,7 +138,7 @@ You can run the following examples with the Python 3 (TensorFlow 2.6 Python 3.8 
 
    After you compress your model and model artifacts as a `.tar.gz` file, upload them to your Amazon S3 bucket. The following example demonstrates how to upload your model to Amazon S3 using the AWS CLI:
 
-   ```
+   ```python
    !aws s3 cp test.tar.gz s3://{{{your-bucket}}}/models/
    ```
 
@@ -151,7 +150,7 @@ You can run the following examples with the Python 3 (TensorFlow 2.6 Python 3.8 
 
    The following demonstrates how to retrieve a PyTorch version 1.7.1 inference image using the SageMaker Python SDK:
 
-   ```
+   ```python
    from sagemaker.core import image_uris
    
    ## Uncomment and replace with your own values if you did not define  
@@ -179,25 +178,25 @@ You can run the following examples with the Python 3 (TensorFlow 2.6 Python 3.8 
 
    The following downloads a .jpg image that this example uses in a later step for the ResNet-18 model.
 
-   ```
+   ```python
    !wget https://cdn.pixabay.com/photo/2020/12/18/05/56/flowers-5841251_1280.jpg
    ```
 
    Compress the sample payload as a tarball:
 
-   ```
+   ```python
    !tar -cvzf payload.tar.gz flowers-5841251_1280.jpg
    ```
 
    Upload the sample payload to Amazon S3 and note the Amazon S3 URI:
 
-   ```
+   ```python
    !aws s3 cp payload.tar.gz s3://{bucket}/models/
    ```
 
    You need the Amazon S3 URI in a later step, so store it in a variable:
 
-   ```
+   ```python
    bucket_prefix='models'
    bucket = {{'<your-bucket-name>'}} # Provide the name of your S3 bucket
    payload_s3_key = f"{bucket_prefix}/payload.tar.gz"
@@ -226,7 +225,7 @@ You do not need to approve the model package to create an Inference Recommender 
 
       Create a model package group with the `CreateModelPackageGroup` API. Provide a name to the model package group for the `ModelPackageGroupName` and optionally provide a description of the model package in the `ModelPackageGroupDescription` field.
 
-      ```
+      ```python
       model_package_group_name = {{'<INSERT>'}}
       model_package_group_description = {{'<INSERT>'}} 
       
@@ -256,7 +255,7 @@ You do not need to approve the model package to create an Inference Recommender 
 
       In a previous step, we downloaded a pre-trained ResNet18 model and stored it in an Amazon S3 bucket in a directory called `models`. We retrieved a PyTorch (v1.7.1) Deep Learning Container inference image and stored the URI in a variable called `image_uri`. Use those variables in the following code sample to define a dictionary used as input to the [`CreateModelPackage`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModelPackage.html) API.
 
-      ```
+      ```python
       # Provide the Amazon S3 URI of your compressed tarfile
       # so that Model Registry knows where to find your model artifacts
       bucket_prefix='models'
@@ -317,13 +316,13 @@ You do not need to approve the model package to create an Inference Recommender 
 
       Use the `CreateModelPackage` API to create a model package. Pass the input dictionary defined in the previous step:
 
-      ```
+      ```python
       model_package_response = sagemaker_client.create_model_package(**model_package_input_dict)
       ```
 
       You need the model package ARN to use Amazon SageMaker Inference Recommender. Note the ARN of the model package or store it in a variable:
 
-      ```
+      ```python
       model_package_arn = model_package_response["ModelPackageArn"]
       
       print('ModelPackage Version ARN : {}'.format(model_package_arn))
@@ -339,7 +338,7 @@ You do not need to approve the model package to create an Inference Recommender 
 
       In a previous step, we downloaded a pre-trained ResNet18 model and stored it in an Amazon S3 bucket in a directory called `models`. We retrieved a PyTorch (v1.7.1) Deep Learning Container inference image and stored the URI in a variable called `image_uri`. We use those variables in the following code example where we define a dictionary used as input to the `[CreateModel](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html#sagemaker-CreateModel-request-ModelName)` API.
 
-      ```
+      ```python
       model_name = '{{<name_of_the_model>}}'
       # Role to give SageMaker permission to access AWS services.
       sagemaker_role= "arn:aws:iam::{{<region>}}:{{<account>}}:role/*"
@@ -375,7 +374,7 @@ You do not need to approve the model package to create an Inference Recommender 
 
       In the following code example, we use the previously defined parameters, along with `NearestModelName`, to define a dictionary used as input to the `[CreateInferenceRecommendationsJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceRecommendationsJob.html)` API.
 
-      ```
+      ```python
       ## Uncomment if you did not store the domain and task in a previous step
       #ml_domain = 'COMPUTER_VISION'
       #ml_task = 'IMAGE_CLASSIFICATION'

@@ -1,7 +1,6 @@
 
 
 # Evaluate a text generation foundation model in Studio
-<a name="jumpstart-foundation-models-evaluate"></a>
 
 **Note**  
 Foundation Model Evaluations (FMEval) is in preview release for Amazon SageMaker Clarify and is subject to change.

@@ -1,7 +1,6 @@
 
 
 # Configure a VPC for SageMaker AI training sessions
-<a name="training-sessions-vpc"></a>
 
 When you provide a `VpcConfig` in your `CreateTrainingSession` request, SageMaker AI training sessions place a proxy elastic network interface (ENI) in your VPC. All customer data traffic — including access to your Amazon S3 buckets for checkpoints and model artifacts — flows through this ENI. This keeps data within your VPC network boundary.
 
@@ -20,7 +19,7 @@ Provide at least two private subnets in different Availability Zones for redunda
 
 Enable DNS support and DNS hostnames on your VPC.
 
-```
+```bash
 aws ec2 modify-vpc-attribute --vpc-id vpc-0abc123 \
     --enable-dns-support '{"Value": true}'
 aws ec2 modify-vpc-attribute --vpc-id vpc-0abc123 \
@@ -45,7 +44,7 @@ Up to 5 security groups are supported.
 
 The following example creates the security group and its egress rules. Replace `10.0.0.0/16` with your VPC CIDR.
 
-```
+```bash
 SG_ID=$(aws ec2 create-security-group \
     --group-name training-session-proxy-sg \
     --description "Proxy ENI for SageMaker Training Sessions" \
@@ -81,7 +80,7 @@ Create a security group for the interface endpoint, then create the Amazon S3 in
 **Important**  
 Enable Private DNS on the endpoint. The service proxy uses your VPC's DNS resolver to reach Amazon S3. Without Private DNS, Amazon S3 hostnames don't resolve to private IP addresses, and checkpoint operations fail. The following command sets `--private-dns-enabled`.
 
-```
+```bash
 ENDPOINT_SG_ID=$(aws ec2 create-security-group \
     --group-name training-session-endpoint-sg \
     --description "S3 interface endpoint for SageMaker Training Sessions" \
@@ -101,7 +100,7 @@ aws ec2 create-vpc-endpoint \
 
 The Amazon S3 interface endpoint must have a security group that allows inbound TCP 443 from your VPC CIDR.
 
-```
+```bash
 aws ec2 authorize-security-group-ingress --group-id ${ENDPOINT_SG_ID} \
     --protocol tcp --port 443 --cidr 10.0.0.0/16
 ```
@@ -111,7 +110,7 @@ aws ec2 authorize-security-group-ingress --group-id ${ENDPOINT_SG_ID} \
 
 The execution role you pass as `RoleArn` to `CreateTrainingSession` must have Amazon EC2 permissions to manage the proxy ENI on your behalf. The `AmazonSageMakerTrainingSessionFullAccess` managed policy includes these permissions. If you use a custom execution role, add the following three policy statements.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -171,7 +170,7 @@ The execution role you pass as `RoleArn` to `CreateTrainingSession` must have Am
 
 Include the `VpcConfig` parameter in your `CreateTrainingSession` request. Specify up to 5 security group IDs and up to 16 subnet IDs.
 
-```
+```json
 {
     "VpcConfig": {
         "SecurityGroupIds": ["sg-0abc123def"],
@@ -182,7 +181,7 @@ Include the `VpcConfig` parameter in your `CreateTrainingSession` request. Speci
 
 Using the AWS CLI:
 
-```
+```bash
 aws sagemaker create-training-session \
     --training-session-name my-session \
     --role-arn arn:aws:iam::111122223333:role/MySageMakerRole \
@@ -201,7 +200,7 @@ You can apply additional controls to harden your VPC configuration.
 
 To restrict Amazon S3 access to requests originating from your VPC endpoint only, add a deny statement with the `aws:SourceVpce` condition key. This prevents any Amazon S3 access that does not flow through your specific Amazon S3 interface endpoint — including direct access from the public internet or from other VPC endpoints. For more information, see [Using Amazon S3 bucket policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html).
 
-```
+```json
 {
     "Sid": "DenyAccessFromOutsideVpcEndpoint",
     "Effect": "Deny",
@@ -226,7 +225,7 @@ Replace `vpce-0abc123def456` with the VPC endpoint ID of the Amazon S3 interface
 
 You can attach a resource policy to your Amazon S3 interface endpoint to limit which actions and buckets are accessible through it. The following example restricts the endpoint to the specific Amazon S3 actions that training sessions require on your training bucket.
 
-```
+```json
 {
     "Statement": [
         {

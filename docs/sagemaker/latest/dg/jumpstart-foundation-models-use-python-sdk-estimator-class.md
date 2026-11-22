@@ -1,7 +1,6 @@
 
 
 # Fine-tune publicly available foundation models with the `ModelTrainer` class
-<a name="jumpstart-foundation-models-use-python-sdk-estimator-class"></a>
 
 **Note**  
 For instructions on fine-tuning foundation models in a private curated hub, see [Fine-tune curated hub models](jumpstart-curated-hubs-fine-tune.md).
@@ -12,7 +11,7 @@ You can fine-tune a built-in algorithm or pre-trained model in just a few lines 
 
 1. Using the model ID, define your training job with a JumpStart `ModelTrainer`.
 
-   ```
+   ```python
    from sagemaker.train import ModelTrainer
    from sagemaker.core.jumpstart.configs import JumpStartConfig
    
@@ -22,7 +21,7 @@ You can fine-tune a built-in algorithm or pre-trained model in just a few lines 
 
 1. Call the `train()` method on your `ModelTrainer`, pointing to the training data to use for fine-tuning.
 
-   ```
+   ```python
    from sagemaker.train.configs import InputData
    
    model_trainer.train(
@@ -35,7 +34,7 @@ You can fine-tune a built-in algorithm or pre-trained model in just a few lines 
 
 1. Then, use the `deploy` method to automatically deploy your model for inference. In this example, we use the GPT-J 6B model from Hugging Face.
 
-   ```
+   ```python
    from sagemaker.serve import ModelBuilder
    
    model_builder = ModelBuilder.from_jumpstart_config(jumpstart_config=jumpstart_config)
@@ -45,7 +44,7 @@ You can fine-tune a built-in algorithm or pre-trained model in just a few lines 
 
 1. You can then run inference with the deployed model using the `invoke` method. Text-generation models like this one accept a JSON request body with an `inputs` key. Serialize the payload with `json.dumps` and set the content type to `application/json`.
 
-   ```
+   ```python
    import json
    
    question = {{"What is Southern California often abbreviated as?"}}
@@ -64,7 +63,7 @@ You can optionally specify a model version on your `JumpStartConfig`. To choose 
 
 When fine-tuning a pre-trained model with the `ModelTrainer` class, you can optionally specify a model version on your `JumpStartConfig`. You can also choose an instance type with a `Compute` object. All JumpStart models have a default instance type. Retrieve the default training instance type using the following code:
 
-```
+```python
 from sagemaker.core import instance_types
 
 instance_type = instance_types.retrieve_default(
@@ -81,7 +80,7 @@ You can see all supported instance types for a given JumpStart model with the `i
 
 To check the default hyperparameters used for training, you can use the `retrieve_default()` method from the `hyperparameters` class.
 
-```
+```python
 from sagemaker.core import hyperparameters
 
 my_hyperparameters = hyperparameters.retrieve_default(model_id=model_id, model_version=model_version)
@@ -102,7 +101,7 @@ For more information on available hyperparameters, see [Commonly supported fine-
 
 You can also check the default metric definitions:
 
-```
+```python
 from sagemaker.core import metric_definitions
 
 print(metric_definitions.retrieve_default(model_id=model_id, model_version=model_version))

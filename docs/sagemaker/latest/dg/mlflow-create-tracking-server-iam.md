@@ -1,7 +1,6 @@
 
 
 # Set up IAM permissions for MLflow
-<a name="mlflow-create-tracking-server-iam"></a>
 
 You must configure the necessary IAM service roles to get started with MLflow in Amazon SageMaker AI. 
 
@@ -50,7 +49,7 @@ When creating the tracking server IAM service role, use the following IAM trust 
 
 ****  
 
-```
+```json
 {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -79,7 +78,7 @@ In the IAM console, add the following permissions policy to your tracking server
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -115,7 +114,7 @@ You can create a new role or update an existing role. The SageMaker AI service r
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	     
     "Statement": [        
@@ -149,7 +148,7 @@ The following steps assume that you have an ARN for an MLflow Tracking Server al
 
 The following command creates a file called `mlflow-policy.json` that provides your tracking server with IAM permissions for all available SageMaker AI MLflow actions. You can optionally limit the permissions a user has by choosing the specific actions you want that user to perform. For a list of available actions, see [IAM actions supported for MLflow](#mlflow-create-tracking-server-iam-actions).
 
-```
+```bash
 # Replace "Resource":"*" with "Resource":"TrackingServerArn" 
 # Replace "sagemaker-mlflow:*" with specific actions
 
@@ -167,7 +166,7 @@ printf '{
 
 Use the `mlflow-policy.json` file to create an IAM policy using the AWS CLI. 
 
-```
+```bash
 aws iam create-policy \
   --policy-name {{MLflowPolicy}} \
   --policy-document {{file://mlflow-policy.json}}
@@ -175,7 +174,7 @@ aws iam create-policy \
 
 Retrieve your account ID and attach the policy to your IAM role.
 
-```
+```bash
 # Get your account ID
 aws sts get-caller-identity
 

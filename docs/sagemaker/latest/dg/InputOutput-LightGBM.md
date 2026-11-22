@@ -1,7 +1,6 @@
 
 
 # Input and Output interface for the LightGBM algorithm
-<a name="InputOutput-LightGBM"></a>
 
 Gradient boosting operates on tabular data, with the rows representing observations, one column representing the target variable or label, and the remaining columns representing features. 
 
@@ -38,7 +37,7 @@ SageMaker AI LightGBM uses the Python Joblib module to serialize or deserialize 
 **To use a model trained with SageMaker AI LightGBM with the JobLib module**
 + Use the following Python code:
 
-  ```
+  ```python
   import joblib 
   import tarfile
   

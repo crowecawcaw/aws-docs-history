@@ -1,7 +1,6 @@
 
 
 # Using the training operator to run jobs
-<a name="sagemaker-eks-operator-usage"></a>
 
  To use kubectl to run the job, you must create a job.yaml to specify the job specifications and run `kubectl apply -f job.yaml` to submit the job. In this YAML file, you can specify custom configurations in the `logMonitoringConfiguration` argument to define automated monitoring rules that analyze log outputs from the distributed training job to detect problems and recover. 
 

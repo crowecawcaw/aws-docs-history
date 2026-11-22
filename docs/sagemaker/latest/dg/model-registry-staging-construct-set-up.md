@@ -1,7 +1,6 @@
 
 
 # Set up Staging Construct Examples
-<a name="model-registry-staging-construct-set-up"></a>
 
 To set up stage constructs for your Amazon SageMaker Model Registry, the administrator will need to grant the relevant permissions to the intended roles. The following provides examples on how to set up stage constructs for various roles.
 
@@ -10,7 +9,7 @@ Users within a Amazon SageMaker AI domain will be able to view all stages define
 
 Stages are defined by the `ModelLifeCycle` parameter and have the following structure. The administrator sets up the permissions for which `stage` and `stageStatus` can be accessed by which roles. The users assuming a role can use the relevant `stage` and `stageStatus` and include their own `stageDescription`.
 
-```
+```python
 ModelLifeCycle {
     stage: String # Required (e.g., Development/QA/Production)
     stageStatus: String # Required (e.g., PendingApproval/Approved/Rejected)  
@@ -42,7 +41,7 @@ The following is an example IAM policy using model lifecycle condition keys. You
 + Create or update a model with the stage `"Development"` and status `"Approved"`.
 + Update a model package with the stage quality assurance, `"QA"`, and status `"PendingApproval"`.
 
-```
+```json
 {
     "Action" : [
         "sagemaker:UpdateModelPackage",
@@ -82,7 +81,7 @@ The following is an example IAM policy using model lifecycle condition keys. You
   + The stage `"QA"` and status `"Approved"` or `"Rejected"`.
   + The stage `"Production"` and status `"PendingApproval"`.
 
-```
+```json
 {
     "Action": [
         "sagemaker:UpdateModelPackage"
@@ -133,7 +132,7 @@ The following is an example IAM policy using model lifecycle condition keys. You
   + The stage `"Production"` and status `"Approved"` or `"Rejected"`.
   + The stage `"Development"` and status `"PendingApproval"`.
 
-```
+```json
 {
     "Action" : [
         "sagemaker:UpdateModelPackage"

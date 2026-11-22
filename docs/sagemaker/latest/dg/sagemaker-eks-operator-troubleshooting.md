@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="sagemaker-eks-operator-troubleshooting"></a>
 
 See the following sections to learn how to troubleshoot error when using the training operator.
 

@@ -1,7 +1,6 @@
 
 
 # Relaunch an application
-<a name="canvas-manage-apps-relaunch"></a>
 
 If you delete or log out of your SageMaker Canvas application and want to relaunch the application, use the following procedure.
 

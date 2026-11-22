@@ -1,7 +1,6 @@
 
 
 # Trainium SageMaker training jobs pre-training tutorial
-<a name="sagemaker-hyperpod-trainium-sagemaker-training-jobs-pretrain-tutorial"></a>
 
 This tutorial guides you through the process of setting up and running a pre-training job using SageMaker training jobs with AWS Trainium instances.
 + Set up your environment
@@ -32,7 +31,7 @@ Before you run a SageMaker training job, use the `aws configure` command to conf
 We strongly recommend using a SageMaker AI Jupyter notebook in SageMaker AI JupyterLab to launch a SageMaker training job. For more information, see [SageMaker JupyterLab](studio-updated-jl.md).
 + (Optional) If you are using Jupyter notebook in Amazon SageMaker Studio, you can skip running the following command. Make sure to use a version >= python 3.9
 
-  ```
+  ```bash
   # set up a virtual environment
   python3 -m venv ${PWD}/venv
   source venv/bin/activate
@@ -44,7 +43,7 @@ We strongly recommend using a SageMaker AI Jupyter notebook in SageMaker AI Jupy
   ```
 + Install SageMaker AI Python SDK
 
-  ```
+  ```bash
   pip3 install --upgrade sagemaker
   ```
 + 
@@ -59,7 +58,7 @@ We strongly recommend using a SageMaker AI Jupyter notebook in SageMaker AI Jupy
 You can use the following Python code to run a SageMaker training job using your recipe. It leverages the PyTorch ModelTrainer from the [SageMaker AI Python SDK](https://sagemaker.readthedocs.io/en/stable/) to submit the recipe. The following example launches the llama3-8b recipe as a SageMaker AI Training Job.
 + `compiler_cache_url`: Cache to be used to save the compiled artifacts, such as an Amazon S3 artifact.
 
-```
+```python
 import os
 import boto3
 from sagemaker.core.debugger import TensorBoardOutputConfig
@@ -116,7 +115,7 @@ The preceding code creates a ModelTrainer object with the training recipe and th
 + Update `./recipes_collection/cluster/sm_jobs.yaml`
   + compiler\_cache\_url: The URL used to save the artifacts. It can be an Amazon S3 URL.
 
-  ```
+  ```yaml
   sm_jobs_config:
     output_path: {{<s3_output_path>}}
     wait: True
@@ -143,7 +142,7 @@ The preceding code creates a ModelTrainer object with the training recipe and th
   ```
 + Update `./recipes_collection/config.yaml`
 
-  ```
+  ```yaml
   defaults:
     - _self_
     - cluster: sm_jobs
@@ -155,7 +154,7 @@ The preceding code creates a ModelTrainer object with the training recipe and th
   ```
 + Launch the job with `main.py`
 
-  ```
+  ```bash
   python3 main.py --config-path recipes_collection --config-name config
   ```
 

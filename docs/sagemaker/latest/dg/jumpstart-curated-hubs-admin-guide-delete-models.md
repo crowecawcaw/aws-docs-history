@@ -1,10 +1,9 @@
 
 
 # Delete models from a private hub
-<a name="jumpstart-curated-hubs-admin-guide-delete-models"></a>
 
 You can delete models from a private hub used by your organization by specifying the model ARN in the `hub.delete_model_reference()` method. This removes access to the model from the private hub.
 
-```
+```python
 hub.delete_model_reference({{model-name}})
 ```

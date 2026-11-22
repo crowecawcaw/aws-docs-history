@@ -1,7 +1,6 @@
 
 
 # Define Hyperparameter Ranges
-<a name="automatic-model-tuning-define-ranges"></a>
 
 This guide shows how to use SageMaker APIs to define hyperparameter ranges. It also provides a list of hyperparameter scaling types that you can use.
 

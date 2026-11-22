@@ -1,7 +1,6 @@
 
 
 # Programming Model for Amazon SageMaker AI
-<a name="how-it-works-prog-model"></a>
 
 Making API calls directly from code is cumbersome, and requires you to write code to authenticate your requests. Amazon SageMaker AI provides the following alternatives:
 + **Use the SageMaker AI console**–With the console, you don't write any code. You use the console UI to start model training or deploy a model. The console works well for simple jobs, where you use a built-in training algorithm and you don't need to preprocess training data. 

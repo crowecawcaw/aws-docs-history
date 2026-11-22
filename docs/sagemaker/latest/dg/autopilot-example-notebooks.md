@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker Autopilot example notebooks
-<a name="autopilot-example-notebooks"></a>
 
 The following notebooks serve as practical, hands-on examples that address various use cases of Autopilot.
 

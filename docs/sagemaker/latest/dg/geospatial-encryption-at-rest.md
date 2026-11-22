@@ -1,7 +1,6 @@
 
 
 # SageMaker geospatial capabilities
-<a name="geospatial-encryption-at-rest"></a>
 
 You can protect your data at rest using encryption for SageMaker geospatial.
 <a name="geospatial-encryption-at-rest-gmk"></a>

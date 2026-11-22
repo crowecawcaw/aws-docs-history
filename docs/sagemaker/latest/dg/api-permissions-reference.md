@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker AI API Permissions: Actions, Permissions, and Resources Reference
-<a name="api-permissions-reference"></a>
 
 When you are setting up access control and writing a permissions policy that you can attach to an IAM identity (an identity-based policy), use the following table as a reference. The table lists each Amazon SageMaker AI API operation, the corresponding actions for which you can grant permissions to perform the action, and the AWS resource for which you can grant the permissions. You specify the actions in the policy's `Action` field, and you specify the resource value in the policy's `Resource` field. 
 

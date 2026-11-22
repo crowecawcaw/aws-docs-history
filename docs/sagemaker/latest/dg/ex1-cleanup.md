@@ -1,7 +1,6 @@
 
 
 # Clean up Amazon SageMaker notebook instance resources
-<a name="ex1-cleanup"></a>
 
 To avoid incurring unnecessary charges, use the AWS Management Console to delete the endpoints and resources that you created while running the exercises. 
 

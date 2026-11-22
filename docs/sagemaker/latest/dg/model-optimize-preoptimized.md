@@ -1,7 +1,6 @@
 
 
 # Deploy a pre-optimized model
-<a name="model-optimize-preoptimized"></a>
 
 Some models in JumpStart are pre-optimized by SageMaker AI, which means that you can deploy optimized versions of these models without first creating an inference optimization job. 
 
@@ -43,7 +42,7 @@ For more information about the classes and methods used in the following example
 
 1. In your application code, import the necessary libraries. The following example imports the SDK for Python (Boto3). It also imports the modules from the SageMaker AI Python SDK that you use to define and work with models:
 
-   ```
+   ```python
    import boto3
    from sagemaker.serve.model_builder import ModelBuilder
    from sagemaker.serve.builder.schema_builder import SchemaBuilder
@@ -52,7 +51,7 @@ For more information about the classes and methods used in the following example
 
 1. Initialize a SageMaker AI session. The following example uses the `Session()` class:
 
-   ```
+   ```python
    sagemaker_session = Session()
    ```
 
@@ -64,7 +63,7 @@ For more information about the classes and methods used in the following example
 
    The following example provides sample input and output strings to the `SchemaBuilder` class:
 
-   ```
+   ```python
    response = "Jupiter is the largest planet in the solar system. It is the fifth planet from the sun."
    sample_input = {
        "inputs": "What is the largest planet in the solar system?",
@@ -76,7 +75,7 @@ For more information about the classes and methods used in the following example
 
 1. Define your model to SageMaker AI. The following example sets the parameters to initialize a `ModelBuilder` instance:
 
-   ```
+   ```python
    model_builder = ModelBuilder(
        model="{{jumpstart-model-id}}",
        schema_builder=schema_builder,
@@ -91,7 +90,7 @@ For more information about the classes and methods used in the following example
 
 1. To determine which pre-optimized configuration you want to deploy, look up the options that SageMaker AI provides. The following example displays them:
 
-   ```
+   ```python
    model_builder.display_benchmark_metrics()
    ```
 
@@ -118,7 +117,7 @@ For more information about the classes and methods used in the following example
 
 1. Create a deployment configuration. The following example uses a `ModelBuilder` instance. It passes an instance type and configuration name to the to the `set_deployment_config()` method:
 
-   ```
+   ```python
    model_builder.set_deployment_config(
        config_name="{{config-name}}", 
        instance_type="{{instance-type}}",
@@ -129,7 +128,7 @@ For more information about the classes and methods used in the following example
 
 1. Build your model. The following example uses the `.build()` method of the `ModelBuilder` instance:
 
-   ```
+   ```python
    optimized_model = model_builder.build()
    ```
 
@@ -137,7 +136,7 @@ For more information about the classes and methods used in the following example
 
 1. Deploy your model to an inference endpoint. The following example uses the `.deploy()` method of the `ModelBuilder` instance:
 
-   ```
+   ```python
    endpoint = model_builder.deploy(accept_eula=True)
    ```
 
@@ -146,7 +145,7 @@ For more information about the classes and methods used in the following example
 **To test your model with an inference request**
 + After you deploy your model to an inference endpoint, test the model's predictions. The following example sends an inference request by using the `Endpoint` object:
 
-  ```
+  ```python
   import json
   
   response = endpoint.invoke(body=json.dumps(sample_input), content_type="application/json")
@@ -155,7 +154,7 @@ For more information about the classes and methods used in the following example
 
   The model returns the text that it generates with a response like the following:
 
-  ```
+  ```python
   {'generated_text': ' Jupiter is the largest planet in the solar system. It is the fifth planet from the sun. It is a gas giant with . . .'}
   ```
 

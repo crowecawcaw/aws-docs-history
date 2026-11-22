@@ -1,7 +1,6 @@
 
 
 # Pipeline parameters
-<a name="build-and-manage-parameters"></a>
 
 You can introduce variables into your pipeline definition using parameters. You can reference parameters that you define throughout your pipeline definition. Parameters have a default value, which you can override by specifying parameter values when starting a pipeline execution. The default value must be an instance matching the parameter type. All parameters used in step definitions must be defined in your pipeline definition. This topic describes the parameters that you can define and how to implement them.
 
@@ -13,7 +12,7 @@ Amazon SageMaker Pipelines supports the following parameter types:
 
 Parameters take the following format:
 
-```
+```python
 {{<parameter>}} = {{<parameter_type>}}(
     name="{{<parameter_name>}}",
     default_value={{<default_value>}}
@@ -22,7 +21,7 @@ Parameters take the following format:
 
 The following example shows a sample parameter implementation.
 
-```
+```python
 from sagemaker.workflow.parameters import (
     ParameterInteger,
     ParameterString,
@@ -38,7 +37,7 @@ processing_instance_count = ParameterInteger(
 
 You pass the parameter when creating your pipeline as shown in the following example.
 
-```
+```python
 pipeline = Pipeline(
     name=pipeline_name,
     parameters=[
@@ -50,7 +49,7 @@ pipeline = Pipeline(
 
 You can also pass a parameter value that differs from the default value to a pipeline execution, as shown in the following example.
 
-```
+```python
 execution = pipeline.start(
     parameters=dict(
         ProcessingInstanceCount="2",

@@ -1,7 +1,6 @@
 
 
 # Use Debugger built-in rules with custom parameter values
-<a name="debugger-built-in-rules-configuration-param-change"></a>
 
 **Note**  
 Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
@@ -17,7 +16,7 @@ Use the following configuration template for built-in rules to customize paramet
 
 For more information about the Debugger rule class, methods, and parameters, see [SageMaker AI Debugger Rule class](https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html) in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable).
 
-```
+```py
 from sagemaker.core.debugger import Rule, ProfilerRule, rule_configs, CollectionConfig
 
 rules=[

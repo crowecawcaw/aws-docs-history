@@ -1,7 +1,6 @@
 
 
 # Create a model evaluation job that uses human workers
-<a name="clarify-foundation-model-evaluate-human"></a>
 
 **Important**  
 Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studio Classic to create Amazon SageMaker resources must also grant permissions to add tags to those resources. The permission to add tags to resources is required because Studio and Studio Classic automatically tag any resources they create. If an IAM policy allows Studio and Studio Classic to create resources but does not allow tagging, "AccessDenied" errors can occur when trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions).  
@@ -107,7 +106,7 @@ The following instructions creates a custom IAM policy that is tailored to this 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -320,7 +319,7 @@ The following trust policy makes it so administrators can allow SageMaker AI to 
 
 ****  
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -430,7 +429,7 @@ You can create a human evaluation job using a text-based model that is available
         If you specify a `"responses"` key in any input of the of custom prompt dataset it must be specified in all inputs. 
       + The following `json` code example shows the accepted key-value pairs in a custom prompt dataset. The **Bring your own inference** check box must be checked if a responses key is provided. If checked, the `responses` key must always be specified in each prompt. The following example could be used in a question and answer scenario.
 
-        ```
+        ```json
         {
             "prompt": {
                 "text": "Aurillac is the capital of"
@@ -533,7 +532,7 @@ Choose a **Prompt dataset**. This dataset is required and will be used by your h
 
 The following `json` code example shows the accepted key-value pairs in a custom prompt dataset that contains your own inference data.
 
-```
+```json
 {
     "prompt": {
         "text": "Who invented the airplane?"

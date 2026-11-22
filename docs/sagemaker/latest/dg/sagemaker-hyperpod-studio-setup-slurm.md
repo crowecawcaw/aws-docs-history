@@ -1,7 +1,6 @@
 
 
 # Setting up a Slurm cluster in Studio
-<a name="sagemaker-hyperpod-studio-setup-slurm"></a>
 
 The following instructions describe how to set up a HyperPod Slurm cluster in Studio.
 
@@ -34,7 +33,7 @@ The following instructions describe how to set up a HyperPod Slurm cluster in St
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

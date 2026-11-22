@@ -1,7 +1,6 @@
 
 
 # MLOps Automation With SageMaker Projects
-<a name="sagemaker-projects"></a>
 
 Create end-to-end ML solutions with CI/CD by using SageMaker Projects. 
 

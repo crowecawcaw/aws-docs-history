@@ -1,7 +1,6 @@
 
 
 # Track inference recommendation and benchmark results with MLflow
-<a name="generative-ai-inference-recommendations-mlflow"></a>
 
 You can track the results of your recommendation and benchmark jobs with fully managed MLflow on Amazon SageMaker AI. When you provide an MLflow configuration, SageMaker AI logs the performance metrics and artifacts that the job produces to an MLflow App. You can then use the MLflow UI to view individual runs, compare configurations across jobs, and share results with your team. For more information about MLflow on SageMaker AI, see [Accelerate generative AI development using managed MLflow on Amazon SageMaker AI](mlflow.md).
 
@@ -39,7 +38,7 @@ Add the `MlflowConfig` object to `OutputConfig` when you create a recommendation
 
 **Python (boto3)**
 
-```
+```python
 response = client.create_ai_recommendation_job(
     AIRecommendationJobName="my-recommendation-job",
     ModelSource={
@@ -93,7 +92,7 @@ Add the `MlflowConfig` object to `OutputConfig` when you create a benchmark job.
 
 **Python (boto3)**
 
-```
+```python
 response = client.create_ai_benchmark_job(
     AIBenchmarkJobName="my-benchmark-job",
     BenchmarkTarget={

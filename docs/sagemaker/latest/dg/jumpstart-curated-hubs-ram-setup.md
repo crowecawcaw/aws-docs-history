@@ -1,7 +1,6 @@
 
 
 # Set up cross-account hub sharing
-<a name="jumpstart-curated-hubs-ram-setup"></a>
 
 SageMaker uses [AWS Resource Access Manager (AWS RAM)](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) to help you securely share your private hubs across accounts. Set up cross-account hub sharing using the following instructions along with the [Sharing your AWS resources](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-create) instructions in the *AWS RAM User Guide*.
 

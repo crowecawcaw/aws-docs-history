@@ -1,7 +1,6 @@
 
 
 # Task Submission with MIG
-<a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission"></a>
 
 **Topics**
 + [Using Kubernetes YAML](#sagemaker-hyperpod-eks-gpu-partitioning-task-submission-kubectl)
@@ -12,7 +11,7 @@
 ## Using Kubernetes YAML
 <a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission-kubectl"></a>
 
-```
+```yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -39,7 +38,7 @@ spec:
 
 Use the HyperPod CLI to deploy JumpStart models with MIG support. The following example demonstrates the new CLI parameters for GPU partitioning:
 
-```
+```bash
 # Deploy JumpStart model with MIG
 hyp create hyp-jumpstart-endpoint \
   --model-id deepseek-llm-r1-distill-qwen-1-5b \
@@ -59,7 +58,7 @@ HyperPod Inference allows deploying the models on MIG profiles via Studio Classi
 ### JumpStart Models
 <a name="sagemaker-hyperpod-eks-gpu-partitioning-task-submission-jumpstart"></a>
 
-```
+```yaml
 apiVersion: inference.sagemaker.aws.amazon.com/v1
 kind: JumpStartModel
 metadata:
@@ -81,7 +80,7 @@ spec:
 
 InferenceEndpointConfig allows you to deploy custom model from Amazon S3. To deploy a model on MIG, in `spec.worker.resources` mention MIG profile in `requests` and `limits`. Refer to a simple deployment below:
 
-```
+```yaml
 apiVersion: inference.sagemaker.aws.amazon.com/v1
 kind: InferenceEndpointConfig
 metadata:
@@ -113,7 +112,7 @@ spec:
 
 InferenceEndpointConfig allows you to deploy custom model from FSx for Lustre. To deploy a model on MIG, in `spec.worker.resources` mention MIG profile in `requests` and `limits`. Refer to a simple deployment below:
 
-```
+```yaml
 apiVersion: inference.sagemaker.aws.amazon.com/v1
 kind: InferenceEndpointConfig
 metadata:
@@ -207,7 +206,7 @@ The HyperPod CLI JumpStart command includes two new fields for MIG support:
 + `--accelerator-partition-type` - Specifies the MIG configuration (e.g., mig-4g.20gb)
 + `--accelerator-partition-validation` - Validates compatibility between models and MIG profile (default: true)
 
-```
+```bash
 hyp create hyp-jumpstart-endpoint \
   --version 1.1 \
   --model-id deepseek-llm-r1-distill-qwen-1-5b \
@@ -223,7 +222,7 @@ hyp create hyp-jumpstart-endpoint \
 
 For deploying via custom endpoint, use the existing fields `--resources-requests` and `--resources-limits` to enable MIG profile functionality:
 
-```
+```bash
 hyp create hyp-custom-endpoint \
   --namespace default \
   --metadata-name deepseek15b-mig-10-14-v2 \

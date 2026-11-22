@@ -1,7 +1,6 @@
 
 
 # SageMaker smart sifting within your training script
-<a name="train-smart-sifting-apply-to-script"></a>
 
 The SageMaker smart sifting library is packaged in the [SageMaker AI framework DLCs](train-smart-sifting-what-is-supported.md#train-smart-sifting-supported-frameworks) as a complementary library. It provides a filtering logic against training samples that have relatively lower impact on model training, and your model can reach the desired model accuracy with fewer training samples when compared to the model training with full data samples.
 

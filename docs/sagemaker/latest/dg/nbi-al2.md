@@ -1,7 +1,6 @@
 
 
 # Amazon Linux 2 notebook instances
-<a name="nbi-al2"></a>
 
 **Important**  
 On June 30, 2026, Amazon Linux 2 reaches end of support for notebook instances. Existing in-service instances may continue to function but will not receive security updates or bug fixes. Starting July 1, 2026, you can no longer create new or restart stopped AL2 notebook instances. JupyterLab 1 and JupyterLab 3 have been deprecated since June 30, 2025. For more information, see [JupyterLab version maintenance](nbi-jl.md#nbi-jl-version-maintenance).  
@@ -75,7 +74,7 @@ Migration is an in-place platform update. Your EBS volume data (notebooks, datas
 
 1. Stop your notebook instance.
 
-1. Call [UpdateNotebookInstance](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateNotebookInstance.html) with `PlatformIdentifier` set to `notebook-al2023-v1`. Or, in the SageMaker AI console, edit the notebook instance and change the **Platform identifier** to `notebook-al2023-v1`.
+1. Call [UpdateNotebookInstance](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateNotebookInstance.html) with `PlatformIdentifier` set to `notebook-al2023-v1`. Or, in the SageMaker AI console, edit the notebook instance and change the **Platform identifier** to `notebook-al2023-v1`. To migrate to Python 3.12, use `notebook-al2023-v2` instead.
 
 1. Start your notebook instance.
 
@@ -92,7 +91,7 @@ Migration is an in-place platform update. Your EBS volume data (notebooks, datas
 
 If your notebook instance uses a lifecycle configuration script, update any `yum` commands to use `dnf`. For example:
 
-```
+```bash
 # AL2 (old)
 sudo yum install -y htop
 

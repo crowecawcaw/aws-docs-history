@@ -1,7 +1,6 @@
 
 
 # Types of Operations
-<a name="geospatial-eoj-models"></a>
 
 **Note**  
 Amazon SageMaker geospatial capabilities is no longer open to new customers. Offboard any previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportEarthObservationJob.html) and [ExportVectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportVectorEnrichmentJob.html) API operations.
@@ -12,7 +11,7 @@ When you create an EOJ, you select an operation based on your use case. Amazon S
 
 Identify clouds in satellite images is an essential pre-processing step in producing high-quality geospatial data. Ignoring cloud pixels can lead to errors in analysis, and over-detection of cloud pixels can decrease the number of valid observations. Cloud masking has the ability to identify cloudy and cloud-free pixels in satellite images. An accurate cloud mask helps get satellite images for processing and improves data generation. The following is the class map for cloud masking.
 
-```
+```json
 {
 0: "No_cloud",
 1: "cloud"
@@ -51,7 +50,7 @@ Band Math, also known as Spectral Index, is a process of transforming the observ
 
 Land Cover segmentation is a semantic segmentation model that has the capability to identify the physical material, such as vegetation, water, and bare ground, at the earth surface. Having an accurate way to map the land cover patterns helps you understand the impact of environmental change and human activities over time. Land Cover segmentation is often used for region planning, disaster response, ecological management, and environmental impact assessment. The following is the class map for Land Cover segmentation.
 
-```
+```json
 {
 0: "No_data",
 1: "Saturated_or_defective",

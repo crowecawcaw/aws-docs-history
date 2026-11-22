@@ -1,11 +1,10 @@
 
 
 # General configuration
-<a name="sagemaker-hyperpod-recipes-general-configuration"></a>
 
 The config.yaml file specifies the training recipe and the cluster. It also includes runtime configurations such as environment variables for the training job.
 
-```
+```yaml
 defaults:
   - _self_
   - cluster: slurm 
@@ -44,7 +43,7 @@ You can use the recipes as-is. You can also use the following information to mod
 
 The following is the basic run information for running your training job.
 
-```
+```yaml
 run:
   name: llama-8b
   results_dir: ${base_results_dir}/${.name}
@@ -65,7 +64,7 @@ run:
 
 The exp\_manager configures the experiment. With the exp\_manager, you can specify fields such as the output directory or checkpoint settings. The following is an example of how you can configure the exp\_manager.
 
-```
+```yaml
 exp_manager:
   exp_dir: null
   name: experiment
@@ -91,7 +90,7 @@ Here are three types of checkpointing we support:
 
 If you're saving or loading checkpoints that are automatically managed by the SageMaker HyperPod recipe adapter, you can enable `auto_checkpoint`. To enable `auto_checkpoint`, set `enabled` to `True`. You can use auto checkpointing for both training and fine-tuning. You can use auto checkpoinitng for both shared file systems and Amazon S3.
 
-```
+```yaml
 exp_manager
   checkpoint_dir: ${recipes.exp_manager.exp_dir}/checkpoints/
   auto_checkpoint:
@@ -115,7 +114,7 @@ If is a PEFT fine tuning, sharded checkpointing doesn't support Amazon S3.
 Auto and manual checkpointing are mutually exclusive.
 Only FSDP shard degrees and replication degrees changes are allowed.
 
-```
+```yaml
 exp_manager:
   checkpoint_callback_params:
     # Set save_top_k = 0 to disable sharded checkpointing
@@ -139,7 +138,7 @@ To export the full\_state\_dict model, you can set the following parameters.
 **Note**  
 Currently, full checkpointing isn't supported for Amazon S3 checkpointing. You can't set the S3 path for `exp_manager.checkpoint_dir` if you're enabling full checkpointing. However, you can set `exp_manager.export_full_model.final_export_dir` to a specific directory on your local filesystem while setting `exp_manager.checkpoint_dir` to an Amazon S3 path.
 
-```
+```yaml
 exp_manager:
   export_full_model:
     # Set every_n_train_steps = 0 to disable full checkpointing
@@ -158,7 +157,7 @@ Define various aspects of your model architecture and training process. This inc
 
 After you've specified the recipe, you define the model that you're training. You can also define the model parallelism. For example, you can define tensor\_model\_parallel\_degree. You can enable other features like training with FP8 precision. For example, you can train a model with tensor parallelism and context parallelism:
 
-```
+```yaml
 model:
   model_type: llama_v3
   # Base configs
@@ -188,7 +187,7 @@ To gain a better understanding of different types of model parallelism technique
 
 To enable FP8 (8-bit floating-point precision), you can specify the FP8-related configuration in the following example:
 
-```
+```yaml
 model:
   # FP8 config
   fp8: True
@@ -211,7 +210,7 @@ You can specify your custom datasets for your training job by adding the data pa
 
 However, you are responsible for preparing your own pre-tokenized dataset. If you're an advanced user with specific requirements, there is also an option to implement and integrate a customized data module. For more information on HuggingFace datasets, see [Datasets](https://huggingface.co/docs/datasets/v3.1.0/en/index).
 
-```
+```yaml
 model:
   data:
     train_dir: /path/to/your/train/data
@@ -222,7 +221,7 @@ model:
 
 You can specify how you're training the model. By default, the recipe uses pre-training instead of fine-tuning. The following example configures the recipe to run a fine-tuning job with LoRA (Low-Rank Adaptation).
 
-```
+```yaml
 model:
   # Fine tuning config
   do_finetune: True

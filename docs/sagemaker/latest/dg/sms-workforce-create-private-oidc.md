@@ -1,7 +1,6 @@
 
 
 # Create a Private Workforce (OIDC IdP)
-<a name="sms-workforce-create-private-oidc"></a>
 
 Create a private workforce using an OpenID Connect (OIDC) Identity Provider (IdP) when you want to authenticate and manage workers using your own identity provider. Use this page to learn how to configure your IdP to communicate with Amazon SageMaker Ground Truth (Ground Truth) or Amazon Augmented AI (Amazon A2I) and to learn how to create a workforce using your own IdP. 
 

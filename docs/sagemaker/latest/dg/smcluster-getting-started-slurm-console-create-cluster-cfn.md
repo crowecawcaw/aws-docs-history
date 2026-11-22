@@ -1,7 +1,6 @@
 
 
 # Creating SageMaker HyperPod clusters using CloudFormation templates
-<a name="smcluster-getting-started-slurm-console-create-cluster-cfn"></a>
 
 You can create SageMaker HyperPod clusters using the CloudFormation templates for HyperPod. You must install AWS CLI to proceed.
 

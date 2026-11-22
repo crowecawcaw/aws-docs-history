@@ -1,7 +1,6 @@
 
 
 # Cluster repairs for GPU errors
-<a name="model-checkpoints-cluster-repair"></a>
 
 If you are running a training job that fails on a GPU, SageMaker AI will run a GPU health check to see whether the failure is related to a GPU issue. SageMaker AI takes the following actions based on the health check results:
 + If the error is recoverable, and can be fixed by rebooting the instance or resetting the GPU, SageMaker AI will reboot the instance.

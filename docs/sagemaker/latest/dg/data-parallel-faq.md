@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker AI distributed data parallelism library FAQ
-<a name="data-parallel-faq"></a>
 
 Use the following to find answers to commonly asked questions about the SMDDP library.
 

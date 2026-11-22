@@ -1,7 +1,6 @@
 
 
 # Updating SageMaker HyperPod cluster configuration
-<a name="sagemaker-hyperpod-eks-operate-cli-command-update-cluster"></a>
 
 Run [update-cluster](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/update-cluster.html) to update the configuration of a cluster.
 
@@ -56,7 +55,7 @@ You can use the `UpdateCluster` to scale down or remove entire instance groups f
 
    The following code snippet is a JSON request file template you can use. For more information about the request syntax and parameters of this API, see the [UpdateCluster](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateCluster.html) API reference.
 
-   ```
+   ```json
    // update_cluster.json
    {
        // Required

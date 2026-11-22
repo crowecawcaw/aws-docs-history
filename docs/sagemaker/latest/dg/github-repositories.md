@@ -1,7 +1,6 @@
 
 
 # GitHub repositories
-<a name="github-repositories"></a>
 
 To launch a training job, you utilize files from two distinct GitHub repositories:
 + [SageMaker HyperPod recipes](https://github.com/aws/sagemaker-hyperpod-recipes)

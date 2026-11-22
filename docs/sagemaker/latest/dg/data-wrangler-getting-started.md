@@ -1,7 +1,6 @@
 
 
 # Get Started with Data Wrangler
-<a name="data-wrangler-getting-started"></a>
 
 Amazon SageMaker Data Wrangler is a feature in Amazon SageMaker Studio Classic. Use this section to learn how to access and get started using Data Wrangler. Do the following:
 
@@ -222,7 +221,7 @@ To do this using pandas, follow these steps.
 
 1. Enter the following Python script in the code box.
 
-   ```
+   ```python
    cols = ['name', 'ticket', 'cabin', 'sibsp', 'parch', 'home.dest','boat', 'body']
    df = df.drop(cols, axis=1)
    ```
@@ -268,7 +267,7 @@ Try flat encoding using Pandas. Encoding categorical data is the process of crea
 
 1. Enter the following in the code box.
 
-   ```
+   ```python
    import pandas as pd
    
    dummies = []

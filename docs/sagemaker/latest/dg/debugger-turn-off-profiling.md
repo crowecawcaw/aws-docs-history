@@ -1,7 +1,6 @@
 
 
 # Turn off Debugger
-<a name="debugger-turn-off-profiling"></a>
 
 **Note**  
 End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources. For more information, see [Profiler availability change](profiler-availability-change.md).
@@ -17,7 +16,7 @@ If you disable it, you won't be able to view the comprehensive Studio Debugger i
 **Warning**  
 If you disable it, you won't be able to collect output tensors and cannot debug your model parameters.
 
-  ```
+  ```py
   estimator=Estimator(
       ...
       disable_profiler=True
@@ -30,7 +29,7 @@ If you disable it, you won't be able to collect output tensors and cannot debug 
 
   To disable both monitoring and profiling while your training job is running, use the following estimator classmethod:
 
-  ```
+  ```py
   estimator.disable_profiling()
   ```
 

@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker Experiments Integration
-<a name="pipelines-experiments"></a>
 
 Amazon SageMaker Pipelines is closely integrated with Amazon SageMaker Experiments. By default, when Pipelines creates and executes a pipeline, the following SageMaker Experiments entities are created if they don't exist:
 + An experiment for the pipeline
@@ -12,7 +11,7 @@ You can compare metrics such as model training accuracy across multiple pipeline
 
 The following sample shows the relevant parameters of the [Pipeline](https://github.com/aws/sagemaker-python-sdk/blob/v2.41.0/src/sagemaker/workflow/pipeline.py) class in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable).
 
-```
+```py
 Pipeline(
     name="MyPipeline",
     parameters=[...],

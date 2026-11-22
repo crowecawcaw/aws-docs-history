@@ -1,7 +1,6 @@
 
 
 # How to create an Asynchronous Inference Endpoint
-<a name="async-inference-create-endpoint"></a>
 
 Create an asynchronous endpoint the same way you would create an endpoint using SageMaker AI hosting services:
 + Create a model in SageMaker AI with `CreateModel`.

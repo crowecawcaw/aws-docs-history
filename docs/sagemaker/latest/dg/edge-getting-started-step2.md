@@ -1,7 +1,6 @@
 
 
 # Prepare Your Model for Deployment
-<a name="edge-getting-started-step2"></a>
 
 In this section you will create SageMaker AI and AWS IoT client objects, download a pre-trained machine learning model, upload your model to your Amazon S3 bucket, compile your model for your target device with SageMaker Neo, and package your model so that it can be deployed with the Edge Manager agent.
 
@@ -11,7 +10,7 @@ In this section you will create SageMaker AI and AWS IoT client objects, downloa
 
    Import Boto3, specify your Region, and initialize the client objects you need as shown in the following example:
 
-   ```
+   ```python
    import boto3
    import json
    import time
@@ -25,7 +24,7 @@ In this section you will create SageMaker AI and AWS IoT client objects, downloa
 
    Define variables and assign them the role ARN you created for SageMaker AI and AWS IoT as strings:
 
-   ```
+   ```python
    # Replace with the role ARN you created for SageMaker
    sagemaker_role_arn = "arn:aws:iam::{{<account>:role/*}}"
    
@@ -42,7 +41,7 @@ In this section you will create SageMaker AI and AWS IoT client objects, downloa
 
    Type the following into your Jupyter Notebook to save the pre-trained MobileNet V2 model:
 
-   ```
+   ```python
    # Save the MobileNet V2 model to local storage
       import tensorflow as tf
       model = tf.keras.applications.MobileNetV2()
@@ -56,7 +55,7 @@ Use TensorFlow version 2.4 or lower for this tutorial.
 
    SageMaker Neo requires models to be stored as a compressed TAR file. Repackage it as a compressed TAR file (\*.tar.gz):
 
-   ```
+   ```python
    # Package MobileNet V2 model into a TAR file 
       import tarfile
       
@@ -70,7 +69,7 @@ Use TensorFlow version 2.4 or lower for this tutorial.
 
    Once you have a machine learning model, store it in an Amazon S3 bucket. The following example uses an AWS CLI command to upload the model the to the Amazon S3 bucket you created earlier in a directory called *models*. Type in the following into your Jupyter Notebook:
 
-   ```
+   ```python
    !aws s3 cp mobilenet-v2.tar.gz s3://{bucket}/models/
    ```
 
@@ -80,7 +79,7 @@ Use TensorFlow version 2.4 or lower for this tutorial.
 
    For the MobileNet V2 model, use the following:
 
-   ```
+   ```python
    framework = 'tensorflow'
    target_device = 'jetson_nano'
    data_shape = '{"data":[1,3,224,224]}'
@@ -90,7 +89,7 @@ Use TensorFlow version 2.4 or lower for this tutorial.
 
    Use the `CreateCompilationJob` API to create a compilation job with SageMaker Neo. Provide a name to the compilation job, the SageMaker AI Role ARN, the Amazon S3 URI where your model is stored, the input shape of the model, the name of the framework, the Amazon S3 URI where you want SageMaker AI to store your compiled model, and your edge device target.
 
-   ```
+   ```python
    # Specify the path where your model is stored
    model_directory = 'models'
    s3_model_uri = 's3://{}/{}/{}'.format(bucket, model_directory, tarfile_name)
@@ -120,7 +119,7 @@ Use TensorFlow version 2.4 or lower for this tutorial.
 
    You need to provide the name that you used for your Neo compilation job, a name for the packaging job, a role ARN (see [Setting Up](edge-getting-started-step1.md) section), a name for the model, a model version, and the Amazon S3 bucket URI for the output of the packaging job. Note that Edge Manager packaging job names are case-sensitive. The following is an example of how to create a packaging job using the API.
 
-   ```
+   ```python
    edge_packaging_name='edge-packaging-demo'
    model_name="sample-model"
    model_version="1.1"
@@ -128,7 +127,7 @@ Use TensorFlow version 2.4 or lower for this tutorial.
 
    Define the Amazon S3 URI where you want to store the packaged model.
 
-   ```
+   ```python
    # Output directory where you want to store the output of the packaging job
    packaging_output_dir = 'packaged_models'
    packaging_s3_output = 's3://{}/{}'.format(bucket, packaging_output_dir)
@@ -136,7 +135,7 @@ Use TensorFlow version 2.4 or lower for this tutorial.
 
    Use `CreateEdgePackagingJob` to package your Neo-compiled model. Provide a name for your edge packaging job and the name you provided for your compilation job (in this example, it was stored in the variable `compilation_job_name`). Also provide a name for your model, a version for your model (this is used to help you keep track of what model version you are using), and the S3 URI where you want SageMaker AI to store the packaged model.
 
-   ```
+   ```python
    sagemaker_client.create_edge_packaging_job(
                        EdgePackagingJobName=edge_packaging_name,
                        CompilationJobName=compilation_job_name,

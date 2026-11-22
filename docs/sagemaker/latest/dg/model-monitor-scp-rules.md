@@ -1,7 +1,6 @@
 
 
 # Configuring service control policies for monitoring schedules
-<a name="model-monitor-scp-rules"></a>
 
 **Note**  
 Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
@@ -27,7 +26,7 @@ Amazon SageMaker Model Monitor is no longer open to new customers. Existing cust
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

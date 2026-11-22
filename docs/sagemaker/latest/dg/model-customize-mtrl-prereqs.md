@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="model-customize-mtrl-prereqs"></a>
 
 Multi-turn RL uses the SageMaker AI `CreateJob` API, which requires additional permissions on top of the existing model customization prerequisites. The table below summarizes what's new versus already covered.
 
@@ -21,7 +20,7 @@ Multi-turn RL uses the SageMaker AI `CreateJob` API, which requires additional p
 ## Caller role
 <a name="model-customize-mtrl-prereqs-caller-role"></a>
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -89,7 +88,7 @@ This policy grants the job the permissions it needs while running: read/write ac
 
 Add `job.sagemaker.amazonaws.com` to your execution role's trust policy:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -106,7 +105,7 @@ Add `job.sagemaker.amazonaws.com` to your execution role's trust policy:
 
 If using Bedrock AgentCore, your agent runtime role also needs its own trust policy:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -126,7 +125,7 @@ If using Bedrock AgentCore, your agent runtime role also needs its own trust pol
 
 If you are submitting jobs through SageMaker AI Studio, add the following inline policy to your SageMaker AI domain execution role:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -186,7 +185,7 @@ If you prefer to define your own policies instead of using the AWS managed ones,
 
 **SageMaker AI job execution role policy** (equivalent to `AmazonSageMakerJobFullAccess`):
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -392,7 +391,7 @@ If you prefer to define your own policies instead of using the AWS managed ones,
 
 **Trust relationship for the execution role:**
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -409,7 +408,7 @@ If you prefer to define your own policies instead of using the AWS managed ones,
 
 **AmazonSageMakerJobRuntimeAccess equivalent \+ BedrockAgentCoreFullAccess**
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -465,7 +464,7 @@ If you prefer to define your own policies instead of using the AWS managed ones,
 
 **Trust relationship for the agent runtime role:**
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -485,7 +484,7 @@ If you prefer to define your own policies instead of using the AWS managed ones,
 
 The existing model customization Lambda permissions cover functions with *SageMaker* or *sagemaker* in the name. If your Lambda forwarder uses a different naming convention, add its ARN explicitly:
 
-```
+```json
 {
   "Sid": "CustomAgentLambdaPermission",
   "Effect": "Allow",

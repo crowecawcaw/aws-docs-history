@@ -1,7 +1,6 @@
 
 
 # Delayed parameter initialization
-<a name="model-parallel-core-features-v2-delayed-param-init"></a>
 
 Initialization of a large model for training is not always possible with the limited GPU memory. To resolve this problem of insufficient GPU memory, you can initialize the model on CPU memory. However, for larger models with more than 20 or 40 billion parameters, even CPU memory might not be enough. For such case, we recommend that you initialize the model on what PyTorch calls a *meta device*, which allows the creation of tensors without any data attached to them. A tensor on a meta device only needs the shape information, and this allows to create a large model with its parameters on meta devices. [Hugging Face Accelerate](https://huggingface.co/docs/accelerate/index) provides the context manager `init_empty_weights` to help create such model on meta devices while initializing the buffers on a regular device. Before training starts, PyTorch FSDP initializes the model parameters. This delayed parameter initialization feature of SMP v2 delays this creation of model parameters to happen after PyTorch FSDP performs parameter sharding. PyTorch FSDP accepts a parameter initialization function (`param_init_fn`) when sharding the modules, and it calls `param_init_fn` for each module. The `param_init_fn` API takes a module as an argument and initializes all the parameters in it, not including the parameters of any child module. Note that this behavior *differs* from the native PyTorch v2.0.1 which has a bug causing the parameters to be initialized multiple times.
 
@@ -11,7 +10,7 @@ The following code snippets show how to apply the `torch.sagemaker.delayed_param
 
 Assume that you have a PyTorch FSDP training script as follows.
 
-```
+```py
 # Creation of model on meta device
 from accelerate import init_empty_weights
 with init_empty_weights():
@@ -49,7 +48,7 @@ Note that the delayed parameter initialization approach is not model agnostic. T
 
 Using the `torch.sagemaker.delayed_param.DelayedParamIniter` API, you can adapt your PyTorch FSDP script as follows. After creating a model with empty weights, register the `torch.sagemaker.delayed_param.DelayedParamIniter` API to the model, and define an object of it. Pass the object to the `param_init_fn` of the PyTorch FSDP class.
 
-```
+```py
 from torch.sagemaker.delayed_param import DelayedParamIniter
 from accelerate import init_empty_weights
 
@@ -70,7 +69,7 @@ with delayed_initer.validate_params_and_buffers_inited():
 
 When training models with tied weights, we need to take special care to tie the weights after initializing the weights with delayed parameter initialization. PyTorch FSDP does not have a mechanism to tie the weights after initializing them using `param_init_fn` as above. To address such cases we added API to allow a `post_init_hook_fn`, which can be used to tie the weights. You can pass any function in there which accepts the module as argument, but we also have a predefined `post_param_init_fn` defined in `DelayedParamIniter` which calls `tie_weights` method of the module if it exists. Note that it’s safe to always pass in `post_param_init_fn` even if there’s no `tie_weights` method for the module.
 
-```
+```py
 with delayed_initer.validate_params_and_buffers_inited():
     model = FSDP(
         model,

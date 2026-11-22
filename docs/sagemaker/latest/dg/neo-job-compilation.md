@@ -1,7 +1,6 @@
 
 
 # Model Compilation with Neo
-<a name="neo-job-compilation"></a>
 
 This section shows how to create, describe, stop, and list compilation jobs. The following options are available in Amazon SageMaker Neo for managing the compilation jobs for machine learning models: the AWS Command Line Interface, the Amazon SageMaker AI console, or the Amazon SageMaker SDK. 
 

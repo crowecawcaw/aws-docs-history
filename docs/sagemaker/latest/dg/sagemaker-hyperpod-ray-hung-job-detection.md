@@ -1,7 +1,6 @@
 
 
 # Hung job detection
-<a name="sagemaker-hyperpod-ray-hung-job-detection"></a>
 
 Distributed Ray Train jobs can stall without producing an error. A single worker fails silently, and every other worker blocks at the next collective operation, waiting indefinitely. GPUs remain allocated with model weights loaded but produce no useful compute. Because there is no error message or crash, the stall often goes unnoticed for hours until someone checks job progress manually.
 
@@ -29,7 +28,7 @@ Follow these steps to enable custom detection rules.
 
    Add the following environment variable to both `headGroupSpec` and `workerGroupSpecs` in your RayCluster YAML. This allows the Python library running inside the training container to communicate with the job monitoring service on the host.
 
-   ```
+   ```yaml
    spec:
      headGroupSpec:
        template:
@@ -61,7 +60,7 @@ This environment variable is only required for custom detection rules. Default d
 
    Add the [toolkit-for-ray-on-sagemaker-ai](https://pypi.org/project/toolkit-for-ray-on-sagemaker-ai/) package from the PyPI website to your training container image. The library is preinstalled in SageMaker Distribution images.
 
-   ```
+   ```bash
    pip install toolkit-for-ray-on-sagemaker-ai
    ```
 
@@ -71,7 +70,7 @@ This environment variable is only required for custom detection rules. Default d
 
    Call `SageMakerLogMonitoring.start()` inside your training function *before* doing any meaningful work. This ensures monitoring is active from the start of training and can detect hangs that occur during model loading or the first forward pass.
 
-   ```
+   ```python
    from toolkit_for_ray_on_sagemaker_ai.log_monitoring import (
        SageMakerLogMonitoring,
        LogMonitorConfig,
@@ -157,7 +156,7 @@ This environment variable is only required for custom detection rules. Default d
 
 To disable all hung job detection for a specific job, including both default detection and any custom rules:
 
-```
+```python
 from toolkit_for_ray_on_sagemaker_ai.log_monitoring import (
     SageMakerLogMonitoring,
     LogMonitorConfig,

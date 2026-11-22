@@ -1,7 +1,6 @@
 
 
 # Automatically Train Models on Your Data Flow
-<a name="data-wrangler-autopilot"></a>
 
 You can use Amazon SageMaker Autopilot to automatically train, tune, and deploy models on the data that you've transformed in your data flow. Amazon SageMaker Autopilot can go through several algorithms and use the one that works best with your data. For more information about Amazon SageMaker Autopilot, see [SageMaker Autopilot](autopilot-automate-model-development.md).
 

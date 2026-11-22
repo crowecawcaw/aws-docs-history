@@ -1,7 +1,6 @@
 
 
 # Toxicity
-<a name="clarify-toxicity-evaluation"></a>
 
 Evaluates generated text using toxicity detection models. Foundation Model Evaluations (FMEval) checks your model for sexual references, rude, unreasonable, hateful or aggressive comments, profanity, insults, flirtations, attacks on identities, and threats. FMEval can measure your model against your own custom dataset or use built-in datasets. 
 

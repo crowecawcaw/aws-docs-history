@@ -1,7 +1,6 @@
 
 
 # Multi-Model Endpoint Security
-<a name="multi-model-endpoint-security"></a>
 
 Models and data in a multi-model endpoint are co-located on instance storage volume and in container memory. All instances for Amazon SageMaker AI endpoints run on a single tenant container that you own. Only your models can run on your multi-model endpoint. It's your responsibility to manage the mapping of requests to models and to provide access for users to the correct target models. SageMaker AI uses [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) to provide IAM identity-based policies that you use to specify allowed or denied actions and resources and the conditions under which actions are allowed or denied.
 
@@ -13,7 +12,7 @@ By default, an IAM principal with [`InvokeEndpoint`](https://docs.aws.amazon.com
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

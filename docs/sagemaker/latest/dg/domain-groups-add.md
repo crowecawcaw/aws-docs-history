@@ -1,7 +1,6 @@
 
 
 # Add groups and users
-<a name="domain-groups-add"></a>
 
 The following sections show how to add groups and users to a domain from the SageMaker AI console or AWS CLI. 
 

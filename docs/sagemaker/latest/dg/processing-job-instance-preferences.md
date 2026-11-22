@@ -1,7 +1,6 @@
 
 
 # Instance preference lists for processing jobs
-<a name="processing-job-instance-preferences"></a>
 
 A processing job can accept an ordered list of up to 5 instance types instead of one. SageMaker AI launches the job on the first type in the list that has capacity, so the job starts sooner when your preferred type is constrained. It then runs, is monitored, and is billed exactly as if you had requested that type directly.
 
@@ -39,7 +38,7 @@ The examples show the [ProcessingClusterConfig](https://docs.aws.amazon.com/sage
 
 Three types with a uniform count. The job launches on `ml.g6.4xlarge`, or on the next type in the list that has capacity:
 
-```
+```json
 "ProcessingResources": {
   "ClusterConfig": {
     "InstanceCount": 2,
@@ -55,7 +54,7 @@ Three types with a uniform count. The job launches on `ml.g6.4xlarge`, or on the
 
 A count on each entry:
 
-```
+```json
 "ProcessingResources": {
   "ClusterConfig": {
     "VolumeSizeInGB": 100,
@@ -72,7 +71,7 @@ A count on each entry:
 
 `DescribeProcessingJob` returns the list you submitted plus the read-only `SelectedInstanceType` and `SelectedInstanceCount`. These two fields appear only after a type is selected, which can be shortly after the job is created. The top-level `InstanceType` isn't returned for these jobs:
 
-```
+```json
 "ProcessingResources": {
   "ClusterConfig": {
     "VolumeSizeInGB": 100,
@@ -94,7 +93,7 @@ Instance preferences require version 3.22.0 or later of the SageMaker Python SDK
 
 Pass `instance_preferences` to `Processor` or `ScriptProcessor` as a list of dictionaries in the API's field names. Set `instance_count` on the processor for a uniform count, or in each dictionary instead.
 
-```
+```python
 from sagemaker.core.processing import Processor
 
 processor = Processor(
@@ -114,7 +113,7 @@ processor.run()
 
 `PySparkProcessor` and `SparkJarProcessor` accept the same `instance_preferences` parameter. The Spark container image is resolved for the first type in the list, so keep all listed types in the same processor family (all CPU or all GPU). For more information about running Spark jobs, see [Run a Processing Job with Apache Spark](use-spark-processing-container.md).
 
-```
+```python
 from sagemaker.core.spark.processing import PySparkProcessor
 
 spark_processor = PySparkProcessor(

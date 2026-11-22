@@ -1,7 +1,6 @@
 
 
 # Customize your environment using a package manager
-<a name="studio-updated-jl-user-guide-customize-package-manager"></a>
 
 Use pip or conda to customize your environment. We recommend using package managers instead of lifecycle configuration scripts. 
 
@@ -135,7 +134,7 @@ conda deactivate
 
 Create a conda environment from a reference YAML file. The following is an example of a YAML file that you can use.
 
-```
+```yaml
 # anatomy of a reference environment.yml
 name: py311-new-env
 channels:

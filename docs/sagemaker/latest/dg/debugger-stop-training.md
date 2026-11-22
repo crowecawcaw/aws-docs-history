@@ -1,7 +1,6 @@
 
 
 # Set up Debugger for automated training job termination using CloudWatch and Lambda
-<a name="debugger-stop-training"></a>
 
 **Note**  
 Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
@@ -34,7 +33,7 @@ The Debugger rules monitor training job status, and a CloudWatch Events rule wat
 **Note**  
 Make sure you use the execution role with `AmazonSageMakerFullAccess` and `AWSLambdaBasicExecutionRole` attached. Otherwise, the Lambda function won't properly react to the Debugger rule status changes of the training job. If you are unsure which execution role is being used, run the following code in a Jupyter notebook cell to retrieve the execution role output:  
 
-   ```
+   ```py
    import sagemaker
    from sagemaker.core.helper.session_helper import get_execution_role
    get_execution_role()
@@ -54,7 +53,7 @@ The following figure shows an example of the **Create function** page with the i
 
 1. In the **Function code** section of the configuration page, paste the following Python script in the Lambda code editor pane. The `lambda_handler` function monitors the Debugger rule evaluation status collected by CloudWatch and triggers the `StopTrainingJob` API operation. The AWS SDK for Python (Boto3) `client` for SageMaker AI provides a high-level method, `stop_training_job`, which triggers the `StopTrainingJob` API operation.
 
-   ```
+   ```py
    import json
    import boto3
    import logging
@@ -126,7 +125,7 @@ The following figure shows an example of the **Create function** page with the i
 
 1. In the **Event Source** section of the **Step 1: Create rule** page, choose **SageMaker AI** for **Service Name**, and choose **SageMaker AI Training Job State Change** for **Event Type**. The Event Pattern Preview should look like the following example JSON strings: 
 
-   ```
+   ```json
    {
        "source": [
            "aws.sagemaker"

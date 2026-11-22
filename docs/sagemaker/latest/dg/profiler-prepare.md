@@ -1,7 +1,6 @@
 
 
 # Prepare and run a training job with SageMaker Profiler
-<a name="profiler-prepare"></a>
 
 **Note**  
 End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources. For more information, see [Profiler availability change](profiler-availability-change.md).
@@ -39,7 +38,7 @@ except ImportError:
 
 You can wrap full functions with the `smprof.annotate()` context manager. This wrapper is recommended if you want to profile by functions instead of code lines. The following example script shows how to implement the context manager to wrap the training loop and full functions in each iteration.
 
-```
+```py
 import smprof
 
 SMProf = smprof.SMProfiler.instance()
@@ -78,7 +77,7 @@ SMProf.stop_profiling()
 
 You can also define annotations to profile specific code lines. You can set the exact starting point and end point of profiling at the level of individual code lines, not by the functions. For example, in the following script, the `step_annotator` is defined at the beginning of each iteration and ends at the end of the iteration. Meanwhile, other detailed annotators for each operations are defined and wrap around the target operations throughout each iteration.
 
-```
+```py
 import smprof
 
 SMProf = smprof.SMProfiler.instance()
@@ -131,7 +130,7 @@ The following procedure shows how to prepare a SageMaker AI ModelTrainer for tra
 
 1. Set up a `profiler_config` object using the `ProfilerConfig` and `Profiler` modules as follows.
 
-   ```
+   ```py
    from sagemaker import ProfilerConfig, Profiler
    profiler_config = ProfilerConfig(
        profile_params = Profiler(cpu_profiling_duration=3600)
@@ -144,7 +143,7 @@ The following procedure shows how to prepare a SageMaker AI ModelTrainer for tra
 
 1. Create a SageMaker AI ModelTrainer with the `profiler_config` object created in the previous step. The following code shows an example of creating a PyTorch ModelTrainer. If you want to create a TensorFlow ModelTrainer, import `sagemaker.tensorflow.TensorFlow` instead, and specify one of the [TensorFlow versions](profiler-support.md#profiler-support-frameworks-tensorflow) supported by SageMaker Profiler. For more information about supported frameworks and instance types, see [SageMaker AI framework images pre-installed with SageMaker Profiler](profiler-support.md#profiler-support-frameworks).
 
-   ```
+   ```py
    from sagemaker.train import ModelTrainer
    from sagemaker.train.configs import SourceCode
    from sagemaker.core.helper.session_helper import get_execution_role
@@ -170,7 +169,7 @@ The following procedure shows how to prepare a SageMaker AI ModelTrainer for tra
 
 1. Start the training job by running the `train` method. With `wait=False`, you can silence the training job logs and let it run in the background.
 
-   ```
+   ```py
    model_trainer.train(wait=False)
    ```
 
@@ -178,7 +177,7 @@ While running the training job or after the job has completed, you can go to the
 
 If you want to directly access the profile data saved in the Amazon S3 bucket, use the following script to retrieve the S3 URI.
 
-```
+```py
 import os
 # This is an ad-hoc function to get the S3 URI
 # to where the profile output data is saved
@@ -212,7 +211,7 @@ To use SageMaker Profiler on PyTorch or TensorFlow framework images not listed i
 
 If you want to use SageMaker Profiler for training jobs using PyTorch or TensorFlow images not listed in [SageMaker AI framework images pre-installed with SageMaker Profiler](profiler-support.md#profiler-support-frameworks), create a `requirements.txt` file and locate it under the path you specify to the `source_dir` parameter of the SageMaker AI ModelTrainer in [Step 2](#profiler-profilerconfig). For more information about setting up a `requirements.txt` file in general, see [Using third-party libraries](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html) in the *SageMaker Python SDK documentation*. In the `requirements.txt` file, add one of the S3 bucket paths for the [SageMaker Profiler Python package binary files](profiler-support.md#profiler-python-package).
 
-```
+```txt
 # requirements.txt
 https://smppy.s3.amazonaws.com/{{tensorflow/cu112/smprof-0.3.332-cp39-cp39-linux_x86_64.whl}}
 ```
@@ -221,7 +220,7 @@ https://smppy.s3.amazonaws.com/{{tensorflow/cu112/smprof-0.3.332-cp39-cp39-linux
 
 If you use a custom Docker container for training, add one of the [SageMaker Profiler Python package binary files](profiler-support.md#profiler-python-package) to your Dockerfile.
 
-```
+```docker
 # Install the smprof package version compatible with your CUDA version
 RUN pip install https://smppy.s3.amazonaws.com/{{tensorflow/cu112/smprof-0.3.332-cp39-cp39-linux_x86_64.whl}}
 ```

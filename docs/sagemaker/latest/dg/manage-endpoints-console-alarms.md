@@ -1,7 +1,6 @@
 
 
 # Create and view alarms
-<a name="manage-endpoints-console-alarms"></a>
 
 From the **Alarms** tab on your endpoint details page, you can view and create simple static threshold metric alarms, where you specify a threshold value for a metric. If the metric breaches the threshold value, the alarm goes into the `ALARM` state. For more information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html).
 

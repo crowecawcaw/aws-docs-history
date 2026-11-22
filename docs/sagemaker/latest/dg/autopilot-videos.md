@@ -1,7 +1,6 @@
 
 
 # Videos: Use Autopilot to automate and explore the machine learning process
-<a name="autopilot-videos"></a>
 
 Here is a video series that provides a tour of Amazon SageMaker Autopilot capabilities using Studio Classic. They show how to start an AutoML job, analyze and preprocess data, how to do feature engineering and hyperparameter optimization on candidate models, and how to visualize and compare the resulting model metrics.
 

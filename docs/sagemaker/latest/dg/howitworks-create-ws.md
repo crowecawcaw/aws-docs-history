@@ -1,7 +1,6 @@
 
 
 # Create an Amazon SageMaker notebook instance
-<a name="howitworks-create-ws"></a>
 
 **Important**  
 Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studio Classic to create Amazon SageMaker resources must also grant permissions to add tags to those resources. The permission to add tags to resources is required because Studio and Studio Classic automatically tag any resources they create. If an IAM policy allows Studio and Studio Classic to create resources but does not allow tagging, "AccessDenied" errors can occur when trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions).  
@@ -49,11 +48,11 @@ NVMe instance store volumes are not persistent storage. This storage is short-li
 
    1. For **Notebook instance type**, choose an instance size suitable for your use case. For a list of supported instance types and quotas, see [Amazon SageMaker AI Service Quotas](https://docs.aws.amazon.com/general/latest/gr/sagemaker.html#limits_sagemaker).
 
-   1. For **Platform Identifier**, choose a platform type to create the notebook instance on. This platform type dictates the Operating System and the JupyterLab version that your notebook instance is created with. The latest and recommended version is `notebook-al2023-v1`, for an Amazon Linux 2023 notebook instance. As of June 30, 2025, only JupyterLab 4 is supported for new instances. For information about platform identifier types, see [AL2023 notebook instances](nbi-al2023.md) and [Amazon Linux 2 notebook instances](nbi-al2.md). For information about JupyterLab versions, see [JupyterLab versioning](nbi-jl.md).
+   1. For **Platform Identifier**, choose a platform type to create the notebook instance on. The platform identifier that you choose determines the operating system and the JupyterLab version of your notebook instance. The default and recommended platform identifier is `notebook-al2023-v1`, for an Amazon Linux 2023 notebook instance. For Python 3.12, choose `notebook-al2023-v2`. As of June 30, 2025, only JupyterLab 4 is supported for new instances. For information about platform identifier types, see [AL2023 notebook instances](nbi-al2023.md) and [Amazon Linux 2 notebook instances](nbi-al2.md). For information about JupyterLab versions, see [JupyterLab versioning](nbi-jl.md).
 **Important**  
 On June 30, 2026, Amazon Linux 2 reaches end of support for notebook instances. Starting July 1, 2026, you can no longer create new or restart stopped AL2 notebook instances.  
 JupyterLab 1 and JupyterLab 3 are no longer supported as of June 30, 2025. You can no longer create new or restart stopped notebook instances using these versions.  
-Use `notebook-al2023-v1` for all new instances. For more information, see [AL2 Maintenance Phase Plan](nbi-al2.md#nbi-al2-end-of-support) and [JupyterLab version maintenance](nbi-jl.md#nbi-jl-version-maintenance).
+Use `notebook-al2023-v1` or `notebook-al2023-v2` for all new instances. For more information, see [AL2 Maintenance Phase Plan](nbi-al2.md#nbi-al2-end-of-support) and [JupyterLab version maintenance](nbi-jl.md#nbi-jl-version-maintenance).
 
    1. (Optional) **Additional configuration** lets advanced users create a shell script that can run when you create or start the instance. This script, called a lifecycle configuration script, can be used to set the environment for the notebook or to perform other functions. For information, see [Customization of a SageMaker notebook instance using an LCC script](notebook-lifecycle-config.md).
 

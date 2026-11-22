@@ -1,7 +1,6 @@
 
 
 # Encryption at rest for SageMaker AI Training Sessions
-<a name="training-sessions-encryption-at-rest"></a>
 
 SageMaker AI Training Sessions encrypts all of your data at rest. Your training and sampling operation request and response data, and your training session checkpoints (including LoRA adapter weights), are stored in Amazon S3 using server-side encryption. You do not need to perform any additional configuration to ensure that your data is encrypted at rest.
 
@@ -47,7 +46,7 @@ To use a customer managed KMS key, configure permissions in three places: the IA
 
 The IAM execution role you pass as `RoleArn` to `CreateTrainingSession` must have the following AWS KMS permissions. These allow the training session to encrypt and decrypt your data through Amazon S3.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -76,7 +75,7 @@ The `kms:ViaService` condition (`s3.*.amazonaws.com`) restricts the execution ro
 
 At session creation, and before it processes a training or sampling operation, Training Sessions verifies the caller identity is permitted to use the key. The identity that calls `CreateTrainingSession` and invokes these operations must be allowed the following actions, scoped with a `kms:ViaService` of `sagemaker.*.amazonaws.com`.
 
-```
+```json
 {
   "Sid": "KMSPermissionsForSessionCreation",
   "Effect": "Allow",
@@ -93,7 +92,7 @@ At session creation, and before it processes a training or sampling operation, T
 }
 ```
 
-```
+```json
 {
   "Sid": "KMSPermissionsForTrainingSessionsRuntime",
   "Effect": "Allow",
@@ -118,7 +117,7 @@ These permission verifications always include the training session ARN in the en
 
 The default KMS key policy already allows IAM roles in the same account to use the key. Add the following statements to your key policy to allow the caller identity — through Training Sessions — to create the session grant and validate the key at `CreateTrainingSession` time. The two statements are separate because `kms:GrantIsForAWSResource` and `kms:GrantOperations` apply only to grant operations, not to `kms:DescribeKey`.
 
-```
+```json
 {
   "Sid": "AllowDescribeKeyForTrainingSession",
   "Effect": "Allow",
@@ -138,7 +137,7 @@ The default KMS key policy already allows IAM roles in the same account to use t
 }
 ```
 
-```
+```json
 {
   "Sid": "AllowCreateGrantForTrainingSession",
   "Effect": "Allow",
@@ -170,7 +169,7 @@ The default KMS key policy already allows IAM roles in the same account to use t
 
 If your key policy does not delegate permissions to IAM (a locked-down key policy without the default *Enable IAM User Permissions* statement), also add the following two statements — one so the execution role can perform Amazon S3 SSE-KMS operations, and one so the identity that invokes runtime operations passes the service permission verification:
 
-```
+```json
 {
   "Sid": "AllowExecutionRoleS3Encryption",
   "Effect": "Allow",
@@ -190,7 +189,7 @@ If your key policy does not delegate permissions to IAM (a locked-down key polic
 }
 ```
 
-```
+```json
 {
   "Sid": "AllowCallerRuntimeAuthorization",
   "Effect": "Allow",
@@ -215,7 +214,7 @@ If your key policy does not delegate permissions to IAM (a locked-down key polic
 
 To encrypt your data with a customer managed KMS key, specify the key ARN in the `OutputConfig.S3Location.KmsKeyArn` field of your `CreateTrainingSession` request. `KmsKeyArn` accepts a key ID or key ARN; KMS aliases are not supported. For more information, see [CreateTrainingSession](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingSession.html) in the *SageMaker AI API Reference*.
 
-```
+```json
 {
   "OutputConfig": {
     "S3Location": {
@@ -236,7 +235,7 @@ You can use the following mechanisms to restrict use of your customer managed KM
 + **kms:ViaService** – The execution role permissions are scoped to `s3.*.amazonaws.com` (Amazon S3 SSE-KMS operations on your output bucket); the caller identity runtime permissions are scoped to `sagemaker.*.amazonaws.com` (service authorization checks).
 + **Confused-deputy protection** – Use the `aws:SourceArn` or `aws:SourceAccount` condition keys in your AWS KMS key policy to prevent the confused deputy problem. This ensures that only requests originating from your specific account or resource can use the key:
 
-  ```
+  ```json
   "Condition": {
     "StringEquals": {
       "aws:SourceAccount": "{{account-id}}"
@@ -255,7 +254,7 @@ When Training Sessions encrypts data with your customer managed KMS key, it incl
 
 Training Sessions uses the following encryption context key-value pair:
 
-```
+```json
 {
   "aws:sagemaker:training-session-arn": "arn:aws:sagemaker:{{region}}:{{account-id}}:training-session/{{session-id}}"
 }

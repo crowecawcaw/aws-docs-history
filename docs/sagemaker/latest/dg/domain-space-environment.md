@@ -1,7 +1,6 @@
 
 
 # View domain environment details
-<a name="domain-space-environment"></a>
 
 This page gives information about modifications to the Amazon SageMaker AI domain environment. Complete the following procedure to view the custom images, lifecycle configurations, and git repositories attached to a domain environment.
 
@@ -9,9 +8,9 @@ This page gives information about modifications to the Amazon SageMaker AI domai
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/).
 
-1. On the left navigation pane, choose **Admin configurations**.
+1. On the left navigation pane, choose **Environment configuration**.
 
-1. Under **Admin configurations**, choose **domains**. 
+1. Under **Environment configuration**, choose **domains**. 
 
 1.  From the list of domains, select a domain to open the **Environment** page. 
 

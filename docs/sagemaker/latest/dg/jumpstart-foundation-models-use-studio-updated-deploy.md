@@ -1,7 +1,6 @@
 
 
 # Deploy a model in Studio
-<a name="jumpstart-foundation-models-use-studio-updated-deploy"></a>
 
 To deploy JumpStart foundation models, navigate to a model detail card in the Studio UI. For more information on how to open JumpStart in Studio, see [Open JumpStart in Studio](studio-jumpstart.md#jumpstart-open-studio). After navigating to the model detail page of your choice, choose **Deploy** in the upper right corner of the Studio UI. Then, follow the steps in [Deploy models with SageMaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-deploy-models.html#deploy-models-studio).
 

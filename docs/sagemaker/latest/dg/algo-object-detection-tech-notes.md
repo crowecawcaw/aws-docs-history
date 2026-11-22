@@ -1,7 +1,6 @@
 
 
 # How Object Detection Works
-<a name="algo-object-detection-tech-notes"></a>
 
 The object detection algorithm identifies and locates all instances of objects in an image from a known collection of object categories. The algorithm takes an image as input and outputs the category that the object belongs to, along with a confidence score that it belongs to the category. The algorithm also predicts the object's location and scale with a rectangular bounding box. Amazon SageMaker AI Object Detection uses the [Single Shot multibox Detector (SSD)](https://arxiv.org/pdf/1512.02325.pdf) algorithm that takes a convolutional neural network (CNN) pretrained for classification task as the base network. SSD uses the output of intermediate layers as features for detection. 
 

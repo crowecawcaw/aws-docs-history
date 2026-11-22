@@ -1,7 +1,6 @@
 
 
 # Model Parallel Troubleshooting
-<a name="distributed-troubleshooting-model-parallel"></a>
 
 If you run into an error, you can use the following list to try to troubleshoot your training job. If the problem persists, contact [AWS Support](https://aws.amazon.com/premiumsupport). 
 
@@ -18,13 +17,13 @@ If you run into an error, you can use the following list to try to troubleshoot 
 
 SageMaker Debugger is not available for the SageMaker model parallelism library. Debugger is enabled by default for all SageMaker TensorFlow and PyTorch training jobs, and you might see an error that looks like the following: 
 
-```
+```txt
 FileNotFoundError: [Errno 2] No such file or directory: '/opt/ml/checkpoints/metadata.json.sagemaker-uploading
 ```
 
 To fix this issue, disable Debugger by passing `debugger_hook_config=False` when creating a framework `ModelTrainer` as shown in the following example.
 
-```
+```py
 bucket=Session().default_bucket()
 base_job_name="sagemaker-checkpoint-test"
 checkpoint_in_bucket="checkpoints"
@@ -47,7 +46,7 @@ model_trainer = ModelTrainer(
 
 You might run into the following error when saving checkpoints of a large model on SageMaker AI: 
 
-```
+```txt
 InternalServerError: We encountered an internal error. Please try again
 ```
 
@@ -55,7 +54,7 @@ This could be caused by a SageMaker AI limitation while uploading the local chec
 
 If you run into the preceding error, do not use `checkpoint_s3_uri` with the SageMaker `ModelTrainer` call. While saving checkpoints for larger models, we recommend saving checkpoints to a custom directory and passing the same to the helper function (as a `local_path` argument).
 
-```
+```py
 import os
 
 def aws_s3_sync(source, destination):
@@ -121,7 +120,7 @@ def sync_s3_checkpoints_to_local(local_path="/opt/ml/checkpoints", s3_uri=os.pat
 
 Usage of helper functions:
 
-```
+```py
 #base_s3_uri - user input s3 uri or save to model directory (default)
 #curr_host - to save checkpoints of current host
 #iteration - current step/epoch during which checkpoint is saved

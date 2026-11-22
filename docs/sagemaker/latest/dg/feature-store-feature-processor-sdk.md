@@ -1,7 +1,6 @@
 
 
 # Feature Store Feature Processor SDK
-<a name="feature-store-feature-processor-sdk"></a>
 
 Declare a Feature Store Feature Processor definition by decorating your transformation functions with the `@feature_processor` decorator. The SageMaker AI SDK for Python (Boto3) automatically loads data from the configured input data sources, applies the decorated transformation function, and then ingests the transformed data to a target feature group. Decorated transformation functions must conform to the expected signature of the `@feature_processor` decorator. For more information about the `@feature_processor` decorator, see [@feature\_processor Decorator](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html) in the Amazon SageMaker Feature Store Read the Docs. 
 

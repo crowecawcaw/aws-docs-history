@@ -1,7 +1,6 @@
 
 
 # Running training jobs on a heterogeneous cluster
-<a name="train-heterogeneous-cluster"></a>
 
 Using the heterogeneous cluster feature of SageMaker Training, you can run a training job with multiple types of ML instances for a better resource scaling and utilization for different ML training tasks and purposes. For example, if your training job on a cluster with GPU instances suffers low GPU utilization and CPU bottleneck problems due to CPU-intensive tasks, using a heterogeneous cluster can help offload CPU-intensive tasks by adding more cost-efficient CPU instance groups, resolve such bottleneck problems, and achieve a better GPU utilization.
 

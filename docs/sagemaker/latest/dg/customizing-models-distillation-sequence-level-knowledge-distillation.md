@@ -1,7 +1,6 @@
 
 
 # Sequence-level knowledge distillation
-<a name="customizing-models-distillation-sequence-level-knowledge-distillation"></a>
 
 Sequence-level knowledge distillation is the simplest form of distillation. You use the teacher model to generate high-quality responses for a set of prompts, then fine-tune the student on those responses with supervised fine-tuning (SFT). The teacher's output responses can be persisted as a dataset and reused to train different students without regenerating the data.
 
@@ -37,7 +36,7 @@ Generate teacher responses and assemble them into an SFT dataset:
 
 Each record pairs a user message (the prompt) with an assistant message (the teacher response). This is the same `messages` dataset format described on the [SFT](customizing-models-sft.md) page.
 
-```
+```json
 {
   "messages": [
     {"role": "user", "content": "What is the derivative of f(x) = 3x^2 + 2x?"},
@@ -48,7 +47,7 @@ Each record pairs a user message (the prompt) with an assistant message (the tea
 
 The following Python example calls the Amazon Bedrock Converse API for a single prompt and writes one (prompt, teacher response) record to a JSONL file. Extend it to loop over your full set of prompts.
 
-```
+```python
 import json
 import boto3
 
@@ -92,7 +91,7 @@ You can run sequence-level knowledge distillation with either LoRA or full fine-
 
 Use the Amazon SageMaker AI Python SDK `SFTTrainer`. You can override individual hyperparameters on the `hyperparameters` attribute; parameters that you don't set use the recipe default values.
 
-```
+```python
 from sagemaker.train import SFTTrainer
 from sagemaker.train.common import TrainingType
 

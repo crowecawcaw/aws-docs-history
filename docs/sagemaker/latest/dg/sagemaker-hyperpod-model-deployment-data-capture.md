@@ -1,7 +1,6 @@
 
 
 # Data capture for inference on HyperPod
-<a name="sagemaker-hyperpod-model-deployment-data-capture"></a>
 
 Amazon SageMaker HyperPod inference data capture enables you to record inference request and response data for model monitoring, debugging, and model improvement. Inference requests flow from the SageMaker AI endpoint to the Application Load Balancer and then to the model pod. You can enable capture independently at each level, from the outermost layer (Tier 1, SageMaker AI endpoint) to the deepest layer (Tier 3, model pod):
 
@@ -146,13 +145,13 @@ HP_ARN={{HYPERPOD_CLUSTER_ARN}}
 
 Connect to your EKS cluster:
 
-```
+```bash
 aws eks update-kubeconfig --region {{REGION}} --name {{EKS_CLUSTER_NAME}}
 ```
 
 Update the addon configuration:
 
-```
+```bash
 VERSION=$(aws eks describe-addon --cluster-name $CLUSTER --addon-name amazon-sagemaker-hyperpod-inference --region $REGION --query 'addon.addonVersion' --output text)
 CURRENT_CONFIG=$(aws eks describe-addon --cluster-name $CLUSTER --addon-name amazon-sagemaker-hyperpod-inference --region $REGION --query 'addon.configurationValues' --output text)
 NEW_CONFIG=$(echo "$CURRENT_CONFIG" | jq --arg arn "$HP_ARN" '. + {hyperpodClusterArn: $arn}')
@@ -286,3 +285,5 @@ To enable data capture on your HyperPod Inference deployments, configure the fol
 + Use `initialSamplingPercentage` to control the volume of captured data. Start with a lower percentage in production and increase as needed.
 + Use `payloadConfig.maxPayloadSizeKB` (Tier 3) to cap the size of captured payloads and control storage costs.
 + Specify a `kmsKeyId` for Tier 1 and Tier 3 if your workload requires encryption at rest with your own AWS KMS key.
++ Set `s3Uri` to a dedicated bucket. If you omit it, captured data goes to the bucket the operator uses for TLS certificates.
++ Restrict access to the capture bucket. Turn on Amazon S3 Block Public Access, and limit read access to the principals that analyze captured data.

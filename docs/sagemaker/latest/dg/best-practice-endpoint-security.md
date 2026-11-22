@@ -1,7 +1,6 @@
 
 
 # Best practices for endpoint security and health with Amazon SageMaker AI
-<a name="best-practice-endpoint-security"></a>
 
 To address the latest security issues, Amazon SageMaker AI automatically patches endpoints to the latest and most secure software. However, if you incorrectly modify your endpoint dependencies, Amazon SageMaker AI can't automatically patch your endpoints or replace your unhealthy instances. To ensure your endpoints remain eligible for automatic updates, apply the following best practices.
 

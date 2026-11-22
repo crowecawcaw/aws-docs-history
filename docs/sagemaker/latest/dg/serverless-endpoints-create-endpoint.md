@@ -1,7 +1,6 @@
 
 
 # Create an endpoint
-<a name="serverless-endpoints-create-endpoint"></a>
 
 To create a serverless endpoint, you can use the [Amazon SageMaker AI console](https://console.aws.amazon.com/sagemaker/home), the [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html) API, or the AWS CLI. The API and console approaches are outlined in the following sections. Once you create your endpoint, it can take a few minutes for the endpoint to become available.
 
@@ -12,7 +11,7 @@ The following example uses the [AWS SDK for Python (Boto3)](https://boto3.amazon
 + For `EndpointName`, enter a name for the endpoint that is unique within a Region in your account.
 + For `EndpointConfigName`, use the name of the endpoint configuration that you created in the previous section.
 
-```
+```python
 response = client.create_endpoint(
     EndpointName="{{<your-endpoint-name>}}",
     EndpointConfigName="{{<your-endpoint-config>}}"

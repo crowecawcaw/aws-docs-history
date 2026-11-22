@@ -1,7 +1,6 @@
 
 
 # Associate Prediction Results with Input Records
-<a name="batch-transform-data-processing"></a>
 
 When making predictions on a large dataset, you can exclude attributes that aren't needed for prediction. After the predictions have been made, you can associate some of the excluded attributes with those predictions or with other input data in your report. By using batch transform to perform these data processing steps, you can often eliminate additional preprocessing or postprocessing. You can use input files in JSON and CSV format only. 
 
@@ -114,7 +113,7 @@ sm_transformer.transform(…, join_source="Input", split_type="Line", content_ty
 
 If you're using the AWS SDK for Python (Boto 3), join all input data with the inference by adding the following code to your [`CreateTransformJob`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html) request. The values for `Accept` and `ContentType` must match, and the values for `AssembleWith` and `SplitType` must also match.
 
-```
+```json
 {
     "DataProcessing": {
         "JoinSource": "Input"

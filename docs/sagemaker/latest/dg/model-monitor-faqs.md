@@ -1,7 +1,6 @@
 
 
 # Model Monitor FAQs
-<a name="model-monitor-faqs"></a>
 
 **Note**  
 Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
@@ -46,7 +45,7 @@ Model quality monitoring compares the predictions your model makes with Ground T
 
 The following code example can be used for generating artificial Ground Truth data for a tabular dataset.
 
-```
+```python
 import random
 
 def ground_truth_with_id(inference_id):
@@ -89,7 +88,7 @@ ground_truth_thread.start()
 
 The following code example shows how to generate artificial traffic to send to the model endpoint. Notice the `inferenceId` attribute used above to invoke. If this is present, it is used to join with Ground Truth data (otherwise, the `eventId` is used).
 
-```
+```python
 import threading
 
 class WorkerThread(threading.Thread):
@@ -140,7 +139,7 @@ Amazon SageMaker AI provides the capability for you to monitor and evaluate the 
 
 The following example shows how you can customize monitoring schedules with pre-processing and post-processing scripts.
 
-```
+```python
 import boto3, osfrom sagemaker import get_execution_role, Sessionfrom sagemaker.model_monitor import CronExpressionGenerator, DefaultModelMonitor
 # Upload pre and postprocessor scripts
 session = Session()
@@ -189,7 +188,7 @@ You can use pre-processing scripts when you need to transform the inputs to your
 
    Suppose the output of your model is an array: `[1.0, 2.1]`. The Model Monitor container only works with tabular or flattened JSON structures, such as `{“prediction0”: 1.0, “prediction1” : 2.1}`. You could use a pre-processing script like the following example to transform the array into the correct JSON structure.
 
-   ```
+   ```python
    def preprocess_handler(inference_record):
        input_data = inference_record.endpoint_input.data
        output_data = inference_record.endpoint_output.data.rstrip("\n")
@@ -201,7 +200,7 @@ You can use pre-processing scripts when you need to transform the inputs to your
 
    Suppose your model has optional features and you use `-1` to denote that the optional feature has a missing value. If you have a data quality monitor, you may want to remove the `-1` from the input value array so that it isn't included in the monitor's metric calculations. You could use a script like the following to remove those values.
 
-   ```
+   ```python
    def preprocess_handler(inference_record):
        input_data = inference_record.endpoint_input.data
        return {i : None if x == -1 else x for i, x in enumerate(input_data.split(","))}
@@ -211,7 +210,7 @@ You can use pre-processing scripts when you need to transform the inputs to your
 
    You can also apply a custom sampling strategy in your pre-processing script. To do this, configure Model Monitor's first-party, pre-built container to ignore a percentage of the records according to your specified sampling rate. In the following example, the handler samples 10% of the records by returning the record in 10% of handler calls and an empty list otherwise.
 
-   ```
+   ```python
    import random
    
    def preprocess_handler(inference_record):
@@ -227,7 +226,7 @@ You can use pre-processing scripts when you need to transform the inputs to your
 
    You can log any information you need from your script to Amazon CloudWatch. This can be useful when debugging your pre-processing script in case of an error. The following example shows how you can use the `preprocess_handler` interface to log to CloudWatch.
 
-   ```
+   ```python
    def preprocess_handler(inference_record, logger):
        logger.info(f"I'm a processing record: {inference_record}")
        logger.debug(f"I'm debugging a processing record: {inference_record}")
@@ -243,7 +242,7 @@ When the pre-processing script is run on batch transform data, the input type is
 
 You can leverage a post-processing script as an extension following a successful monitoring run. The following is a simple example, but you can perform or call any business function that you need to perform after a successful monitoring run.
 
-```
+```python
 def postprocess_handler(): 
     print("Hello from the post-processing script!")
 ```

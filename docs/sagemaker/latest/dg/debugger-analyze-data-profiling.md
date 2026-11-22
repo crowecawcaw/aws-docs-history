@@ -1,7 +1,6 @@
 
 
 # Access the profile data
-<a name="debugger-analyze-data-profiling"></a>
 
 **Note**  
 End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources. For more information, see [Profiler availability change](profiler-availability-change.md).
@@ -10,7 +9,7 @@ The SMDebug `TrainingJob` class reads data from the S3 bucket where the system a
 
 **To set up a `TrainingJob` object and retrieve profiling event files of a training job**
 
-```
+```py
 from smdebug.profiler.analysis.notebook_utils.training_job import TrainingJob
 tj = TrainingJob(training_job_name, region)
 ```
@@ -19,14 +18,14 @@ tj = TrainingJob(training_job_name, region)
 You need to specify the `training_job_name` and `region` parameters to log to a training job. There are two ways to specify the training job information:   
 Use the SageMaker Python SDK while the ModelTrainer is still attached to the training job.  
 
-  ```
+  ```py
   import sagemaker
   training_job_name=model_trainer.latest_training_job.job_name
   region=Session().boto_region_name
   ```
 Pass strings directly.  
 
-  ```
+  ```py
   training_job_name="{{your-training-job-name-YYYY-MM-DD-HH-MM-SS-SSS}}"
   region="{{us-west-2}}"
   ```
@@ -38,21 +37,21 @@ If you use Studio Classic, turn on profiling using the **Profiling** toggle butt
 
 **To retrieve a description of the training job description and the S3 bucket URI where the metric data are saved**
 
-```
+```py
 tj.describe_training_job()
 tj.get_config_and_profiler_s3_output_path()
 ```
 
 **To check if the system and framework metrics are available from the S3 URI**
 
-```
+```py
 tj.wait_for_sys_profiling_data_to_be_available()
 tj.wait_for_framework_profiling_data_to_be_available()
 ```
 
 **To create system and framework reader objects after the metric data become available**
 
-```
+```py
 system_metrics_reader = tj.get_systems_metrics_reader()
 framework_metrics_reader = tj.get_framework_metrics_reader()
 ```
@@ -61,7 +60,7 @@ framework_metrics_reader = tj.get_framework_metrics_reader()
 
 The reader objects have an extended method, `refresh_event_file_list()`, to retrieve the latest training event files.
 
-```
+```py
 system_metrics_reader.refresh_event_file_list()
 framework_metrics_reader.refresh_event_file_list()
 ```

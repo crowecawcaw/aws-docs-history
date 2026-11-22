@@ -1,7 +1,6 @@
 
 
 # Batch forecasting
-<a name="timeseries-forecasting-batch"></a>
 
 Batch forecasting, also known as offline inferencing, generates model predictions on a batch of observations. Batch inference is a good option for large datasets or if you don't need an immediate response to a model prediction request.
 
@@ -15,7 +14,7 @@ You can use SageMaker APIs to retrieve the best candidate of an AutoML job and t
 
    The following AWS CLI command example uses the [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html) API to obtain details of the AutoML job, including the information about the best model candidate.
 
-   ```
+   ```bash
    aws sagemaker describe-auto-ml-job-v2 --auto-ml-job-name {{job-name}} --region {{region}}
    ```
 
@@ -25,7 +24,7 @@ You can use SageMaker APIs to retrieve the best candidate of an AutoML job and t
 
    A container definition is the containerized environment used to host the trained SageMaker AI model for making predictions.
 
-   ```
+   ```bash
    BEST_CANDIDATE=$(aws sagemaker describe-auto-ml-job-v2 \
          --auto-ml-job-name {{job-name}} 
          --region {{region}} \
@@ -41,7 +40,7 @@ You can use SageMaker APIs to retrieve the best candidate of an AutoML job and t
 
    Use the container definitions from the previous steps to create a SageMaker AI model by using the [CreateModel](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html) API.
 
-   ```
+   ```bash
    aws sagemaker create-model \
          --model-name '{{model-name}}' \
          --primary-container "$BEST_CANDIDATE"
@@ -57,7 +56,7 @@ You can use SageMaker APIs to retrieve the best candidate of an AutoML job and t
 
    The following example creates a transform job using the [CreateTransformJob](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/create-transform-job.html) API. 
 
-   ```
+   ```bash
    aws sagemaker create-transform-job \ 
           --transform-job-name '{{transform-job-name}}' \
           --model-name '{{model-name}}'\
@@ -70,7 +69,7 @@ You can use SageMaker APIs to retrieve the best candidate of an AutoML job and t
    The input, output, and resource details are defined in separate JSON files:
    + `transform-input.json`:
 
-     ```
+     ```JSON
      {
        "DataSource": {
          "S3DataSource": {
@@ -84,7 +83,7 @@ You can use SageMaker APIs to retrieve the best candidate of an AutoML job and t
      ```
    + `transform-output.json`:
 
-     ```
+     ```JSON
      {
        "S3OutputPath": "s3://my-output-bucket/path/to/output",
        "AssembleWith": "Line"
@@ -94,7 +93,7 @@ You can use SageMaker APIs to retrieve the best candidate of an AutoML job and t
 **Note**  
 We recommend using [m5.12xlarge](https://aws.amazon.com/ec2/instance-types/m5/) instances for general-purpose workloads and `m5.24xlarge` instances for big data forecasting tasks.
 
-     ```
+     ```JSON
      {
        "InstanceType": "instance-type",
        "InstanceCount": 1
@@ -107,7 +106,7 @@ We recommend using [m5.12xlarge](https://aws.amazon.com/ec2/instance-types/m5/) 
 
    See the following AWS CLI command as an example.
 
-   ```
+   ```bash
    aws sagemaker describe-transform-job \
          --transform-job-name '{{transform-job-name}}' \
          --region {{region}}
@@ -121,7 +120,7 @@ We recommend using [m5.12xlarge](https://aws.amazon.com/ec2/instance-types/m5/) 
 
    The output file name has the following format: `input_data_file_name.out`. As an example, if your input file is `text_x.csv`, the output name will be `text_x.csv.out`.
 
-   ```
+   ```bash
    aws s3 ls {{s3://my-output-bucket/path/to/output/}}
    ```
 
@@ -197,13 +196,13 @@ The batch inference job returns a response in the following format.
 
 1. **Obtain the best candidate container definitions**.
 
-   ```
+   ```bash
    aws sagemaker describe-auto-ml-job-v2 --auto-ml-job-name '{{test-automl-job}}' --region {{us-west-2}}
    ```
 
 1. **Create the model**.
 
-   ```
+   ```bash
    aws sagemaker create-model --model-name '{{test-sagemaker-model}}'
    --containers '[{
        "Image": "348316444620.dkr.ecr.us-west-2.amazonaws.com/sagemaker-sklearn-automl:2.5-1-cpu-py3",
@@ -243,7 +242,7 @@ The batch inference job returns a response in the following format.
 
 1. **Create a transform job**.
 
-   ```
+   ```bash
    aws sagemaker create-transform-job --transform-job-name '{{test-tranform-job}}'\
     --model-name '{{test-sagemaker-model}}'\
     --transform-input '{
@@ -269,7 +268,7 @@ The batch inference job returns a response in the following format.
 
 1. **Check the progress of the transform job**. 
 
-   ```
+   ```bash
    aws sagemaker describe-transform-job --transform-job-name  '{{test-tranform-job}}' --region {{us-west-2}}
    ```
 

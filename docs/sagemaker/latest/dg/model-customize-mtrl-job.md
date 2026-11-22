@@ -1,7 +1,6 @@
 
 
 # Training job submission
-<a name="model-customize-mtrl-job"></a>
 
 ## Launching Training Jobs
 <a name="model-customize-mtrl-job-launching"></a>
@@ -23,7 +22,7 @@ After your agent is deployed and your dataset is in S3, create a training job us
 
 **Discover supported models**
 
-```
+```python
 from sagemaker.train.multi_turn_rl_trainer import MultiTurnRLTrainer
 
 supported_models = MultiTurnRLTrainer.list_supported_models()
@@ -36,7 +35,7 @@ for m in supported_models:
 
 Option 1: Bedrock AgentCore runtime
 
-```
+```python
 # List available runtimes
 runtimes = MultiTurnRLTrainer.list_bedrock_agentcore_runtimes()
 for rt in runtimes:
@@ -45,7 +44,7 @@ for rt in runtimes:
 
 Option 2: Custom Lambda agent
 
-```
+```python
 from sagemaker.train.agent_lambda import AgentLambda
 
 # Create from inline code
@@ -77,7 +76,7 @@ adapter = AgentLambda.get("arn:aws:lambda:us-west-2:123456789012:function:my-age
 
 **Register your dataset (optional)**
 
-```
+```python
 from sagemaker.ai_registry.dataset import DataSet
 
 dataset = DataSet.create(
@@ -97,7 +96,7 @@ The RFT job schema requires two separate Restricted MPGs:
 + Output MPG — stores the final fine-tuned model package
 + Intermediate Checkpoint MPG — reserved for intermediate training checkpoints (must differ from the Output MPG)
 
-```
+```python
 from sagemaker.core.resources import Job, ModelPackageGroup
 from sagemaker.core.shapes import ManagedConfiguration
 
@@ -129,7 +128,7 @@ Once the Model package group is created, pass the groups in the next step when s
 
 **Submit a training job with Bedrock AgentCore**
 
-```
+```python
 from sagemaker.train.multi_turn_rl_trainer import MultiTurnRLTrainer
 
 trainer = MultiTurnRLTrainer(
@@ -156,7 +155,7 @@ print(f"Output Model Package: {job.output_model_package_arn}")
 
 **Submit a training job with a custom Lambda agent**
 
-```
+```python
 trainer = MultiTurnRLTrainer(
     model="openai-reasoning-gpt-oss-20b",
     agent_env=adapter,  # AgentLambda object or Lambda ARN string
@@ -181,7 +180,7 @@ print(f"Output Model Package: {job.output_model_package_arn}")
 
 Refer to the step above (Create Restricted Model Package Group for Nova) on how to create a Restricted Model Package group.
 
-```
+```python
 from sagemaker.train.multi_turn_rl_trainer import MultiTurnRLTrainer
 
 trainer = MultiTurnRLTrainer(
@@ -215,14 +214,14 @@ Create a training job using the `CreateJob` API. You specify the agent configura
 
 To retrieve the full JobConfigDocument schema:
 
-```
+```bash
 aws sagemaker list-job-schema-versions --job-category AgentRFT
 aws sagemaker describe-job-schema-version --job-category AgentRFT --version "1.0.0"
 ```
 
 **Create job with Bedrock AgentCore**
 
-```
+```bash
 aws sagemaker create-job \
   --job-category AgentRFT \
   --job-name "my-agent-rft-job" \
@@ -244,7 +243,7 @@ aws sagemaker create-job \
 
 **Create job with custom Lambda agent**
 
-```
+```bash
 aws sagemaker create-job \
   --job-category AgentRFT \
   --job-name "my-custom-agent-rft-job" \
@@ -269,7 +268,7 @@ aws sagemaker create-job \
 
 **Create job with Bedrock AgentCore**
 
-```
+```python
 import json
 import boto3
 
@@ -298,7 +297,7 @@ print(f"Job ARN: {response['JobArn']}")
 
 **Create job with custom Lambda agent**
 
-```
+```python
 import json
 import boto3
 
@@ -333,7 +332,7 @@ print(f"Job ARN: {response['JobArn']}")
 
 Use the `DescribeJob` API to check your job's current status at any time. The job status transitions through `InProgress`, and then to `Completed`, `Failed` or `Stopped`.
 
-```
+```bash
 aws sagemaker describe-job \
   --job-name "my-agent-rft-job" \
   --job-category AgentRFT \
@@ -342,7 +341,7 @@ aws sagemaker describe-job \
 
 Use the SDK:
 
-```
+```python
 # Run without blocking
 job = trainer.train(wait=False)
 job.wait(poll=5, timeout=3000, max_log_lines=10)
@@ -372,7 +371,7 @@ for j in AgentRFTJob.get_all(status_equals="Completed"):
 
 SageMaker AI automatically integrates with managed MLflow to track your training job's progress, metrics, and artifacts. To enable MLflow tracking, include an `MlflowConfig` in your job's `OutputDataConfig`:
 
-```
+```json
 "OutputDataConfig": {
     "S3OutputPath": "s3://your-bucket/output/",
     "MlflowConfig": {
@@ -573,7 +572,7 @@ Emitted at baseline (step 0), at every `val_every` interval, and at the final st
 
 Access the MLflow UI via a presigned URL:
 
-```
+```bash
 aws sagemaker create-presigned-mlflow-app-url \
   --arn arn:aws:sagemaker:us-west-2:123456789012:mlflow-app/mlflow-app-id \
   --region us-west-2
@@ -597,7 +596,7 @@ During training, SageMaker AI records every interaction between your agent and t
 
 Access the MLflow UI via a presigned URL:
 
-```
+```bash
 aws sagemaker create-presigned-mlflow-app-url \
   --arn arn:aws:sagemaker:us-west-2:123456789012:mlflow-app/mlflow-app-id \
   --region us-west-2
@@ -639,7 +638,7 @@ SageMaker AI stores training output as versioned, immutable Model Packages insid
 
 **Configure both groups in your ModelPackageConfig:**
 
-```
+```json
 "ModelPackageConfig": {
   "OutputModelPackageGroupArn": "arn:aws:sagemaker:us-west-2:123456789012:model-package-group/my-final-models",
   "IntermediateCheckpointModelPackageGroupArn": "arn:aws:sagemaker:us-west-2:123456789012:model-package-group/my-intermediate-checkpoints"
@@ -683,7 +682,7 @@ When a job completes successfully, the final model is saved as a Model Package i
 
 Check job completion and retrieve the output model ARN:
 
-```
+```bash
 aws sagemaker describe-job \
 --job-name "my-agent-rft-job" \
 --job-category AgentRFT \
@@ -692,7 +691,7 @@ aws sagemaker describe-job \
 
 Look for `OutputModelPackageArn` in the response. Use it to describe the Model Package and get the S3 location of the weights:
 
-```
+```bash
 aws sagemaker describe-model-package \
 --model-package-name "arn:aws:sagemaker:us-west-2:123456789012:model-package/my-final-models/5"
 ```
@@ -708,7 +707,7 @@ If a job fails or is stopped mid-training, you can start a new job that picks up
 
 Specify a resumable checkpoint from the Intermediate Checkpoint Model Package Group as `InputModelPackageArn`:
 
-```
+```json
 "ModelPackageConfig": {
   "OutputModelPackageGroupArn": "arn:aws:sagemaker:us-west-2:123456789012:model-package-group/my-final-models",
   "IntermediateCheckpointModelPackageGroupArn": "arn:aws:sagemaker:us-west-2:123456789012:model-package-group/my-intermediate-checkpoints",
@@ -731,7 +730,7 @@ Iterative training lets you build on a previously trained model with a different
 
 Specify a model checkpoint from the Output Model Package Group as `InputModelPackageArn`:
 
-```
+```json
 "ModelPackageConfig": {
   "OutputModelPackageGroupArn": "arn:aws:sagemaker:us-west-2:123456789012:model-package-group/my-final-models",
   "IntermediateCheckpointModelPackageGroupArn": "arn:aws:sagemaker:us-west-2:123456789012:model-package-group/my-intermediate-checkpoints",

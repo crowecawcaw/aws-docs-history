@@ -1,7 +1,6 @@
 
 
 # Instructions for editing a scaling policy
-<a name="endpoint-auto-scaling-edit"></a>
 
 After creating a scaling policy, you can edit any of its settings except the name.
 

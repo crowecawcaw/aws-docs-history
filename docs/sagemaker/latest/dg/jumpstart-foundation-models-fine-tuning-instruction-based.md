@@ -1,7 +1,6 @@
 
 
 # Fine-tune a large language model (LLM) using prompt instructions
-<a name="jumpstart-foundation-models-fine-tuning-instruction-based"></a>
 
 Instruction-based fine-tuning uses labeled examples to improve the performance of a pre-trained foundation model on a specific task. The labeled examples are formatted as prompt, response pairs and phrased as instructions. This fine-tuning process modifies the weights of the model. For more information on instruction-based fine-tuning, see the papers [Introducing FLAN: More generalizable Language Models with Instruction Fine-Tuning](https://ai.googleblog.com/2021/10/introducing-flan-more-generalizable.html) and [Scaling Instruction-Finetuned Language Models](https://arxiv.org/abs/2210.11416).
 
@@ -47,7 +46,7 @@ Training data for instruction-based fine-tuning must be provided in JSON Lines t
 
 The training folder can also include a template JSON file (`template.json`) that describes the input and output formats of your data. If no template file is provided, the following template file is used: 
 
-```
+```json
 {
   "prompt": "Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\n{instruction}\n\n### Input:\n{context}",
   "completion": "{response}"
@@ -58,7 +57,7 @@ According to the `template.json` file, each .jsonl entry of the training data mu
 
 If you provide a custom template JSON file, use the `"prompt"` and `"completion"` keys to define your own required fields. According to the following custom template JSON file, each .jsonl entry of the training data must include `{question}`, `{context}`, and `{answer}` fields:
 
-```
+```json
 {
   "prompt": "question: {question} context: {context}",
   "completion": "{answer}"
@@ -75,7 +74,7 @@ You can optionally provide another folder containing validation data. This folde
 
 Upload your prepared data to Amazon Simple Storage Service (Amazon S3) to use when fine-tuning a JumpStart foundation model. You can use the following commands to upload your data:
 
-```
+```python
 from sagemaker.s3 import S3Uploader
 import sagemaker
 import random

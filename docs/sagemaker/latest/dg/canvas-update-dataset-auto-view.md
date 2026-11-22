@@ -1,7 +1,6 @@
 
 
 # View your automatic dataset update jobs
-<a name="canvas-update-dataset-auto-view"></a>
 
 To view the job history for your automatic dataset updates in Amazon SageMaker Canvas, on your dataset details page, choose the **Auto updates** tab.
 

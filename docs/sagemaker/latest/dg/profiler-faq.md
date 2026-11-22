@@ -1,7 +1,6 @@
 
 
 # Troubleshooting for SageMaker Profiler
-<a name="profiler-faq"></a>
 
 **Note**  
 End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources. For more information, see [Profiler availability change](profiler-availability-change.md).
@@ -16,7 +15,7 @@ Therefore, if you have been using `smppy` since before December 2023 and experie
 
 While updating the SageMaker Profiler Python package name in your training scripts, to avoid confusion around which version of the package name you should use, consider using a conditional import statement as shown in the following code snippet.
 
-```
+```py
 try:
     import smprof 
 except ImportError:
@@ -34,7 +33,7 @@ First, make sure that you use one of the officially supported SageMaker AI Frame
 
 If you are unable to import `ProfilerConfig` in your job launcher script using the SageMaker Python SDK, your local environment or the Jupyter kernel might have a significantly outdated version of the SageMaker Python SDK. Make sure that you upgrade the SDK to the latest version.
 
-```
+```sh
 $ pip install --upgrade sagemaker
 ```
 

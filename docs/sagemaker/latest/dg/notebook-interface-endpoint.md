@@ -1,7 +1,6 @@
 
 
 # Connect to a Notebook Instance Through a VPC Interface Endpoint
-<a name="notebook-interface-endpoint"></a>
 
 You can connect to your notebook instance from your VPC through an [interface endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in your Virtual Private Cloud (VPC) instead of connecting over the public internet. When you use a VPC interface endpoint, communication between your VPC and the notebook instance is conducted entirely and securely within the AWS network.
 
@@ -38,7 +37,7 @@ For more information, see [Controlling Access to Services with VPC Endpoints](ht
 
 The following example of a VPC endpoint policy specifies that all users that have access to the endpoint are allowed to access the notebook instance named `myNotebookInstance`.
 
-```
+```json
 {
   "Statement": [
       {
@@ -71,7 +70,7 @@ This policy allows connections only to callers within a subnet where you created
 
 ****  
 
-```
+```json
 {
     "Id": "notebook-example-1",
     "Version":"2012-10-17",		 	 	 
@@ -103,7 +102,7 @@ If you want to restrict access to the notebook instance to only connections made
 
 ****  
 
-```
+```json
 {
     "Id": "notebook-example-1",
     "Version":"2012-10-17",		 	 	 

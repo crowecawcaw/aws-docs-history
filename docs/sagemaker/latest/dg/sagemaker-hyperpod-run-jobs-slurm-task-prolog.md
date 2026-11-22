@@ -1,7 +1,6 @@
 
 
 # Injecting environment variables with a task prolog
-<a name="sagemaker-hyperpod-run-jobs-slurm-task-prolog"></a>
 
 You can use a task prolog to automatically inject environment variables into your jobs without changing your job scripts. A Slurm task prolog is a script that runs before a task starts. It runs with the same environment as the task. The task prolog writes each variable to standard output as `export {{NAME}}={{value}}`, and Slurm sets those variables in the task's environment.
 

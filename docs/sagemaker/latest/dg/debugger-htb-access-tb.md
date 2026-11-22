@@ -1,7 +1,6 @@
 
 
 # Accessing the TensorBoard application on SageMaker AI
-<a name="debugger-htb-access-tb"></a>
 
 You can access TensorBoard by two methods: programmatically using the `sagemaker.interactive_apps.tensorboard` module that generates an unsigned or a presigned URL, or using the TensorBoard landing page in the SageMaker AI console. After you open TensorBoard, SageMaker AI runs the TensorBoard plugin and automatically finds all training job output data in a TensorBoard-compatible file format.
 

@@ -1,7 +1,6 @@
 
 
 # BlazingText Hyperparameters
-<a name="blazingtext_hyperparameters"></a>
 
 When you start a training job with a `CreateTrainingJob` request, you specify a training algorithm. You can also specify algorithm-specific hyperparameters as string-to-string maps. The hyperparameters for the BlazingText algorithm depend on which mode you use: Word2Vec (unsupervised) and Text Classification (supervised).
 

@@ -1,7 +1,6 @@
 
 
 # Resources for using SparkML Serving with Amazon SageMaker AI
-<a name="sparkml-serving"></a>
 
 The [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable) SparkML Serving model and predictor and the Amazon SageMaker AI open-source SparkML Serving container support deploying Apache Spark ML pipelines serialized with MLeap in SageMaker AI to get inferences. Use the following resources to learn how to use SparkML Serving with SageMaker AI.
 

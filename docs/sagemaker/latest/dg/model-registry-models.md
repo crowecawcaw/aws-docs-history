@@ -1,7 +1,6 @@
 
 
 # Model Registry Models, Model Versions, and Model Groups
-<a name="model-registry-models"></a>
 
 The SageMaker Model Registry is structured as several Model (Package) Groups with model packages in each group. These Model Groups can optionally be added to one or more Collections. Each model package in a Model Group corresponds to a trained model. The version of each model package is a numerical value that starts at 1 and is incremented with each new model package added to a Model Group. For example, if 5 model packages are added to a Model Group, the model package versions will be 1, 2, 3, 4, and 5. 
 

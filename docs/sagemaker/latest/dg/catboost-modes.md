@@ -1,7 +1,6 @@
 
 
 # How to use SageMaker AI CatBoost
-<a name="catboost-modes"></a>
 
 You can use CatBoost as an Amazon SageMaker AI built-in algorithm. The following section describes how to use CatBoost with the SageMaker Python SDK. For information on how to use CatBoost from the Amazon SageMaker Studio Classic UI, see [SageMaker JumpStart pretrained models](studio-jumpstart.md).
 + **Use CatBoost as a built-in algorithm**
@@ -10,7 +9,7 @@ You can use CatBoost as an Amazon SageMaker AI built-in algorithm. The following
 
   After specifying the CatBoost image URI, you can use the CatBoost container to construct a ModelTrainer using the SageMaker AI ModelTrainer API and initiate a training job. The CatBoost built-in algorithm runs in script mode, but the training script is provided for you and there is no need to replace it. If you have extensive experience using script mode to create a SageMaker training job, then you can incorporate your own CatBoost training scripts.
 
-  ```
+  ```py
   from sagemaker.core import image_uris
   from sagemaker.core import model_uris, script_uris
   

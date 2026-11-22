@@ -1,7 +1,6 @@
 
 
 # Batch transforms with inference pipelines
-<a name="inference-pipeline-batch"></a>
 
 To get inferences on an entire dataset you run a batch transform on a trained model. To run inferences on a full dataset, you can use the same inference pipeline model created and deployed to an endpoint for real-time processing in a batch transform job. To run a batch transform job in a pipeline, you download the input data from Amazon S3 and send it in one or more HTTP requests to the inference pipeline model. For an example that shows how to prepare data for a batch transform, see "Section 2 - Preprocess the raw housing data using Scikit Learn" of the [Amazon SageMaker Multi-Model Endpoints using Linear Learner sample notebook](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/multi_model_linear_learner_home_value). For information about Amazon SageMaker AI batch transforms, see [Batch transform for inference with Amazon SageMaker AI](batch-transform.md). 
 

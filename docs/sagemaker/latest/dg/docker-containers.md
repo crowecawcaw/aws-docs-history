@@ -1,7 +1,6 @@
 
 
 # Docker containers for training and deploying models
-<a name="docker-containers"></a>
 
 Amazon SageMaker AI makes extensive use of *Docker containers* for build and runtime tasks. SageMaker AI provides pre-built Docker images for its built-in algorithms and the supported deep learning frameworks used for training and inference. Using containers, you can train machine learning algorithms and deploy models quickly and reliably at any scale. The topics in this section show how to deploy these containers for your own use cases. For information about how to bring your own containers for use with Amazon SageMaker Studio Classic, see [Custom Images in Amazon SageMaker Studio Classic](studio-byoi.md).
 

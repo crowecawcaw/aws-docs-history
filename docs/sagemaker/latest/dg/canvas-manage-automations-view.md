@@ -1,7 +1,6 @@
 
 
 # View your automations
-<a name="canvas-manage-automations-view"></a>
 
 You can also view all of your auto update jobs by going to the left navigation pane of Canvas and choosing **ML Ops**. The **ML Operations** page combines automations for both automatic dataset updates and automatic batch predictions. On the **Automations** tab, you can see the following sub-tabs:
 + **All jobs** – You can see every instance of a **Dataset update** or **Batch prediction** job that Canvas has done. For each job, you can see fields such as the associated **Input dataset**, the **Configuration name** of the associated auto update configuration, and the **Status** showing whether the job was successful or not. You can filter the jobs by configuration name:

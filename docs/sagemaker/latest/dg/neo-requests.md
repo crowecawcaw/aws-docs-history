@@ -1,7 +1,6 @@
 
 
 # Inference Requests With a Deployed Service
-<a name="neo-requests"></a>
 
 If you have followed instructions in [Deploy a Model](neo-deployment-hosting-services.md), you should have a SageMaker AI endpoint set up and running. Regardless of how you deployed your Neo-compiled model, there are three ways you can submit inference requests: 
 

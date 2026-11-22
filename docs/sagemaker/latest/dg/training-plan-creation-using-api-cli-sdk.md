@@ -1,7 +1,6 @@
 
 
 # SageMaker training plans creation using the SageMaker API, or AWS CLI
-<a name="training-plan-creation-using-api-cli-sdk"></a>
 
 SageMaker training plans support the programmatic creation of training plans through its API. You can interact with the training plans API using the AWS CLI or SageMaker SDKs.
 

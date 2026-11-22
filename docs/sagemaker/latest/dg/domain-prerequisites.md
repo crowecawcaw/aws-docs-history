@@ -1,7 +1,6 @@
 
 
 # Complete prerequisites
-<a name="domain-prerequisites"></a>
 
 To use the features available in an Amazon SageMaker AI domain, you must complete the following prerequisites. 
 + Onboard to a domain. For more information, see [Onboard to Amazon SageMaker AI domain](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-onboard.html).

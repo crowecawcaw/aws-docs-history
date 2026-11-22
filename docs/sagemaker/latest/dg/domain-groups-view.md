@@ -1,7 +1,6 @@
 
 
 # View groups and users
-<a name="domain-groups-view"></a>
 
 Complete the following procedure to view a list of IAM Identity Center groups and users from the Amazon SageMaker AI console. 
 

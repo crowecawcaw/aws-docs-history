@@ -1,7 +1,6 @@
 
 
 # Evaluation
-<a name="customizing-models-evaluation"></a>
 
 After training, evaluation confirms that your customized model improves on the metrics that matter for your use case, helping you catch regressions before deployment and compare techniques objectively. Evaluation is available through both [Serverless](customize-model.md) and [Recipes](customizing-models-infrastructure.md) paths.
 

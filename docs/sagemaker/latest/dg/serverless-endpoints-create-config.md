@@ -1,7 +1,6 @@
 
 
 # Create an endpoint configuration
-<a name="serverless-endpoints-create-config"></a>
 
 After you create a model, create an endpoint configuration. You can then deploy your model using the specifications in your endpoint configuration. In the configuration, you specify whether you want a real-time or serverless endpoint. To create a serverless endpoint configuration, you can use the [Amazon SageMaker AI console](https://console.aws.amazon.com/sagemaker/home), the [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html) API, or the AWS CLI. The API and console approaches are outlined in the following sections.
 
@@ -17,7 +16,7 @@ The following example uses the [AWS SDK for Python (Boto3)](https://boto3.amazon
   + Set `MaxConcurrency` to `20`. For this example, we set the maximum concurrency to 20. The maximum number of concurrent invocations you can set for a serverless endpoint is 200, and the minimum value you can choose is 1.
   + (Optional) To use Provisioned Concurrency, set `ProvisionedConcurrency` to 10. For this example, we set the Provisioned Concurrency to 10. The `ProvisionedConcurrency` number for a serverless endpoint must be lower than or equal to the `MaxConcurrency` number. You can leave it empty if you want to use on-demand Serverless Inference endpoint. You can dynamically scale Provision Concurrency. For more information, see [Automatically scale Provisioned Concurrency for a serverless endpoint](serverless-endpoints-autoscale.md).
 
-```
+```python
 response = client.create_endpoint_config(
    EndpointConfigName="{{<your-endpoint-configuration>}}",
    KmsKeyId="arn:aws:kms:us-east-1:123456789012:key/143ef68f-76fd-45e3-abba-ed28fc8d3d5e",

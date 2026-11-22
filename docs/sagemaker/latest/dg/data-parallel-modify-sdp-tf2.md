@@ -1,7 +1,6 @@
 
 
 # Use the SMDDP library in your TensorFlow training script (deprecated)
-<a name="data-parallel-modify-sdp-tf2"></a>
 
 **Important**  
 The SMDDP library discontinued support for TensorFlow and is no longer available in DLCs for TensorFlow later than v2.11.0. To find previous TensorFlow DLCs with the SMDDP library installed, see [Supported frameworks](distributed-data-parallel-support.md#distributed-data-parallel-supported-frameworks).
@@ -21,14 +20,14 @@ The SageMaker AI distributed data parallelism library supports Automatic Mixed P
 
 1. Import the library's TensorFlow client and initialize it.
 
-   ```
+   ```py
    import smdistributed.dataparallel.tensorflow as sdp 
    sdp.init()
    ```
 
 1. Pin each GPU to a single `smdistributed.dataparallel` process with `local_rank`—this refers to the relative rank of the process within a given node. The `sdp.tensorflow.local_rank()` API provides you with the local rank of the device. The leader node is rank 0, and the worker nodes are rank 1, 2, 3, and so on. This is invoked in the following code block as `sdp.local_rank()`. `set_memory_growth` is not directly related to SageMaker AI distributed, but must be set for distributed training with TensorFlow. 
 
-   ```
+   ```py
    gpus = tf.config.experimental.list_physical_devices('GPU')
    for gpu in gpus:
        tf.config.experimental.set_memory_growth(gpu, True)
@@ -38,13 +37,13 @@ The SageMaker AI distributed data parallelism library supports Automatic Mixed P
 
 1. Scale the learning rate by the number of workers. The `sdp.tensorflow.size()` API provides you the number of workers in the cluster. This is invoked in the following code block as `sdp.size()`. 
 
-   ```
+   ```py
    learning_rate = learning_rate * sdp.size()
    ```
 
 1. Use the library’s `DistributedGradientTape` to optimize `AllReduce` operations during training. This wraps `tf.GradientTape`.  
 
-   ```
+   ```py
    with tf.GradientTape() as tape:
          output = model(input)
          loss_value = loss(label, output)
@@ -55,21 +54,21 @@ The SageMaker AI distributed data parallelism library supports Automatic Mixed P
 
 1. Broadcast the initial model variables from the leader node (rank 0) to all the worker nodes (ranks 1 through n). This is needed to ensure a consistent initialization across all the worker ranks. Use the `sdp.tensorflow.broadcast_variables` API after the model and optimizer variables are initialized. This is invoked in the following code block as `sdp.broadcast_variables()`. 
 
-   ```
+   ```py
    sdp.broadcast_variables(model.variables, root_rank=0)
    sdp.broadcast_variables(opt.variables(), root_rank=0)
    ```
 
 1. Finally, modify your script to save checkpoints only on the leader node. The leader node has a synchronized model. This also avoids worker nodes overwriting the checkpoints and possibly corrupting the checkpoints. 
 
-   ```
+   ```py
    if sdp.rank() == 0:
        checkpoint.save(checkpoint_dir)
    ```
 
 The following is an example TensorFlow training script for distributed training with the library.
 
-```
+```py
 import tensorflow as tf
 
 # SageMaker AI data parallel: Import the library TF API

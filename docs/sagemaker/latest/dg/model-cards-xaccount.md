@@ -1,7 +1,6 @@
 
 
 # Set up cross-account support for Amazon SageMaker Model Cards
-<a name="model-cards-xaccount"></a>
 
 Use cross-account support in Amazon SageMaker Model Cards to share model cards between AWS accounts. The account where the model cards are created is the *model card account*. Users in the model card account share them with the *shared accounts*. The users in a shared account can update the model cards or create PDFs of them.
 
@@ -65,7 +64,7 @@ If the model cards that you're sharing have been encrypted with AWS Key Manageme
 
 To provide AWS KMS permissions to users in the shared account, update your key policy with the following statement:
 
-```
+```json
 {
     "Effect": "Allow",
     "Principal": {
@@ -114,7 +113,7 @@ You and the other users in your account use an IAM role to access the model card
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -145,7 +144,7 @@ You and the other users in your account use an IAM role to access the model card
 
 To access model cards encrypted using AWS KMS, you must provide users in your account with the following AWS KMS permissions.
 
-```
+```json
 {
      "Effect": "Allow",
      "Action": [

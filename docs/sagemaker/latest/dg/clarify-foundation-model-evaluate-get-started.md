@@ -1,7 +1,6 @@
 
 
 # Get started with model evaluations
-<a name="clarify-foundation-model-evaluate-get-started"></a>
 
 A large language model (LLM) is a machine learning model that can analyze and generate natural language text. If you want to evaluate an LLM, SageMaker AI provides the following three options that you can choose:
 + Set up manual evaluations for a human workforce using Studio.

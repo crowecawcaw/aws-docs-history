@@ -1,7 +1,6 @@
 
 
 # `StartVectorEnrichmentJob` API: Execution role permissions
-<a name="sagemaker-roles-start-vej-perms"></a>
 
 For an execution role that you can pass in a `StartVectorEnrichmentJob` API request, you can attach the following minimum permissions policy to the role:
 
@@ -10,7 +9,7 @@ For an execution role that you can pass in a `StartVectorEnrichmentJob` API requ
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

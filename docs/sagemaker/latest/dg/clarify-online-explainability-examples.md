@@ -1,7 +1,6 @@
 
 
 # Code examples: SDK for Python
-<a name="clarify-online-explainability-examples"></a>
 
 This section provides sample code to create and invoke an endpoint that uses SageMaker Clarify online explainability. These code examples use the [AWS SDK for Python.](https://aws.amazon.com/sdk-for-python/)
 
@@ -163,7 +162,7 @@ This section provides a code example to create and invoke an online explainabili
 
 The following example uses text data and a SageMaker AI model called `model_name`. In this example, the model container accepts data in CSV format, and each record is a single string.
 
-```
+```python
 endpoint_config_name = 'text_explainer_endpoint_config'
 response = sagemaker_client.create_endpoint_config(
     EndpointConfigName=endpoint_config_name,
@@ -201,7 +200,7 @@ response = sagemaker_client.create_endpoint_config(
 
 Use the endpoint configuration to create the endpoint, as follows:
 
-```
+```python
 endpoint_name = 'text_explainer_endpoint'
 response = sagemaker_client.create_endpoint(
     EndpointName=endpoint_name,
@@ -211,7 +210,7 @@ response = sagemaker_client.create_endpoint(
 
 After the status of the endpoint becomes `InService`, invoke the endpoint. The following code sample uses a test record as follows:
 
-```
+```python
 response = sagemaker_runtime_client.invoke_endpoint(
     EndpointName=endpoint_name,
     ContentType='text/csv',
@@ -222,7 +221,7 @@ response = sagemaker_runtime_client.invoke_endpoint(
 
 If the request completes successfully, the response body will return a valid JSON object that's similar to the following:
 
-```
+```python
 {
     "version": "1.0",
     "predictions": {

@@ -1,7 +1,6 @@
 
 
 # Connect to data sources
-<a name="canvas-connecting-external"></a>
 
 In Amazon SageMaker Canvas, you can import data from a location outside of your local file system through an AWS service, a SaaS platform, or other databases using JDBC connectors. For example, you might want to import tables from a data warehouse in Amazon Redshift, or you might want to import Google Analytics data.
 
@@ -248,7 +247,7 @@ Use the following procedure to import data from Snowflake to Amazon SageMaker Ca
 
      Your secret should have your Snowflake credentials stored in the following JSON format:
 
-     ```
+     ```json
      {"accountid": "{{ID}}",
      "username": "{{username}}",
      "password": "{{password}}"}

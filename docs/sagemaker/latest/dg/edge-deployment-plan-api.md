@@ -1,7 +1,6 @@
 
 
 # Deploy the Model Package Directly with SageMaker Edge Manager Deployment API
-<a name="edge-deployment-plan-api"></a>
 
 SageMaker Edge Manager provides a deployment API that you can use to deploy models to device targets without AWS IoT Greengrass. It is useful in situations where you want to update models independently of firmware updates or application deployment mechanisms. You can use the API to integrate your edge deployments into a CI/CD workflow to automatically deploy models once you have validated your model for accuracy. The API also has convenient rollback and staged rollout options for you to ensure models work well in a particular environment before wider rollout.
 
@@ -19,7 +18,7 @@ You can create an edge deployment plan with the [`CreateEdgeDeploymentPlan`](htt
 
 The following code snippet shows how you can create an edge deployment plan with 1 stage to deploy a compiled and package model to 2 specific edge devices:
 
-```
+```py
 import boto3
 
 client = boto3.client("sagemaker")
@@ -57,7 +56,7 @@ Stages can be added after the deployment plan has been created with the [CreateE
 
 After creating the deployment plan and the deployment stages, you can start the deployment with the [`StartEdgeDeploymentStage`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartEdgeDeploymentStage.html) API.
 
-```
+```py
 client.start_edge_deployment_stage(
     EdgeDeploymentPlanName={{"edge-deployment-plan-name"}},
     StageName={{"stage-name"}}
@@ -69,7 +68,7 @@ client.start_edge_deployment_stage(
 
 You can check the status of the edge deployment with the [DescribeEdgeDeploymentPlan](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEdgeDeploymentPlan.html) API.
 
-```
+```py
 client.describe_edge_deployment_plan(
     EdgeDeploymentPlanName={{"edge-deployment-plan-name"}}
 )

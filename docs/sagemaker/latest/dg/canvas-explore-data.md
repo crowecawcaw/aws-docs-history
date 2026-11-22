@@ -1,7 +1,6 @@
 
 
 # Data exploration and analysis
-<a name="canvas-explore-data"></a>
 
 **Note**  
 You can only use SageMaker Canvas visualizations and analytics for models built on tabular datasets. Multi-category text prediction models are also excluded.

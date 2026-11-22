@@ -1,7 +1,6 @@
 
 
 # Custom image specifications
-<a name="studio-updated-byoi-specs"></a>
 
 The image that you specify in your Dockerfile must match the specifications in the following sections to create the image successfully.
 
@@ -35,7 +34,7 @@ The following configurations can be made by updating your [`ContainerConfig`](ht
 
   Use the following command to show the file system contents:
 
-  ```
+  ```cmd
   cat /opt/ml/metadata/resource-metadata.json
   ```
 + Logging directories – `/var/log/studio` are reserved for the logging directories of your applications and the extensions associated with it. We recommend that you don't use these folders in creating your image.

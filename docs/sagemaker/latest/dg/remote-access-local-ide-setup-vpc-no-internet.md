@@ -1,7 +1,6 @@
 
 
 # Connect to VPC with subnets without internet access
-<a name="remote-access-local-ide-setup-vpc-no-internet"></a>
 
 Before connecting your Remote IDE to Studio spaces in private subnets without internet access, ensure your administrator has [Set up Studio to run with subnets without internet access within a VPC](remote-access-remote-setup-vpc-subnets-without-internet-access.md).
 
@@ -36,7 +35,7 @@ Configure the HTTP proxy for Kiro remote development by setting the `aws.sagemak
 
 If you use MCP (Model Context Protocol) servers in Kiro, you also need to add the proxy environment variables to your MCP server configuration:
 
-```
+```json
 "env": {
     "http_proxy": "${http_proxy}",
     "https_proxy": "${https_proxy}"
@@ -72,7 +71,7 @@ The following is a sample Dockerfile to launch a local container with SSH server
 In this example the SSH server does not require authentication and is only used for exporting the VS Code remote server.
 The container should be built and run on an x64 architecture.
 
-```
+```bash
 FROM amazonlinux:2023
 
 # Install OpenSSH server and required tools
@@ -113,7 +112,7 @@ CMD ["bash"]
 
 Use the following commands to build and run the container:
 
-```
+```bash
 # Build the image
 docker build . -t remote_server_export
 
@@ -134,13 +133,13 @@ docker exec -i remote_server_export bash -c 'sudo /usr/sbin/sshd -D &'
 
 Connect using the following command:
 
-```
+```bash
 ssh sagemaker-user@localhost -p 2222
 ```
 
 Before this container can be connected, configure the following in the `.ssh/config` file. Afterwards you will be able to see the `remote_access_export` as a host name in the remote SSH side panel when connecting. For example:
 
-```
+```bash
 Host remote_access_export
   HostName localhost
   User=sagemaker-user
@@ -150,7 +149,7 @@ Host remote_access_export
 
 Archive `/tmp/remote_access/.VS Code-server` and follow the steps in Pre-packaged VS Code remote server and extensions to connect and install the extension. After unzipping, ensure that the `.VS Code-server` folder shows as the parent folder.
 
-```
+```bash
 cd /tmp/remote_access/
 sudo tar -czvf VS Code-server-with-extensions-for-1.100.2.tar.gz .VS Code-server
 ```
@@ -160,7 +159,7 @@ sudo tar -czvf VS Code-server-with-extensions-for-1.100.2.tar.gz .VS Code-server
 
 The following is an example of how to install a specific version of VS Code remote server.
 
-```
+```bash
 #!/bin/bash
 
 set -x

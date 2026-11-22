@@ -1,7 +1,6 @@
 
 
 # Speed up training job startup with SOCI-indexed images
-<a name="train-soci-indexed-images"></a>
 
 A training job downloads its container image before it runs your code. For large images, such as deep learning images, this adds minutes to every training job.
 
@@ -87,7 +86,7 @@ The procedure creates an indexed copy of an existing image under a new tag; the 
 
 1. Set variables for your account, Region, repository, the tag to index, and the tag for the indexed image:
 
-   ```
+   ```bash
    ACCOUNT_ID="{{111122223333}}"
    REGION="{{us-east-1}}"
    REPOSITORY_NAME="{{repository-name}}"
@@ -98,7 +97,7 @@ The procedure creates an indexed copy of an existing image under a new tag; the 
 
 1. Install the tools and start the snapshotter (Amazon Linux 2023; for other distributions see the [SOCI snapshotter installation guide](https://github.com/awslabs/soci-snapshotter/blob/main/docs/install.md) on the GitHub website):
 
-   ```
+   ```bash
    sudo dnf install -y containerd soci-snapshotter nerdctl jq
    sudo systemctl start soci-snapshotter
    sudo systemctl restart containerd
@@ -106,20 +105,20 @@ The procedure creates an indexed copy of an existing image under a new tag; the 
 
 1. Confirm that `soci` is listed under **Server → Plugins → Storage**:
 
-   ```
+   ```bash
    sudo nerdctl system info
    ```
 
 1. Authenticate to Amazon ECR and pull the original image:
 
-   ```
+   ```bash
    aws ecr get-login-password --region "$REGION" | sudo nerdctl login -u AWS --password-stdin "$REGISTRY"
    sudo nerdctl pull "$REGISTRY/$REPOSITORY_NAME:$ORIGINAL_IMAGE_TAG"
    ```
 
 1. Create and push the SOCI-indexed image:
 
-   ```
+   ```bash
    sudo nerdctl image convert --soci \
      "$REGISTRY/$REPOSITORY_NAME:$ORIGINAL_IMAGE_TAG" \
      "$REGISTRY/$REPOSITORY_NAME:$SOCI_IMAGE_TAG"
@@ -136,14 +135,14 @@ After the push:
 
 To run the indexed image on the host the way a training job runs it, and check your entry point for the patterns in [Prevent job failures: check your code for Docker-specific assumptions](#train-soci-indexed-images-docker-assumptions):
 
-```
+```bash
 sudo nerdctl run --snapshotter soci --rm -it "$REGISTRY/$REPOSITORY_NAME:$SOCI_IMAGE_TAG" /bin/bash
 ```
 
 ## Verify that an image includes a SOCI index
 <a name="train-soci-indexed-images-verify"></a>
 
-```
+```bash
 aws ecr batch-get-image \
   --repository-name "$REPOSITORY_NAME" \
   --image-ids imageTag="$SOCI_IMAGE_TAG" \
@@ -158,7 +157,7 @@ aws ecr batch-get-image \
 
 Set the indexed image as `TrainingImage` in [AlgorithmSpecification](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html):
 
-```
+```json
 "AlgorithmSpecification": {
   "TrainingImage": "111122223333.dkr.ecr.us-east-1.amazonaws.com/repository-name:soci-indexed-image-tag",
   "TrainingInputMode": "File"
@@ -167,7 +166,7 @@ Set the indexed image as `TrainingImage` in [AlgorithmSpecification](https://doc
 
 With the SageMaker Python SDK:
 
-```
+```python
 from sagemaker.train.model_trainer import ModelTrainer
 from sagemaker.core.training.configs import Compute
 
@@ -188,7 +187,7 @@ trainer.train()
   + `ecr:BatchGetImage`
 + **To create and push indexes:** the identity on the build host needs pull and push permissions on the repository, for example:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Define a pipeline
-<a name="define-pipeline"></a>
 
 To orchestrate your workflows with Amazon SageMaker Pipelines, you must generate a directed acyclic graph (DAG) in the form of a JSON pipeline definition. The DAG specifies the different steps involved in your ML process, such as data preprocessing, model training, model evaluation, and model deployment, as well as the dependencies and flow of data between these steps. The following topic shows you how to generate a pipeline definition.
 
@@ -123,7 +122,7 @@ After you have entered all the required information to create your pipeline, cli
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -142,7 +141,7 @@ After you have entered all the required information to create your pipeline, cli
 ------
 +  Trust the SageMaker AI service principal by following the steps in [Modifying a role trust policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-cli.html#roles-managingrole_edit-trust-policy-cli). Add the following statement fragment to the trust relationship of your role: 
 
-  ```
+  ```json
   {
         "Sid": "",
         "Effect": "Allow",
@@ -158,7 +157,7 @@ After you have entered all the required information to create your pipeline, cli
 
 Create a new SageMaker AI session using the following code block. This returns the role ARN for the session. This role ARN should be the execution role ARN that you set up as a prerequisite. 
 
-```
+```python
 import boto3
 import sagemaker
 from sagemaker.core.workflow.pipeline_context import PipelineSession
@@ -206,7 +205,7 @@ The number of rings in the abalone shell is a good approximation for its age usi
 
 1. Download the dataset into your account's default Amazon S3 bucket.
 
-   ```
+   ```python
    !mkdir -p data
    local_path = "data/abalone-dataset.csv"
    
@@ -226,7 +225,7 @@ The number of rings in the abalone shell is a good approximation for its age usi
 
 1. Download a second dataset for batch transformation after your model is created.
 
-   ```
+   ```python
    local_path = "data/abalone-dataset-batch.csv"
    
    s3 = boto3.resource("s3")
@@ -246,7 +245,7 @@ The number of rings in the abalone shell is a good approximation for its age usi
 #### Step 2: Define pipeline parameters
 <a name="define-pipeline-parameters"></a>
 
-```
+```python
 from sagemaker.core.workflow.parameters import (
     ParameterInteger,
     ParameterString,
@@ -267,7 +266,7 @@ This section shows how to create a processing step to prepare the data from the 
 
 1. Create an instance of a processor to pass in to the processing step.
 
-   ```
+   ```python
    from sagemaker.core.processing import Processor
    from sagemaker.core import image_uris
    
@@ -292,7 +291,7 @@ This section shows how to create a processing step to prepare the data from the 
 
 1. Create a processing step.
 
-   ```
+   ```python
    from sagemaker.core.processing import ProcessingInput, ProcessingOutput
    from sagemaker.mlops.workflow.steps import ProcessingStep
    
@@ -320,13 +319,13 @@ This section shows how to use the SageMaker AI XGBoost Algorithm to train a mode
 
 1. Specify the model path where you want to save the models from training.
 
-   ```
+   ```python
    model_path = f"s3://{default_bucket}/AbaloneTrain"
    ```
 
 1. Configure a training estimator for the XGBoost algorithm and the input dataset.
 
-   ```
+   ```python
    from sagemaker.train import ModelTrainer
    from sagemaker.train.configs import Compute, OutputDataConfig
    from sagemaker.core import image_uris
@@ -359,7 +358,7 @@ This section shows how to use the SageMaker AI XGBoost Algorithm to train a mode
 
 1. Create a `TrainingStep` using the training instance and properties of the `ProcessingStep`.
 
-   ```
+   ```python
    from sagemaker.train.configs import InputData
    from sagemaker.mlops.workflow.steps import TrainingStep
    
@@ -394,7 +393,7 @@ This section shows how to create a processing step to evaluate the accuracy of t
 
 1. Create an instance of a `Processor` for evaluation.
 
-   ```
+   ```python
    from sagemaker.core.processing import Processor
    
    script_eval = Processor(
@@ -410,7 +409,7 @@ This section shows how to create a processing step to evaluate the accuracy of t
 
 1. Create a `ProcessingStep` using the processor instance, the input and output channels, and the `evaluation.py` script.
 
-   ```
+   ```python
    from sagemaker.core.workflow.properties import PropertyFile
    
    evaluation_report = PropertyFile(
@@ -453,7 +452,7 @@ This section shows how to create a SageMaker AI model from the output of the tra
 **To define a CreateModelStep for batch transformation**
 + Create a SageMaker AI model and model step.
 
-  ```
+  ```python
   from sagemaker.serve import ModelBuilder
   from sagemaker.mlops.workflow.model_step import ModelStep
   
@@ -478,7 +477,7 @@ This section shows how to create a `TransformStep` to perform batch transformati
 **To define a TransformStep to perform batch transformation**
 + Create a transformer instance and a `TransformStep`.
 
-  ```
+  ```python
   from sagemaker.core.transformer import Transformer
   from sagemaker.mlops.workflow.steps import TransformStep
   
@@ -506,7 +505,7 @@ This section shows how to register a model. The result is a model package for in
 **To define a model registration step to create a model package**
 + Construct a model registration step.
 
-  ```
+  ```python
   from sagemaker.core.model_metrics import MetricsSource, ModelMetrics 
   from sagemaker.mlops.workflow.model_step import ModelStep
   from sagemaker.serve import ModelBuilder
@@ -551,7 +550,7 @@ A `ConditionStep` allows Pipelines to support conditional running in your pipeli
 **To define a condition step to verify model accuracy**
 + Define a condition and construct a `ConditionStep`.
 
-  ```
+  ```python
   from sagemaker.core.workflow.conditions import ConditionLessThanOrEqualTo
   from sagemaker.mlops.workflow.condition_step import ConditionStep
   from sagemaker.core.workflow.functions import JsonGet
@@ -582,7 +581,7 @@ Now that you've created all of the steps, combine them into a pipeline.
 
 1. Define the following for your pipeline: `name`, `parameters`, and `steps`.
 
-   ```
+   ```python
    from sagemaker.mlops.workflow.pipeline import Pipeline
    
    pipeline_name = f"AbalonePipeline"
@@ -600,7 +599,7 @@ Now that you've created all of the steps, combine them into a pipeline.
 
 1. (Optional) Examine the JSON pipeline definition to ensure that it's well-formed.
 
-   ```
+   ```python
    import json
    
    json.loads(pipeline.definition())

@@ -1,7 +1,6 @@
 
 
 # Enable Lake Formation with Feature Groups
-<a name="feature-store-lf-governance"></a>
 
 When you enable AWS Lake Formation on a feature group in Amazon SageMaker Feature Store, you can enforce column-level, row-level, and cell-level security for the feature data in your offline store. Instead of managing access through individual IAM policies on Amazon S3 and AWS Glue resources, you use the Lake Formation grant and revoke permission model to control which users and roles can access specific features and records. For more information about Lake Formation, see the [AWS Lake Formation Developer Guide](https://docs.aws.amazon.com/lake-formation/latest/dg/what-is-lake-formation.html).
 
@@ -15,7 +14,7 @@ Before you enable Lake Formation, verify that you have the following:
 + A SageMaker AI feature group with an offline store configured, or you can create a new one with an offline store as part of the setup. Lake Formation requires an offline store because it governs access through the AWS Glue Data Catalog table that the offline store creates.
 + An IAM execution role with appropriate permissions. The following example shows the minimum IAM policy required. Replace the placeholder values with your own.
 
-  ```
+  ```json
   {
       "Version": "2012-10-17", 		 	 	 
       "Statement": [
@@ -177,7 +176,7 @@ If the setup fails partway through (for example, after registering the S3 locati
 
 The following example creates a new feature group with an offline store and enables Lake Formation access control in a single operation.
 
-```
+```python
 from sagemaker.core.helper.session_helper import Session
 from sagemaker.core.shapes import (
     FeatureDefinition,
@@ -234,7 +233,7 @@ fg = FeatureGroupManager.create(
 
 The following example enables Lake Formation on a feature group that already exists.
 
-```
+```python
 from sagemaker.mlops.feature_store import FeatureGroupManager
 
 fg = FeatureGroupManager.get(feature_group_name="my-existing-feature-group")

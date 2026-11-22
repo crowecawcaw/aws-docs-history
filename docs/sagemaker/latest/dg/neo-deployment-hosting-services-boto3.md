@@ -1,7 +1,6 @@
 
 
 # Deploy a Compiled Model Using Boto3
-<a name="neo-deployment-hosting-services-boto3"></a>
 
 You must satisfy the [ prerequisites](https://docs.aws.amazon.com/sagemaker/latest/dg/neo-deployment-hosting-services-prerequisites) section if the model was compiled using AWS SDK for Python (Boto3), AWS CLI, or the Amazon SageMaker AI console. Follow the steps below to create and deploy a SageMaker Neo-compiled model using [Amazon Web Services SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html). 
 
@@ -15,7 +14,7 @@ After you have satisfied the [ prerequisites](https://docs.aws.amazon.com/sagema
 
 The following example shows how to use these APIs to deploy a model compiled with Neo: 
 
-```
+```python
 import boto3
 client = boto3.client('sagemaker')
 
@@ -66,7 +65,7 @@ If you did not train your model using SageMaker AI, specify the following enviro
 ------
 #### [ MXNet and PyTorch ]
 
-```
+```json
 "Environment": {
     "SAGEMAKER_PROGRAM": "inference.py",
     "SAGEMAKER_SUBMIT_DIRECTORY": {{"/opt/ml/model/code"}},
@@ -79,7 +78,7 @@ If you did not train your model using SageMaker AI, specify the following enviro
 ------
 #### [ TensorFlow ]
 
-```
+```json
 "Environment": {
     "SAGEMAKER_PROGRAM": "inference.py",
     "SAGEMAKER_SUBMIT_DIRECTORY": {{"/opt/ml/model/code"}},

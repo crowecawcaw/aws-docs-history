@@ -1,7 +1,6 @@
 
 
 # Semantic Segmentation Algorithm
-<a name="semantic-segmentation"></a>
 
 The SageMaker AI semantic segmentation algorithm provides a fine-grained, pixel-level approach to developing computer vision applications. It tags every pixel in an image with a class label from a predefined set of classes. Tagging is fundamental for understanding scenes, which is critical to an increasing number of computer vision applications, such as self-driving vehicles, medical imaging diagnostics, and robot sensing. 
 

@@ -1,7 +1,6 @@
 
 
 # Preprocessing and Postprocessing
-<a name="model-monitor-pre-and-post-processing"></a>
 
 **Note**  
 Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
@@ -10,7 +9,7 @@ You can use custom preprocessing and postprocessing Python scripts to transform 
 
 The following example shows how you can customize monitoring schedules with preprocessing and postprocessing scripts. Replace {{user placeholder text}} with your own information.
 
-```
+```py
 import boto3, os
 from sagemaker.core.helper.session_helper import get_execution_role, Session
 from sagemaker.model_monitor import CronExpressionGenerator, DefaultModelMonitor
@@ -69,7 +68,7 @@ Use preprocessing scripts when you need to transform the inputs to your model mo
 
 For example, suppose the output of your model is an array `[1.0, 2.1]`. The Amazon SageMaker Model Monitor container only works with tabular or flattened JSON structures, like `{“{{prediction0}}”: 1.0, “{{prediction1}}” : 2.1}`. You could use a preprocessing script like the following to transform the array into the correct JSON structure.
 
-```
+```py
 def preprocess_handler(inference_record):
     input_data = inference_record.endpoint_input.data
     output_data = inference_record.endpoint_output.data.rstrip("\n")
@@ -79,7 +78,7 @@ def preprocess_handler(inference_record):
 
 In another example, suppose your model has optional features and you use `-1` to denote that the optional feature has a missing value. If you have a data quality monitor, you may want to remove the `-1` from the input value array so that it isn't included in the monitor's metric calculations. You could use a script like the following to remove those values.
 
-```
+```py
 def preprocess_handler(inference_record):
     input_data = inference_record.endpoint_input.data
     return {i : None if x == -1 else x for i, x in enumerate(input_data.split(","))}
@@ -87,7 +86,7 @@ def preprocess_handler(inference_record):
 
 Your preprocessing script receives an `inference_record` as its only input. The following code snippet shows an example of an `inference_record`.
 
-```
+```py
 {
   "captureData": {
     "endpointInput": {
@@ -113,7 +112,7 @@ Your preprocessing script receives an `inference_record` as its only input. The 
 
 The following code snippet shows the full class structure for an `inference_record`.
 
-```
+```py
 KEY_EVENT_METADATA = "eventMetadata"
 KEY_EVENT_METADATA_EVENT_ID = "eventId"
 KEY_EVENT_METADATA_EVENT_TIME = "inferenceTime"
@@ -216,7 +215,7 @@ class CapturedData:
 
 You can also apply a custom sampling strategy in your preprocessing script. To do this, configure Model Monitor's first-party, pre-built container to ignore a percentage of the records according to your specified sampling rate. In the following example, the handler samples 10 percent of the records by returning the record in 10 percent of handler calls and an empty list otherwise.
 
-```
+```py
 import random
 
 def preprocess_handler(inference_record):
@@ -233,7 +232,7 @@ def preprocess_handler(inference_record):
 
  If your preprocessing script returns an error, check the exception messages logged to CloudWatch to debug. You can access the logger on CloudWatch through the `preprocess_handler` interface. You can log any information you need from your script to CloudWatch. This can be useful when debug your preprocessing script. The following example shows how you can use the `preprocess_handler` interface to log to CloudWatch 
 
-```
+```py
 def preprocess_handler(inference_record, logger):
     logger.info(f"I'm a processing record: {inference_record}")
     logger.debug(f"I'm debugging a processing record: {inference_record}")

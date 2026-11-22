@@ -1,7 +1,6 @@
 
 
 # Metrics reference
-<a name="canvas-metrics"></a>
 
 The following sections describe the metrics that are available in Amazon SageMaker Canvas for each model type.
 

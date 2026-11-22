@@ -1,7 +1,6 @@
 
 
 # Manage a Private Workforce (Amazon Cognito)
-<a name="sms-workforce-management-private"></a>
 
 After you have created a private workforce using Amazon Cognito, you can create and manage work teams using the Amazon SageMaker AI console and API operations.
 

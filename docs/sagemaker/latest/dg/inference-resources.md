@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="inference-resources"></a>
 
 Use the following resources for troubleshooting and reference, answerings FAQS, and learning more about Amazon SageMaker AI.
 

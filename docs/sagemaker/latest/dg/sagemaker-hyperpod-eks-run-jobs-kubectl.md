@@ -1,7 +1,6 @@
 
 
 # Running jobs using `kubectl`
-<a name="sagemaker-hyperpod-eks-run-jobs-kubectl"></a>
 
 **Note**  
 Training job auto resume requires Kubeflow Training Operator release version `1.7.0`, `1.8.0`, or `1.8.1`.
@@ -14,7 +13,7 @@ kubectl get pods -n kubeflow
 
 This should return an output similar to the following.
 
-```
+```txt
 NAME                                             READY   STATUS    RESTARTS   AGE
 training-operator-658c68d697-46zmn               1/1     Running   0          90s
 ```
@@ -45,7 +44,7 @@ kubectl delete -f {{/path/to/training_job.yaml}}
 
 This should return the following output.
 
-```
+```txt
 pytorchjob.kubeflow.org "training-job" deleted
 ```
 
@@ -55,13 +54,13 @@ SageMaker HyperPod supports job auto-resume functionality for Kubernetes jobs, i
 
 Ensure that there are sufficient nodes in the cluster that have passed the SageMaker HyperPod health check. The nodes should have the taint `sagemaker.amazonaws.com/node-health-status` set to `Schedulable`. It is recommended to include a node selector in the job YAML file to select nodes with the appropriate configuration as follows.
 
-```
+```yaml
 sagemaker.amazonaws.com/node-health-status: Schedulable
 ```
 
 The following code snippet is an example of how to modify a Kubeflow PyTorch job YAML configuration to enable the job auto-resume functionality. You need to add two annotations and set `restartPolicy` to `OnFailure` as follows.
 
-```
+```yaml
 apiVersion: "kubeflow.org/v1"
 kind: PyTorchJob 
 metadata:
@@ -95,7 +94,7 @@ Depending on the failure patterns, you might see two patterns of Kubeflow traini
 
 **Pattern 1**:
 
-```
+```txt
 Start Time:    2024-07-11T05:53:10Z
 Events:
   Type     Reason                   Age                    From                   Message
@@ -112,7 +111,7 @@ Events:
 
 **Pattern 2**: 
 
-```
+```txt
 Events:
   Type    Reason                   Age    From                   Message
   ----    ------                   ----   ----                   -------

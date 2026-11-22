@@ -1,7 +1,6 @@
 
 
 # Understand the results of an automatic evaluation job
-<a name="clarify-foundation-model-evaluate-auto-ui-results"></a>
 
 When you automatic model evaluation job completes the results are saved in Amazon S3. The sections below describe the files generated and how to interpret them.
 
@@ -12,7 +11,7 @@ The `output.json` file contains aggregate scores for your selected datasets and 
 
 The following is an example output
 
-```
+```json
 {
     "evaluations": [{
         "evaluation_name": "factual_knowledge",

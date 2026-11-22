@@ -1,7 +1,6 @@
 
 
 # Enable checkpointing
-<a name="model-checkpoints-enable"></a>
 
 After you enable checkpointing, SageMaker AI saves checkpoints to Amazon S3 and syncs your training job with the checkpoint S3 bucket. You can use either S3 general purpose or S3 directory buckets for your checkpoint S3 bucket. 
 
@@ -12,7 +11,7 @@ The following example shows how to configure checkpoint paths when you construct
 
 To enable checkpointing, add the `checkpoint_config` parameter to your `ModelTrainer`. The following example template shows how to create a SageMaker AI `ModelTrainer` and enable checkpointing. You can use this template for any supported algorithm by specifying the `training_image` parameter. To find Docker image URIs for algorithms with checkpointing supported by SageMaker AI, see [Docker Registry Paths and Example Code](https://docs.aws.amazon.com/sagemaker/latest/dg-ecr-paths/sagemaker-algo-docker-registry-paths). In V3, the unified `ModelTrainer` class replaces all framework-specific estimator classes (TensorFlow, PyTorch, HuggingFace, XGBoost, etc.).
 
-```
+```py
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import Compute, CheckpointConfig
 from sagemaker.core.helper.session_helper import Session

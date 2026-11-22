@@ -1,7 +1,6 @@
 
 
 # Quotas, naming rules and data types
-<a name="feature-store-quotas"></a>
 
 ## Quota terminologies
 <a name="feature-store-terminologies"></a>

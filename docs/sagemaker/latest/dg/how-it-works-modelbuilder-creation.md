@@ -1,7 +1,6 @@
 
 
 # Create a model in Amazon SageMaker AI with ModelBuilder
-<a name="how-it-works-modelbuilder-creation"></a>
 
 Preparing your model for deployment on a SageMaker AI endpoint requires multiple steps, including choosing a model image, setting up the endpoint configuration, coding your serialization and deserialization functions to transfer data to and from server and client, identifying model dependencies, and uploading them to Amazon S3. `ModelBuilder` can reduce the complexity of initial setup and deployment to help you create a deployable model in a single step.
 
@@ -25,7 +24,7 @@ The following diagram illustrates the overall model creation workflow when you u
 
 `ModelBuilder` can handle any customization you want to apply. However, to deploy a framework model, the model builder expects at minimum a model, sample input and output, and the role. In the following code example, `ModelBuilder` is called with a framework model and an instance of `SchemaBuilder` with minimum arguments (to infer the corresponding functions for serializing and deserializing the endpoint input and output). No container is specified and no packaged dependencies are passed—SageMaker AI automatically infers these resources when you build your model. 
 
-```
+```py
 from sagemaker.serve.model_builder import ModelBuilder
 from sagemaker.serve.builder.schema_builder import SchemaBuilder
 
@@ -38,7 +37,7 @@ model_builder = ModelBuilder(
 
 The following code sample invokes `ModelBuilder` with an inference specification (as an `InferenceSpec` instance) instead of a model, with additional customization. In this case, the call to model builder includes a path to store model artifacts and also turns on autocapture of all available dependencies. For additional details about `InferenceSpec`, see [Customize model loading and handling of requests](#how-it-works-modelbuilder-creation-is).
 
-```
+```py
 model_builder = ModelBuilder(
     mode=Mode.LOCAL_CONTAINER,
     model_path={{model-artifact-directory}},
@@ -71,7 +70,7 @@ The following diagram shows the serialization and deserialization processes that
 
 When you supply sample input and output to `SchemaBuilder`, the schema builder generates the corresponding marshalling functions for serializing and deserializing the input and output. You can further customize your serialization functions with `CustomPayloadTranslator`. But for most cases, a simple serializer such as the following would work:
 
-```
+```py
 input = "How is the demo going?"
 output = "Comment la démo va-t-elle?"
 schema = SchemaBuilder(input, output)
@@ -83,7 +82,7 @@ The following code snippet outlines an example where you want to customize both 
 
 By including the inputs and outputs with the translators, the model builder can extract the data format the model expects. For example, suppose the sample input is a raw image, and your custom translators crop the image and send the cropped image to the server as a tensor. `ModelBuilder` needs both the raw input and any custom preprocessing or postprocessing code to derive a method to convert data on both the client and server sides.
 
-```
+```py
 from sagemaker.serve import CustomPayloadTranslator
 
 # request translator
@@ -117,7 +116,7 @@ class MyResponseTranslator(CustomPayloadTranslator):
 
 You pass in the sample input and output along with the previously-defined custom translators when you create the `SchemaBuilder` object, as shown in the following example:
 
-```
+```py
 my_schema = SchemaBuilder(
     sample_input=image,
     sample_output=output,
@@ -128,7 +127,7 @@ my_schema = SchemaBuilder(
 
 Then you pass in the sample input and output, along with the custom translators defined previously, to the `SchemaBuilder` object. 
 
-```
+```py
 my_schema = SchemaBuilder(
     sample_input=image,
     sample_output=output,
@@ -153,7 +152,7 @@ The following sections explain in detail how to build your model with `ModelBuil
 
 Providing your own inference code through `InferenceSpec` offers an additional layer of customization. With `InferenceSpec`, you can customize how the model is loaded and how it handles incoming inference requests, bypassing its default loading and inference handling mechanisms. This flexibility is particularly beneficial when working with non-standard models or custom inference pipelines. You can customize the `invoke` method to control how the model preprocesses and postprocesses incoming requests. The `invoke` method ensures that the model handles inference requests correctly. The following example uses `InferenceSpec` to generate a model with the HuggingFace pipeline. For further details about `InferenceSpec`, refer to the [InferenceSpec](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html).
 
-```
+```py
 from sagemaker.serve.spec.inference_spec import InferenceSpec
 from transformers import pipeline
 
@@ -174,7 +173,7 @@ model_builder = ModelBuilder(
 
 The following example illustrates a more customized variation of a previous example. A model is defined with an inference specification that has dependencies. In this case, the code in the inference specification is dependent on the *lang-segment* package. The argument for `dependencies` contains a statement that directs the builder to install *lang-segment* using Git. Since the model builder is directed by the user to custom install a dependency, the `auto` key is `False` to turn off autocapture of dependencies.
 
-```
+```py
 model_builder = ModelBuilder(
     mode=Mode.LOCAL_CONTAINER,
     model_path=model-artifact-directory,
@@ -192,14 +191,14 @@ Call the `build` function to create your deployable model. This step creates inf
 
 As an integrity check, SageMaker AI packages and pickles the necessary files for deployment as part of the `ModelBuilder` build function. During this process, SageMaker AI also creates HMAC signing for the pickle file and adds the secret key in the [CreateModel](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html) API as an environment variable during `deploy` (or `create`). The endpoint launch uses the environment variable to validate the integrity of the pickle file.
 
-```
+```py
 # Build the model according to the model server specification and save it as files in the working directory
 model = model_builder.build()
 ```
 
 Deploy your model with the model’s existing `deploy` method. In this step, SageMaker AI sets up an endpoint to host your model as it starts making predictions on incoming requests. Although the `ModelBuilder` infers the endpoint resources needed to deploy your model, you can override those estimates with your own parameter values. The following example directs SageMaker AI to deploy the model on a single `ml.c6i.xlarge` instance. A model constructed from `ModelBuilder` enables live logging during deployment as an added feature.
 
-```
+```py
 endpoint = model_builder.deploy(
     endpoint_name="{{my-endpoint}}",
     instance_type="ml.c6i.xlarge"
@@ -208,7 +207,7 @@ endpoint = model_builder.deploy(
 
 If you want more fine-grained control over the endpoint resources assigned to your model, you can use a `ResourceRequirements` object. With the `ResourceRequirements` object, you can request a minimum number of CPUs, accelerators, and copies of models you want to deploy. You can also request a minimum and maximum bound of memory (in MB). To use this feature, you need to specify your endpoint type as `EndpointType.INFERENCE_COMPONENT_BASED`. The following example requests four accelerators, a minimum memory size of 1024 MB, and one copy of your model to be deployed to an endpoint of type `EndpointType.INFERENCE_COMPONENT_BASED`.
 
-```
+```py
 resource_requirements = ResourceRequirements(
     requests={
         "num_accelerators": 4,
@@ -231,7 +230,7 @@ endpoint = model_builder.deploy(
 
 If you want to bring your own container (extended from a SageMaker AI container), you can also specify the image URI as shown in the following example. You also need to identify the model server that corresponds to the image for `ModelBuilder` to generate artifacts specific to the model server.
 
-```
+```py
 model_builder = ModelBuilder(
     model=model,
     model_server=ModelServer.TORCHSERVE,
@@ -245,7 +244,7 @@ model_builder = ModelBuilder(
 
 You can deploy your model locally by using the `mode` argument to switch between local testing and deployment to an endpoint. You need to store the model artifacts in the working directory, as shown in the following snippet:
 
-```
+```py
 model = XGBClassifier()
 model.fit(X_train, y_train)
 model.save_model(model_dir + "/my_model.xgb")
@@ -253,7 +252,7 @@ model.save_model(model_dir + "/my_model.xgb")
 
 Pass the model object, a `SchemaBuilder` instance, and set mode to `Mode.LOCAL_CONTAINER`. When you call the `build` function, `ModelBuilder` automatically identifies the supported framework container and scans for dependencies. The following example demonstrates model creation with an XGBoost model in local mode.
 
-```
+```py
 model_builder_local = ModelBuilder(
     model=model,
     schema_builder=SchemaBuilder(X_test, y_pred),
@@ -265,7 +264,7 @@ xgb_local_builder = model_builder_local.build()
 
 Call the `deploy` function to deploy locally, as shown in the following snippet. If you specify parameters for instance type or count, these arguments are ignored.
 
-```
+```py
 local_endpoint = xgb_local_builder.deploy_local()
 ```
 
@@ -304,7 +303,7 @@ Depending on your individual local setup, you may encounter difficulties running
 
   1. Add a `daemon.json` to `/etc/docker` or append the following JSON blob to the existing one.
 
-     ```
+     ```json
      {
          "data-root": "/home/ec2-user/SageMaker/{{{created_docker_folder}}}"
      }

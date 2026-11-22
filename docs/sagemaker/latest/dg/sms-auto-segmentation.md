@@ -1,7 +1,6 @@
 
 
 # Auto-Segmentation Tool
-<a name="sms-auto-segmentation"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
@@ -33,7 +32,7 @@ If you are creating a custom instance segmentation labeling job in the SageMaker
 
 The following is an example of a custom task template for a custom instance segmentation labeling job, which includes the `<crowd-instance-segmentation/>` tag and the `grant_read_access` Liquid filter.
 
-```
+```html
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 <crowd-form>
   <crowd-instance-segmentation

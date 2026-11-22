@@ -1,7 +1,6 @@
 
 
 # Instance storage volumes
-<a name="host-instance-storage"></a>
 
 When you create an endpoint, Amazon SageMaker AI attaches an Amazon Elastic Block Store (Amazon EBS) storage volume to Amazon EC2 instances that hosts the endpoint. The size of the storage volume is scalable, and storage options are divided into two categories: SSD-backed storage and HDD-backed storage. 
 

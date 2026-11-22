@@ -1,7 +1,6 @@
 
 
 # Export to create a model
-<a name="canvas-processing-export-model"></a>
 
 In just a few clicks from your data flow, you can export your transformed data and start creating an ML model in Canvas. Canvas saves your data as a Canvas dataset, and you're taken to the model build configuration page for a new model.
 

@@ -1,7 +1,6 @@
 
 
 # Edge Devices
-<a name="neo-edge-devices"></a>
 
 Amazon SageMaker Neo provides compilation support for popular machine learning frameworks. You can deploy your Neo-compiled edge devices such as the Raspberry Pi 3, Texas Instruments' Sitara, Jetson TX1, and more. For a full list of supported frameworks and edge devices, see [Supported Frameworks, Devices, Systems, and Architectures](https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-devices-edge.html). 
 

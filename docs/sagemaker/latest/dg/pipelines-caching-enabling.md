@@ -1,11 +1,10 @@
 
 
 # Turn on step caching
-<a name="pipelines-caching-enabling"></a>
 
 To turn on step caching, you must add a `CacheConfig` property to the step definition. `CacheConfig` properties use the following format in the pipeline definition file:
 
-```
+```json
 {
     "CacheConfig": {
         "Enabled": false,
@@ -26,7 +25,7 @@ The following discussion describes the procedure to turn on caching for new or p
 
 For new pipelines, initialize a `CacheConfig` instance with `enable_caching=True` and provide it as an input to your pipeline step. The following example turns on caching with a 1-hour timeout period for a training step: 
 
-```
+```py
 from sagemaker.core.workflow.pipeline_context import PipelineSession
 from sagemaker.mlops.workflow.steps import CacheConfig
       
@@ -44,7 +43,7 @@ step_train = TrainingStep(
 
 To turn on caching for pre-existing, already-defined pipelines, turn on the `enable_caching` property for the step, and set `expire_after` to a timeout value. Lastly, update the pipeline with `pipeline.upsert()` or `pipeline.update()`. Once you run it again, the following code example turns on caching with a 1-hour timeout period for a training step:
 
-```
+```py
 from sagemaker.core.workflow.pipeline_context import PipelineSession
 from sagemaker.mlops.workflow.steps import CacheConfig
 from sagemaker.mlops.workflow.pipeline import Pipeline
@@ -71,7 +70,7 @@ pipeline.update()
 
 Alternatively, update the cache config after you have already defined the (pre-existing) pipeline, allowing one continuous code run. The following code sample demonstrates this method:
 
-```
+```py
 # turn on caching with timeout period of one hour
 pipeline.steps[0].cache_config.enable_caching = True 
 pipeline.steps[0].cache_config.expire_after = "PT1H" 

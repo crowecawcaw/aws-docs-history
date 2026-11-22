@@ -1,7 +1,6 @@
 
 
 # Run Training with EFA
-<a name="your-algorithms-training-efa"></a>
 
  SageMaker AI provides integration with [EFA](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) devices to accelerate High Performance Computing (HPC) and machine learning applications. This integration allows you to leverage an EFA device when running your distributed training jobs. You can add EFA integration to an existing Docker container that you bring to SageMaker AI. The following information outlines how to configure your own container to use an EFA device for your distributed training jobs. 
 

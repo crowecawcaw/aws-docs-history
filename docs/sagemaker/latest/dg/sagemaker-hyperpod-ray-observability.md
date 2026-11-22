@@ -1,7 +1,6 @@
 
 
 # Observability
-<a name="sagemaker-hyperpod-ray-observability"></a>
 
 The SageMaker HyperPod Observability add-on collects Ray metrics and provisions Grafana dashboards for your Ray workloads. Installing the add-on deploys a collector that scrapes the Ray head pods, worker pods, and the KubeRay operator. The collector writes the metrics to Amazon Managed Service for Prometheus, and dashboards are imported into Amazon Managed Grafana. You skip the manual Prometheus and Grafana setup.
 

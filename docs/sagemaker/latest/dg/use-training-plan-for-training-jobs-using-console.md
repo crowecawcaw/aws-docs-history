@@ -1,7 +1,6 @@
 
 
 # Create a training job using the SageMaker AI console
-<a name="use-training-plan-for-training-jobs-using-console"></a>
 
 You can use a SageMaker training plans for your training jobs using the SageMaker AI UI. When creating a training job, the available plans are suggested to you if your instance choice and region matches the available plans.
 

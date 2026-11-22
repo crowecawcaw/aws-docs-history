@@ -1,7 +1,6 @@
 
 
 # Managed Spot Training in Amazon SageMaker AI
-<a name="model-managed-spot-training"></a>
 
 Amazon SageMaker AI makes it easy to train machine learning models using managed Amazon EC2 Spot instances. Managed spot training can optimize the cost of training models up to 90% over on-demand instances. SageMaker AI manages the Spot interruptions on your behalf. 
 

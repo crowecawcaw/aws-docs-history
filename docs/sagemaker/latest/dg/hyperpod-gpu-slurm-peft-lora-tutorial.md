@@ -1,7 +1,6 @@
 
 
 # HyperPod Slurm cluster PEFT-Lora tutorial (GPU)
-<a name="hyperpod-gpu-slurm-peft-lora-tutorial"></a>
 
 The following tutorial sets up Slurm environment and starts a parameter-efficient fine-tuning (PEFT) job on a Llama 8 billion parameter model.
 
@@ -23,14 +22,14 @@ To initiate a training job on a Slurm cluster, do the following:
 + SSH into the head node of your Slurm cluster.
 + After you log in, set up the virtual environment. Make sure you're using Python 3.9 or greater.
 
-  ```
+  ```bash
   #set up a virtual environment
   python3 -m venv ${PWD}/venv
   source venv/bin/activate
   ```
 + Clone the SageMaker HyperPod recipes and SageMaker HyperPod adapter repositories to a shared storage location. The shared storage location can be an Amazon FSx file system or NFS system that's accessible from the cluster nodes.
 
-  ```
+  ```bash
   git clone https://github.com/aws/sagemaker-hyperpod-training-adapter-for-nemo.git
   git clone --recursive https://github.com/aws/sagemaker-hyperpod-recipes.git
   cd sagemaker-hyperpod-recipes
@@ -38,7 +37,7 @@ To initiate a training job on a Slurm cluster, do the following:
   ```
 + Create a squash file using Enroot. To find the most recent release of the SMP container, see [Release notes for the SageMaker model parallelism library](model-parallel-release-notes.md). For more information about using the Enroot file, see [Build AWS-optimized Nemo-Launcher image](https://github.com/aws-samples/awsome-distributed-training/tree/main/3.test_cases/2.nemo-launcher#2-build-aws-optimized-nemo-launcher-image).
 
-  ```
+  ```bash
   REGION="{{<region>}}"
   IMAGE="658645717510.dkr.ecr.${REGION}.amazonaws.com/smdistributed-modelparallel:2.4.1-gpu-py311-cu121"
   aws ecr get-login-password --region ${REGION} | docker login --username AWS --password-stdin 658645717510.dkr.ecr.${REGION}.amazonaws.com
@@ -47,7 +46,7 @@ To initiate a training job on a Slurm cluster, do the following:
   ```
 + To use the Enroot squash file to start training, use the following example to modify the `recipes_collection/config.yaml` file.
 
-  ```
+  ```yaml
   container: /fsx/path/to/your/smdistributed-modelparallel.sqsh
   ```
 
@@ -59,11 +58,11 @@ To launch a PEFT job for the Llama 8 billion parameter model with a sequence len
 + `HF_MODEL_NAME_OR_PATH`: Define the name or the path of the pre-trained weights in the hf\_model\_name\_or\_path parameter of the recipe.
 + (Optional) You can provide the HuggingFace token if you need pre-trained weights from HuggingFace by setting the following key-value pair:
 
-  ```
+  ```bash
   recipes.model.hf_access_token=${{{HF_ACCESS_TOKEN}}}
   ```
 
-```
+```bash
 #!/bin/bash
 IMAGE="${YOUR_IMAGE}"
 SAGEMAKER_TRAINING_LAUNCHER_DIR="${SAGEMAKER_TRAINING_LAUNCHER_DIR:-${PWD}}"
@@ -92,7 +91,7 @@ HYDRA_FULL_ERROR=1 python3 ${SAGEMAKER_TRAINING_LAUNCHER_DIR}/main.py \
 
 After you've configured all the required parameters in the preceding script, you can initiate the training job by running it.
 
-```
+```bash
 bash launcher_scripts/llama/run_hf_llama3_8b_seq8k_gpu_lora.sh
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Grant IAM Permission to Use the Amazon SageMaker Ground Truth Console
-<a name="sms-security-permission-console-access"></a>
 
 To use the Ground Truth area of the SageMaker AI console, you need to grant permission to an entity to access SageMaker AI and other AWS services that Ground Truth interacts with. Required permissions to access other AWS services depends on your use-case: 
 + Amazon S3 permissions are required for all use cases. These permissions must grant access to the Amazon S3 buckets that contain input and output data. 
@@ -28,7 +27,7 @@ To grant permission to a user or role to use the Ground Truth area of the SageMa
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -191,7 +190,7 @@ To learn how to give an entity permission to create and test pre-annotation and 
 
 When added to a permissions policy, the following permission grants access to create and manage a private workforce and work team using Amazon Cognito. These permissions are not required to use an [OIDC IdP workforce](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private-oidc.html#sms-workforce-create-private-oidc-next-steps).
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -225,7 +224,7 @@ To learn more about creating private workforce using Amazon Cognito, see [Amazon
 ## Vendor Workforce Permissions
 <a name="sms-security-permissions-workforce-creation-vendor"></a>
 
-You can add the following statement to the policy in [Grant IAM Permission to Use the Amazon SageMaker Ground Truth Console](#sms-security-permission-console-access) to grant an entity permission to subscribe to a [vendor workforce](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-vendor.html).
+You can add the following statement to the policy in [Grant IAM Permission to Use the Amazon SageMaker Ground Truth Console](sms-security-permission-console-access.md) to grant an entity permission to subscribe to a [vendor workforce](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-vendor.html).
 
 ```
 {

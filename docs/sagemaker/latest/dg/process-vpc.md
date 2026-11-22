@@ -1,7 +1,6 @@
 
 
 # Give SageMaker AI Processing Jobs Access to Resources in Your Amazon VPC
-<a name="process-vpc"></a>
 
 To control access to your data and processing jobs, create a Amazon VPC with private subnets. For information about creating and configuring a VPC, see [Get Started With Amazon VPC](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-getting-started.html) in the *Amazon VPC User Guide*.
 
@@ -20,7 +19,7 @@ To use the API, you specify the subnets and security group IDs in the `NetworkCo
 
 The following is an example of the `VpcConfig` parameter that you include in your call to the `CreateProcessingJob` operation:
 
-```
+```json
 VpcConfig: {
     "Subnets": [
         "subnet-0123456789abcdef0",
@@ -81,7 +80,7 @@ The default endpoint policy allows full access to S3 for any user or service in 
 
 The default endpoint policy allows users to install packages from the Amazon Linux and Amazon Linux 2 repositories on the processing container. If you don't want users to install packages from that repository, create a custom endpoint policy that explicitly denies access to the Amazon Linux and Amazon Linux 2 repositories. The following is an example of a policy that denies access to these repositories:
 
-```
+```json
 { 
     "Statement": [ 
       { 
@@ -100,7 +99,7 @@ The default endpoint policy allows users to install packages from the Amazon Lin
 }
 ```
 
-```
+```json
 { 
     "Statement": [ 
         { "Sid": "AmazonLinux2AMIRepositoryAccess",

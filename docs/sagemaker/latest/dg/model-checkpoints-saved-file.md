@@ -1,7 +1,6 @@
 
 
 # Browse checkpoint files
-<a name="model-checkpoints-saved-file"></a>
 
 Locate checkpoint files using the SageMaker Python SDK and the Amazon S3 console.
 
@@ -9,7 +8,7 @@ Locate checkpoint files using the SageMaker Python SDK and the Amazon S3 console
 
 To retrieve the S3 bucket URI where the checkpoints are saved, check the following attribute:
 
-```
+```py
 model_trainer.checkpoint_config.s3_uri
 ```
 

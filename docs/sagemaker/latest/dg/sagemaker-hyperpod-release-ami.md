@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker HyperPod AMI
-<a name="sagemaker-hyperpod-release-ami"></a>
 
 Amazon SageMaker HyperPod Amazon Machine Images (AMIs) are specialized machine images for distributed machine learning workloads and high-performance computing. These AMIs enhance base images with essential components including GPU drivers and AWS Neuron accelerator support.
 
@@ -17,8 +16,8 @@ Key components added to HyperPod AMIs include:
 + Support for HyperPod cluster management and configuration
 
 These enhancements are built upon the following base Deep Learning AMIs (DLAMIs):
-+ [AWS Deep Learning Base GPU AMI (Ubuntu 20.04)](https://aws.amazon.com/releasenotes/aws-deep-learning-base-gpu-ami-ubuntu-20-04/) for orchestration with Slurm.
-+ Amazon Linux 2 or Amazon Linux 2023 based AMI for orchestration with Amazon EKS.
++ [AWS Deep Learning Base GPU AMI (Ubuntu 22.04)](https://docs.aws.amazon.com/dlami/latest/devguide/aws-deep-learning-x86-base-gpu-ami-ubuntu-22-04.html) for orchestration with Slurm.
++ Amazon Linux 2023 based AMI for orchestration with Amazon EKS.
 
 Choose your HyperPod AMIs based on your orchestration preference:
 + For Slurm orchestration, see [SageMaker HyperPod AMI releases for Slurm](sagemaker-hyperpod-release-ami-slurm.md).

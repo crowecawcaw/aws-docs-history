@@ -1,7 +1,6 @@
 
 
 # How Amazon SageMaker AI Runs Your Training Image
-<a name="your-algorithms-training-algo-dockerfile"></a>
 
 You can use a custom entrypoint script to automate infrastructure to train in a production environment. If you pass your entrypoint script into your Docker container, you can also run it as a standalone script without rebuilding your images. SageMaker AI processes your training image using a Docker container entrypoint script. 
 
@@ -196,7 +195,7 @@ Next, you must set the configuration of the input data channel to run a training
 
 To configure your input data channel with a JSON file, use AWS CLI as shown in the following code structure. Ensure that all of the following fields use the request syntax defined in the [CreateTrainingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html#API_CreateTrainingJob_RequestSyntax) API.
 
-```
+```json
 // run-my-training-job.json
 {
  "[AlgorithmSpecification](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html#sagemaker-CreateTrainingJob-request-AlgorithmSpecification)": { 

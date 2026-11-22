@@ -1,7 +1,6 @@
 
 
 # Complete prerequisites to deploy the Edge Manager agent
-<a name="edge-greengrass-prerequisites"></a>
 
 SageMaker Edge Manager uses AWS IoT Greengrass V2 to simplify the deployment of the Edge Manager agent, your machine learning models, and your inference application to your devices with the use of components. To make it easier to maintain your AWS IAM roles, Edge Manager allows you to reuse your existing AWS IoT role alias. If you do not have one yet, Edge Manager generates a role alias as part of the Edge Manager packaging job. You no longer need to associate a role alias generated from the SageMaker Edge Manager packaging job with your AWS IoT role. 
 
@@ -28,7 +27,7 @@ The IAM Role must start with `SageMaker*`
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement":[
@@ -56,7 +55,7 @@ The IAM Role must start with `SageMaker*`
 
 ****  
 
-     ```
+     ```json
      {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

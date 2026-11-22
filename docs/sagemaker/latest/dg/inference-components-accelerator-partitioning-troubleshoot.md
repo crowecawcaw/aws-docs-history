@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="inference-components-accelerator-partitioning-troubleshoot"></a>
 
 Use the following information to resolve common problems with partitioned endpoints.
 

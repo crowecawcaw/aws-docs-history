@@ -1,7 +1,6 @@
 
 
 # Autoscale an asynchronous endpoint
-<a name="async-inference-autoscale"></a>
 
 Amazon SageMaker AI supports automatic scaling (autoscaling) your asynchronous endpoint. Autoscaling dynamically adjusts the number of instances provisioned for a model in response to changes in your workload. Unlike other hosted models Amazon SageMaker AI supports, with Asynchronous Inference you can also scale down your asynchronous endpoints instances to zero. Requests that are received when there are zero instances are queued for processing once the endpoint scales up.
 
@@ -26,7 +25,7 @@ To specify the metrics and target values for a scaling policy, you configure a t
 
 For asynchronous endpoints SageMaker AI strongly recommends that you create a policy configuration for target-tracking scaling for a variant. In this configuration example, we use a custom metric, `CustomizedMetricSpecification`, called `ApproximateBacklogSizePerInstance`.
 
-```
+```python
 TargetTrackingScalingPolicyConfiguration={
         'TargetValue': 5.0, # The target value for the metric. Here the metric is: ApproximateBacklogSizePerInstance
         'CustomizedMetricSpecification': {
@@ -45,7 +44,7 @@ TargetTrackingScalingPolicyConfiguration={
 
 The following shows you how to both define and register your endpoint variant with application autoscaling using the AWS SDK for Python (Boto3). After defining a low-level client object representing application autoscaling with Boto3, we use the [`RegisterScalableTarget`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.register_scalable_target) method to register the production variant. We set `MinCapacity` to 0 because Asynchronous Inference enables you to autoscale to 0 when there are no requests to process.
 
-```
+```python
 # Common class representing application autoscaling for SageMaker 
 client = boto3.client('application-autoscaling') 
 
@@ -73,7 +72,7 @@ To create a scaling policy for your endpoint that scales up from zero instances,
 
 1. Create a scaling policy that defines the desired behavior, which is to scale up your endpoint when it’s at zero instances but has requests in the queue. The following shows you how to define a scaling policy called `HasBacklogWithoutCapacity-ScalingPolicy` using the AWS SDK for Python (Boto3). When the queue is greater than zero and the current instance count for your endpoint is also zero, the policy scales your endpoint up. In all other cases, the policy does not affect scaling for your endpoint.
 
-   ```
+   ```python
    response = client.put_scaling_policy(
        PolicyName="HasBacklogWithoutCapacity-ScalingPolicy",
        ServiceNamespace="sagemaker",  # The namespace of the service that provides the resource.
@@ -97,7 +96,7 @@ To create a scaling policy for your endpoint that scales up from zero instances,
 
 1. Create a CloudWatch alarm with the custom metric `HasBacklogWithoutCapacity`. When triggered, the alarm initiates the previously defined scaling policy. For more information about the `HasBacklogWithoutCapacity` metric, see [Asynchronous Inference Endpoint Metrics](async-inference-monitor.md#async-inference-monitor-cloudwatch-async).
 
-   ```
+   ```python
    response = cw_client.put_metric_alarm(
        AlarmName=step_scaling_policy_alarm_name,
        MetricName='HasBacklogWithoutCapacity',

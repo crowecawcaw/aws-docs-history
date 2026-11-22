@@ -1,7 +1,6 @@
 
 
 # Fine-tune models with adapter inference components
-<a name="realtime-endpoints-adapt"></a>
 
 With Amazon SageMaker AI, you can host pre-trained foundation models without needing to create your own models from scratch. However, to tailor a general-purpose foundation model for the unique needs of your business, you must create a fine-tuned version of it. One cost-effective fine-tuning technique is Low-Rank Adaptation (LoRA). The principle behind LoRA is that only a small part of a large foundation model needs updating to adapt it to new tasks or domains. A LoRA adapter augments the inference from a base foundation model with just a few extra adapter layers.
 
@@ -24,7 +23,7 @@ The following examples use the SDK for Python (Boto3) to create and invoke an ad
 **Example `create_inference_component` call to create an adapter inference component**  
 The following example creates an adapter inference component and assigns it to a base inference component:  
 
-```
+```python
 sm_client.create_inference_component(
     InferenceComponentName = {{adapter_ic_name}},
     EndpointName = {{endpoint_name}},
@@ -49,7 +48,7 @@ After you create an adapter inference component, you invoke it by specifying its
 **Example `invoke_endpoint` call to invoke an adapter inference component**  
 The following example invokes an adapter inference component:  
 
-```
+```python
 response = sm_rt_client.invoke_endpoint(
     EndpointName = {{endpoint_name}},
     InferenceComponentName = {{adapter_ic_name}},

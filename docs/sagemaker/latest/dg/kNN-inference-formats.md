@@ -1,7 +1,6 @@
 
 
 # k-NN Request and Response Formats
-<a name="kNN-inference-formats"></a>
 
 All Amazon SageMaker AI built-in algorithms adhere to the common input inference format described in [Common Data Formats - Inference](https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html). This topic contains a list of the available output formats for the SageMaker AI k-nearest-neighbor algorithm.
 
@@ -34,7 +33,7 @@ content-type: application/json
 
 content-type: application/jsonlines
 
-```
+```json
 {"features": [1.5, 16.0, 14.0, 23.0]}
 {"data": {"features": {"values": [1.5, 16.0, 14.0, 23.0]}}
 ```
@@ -84,7 +83,7 @@ accept: application/json
 
 accept: application/jsonlines
 
-```
+```json
 {"predicted_label": 0.0}
 {"predicted_label": 2.0}
 ```

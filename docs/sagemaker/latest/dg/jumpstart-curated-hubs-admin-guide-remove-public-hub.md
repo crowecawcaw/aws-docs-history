@@ -1,7 +1,6 @@
 
 
 # Remove access to the SageMaker **Public models** hub
-<a name="jumpstart-curated-hubs-admin-guide-remove-public-hub"></a>
 
 In addition to adding a private curated hub to JumpStart in Studio, you can also remove access to the SageMaker **Public models** hub for your users. The SageMaker **Public models** hub has access to all available JumpStart foundation models. 
 
@@ -17,7 +16,7 @@ You can specify any additional Amazon S3 buckets that you want your hub to acces
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

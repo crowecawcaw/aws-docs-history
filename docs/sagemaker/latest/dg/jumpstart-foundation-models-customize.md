@@ -1,7 +1,6 @@
 
 
 # Foundation model customization
-<a name="jumpstart-foundation-models-customize"></a>
 
 **Important**  
 For the latest information about model customization on Amazon SageMaker AI, see the dedicated [Model customization](customizing-models.md) section. We started by offering model customization through JumpStart, but have expanded our capabilities over time, prompting us to dedicate a new section.

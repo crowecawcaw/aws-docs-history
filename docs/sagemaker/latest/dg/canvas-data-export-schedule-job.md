@@ -1,7 +1,6 @@
 
 
 # Create a schedule to automatically process new data
-<a name="canvas-data-export-schedule-job"></a>
 
 **Note**  
 The following section only applies to SageMaker Processing jobs. If you used the default Canvas settings or EMR Serverless to create a remote job to apply transforms to your full dataset, this section doesn’t apply.
@@ -12,7 +11,7 @@ When you create a job, you must specify an IAM role that has permissions to crea
 
 Add the following trust policy to the role to allow EventBridge to assume it.
 
-```
+```json
 {
     "Effect": "Allow",
     "Principal": {

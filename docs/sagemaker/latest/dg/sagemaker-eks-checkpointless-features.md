@@ -1,7 +1,6 @@
 
 
 # HyperPod checkpointless training features
-<a name="sagemaker-eks-checkpointless-features"></a>
 
 See the following pages to learn about the training features in checkpointless training.
 

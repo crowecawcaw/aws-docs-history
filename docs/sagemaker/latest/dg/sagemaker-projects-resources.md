@@ -1,7 +1,6 @@
 
 
 # View Project Resources
-<a name="sagemaker-projects-resources"></a>
 
 After you create a project, view the resources associated with the project in Amazon SageMaker Studio Classic.
 

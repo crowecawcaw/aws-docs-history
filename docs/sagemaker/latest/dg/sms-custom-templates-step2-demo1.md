@@ -1,7 +1,6 @@
 
 
 # Demo template: Annotation of images with `crowd-bounding-box`
-<a name="sms-custom-templates-step2-demo1"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
@@ -23,7 +22,7 @@ This demonstration works with the **BoundingBox** template. The demonstration al
 
 This is the starter bounding box template that is provided.
 
-```
+```html
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 
 <crowd-form>
@@ -85,7 +84,7 @@ If a field will not change, you can remove that variable from the template and r
 **Example : Final Customized Bounding Box Template**  
 To keep things simple, this template will have one variable, one label, and very basic instructions. Assuming your manifest has an "animal" property in each data object, that value can be re-used in two parts of the template.  
 
-```
+```html
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 <crowd-form>
   <crowd-bounding-box
@@ -119,7 +118,7 @@ Note the re-use of `{{ task.input.animal }}` throughout the template. If your ma
 
 Your manifest file should provide the variable values you're using in your template. You can do some transformation of your manifest data in your pre-annotation Lambda, but if you don't need to, you maintain a lower risk of errors and your Lambda will run faster. Here's a sample manifest file for the template.
 
-```
+```json
 {"source-ref": "<S3 image URI>", "animal": "horse"}
 {"source-ref": "<S3 image URI>", "animal" : "bird"}
 {"source-ref": "<S3 image URI>", "animal" : "dog"}
@@ -138,7 +137,7 @@ When you're using the console, if you have AWS Lambda functions that are owned b
 
 In this very basic example, you're just passing through the information from the manifest without doing any additional processing on it. This sample pre-annotation function is written for Python 3.7.
 
-```
+```python
 import json
 
 def lambda_handler(event, context):
@@ -160,7 +159,7 @@ In the Console page for creating your Lambda, scroll to the **Execution role** p
 
 The following sample is in Python 2.7.
 
-```
+```python
 import json
 import boto3
 from urlparse import urlparse

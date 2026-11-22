@@ -1,7 +1,6 @@
 
 
 # Stop a pipeline
-<a name="pipelines-studio-stop"></a>
 
 You can stop a pipeline run in the Amazon SageMaker Studio console.
 

@@ -1,7 +1,6 @@
 
 
 # Override connection properties
-<a name="sagemaker-sql-extension-features-sql-execution-override-connection"></a>
 
 Your administrator's predefined connection definitions may not have the exact parameters you need to connect to a specific data store. You can add or override parameters in the connection string by using the `--connection-properties` argument.
 
@@ -19,6 +18,6 @@ For more information on the available connection properties per data source, see
 
 The following example illustrates a connection property argument that sets the schema name for Amazon Athena.
 
-```
+```bash
 %%sm_sql --connection-properties '{"schema_name": "{{athena-db-name}}"}' --metastore-id {{athena-connection-name}} --metastore-type GLUE_CONNECTION
 ```

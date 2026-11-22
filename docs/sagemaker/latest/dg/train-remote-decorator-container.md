@@ -1,7 +1,6 @@
 
 
 # Container image compatibility
-<a name="train-remote-decorator-container"></a>
 
 The following table shows a list of SageMaker training images that are compatible with the @remote decorator.
 
@@ -28,7 +27,7 @@ The following table shows a list of SageMaker training images that are compatibl
 To run jobs locally using AWS Deep Learning Containers (DLC) images, use the image URIs found in the [DLC documentation](https://github.com/aws/deep-learning-containers/blob/master/available_images.md). The DLC images do not support the `auto_capture` value for dependencies.  
 Jobs with [SageMaker AI Distribution in SageMaker Studio](https://github.com/aws/sagemaker-distribution#amazon-sagemaker-studio) run in a container as a non-root user named `sagemaker-user`. This user needs full permission to access `/opt/ml` and `/tmp`. Grant this permission by adding `sudo chmod -R 777 /opt/ml /tmp` to the `pre_execution_commands` list, as shown in the following snippet:  
 
-```
+```py
 @remote(pre_execution_commands=["sudo chmod -R 777 /opt/ml /tmp"])
 def func():
     pass
@@ -44,7 +43,7 @@ FROM python:3.10
 
 To create `conda` environments in your image and use it to run jobs, set the environment variable `SAGEMAKER_JOB_CONDA_ENV` to the `conda` environment name. If your image has the `SAGEMAKER_JOB_CONDA_ENV` value set, the remote function cannot create a new conda environment during the training job runtime. Refer to the following Dockerfile example that uses a `conda` environment with Python version 3.10.
 
-```
+```bash
 FROM continuumio/miniconda3:4.12.0  
 
 ENV SHELL=/bin/bash \
@@ -58,7 +57,7 @@ RUN conda create -n $SAGEMAKER_JOB_CONDA_ENV \
 
 For SageMaker AI to use [mamba](https://mamba.readthedocs.io/en/latest/user_guide/mamba.html) to manage your Python virtual environment in the container image, install the [mamba toolkit from miniforge](https://github.com/conda-forge/miniforge). To use mamba, add the following code example to your Dockerfile. Then, SageMaker AI will detect the `mamba` availability at runtime and use it instead of `conda`.
 
-```
+```bash
 #Mamba Installation
 RUN curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh" \
     && bash Mambaforge-Linux-x86_64.sh -b -p "/opt/conda"  \
@@ -69,7 +68,7 @@ Using a custom conda channel on an Amazon S3 bucket is not compatible with mamba
 
 The following is a complete Dockerfile example showing how to create a compatible Docker image.
 
-```
+```bash
 FROM python:3.10
 
 RUN apt-get update -y \

@@ -1,7 +1,6 @@
 
 
 # Create a multi-container endpoint (Boto 3)
-<a name="multi-container-create"></a>
 
 Create a Multi-container endpoint by calling [CreateModel](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html), [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html), and [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html) APIs as you would to create any other endpoints. You can run these containers sequentially as an inference pipeline, or run each individual container by using direct invocation. Multi-container endpoints have the following requirements when you call `create_model`:
 + Use the `Containers` parameter instead of `PrimaryContainer`, and include more than one container in the `Containers` parameter.
@@ -15,7 +14,7 @@ The following example creates a multi-container model for direct invocation.
 
 1. Create container elements and `InferenceExecutionConfig` with direct invocation.
 
-   ```
+   ```python
    container1 = {
                     'Image': '123456789012.dkr.ecr.us-east-1.amazonaws.com/myimage1:mytag',
                     'ContainerHostname': 'firstContainer'
@@ -30,7 +29,7 @@ The following example creates a multi-container model for direct invocation.
 
 1. Create the model with the container elements and set the `InferenceExecutionConfig` field.
 
-   ```
+   ```python
    import boto3
    sm_client = boto3.Session().client('sagemaker')
    

@@ -1,7 +1,6 @@
 
 
 # Provisioning resources using CloudFormation stacks
-<a name="sagemaker-hyperpod-multihead-slurm-cfn"></a>
 
 To set up multiple controller nodes in a HyperPod Slurm cluster, provision AWS resources through two CloudFormation stacks: [Provision basic resources](#sagemaker-hyperpod-multihead-slurm-cfn-basic) and [Provision additional resources to support multiple controller nodes](#sagemaker-hyperpod-multihead-slurm-cfn-multihead).
 
@@ -43,7 +42,7 @@ Follow these steps to provision basic resources for your Amazon SageMaker HyperP
 
 1. Create environment variables from the stack (`sagemaker-hyperpod`) outputs. You will use values of these variables to [Provision additional resources to support multiple controller nodes](#sagemaker-hyperpod-multihead-slurm-cfn-multihead).
 
-   ```
+   ```bash
    source .env
    PRIMARY_SUBNET=$(aws --region $REGION cloudformation describe-stacks --stack-name $SAGEMAKER_STACK_NAME --query 'Stacks[0].Outputs[?OutputKey==`PrimaryPrivateSubnet`].OutputValue' --output text)
    BACKUP_SUBNET=$(aws --region $REGION cloudformation describe-stacks --stack-name $SAGEMAKER_STACK_NAME --query 'Stacks[0].Outputs[?OutputKey==`BackupPrivateSubnet`].OutputValue' --output text)
@@ -58,14 +57,14 @@ Follow these steps to provision basic resources for your Amazon SageMaker HyperP
 
    When you see prompts asking for your email address and database user name, enter values like the following.
 
-   ```
+   ```bash
    INPUT YOUR SNSSubEmailAddress HERE: {{Email_address_to_receive_SNS_notifications}}
    INPUT YOUR DB_USER_NAME HERE: {{Database_user_name_you_define}}
    ```
 
    To verify variable values, use the `print {{$variable}}` command.
 
-   ```
+   ```bash
    print $REGION
    us-east-1
    ```
@@ -111,7 +110,7 @@ Follow these steps to provision additional resources for your Amazon SageMaker H
 
 1. Create environment variables from the stack (`sagemaker-hyperpod-mh`) outputs. You will use values of these variables to update the configuration file (`provisioning_parameters.json`) in [Preparing and uploading lifecycle scripts](sagemaker-hyperpod-multihead-slurm-scripts.md).
 
-   ```
+   ```bash
    source .env
    SLURM_DB_ENDPOINT_ADDRESS=$(aws --region us-east-1 cloudformation describe-stacks --stack-name $MULTI_HEAD_SLURM_STACK --query 'Stacks[0].Outputs[?OutputKey==`SlurmDBEndpointAddress`].OutputValue' --output text)
    SLURM_DB_SECRET_ARN=$(aws --region us-east-1 cloudformation describe-stacks --stack-name $MULTI_HEAD_SLURM_STACK --query 'Stacks[0].Outputs[?OutputKey==`SlurmDBSecretArn`].OutputValue' --output text)

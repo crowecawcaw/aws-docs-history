@@ -1,7 +1,6 @@
 
 
 # Create a lifecycle configuration script
-<a name="notebook-lifecycle-config-create"></a>
 
 The following procedure shows how to create a lifecycle configuration script for use with an Amazon SageMaker notebook instance. For more information about creating a notebook instance, see [Create an Amazon SageMaker notebook instance](howitworks-create-ws.md).
 

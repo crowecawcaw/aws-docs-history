@@ -1,7 +1,6 @@
 
 
 # IDEs and Notebooks
-<a name="sagemaker-hyperpod-eks-cluster-ide"></a>
 
 Amazon SageMaker is introducing a new capability for SageMaker HyperPod EKS clusters, which allows AI developers to run their interactive machine learning workloads directly on the HyperPod EKS cluster. This feature introduces a new add-on called Amazon SageMaker Spaces, that enables AI developers to create and manage self-contained environments for running notebooks.
 

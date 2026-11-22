@@ -1,7 +1,6 @@
 
 
 # Give Inference Recommender Jobs Access to Resources in Your Amazon VPC
-<a name="inference-recommender-vpc-access"></a>
 
 **Note**  
 Inference Recommender requires you to register your model with Model Registry. Note that Model Registry doesn't allow your model artifacts or Amazon ECR image to be VPC restricted.  
@@ -69,7 +68,7 @@ The `[ AmazonSageMakerFullAccess](https://docs.aws.amazon.com/sagemaker/latest/d
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

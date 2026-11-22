@@ -1,7 +1,6 @@
 
 
 # Explainability report
-<a name="text-classification-explainability-report"></a>
 
 Amazon SageMaker Autopilot provides an explainability report to help explain how a best model candidate makes predictions for text classification problems. This report can assist ML engineers, product managers, and other internal stakeholders in understanding the characteristics of the model. Both consumers and regulators rely on transparency in machine learning to trust and interpret decisions made on model predictions. You can use these explanations for auditing and meeting regulatory requirements, establishing trust in the model, supporting human decision-making, and debugging and improving model performance.
 
@@ -20,7 +19,7 @@ You can find the Amazon S3 prefix to the explainability artifacts generated for 
 
 The following is an example of analysis content that you could find in the explainability artifacts.
 
-```
+```JSON
 {
     "text": "It was a fantastic movie!",
     "predicted_label": 2,

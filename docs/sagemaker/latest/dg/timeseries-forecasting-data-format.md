@@ -1,7 +1,6 @@
 
 
 # Time-series datasets format and missing values filling methods
-<a name="timeseries-forecasting-data-format"></a>
 
 Time-series data refers to a collection of observations or measurements recorded over regular intervals of time. In this type of data, each observation is associated with a specific timestamp or time period, creating a sequence of data points ordered chronologically.
 

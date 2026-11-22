@@ -1,7 +1,6 @@
 
 
 # Stop or delete an EMR Serverless application from the Studio UI
-<a name="terminate-emr-serverless-application"></a>
 
 You can stop (transition to the `Stopped` state) or delete (transition to the `Deleted` state) an EMR Serverless application from the list of applications in the Studio UI. 
 

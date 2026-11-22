@@ -1,7 +1,6 @@
 
 
 # Adapt your PyTorch training script
-<a name="debugger-modify-script-pytorch"></a>
 
 **Note**  
 Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
@@ -20,7 +19,7 @@ If you bring a PyTorch training script, you can run the training job and extract
 
    **(Recommended) For training jobs within SageMaker AI**
 
-   ```
+   ```py
    import smdebug.pytorch as smd
    hook=smd.get_hook(create_if_not_exists=True)
    ```
@@ -33,7 +32,7 @@ If you bring a PyTorch training script, you can run the training job and extract
 
    If you want to create a manual hook to save tensors in local mode, use the following code snippet with the logic to check if the `smd.get_hook` API returns `None` and create a manual hook using the `smd.Hook` class. Note that you can specify any output directory in your local machine.
 
-   ```
+   ```py
    import smdebug.pytorch as smd
    hook=smd.get_hook(create_if_not_exists=True)
    
@@ -48,7 +47,7 @@ If you bring a PyTorch training script, you can run the training job and extract
 
    The `hook.register_module()` method takes your model and iterates through each layer, looking for any tensors that match with regular expressions that you’ll provide through the configuration in [Launch training jobs with Debugger using the SageMaker Python SDK](debugger-configuration-for-debugging.md). The collectable tensors through this hook method are weights, biases, activations, gradients, inputs, and outputs.
 
-   ```
+   ```py
    hook.register_module(model)
    ```
 **Tip**  
@@ -58,13 +57,13 @@ If you collect the entire output tensors from a large deep learning model, the t
 
    The `hook.register_loss` method is to wrap the loss function. It extracts loss values every `save_interval` that you’ll set during configuration in [Launch training jobs with Debugger using the SageMaker Python SDK](debugger-configuration-for-debugging.md), and saves them to the `"losses"` collection.
 
-   ```
+   ```py
    hook.register_loss(loss_function)
    ```
 
 1. Add `hook.set_mode(ModeKeys.TRAIN)` in the train block. This indicates the tensor collection is extracted during the training phase.
 
-   ```
+   ```py
    def train():
        ...
        hook.set_mode(ModeKeys.TRAIN)
@@ -72,7 +71,7 @@ If you collect the entire output tensors from a large deep learning model, the t
 
 1. Add `hook.set_mode(ModeKeys.EVAL)` in the validation block. This indicates the tensor collection is extracted during the validation phase.
 
-   ```
+   ```py
    def validation():
        ...
        hook.set_mode(ModeKeys.EVAL)
@@ -80,7 +79,7 @@ If you collect the entire output tensors from a large deep learning model, the t
 
 1. Use [`hook.save_scalar()`](https://sagemaker-debugger.readthedocs.io/en/website/hook-constructor.html#smdebug.core.hook.BaseHook.save_scalar) to save custom scalars. You can save scalar values that aren’t in your model. For example, if you want to record the accuracy values computed during evaluation, add the following line of code below the line where you calculate accuracy.
 
-   ```
+   ```py
    hook.save_scalar("accuracy", accuracy)
    ```
 
@@ -88,7 +87,7 @@ If you collect the entire output tensors from a large deep learning model, the t
 
 1. <a name="debugger-modify-script-pytorch-save-custom-tensor"></a>Use [`hook.save_tensor()`](https://sagemaker-debugger.readthedocs.io/en/website/hook-constructor.html#smdebug.core.hook.BaseHook.save_tensor) to save custom tensors. Similarly to [`hook.save_scalar()`](https://sagemaker-debugger.readthedocs.io/en/website/hook-constructor.html#smdebug.core.hook.BaseHook.save_scalar), you can save additional tensors, defining your own tensor collection. For example, you can extract input image data that are passed into the model and save as a custom tensor by adding the following code line, where `"images"` is an example name of the custom tensor, `image_inputs` is an example variable for the input image data.
 
-   ```
+   ```py
    hook.save_tensor("images", image_inputs)
    ```
 

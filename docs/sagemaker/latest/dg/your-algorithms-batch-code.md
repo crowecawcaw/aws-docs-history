@@ -1,7 +1,6 @@
 
 
 # Custom Inference Code with Batch Transform
-<a name="your-algorithms-batch-code"></a>
 
 This section explains how Amazon SageMaker AI interacts with a Docker container that runs your own inference code for batch transform. Use this information to write inference code and create a Docker image. 
 

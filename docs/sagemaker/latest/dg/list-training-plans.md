@@ -1,7 +1,6 @@
 
 
 # List training plans
-<a name="list-training-plans"></a>
 
 To view your training plans:
 

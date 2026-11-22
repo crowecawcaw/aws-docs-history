@@ -1,7 +1,6 @@
 
 
 # Estimator configuration with parameters for basic profiling using the Amazon SageMaker Debugger Python modules
-<a name="debugger-configuration-for-profiling"></a>
 
 **Note**  
 End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources. For more information, see [Profiler availability change](profiler-availability-change.md).
@@ -15,7 +14,7 @@ If you want to activate the rules that detect system resource utilization proble
 **Important**  
 To use the latest SageMaker Debugger features, you need to upgrade the SageMaker Python SDK and the `SMDebug` client library. In your iPython kernel, Jupyter Notebook, or JupyterLab environment, run the following code to install the latest versions of the libraries and restart the kernel.  
 
-```
+```py
 import sys
 import IPython
 !{sys.executable} -m pip install -U sagemaker smdebug
@@ -30,7 +29,7 @@ To adjust the basic profiling configuration (`profiler_config`) or add the profi
 **Note**  
 The following code examples are not directly executable. Proceed to the next sections to learn how to configure each parameter.
 
-```
+```py
 # An example of creating a training job with profiler configuration
 import boto3
 from sagemaker.core import image_uris

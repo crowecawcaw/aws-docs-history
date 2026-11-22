@@ -1,7 +1,6 @@
 
 
 # Modify a TensorFlow training script
-<a name="model-parallel-customize-training-script-tf"></a>
 
 In this section, you learn how to modify TensorFlow training scripts to configure the SageMaker model parallelism library for auto-partitioning and manual partitioning. This selection of examples also includes an example integrated with Horovod for hybrid model and data parallelism.
 
@@ -48,7 +47,7 @@ To learn more about the SageMaker's model parallelism library API, refer to the 
 
 The following Python script is an example of a training script after the changes are made.
 
-```
+```py
 import tensorflow as tf
 
 # smdistributed: Import TF2.x API
@@ -147,7 +146,7 @@ Using the `hvd.DistributedOptimizer` API directly in your training script might 
 
 To learn more about the SageMaker's model parallelism library API, refer to the [API documentation](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel.html).
 
-```
+```py
 import tensorflow as tf
 import horovod.tensorflow as hvd
 
@@ -233,7 +232,7 @@ for epoch in range(5):
 
 Use `smp.partition` context managers to place operations in specific partition. Any operation not placed in any `smp.partition` contexts is placed in the `default_partition`. To learn more about the SageMaker's model parallelism library API, refer to the [API documentation](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel.html). 
 
-```
+```py
 import tensorflow as tf
 
 # smdistributed: Import TF2.x API.

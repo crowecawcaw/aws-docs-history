@@ -1,7 +1,6 @@
 
 
 # Edit alert criteria
-<a name="model-dashboard-alerts-edit"></a>
 
 **To edit an alert in the Model Dashboard, complete the following steps:**
 

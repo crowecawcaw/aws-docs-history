@@ -1,7 +1,6 @@
 
 
 # TensorFlow Models
-<a name="object-detection-tensorflow-Models"></a>
 
 The following pretrained models are available to use for transfer learning with the Object Detection - TensorFlow algorithm. 
 

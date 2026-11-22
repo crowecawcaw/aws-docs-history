@@ -1,7 +1,6 @@
 
 
 # Launch a Code Editor application in Studio
-<a name="code-editor-use-studio"></a>
 
 To configure and access your Code Editor integrated development environment through Studio, you must create a Code Editor space. For more information about spaces in Studio, see [Amazon SageMaker Studio spaces](studio-updated-spaces.md).
 

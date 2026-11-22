@@ -1,7 +1,6 @@
 
 
 # Get recommendations for models with LoRA adapters
-<a name="generative-ai-inference-recommendations-adapters"></a>
 
 Low-Rank Adaptation (LoRA) is a parameter-efficient fine-tuning technique that trains a small set of adapter weights on top of a frozen base model. You can serve many adapters that share a single base model on one endpoint. This is more cost-effective than deploying a separate copy of the model for each fine-tuned variant.
 
@@ -44,7 +43,7 @@ SageMaker AI uses the `AdapterId` as the inference component name for that adapt
 
 **Python (boto3) — adapters in Amazon S3**
 
-```
+```python
 try:
     response = client.create_ai_recommendation_job(
         AIRecommendationJobName="my-lora-recommendation-job",
@@ -80,7 +79,7 @@ except Exception as error:
 
 **Python (boto3) — adapters as model packages**
 
-```
+```python
 try:
     response = client.create_ai_recommendation_job(
         AIRecommendationJobName="my-lora-recommendation-job",
@@ -153,7 +152,7 @@ The `DeploymentConfiguration` in each recommendation describes the multi-adapter
 
 The following example shows the adapter-related fields of a `DescribeAIRecommendationJob` response for a job created with Amazon S3 adapters.
 
-```
+```json
 {
     "AIRecommendationJobName": "my-lora-recommendation-job",
     "AIRecommendationJobStatus": "Completed",

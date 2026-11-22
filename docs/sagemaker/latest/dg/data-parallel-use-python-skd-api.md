@@ -1,7 +1,6 @@
 
 
 # Use the SageMaker AI generic estimator to extend pre-built DLC containers
-<a name="data-parallel-use-python-skd-api"></a>
 
 You can customize SageMaker AI prebuilt containers or extend them to handle any additional functional requirements for your algorithm or model that the prebuilt SageMaker AI Docker image doesn't support. For an example of how you can extend a pre-built container, see [Extend a Prebuilt Container](https://docs.aws.amazon.com/sagemaker/latest/dg/prebuilt-containers-extend.html).
 
@@ -12,7 +11,7 @@ From TensorFlow 2.4.1 and PyTorch 1.8.1, SageMaker AI framework DLCs supports EF
 
 For example, if you use PyTorch, your Dockerfile should contain a `FROM` statement similar to the following:
 
-```
+```docker
 # SageMaker AI PyTorch image
 FROM 763104351884.dkr.ecr.{{<aws-region>}}.amazonaws.com/pytorch-training:{{<image-tag>}}
 

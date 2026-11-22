@@ -1,7 +1,6 @@
 
 
 # Create a Custom SageMaker Image for Amazon SageMaker Studio Classic
-<a name="studio-byoi-create"></a>
 
 **Important**  
 Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studio Classic to create Amazon SageMaker resources must also grant permissions to add tags to those resources. The permission to add tags to resources is required because Studio and Studio Classic automatically tag any resources they create. If an IAM policy allows Studio and Studio Classic to create resources but does not allow tagging, "AccessDenied" errors can occur when trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions).  
@@ -26,9 +25,9 @@ The following section demonstrates how to create a custom SageMaker image from t
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/).
 
-1. On the left navigation pane, choose **Admin configurations**.
+1. On the left navigation pane, choose **Environment configuration**.
 
-1. Under **Admin configurations**, choose **Images**. 
+1. Under **Environment configuration**, choose **Images**. 
 
 1. On the **Custom images** page, choose **Create image**.
 
@@ -73,15 +72,18 @@ You perform the following steps to create a SageMaker image from the container i
 
 1. Create a SageMaker image.
 
-   ```
+   ```cmd
    aws sagemaker create-image \
        --image-name custom-image \
+       --display-name "My custom image" \
        --role-arn arn:aws:iam::{{<acct-id>}}:role/service-role/{{<execution-role>}}
    ```
+**Note**  
+The `--display-name` parameter is optional. It sets the name shown in the Studio Classic user interface. If you don't provide `--display-name`, SageMaker AI uses the value of `--image-name` as the displayed name.
 
    The response should look similar to the following.
 
-   ```
+   ```json
    {
        "ImageArn": "arn:aws:sagemaker:us-east-2:acct-id:image/custom-image"
    }
@@ -89,7 +91,7 @@ You perform the following steps to create a SageMaker image from the container i
 
 1. Create a SageMaker image version from the container image.
 
-   ```
+   ```cmd
    aws sagemaker create-image-version \
        --image-name custom-image \
        --base-image {{<acct-id>}}.dkr.ecr.{{<region>}}.amazonaws.com/smstudio-custom:custom-image
@@ -97,7 +99,7 @@ You perform the following steps to create a SageMaker image from the container i
 
    The response should look similar to the following.
 
-   ```
+   ```json
    {
        "ImageVersionArn": "arn:aws:sagemaker:us-east-2:acct-id:image-version/custom-image/1"
    }
@@ -105,7 +107,7 @@ You perform the following steps to create a SageMaker image from the container i
 
 1. Check that the image version was successfully created.
 
-   ```
+   ```cmd
    aws sagemaker describe-image-version \
        --image-name custom-image \
        --version-number 1
@@ -113,7 +115,7 @@ You perform the following steps to create a SageMaker image from the container i
 
    The response should look similar to the following.
 
-   ```
+   ```json
    {
        "ImageVersionArn": "arn:aws:sagemaker:us-east-2:acct-id:image-version/custom-image/1",
        "ImageVersionStatus": "CREATED"
@@ -128,7 +130,7 @@ The following `DefaultUID` and `DefaultGID` combinations are the only accepted v
  DefaultUID: 1000 and DefaultGID: 100 
  DefaultUID: 0 and DefaultGID: 0 
 
-   ```
+   ```json
    {
        "AppImageConfigName": "custom-image-config",
        "KernelGatewayImageConfig": {
@@ -149,14 +151,14 @@ The following `DefaultUID` and `DefaultGID` combinations are the only accepted v
 
 1. Create the AppImageConfig using the file created in the previous step.
 
-   ```
+   ```cmd
    aws sagemaker create-app-image-config \
        --cli-input-json file://app-image-config-input.json
    ```
 
    The response should look similar to the following.
 
-   ```
+   ```json
    {
        "AppImageConfigArn": "arn:aws:sagemaker:us-east-2:acct-id:app-image-config/custom-image-config"
    }

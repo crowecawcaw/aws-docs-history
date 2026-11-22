@@ -1,19 +1,18 @@
 
 
 # XGBoost Version 0.72
-<a name="xgboost-72"></a>
 
 **Important**  
 The XGBoost 0.72 is deprecated by Amazon SageMaker AI. You can still use this old version of XGBoost (as a built-in algorithm) by pulling its image URI as shown in the following code sample. For XGBoost, the image URI ending with `:1` is for the old version.  
 
-```
+```py
 import boto3
 from sagemaker.amazon.amazon_estimator import get_image_uri
 
 xgb_image_uri = get_image_uri(boto3.Session().region_name, "xgboost", repo_version="1")
 ```
 
-```
+```py
 import boto3
 from sagemaker import image_uris
 
@@ -47,7 +46,7 @@ SageMaker AI XGBoost uses the Python pickle module to serialize/deserialize the 
 **To use a model trained with SageMaker AI XGBoost in open source XGBoost**
 + Use the following Python code:
 
-  ```
+  ```python
   import pickle as pkl 
   import tarfile
   import xgboost

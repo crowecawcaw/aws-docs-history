@@ -1,7 +1,6 @@
 
 
 # Shadow tests
-<a name="shadow-tests"></a>
 
  With Amazon SageMaker AI you can evaluate any changes to your model serving infrastructure by comparing its performance against the currently deployed infrastructure. This practice is known as shadow testing. Shadow testing can help you catch potential configuration errors and performance issues before they impact end users. With SageMaker AI, you don't need to invest in building your shadow testing infrastructure, so you can focus on model development. 
 

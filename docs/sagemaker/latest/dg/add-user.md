@@ -1,7 +1,6 @@
 
 
 # Add users and set up service accounts
-<a name="add-user"></a>
 
 ## Fine grained access control - our recommendation
 <a name="add-user-access-control"></a>

@@ -1,7 +1,6 @@
 
 
 # Dashboard setup
-<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-setup-dashboard"></a>
 
 Use the following information to get set up with Amazon SageMaker HyperPod Amazon CloudWatch Observability EKS add-on. This sets you up with a detailed visual dashboard that provides a view into metrics for your EKS cluster hardware, team allocation, and tasks.
 
@@ -41,7 +40,7 @@ To manage task governance, use the sample policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -84,7 +83,7 @@ To grant permissions to manage Amazon CloudWatch Observability Amazon EKS and vi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -131,7 +130,7 @@ aws eks create-addon --cluster-name {{cluster-name}}
 
 Below is an example of the JSON of the configuration values:
 
-```
+```json
 {
     "agent": {
         "config": {
@@ -167,7 +166,7 @@ Below is an example of the JSON of the configuration values:
 
 1. Include the following JSON, Configuration values:
 
-   ```
+   ```json
    {
        "agent": {
            "config": {

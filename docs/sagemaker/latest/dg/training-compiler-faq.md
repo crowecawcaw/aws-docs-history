@@ -1,7 +1,6 @@
 
 
 # SageMaker Training Compiler FAQ
-<a name="training-compiler-faq"></a>
 
 **Important**  
 Amazon Web Services (AWS) announces that there will be no new releases or versions of SageMaker Training Compiler. You can continue to utilize SageMaker Training Compiler through the existing AWS Deep Learning Containers (DLCs) for SageMaker Training. It is important to note that while the existing DLCs remain accessible, they will no longer receive patches or updates from AWS, in accordance with the [AWS Deep Learning Containers Framework Support Policy](https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/support-policy.html).
@@ -13,13 +12,13 @@ Use the following FAQ items to find answers to commonly asked questions about Sa
 If you successfully launched your training job with SageMaker Training Compiler, you receive the following log messages:
 + With `TrainingCompilerConfig(debug=False)`
 
-  ```
+  ```txt
   Found configuration for Training Compiler
   Configuring SM Training Compiler...
   ```
 + With `TrainingCompilerConfig(debug=True)`
 
-  ```
+  ```txt
   Found configuration for Training Compiler
   Configuring SM Training Compiler...
   Training Compiler set to debug mode

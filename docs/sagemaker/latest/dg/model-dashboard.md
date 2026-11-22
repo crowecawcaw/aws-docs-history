@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker Model Dashboard
-<a name="model-dashboard"></a>
 
 Amazon SageMaker Model Dashboard is a centralized portal, accessible from the SageMaker AI console, where you can view, search, and explore all of the models in your account. You can track which models are deployed for inference and if they are used in batch transform jobs or hosted on endpoints. If you set up monitors with Amazon SageMaker Model Monitor, you can also track the performance of your models as they make real-time predictions on live data. You can use the dashboard to find models that violate thresholds you set for data quality, model quality, bias and explainability. The dashboard’s comprehensive presentation of all your monitor results helps you quickly identify models that don’t have these metrics configured.
 

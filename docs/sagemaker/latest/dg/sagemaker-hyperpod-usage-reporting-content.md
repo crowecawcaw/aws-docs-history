@@ -1,7 +1,6 @@
 
 
 # Reports details and data breakdown
-<a name="sagemaker-hyperpod-usage-reporting-content"></a>
 
 SageMaker HyperPod's usage reports provide two distinct lenses for analyzing compute resource consumption: **summary reports** for cost allocation and **detailed reports** for granular auditing. Summary reports aggregate cluster-wide usage by team or namespace, highlighting trends in allocated versus borrowed compute across GPU, CPU, and Neuron Core resources. Detailed reports drill into individual tasks, exposing metrics such as execution windows, task status, and priority-class utilization. In this section, we break down the structure of these reports, understand their key metrics, and demonstrate how administrators and finance teams can cross-reference summary trends with task-level data to validate cost attribution accuracy, resolve discrepancies, and optimize shared infrastructure.
 

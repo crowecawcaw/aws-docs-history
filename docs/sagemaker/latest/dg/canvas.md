@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker Canvas
-<a name="canvas"></a>
 
 Amazon SageMaker Canvas gives you the ability to use machine learning to generate predictions without needing to write any code. The following are some use cases where you can use SageMaker Canvas:
 + Predict customer churn

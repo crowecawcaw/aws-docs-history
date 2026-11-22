@@ -1,7 +1,6 @@
 
 
 # Data preparation at scale using Amazon EMR Serverless applications or Amazon EMR clusters in Studio
-<a name="studio-emr-data-preparation"></a>
 
 Amazon SageMaker Studio and its legacy version, Studio Classic, provide data scientists, and machine learning (ML) engineers with tools to perform data analytics and data preparation at scale. Analyzing, transforming, and preparing large amounts of data is a foundational step of any data science and ML workflow. Both Studio and Studio Classic come with built-in integration with Amazon EMR, allowing users to manage large-scale, interactive data preparation and machine learning workflows within their JupyterLab notebooks.
 

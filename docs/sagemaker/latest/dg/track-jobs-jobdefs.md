@@ -1,7 +1,6 @@
 
 
 # Notebook jobs details in Amazon SageMaker Studio
-<a name="track-jobs-jobdefs"></a>
 
 SageMaker Notebook Jobs dashboards help organize the job definitions that you schedule, and also keep track of the actual jobs that run from your job definitions. There are two important concepts to understand when scheduling notebook jobs: *job definitions* and *job runs*. Job definitions are schedules you set to run specific notebooks. For example, you can create a job definition that runs notebook XYZ.ipynb every Wednesday. This job definition launches the actual job runs which occur this coming Wednesday, next Wednesday, the Wednesday after that, and so on. 
 

@@ -1,7 +1,6 @@
 
 
 # Task governance for Interactive Spaces on HyperPod
-<a name="task-governance"></a>
 
 This section covers how to optimize your shared Amazon SageMaker HyperPod EKS clusters for Interactive Spaces workloads. You'll learn to configure Kueue's task governance features—including quota management, priority scheduling, and resource sharing policies—to ensure your development workloads run without interruption while maintaining fair allocation across your teams' training, evaluation, and batch processing activities.
 

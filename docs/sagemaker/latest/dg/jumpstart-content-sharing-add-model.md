@@ -1,7 +1,6 @@
 
 
 # Add a model
-<a name="jumpstart-content-sharing-add-model"></a>
 
 To add a model, choose **Shared by my organization**, and then select **Add model** from the **Add** dropdown list. Enter the basic information for your model, and add any training or inference information you want to share with collaborators to train or deploy your model. After you enter all the necessary information, choose **Add model** in the lower right corner of the screen.
 

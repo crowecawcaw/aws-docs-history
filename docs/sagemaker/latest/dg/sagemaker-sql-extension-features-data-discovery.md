@@ -1,7 +1,6 @@
 
 
 # Browse data using SQL extension
-<a name="sagemaker-sql-extension-features-data-discovery"></a>
 
 To open the SQL extension user interface (UI), choose the SQL extension icon (![SQL Explorer icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/sqlexplorer/sqlexplorer-icon.png)) in the navigation pane of your JupyterLab application in Studio. The left panel data discovery view expands and displays all pre-configured data store connections to Amazon Athena, Amazon Redshift, and Snowflake.
 
@@ -27,7 +26,7 @@ At the table level, the three dots icon provides the additional option to choose
 
 The JupyterLab notebook cell content below shows an example of what is automatically generated when selecting the **Query in notebook** menu on a `redshift-connection` data source in the SQL extension pane.
 
-```
+```SQL
 %%sm_sql --metastore-id redshift-connection --metastore-type GLUE_CONNECTION
 
 -- Query to list tables from schema 'dev.public'

@@ -1,7 +1,6 @@
 
 
 # Create a private model hub
-<a name="jumpstart-curated-hubs-admin-guide-create"></a>
 
 Use the following steps to create a private hub to manage access control for pretrained JumpStart foundation models for your organization. You must install the SageMaker Python SDK and configure the necessary IAM permissions before creating a model hub.
 
@@ -9,7 +8,7 @@ Use the following steps to create a private hub to manage access control for pre
 
 1. Install the SageMaker Python SDK and import the necessary Python packages.
 
-   ```
+   ```python
    # Install the SageMaker Python SDK
    !pip3 install sagemaker --force-reinstall --quiet
    
@@ -21,7 +20,7 @@ Use the following steps to create a private hub to manage access control for pre
 
 1. Initialize a SageMaker AI Session.
 
-   ```
+   ```python
    sm_client = boto3.client({{'sagemaker'}})
    session = Session(sagemaker_client=sm_client)
    session.get_caller_identity_arn()
@@ -31,7 +30,7 @@ Use the following steps to create a private hub to manage access control for pre
 **Note**  
 If you do not specify an Amazon S3 bucket name when creating your hub, the SageMaker hub service creates a new bucket on your behalf. The new bucket has the following naming structure: `sagemaker-hubs-{{REGION}}-{{ACCOUNT_ID}}`.
 
-   ```
+   ```python
    HUB_NAME={{"Example-Hub"}}
    HUB_DISPLAY_NAME={{"Example Hub UI Name"}}
    HUB_DESCRIPTION={{"A description of the example private curated hub."}}
@@ -45,7 +44,7 @@ If you do not specify an Amazon S3 bucket name when creating your hub, the SageM
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -69,7 +68,7 @@ If you do not specify an Amazon S3 bucket name when creating your hub, the SageM
 
 1. Create a private model hub using your configurations from **Step 3** using `hub.create()`. 
 
-   ```
+   ```python
    hub = Hub(hub_name={{HUB_NAME}}, sagemaker_session=session)
    
    try:
@@ -89,6 +88,6 @@ If you do not specify an Amazon S3 bucket name when creating your hub, the SageM
 
 1. Verify the configuration of your new private hub with the following `describe` command:
 
-   ```
+   ```python
    hub.describe()
    ```

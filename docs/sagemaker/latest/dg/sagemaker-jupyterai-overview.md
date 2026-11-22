@@ -1,7 +1,6 @@
 
 
 # Access Jupyter AI Features
-<a name="sagemaker-jupyterai-overview"></a>
 
 You can access Jupyter AI capabilities through two distinct methods: using the chat UI or using magic commands within notebooks.
 
@@ -30,7 +29,7 @@ Using `%%ai` and `%ai` magic commands, you can interact with the language model 
 
 The following example illustrates an `%%ai` magic command invoking an Anthropic Claude model to output an HTML file containing the image of a white square with black borders.
 
-```
+```python
 %%ai anthropic:claude-v1.2 -f html
 Create a square using SVG with a black border and white fill.
 ```

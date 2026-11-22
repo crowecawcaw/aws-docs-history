@@ -1,7 +1,6 @@
 
 
 # Use your SageMaker JumpStart Models in Amazon Bedrock
-<a name="jumpstart-foundation-models-use-studio-updated-register-bedrock"></a>
 
 You can register the models that you've deployed from Amazon SageMaker JumpStart to Amazon Bedrock. With Amazon Bedrock, you can host your model behind multiple endpoints. You can also use Amazon Bedrock features, such as Agents and Knowledge Bases. For more information about using Amazon Bedrock's models, see [https://docs.aws.amazon.com/bedrock/latest/userguide/amazon-bedrock-marketplace.html](https://docs.aws.amazon.com/bedrock/latest/userguide/amazon-bedrock-marketplace.html).
 
@@ -10,7 +9,7 @@ To migrate your models to Amazon Bedrock, we recommend attaching [AmazonBedrockF
 
 ****  
 
-```
+```json
 {
     	"Version":"2012-10-17",		 	 	 
     	"Statement": [
@@ -182,7 +181,7 @@ To migrate your models to Amazon Bedrock, we recommend attaching [AmazonBedrockF
 ```
 The Amazon Bedrock Full Access policy only provides permissions to the Amazon Bedrock API. To use Amazon Bedrock in the AWS Management Console, your IAM role must also have the following permissions:  
 
-```
+```json
 {
         "Sid": "AllowConsoleS3AccessForBedrockMarketplace",
         "Effect": "Allow",
@@ -200,7 +199,7 @@ If you’re writing your own policy, you must include the policy statement that 
 
 ****  
 
-```
+```json
 {
     
         "Version":"2012-10-17",		 	 	 

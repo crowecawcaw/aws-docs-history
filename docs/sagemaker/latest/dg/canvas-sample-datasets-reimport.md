@@ -1,7 +1,6 @@
 
 
 # Re-import a deleted sample dataset
-<a name="canvas-sample-datasets-reimport"></a>
 
 Amazon SageMaker Canvas provides you with sample datasets for various use cases that highlight the capabilities of Canvas. To learn more about the sample datasets that are available, see [Sample datasets in Canvas](canvas-sample-datasets.md). If you no longer wish to use the sample datasets, you can delete them from the **Datasets** page of your SageMaker Canvas application. However, these datasets are still stored in the Amazon S3 bucket that you specified as the [Canvas storage location](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-storage-configuration.html), so you can always access them later. 
 

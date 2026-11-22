@@ -1,7 +1,6 @@
 
 
 # Set up cross-account support for Pipelines
-<a name="build-and-manage-xaccount"></a>
 
 Cross-account support for Amazon SageMaker Pipelines enables you to collaborate on machine learning pipelines with other teams or organizations that operate in different AWS accounts. By setting up cross-account pipeline sharing, you can grant controlled access to pipelines, allow other accounts to view pipeline details, trigger executions, and monitor runs. The following topic covers how to set up cross-account pipeline sharing, the different permission policies available for shared resources, and how to access and interact with shared pipeline entities through direct API calls to SageMaker AI.
 
@@ -44,7 +43,7 @@ When creating your resource share, choose one of two supported permission polici
 
 The `AWSRAMDefaultPermissionSageMakerPipeline` policy allows the following read-only actions:
 
-```
+```JSON
 "sagemaker:DescribePipeline"
 "sagemaker:DescribePipelineDefinitionForExecution"   
 "sagemaker:DescribePipelineExecution"
@@ -64,7 +63,7 @@ Be mindful of AWS resource usage when using the extended pipeline execution perm
 
 The extended pipeline execution permission policy allows the following actions:
 
-```
+```JSON
 "sagemaker:DescribePipeline"
 "sagemaker:DescribePipelineDefinitionForExecution"   
 "sagemaker:DescribePipelineExecution"

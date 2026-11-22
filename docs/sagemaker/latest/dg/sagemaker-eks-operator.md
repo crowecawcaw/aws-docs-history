@@ -1,7 +1,6 @@
 
 
 # Using the HyperPod training operator
-<a name="sagemaker-eks-operator"></a>
 
  The Amazon SageMaker HyperPod training operator helps you accelerate generative AI model development by efficiently managing distributed training across large GPU clusters. It introduces intelligent fault recovery, hang job detection, and process-level management capabilities that minimize training disruptions and reduce costs. Unlike traditional training infrastructure that requires complete job restarts when failures occur, this operator implements surgical process recovery to keep your training jobs running smoothly. 
 
@@ -16,7 +15,7 @@ To use the training operator, you must use the latest [ HyperPod AMI release](ht
 <a name="sagemaker-eks-operator-supported-versions"></a>
 
  The HyperPod training operator works only work with specific versions of Kubernetes, Kueue, and HyperPod. See the list below for the complete list of compatible versions. 
-+ Supported Kubernetes versions – 1.28, 1.29, 1.30, 1.31, 1.32, and 1.33
++ Supported Kubernetes versions – 1.31, 1.32, 1.33, 1.34, 1.35, 1.36, and 1.37
 + Suggested Kueue versions – [ v.0.12.2](https://github.com/kubernetes-sigs/kueue/releases/tag/v0.12.2) and [v.0.12.3](https://github.com/kubernetes-sigs/kueue/releases/tag/v0.12.3)
 + The latest HyperPod AMI release. To upgrade to the latest AMI release, use the [ UpdateClusterSoftware](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateClusterSoftware.html) API.
 + [PyTorch 2.4.0 – 2.7.1](https://github.com/pytorch/pytorch/releases)

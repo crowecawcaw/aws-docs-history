@@ -1,7 +1,6 @@
 
 
 # Use quick setup for Amazon SageMaker AI
-<a name="onboard-quick-start"></a>
 
 The **Set up for single users** (quick setup) procedure gets you set up with default settings. Use this option if you want to get started with SageMaker AI quickly and you do not intend to customize your settings at this time. The default settings include granting access to the common SageMaker AI services for individual users to get started. For example, Amazon SageMaker Studio and Amazon SageMaker Canvas.
 

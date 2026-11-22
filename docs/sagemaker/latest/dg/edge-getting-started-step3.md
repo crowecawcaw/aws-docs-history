@@ -1,7 +1,6 @@
 
 
 # Register and Authenticate Your Device Fleet
-<a name="edge-getting-started-step3"></a>
 
 In this section you will create your AWS IoT thing object, create a device fleet, register your device fleet so it can interact with the cloud, create X.509 certificates to authenticate your devices to AWS IoT Core, associate the role alias with AWS IoT that was generated when you created your fleet, get your AWS account-specific endpoint for the credentials provider, get an official Amazon Root CA file, and upload the Amazon CA file to Amazon S3.
 
@@ -13,7 +12,7 @@ In this section you will create your AWS IoT thing object, create a device fleet
 
    First, create AWS IoT thing objects with the AWS IoT client (`iot_client`) you created earlier with Boto3. The following example shows how to create two thing objects:
 
-   ```
+   ```python
    iot_thing_name = 'sample-device'
    iot_thing_type = 'getting-started-demo'
    
@@ -32,7 +31,7 @@ In this section you will create your AWS IoT thing object, create a device fleet
 
    Create a device fleet with the SageMaker AI client object defined in a previous step. You can also use the SageMaker AI console to create a device fleet.
 
-   ```
+   ```python
    import time
    device_fleet_name="demo-device-fleet" + str(time.time()).split('.')[0]
    device_name="sagemaker-edge-demo-device" + str(time.time()).split('.')[0]
@@ -40,7 +39,7 @@ In this section you will create your AWS IoT thing object, create a device fleet
 
    Specify your IoT role ARN. This lets AWS IoT grant temporary credentials to devices.
 
-   ```
+   ```python
    device_model_directory='device_output'
    s3_device_fleet_output = 's3://{}/{}'.format(bucket, device_model_directory)
    
@@ -59,7 +58,7 @@ In this section you will create your AWS IoT thing object, create a device fleet
 
    To interact with the cloud, you need to register your device with SageMaker Edge Manager. In this example, you register a single device with the fleet you created. To register the device, you need to provide a device name and the AWS IoT thing name as shown in the following example:
 
-   ```
+   ```python
    # Device name should be 36 characters
    device_name = "sagemaker-edge-demo-device" + str(time.time()).split('.')[0]
    
@@ -80,7 +79,7 @@ In this section you will create your AWS IoT thing object, create a device fleet
 
    Use the following to create a private key, public key, and a X.509 certificate file using the AWS IoT client defined (`iot_client`) earlier.
 
-   ```
+   ```python
    # Creates a 2048-bit RSA key pair and issues an X.509 # certificate 
    # using the issued public key.
    create_cert = iot_client.create_keys_and_certificate(
@@ -108,7 +107,7 @@ In this section you will create your AWS IoT thing object, create a device fleet
 
    When you create a device fleet with SageMaker AI (`sagemaker_client.create_device_fleet()`), a role alias is generated for you. An AWS IoT role alias provides a mechanism for connected devices to authenticate to AWS IoT using X.509 certificates, and then obtain short-lived AWS credentials from an IAM role that is associated with an AWS IoT role alias. The role alias allows you to change the role of the device without having to update the device. Use `DescribeDeviceFleet` to get the role alias name and ARN.
 
-   ```
+   ```python
    # Print Amazon Resource Name (ARN) and alias that has access 
    # to AWS Internet of Things (IoT).
    sagemaker_client.describe_device_fleet(DeviceFleetName=device_fleet_name)
@@ -122,7 +121,7 @@ In this section you will create your AWS IoT thing object, create a device fleet
 
    Use the `iot_client` to facilitate associating the role alias generated from creating the device fleet with AWS IoT:
 
-   ```
+   ```python
    role_alias = iot_client.describe_role_alias(
                        roleAlias=role_alias_name)
    ```
@@ -131,7 +130,7 @@ In this section you will create your AWS IoT thing object, create a device fleet
 
    You created and registered a certificate with AWS IoT earlier for successful authentication of your device. Now, you need to create and attach a policy to the certificate to authorize the request for the security token.
 
-   ```
+   ```python
    alias_policy = {
      "Version": "2012-10-17",		 	 	 
      "Statement": {
@@ -154,7 +153,7 @@ In this section you will create your AWS IoT thing object, create a device fleet
 
    Edge devices need an endpoint in order to assume credentials. Obtain your AWS account-specific endpoint for the credentials provider.
 
-   ```
+   ```python
    # Get the unique endpoint specific to your AWS account that is making the call.
    iot_endpoint = iot_client.describe_endpoint(
        endpointType='iot:CredentialProvider'
@@ -167,19 +166,19 @@ In this section you will create your AWS IoT thing object, create a device fleet
 
    Use the following in your Jupyter Notebook or AWS CLI (if you use your terminal, remove the ‘\!’ magic function):
 
-   ```
+   ```python
    !wget https://www.amazontrust.com/repository/AmazonRootCA1.pem
    ```
 
    Use the endpoint to make an HTTPS request to the credentials provider to return a security token. The following example command uses `curl`, but you can use any HTTP client.
 
-   ```
+   ```python
    !curl --cert device.pem.crt --key private.pem.key --cacert AmazonRootCA1.pem $endpoint
    ```
 
    If the certificate is verified, upload the keys and certificate to your Amazon S3 bucket URI:
 
-   ```
+   ```python
    !aws s3 cp private.pem.key s3://{bucket}/authorization-files/
    !aws s3 cp device.pem.crt s3://{bucket}/authorization-files/
    !aws s3 cp AmazonRootCA1.pem s3://{bucket}/authorization-files/
@@ -187,7 +186,7 @@ In this section you will create your AWS IoT thing object, create a device fleet
 
    Clean your working directory by moving your keys and certificate to a different directory:
 
-   ```
+   ```python
    # Optional - Clean up working directory
    !mkdir authorization-files
    !mv private.pem.key device.pem.crt AmazonRootCA1.pem authorization-files/

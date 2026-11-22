@@ -1,7 +1,6 @@
 
 
 # Understand the options for deploying models and getting inferences in Amazon SageMaker AI
-<a name="deploy-model-get-started"></a>
 
 To help you get started with SageMaker AI Inference, see the following sections which explain your options for deploying your model in SageMaker AI and getting inferences. The [Inference options in Amazon SageMaker AI](deploy-model-options.md) section can help you determine which feature best fits your use case for inference.
 

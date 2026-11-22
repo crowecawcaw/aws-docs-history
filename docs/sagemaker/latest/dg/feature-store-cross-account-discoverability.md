@@ -1,7 +1,6 @@
 
 
 # Enabling cross account discoverability
-<a name="feature-store-cross-account-discoverability"></a>
 
 With AWS Resource Access Manager (AWS RAM) you can securely share the feature group catalog, which contains all of your feature group and feature resources, with other AWS accounts. This lets members of your team search and discover feature groups and features that span multiple accounts, promoting data consistency, streamlining collaboration, and reducing duplication of effort.
 

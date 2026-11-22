@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker Training Compiler
-<a name="training-compiler"></a>
 
 **Important**  
 Amazon Web Services (AWS) announces that there will be no new releases or versions of SageMaker Training Compiler. You can continue to utilize SageMaker Training Compiler through the existing AWS Deep Learning Containers (DLCs) for SageMaker Training. It is important to note that while the existing DLCs remain accessible, they will no longer receive patches or updates from AWS, in accordance with the [AWS Deep Learning Containers Framework Support Policy](https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/support-policy.html).

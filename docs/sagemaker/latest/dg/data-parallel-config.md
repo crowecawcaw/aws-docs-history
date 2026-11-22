@@ -1,7 +1,6 @@
 
 
 # Configuration tips for the SageMaker AI distributed data parallelism library
-<a name="data-parallel-config"></a>
 
 Review the following tips before using the SageMaker AI distributed data parallelism (SMDDP) library. This list includes tips that are applicable across frameworks.
 

@@ -1,7 +1,6 @@
 
 
 # Use Amazon Augmented AI with Custom Task Types
-<a name="a2i-task-types-custom"></a>
 
 **Note**  
 Amazon SageMaker A2I is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for A2I, but we do not plan to introduce new features.

@@ -1,7 +1,6 @@
 
 
 # Post-training Data and Model Bias
-<a name="clarify-detect-post-training-bias"></a>
 
 Post-training bias analysis can help reveal biases that might have emanated from biases in the data, or from biases introduced by the classification and prediction algorithms. These analyses take into consideration the data, including the labels, and the predictions of a model. You assess performance by analyzing predicted labels or by comparing the predictions with the observed target values in the data with respect to groups with different attributes. There are different notions of fairness, each requiring different bias metrics to measure.
 

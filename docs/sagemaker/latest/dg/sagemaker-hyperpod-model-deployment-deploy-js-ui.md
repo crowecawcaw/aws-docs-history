@@ -1,7 +1,6 @@
 
 
 # Deploy models from JumpStart using Amazon SageMaker Studio
-<a name="sagemaker-hyperpod-model-deployment-deploy-js-ui"></a>
 
 The following steps show you through how to deploy models from JumpStart using Amazon SageMaker Studio.
 

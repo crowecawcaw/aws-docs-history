@@ -1,7 +1,6 @@
 
 
 # Deploy foundation models and custom fine-tuned models
-<a name="sagemaker-hyperpod-model-deployment-deploy"></a>
 
 Whether you're deploying pre-trained foundation open-weights or gated models from Amazon SageMaker JumpStart or your own custom or fine-tuned models stored in Amazon S3 or Amazon FSx, SageMaker HyperPod provides the flexible, scalable infrastructure you need for production inference workloads.
 

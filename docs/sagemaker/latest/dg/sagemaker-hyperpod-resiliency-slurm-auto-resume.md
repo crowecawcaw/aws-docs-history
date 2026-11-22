@@ -1,7 +1,6 @@
 
 
 # Automatic node recovery and auto-resume
-<a name="sagemaker-hyperpod-resiliency-slurm-auto-resume"></a>
 
 **Note**  
 As of September 11, 2025, HyperPod with Slurm orchestration now supports health monitoring agents. Run [UpdateClusterSoftware](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateClusterSoftware.html) and update to the latest version of the AMI in order to use this functionality.
@@ -46,7 +45,7 @@ If you use `sbatch`, you can keep the batch script simple by creating a separate
 **Note**  
 The following code example shows how to discover the Slurm node list associated with the job. Do not use the `$SLURM_JOB_NODELIST` environment variable provided by Slurm, because its value might be outdated after SageMaker HyperPod auto-resumes the job. The following code example shows how to define a new `NODE_LIST` variable to replace `SLURM_JOB_NODELIST`, and then set up the `MASTER_NODE` and `MASTER_ADDR` variables off of the `NODE_LIST` variable.
 
-   ```
+   ```sh
    #!/bin/bash
    
    # Filename: train_auto_resume.sh
@@ -95,7 +94,7 @@ If you have set up a resource allocation using `sbatch` or `salloc`, you can run
 
    Because most of the logic for setting up the environment is already in `train_auto_resume.sh`, the batch script should be simple and similar to the following code example. Assume that the following batch script is saved as `batch.sh`.
 
-   ```
+   ```sh
    #!/bin/bash
    #SBATCH --nodes 2
    #SBATCH --exclusive
@@ -112,7 +111,7 @@ If you have set up a resource allocation using `sbatch` or `salloc`, you can run
 
    Start by acquiring an exclusive allocation, and run the `srun` command with the `--auto-resume` flag and the entrypoint script.
 
-   ```
+   ```sh
    salloc -N 2 --exclusive
    srun --auto-resume=1 {{train_auto_resume.sh}}
    ```

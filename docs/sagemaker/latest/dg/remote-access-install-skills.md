@@ -1,7 +1,6 @@
 
 
 # Installing Amazon SageMaker AI skills
-<a name="remote-access-install-skills"></a>
 
 The Agent Toolkit for AWS gives AI coding agents the tools, knowledge, and science-based best practices they need to work with AWS services. It works with the coding agents you already use, including Claude Code, Codex, Cursor, and Kiro. The toolkit bundles the AWS MCP Server configuration and a curated set of agent skills in a single install, so your agent can discover and apply AWS best practices automatically without you having to know which skill to invoke.
 

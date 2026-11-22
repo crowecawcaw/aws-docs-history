@@ -1,7 +1,6 @@
 
 
 # Give SageMaker AI Compilation Jobs Access to Resources in Your Amazon VPC
-<a name="neo-vpc"></a>
 
 **Note**  
 For compilation jobs, you can configure only subnets with a default tenancy VPC in which your job runs on shared hardware. For more information on the tenancy attribute for VPCs, see [Dedicated Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html).
@@ -11,7 +10,7 @@ For compilation jobs, you can configure only subnets with a default tenancy VPC 
 
 To specify subnets and security groups in your private VPC, use the `VpcConfig` request parameter of the [`CreateCompilationJob`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCompilationJob.html) API, or provide this information when you create a compilation job in the SageMaker AI console. SageMaker AI Neo uses this information to create network interfaces and attach them to your compilation jobs. The network interfaces provide compilation jobs with a network connection within your VPC that is not connected to the internet. They also enable your compilation job to connect to resources in your private VPC. The following is an example of the `VpcConfig` parameter that you include in your call to `CreateCompilationJob`:
 
-```
+```python
 VpcConfig: {"Subnets": [
           "subnet-0123456789abcdef0",
           "subnet-0123456789abcdef1",
@@ -71,7 +70,7 @@ The default endpoint policy allows full access to S3 for any user or service in 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -109,7 +108,7 @@ The `SageMakerFullAccess` managed policy includes the permissions that you need 
 
 ****  
 
-```
+```json
 {"Version":"2012-10-17",		 	 	 
     "Statement": [
         {"Effect": "Allow",

@@ -1,7 +1,6 @@
 
 
 # Integrate MLflow with your environment
-<a name="mlflow-track-experiments"></a>
 
 The following page describes how to get started with the MLflow SDK and the AWS MLflow plugin within your development environment. This can include local IDEs or a Jupyter Notebook environment within Studio or Studio Classic.
 
@@ -17,7 +16,7 @@ For more information about using the MLflow SDK, see [Python API](https://mlflow
 
 Within your development environment, install both MLflow and the AWS MLflow plugin.
 
-```
+```bash
 pip install sagemaker-mlflow
 ```
 
@@ -33,7 +32,7 @@ To see which versions of MLflow are available to use with SageMaker AI, see [Tra
 
 Use `[mlflow.set\_tracking\_uri](https://mlflow.org/docs/2.13.2/python_api/mlflow.html#mlflow.set_tracking_uri)` to connect to a your tracking server from your development environment using its ARN:
 
-```
+```bash
 import mlflow
 
 arn = {{"YOUR-TRACKING-SERVER-ARN"}}

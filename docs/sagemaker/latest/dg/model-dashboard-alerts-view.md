@@ -1,7 +1,6 @@
 
 
 # View alert history or job reports
-<a name="model-dashboard-alerts-view"></a>
 
 **To view alert history or job reports of failed executions, complete the following steps:**
 

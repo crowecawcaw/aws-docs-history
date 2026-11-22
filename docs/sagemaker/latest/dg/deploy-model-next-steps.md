@@ -1,7 +1,6 @@
 
 
 # Next steps for inference with Amazon SageMaker AI
-<a name="deploy-model-next-steps"></a>
 
 After you have an endpoint and understand the general inference workflow, you can use the following features in SageMaker AI to improve your inference workflow.
 

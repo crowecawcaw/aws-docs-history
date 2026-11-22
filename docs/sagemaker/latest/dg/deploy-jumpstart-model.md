@@ -1,7 +1,6 @@
 
 
 # Deploy a JumpStart model
-<a name="deploy-jumpstart-model"></a>
 
 You can deploy a pre-trained JumpStart model for inference using either the CLI or the SDK.
 

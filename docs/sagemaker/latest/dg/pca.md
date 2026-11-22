@@ -1,7 +1,6 @@
 
 
 # Principal Component Analysis (PCA) Algorithm
-<a name="pca"></a>
 
 PCA is an unsupervised machine learning algorithm that attempts to reduce the dimensionality (number of features) within a dataset while still retaining as much information as possible. This is done by finding a new set of features called *components*, which are composites of the original features that are uncorrelated with one another. They are also constrained so that the first component accounts for the largest possible variability in the data, the second component the second most variability, and so on.
 

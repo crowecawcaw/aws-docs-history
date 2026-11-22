@@ -1,7 +1,6 @@
 
 
 # IAM trust relationship issue
-<a name="sagemaker-hyperpod-model-deployment-ts-trust"></a>
 
 HyperPod inference operator fails to start with an STS AssumeRoleWithWebIdentity error, indicating an IAM trust relationship configuration problem.
 
@@ -23,7 +22,7 @@ Replace the following placeholders:
 + `<REGION>`: Your AWS region
 + `<OIDC_ID>`: Your Amazon EKS cluster's OIDC provider ID
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

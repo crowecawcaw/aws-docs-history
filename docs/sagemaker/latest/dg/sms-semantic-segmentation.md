@@ -1,7 +1,6 @@
 
 
 # Identify image contents using semantic segmentation
-<a name="sms-semantic-segmentation"></a>
 
 To identify the contents of an image at the pixel level, use an Amazon SageMaker Ground Truth semantic segmentation labeling task. When assigned a semantic segmentation labeling job, workers classify pixels in the image into a set of predefined labels or classes. Ground Truth supports single and multi-class semantic segmentation labeling jobs. You create a semantic segmentation labeling job using the Ground Truth section of the Amazon SageMaker AI console or the [`CreateLabelingJob`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html) operation. 
 
@@ -91,7 +90,7 @@ If you create a labeling job using the API, you must supply a worker task templa
 
 Upload this template to S3, and provide the S3 URI for this file in `UiTemplateS3Uri`.
 
-```
+```html
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 <crowd-form>
   <crowd-semantic-segmentation

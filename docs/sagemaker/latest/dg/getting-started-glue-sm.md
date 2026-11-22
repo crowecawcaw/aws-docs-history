@@ -1,7 +1,6 @@
 
 
 # Get Started with AWS Glue Interactive Sessions
-<a name="getting-started-glue-sm"></a>
 
 In this guide, you learn how to initiate an AWS Glue interactive session in SageMaker AI Studio Classic, and manage your environment with Jupyter magics.
 
@@ -46,7 +45,7 @@ This section lists the required policies to run AWS Glue interactive sessions in
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -88,7 +87,7 @@ This section lists the required policies to run AWS Glue interactive sessions in
 
 ****  
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -128,7 +127,7 @@ To enable the automatic propagation of tags to new AWS Glue interactive sessions
 By default, the role associated with the AWS Glue interactive session is the same as the SageMaker AI execution role. You can specify a different execution role for the AWS Glue interactive session by using the `%iam_role` magic command. For information on the available Jupyter magic commands to configure AWS Glue interactive sessions, see [Configure your AWS Glue interactive session in Studio or Studio Classic](#glue-sm-magics).
 + *On your SageMaker AI execution role*: Create a new inline policy, and paste the following JSON file. The policy grants the execution role permission to describe (`DescribeUserProfile`, `DescribeSpace`, `DescribeDomain`) and list the tags (`ListTag`) set on the user profiles, shared spaces, and SageMaker AI domain.
 
-  ```
+  ```JSON
   {
       "Effect": "Allow",
       "Action": [
@@ -169,7 +168,7 @@ By default, the role associated with the AWS Glue interactive session is the sam
   ```
 + *On the IAM role of your AWS Glue session*: Create a new inline policy, and paste the following JSON file. The policy grants your role permission to attach tags (`TagResource`) to your session, or retrieve its list of tags (`GetTags`).
 
-  ```
+  ```JSON
   {
       "Effect": "Allow",
       "Action": [

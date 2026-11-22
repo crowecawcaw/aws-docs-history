@@ -1,7 +1,6 @@
 
 
 # Configure network access for your Amazon EMR cluster
-<a name="studio-notebooks-emr-networking"></a>
 
 Before you get started with using Amazon EMR or EMR Serverless for your data preparation tasks in Studio, ensure that you or your administrator have configured your network to allow communication between Studio and Amazon EMR. Once this communication is enabled, you can choose to:
 + [Prepare data using EMR Serverless](studio-notebooks-emr-serverless.md)

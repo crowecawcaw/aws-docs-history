@@ -1,7 +1,6 @@
 
 
 # Update Data Wrangler
-<a name="data-wrangler-update"></a>
 
 To update Data Wrangler to the latest release, first shut down the corresponding KernelGateway app from the Amazon SageMaker Studio Classic control panel. After the KernelGateway app is shut down, restart it by opening a new or existing Data Wrangler flow in Studio Classic. When you open a new or existing Data Wrangler flow, the kernel that starts contains the latest version of Data Wrangler.
 

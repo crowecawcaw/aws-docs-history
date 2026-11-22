@@ -1,12 +1,12 @@
 
 
 # Managing SageMaker HyperPod clusters orchestrated by Amazon EKS
-<a name="sagemaker-hyperpod-eks-operate"></a>
 
 This section provides guidance on managing SageMaker HyperPod through the SageMaker AI console UI or the AWS Command Line Interface (CLI). It explains how to perform various tasks related to SageMaker HyperPod, whether you prefer a visual interface or working with commands.
 
 **Topics**
 + [Getting started with Amazon EKS support in SageMaker HyperPod](sagemaker-hyperpod-eks-prerequisites.md)
++ [Increasing pods per node with dynamic ENI attachment](sagemaker-hyperpod-eks-dynamic-eni-attachment.md)
 + [Installing packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md)
 + [Setting up Kubernetes role-based access control](sagemaker-hyperpod-eks-setup-rbac.md)
 + [Custom Amazon Machine Images (AMIs) for SageMaker HyperPod clusters](hyperpod-custom-ami-support.md)

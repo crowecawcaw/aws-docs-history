@@ -1,7 +1,6 @@
 
 
 # Model Package and Edge Manager Agent Deployment with AWS IoT Greengrass
-<a name="edge-greengrass"></a>
 
 SageMaker Edge Manager integrates AWS IoT Greengrass version 2 to simplify accessing, maintaining, and deploying the Edge Manager agent and model to your devices. Without AWS IoT Greengrass V2, setting up your devices and fleets to use SageMaker Edge Manager requires you to manually copy the Edge Manager agent from an Amazon S3 release bucket. You use the agent to make predictions with models loaded onto your edge devices. With AWS IoT Greengrass V2 and SageMaker Edge Manager integration, you can use AWS IoT Greengrass V2 components. Components are pre-built software modules that can connect your edge devices to AWS services or third-party service via AWS IoT Greengrass.
 

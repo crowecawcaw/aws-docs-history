@@ -1,7 +1,6 @@
 
 
 # Run a Processing Job with scikit-learn
-<a name="use-scikit-learn-processing-container"></a>
 
 You can use Amazon SageMaker Processing to process data and evaluate models with scikit-learn scripts in a Docker image provided by Amazon SageMaker AI. The following provides an example on how to run a Amazon SageMaker Processing job using scikit-learn.
 

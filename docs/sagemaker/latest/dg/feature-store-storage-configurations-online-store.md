@@ -1,7 +1,6 @@
 
 
 # Online store
-<a name="feature-store-storage-configurations-online-store"></a>
 
 The online store is a low-latency, high-availability data store that provides real-time lookup of features. It is typically used for machine learning (ML) model serving. When you create a feature group, choose an online store type: the standard online store (`Standard`), the standard V2 online store (`Standard_V2`), or an in-memory tier online store (`InMemory`). In this way, you can select the storage type that best matches the read and write patterns for a particular application, while considering performance and cost. For more details about pricing, see [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/).
 

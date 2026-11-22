@@ -1,7 +1,6 @@
 
 
 # Studio notebooks
-<a name="encryption-at-rest-studio"></a>
 
 In Amazon SageMaker Studio, your SageMaker Studio notebooks and data can be stored in the following locations:
 + An S3 bucket – When you onboard to Studio and enable shareable notebook resources, SageMaker AI shares notebook snapshots and metadata in an Amazon Simple Storage Service (Amazon S3) bucket.

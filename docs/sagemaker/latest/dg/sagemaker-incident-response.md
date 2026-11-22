@@ -1,7 +1,6 @@
 
 
 # Logging and Monitoring
-<a name="sagemaker-incident-response"></a>
 
 You can monitor Amazon SageMaker AI using Amazon CloudWatch, which collects raw data and processes it into readable, near real-time metrics. These statistics are kept for 15 months, so that you can access historical information and gain a better perspective on how your web application or service is performing. You can also set alarms that watch for certain thresholds and send notifications or take actions when those thresholds are met. For more information, see [Amazon SageMaker AI metrics in Amazon CloudWatch](monitoring-cloudwatch.md).
 

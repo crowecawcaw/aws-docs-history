@@ -1,7 +1,6 @@
 
 
 # Manage a Workforce (Amazon SageMaker AI Console)
-<a name="sms-workforce-management-private-console"></a>
 
 You can use the Amazon SageMaker AI console to create and manage the work teams and individual workers that make up a private workforce. 
 

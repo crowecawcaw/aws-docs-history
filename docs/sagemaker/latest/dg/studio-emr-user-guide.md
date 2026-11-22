@@ -1,7 +1,6 @@
 
 
 # User guide
-<a name="studio-emr-user-guide"></a>
 
 This section covers how data scientist and data engineers can launch, discover, connect to, or terminate an Amazon EMR cluster from Studio or Studio Classic.
 
@@ -39,7 +38,7 @@ To connect to Amazon EMR clusters using another built-in image or your own image
 
 To bring your own image in Studio or Studio Classic and allow your notebooks to connect to Amazon EMR clusters, install the following [sagemaker-studio-analytics-extension](https://pypi.org/project/sagemaker-studio-analytics-extension/) extension to your kernel. It supports connecting SageMaker Studio or Studio Classic notebooks to Spark(Amazon EMR) clusters through the [SparkMagic](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-magics.html) library.
 
-```
+```bash
 pip install sparkmagic
 pip install sagemaker-studio-sparkmagic-lib
 pip install sagemaker-studio-analytics-extension

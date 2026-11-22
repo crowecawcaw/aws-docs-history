@@ -1,7 +1,6 @@
 
 
 # Use TensorBoard in Amazon SageMaker Studio Classic
-<a name="studio-tensorboard"></a>
 
 **Note**  
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For information about using the updated Studio experience, see [Amazon SageMaker Studio](studio-updated.md).  
@@ -32,7 +31,7 @@ This tutorial requires a SageMaker AI domain. For more information, see [Amazon 
 
 1. Import the required packages. 
 
-   ```
+   ```python
    import os
    import datetime
    import tensorflow as tf
@@ -40,7 +39,7 @@ This tutorial requires a SageMaker AI domain. For more information, see [Amazon 
 
 1. Create a Keras model.
 
-   ```
+   ```python
    mnist = tf.keras.datasets.mnist
    
    (x_train, y_train),(x_test, y_test) = mnist.load_data()
@@ -57,13 +56,13 @@ This tutorial requires a SageMaker AI domain. For more information, see [Amazon 
 
 1. Create a directory for your TensorBoard logs
 
-   ```
+   ```python
    LOG_DIR = os.path.join(os.getcwd(), "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))
    ```
 
 1. Run training with TensorBoard.
 
-   ```
+   ```python
    model = create_model()
    model.compile(optimizer='adam',
                  loss='sparse_categorical_crossentropy',
@@ -81,7 +80,7 @@ This tutorial requires a SageMaker AI domain. For more information, see [Amazon 
 
 1. Generate the EFS path for the TensorBoard logs. You use this path to set up your logs from the terminal.
 
-   ```
+   ```python
    EFS_PATH_LOG_DIR = "/".join(LOG_DIR.strip("/").split('/')[1:-1])
    print (EFS_PATH_LOG_DIR)
    ```
@@ -97,7 +96,7 @@ This tutorial requires a SageMaker AI domain. For more information, see [Amazon 
 
 1. From the terminal, run the following commands. Copy `EFS_PATH_LOG_DIR` from the Jupyter notebook. You must run this from the `/home/sagemaker-user` root directory.
 
-   ```
+   ```python
    pip install tensorboard
    tensorboard --logdir {{<EFS_PATH_LOG_DIR>}}
    ```

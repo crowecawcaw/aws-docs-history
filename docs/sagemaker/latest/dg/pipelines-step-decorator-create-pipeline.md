@@ -1,7 +1,6 @@
 
 
 # Create a pipeline with `@step`-decorated functions
-<a name="pipelines-step-decorator-create-pipeline"></a>
 
 You can create a pipeline by converting Python functions into pipeline steps using the `@step` decorator, creating dependencies between those functions to create a pipeline graph (or directed acyclic graph (DAG)), and passing the leaf nodes of that graph as a list of steps to the pipeline. The following sections explain this procedure in detail with examples.
 
@@ -17,7 +16,7 @@ You can create a pipeline by converting Python functions into pipeline steps usi
 
 To create a step using the `@step` decorator, annotate the function with `@step`. The following example shows a `@step`-decorated function that preprocesses the data.
 
-```
+```py
 from sagemaker.mlops.workflow.function_step import step
 
 @step
@@ -41,7 +40,7 @@ When you create a dependency between two steps, you create a connection between 
 
 Passing in the `DelayedReturn` output of one function as an input to another function automatically creates a data dependency in the pipeline DAG. In the following example, passing in the `DelayedReturn` output of the `preprocess` function to the `train` function creates a dependency between `preprocess` and `train`.
 
-```
+```py
 from sagemaker.mlops.workflow.function_step import step
 
 @step
@@ -95,7 +94,7 @@ get_step(step_train_result).add_depends_on([step_process_result])
 
 You can create a pipeline that includes a `@step`-decorated step and a traditional pipeline step and passes data between them. For example, you can use `ProcessingStep` to process the data and pass its result to the `@step`-decorated training function. In the following example, a `@step`-decorated training step references the output of a processing step.
 
-```
+```py
 # Define processing step
 
 from sagemaker.core.processing import Processor
@@ -124,7 +123,7 @@ process_step = ProcessingStep(
 )
 ```
 
-```
+```py
 # Define a @step-decorated train step which references the 
 # output of a processing step
 
@@ -160,7 +159,7 @@ def register_model():
     ...
 ```
 
-```
+```py
 # Define ConditionStep
 
 from sagemaker.mlops.workflow.condition_step import ConditionStep
@@ -186,7 +185,7 @@ conditionally_register = ConditionStep(
 
 You define a pipeline the same way whether or not you use a `@step` decorator. When you pass a `DelayedReturn` instance to your pipeline, you don't need to pass a full list of steps to build the pipeline. The SDK automatically infers the previous steps based on the dependencies you define. All the previous steps of the `Step` objects you passed to the pipeline or `DelayedReturn` objects are included in the pipeline graph. In the following example, the pipeline receives the `DelayedReturn` object for the `train` function. SageMaker AI adds the `preprocess` step, as a previous step of `train`, to the pipeline graph.
 
-```
+```py
 from sagemaker.mlops.workflow.pipeline import Pipeline
 
 pipeline = Pipeline(
@@ -198,7 +197,7 @@ pipeline = Pipeline(
 
 If there are no data or custom dependencies between the steps and you run multiple steps in parallel, the pipeline graph has more than one leaf node. Pass all of these leaf nodes in a list to the `steps` argument in your pipeline definition, as shown in the following example:
 
-```
+```py
 @step
 def process1():
     ...
@@ -228,7 +227,7 @@ You only pass the leaf nodes of the graph to the pipeline because the leaf nodes
 
 Create a pipeline by calling `pipeline.create()`, as shown in the following snippet. For details about `create()`, see [sagemaker.workflow.pipeline.Pipeline.create](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.pipeline.Pipeline.create).
 
-```
+```py
 role = "{{pipeline-role}}"
 pipeline.create(role)
 ```

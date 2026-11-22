@@ -1,7 +1,6 @@
 
 
 # SageMaker Notebook Jobs
-<a name="notebook-auto-run"></a>
 
 You can use Amazon SageMaker AI to interactively build, train, and deploy machine learning models from your Jupyter notebook in any JupyterLab environment. However, there are various scenarios in which you might want to run your notebook as a noninteractive, scheduled job. For example, you might want to create regular audit reports that analyze all training jobs run over a certain time frame and analyze the business value of deploying those models into production. Or you might want to scale up a feature engineering job after testing the data transformation logic on a small subset of data. Other common use cases include:
 + Scheduling jobs for model drift monitoring

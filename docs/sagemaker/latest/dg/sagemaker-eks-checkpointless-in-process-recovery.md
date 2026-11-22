@@ -1,7 +1,6 @@
 
 
 # In-process recovery and checkpointless training
-<a name="sagemaker-eks-checkpointless-in-process-recovery"></a>
 
 HyperPod checkpointless training uses model redundancy to enable fault-tolerant training. The core principle is that model and optimizer states are fully replicated across multiple node groups, with weight updates and optimizer state changes synchronously replicated within each group. When a failure occurs, healthy replicas complete their optimizer steps and transmit the updated model/optimizer states to recovering replicas.
 
@@ -15,7 +14,7 @@ This model redundancy-based approach enables several fault handling mechanisms:
 
 Here is the core snippet of checkpointless training.
 
-```
+```python
 from hyperpod_checkpointless_training.inprocess.train_utils import wait_rank
     wait_rank()
       

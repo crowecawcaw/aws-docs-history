@@ -1,7 +1,6 @@
 
 
 # How Tensor Parallelism Works
-<a name="model-parallel-extended-features-pytorch-tensor-parallelism-how-it-works"></a>
 
 Tensor parallelism takes place at the level of `nn.Modules`; it partitions specific modules in the model across tensor parallel ranks. This is in addition to the existing partition of the *set of modules* used in pipeline parallelism.
 
@@ -9,7 +8,7 @@ When a module is partitioned through tensor parallelism, its forward and backwar
 
 **Example:** Consider tensor parallelism across data parallel ranks, where the degree of data parallelism is 4 and the degree of tensor parallelism is 2. Assume that you have a data parallel group that holds the following module tree, after partitioning the set of modules.
 
-```
+```txt
 A
 ├── B
 |   ├── E
@@ -22,7 +21,7 @@ A
 
 Assume that tensor parallelism is supported for the modules B, G, and H. One possible outcome of tensor parallel partition of this model could be:
 
-```
+```txt
 dp_rank 0 (tensor parallel rank 0): A, B:0, C, D, G:0, H
 dp_rank 1 (tensor parallel rank 1): A, B:1, C, D, G:1, H
 dp_rank 2 (tensor parallel rank 0): A, B:0, C, D, G:0, H

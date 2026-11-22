@@ -1,7 +1,6 @@
 
 
 # How the data flow UI works
-<a name="canvas-data-flow-ui"></a>
 
 To help you navigate your data flow, Data Wrangler has the following tabs in the top navigation pane:
 + **Data flow** – This tab provides you with a visual view of your data flow step where you can add or remove transforms, and export data.

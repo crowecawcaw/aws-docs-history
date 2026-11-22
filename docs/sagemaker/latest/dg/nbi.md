@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker notebook instances
-<a name="nbi"></a>
 
 An Amazon SageMaker notebook instance is a machine learning (ML) compute instance running the Jupyter Notebook application. One of the best ways for machine learning (ML) practitioners to use Amazon SageMaker AI is to train and deploy ML models using SageMaker notebook instances. The SageMaker notebook instances help create the environment by initiating Jupyter servers on Amazon Elastic Compute Cloud (Amazon EC2) and providing preconfigured kernels with the following packages: the Amazon SageMaker Python SDK, AWS SDK for Python (Boto3), AWS Command Line Interface (AWS CLI), Conda, Pandas, deep learning framework libraries, and other libraries for data science and machine learning.
 

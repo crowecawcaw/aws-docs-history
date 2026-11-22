@@ -1,7 +1,6 @@
 
 
 # End-to-end examples
-<a name="training-sessions-example"></a>
 
 The [training sessions cookbook](https://github.com/aws/sagemaker-training-sessions-cookbook) on GitHub provides complete, runnable training loops built on the training session APIs. Each recipe covers batching, evaluation, checkpointing with resume, and metrics. Each recipe's README lists the commands, hyperparameters, and expected results.
 

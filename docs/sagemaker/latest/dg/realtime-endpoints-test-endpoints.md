@@ -1,7 +1,6 @@
 
 
 # Invoke models for real-time inference
-<a name="realtime-endpoints-test-endpoints"></a>
 
 After you use Amazon SageMaker AI to deploy a model to an endpoint, you can interact with the model by sending inference requests to it. To send an inference request to a model, you invoke the endpoint that hosts it. You can invoke your endpoints using Amazon SageMaker Studio, the AWS SDKs, or the AWS CLI.
 
@@ -55,7 +54,7 @@ If you want to invoke a model endpoint in your application code, you can use one
 
 Before you can use these methods in your application code, you must initialize a SageMaker AI Runtime client, and you must specify the name of your endpoint. The following example sets up the client and endpoint for the rest of the examples that follow:
 
-```
+```python
 import boto3
 
 sagemaker_runtime = boto3.client(
@@ -69,7 +68,7 @@ endpoint_name='{{endpoint-name}}'
 
 The following example uses the `invoke_endpoint` method to invoke an endpoint with the AWS SDK for Python (Boto3):
 
-```
+```python
 # Gets inference from the model hosted at the specified endpoint:
 response = sagemaker_runtime.invoke_endpoint(
     EndpointName=endpoint_name, 
@@ -84,7 +83,7 @@ This example provide input data in the `Body` field for SageMaker AI to pass to 
 
 The `response` variable provides access to the HTTP status, the name of the deployed model, and other fields. The following snippet prints the HTTP status code:
 
-```
+```python
 print(response["HTTPStatusCode"])
 ```
 
@@ -127,7 +126,7 @@ The following example shows the newline-delimited JSON that you would create whe
 
 The following example Python class, `SmrInferenceStream`, demonstrates how you can process an inference stream that sends text data in JSON format:
 
-```
+```python
 import io
 import json
 
@@ -189,7 +188,7 @@ This example processes the inference stream by doing the following:
 
 The following example creates and uses a `SmrInferenceStream` object:
 
-```
+```python
 request_body = {"inputs": ["Large model inference is"],
                 "parameters": {"max_new_tokens": 100,
                                "enable_sampling": "true"}}
@@ -218,7 +217,7 @@ The AWS CLI doesn't support streaming inference requests.
 
 The following example uses the `invoke-endpoint` command to send an inference request to a model endpoint:
 
-```
+```bash
 aws sagemaker-runtime invoke-endpoint \
     --endpoint-name {{endpoint_name}} \
     --body {{fileb://$file_name}} \
@@ -233,7 +232,7 @@ For more information, and to see additional parameters that you can pass, see [`
 
 If the `invoke-endpoint` command succeeds it returns a response such as the following:
 
-```
+```bash
 {
     "ContentType": "<content_type>; charset=utf-8",
     "InvokedProductionVariant": "<Variant>"
@@ -244,7 +243,7 @@ If the command doesn't succeed, check whether the input payload is in the correc
 
 View the output of the invocation by checking the file output file (`output_file.txt` in this example).
 
-```
+```bash
 more output_file.txt
 ```
 

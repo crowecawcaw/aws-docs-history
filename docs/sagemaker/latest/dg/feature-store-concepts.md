@@ -1,7 +1,6 @@
 
 
 # Feature Store concepts
-<a name="feature-store-concepts"></a>
 
 We list common terms used in Amazon SageMaker Feature Store, followed by example diagrams to visualize a few concepts: 
 +  **Feature Store**: Storage and data management layer for machine learning (ML) features. Serves as the single source of truth to store, retrieve, remove, track, share, discover, and control access to features. In the following example diagram, the Feature Store is a store for your feature groups, which contains your ML data, and provides additional services. 

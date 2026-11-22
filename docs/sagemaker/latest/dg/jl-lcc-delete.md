@@ -1,7 +1,6 @@
 
 
 # Detach lifecycle configurations
-<a name="jl-lcc-delete"></a>
 
 To update your script, you must create a new lifecycle configuration script and attach it to the respective Amazon SageMaker AI domain (domain), user profile, or shared space. A lifecycle configuration script can't be changed after it's created. For more information about creating and attaching the lifecycle configuration, see [Lifecycle configuration creation](jl-lcc-create.md).
 

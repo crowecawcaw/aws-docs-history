@@ -1,7 +1,6 @@
 
 
 # Get an inference recommendation for an existing endpoint
-<a name="inference-recommender-existing-endpoint"></a>
 
 Inference recommendation jobs run a set of load tests on recommended instance types and an existing endpoint. Inference recommendation jobs use performance metrics that are based on load tests using the sample data you provided during model version registration.
 
@@ -41,7 +40,7 @@ Use the [`CreateInferenceRecommendationsJob`](https://docs.aws.amazon.com/sagema
 
 Import the AWS SDK for Python (Boto3) package and create a SageMaker AI client object using the client class. If you followed the steps in the **Prerequisites** section, the model package group ARN was stored in a variable named `model_package_arn`.
 
-```
+```python
 # Create a low-level SageMaker service client.
 import boto3
 aws_region = {{'<region>'}}
@@ -86,7 +85,7 @@ Use the `create-inference-recommendations-job` API to get an instance endpoint r
 + The ARN of the versioned model package you created when you registered your model with Model Registry. Define this for `ModelPackageVersionArn` in the `input-config` field.
 + Provide the name of an existing SageMaker AI Inference endpoint that you want to benchmark in Inference Recommender for `Endpoints` in the `input-config` field.
 
-```
+```bash
 aws sagemaker create-inference-recommendations-job 
     --region {{<region>}}\
     --job-name {{<job_name>}}\
@@ -107,7 +106,7 @@ You can collect the results of your inference recommendation job programmaticall
 
 When you get inference recommendation job results for an existing endpoint, you should receive a JSON response similar to the following:
 
-```
+```python
 {
     "JobName": {{"job-name"}},
     "JobType": "Default",

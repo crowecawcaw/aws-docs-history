@@ -1,7 +1,6 @@
 
 
 # Stateful sessions with Amazon SageMaker AI models
-<a name="stateful-sessions"></a>
 
 When you send requests to an Amazon SageMaker AI inference endpoint, you can choose to route the requests to a *stateful session*. During a stateful session, you send multiple inference requests to the same ML instance, and the instance facilitates the session.
 
@@ -33,7 +32,7 @@ During a stateful session, your application interacts with your model container 
 
    The following example starts a new session by using the SDK for Python (Boto3):
 
-   ```
+   ```python
    import boto3
    import sagemaker
    import json
@@ -57,7 +56,7 @@ During a stateful session, your application interacts with your model container 
 
 1. Your model container handles your client's request by starting a new session. For the session, it caches the data that the client sends in the request payload. It also creates a session ID, and it sets a time to live (TTL) timestamp. This timestamp indicates when the session expires. The container must provide the session ID and timestamp to Amazon SageMaker AI by setting the following HTTP header in the response:
 
-   ```
+   ```http
    X-Amzn-SageMaker-Session-Id: {{session_id}}; Expires={{yyyy}}-{{mm}}-{{ddThh}}:{{mm}}:{{ssZ}}
    ```
 
@@ -65,7 +64,7 @@ During a stateful session, your application interacts with your model container 
 
    The following example extracts the session ID from the `invoke_endpoint` response:
 
-   ```
+   ```python
    session_id = create_session_response['ResponseMetadata']['HTTPHeaders']['x-amzn-sagemaker-new-session-id'].split(';')[0]
    ```
 
@@ -88,7 +87,7 @@ During a stateful session, your application interacts with your model container 
 
    The following example closes a session:
 
-   ```
+   ```python
    payload = {
        "requestType":"CLOSE"
    }
@@ -103,7 +102,7 @@ During a stateful session, your application interacts with your model container 
 
 1. When it closes the session, the container returns the session ID to SageMaker AI by setting the following HTTP header in the response:
 
-   ```
+   ```http
    X-Amzn-SageMaker-Closed-Session-Id: {{session_id}}
    ```
 
@@ -111,7 +110,7 @@ During a stateful session, your application interacts with your model container 
 
    The following example extracts the closed session ID from the `invoke_endpoint` response:
 
-   ```
+   ```python
    closed_session_id = closeSessionResponse['ResponseMetadata']['HTTPHeaders']['x-amzn-sagemaker-closed-session-id'].split(';')[0]
    ```
 

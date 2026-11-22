@@ -1,7 +1,6 @@
 
 
 # Use Custom Algorithms for Model Training and Hosting on Amazon SageMaker AI with Apache Spark
-<a name="apache-spark-example1-cust-algo"></a>
 
 In [SageMaker AI Spark for Scala examples](apache-spark-example1.md), you use the `kMeansSageMakerEstimator` because the example uses the k-means algorithm provided by Amazon SageMaker AI for model training. You might choose to use your own custom algorithm for model training instead. Assuming that you have already created a Docker image, you can create your own `SageMakerEstimator` and specify the Amazon Elastic Container Registry path for your custom image. 
 

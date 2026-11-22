@@ -1,7 +1,6 @@
 
 
 # Complete the prerequisites for foundation models in SageMaker Canvas
-<a name="canvas-fm-chat-prereqs"></a>
 
 The following sections outline the prerequisites for interacting with foundation models and using the document query feature in Canvas. The rest of the content on this page assumes that you’ve met the prerequisites for foundation models. The document query feature requires additional permissions.
 

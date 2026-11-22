@@ -1,7 +1,6 @@
 
 
 # Check Status
-<a name="edge-device-fleet-check-status"></a>
 
 Check that your device or fleet is connected and sampling data. Making periodic checks, manually or automatically, allows you to check that your device or fleet is working properly.
 
@@ -10,7 +9,7 @@ Use the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://consol
 
   To check the status of an individual device, use `DescribeDevice` API. A list containing one or more models is provided if a models have been deployed to the device.
 
-  ```
+  ```python
   sagemaker_client.describe_device(
       DeviceName={{"sample-device-1"}},
       DeviceFleetName={{"sample-fleet-name"}}
@@ -19,7 +18,7 @@ Use the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://consol
 
   Running `DescribeDevice` returns:
 
-  ```
+  ```python
   { "DeviceName": "sample-device".
     "Description": "this is a sample device",
     "DeviceFleetName": "sample-device-fleet",
@@ -40,7 +39,7 @@ Use the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://consol
 
   To check the status of the fleet, use the `GetDeviceFleetReport` API. Provide the name of the device fleet to get a summary of the fleet.
 
-  ```
+  ```python
   sagemaker_client.get_device_fleet_report(
       DeviceFleetName={{"sample-fleet-name"}}
   )
@@ -51,7 +50,7 @@ Use the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://consol
 
   Check the last heartbeat with made by a device with the `DescribeDevice` API. Specify the name of the device and the fleet to which the edge device belongs.
 
-  ```
+  ```python
   sagemaker_client.describe_device(
       DeviceName={{"sample-device-1"}},
       DeviceFleetName={{"sample-fleet-name"}}

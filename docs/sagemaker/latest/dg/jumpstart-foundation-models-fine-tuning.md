@@ -1,7 +1,6 @@
 
 
 # Foundation models and hyperparameters for fine-tuning
-<a name="jumpstart-foundation-models-fine-tuning"></a>
 
 Foundation models are computationally expensive and trained on a large, unlabeled corpus. Fine-tuning a pre-trained foundation model is an affordable way to take advantage of their broad capabilities while customizing a model on your own small, corpus. Fine-tuning is a customization method that involved further training and does change the weights of your model. 
 

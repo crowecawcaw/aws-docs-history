@@ -1,7 +1,6 @@
 
 
 # Grant Your Users Permissions to Upload Local Files
-<a name="canvas-set-up-local-upload"></a>
 
 If your users are uploading files from their local machines to SageMaker Canvas, you must attach a CORS (cross-origin resource sharing) configuration to the Amazon S3 bucket that they're using. When setting up or editing the SageMaker AI domain or user profile, you can specify either a custom Amazon S3 location or the default location, which is a SageMaker AI created Amazon S3 bucket with a name that uses the following pattern: `s3://sagemaker-{{{Region}}}-{{{your-account-id}}}`. SageMaker Canvas adds your users' data to the bucket whenever they upload a file.
 

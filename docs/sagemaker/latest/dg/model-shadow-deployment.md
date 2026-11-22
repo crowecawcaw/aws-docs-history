@@ -1,7 +1,6 @@
 
 
 # Testing models with shadow variants
-<a name="model-shadow-deployment"></a>
 
  You can use SageMaker AI Model Shadow Deployments to create long running shadow variants to validate any new candidate component of your model serving stack before promoting it to production. The following diagram shows how shadow variants work in more detail. 
 
@@ -15,7 +14,7 @@
 
 1.  Create two SageMaker AI models: one for your production variant, and one for your shadow variant. 
 
-   ```
+   ```py
    import boto3
    from sagemaker.core.helper.session_helper import get_execution_role, Session
                    
@@ -56,7 +55,7 @@
 
 1.  Create an endpoint configuration. Specify both your production and shadow variants in the configuration. 
 
-   ```
+   ```py
    endpoint_config_name = {{name-of-your-endpoint-config}}
    
    create_endpoint_config_response = sagemaker_client.create_endpoint_config(
@@ -84,7 +83,7 @@
 
 1. Create an endpoint.
 
-   ```
+   ```py
    create_endpoint_response = sm.create_endpoint(
        EndpointName={{name-of-your-endpoint}},
        EndpointConfigName=endpoint_config_name,

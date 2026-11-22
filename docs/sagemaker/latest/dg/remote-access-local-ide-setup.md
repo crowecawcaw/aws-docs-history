@@ -1,7 +1,6 @@
 
 
 # Set up Remote IDE
-<a name="remote-access-local-ide-setup"></a>
 
 After administrators complete the instructions in [Connect your Remote IDE to SageMaker spaces with remote access](remote-access.md), you can connect your Remote IDE to your remote SageMaker spaces.
 
@@ -78,7 +77,7 @@ If you [Bring your own image (BYOI)](studio-updated-byoi.md), ensure you have in
 
 Create a shell script (for example, `/home/user/sagemaker_connect.sh`):
 
-```
+```bash
 #!/bin/bash
 # Disable the -x option if printing each command is not needed.
 set -exuo pipefail
@@ -131,7 +130,7 @@ session-manager-plugin \
 
 1. Configure `$HOME/.ssh/config` to add the following entry:
 
-```
+```bash
 Host {{space-name}}
   HostName 'arn:{{PARTITION}}:sagemaker:{{us-east-1}}:{{111122223333}}:space/{{domain-id}}/{{space-name}}'
   ProxyCommand '/home/user/sagemaker_connect.sh' '%h'
@@ -144,12 +143,12 @@ For example, the `{{PARTITION}}` can be `aws`.
 
 If you need to use a [named AWS credential profile](https://docs.aws.amazon.com/cli/v1/userguide/cli-configure-files.html#cli-configure-files-using-profiles), change the proxy command as follows:
 
-```
+```bash
   ProxyCommand '/home/user/sagemaker_connect.sh' '%h' {{YOUR_CREDENTIAL_PROFILE_NAME}}
 ```
 + Connect via SSH or run SCP command:
 
-```
+```bash
 ssh {{space-name}}
 scp file_abc {{space-name}}:/tmp/
 ```
@@ -163,7 +162,7 @@ scp file_abc {{space-name}}:/tmp/
 
 Create a PowerShell script (for example, `C:\Users\{{user-name}}\sagemaker_connect.ps1`):
 
-```
+```powershell
 # sagemaker_connect.ps1
 param(
     [Parameter(Mandatory=$true)]
@@ -240,7 +239,7 @@ try {
 ```
 + Configure `C:\Users\{{user-name}}\.ssh\config` to add the following entry:
 
-```
+```bash
 Host {{space-name}}                            
   HostName "arn:aws:sagemaker:{{us-east-1}}:{{111122223333}}:space/{{domain-id}}/{{space-name}}"
   ProxyCommand "C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe" -ExecutionPolicy RemoteSigned -File "C:\\Users\\{{user-name}}\\sagemaker_connect.ps1" "%h"

@@ -1,7 +1,6 @@
 
 
 # Deploy a generative AI inference recommendation
-<a name="generative-ai-inference-recommendations-deploy"></a>
 
 When a recommendation job completes, each recommendation includes a deployment-ready configuration. You can deploy the chosen configuration to a SageMaker AI inference endpoint with a single action from SageMaker AI Studio, or programmatically through the API.
 
@@ -33,7 +32,7 @@ S3 channel references for model artifacts, including any optimized model outputs
 
 To deploy a recommendation programmatically, use the model package from the recommendation to create a SageMaker AI model and endpoint. Each recommendation includes a `ModelDetails` object with the model package ARN and inference specification name. This is the simplest deployment path because the model package already contains the container image, environment variables, and model artifact channels.
 
-```
+```python
 import boto3
 
 client = boto3.client("sagemaker", region_name="us-west-2")
@@ -96,7 +95,7 @@ print(f"Endpoint {endpoint_name} is being created.")
 
 After the endpoint is created, you can monitor its status using the `DescribeEndpoint` API until it reaches `InService` status.
 
-```
+```python
 import time
 
 while True:

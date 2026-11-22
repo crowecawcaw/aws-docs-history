@@ -1,7 +1,6 @@
 
 
 # Reference policies
-<a name="studio-set-up-emr-permissions-reference"></a>
 + **List Amazon EMR policies**: This policy allows performing the following actions:
   + `AllowPresignedUrl` allows generating pre-signed URLs for accessing the Spark UI from within Studio.
   + `AllowClusterDiscovery` and `AllowClusterDetailsDiscovery` allows listing and describing Amazon EMR clusters in the provided region and account.
@@ -11,7 +10,7 @@
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -65,7 +64,7 @@
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -98,7 +97,7 @@
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

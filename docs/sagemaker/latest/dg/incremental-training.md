@@ -1,7 +1,6 @@
 
 
 # Use Incremental Training in Amazon SageMaker AI
-<a name="incremental-training"></a>
 
 Over time, you might find that a model generates inference that are not as good as they were in the past. With incremental training, you can use the artifacts from an existing model and use an expanded dataset to train a new model. Incremental training saves both time and resources.
 

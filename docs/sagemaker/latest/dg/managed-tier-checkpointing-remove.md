@@ -1,7 +1,6 @@
 
 
 # Removing managed tiered checkpointing
-<a name="managed-tier-checkpointing-remove"></a>
 
 This section explains how to disable managed tiered checkpointing when you no longer need it.
 

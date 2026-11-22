@@ -1,7 +1,6 @@
 
 
 # The SageMaker model parallel library v2 reference
-<a name="distributed-model-parallel-v2-reference"></a>
 
 The following are references for the SageMaker model parallel library v2 (SMP v2).
 
@@ -15,7 +14,7 @@ The following are references for the SageMaker model parallel library v2 (SMP v2
 
 The following is a complete list of parameters to activate and configure the [Core features of the SageMaker model parallelism library v2](model-parallel-core-features-v2.md). These must be written in JSON format and passed to the PyTorch ModelTrainer in the SageMaker Python SDK or saved as a JSON file for SageMaker HyperPod.
 
-```
+```json
 {
     "hybrid_shard_degree": {{Integer}},
     "sm_activation_offloading": {{Boolean}},
@@ -64,7 +63,7 @@ This section is a reference for the `torch.sagemaker` package provided by SMP v2
 
 An API for applying [Delayed parameter initialization](model-parallel-core-features-v2-delayed-param-init.md) to a PyTorch model.
 
-```
+```py
 class torch.sagemaker.delayed_param.DelayedParamIniter(
     model: nn.Module,
     init_method_using_config : Callable = None,
@@ -76,7 +75,7 @@ class torch.sagemaker.delayed_param.DelayedParamIniter(
 + `model` (`nn.Module`) – A PyTorch model to wrap and apply the delayed parameter initialization functionality of SMP v2.
 + `init_method_using_config` (Callable) – If you use the tensor parallel implementation of SMP v2 or supported [Hugging Face Transformer models compatible with the SMP tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models), keep this parameter at the default value, which is `None`. By default, the `DelayedParamIniter` API finds out how to initialize the given model correctly. For any other models, you need to create a custom parameter initialization function and add it to your script. The following code snippet is the default `init_method_using_config` function that SMP v2 implemented for the [Hugging Face Transformer models compatible with the SMP tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models). Use the following code snippet as a reference for creating your own initialization configuration function, adding it to your script, and passing it to the `init_method_using_config` parameter of the SMP `DelayedParamIniter` API.
 
-  ```
+  ```py
   from torch.sagemaker.utils.module_utils import empty_module_params, move_buffers_to_device
   
   # Define a custom init config function.
@@ -259,7 +258,7 @@ class torch.sagemaker.moe.moe_config.MoEConfig(
 
 An API for using [FlashAttention](model-parallel-core-features-v2-flashattention.md) with SMP v2.
 
-```
+```py
 class torch.sagemaker.nn.attn.FlashSelfAttention(
    attention_dropout_prob: float = 0.0,
    scale: Optional[float] = None,
@@ -274,7 +273,7 @@ class torch.sagemaker.nn.attn.FlashSelfAttention(
 + `triton_flash_attention` (bool) – If passed, Triton implementation of flash attention is used. This is necessary to supports Attention with Linear Biases (ALiBi) (see the following `use_alibi` parameter). This version of the kernel doesn’t support dropout. The default value is `False`.
 + `use_alibi` (bool) – If passed, it enables Attention with Linear Biases (ALiBi) using the mask provided. When using ALiBi, it needs an attention mask prepared as follows. The default value is `False`.
 
-  ```
+  ```py
   def generate_alibi_attn_mask(attention_mask, batch_size, seq_length, 
       num_attention_heads, alibi_bias_max=8):
       device, dtype = attention_mask.device, attention_mask.dtype
@@ -316,7 +315,7 @@ A single `torch.Tensor` with shape `(batch_size x num_heads x seq_len x head_siz
 
 An API for using `FlashGroupedQueryAttention` with SMP v2. To learn more about the usage of this API, see [Use FlashAttention kernels for grouped-query attention](model-parallel-core-features-v2-flashattention.md#model-parallel-core-features-v2-flashattention-grouped-query).
 
-```
+```py
 class torch.sagemaker.nn.attn.FlashGroupedQueryAttention(
     attention_dropout_prob: float = 0.0,
     scale: Optional[float] = None,
@@ -371,7 +370,7 @@ Returns a single `torch.Tensor (batch_size x num_heads x seq_len x head_size)` t
 
 SMP v2 provides this `torch.sagemaker.transform()` API for transforming Hugging Face Transformer models to SMP model implementations and enabling the SMP tensor parallelism.
 
-```
+```py
 torch.sagemaker.transform(
     model: nn.Module, 
     device: Optional[torch.device] = None, 
@@ -424,7 +423,7 @@ To move from SMP v1 to SMP v2, you must make script changes to remove the SMP v1
 
 To bring SMP v1 *models* to SMP v2, in SMP v1 you must collect the full model state dictionary and apply the translation functions on the model state dictionary to convert it into the Hugging Face Transformers model checkpoint format. Then in SMP v2, as discussed in [Checkpointing using SMP](model-parallel-core-features-v2-checkpoints.md), you can load the Hugging Face Transformers model checkpoints, and then continue with using the PyTorch checkpoint APIs with SMP v2. To use SMP with your PyTorch FSDP model, make sure that you move to SMP v2 and make changes to your training script to use PyTorch FSDP and other latest features.
 
-```
+```py
 import smdistributed.modelparallel.torch as smp
 
 # Create model

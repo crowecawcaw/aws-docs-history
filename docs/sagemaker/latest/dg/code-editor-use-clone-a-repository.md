@@ -1,7 +1,6 @@
 
 
 # Clone a repository in Code Editor
-<a name="code-editor-use-clone-a-repository"></a>
 
 You can navigate through folders and clone a repository in the **Explorer** window of the Code Editor application UI. 
 

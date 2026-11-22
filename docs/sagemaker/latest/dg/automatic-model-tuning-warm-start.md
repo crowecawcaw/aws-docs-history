@@ -1,7 +1,6 @@
 
 
 # Run a Warm Start Hyperparameter Tuning Job
-<a name="automatic-model-tuning-warm-start"></a>
 
 Use warm start to start a hyperparameter tuning job using one or more previous tuning jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to search over in the new tuning job. Hyperparameter tuning uses either Bayesian or random search to choose combinations of hyperparameter values from ranges that you specify. For more information, see [Understand the hyperparameter tuning strategies available in Amazon SageMaker AI](automatic-model-tuning-how-it-works.md). Using information from previous hyperparameter tuning jobs can help increase the performance of the new hyperparameter tuning job by making the search for the best combination of hyperparameters more efficient.
 
@@ -69,7 +68,7 @@ The following code shows how to create a [`HyperParameterTuningJobWarmStartConfi
 
 Create the `HyperParameterTuningJobWarmStartConfig` object:
 
-```
+```python
 warm_start_config = {
           "ParentHyperParameterTuningJobs" : [
           {"HyperParameterTuningJobName" : 'MyParentTuningJob'}
@@ -80,7 +79,7 @@ warm_start_config = {
 
 Create the warm start tuning job:
 
-```
+```python
 smclient = boto3.Session().client('sagemaker')
 smclient.create_hyper_parameter_tuning_job(HyperParameterTuningJobName = 'MyWarmStartTuningJob',
    HyperParameterTuningJobConfig = tuning_job_config, # See notebook for tuning configuration
@@ -100,14 +99,14 @@ For more information about using the [Amazon SageMaker Python SDK](https://sagem
 
 This example uses an estimator that uses the [Image Classification - MXNet](image-classification.md) algorithm for training. The following code sets the hyperparameter ranges that the warm start tuning job searches within to find the best combination of values. For information about setting hyperparameter ranges, see [Define Hyperparameter Ranges](automatic-model-tuning-define-ranges.md).
 
-```
+```python
 hyperparameter_ranges = {'learning_rate': ContinuousParameter(0.0, 0.1),
                          'momentum': ContinuousParameter(0.0, 0.99)}
 ```
 
 The following code configures the warm start tuning job by creating a `WarmStartConfig` object.
 
-```
+```python
 from sagemaker.train.tuner import WarmStartTypes
 from sagemaker.core.shapes import HyperParameterTuningJobWarmStartConfig
 
@@ -117,7 +116,7 @@ warm_start_config = HyperParameterTuningJobWarmStartConfig(warm_start_type=WarmS
 
 Now set the values for static hyperparameters, which are hyperparameters that keep the same value for every training job that the warm start tuning job launches. In the following code, `imageclassification` is a ModelTrainer that was created previously.
 
-```
+```python
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import Compute
 
@@ -142,7 +141,7 @@ imageclassification = ModelTrainer(
 
 Now create the `HyperparameterTuner` object and pass the `WarmStartConfig` object that you previously created as the `warm_start_config` argument.
 
-```
+```python
 tuner_warm_start = HyperparameterTuner(model_trainer=imageclassification,
                             objective_metric_name='validation:accuracy',
                             hyperparameter_ranges=hyperparameter_ranges,
@@ -155,7 +154,7 @@ tuner_warm_start = HyperparameterTuner(model_trainer=imageclassification,
 
 Finally, call the `tune` or `fit` method of the `HyperparameterTuner` object to launch the warm start tuning job.
 
-```
+```python
 tuner_warm_start.tune(
         {'train': s3_input_train, 'validation': s3_input_validation})
 ```

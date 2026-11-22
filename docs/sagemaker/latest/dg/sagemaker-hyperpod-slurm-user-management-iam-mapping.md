@@ -1,7 +1,6 @@
 
 
 # Mapping cluster users to IAM principals for access
-<a name="sagemaker-hyperpod-slurm-user-management-iam-mapping"></a>
 
 Creating the POSIX users with any of the options in [Creating users on a Slurm cluster on SageMaker HyperPod](sagemaker-hyperpod-slurm-user-management-create-users.md) gives them accounts and home directories on the cluster nodes. It does not, however, control who can connect to the cluster or which Linux account they connect as. Users connect to nodes through AWS Systems Manager (SSM), and by default every session starts as the generic `ssm-user` account rather than as the individual's own user. To finish setting up the multi-user environment, map each cluster user to an IAM principal in the following two steps.
 

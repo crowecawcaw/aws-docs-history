@@ -1,7 +1,6 @@
 
 
 # Classify videos
-<a name="sms-video-classification"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
@@ -94,7 +93,7 @@ response = client.create_labeling_job(
 
 If you create a labeling job using the API, you must supply a worker task template in `UiTemplateS3Uri`. Copy and modify the following template by modifying the `short-instructions`, `full-instructions`, and `header`. Upload this template to Amazon S3, and provide the Amazon S3 URI to this file in `UiTemplateS3Uri`.
 
-```
+```html
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 
               <crowd-form>

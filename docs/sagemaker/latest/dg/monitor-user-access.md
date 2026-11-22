@@ -1,7 +1,6 @@
 
 
 # Monitoring user resource access from SageMaker AI Studio Classic with sourceIdentity
-<a name="monitor-user-access"></a>
 
 With Amazon SageMaker Studio Classic, you can monitor user resource access. To view resource access activity, you can configure AWS CloudTrail to monitor and record user activities by following the steps in [Log Amazon SageMaker API Calls with AWS CloudTrail](https://docs.aws.amazon.com/sagemaker/latest/dg/logging-using-cloudtrail.html). 
 

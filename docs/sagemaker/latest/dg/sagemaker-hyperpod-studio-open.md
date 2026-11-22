@@ -1,7 +1,6 @@
 
 
 # Connecting to HyperPod clusters and submitting tasks to clusters
-<a name="sagemaker-hyperpod-studio-open"></a>
 
 You can launch machine learning workloads on HyperPod clusters within Amazon SageMaker Studio IDEs. When you launch Studio IDEs on a HyperPod cluster, a set of commands are available to help you get started. You can work on your training scripts, use Docker containers for the training scripts, and submit jobs to the cluster, all from within the Studio IDEs. The following section provides information on how to connect your cluster to Studio IDEs.
 
@@ -13,7 +12,7 @@ Alternatively, you can create a space and launch an IDE using the AWS CLI. Use t
 
 1. Create a space using the [`create-space`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/create-space.html) AWS CLI.
 
-   ```
+   ```python
    aws sagemaker create-space \
    --region {{your-region}} \
    --ownership-settings "OwnerUserProfileName={{user-profile-name}}" \
@@ -23,7 +22,7 @@ Alternatively, you can create a space and launch an IDE using the AWS CLI. Use t
 
 1. Create the app using the [`create-app`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/create-app.html) AWS CLI.
 
-   ```
+   ```python
    aws sagemaker create-app \
    --region {{your-region}} \
    --space-name {{space-name}} \

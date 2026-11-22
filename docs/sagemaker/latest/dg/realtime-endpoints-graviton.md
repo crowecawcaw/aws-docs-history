@@ -1,7 +1,6 @@
 
 
 # Migrate inference workload from x86 to AWS Graviton
-<a name="realtime-endpoints-graviton"></a>
 
  [AWS Graviton](https://aws.amazon.com/ec2/graviton/) is a series of ARM-based processors designed by AWS. They are more energy efficient than x86-based processors and offer a compelling price-performance ratio. Amazon SageMaker AI offers Graviton-based instances so that you can take advantage of these advanced processors for your inference needs. 
 
@@ -30,7 +29,7 @@
 
  You can push your container images to Amazon ECR with the AWS CLI. When using an ARM compatible image, verify that it supports ARM architecture: 
 
-```
+```bash
 docker inspect {{deep-learning-container-uri}}
 ```
 
@@ -40,7 +39,7 @@ docker inspect {{deep-learning-container-uri}}
 
 1. Create a manifest list.
 
-   ```
+   ```bash
    docker manifest create {{aws-account-id}}.dkr.ecr.{{aws-region}}.amazonaws.com/{{my-repository}} \
      {{aws-account-id}}.dkr.ecr.{{aws-account-id}}.amazonaws.com/{{my-repository:amd64}} \
    	{{aws-account-id}}.dkr.ecr.{{aws-account-id}}.amazonaws.com/{{my-repository:arm64}} \
@@ -48,14 +47,14 @@ docker inspect {{deep-learning-container-uri}}
 
 1.  Annotate the manifest list, so that it correctly identifies which image is for which architecture. 
 
-   ```
+   ```bash
    docker manifest annotate --arch arm64 {{aws-account-id}}.dkr.ecr.{{aws-region}}.amazonaws.com/{{my-repository}} \
      {{aws-account-id}}.dkr.ecr.{{aws-region}}.amazonaws.com/{{my-repository:arm64}}
    ```
 
 1. Push the manifest.
 
-   ```
+   ```bash
    docker manifest push {{aws-account-id}}.dkr.ecr.{{aws-region}}.amazonaws.com/{{my-repository}}
    ```
 
@@ -66,7 +65,7 @@ docker inspect {{deep-learning-container-uri}}
 
  Create a SageMaker AI Model by calling the [`CreateModel`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html) API. 
 
-```
+```py
 import boto3
 from sagemaker.core.helper.session_helper import get_execution_role
 
@@ -97,7 +96,7 @@ sagemaker_client.create_model(
 
  Create an endpoint configuration by calling the [`CreateEndpointConfig`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html) API. For a list of Graviton-based instances, check [Compute optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/compute-optimized-instances.html). 
 
-```
+```py
 sagemaker_client.create_endpoint_config(
     EndpointConfigName = "{{endpoint-config-name}}",
     ProductionVariants = [
@@ -116,7 +115,7 @@ sagemaker_client.create_endpoint_config(
 
  Create an endpoint by calling the [`CreateEndpoint`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html) API. 
 
-```
+```py
 sagemaker_client.create_endpoint(
     EndpointName = "{{endpoint-name}}",
     EndpointConfigName = "{{endpoint-config-name}}"

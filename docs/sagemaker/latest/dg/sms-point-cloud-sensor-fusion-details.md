@@ -1,7 +1,6 @@
 
 
 # Understand Coordinate Systems and Sensor Fusion
-<a name="sms-point-cloud-sensor-fusion-details"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
@@ -45,7 +44,7 @@ Ground Truth assumes that your point cloud data has already been transformed int
 
 Collectively, the translation vector and rotation matrix can be used to make up an *extrinsic matrix*, which can be used to convert data from a local coordinate system to a WCS. For example, your LiDAR extrinsic matrix may be composed as follows, where `R` is the rotation matrix and `T` is the translation vector:
 
-```
+```JSON
 LiDAR_extrinsic = [R T;0 0 0 1]
 ```
 
@@ -53,7 +52,7 @@ For example, the autonomous driving KITTI dataset includes a rotation matrix and
 
 The following code example demonstrates how you can convert point cloud frames from the KITTI dataset into a WCS. 
 
-```
+```python
 import pykitti
 import numpy as np
 
@@ -135,7 +134,7 @@ Ground Truth uses pose information for 3D visualizations and sensor fusion. Pose
 
 For example in the autonomous driving KITTI dataset, the [pykitti](https://github.com/utiasSTARS/pykitti) python module can be used for loading the KITTI data. In the dataset `dataset.oxts[i].T_w_imu` gives the LiDAR extrinsic transform for the `i`th frame and it can be multiplied with the points to get them in a world frame - `matmul(lidar_transform_matrix, points)`. This transform can be converted into position (translation vector) and heading (in quaternion) of LiDAR for the input manifest file JSON format. Camera extrinsic transform for `cam0` in `i`th frame can be calculated by `inv(matmul(dataset.calib.T_cam0_velo, inv(dataset.oxts[i].T_w_imu)))` and this can be converted into heading and position for `cam0`.
 
-```
+```python
 import numpy
 
 rotation = [[ 9.96714314e-01, -8.09890350e-02,  1.16333982e-03],
@@ -171,7 +170,7 @@ The following are the fields in the position object:
 
 The following is an example of a `position` JSON object: 
 
-```
+```JSON
 {
     "position": {
         "y": -152.77584902657554,
@@ -196,7 +195,7 @@ Fields in `heading` object are as follows:
 
 The following is an example of a `heading` JSON object: 
 
-```
+```JSON
 {
     "heading": {
         "qy": -0.7046155108831117,
@@ -218,7 +217,7 @@ You can compute quaternions from a rotation matrix or a transformation matrix.
 
 If you have a rotation matrix (made up of the axis rotations) and translation vector (or origin) in world coordinate system instead of a single 4x4 rigid transformation matrix, then you can directly use the rotation matrix and translation vector to compute quaternions. Libraries like [scipy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.transform.Rotation.html) and [pyqaternion ](http://kieranwynn.github.io/pyquaternion/#explicitly-by-rotation-or-transformation-matrix) can help. The following code-block shows an example using these libraries to compute quaternion from a rotation matrix. 
 
-```
+```python
 import numpy
 
 rotation = [[ 9.96714314e-01, -8.09890350e-02,  1.16333982e-03],
@@ -243,7 +242,7 @@ A UI tool like [3D Rotation Converter](https://www.andre-gaschler.com/rotationco
 
 If you have a 4x4 extrinsic transformation matrix, note that the transformation matrix is in the form `[R T; 0 0 0 1]` where `R` is the rotation matrix and `T` is the origin translation vector. That means you can extract rotation matrix and translation vector from the transformation matrix as follows.
 
-```
+```python
 import numpy as np
 
 transformation 
@@ -267,7 +266,7 @@ print(f"position:{position}\nheading: {heading}")
 
 With your own setup, you can compute an extrinsic transformation matrix using the GPS/IMU position and orientation (latitude, longitude, altitude and roll, pitch, yaw) with respect to the LiDAR sensor on the ego vehicle. For example, you can compute pose from KITTI raw data using `pose = convertOxtsToPose(oxts)` to transform the oxts data into a local euclidean poses, specified by 4x4 rigid transformation matrices. You can then transform this pose transformation matrix to a global reference frame using the reference frames transformation matrix in the world coordinate system.
 
-```
+```python
 struct Quaternion
 {
     double w, x, y, z;
@@ -310,7 +309,7 @@ Ground Truth computes rotation metrics using the heading quaternions as follows:
 
 Here, `[x, y, z, w]` corresponds to parameters in the `heading` JSON object, `[qx, qy, qz, qw]`. Ground Truth computes the translation column vector as `T = [poseX, poseY, poseZ]`. Then the extrinsic metrics is simply as follows:
 
-```
+```JSON
 LiDAR_extrinsic = [R T;0 0 0 1]
 ```
 
@@ -324,7 +323,7 @@ LiDAR_extrinsic = [R T;0 0 0 1]
 
 If the camera pose is given, then Ground Truth computes the camera extrinsic based on a rigid transformation from the 3D plane into the camera plane. The calculation is the same as the one used for the [LiDAR Extrinsic](#sms-point-cloud-extrinsic-lidar-explanation), except that Ground Truth uses camera pose (`position` and `heading`) and computes the inverse extrinsic.
 
-```
+```JSON
  camera_inverse_extrinsic = inv([Rc Tc;0 0 0 1]) #where Rc and Tc are camera pose components
 ```
 
@@ -370,7 +369,7 @@ The following are float values.
 
 Ground Truth use the camera extrinsic and camera intrinsic to compute view metrics as shown in the following code block to transform labels between the 3D scene and 2D images.
 
-```
+```python
 def generate_view_matrix(intrinsic_matrix, extrinsic_matrix):
     intrinsic_matrix = np.c_[intrinsic_matrix, np.zeros(3)]
     view_matrix = np.matmul(intrinsic_matrix, extrinsic_matrix)

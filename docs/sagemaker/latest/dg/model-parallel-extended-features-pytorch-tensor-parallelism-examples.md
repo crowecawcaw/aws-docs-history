@@ -1,7 +1,6 @@
 
 
 # Run a SageMaker Distributed Model Parallel Training Job with Tensor Parallelism
-<a name="model-parallel-extended-features-pytorch-tensor-parallelism-examples"></a>
 
 In this section, you learn:
 + How to configure a SageMaker PyTorch ModelTrainer and the SageMaker model parallelism option to use tensor parallelism.
@@ -23,7 +22,7 @@ Extended memory-saving features are available through Deep Learning Containers f
 
 **Configure a SageMaker PyTorch ModelTrainer**
 
-```
+```py
 from sagemaker.train.configs import SourceCode, Compute, InputData
 from sagemaker.core import image_uris
 
@@ -81,7 +80,7 @@ To find a complete list of parameters for `distribution`, see [Configuration Par
 
 The following example training script shows how to adapt the SageMaker model parallelism library to a training script. In this example, it is assumed that the script is named `your_training_script.py`. 
 
-```
+```py
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -173,7 +172,7 @@ Extended memory-saving features are available through Deep Learning Containers f
 
 **Configure a SageMaker PyTorch ModelTrainer**
 
-```
+```py
 mpi_options = {
     "enabled" : True,
     "processes_per_host" : 8,               # 8 processes
@@ -226,7 +225,7 @@ smp_model_trainer.train(input_data_config=[
 
 The following example training script shows how to adapt the SageMaker model parallelism library to a training script. Note that the training script now includes the `smp.step` decorator: 
 
-```
+```py
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

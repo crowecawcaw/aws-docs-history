@@ -1,7 +1,6 @@
 
 
 # Create an AutoML job to fine-tune text generation models using the API
-<a name="autopilot-create-experiment-finetune-llms"></a>
 
 Large language models (LLMs) excel in multiple generative tasks, including text generation, summarization, completion, question answering, and more. Their performance can be attributed to their significant size and extensive training on diverse datasets and various tasks. However, specific domains, such as healthcare and financial services, may require customized fine-tuning to adapt to unique data and use cases. By tailoring their training to their particular domain, LLMs can improve their performance and provide more accurate outputs for targeted applications.
 
@@ -45,7 +44,7 @@ Before using Autopilot to create a fine-tuning experiment in SageMaker AI, make 
 
   *JumpStart's bucket names follow a predetermined pattern that depends on the AWS Regions. You must adjust the name of the bucket accordingly.* 
 
-  ```
+  ```JSON
   {
       "Sid": "Statement1",
       "Effect": "Allow",
@@ -77,7 +76,7 @@ When calling `[CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/A
 
 The following is an example of the full request format used when making an API call to `CreateAutoMLJobV2` for fine-tuning a (`Falcon7BInstruct`) model.
 
-```
+```JSON
 {
    "AutoMLJobName": "<job_name>",
    "AutoMLJobInputDataConfig": [ 
@@ -153,7 +152,7 @@ For more details on each hyperparameter, see [Hyperparameters for optimizing the
 
 The following JSON example shows a `TextGenerationHyperParameters` field passed to the TextGenerationJobConfig where all four hyperparameters are configured.
 
-```
+```JSON
 "AutoMLProblemTypeConfig": {
   "TextGenerationJobConfig": {
     "BaseModelName": "Falcon7B",

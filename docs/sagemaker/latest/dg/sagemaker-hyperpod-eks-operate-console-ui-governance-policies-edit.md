@@ -1,7 +1,6 @@
 
 
 # Edit policies
-<a name="sagemaker-hyperpod-eks-operate-console-ui-governance-policies-edit"></a>
 
 You can edit your **Cluster policy** and **Compute allocation** configurations in the **Policies** tab. The following provides instructions on how to edit the following configurations.
 + Edit your **Cluster policy** to update how tasks are prioritized and idle compute is allocated.

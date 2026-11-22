@@ -1,7 +1,6 @@
 
 
 # Tune a TabTransformer model
-<a name="tabtransformer-tuning"></a>
 
 *Automatic model tuning*, also known as hyperparameter tuning, finds the best version of a model by running many jobs that test a range of hyperparameters on your training and validation datasets. Model tuning focuses on the following hyperparameters: 
 

@@ -1,7 +1,6 @@
 
 
 # Feature Processing with Spark ML and Scikit-learn
-<a name="inference-pipeline-mleap-scikit-learn-containers"></a>
 
 Before training a model with either Amazon SageMaker AI built-in algorithms or custom algorithms, you can use Spark and scikit-learn preprocessors to transform your data and engineer features. 
 

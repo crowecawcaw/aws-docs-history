@@ -1,11 +1,10 @@
 
 
 # Using modular code with the @remote decorator
-<a name="train-remote-decorator-modular"></a>
 
 You can organize your code into modules for ease of workspace management during development and still use the @remote function to invoke a function. You can also replicate the local modules from your development environment to the remote job environment. To do so, set the parameter `include_local_workdir` to `True`, as shown in the following code example.
 
-```
+```python.py
 @remote(
   include_local_workdir=True,
 )
@@ -28,7 +27,7 @@ The `include_local_workdir` parameter by default includes all the Python scripts
 
 The following example uses `CustomFileFilter` to ignore all notebook files and folders or files named `data` when uploading files to S3.
 
-```
+```py
 @remote(
    include_local_workdir=True,
    custom_file_filter=CustomFileFilter(
@@ -42,7 +41,7 @@ The following example uses `CustomFileFilter` to ignore all notebook files and f
 
 The following example demonstrates how you can package an entire workspace.
 
-```
+```py
 @remote(
    include_local_workdir=True,
    custom_file_filter=CustomFileFilter(
@@ -53,7 +52,7 @@ The following example demonstrates how you can package an entire workspace.
 
 The following example shows how you can use a function to filter files.
 
-```
+```py
 import os
 
 def my_filter(path: str, files: List[str]) -> List[str]:
@@ -78,7 +77,7 @@ The following best practices suggest how you can organize your directory structu
 
 The following example image shows the recommended directory structure. In this example structure, the `main.py` script is located at the root level directory.
 
-```
+```bash
 .
 ├── config.yaml
 ├── data/
@@ -94,7 +93,7 @@ The following example image shows a directory structure that will result in inco
 
 In this example structure, the `main.py` script that contains the @remote decorator is **not** located at the root level directory. The following structure is **NOT** recommended.
 
-```
+```bash
 .
 ├── config.yaml
 ├── entrypoint

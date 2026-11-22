@@ -1,7 +1,6 @@
 
 
 # Update endpoints that use auto scaling
-<a name="endpoint-scaling-update"></a>
 
 When you update an endpoint, Application Auto Scaling checks to see whether any of the models on that endpoint are targets for auto scaling. If the update would change the instance type for any model that is a target for auto scaling, the update fails. 
 

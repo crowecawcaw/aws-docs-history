@@ -1,7 +1,6 @@
 
 
 # Troubleshooting and reference
-<a name="deploy-model-reference"></a>
 
 You can use the following resources and reference documentation to understand best practices when using SageMaker AI Inference and to troubleshoot issues with model deployments:
 + For troubleshooting model deployments, see [Troubleshoot Amazon SageMaker AI model deployments](deploy-model-troubleshoot.md).

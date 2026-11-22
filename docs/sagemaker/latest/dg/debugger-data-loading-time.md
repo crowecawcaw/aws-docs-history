@@ -1,7 +1,6 @@
 
 
 # Profiling data loaders
-<a name="debugger-data-loading-time"></a>
 
 **Note**  
 End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources. For more information, see [Profiler availability change](profiler-availability-change.md).
@@ -10,7 +9,7 @@ In PyTorch, data loader iterators, such as `SingleProcessingDataLoaderIter` and 
 
 To use the PyTorch data loader profiling analysis tool, import the following `PT_dataloader_analysis` class:
 
-```
+```py
 from smdebug.profiler.analysis.utils.pytorch_dataloader_analysis import PT_dataloader_analysis
 ```
 

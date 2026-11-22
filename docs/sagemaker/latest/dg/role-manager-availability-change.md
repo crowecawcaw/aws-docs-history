@@ -1,7 +1,6 @@
 
 
 # Role Manager availability change
-<a name="role-manager-availability-change"></a>
 
 **Note**  
 Amazon SageMaker Role Manager is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Role Manager, but we do not plan to introduce new features.
@@ -124,7 +123,7 @@ Refer to [IAM Access Analyzer policy generation](https://docs.aws.amazon.com/IAM
 
 Define SageMaker execution roles in CloudFormation for repeatable, version-controlled role management. The following is an example that needs to be modified based on your use case:
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: SageMaker execution roles replacing Role Manager personas
 
@@ -239,7 +238,7 @@ Outputs:
 
 Replace the Role Manager CDK constructs (`Persona`, `Activity`) with standard IAM constructs. The following is an example that needs to be modified based on your use case:
 
-```
+```typescript
 import * as cdk from 'aws-cdk-lib';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';

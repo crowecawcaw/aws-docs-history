@@ -1,7 +1,6 @@
 
 
 # JumpStart foundation model usage
-<a name="jumpstart-foundation-models-use"></a>
 
 Choose, train, or deploy foundation models through Amazon SageMaker Studio or Amazon SageMaker Studio Classic, use JumpStart foundation models programmatically with the SageMaker Python SDK, or discover JumpStart foundation models directly through the SageMaker AI console.
 

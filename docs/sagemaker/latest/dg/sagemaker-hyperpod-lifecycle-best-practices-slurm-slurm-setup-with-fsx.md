@@ -1,7 +1,6 @@
 
 
 # Mounting Amazon FSx for Lustre and Amazon FSx for OpenZFS to a HyperPod cluster
-<a name="sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-setup-with-fsx"></a>
 
 To mount an Amazon FSx for Lustre shared file system to your HyperPod cluster, set up the following.
 

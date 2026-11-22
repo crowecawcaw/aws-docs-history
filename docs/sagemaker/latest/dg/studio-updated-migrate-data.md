@@ -1,7 +1,6 @@
 
 
 # (Optional) Migrate data from Studio Classic to Studio
-<a name="studio-updated-migrate-data"></a>
 
 **Important**  
 For domains created after June 1, 2026 through quick setup, Amazon EFS is not created by default. The automatic mounting described below only applies to domains where `HomeEfsCreation` is enabled. If your domain does not have EFS enabled, you must first enable it via Domain Settings → Storage configurations → Edit before proceeding with data migration. For instructions, see [Amazon EFS creation and auto-mounting in Studio](studio-updated-automount.md).
@@ -526,7 +525,7 @@ Use the following procedure to migrate all of your flow files:
 
 1. When Canvas is ready, choose **Open in Canvas.**
 
-1. Canvas opens to the **Data Wrangler** page, and a banner at the top of the page appears that says Import your data flows from Data Wrangler in Studio Classic to Canvas. This is a one time import. Learn more. In the banner, choose **Import All**.
+1. Canvas opens to the **Data Wrangler** page, and a banner at the top of the page appears that says `Import your data flows from Data Wrangler in Studio Classic to Canvas. This is a one time import. Learn more.` In the banner, choose **Import All**.
 **Warning**  
 If you close the banner notification, you won't be able to re-open it or use the one-click migration method anymore. 
 
@@ -545,7 +544,7 @@ The following sections describe how to manually import your flow files into Canv
 <a name="studio-updated-migrate-flows-export"></a>
 
 **Note**  
-If you've already migrated your Studio Classic data to Amazon S3 by following the instructions in [(Optional) Migrate data from Studio Classic to Studio](#studio-updated-migrate-data), you can skip this step and go straight to the [Import the flow files into Canvas](#studio-updated-migrate-flows-import) section in which you import your flow files from the Amazon S3 location where your Studio Classic data is stored.
+If you've already migrated your Studio Classic data to Amazon S3 by following the instructions in [(Optional) Migrate data from Studio Classic to Studio](studio-updated-migrate-data.md), you can skip this step and go straight to the [Import the flow files into Canvas](#studio-updated-migrate-flows-import) section in which you import your flow files from the Amazon S3 location where your Studio Classic data is stored.
 
 You can export your flow files by either saving them to Amazon S3 or downloading them to your local machine. When you import your flow files into SageMaker Canvas in the next step, if you choose the local upload option, then you can only upload 20 flow files at a time. If you have a large number of flow files to import, we recommend that you use Amazon S3 instead.
 

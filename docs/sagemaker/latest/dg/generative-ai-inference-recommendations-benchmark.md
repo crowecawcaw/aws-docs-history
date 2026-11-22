@@ -1,7 +1,6 @@
 
 
 # Benchmark generative AI inference endpoints
-<a name="generative-ai-inference-recommendations-benchmark"></a>
 
 The SageMaker AI benchmarking service measures the performance of large language models (LLMs) hosted on SageMaker AI endpoints. It runs benchmarks using NVIDIA AIPerf, producing metrics such as request latency, throughput, time to first token, and inter-token latency.
 
@@ -20,7 +19,7 @@ A benchmark job targets a specific SageMaker AI endpoint and references a worklo
 
 **Python (boto3)**
 
-```
+```python
 response = client.create_ai_benchmark_job(
     AIBenchmarkJobName="my-benchmark-job",
     BenchmarkTarget={
@@ -64,7 +63,7 @@ Pass one or more inference component names or ARNs in the `InferenceComponents` 
 
 **Python (boto3)**
 
-```
+```python
 response = client.create_ai_benchmark_job(
     AIBenchmarkJobName="my-ic-benchmark",
     BenchmarkTarget={
@@ -112,7 +111,7 @@ To benchmark an endpoint that serves multiple LoRA adapters, specify each adapte
 
 First, create a workload configuration. The following example includes the optional `model_selection_strategy` parameter:
 
-```
+```python
 # Create a workload config for multi-LoRA benchmarking
 workload_spec = {
     "benchmark": {"type": "aiperf"},
@@ -139,7 +138,7 @@ client.create_ai_workload_config(
 
 Then, create a benchmark job that targets all the LoRA adapter inference components:
 
-```
+```python
 response = client.create_ai_benchmark_job(
     AIBenchmarkJobName="multi-lora-benchmark",
     BenchmarkTarget={
@@ -173,7 +172,7 @@ You can benchmark vision-language models by generating synthetic images as part 
 
 The following example creates a workload configuration for benchmarking a vision-language model with synthetic images:
 
-```
+```python
 import json
 
 workload_spec = {
@@ -215,7 +214,7 @@ The following parameters control synthetic image generation:
 
 Use standard deviation parameters to generate images with varying dimensions, simulating real-world workloads where image sizes differ:
 
-```
+```python
 workload_spec = {
     "benchmark": {"type": "aiperf"},
     "parameters": {
@@ -242,7 +241,7 @@ Video generation is disabled by default. You must specify both `video_width` and
 
 The following example creates a workload configuration for benchmarking a multimodal model with synthetic video at 640×480 resolution:
 
-```
+```python
 import json
 
 workload_spec = {
@@ -307,7 +306,7 @@ For models that process video and audio together, you can embed a synthetic audi
 
 **Low-resolution video understanding**
 
-```
+```python
 workload_spec = {
     "benchmark": {"type": "aiperf"},
     "parameters": {
@@ -326,7 +325,7 @@ workload_spec = {
 
 **HD video benchmarking**
 
-```
+```python
 workload_spec = {
     "benchmark": {"type": "aiperf"},
     "parameters": {
@@ -344,7 +343,7 @@ workload_spec = {
 
 **Video with audio for multimodal models**
 
-```
+```python
 workload_spec = {
     "benchmark": {"type": "aiperf"},
     "parameters": {
@@ -366,7 +365,7 @@ workload_spec = {
 
 Combine video with text prompts for video question-answering or captioning workloads:
 
-```
+```python
 workload_spec = {
     "benchmark": {"type": "aiperf"},
     "parameters": {
@@ -397,7 +396,7 @@ Poll the job status until it reaches a terminal state.
 
 **Python (boto3)**
 
-```
+```python
 import time
 
 while True:
@@ -487,7 +486,7 @@ Upload the template file to Amazon S3 (for example, `s3://DOC-EXAMPLE-BUCKET/tem
 
 Create a workload configuration that references the template file. Use the `extra_inputs` parameter to specify the template path and the response extraction query. Deliver the template file to the benchmark container through a `DatasetConfig` channel.
 
-```
+```python
 import json
 
 TEMPLATE_LOCAL_PATH = "/opt/ml/input/data/template/my_endpoint_template.jinja"
@@ -534,7 +533,7 @@ If you omit `response_field`, the benchmarking tool auto-detects the response fo
 
 Create a benchmark job targeting your endpoint. The service automatically detects template mode from the `payload_template` key in `extra_inputs` and routes requests through the appropriate proxy path.
 
-```
+```python
 response = client.create_ai_benchmark_job(
     AIBenchmarkJobName="custom-format-benchmark",
     BenchmarkTarget={"Endpoint": {"Identifier": "my-custom-endpoint"}},
@@ -577,7 +576,7 @@ A `tokenizer.json` file is the format that loads reliably across model architect
 
 Create a workload configuration and set the `tokenizer` parameter to the Amazon S3 URI of the prefix that holds your tokenizer files.
 
-```
+```python
 import json
 
 workload_spec = {
@@ -607,7 +606,7 @@ Instead of passing an Amazon S3 URI, you can attach the tokenizer files yourself
 
 The `ChannelName` determines the mount path. A channel named `tokenizer` mounts at `/opt/ml/input/data/tokenizer/` in the benchmark container.
 
-```
+```python
 import json
 
 # The "tokenizer" channel mounts at /opt/ml/input/data/tokenizer/ in the container
@@ -649,7 +648,7 @@ Set the `tokenizer` parameter to the channel's mount path. If you point at a spe
 
 Create a benchmark job that references the workload configuration. The service resolves the tokenizer from Amazon S3 and mounts it into the benchmark container.
 
-```
+```python
 response = client.create_ai_benchmark_job(
     AIBenchmarkJobName="custom-tokenizer-benchmark",
     BenchmarkTarget={"Endpoint": {"Identifier": "my-sagemaker-endpoint"}},
@@ -689,7 +688,7 @@ Per-request response metadata for requests that were sent to the endpoint. Each 
 
 Correlate prompts with their responses using the `conversation_id` field in `outputs.json` and the `session_id` field in `inputs.json`:
 
-```
+```python
 import json
 
 # Load the artifacts extracted from output.tar.gz in your S3 output location
@@ -728,7 +727,7 @@ for sid in sorted(matched_ids)[:3]:
 
 Use the following operations to manage your benchmark jobs and workload configurations.
 
-```
+```python
 # List benchmark jobs
 response = client.list_ai_benchmark_jobs(MaxResults=10)
 for job in response["AIBenchmarkJobs"]:

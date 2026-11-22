@@ -1,7 +1,6 @@
 
 
 # Accessing your SageMaker HyperPod cluster nodes
-<a name="sagemaker-hyperpod-run-jobs-slurm-access-nodes"></a>
 
 You can access your **InService** cluster through AWS Systems Manager (SSM) by running the AWS CLI command `aws ssm start-session` with the SageMaker HyperPod cluster host name in format of `sagemaker-cluster:[cluster-id]_[instance-group-name]-[instance-id]`. You can retrieve the cluster ID, the instance ID, and the instance group name from the [SageMaker HyperPod console](sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-view-details-of-clusters) or by running `describe-cluster` and `list-cluster-nodes` from the [AWS CLI commands for SageMaker HyperPod](sagemaker-hyperpod-operate-slurm-cli-command.md#sagemaker-hyperpod-operate-slurm-cli-command-list-cluster-nodes). For example, if your cluster ID is `aa11bbbbb222`, the cluster node name is `controller-group`, and the cluster node ID is `i-111222333444555aa`, the SSM `start-session` command should be the following.
 
@@ -9,7 +8,7 @@ You can access your **InService** cluster through AWS Systems Manager (SSM) by r
 Granting users access to HyperPod cluster nodes allows them to install and operate user-managed software on the nodes. Ensure that you maintain the principle of least-privilege permissions for users.  
 If you haven't set up AWS Systems Manager, follow the instructions provided at [Setting up AWS Systems Manager and Run As for cluster user access control](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm).
 
-```
+```bash
 $ aws ssm start-session \
     --target sagemaker-cluster:{{aa11bbbbb222}}_{{controller-group}}-{{i-111222333444555aa}} \
     --region {{us-west-2}}

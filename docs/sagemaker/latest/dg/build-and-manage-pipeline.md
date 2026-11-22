@@ -1,7 +1,6 @@
 
 
 # Pipeline Structure and Execution
-<a name="build-and-manage-pipeline"></a>
 
 **Topics**
 + [Pipeline Structure](#build-and-manage-pipeline-structure)
@@ -15,7 +14,7 @@ An Amazon SageMaker Pipelines instance is composed of a `name`, `parameters`, a
 **Warning**  
 When building a pipeline through the visual editor or SageMaker AI Python SDK, do not include sensitive information in pipeline parameters or any step definition field (such as environment variables). These fields will be visible in the future when returned in a `DescribePipeline` request.
 
-```
+```python
 from sagemaker.workflow.pipeline import Pipeline
   
   pipeline_name = f"AbalonePipeline"
@@ -42,7 +41,7 @@ Parallelism configurations are applied per execution. For example, if two execut
 
 **Example Creating a pipeline execution with `ParallelismConfiguration`**  
 
-```
+```Python
 pipeline = Pipeline(
         name="{{myPipeline}}",
         steps=[step_process, step_train]

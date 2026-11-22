@@ -1,7 +1,6 @@
 
 
 # Input and Output interface for the TabTransformer algorithm
-<a name="InputOutput-TabTransformer"></a>
 
 TabTransformer operates on tabular data, with the rows representing observations, one column representing the target variable or label, and the remaining columns representing features. 
 

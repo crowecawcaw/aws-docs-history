@@ -1,7 +1,6 @@
 
 
 # Reorder steps in your data flow
-<a name="canvas-data-flow-reorder-steps"></a>
 
 After adding steps to your data flow, you have the option to reorder steps instead of deleting and re-adding them in the correct order. For example, you might decide to move a transform to impute missing values before a step to format strings.
 

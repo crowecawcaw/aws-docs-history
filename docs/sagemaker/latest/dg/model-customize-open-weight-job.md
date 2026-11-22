@@ -1,7 +1,6 @@
 
 
 # AI model customization job submission
-<a name="model-customize-open-weight-job"></a>
 
 The SageMaker AI model customization capability can be accessed from Amazon SageMaker Studio’s Models page in the left hand panel. You can also find the Assets page where you can create and manage your model customization Datasets and Evaluators.
 
@@ -36,7 +35,7 @@ You can then enter your custom model name, select the model customization techni
 
 You can also use the SageMaker AI Python SDK to submit a model customization job:
 
-```
+```python
 # Submit a DPO model customization job
 
 from sagemaker.train import DPOTrainer

@@ -1,7 +1,6 @@
 
 
 # Inference operator installation failures through AWS CLI
-<a name="sagemaker-hyperpod-model-deployment-ts-cli"></a>
 
 **Overview:** When installing the inference operator through the AWS CLI, add-on installation may fail due to missing dependencies. This section covers common CLI installation failure scenarios and their resolutions.
 

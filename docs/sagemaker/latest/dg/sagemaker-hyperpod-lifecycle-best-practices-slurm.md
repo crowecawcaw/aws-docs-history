@@ -1,11 +1,13 @@
 
 
 # Customizing SageMaker HyperPod clusters using lifecycle scripts
-<a name="sagemaker-hyperpod-lifecycle-best-practices-slurm"></a>
 
 SageMaker HyperPod offers always up-and-running compute clusters, which are highly customizable as you can write lifecycle scripts to tell SageMaker HyperPod how to set up the cluster resources. The following topics are best practices for preparing lifecycle scripts to set up SageMaker HyperPod clusters with open source workload manager tools.
 
 The following topics discuss in-depth best practices for preparing lifecycle scripts to set up Slurm configurations on SageMaker HyperPod.
+
+**Note**  
+On Slurm clusters that use continuous provisioning, observability and user management are set up with cluster extensions, not lifecycle scripts. Use lifecycle scripts for other software, such as Docker and Enroot. For more information, see [Cluster extensions for SageMaker HyperPod Slurm clusters](sagemaker-hyperpod-slurm-extensions.md).
 
 ## High-level overview
 <a name="sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-highlevel-overview"></a>
@@ -23,7 +25,7 @@ The following procedure is the main flow of provisioning a HyperPod cluster and 
 
      Example `SlurmConfig` in an instance group:
 
-     ```
+     ```json
      {
          "InstanceGroupName": "gpu-compute",
          "InstanceType": "ml.p4d.24xlarge",

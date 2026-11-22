@@ -1,7 +1,6 @@
 
 
 # Deploy models for inference
-<a name="deploy-model"></a>
 
 With Amazon SageMaker AI, you can start getting predictions, or *inferences*, from your trained machine learning models. SageMaker AI provides a broad selection of ML infrastructure and model deployment options to help meet all your ML inference needs. With SageMaker AI Inference, you can scale your model deployment, manage models more effectively in production, and reduce operational burden. SageMaker AI provides you with various inference options, such as real-time endpoints for getting low latency inference, serverless endpoints for fully managed infrastructure and auto-scaling, and asynchronous endpoints for batches of requests. By leveraging the appropriate inference option for your use case, you can ensure efficient model deployment and inference.
 

@@ -1,7 +1,6 @@
 
 
 # Bulk Edit Label and Frame Attributes
-<a name="sms-video-frame-worker-instructions-ot-bulk-edit"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.

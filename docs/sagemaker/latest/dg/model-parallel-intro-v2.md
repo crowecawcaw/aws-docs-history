@@ -1,7 +1,6 @@
 
 
 # Model parallelism concepts
-<a name="model-parallel-intro-v2"></a>
 
 Model parallelism is a distributed training method in which the deep learning (DL) model is partitioned across multiple GPUs and instances. The SageMaker model parallel library v2 (SMP v2) is compatible with the native PyTorch APIs and capabilities. This makes it convenient for you to adapt your PyTorch Fully Sharded Data Parallel (FSDP) training script to the SageMaker Training platform and take advantage of the performance improvement that SMP v2 provides. This introduction page provides a high-level overview about model parallelism and a description of how it can help overcome issues that arise when training deep learning (DL) models that are typically very large in size. It also provides examples of what the SageMaker model parallel library offers to help manage model parallel strategies and memory consumption.
 

@@ -1,7 +1,6 @@
 
 
 # HyperPod inference troubleshooting
-<a name="sagemaker-hyperpod-model-deployment-ts"></a>
 
 This troubleshooting guide addresses common issues that can occur during Amazon SageMaker HyperPod inference deployment and operation. These problems typically involve VPC networking configuration, IAM permissions, Kubernetes resource management, and operator connectivity issues that can prevent successful model deployment or cause deployments to fail or remain in pending states.
 
@@ -19,3 +18,4 @@ This troubleshooting guide uses the following terminology: **Troubleshooting ste
 + [Hugging Face Hub model deployment failures](sagemaker-hyperpod-model-deployment-ts-huggingface.md)
 + [Disaggregated Prefill and Decode (DPD) deployment issues](sagemaker-hyperpod-model-deployment-ts-dpd.md)
 + [Inference Gateway troubleshooting guide](sagemaker-hyperpod-model-deployment-ts-inference-gateway.md)
++ [Global Inference Gateway troubleshooting guide](sagemaker-hyperpod-model-deployment-ts-global-inference-gateway.md)

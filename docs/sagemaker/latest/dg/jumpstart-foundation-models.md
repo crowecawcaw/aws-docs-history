@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker JumpStart Foundation Models
-<a name="jumpstart-foundation-models"></a>
 
 Amazon SageMaker JumpStart offers state-of-the-art foundation models for use cases such as content writing, code generation, question answering, copywriting, summarization, classification, information retrieval, and more. Use JumpStart foundation models to build your own generative AI solutions and integrate custom solutions with additional SageMaker AI features. For more information, see [Getting started with Amazon SageMaker JumpStart](https://aws.amazon.com/sagemaker/jumpstart/getting-started/).
 
@@ -23,4 +22,5 @@ For more general information on foundation models, see the paper [On the Opportu
 + [Model sources and license agreements](jumpstart-foundation-models-choose.md)
 + [Foundation model customization](jumpstart-foundation-models-customize.md)
 + [Evaluate a text generation foundation model in Studio](jumpstart-foundation-models-evaluate.md)
++ [JumpStart model leaderboard benchmarks](jumpstart-foundation-models-leaderboard-benchmarks.md)
 + [Example notebooks](jumpstart-foundation-models-example-notebooks.md)

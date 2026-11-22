@@ -1,7 +1,6 @@
 
 
 # Build Your Own Container for SageMaker AI Multi-Model Endpoints
-<a name="build-multi-model-build-container"></a>
 
 Refer to the following sections for bringing your own container and dependencies to multi-model endpoints.
 
@@ -65,7 +64,7 @@ The SageMaker AI inference toolkit supports only Python model handlers. If you w
 
 1. Import the inference toolkit and use its `model_server.start_model_server` function to start MMS. The following example is from the `dockerd-entrypoint.py` file from the sample notebook. Notice that the call to `model_server.start_model_server` passes the model handler described in the previous step:
 
-   ```
+   ```python
    import subprocess
    import sys
    import shlex
@@ -99,7 +98,7 @@ The SageMaker AI inference toolkit supports only Python model handlers. If you w
 
 1. In your `Dockerfile`, copy the model handler from the first step and specify the Python file from the previous step as the entrypoint in your `Dockerfile`. The following lines are from the [Dockerfile](https://github.com/awslabs/amazon-sagemaker-examples/blob/master/advanced_functionality/multi_model_bring_your_own/container/Dockerfile) used in the sample notebook:
 
-   ```
+   ```python
    # Copy the default custom service file to handle incoming data and inference requests
    COPY model_handler.py /home/model-server/model_handler.py
    
@@ -109,7 +108,7 @@ The SageMaker AI inference toolkit supports only Python model handlers. If you w
 
 1. Build and register your container. The following shell script from the sample notebook builds the container and uploads it to an Amazon Elastic Container Registry repository in your AWS account:
 
-   ```
+   ```sh
    %%sh
    
    # The name of our algorithm

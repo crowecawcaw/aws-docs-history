@@ -1,7 +1,6 @@
 
 
 # OpenTelemetry metrics reference
-<a name="inference-monitoring"></a>
 
  This section provides a comprehensive list (non-exhaustive) of OpenTelemetry metrics emitted by Amazon SageMaker AI detailed observability and available in SageMaker AI Insights. 
 

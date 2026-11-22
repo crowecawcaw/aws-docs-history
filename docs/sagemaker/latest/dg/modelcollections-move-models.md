@@ -1,7 +1,6 @@
 
 
 # Move a Model Group Between Collections
-<a name="modelcollections-move-models"></a>
 
 You can move one or more Model Groups from one Collection to another in the Amazon SageMaker Studio console.
 

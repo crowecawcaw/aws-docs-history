@@ -1,7 +1,6 @@
 
 
 # Object Detection Request and Response Formats
-<a name="object-detection-in-formats"></a>
 
 The following page describes the inference request and response formats for the Amazon SageMaker AI Object Detection - MXNet model.
 
@@ -31,7 +30,7 @@ To avoid unreliable detection results, you might want to filter out the detectio
 
 For batch transform, the response is in JSON format, where the format is identical to the JSON format described above. The detection results of each image is represented as a JSON file. For example:
 
-```
+```json
 {"prediction": [[label_id, confidence_score, xmin, ymin, xmax, ymax], [label_id, confidence_score, xmin, ymin, xmax, ymax]]}
 ```
 

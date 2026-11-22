@@ -1,7 +1,6 @@
 
 
 # Add destination nodes
-<a name="canvas-destination-nodes-add"></a>
 
 A destination node in SageMaker Canvas specifies where to store your processed and transformed data. When you choose to export your transformed data to Amazon S3, Canvas uses the specified destination node location, applying all the transformations you've configured in your data flow. For more information about export jobs to Amazon S3, see the preceding section [Export to Amazon S3](canvas-export-data.md#canvas-export-data-s3).
 

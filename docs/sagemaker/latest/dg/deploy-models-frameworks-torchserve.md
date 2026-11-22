@@ -1,7 +1,6 @@
 
 
 # Deploy models with TorchServe
-<a name="deploy-models-frameworks-torchserve"></a>
 
 TorchServe is the recommended model server for PyTorch, preinstalled in the AWS PyTorch Deep Learning Container (DLC). This powerful tool offers customers a consistent and user-friendly experience, delivering high performance in deploying multiple PyTorch models across various AWS instances, including CPU, GPU, Neuron, and Graviton, regardless of the model size or distribution.
 
@@ -32,7 +31,7 @@ To get started, ensure that you have the following prerequisites:
 
 1. Locally configure your dependencies, as shown in the following example:
 
-   ```
+   ```python
    from datetime import datetime
        import os
        import json
@@ -63,7 +62,7 @@ To get started, ensure that you have the following prerequisites:
 
    SageMaker AI PyTorch DLC images are available in all AWS regions. For more information, see the [list of DLC container images](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only).
 
-   ```
+   ```python
    baseimage = sagemaker.image_uris.retrieve(
            framework="pytorch",
            region="{{<region>}}",
@@ -76,7 +75,7 @@ To get started, ensure that you have the following prerequisites:
 
 1. Create a local workspace.
 
-   ```
+   ```bash
    mkdir -p workspace/
    ```
 
@@ -182,7 +181,7 @@ In the following example, we use the pre-trained [ MNIST model](https://github.c
 
 The following example shows you how to create a [single model real-time inference endpoint](https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-deployment.html), deploy the model to the endpoint, and test the endpoint by using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/).
 
-```
+```python
 from sagemaker.serve import ModelBuilder
 from sagemaker.core.resources import Endpoint
 
@@ -225,7 +224,7 @@ By using TorchServe on SageMaker AI multi-model endpoints, you can speed up your
 
 The following example shows you how to create a multi-model endpoint, deploy the model to the endpoint, and test the endpoint by using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/). Additional details can be found in this [notebook example](https://github.com/aws/amazon-sagemaker-examples/blob/main/inference/torchserve/mme-gpu/torchserve_multi_model_endpoint.ipynb).
 
-```
+```python
 from sagemaker.serve import ModelBuilder
 
 # Create a ModelBuilder for the multi-model endpoint and deploy it on SageMaker AI

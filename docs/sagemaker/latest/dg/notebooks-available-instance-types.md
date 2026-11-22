@@ -1,7 +1,6 @@
 
 
 # Instance Types Available for Use With Amazon SageMaker Studio Classic Notebooks
-<a name="notebooks-available-instance-types"></a>
 
 **Note**  
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For information about using the updated Studio experience, see [Amazon SageMaker Studio](studio-updated.md).  

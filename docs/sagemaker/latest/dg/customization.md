@@ -1,7 +1,6 @@
 
 
 # Customize add-on
-<a name="customization"></a>
 
 ## Template
 <a name="customization-template"></a>

@@ -1,17 +1,16 @@
 
 
 # Reserve the best training plan
-<a name="choose-best-training-plan-using-api-cli-sdk"></a>
 
 After reviewing the available training plan offerings that best match your requirements, you can reserve a specific plan by calling the [`CreateTrainingPlan`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html) API operation. When created, the plan initially enters a `Pending` state and remains there until the reservation process is complete. The response to the API call returns a training plan Amazon Resource Name (ARN). Make a note of this ARN for tracking and monitoring purposes later on. The training plan reservation is fulfilled asynchronously in the backend. The payment for the total amount is automatically collected as part of the fulfillment process. Once the payment transaction is completed and the requested reserved capacities are secured, the training plan is set to the `Scheduled` state, and is ready for scheduling.
 
 **Important**  
 Training plans cannot be modified once purchased.
-Training plans cannot be shared across AWS accounts or within your AWS Organization.
+You can share a training plan only with other AWS accounts in your organization in AWS Organizations, by using AWS Resource Access Manager. For more information, see [Setting up cross-account sharing for SageMaker training plans](training-plan-resource-sharing-ram.md).
 
 The following example uses the an AWS CLI command to request a specific training plan, passing the plan ID as a parameter.
 
-```
+```sh
 aws sagemaker create-training-plan \
 --training-plan-offering-id "{{tpo-SHA-256-hash-value}}" \
 --training-plan-name "{{name}}" \
@@ -22,7 +21,7 @@ This JSON document is a sample response from the SageMaker training plans API. T
 **Note**  
 The training plan remains in a `Pending` status until the fulfillment process is complete.
 
-```
+```JSON
 {
    "TrainingPlanArn":"arn:aws:sagemaker:us-east-1:123456789123:training-plan/large-models-fine-tuning"
 }

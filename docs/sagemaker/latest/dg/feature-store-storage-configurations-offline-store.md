@@ -1,7 +1,6 @@
 
 
 # Offline store
-<a name="feature-store-storage-configurations-offline-store"></a>
 
 The offline store is used for historical data when sub-second retrieval is not needed. It is typically used for data exploration, model training, and batch inference. 
 

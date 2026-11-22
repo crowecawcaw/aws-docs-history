@@ -1,7 +1,6 @@
 
 
 # SageMaker Training Compiler Best Practices and Considerations
-<a name="training-compiler-tips-pitfalls"></a>
 
 **Important**  
 Amazon Web Services (AWS) announces that there will be no new releases or versions of SageMaker Training Compiler. You can continue to utilize SageMaker Training Compiler through the existing AWS Deep Learning Containers (DLCs) for SageMaker Training. It is important to note that while the existing DLCs remain accessible, they will no longer receive patches or updates from AWS, in accordance with the [AWS Deep Learning Containers Framework Support Policy](https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/support-policy.html).
@@ -21,7 +20,7 @@ Use the following guidelines to achieve the best results when you run training j
   When you adjust the batch size, you also have to adjust the `learning_rate` appropriately. For example, if you increased the batch size by a factor of `k`, you need to adjust `learning_rate` linearly (simple multiplication by `k`) or multiply by the square root of `k`. This is to achieve the same or similar convergence behavior in the reduced training time. For reference of `batch_size` tested for popular models, see [Tested Models](training-compiler-support.md#training-compiler-tested-models).
 + To debug the compiler-accelerated training job, enable the `debug` flag in the `compiler_config` parameter. This enables SageMaker AI to put the debugging logs into SageMaker training job logs.
 
-  ```
+  ```py
   from sagemaker.core.training_compiler import TrainingCompilerConfig
   from sagemaker.train import ModelTrainer
   from sagemaker.core import image_uris
@@ -64,20 +63,20 @@ Consider the following when using SageMaker Training Compiler.
 <a name="training-compiler-considerations-performance-degradation"></a>
 + Avoid logging, checkpointing, and profiling model tensors that lead to explicit evaluations. To understand what an explicit evaluation is, consider the following code compiling example.
 
-  ```
+  ```py
   a = b+c
   e = a+d
   ```
 
   A compiler interprets the code as follows and reduces the memory footprint for the variable `a`:
 
-  ```
+  ```py
   e = b+c+d
   ```
 
   Now consider the following case in which the code is changed to add a print function for the variable `a`.
 
-  ```
+  ```py
   a = b+c
   e = a+d
   print(a)
@@ -85,7 +84,7 @@ Consider the following when using SageMaker Training Compiler.
 
   The compiler makes an explicit evaluation of the variable `a` as follows.
 
-  ```
+  ```py
   e = b+c+d
   a = b+c    # Explicit evaluation
   print(a)

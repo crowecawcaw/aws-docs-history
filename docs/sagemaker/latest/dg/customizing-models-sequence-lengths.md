@@ -1,7 +1,6 @@
 
 
 # Supported sequence lengths for open weight model serverless customization
-<a name="customizing-models-sequence-lengths"></a>
 
 The following table shows the maximum sequence lengths (in tokens) supported for serverless customization of open weight models. For more information about serverless customization of open weight models, see [Open weight model customization](model-customize-open-weight.md). For each open weight model, each populated cell shows the maximum sequence length that you can set for that customization technique and training type by using the overridable sequence-length parameters.
 

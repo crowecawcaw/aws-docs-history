@@ -1,7 +1,6 @@
 
 
 # Model deployment
-<a name="model-customize-open-weight-deployment"></a>
 
 From the custom models details page you can also deploy your custom model using either SageMaker AI Inference endpoints or Amazon Bedrock.
 

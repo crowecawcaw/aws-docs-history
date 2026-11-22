@@ -1,7 +1,6 @@
 
 
 # API Reference guide for Autopilot
-<a name="autopilot-reference"></a>
 
 This section provides a subset of the HTTP service REST APIs for creating and managing Amazon SageMaker Autopilot resources (AutoML jobs) programmatically.
 

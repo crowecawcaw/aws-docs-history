@@ -1,7 +1,6 @@
 
 
 # Grant Users Permissions to Use Large Data across the ML Lifecycle
-<a name="canvas-large-data-permissions"></a>
 
 Amazon SageMaker Canvas users working with datasets larger than 10 GB in CSV format or 2.5 GB in Parquet format require specific permissions for large data processing. These permissions are essential for managing large-scale data throughout the machine learning lifecycle. When datasets exceed the stated thresholds, or the application's local memory capacity, SageMaker Canvas uses Amazon EMR Serverless for efficient processing. This applies to:
 + Data Import: Importing large datasets with random or stratified sampling.
@@ -58,7 +57,7 @@ If you used the **Quick setup** option when creating your SageMaker AI domain, f
 
 ****  
 
-           ```
+           ```json
            {
                "Version":"2012-10-17",		 	 	 
                "Statement": [
@@ -94,7 +93,7 @@ If you used the **Quick setup** option when creating your SageMaker AI domain, f
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -139,7 +138,7 @@ If you created or use a custom domain, follow steps 1-3 from Scenario 1, and the
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [{
@@ -178,7 +177,7 @@ If you created or use a custom domain, follow all steps from Scenario 2, then fo
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -209,7 +208,7 @@ If you created or use a custom domain, follow all steps from Scenario 2, then fo
 
    1. Use the following IAM policy to ensure that EMR Serverless applications can only create Amazon EC2 ENIs within the allowed subnets and security groups:
 
-      ```
+      ```json
       {
           "Sid": "AllowEC2ENICreationInSubnetAndSecurityGroupWithEMRTags",
           "Effect": "Allow", 

@@ -1,7 +1,6 @@
 
 
 # Deploy models with DJL Serving
-<a name="deploy-models-frameworks-djl-serving"></a>
 
 DJL Serving is a high performance universal stand-alone model serving solution. It takes a deep learning model, several models, or workflows and makes them available through an HTTP endpoint.
 
@@ -33,7 +32,7 @@ To get started, ensure that you have the following prerequisites:
 
 1. Log in to Amazon Elastic Container Registry and set the following environment variables:
 
-   ```
+   ```bash
    export ACCOUNT_ID={{<your_account_id>}}
    export REGION={{<your_region>}}
    aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com
@@ -41,7 +40,7 @@ To get started, ensure that you have the following prerequisites:
 
 1. Pull the docker image.
 
-   ```
+   ```bash
    docker pull 763104351884.dkr.ecr.us-west-2.amazonaws.com/djl-inference:0.22.1-deepspeed0.9.2-cu118
    ```
 
@@ -56,7 +55,7 @@ To add a package, complete the following steps:
 
 1. Specify instructions for running your desired libraries or packages in the base image's dockerfile.
 
-   ```
+   ```bash
    FROM 763104351884.dkr.ecr.us-west-2.amazonaws.com/djl-inference:0.22.1-deepspeed0.9.2-cu118
                            
    ## add custom packages/libraries
@@ -65,13 +64,13 @@ To add a package, complete the following steps:
 
 1. Build the Docker image from the dockerfile. Specify your Amazon ECR repository, the name of the base image, and a tag for the image. If you don't have an Amazon ECR repository, see [ Using Amazon ECR with the AWS CLI](https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html) in the *Amazon ECR User Guide* for instructions on how to create one.
 
-   ```
+   ```bash
    docker build -f Dockerfile -t <registry>/<image_name>:<image_tag>
    ```
 
 1. Push the Docker image to your Amazon ECR repository.
 
-   ```
+   ```bash
    docker push $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/<image_name>:<image_tag>
    ```
 

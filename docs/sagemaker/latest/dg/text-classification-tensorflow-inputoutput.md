@@ -1,7 +1,6 @@
 
 
 # Input and output interface for the Text Classification - TensorFlow algorithm
-<a name="text-classification-tensorflow-inputoutput"></a>
 
 Each of the pretrained models listed in TensorFlow Hub Models can be fine-tuned to any dataset made up of text sentences with any number of classes. The pretrained model attaches a classification layer to the Text Embedding model and initializes the layer parameters to random values. The output dimension of the classification layer is determined based on the number of classes detected in the input data. 
 
@@ -10,7 +9,7 @@ Be mindful of how to format your training data for input to the Text Classificat
 
 The following is an example of an input CSV file. Note that the file should not have any header. The file should be hosted in an Amazon S3 bucket with a path similar to the following: `s3://{{bucket_name}}/{{input_directory}}/`. Note that the trailing `/` is required.
 
-```
+```None
 |   |  |
 |---|---|
 |0 |hide new secretions from the parental units|
@@ -38,7 +37,7 @@ You can host the fine-tuned model that results from your TensorFlow Text Classif
 
 Running inference results in probability values, class labels for all classes, and the predicted label corresponding to the class index with the highest probability encoded in JSON format. The Text Classification - TensorFlow model processes a single string per request and outputs only one line. The following is an example of a JSON format response:
 
-```
+```json
 accept: application/json;verbose
 
 {"probabilities": [{{prob_0}}, {{prob_1}}, {{prob_2}}, ...],

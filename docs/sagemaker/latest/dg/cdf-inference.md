@@ -1,7 +1,6 @@
 
 
 # Common data formats for inference
-<a name="cdf-inference"></a>
 
 Amazon SageMaker AI algorithms accept and produce several different MIME types for the HTTP payloads used in retrieving online and mini-batch predictions. You can use multiple AWS services to transform or preprocess records before running inference. At a minimum, you need to convert the data for the following:
 + Inference request serialization (handled by you) 
@@ -224,13 +223,13 @@ let request =   {
 
 A single record in dense format can be represented as either:
 
-```
+```json
 { "features": [1.5, 16.0, 14.0, 23.0] }
 ```
 
 or:
 
-```
+```json
 { "data": { "features": { "values": [ 1.5, 16.0, 14.0, 23.0] } }
 ```
 
@@ -238,13 +237,13 @@ or:
 
 A single record in sparse format is represented as:
 
-```
+```json
 {"data": {"features": { "keys": [26, 182, 232, 243, 431], "shape": [2000], "values": [1, 1, 1, 4, 1] } } }
 ```
 
 Multiple records are represented as a collection of single-record representations, separated by newline characters:
 
-```
+```json
 {"data": {"features": { "keys": [0, 1, 3], "shape": [4], "values": [1, 4, 1] } } }
 { "data": { "features": { "values": [ 1.5, 16.0, 14.0, 23.0] } }
 { "features": [1.5, 16.0, 14.0, 23.0] }

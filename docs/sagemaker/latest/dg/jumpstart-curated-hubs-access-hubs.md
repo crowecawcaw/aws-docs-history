@@ -1,7 +1,6 @@
 
 
 # Access curated model hubs in Amazon SageMaker JumpStart
-<a name="jumpstart-curated-hubs-access-hubs"></a>
 
 You can access a private model hub either through Studio or through the SageMaker Python SDK.
 
@@ -31,7 +30,7 @@ If a hub is shared across accounts, then the `HUB_NAME` must be the hub ARN. If 
 
 1. Install the SageMaker Python SDK and import the necessary Python packages.
 
-   ```
+   ```python
    # Install the SageMaker Python SDK
        !pip3 install sagemaker --force-reinstall --quiet
        
@@ -46,7 +45,7 @@ If a hub is shared across accounts, then the `HUB_NAME` must be the hub ARN. If 
 
 1. Initalize a SageMaker AI session and connect to your private hub using the hub name and Region.
 
-   ```
+   ```python
    # If a hub is shared across accounts, then the HUB_NAME must be the hub ARN
        HUB_NAME={{"Example-Hub-ARN"}} 
        REGION={{"us-west-2"}} 
@@ -63,7 +62,7 @@ If a hub is shared across accounts, then the `HUB_NAME` must be the hub ARN. If 
 
 1. After connecting to a private hub, you can list all available models in that hub using the following commands:
 
-   ```
+   ```python
    response = hub.list_models()
        models = response["hub_content_summaries"]
        while response["next_token"]:
@@ -75,7 +74,7 @@ If a hub is shared across accounts, then the `HUB_NAME` must be the hub ARN. If 
 
 1. You can get more information about a specific model using the model name with the following command:
 
-   ```
+   ```python
    response = hub.describe_model(model_name={{"example-model"}})
        print(response)
    ```

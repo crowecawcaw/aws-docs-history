@@ -1,7 +1,6 @@
 
 
 # Instance preference lists for training jobs
-<a name="train-instance-preferences"></a>
 
 A training job can accept an ordered list of up to 5 instance types instead of one. SageMaker AI launches the job on the first type in the list that has capacity, so the job starts sooner when your preferred type is constrained. It then runs, is monitored, and is billed exactly as if you had requested that type directly.
 
@@ -57,7 +56,7 @@ The examples show the [ResourceConfig](https://docs.aws.amazon.com/sagemaker/lat
 
 Two types with a uniform count. The job launches on `ml.g6.48xlarge`, or on `ml.g5.48xlarge` if that has no capacity:
 
-```
+```json
 "ResourceConfig": {
   "InstanceCount": 2,
   "VolumeSizeInGB": 500,
@@ -70,7 +69,7 @@ Two types with a uniform count. The job launches on `ml.g6.48xlarge`, or on `ml.
 
 A count on each entry:
 
-```
+```json
 "ResourceConfig": {
   "VolumeSizeInGB": 500,
   "InstancePreferences": [
@@ -82,7 +81,7 @@ A count on each entry:
 
 A 30-minute limit on waiting for capacity:
 
-```
+```json
 "StoppingCondition": {
   "MaxRuntimeInSeconds": 86400,
   "MaxPendingTimeInSeconds": 1800
@@ -91,7 +90,7 @@ A 30-minute limit on waiting for capacity:
 
 A training plan on the first entry and On-Demand capacity on the second:
 
-```
+```json
 "ResourceConfig": {
   "InstanceCount": 4,
   "VolumeSizeInGB": 500,
@@ -107,7 +106,7 @@ A training plan on the first entry and On-Demand capacity on the second:
 
 The same job using the job-level plan field:
 
-```
+```json
 "ResourceConfig": {
   "InstanceCount": 4,
   "VolumeSizeInGB": 500,
@@ -124,7 +123,7 @@ The same job using the job-level plan field:
 
 `DescribeTrainingJob` returns the list you submitted plus the read-only `SelectedInstanceType` and `SelectedInstanceCount`. These two fields appear only after a type is selected, so they are absent while the job waits for capacity. The top-level `InstanceType` isn't returned for these jobs:
 
-```
+```json
 "ResourceConfig": {
   "VolumeSizeInGB": 500,
   "InstancePreferences": [
@@ -144,7 +143,7 @@ Instance preferences require version 3.22.0 or later of the SageMaker Python SDK
 
 Pass `instance_preferences` in the `Compute` configuration of `ModelTrainer`. Set `instance_count` on `Compute` for a uniform count, or on each `InstancePreference` instead. Add `training_plan_arns` to an entry to fill it from a training plan.
 
-```
+```python
 from sagemaker.core.shapes import InstancePreference
 from sagemaker.core.training.configs import Compute
 from sagemaker.train.model_trainer import ModelTrainer

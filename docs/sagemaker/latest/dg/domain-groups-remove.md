@@ -1,7 +1,6 @@
 
 
 # Remove groups
-<a name="domain-groups-remove"></a>
 
 Complete the following procedure to remove groups from your domain from the SageMaker AI console. For information about deleting a user, see [Remove user profiles](domain-user-profile-remove.md). 
 

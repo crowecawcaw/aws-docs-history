@@ -1,7 +1,6 @@
 
 
 # Default cache key attributes by pipeline step type
-<a name="pipelines-default-keys"></a>
 
 When deciding whether to reuse a previous pipeline step or rerun the step, Pipelines checks to see if certain attributes have changed. If the set of attributes is different from all previous runs within the timeout period, the step runs again. These attributes include input artifacts, app or algorithm specification, and environment variables. The following list shows each pipeline step type and the attributes that, if changed, initiate a rerun of the step. For more information about which Python SDK parameters are used to create the following attributes, see [ Caching Configuration](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html#caching-configuration) in the Amazon SageMaker Python SDK documentation.
 

@@ -1,7 +1,6 @@
 
 
 # Mixed precision training
-<a name="model-parallel-core-features-v2-mixed-precision"></a>
 
 The SageMaker model parallelism (SMP) library v2 supports mixed precision training out of the box by integrating with open source frameworks such as PyTorch FSDP and Transformer Engine. To learn more, see the following topics.
 
@@ -35,7 +34,7 @@ In practice, using FP8 is helpful in all training scenarios on P5 instances. We 
 
 SMP v2 supports Transformer Engine out of the box. Therefore, when running FP8 training with SMP v2 on P5 instances of SageMaker AI (`ml.p5.48xlarge`), the only thing you need to do is to import `torch.sagemaker` in your training script and keep using the native Transformer Engine Python package. To learn more about using Transformer Engine for FP8 training in general, see [Using FP8 with Transformer Engine](https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/examples/fp8_primer.html) in the *NVIDIA Transformer Engine documentation*. The following code snippet shows how the code lines for importing the SMP library and setting up FP8 in your training script should look.
 
-```
+```py
 import torch.sagemaker as tsm
 import transformer_engine.pytorch as te
 from transformer_engine.common.recipe import DelayedScaling, Format
@@ -77,7 +76,7 @@ PyTorch v2.0.1 and later
 
 The standard way to configure a model for mixed precision is to create the model in `float32`, and then allow FSDP to cast the parameters to `float16` or `bfloat16` on the fly by passing a `MixedPrecision` policy, as shown in the following code snippet. For more information about options to change the `dtype` for parameters, reduction, or buffers for mixed precision in PyTorch, see [PyTorch FSDP `MixedPrecision` API](https://pytorch.org/docs/stable/fsdp.html#torch.distributed.fsdp.MixedPrecision) in the *PyTorch documentation*.
 
-```
+```py
 # Native PyTorch API
 from torch.distributed.fsdp import MixedPrecision
 

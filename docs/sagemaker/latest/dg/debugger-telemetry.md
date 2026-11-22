@@ -1,7 +1,6 @@
 
 
 # Opt out of the collection of Amazon SageMaker Debugger usage statistics
-<a name="debugger-telemetry"></a>
 
 **Note**  
 End of support notice: On June 30, 2027, AWS will end support for Amazon SageMaker Profiler. After June 30, 2027, you will no longer be able to access the Profiler console or Profiler resources. For more information, see [Profiler availability change](profiler-availability-change.md).
@@ -22,7 +21,7 @@ To opt out, you need to add the following Debugger `ProfilerReport` rule configu
 ------
 #### [ SageMaker Python SDK ]
 
-```
+```py
 from sagemaker.train import ModelTrainer
 
 model_trainer=ModelTrainer(
@@ -38,7 +37,7 @@ model_trainer=ModelTrainer(
 ------
 #### [ AWS CLI ]
 
-```
+```json
 "ProfilerRuleConfigurations": [ 
     { 
         "RuleConfigurationName": "{{ProfilerReport-1234567890}}",
@@ -54,7 +53,7 @@ model_trainer=ModelTrainer(
 ------
 #### [ AWS SDK for Python (Boto3) ]
 
-```
+```py
 ProfilerRuleConfigurations=[ 
     {
         'RuleConfigurationName': '{{ProfilerReport-1234567890}}',

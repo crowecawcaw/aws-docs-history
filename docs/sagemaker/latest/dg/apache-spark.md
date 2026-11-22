@@ -1,7 +1,6 @@
 
 
 # Apache Spark with Amazon SageMaker AI
-<a name="apache-spark"></a>
 
 Amazon SageMaker AI Spark is an open source Spark library that helps you build Spark machine learning (ML) pipelines with SageMaker AI. This simplifies the integration of Spark ML stages with SageMaker AI stages, like model training and hosting. For information about SageMaker AI Spark, see the [SageMaker AI Spark](https://github.com/aws/sagemaker-spark) GitHub repository. The following topics provide information to learn how to use Apache Spark with SageMaker AI.
 

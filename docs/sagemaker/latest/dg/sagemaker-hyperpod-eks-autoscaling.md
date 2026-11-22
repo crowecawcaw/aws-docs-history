@@ -1,7 +1,6 @@
 
 
 # Autoscaling on SageMaker HyperPod EKS
-<a name="sagemaker-hyperpod-eks-autoscaling"></a>
 
 Amazon SageMaker HyperPod provides a managed Karpenter based node autoscaling solution for clusters created with EKS orchestration. [Karpenter](https://karpenter.sh/) is an open-source, Kubernetes node lifecycle manager built by AWS that optimizes cluster scaling and cost efficiency. Unlike self-managed Karpenter deployments, SageMaker HyperPod's managed implementation eliminates the operational overhead of installing, configuring, and maintaining Karpenter controllers while providing integrated resilience and fault tolerance. This managed autoscaling solution is built on HyperPod's [continuous provisioning](sagemaker-hyperpod-scaling-eks.md) capabilities and enables you to efficiently scale compute resources for training and inference workloads with automatic failure handling and recovery. 
 

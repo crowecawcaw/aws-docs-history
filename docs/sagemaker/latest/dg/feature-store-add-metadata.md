@@ -1,7 +1,6 @@
 
 
 # Adding searchable metadata to your features
-<a name="feature-store-add-metadata"></a>
 
 In Amazon SageMaker Feature Store, you can search through all of your features. To make your features more discoverable, you can add metadata to them. You can add the following types of metadata:
 + Description – A searchable description of the feature.
@@ -101,7 +100,7 @@ To add a list of parameters to a feature, specify values for the following field
 
 The following example code uses the AWS SDK for Python (Boto3) to add two parameters.
 
-```
+```python
 sagemaker_client.update_feature_metadata(
     FeatureGroupName={{"feature_group_name"}},
     FeatureName={{"feature-name"}},
@@ -120,7 +119,7 @@ To add a description to a feature, specify values for the following fields:
 + `Feature`
 + `Description`
 
-```
+```python
 sagemaker_client.update_feature_metadata(
     FeatureGroupName={{"feature-group-name"}},
     FeatureName={{"feature-name"}},
@@ -139,7 +138,7 @@ Specify values for the following fields:
 
 Specify the keys for the parameters that you're removing under `ParameterRemovals`.
 
-```
+```python
 sagemaker_client.update_feature_metadata(
     FeatureGroupName={{"feature_group_name"}},
     FeatureName={{"feature-name"}},
@@ -161,7 +160,7 @@ Specify values for the following fields:
 
 Specify an empty string for `Description`.
 
-```
+```python
 sagemaker_client.update_feature_metadata(
     FeatureGroupName={{"feature-group-name"}},
     FeatureName={{"feature-name"}},
@@ -196,14 +195,14 @@ To start using Feature Store, create SageMaker AI, boto3 and Feature Store sessi
 **Note**  
 The role that you use must have the following managed policies attached to it: `AmazonS3FullAccess` and `AmazonSageMakerFeatureStoreAccess`.
 
-```
+```python
 # SageMaker Python SDK version 3.x is required
 %pip install 'sagemaker>=2.0.0'
 import sagemaker
 import sys
 ```
 
-```
+```python
 import boto3
 import pandas as pd
 import numpy as np
@@ -227,7 +226,7 @@ sagemaker_client = boto_session.client(service_name='sagemaker', region_name=reg
 
 The following code is an example of creating a feature group with feature definitions.
 
-```
+```python
 feature_group_name = "test-for-feature-metadata"
 feature_definitions = [
     {"FeatureName": "feature-1", "FeatureType": "String"},
@@ -256,7 +255,7 @@ except ClientError as e:
 
 Before you add metadata, use the [`DescribeFeatureGroup`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeFeatureGroup.html) operation to make sure that the status of the feature group is `Created`.
 
-```
+```python
 sagemaker_client.describe_feature_group(
         FeatureGroupName=feature_group_name
     )
@@ -264,7 +263,7 @@ sagemaker_client.describe_feature_group(
 
 Add a description to the feature.
 
-```
+```python
 sagemaker_client.update_feature_metadata(
     FeatureGroupName=feature_group_name,
     FeatureName="feature-1",
@@ -274,7 +273,7 @@ sagemaker_client.update_feature_metadata(
 
 You can use the [`DescribeFeatureMetadata`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeFeatureMetadata.html) operation to see if you successfully updated the description for the feature group.
 
-```
+```python
     sagemaker_client.describe_feature_metadata(
     FeatureGroupName=feature_group_name,
     FeatureName="feature-1"
@@ -283,7 +282,7 @@ You can use the [`DescribeFeatureMetadata`](https://docs.aws.amazon.com/sagemake
 
 You can also use it to add parameters to the feature group.
 
-```
+```python
 sagemaker_client.update_feature_metadata(
     FeatureGroupName=feature_group_name,
     FeatureName="feature-1",
@@ -296,7 +295,7 @@ sagemaker_client.update_feature_metadata(
 
 You can use the [`DescribeFeatureMetadata`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeFeatureMetadata.html) operation again to see if you have successfully added the parameters.
 
-```
+```python
     sagemaker_client.describe_feature_metadata(
     FeatureGroupName=feature_group_name,
     FeatureName="feature-1"

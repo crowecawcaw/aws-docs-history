@@ -1,7 +1,6 @@
 
 
 # RCF Response Formats
-<a name="rcf-in-formats"></a>
 
 All Amazon SageMaker AI built-in algorithms adhere to the common input inference format described in [Common Data Formats - Inference](https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html). Note that SageMaker AI Random Cut Forest supports both dense and sparse JSON and RecordIO formats. This topic contains a list of the available output formats for the SageMaker AI RCF algorithm.
 

@@ -1,7 +1,6 @@
 
 
 # Resource Limits for Automatic Model Tuning
-<a name="automatic-model-tuning-limits"></a>
 
 SageMaker AI sets the following default limits for resources used by automatic model tuning:
 

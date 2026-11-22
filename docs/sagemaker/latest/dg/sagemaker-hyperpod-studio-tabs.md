@@ -1,7 +1,6 @@
 
 
 # HyperPod tabs in Studio
-<a name="sagemaker-hyperpod-studio-tabs"></a>
 
 In Amazon SageMaker Studio you can navigate to one of your clusters in **HyperPod clusters** (under **Compute**) and view your list of clusters. The displayed clusters contain information like tasks, hardware metrics, settings, and metadata details. This visibility can help your team identify the right candidate for your pre-training or finetuning workloads. The following sections provide information on each type of information.
 

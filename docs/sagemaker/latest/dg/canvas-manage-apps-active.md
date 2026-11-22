@@ -1,7 +1,6 @@
 
 
 # Check for active applications
-<a name="canvas-manage-apps-active"></a>
 
 To check if you have any actively running SageMaker Canvas applications, use the following procedure.
 

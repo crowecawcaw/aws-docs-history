@@ -1,7 +1,6 @@
 
 
 # Interpret your results
-<a name="jumpstart-text-classification-interpret"></a>
 
 Analyze evaluation metrics from your text classification model comparison to make data-driven decisions for production deployment.
 

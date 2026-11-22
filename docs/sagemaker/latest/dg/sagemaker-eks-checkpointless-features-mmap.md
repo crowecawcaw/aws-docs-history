@@ -1,7 +1,6 @@
 
 
 # Memory mapped dataloader
-<a name="sagemaker-eks-checkpointless-features-mmap"></a>
 
 Another restart overhead stems from data loading: the training cluster remains idle while the dataloader initializes, downloads data from remote file systems, and processes it into batches.
 
@@ -130,7 +129,7 @@ dataloader = config.create(
 ### MMAPDataModule
 <a name="sagemaker-eks-checkpointless-mmap-reference-mmapdatamodule"></a>
 
-```
+```python
 class hyperpod_checkpointless_training.dataloader.mmap_data_module.MMAPDataModule(  
     data_module,  
     mmap_config,  
@@ -256,7 +255,7 @@ Expose the underlying data module's data sampler to NeMo framework.
 
 **Example**
 
-```
+```python
 from hyperpod_checkpointless_training.dataloader.mmap_data_module import MMAPDataModule  
 from hyperpod_checkpointless_training.dataloader.config import CacheResumeMMAPConfig  
 from my_project import MyLLMDataModule  

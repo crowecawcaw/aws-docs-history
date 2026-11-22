@@ -1,9 +1,8 @@
 
 
 # Prerequisites for SageMaker HyperPod cluster observability
-<a name="sagemaker-hyperpod-cluster-observability-slurm-prerequisites"></a>
 
-Before proceeding with the steps to [Installing metrics exporter packages on your HyperPod cluster](sagemaker-hyperpod-cluster-observability-slurm-install-exporters.md), ensure that the following prerequisites are met.
+Complete these prerequisites if you use Amazon Managed Grafana to view the metrics, with either metric store, or Amazon Managed Service for Prometheus as the metric store. For the extension's own prerequisites, see [Prerequisites for the observability extension](sagemaker-hyperpod-cluster-observability-slurm-extension.md#sagemaker-hyperpod-cluster-observability-slurm-extension-prerequisites).
 
 ## Enable IAM Identity Center
 <a name="sagemaker-hyperpod-cluster-observability-slurm-prerequisites-iam-id-center"></a>
@@ -19,4 +18,4 @@ After successfully enabling IAM Identity Center, set up a user account that will
 
 Create and deploy a CloudFormation stack for SageMaker HyperPod observability to monitor HyperPod cluster metrics in real time using Amazon Managed Service for Prometheus and Amazon Managed Grafana. To deploy the stack, note that you also should enable your [IAM Identity Center](https://console.aws.amazon.com/singlesignon) beforehand.
 
-Use the sample CloudFormation script [`cluster-observability.yaml`](https://github.com/aws-samples/awsome-distributed-training/blob/main/4.validation_and_observability/4.prometheus-grafana/cluster-observability.yaml) that helps you set up Amazon VPC subnets, Amazon FSx for Lustre file systems, Amazon S3 buckets, and IAM roles required to create a HyperPod cluster observability stack.
+Use the sample CloudFormation script [`cluster-observability.yaml`](https://github.com/awslabs/awsome-distributed-ai/blob/main/observability/prometheus-grafana/cluster-observability.yaml), which creates an Amazon Managed Service for Prometheus workspace and an Amazon Managed Grafana workspace that uses IAM Identity Center, with Amazon CloudWatch and Amazon Managed Service for Prometheus as data sources. To use a workspace that you already have, pass its ID to the stack. If you send metrics to Amazon Managed Service for Prometheus, set `prometheus.remoteWriteUrl` to the stack's `AMPRemoteWriteURL` output when you install the extension.

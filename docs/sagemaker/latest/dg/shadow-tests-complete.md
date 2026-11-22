@@ -1,7 +1,6 @@
 
 
 # Complete a shadow test
-<a name="shadow-tests-complete"></a>
 
  Your test automatically completes at the end of the scheduled duration, or you can stop an in-progress test early. After your test has completed, the test’s status in the **Shadow tests** section on the **Shadow tests** page shows as **Complete**. Then you can review and analyze the final metrics of your test. 
 

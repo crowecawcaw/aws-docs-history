@@ -1,7 +1,6 @@
 
 
 # Code Editor application instances and images
-<a name="code-editor-use-instances"></a>
 
 Only some instances are compatible with Code Editor applications. You can choose the instance type that is compatible with your use case from the **Instance** dropdown menu. 
 

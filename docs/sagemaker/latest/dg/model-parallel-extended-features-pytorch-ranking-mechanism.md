@@ -1,7 +1,6 @@
 
 
 # Ranking Mechanism when Using a Combination of Pipeline Parallelism and Tensor Parallelism
-<a name="model-parallel-extended-features-pytorch-ranking-mechanism"></a>
 
 This section explains how the ranking mechanism of model parallelism works with tensor parallelism. This is extended from the [Ranking Basics](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel_general.html#ranking-basics) for [Core Features of the SageMaker Model Parallelism Library](model-parallel-core-features.md). With tensor parallelism, the library introduces three types of ranking and process group APIs: `smp.tp_rank()` for tensor parallel rank, `smp.pp_rank()` for pipeline parallel rank, and `smp.rdp_rank()` for reduced-data parallel rank. The corresponding communication process groups are tensor parallel group (`TP_GROUP`), pipeline parallel group (`PP_GROUP`), and reduced-data parallel group (`RDP_GROUP`). These groups are defined as follows:
 + A *tensor parallel group* (`TP_GROUP`) is an evenly divisible subset of the data parallel group, over which tensor parallel distribution of modules takes place. When the degree of pipeline parallelism is 1, `TP_GROUP` is the same as *model parallel group* (`MP_GROUP`). 
@@ -16,7 +15,7 @@ To learn more about the communication process APIs in the SageMaker model parall
 
 For example, consider process groups for a single node with 8 GPUs, where the degree of tensor parallelism is 2, the degree of pipeline parallelism is 2, and the degree of data parallelism is 4. The upper center part of the preceding figure shows an example of a model with 4 layers. The lower left and lower right parts of figure illustrate the 4-layer model distributed across 4 GPUs using both pipeline parallelism and tensor parallelism, where tensor parallelism is used for the middle two layers. These two lower figures are simple copies to illustrate different group boundary lines. The partitioned model is replicated for data parallelism across GPUs 0-3 and 4-7. The lower left figure shows the definitions of `MP_GROUP`, `PP_GROUP`, and `TP_GROUP`. The lower right figure shows `RDP_GROUP`, `DP_GROUP`, and `WORLD` over the same set of GPUs. The gradients for the layers and layer slices that have the same color are `allreduce`d together for data parallelism. For example, the first layer (light blue) gets the `allreduce` operations across `DP_GROUP`, whereas the dark orange slice in the second layer only gets the `allreduce` operations within the `RDP_GROUP` of its process. The bold dark red arrows represent tensors with the batch of its entire `TP_GROUP`.
 
-```
+```txt
 GPU0: pp_rank 0, tp_rank 0, rdp_rank 0, dp_rank 0, mp_rank 0
 GPU1: pp_rank 1, tp_rank 0, rdp_rank 0, dp_rank 0, mp_rank 1
 GPU2: pp_rank 0, tp_rank 1, rdp_rank 0, dp_rank 1, mp_rank 2

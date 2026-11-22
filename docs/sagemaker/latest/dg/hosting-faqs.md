@@ -1,7 +1,6 @@
 
 
 # Model Hosting FAQs
-<a name="hosting-faqs"></a>
 
 Refer to the following FAQ items for answers to commonly asked questions about SageMaker AI Inference Hosting.
 

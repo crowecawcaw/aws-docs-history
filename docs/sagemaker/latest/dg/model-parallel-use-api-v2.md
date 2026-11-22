@@ -1,7 +1,6 @@
 
 
 # Use the SageMaker model parallelism library v2
-<a name="model-parallel-use-api-v2"></a>
 
 On this page, you'll learn how to use the SageMaker model parallelism library v2 APIs and get started with running a PyTorch Fully Sharded Data Parallel (FSDP) training job in the SageMaker Training platform or on a SageMaker HyperPod cluster.
 
@@ -31,7 +30,7 @@ To activate and configure the SMP v2 library, start with importing and adding th
 
 In your training script, add the following two lines of code, which is the minimal requirement to start training with SMP v2. In [Step 2: Launch a training job](#model-parallel-launch-a-training-job-v2), you’ll set up an object of the SageMaker `PyTorch` estimator class with an SMP configuration dictionary through the `distribution` argument of the estimator class.
 
-```
+```py
 import torch.sagemaker as tsm
 tsm.init()
 ```
@@ -44,7 +43,7 @@ You can also directly pass a configuration dictionary of the [SMP v2 core featur
 
 In your training script, add the following two lines of code. In [Step 2: Launch a training job](#model-parallel-launch-a-training-job-v2), you’ll set up a `smp_config.json` file for setting up SMP configurations in JSON format, and upload it to a storage or a file system mapped with your SageMaker HyperPod cluster. We recommend that you keep the configuration file under the same directory where you upload your training script.
 
-```
+```py
 import torch.sagemaker as tsm
 tsm.init("{{/dir_to_training_files/smp_config.json}}")
 ```
@@ -70,7 +69,7 @@ The `distribution` configuration for SMP v2 is integrated in the SageMaker Pytho
 **Note**  
 In SMP v2, you should configure `smdistributed` with `torch_distributed` for the `distribution` argument of the SageMaker `PyTorch` estimator. With `torch_distributed`, SageMaker AI runs `torchrun`, which is the default multi-node job launcher of [PyTorch Distributed](https://pytorch.org/tutorials/beginner/dist_overview.html).
 
-```
+```py
 from sagemaker.pytorch import PyTorch
 
 estimator = PyTorch(
@@ -123,7 +122,7 @@ If the prerequisites are all met, proceed to the following instructions on launc
 
 1. Prepare an `smp_config.json` file that contains a dictionary of [SMP v2 core feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config). Make sure that you upload this JSON file to where you store your training script, or the path you specified to the `torch.sagemaker.init()` module in [Step 1](#model-parallel-adapt-pytorch-script-v2). If you’ve already passed the configuration dictionary to the `torch.sagemaker.init()` module in the training script in [Step 1](#model-parallel-adapt-pytorch-script-v2), you can skip this step. 
 
-   ```
+   ```json
    // smp_config.json
    {
        "hybrid_shard_degree": {{Integer}},
@@ -141,13 +140,13 @@ If the prerequisites are all met, proceed to the following instructions on launc
 
 1. On the compute nodes of your cluster, start a terminal session with the following command.
 
-   ```
+   ```bash
    sudo su -l ubuntu
    ```
 
 1. Create a Conda environment on the compute nodes. The following code is an example script of creating a Conda environment and installing SMP, [SMDDP](data-parallel.md), CUDA, and other dependencies.
 
-   ```
+   ```sh
    # Run on compute nodes
    SMP_CUDA_VER={{<11.8 or 12.1>}}
    
@@ -216,14 +215,14 @@ If the prerequisites are all met, proceed to the following instructions on launc
 
    1. In the shared file system (`/fsx`), clone the [Awsome Distributed Training GitHub repository](https://github.com/aws-samples/awsome-distributed-training/), and go to the `3.test_cases/11.modelparallel` folder.
 
-      ```
+      ```sh
       git clone https://github.com/aws-samples/awsome-distributed-training/
       cd awsome-distributed-training/3.test_cases/11.modelparallel
       ```
 
    1. Submit a job using `sbatch` as follows.
 
-      ```
+      ```sh
       conda activate <ENV_PATH>
       sbatch -N 16 conda_launch.sh
       ```
@@ -232,7 +231,7 @@ If the prerequisites are all met, proceed to the following instructions on launc
 
    1. Check the log file in the current directory under `logs/`.
 
-      ```
+      ```sh
       tail -f ./logs/{{fsdp_smp_ABCDEF.out}}
       ```
 

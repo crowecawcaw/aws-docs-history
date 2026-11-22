@@ -1,7 +1,6 @@
 
 
 # SageMaker Python SDK Troubleshooting Guide
-<a name="sagemaker-python-sdk-troubleshooting"></a>
 
 You can use the SageMaker Python SDK to interact with Amazon SageMaker AI within your Python scripts or Jupyter notebooks. Despite the SDK providing a simplified workflow, you might encounter various exceptions or errors. This troubleshooting guide aims to help you understand and resolve common issues that might arise when working with the SageMaker Python SDK. It covers scenarios related to creating training jobs, processing jobs, and endpoints, as well as general exception handling practices. By following the guidance provided in the following sections, you can effectively diagnose and address common issues.
 
@@ -257,7 +256,7 @@ If you can't find information to help you fix your specific issue, the following
 
 The following is a generic example that you can use to catch most exceptions.
 
-```
+```python
 import sagemaker
 from botocore.exceptions import ParamValidationError, ClientError
 
@@ -281,7 +280,7 @@ There are two main categories of errors:
 
 Errors specific to the underlying AWS service are always `botocore.exceptions.ClientError` exceptions. The `botocore.exceptions.ClientError` has an `Error` object and a `ResponseMetadata` object. The following shows the template of a client error:
 
-```
+```json
 {
     'Error': {
         'Code': 'SomeServiceException',
@@ -299,7 +298,7 @@ Errors specific to the underlying AWS service are always `botocore.exceptions.Cl
 
 The following is an example of the specific error handling that you can do with the `botocore.exceptions.ClientError`:
 
-```
+```python
 try:
     sagemaker.some_api_call(SomeParam='some_param')
 

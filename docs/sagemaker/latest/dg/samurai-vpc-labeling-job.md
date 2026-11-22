@@ -1,7 +1,6 @@
 
 
 # Run an Amazon SageMaker Ground Truth Labeling Job in an Amazon Virtual Private Cloud
-<a name="samurai-vpc-labeling-job"></a>
 
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
@@ -51,7 +50,7 @@ The following policy *denies* all entities *other than* users within a VPC to pe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "Policy1415115909152",
@@ -121,7 +120,7 @@ For example, the following policy restricts `GetObject` and `PutObject` actions 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "1",
@@ -170,7 +169,7 @@ The following code is an example of a bucket policy that restricts permission to
 + The VPC endpoints listed in `aws:sourceVpce`
 + Users within the VPC named {{<vpc>}}
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Id": "1",
@@ -237,7 +236,7 @@ Use the following procedures to learn how to add a VPC configuration to your lab
 **Add a VPC configuration to an automated data labeling job (API):**  
 To configure a labeling job using the Ground Truth API operation, `CreateLabelingJob`, follow the instructions in [Create an Automated Data Labeling Job (API)](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-automated-labeling.html#sms-create-automated-labeling-api) to configure your request. In addition to the parameters described in this documentation, you must include a `VpcConfig` parameter in `LabelingJobResourceConfig` to specify one or more subnets and security groups using the following schema.
 
-```
+```json
 "LabelingJobAlgorithmsConfig": { 
       "InitialActiveLearningModelArn": "{{string}}",
       "LabelingJobAlgorithmSpecificationArn": "{{string}}",

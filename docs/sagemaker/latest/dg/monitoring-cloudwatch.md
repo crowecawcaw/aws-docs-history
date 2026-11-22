@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker AI metrics in Amazon CloudWatch
-<a name="monitoring-cloudwatch"></a>
 
 You can monitor Amazon SageMaker AI using Amazon CloudWatch, which collects raw data and processes it into readable, near real-time metrics. These statistics are kept for 15 months. With them, you can access historical information and gain a better perspective on how your web application or service is performing. However, the Amazon CloudWatch console limits the search to metrics that were updated in the last 2 weeks. This limitation ensures that the most current jobs are shown in your namespace. 
 

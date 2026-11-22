@@ -1,7 +1,6 @@
 
 
 # Blogs, example notebooks, and additional resources
-<a name="deploy-model-blogs"></a>
 
 The following sections contain examples and additional resources for you to learn more about Amazon SageMaker AI.
 

@@ -1,11 +1,77 @@
 
 
 # Amazon SageMaker HyperPod Inference release notes
-<a name="sagemaker-hyperpod-inference-release-notes"></a>
 
 This topic covers release notes that track updates, fixes, and new features for Amazon SageMaker HyperPod Inference. SageMaker HyperPod Inference enables you to deploy and scale machine learning models on your HyperPod clusters with enterprise-grade reliability. For general Amazon SageMaker HyperPod platform releases, updates, and improvements, see [Amazon SageMaker HyperPod release notes](sagemaker-hyperpod-release-notes.md).
 
 For information about SageMaker HyperPod Inference capabilities and deployment options, see [Deploying models on Amazon SageMaker HyperPod](sagemaker-hyperpod-model-deployment.md).
+
+## SageMaker HyperPod Inference release notes: HyperPod Inference Amazon EKS v3.0.0-eksbuild.1 and Inference Operator v3.8
+<a name="sagemaker-hyperpod-inference-release-notes-v3-0-0-eksbuild-1"></a>
+
+**Release Date:** November 18, 2026
+
+**Summary**
+
+Amazon SageMaker HyperPod Inference Operator v3.8 adds managed NVIDIA Dynamo as a serving runtime through the new `dynamoSpec` field on `InferenceEndpointConfig`, and reports routing-service self-heal activity in resource status. It also updates the bundled S3 and Amazon FSx CSI drivers.
+
+Amazon SageMaker HyperPod Inference Operator v3.8 is available in all AWS Regions where SageMaker HyperPod is supported.
+
+**Inference Operator**
+
+Inference Operator v3.8 includes the following features:
++ **Managed NVIDIA Dynamo** – Deploy models with NVIDIA Dynamo by setting `dynamoSpec` on your `InferenceEndpointConfig`. The operator renders the `DynamoGraphDeployment`, with aggregated or disaggregated serving, multi-node workers, and KV-aware routing. The Dynamo platform (Dynamo operator, Grove, KAI scheduler) is installed by the EKS add-on when `dynamo.enabled` is true; with a Helm install you must install NVIDIA Dynamo and its dependencies yourself. See [Deploy models with Managed NVIDIA Dynamo on HyperPod](sagemaker-hyperpod-model-deployment-dynamo.md).
++ **Self-heal count in status** – `InferenceEndpointConfig` and `JumpStartModel` now report `status.selfHealCount`, the number of times the operator re-created the endpoint's routing service.
++ **Endpoint path validation** – `invocationEndpoint` and `loadBalancer.healthCheckPath` are now limited to 256 characters and the characters `A-Z a-z 0-9 / _ . : -`. Existing resources are not re-validated; new or updated ones that use other characters are rejected.
+
+**Dependency Updates**
++ **CSI drivers** – This release upgrades the bundled `aws-mountpoint-s3-csi-driver` from 1.14.1 to 1.15.0 and `aws-fsx-csi-driver` from 1.17.0 to 1.19.0.
++ **Operator resources** – The operator manager's memory limit is raised from 256Mi to 512Mi.
+
+### Upgrade to v3.8 or v3.0.0-eksbuild.1
+<a name="sagemaker-hyperpod-inference-v3-8-upgrade"></a>
+
+**EKS Add-on upgrade:**
+
+If you installed the Inference Operator as an EKS Add-on, upgrade to the latest version:
+
+```
+CLUSTER=EKS_CLUSTER_NAME
+REGION=REGION
+
+aws eks update-addon \
+  --cluster-name $CLUSTER \
+  --addon-name amazon-sagemaker-hyperpod-inference \
+  --addon-version v3.0.0-eksbuild.1 \
+  --resolve-conflicts OVERWRITE \
+  --region $REGION
+```
+
+To install the Dynamo platform, add a `dynamo` block to the configuration you pass to `--configuration-values`. This parameter replaces the entire configuration, so include your existing keys along with the new block:
+
+```
+"dynamo": { "enabled": true }
+```
+
+**Helm upgrade:**
+
+If you already have the Inference Operator installed by using Helm, use the following commands to upgrade:
+
+```
+helm get values -n kube-system hyperpod-inference-operator \
+> current-values.yaml
+
+cd sagemaker-hyperpod-cli/helm_chart/HyperPodHelmChart/\
+charts/inference-operator
+
+helm upgrade hyperpod-inference-operator . -n kube-system \
+  -f current-values.yaml --set image.tag=v3.8
+
+# Verification
+kubectl get deployment hyperpod-inference-operator-controller-manager \
+  -n hyperpod-inference-system \
+  -o jsonpath='{.spec.template.spec.containers[0].image}'
+```
 
 ## SageMaker HyperPod Inference release notes: HyperPod Inference Amazon EKS v2.1.0-eksbuild.1 and Inference Operator v3.7
 <a name="sagemaker-hyperpod-inference-release-notes-v2-1-0-eksbuild-1"></a>

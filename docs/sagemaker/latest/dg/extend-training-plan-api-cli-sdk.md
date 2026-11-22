@@ -1,20 +1,19 @@
 
 
 # Purchase an extension
-<a name="extend-training-plan-api-cli-sdk"></a>
 
 After selecting an extension offering, use the [`ExtendTrainingPlan`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ExtendTrainingPlan.html) API to purchase the extension.
 
 The following example uses an AWS CLI command to extend a training plan.
 
-```
+```sh
 aws sagemaker extend-training-plan \
 --training-plan-extension-offering-id "{{tpeo-SHA-256-hash-value}}"
 ```
 
 This JSON document is a sample response from the SageMaker training plans API. The response includes the list of extensions for the training plan.
 
-```
+```JSON
 {
     "TrainingPlanExtensions": [
         {

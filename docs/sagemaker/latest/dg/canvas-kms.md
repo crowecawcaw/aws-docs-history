@@ -1,7 +1,6 @@
 
 
 # Encrypt Your SageMaker Canvas Data with AWS KMS
-<a name="canvas-kms"></a>
 
 You might have data that you want to encrypt while using Amazon SageMaker Canvas, such as your private company information or customer data. SageMaker Canvas uses AWS Key Management Service to protect your data. AWS KMS is a service that you can use to create and manage cryptographic keys for encrypting your data. For more information about AWS KMS, see [AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) in the *AWS KMS Developer Guide*.
 
@@ -29,7 +28,7 @@ The simplest way to grant your role permission to use the key is to modify the k
 
 1. Modify the key's policy to grant permissions for the `kms:GenerateDataKey` and `kms:Decrypt` actions to the IAM role. Additionally, if you're modifying the key policy that encrypts your Canvas application storage in the Studio space, grant the `kms:CreateGrant` action. You can add a statement that's similar to the following:
 
-   ```
+   ```json
    {
      "Sid": "ExampleStmt",
      "Action": [

@@ -1,7 +1,6 @@
 
 
 # JupyterLab user guide
-<a name="studio-updated-jl-user-guide"></a>
 
 This guide shows JupyterLab users how to run analytics and machine learning workflows within SageMaker Studio. You can get fast storage and scale your compute up or down, depending on your needs.
 

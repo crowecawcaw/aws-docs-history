@@ -1,7 +1,6 @@
 
 
 # SageMaker Training Compiler Troubleshooting
-<a name="training-compiler-troubleshooting"></a>
 
 **Important**  
 Amazon Web Services (AWS) announces that there will be no new releases or versions of SageMaker Training Compiler. You can continue to utilize SageMaker Training Compiler through the existing AWS Deep Learning Containers (DLCs) for SageMaker Training. It is important to note that while the existing DLCs remain accessible, they will no longer receive patches or updates from AWS, in accordance with the [AWS Deep Learning Containers Framework Support Policy](https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/support-policy.html).
@@ -108,7 +107,7 @@ XLA requires additional environment variables to compile the training job. The m
 There are three approaches to set the `GPU_NUM_DEVICES` environment variable:
 + **Approach 1** – Use the `environment` argument of the SageMaker AI ModelTrainer class. For example, if you use an `ml.p3.8xlarge` instance that has four GPUs, do the following:
 
-  ```
+  ```py
   # Using the SageMaker Python SDK's ModelTrainer
   
   model_trainer=ModelTrainer(
@@ -127,7 +126,7 @@ There are three approaches to set the `GPU_NUM_DEVICES` environment variable:
 
      For example, if you use an `ml.p3.8xlarge` instance that has four GPUs, do the following:
 
-     ```
+     ```py
      # Using the SageMaker Python SDK's ModelTrainer
      
      model_trainer=ModelTrainer(
@@ -144,7 +143,7 @@ There are three approaches to set the `GPU_NUM_DEVICES` environment variable:
 
   1. In your training script, parse the `n_gpus` hyperparameter and specify it as an input for the `GPU_NUM_DEVICES` environment variable.
 
-     ```
+     ```py
      # train.py
      import os, argparse
      
@@ -164,7 +163,7 @@ There are three approaches to set the `GPU_NUM_DEVICES` environment variable:
      ```
 + **Approach 3** – Hard-code the `GPU_NUM_DEVICES` environment variable in your training script. For example, add the following to your script if you use an instance that has four GPUs.
 
-  ```
+  ```py
   # train.py
   
   import os

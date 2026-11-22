@@ -1,7 +1,6 @@
 
 
 # Set up permissions
-<a name="permission-setup"></a>
 
 ## Roles required for Add-on and its dependencies
 <a name="permission-setup-addon"></a>
@@ -30,7 +29,7 @@ The Spaces Add-on Execution Role is always required because it is used by the Sa
 
 **Reference Trust Policy**
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -61,7 +60,7 @@ The In-Cluster Router Role is used by the** router pod**, a privileged component
 
 **Reference Trust Policy**
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -87,7 +86,7 @@ The In-Cluster Router Role is used by the** router pod**, a privileged component
 
 **Reference Permission Policy**
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -125,7 +124,7 @@ The SSM Managed Instance Role is passed when registering the SSM managed instanc
 
 **Reference Trust Policy**
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -150,7 +149,7 @@ The SSM Managed Instance Role is passed when registering the SSM managed instanc
 
 **Reference Permissions Policy**
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -310,7 +309,7 @@ To allow the AWS VS Code Toolkit resource explorer side panel to discover and co
 
 **Required IAM Policy**
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

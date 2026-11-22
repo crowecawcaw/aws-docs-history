@@ -1,7 +1,6 @@
 
 
 # Evaluation Metrics Formats
-<a name="model-customize-evaluation-metrics-formats"></a>
 
 Evaluating the quality of your model across these metric formats:
 + Model Evaluation Summary
@@ -28,7 +27,7 @@ s3://<your-provide-s3-location>/<training-job-name>/output/output/<evaluation-jo
 ------
 #### [ SageMaker Python SDK ]
 
-```
+```python
 evaluator = BenchMarkEvaluator(
     benchmark=Benchmark.MMLU,
     model="arn:aws:sagemaker:<region>:<account-id>:model-package/<model-package-name>/<version>",
@@ -43,7 +42,7 @@ execution = evaluator.evaluate()
 
 Read it directly as a `.json` from the AWS S3 location or visualized automatically in the UI:
 
-```
+```json
 {
   "results": {
     "custom|gen_qa_gen_qa|0": {
@@ -102,7 +101,7 @@ For more information about working with managed MLflow on SageMaker AI, see [Acc
 
 **SageMaker Python SDK**
 
-```
+```python
 evaluator = BenchMarkEvaluator(
     benchmark=Benchmark.MMLU,
     model="arn:aws:sagemaker:<region>:<account-id>:model-package/<model-package-name>/<version>",
@@ -147,7 +146,7 @@ s3://<your-provide-s3-location>/<training-job-name>/output/output/<evaluation-jo
 ------
 #### [ SageMaker Python SDK ]
 
-```
+```python
 evaluator = BenchMarkEvaluator(
     benchmark=Benchmark.MMLU,
     model="arn:aws:sagemaker:<region>:<account-id>:model-package/<model-package-name>/<version>",

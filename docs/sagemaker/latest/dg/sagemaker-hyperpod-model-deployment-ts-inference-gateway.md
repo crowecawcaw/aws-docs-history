@@ -1,7 +1,6 @@
 
 
 # Inference Gateway troubleshooting guide
-<a name="sagemaker-hyperpod-model-deployment-ts-inference-gateway"></a>
 
 **Overview:** The HyperPod Inference Gateway routes traffic through three layers: the Body-Based Router (BBR), the gateway with `HTTPRoute`, and the Endpoint Picker (EPP). Misconfiguration at any layer can result in failed requests, traffic reaching the wrong model, or uneven load across model-serving pods. This section covers issues with the gateway, BBR, the gateway and `HTTPRoute`, `InferencePool`, and EPP, and any issues that arise from them.
 

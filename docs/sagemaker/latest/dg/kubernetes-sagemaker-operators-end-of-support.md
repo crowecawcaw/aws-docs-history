@@ -1,7 +1,6 @@
 
 
 # Old SageMaker AI Operators for Kubernetes
-<a name="kubernetes-sagemaker-operators-end-of-support"></a>
 
 This section is based on the original version of [SageMaker AI Operators for Kubernetes](https://github.com/aws/amazon-sagemaker-operator-for-k8s).
 
@@ -125,7 +124,7 @@ OIDC https://oidc.eks.us-east-1.amazonaws.com/id/D48675832CA65BD10A532F597OIDCID
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -153,7 +152,7 @@ OIDC https://oidc.eks.us-east-1.amazonaws.com/id/D48675832CA65BD10A532F597OIDCID
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -376,7 +375,7 @@ OIDC https://oidc.eks.us-east-1.amazonaws.com/id/D48675832CA65BD10A532F597OIDCID
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -404,7 +403,7 @@ OIDC https://oidc.eks.us-east-1.amazonaws.com/id/D48675832CA65BD10A532F597OIDCID
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

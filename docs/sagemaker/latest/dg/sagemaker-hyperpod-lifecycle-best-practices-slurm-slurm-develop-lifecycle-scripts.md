@@ -1,7 +1,6 @@
 
 
 # Developing lifecycle scripts interactively on a HyperPod cluster node
-<a name="sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-develop-lifecycle-scripts"></a>
 
 This section explains how you can interactively develop lifecycle scripts without repeatedly creating and deleting a HyperPod cluster.
 

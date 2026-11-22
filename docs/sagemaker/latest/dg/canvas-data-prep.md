@@ -1,7 +1,6 @@
 
 
 # Data preparation
-<a name="canvas-data-prep"></a>
 
 **Note**  
 Previously, Amazon SageMaker Data Wrangler was part of the SageMaker Studio Classic experience. Now, if you update to using the new Studio experience, you must use SageMaker Canvas to access Data Wrangler and receive the latest feature updates. If you have been using Data Wrangler in Studio Classic until now and want to migrate to Data Wrangler in Canvas, you might have to grant additional permissions so that you can create and use a Canvas application. For more information, see [(Optional) Migrate from Data Wrangler in Studio Classic to SageMaker Canvas](studio-updated-migrate-ui.md#studio-updated-migrate-dw).  

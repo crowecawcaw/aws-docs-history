@@ -1,7 +1,6 @@
 
 
 # Activation Offloading
-<a name="model-parallel-extended-features-pytorch-activation-offloading"></a>
 
 When activation checkpointing and pipeline parallelism are turned on and the number of microbatches is greater than one, *activation offloading* is an additional feature that can further reduce memory usage. Activation offloading asynchronously moves the checkpointed activations corresponding to their microbatches that are not currently running in the CPU. Right before the GPU needs the activations for the microbatch’s backward pass, this functionality prefetches the offloaded activations back from the CPU.
 
@@ -24,7 +23,7 @@ Activation offloading can be useful for large models with over a hundred billion
 
 **Configure a SageMaker PyTorch ModelTrainer**
 
-```
+```py
 mpi_options = {
     "enabled" : True,
     "processes_per_host" : 8,               # 8 processes

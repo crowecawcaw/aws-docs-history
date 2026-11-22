@@ -1,7 +1,6 @@
 
 
 # View Variants (or Models)
-<a name="manage-endpoints-studio-variants"></a>
 
 The **Variants** tab (also called the **Models** tab if your endpoint has multiple models deployed) shows you the list of [model variants](https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html) or models currently deployed to your endpoint. The following screenshot shows you what the overview and **Models** section looks like for an endpoint with multiple models deployed.
 

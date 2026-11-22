@@ -1,7 +1,6 @@
 
 
 # Cross account offline store access
-<a name="feature-store-cross-account-access-offline-store"></a>
 
  Amazon SageMaker Feature Store allows users to create a feature group in one account (Account A) and configure it with an offline store using an Amazon S3 bucket in another account (Account B). You can set this up using the steps in the following section.
 
@@ -21,7 +20,7 @@ First, set up a role for Amazon SageMaker Feature Store to write the data into t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -53,7 +52,7 @@ Additionally, this role must have AWS KMS permissions attached. At a minimum, it
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -85,7 +84,7 @@ This document refers to the following example bucket policy as `Account-B-Offlin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -127,7 +126,7 @@ This document refers to the following example key policy as `Account-A-Offline-F
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "key-consolepolicy-3",

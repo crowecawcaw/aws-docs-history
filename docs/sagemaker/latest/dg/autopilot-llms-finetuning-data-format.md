@@ -1,7 +1,6 @@
 
 
 # Dataset file types and input data format
-<a name="autopilot-llms-finetuning-data-format"></a>
 
 Instruction-based fine-tuning uses labeled datasets to improve the performance of pre-trained LLMs on specific natural language processing (NLP) tasks. The labeled examples are formatted as prompt-response pairs and phrased as instructions.
 
@@ -30,7 +29,7 @@ Each file in the dataset must adhere to the following format:
 
 The following example illustrates the input data format for instruction-based fine-tuning in Autopilot.
 
-```
+```xml
 input,output
 "<prompt text>","<expected generated text>"
 ```

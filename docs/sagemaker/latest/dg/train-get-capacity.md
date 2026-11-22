@@ -1,7 +1,6 @@
 
 
 # Get compute capacity for SageMaker Training Jobs
-<a name="train-get-capacity"></a>
 
 Before you request compute capacity, confirm that your AWS account meets the following prerequisites. Addressing these requirements in order helps you avoid common provisioning failures.
 
@@ -22,7 +21,7 @@ Instance availability also varies by Availability Zone within a Region. An insta
 
 To list the Availability Zones that offer an instance type in a Region, use the Amazon Elastic Compute Cloud `DescribeInstanceTypeOfferings` API:
 
-```
+```bash
 aws ec2 describe-instance-type-offerings \
     --location-type availability-zone \
     --filters Name=instance-type,Values=p5.48xlarge \

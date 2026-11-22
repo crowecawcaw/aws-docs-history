@@ -1,7 +1,6 @@
 
 
 # Types of compute instances
-<a name="geospatial-instances"></a>
 
 **Note**  
 Amazon SageMaker geospatial capabilities is no longer open to new customers. Offboard any previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportEarthObservationJob.html) and [ExportVectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportVectorEnrichmentJob.html) API operations.
@@ -32,7 +31,7 @@ The following table shows the available SageMaker geospatial specific operations
 ## SageMaker geospatial supported notebook instance types
 <a name="notebook-instances"></a>
 
-SageMaker geospatial supports both CPU and GPU-based notebook instances in Studio Classic. If when starting a GPU enabled notebook instance you receive a ResourceLimitExceeded error, you need to request a quota increase. To get started on a Service Quotas quota increase request, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*.
+SageMaker geospatial supports both CPU and GPU-based notebook instances in Studio Classic. If when starting a GPU enabled notebook instance you receive a `ResourceLimitExceeded` error, you need to request a quota increase. To get started on a Service Quotas quota increase request, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*.
 
 Supported Studio Classic notebook instance types
 

@@ -1,7 +1,6 @@
 
 
 # Configure your model provider
-<a name="sagemaker-jupyterai-model-configuration"></a>
 
 **Note**  
 In this section, we assume that the language and embedding models that you plan to use are already deployed. For models provided by AWS, you should already have the ARN of your SageMaker AI endpoint or access to Amazon Bedrock. For other model providers, you should have the API key used to authenticate and authorize requests to your model.  
@@ -51,7 +50,7 @@ Your model may need extra parameters, like a customized attribute for user agree
 
 Use the following JSON schema to configure your [extra parameters](sagemaker-jupyterai-use.md#sagemaker-jupyterai-extra-model-params):
 
-```
+```JSON
 {
   "AiExtension": {
     "model_parameters": {
@@ -64,7 +63,7 @@ Use the following JSON schema to configure your [extra parameters](sagemaker-jup
 
 The following script is an example of a JSON configuration file that you can use when creating a JupyterLab application LCC to set the maximum length of an [AI21 Labs Jurassic-2 model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-jurassic2.html) deployed on Amazon Bedrock. Increasing the length of the model's generated response can prevent the systematic truncation of your model's response.
 
-```
+```bash
 #!/bin/bash
 set -eux
 
@@ -92,7 +91,7 @@ sleep 30
 
 The following script is an example of a JSON configuration file for creating a JupyterLab application LCC used to set additional model parameters for an [Anthropic Claude model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-claude.html) deployed on Amazon Bedrock.
 
-```
+```bash
 #!/bin/bash
 set -eux
 
@@ -138,6 +137,6 @@ For models hosted by AWS, `boto3` is already installed in the SageMaker AI Distr
 
      Export your provider's API key in your notebook environment using environment variables. You can use the following magic command. Replace the `provider_API_key` in the command by the environment variable found in the *Environment variable* column of the Jupyter AI [Model providers list](https://jupyter-ai.readthedocs.io/en/latest/users/index.html#model-providers) for your provider.
 
-     ```
+     ```bash
      %env provider_API_key=your_API_key
      ```

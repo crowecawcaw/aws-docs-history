@@ -1,7 +1,6 @@
 
 
 # Release Notes
-<a name="data-wrangler-release-notes"></a>
 
 Data Wrangler is regularly updated with new features and bug fixes. To upgrade the version of Data Wrangler you are using in Studio Classic, follow the instructions in [Shut Down and Update Amazon SageMaker Studio Classic Apps](studio-tasks-update-apps.md).
 

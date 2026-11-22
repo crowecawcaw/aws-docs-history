@@ -1,7 +1,6 @@
 
 
 # Hugging Face Hub model deployment failures
-<a name="sagemaker-hyperpod-model-deployment-ts-huggingface"></a>
 
 **Overview:** When deploying models from Hugging Face Hub using the `huggingface` model source type, the deployment may fail during the model download phase. This section covers common failure scenarios and how to diagnose them using Kubernetes events and pod logs.
 

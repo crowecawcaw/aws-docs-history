@@ -1,7 +1,6 @@
 
 
 # Create a lifecycle configuration to install Code Editor extensions
-<a name="code-editor-use-lifecycle-configurations-extensions"></a>
 
 This section shows how to create a lifecycle configuration to install extensions from the [Open VSX Registry](https://open-vsx.org/) in your Code Editor environment.
 

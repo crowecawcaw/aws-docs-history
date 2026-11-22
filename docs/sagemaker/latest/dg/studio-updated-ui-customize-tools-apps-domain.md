@@ -1,7 +1,6 @@
 
 
 # Hide machine learning tools and applications on a domain level
-<a name="studio-updated-ui-customize-tools-apps-domain"></a>
 
 The following shows how to use the console to customize the applications and ML tools displayed in Studio on a domain level. For more information, see [Hide machine learning tools and applications in the Amazon SageMaker Studio UI](studio-updated-ui-customize-tools-apps.md).
 

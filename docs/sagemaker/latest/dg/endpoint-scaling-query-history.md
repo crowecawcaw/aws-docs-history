@@ -1,7 +1,6 @@
 
 
 # Check the status of a scaling activity by describing scaling activities
-<a name="endpoint-scaling-query-history"></a>
 
 You can check the status of a scaling activity for your auto scaled endpoint by describing scaling activities. Application Auto Scaling provides descriptive information about the scaling activities in the specified namespace from the previous six weeks. For more information, see [Scaling activities for Application Auto Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html) in the *Application Auto Scaling User Guide*.
 
@@ -31,7 +30,7 @@ aws application-autoscaling describe-scaling-activities \
 
 The following example shows the output produced when you run this command.
 
-```
+```json
 {
     "ActivityId": "activity-id",
     "ServiceNamespace": "sagemaker",
@@ -61,7 +60,7 @@ aws application-autoscaling describe-scaling-activities \
 
 Within the return syntax, check the [StatusCode](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_ScalingActivity.html#autoscaling-Type-ScalingActivity-StatusCode) and [StatusMessage](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_ScalingActivity.html#autoscaling-Type-ScalingActivity-StatusMessage) keys and their associated values. `StatusCode` returns `Failed`. Within `StatusMessage` there is a message indicating that the account-level service quota was reached. The following is an example of what that message might look like: 
 
-```
+```json
 {
     "ActivityId": "activity-id",
     "ServiceNamespace": "sagemaker",

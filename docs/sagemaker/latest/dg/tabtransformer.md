@@ -1,7 +1,6 @@
 
 
 # TabTransformer
-<a name="tabtransformer"></a>
 
 [TabTransformer](https://arxiv.org/abs/2012.06678) is a novel deep tabular data modeling architecture for supervised learning. The TabTransformer architecture is built on self-attention-based Transformers. The Transformer layers transform the embeddings of categorical features into robust contextual embeddings to achieve higher prediction accuracy. Furthermore, the contextual embeddings learned from TabTransformer are highly robust against both missing and noisy data features, and provide better interpretability. This page includes information about Amazon EC2 instance recommendations and sample notebooks for TabTransformer.
 

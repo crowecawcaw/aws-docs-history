@@ -1,7 +1,6 @@
 
 
 # Use CloudFormation to create a scaling policy
-<a name="endpoint-scaling-cloudformation"></a>
 
 The following example shows how to configure model auto scaling on an endpoint using CloudFormation.
 

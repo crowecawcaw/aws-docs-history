@@ -1,11 +1,10 @@
 
 
 # Get the Amazon SageMaker AI Boto 3 Client
-<a name="automatic-model-tuning-ex-client"></a>
 
 Import Amazon SageMaker Python SDK, AWS SDK for Python (Boto3), and other Python libraries. In a new Jupyter notebook, paste the following code to the first cell:
 
-```
+```python
 import sagemaker
 import boto3
 

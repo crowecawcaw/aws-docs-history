@@ -1,7 +1,6 @@
 
 
 # Hyperparameters reference
-<a name="model-customize-mtrl-hyperparams"></a>
 
 The following table lists all configurable hyperparameters for multi-turn RL training jobs. Recipe defaults are included below.
 

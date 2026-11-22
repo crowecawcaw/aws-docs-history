@@ -1,7 +1,6 @@
 
 
 # Use the RStudio administrative dashboard
-<a name="rstudio-admin"></a>
 
  This topic shows how to access and use the RStudio administrative dashboard. With the RStudio administrative dashboard, admins can manage users and RSessions, as well as view information about RStudio Server instance utilization and Amazon CloudWatch Logs.
 

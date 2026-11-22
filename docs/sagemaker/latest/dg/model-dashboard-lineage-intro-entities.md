@@ -1,7 +1,6 @@
 
 
 # Introduction to entities
-<a name="model-dashboard-lineage-intro-entities"></a>
 
 Amazon SageMaker AI automatically creates tracking entities for SageMaker AI jobs, models, model packages, and endpoints if the data is available. For a basic workflow, suppose you train a model using a dataset. SageMaker AI automatically generates a lineage graph with three entities: 
 + **Dataset** : A type of artifact, which is an entity representing a URI addressable object or data. An artifact is generally either an input or an output to a trial component or action.

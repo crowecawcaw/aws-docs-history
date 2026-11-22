@@ -1,7 +1,6 @@
 
 
 # Resources for using Scikit-learn with Amazon SageMaker AI
-<a name="sklearn"></a>
 
 You can use Amazon SageMaker AI to train and deploy a model using custom Scikit-learn code. The SageMaker AI Python SDK Scikit-learn ModelTrainers and models and the SageMaker AI open-source Scikit-learn containers make writing a Scikit-learn script and running it in SageMaker AI easier. The following section provides reference material you can use to learn how to use Scikit-learn with SageMaker AI.
 

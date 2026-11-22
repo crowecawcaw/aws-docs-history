@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AmazonSageMakerHyperPodTrainingOperatorAccess
-<a name="security-iam-awsmanpol-AmazonSageMakerHyperPodTrainingOperatorAccess"></a>
 
 This policy provides administrative permissions required to set up the SageMaker HyperPod training operator. It enables access to SageMaker HyperPod and Amazon EKS add-ons. The policy includes permissions to describe the SageMaker HyperPod resources in your account.
 

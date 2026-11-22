@@ -1,7 +1,6 @@
 
 
 # MLOps
-<a name="canvas-mlops"></a>
 
 After building a model in SageMaker Canvas that you feel confident about, you might want to integrate your model with the machine learning operations (MLOps) processes in your organization. MLOps includes common tasks such as deploying a model for use in production or setting up continuous integration and continuous deployment (CI/CD) pipelines.
 

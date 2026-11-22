@@ -1,7 +1,6 @@
 
 
 # Clean up
-<a name="automatic-model-tuning-ex-cleanup"></a>
 
 To avoid incurring unnecessary charges, when you are done with the example, use the AWS Management Console to delete the resources that you created for it. 
 

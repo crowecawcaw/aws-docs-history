@@ -1,7 +1,6 @@
 
 
 # SageMaker HyperPod references
-<a name="sagemaker-hyperpod-ref"></a>
 
 Find more information and references about using SageMaker HyperPod in the following topics.
 
@@ -38,7 +37,9 @@ The following list is a full set of SageMaker HyperPod APIs for submitting actio
 + [DeleteCluster](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteCluster.html)
 + [DescribeCluster](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCluster.html)
 + [DescribeClusterNode](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeClusterNode.html)
++ [DescribeClusterOperation](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeClusterOperation.html)
 + [ListClusterNodes](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListClusterNodes.html)
++ [ListClusterOperations](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListClusterOperations.html)
 + [ListClusters](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListClusters.html)
 + [UpdateCluster](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateCluster.html)
 + [UpdateClusterSoftware](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateClusterSoftware.html)
@@ -71,7 +72,7 @@ With API-driven configuration, you define Slurm node types, partition assignment
 
 Add `SlurmConfig` to each instance group to define the Slurm node type and partition assignment.
 
-```
+```json
 "SlurmConfig": {
     "NodeType": "Controller | Login | Compute",
     "PartitionNames": ["{{string}}"]
@@ -91,7 +92,7 @@ All nodes are automatically added to the universal `dev` partition in addition t
 
 **Example:**
 
-```
+```json
 {
     "InstanceGroupName": "gpu-compute",
     "InstanceType": "ml.p4d.24xlarge",
@@ -113,7 +114,7 @@ All nodes are automatically added to the universal `dev` partition in addition t
 
 Add `Orchestrator.Slurm` to the cluster configuration to specify how HyperPod manages the `slurm.conf` file.
 
-```
+```json
 "Orchestrator": {
     "Slurm": {
         "SlurmConfigStrategy": "Managed | Overwrite | Merge"
@@ -135,7 +136,7 @@ You can change `SlurmConfigStrategy` at any time using UpdateCluster. There is n
 
 **Example:**
 
-```
+```json
 {
     "ClusterName": "my-hyperpod-cluster",
     "InstanceGroups": [...],
@@ -172,7 +173,7 @@ With API-driven configuration, you can configure FSx filesystems per instance gr
 
 Configure FSx for Lustre filesystem mounting for an instance group.
 
-```
+```json
 "InstanceStorageConfigs": [
     {
         "FsxLustreConfig": {
@@ -194,7 +195,7 @@ Configure FSx for Lustre filesystem mounting for an instance group.
 
 Configure FSx for OpenZFS filesystem mounting for an instance group.
 
-```
+```json
 "InstanceStorageConfigs": [
     {
         "FsxOpenZfsConfig": {
@@ -214,7 +215,7 @@ Each instance group can have at most one `FsxLustreConfig` and one `FsxOpenZfsCo
 
 **Example with multiple filesystems:**
 
-```
+```json
 {
     "InstanceGroupName": "gpu-compute",
     "InstanceType": "ml.p4d.24xlarge",
@@ -259,7 +260,7 @@ FSx configuration changes only apply during node provisioning. Existing nodes re
 
 The following example shows a complete CreateCluster request using API-driven Slurm configuration:
 
-```
+```json
 {
     "ClusterName": "ml-training-cluster",
     "InstanceGroups": [
@@ -374,7 +375,7 @@ With the legacy approach, you create a Slurm configuration file named `provision
 
 The following code is the Slurm configuration form you should prepare to properly set up Slurm nodes on your HyperPod cluster. You should complete this form and upload it as part of a set of lifecycle scripts during cluster creation. To learn how this form should be prepared throughout HyperPod cluster creation processes, see [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md).
 
-```
+```json
 // Save as provisioning_parameters.json.
 {
     "version": "1.0.0",
@@ -422,8 +423,8 @@ The following code is the Slurm configuration form you should prepare to properl
 <a name="sagemaker-hyperpod-ref-hyperpod-ami"></a>
 
 SageMaker HyperPod runs a DLAMI based on:
-+ [AWS Deep Learning Base GPU AMI (Ubuntu 20.04)](https://aws.amazon.com/releasenotes/aws-deep-learning-base-gpu-ami-ubuntu-20-04/) for orchestration with Slurm.
-+ Amazon Linux 2 based AMI for orchestration with Amazon EKS.
++ [AWS Deep Learning Base GPU AMI (Ubuntu 22.04)](https://docs.aws.amazon.com/dlami/latest/devguide/aws-deep-learning-x86-base-gpu-ami-ubuntu-22-04.html) for orchestration with Slurm.
++ Amazon Linux 2023 based AMI for orchestration with Amazon EKS.
 
 The SageMaker HyperPod DLAMI is bundled with additional packages to support open source tools such as Slurm, Kubernetes, dependencies, and SageMaker HyperPod cluster software packages to support resiliency features such as cluster health check and auto-resume. To follow up with HyperPod software updates that the HyperPod service team distributes through DLAMIs, see [Amazon SageMaker HyperPod release notes](sagemaker-hyperpod-release-notes.md).
 
@@ -444,7 +445,9 @@ When you are setting up access control for allowing to run SageMaker HyperPod AP
 | DeleteCluster | sagemaker:DeleteCluster | arn:aws:sagemaker:{{region}}:{{account-id}}:cluster/{{cluster-id}} | 
 | DescribeCluster | sagemaker:DescribeCluster | arn:aws:sagemaker:{{region}}:{{account-id}}:cluster/{{cluster-id}} | 
 | DescribeClusterNode | sagemaker:DescribeClusterNode | arn:aws:sagemaker:{{region}}:{{account-id}}:cluster/{{cluster-id}} | 
+| DescribeClusterOperation | sagemaker:DescribeClusterOperation | arn:aws:sagemaker:{{region}}:{{account-id}}:cluster/{{cluster-id}} | 
 | ListClusterNodes | sagemaker:ListClusterNodes | arn:aws:sagemaker:{{region}}:{{account-id}}:cluster/{{cluster-id}} | 
+| ListClusterOperations | sagemaker:ListClusterOperations | arn:aws:sagemaker:{{region}}:{{account-id}}:cluster/{{cluster-id}} | 
 | ListClusters | sagemaker:ListClusters | arn:aws:sagemaker:{{region}}:{{account-id}}:cluster/{{cluster-id}} | 
 | UpdateCluster | sagemaker:UpdateCluster | arn:aws:sagemaker:{{region}}:{{account-id}}:cluster/{{cluster-id}} | 
 | UpdateClusterSoftware | sagemaker:UpdateClusterSoftware | arn:aws:sagemaker:{{region}}:{{account-id}}:cluster/{{cluster-id}} | 
@@ -460,7 +463,9 @@ The following are the AWS CLI commands for SageMaker HyperPod to run the core [H
 + [delete-cluster](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/delete-cluster.html)
 + [describe-cluster](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/describe-cluster.html)
 + [describe-cluster-node](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/describe-cluster-node.html)
++ [describe-cluster-operation](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/describe-cluster-operation.html)
 + [list-cluster-nodes](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/list-cluster-nodes.html)
++ [list-cluster-operations](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/list-cluster-operations.html)
 + [list-clusters](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/list-clusters.html)
 + [update-cluster](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/update-cluster.html)
 + [update-cluster-software](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/update-cluster-software.html)
@@ -474,7 +479,9 @@ The following are the methods of the AWS SDK for Python (Boto3) client for SageM
 + [delete\_cluster](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/delete_cluster.html)
 + [describe\_cluster](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/describe_cluster.html)
 + [describe\_cluster\_node](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/describe_cluster_node.html)
++ [describe\_cluster\_operation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/describe_cluster_operation.html)
 + [list\_cluster\_nodes](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/list_cluster_nodes.html)
++ [list\_cluster\_operations](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/list_cluster_operations.html)
 + [list\_clusters](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/list_clusters.html)
 + [update\_cluster](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_cluster.html)
 + [update\_cluster\_software](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_cluster_software.html)

@@ -1,7 +1,6 @@
 
 
 # Create user-defined AWS Glue connections
-<a name="sagemaker-sql-extension-datasources-glue-connection-user-defined"></a>
 
 **Note**  
 All AWS Glue connections created by users via the SQL extension UI are automatically tagged with the following:  

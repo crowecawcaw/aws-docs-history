@@ -1,7 +1,6 @@
 
 
 # Configure a space
-<a name="studio-updated-jl-user-guide-configure-space"></a>
 
 After you create a JupyterLab space, you can configure it to do the following:
 + Change the instance type.

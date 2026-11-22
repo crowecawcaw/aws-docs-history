@@ -1,7 +1,6 @@
 
 
 # Feature Processor restrictions, limits, and quotas
-<a name="feature-store-feature-processor-quotas"></a>
 
 Amazon SageMaker Feature Store Feature Processing relies on SageMaker AI machine learning (ML) lineage tracking. The Feature Store Feature Processor uses lineage contexts to represent and track Feature Processing Pipelines and Pipeline versions. Each Feature Store Feature Processor consumes at least two lineage contexts (one for the Feature Processing Pipeline and another for the version). If the input or output data source of a Feature Processing Pipeline changes, an additional lineage context is created. You can update SageMaker AI ML lineage limits by reaching out to AWS support for a limit increase. Default limits for resources used by Feature Store Feature Processor are as follows. For information on SageMaker AI ML lineage tracking, see [Amazon SageMaker ML Lineage Tracking](lineage-tracking.md).
 

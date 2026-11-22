@@ -1,7 +1,6 @@
 
 
 # Code Editor Connections and Extensions
-<a name="code-editor-use-connections-and-extensions"></a>
 
 Code Editor supports IDE connections to AWS services as well as extensions available in the [Open VSX Registry](https://open-vsx.org/). 
 
@@ -23,7 +22,7 @@ Within your Code Editor environment, you can add connections to:
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

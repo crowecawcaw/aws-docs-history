@@ -1,7 +1,6 @@
 
 
 # Docker container basics
-<a name="docker-basics"></a>
 
 The following page outlines the most significant aspects of using Docker containers with Amazon SageMaker AI.
 

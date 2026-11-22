@@ -1,7 +1,6 @@
 
 
 # Use Debugger with custom training containers
-<a name="debugger-bring-your-own-container"></a>
 
 **Note**  
 Amazon SageMaker Debugger is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md). 
@@ -42,7 +41,7 @@ This step is required to collect model parameters (output tensors) for debugging
 
 The following example code shows the structure of a training script using the Keras ResNet50 model and how to pass the Debugger hook as a Keras callback for debugging. To find a complete training script, see [TensorFlow training script with SageMaker Debugger hook](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-debugger/build_your_own_container_with_debugger/docker/tf_keras_resnet_byoc.py).
 
-```
+```python.py
 # An example of training script (your-training-script.py)
 import tensorflow.compat.v2 as tf
 from tensorflow.keras.applications.resnet50 import ResNet50
@@ -107,7 +106,7 @@ In the following example notebooks' training scripts, you can find more examples
 
 Open your SageMaker AI JupyterLab and create a new folder, `debugger_custom_container_test_folder` in this example, to save your training script and `Dockerfile`. The following code example is a `Dockerfile` that includes essential docker build commends. Paste the following code into the `Dockerfile` text file and save it. Upload your training script to the same folder.
 
-```
+```py
 # Specify a docker base image
 FROM tensorflow/tensorflow:2.2.0rc2-gpu-py3
 RUN /usr/bin/python3 -m pip install --upgrade pip
@@ -126,7 +125,7 @@ If you want to use a pre-built AWS Deep Learning Container image, see [Available
 
 Create a test notebook, `debugger_custom_container_test_notebook.ipynb`, and run the following code in the notebook cell. This will access the `debugger_byoc_test_docker` directory, build the docker with the specified `algorithm_name`, and push the docker container to your Amazon ECR.
 
-```
+```bash
 import boto3
 
 account_id = boto3.client('sts').get_caller_identity().get('Account')
@@ -150,7 +149,7 @@ byoc_image_uri = '{}.dkr.ecr.{}.{}/{}'.format(account_id, region, uri_suffix, ec
 **Tip**  
 If you use one of the AWS Deep Learning Container base images, run the following code to log in to Amazon ECR and access to the Deep Learning Container image repository.  
 
-```
+```bash
 ! aws ecr get-login-password --region {region} | docker login --username AWS --password-stdin 763104351884.dkr.ecr.us-east-1.amazonaws.com
 ```
 
@@ -159,7 +158,7 @@ If you use one of the AWS Deep Learning Container base images, run the following
 
 After you build and push your docker container to Amazon ECR, configure a SageMaker AI ModelTrainer with your training script and the Debugger-specific parameters. After you execute the `model_trainer.train()`, Debugger will collect output tensors, monitor them, and detect training issues. Using the saved tensors, you can further analyze the training job by using the `smdebug` core features and tools. Configuring a workflow of Debugger rule monitoring process with Amazon CloudWatch Events and AWS Lambda, you can automate a stopping training job process whenever the Debugger rules spots training issues.
 
-```
+```py
 import sagemaker
 from sagemaker.train import ModelTrainer
 from sagemaker.core.debugger import Rule, DebuggerHookConfig, CollectionConfig, rule_configs

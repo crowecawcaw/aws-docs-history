@@ -1,7 +1,6 @@
 
 
 # Stop and delete your Studio running applications and spaces
-<a name="studio-updated-running-stop"></a>
 
 The following page includes information and instructions on how to stop and delete unused Amazon SageMaker Studio resources to avoid unwanted additional costs. For the Studio resources you no longer you wish to use, you will need to both:
 + Stop the application: This stops both the application and deletes the instance that the application is running on. Once you stop an application you can start it back up again.

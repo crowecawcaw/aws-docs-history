@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker Model Cards
-<a name="model-cards"></a>
 
 **Important**  
 Amazon SageMaker Model Card is integrated with SageMaker Model Registry. If you're registering a model within Model Registry, you can use the integration to add auditing information. For more information, see [Update the Details of a Model Version](model-registry-details.md).
@@ -61,7 +60,7 @@ When creating a model card using the SageMaker Python SDK, model content must be
 ### Model card JSON schema sample file
 <a name="model-cards-json-schema-example"></a>
 
-```
+```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "http://json-schema.org/draft-07/schema#",

@@ -1,7 +1,6 @@
 
 
 # Modify your training script to assign instance groups
-<a name="train-heterogeneous-cluster-modify-training-script"></a>
 
 With the heterogeneous cluster configuration in the previous sections, you have prepared the SageMaker training environment and instances for your training job. To further assign the instance groups to certain training and data processing tasks, the next step is to modify your training script. By default, the training job simply makes training script replicas for all nodes regardless the size of the instance, and this might lead to performance loss. 
 
@@ -15,7 +14,7 @@ You can query instance group information during the initialization phase of a Sa
 
 Use the environment Python module that the [SageMaker training toolkit library](https://github.com/aws/sagemaker-training-toolkit) provides. The toolkit library is preinstalled in the [SageMaker framework containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only) for TensorFlow and PyTorch, so you don’t need an additional installation step when using the prebuilt containers. This is the recommended way to retrieve the SageMaker AI environment variables with fewer code changes in your training script.
 
-```
+```py
 from sagemaker_training import environment
 
 env = environment.Environment()
@@ -34,7 +33,7 @@ Environment variables related to general SageMaker training and heterogeneous cl
 
 For example, consider the following example of a heterogeneous cluster that consists of two instance groups.
 
-```
+```py
 from sagemaker.instance_group import InstanceGroup
 
 instance_group_1 = InstanceGroup(
@@ -45,7 +44,7 @@ instance_group_2 = InstanceGroup(
 
 The output of `env.instance_groups_dict` of the example heterogeneous cluster should be similar to the following.
 
-```
+```dict
 {
     "instance_group_1": {
         "hosts": [
@@ -69,7 +68,7 @@ The output of `env.instance_groups_dict` of the example heterogeneous cluster sh
 
 If you prefer to retrieve the environment variables in JSON format, you can directly use the resource configuration JSON file. The JSON file in a SageMaker training instance is located at `/opt/ml/input/config/resourceconfig.json` by default.
 
-```
+```py
 file_path = '/opt/ml/input/config/resourceconfig.json'
 config = read_file_as_json(file_path)
 print(json.dumps(config, indent=4, sort_keys=True))

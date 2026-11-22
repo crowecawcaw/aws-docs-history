@@ -1,7 +1,6 @@
 
 
 # JupyterLab versioning
-<a name="nbi-jl"></a>
 
 **Important**  
 JupyterLab 1 and JupyterLab 3 are no longer supported as of June 30, 2025. You can no longer create new or restart stopped notebook instances using these versions. Existing in-service instances may continue to function but will not receive security updates or bug fixes. Migrate to AL2023 (`notebook-al2023-v1`) for continued support. For more information, see [JupyterLab version maintenance](#nbi-jl-version-maintenance).
@@ -26,7 +25,7 @@ JupyterLab 1 and JupyterLab 3 platforms reached end of standard support on June 
 + You are responsible for managing the security of these deprecated instances.
 + If issues arise with existing JupyterLab 1 or JupyterLab 3 notebook instances, SageMaker AI cannot guarantee their continued availability. You must migrate your workload to a JupyterLab 4 notebook instance.
 
-Migrate your work to JupyterLab 4 notebook instances (the latest version's platform identifier is [notebook-al2023-v1](nbi-al2023.md)) to ensure you have a secure and supported environment. This allows you to leverage the latest versions of Jupyter notebooks, JupyterLab, and other ML libraries. For migration instructions, see [Migrating from Amazon Linux 2 to AL2023](nbi-al2.md#nbi-al2-migration).
+Migrate your work to JupyterLab 4 notebook instances (the AL2023 platform identifiers are [notebook-al2023-v1](nbi-al2023.md) and [notebook-al2023-v2](nbi-al2023.md)) to ensure you have a secure and supported environment. This allows you to leverage the latest versions of Jupyter notebooks, JupyterLab, and other ML libraries. For migration instructions, see [Migrating from Amazon Linux 2 to AL2023](nbi-al2.md#nbi-al2-migration).
 
 ## JupyterLab 4
 <a name="nbi-jl-4"></a>
@@ -38,7 +37,7 @@ JupyterLab 4 support is available on the AL2023 and Amazon Linux 2 operating sys
 + New extension manager installing from pypi
 + Added improvements to the UI, including document search and accessibility improvements
 
-You can run JupyterLab 4 by specifying [notebook-al2023-v1](nbi-al2023.md) (the latest and recommended version) or [notebook-al2-v3](nbi-al2.md) as the platform identifier when creating your notebook instance. Note that `notebook-al2-v3` is deprecating on July 1, 2026. Use `notebook-al2023-v1` for all new instances.
+You can run JupyterLab 4 by specifying [notebook-al2023-v1](nbi-al2023.md) (the default and recommended version), [notebook-al2023-v2](nbi-al2023.md) (Python 3.12), or [notebook-al2-v3](nbi-al2.md) as the platform identifier when creating your notebook instance. Note that `notebook-al2-v3` is deprecated as of July 1, 2026. Use an AL2023 platform identifier (`notebook-al2023-v1` or `notebook-al2023-v2`) for all new instances.
 
 **Note**  
 If you attempt to migrate to a JupyterLab 4 Notebook Instance from another JupyterLab version, the package version changes between JupyterLab 3 and JupyterLab 4 might break any existing lifecycle configurations or Jupyter/JupyterLab extensions.

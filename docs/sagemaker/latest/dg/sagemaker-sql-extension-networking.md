@@ -1,7 +1,6 @@
 
 
 # Configure network access between Studio and data sources (for administrators)
-<a name="sagemaker-sql-extension-networking"></a>
 
 This section provides information about how administrators can configure a network to enable communication between Amazon SageMaker Studio and [Amazon Redshift](https://aws.amazon.com/redshift/) or [Amazon Athena](https://aws.amazon.com/athena/), either within a private Amazon VPC or over the internet. The networking instructions vary based on whether the Studio domain and the data store are deployed within a private [Amazon Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) (VPC) or communicate over the internet.
 

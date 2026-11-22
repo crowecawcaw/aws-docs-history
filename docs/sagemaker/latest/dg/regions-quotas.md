@@ -1,7 +1,6 @@
 
 
 # Supported Regions and Quotas
-<a name="regions-quotas"></a>
 
 This page gives information about the AWS Regions supported by Amazon SageMaker AI and the Amazon Elastic Compute Cloud (Amazon EC2) instance types, as well as quotas for Amazon SageMaker AI resources. 
 

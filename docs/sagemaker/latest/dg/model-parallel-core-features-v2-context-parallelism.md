@@ -1,7 +1,6 @@
 
 
 # Context parallelism
-<a name="model-parallel-core-features-v2-context-parallelism"></a>
 
 *Context parallelism* is a type of model parallelism that partitions the model activations along the sequence dimension. Unlike other [sequence parallelism](https://arxiv.org/abs/2205.05198) techniques, which only partition the `LayerNorm` and `RMSNorm`, context parallelism partitions the network inputs and all intermediate activations along the sequence dimension. 
 
@@ -29,7 +28,7 @@ As part of [Step 1](model-parallel-use-api-v2.md#model-parallel-adapt-pytorch-sc
 
 Starting from SMP v2.6.0, you can use the argument `cp_comm_type` to determine which context parallelism implementation to use. The SMP library currently supports two implementations: `p2p` and `all_gather`. The `p2p` implementation uses peer-to-peer send-receive calls for key-value accumulation during the attention implementation and runs asynchronously, allowing overlaps with compute. `all_gather` implementation, instead, uses the `AllGather` collective operation and runs synchronously.
 
-```
+```py
 import torch.sagemaker as tsm
 tsm.init()
 
@@ -43,7 +42,7 @@ model = tsm.transform(model, cp_comm_type="p2p")
 
 As part of [Step 2](model-parallel-use-api-v2.md#model-parallel-launch-a-training-job-v2), add the following parameter to the SMP configuration dictionary for the SageMaker PyTorch ModelTrainer.
 
-```
+```py
 {   
     ..., # other SMP config parameters
     "context_parallel_degree": 2

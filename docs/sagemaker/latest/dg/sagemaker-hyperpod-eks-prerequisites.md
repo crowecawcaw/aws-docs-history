@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon EKS support in SageMaker HyperPod
-<a name="sagemaker-hyperpod-eks-prerequisites"></a>
 
 In addition to the general [Prerequisites for using SageMaker HyperPod](sagemaker-hyperpod-prerequisites.md) for SageMaker HyperPod, check the following requirements and considerations for orchestrating SageMaker HyperPod clusters using Amazon EKS.
 
@@ -18,13 +17,13 @@ Before creating a HyperPod cluster, you need a running Amazon EKS cluster config
 When provisioning your Amazon EKS cluster, consider the following:
 
 1. **Kubernetes version support**
-   + SageMaker HyperPod supports Kubernetes versions 1.30, 1.31, 1.32, 1.33, 1.34, and 1.35.
+   + SageMaker HyperPod supports Kubernetes versions 1.31, 1.32, 1.33, 1.34, 1.35, 1.36, and 1.37.
 
 1. **Amazon EKS cluster authentication mode**
    + The authentication mode of an Amazon EKS cluster supported by SageMaker HyperPod are `API` and `API_AND_CONFIG_MAP`.
 
 1. **Networking**
-   + SageMaker HyperPod requires the Amazon VPC Container Network Interface (CNI) plug-in version 1.18.3 or later.
+   + SageMaker HyperPod requires the Amazon VPC Container Network Interface (CNI) plug-in version 1.18.3 or later. To use [Increasing pods per node with dynamic ENI attachment](sagemaker-hyperpod-eks-dynamic-eni-attachment.md), you need version `v1.23.3-eksbuild.1` or later.
 **Note**  
 [AWS VPC CNI plugin for Kubernetes](https://github.com/aws/amazon-vpc-cni-k8s) is the only CNI supported by SageMaker HyperPod.
    + The [type of the subnet](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html#subnet-types) in your VPC must be private for HyperPod clusters.
@@ -43,7 +42,7 @@ Do not install a CSI driver that manages NVMe instance storage (sometimes called
 + If you use instance-type labels to define scheduling constraints, ensure that you use the SageMaker AI ML instance types prefixed with `ml.`. For example, for P5 instances, use `ml.p5.48xlarge` instead of `p5.48xlarge`.
 
 **Considerations for configuring network for SageMaker HyperPod clusters with Amazon EKS**
-+ Each HyperPod cluster instance supports one Elastic Network Interface (ENI). For the maximum number of Pods per instance type, refer to the following table.
++ The Amazon VPC CNI attaches more elastic network interfaces (ENIs) to each HyperPod cluster instance as it needs them. For more information, see [Increasing pods per node with dynamic ENI attachment](sagemaker-hyperpod-eks-dynamic-eni-attachment.md). The following table lists the maximum number of pods per instance type. These values apply to nodes that run the updated HyperPod AMI with Amazon VPC CNI `v1.23.3-eksbuild.1` or later. Nodes that are not updated keep the previous one-ENI limit.
 
 
 <table>
@@ -51,149 +50,149 @@ Do not install a CSI driver that manages NVMe instance storage (sometimes called
   <tr><th>Instance type</th><th>Max number of pods</th></tr>
 </thead>
 <tbody>
-  <tr><td>ml.p4d.24xlarge</td><td>49</td></tr>
-  <tr><td>ml.p4de.24xlarge</td><td>49</td></tr>
-  <tr><td>ml.p5.48xlarge</td><td>49</td></tr>
-  <tr><td>ml.trn1.32xlarge</td><td>49</td></tr>
-  <tr><td>ml.trn1n.32xlarge</td><td>49</td></tr>
-  <tr><td>ml.g5.xlarge</td><td>14</td></tr>
-  <tr><td>ml.g5.2xlarge</td><td>14</td></tr>
-  <tr><td>ml.g5.4xlarge</td><td>29</td></tr>
-  <tr><td>ml.g5.8xlarge</td><td>29</td></tr>
-  <tr><td>ml.g5.12xlarge</td><td>49</td></tr>
-  <tr><td>ml.g5.16xlarge</td><td>29</td></tr>
-  <tr><td>ml.g5.24xlarge</td><td>49</td></tr>
-  <tr><td>ml.g5.48xlarge</td><td>49</td></tr>
-  <tr><td>ml.c5.large</td><td>9</td></tr>
-  <tr><td>ml.c5.xlarge</td><td>14</td></tr>
-  <tr><td>ml.c5.2xlarge</td><td>14</td></tr>
-  <tr><td>ml.c5.4xlarge</td><td>29</td></tr>
-  <tr><td>ml.c5.9xlarge</td><td>29</td></tr>
-  <tr><td>ml.c5.12xlarge</td><td>29</td></tr>
-  <tr><td>ml.c5.18xlarge</td><td>49</td></tr>
-  <tr><td>ml.c5.24xlarge</td><td>49</td></tr>
-  <tr><td>ml.c5n.large</td><td>9</td></tr>
-  <tr><td>ml.c5n.2xlarge</td><td>14</td></tr>
-  <tr><td>ml.c5n.4xlarge</td><td>29</td></tr>
-  <tr><td>ml.c5n.9xlarge</td><td>29</td></tr>
-  <tr><td>ml.c5n.18xlarge</td><td>49</td></tr>
-  <tr><td>ml.m5.large</td><td>9</td></tr>
-  <tr><td>ml.m5.xlarge</td><td>14</td></tr>
-  <tr><td>ml.m5.2xlarge</td><td>14</td></tr>
-  <tr><td>ml.m5.4xlarge</td><td>29</td></tr>
-  <tr><td>ml.m5.8xlarge</td><td>29</td></tr>
-  <tr><td>ml.m5.12xlarge</td><td>29</td></tr>
-  <tr><td>ml.m5.16xlarge</td><td>49</td></tr>
-  <tr><td>ml.m5.24xlarge</td><td>49</td></tr>
-  <tr><td>ml.t3.medium</td><td>5</td></tr>
-  <tr><td>ml.t3.large</td><td>11</td></tr>
-  <tr><td>ml.t3.xlarge</td><td>14</td></tr>
-  <tr><td>ml.t3.2xlarge</td><td>14</td></tr>
-  <tr><td>ml.g6.xlarge</td><td>14</td></tr>
-  <tr><td>ml.g6.2xlarge</td><td>14</td></tr>
-  <tr><td>ml.g6.4xlarge</td><td>29</td></tr>
-  <tr><td>ml.g6.8xlarge</td><td>29</td></tr>
-  <tr><td>ml.g6.12xlarge</td><td>29</td></tr>
-  <tr><td>ml.g6.16xlarge</td><td>49</td></tr>
-  <tr><td>ml.g6.24xlarge</td><td>49</td></tr>
-  <tr><td>ml.g6.48xlarge</td><td>49</td></tr>
-  <tr><td>ml.gr6.4xlarge</td><td>29</td></tr>
-  <tr><td>ml.gr6.8xlarge</td><td>29</td></tr>
-  <tr><td>ml.g6e.xlarge</td><td>14</td></tr>
-  <tr><td>ml.g6e.2xlarge</td><td>14</td></tr>
-  <tr><td>ml.g6e.4xlarge</td><td>29</td></tr>
-  <tr><td>ml.g6e.8xlarge</td><td>29</td></tr>
-  <tr><td>ml.g6e.12xlarge</td><td>29</td></tr>
-  <tr><td>ml.g6e.16xlarge</td><td>49</td></tr>
-  <tr><td>ml.g6e.24xlarge</td><td>49</td></tr>
-  <tr><td>ml.g6e.48xlarge</td><td>49</td></tr>
-  <tr><td>ml.p5e.48xlarge</td><td>49</td></tr>
-  <tr><td>ml.p6-b300.48xlarge</td><td>49</td></tr>
-  <tr><td>ml.r5d.16xlarge</td><td>49</td></tr>
-  <tr><td>ml.g7e.2xlarge</td><td>49</td></tr>
-  <tr><td>ml.g7e.4xlarge</td><td>49</td></tr>
-  <tr><td>ml.g7e.8xlarge</td><td>49</td></tr>
-  <tr><td>ml.g7e.12xlarge</td><td>49</td></tr>
-  <tr><td>ml.g7e.24xlarge</td><td>49</td></tr>
-  <tr><td>ml.g7e.48xlarge</td><td>49</td></tr>
-  <tr><td>ml.g4dn.xlarge</td><td>9</td></tr>
-  <tr><td>ml.g4dn.2xlarge</td><td>9</td></tr>
-  <tr><td>ml.g4dn.4xlarge</td><td>9</td></tr>
-  <tr><td>ml.g4dn.8xlarge</td><td>14</td></tr>
-  <tr><td>ml.g4dn.12xlarge</td><td>29</td></tr>
-  <tr><td>ml.g4dn.16xlarge</td><td>14</td></tr>
-  <tr><td>ml.c6g.medium</td><td>3</td></tr>
-  <tr><td>ml.c6g.large</td><td>9</td></tr>
-  <tr><td>ml.c6g.xlarge</td><td>14</td></tr>
-  <tr><td>ml.c6g.2xlarge</td><td>14</td></tr>
-  <tr><td>ml.c6g.4xlarge</td><td>29</td></tr>
-  <tr><td>ml.c6g.8xlarge</td><td>29</td></tr>
-  <tr><td>ml.c6g.12xlarge</td><td>29</td></tr>
-  <tr><td>ml.c6g.16xlarge</td><td>49</td></tr>
-  <tr><td>ml.c7g.medium</td><td>3</td></tr>
-  <tr><td>ml.c7g.large</td><td>9</td></tr>
-  <tr><td>ml.c7g.xlarge</td><td>14</td></tr>
-  <tr><td>ml.c7g.2xlarge</td><td>14</td></tr>
-  <tr><td>ml.c7g.4xlarge</td><td>29</td></tr>
-  <tr><td>ml.c7g.8xlarge</td><td>29</td></tr>
-  <tr><td>ml.c7g.12xlarge</td><td>29</td></tr>
-  <tr><td>ml.c7g.16xlarge</td><td>49</td></tr>
-  <tr><td>ml.c8g.medium</td><td>3</td></tr>
-  <tr><td>ml.c8g.large</td><td>9</td></tr>
-  <tr><td>ml.c8g.xlarge</td><td>14</td></tr>
-  <tr><td>ml.c8g.2xlarge</td><td>14</td></tr>
-  <tr><td>ml.c8g.4xlarge</td><td>29</td></tr>
-  <tr><td>ml.c8g.8xlarge</td><td>29</td></tr>
-  <tr><td>ml.c8g.12xlarge</td><td>29</td></tr>
-  <tr><td>ml.c8g.16xlarge</td><td>49</td></tr>
-  <tr><td>ml.c8g.24xlarge</td><td>49</td></tr>
-  <tr><td>ml.c8g.48xlarge</td><td>49</td></tr>
-  <tr><td>ml.c6a.large</td><td>9</td></tr>
-  <tr><td>ml.c6a.xlarge</td><td>14</td></tr>
-  <tr><td>ml.c6a.2xlarge</td><td>14</td></tr>
-  <tr><td>ml.c6a.4xlarge</td><td>29</td></tr>
-  <tr><td>ml.c6a.8xlarge</td><td>29</td></tr>
-  <tr><td>ml.c6a.12xlarge</td><td>29</td></tr>
-  <tr><td>ml.c6a.16xlarge</td><td>49</td></tr>
-  <tr><td>ml.c6a.24xlarge</td><td>49</td></tr>
-  <tr><td>ml.c6a.32xlarge</td><td>49</td></tr>
-  <tr><td>ml.c6a.48xlarge</td><td>49</td></tr>
-  <tr><td>ml.m6a.large</td><td>9</td></tr>
-  <tr><td>ml.m6a.xlarge</td><td>14</td></tr>
-  <tr><td>ml.m6a.2xlarge</td><td>14</td></tr>
-  <tr><td>ml.m6a.4xlarge</td><td>29</td></tr>
-  <tr><td>ml.m6a.8xlarge</td><td>29</td></tr>
-  <tr><td>ml.m6a.12xlarge</td><td>29</td></tr>
-  <tr><td>ml.m6a.16xlarge</td><td>49</td></tr>
-  <tr><td>ml.m6a.24xlarge</td><td>49</td></tr>
-  <tr><td>ml.m6a.32xlarge</td><td>49</td></tr>
-  <tr><td>ml.m6a.48xlarge</td><td>49</td></tr>
-  <tr><td>ml.m6g.medium</td><td>3</td></tr>
-  <tr><td>ml.m6g.large</td><td>9</td></tr>
-  <tr><td>ml.m6g.xlarge</td><td>14</td></tr>
-  <tr><td>ml.m6g.2xlarge</td><td>14</td></tr>
-  <tr><td>ml.m6g.4xlarge</td><td>29</td></tr>
-  <tr><td>ml.m6g.8xlarge</td><td>29</td></tr>
-  <tr><td>ml.m6g.12xlarge</td><td>29</td></tr>
-  <tr><td>ml.m6g.16xlarge</td><td>49</td></tr>
-  <tr><td>ml.m7g.medium</td><td>3</td></tr>
-  <tr><td>ml.m7g.large</td><td>9</td></tr>
-  <tr><td>ml.m7g.xlarge</td><td>14</td></tr>
-  <tr><td>ml.m7g.2xlarge</td><td>14</td></tr>
-  <tr><td>ml.m7g.4xlarge</td><td>29</td></tr>
-  <tr><td>ml.m7g.8xlarge</td><td>29</td></tr>
-  <tr><td>ml.m7g.12xlarge</td><td>29</td></tr>
-  <tr><td>ml.m7g.16xlarge</td><td>49</td></tr>
-  <tr><td>ml.m8g.medium</td><td>3</td></tr>
-  <tr><td>ml.m8g.large</td><td>9</td></tr>
-  <tr><td>ml.m8g.xlarge</td><td>14</td></tr>
-  <tr><td>ml.m8g.2xlarge</td><td>14</td></tr>
-  <tr><td>ml.m8g.4xlarge</td><td>29</td></tr>
-  <tr><td>ml.m8g.8xlarge</td><td>29</td></tr>
-  <tr><td>ml.m8g.12xlarge</td><td>29</td></tr>
-  <tr><td>ml.m8g.16xlarge</td><td>49</td></tr>
-  <tr><td>ml.m8g.24xlarge</td><td>49</td></tr>
-  <tr><td>ml.m8g.48xlarge</td><td>49</td></tr>
+  <tr><td>ml.p4d.24xlarge</td><td>250</td></tr>
+  <tr><td>ml.p4de.24xlarge</td><td>250</td></tr>
+  <tr><td>ml.p5.48xlarge</td><td>51</td></tr>
+  <tr><td>ml.trn1.32xlarge</td><td>198</td></tr>
+  <tr><td>ml.trn1n.32xlarge</td><td>198</td></tr>
+  <tr><td>ml.g5.xlarge</td><td>44</td></tr>
+  <tr><td>ml.g5.2xlarge</td><td>44</td></tr>
+  <tr><td>ml.g5.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.g5.8xlarge</td><td>205</td></tr>
+  <tr><td>ml.g5.12xlarge</td><td>250</td></tr>
+  <tr><td>ml.g5.16xlarge</td><td>205</td></tr>
+  <tr><td>ml.g5.24xlarge</td><td>250</td></tr>
+  <tr><td>ml.g5.48xlarge</td><td>250</td></tr>
+  <tr><td>ml.c5.large</td><td>20</td></tr>
+  <tr><td>ml.c5.xlarge</td><td>44</td></tr>
+  <tr><td>ml.c5.2xlarge</td><td>44</td></tr>
+  <tr><td>ml.c5.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.c5.9xlarge</td><td>205</td></tr>
+  <tr><td>ml.c5.12xlarge</td><td>205</td></tr>
+  <tr><td>ml.c5.18xlarge</td><td>250</td></tr>
+  <tr><td>ml.c5.24xlarge</td><td>250</td></tr>
+  <tr><td>ml.c5n.large</td><td>20</td></tr>
+  <tr><td>ml.c5n.2xlarge</td><td>44</td></tr>
+  <tr><td>ml.c5n.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.c5n.9xlarge</td><td>205</td></tr>
+  <tr><td>ml.c5n.18xlarge</td><td>250</td></tr>
+  <tr><td>ml.m5.large</td><td>20</td></tr>
+  <tr><td>ml.m5.xlarge</td><td>44</td></tr>
+  <tr><td>ml.m5.2xlarge</td><td>44</td></tr>
+  <tr><td>ml.m5.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.m5.8xlarge</td><td>205</td></tr>
+  <tr><td>ml.m5.12xlarge</td><td>205</td></tr>
+  <tr><td>ml.m5.16xlarge</td><td>250</td></tr>
+  <tr><td>ml.m5.24xlarge</td><td>250</td></tr>
+  <tr><td>ml.t3.medium</td><td>12</td></tr>
+  <tr><td>ml.t3.large</td><td>24</td></tr>
+  <tr><td>ml.t3.xlarge</td><td>44</td></tr>
+  <tr><td>ml.t3.2xlarge</td><td>44</td></tr>
+  <tr><td>ml.g6.xlarge</td><td>44</td></tr>
+  <tr><td>ml.g6.2xlarge</td><td>44</td></tr>
+  <tr><td>ml.g6.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.g6.8xlarge</td><td>205</td></tr>
+  <tr><td>ml.g6.12xlarge</td><td>205</td></tr>
+  <tr><td>ml.g6.16xlarge</td><td>250</td></tr>
+  <tr><td>ml.g6.24xlarge</td><td>250</td></tr>
+  <tr><td>ml.g6.48xlarge</td><td>250</td></tr>
+  <tr><td>ml.gr6.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.gr6.8xlarge</td><td>205</td></tr>
+  <tr><td>ml.g6e.xlarge</td><td>44</td></tr>
+  <tr><td>ml.g6e.2xlarge</td><td>44</td></tr>
+  <tr><td>ml.g6e.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.g6e.8xlarge</td><td>205</td></tr>
+  <tr><td>ml.g6e.12xlarge</td><td>250</td></tr>
+  <tr><td>ml.g6e.16xlarge</td><td>250</td></tr>
+  <tr><td>ml.g6e.24xlarge</td><td>250</td></tr>
+  <tr><td>ml.g6e.48xlarge</td><td>250</td></tr>
+  <tr><td>ml.p5e.48xlarge</td><td>51</td></tr>
+  <tr><td>ml.p6-b300.48xlarge</td><td>149</td></tr>
+  <tr><td>ml.r5d.16xlarge</td><td>250</td></tr>
+  <tr><td>ml.g7e.2xlarge</td><td>110</td></tr>
+  <tr><td>ml.g7e.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.g7e.8xlarge</td><td>250</td></tr>
+  <tr><td>ml.g7e.12xlarge</td><td>250</td></tr>
+  <tr><td>ml.g7e.24xlarge</td><td>250</td></tr>
+  <tr><td>ml.g7e.48xlarge</td><td>250</td></tr>
+  <tr><td>ml.g4dn.xlarge</td><td>20</td></tr>
+  <tr><td>ml.g4dn.2xlarge</td><td>20</td></tr>
+  <tr><td>ml.g4dn.4xlarge</td><td>20</td></tr>
+  <tr><td>ml.g4dn.8xlarge</td><td>44</td></tr>
+  <tr><td>ml.g4dn.12xlarge</td><td>205</td></tr>
+  <tr><td>ml.g4dn.16xlarge</td><td>44</td></tr>
+  <tr><td>ml.c6g.medium</td><td>5</td></tr>
+  <tr><td>ml.c6g.large</td><td>20</td></tr>
+  <tr><td>ml.c6g.xlarge</td><td>44</td></tr>
+  <tr><td>ml.c6g.2xlarge</td><td>44</td></tr>
+  <tr><td>ml.c6g.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.c6g.8xlarge</td><td>205</td></tr>
+  <tr><td>ml.c6g.12xlarge</td><td>205</td></tr>
+  <tr><td>ml.c6g.16xlarge</td><td>250</td></tr>
+  <tr><td>ml.c7g.medium</td><td>5</td></tr>
+  <tr><td>ml.c7g.large</td><td>20</td></tr>
+  <tr><td>ml.c7g.xlarge</td><td>44</td></tr>
+  <tr><td>ml.c7g.2xlarge</td><td>44</td></tr>
+  <tr><td>ml.c7g.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.c7g.8xlarge</td><td>205</td></tr>
+  <tr><td>ml.c7g.12xlarge</td><td>205</td></tr>
+  <tr><td>ml.c7g.16xlarge</td><td>250</td></tr>
+  <tr><td>ml.c8g.medium</td><td>5</td></tr>
+  <tr><td>ml.c8g.large</td><td>20</td></tr>
+  <tr><td>ml.c8g.xlarge</td><td>44</td></tr>
+  <tr><td>ml.c8g.2xlarge</td><td>44</td></tr>
+  <tr><td>ml.c8g.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.c8g.8xlarge</td><td>205</td></tr>
+  <tr><td>ml.c8g.12xlarge</td><td>205</td></tr>
+  <tr><td>ml.c8g.16xlarge</td><td>250</td></tr>
+  <tr><td>ml.c8g.24xlarge</td><td>250</td></tr>
+  <tr><td>ml.c8g.48xlarge</td><td>250</td></tr>
+  <tr><td>ml.c6a.large</td><td>20</td></tr>
+  <tr><td>ml.c6a.xlarge</td><td>44</td></tr>
+  <tr><td>ml.c6a.2xlarge</td><td>44</td></tr>
+  <tr><td>ml.c6a.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.c6a.8xlarge</td><td>205</td></tr>
+  <tr><td>ml.c6a.12xlarge</td><td>205</td></tr>
+  <tr><td>ml.c6a.16xlarge</td><td>250</td></tr>
+  <tr><td>ml.c6a.24xlarge</td><td>250</td></tr>
+  <tr><td>ml.c6a.32xlarge</td><td>250</td></tr>
+  <tr><td>ml.c6a.48xlarge</td><td>250</td></tr>
+  <tr><td>ml.m6a.large</td><td>20</td></tr>
+  <tr><td>ml.m6a.xlarge</td><td>44</td></tr>
+  <tr><td>ml.m6a.2xlarge</td><td>44</td></tr>
+  <tr><td>ml.m6a.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.m6a.8xlarge</td><td>205</td></tr>
+  <tr><td>ml.m6a.12xlarge</td><td>205</td></tr>
+  <tr><td>ml.m6a.16xlarge</td><td>250</td></tr>
+  <tr><td>ml.m6a.24xlarge</td><td>250</td></tr>
+  <tr><td>ml.m6a.32xlarge</td><td>250</td></tr>
+  <tr><td>ml.m6a.48xlarge</td><td>250</td></tr>
+  <tr><td>ml.m6g.medium</td><td>5</td></tr>
+  <tr><td>ml.m6g.large</td><td>20</td></tr>
+  <tr><td>ml.m6g.xlarge</td><td>44</td></tr>
+  <tr><td>ml.m6g.2xlarge</td><td>44</td></tr>
+  <tr><td>ml.m6g.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.m6g.8xlarge</td><td>205</td></tr>
+  <tr><td>ml.m6g.12xlarge</td><td>205</td></tr>
+  <tr><td>ml.m6g.16xlarge</td><td>250</td></tr>
+  <tr><td>ml.m7g.medium</td><td>5</td></tr>
+  <tr><td>ml.m7g.large</td><td>20</td></tr>
+  <tr><td>ml.m7g.xlarge</td><td>44</td></tr>
+  <tr><td>ml.m7g.2xlarge</td><td>44</td></tr>
+  <tr><td>ml.m7g.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.m7g.8xlarge</td><td>205</td></tr>
+  <tr><td>ml.m7g.12xlarge</td><td>205</td></tr>
+  <tr><td>ml.m7g.16xlarge</td><td>250</td></tr>
+  <tr><td>ml.m8g.medium</td><td>5</td></tr>
+  <tr><td>ml.m8g.large</td><td>20</td></tr>
+  <tr><td>ml.m8g.xlarge</td><td>44</td></tr>
+  <tr><td>ml.m8g.2xlarge</td><td>44</td></tr>
+  <tr><td>ml.m8g.4xlarge</td><td>110</td></tr>
+  <tr><td>ml.m8g.8xlarge</td><td>205</td></tr>
+  <tr><td>ml.m8g.12xlarge</td><td>205</td></tr>
+  <tr><td>ml.m8g.16xlarge</td><td>250</td></tr>
+  <tr><td>ml.m8g.24xlarge</td><td>250</td></tr>
+  <tr><td>ml.m8g.48xlarge</td><td>250</td></tr>
 </tbody>
 </table>
 
@@ -206,7 +205,7 @@ Do not install a CSI driver that manages NVMe instance storage (sometimes called
 + The HyperPod deep health check and health monitoring agent supports GPU and Trn instances.
 + SageMaker AI applies the following taint to nodes when they are undergoing deep health checks:
 
-  ```
+  ```yaml
   effect: NoSchedule
   key: sagemaker.amazonaws.com/node-health-status
   value: Unschedulable

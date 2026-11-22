@@ -1,7 +1,6 @@
 
 
 # Create an AutoML job for time-series forecasting using the API
-<a name="autopilot-create-experiment-timeseries-forecasting"></a>
 
 Forecasting in machine learning refers to the process of predicting future outcomes or trends based on historical data and patterns. By analyzing past time-series data and identifying underlying patterns, machine learning algorithms can make predictions and provide valuable insights into future behavior. In forecasting, the goal is to develop models that can accurately capture the relationship between input variables and the target variable over time. This involves examining various factors such as trends, seasonality, and other relevant patterns within the data. The collected information is then used to train a machine learning model. The trained model is capable of generating predictions by taking new input data and applying the learned patterns and relationships. It can provide forecasts for a wide range of use cases, such as sales projections, stock market trends, weather forecasts, demand forecasting, and many more.
 
@@ -60,7 +59,7 @@ When calling `[CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/A
 
   The following is an example of those request parameters. In this example, you are setting up a daily forecast for the expected quantity or level of demand of specific items over a period of 20 days.
 
-  ```
+  ```JSON
   "AutoMLProblemTypeConfig": { 
           "ForecastFrequency": "D",
           "ForecastHorizon": 20,
@@ -91,7 +90,7 @@ Then, you can specify an array of selected `AutoMLAlgorithms` in the `Algorithms
 
 The following is an example of an `AlgorithmsConfig` attribute listing exactly three algorithms ("cnn-qr", "prophet", "arima") in its `AutoMLAlgorithms` field.
 
-```
+```json
 {
    "[AutoMLProblemTypeConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html#sagemaker-CreateAutoMLJobV2-request-AutoMLProblemTypeConfig)": {
         "[TimeSeriesForecastingJobConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TimeSeriesForecastingJobConfig.html)": {
@@ -116,7 +115,7 @@ In Autopilot, you can specify up to five forecast quantiles from 0.01 (`p1`) to 
 
 In the following example, you are setting up a daily 10th, 25th, 50th, 75th, and 90th percentile forecast for the expected quantity or level of demand of specific items over a period of 20 days.
 
-```
+```JSON
 "AutoMLProblemTypeConfig": { 
         "ForecastFrequency": "D",
         "ForecastHorizon": 20,
@@ -217,7 +216,7 @@ This role should have the following trust relationship:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -251,7 +250,7 @@ The IAM policy defined in the provided JSON document grants those permissions:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

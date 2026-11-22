@@ -1,7 +1,6 @@
 
 
 # IP Insights Data Formats
-<a name="ip-insights-data-formats"></a>
 
 This section provides examples of the available input and output data formats used by the IP Insights algorithm during training and inference.
 

@@ -1,7 +1,6 @@
 
 
 # View your batch prediction jobs
-<a name="canvas-make-predictions-batch-auto-view"></a>
 
 To view the statuses and history of your batch prediction jobs, go to the **Predict** tab of your model.
 

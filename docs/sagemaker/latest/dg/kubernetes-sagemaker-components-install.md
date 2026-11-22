@@ -1,7 +1,6 @@
 
 
 # Install Kubeflow Pipelines
-<a name="kubernetes-sagemaker-components-install"></a>
 
 [Kubeflow Pipelines (KFP)](https://www.kubeflow.org/docs/components/pipelines/v2/introduction/) is the pipeline orchestration component of Kubeflow.
 
@@ -122,13 +121,13 @@ Run the following steps from the terminal of your gateway node to install Kubefl
 
 1. Install all [cert-manager components](https://cert-manager.io/docs/installation/kubectl/).
 
-   ```
+   ```zsh
    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.yaml
    ```
 
 1. Install the Kubeflow Pipelines.
 
-   ```
+   ```zsh
    export PIPELINE_VERSION=2.0.0-alpha.5
    kubectl apply -k "github.com/kubeflow/pipelines/manifests/kustomize/env/cert-manager/cluster-scoped-resources?ref=$KFP_VERSION"
    kubectl wait --for condition=established --timeout=60s crd/applications.app.k8s.io
@@ -137,7 +136,7 @@ Run the following steps from the terminal of your gateway node to install Kubefl
 
 1. Ensure that the Kubeflow Pipelines service and other related resources are running.
 
-   ```
+   ```zsh
    kubectl -n kubeflow get all | grep pipeline
    ```
 
@@ -188,7 +187,7 @@ Follow this section if you are using Kubeflow pipelines standalone deployment. I
 
    1. Create a [RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-example) that gives the service account permission to manage SageMaker AI custom resources.
 
-      ```
+      ```zsh
       cat > manage_sagemaker_cr.yaml <<EOF
       apiVersion: rbac.authorization.k8s.io/v1
       kind: RoleBinding
@@ -206,13 +205,13 @@ Follow this section if you are using Kubeflow pipelines standalone deployment. I
       EOF
       ```
 
-      ```
+      ```zsh
       kubectl apply -f manage_sagemaker_cr.yaml
       ```
 
    1. Ensure that the rolebinding was created by running:
 
-      ```
+      ```zsh
       kubectl get rolebinding manage-sagemaker-cr -n kubeflow -o yaml
       ```
 
@@ -228,7 +227,7 @@ To create an IAM execution role granting Kubeflow pipeline pods access to SageMa
 
 1. Export your cluster name (e.g., *my-cluster-name*) and cluster region (e.g., *us-east-1*).
 
-   ```
+   ```zsh
    export CLUSTER_NAME={{my-cluster-name}}
    export CLUSTER_REGION={{us-east-1}}
    ```
@@ -236,27 +235,27 @@ To create an IAM execution role granting Kubeflow pipeline pods access to SageMa
 1. Export the namespace and service account name according to your installation.
    + For the full Kubeflow on AWS installation, export your profile `namespace` (e.g., *kubeflow-user-example-com*) and *default-editor* as the service account.
 
-     ```
+     ```zsh
      export NAMESPACE={{kubeflow-user-example-com}}
      export KUBEFLOW_PIPELINE_POD_SERVICE_ACCOUNT=default-editor
      ```
    + For the standalone Pipelines deployment, export *kubeflow* as the `namespace` and *pipeline-runner* as the service account.
 
-     ```
+     ```zsh
      export NAMESPACE=kubeflow
      export KUBEFLOW_PIPELINE_POD_SERVICE_ACCOUNT=pipeline-runner
      ```
 
 1. Create an [ IAM OIDC provider for the Amazon EKS cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html) with the following command.
 
-   ```
+   ```zsh
    eksctl utils associate-iam-oidc-provider --cluster ${CLUSTER_NAME} \
                --region ${CLUSTER_REGION} --approve
    ```
 
 1. Create an IAM execution role for the KFP pods to access AWS services (SageMaker AI, CloudWatch).
 
-   ```
+   ```zsh
    eksctl create iamserviceaccount \
    --name ${KUBEFLOW_PIPELINE_POD_SERVICE_ACCOUNT} \
    --namespace ${NAMESPACE} --cluster ${CLUSTER_NAME} \

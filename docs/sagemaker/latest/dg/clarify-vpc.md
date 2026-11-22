@@ -1,7 +1,6 @@
 
 
 # Give Amazon SageMaker Clarify Jobs Access to Resources in Your Amazon VPC
-<a name="clarify-vpc"></a>
 
 To control access to your data and SageMaker Clarify jobs, we recommend that you create a private Amazon VPC and configure it so that your jobs aren't accessible over the public internet. For information about creating and configuring an Amazon VPC for processing jobs, see [Give SageMaker Processing Jobs Access to Resources in Your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/process-vpc). 
 
@@ -86,7 +85,7 @@ You can specify the number of instances of the shadow endpoint to launch with th
 
 **Note**  
 Even if you only request one instance when creating the shadow endpoint, you need at least two subnets in the model's [ModelConfig](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_core.html) in distinct availability zones. Otherwise the shadow endpoint creation fails with the following error:  
-ClientError: Error hosting endpoint sagemaker-clarify-endpoint-XXX: Failed. Reason: Unable to locate at least 2 availability zone(s) with the requested instance type YYY that overlap with SageMaker AI subnets.
+`ClientError: Error hosting endpoint sagemaker-clarify-endpoint-XXX: Failed. Reason: Unable to locate at least 2 availability zone(s) with the requested instance type YYY that overlap with SageMaker AI subnets.`
 
 If your model requires model files in Amazon S3, then the model Amazon VPC needs to have an Amazon S3 VPC endpoint. For more information about creating and configuring an Amazon VPC for SageMaker AI models, see [Give SageMaker AI Hosted Endpoints Access to Resources in Your Amazon VPC](host-vpc.md). 
 

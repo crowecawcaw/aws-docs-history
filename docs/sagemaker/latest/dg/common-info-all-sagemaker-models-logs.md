@@ -1,7 +1,6 @@
 
 
 # Logs for Built-in Algorithms
-<a name="common-info-all-sagemaker-models-logs"></a>
 
 Amazon SageMaker AI algorithms produce Amazon CloudWatch logs, which provide detailed information on the training process. To see the logs, in the AWS management console, choose **CloudWatch**, choose **Logs**, and then choose the /aws/sagemaker/TrainingJobs **log group**. Each training job has one log stream per node on which it was trained. The log stream’s name begins with the value specified in the `TrainingJobName` parameter when the job was created.
 

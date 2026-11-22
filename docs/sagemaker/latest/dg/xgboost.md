@@ -1,7 +1,6 @@
 
 
 # XGBoost algorithm with Amazon SageMaker AI
-<a name="xgboost"></a>
 
 The [XGBoost](https://github.com/dmlc/xgboost) (eXtreme Gradient Boosting) is a popular and efficient open-source implementation of the gradient boosted trees algorithm. Gradient boosting is a supervised learning algorithm that tries to accurately predict a target variable by combining multiple estimates from a set of simpler models. The XGBoost algorithm performs well in machine learning competitions for the following reasons:
 + Its robust handling of a variety of data types, relationships, distributions.

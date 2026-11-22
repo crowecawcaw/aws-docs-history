@@ -1,7 +1,6 @@
 
 
 # Create a model
-<a name="serverless-endpoints-create-model"></a>
 
 To create your model, you must provide the location of your model artifacts and container image. You can also use a model version from [SageMaker Model Registry](model-registry.md). The examples in the following sections show you how to create a model using the [CreateModel](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html) API, Model Registry, and the [Amazon SageMaker AI console](https://console.aws.amazon.com/sagemaker/home).
 
@@ -15,7 +14,7 @@ The following example requires you to have the ARN of a registered model version
 + For `sagemaker_role`, you can use the default SageMaker AI-created role or a customized SageMaker AI IAM role from Step 4 of the [Complete the prerequisites](serverless-endpoints-prerequisites.md) section.
 + For `ModelPackageName`, specify the ARN for your model version, which must be registered to a model group in Model Registry.
 
-```
+```python
 #Setup
 import boto3
 import sagemaker
@@ -53,7 +52,7 @@ The following example uses the [AWS SDK for Python (Boto3)](https://boto3.amazon
 + For `container`, retrieve the container you want to use by its Amazon ECR path. This example uses a SageMaker AI-provided XGBoost container. If you have not selected a SageMaker AI container or brought your own, see Step 6 of the [Complete the prerequisites](serverless-endpoints-prerequisites.md) section for more information.
 + For `model_name`, enter a name for the model.
 
-```
+```python
 #Setup
 import boto3
 import sagemaker

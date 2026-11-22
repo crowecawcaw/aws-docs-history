@@ -1,7 +1,6 @@
 
 
 # Synthetic dataset
-<a name="clarify-online-explainability-create-endpoint-synthetic"></a>
 
 SageMaker Clarify uses the Kernel SHAP algorithm. Given a record (also called a sample or an instance) and the SHAP configuration, the explainer first generates a synthetic dataset. SageMaker Clarify then queries the model container for the predictions of the dataset, and then computes and returns the feature attributions. The size of the synthetic dataset affects the runtime for the Clarify explainer. Larger synthetic datasets take more time to obtain model predictions than smaller ones.
 

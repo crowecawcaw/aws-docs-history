@@ -1,7 +1,6 @@
 
 
 # Scaling a development cluster
-<a name="sagemaker-hyperpod-ray-scaling-dev-cluster"></a>
 
 You scale a Ray cluster by changing the worker count directly, or by turning on autoscaling so Ray adds and removes workers with load.
 
@@ -10,7 +9,7 @@ You scale a Ray cluster by changing the worker count directly, or by turning on 
 
 In Studio, edit the cluster and change the replica count for a worker group. In a manifest, set `replicas` on the worker group.
 
-```
+```yaml
 workerGroupSpecs:
   - groupName: {{my-workers}}
     replicas: 4
@@ -21,7 +20,7 @@ workerGroupSpecs:
 
 Turn on the autoscaling toggle when you edit the cluster in Studio, then set a minimum and maximum for each worker group. In a manifest, set `enableInTreeAutoscaling: true` and the per-group bounds.
 
-```
+```yaml
 spec:
   enableInTreeAutoscaling: true
   workerGroupSpecs:

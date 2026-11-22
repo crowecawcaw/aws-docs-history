@@ -1,9 +1,10 @@
 
 
 # Configure a VPC for multi-turn RL jobs
-<a name="model-customize-mtrl-vpc"></a>
 
 When you provide a `VpcConfig` in your multi-turn RL job configuration, Amazon SageMaker AI places a proxy elastic network interface (ENI) in your VPC. All customer data traffic — including access to your S3 buckets, agent invocations, and logging — flows through this ENI. This keeps data within your VPC network boundary.
+
+**Required VPC setup**
 
 **Subnets**
 
@@ -42,7 +43,7 @@ All interface endpoints must share a security group with inbound TCP 443 from yo
 
 The execution role must include EC2 permissions for ENI management. Add the following policy statement to the role.
 
-```
+```JSON
 [
     {
         "Effect": "Allow",
@@ -77,12 +78,14 @@ The execution role must include EC2 permissions for ENI management. Add the foll
 
 Include the `VpcConfig` parameter in your multi-turn RL job request.
 
-```
+```JSON
 "VpcConfig": {
     "Subnets": ["subnet-0abc123", "subnet-0def456"],
     "SecurityGroupIds": ["sg-0abc123def"]
 }
 ```
+
+**Restrict access to your VPC**
 
 You can apply additional restrictions to further secure your VPC configuration.
 
@@ -90,7 +93,7 @@ You can apply additional restrictions to further secure your VPC configuration.
 
 To restrict S3 access to your VPC only, add a deny policy with the `aws:SourceVpc` condition.
 
-```
+```JSON
 {
     "Sid": "DenyAccessFromOutsideVpc",
     "Effect": "Deny",
@@ -115,7 +118,7 @@ The `aws:SourceVpc` condition key is only populated when the request traverses a
 
 You can restrict interface endpoints to allow only the actions that multi-turn RL jobs need. The following example restricts a CloudWatch Logs endpoint to log groups with the `/aws/sagemaker/Job/` prefix.
 
-```
+```JSON
 {
     "Statement": [
         {

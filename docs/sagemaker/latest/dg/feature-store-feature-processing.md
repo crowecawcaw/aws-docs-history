@@ -1,7 +1,6 @@
 
 
 # Feature Processing
-<a name="feature-store-feature-processing"></a>
 
 Amazon SageMaker Feature Store Feature Processing is a capability with which you can transform raw data into machine learning (ML) features. It provides you with a Feature Processor SDK with which you can transform and ingest data from batch data sources into your feature groups. With this capability, Feature Store takes care of the underlying infrastructure including provisioning the compute environments and creating and maintaining Pipelines to load and ingest data. This way you can focus on your feature processor definitions that includes a transformation function (for example, count of product views, mean of transaction value), sources (where to apply this transformation on), and sinks (where to write the computed feature values to).
 

@@ -1,7 +1,6 @@
 
 
 # Example notebooks for Experiments Classic
-<a name="experiments-examples"></a>
 
 The following example notebooks demonstrate how to track runs for various model training experiments. You can view the resulting experiments in Studio Classic after running the notebooks. For a tutorial that showcases additional features of Studio Classic, see [Amazon SageMaker Studio Classic Tour](gs-studio-end-to-end.md).
 

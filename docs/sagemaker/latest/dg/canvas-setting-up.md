@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker Canvas setup and permissions management (for IT administrators)
-<a name="canvas-setting-up"></a>
 
 The following pages explain how IT administrators can configure Amazon SageMaker Canvas and grant permissions to users within their organizations. You learn how to set up the storage configuration, manage data encryption and VPCs, control access to specific capabilities like generative AI foundation models, integrate with other AWS services like Amazon Redshift, and more. By following these steps, you can tailor SageMaker Canvas for your users based on your organization's specific requirements.
 

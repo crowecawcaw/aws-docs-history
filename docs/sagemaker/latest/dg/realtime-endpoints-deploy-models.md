@@ -1,7 +1,6 @@
 
 
 # Deploy models for real-time inference
-<a name="realtime-endpoints-deploy-models"></a>
 
 **Important**  
 Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studio Classic to create Amazon SageMaker resources must also grant permissions to add tags to those resources. The permission to add tags to resources is required because Studio and Studio Classic automatically tag any resources they create. If an IAM policy allows Studio and Studio Classic to create resources but does not allow tagging, "AccessDenied" errors can occur when trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions).  
@@ -155,7 +154,7 @@ We recommend that you use the bucket naming convention `sagemaker-{{{Region}}}-{
 
 After creating the bucket, attach the following CORS (cross-origin resource sharing) policy to the bucket:
 
-```
+```json
 [
     {
         "AllowedHeaders": ["*"],
@@ -171,7 +170,7 @@ You can attach a CORS policy to an Amazon S3 bucket by using any of the followin
 + Using the Amazon S3 API [PutBucketCors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html)
 + Using the put-bucket-cors AWS CLI command:
 
-  ```
+  ```bash
   aws s3api put-bucket-cors --bucket="..." --cors-configuration="..."
   ```
 
@@ -362,7 +361,7 @@ The following examples prepare for the model deployment process. They import the
 **Example import statements**  
 The following example imports modules from the SageMaker Python SDK v3. These modules provide useful methods that help you deploy models, and they're used by the remaining examples that follow.  
 
-```
+```python
 import boto3
 from sagemaker.serve import ModelBuilder
 from sagemaker.core.resources import Endpoint
@@ -375,7 +374,7 @@ from sagemaker.core.helper.session_helper import Session
 **Example import statements**  
 The following example imports modules from the SDK for Python (Boto3) and the Python Standard Library. These modules provide useful methods that help you deploy models, and they're used by the remaining examples that follow.  
 
-```
+```python
 import boto3
 import botocore
 import sys
@@ -388,7 +387,7 @@ import time
 **Example import statements**  
 The following example imports modules from the SDK for Python (Boto3) and the Python Standard Library. These modules provide useful methods that help you deploy models, and they're used by the remaining examples that follow.  
 
-```
+```python
 import boto3
 import botocore
 import datetime
@@ -400,7 +399,7 @@ from time import gmtime, strftime
 **Example model artifact URL**  
 The following code builds an example Amazon S3 URL. The URL locates the model artifacts for a pre-trained model in an Amazon S3 bucket.  
 
-```
+```python
 # Create a variable w/ the model S3 URL
 
 # The name of your S3 bucket:
@@ -472,7 +471,7 @@ The following examples configure the resources that you require to deploy a mode
 
 The following example configures a `ModelBuilder` with your model artifacts. `ModelBuilder` provides a unified interface for model packaging and deployment.
 
-```
+```python
 from sagemaker.serve import ModelBuilder
 
 model_builder = ModelBuilder(
@@ -488,7 +487,7 @@ model_builder = ModelBuilder(
 
 The following example configures an endpoint with the `create_endpoint_config` method. You assign this configuration to an endpoint when you create it. In the configuration, you define one or more production variants. For each variant, you can choose the instance type that you want Amazon SageMaker AI to provision, and you can enable managed instance scaling.
 
-```
+```python
 endpoint_config_name = "{{endpoint-config-name}}"
 endpoint_name = "{{endpoint-name}}"
 inference_component_name = "{{inference-component-name}}"
@@ -518,7 +517,7 @@ sagemaker_client.create_endpoint_config(
 **Example model definition**  
 The following example defines a SageMaker AI model with the `create_model` method in the AWS SDK for Python (Boto3).  
 
-```
+```python
 model_name = "{{model-name}}"
 
 create_model_response = sagemaker_client.create_model(
@@ -538,7 +537,7 @@ This example specifies the following:
 **Example endpoint configuration**  
 The following example configures an endpoint with the `create_endpoint_config` method. Amazon SageMaker AI uses this configuration to deploy models. In the configuration, you identify one or more models, created with the `create_model` method, to deploy the resources that you want Amazon SageMaker AI to provision.  
 
-```
+```pythoin
 endpoint_config_response = sagemaker_client.create_endpoint_config(
     EndpointConfigName = "{{endpoint-config-name}}", 
     # List of ProductionVariant objects, one for each model that you want to host at this endpoint:
@@ -569,7 +568,7 @@ The following examples deploy a model to an endpoint.
 
 The following example deploys the model to a real-time, HTTPS endpoint using the `deploy` method of `ModelBuilder`.
 
-```
+```python
 endpoint = model_builder.deploy(
     endpoint_name="{{endpoint-name}}",
     instance_type="{{ml.p4d.24xlarge}}",
@@ -591,7 +590,7 @@ Once you have an endpoint configuration, use the [create\_endpoint](https://docs
 
 The following example creates an endpoint using the endpoint configuration specified in the request. Amazon SageMaker AI uses the endpoint to provision resources.
 
-```
+```python
 sagemaker_client.create_endpoint(
     EndpointName = endpoint_name,
     EndpointConfigName = endpoint_config_name,
@@ -600,7 +599,7 @@ sagemaker_client.create_endpoint(
 
 After you've created an endpoint, you can deploy one or models to it by creating inference components. The following example creates one with the `create_inference_component` method.
 
-```
+```python
 sagemaker_client.create_inference_component(
     InferenceComponentName = inference_component_name,
     EndpointName = endpoint_name,
@@ -630,7 +629,7 @@ Once you have your model and endpoint configuration, use the [create\_endpoint](
 
 The following example creates an endpoint using the endpoint configuration specified in the request. Amazon SageMaker AI uses the endpoint to provision resources and deploy models.
 
-```
+```python
 create_endpoint_response = sagemaker_client.create_endpoint(
     # The endpoint name must be unique within an AWS Region in your AWS account:
     EndpointName = "{{endpoint-name}}"
@@ -693,7 +692,7 @@ The following examples configure the resources that you require to deploy a mode
 **Example create-endpoint-config command**  
 The following example creates an endpoint configuration with the [create-endpoint-config](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/create-endpoint-config.html) command.  
 
-```
+```bash
 aws sagemaker create-endpoint-config \
 --endpoint-config-name {{endpoint-config-name}} \
 --execution-role-arn arn:aws:iam::{{111122223333}}:role/service-role/{{role-name}}\
@@ -701,7 +700,7 @@ aws sagemaker create-endpoint-config \
 ```
 In this example, the file `production-variants.json` defines a production variant with the following JSON:  
 
-```
+```json
 [
     {
         "VariantName": "{{variant-name}}",
@@ -725,7 +724,7 @@ If the command succeeds, the AWS CLI responds with the ARN for the resource you 
 **Example create-model command**  
 The following example creates a model with the [create-model](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/create-model.html) command.  
 
-```
+```bash
 aws sagemaker create-model \
 --model-name {{model-name}} \
 --execution-role-arn arn:aws:iam::{{111122223333}}:role/service-role/{{role-name}} \
@@ -742,14 +741,14 @@ If the command succeeds, the AWS CLI responds with the ARN for the resource you 
 **Example create-endpoint-config command**  
 The following example creates an endpoint configuration with the [create-endpoint-config](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/create-endpoint-config.html) command.  
 
-```
+```bash
 aws sagemaker create-endpoint-config \
 --endpoint-config-name {{endpoint-config-name}} \
 --production-variants file://production-variants.json
 ```
 In this example, the file `production-variants.json` defines a production variant with the following JSON:  
 
-```
+```json
 [
     {
         "VariantName": "{{variant-name}}",
@@ -780,7 +779,7 @@ The following examples deploy a model to an endpoint.
 **Example create-endpoint command**  
 The following example creates an endpoint with the [create-endpoint](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/create-endpoint.html) command.  
 
-```
+```bash
 aws sagemaker create-endpoint \
 --endpoint-name {{endpoint-name}} \
 --endpoint-config-name {{endpoint-config-name}}
@@ -796,7 +795,7 @@ If the command succeeds, the AWS CLI responds with the ARN for the resource you 
 **Example create-inference-component command**  
 The following example creates an inference component with the create-inference-component command.  
 
-```
+```bash
 aws sagemaker create-inference-component \
 --inference-component-name {{inference-component-name}} \
 --endpoint-name {{endpoint-name}} \
@@ -806,7 +805,7 @@ aws sagemaker create-inference-component \
 ```
 In this example, the file `specification.json` defines the container and compute resources with the following JSON:  
 
-```
+```json
 {
     "Container": {
         "Image": "{{image-uri}}",
@@ -832,7 +831,7 @@ If the command succeeds, the AWS CLI responds with the ARN for the resource you 
 **Example create-endpoint command**  
 The following example creates an endpoint with the [create-endpoint](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/create-endpoint.html) command.  
 
-```
+```bash
 aws sagemaker create-endpoint \
 --endpoint-name {{endpoint-name}} \
 --endpoint-config-name {{endpoint-config-name}}

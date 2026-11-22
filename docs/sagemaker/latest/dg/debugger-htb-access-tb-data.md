@@ -1,7 +1,6 @@
 
 
 # Load and visualize output tensors using the TensorBoard application
-<a name="debugger-htb-access-tb-data"></a>
 
 You can conduct an online or offline analysis by loading collected output tensors from S3 buckets paired with training jobs during or after training.
 

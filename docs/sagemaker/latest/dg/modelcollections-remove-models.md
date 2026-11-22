@@ -1,7 +1,6 @@
 
 
 # Remove Model Groups or Collections from a Collection
-<a name="modelcollections-remove-models"></a>
 
 When you remove Model Groups or Collections from a Collection, you are removing them from a particular grouping and not from the Model Registry. You can remove Model Groups from a Collection in the Amazon SageMaker Studio console.
 

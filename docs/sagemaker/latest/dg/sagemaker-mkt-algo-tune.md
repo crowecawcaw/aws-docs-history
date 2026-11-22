@@ -1,7 +1,6 @@
 
 
 # Use an Algorithm to Run a Hyperparameter Tuning Job
-<a name="sagemaker-mkt-algo-tune"></a>
 
 The following section explains how to use an algorithm resource to run a hyperparameter tuning job in Amazon SageMaker AI. A hyperparameter tuning job finds the best version of a model by running many training jobs on your dataset using the algorithm and ranges of hyperparameters that you specify. It then chooses the hyperparameter values that result in a model that performs the best, as measured by a metric that you choose. For more information, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md).
 
@@ -105,7 +104,7 @@ To use an algorithm to run a hyperparameter tuning job by using the SageMaker AP
 
 Use an algorithm that you created or subscribed to on AWS Marketplace to create a hyperparameter tuning job, create an `ModelTrainer` object and specify either the Amazon Resource Name (ARN) or the name of the algorithm as the value of the `algorithm_arn` argument. Then initialize a `HyperparameterTuner` object with the `ModelTrainer` you created as the value of the `ModelTrainer` argument. Finally, call the `train` method of the `ModelTrainer`. For example:
 
-```
+```python
 from sagemaker.train import ModelTrainer, HyperparameterTuner
 from sagemaker.train.configs import Compute
 

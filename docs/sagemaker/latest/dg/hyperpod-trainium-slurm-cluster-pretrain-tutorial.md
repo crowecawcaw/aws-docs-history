@@ -1,7 +1,6 @@
 
 
 # Trainium Slurm cluster pre-training tutorial
-<a name="hyperpod-trainium-slurm-cluster-pretrain-tutorial"></a>
 
 The following tutorial sets up a Trainium environment on a Slurm cluster and starts a training job on a Llama 8 billion parameter model.
 
@@ -23,7 +22,7 @@ To initiate a training job on a Slurm cluster, do the following:
 + After you log in, set up the Neuron environment. For information about setting up Neuron, see [Neuron setup steps](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/libraries/nxd-training/tutorials/hf_llama3_8B_SFT.html#setting-up-the-environment). We recommend relying on the Deep learning AMI's that come pre-installed with Neuron's drivers, such as [Ubuntu 20 with DLAMI Pytorch](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/general/setup/neuron-setup/pytorch/neuronx/ubuntu/torch-neuronx-ubuntu20-pytorch-dlami.html#setup-torch-neuronx-ubuntu20-dlami-pytorch).
 + Clone the SageMaker HyperPod recipes repository to a shared storage location in the cluster. The shared storage location can be an Amazon FSx file system or NFS system that's accessible from the cluster nodes.
 
-  ```
+  ```bash
   git clone --recursive https://github.com/aws/sagemaker-hyperpod-recipes.git
   cd sagemaker-hyperpod-recipes
   pip3 install -r requirements.txt
@@ -38,11 +37,11 @@ To launch a training job in Trainium, specify a cluster configuration and a Neur
 + `MODEL_CONFIG`: The model config from the environment setup section
 + (Optional) You can provide the HuggingFace token if you need pre-trained weights from HuggingFace by setting the following key-value pair:
 
-  ```
+  ```bash
   recipes.model.hf_access_token={{<your_hf_token>}}
   ```
 
-```
+```bash
 #!/bin/bash
 
 #Users should set up their cluster type in /recipes_collection/config.yaml
@@ -66,7 +65,7 @@ HYDRA_FULL_ERROR=1 python3 "${SAGEMAKER_TRAINING_LAUNCHER_DIR}/main.py" \
 
 To launch the training job, run the following command:
 
-```
+```bash
 bash launcher_scripts/llama/run_hf_llama3_8b_seq8k_trn1x4_pretrain.sh
 ```
 

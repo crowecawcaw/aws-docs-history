@@ -1,7 +1,6 @@
 
 
 # SageMaker Training and Inference Toolkits
-<a name="amazon-sagemaker-toolkits"></a>
 
 The [SageMaker Training](https://github.com/aws/sagemaker-training-toolkit) and [SageMaker AI Inference](https://github.com/aws/sagemaker-inference-toolkit) toolkits implement the functionality that you need to adapt your containers to run scripts, train algorithms, and deploy models on SageMaker AI. When installed, the library defines the following for users:
 + The locations for storing code and other resources. 

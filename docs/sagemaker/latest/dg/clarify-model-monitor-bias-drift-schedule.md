@@ -1,7 +1,6 @@
 
 
 # Schedule Bias Drift Monitoring Jobs
-<a name="clarify-model-monitor-bias-drift-schedule"></a>
 
 **Note**  
 Amazon SageMaker Model Monitor is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md). 
@@ -60,7 +59,7 @@ model_bias_monitor.create_monitoring_schedule(
 
 To schedule a bias drift monitor for a batch transform job, pass your `BatchTransformInput` instance to the `batch_transform_input` argument of your `ModelBiasModelMonitor` instance, as shown in the following code sample:
 
-```
+```py
 from sagemaker.model_monitor import CronExpressionGenerator
                 
 model_bias_monitor = ModelBiasModelMonitor(

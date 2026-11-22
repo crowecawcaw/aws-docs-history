@@ -1,7 +1,6 @@
 
 
 # View model details
-<a name="autopilot-models-details"></a>
 
 Autopilot generates details about the candidate models that you can obtain. These details include the following:
 + A plot of the aggregated SHAP values that indicate the importance of each feature. This helps explain your models predictions.

@@ -1,7 +1,6 @@
 
 
 # SageMaker AI data parallelism library release notes
-<a name="data-parallel-release-notes"></a>
 
 See the following release notes to track the latest updates for the SageMaker AI distributed data parallelism (SMDDP) library.
 
@@ -17,7 +16,7 @@ See the following release notes to track the latest updates for the SageMaker AI
 
 This version of the SMDDP library is migrated to [The SageMaker model parallelism library v2.6.0](model-parallel-release-notes.md#model-parallel-release-notes-20241017).
 
-```
+```txt
 658645717510.dkr.ecr.{{<us-west-2>}}.amazonaws.com/smdistributed-modelparallel:2.4.1-gpu-py311-cu121
 ```
 
@@ -27,7 +26,7 @@ For Regions where the SMP Docker images are available, see [AWS Regions](distrib
 
 You can download or install the library using the following URL.
 
-```
+```txt
 https://smdataparallel.s3.amazonaws.com/binary/pytorch/2.4.1/cu121/2024-10-09/smdistributed_dataparallel-2.5.0-cp311-cp311-linux_x86_64.whl
 ```
 
@@ -46,7 +45,7 @@ https://smdataparallel.s3.amazonaws.com/binary/pytorch/2.4.1/cu121/2024-10-09/sm
 This version of the SMDDP library is migrated to the following [SageMaker AI Framework Container](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only).
 + PyTorch v2.3.0
 
-  ```
+  ```txt
   763104351884.dkr.ecr.{{<region>}}.amazonaws.com/pytorch-training:2.3.0-gpu-py311-cu121-ubuntu20.04-sagemaker
   ```
 
@@ -56,7 +55,7 @@ For a complete list of versions of the SMDDP library and the pre-built container
 
 You can download or install the library using the following URL.
 
-```
+```txt
 https://smdataparallel.s3.amazonaws.com/binary/pytorch/2.3.0/cu121/2024-05-23/smdistributed_dataparallel-2.3.0-cp311-cp311-linux_x86_64.whl
 ```
 
@@ -75,7 +74,7 @@ https://smdataparallel.s3.amazonaws.com/binary/pytorch/2.3.0/cu121/2024-05-23/sm
 
 This version of the SMDDP library is migrated to [The SageMaker model parallelism library v2.2.0](model-parallel-release-notes.md#model-parallel-release-notes-20240307).
 
-```
+```txt
 658645717510.dkr.ecr.{{<region>}}.amazonaws.com/smdistributed-modelparallel:2.2.0-gpu-py310-cu121
 ```
 
@@ -85,7 +84,7 @@ For Regions where the SMP Docker images are available, see [AWS Regions](distrib
 
 You can download or install the library using the following URL.
 
-```
+```txt
 https://smdataparallel.s3.amazonaws.com/binary/pytorch/2.2.0/cu121/2024-03-04/smdistributed_dataparallel-2.2.0-cp310-cp310-linux_x86_64.whl
 ```
 
@@ -105,7 +104,7 @@ https://smdataparallel.s3.amazonaws.com/binary/pytorch/2.2.0/cu121/2024-03-04/sm
 This version of the SMDDP library passed benchmark testing and is migrated to the following [SageMaker AI Framework Container](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only).
 + PyTorch v2.1.0
 
-  ```
+  ```txt
   763104351884.dkr.ecr.{{<region>}}.amazonaws.com/pytorch-training:2.1.0-gpu-py310-cu121-ubuntu20.04-sagemaker
   ```
 
@@ -113,7 +112,7 @@ This version of the SMDDP library passed benchmark testing and is migrated to th
 
 This version of the SMDDP library is migrated to [The SageMaker model parallelism library v2.1.0](model-parallel-release-notes.md#model-parallel-release-notes-20240206).
 
-```
+```txt
 658645717510.dkr.ecr.{{<region>}}.amazonaws.com/smdistributed-modelparallel:2.1.2-gpu-py310-cu121
 ```
 
@@ -123,7 +122,7 @@ For Regions where the SMP Docker images are available, see [AWS Regions](distrib
 
 You can download or install the library using the following URL.
 
-```
+```txt
 https://smdataparallel.s3.amazonaws.com/binary/pytorch/2.1.0/cu121/2024-02-04/smdistributed_dataparallel-2.1.0-cp310-cp310-linux_x86_64.whl
 ```
 
@@ -145,7 +144,7 @@ https://smdataparallel.s3.amazonaws.com/binary/pytorch/2.1.0/cu121/2024-02-04/sm
 This version of the SMDDP library passed benchmark testing and is migrated to the following [SageMaker AI Framework Container](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only).
 + PyTorch v2.0.1
 
-  ```
+  ```txt
   763104351884.dkr.ecr.{{<region>}}.amazonaws.com/pytorch-training:2.0.1-gpu-py310-cu118-ubuntu20.04-sagemaker
   ```
 
@@ -153,7 +152,7 @@ This version of the SMDDP library passed benchmark testing and is migrated to th
 
 You can download or install the library using the following URL.
 
-```
+```txt
 https://smdataparallel.s3.amazonaws.com/binary/pytorch/2.0.1/cu118/2023-12-07/smdistributed_dataparallel-2.0.2-cp310-cp310-linux_x86_64.whl
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Using topology-aware scheduling in Amazon SageMaker HyperPod
-<a name="sagemaker-hyperpod-topology"></a>
 
 Data transfer efficiency is a critical factor in high-performance computing (HPC) and machine learning workloads. When using UltraServers with Amazon SageMaker HyperPod, SageMaker HyperPod automatically applies topology labels to your resources. Topology-aware scheduling helps allocate resources to minimize data transfer overheads by considering both instance topology (how resources are connected within an instance) and network topology (how instances are connected with each other). For more information about instance topology, see [ Amazon EC2 instance topology](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html).
 
@@ -71,7 +70,7 @@ SageMaker HyperPod automatically configures tree topology based on information p
 
 On Slurm 25.11 and later, HyperPod defines topology in `topology.yaml`, which is the source of truth. A tree topology entry maps nodes into a switch hierarchy that reflects the communication tiers of your hardware:
 
-```
+```yaml
 - topology: tree
   cluster_default: true
   tree:
@@ -131,7 +130,7 @@ TopologyPlugin=topology/block
 
 SageMaker HyperPod automatically configures block topology. On Slurm 25.11 and later, block topology is defined in `topology.yaml`, which is the source of truth. Block and tree topologies for a cluster are defined together in the same file. The following example shows a cluster with a P5 partition (tree) and an UltraServer partition (block):
 
-```
+```yaml
 - topology: tree
   cluster_default: true
   tree:

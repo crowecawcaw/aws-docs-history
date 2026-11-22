@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker AI enhanced metrics for inference endpoints
-<a name="monitoring-cloudwatch-enhanced-metrics"></a>
 
 Enhanced metrics provide instance-level and container-level monitoring data for Amazon SageMaker AI real-time endpoints. When you enable enhanced metrics, Amazon CloudWatch metrics can include `InstanceId`, `ContainerId`, and `AcceleratorId` dimensions (availability varies by namespace) for granular per-instance, per-container, and per-GPU visibility. Enhanced metrics are available for single-model endpoints and inference components. Multi-Container Endpoints (MCE) support instance-level enhanced metrics but not container-level metrics.
 
@@ -108,7 +107,7 @@ The following examples show how to create an endpoint configuration with enhance
 
 **Example Create an endpoint configuration with enhanced metrics**  
 
-```
+```python
 import boto3
 
 sagemaker_client = boto3.client('sagemaker')
@@ -135,7 +134,7 @@ response = sagemaker_client.create_endpoint_config(
 
 **Example Create an endpoint configuration with enhanced metrics**  
 
-```
+```bash
 aws sagemaker create-endpoint-config \
     --endpoint-config-name {{my-enhanced-metrics-config}} \
     --production-variants file://production-variants.json \
@@ -143,7 +142,7 @@ aws sagemaker create-endpoint-config \
 ```
 Where `metrics-config.json` contains:  
 
-```
+```json
 {
     "EnableEnhancedMetrics": true,
     "MetricPublishFrequencyInSeconds": {{60}}
@@ -160,7 +159,7 @@ Where `metrics-config.json` contains:
 
 **Example Verify enhanced metrics configuration**  
 
-```
+```python
 response = sagemaker_client.describe_endpoint_config(
     EndpointConfigName='{{my-enhanced-metrics-config}}'
 )
@@ -178,13 +177,13 @@ print(response['MetricsConfig'])
 
 **Example Verify enhanced metrics configuration**  
 
-```
+```bash
 aws sagemaker describe-endpoint-config \
     --endpoint-config-name {{my-enhanced-metrics-config}} \
     --query 'MetricsConfig'
 ```
 
-```
+```bash
 aws sagemaker describe-endpoint \
     --endpoint-name {{my-endpoint}} \
     --query 'MetricsConfig'
