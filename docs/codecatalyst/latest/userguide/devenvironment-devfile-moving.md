@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Editing a repository devfile for a Dev Environment
-<a name="devenvironment-devfile-moving"></a>
 
 Use the following procedure to edit a repository devfile for a Dev Environment.
 
@@ -35,7 +34,7 @@ If you edit your devfile, you have to restart the devfile for the changes to tak
 
 You can review which devfile is being used by running `/aws/mde/mde status`. The location field has the path of the devfile relative to the environment’s `/projects` folder.
 
-```
+```yaml
 {
             "status": "STABLE",
             "location": "devfile.yaml"

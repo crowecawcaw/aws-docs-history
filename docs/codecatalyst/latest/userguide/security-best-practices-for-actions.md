@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Best practices for workflow actions in Amazon CodeCatalyst
-<a name="security-best-practices-for-actions"></a>
 
 There are a number of security best practices to consider as you develop your workflows in CodeCatalyst. The following are general guidelines and don’t represent a complete security solution. Because these best practices might not be appropriate or sufficient for your environment, treat them as helpful considerations rather than prescriptions.
 

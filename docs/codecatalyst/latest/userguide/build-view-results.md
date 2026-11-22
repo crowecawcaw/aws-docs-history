@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing the results of a build action
-<a name="build-view-results"></a>
 
 Use the following instructions to view the results of a build action, including the generated logs, reports, and variables.
 

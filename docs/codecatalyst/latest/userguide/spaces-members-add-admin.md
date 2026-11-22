@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Inviting a user directly to a space
-<a name="spaces-members-add-admin"></a>
 
 You can invite users directly to your CodeCatalyst space. This is useful when you want to invite that user to help you manage the space by assigning them the **Space administrator** or **Power user** role. Assigning one of those roles to other users can help you distribute the responsibilities of managing the space across more people without having to invite these users to any projects.
 

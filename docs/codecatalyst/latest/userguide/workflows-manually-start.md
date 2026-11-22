@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Starting a workflow run manually
-<a name="workflows-manually-start"></a>
 
 In Amazon CodeCatalyst, you can start a workflow run manually from the CodeCatalyst console.
 

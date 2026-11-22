@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding a gate to a workflow
-<a name="workflows-gates-add"></a>
 
 In Amazon CodeCatalyst, you can add a gate to a workflow to prevent it from proceeding unless certain conditions are met. Use the following instructions to add a gate to a workflow.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Closing a pull request
-<a name="pull-requests-close"></a>
 
 You can mark a pull request as **Closed**. This does not merge the pull request, but it can help you determine which pull requests require action and which pull requests are no longer relevant. We recommend closing a pull request if you no longer plan to merge those changes, or if the changes were merged by another pull request.
 

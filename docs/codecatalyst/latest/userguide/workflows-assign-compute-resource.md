@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Assigning a fleet or compute to an action
-<a name="workflows-assign-compute-resource"></a>
 
 By default, workflow actions use the `Linux.x86-64.Large` on-demand fleet with an Amazon EC2 compute type. To use a provisioned fleet instead, or to use a different on-demand fleet, such as `Linux.x86-64.2XLarge`, use the following instructions.
 

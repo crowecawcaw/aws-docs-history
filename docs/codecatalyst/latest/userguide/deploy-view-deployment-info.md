@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing deployment information
-<a name="deploy-view-deployment-info"></a>
 
 You can view the following information about a deployment in Amazon CodeCatalyst:
 + Deployment activity, including the deployment status, start time, end time, history, and duration of events.

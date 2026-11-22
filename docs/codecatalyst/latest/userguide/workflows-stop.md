@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Stopping a workflow run
-<a name="workflows-stop"></a>
 
 Use the following procedure to stop a workflow run that's in progress. You might want to stop a run if it was started by accident.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Exporting issues
-<a name="issues-export-active-issues"></a>
 
 You can export issues in your current view into a .xlsx file. To export issues, perform the following steps.
 

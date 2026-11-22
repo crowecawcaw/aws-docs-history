@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # 'BranchName' and 'CommitId' variables
-<a name="workflows-sources-variables"></a>
 
 The CodeCatalyst source produces and sets `BranchName` and `CommitId` variables when your workflow runs. These are known as *predefined variables*. See the following table for information about these variables.
 

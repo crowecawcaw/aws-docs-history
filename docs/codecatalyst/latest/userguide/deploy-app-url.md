@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Displaying the app URL in the workflow diagram
-<a name="deploy-app-url"></a>
 
 If your workflow deploys an application, you can configure Amazon CodeCatalyst to display the application's URL as a clickable link. This link appears in the CodeCatalyst console, inside the action that deployed it. The following workflow diagram shows the **View App** URL appearing at the bottom of an action.
 
@@ -36,7 +35,7 @@ When you've finished configuring the URL, verify that it appears as expected by 
 
    For example, your AWS CDK code might look like this:
 
-   ```
+   ```javascript
    import { Duration, Stack, StackProps, CfnOutput, RemovalPolicy} from 'aws-cdk-lib';
    import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
    import * as s3 from 'aws-cdk-lib/aws-s3';
@@ -72,7 +71,7 @@ When you've finished configuring the URL, verify that it appears as expected by 
 
    For example, your CloudFormation template might look like this:
 
-   ```
+   ```JSON
    "Outputs" : {
      {{"APP-URL" : {}}
        "Description" : "The URL of the deployed app",
@@ -100,7 +99,7 @@ If you're using another action to deploy your application, such as the build act
 
    For example, a build action might look like this:
 
-   ```
+   ```yaml
    Build-action:
      Identifier: aws/build@v1
      Inputs:
@@ -111,7 +110,7 @@ If you're using another action to deploy your application, such as the build act
 
    ...or this:
 
-   ```
+   ```yaml
    Actions:
      Build:
        Identifier: aws/build@v1
@@ -126,7 +125,7 @@ If you're using another action to deploy your application, such as the build act
 
    For example, your build action might look like this:
 
-   ```
+   ```yaml
    Build-action:
      ...
      Outputs:

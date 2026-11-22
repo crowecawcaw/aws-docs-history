@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Tracking work with issues
-<a name="issues-tracking-work"></a>
 
 You can plan and track your work on a project by using issues. Each issue is a piece of work kept in a distinct record. Issues can be broken down into tasks to further organize and track the work of that issue. You can also create links between issues to help you keep track of related work, add labels to help you organize and categorize work, group issues, assign priorities to work, and indicate whether work is blocked. 
 

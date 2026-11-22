@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Creating or adding a file
-<a name="source-files-create"></a>
 
 To create and add files to a source repository, you can use the Amazon CodeCatalyst console, a Dev Environment, a connected integrated development environment (IDE), or a Git client. The CodeCatalyst console includes a code editor for creating files. This editor is a convenient way to create or edit a simple file, such as a README.md file, in a branch in a repository. When working on more than one file, consider [creating a Dev Environment](devenvironment-create.md).
 

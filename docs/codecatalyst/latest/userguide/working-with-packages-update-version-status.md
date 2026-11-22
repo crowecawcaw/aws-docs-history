@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Updating a package version's status
-<a name="working-with-packages-update-version-status"></a>
 
 Every package version in CodeCatalyst has a status that describes the current state and availability of the package version. You can change the package version status in the CodeCatalyst console. For more information about the possible status values of package versions and their meanings, see [Package version status](#package-version-status).
 
@@ -24,7 +23,7 @@ Every package version in CodeCatalyst has a status that describes the current st
 ## Package version status
 <a name="package-version-status"></a>
 
-The following are possible values for package version status. You can change the package version status in the console. For more information, see [Updating a package version's status](#working-with-packages-update-version-status).
+The following are possible values for package version status. You can change the package version status in the console. For more information, see [Updating a package version's status](working-with-packages-update-version-status.md).
 +  **Published**: The package version is successfully published and can be requested by a package manager. The package version will be included in package version lists returned to package managers; for example, in the output of `npm view <package-name> versions`. All assets of the package version are available from the repository. 
 +  **Unfinished**: The last attempt to publish did not complete. Currently only Maven package versions can have a status of **Unfinished**. This can occur when the client uploads one or more assets for a package version but does not publish a `maven-metadata.xml` file for the package that includes that version. 
 +  **Unlisted**: The package version assets are available for download from the repository, but the package version is not included in the list of versions returned to package managers. For example, for an npm package, the output of `npm view <package-name> versions` does not include the package version. This means that the npm dependency resolution logic does not select the package version because the version does not appear in the list of available versions. However, if the **Unlisted** package version is already referenced in an `npm package-lock.json` file, it can still be downloaded and installed; for example, when running `npm ci`. 

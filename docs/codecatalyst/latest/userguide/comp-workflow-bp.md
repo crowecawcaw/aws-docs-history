@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding workflow components to a blueprint
-<a name="comp-workflow-bp"></a>
 
 A workflow is used by Amazon CodeCatalyst projects to run actions based on triggers. You can use workflow components to build and put together workflow YAML files. For more information, see [Workflow YAML definition](workflow-reference.md).
 

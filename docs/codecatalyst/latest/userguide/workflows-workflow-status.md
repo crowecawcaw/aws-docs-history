@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Workflow states in CodeCatalyst
-<a name="workflows-workflow-status"></a>
 
 A workflow can have one of the following states:
 + **Valid** – The workflow is runnable and can be activated by [triggers](workflows-add-trigger.md#workflows-add-trigger.title).

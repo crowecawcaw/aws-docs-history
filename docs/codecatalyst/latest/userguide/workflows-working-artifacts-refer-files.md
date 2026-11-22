@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Referencing files in an artifact
-<a name="workflows-working-artifacts-refer-files"></a>
 
 If you have a file that resides within an artifact, and you need to refer to this file in one of your Amazon CodeCatalyst workflow actions, complete the following procedure.
 
@@ -34,7 +33,7 @@ See also [Referencing source repository files](workflows-sources-reference-files
 
 1. In the action where you want to reference a file, add code similar to the following:
 
-   ```
+   ```yaml
    Actions:
      My-action:
        Inputs:

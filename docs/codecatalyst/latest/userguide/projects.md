@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Organize work with projects in CodeCatalyst
-<a name="projects"></a>
 
 You use projects in Amazon CodeCatalyst to establish a collaboration space where development teams can conduct development tasks with shared continuous integration/continuous delivery (CI/CD) workflows and repositories. When you create a project, you can add, update, or remove resources. You can also monitor the progress of your team's work. You can have multiple projects within a space.
 

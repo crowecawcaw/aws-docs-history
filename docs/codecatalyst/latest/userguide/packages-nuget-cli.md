@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Configuring and using the nuget or dotnet CLI
-<a name="packages-nuget-cli"></a>
 
 You can use CLI tools such as `NuGet` and `dotnet` to publish and consume packages from CodeCatalyst. This document provides information about configuring the CLI tools and using them to publish or consume packages.
 

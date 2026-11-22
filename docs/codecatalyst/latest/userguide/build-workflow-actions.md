@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Building with workflows
-<a name="build-workflow-actions"></a>
 
 Using [CodeCatalyst workflows](workflow.md), you can build applications and other resources. 
 

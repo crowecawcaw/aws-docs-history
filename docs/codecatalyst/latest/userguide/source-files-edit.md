@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Editing a file
-<a name="source-files-edit"></a>
 
 You can edit individual files in the Amazon CodeCatalyst console. To edit multiple files at once, either create a Dev Environment or clone the repository and make your changes using a Git client or integrated development environment (IDE). For more information, see [Write and modify code with Dev Environments in CodeCatalyst](devenvironment.md) or [Cloning a source repository](source-repositories-clone.md).
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # 'Deploy CloudFormation stack' action YAML
-<a name="deploy-action-ref-cfn"></a>
 
 The following is the YAML definition of the **Deploy CloudFormation stack** action. To learn how to use this action, see [Deploying an CloudFormation stack](deploy-action-cfn.md).
 
@@ -12,7 +11,7 @@ This action definition exists as a section within a broader workflow definition 
 **Note**  
 Most of the YAML properties that follow have corresponding UI elements in the visual editor. To look up a UI element, use **Ctrl\+F**. The element will be listed with its associated YAML property.
 
-```
+```yaml
 # The workflow definition starts here.
 # See Top-level properties for details.
         
@@ -356,7 +355,7 @@ Limit the permissions to those required by the CloudFormation service to access 
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -413,7 +412,7 @@ The `parameter-overrides` property accepts:
 
 1. Make sure the JSON file uses one of the following syntaxes:
 
-   ```
+   ```json
    {
      "Parameters": {
        "Param1": "Value1",
@@ -425,7 +424,7 @@ The `parameter-overrides` property accepts:
 
    Or...
 
-   ```
+   ```json
    [
      {
         "ParameterKey": "Param1",
@@ -451,7 +450,7 @@ The `parameter-overrides` property accepts:
 
      **Example 1** – The JSON file resides in an output artifact
 
-     ```
+     ```yaml
      ##My workflow YAML
      ...
      Actions:
@@ -472,7 +471,7 @@ The `parameter-overrides` property accepts:
 
      **Example 2** – The JSON file resides in your source repository, in a folder called `my/folder`
 
-     ```
+     ```yaml
      ##My workflow YAML
      ...
      Actions:
@@ -492,7 +491,7 @@ The `parameter-overrides` property accepts:
 
   For example, assuming the following CloudFormation template:
 
-  ```
+  ```yaml
   ##My CloudFormation template
   
   Description: My CloudFormation template
@@ -513,7 +512,7 @@ The `parameter-overrides` property accepts:
 
   ...you might set the `parameter-overrides` property as follows:
 
-  ```
+  ```yaml
   ##My workflow YAML
   ...
   Actions:

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing and changing user roles
-<a name="ipa-roles-manage"></a>
 
 You can view the role assigned to a user. This helps you understand what actions they can take in a project. You can also change their role if they need additional permissions.
 

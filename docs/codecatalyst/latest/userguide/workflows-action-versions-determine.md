@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Listing the available action versions
-<a name="workflows-action-versions-determine"></a>
 
 Use the following instructions to determine which versions of an action are available for you to use in a workflow.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Creating a Dev Environment
-<a name="devenvironment-create"></a>
 
 You can create a Dev Environment in multiple ways:
 + Create a Dev Environment in CodeCatalyst with a CodeCatalyst source repository or a [linked source repository](source-repositories-link.md) from the **Overview**, **Dev Environments** or **Source repositories** pages

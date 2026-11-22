@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding the account connection and IAM roles to your deploy environment
-<a name="ipa-connect-account-addroles-env"></a>
 
 To access AWS resources, such as Amazon ECS or AWS Lambda resources for deployments, CodeCatalyst build and deploy actions require IAM roles with permissions to access those resources. With the **Space administrator** or **Power user** role, you can connect your CodeCatalyst account to the AWS account where your resources are created. You then add the IAM role to your account connection. For deploy actions, you must then add the IAM role to a CodeCatalyst environment.
 

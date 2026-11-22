@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing workflow run status and details
-<a name="workflows-view-run"></a>
 
 IN Amazon CodeCatalyst, you can view the status and details of a single workflow run, or multiple runs at the same time.
 

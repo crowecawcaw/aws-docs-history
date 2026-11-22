@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Caching files between workflow runs
-<a name="workflows-caching"></a>
 
 When file caching is enabled, the build and test actions save on-disk files to a cache and restore them from that cache in subsequent workflow runs. Caching reduces the latency caused by building or downloading dependencies that haven’t changed between runs. CodeCatalyst also supports fallback caches, which can be used to restore partial caches containing some of the needed dependencies. This helps reduce the latency impacts of a cache miss.
 
@@ -20,7 +19,7 @@ File caching is only available with the Amazon CodeCatalyst [build](build-workfl
 
 File caching allows you to organize your data into multiple caches, which are each referenced under the `FileCaching` property. Each cache saves a directory specified by a given path. The specified directory will be restored in future workflow runs. The following is an example YAML snippet for caching with multiple caches named `cacheKey1` and `cacheKey2`.
 
-```
+```yaml
 Actions:
   BuildMyNpmApp:
     Identifier: aws/build@v1
@@ -114,7 +113,7 @@ You can use the following instructions to add a cache to your workflow.
 
 1. In a workflow action, add code similar to the following:
 
-   ```
+   ```yaml
    {{action-name}}:
      Configuration:
        Steps: ...

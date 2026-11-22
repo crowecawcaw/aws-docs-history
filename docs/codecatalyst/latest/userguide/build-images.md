@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Specifying runtime environment images
-<a name="build-images"></a>
 
 A *runtime environment image* is a Docker container within which CodeCatalyst runs workflow actions. The Docker container runs on top of your chosen compute platform, and includes an operating system and extra tools that a workflow action might need, such as the AWS CLI, Node.js, and .tar.
 
@@ -104,7 +103,7 @@ If none of the [active images](#build-curated-images) supplied by CodeCatalyst i
 
   The {{setup-script}} instruction would then run the following script to install the Node package manager (npm):
 
-  ```
+  ```shell
   #!/usr/bin/env bash
   echo "Setting up environment"
   
@@ -240,7 +239,7 @@ The following examples show how to assign a custom runtime environment Docker im
 
 The following example shows how to use a custom runtime environment Docker image to add support for Node.js 18 with [Amazon ECR](https://gallery.ecr.aws/amazonlinux/amazonlinux).
 
-```
+```yaml
 Configuration:
   Container:
     Registry: ECR
@@ -252,7 +251,7 @@ Configuration:
 
 The following example shows how to use a custom runtime environment Docker image to add support for Node.js 18 with [Docker Hub](https://hub.docker.com/_/node).
 
-```
+```yaml
 Configuration:
   Container:
     Registry: DockerHub

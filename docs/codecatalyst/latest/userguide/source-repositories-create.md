@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Creating a source repository
-<a name="source-repositories-create"></a>
 
 When you create a project using a blueprint in Amazon CodeCatalyst, CodeCatalyst creates a source repository for you. That source repository contains sample code in addition to configuration information for the workflows and other resources created for you. This is the recommended way to get started with repositories in CodeCatalyst. You can choose to create repositories for a project. Those repositories will contain a **README.md** file that you can edit or delete at any time. Depending on your choices when you create a source repository, repositories might also contain a `.gitignore` file.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Creating a new space and development role (starting without an invitation)
-<a name="sign-up-create-resources"></a>
 
 You can sign up for Amazon CodeCatalyst without an invitation to an existing space or project. When you do, you will create a space and project after creating your AWS Builder ID. As part of creating a space, you will need to add an AWS account for billing purposes.
 

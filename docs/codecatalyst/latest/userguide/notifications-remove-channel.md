@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Removing a channel
-<a name="notifications-remove-channel"></a>
 
 You can remove a Slack channel from Amazon CodeCatalyst. By removing a Slack channel, notifications about a chosen CodeCatalyst project will no longer be sent to the channel. 
 

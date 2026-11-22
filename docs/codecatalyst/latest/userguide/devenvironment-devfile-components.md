@@ -3,13 +3,12 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Devfile components
-<a name="devenvironment-devfile-components"></a>
 
 Currently, CodeCatalyst only supports `container` components in your devfile. For more information, see [Adding components](https://devfile.io/docs/2.0.0/adding-components) in the Devfile.io documentation.
 
 The following example shows you how to add a startup command to your container in your devfile.
 
-```
+```yaml
 components:
   - name: test
     container:

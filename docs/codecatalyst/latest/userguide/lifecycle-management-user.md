@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Working with lifecycle management as a blueprint user
-<a name="lifecycle-management-user"></a>
 
 Lifecycle management is the ability to regenerate a codebase from updated options or versions of a blueprint. This allows a blueprint author to centrally manage the software development lifecycle of every project that contains a particular blueprint. For example, pushing a security fix to a web application blueprint will allow every project containing or created from the web application blueprint to pick up that fix automatically. This same management framework also allows you as a blueprint user to change blueprint options after they have been selected.
 

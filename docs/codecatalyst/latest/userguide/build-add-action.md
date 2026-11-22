@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding the build action
-<a name="build-add-action"></a>
 
 Use the following procedure to add a build action to your CodeCatalyst workflow. 
 

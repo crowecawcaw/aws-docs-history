@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Troubleshooting problems with devfiles
-<a name="devenvironments-devenvironments-devfile"></a>
 
 Consult the following sections to troubleshoot problems related to devfiles in CodeCatalyst. For more information on devfiles, see [Configuring a devfile for a Dev Environment](devenvironment-devfile.md).
 
@@ -35,7 +34,7 @@ You can move the default devfile in `/projects/devfile.yaml` to your source code
 
 If there's a problem starting your devfile, it will enter recovery mode so that you can still connect to your environment and fix your devfile. While in recovery mode, running `/aws/mde/mde status` won’t contain the location of your devfile.
 
-```
+```yaml
 {
     "status": "STABLE"
 }
@@ -69,7 +68,7 @@ In your Dev Environment, `devfile` or `devfile postStart` may fail if the `lates
 
 1. In your devfile, update to a granular image version instead of `latest`. It may look similar to the following:
 
-   ```
+   ```yaml
    components:
      - container:
          image: public.ecr.aws/amazonlinux/universal-image:1.0

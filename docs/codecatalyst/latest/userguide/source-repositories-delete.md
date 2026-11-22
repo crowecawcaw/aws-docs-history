@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Deleting a source repository
-<a name="source-repositories-delete"></a>
 
 If a source repository for an Amazon CodeCatalyst project is no longer needed, you can delete it. Deleting a source repository also deletes any project information stored in the repository. If any workflows depend on the source repository, those workflows will be deleted from the list of project workflows after the repository is deleted. Issues that reference the source repository will not be deleted or altered, but any links to the source repository added to issues will fail once the repository is deleted.
 

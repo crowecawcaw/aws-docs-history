@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding repository and source code components to a blueprint
-<a name="comp-repo-source-bp"></a>
 
 A repository is used by Amazon CodeCatalyst to store code. The repository takes a name as an input. Most components are stored in a repository, such as source code files, workflows, and other components like managed development environments (MDE). The source repository component also exports components used for managing files and static assets. Repositories have name constraints. For more information, see [Store and collaborate on code with source repositories in CodeCatalyst](source.md).
 

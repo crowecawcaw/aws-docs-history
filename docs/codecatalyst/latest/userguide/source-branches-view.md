@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing branches and details
-<a name="source-branches-view"></a>
 
 You can view information about remote branches in Amazon CodeCatalyst, including specifics of the files, folders, and most recent commit for a specific branch, in the Amazon CodeCatalyst console. You can also use Git commands and your local operating system to view this information for remote and local branches.<a name="source-branches-view-console"></a>
 

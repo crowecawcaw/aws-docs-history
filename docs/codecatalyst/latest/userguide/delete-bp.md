@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Deleting a published custom blueprint or version
-<a name="delete-bp"></a>
 
 When you delete a custom blueprint’s version or the blueprint itself from your Amazon CodeCatalyst space, all your access is removed to the resources of the blueprint project or blueprint version. When you have deleted a blueprint version or the blueprint, project members will be unable to access project resources, and any workflows that are prompted by third-party source repositories will be stopped.
 

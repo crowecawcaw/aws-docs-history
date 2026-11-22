@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Troubleshooting problems between Amazon CodeCatalyst and the AWS SDKs or the AWS CLI
-<a name="troubleshooting-cli-sdk"></a>
 
 The following information can help you troubleshoot common issues when working with CodeCatalyst and the AWS CLI or the AWS SDKs.
 

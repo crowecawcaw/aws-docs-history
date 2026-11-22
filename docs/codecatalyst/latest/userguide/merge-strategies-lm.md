@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Using merge strategies to generate bundles and specifying files
-<a name="merge-strategies-lm"></a>
 
 You can use merge strategies to generate bundles with resynthesis and specify files for lifecycle management updates of custom blueprints. By leveraging resythensis and merge strategies, you can manage updates and control which files get updated during deployments. You can also write your own strategies to control how changes are merged into existing CodeCatalyst projects.
 

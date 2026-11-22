@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Running a workflow
-<a name="workflows-working-runs"></a>
 
 A *run* is a single iteration of a workflow. During a run, CodeCatalyst performs the actions defined in the workflow configuration file and outputs the associated logs, artifacts, and variables.
 

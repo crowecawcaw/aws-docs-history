@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Configuring and using npm
-<a name="packages-npm-use"></a>
 
 To use `npm` with CodeCatalyst, you must connect `npm` to your package repository and provide a personal access token (PAT) for authentication. You can view instructions for connecting `npm` to your package repository in the CodeCatalyst console.
 

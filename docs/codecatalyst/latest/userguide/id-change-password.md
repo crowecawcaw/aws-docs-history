@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Changing a CodeCatalyst password associated with an AWS Builder ID
-<a name="id-change-password"></a>
 
 Use the following instructions to change the Amazon CodeCatalyst password associated with your AWS Builder ID.
 

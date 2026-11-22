@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Deploying into AWS accounts and VPCs
-<a name="deploy-environments"></a>
 
 Using [CodeCatalyst workflows](workflow.md), you can deploy applications and other resources to target AWS accounts and Amazon VPCs in the AWS cloud. To enable these deployments, you must set up CodeCatalyst environments.
 

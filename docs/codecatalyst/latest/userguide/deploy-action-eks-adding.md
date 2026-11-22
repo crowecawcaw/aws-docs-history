@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding the 'Deploy to Kubernetes cluster' action
-<a name="deploy-action-eks-adding"></a>
 
 Use the following instructions to add the **Deploy to Kubernetes cluster** action to your workflow. 
 

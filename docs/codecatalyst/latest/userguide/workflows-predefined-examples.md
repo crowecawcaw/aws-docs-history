@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Examples of referencing predefined variables
-<a name="workflows-predefined-examples"></a>
 
 The following examples show how to reference predefined variables in the workflow definition file.
 
@@ -20,7 +19,7 @@ The following example shows you how to refer to the `CommitId` predefined variab
 
 Although the example shows the variable being used in the build action, you can use `CommitId` in any action.
 
-```
+```yaml
 MyBuildAction:
     Identifier: aws/build@v1
     Inputs:
@@ -40,7 +39,7 @@ The following example shows you how to refer to the `BranchName` predefined vari
 
 Although the example shows the variable being used in the **AWS CDK deploy** action, you can use `BranchName` in any action.
 
-```
+```yaml
 CDKDeploy:
     Identifier: aws/cdk-deploy@v2
     Inputs:

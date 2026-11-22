@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Determining which predefined variables your workflow emits
-<a name="workflows-working-with-variables-determine-output-vars"></a>
 
 Use the following procedure to determine which predefined variables a workflow emits when it runs. You can then reference these variables within the same workflow. 
 

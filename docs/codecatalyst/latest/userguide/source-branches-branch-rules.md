@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Manage allowed actions for a branch with branch rules
-<a name="source-branches-branch-rules"></a>
 
 When you create a branch, certain actions are allowed for that branch based on the permissions for that role. You can change what actions are allowed for a specific branch by configuring branch rules. Branch rules are based on the role a user has in your project. You can choose to limit some predefined actions, such as pushing commits to a branch, to users with a particular role in a project. This can help you protect specific branches in a project by limiting which roles are allowed to perform certain actions. For example, if you configure a branch rule to only allow users with the **Project administrator** role to merge or push to that branch, users with other roles in the project will not be able to make changes to the code in the that branch. 
 

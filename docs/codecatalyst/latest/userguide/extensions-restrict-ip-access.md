@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Restricting IP access with third-party repository providers
-<a name="extensions-restrict-ip-access"></a>
 
 You can restrict access to your GitHub repositories, Bitbucket repositories, or GitLab project repositories based on IP addresses by setting up rules or configurations. You can do this through the third-party provider's settings or access control features.
 

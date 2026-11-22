@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing details, versions, and projects of a custom blueprint
-<a name="view-bp"></a>
 
 You can view your space’s published custom blueprints, including a blueprint’s details, versions, and the projects that are created with or adding the blueprint.
 

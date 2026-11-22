@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding the 'GitHub Actions' action
-<a name="integrations-github-action-add"></a>
 
 A ***GitHub Actions*** action is a *CodeCatalyst action* that wraps a GitHub Action and makes it compatible with CodeCatalyst workflows.
 

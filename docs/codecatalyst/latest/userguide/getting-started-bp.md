@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Getting started with custom blueprints
-<a name="getting-started-bp"></a>
 
 During the process of creating a blueprint, you can configure the blueprint and generate a preview of the project resources. Each custom blueprint is managed by a CodeCatalyst project, which contains a workflow by default for publishing to the space's blueprints catalog.
 

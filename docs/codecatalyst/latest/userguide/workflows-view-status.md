@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing a workflow's status
-<a name="workflows-view-status"></a>
 
 You might want to view the status of a workflow to see if there are any workflow configuration issues you need to address, or to troubleshoot runs that fail to start. CodeCatalyst evaluates the workflow status every time you create or update the workflow's underlying [workflow definition file](workflows-concepts.md#workflows-concepts-workflows-def). 
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Allowing access to AWS resources with connected AWS accounts
-<a name="ipa-connect-account"></a>
 
 You can use resources from your AWS accounts in Amazon CodeCatalyst spaces. To do so, you must set up a connection between the AWS accounts and your space in CodeCatalyst. Creating a connection like this means that projects and workflows within your CodeCatalyst space can interact with resources in your AWS accounts. You must create one connection for each AWS account you want to use with your CodeCatalyst space.
 

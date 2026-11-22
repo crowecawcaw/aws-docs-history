@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Accessing support for CodeCatalyst in the AWS Management Console
-<a name="support-for-disconnected-account"></a>
 
 If the support enabled billing account for a space is disconnected, Support cases associated with the previous space billing account and associated support plan will no longer be visible in Support for Amazon CodeCatalyst. The root user for that billing account can view and resolve old cases from the AWS Management Console and can set up IAM permissions for Support for other users to view and resolve old cases. You will still be able to partake in the benefits of your support plan from the AWS Management Console for all other AWS services and complete any CodeCatalyst support cases that were not previously resolved.
 

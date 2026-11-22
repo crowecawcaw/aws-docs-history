@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Store and collaborate on code with source repositories in CodeCatalyst
-<a name="source"></a>
 
 CodeCatalyst source repositories are Git repositories hosted in Amazon CodeCatalyst. You can use source repositories in CodeCatalyst to securely store, version, and manage assets for a project.
 

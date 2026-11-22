@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding a blueprint in a project to integrate resources
-<a name="apply-bp"></a>
 
 You can add multiple blueprints in a project to incorporate functional components, resources, and governance. Your projects can support various elements that are managed independently in separate blueprints. Adding blueprints to a project reduces the need to manually create resources and make software components functional. Your projects can also stay current as requirements evolve. To learn more about adding blueprints in your project, see [Working with lifecycle management as a blueprint user](lifecycle-management-user.md).
 

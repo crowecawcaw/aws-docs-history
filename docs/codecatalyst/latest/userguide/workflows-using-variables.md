@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Using user-defined variables
-<a name="workflows-using-variables"></a>
 
 *User-defined variables* are key-value pairs that you define. There are two types:
 + **Plaintext variables**, or simply **variables** – These are key-value pairs that you define in plaintext within the workflow definition file.

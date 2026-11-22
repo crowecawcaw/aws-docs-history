@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Configuring pip and installing Python packages
-<a name="packages-python-pip"></a>
 
 To use `pip` with CodeCatalyst, you must connect `pip` to your package repository and provide a personal access token for authentication. You can view instructions for connecting `pip` to your package repository in the CodeCatalyst console. After you authenticate and connect `pip` to CodeCatalyst, you can run `pip` commands.
 
@@ -54,13 +53,13 @@ If copying from the console instructions, the following values should be updated
 
 1. Assuming that a package is present in your repository or one of its upstream repositories, you can install it with `pip install`. For example, use the following command to install the `requests` package.
 
-   ```
+   ```bash
    pip install requests
    ```
 
    Use the `-i` option to revert temporarily to installing packages from [https://pypi.org](https://pypi.org) instead of your CodeCatalyst package repository.
 
-   ```
+   ```bash
    pip install -i https://pypi.org/simple requests
    ```
 

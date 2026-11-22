@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding region components to a blueprint
-<a name="region-comp-bp"></a>
 
 The region type can be added to your custom blueprint's `Options` interface to generate a component in the blueprint wizard you can input one or more AWS gions. The gion type can be imported from your base blueprint in your `blueprint.ts` file. For more information, see [AWS regions](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/).
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Configuring compute and runtime images
-<a name="workflows-working-compute"></a>
 
 In a CodeCatalyst workflow, you can specify the compute and runtime environment image that CodeCatalyst uses to run workflow actions.
 

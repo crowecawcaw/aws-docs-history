@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Grant users repository access with personal access tokens
-<a name="ipa-tokens-keys"></a>
 
 To access some CodeCatalyst resources, such as source repositories, on a local computer with a Git client or integrated development environment (IDE), you must enter an application-specific password. You can create a personal access token (PAT) to use for this purpose. PATs you create are associated with your user identity across all spaces and projects in CodeCatalyst. You can create more than one PAT for your CodeCatalyst identity. 
 
@@ -63,7 +62,7 @@ You can use the CLI to create PATs in CodeCatalyst.
 
    If successful, the command returns information about the created PAT like the following example.
 
-   ```
+   ```json
    {
        "secret": "{{value}}",
        "name": "{{marymajor-22222EXAMPLE}}",
@@ -114,7 +113,7 @@ You can use the CLI to view PATs associated with your user identity in CodeCatal
 
   If successful, the command returns information about the PATs associated with your user account like the following example.
 
-  ```
+  ```json
   {
       "items": [
           {

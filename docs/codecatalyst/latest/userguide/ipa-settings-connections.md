@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Accessing GitHub resources with personal connections
-<a name="ipa-settings-connections"></a>
 
 You can use personal connections to authorize and connect your third-party GitHub resources with CodeCatalyst. For example, use a personal connection to authorize CodeCatalyst to access your GitHub account and create a repository as the source for your project or blueprint. The connection is mapped to your CodeCatalyst identity and can be used to connect to one or more source repositories. Connections you create are associated with your user identity across all spaces and projects in CodeCatalyst.
 

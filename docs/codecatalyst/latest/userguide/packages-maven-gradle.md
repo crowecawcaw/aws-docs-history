@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Configuring and using Gradle Groovy
-<a name="packages-maven-gradle"></a>
 
 To use Gradle Groovy with CodeCatalyst, you must connect Gradle Groovy to your package repository and provide a personal access token (PAT) for authentication. You can view instructions for connecting Gradle Groovy to your package repository in the CodeCatalyst console.
 
@@ -176,7 +175,7 @@ You will not be able to see or copy your PAT again after you close the dialog bo
 
 1. Add the `maven-publish` plugin to the `plugins` section of the project's `build.gradle` file.
 
-   ```
+   ```groovy
    plugins {
        id 'java-library'
        id 'maven-publish'
@@ -190,7 +189,7 @@ If copying from the console instructions, the following values should be updated
    + Replace {{proj\_name}} with your CodeCatalyst project name.
    + Replace {{repo\_name}} with your CodeCatalyst package repository name.
 
-   ```
+   ```groovy
    publishing {
        publications {
            mavenJava(MavenPublication) {

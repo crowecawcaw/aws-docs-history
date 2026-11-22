@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Troubleshooting problems with Dev Environments
-<a name="devenvironments-troubleshooting"></a>
 
 Consult the following sections to troubleshoot problems related to Dev Environments. For more information about Dev Environments, see [Write and modify code with Dev Environments in CodeCatalyst](devenvironment.md).
 

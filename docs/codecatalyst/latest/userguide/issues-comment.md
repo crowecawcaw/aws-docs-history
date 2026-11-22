@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding, editing, or deleting comments
-<a name="issues-comment"></a>
 
 You can leave a comment on an issue. In the comments you can tag other space members, other projects in the space, related issues, and code.
 

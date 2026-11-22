@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Getting started with Slack notifications
-<a name="getting-started-notifications"></a>
 
 After you create a project, you can set up Slack notifications that help your team to monitor project resources. 
 

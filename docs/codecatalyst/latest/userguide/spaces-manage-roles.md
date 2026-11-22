@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Configuring IAM roles for connected accounts
-<a name="spaces-manage-roles"></a>
 
 You create roles in AWS Identity and Access Management (IAM) for the account that you want to add to CodeCatalyst. If you are adding a billing account, you do not need to create roles.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing all projects in a space
-<a name="projects-view-overview"></a>
 
 In the **Projects** list for your space, you can view all projects where you have permissions.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Standardizing projects with custom blueprints in CodeCatalyst
-<a name="custom-blueprints"></a>
 
 You can standardize the development and best practices for your CodeCatalyst space's projects with custom blueprints. Custom blueprints can be used to define various aspects of a CodeCatalyst project, such as workflow definitions and application code. After a custom blueprint is used to create a new project or applied to existing projects, any changes to the blueprint are available to those projects as pull request updates. As a blueprint author, you can view details about which projects are using your blueprints throughout your space, so you can see how standards are being applied across projects. Lifecycle mangement of a blueprint allows you to centrally manage the software development lifecycle of every project, giving you ability to make sure the projects in your space continue to follow best practices with the latest changes or fixes. For more information, see [Working with lifecycle management as a blueprint author](lifecycle-management-dev.md).
 

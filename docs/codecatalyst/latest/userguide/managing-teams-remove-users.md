@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Removing a user from a team directly
-<a name="managing-teams-remove-users"></a>
 
 You can remove team members from your team. All permissions will no longer be inherited by the user. You can add the user back to the team later.
 

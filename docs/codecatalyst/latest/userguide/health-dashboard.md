@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Understanding current service status with the CodeCatalyst health report
-<a name="health-dashboard"></a>
 
 The Amazon CodeCatalyst health report is a public dashboard that provides users with an aggregated list of up-to-the-minute notifications regarding resource performance and availability of services in CodeCatalyst that have widespread impact. You can see which resources are having problems and may affect applications in CodeCatalyst. This allows you to track outages and other resource downtime system wide. When an incident occurs, a blue indicator appears on the health report icon. Additionally, CodeCatalyst automatically sends an alert and email notification to all users with the ** Space administrator** role in the project, providing details and a history of the incident in near real time.
 

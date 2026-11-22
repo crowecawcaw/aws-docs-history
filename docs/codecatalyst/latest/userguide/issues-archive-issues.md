@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Archiving an issue
-<a name="issues-archive-issues"></a>
 
 **Note**  
 Issues are not deleted within a project, they are archived. To delete issues, you must delete the project.

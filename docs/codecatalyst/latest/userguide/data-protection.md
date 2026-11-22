@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Data protection in Amazon CodeCatalyst
-<a name="data-protection"></a>
 
 Security and Compliance is a shared responsibility between Amazon CodeCatalyst and the customer, just as the AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to your use of AWS resources used in a workflow. As described in this model, CodeCatalyst is responsible for protecting the global infrastructure for the service. You are responsible for maintaining control over your content that is hosted on this infrastructure. This shared responsibility model applies to data protection in CodeCatalyst.
 

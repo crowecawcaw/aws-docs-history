@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Changing the role for a space member
-<a name="spaces-members-rolechange"></a>
 
 You can change the assigned role for a member of your space. You must have the **Space administrator** role to change the role of a user in the space.
 

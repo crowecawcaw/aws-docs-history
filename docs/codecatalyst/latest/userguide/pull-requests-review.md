@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Reviewing a pull request
-<a name="pull-requests-review"></a>
 
 You can use the Amazon CodeCatalyst console to collaboratively review and comment on the changes included in a pull request. You can add comments to individual lines of code in the difference between the source and destination branches, or in the difference between revisions of the pull request. You can choose to create a summary of comments left on the code changes in the pull request to help you quickly understand the feedback left by other users. You can also choose to create a Dev Environment to work on code. 
 

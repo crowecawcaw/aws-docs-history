@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Publishing a custom blueprint to a space
-<a name="publish-bp"></a>
 
 Before you can add a custom blueprint to your space's blueprints catalog, you must publish it to the space. You can also view the blueprint in the CodeCatalyst console before publishing. You can publish a preview version or a normal version of your blueprint.
 

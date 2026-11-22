@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Changing catalog versions for a custom blueprint
-<a name="mange-version-bp"></a>
 
 As a blueprint author, you can manage the version that you want to publish to the space’s blueprints catalog. Changing the catalog version of a blueprint doesn’t affect the projects that are using a different blueprint version.
 

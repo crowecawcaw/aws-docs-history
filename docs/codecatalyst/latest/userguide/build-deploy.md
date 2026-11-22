@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Tutorial: Upload artifacts to Amazon S3
-<a name="build-deploy"></a>
 
 In this tutorial, you learn how to upload artifacts to an Amazon S3 bucket using an Amazon CodeCatalyst [workflow](workflows-concepts.md#workflows-concepts-workflows) that includes a couple of [build actions](workflows-concepts.md#workflows-concepts-actions). These actions run in series when the workflow starts. The first build action generates two files, `Hello.txt` and `Goodbye.txt`, and bundles them into a build artifact. The second build action uploads the artifact to Amazon S3. You'll configure the workflow to run every time you push a commit to your source repository.
 
@@ -76,7 +75,7 @@ For more information on IAM roles, see [IAM roles](https://docs.aws.amazon.com/I
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -97,7 +96,7 @@ For more information on IAM roles, see [IAM roles](https://docs.aws.amazon.com/I
 **Note**  
 The first time the role is used to run workflow actions, use the wildcard in the resource policy statement and then scope down the policy with the resource name after it is available.  
 
-      ```
+      ```yaml
       "Resource": "*"
       ```
 
@@ -227,7 +226,7 @@ For more information on the build action, see [Building with workflows](build-wo
 **Note**  
 In the YAML code that follows, you can omit the `Connections:` section if you want. If you omit this section, you must ensure that the role specified in the **Default IAM role** field in your environment includes the permissions and trust policies described in [Step 1: Create an AWS role](#build-deploy-tut-role). For more information about setting up an environment with a default IAM role, see [Creating an environment](deploy-environments-creating-environment.md).
 
-   ```
+   ```yaml
    Name: codecatalyst-artifact-workflow
    SchemaVersion: 1.0
    

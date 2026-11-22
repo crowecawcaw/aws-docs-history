@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Quotas for identity, permission, and access in CodeCatalyst
-<a name="ipa-quotas"></a>
 
 The following table describes quotas and limits for identity, permission, and access in Amazon CodeCatalyst. For more information about quotas in Amazon CodeCatalyst, see [Quotas for CodeCatalyst](quotas.md).
 

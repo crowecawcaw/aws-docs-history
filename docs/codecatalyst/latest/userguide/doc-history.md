@@ -3,13 +3,12 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Document history for Amazon CodeCatalyst
-<a name="doc-history"></a>
 
 The following table describes the documentation history and updates for the overall documentation for CodeCatalyst. 
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [Amazon CodeCatalyst is no longer open to new customers](#doc-history) | Amazon CodeCatalyst is no longer open to new customers. For more information, see [How to migrate from Amazon CodeCatalyst](https://docs.aws.amazon.com/migration.html). | November 7, 2025 | 
+| [Amazon CodeCatalyst is no longer open to new customers](doc-history.md) | Amazon CodeCatalyst is no longer open to new customers. For more information, see [How to migrate from Amazon CodeCatalyst](https://docs.aws.amazon.com/migration.html). | November 7, 2025 | 
 | [New content: New universal devfile image](devenvironment-universal-image.md) | Added documentation for the new universal devfile image (`Universal image 5.0`). | July 30, 2025 | 
 | [Updated content: Data privacy](data-privacy.md) | Updated the documentation to include additional information about data privacy related to IAM Identity Center. See [Data privacy in CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/data-privacy.html) | July 28, 2025 | 
 | [[Updated content: CodeCatalyst blueprints deprecation](https://docs.aws.amazon.com/codecatalyst/latest/userguide/project-blueprints.html)](project-blueprints.md) | Removed AWS Project Development Kit (AWS PDK) content from the [Available blueprints table](https://docs.aws.amazon.com/codecatalyst/latest/userguide/project-blueprints.html). | December 6, 2024 | 
@@ -46,7 +45,7 @@ The following table describes the documentation history and updates for the over
 | [[New content: **Bitbucket repositories** extension](https://docs.aws.amazon.com/codecatalyst/latest/userguide/extensions.html)](extensions.md) | Added new content for using **Bitbucket repositories** extension in CodeCatalyst. | June 5, 2024 | 
 | [New content: [Action types](workflows-actions.md#workflows-actions-types)](workflows-actions.md#workflows-actions-types) | Updated the [Third-party actions](workflows-actions.md#workflows-actions-types-3p) topic to mention the **SonarCloud Scan** action. | May 29, 2024 | 
 | [Updated content: ['AWS CDK deploy' action YAML](cdk-dep-action-ref.md)](cdk-dep-action-ref.md) | Fixed the `CdkRootRootPath` example. | May 28, 2024 | 
-| [Updated content](#doc-history) | Updated topic titles and reorganized content to improve readability and discovery. If you'd like to provide feedback on these changes, use this [Provide feedback link](https://docs-feedback.aws.amazon.com/feedback.jsp?hidden_service_name=CodeCatalyst&topic_url=https://docs.aws.amazon.com/en_us/codecatalyst/latest/userguide/doc-history.html). | May 17, 2024 | 
+| [Updated content](doc-history.md) | Updated topic titles and reorganized content to improve readability and discovery. If you'd like to provide feedback on these changes, use this [Provide feedback link](https://docs-feedback.aws.amazon.com/feedback.jsp?hidden_service_name=CodeCatalyst&topic_url=https://docs.aws.amazon.com/en_us/codecatalyst/latest/userguide/doc-history.html). | May 17, 2024 | 
 | [New content: Viewing the history of changes to a file](source-files-view-history.md) | Updated the documentation to reflect new functionality for viewing the history of changes to a file in a source repository. | May 1, 2024 | 
 | [Updated content: Tutorial: Using generative AI features](getting-started-project-assistance.md) | Updated the tutorial to reflect integration with Amazon Q Developer. | April 29, 2024 | 
 | [Updated content: Tutorial: Using generative AI features](getting-started-project-assistance.md) | Updated the tutorial to reflect allowing Amazon Q to analyze issues for complexity, suggest and create tasks, and work in tasks in an issue. | April 22, 2024 | 
@@ -90,7 +89,7 @@ The following table describes the documentation history and updates for the over
 | [New content: Managing machine resources for blueprints and workflows in a CodeCatalyst project](projects-machine-resources.md) | Added information about using machine resources with CodeCatalyst projects. See [Allowing project access for machine resources](projects-machine-resources.md). | November 16, 2023 | 
 | [New content: Associating a VPC connection with an environment](deploy-environments-associate-vpc.md) | Added documentation for associating a VPC connection with an environment, which can be used in a workflow. | November 16, 2023 | 
 | [New content: Associating a VPC connection to a Dev Environments](devenvironment-using-vpc.md) | Added documentation for using Dev Environments with a VPC connection. | November 16, 2023 | 
-| [New content](#doc-history) | Initial publication of the [Amazon CodeCatalyst Administrator Guide](https://docs.aws.amazon.com/codecatalyst/latest/adminguide/what-is.html). | November 16, 2023 | 
+| [New content](doc-history.md) | Initial publication of the [Amazon CodeCatalyst Administrator Guide](https://docs.aws.amazon.com/codecatalyst/latest/adminguide/what-is.html). | November 16, 2023 | 
 | [New content: ['AWS CDK deploy' action YAML](cdk-dep-action-ref.md)](cdk-dep-action-ref.md) | Added a new `CdkCliVersion` property to the ['AWS CDK deploy' action YAML](cdk-dep-action-ref.md) and the ['AWS CDK bootstrap' action YAML](cdk-boot-action-ref.md). | November 14, 2023 | 
 | [Updated content: Working with roles](ipa-roles.md) | Updated the documentation for the roles to include permissions for working with branch rules. | November 13, 2023 | 
 | [Updated content: Troubleshooting problems with source repositories, workflows, and Dev Environments](troubleshooting.md) | Updated the troubleshooting topics to include information about working with branch rules. | November 13, 2023 | 
@@ -150,7 +149,7 @@ The following table describes the documentation history and updates for the over
 | [Updated content: ['Deploy CloudFormation stack' action YAML](deploy-action-ref-cfn.md)](deploy-action-ref-cfn.md) | Updated the `parameter-overrides` property description. It now supports JSON files. | April 5, 2023 | 
 | [New content: Creating a project in CodeCatalyst with a linked GitHub repository](projects-create.md) | Added a new section to [Creating a project](projects-create.md) titled [Creating a project with a linked third-party repository](projects-create.md#projects-create-3p-repo) with instructions to create a project that links to your GitHub repository. | April 5, 2023 | 
 | [Updated content: Working with notifications](notifications.md) | Updated the documentation for notifications to include information about configuring emails about project events. | March 31, 2023 | 
-| [New content](#doc-history) | Initial publication of the [Amazon CodeCatalyst Action Development Kit guide](https://docs.aws.amazon.com/codecatalyst/latest/adk/what-is-action-development-kit.html). | March 31, 2023 | 
+| [New content](doc-history.md) | Initial publication of the [Amazon CodeCatalyst Action Development Kit guide](https://docs.aws.amazon.com/codecatalyst/latest/adk/what-is-action-development-kit.html). | March 31, 2023 | 
 | [Updated content: Restructured the Spaces section in Amazon CodeCatalyst](spaces.md) | Updated the Spaces section by removing landing pages and consolidating topics. | March 29, 2023 | 
 | [Updated content: [Tutorial: Deploy an application to Amazon ECS](deploy-tut-ecs.md)](deploy-tut-ecs.md) | Changed [Step 1: Set up an AWS user and AWS CloudShell](deploy-tut-ecs.md#deploy-tut-ecs-user-cloudshell) to describe how to create a user in AWS IAM Identity Center instead of AWS Identity and Access Management. Creating IAM users is no longer recommended. | March 23, 2023 | 
 | [Updated content: Working with roles](ipa-roles.md) | Updated the documentation for the Space administrator, Project administrator, and Contributor roles to include permissions for linking issues to pull requests. | March 13, 2023 | 
@@ -177,5 +176,5 @@ The following table describes the documentation history and updates for the over
 | [Updated content: [Sharing artifacts and files between actions](workflows-working-artifacts.md)](workflows-working-artifacts.md) | Fixed examples showing how to specify input artifacts. | December 13, 2022 | 
 | [New content: ['GitHub Actions' action YAML](github-action-ref.md)](github-action-ref.md) | Added a dedicated reference page for the **GitHub Actions** action. | December 13, 2022 | 
 | [Updated content: Quotas for projects in CodeCatalyst](projects-quotas.md) | Updated the documentation with a maximum of 100 projects in a space. | December 2, 2022 | 
-| [New content](#doc-history) | Initial publication of the Amazon CodeCatalyst User Guide. | December 1, 2022 | 
+| [New content](doc-history.md) | Initial publication of the Amazon CodeCatalyst User Guide. | December 1, 2022 | 
 | [New content: [Troubleshooting problems with extensions](troubleshooting-extensions.md)](troubleshooting-extensions.md) | Added a troubleshoot topic on possible issues users might come across when using the third-party extensions feature. | June 18, 2022 | 

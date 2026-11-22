@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Connecting package repositories to workflows
-<a name="workflows-packages"></a>
 
 A *package* is a bundle that includes both software and the metadata that is required to install the software and resolve any dependencies. CodeCatalyst supports the npm package format.
 

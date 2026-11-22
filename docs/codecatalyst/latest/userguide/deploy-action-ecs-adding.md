@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding the 'Deploy to Amazon ECS' action
-<a name="deploy-action-ecs-adding"></a>
 
 Use the following instructions to add the **Deploy to Amazon ECS** action to your workflow. 
 

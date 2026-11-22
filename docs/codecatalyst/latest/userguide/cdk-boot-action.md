@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Bootstrapping an AWS CDK app with a workflow
-<a name="cdk-boot-action"></a>
 
 This section describes how to bootstrap an AWS CDK application using a CodeCatalyst workflow. To accomplish this, you must add the **AWS CDK bootstrap** action to your workflow. The **AWS CDK bootstrap** action provisions a bootstrap stack in your AWS environment using the [modern template](https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html#bootstrapping-template). If a bootstrap stack already exists, the action updates it if necessary. Having a bootstrap stack present in AWS is a prerequisite for deploying an AWS CDK app.
 

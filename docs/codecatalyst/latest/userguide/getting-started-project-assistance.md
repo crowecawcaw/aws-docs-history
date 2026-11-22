@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Tutorial: Using CodeCatalyst generative AI features to speed up your development work
-<a name="getting-started-project-assistance"></a>
 
 If you have a project and a source repository in Amazon CodeCatalyst in a space where generative AI features are enabled, you can use these features to help speed up software development. Developers frequently have more tasks to do than time to accomplish them. They often don't take the time to explain their code changes to their teammates when creating pull requests for review of those changes, expecting other users to find the changes self-explanatory. Pull request creators and reviewers also don't have time to find and read all the comments on a pull request thoroughly, particularly if the pull request has multiple revisions. CodeCatalyst integrates with the Amazon Q Developer Agent for software development to provide generative AI features that can both help team members accomplish their tasks more quickly, and increase the time they have to focus on the most important parts of their work. 
 

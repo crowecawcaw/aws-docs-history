@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Publishing packages with curl
-<a name="packages-maven-curl"></a>
 
 This section shows how to use the HTTP client `curl` to publish Maven packages to a CodeCatalyst package repository. Publishing packages with `curl` can be useful if you do not have or want to install the Maven client in your environments.
 

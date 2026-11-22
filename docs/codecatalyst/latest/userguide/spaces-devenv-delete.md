@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Deleting a Dev Environment for your space
-<a name="spaces-devenv-delete"></a>
 
 You can delete a Dev Environment that is no longer needed or that no longer has an owner. For more information about considerations for deleting a Dev Environment, see [Deleting a Dev Environment](devenvironment-delete.md).
 

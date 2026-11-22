@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Tutorial: Pull from a package repository
-<a name="packages-tutorial"></a>
 
 In this tutorial, you learn how to create a workflow that runs an application whose dependencies are pulled from a [CodeCatalyst package repository](packages-concepts.md#packages-concepts-repository). The application is a simple Node.js app that prints a 'Hello World' message to the CodeCatalyst logs. The application has a single dependency: the [lodash](https://www.npmjs.com/package/lodash) npm package. The `lodash` package is used to transform a `hello-world` string to `Hello World`. You will use version 4.17.20 of this package.
 
@@ -196,7 +195,7 @@ If you had not connected the npm client to your CodeCatalyst package repository 
 
 1. (Optional) Open `hello-world-app/package.json` and verify that the lines in **{{red bold}}** were added:
 
-   ```
+   ```JSON
    {
      "name": "hello-world-app",
      "version": "1.0.0",
@@ -218,7 +217,7 @@ If you had not connected the npm client to your CodeCatalyst package repository 
 **Tip**  
 You can use the side navigation in your Dev Environment to create this file.
 
-   ```
+   ```javascript
    // Importing lodash library
    const _ = require('lodash');
    
@@ -323,7 +322,7 @@ Use the following instructions to create a workflow that pulls the `lodash` depe
 
 1. Add the following YAML code:
 
-   ```
+   ```yaml
    Name: codecatalyst-package-workflow
    SchemaVersion: "1.0"
    
@@ -469,7 +468,7 @@ Use the following set of procedures to test the blocking feature.
 
 1. Change the `lodash` version to 4.17.21 as shown in **{{red bold}}**:
 
-   ```
+   ```JSON
    {
      "name": "hello-world-app",
      "version": "1.0.0",

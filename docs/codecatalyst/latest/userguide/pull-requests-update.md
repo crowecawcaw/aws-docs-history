@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Updating a pull request
-<a name="pull-requests-update"></a>
 
 You can make it easier for other project members to review code by updating the pull request. You can update a pull request to change its reviewers, its links to issues, the title of the pull request, or its description. For example, you might want to change the required reviewers for a pull request to remove someone who's away on vacation, and add someone else. You can also update a pull request with further code changes by pushing commits to the source branch of an open pull request. Each push to the source branch of a pull request in the CodeCatalyst source repository creates a revision. Project members can view the differences between revisions in a pull request.<a name="pull-requests-update-reviewers"></a>
 

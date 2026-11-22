@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Write and modify code with Dev Environments in CodeCatalyst
-<a name="devenvironment"></a>
 
 Dev Environments are cloud-based development environments. In Amazon CodeCatalyst, you use Dev Environments to work on the code stored in the source repositories of your project. When creating a Dev Environments, you have several options:
 + Create a project-specific Dev Environment in CodeCatalyst to work on code with a supported integrated development environment (IDE).

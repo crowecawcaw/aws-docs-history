@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Organize resources with spaces in CodeCatalyst
-<a name="spaces"></a>
 
 You create a space that represents you, your company, department, or group, and provides a place where your development teams can manage projects. You must create a space to add projects, members, and the associated cloud resources you create in Amazon CodeCatalyst. 
 

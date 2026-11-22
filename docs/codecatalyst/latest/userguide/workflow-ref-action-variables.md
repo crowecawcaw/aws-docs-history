@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # List of predefined variables
-<a name="workflow-ref-action-variables"></a>
 
 Consult the following sections to view the predefined variables produced automatically by CodeCatalyst actions as part of a workflow run.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Developing a custom action
-<a name="workflows-custom-action"></a>
 
 You can develop a custom action to use in your workflows using the CodeCatalyst Action Development Kit (ADK). You can then publish the action to the CodeCatalyst actions catalog, so that other CodeCatalyst users can view and use it in their workflows.
 

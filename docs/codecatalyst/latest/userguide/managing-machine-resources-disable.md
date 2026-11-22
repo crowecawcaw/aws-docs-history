@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Disabling space access for machine resources
-<a name="managing-machine-resources-disable"></a>
 
 You can choose to disable machine resources that are in use in your space. 
 

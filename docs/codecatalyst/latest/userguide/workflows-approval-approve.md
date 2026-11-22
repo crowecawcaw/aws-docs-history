@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Approving or rejecting a workflow run
-<a name="workflows-approval-approve"></a>
 
 Workflow runs that include the **Approval** gate will need to be approved or rejected. Users can provide their approval or rejection starting from:
 + the CodeCatalyst console

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Starting a workflow run automatically using triggers
-<a name="workflows-add-trigger"></a>
 
 You can start an Amazon CodeCatalyst workflow run automatically with a workflow trigger.
 

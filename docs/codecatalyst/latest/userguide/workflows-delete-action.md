@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Removing an action from a workflow
-<a name="workflows-delete-action"></a>
 
 Use the following instructions to remove an action from a workflow.
 

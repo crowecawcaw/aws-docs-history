@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Granting project roles for a team at the space level
-<a name="managing-teams-project-roles"></a>
 
 A team in CodeCatalyst is similar to a user in that the team members can have role permissions, such as **Project administrator**, in a project. A role change will be applied to the team, and all members of the team will inherit those permissions. You can choose one role for each project that will be automatically granted to the team.
 

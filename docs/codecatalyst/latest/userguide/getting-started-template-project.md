@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Tutorial: Creating a project with the Modern three-tier web application blueprint
-<a name="getting-started-template-project"></a>
 
 You can get started more quickly with developing software by creating a project with a blueprint. A project created with a blueprint includes the resources that you need, including a source repository to manage your code, and a workflow to build and deploy the application. In this tutorial, we will walk you through using the **Modern three-tier web application** blueprint to create a project in Amazon CodeCatalyst. The tutorial also includes viewing the deployed sample, inviting other users to work on it, and making changes to the code with pull requests that are automatically built and deployed to resources in the connected AWS account when the pull request is merged. Where CodeCatalyst creates your project with reports, activity feeds, and other tools, your blueprint creates AWS resources in the AWS account associated with your project. Your blueprint files allow you to build and test a sample modern application and deploy it to infrastructure in the AWS Cloud.
 
@@ -216,7 +215,7 @@ In this section, you will work with your generated sample application in CodeCat
 
 1. Add, commit and push your changes with the **git add**, **git commit**, and **git push** commands.
 
-   ```
+   ```bash
    git add .
    git commit -m "make an example change"
    git push

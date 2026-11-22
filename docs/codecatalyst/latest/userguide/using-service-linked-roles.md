@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Using service-linked roles for CodeCatalyst
-<a name="using-service-linked-roles"></a>
 
 Amazon CodeCatalyst uses AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to CodeCatalyst. Service-linked roles are predefined by CodeCatalyst and include all the permissions that the service requires to call other AWS services on your behalf. 
 

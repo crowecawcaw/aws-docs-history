@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Managing tasks on issues
-<a name="issues-tasks"></a>
 
 *Tasks* can be added to issues to further break down, organize, and track the work of that issue. You can create tasks yourself, or you can use Amazon Q to recommend tasks based on its analysis of the issue and its complexity. 
 

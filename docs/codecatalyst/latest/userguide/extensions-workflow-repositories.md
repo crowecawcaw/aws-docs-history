@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Automatically starting a workflow run after third-party repository events
-<a name="extensions-workflow-repositories"></a>
 
 You can use a linked GitHub repository, Bitbucket repository, or GitLab project repository as the source for a workflow, where changes to a specified branch in a linked GitHub repository, Bitbucket repository, or GitLab project repository automatically start a workflow run.
 
@@ -28,7 +27,7 @@ You can configure a CodeCatalyst workflow to automatically start a run when code
 
 The following example shows a trigger that starts a workflow run whenever code is pushed to any branch in your source repository.
 
-```
+```yaml
 Triggers:
   - Type: PUSH
 ```
@@ -38,7 +37,7 @@ Triggers:
 
 The following example shows a trigger that starts a workflow run whenever a pull request is created against any branch in your source repository.
 
-```
+```yaml
 Triggers:
   - Type: PULLREQUEST
     Events:

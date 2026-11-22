@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Monitoring activity for users and resources in a space
-<a name="spaces-activity"></a>
 
 To see recently created projects and status updates, you can use the CodeCatalyst console to view an activity feed that shows updates for space resources.
 

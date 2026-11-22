@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Removing a project role for a team
-<a name="projects-teams-remove"></a>
 
 In CodeCatalyst, you can view the project roles for your team. You can also view the members in a team. You can remove the project role for a team.
 

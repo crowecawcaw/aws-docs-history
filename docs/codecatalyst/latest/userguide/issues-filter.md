@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Filtering issues
-<a name="issues-filter"></a>
 
 Use filtering to find issues that contain a specified name, priority, label, custom fields, or assignee.
 

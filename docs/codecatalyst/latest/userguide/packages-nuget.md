@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Using NuGet
-<a name="packages-nuget"></a>
 
 These topics describe how to consume and publish `NuGet` packages using CodeCatalyst.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding a team to a project
-<a name="projects-teams-add"></a>
 
 You can manage teams where the team members can access resources in your project.
 

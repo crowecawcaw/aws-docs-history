@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Configuring email notifications
-<a name="notifications-personal"></a>
 
 You can choose to have email notifications sent to you about events in any project where you are a member. These emails will be sent to the email address configured in your AWS Builder ID. By default, you will receive emails about all project events for which emails can be sent.<a name="notifications-personal-email"></a>
 

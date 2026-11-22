@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Working with attachments
-<a name="issues-attachments"></a>
 
 You can add attachments to issues in CodeCatalyst to make related files easily accessible. Use the following procedure to manage attachments for an issue.
 

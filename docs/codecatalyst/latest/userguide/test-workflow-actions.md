@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Testing with workflows
-<a name="test-workflow-actions"></a>
 
 In CodeCatalyst, you can run tests as part of different workflow actions, such as build and test. These workflow actions can all generate quality reports. A *test action* is a workflow action that produces test, code coverage, software composition analysis, and static analysis reports. These reports are displayed in the CodeCatalyst console.
 
@@ -81,7 +80,7 @@ CodeCatalyst provides the following SA metrics:
 Bugs  
 Identifies a number of possible bugs found in your source code. These bugs can include issues regarding memory safety. The following is an example of a bug.  
 
-```
+```C
 // The while loop will inadvertently index into array x out-of-bounds
 int x[64];
 while (int n = 0; n <= 64; n++) {
@@ -95,7 +94,7 @@ Identifies a number of possible security vulnerabilities found in your source co
 Quality issues  
 Identifies a number of possible quality issues found in your source code. These quality issues can include issues regarding style conventions. The following is an example of a quality issue.  
 
-```
+```C
 // The function name doesn't adhere to the style convention of camelCase
 int SUBTRACT(int x, int y) {
   return x-y

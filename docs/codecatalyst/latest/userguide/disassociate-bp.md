@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Disassociating a blueprint from a project to stop updates
-<a name="disassociate-bp"></a>
 
 If you don't want new updates from a blueprint, you can disassociate the blueprint from your project. Resources and functional software components added to your project from the blueprint will remain in your project.
 

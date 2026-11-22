@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Setting up to use the AWS CLI with CodeCatalyst
-<a name="set-up-cli"></a>
 
 The Amazon CodeCatalyst console is where you'll work on most of your daily tasks. However, you might want to set up and configure the AWS CLI when you're working with Dev Environments, personal access tokens, or logs of events in CodeCatalyst. You must install the AWS CLI and configure a profile before you can use it with CodeCatalyst.<a name="how-to-set-up-cli"></a>
 

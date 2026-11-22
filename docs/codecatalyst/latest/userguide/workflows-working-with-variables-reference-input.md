@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Referencing a variable in the action that defines it
-<a name="workflows-working-with-variables-reference-input"></a>
 
 Use the following instructions to reference a variable in the action that defines it.
 
@@ -45,7 +44,7 @@ Make sure you have defined the variable you want to reference. For more informat
 
    For example:
 
-   ```
+   ```yaml
    MyAction:
        Configuration:
          Steps:

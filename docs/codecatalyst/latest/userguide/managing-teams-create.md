@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Creating a team
-<a name="managing-teams-create"></a>
 
 A team can have role permissions, such as **Power user**, in a space. A team can also have project permissions, such as **Project administrator**, in a project. Teams can be associated with many projects with different roles for each project. You can manage teams where the team members are either individual users for an AWS Builder ID space or SSO groups for a space that supports identity federation.
 

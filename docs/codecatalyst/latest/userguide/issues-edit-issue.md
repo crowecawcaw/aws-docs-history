@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Editing an issue
-<a name="issues-edit-issue"></a>
 
 Follow these steps to edit the title, description, status, assignee, priority, estimate, or labels of an issue.
 

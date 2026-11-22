@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Editing a desciption for a blueprint in a project
-<a name="update-settings-bp"></a>
 
 You can edit the description of a blueprint that you used to create a project or applied after a project was created. A blueprint can be used more than once in a project. To differentiate the purpose of blueprints in your project, you can use descriptions for those blueprints. Descriptions can also be used to identify the components that you're adding from a specific blueprint.
 

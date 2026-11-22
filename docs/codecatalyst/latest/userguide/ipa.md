@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Configure identity, permissions, and access in CodeCatalyst
-<a name="ipa"></a>
 
 When you sign in to Amazon CodeCatalyst for the first time, you create an AWS Builder ID. AWS Builder IDs do not exist in AWS Identity and Access Management. The user name that you choose during your first sign-in becomes your unique user ID for your identity.
 

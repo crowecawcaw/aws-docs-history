@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Updating a profile
-<a name="your-profile"></a>
 
 In CodeCatalyst, your profile consists of personal information managed by **AWS Builder ID** and settings managed in CodeCatalyst.
 + Your profile's full name, email address, and password are managed by **AWS Builder ID**. You entered this information when you signed up. When you set up MFA to use an authenticator app for application sign-in, CodeCatalyst takes you to the **AWS Builder ID** page.

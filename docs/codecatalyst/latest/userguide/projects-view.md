@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Getting a list of projects
-<a name="projects-view"></a>
 
 From your CodeCatalyst space, you can view details of each project where you have project permissions.
 

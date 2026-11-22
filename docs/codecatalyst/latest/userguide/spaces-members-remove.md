@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Removing or changing the role for a user with the **Space administrator** role
-<a name="spaces-members-remove"></a>
 
 You can remove or change the role for a user with the **Space administrator** role for your space. 
 

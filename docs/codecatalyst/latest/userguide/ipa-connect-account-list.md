@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing account connections
-<a name="ipa-connect-account-list"></a>
 
 You can view a list of your connections and view details about each connection.
 

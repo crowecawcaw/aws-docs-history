@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Creating a comprehensive project with CodeCatalyst blueprints
-<a name="project-blueprints"></a>
 
 When you create a project using a blueprint, CodeCatalyst creates a full project with a source repository, sample source code, CI/CD workflows, build and test reports, and integrated issue tracking tools. A project blueprint uses code to provision cloud infrastructure, resources, and sample source artifacts for different types of applications and frameworks.
 

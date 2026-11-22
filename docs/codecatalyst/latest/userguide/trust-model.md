@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Understanding the CodeCatalyst trust model
-<a name="trust-model"></a>
 
 The Amazon CodeCatalyst trust model allows CodeCatalyst to assume the service role in the connected AWS account. The model connects the IAM role, the CodeCatalyst service principals, and the CodeCatalyst space. The trust policy uses the `aws:SourceArn` condition key to grant permissions to the CodeCatalyst space specified in the condition key. For more information about this condition key, see [aws:SourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn) in the *IAM User Guide*.
 
@@ -16,7 +15,7 @@ In the following trust policy, the service principals listed in the `Principal` 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Set up and sign in to CodeCatalyst
-<a name="setting-up-topnode"></a>
 
 There are two types of space that you can set up in CodeCatalyst: spaces that support AWS Builder ID users, and creating a space that supports identity federation, where SSO users and groups are managed in IAM Identity Center. Users in an AWS Builder ID space sign in to CodeCatalyst with their AWS Builder ID, and users in a space set up for identity federation sign in to CodeCatalyst using the SSO portal for the company associated with the space.
 

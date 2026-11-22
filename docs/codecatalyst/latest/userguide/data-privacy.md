@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Data privacy in Amazon CodeCatalyst
-<a name="data-privacy"></a>
 
 CodeCatalyst collects aggregate information in IAM Identity Center. CodeCatalyst uses this aggregate data to provide access to spaces and projects in CodeCatalyst. The following aggregate information is collected:
 + User's full name

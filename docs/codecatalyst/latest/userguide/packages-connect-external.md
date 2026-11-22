@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Connecting to public external repositories
-<a name="packages-connect-external"></a>
 
 You can connect CodeCatalyst package repositories to supported public, external repositories by adding the corresponding gateway repository as an upstream repository. Gateway repositories act as intermediary repositories that search and store packages pulled from external repositories. This saves time and data transfer because all package repositories in a project can use stored packages from the gateway repository.
 

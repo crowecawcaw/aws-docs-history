@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Associating a VPC with an environment
-<a name="deploy-environments-associate-vpc"></a>
 
 When an action is configured with an environment that has a VPC connection, the action will run connected to the VPC, adhering to the network rules and access resources specified by the associated VPC. The same VPC connection can be used by one or more environments.
 

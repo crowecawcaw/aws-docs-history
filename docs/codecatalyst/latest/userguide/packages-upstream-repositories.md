@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Configuring and using upstream repositories
-<a name="packages-upstream-repositories"></a>
 
 You can connect both gateway repositories, and other CodeCatalyst package repositories, as upstreams to your package repositories. This enables a package manager client to access the packages that are contained in more than one package repository by using a single package repository endpoint. The following are the main benefits of using upstream repositories:
 + You only have to configure your package manager with a single repository endpoint to pull from multiple sources.

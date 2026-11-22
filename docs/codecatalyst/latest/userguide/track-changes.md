@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Tracking deployment status by commit
-<a name="track-changes"></a>
 
 At any time in the development lifecycle, it's important to know the deployment status of specific commits, such as bug fixes, new features, or other impactful changes. Consider the following scenarios in which deployment status tracking capability is helpful to development teams:
 + As a developer, you've made a fix to address a bug and you want to report the status of its deployment across your team's deployment environments.

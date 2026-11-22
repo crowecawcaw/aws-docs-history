@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Creating a provisioned fleet
-<a name="projects-create-compute-resource"></a>
 
 Use the following instructions to create a provisioned fleet.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Getting started with workflows
-<a name="workflows-getting-started"></a>
 
 In this tutorial, you'll learn how to create and configure your first workflow.
 
@@ -61,7 +60,7 @@ You can configure your workflow in the **Visual** editor, or the **YAML** editor
 
 1. In the **Build** action, choose **\+** to add the action's YAML to your workflow definition file. Your workflow now looks similar to the following.
 
-   ```
+   ```yaml
    Name: Workflow_fe47
    SchemaVersion: "1.0"
    

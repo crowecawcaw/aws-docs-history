@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # NuGet compatibility
-<a name="packages-nuget-compatibility"></a>
 
  This guide contains information about CodeCatalyst's compatibility with different NuGet tools and versions. 
 

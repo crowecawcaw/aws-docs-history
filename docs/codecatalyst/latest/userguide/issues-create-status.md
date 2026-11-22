@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # To create a status
-<a name="issues-create-status"></a>
 
 1. In the navigation pane, choose **Issues**.
 

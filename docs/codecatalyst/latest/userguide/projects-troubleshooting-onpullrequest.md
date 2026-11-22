@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Modern three-tier web application blueprint workflow **OnPullRequest** fails with permissions error for Amazon CodeGuru
-<a name="projects-troubleshooting-onpullrequest"></a>
 
 **Issue:** When I try to run a workflow for my project, the workflow fails to run with the following message: 
 

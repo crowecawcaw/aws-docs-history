@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing members in a space
-<a name="spaces-members-view"></a>
 
 You can view the users in your space, including information about their display names, aliases, and the role they have for the space. There are three roles for members in a space:
 + **Space administrator** – This role has all permissions in CodeCatalyst, including creating projects. Only assign this role to users who need to administer every aspect of a space, such as accessing all projects in the space.

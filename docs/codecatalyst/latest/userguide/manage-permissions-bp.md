@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Setting publishing permissions for a custom blueprint
-<a name="manage-permissions-bp"></a>
 
 By default, a custom blueprint's permission is enabled if a workflow release was generated during project creation. When publishing permissions are enabled, the blueprint can be published to the space. You can disable the permission so that the blueprint can't be published. When the permission is disabled, the release workflow that is generated during blueprint creation doesn't run. New changes to a blueprint can't be published unless the blueprint's permissions are enabled.
 

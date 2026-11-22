@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Integrating with universal-test-runner
-<a name="test.universal-test-runner"></a>
 
 Test actions integrate with the open-source command line tool `universal-test-runner`. `universal-test-runner` uses the [Test Execution Protocol](https://github.com/aws/universal-test-runner/blob/main/protocol/README.md) to run your tests for any language in a given framework. `universal-test-runner` supports the following frameworks:
 + [Gradle](https://gradle.org/)
@@ -37,7 +36,7 @@ For more information about `universal-test-runner`, see [What is universal-test-
 
 1. On the **Configuration** tab, complete the **Shell commands** field by updating the sample code with your choice of the supported frameworks. For example, to use a supported framework, you would use a `Run` command similar to the following.
 
-   ```
+   ```yaml
    - Run: run-tests {{<framework>}}
    ```
 
@@ -68,7 +67,7 @@ For more information about `universal-test-runner`, see [What is universal-test-
 
 1. Modify the YAML code according to your needs. For example, to use a supported framework, you would use a `Run` command similar to the following.
 
-   ```
+   ```yaml
    Configuration:
      Steps:
        - Run: run-tests {{<framework>}}

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # How to migrate from CodeCatalyst
-<a name="migration"></a>
 
 *After careful consideration, we have made the decision to close new customer access to Amazon CodeCatalyst, effective November 7, 2025. Existing Amazon CodeCatalyst customers can continue to use the service with existing spaces, but will not be able to create new spaces. AWS continues to invest in security and availability for Amazon CodeCatalyst, but we do not plan to introduce new features.*
 

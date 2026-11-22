@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Changing the IAM role of an action
-<a name="deploy-environments-switch-role"></a>
 
 By default, when you associate an [environment](deploy-environments.md) with a workflow [action](workflows-actions.md), the action inherits the default IAM role specified in the environment. You can change this behavior so that the action uses a different role. You might want an action to use a different role if the default IAM role is missing the permissions that the action needs to operate in the AWS cloud.
 
@@ -61,7 +60,7 @@ Use the following instructions to configure an action to use a different IAM rol
 
 1. In the workflow action where you want to use a different IAM role, add a `Connections:` section, similar to the following:
 
-   ```
+   ```yaml
    {{action-name}}:
      Environment:
        Name: {{environment-name}}

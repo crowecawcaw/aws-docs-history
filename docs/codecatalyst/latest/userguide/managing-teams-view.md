@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing a team
-<a name="managing-teams-view"></a>
 
 In CodeCatalyst, you can view the projects and roles for your team. On the members page, you can view project roles and a list of users. For SSO group type teams, you will also be able to see a list of SSO groups associated with the team.
 

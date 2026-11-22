@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Generating inputs and rerendering front-end wizard elements
-<a name="comp-dynamic-input-bp"></a>
 
 You can generate wizard inputs with the DynamicKVInput and dynamically create front-end wizard elements for your custom blueprint.
 

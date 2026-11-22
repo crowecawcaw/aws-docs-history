@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Handling dependencies, mismatches, and tooling
-<a name="dependencies-tooling-bp"></a>
 
 Incorrect dependency management can lead to build failures and runtime issues for those using your custom blueprints. Outdated tooling and components may prevent blueprint users from accessing the latest features and bug fixes. You can manage dependencies, handle dependency mismatches, as well as upgrade toolings and components to ensure all dependencies rely on the same component versions and components are synchornized.
 

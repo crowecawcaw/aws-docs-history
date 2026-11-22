@@ -3,13 +3,12 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Allowing space access using teams
-<a name="managing-teams"></a>
 
 After you create a space, you can add teams. Teams allow you to group users so that they can share permissions and manage projects, issue tracking, roles, and resources in CodeCatalyst.
 
 You must have the **Space administrator** role to manage teams.
 
-Teams are also managed at the project/space level in CodeCatalyst. To learn more about teams in spaces/projects, see [Allowing space access using teams](#managing-teams). 
+Teams are also managed at the project/space level in CodeCatalyst. To learn more about teams in spaces/projects, see [Allowing space access using teams](managing-teams.md). 
 
 **Topics**
 + [Creating a team](managing-teams-create.md)

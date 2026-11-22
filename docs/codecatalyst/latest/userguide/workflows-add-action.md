@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding an action to a workflow
-<a name="workflows-add-action"></a>
 
 Use the following instructions to add an action to a workflow and then configure it.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Troubleshooting problems with issues
-<a name="troubleshooting-issues"></a>
 
 The following information can help you troubleshoot common problems with issues in CodeCatalyst.
 

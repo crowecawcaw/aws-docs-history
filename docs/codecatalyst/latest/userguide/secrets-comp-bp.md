@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding secrets components to a blueprint
-<a name="secrets-comp-bp"></a>
 
 Secrets can be used in CodeCatalyst to store sensitive data that can be referenced in workflows. You can add a secret to your custom blueprint and reference it in your workflow. For more information, see [Masking data using secrets](workflows-secrets.md).
 

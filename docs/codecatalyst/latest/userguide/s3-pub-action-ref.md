@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # 'Amazon S3 publish' action YAML
-<a name="s3-pub-action-ref"></a>
 
 The following is the YAML definition of the **Amazon S3 publish** action. To learn how to use this action, see [Publishing files to Amazon S3 with a workflow](s3-pub-action.md).
 
@@ -12,7 +11,7 @@ This action definition exists as a section within a broader workflow definition 
 **Note**  
 Most of the YAML properties that follow have corresponding UI elements in the visual editor. To look up a UI element, use **Ctrl\+F**. The element will be listed with its associated YAML property.
 
-```
+```yaml
 # The workflow definition starts here.
 # See Top-level properties for details.
         
@@ -278,7 +277,7 @@ Limit the permissions to those shown in the following policy. Using a role with 
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

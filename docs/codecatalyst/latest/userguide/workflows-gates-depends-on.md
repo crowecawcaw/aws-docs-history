@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Sequencing gates and actions
-<a name="workflows-gates-depends-on"></a>
 
 In Amazon CodeCatalyst, you can set up a gate to run before or after a workflow action, action group, or gate. For example, you might set up an `Approval` gate to run before a `Deploy` action. In this case, the `Deploy` action is said to *depend on* the `Approval` gate.
 

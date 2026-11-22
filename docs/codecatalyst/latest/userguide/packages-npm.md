@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Using npm
-<a name="packages-npm"></a>
 
 These topics describe how you can use `npm`, the Node.js package manager, with CodeCatalyst.
 

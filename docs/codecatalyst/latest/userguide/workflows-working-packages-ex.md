@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Examples: Package repositories in workflows
-<a name="workflows-working-packages-ex"></a>
 
 The following examples show how to reference packages in the workflow definition file.
 
@@ -18,7 +17,7 @@ The following examples show how to reference packages in the workflow definition
 
 The following example shows how to define a package with `NpmConfiguration` in your workflow definition file.
 
-```
+```yaml
 Actions:
   Build:
   Identifier: aws/build-beta@v1
@@ -34,7 +33,7 @@ Actions:
 
 This example configures the npm client as such:
 
-```
+```nolang
 default: main-repo
 @scope1: scoped-repo
 ```
@@ -46,7 +45,7 @@ In this example, there are two repositories defined. The default registry is set
 
 The following example shows you how to override the default registry.
 
-```
+```yaml
 NpmConfiguration:
   PackageRegistries:
     - PackagesRepository: my-repo-1
@@ -56,7 +55,7 @@ NpmConfiguration:
 
 This example configures the npm client as such:
 
-```
+```nolang
 default: my-repo-3
 ```
 
@@ -67,7 +66,7 @@ If you specify multiple default repositories, the last repository will take prio
 
 The following example shows you how to override a scope in your package registry.
 
-```
+```yaml
 NpmConfiguration:
   PackageRegistries:
     - PackagesRepository: my-default-repo
@@ -82,7 +81,7 @@ NpmConfiguration:
 
 This example configures the npm client as such:
 
-```
+```nolang
 default: my-default-repo
 @scope1: my-repo-1
 @scope2: my-repo-2
@@ -95,7 +94,7 @@ If you include overriding scopes, the last repository will take priority. In thi
 
 The following example shows you how to reference CodeCatalyst authorization environment variables in a build action.
 
-```
+```yaml
 Actions:
   Build:
     Identifier: aws/build@v1.0.0

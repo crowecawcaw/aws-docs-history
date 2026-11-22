@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Organizing work with custom fields
-<a name="issues-custom-fields"></a>
 
 You can create custom fields to help organize and view the work for your project. Custom fields are added to the list of available filters in **Filter** so you can filter issues by custom fields. Custom fields are name and value pairs. You filter by the name of the custom field, and then the value of that custom field.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Cloning a source repository
-<a name="source-repositories-clone"></a>
 
 To work effectively with multiple files, branches, and commits in source repositories, clone the source repository to your local computer and use a Git client or an integrated development environment (IDE) to make changes. Commit and push your changes to the source repository in order to work with CodeCatalyst features such as issues and pull requests. You can also choose to create a Dev Environment to work on code. Creating a Dev Environment automatically clones the repository and branch you specify into the Dev Environment.
 

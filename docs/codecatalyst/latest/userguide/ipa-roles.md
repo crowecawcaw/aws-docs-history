@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Granting access with user roles
-<a name="ipa-roles"></a>
 
 In Amazon CodeCatalyst, you can assign roles to users at both the project level and the space level. In a project, a role specifies what a user is allowed to do in a project with the resources for that project. Users gain membership in a space when they join a project. You can add or remove users as administrators of a space. The **Space administrator** role has the broadest permissions of any role in CodeCatalyst. As a best practice, assign users the narrowest permissions necessary to perform their jobs.
 

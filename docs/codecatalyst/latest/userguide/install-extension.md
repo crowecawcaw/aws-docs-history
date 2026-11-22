@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Installing an extension in a space
-<a name="install-extension"></a>
 
 You can install extensions for your CodeCatalyst space that add functionality to projects in that space. You can view the CodeCatalyst catalog by choosing the **Catalog** icon ![The CodeCatalyst catalog icon in the top navigation bar in CodeCatalyst.](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/integrations/marketplace-icon.png). To learn more about the extensions and their functionalities, see [Available third-party extensions](extensions.md#extensions-types). 
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Specifying a workflow file's source repository
-<a name="workflows-sources-specify-workflow-def"></a>
 
 Use the following instructions to specify the CodeCatalyst source repository where you want to store your workflow definition file. If you'd rather specify a GitHub repository, Bitbucket repository, or GitLab project repository, see instead [Add functionality to projects with extensions in CodeCatalyst](extensions.md).
 

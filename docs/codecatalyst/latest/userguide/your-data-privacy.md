@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Your data and privacy in Amazon CodeCatalyst
-<a name="your-data-privacy"></a>
 
 Amazon CodeCatalyst takes your privacy seriously, and the security of your information is our top priority. You can review more about how we handle your information in the [AWS Privacy Notice](https://aws.amazon.com/privacy/). 
 

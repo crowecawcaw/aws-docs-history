@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Accepting an invitation and creating an AWS Builder ID
-<a name="sign-up-sign-in"></a>
 
 You can sign up for Amazon CodeCatalyst as part of accepting an invitation to a project or a space. As part of accepting the invitation, you'll be prompted to create an AWS Builder ID. You'll use your AWS Builder ID to access resources in CodeCatalyst.
 

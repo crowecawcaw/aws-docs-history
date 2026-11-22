@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Getting started tutorials
-<a name="getting-started-topnode"></a>
 
 Amazon CodeCatalyst provides a number of different templates to help you get started with your projects. You can also choose to start with an empty project and add resources to it. Follow the steps in these tutorials to learn some of the ways you can work in CodeCatalyst. 
 

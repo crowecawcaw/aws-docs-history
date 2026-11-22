@@ -3,13 +3,12 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding a curated GitHub Action
-<a name="integrations-github-action-add-curated"></a>
 
 A *curated GitHub Action* is a GitHub Action that is made available in the CodeCatalyst console, and serves as an example of how to use a GitHub Action inside a CodeCatalyst workflow.
 
 Curated GitHub Actions are wrapped in the CodeCatalyst-authored [**GitHub Actions** action](integrations-github-action-add.md), identified by the `aws/github-actions-runner@v1` identifier. For example, here's what the curated GitHub Action, [TruffleHog OSS](https://github.com/marketplace/actions/trufflehog-oss), looks like: 
 
-```
+```yaml
 Actions:
   TruffleHogOSS_e8:
     Identifier: aws/github-actions-runner@v1
@@ -30,7 +29,7 @@ In the previous code, the CodeCatalyst **GitHub Actions** action (identified by 
 
 To configure this action, you would replace the empty strings under `with:` with your own values. For example:
 
-```
+```yaml
 Actions:
   TruffleHogOSS_e8:
     Identifier: aws/github-actions-runner@v1

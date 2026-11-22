@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing pull requests
-<a name="pull-requests-view"></a>
 
 You can view pull requests for a project in the Amazon CodeCatalyst console. The project summary page displays all open pull requests for a project. To view all pull requests regardless of state, navigate to the pull requests page for your project. When viewing a pull request, you can choose to have a summary of all comments left on changes to the pull request created for you.
 

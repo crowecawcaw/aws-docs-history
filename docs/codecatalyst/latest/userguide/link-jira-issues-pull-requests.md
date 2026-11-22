@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Linking Jira issues to CodeCatalyst pull requests
-<a name="link-jira-issues-pull-requests"></a>
 
 You can link pull requests that are created in a CodeCatalyst source repository to Jira issues. After linking a Jira issue, the issue is displayed as a property of the pull request. As a result, pull request events, workflow events, and deployment events are sent to Jira and added to the Jira issue. Pull requests can be linked to one or more Jira issues. You can only link pull requests that are in a CodeCatalyst source repository, not those in a third-party repository like GitHub. Before you can link Jira issues to a pull request, your Jira project must be linked to the CodeCatalyst project. For more information about linking a Jira project to a CodeCatalyst project, see [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-link.md). 
 

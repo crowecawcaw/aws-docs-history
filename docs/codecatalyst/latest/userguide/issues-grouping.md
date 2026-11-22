@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Grouping issues
-<a name="issues-grouping"></a>
 
 Grouping is used to organize issues on the board by multiple parameters, such as assignee, labels, and priority. 
 

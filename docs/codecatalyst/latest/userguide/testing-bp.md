@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Assessing interface changes with snapshot testing
-<a name="testing-bp"></a>
 
 Generated snapshot tests across multiple configurations of your blueprint are supported.
 

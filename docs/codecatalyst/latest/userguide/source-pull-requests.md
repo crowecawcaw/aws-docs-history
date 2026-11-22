@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Reviewing code with pull requests in Amazon CodeCatalyst
-<a name="source-pull-requests"></a>
 
 A pull request is the primary way you and other project members can review, comment on, and merge code changes from one branch to another. You can use pull requests to review code changes collaboratively for minor changes or fixes, major feature additions, or new versions of your released software. If you use issues to track work on your project, you can link specific issues to pull requests to help you track what issues are being addressed by the code changes in the pull request. When you create, update, comment on, merge, or close a pull request, an email is automatically sent to the author of the pull request as well as any required or optional reviewers for the pull request.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing and managing attachments
-<a name="issues-settings-attachments"></a>
 
 You can view a table with every attachment added to issues in your project in issue settings. This table includes details of each attachment, including information such as content type, when it was added, the issue it's added to and its status, and the file size.
 

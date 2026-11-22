@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Changing blueprint versions in a project
-<a name="update-bp"></a>
 
 If you created a project with a blueprint or added a blueprint to an existing project, then you're notified of new versions of the blueprint. Before the blueprint version is updated through an approved pull request, you can view the code changes and affected environments. Lifecycle management allows you to change versions of one or more applied blueprints in your project, so each blueprint version can be changed without impacting other areas of your project. You can also override blueprint updates. For more information, see [Working with lifecycle management as a blueprint user](lifecycle-management-user.md).
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Billing for Support for Amazon CodeCatalyst
-<a name="support-and-billing"></a>
 
 When you create a space in CodeCatalyst, users in the space can create and manage support cases from Support for Amazon CodeCatalyst. You can create two types of customer cases:
 + **Account and billing** support cases are available to all CodeCatalyst users in the space. You can get help with billing and account questions based on your permissions in CodeCatalyst.

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Git commands for branches
-<a name="source-branches-git"></a>
 
 You can use Git to create, manage, and delete branches in the clone of the source repository you have on your computer (your local repo) or in your Dev Environments, and then commit and push your changes to your CodeCatalyst source repository (the remote repository). For example: 
 

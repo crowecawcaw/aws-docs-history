@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Blocking third-party merges when workflows fail
-<a name="extensions-block-merges"></a>
 
 After linking a GitHub or Bitbucket repository to CodeCatalyst, you can add CodeCatalyst workflows for pull requests. Similarly, after linking a GitLab project repository to CodeCatalyst you can add CodeCatalyst workflows for merge requests. One or more workflow runs can occur on a specific commit, and the run status of each workflow in CodeCatalyst is also reflected as part of the commit status in GitHub, Bitbucket, or GitLab. When a new commit is pushed, new workflow [run statuses](https://docs.aws.amazon.com/codecatalyst/latest/userguide/workflows-view-run.html#workflows-view-run-status) are reflected in GitHub, Bitbucket, or GitLab for that new commit. If you run a workflow again for a commit, the new workflow run status overrides the previous status for that commit and workflow.
 

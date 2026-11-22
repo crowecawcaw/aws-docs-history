@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Setting up for working with source repositories
-<a name="source-setting-up"></a>
 
 When you work with source repositories in Amazon CodeCatalyst on your local machine, you can use Git either on its own or in a supported integrated development environment (IDE) to make code changes and push and pull your code. As a best practice, we recommend that you use the latest versions of Git and other software.
 

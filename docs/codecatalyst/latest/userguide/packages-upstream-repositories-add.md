@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding an upstream repository
-<a name="packages-upstream-repositories-add"></a>
 
 Adding a public package repository or another CodeCatalyst package repository as an upstream repository to your downstream repository makes all of the packages in the upstream repository available to package managers that are connected to the downstream repository.
 

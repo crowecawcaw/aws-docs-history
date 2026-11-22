@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Administering Dev Environments for a space
-<a name="spaces-devenv"></a>
 
 All Dev Environments are created as part of a project within a space. Space members can create their own Dev Environments within a project at the source repository level. Space administrators can then use the Amazon CodeCatalyst console to view, edit, delete, and stop Dev Environments on behalf of space members. In short, space administrators maintain Dev Environments at the space level.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding triggers to workflows
-<a name="workflows-add-trigger-add"></a>
 
 Use the following instructions to add a push, pull, or schedule trigger to your Amazon CodeCatalyst workflow.
 
@@ -168,7 +167,7 @@ All branches (for schedule triggers). One workflow run will start per branch in 
 
    A code push trigger might look like this:
 
-   ```
+   ```yaml
    Triggers:
      - Type: PUSH
        Branches:
@@ -177,7 +176,7 @@ All branches (for schedule triggers). One workflow run will start per branch in 
 
    A pull request trigger might look like this:
 
-   ```
+   ```yaml
    Triggers:
      - Type: PULLREQUEST
        Branches:
@@ -190,7 +189,7 @@ All branches (for schedule triggers). One workflow run will start per branch in 
 
    A schedule trigger might look like this:
 
-   ```
+   ```yaml
    Triggers:
      - Type: SCHEDULE
        Branches:

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Configure your AWS Builder ID to sign in with multi-factor authentication (MFA)
-<a name="mfa"></a>
 
 Whether you created your AWS Builder ID profile for personal use or professional use, we encourage configuring multi-factor authentication (MFA) as another layer of security. We especially recommend configuring MFA if you’re a member of a space and collaborate with others on projects. Because more than one person can have access to a project, more opportunities exist for security breaches.
 

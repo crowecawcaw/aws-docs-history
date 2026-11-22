@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # How do notifications work?
-<a name="notifications-concepts"></a>
 
 You can set up your project to provide notifications to your team messaging application, such as Slack. 
 

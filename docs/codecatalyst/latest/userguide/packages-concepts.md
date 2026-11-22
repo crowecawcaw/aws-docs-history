@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Packages concepts
-<a name="packages-concepts"></a>
 
 Here are some concepts and terms to know when managing, publishing, or consuming packages in CodeCatalyst.
 

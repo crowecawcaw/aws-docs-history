@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Gating a workflow run
-<a name="workflows-gates"></a>
 
 A *gate* is a workflow component that you can use to prevent a workflow run from proceeding unless certain conditions are met. An example of a gate is the **Approval** gate where users must submit an approval in the CodeCatalyst console before the workflow run is allowed to continue.
 

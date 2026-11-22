@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Deploying an AWS CDK app with a workflow
-<a name="cdk-dep-action"></a>
 
 This section describes how to deploy an AWS Cloud Development Kit (AWS CDK) app into your AWS account using a workflow. To accomplish this, you must add the **AWS CDK deploy** action to your workflow. The **AWS CDK deploy** action synthesizes and deploys your AWS Cloud Development Kit (AWS CDK) app into AWS. If your app already exists in AWS, the action updates it if necessary. 
 

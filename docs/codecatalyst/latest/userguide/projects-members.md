@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Granting users project permissions
-<a name="projects-members"></a>
 
 You can manage the members in your projects using the Amazon CodeCatalyst console. You can add or remove users, manage current members' roles, send invitations to join your project, and cancel invitations that have not yet been accepted.
 

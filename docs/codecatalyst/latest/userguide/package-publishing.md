@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Publishing packages to a CodeCatalyst package repository
-<a name="package-publishing"></a>
 
  You can publish versions of any supported package type to a CodeCatalyst package repository by using package manager tools. The steps to publish a package version are as follows:
 

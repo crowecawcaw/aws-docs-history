@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Specifying universal devfile images for a Dev Environment
-<a name="devenvironment-universal-image"></a>
 
 The default *universal image* includes the most commonly used programming languages and related tools that can be used for your IDE. If no image is specified, CodeCatalyst provides this image and contains tools that are maintained by CodeCatalyst. To remain notified of new image releases, see [Subscribing to universal image notifications with SNS](#devenvironment-universal-notifications).
 

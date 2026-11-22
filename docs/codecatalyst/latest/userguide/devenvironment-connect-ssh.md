@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Connecting to a Dev Environment using SSH
-<a name="devenvironment-connect-ssh"></a>
 
 You can connect to your Dev Environment using SSH to perform actions without limitations, such as port forwarding, uploading and downloading files, and using other IDEs.
 

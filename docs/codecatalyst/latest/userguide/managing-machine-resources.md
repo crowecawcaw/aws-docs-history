@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Allowing space access for machine resources
-<a name="managing-machine-resources"></a>
 
 Machine resources are specific resources in CodeCatalyst that are granted permissions for projects or spaces in CodeCatalyst. 
 
@@ -16,7 +15,7 @@ These operations are available for machine resources in cases where a machine re
 
 You must have the **Space administrator** role to view this page and to manage machine resources at the space level.
 
-Machine resources are also managed at the project level in CodeCatalyst. To learn more about teams in projects, see [Allowing space access for machine resources](#managing-machine-resources).
+Machine resources are also managed at the project level in CodeCatalyst. To learn more about teams in projects, see [Allowing space access for machine resources](managing-machine-resources.md).
 
 **Topics**
 + [Viewing space access for machine resources](managing-machine-resources-view.md)

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Signing in with an AWS Builder ID
-<a name="id-how-to-sign-in"></a>
 
 Follow these steps to sign in to your Amazon CodeCatalyst profile.
 

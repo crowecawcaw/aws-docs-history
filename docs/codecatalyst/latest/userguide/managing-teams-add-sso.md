@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding an SSO group to a team
-<a name="managing-teams-add-sso"></a>
 
 If your space is configured as a space with SSO users and groups managed in IAM Identity Center, you can add an SSO group that will join the space as a separate team. 
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Editing a space
-<a name="spaces-edit"></a>
 
 You can change the description of a space to help users better understand what it's for.
 

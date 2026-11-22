@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Exporting a variable so that other actions can use it
-<a name="workflows-working-with-variables-export-input"></a>
 
 Use the following instructions to export a variable from an action so that you can reference it in other actions.
 
@@ -65,7 +64,7 @@ Make sure you have defined the variable you want to export. For more information
 
 1. In the action that you want to export the variable from, add code similar to the following:
 
-   ```
+   ```yaml
    {{action-name}}:
      Outputs:
        Variables:

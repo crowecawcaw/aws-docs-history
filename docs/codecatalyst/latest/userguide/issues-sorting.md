@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Sorting issues
-<a name="issues-sorting"></a>
 
 By default, issues in CodeCatalyst are sorted by **Manual order**. Manual order displays issues in the order they are moved to by users. You can drag and drop issues when sorted in Manual order to change their order. This sorting option is helpful when grooming the issues backlog and prioritizing issues.
 

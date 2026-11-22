@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Examples of variables
-<a name="workflows-working-with-variables-ex"></a>
 
 The following examples show how to define and reference variables in the workflow definition file.
 
@@ -22,7 +21,7 @@ For more information about variables, see [Using variables in workflows](workflo
 
 The following example shows you how to define two variables, `VAR1` and `VAR2`, in an `Inputs` section.
 
-```
+```yaml
 Actions:
   Build:
     Identifier: aws/build@v1
@@ -39,7 +38,7 @@ Actions:
 
 The following example shows you how to define a `DATE` variable in the `Steps` section explicitly.
 
-```
+```yaml
 Actions:
   Build:
     Identifier: aws/build@v1
@@ -53,7 +52,7 @@ Actions:
 
 The following example shows you how to define two variables, `REPOSITORY-URI` and `TIMESTAMP`, and export them using the `Outputs` section.
 
-```
+```yaml
 Actions:
   Build:
     Identifier: aws/build@v1
@@ -75,7 +74,7 @@ Actions:
 
 The following example shows you how to specify a `VAR1` variable in `MyBuildAction`, and then reference it in the same action using `$VAR1`.
 
-```
+```yaml
 Actions:
   MyBuildAction:
     Identifier: aws/build@v1
@@ -93,7 +92,7 @@ Actions:
 
 The following example shows you how to specify a `TIMESTAMP` variable in `BuildActionA`, export it using the `Outputs` property, and then reference it in `BuildActionB` using `${BuildActionA.TIMESTAMP}`.
 
-```
+```yaml
 Actions:
   BuildActionA:
     Identifier: aws/build@v1
@@ -120,7 +119,7 @@ Actions:
 
 The following example shows you how to reference a `my-password` secret. The `my-password` is the secret's key. This secret's key and corresponding password value must be specified on the **Secrets** page of the CodeCatalyst console prior to being used in the workflow definition file. For more information, see [Masking data using secrets](workflows-secrets.md).
 
-```
+```yaml
 Actions:
   BuildActionA:
     Identifier: aws/build@v1

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Publishing files to Amazon S3 with a workflow
-<a name="s3-pub-action"></a>
 
 This section describes how to publish files to Amazon S3 using a CodeCatalyst workflow. To accomplish this, you must add the **Amazon S3 publish** action to your workflow. The **Amazon S3 publish** action copies files from a source directory to an Amazon S3 bucket. The source directory can reside in:
 + A [source repository](source.md), or 

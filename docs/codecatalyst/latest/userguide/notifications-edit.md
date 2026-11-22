@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Editing notifications for a notification channel
-<a name="notifications-edit"></a>
 
 You can change which channels notifications go to, and you can turn off specific notifications altogether.
 

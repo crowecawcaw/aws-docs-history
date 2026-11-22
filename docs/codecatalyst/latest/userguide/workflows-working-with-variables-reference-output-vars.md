@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Referencing a predefined variable
-<a name="workflows-working-with-variables-reference-output-vars"></a>
 
 You can reference predefined variables in any action within an Amazon CodeCatalyst workflow.
 
@@ -57,7 +56,7 @@ You can omit {{action-group-name}} if there is no action group, or if the variab
 
    For example:
 
-   ```
+   ```yaml
    MySecondAction:
        Configuration:
          Steps:
@@ -66,7 +65,7 @@ You can omit {{action-group-name}} if there is no action group, or if the variab
 
    Another example:
 
-   ```
+   ```yaml
    MySecondAction:
        Configuration:
          Steps:

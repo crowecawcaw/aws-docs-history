@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Deploying an CloudFormation stack
-<a name="deploy-action-cfn"></a>
 
 This section describes how to deploy a AWS CloudFormation stack using a CodeCatalyst workflow. To accomplish this, you must add the **Deploy CloudFormation stack** action to your workflow. The action deploys a CloudFormation stack of resources into AWS based on a template that you provide. The template can be a:
 + CloudFormation template – For more information, see [Working with CloudFormation templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html).

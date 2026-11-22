@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Understanding changes in source code with commits in Amazon CodeCatalyst
-<a name="source-commits"></a>
 
 Commits are snapshots of the contents and changes to the contents of your repository. Every time a user commits and pushes a change to a branch, that information is saved. Git commit information includes the commit author, the person who committed the change, the date and time, and the changes made. Similar information is automatically included when you create or edit a file in the Amazon CodeCatalyst console, but the author name is your CodeCatalyst user name. You can also add Git tags to commits to help you identify specific commits.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Linking a source repository
-<a name="source-repositories-link"></a>
 
 When linking a source repository to a project, you can include repositories that have a CodeCatalyst extension for the service that hosts the repository, if that extension is installed for your space. Only users with the Space administrator role can install extensions. Once the extension is installed, you can link to repositories configured for access by that extension. For more information, see [Installing an extension in a space](install-extension.md) or follow [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-link.md).
 

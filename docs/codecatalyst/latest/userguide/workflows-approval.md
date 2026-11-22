@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Requiring approvals on workflow runs
-<a name="workflows-approval"></a>
 
 You can configure a workflow run to require an approval before it can proceed. To accomplish this, you must add a **Approval** [gate](workflows-gates.md) to the workflow. An *Approval gate* prevents a workflow from proceeding until a user or set of users submit one or more approvals in the CodeCatalyst console. Once all approvals are given, the gate is 'unlocked' and the workflow run is allowed to resume.
 

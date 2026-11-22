@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Quotas for CodeCatalyst
-<a name="quotas"></a>
 
 The following table describes quotas and limits for Amazon CodeCatalyst. You can find additional information for specific aspects of CodeCatalyst in the following topics:
 + [Quotas for source repositories in CodeCatalyst](source-quotas.md)

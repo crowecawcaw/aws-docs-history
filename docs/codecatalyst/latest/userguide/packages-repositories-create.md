@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Creating a package repository
-<a name="packages-repositories-create"></a>
 
 Perform the following steps to create a package repository in CodeCatalyst.
 

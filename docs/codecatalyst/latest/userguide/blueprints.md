@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Set up CodeCatalyst projects with blueprints
-<a name="blueprints"></a>
 
 Blueprints are arbitrary code generators that represent an architectural component of a CodeCatalyst project. The component can consist of anything from a workflow in a single file to the entire project complete with sample code. Blueprints take an arbitrary set of options and use those to generate an arbitrary set of output code that gets forwarded into a project. As the blueprint gets updated with the latest best practices or new options, it can regenerate the relevant parts of your codebase in projects containing that blueprint.
 

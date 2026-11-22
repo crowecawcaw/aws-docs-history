@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Associating an AWS account with an environment
-<a name="deploy-environments-associate-account"></a>
 
 Use the following instructions to associate an AWS account with an environment. When you associate an AWS account with an environment, workflow actions that are assigned the environment will be able to connect to the AWS account.
 

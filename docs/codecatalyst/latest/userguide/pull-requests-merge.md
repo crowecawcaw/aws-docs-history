@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Merging a pull request
-<a name="pull-requests-merge"></a>
 
 After your code has been reviewed and all required reviewers have approved it, you can merge a pull request in the CodeCatalyst console using a supported merge strategy, such as fast-forward. Not all merge strategies supported in the CodeCatalyst console are available as choices for all pull requests. CodeCatalyst evaluates the merge and only allows you to choose between merge strategies that are available in the console and capable of merging the source branch into the destination branch. You can also merge a pull request with your choice of Git merge strategies by running the **git merge** command on your local computer or a Dev Environment to merge the source branch into the destination branch. You can then push those changes in the destination branch to the source repository in CodeCatalyst. 
 

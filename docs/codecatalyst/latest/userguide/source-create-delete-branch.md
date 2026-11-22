@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Creating a branch
-<a name="source-create-delete-branch"></a>
 
 You can use the CodeCatalyst console to create branches in a CodeCatalyst repository. The branches you create will be visible to other users the next time they pull changes from the repository. 
 

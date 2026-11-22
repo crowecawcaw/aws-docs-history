@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing a source repository
-<a name="source-repositories-view"></a>
 
 You can view the source repositories associated with a project in Amazon CodeCatalyst. For source repositories in CodeCatalyst, the overview page for a repository provides a quick overview of information and activity in that repository, including:
 + The description of the repository, if any

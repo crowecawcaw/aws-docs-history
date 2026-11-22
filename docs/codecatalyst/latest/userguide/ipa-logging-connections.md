@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Monitoring API calls by AWS accounts using AWS CloudTrail logging
-<a name="ipa-logging-connections"></a>
 
 Amazon CodeCatalyst is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures API calls made on behalf of CodeCatalyst in connected AWS accounts as events. If you create a trail, you can enable continuous delivery of CloudTrail events to an S3 bucket, including events for CodeCatalyst. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**.
 
@@ -111,7 +110,7 @@ A trail is a configuration that enables delivery of events as log files to an S3
 
 The following example shows a CloudTrail log entry that demonstrates the `ListConnections` action. For an AWS account that is connected to the space, `ListConnections` is used to view all account connections to CodeCatalyst for this AWS account. The event will be logged in the AWS account specified in `accountId`, and the value of the `arn` will be the Amazon Resource Name (ARN) of the role used for the action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -167,7 +166,7 @@ The `recipientAccountId` field contains the account ID for the billing account f
 
 For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
-```
+```json
 {
 	"eventVersion": "1.09",
 	"userIdentity": {

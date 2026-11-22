@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Editing the settings for a source repository
-<a name="source-repositories-edit"></a>
 
 You can manage the settings for your repository, including editing the description of a repository, choosing the default branch, creating and managing branch rules, and creating and managing approval rules for pull requests in CodeCatalyst. This can help project members understand what the repository is used for, and help you enforce best practices and processes used by the team.
 

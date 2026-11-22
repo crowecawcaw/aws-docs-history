@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Cloning an existing Git repository into a source repository
-<a name="source-repositories-add-existing"></a>
 
 You can clone an existing Git repository to an empty source repository in Amazon CodeCatalyst. This is a quick way to get started in CodeCatalyst with code that was previously hosted in another Git repository provider. You can clone the contents of the repository by creating a mirror clone and then pushing the mirror to CodeCatalyst. Alternatively, if you have a local repo of the repository whose contents you want to add to CodeCatalyst, you can add the CodeCatalyst source repository as another remote to the local repo, and then push to the empty source repository. Both approaches are equally valid. Using a mirror clone not only maps branches, it maps all refs. It's a simple and clean way to create a working copy of the repository in CodeCatalyst. Adding a remote to a local repo that points to an empty CodeCatalyst source repository will add the repository contents to CodeCatalyst, but it will also allow you to make pushes from the local repo to both the CodeCatalyst source repository and the original Git remote repository. This can be useful if you want to maintain the code in different remote repositories, but can lead to conflicts if other developers are committing code to only one of the remotes. 
 

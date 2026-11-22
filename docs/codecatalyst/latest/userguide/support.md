@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Support for Amazon CodeCatalyst
-<a name="support"></a>
 
 When you create a space, you must connect an AWS account and designate it as the billing account for your space. The AWS account you designate as your billing account is also where you access your Support plan for Amazon CodeCatalyst. If you need support, you can create support cases from this designated AWS account.
 

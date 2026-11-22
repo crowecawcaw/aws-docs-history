@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Resuming a Dev Environment
-<a name="devenvironment-resume"></a>
 
 The `/projects` directory of a Dev Environment stores the files that are pulled from the source repository and the devfile that is used to configure the Dev Environment. The `/home` directory, which is empty upon Dev Environment creation, stores the files you create while using your Dev Environment. Everything in the `/projects` and `/home` directories of a Dev Environment is stored persistently, so you can stop working in a Dev Environment if you need to switch to another Dev Environment, repository, or project and resume working in your Dev Environment at a later time. 
 

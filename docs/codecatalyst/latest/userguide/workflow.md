@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Build, test, and deploy with workflows
-<a name="workflow"></a>
 
 After writing your application code in a [CodeCatalyst Dev Environment](devenvironment.md) and pushing it to your [CodeCatalyst source repository](source.md), you're ready to deploy it. The way to do this automatically is through a workflow.
 
@@ -19,7 +18,7 @@ A *workflow definition file* is a YAML file that describes your workflow. By def
 
 The following is an example of a simple workflow definition file. We explain each line of this example in the table that follows.
 
-```
+```yaml
 Name: MyWorkflow
 SchemaVersion: 1.0
 RunMode: QUEUED

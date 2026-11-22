@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Organizing your source code work with branches in Amazon CodeCatalyst
-<a name="source-branches"></a>
 
 In Git, branches are pointers or references to a commit. In development, they're a convenient way to organize your work. You can use branches to separate work on a new or different version of files without affecting work in other branches. You can use branches to develop new features, store a specific version of your project, and more. You can configure rules for branches in source repositories to limit certain actions on a branch to specific roles in that project.
 

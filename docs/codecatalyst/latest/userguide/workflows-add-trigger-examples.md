@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Examples: Triggers in workflows
-<a name="workflows-add-trigger-examples"></a>
 
 The following examples show how to add different types of triggers in an Amazon CodeCatalyst workflow definition file.
 
@@ -33,7 +32,7 @@ For example, if you push a commit to `main`, CodeCatalyst starts a workflow run 
 
 As another example, if you push a commit to `feature-branch-123`, CodeCatalyst starts a workflow run using the workfow definition file and other source files on `feature-branch-123`.
 
-```
+```yaml
 Triggers:
   - Type: PUSH
 ```
@@ -46,7 +45,7 @@ If you want a workflow run to start only when you push to `main`, see [Example: 
 
 The following example shows a trigger that starts a workflow run whenever code is pushed to the `main` branch—and *only* the `main` branch—in your source repository.
 
-```
+```yaml
 Triggers:
   - Type: PUSH
     Branches:
@@ -62,7 +61,7 @@ When this trigger is activated, CodeCatalyst starts a workflow run using the wor
 
 For example, if you create a pull request with a source branch called `feature-123` and a destination branch called `main`, CodeCatalyst starts a workflow run using the workfow definition file and other source files on `feature-123`.
 
-```
+```yaml
 Triggers:
   - Type: PULLREQUEST
     Events:
@@ -79,7 +78,7 @@ When this trigger is activated, CodeCatalyst starts a single workflow run for ea
 
 For example, if you have three branches in your source repository, `main`, `release-v1`, `feature-123`, and each of these branches contains a workflow definition file with the trigger that follows, CodeCatalyst starts three workflow runs: one using the files in `main`, another using the files in `release-v1`, and another using the files in `feature-123`.
 
-```
+```yaml
 Triggers:
   - Type: SCHEDULE
     Expression: "0 0 ? * MON-FRI *"
@@ -96,7 +95,7 @@ When this trigger is activated, CodeCatalyst starts a workflow run using the fil
 
 For example, if you have branches named `main`, `release-v1`, `bugfix-1`, and `bugfix-2` in your source repository, CodeCatalyst starts two workflow runs: one using the the files in `main`, and another using the files in `release-v1`. It does *not* start workflow runs for the `bugfix-1` and `bugfix-1` branches.
 
-```
+```yaml
 Triggers:
   - Type: SCHEDULE
     Expression: "15 18 * * ? *"
@@ -116,7 +115,7 @@ In this example:
 + A workflow run starts at midnight every day. The workflow run uses the workflow definition file and other source files in the `main` branch.
 + A workflow run also starts whenever you push a commit to the `main` branch. The workflow run uses the workflow definition file and other source files in the destination branch (`main`).
 
-```
+```yaml
 Triggers:
   - Type: SCHEDULE
     Expression: "0 0 * * ? *"
@@ -134,7 +133,7 @@ For more examples of cron expressions you can use in the `Expression` property, 
 
 The following example shows a trigger that starts a workflow run whenever someone opens or modifies a pull request with a destination branch called `main`. Although the branch specified in the `Triggers` configuration is `main`, the workflow run will use the workflow definition file and other source files in the *source* branch (which is the branch you're pulling *from*).
 
-```
+```yaml
 Triggers:      
   - Type: PULLREQUEST
     Branches:
@@ -153,7 +152,7 @@ In this example:
 + When you close a pull request with a destination branch that starts with `main`, a workflow run starts automatically using the workflow definition file and other source files in the (now closed) source branch.
 + If you've configured your source repository to delete branches automatically after a pull request is merged, these branches will never have the chance to enter the `CLOSED` state. This means that merged branches will not activate the pull request `CLOSED` trigger. The only way to activate the `CLOSED` trigger in this scenario is to close the pull request without merging it.
 
-```
+```yaml
 Triggers:     
   - Type: PULLREQUEST
     Branches:
@@ -169,7 +168,7 @@ The following example shows a trigger that starts a workflow run whenever a chan
 
 When this trigger is activated, CodeCatalyst starts a workflow run using the workflow definition file and other source files in the `main` branch.
 
-```
+```yaml
 Triggers:
   - Type: PUSH
     Branches:
@@ -195,7 +194,7 @@ In this scenario, you set up two workflows:
 
 The **CI workflow**'s definition file would look similar to this:
 
-```
+```yaml
 Triggers:      
   - Type: PULLREQUEST
     Branches:
@@ -214,7 +213,7 @@ The `Triggers` code indicates to start a workflow run automatically whenever a s
 
 The **CD workflow**'s definition file would look similar to this:
 
-```
+```yaml
 Triggers:      
   - Type: PUSH
     Branches:

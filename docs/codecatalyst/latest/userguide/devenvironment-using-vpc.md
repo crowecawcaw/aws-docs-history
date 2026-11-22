@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Associating a VPC connection to a Dev Environment
-<a name="devenvironment-using-vpc"></a>
 
 A *VPC connection* is a CodeCatalyst resource which contains all of the configurations needed for your workflow to access a VPC. Space administrators can add their own VPC connections in the Amazon CodeCatalyst console on behalf of space members. By adding a VPC connection, space members can run workflow actions and create Dev Environments that adhere to network rules and can access resources in the associated VPC.
 

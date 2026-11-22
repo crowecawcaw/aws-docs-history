@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # npm tag handling
-<a name="packages-npm-tags"></a>
 
 npm registries support *tags*, which are string aliases for package versions. You can use tags to provide an alias instead of using version numbers. For example, you have a project with multiple streams of development and you use a different tag for each stream (for example, `stable`, `beta`, `dev`, `canary`). For more information, see [dist-tag](https://docs.npmjs.com/cli/dist-tag) on *npm Docs*. 
 

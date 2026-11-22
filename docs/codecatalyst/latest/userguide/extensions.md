@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Add functionality to projects with extensions in CodeCatalyst
-<a name="extensions"></a>
 
 Amazon CodeCatalyst includes extensions that help you add functionality and integrate with products outside of CodeCatalyst. With extensions from the CodeCatalyst catalog, teams can customize their experiences in CodeCatalyst.
 

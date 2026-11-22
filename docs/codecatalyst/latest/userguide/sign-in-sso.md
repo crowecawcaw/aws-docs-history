@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Signing in with SSO
-<a name="sign-in-sso"></a>
 
 Follow these steps to use SSO to sign in to Amazon CodeCatalyst.
 

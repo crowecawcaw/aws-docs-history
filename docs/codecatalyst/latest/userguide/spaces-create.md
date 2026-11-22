@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Creating a space
-<a name="spaces-create"></a>
 
 When you first sign up in Amazon CodeCatalyst with your AWS Builder ID, you are required to create a space. For more information, see [Set up and sign in to CodeCatalyst](setting-up-topnode.md). You can choose to create additional spaces to meet your business needs. 
 

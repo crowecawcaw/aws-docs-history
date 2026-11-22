@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # 'AWS CDK deploy' action YAML
-<a name="cdk-dep-action-ref"></a>
 
 The following is the YAML definition of the **AWS CDK deploy** action. To learn how to use this action, see [Deploying an AWS CDK app with a workflow](cdk-dep-action.md).
 
@@ -12,7 +11,7 @@ This action definition exists as a section within a broader workflow definition 
 **Note**  
 Most of the YAML properties that follow have corresponding UI elements in the visual editor. To look up a UI element, use **Ctrl\+F**. The element will be listed with its associated YAML property.
 
-```
+```yaml
 # The workflow definition starts here.
 # See Top-level properties for details.
         
@@ -92,7 +91,7 @@ Corresponding UI: Workflow diagram/CDKDeploy\_nn/**aws/cdk-deploy@v2** label
 
 Specify an action or action group that must run successfully in order for the **AWS CDK deploy** action to run. We recommend specifying the **AWS CDK bootstrap** action in the `DependsOn` property, like this:
 
-```
+```yaml
 CDKDeploy:
   Identifier: aws/cdk-deploy@v2
   DependsOn:
@@ -333,7 +332,7 @@ Limit the permissions to those shown in the following policy. Using a role with 
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -485,7 +484,7 @@ Specify which `CfnOutput` constructs in your AWS CDK application code you want t
 
 For example, if your AWS CDK application code looks like this:
 
-```
+```typescript
 import { Duration, Stack, StackProps, CfnOutput, RemovalPolicy} from 'aws-cdk-lib';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import * as s3 from 'aws-cdk-lib/aws-s3';
@@ -519,7 +518,7 @@ export class HelloCdkStack extends Stack {
 
 ...and your `CfnOutputVariables` property looks like this:
 
-```
+```yaml
 Configuration:
   ...
   CfnOutputVariables: '["bucketName","tableName"]'

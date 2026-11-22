@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing a file
-<a name="source-files-view"></a>
 
 You can view the files in your source repository in the Amazon CodeCatalyst console. You can view the files in the default branch and in any other branches. File contents might vary depending on the branch you choose to view.
 

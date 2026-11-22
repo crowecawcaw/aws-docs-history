@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Using variables in workflows
-<a name="workflows-working-with-variables"></a>
 
  A *variable* is a key-value pair that contains information that you can reference in your Amazon CodeCatalyst workflow. The value portion of the variable is replaced with an actual value when the workflow runs.
 

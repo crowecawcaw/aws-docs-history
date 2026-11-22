@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing and managing CodeCatalyst profiles
-<a name="view-profiles"></a>
 
 You can view user profiles in Amazon CodeCatalyst to get information such as email addresses and CodeCatalyst aliases. You can also update your profile and your AWS Builder ID. If you forget your password, you can request a password reset.
 

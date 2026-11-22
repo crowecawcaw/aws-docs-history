@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Example: Deploying an AWS CDK app
-<a name="cdk-dep-action-example-workflow"></a>
 
 The following example workflow includes the **AWS CDK deploy** action, along with the **AWS CDK bootstrap** action. The workflow consists of the following building blocks that run sequentially:
 + A **trigger** – This trigger starts the workflow run automatically when you push a change to your source repository. This repository contains your AWS CDK app. For more information about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md).
@@ -16,7 +15,7 @@ The following workflow example is for illustrative purposes, and will not work w
 **Note**  
 In the YAML code that follows, you can omit the `Connections:` sections if you want. If you omit these sections, you must ensure that the role specified in the **Default IAM role** field in your environment includes the permissions and trust policies required by the **AWS CDK bootstrap** and **AWS CDK deploy** actions. For more information about setting up an environment with a default IAM role, see [Creating an environment](deploy-environments-creating-environment.md). For more information about the permissions and trust policies required by the **AWS CDK bootstrap** and **AWS CDK deploy** actions, see the description of the `Role` property in the ['AWS CDK bootstrap' action YAML](cdk-boot-action-ref.md) and ['AWS CDK deploy' action YAML](cdk-dep-action-ref.md).
 
-```
+```yaml
 Name: codecatalyst-cdk-deploy-workflow
 SchemaVersion: 1.0
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing an action's source code
-<a name="workflows-view-source"></a>
 
 You can view an action's source code to make sure it doesn't contain risky code, security vulnerabilities, or other defects.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding a custom blueprint to a space blueprints catalog
-<a name="add-bp"></a>
 
 After you publish a custom blueprint to your space, it can be added to your space's blueprints catalog. If you add a custom blueprint to your CodeCatalyst space’s blueprints catalog, then the blueprint is available to all space members to use when creating a project or adding it to an existing project. Before adding a custom blueprint to the space’s blueprints catalog, the blueprint’s publishing permission must be enabled. If you opted in for workflow release generation, then publishing permissions are enabled by default. For more information, see [Setting publishing permissions for a custom blueprint](manage-permissions-bp.md) and [Publishing a custom blueprint to a space](publish-bp.md).
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Publish and share software packages in CodeCatalyst
-<a name="packages"></a>
 
 Amazon CodeCatalyst contains a fully managed package repository service that makes it easy for your development team to securely store and share software packages used for application development. These packages are stored in package repositories, which are created and organized within projects in CodeCatalyst.
 

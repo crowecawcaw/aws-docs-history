@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding an 'Approval' gate
-<a name="workflows-approval-add"></a>
 
 To configure your workflow to require an approval, you must add the **Approval** gate to the workflow. Use the following instructions to add an **Approval** gate to your workflow.
 
@@ -71,7 +70,7 @@ If you want to omit the `ApprovalsRequired` property, remove the gate's `Configu
 
 1. Add an `Approval` section and underlying properties using the following example as a guide. For more information, see the ['Approval' gate YAML](approval-ref.md) in the [Workflow YAML definition](workflow-reference.md).
 
-   ```
+   ```yaml
    Actions:
      MyApproval_01:
        Identifier: aws/approval@v1

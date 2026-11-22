@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Configuring Twine and publishing Python packages
-<a name="packages-python-twine"></a>
 
 To use `twine` with CodeCatalyst, you must connect `twine` to your package repository and provide a personal access token for authentication. You can view instructions for connecting `twine` to your package repository in the CodeCatalyst console. After you authenticate and connect `twine` to CodeCatalyst, you can run `twine` commands.
 

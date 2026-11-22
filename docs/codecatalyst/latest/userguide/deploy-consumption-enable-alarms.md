@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Configuring rollbacks
-<a name="deploy-consumption-enable-alarms"></a>
 
 By default, if the **Deploy CloudFormation stack** action fails, it will cause CloudFormation to roll back the stack to the last known stable state. You can change the behavior so that rollbacks occur not only when the action fails, but also when a specified Amazon CloudWatch alarm occurs. For more information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/) in the *Amazon CloudWatch User Guide*.
 
@@ -50,7 +49,7 @@ You cannot start a rollback manually.
 
      Specify the Amazon Resource Name (ARN) of an Amazon CloudWatch alarm to use as a rollback trigger. For example, `arn:aws:cloudwatch::123456789012:alarm/MyAlarm`. You can have a maximum of five rollback triggers.
 **Note**  
-If you specify a CloudWatch alarm ARN, you'll also need to configure additional permissions to enable the action to access CloudWatch. For more information, see [Configuring rollbacks](#deploy-consumption-enable-alarms).
+If you specify a CloudWatch alarm ARN, you'll also need to configure additional permissions to enable the action to access CloudWatch. For more information, see [Configuring rollbacks](deploy-consumption-enable-alarms.md).
    + **Monitoring time**
 
      Specify an amount of time, from 0 to 180 minutes, during which CloudFormation monitors the specified alarms. Monitoring begins *after* all the stack resources have been deployed. If the alarm occurs within the specified monitoring time, then the deployment fails, and CloudFormation rolls back the entire stack operation.

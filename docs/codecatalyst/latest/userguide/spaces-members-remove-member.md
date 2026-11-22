@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Removing a space member
-<a name="spaces-members-remove-member"></a>
 
 You can remove a member of your space when they do not need to access any of the space resources. You must have the **Space administrator** role to remove a member from a space. 
 

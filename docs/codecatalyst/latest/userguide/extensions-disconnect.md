@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Disconnecting GitHub accounts, Bitbucket workspaces, GitLab users, and Jira sites CodeCatalyst
-<a name="extensions-disconnect"></a>
 
 If you no longer want to use GitHub repositories, Bitbucket repositories, or GitLab project repositories, or manage Jira issues in CodeCatalyst, you can disconnect your third-party source. Once a GitHub account, Bitbucket workspace, or GitLab user is disconnected, events in the repositories will not start workflow runs, and you will not be able to use those repositories with CodeCatalyst Dev Environments. When a Jira site is disconnected, Jira issues from the site's projects will not be available in the CodeCatalyst projects, and CodeCatalyst **Issues** will be the issue provider again.
 

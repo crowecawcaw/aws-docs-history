@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Deleting a package repository
-<a name="packages-repositories-delete"></a>
 
 Perform the following steps to delete a package repository in CodeCatalyst.
 

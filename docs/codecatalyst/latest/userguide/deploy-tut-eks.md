@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Tutorial: Deploy an application to Amazon EKS
-<a name="deploy-tut-eks"></a>
 
 In this tutorial, you learn how to deploy a containerized application into Amazon Elastic Kubernetes Service using an Amazon CodeCatalyst workflow, Amazon EKS, and a few other AWS services. The deployed application is a simple 'Hello, World\!' website built on an Apache web server Docker image. The tutorial walks you through the required preparation work such as setting up a development machine and an Amazon EKS cluster, and then describes how to create a workflow to build the application and deploy it into the cluster.
 
@@ -97,31 +96,31 @@ The following instructions describe a quick way to launch a CodeCatalyst Dev Env
 
 1. In the Dev Environment terminal, enter:
 
-   ```
+   ```bash
    curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.9/2020-11-02/bin/linux/amd64/kubectl
    ```
 
 1. Enter:
 
-   ```
+   ```bash
    chmod +x ./kubectl
    ```
 
 1. Enter:
 
-   ```
+   ```bash
    mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
    ```
 
 1. Enter:
 
-   ```
+   ```bash
    echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
    ```
 
 1. Enter:
 
-   ```
+   ```bash
    kubectl version --short --client
    ```
 
@@ -135,19 +134,19 @@ The following instructions describe a quick way to launch a CodeCatalyst Dev Env
 
 1. In the Dev Environment terminal, enter:
 
-   ```
+   ```bash
    curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
    ```
 
 1. Enter:
 
-   ```
+   ```bash
    sudo cp /tmp/eksctl /usr/bin
    ```
 
 1. Enter:
 
-   ```
+   ```bash
    eksctl version
    ```
 
@@ -159,7 +158,7 @@ The following instructions describe a quick way to launch a CodeCatalyst Dev Env
 
 1. In the Dev Environment terminal, enter:
 
-   ```
+   ```bash
    aws --version
    ```
 
@@ -380,7 +379,7 @@ For more information about Amazon ECR, see the *Amazon Elastic Container Registr
 
 1. Create an empty repository in Amazon ECR:
 
-   ```
+   ```bash
    aws ecr create-repository --repository-name {{codecatalyst-eks-image-repo}}
    ```
 
@@ -390,7 +389,7 @@ For more information about Amazon ECR, see the *Amazon Elastic Container Registr
 
 1. Display the Amazon ECR repository’s details:
 
-   ```
+   ```bash
    aws ecr describe-repositories \
          --repository-names codecatalyst-eks-image-repo
    ```
@@ -436,7 +435,7 @@ The `index.html` file displays a 'Hello, World\!' message in the browser.
 
 1. In `/public-html`, create a file called `index.html` with the following contents:
 
-   ```
+   ```html
    <html>
      <head>
        <title>Hello World</title>
@@ -457,7 +456,7 @@ The `index.html` file displays a 'Hello, World\!' message in the browser.
 
 1. At the terminal prompt, enter:
 
-   ```
+   ```bash
    cd /projects/codecatalyst-eks-source-repository
    ```
 
@@ -482,7 +481,7 @@ The Dockerfile specified here indicates to use the Apache 2.4 base image (`httpd
 
 1. In `codecatalyst-eks-source-repository`, create a file called `Dockerfile` with the following contents:
 
-   ```
+   ```dockerfile
    FROM httpd:2.4
    COPY ./public-html/index.html /usr/local/apache2/htdocs/index.html
    EXPOSE 80
@@ -517,7 +516,7 @@ The manifest in this tutorial is short; however, a manifest can include any numb
 
 1. In `/Kubernetes`, create a file called `deployment.yaml` with the following contents:
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: Service
    metadata:
@@ -608,7 +607,7 @@ To create the build and deploy roles, complete the following series of procedure
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -628,7 +627,7 @@ To create the build and deploy roles, complete the following series of procedure
 **Note**  
 The first time the role is used to run workflow actions, use the wildcard in the resource policy statement and then scope down the policy with the resource name after it is available.  
 
-  ```
+  ```yaml
   "Resource": "*"
   ```
 
@@ -640,7 +639,7 @@ The first time the role is used to run workflow actions, use the wildcard in the
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -660,7 +659,7 @@ The first time the role is used to run workflow actions, use the wildcard in the
 **Note**  
 The first time the role is used to run workflow actions, use the wildcard in the resource policy statement and then scope down the policy with the resource name after it is available.  
 
-  ```
+  ```yaml
   "Resource": "*"
   ```
 
@@ -682,13 +681,13 @@ You have now added three policy documents to your Dev Environment. Your director
 
 1. In the Dev Environment terminal, enter:
 
-   ```
+   ```bash
    cd /projects
    ```
 
 1. Enter:
 
-   ```
+   ```bash
    aws iam create-policy \
        --policy-name codecatalyst-eks-build-policy \
        --policy-document file://codecatalyst-eks-build-policy.json
@@ -702,7 +701,7 @@ You have now added three policy documents to your Dev Environment. Your director
 
 1. Enter:
 
-   ```
+   ```bash
    aws iam create-policy \
        --policy-name codecatalyst-eks-deploy-policy \
        --policy-document file://codecatalyst-eks-deploy-policy.json
@@ -716,7 +715,7 @@ You have now added three policy documents to your Dev Environment. Your director
 
 1. Enter: 
 
-   ```
+   ```bash
    aws iam create-role \
          --role-name codecatalyst-eks-build-role \
          --assume-role-policy-document file://codecatalyst-eks-trust-policy.json
@@ -726,7 +725,7 @@ You have now added three policy documents to your Dev Environment. Your director
 
 1. Enter:
 
-   ```
+   ```json
    aws iam attach-role-policy \
          --role-name codecatalyst-eks-build-role \
          --policy-arn {{arn:aws:iam::111122223333:policy/codecatalyst-eks-build-policy}}
@@ -738,7 +737,7 @@ You have now added three policy documents to your Dev Environment. Your director
 
 1. At the terminal prompt, enter:
 
-   ```
+   ```bash
    aws iam get-role \
          --role-name codecatalyst-eks-build-role
    ```
@@ -751,7 +750,7 @@ You have now added three policy documents to your Dev Environment. Your director
 
 1. Enter:
 
-   ```
+   ```bash
    aws iam create-role \
          --role-name codecatalyst-eks-deploy-role \
          --assume-role-policy-document file://codecatalyst-eks-trust-policy.json
@@ -761,7 +760,7 @@ You have now added three policy documents to your Dev Environment. Your director
 
 1. Enter:
 
-   ```
+   ```json
    aws iam attach-role-policy \
          --role-name codecatalyst-eks-deploy-role \
          --policy-arn {{arn:aws:iam::111122223333:policy/codecatalyst-eks-deploy-policy}}
@@ -773,7 +772,7 @@ You have now added three policy documents to your Dev Environment. Your director
 
 1. Enter:
 
-   ```
+   ```bash
    aws iam get-role \
          --role-name codecatalyst-eks-deploy-role
    ```
@@ -829,7 +828,7 @@ You must add the deploy role that you created in [Step 5: Create AWS roles](#dep
 **To configure the Kubernetes ConfigMap file using eksctl**
 + In the Dev Environment terminal, enter: 
 
-  ```
+  ```bash
   eksctl create iamidentitymapping --cluster {{codecatalyst-eks-cluster}} --arn {{arn:aws:iam::111122223333:role/codecatalyst-eks-deploy-role}} --group system:masters --username {{codecatalyst-eks-deploy-role}} --region {{us-west-2}}
   ```
 
@@ -854,7 +853,7 @@ If you decided not to create a deploy role, replace {{codecatalyst-eks-deploy-ro
 
 1. In the Dev Environment terminal, enter:
 
-   ```
+   ```bash
    kubectl edit configmap -n kube-system aws-auth
    ```
 
@@ -934,7 +933,7 @@ For more information about the workflow definition file, see [Workflow YAML defi
 **Note**  
 In the YAML code that follows, you can omit the `Connections:` sections if you want. If you omit these sections, you must ensure that the role specified in the **Default IAM role** field in your environment includes the permissions and trust policies of both roles described in [Step 6: Add AWS roles to CodeCatalyst](#deploy-tut-eks-import-roles). For more information about setting up an environment with a default IAM role, see [Creating an environment](deploy-environments-creating-environment.md).
 
-   ```
+   ```yaml
    Name: codecatalyst-eks-workflow
    SchemaVersion: 1.0
    
@@ -1073,13 +1072,13 @@ In this section, you make a change to the `index.html` file in your source repos
 
 1. At the terminal prompt, change to your source repository:
 
-   ```
+   ```bash
    cd /projects/codecatalyst-eks-source-repository
    ```
 
 1.  Pull the latest workflow changes:
 
-   ```
+   ```bash
    git pull
    ```
 
@@ -1089,7 +1088,7 @@ In this section, you make a change to the `index.html` file in your source repos
 
 1. Add, commit, and push:
 
-   ```
+   ```bash
    git add .
    git commit -m "update index.html title"
    git push
@@ -1099,7 +1098,7 @@ In this section, you make a change to the `index.html` file in your source repos
 
 1. (Optional) Enter:
 
-   ```
+   ```bash
    git show HEAD
    ```
 
@@ -1138,7 +1137,7 @@ You should clean up your environment so that you're not charged unnecessarily fo
 
    1. In the Dev Environment terminal, enter:
 
-     ```
+     ```bash
      eksctl delete cluster --region={{us-west-2}} --name={{codecatalyst-eks-cluster}}
      ```
 

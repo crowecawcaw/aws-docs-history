@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst
-<a name="extensions-link"></a>
 
 Before you can use a GitHub repository, Bitbucket repository, or GitLab project repository, or manage a Jira project, you must connect the third-party source that the repository or project belongs to with your CodeCatalyst space. For more information, see [Connecting GitHub accounts, Bitbucket workspaces, GitLab users, and Jira sites CodeCatalyst](extensions-connect.md).
 

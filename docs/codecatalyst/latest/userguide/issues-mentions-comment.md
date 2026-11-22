@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Using mentions in a comment
-<a name="issues-mentions-comment"></a>
 
 You can mention space members, other projects in the space, related issues, and code in comments. Doing so creates a quick link to the user or resource you mention.
 

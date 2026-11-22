@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Using tags to control access to account connection resources
-<a name="id-based-policy-examples-tags"></a>
 
 Tags can be attached to the resource or passed in the request to services that support tagging. Resources in policies can have tags, and some actions in policies can include tags. Tagging condition keys include the `aws:RequestTag` and `aws:ResourceTag` condition keys. When you create an IAM policy, you can use tag condition keys to control the following:
 + Which users can perform actions on a connection resource, based on tags that it already has.
@@ -24,7 +23,7 @@ To do that, it allows the `AcceptConnection` and `TagResource` actions if the re
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -62,7 +61,7 @@ To do that, it allows specific actions if the connection has a tag named `Projec
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

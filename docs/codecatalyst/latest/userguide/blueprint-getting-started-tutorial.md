@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Tutorial: Creating and updating a React application
-<a name="blueprint-getting-started-tutorial"></a>
 
 As a blueprint author, you can develop and add custom blueprints to your space's blueprints catalog. These blueprints can then be used by space members to create new projects or add them to existing projects. You can continue to make changes to your blueprints that are then made available as updates through pull requests.
 
@@ -162,9 +161,9 @@ Next, you'll make an update to the blueprint and add the new version to the cata
 
 After a blueprint is used to create a new project or applied to existing projects, you can continue to make updates as a blueprint author. In this step, you'll make changes to the blueprint and automatically publish a new version to the space. The new version can then be added as the catalog version.
 
-1. Navigate to the **react-app-blueprint** project created in [Tutorial: Creating and updating a React application](#blueprint-getting-started-tutorial).
+1. Navigate to the **react-app-blueprint** project created in [Tutorial: Creating and updating a React application](blueprint-getting-started-tutorial.md).
 
-1. Open the Dev Environment created in [Tutorial: Creating and updating a React application](#blueprint-getting-started-tutorial).
+1. Open the Dev Environment created in [Tutorial: Creating and updating a React application](blueprint-getting-started-tutorial.md).
 
    1. In the navigation pane, choose **Code**, and then choose **Dev Environments**.
 

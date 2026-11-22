@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # 'AWS Lambda invoke' action YAML
-<a name="lam-invoke-action-ref"></a>
 
 The following is the YAML definition of the **AWS Lambda invoke** action. To learn how to use this action, see [Invoking a Lambda function using a workflow](lam-invoke-action.md).
 
@@ -12,7 +11,7 @@ This action definition exists as a section within a broader workflow definition 
 **Note**  
 Most of the YAML properties that follow have corresponding UI elements in the visual editor. To look up a UI element, use **Ctrl\+F**. The element will be listed with its associated YAML property.
 
-```
+```yaml
 # The workflow definition starts here.
 # See Top-level properties for details.
         
@@ -347,7 +346,7 @@ If you want to pass a request payload to the **AWS Lambda invoke** action, speci
 
 Example request payload:
 
-```
+```json
 '{ "key": "value" }'
 ```
 
@@ -423,7 +422,7 @@ Specify which keys in the Lambda response payload you want to convert to output 
 
 For example, if your response payload looks like this:
 
-```
+```json
 responsePayload = {
   "name": "Saanvi",
   "location": "Seattle",
@@ -436,7 +435,7 @@ responsePayload = {
 
 ...and your response filters look like this:
 
-```
+```yaml
 Configuration:
   ...
   ResponseFilters: '{"name": ".name", "company": ".department.company"}'

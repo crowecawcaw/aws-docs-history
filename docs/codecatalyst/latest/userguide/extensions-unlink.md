@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst
-<a name="extensions-unlink"></a>
 
 If you no longer want to use a GitHub repository, Bitbucket repository, or GitLab project repository, or manage a Jira project in CodeCatalyst, you can unlink the repository or project from your CodeCatalyst project.
 

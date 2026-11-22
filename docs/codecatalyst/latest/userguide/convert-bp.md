@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Converting source repositories to custom blueprints
-<a name="convert-bp"></a>
 
 Custom blueprints allow you to incorporate best practices or new options across multiple projects in a CodeCatalyst space. While you can create and develop a new custom blueprint from scratch, you can also convert an existing CodeCatalyst or third-party source repository with code and established best practices into a blueprint project. You can avoid copying relevant artifacts from that existing repository into a blueprint project. After converting a source repository into a custom blueprint, you can update, publish, and add the blueprint just like any other custom blueprint.
 

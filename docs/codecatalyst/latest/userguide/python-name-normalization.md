@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Python package name normalization
-<a name="python-name-normalization"></a>
 
 CodeCatalyst normalizes package names before storing them, which means the package names in CodeCatalyst may be different than the name provided when the package was published.
 

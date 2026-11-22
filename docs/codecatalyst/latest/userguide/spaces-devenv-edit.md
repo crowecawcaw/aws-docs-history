@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Editing a Dev Environment for your space
-<a name="spaces-devenv-edit"></a>
 
 You can edit the configuration for a Dev Environment, such as the configured length of timeout, if any, for an idle Dev Environment to stop running. For more information about editing a Dev Environment, see [Editing a Dev Environment](devenvironment-edit.md).
 

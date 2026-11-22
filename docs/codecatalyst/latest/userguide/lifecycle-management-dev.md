@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Working with lifecycle management as a blueprint author
-<a name="lifecycle-management-dev"></a>
 
 Lifecycle management allows you to keep a large number of projects synchronized from a single common source of best-practices. This scales the propagation of fixes and the maintenance of any number of projects across their entire software development lifecycle. Lifecycle management streamlines internal campaigns, security fixes, audits, runtime upgrades, changes in best practices, and other maintenance practices because those standards are defined in one place and automatically kept up to date centrally when new standards are published.
 

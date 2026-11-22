@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Invoking a Lambda function using a workflow
-<a name="lam-invoke-action"></a>
 
 This section describes how to invoke a AWS Lambda function using a CodeCatalyst workflow. To accomplish this, you must add the **AWS Lambda invoke** action to your workflow. The **AWS Lambda invoke** action invokes the Lambda function that you specify.
 

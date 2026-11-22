@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Managing the default branch for a repository
-<a name="source-branches-default-branch"></a>
 
 You can specify which branch to use as the *default branch* in a source repository in Amazon CodeCatalyst. All source repositories in CodeCatalyst have contents and a default branch regardless of how you create them. If you use a blueprint to create a project, the default branch in the source repository created for that project is named *main*. The contents of the default branch are displayed automatically on the overview page for that repository.
 

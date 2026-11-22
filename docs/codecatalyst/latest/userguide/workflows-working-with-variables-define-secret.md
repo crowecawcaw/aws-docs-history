@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Defining a secret
-<a name="workflows-working-with-variables-define-secret"></a>
 
 You define a secret on the **Secrets** page of the CodeCatalyst console. For more information, see [Masking data using secrets](workflows-secrets.md).
 

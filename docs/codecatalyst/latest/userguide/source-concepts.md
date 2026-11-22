@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Source repository concepts
-<a name="source-concepts"></a>
 
 Here are some concepts to know about as you work with CodeCatalyst source repositories.
 

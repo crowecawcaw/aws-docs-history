@@ -3,13 +3,12 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # 'AWS Lambda invoke' variables
-<a name="lam-invoke-action-variables"></a>
 
 By default, the **AWS Lambda invoke** action produces one variable per top-level key in the Lambda response payload.
 
 For example, if the response payload looks like this:
 
-```
+```json
 responsePayload = {
   "name": "Saanvi",
   "location": "Seattle",

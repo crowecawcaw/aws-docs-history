@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Accessing logged events using event logging
-<a name="ipa-logs"></a>
 
 When users perform actions in Amazon CodeCatalyst, these actions are recorded as events. You can use the AWS CLI to view logs of events in a space in a specified timeframe. You can view these events to review actions taken in the space, including the date and time of the actions, the name of the user who performed the action, and the IP address where the user made the request.
 

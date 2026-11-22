@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Requesting a package version with upstream repositories
-<a name="packages-upstream-repositories-request"></a>
 
 The following example shows the possible scenarios when a package manager requests a package from a CodeCatalyst package repository that has upstream repositories.
 

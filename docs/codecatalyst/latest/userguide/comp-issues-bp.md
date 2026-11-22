@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding issues components to a blueprint
-<a name="comp-issues-bp"></a>
 
 In CodeCatalyst, you can monitor features, tasks, bugs, and any other work involved in your project. Each piece of work is kept in a distinct recordcalled an issue. Each issue can have a description, assignee, status, and other properties, which you can search for, group and filter on. You can view your issues using the default views, or you can create your own views with custom filtering, sorting, or grouping. For more information about concepts related to issues, see [Issues concepts](issues-concepts.md) and [Quotas for issues in CodeCatalyst](issues-quotas.md).
 

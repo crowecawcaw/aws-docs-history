@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Storing source code in repositories for a project in CodeCatalyst
-<a name="source-repositories"></a>
 
 A source repository is where you securely store code and files for your project. It also stores your source history, from the first commit through the latest changes. If you choose a blueprint that includes a source repository, that repository also contains the configuration files and other information for workflows and notifications for the project. This configuration information is stored in a folder named **.codecatalyst**.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Configuring manual-only triggers
-<a name="workflows-manual-only"></a>
 
 You can limit a workflow so that it can only be started manually by your team using the **Run** button in the CodeCatalyst console. To configure this functionality, you must remove the `Triggers` section in the workflow definition file. The `Triggers` section is included by default when you create a workflow, but the section is optional and can be removed.
 

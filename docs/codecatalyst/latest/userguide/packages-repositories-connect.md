@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Connecting to a package repository
-<a name="packages-repositories-connect"></a>
 
 To publish to, or consume packages from CodeCatalyst, you must configure your package manager with your package repository endpoint information and CodeCatalyst credentials. If you haven't created a repository, you can do so by following the instructions in [Creating a package repository](packages-repositories-create.md).
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Creating an issue in CodeCatalyst
-<a name="issues-create-issue"></a>
 
 Development teams create issues to help track and manage their work. You can create issues within a project based on your needs. For example, you could create an issue to track updating a variable in your code. You can assign issues to other users in the project, use labels to help you track your work, and more.
 

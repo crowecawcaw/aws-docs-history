@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing third-party repositories and searching Jira issues in CodeCatalyst
-<a name="extensions-view-search"></a>
 
 After linking GitHub repositories, Bitbucket repositories, or GitLab project repositories, you can view them in CodeCatalyst to confirm and configure the resources. You can also search for linked Jira issues in CodeCatalyst.
 

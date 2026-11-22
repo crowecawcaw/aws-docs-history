@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Defining an output artifact
-<a name="workflows-working-artifacts-output"></a>
 
 Use the following instructions to define an artifact that you want an Amazon CodeCatalyst action to output. This artifact then becomes available for other actions to use.
 
@@ -79,7 +78,7 @@ You may need to add a prefix to the file path to indicate which artifact or sour
 
 1. In a workflow action, add code similar to the following:
 
-   ```
+   ```yaml
    {{action-name}}:
      Outputs:
        Artifacts:

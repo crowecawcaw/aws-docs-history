@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Connecting source repositories to workflows
-<a name="workflows-sources"></a>
 
 A *source*, also called an *input source*, is a source repository to which a [workflow action](workflows-actions.md) connects in order to obtain the files it needs to carry out its operations. For example, a workflow action might connect to a source repository to obtain application source files in order to build an application.
 

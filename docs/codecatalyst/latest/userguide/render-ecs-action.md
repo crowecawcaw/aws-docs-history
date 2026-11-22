@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Modifying an Amazon ECS task definition
-<a name="render-ecs-action"></a>
 
 This section describes how to update the `image` field in an Amazon Elastic Container Service (Amazon ECS) [task definition file](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html#welcome-task-definitions) using a CodeCatalyst workflow. To accomplish this, you must add the **Render Amazon ECS task definition** action to your workflow. This action updates the image field in the task definition file with a Docker image name that is supplied by your workflow at runtime.
 
@@ -34,7 +33,7 @@ You must use the **Render Amazon ECS task definition** action with the **build**
 
 1. The **build** action builds your Docker image and tags it with a name, a commit ID, timestamp, or other dynamic content. For example, your build action might look like this:
 
-   ```
+   ```yaml
    MyECSWorkflow
      Actions:
        BuildAction:
@@ -53,7 +52,7 @@ You must use the **Render Amazon ECS task definition** action with the **build**
 
 1. The **Render Amazon ECS task definition** action adds the dynamically generated image name, `MyDockerImage:a37bd7e`, to your task definition file, like this:
 
-   ```
+   ```yaml
    {
        "executionRoleArn": "arn:aws:iam::account_ID:role/codecatalyst-ecs-task-execution-role",
        "containerDefinitions": [
@@ -77,7 +76,7 @@ You must use the **Render Amazon ECS task definition** action with the **build**
 
    Optionally, you can also have the **Render Amazon ECS task definition** action add environment variables to the task definition, like this:
 
-   ```
+   ```yaml
    {
      "executionRoleArn": "arn:aws:iam::account_ID:role/codecatalyst-ecs-task-execution-role",
      "containerDefinitions": [

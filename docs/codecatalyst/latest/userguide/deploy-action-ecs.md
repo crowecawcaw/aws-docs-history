@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Deploying to Amazon ECS with a workflow
-<a name="deploy-action-ecs"></a>
 
 This section describes how to deploy a containerized application into an Amazon Elastic Container Service cluster using a CodeCatalyst workflow. To accomplish this, you must add the **Deploy to Amazon ECS** action to your workflow. This action registers a [task definition](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html#welcome-task-definitions) file that you provide. Upon registration, the task definition is instantiated by your [Amazon ECS service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html) running in your [Amazon ECS cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html#welcome-clusters). "Instantiating a task definition" is equivalent to deploying an application into Amazon ECS.
 

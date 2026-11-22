@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Examples of how to configure dependencies between actions
-<a name="workflows-depends-on-examples"></a>
 
 The following examples show how to configure dependencies between actions and groups in the workflow definition file.
 
@@ -18,7 +17,7 @@ The following examples show how to configure dependencies between actions and gr
 
 The following example shows how to configure a `Test` action to depend on the `Build` action using the `DependsOn` property.
 
-```
+```yaml
 Actions:
   Build:
     Identifier: aws/build@v1
@@ -37,7 +36,7 @@ Actions:
 
 The following example shows how to configure a `DeployGroup` action group to depend on the `FirstAction` action. Notice that action and action group are at the same level.
 
-```
+```yaml
 Actions:
   FirstAction: #An action outside an action group
     Identifier: aws/github-actions-runner@v1
@@ -58,7 +57,7 @@ Actions:
 
 The following example shows how to configure a `DeployGroup` action group to depend on the `BuildAndTestGroup` action group. Notice that the action groups are at the same level.
 
-```
+```yaml
 Actions:
   BuildAndTestGroup: # Action group 1
     Actions:
@@ -81,7 +80,7 @@ Actions:
 
 The following example shows how to configure a `DeployGroup` action group to depend on the `FirstAction` action, the `SecondAction` action, as well as the `BuildAndTestGroup` action group. Notice that `DeployGroup` is at the same level as `FirstAction`, `SecondAction`, and `BuildAndTestGroup`.
 
-```
+```yaml
 Actions:
   FirstAction: #An action outside an action group
     ...

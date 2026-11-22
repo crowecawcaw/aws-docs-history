@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Tutorial: Starting with an empty project and manually adding resources
-<a name="getting-started-blank-template"></a>
 
 You can create an empty project without any predefined resources inside it by choosing the **Empty project** blueprint when you create the project. After you create an empty project, you can create and add resources to it according to your project needs. Because projects created without a blueprint are empty on creation, this option requires more knowledge of creating and configuring CodeCatalyst resources to get started.
 

@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Managing requirements for merging a pull request with approval rules
-<a name="source-pull-requests-approval-rules"></a>
 
 When you create a pull request, you can choose to add required or optional reviewers to that individual pull request. However, you can also create requirements that all pull requests must meet when merging to a specific destination branch. These requirements are called approval rules. Approval rules are configured for branches in a repository. When you create a pull request whose destination branch has an approval rule configured for it, the requirements for that rule must be met in addition to approvals from any required reviewers before you can merge the pull request to that branch. Creating approval rules can help you maintain quality standards for merges to branches such as your default branch.
 

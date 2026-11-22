@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Enabling project access for machine resources
-<a name="projects-machine-resources-enable"></a>
 
 You can choose to enable machine resources that are in use in your project and that have been disabled. 
 

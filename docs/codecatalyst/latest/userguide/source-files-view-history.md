@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing the history of changes to a file
-<a name="source-files-view-history"></a>
 
 You can view the the history of changes to a file in your source repository in the Amazon CodeCatalyst console. This can help you understand the changes made to the file by various commits to the branch where you choose to view the history of the file. For example, if you view the history of changes to the **readme.md** file in the **main** branch of the source repository, you will see a list of commits that included changes to that file in that branch. 
 

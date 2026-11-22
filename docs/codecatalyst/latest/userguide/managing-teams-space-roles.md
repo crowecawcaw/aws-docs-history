@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Granting space roles for a team
-<a name="managing-teams-space-roles"></a>
 
 Teams are a way to group users so that you can grant and manage team access to projects in CodeCatalyst. As an example, you can use teams to quickly manage roles and permissions for users by giving a team the ability to manage a space for users.
 

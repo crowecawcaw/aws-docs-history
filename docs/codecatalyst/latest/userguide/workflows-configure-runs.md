@@ -3,7 +3,6 @@
 Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Configuring the queuing behavior of runs
-<a name="workflows-configure-runs"></a>
 
 By default in Amazon CodeCatalyst, when multiple workflow runs occur at the same time, CodeCatalyst queues them up, and processes them one by one, in the order that they were started. You can change this default behavior by specifying a *run mode*. There are a few run modes:
 + (Default) Queued run mode – CodeCatalyst processes runs one by one
@@ -141,7 +140,7 @@ When you change the run mode from parallel to queued or superseded, CodeCatalyst
 
 1. Add the `RunMode` property, like this:
 
-   ```
+   ```yaml
    Name: Workflow_6d39
    SchemaVersion: "1.0"
    RunMode: {{QUEUED|SUPERSEDED|PARALLEL}}
