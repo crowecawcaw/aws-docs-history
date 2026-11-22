@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html) or [AWS Wickr User Guide](https://docs.aws.amazon.com/wickr/latest/userguide/what-is-wickr.html).
 
 # Installing Wickr Enterprise
-<a name="installing"></a>
 
 After your connection to the Kubernetes cluster has been made, you can begin installing Wickr Enterprise using the `kubectl kots` plugin. You will need your KOTS License file (a `.yaml` file provided by Wickr) and your Config Values file, which were saved to the file `wickr-config.json` in the Generate KOTS Config section. For more information about Generate KOTS Config, see [ Generate KOTS Config](https://docs.aws.amazon.com/wickr/latest/wickrenterpriseinstall/getting-started.html#getting-started-generate-kots-config). 
 

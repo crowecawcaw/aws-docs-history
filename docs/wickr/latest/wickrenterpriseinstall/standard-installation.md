@@ -3,11 +3,10 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html) or [AWS Wickr User Guide](https://docs.aws.amazon.com/wickr/latest/userguide/what-is-wickr.html).
 
 # Installation of Wickr Enterprise embedded cluster (standard)
-<a name="standard-installation"></a>
 
  Once you have the download instructions, download the Wickr Enterprise bundle to the destination machine and unpack it. 
 
-```
+```bash
 curl -f "https://replicated.app/embedded/wickr-enterprise-ha/stable/6.52" -H "Authorization: [redacted]" -o wickr-enterprise-ha-stable.tgz
 tar xvf wickr-enterprise-ha-stable.tgz
 ```
@@ -16,7 +15,7 @@ tar xvf wickr-enterprise-ha-stable.tgz
 
  A basic installation can be performed at this stage by executing the `wickr-enterprise-ha` file: 
 
-```
+```bash
 ./wickr-enterprise-ha install --license license.yaml
 ```
 
@@ -24,7 +23,7 @@ tar xvf wickr-enterprise-ha-stable.tgz
 
  After the installation is complete, the output resembles the following: 
 
-```
+```bash
    sudo ./wickr-enterprise-ha install --license license.yaml 
 ? Set the Admin Console password (minimum 6 characters): ********* 
 ? Confirm the Admin Console password: ********* 

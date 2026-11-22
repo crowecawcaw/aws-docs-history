@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html) or [AWS Wickr User Guide](https://docs.aws.amazon.com/wickr/latest/userguide/what-is-wickr.html).
 
 # Additional Common Installation Requirements
-<a name="common-installation-requirements"></a>
 
 **IP Hostname Installations**
 
@@ -39,7 +38,7 @@ In the KOTS admin panel, complete the following steps.
 
  If you require the use of SELinux in enforcing mode, modify the default data directory used to install the embedded cluster. It is recommended to use `/opt` as it has been tested to work with most SELinux policies for this use case. 
 
-```
+```bash
 mkdir /opt/wickr
 ./wickr-enterprise-ha install --license license.yaml --data-dir /opt/wickr --ignore-host-preflights
 ```
@@ -61,19 +60,19 @@ mkdir /opt/wickr
 
  When performing an airgap installation, the download instructions differ from the standard installation method. They should resemble the following: 
 
-```
+```bash
 curl -f "https://replicated.app/embedded/wickr-enterprise-ha/stable/6.52?airgap=true" -H "Authorization: [redacted]" -o wickr-enterprise-ha-stable.tgz
 ```
 
  Download the bundle to a machine that has internet access, then transfer it to your airgapped environment using your preferred data transportation method. Once the bundle is transferred, extract it as you would with any standard installation bundle. A third file `wickr-enterprise-ha.airgap`, containing all the associated Wickr Enterprise application service images will be included. 
 
-```
+```bash
 tar xvf wickr-enterprise-ha-stable.tgz
 ```
 
  During installation, it is necessary to set the `--airgap-bundle` command line argument after extraction; otherwise, the process follows the standard installation procedure. 
 
-```
+```bash
 ./wickr-enterprise-ha install --license license.yaml --airgap-bundle wickr-enterprise-ha.airgap
 ```
 
@@ -83,13 +82,13 @@ tar xvf wickr-enterprise-ha-stable.tgz
 
 1. Download the new embedded cluster package from Replicated, and transfer it to the host machine using your standard data transfer methods for your airgapped environment. After the new bundle is on the host machine, extract the tarball:
 
-   ```
+   ```bash
    tar xvf wickr-enterprise-ha-stable.tgz
    ```
 
 1.  Run the update using the new binary and airgap bundle: 
 
-   ```
+   ```bash
    ./wickr-enterprise-ha update --airgap-bundle wickr-enterprise-ha.airgap
    ✔  Application images are ready!
    ✔  Finished!
@@ -97,7 +96,7 @@ tar xvf wickr-enterprise-ha-stable.tgz
 
 1.  Start the KOTS admin console, and login to the provided URL using your standard methods of accessing the KOTS admin console 
 
-   ```
+   ```bash
    ./wickr-enterprise-ha admin-console
    ```
 

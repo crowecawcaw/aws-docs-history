@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html) or [AWS Wickr User Guide](https://docs.aws.amazon.com/wickr/latest/userguide/what-is-wickr.html).
 
 # Calling ingress settings
-<a name="calling-ingress-settings"></a>
 
 Wickr supports a calling ingress setting, allowing a client to connect to any calling node within the cluster and have the call route to the correct calling server. Wickr supports four calling ingress types:
 + LoadBalancer (default)

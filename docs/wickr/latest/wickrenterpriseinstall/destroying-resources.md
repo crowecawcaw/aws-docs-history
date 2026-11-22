@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html) or [AWS Wickr User Guide](https://docs.aws.amazon.com/wickr/latest/userguide/what-is-wickr.html).
 
 # Destroying resources
-<a name="destroying-resources"></a>
 
 To delete everything created by this AWS CDK application, you must delete the `WickrRds` stack before all other stacks.
 

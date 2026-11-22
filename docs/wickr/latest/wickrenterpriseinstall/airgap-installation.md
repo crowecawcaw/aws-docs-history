@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html) or [AWS Wickr User Guide](https://docs.aws.amazon.com/wickr/latest/userguide/what-is-wickr.html).
 
 # Airgap installation
-<a name="airgap-installation"></a>
 
 Wickr Enterprise and KOTS both support deployment into a fully airgapped Kubernetes cluster. You must provide access to a Private Docker Image Registry that is reachable from the airgapped Kubernetes cluster. The Private Docker Image Registry supplied to KOTS must be secured with username/password authentication to function correctly for this purpose. KOTS will utilize the Private Docker Image Registry to host all of the Wickr Enterprise images. 
 + Wickr Enterprise license.yaml with airgap enabled (Contact Wickr Sales or Customer Support Team)

@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html) or [AWS Wickr User Guide](https://docs.aws.amazon.com/wickr/latest/userguide/what-is-wickr.html).
 
 # KOTS admin console configuration
-<a name="kots-admin-console-config"></a>
 
  The KOTS admin console initially uses a self-signed certificate, which you'll need to allow as an exception in your browser. Once you accept this exception, you are welcomed by the Configuration Wizard for the KOTS admin console. This wizard guides you through additional configuration steps for configuring the KOTS Admin Console's behavior, including the option to add a custom certificate if necessary. 
 

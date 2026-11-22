@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html) or [AWS Wickr User Guide](https://docs.aws.amazon.com/wickr/latest/userguide/what-is-wickr.html).
 
 # Connecting to the Kubernetes cluster
-<a name="connecting"></a>
 
 The Amazon EKS API is accessible only through a bastion host that is created as a part of the deployment. As a result, all `kubectl` commands must either be run on the bastion host itself or be proxied through the bastion host.
 

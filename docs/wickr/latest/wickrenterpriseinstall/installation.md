@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html) or [AWS Wickr User Guide](https://docs.aws.amazon.com/wickr/latest/userguide/what-is-wickr.html).
 
 # Installation
-<a name="installation"></a>
 
 1. Install [kubectl](https://kubernetes.io/docs/tasks/tools/) and [kots CLI](https://docs.replicated.com/reference/kots-cli-getting-started).
 

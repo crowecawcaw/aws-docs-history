@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html) or [AWS Wickr User Guide](https://docs.aws.amazon.com/wickr/latest/userguide/what-is-wickr.html).
 
 # Post installation
-<a name="post-installation"></a>
 
 There are two web consoles available for managing your Wickr Enterprise installation: the KOTS Admin Console and the Wickr Admin Console.
 

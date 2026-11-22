@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html) or [AWS Wickr User Guide](https://docs.aws.amazon.com/wickr/latest/userguide/what-is-wickr.html).
 
 # Calling settings
-<a name="calling-settings"></a>
 + **Require Calling Nodes**: When this setting is enabled, Wickr’s calling services are only deployed on Kubernetes Nodes with the label `role=calling`. Disable this setting to deploy Calling and Messaging services on the same nodes, or for single node deployments.
 
   You will generally also want to disable the calling TCP Proxy when this setting is disabled, because the TCP Proxy service runs on port 443.

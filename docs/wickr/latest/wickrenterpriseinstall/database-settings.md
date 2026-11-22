@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html) or [AWS Wickr User Guide](https://docs.aws.amazon.com/wickr/latest/userguide/what-is-wickr.html).
 
 # Database settings
-<a name="database-settings"></a>
 
 Wickr Enterprise requires a MySQL 8.0 database. If you are on MySQL 5.7, see [Upgrade to MySQL 8.0](#upgrade-database) to upgrade. We recommend using a database which is external to your Kubernetes cluster, such as Amazon RDS, but you also have the option of deploying an **Internal** MySQL database inside of the Kubernetes cluster as a part of the installation.
 

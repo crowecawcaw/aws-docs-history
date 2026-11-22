@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html) or [AWS Wickr User Guide](https://docs.aws.amazon.com/wickr/latest/userguide/what-is-wickr.html).
 
 # S3 File storage
-<a name="s3-file-storage"></a>
 
 Wickr Enterprise requires an S3 compatible storage service. We recommend using an S3 service which is external to your Kubernetes cluster, such as Amazon S3, but you also have the option of deploying an **Internal** S3 service inside of the Kubernetes cluster as a part of the installation.
 

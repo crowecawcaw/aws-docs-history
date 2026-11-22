@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html) or [AWS Wickr User Guide](https://docs.aws.amazon.com/wickr/latest/userguide/what-is-wickr.html).
 
 # Context values
-<a name="context-values"></a>
 
 Context values are key-value pairs that can be associated with an app, stack, or construct. They can be supplied to your app from a file (usually either `cdk.json` or `cdk.context.json` in your project directory) or on the command line. CDK uses context values to control the configuration of the application. Wickr Enterprise uses CDK context values to provide control over settings such as the domain name of your Wickr Enterprise installation or the number of days to retain RDS backups.
 

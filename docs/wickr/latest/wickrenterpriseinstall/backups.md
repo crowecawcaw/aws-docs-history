@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html) or [AWS Wickr User Guide](https://docs.aws.amazon.com/wickr/latest/userguide/what-is-wickr.html).
 
 # Backups
-<a name="backups"></a>
 
 Wickr Enterprise utilizes Velero for Backup purposes. Velero provides the necessary tools for backing up and restoring Kubernetes cluster resources and persistent volumes, whether operating on a cloud provider or on-premises.
 
